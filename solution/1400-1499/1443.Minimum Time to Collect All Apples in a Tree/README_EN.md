@@ -198,4 +198,180 @@ func minTime(n int, edges [][]int, hasApple []bool) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We start at $0$, collect every apple, and return, so each used edge is walked twice. With $n \le 10^5$, recursing from the root to score every subtree is too deep: a chain makes the call depth $n$.
+>
+> A subtree with no apple and no further work can be skipped. After the children are done, add their round-trip costs; if this node has an apple or that sum is positive, add the cost of the incoming edge, which is $0$ at the root and $2$ elsewhere.
+>
+> An explicit stack of $(node, parent, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store that cost. The root's cost is the answer.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        cost = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            u, fa, state = stk.pop()
+            if state == 0:
+                stk.append((u, fa, 1))
+                for v in g[u]:
+                    if v != fa:
+                        stk.append((v, u, 0))
+            else:
+                nxt = 0
+                for v in g[u]:
+                    if v != fa:
+                        nxt += cost[v]
+                if hasApple[u] or nxt:
+                    cost[u] = nxt if u == 0 else nxt + 2
+        return cost[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        int[] cost = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int u = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {u, fa, 1});
+                for (int v : g[u]) {
+                    if (v != fa) {
+                        stk.push(new int[] {v, u, 0});
+                    }
+                }
+            } else {
+                int nxt = 0;
+                for (int v : g[u]) {
+                    if (v != fa) {
+                        nxt += cost[v];
+                    }
+                }
+                if (hasApple.get(u) || nxt > 0) {
+                    cost[u] = u == 0 ? nxt : nxt + 2;
+                }
+            }
+        }
+        return cost[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minTime(int n, vector<vector<int>>& edges, vector<bool>& hasApple) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        vector<int> cost(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [u, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({u, fa, 1});
+                for (int v : g[u]) {
+                    if (v != fa) {
+                        stk.push_back({v, u, 0});
+                    }
+                }
+            } else {
+                int nxt = 0;
+                for (int v : g[u]) {
+                    if (v != fa) {
+                        nxt += cost[v];
+                    }
+                }
+                if (hasApple[u] || nxt) {
+                    cost[u] = u == 0 ? nxt : nxt + 2;
+                }
+            }
+        }
+        return cost[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minTime(n int, edges [][]int, hasApple []bool) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	cost := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		u, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{u, fa, 1})
+			for _, v := range g[u] {
+				if v != fa {
+					stk = append(stk, [3]int{v, u, 0})
+				}
+			}
+		} else {
+			nxt := 0
+			for _, v := range g[u] {
+				if v != fa {
+					nxt += cost[v]
+				}
+			}
+			if hasApple[u] || nxt > 0 {
+				if u == 0 {
+					cost[u] = nxt
+				} else {
+					cost[u] = nxt + 2
+				}
+			}
+		}
+	}
+	return cost[0]
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
