@@ -252,11 +252,13 @@ function validPartition(nums: number[]): boolean {
 
 > **Thinking**
 >
-> Memoization still recurses. Let $f[i]$ mean the prefix of length $i$ is valid, and transfer from $f[i-2]$ and $f[i-3]$ with the same three blocks.
+> Solution 1 fills a suffix table from the end. The same three blocks can be written on prefixes: $f[i]$ means the first $i$ elements form a valid partition, taken from $f[i-2]$ or $f[i-3]$.
+>
+> Fill left to right. The answer is $f[n]$. Time stays $O(n)$.
 
 <!-- thinking:end -->
 
-We can convert the memoization search in Solution 1 into dynamic programming.
+Solution 1 already decides each suffix from the end. Here we decide each prefix instead, using the same three blocks.
 
 Let $f[i]$ represent whether there is a valid partition for the first $i$ elements of the array. Initially, $f[0] = true$, and the answer is $f[n]$.
 
@@ -363,6 +365,135 @@ function validPartition(nums: number[]): boolean {
         f[i] = (a && f[i - 2]) || ((b || c) && f[i - 3]);
     }
     return f[n];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A partition is two equals, three equals, or three consecutive increases. $n \le 10^5$, so trying blocks overlaps, and the pair is always tried first.
+>
+> On an array of equal values that attempt is a chain of length $n/2$, which overflows the stack.
+>
+> Later indexes are known if we walk backward. Let $f[i]$ mean the suffix from $i$ has a valid partition, with $f[n]$ true, and fill $i$ from $n-1$ down to $0$. A legal block still jumps to $i+2$ or $i+3$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ mean there is a valid partition of the suffix starting at index $i$. The answer is $f[0]$, and $f[n] = true$.
+
+Fill $i$ from $n - 1$ down to $0$. Two equal neighbors can continue from $f[i + 2]$. Three equal values, or three values that increase by $1$, can continue from $f[i + 3]$. Take the or of those cases; if none applies, $f[i]$ is false:
+
+$$
+f[i] = \textit{OR}
+\begin{cases}
+f[i+2],&i+1 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
+f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
+f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \textit{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
+\end{cases}
+$$
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
+        f = [False] * n + [True]
+        for i in range(n - 1, -1, -1):
+            a = i + 1 < n and nums[i] == nums[i + 1]
+            b = i + 2 < n and nums[i] == nums[i + 1] == nums[i + 2]
+            c = (
+                i + 2 < n
+                and nums[i + 1] - nums[i] == 1
+                and nums[i + 2] - nums[i + 1] == 1
+            )
+            f[i] = (a and f[i + 2]) or ((b or c) and f[i + 3])
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean validPartition(int[] nums) {
+        int n = nums.length;
+        boolean[] f = new boolean[n + 1];
+        f[n] = true;
+        for (int i = n - 1; i >= 0; --i) {
+            boolean a = i + 1 < n && nums[i] == nums[i + 1];
+            boolean b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+            boolean c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+            f[i] = (a && f[i + 2]) || ((b || c) && f[i + 3]);
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool validPartition(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> f(n + 1);
+        f[n] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            bool a = i + 1 < n && nums[i] == nums[i + 1];
+            bool b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+            bool c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+            f[i] = (a && f[i + 2]) || ((b || c) && f[i + 3]);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func validPartition(nums []int) bool {
+	n := len(nums)
+	f := make([]bool, n+1)
+	f[n] = true
+	for i := n - 1; i >= 0; i-- {
+		a := i+1 < n && nums[i] == nums[i+1]
+		b := i+2 < n && nums[i] == nums[i+1] && nums[i+1] == nums[i+2]
+		c := i+2 < n && nums[i+1]-nums[i] == 1 && nums[i+2]-nums[i+1] == 1
+		f[i] = (a && f[i+2]) || ((b || c) && f[i+3])
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function validPartition(nums: number[]): boolean {
+    const n = nums.length;
+    const f: boolean[] = Array(n + 1).fill(false);
+    f[n] = true;
+    for (let i = n - 1; i >= 0; --i) {
+        const a = i + 1 < n && nums[i] == nums[i + 1];
+        const b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+        const c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+        f[i] = (a && f[i + 2]) || ((b || c) && f[i + 3]);
+    }
+    return f[0];
 }
 ```
 
