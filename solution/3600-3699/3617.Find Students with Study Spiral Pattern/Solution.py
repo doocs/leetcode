@@ -77,6 +77,9 @@ def _check_pattern(student_id, sessions, result):
 
         # Extract the first cycle
         first_cycle = subjects[:cycle_len]
+        if len(set(first_cycle)) < 3:
+            continue
+
         is_pattern = True
 
         # Compare each following cycle with the first

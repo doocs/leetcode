@@ -82,6 +82,13 @@ WITH RECURSIVE
             c.total_hours
         FROM cycle_candidates c
         WHERE MOD(c.session_count, c.cycle_length) = 0
+            AND (
+                SELECT COUNT(DISTINCT cycle_subject.subject)
+                FROM numbered_sessions cycle_subject
+                WHERE cycle_subject.student_id = c.student_id
+                    AND cycle_subject.group_id = c.group_id
+                    AND cycle_subject.session_index <= c.cycle_length
+            ) >= 3
             AND NOT EXISTS (
                 SELECT 1
                 FROM numbered_sessions current_session

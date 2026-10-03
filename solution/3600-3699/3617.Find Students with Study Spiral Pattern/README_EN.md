@@ -264,6 +264,13 @@ WITH RECURSIVE
             c.total_hours
         FROM cycle_candidates c
         WHERE MOD(c.session_count, c.cycle_length) = 0
+            AND (
+                SELECT COUNT(DISTINCT cycle_subject.subject)
+                FROM numbered_sessions cycle_subject
+                WHERE cycle_subject.student_id = c.student_id
+                    AND cycle_subject.group_id = c.group_id
+                    AND cycle_subject.session_index <= c.cycle_length
+            ) >= 3
             AND NOT EXISTS (
                 SELECT 1
                 FROM numbered_sessions current_session
@@ -299,7 +306,6 @@ FROM ranked_patterns p
 JOIN students s ON s.student_id = p.student_id
 WHERE p.pattern_rank = 1
 ORDER BY p.cycle_length DESC, p.total_hours DESC;
-
 ```
 
 #### Pandas
@@ -384,6 +390,9 @@ def _check_pattern(student_id, sessions, result):
 
         # Extract the first cycle
         first_cycle = subjects[:cycle_len]
+        if len(set(first_cycle)) < 3:
+            continue
+
         is_pattern = True
 
         # Compare each following cycle with the first
