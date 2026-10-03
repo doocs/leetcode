@@ -1,3 +1,6 @@
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def isPossible(self, target: List[int]) -> bool:
         s = sum(target)

@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 func isPossible(target []int) bool {
 	pq := &hp{target}
 	s := 0

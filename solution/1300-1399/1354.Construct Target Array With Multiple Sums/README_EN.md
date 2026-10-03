@@ -92,6 +92,9 @@ The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def isPossible(self, target: List[int]) -> bool:
         s = sum(target)
@@ -171,6 +174,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func isPossible(target []int) bool {
 	pq := &hp{target}
 	s := 0
