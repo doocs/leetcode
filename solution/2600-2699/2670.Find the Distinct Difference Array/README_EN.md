@@ -213,7 +213,7 @@ impl Solution {
         s.clear();
         for i in 0..n {
             s.insert(nums[i]);
-            ans.push((s.len() - suf[i + 1]) as i32);
+            ans.push(s.len() as i32 - suf[i + 1] as i32);
         }
 
         ans
