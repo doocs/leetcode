@@ -454,4 +454,228 @@ func convertBST(root *TreeNode) *TreeNode {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把每个结点改成不小于它的所有值之和。二叉搜索树里这些值正好是反中序（右、根、左）已经走过的结点。先递归走右子树再写回，在较短的树上是对的。
+>
+> 结点个数可达 $10^4$。右链使这次遍历按结点个数递归，调用栈会溢出。
+>
+> 累加和只依赖已经访问过的更大的键，每个结点不需要子树的返回值，只要先处理右孩子、再改自己、再处理左孩子。
+>
+> 因此用显式栈做反中序。进入结点时压入退出标记和右孩子；退出时把当前值累加进 $s$ 并写回，再压入左孩子。
+
+<!-- thinking:end -->
+
+我们用显式栈按“右、根、左”的顺序遍历二叉搜索树。进入结点时压入退出标记和右孩子；退出时把结点值累加到 $s$，再把 $s$ 写回该结点，然后压入左孩子。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def convertBST(self, root: TreeNode) -> TreeNode:
+        s = 0
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.right, 0))
+                continue
+            s += node.val
+            node.val = s
+            stk.append((node.left, 0))
+        return root
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static class Frame {
+        TreeNode node;
+        int state;
+
+        Frame(TreeNode node, int state) {
+            this.node = node;
+            this.state = state;
+        }
+    }
+
+    public TreeNode convertBST(TreeNode root) {
+        int s = 0;
+        if (root == null) {
+            return null;
+        }
+        Deque<Frame> stk = new ArrayDeque<>();
+        stk.push(new Frame(root, 0));
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            TreeNode node = cur.node;
+            if (cur.state == 0) {
+                stk.push(new Frame(node, 1));
+                if (node.right != null) {
+                    stk.push(new Frame(node.right, 0));
+                }
+                continue;
+            }
+            s += node.val;
+            node.val = s;
+            if (node.left != null) {
+                stk.push(new Frame(node.left, 0));
+            }
+        }
+        return root;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* convertBST(TreeNode* root) {
+        int s = 0;
+        vector<pair<TreeNode*, int>> stk{{root, 0}};
+        while (!stk.empty()) {
+            auto [node, state] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            if (state == 0) {
+                stk.emplace_back(node, 1);
+                stk.emplace_back(node->right, 0);
+                continue;
+            }
+            s += node->val;
+            node->val = s;
+            stk.emplace_back(node->left, 0);
+        }
+        return root;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func convertBST(root *TreeNode) *TreeNode {
+	s := 0
+	type frame struct {
+		node  *TreeNode
+		state int
+	}
+	stk := []frame{{root, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, state := cur.node, cur.state
+		if node == nil {
+			continue
+		}
+		if state == 0 {
+			stk = append(stk, frame{node, 1}, frame{node.Right, 0})
+			continue
+		}
+		s += node.Val
+		node.Val = s
+		stk = append(stk, frame{node.Left, 0})
+	}
+	return root
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var convertBST = function (root) {
+    let s = 0;
+    const stk = [[root, 0]];
+    while (stk.length) {
+        const [node, state] = stk.pop();
+        if (!node) {
+            continue;
+        }
+        if (state === 0) {
+            stk.push([node, 1]);
+            stk.push([node.right, 0]);
+            continue;
+        }
+        s += node.val;
+        node.val = s;
+        stk.push([node.left, 0]);
+    }
+    return root;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
