@@ -9,16 +9,21 @@ func reachableNodes(n int, edges [][]int, restricted []int) int {
 	for _, i := range restricted {
 		vis[i] = true
 	}
-	var dfs func(int) int
-	dfs = func(i int) (ans int) {
+	ans := 0
+	stk := []int{0}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if vis[i] {
+			continue
+		}
 		vis[i] = true
-		ans = 1
+		ans++
 		for _, j := range g[i] {
 			if !vis[j] {
-				ans += dfs(j)
+				stk = append(stk, j)
 			}
 		}
-		return
 	}
-	return dfs(0)
+	return ans
 }
