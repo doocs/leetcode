@@ -1,4 +1,7 @@
 func patternMatching(pattern string, value string) bool {
+	if pattern == "" {
+		return value == ""
+	}
 	cnt := [2]int{}
 	for _, c := range pattern {
 		cnt[c-'a']++

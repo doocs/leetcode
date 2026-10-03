@@ -71,9 +71,11 @@ difficulty: Medium
 >
 > Once the two lengths are fixed, the match is determined; it remains to check consistency and $a\ne b$.
 >
-> Handle a single-letter pattern first. Enumerate $la$, deduce $lb$ from the total length, and `check` slices along the pattern. Both the enum and each check are linear.
+> An empty pattern has no letter count to divide by, so it matches only an empty value. A single-letter pattern is the next special case. Enumerate $la$, deduce $lb$ from the total length, and `check` slices along the pattern. Both the enum and each check are linear.
 
 <!-- thinking:end -->
+
+If $pattern$ is empty, there is no letter count to divide by, and it matches only an empty $value$.
 
 We first count the number of characters `'a'` and `'b'` in the pattern string $pattern$, denoted as $cnt[0]$ and $cnt[1]$, respectively. Let the length of the string $value$ be $n$.
 
@@ -92,6 +94,9 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 ```python
 class Solution:
     def patternMatching(self, pattern: str, value: str) -> bool:
+        if not pattern:
+            return value == ""
+
         def check(la: int, lb: int) -> bool:
             i = 0
             a, b = "", ""
@@ -132,6 +137,9 @@ class Solution {
     private String value;
 
     public boolean patternMatching(String pattern, String value) {
+        if (pattern.isEmpty()) {
+            return value.isEmpty();
+        }
         this.pattern = pattern;
         this.value = value;
         int[] cnt = new int[2];
@@ -188,6 +196,9 @@ class Solution {
 class Solution {
 public:
     bool patternMatching(string pattern, string value) {
+        if (pattern.empty()) {
+            return value.empty();
+        }
         int n = value.size();
         int cnt[2]{};
         for (char c : pattern) {
@@ -247,6 +258,9 @@ public:
 
 ```go
 func patternMatching(pattern string, value string) bool {
+	if pattern == "" {
+		return value == ""
+	}
 	cnt := [2]int{}
 	for _, c := range pattern {
 		cnt[c-'a']++
@@ -297,6 +311,9 @@ func patternMatching(pattern string, value string) bool {
 
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
+    if (pattern.length === 0) {
+        return value.length === 0;
+    }
     const cnt: number[] = [0, 0];
     for (const c of pattern) {
         cnt[c === 'a' ? 0 : 1]++;
@@ -350,6 +367,9 @@ class Solution {
     private var value: String = ""
 
     func patternMatching(_ pattern: String, _ value: String) -> Bool {
+        if pattern.isEmpty {
+            return value.isEmpty
+        }
         self.pattern = pattern
         self.value = value
         var cnt = [Int](repeating: 0, count: 2)
