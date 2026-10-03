@@ -272,7 +272,7 @@ impl Solution {
 
 > **Thinking**
 >
-> A deep recursion may overflow on a long path. BFS with a queue and the same visited set expands until the destination appears or the queue empties.
+> Method 1 expands with an explicit stack in depth-first order. A queue expands level by level with the same visited marks: the source is enqueued, and a dequeued vertex that is the destination succeeds. Unvisited neighbors are enqueued. An empty queue means the destination is unreachable.
 
 <!-- thinking:end -->
 
@@ -488,7 +488,7 @@ impl Solution {
 
 > **Thinking**
 >
-> When the path itself is unused, union-find merges every edge and compares the two roots, avoiding recursion entirely.
+> When the path itself is unused, union-find merges every edge and compares the two roots. There is no walk over the graph.
 
 <!-- thinking:end -->
 
@@ -774,6 +774,234 @@ impl Solution {
         }
 
         uf.find(source as usize) == uf.find(destination as usize)
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need connectivity between two vertices. With $n \le 2 \times 10^5$, an adjacency-list walk with a visited mark reports success on reaching the destination, in linear time.
+>
+> Recursing from the source into each neighbor reaches depth $n$ on a chain and overflows the call stack. Connectivity does not depend on the order of neighbors.
+>
+> An explicit stack therefore returns immediately when the source is the destination. Otherwise a vertex is marked when it is pushed. After a pop, a neighbor that is the destination succeeds, and only unmarked neighbors are pushed. An empty stack means the destination is unreachable.
+
+<!-- thinking:end -->
+
+We first convert $\textit{edges}$ into an adjacency list $g$. If $\textit{source}$ is $\textit{destination}$, we return $\textit{true}$ immediately. Otherwise an explicit stack starts at the source: a vertex is recorded in $\textit{vis}$ when it is pushed, a neighbor that is the destination returns $\textit{true}$, and only unmarked neighbors are pushed. An empty stack means there is no path.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validPath(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
+        if source == destination:
+            return True
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        vis = [False] * n
+        vis[source] = True
+        stk = [source]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if j == destination:
+                    return True
+                if not vis[j]:
+                    vis[j] = True
+                    stk.append(j)
+        return False
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        if (source == destination) {
+            return true;
+        }
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        boolean[] vis = new boolean[n];
+        vis[source] = true;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(source);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            for (int j : g[i]) {
+                if (j == destination) {
+                    return true;
+                }
+                if (!vis[j]) {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        if (source == destination) {
+            return true;
+        }
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        vector<char> vis(n);
+        vis[source] = 1;
+        vector<int> stk{source};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            for (int j : g[i]) {
+                if (j == destination) {
+                    return true;
+                }
+                if (!vis[j]) {
+                    vis[j] = 1;
+                    stk.push_back(j);
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+#### Go
+
+```go
+func validPath(n int, edges [][]int, source int, destination int) bool {
+	if source == destination {
+		return true
+	}
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	vis := make([]bool, n)
+	vis[source] = true
+	stk := []int{source}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, j := range g[i] {
+			if j == destination {
+				return true
+			}
+			if !vis[j] {
+				vis[j] = true
+				stk = append(stk, j)
+			}
+		}
+	}
+	return false
+}
+```
+
+#### TypeScript
+
+```ts
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    if (source === destination) {
+        return true;
+    }
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    vis[source] = true;
+    const stk: number[] = [source];
+    while (stk.length) {
+        const i = stk.pop()!;
+        for (const j of g[i]) {
+            if (j === destination) {
+                return true;
+            }
+            if (!vis[j]) {
+                vis[j] = true;
+                stk.push(j);
+            }
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
+        let n = n as usize;
+        let source = source as usize;
+        let destination = destination as usize;
+        if source == destination {
+            return true;
+        }
+
+        let mut g = vec![Vec::new(); n];
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            g[u].push(v);
+            g[v].push(u);
+        }
+
+        let mut vis = vec![false; n];
+        vis[source] = true;
+        let mut stk = vec![source];
+        while let Some(i) = stk.pop() {
+            for &j in &g[i] {
+                if j == destination {
+                    return true;
+                }
+                if !vis[j] {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        false
     }
 }
 ```
