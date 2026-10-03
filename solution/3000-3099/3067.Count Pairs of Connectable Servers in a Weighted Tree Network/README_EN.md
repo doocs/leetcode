@@ -280,4 +280,239 @@ function countPairsOfConnectableServers(edges: number[][], signalSpeed: number):
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair is counted at hub $a$ when the two paths share no edge and both distances are divisible by $\textit{signalSpeed}$. With $n \le 1000$, valid nodes that lie in different branches of a fixed hub pair with each other. The number of nodes in one branch whose distance from $a$ is divisible does not depend on visit order, so one walk is enough. Recursing along a chain uses a call depth equal to the node count and overflows Python at $n = 1000$. The stack therefore stores $(node, parent, distance)$: a divisible distance is counted on pop, and the other neighbors are pushed with the edge weight added. For each neighbor of hub $a$ this yields a count $t$; we add $s \cdot t$ and then fold $t$ into the running total $s$.
+
+<!-- thinking:end -->
+
+Build an adjacency list $g$ from the given edges. $g[a]$ stores the neighbors of node $a$ together with the edge weights.
+
+Enumerate each node $a$ as the hub. For every neighbor $b$, an explicit stack counts how many nodes in $b$'s branch have a distance to $a$ divisible by $\textit{signalSpeed}$. Each frame is $(node, parent, distance)$. The walk starts at $b$ with the weight of edge $(a, b)$. When a frame is popped, a divisible distance increments the count, and every neighbor other than the parent is pushed with that edge weight added to the distance. Let $s$ be the number of valid nodes already found in earlier branches. Those nodes each pair with the $t$ nodes of the current branch, so the answer increases by $s \times t$, and then $t$ is added to $s$. The order of the branches does not change the number of pairs.
+
+After every hub has been enumerated, the array holds the number of connectable pairs at each node.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPairsOfConnectableServers(
+        self, edges: List[List[int]], signalSpeed: int
+    ) -> List[int]:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b, w in edges:
+            g[a].append((b, w))
+            g[b].append((a, w))
+
+        def count(start: int, fa: int, dist: int) -> int:
+            cnt = 0
+            stk = [(start, fa, dist)]
+            while stk:
+                a, parent, ws = stk.pop()
+                if ws % signalSpeed == 0:
+                    cnt += 1
+                for b, w in g[a]:
+                    if b != parent:
+                        stk.append((b, a, ws + w))
+            return cnt
+
+        ans = [0] * n
+        for a in range(n):
+            s = 0
+            for b, w in g[a]:
+                t = count(b, a, w)
+                ans[a] += s * t
+                s += t
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] countPairsOfConnectableServers(int[][] edges, int signalSpeed) {
+        int n = edges.length + 1;
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
+        }
+        int[] ans = new int[n];
+        for (int a = 0; a < n; ++a) {
+            int s = 0;
+            for (var e : g[a]) {
+                int t = count(g, e[0], a, e[1], signalSpeed);
+                ans[a] += s * t;
+                s += t;
+            }
+        }
+        return ans;
+    }
+
+    private int count(List<int[]>[] g, int start, int fa, int dist, int signalSpeed) {
+        int cnt = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {start, fa, dist});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], parent = cur[1], ws = cur[2];
+            if (ws % signalSpeed == 0) {
+                ++cnt;
+            }
+            for (var e : g[a]) {
+                int b = e[0], w = e[1];
+                if (b != parent) {
+                    stk.push(new int[] {b, a, ws + w});
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> countPairsOfConnectableServers(vector<vector<int>>& edges, int signalSpeed) {
+        int n = edges.size() + 1;
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].emplace_back(b, w);
+            g[b].emplace_back(a, w);
+        }
+        auto count = [&](int start, int fa, int dist) {
+            int cnt = 0;
+            vector<array<int, 3>> stk{{start, fa, dist}};
+            while (!stk.empty()) {
+                auto [a, parent, ws] = stk.back();
+                stk.pop_back();
+                if (ws % signalSpeed == 0) {
+                    ++cnt;
+                }
+                for (auto& [b, w] : g[a]) {
+                    if (b != parent) {
+                        stk.push_back({b, a, ws + w});
+                    }
+                }
+            }
+            return cnt;
+        };
+        vector<int> ans(n);
+        for (int a = 0; a < n; ++a) {
+            int s = 0;
+            for (auto& [b, w] : g[a]) {
+                int t = count(b, a, w);
+                ans[a] += s * t;
+                s += t;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPairsOfConnectableServers(edges [][]int, signalSpeed int) []int {
+	n := len(edges) + 1
+	type pair struct{ x, w int }
+	g := make([][]pair, n)
+	for _, e := range edges {
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], pair{b, w})
+		g[b] = append(g[b], pair{a, w})
+	}
+	count := func(start, fa, dist int) int {
+		cnt := 0
+		stk := [][3]int{{start, fa, dist}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			a, parent, ws := cur[0], cur[1], cur[2]
+			if ws%signalSpeed == 0 {
+				cnt++
+			}
+			for _, e := range g[a] {
+				b, w := e.x, e.w
+				if b != parent {
+					stk = append(stk, [3]int{b, a, ws + w})
+				}
+			}
+		}
+		return cnt
+	}
+	ans := make([]int, n)
+	for a := 0; a < n; a++ {
+		s := 0
+		for _, e := range g[a] {
+			t := count(e.x, a, e.w)
+			ans[a] += s * t
+			s += t
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countPairsOfConnectableServers(edges: number[][], signalSpeed: number): number[] {
+    const n = edges.length + 1;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b, w] of edges) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+    const count = (start: number, fa: number, dist: number): number => {
+        let cnt = 0;
+        const stk: number[][] = [[start, fa, dist]];
+        while (stk.length) {
+            const [a, parent, ws] = stk.pop()!;
+            if (ws % signalSpeed === 0) {
+                cnt++;
+            }
+            for (const [b, w] of g[a]) {
+                if (b !== parent) {
+                    stk.push([b, a, ws + w]);
+                }
+            }
+        }
+        return cnt;
+    };
+    const ans: number[] = Array(n).fill(0);
+    for (let a = 0; a < n; ++a) {
+        let s = 0;
+        for (const [b, w] of g[a]) {
+            const t = count(b, a, w);
+            ans[a] += s * t;
+            s += t;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
