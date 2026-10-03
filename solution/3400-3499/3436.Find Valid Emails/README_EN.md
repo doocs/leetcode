@@ -99,7 +99,7 @@ Each row contains a user&#39;s unique ID and email address.
 >
 > A fully anchored regular expression enforces both ends and the character classes at once.
 >
-> We keep rows matching `^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\.com$` and sort by $\textit{user\_id}$.
+> We keep rows matching `^[A-Za-z0-9_]+@[A-Za-z]+\.com$` and sort by $\textit{user\_id}$.
 
 <!-- thinking:end -->
 
@@ -115,7 +115,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 # Write your MySQL query statement below
 SELECT user_id, email
 FROM Users
-WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\\.com$'
+WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z]+\\.com$'
 ORDER BY 1;
 ```
 
@@ -126,7 +126,7 @@ import pandas as pd
 
 
 def find_valid_emails(users: pd.DataFrame) -> pd.DataFrame:
-    email_pattern = r"^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\.com$"
+    email_pattern = r"^[A-Za-z0-9_]+@[A-Za-z]+\.com$"
     valid_emails = users[users["email"].str.match(email_pattern)]
     valid_emails = valid_emails.sort_values(by="user_id")
     return valid_emails
