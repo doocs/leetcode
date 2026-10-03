@@ -1,11 +1,14 @@
 func subarrayLCM(nums []int, k int) (ans int) {
-	for i, a := range nums {
+	for i := range nums {
+		a := 1
 		for _, b := range nums[i:] {
-			x := lcm(a, b)
-			if x == k {
+			if k%b != 0 {
+				break
+			}
+			a = lcm(a, b)
+			if a == k {
 				ans++
 			}
-			a = x
 		}
 	}
 	return
@@ -19,5 +22,5 @@ func gcd(a, b int) int {
 }
 
 func lcm(a, b int) int {
-	return a * b / gcd(a, b)
+	return a / gcd(a, b) * b
 }

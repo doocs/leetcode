@@ -1,23 +1,23 @@
 class Solution {
     public int subarrayLCM(int[] nums, int k) {
-        int n = nums.length;
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int a = nums[i];
-            for (int j = i; j < n; ++j) {
-                int b = nums[j];
-                int x = lcm(a, b);
-                if (x == k) {
+        for (int i = 0; i < nums.length; ++i) {
+            int a = 1;
+            for (int j = i; j < nums.length; ++j) {
+                if (k % nums[j] != 0) {
+                    break;
+                }
+                a = lcm(a, nums[j]);
+                if (a == k) {
                     ++ans;
                 }
-                a = x;
             }
         }
         return ans;
     }
 
     private int lcm(int a, int b) {
-        return a * b / gcd(a, b);
+        return a / gcd(a, b) * b;
     }
 
     private int gcd(int a, int b) {
