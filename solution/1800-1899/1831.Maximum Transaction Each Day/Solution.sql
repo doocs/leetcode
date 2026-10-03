@@ -4,7 +4,7 @@ WITH
         SELECT
             transaction_id,
             RANK() OVER (
-                PARTITION BY DAY(day)
+                PARTITION BY DATE(day)
                 ORDER BY amount DESC
             ) AS rk
         FROM Transactions
