@@ -13,16 +13,25 @@ type BSTIterator struct {
 
 func Constructor(root *TreeNode) BSTIterator {
 	nums := []int{}
-	var dfs func(*TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left)
-		nums = append(nums, root.Val)
-		dfs(root.Right)
+	type frame struct {
+		node  *TreeNode
+		state int
 	}
-	dfs(root)
+	stk := []frame{{root, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, state := cur.node, cur.state
+		if node == nil {
+			continue
+		}
+		if state == 0 {
+			stk = append(stk, frame{node, 1}, frame{node.Left, 0})
+			continue
+		}
+		nums = append(nums, node.Val)
+		stk = append(stk, frame{node.Right, 0})
+	}
 	return BSTIterator{nums, -1, len(nums)}
 }
 
