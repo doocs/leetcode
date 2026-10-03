@@ -54,9 +54,11 @@ difficulty: 中等
 >
 > 一旦 $a$、 $b$ 的长度确定，匹配被完全决定，只需验证一致性且 $a\ne b$。
 >
-> 先处理只含一种字母的情形。再枚举 $la$，由总长解出 $lb$，用 `check` 按模式切片比较。长度枚举是线性，每次校验也是线性。
+> 空模式没有可整除的字母次数，只与空的 $value$ 匹配。其余情形先处理只含一种字母的模式，再枚举 $la$，由总长解出 $lb$，用 `check` 按模式切片比较。长度枚举是线性，每次校验也是线性。
 
 <!-- thinking:end -->
+
+如果 $pattern$ 为空，模式中没有可整除的字母次数，它只与空的 $value$ 匹配。
 
 我们先统计出模式串 $pattern$ 中 `'a'` 和 `'b'` 的个数，分别为 $cnt[0]$ 和 $cnt[1]$。记字符串 $value$ 的长度为 $n$。
 
@@ -75,6 +77,9 @@ difficulty: 中等
 ```python
 class Solution:
     def patternMatching(self, pattern: str, value: str) -> bool:
+        if not pattern:
+            return value == ""
+
         def check(la: int, lb: int) -> bool:
             i = 0
             a, b = "", ""
@@ -115,6 +120,9 @@ class Solution {
     private String value;
 
     public boolean patternMatching(String pattern, String value) {
+        if (pattern.isEmpty()) {
+            return value.isEmpty();
+        }
         this.pattern = pattern;
         this.value = value;
         int[] cnt = new int[2];
@@ -171,6 +179,9 @@ class Solution {
 class Solution {
 public:
     bool patternMatching(string pattern, string value) {
+        if (pattern.empty()) {
+            return value.empty();
+        }
         int n = value.size();
         int cnt[2]{};
         for (char c : pattern) {
@@ -230,6 +241,9 @@ public:
 
 ```go
 func patternMatching(pattern string, value string) bool {
+	if pattern == "" {
+		return value == ""
+	}
 	cnt := [2]int{}
 	for _, c := range pattern {
 		cnt[c-'a']++
@@ -280,6 +294,9 @@ func patternMatching(pattern string, value string) bool {
 
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
+    if (pattern.length === 0) {
+        return value.length === 0;
+    }
     const cnt: number[] = [0, 0];
     for (const c of pattern) {
         cnt[c === 'a' ? 0 : 1]++;
@@ -333,6 +350,9 @@ class Solution {
     private var value: String = ""
 
     func patternMatching(_ pattern: String, _ value: String) -> Bool {
+        if pattern.isEmpty {
+            return value.isEmpty
+        }
         self.pattern = pattern
         self.value = value
         var cnt = [Int](repeating: 0, count: 2)
