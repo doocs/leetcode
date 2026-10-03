@@ -26,10 +26,8 @@ func countRestrictedPaths(n int, edges [][]int) int {
 		g[v] = append(g[v], pair{u, w})
 	}
 	dist := make([]int, n+1)
-	f := make([]int, n+1)
 	for i := range dist {
 		dist[i] = inf
-		f[i] = -1
 	}
 	dist[n] = 0
 	h := make(pairs, 0)
@@ -44,23 +42,20 @@ func countRestrictedPaths(n int, edges [][]int) int {
 			}
 		}
 	}
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if f[i] != -1 {
-			return f[i]
-		}
-		if i == n {
-			return 1
-		}
-		ans := 0
+	order := make([]int, n)
+	for i := range order {
+		order[i] = i + 1
+	}
+	sort.Slice(order, func(a, b int) bool { return dist[order[a]] < dist[order[b]] })
+	f := make([]int, n+1)
+	f[n] = 1
+	for _, i := range order {
 		for _, ne := range g[i] {
 			j := ne.first
 			if dist[i] > dist[j] {
-				ans = (ans + dfs(j)) % mod
+				f[i] = (f[i] + f[j]) % mod
 			}
 		}
-		f[i] = ans
-		return ans
 	}
-	return dfs(1)
+	return f[1]
 }
