@@ -110,7 +110,7 @@ Weather table:
 +--------------+--------------+
 <strong>Explanation:</strong> 
 Average weather_state in USA in November is (15) / 1 = 15 so weather type is Cold.
-Average weather_state in Austraila in November is (-2 + 0 + 3) / 3 = 0.333 so weather type is Cold.
+Average weather_state in Australia in November is (-2 + 0 + 3) / 3 = 0.333 so weather type is Cold.
 Average weather_state in Peru in November is (25) / 1 = 25 so the weather type is Hot.
 Average weather_state in China in November is (16 + 18 + 21) / 3 = 18.333 so weather type is Warm.
 Average weather_state in Morocco in November is (25 + 27 + 31) / 3 = 27.667 so weather type is Hot.
