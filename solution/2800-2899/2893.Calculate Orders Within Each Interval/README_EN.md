@@ -84,7 +84,9 @@ Returning table orderd by interval_no in ascending order.</pre>
 
 > **Thinking**
 >
-> Each block of six minutes is one interval. A `ROWS 5 PRECEDING` running sum after ordering by `minute`, kept only when `minute` is a multiple of $6$, reports the sum at each interval's right end.
+> Minutes $1$ through $6$ are interval $1$ and minutes $7$ through $12$ are interval $2$, so the interval number comes from the minute value itself. A six-row window assumes every minute from $1$ onward is present and that each block ends on a multiple of $6$; a gap, or a block that does not, drops an interval or mixes two of them.
+>
+> $\lfloor (minute+5)/6 \rfloor$ sends each minute into its interval. Group on that value, sum `order_count`, and sort by the interval number.
 
 <!-- thinking:end -->
 
@@ -94,19 +96,12 @@ Returning table orderd by interval_no in ascending order.</pre>
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            minute,
-            SUM(order_count) OVER (
-                ORDER BY minute
-                ROWS 5 PRECEDING
-            ) AS total_orders
-        FROM Orders
-    )
-SELECT minute / 6 AS interval_no, total_orders
-FROM T
-WHERE minute % 6 = 0;
+SELECT
+    (minute + 5) DIV 6 AS interval_no,
+    SUM(order_count) AS total_orders
+FROM Orders
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
