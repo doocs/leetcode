@@ -94,7 +94,7 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 >
 > With $n\le 100$ and $m\le 10^5$, scanning every room for each meeting is $O(mn)$ and tight. Start times are distinct, so meetings must be assigned in time order.
 >
-> Idle rooms are chosen by the smallest index; busy rooms leave by earliest end time. Two heaps maintain these sets. After sorting meetings by start, return finished rooms to the idle heap; take the smallest idle index if any, otherwise delay the earliest-ending room by the meeting length.
+> Idle rooms are chosen by the smallest index; busy rooms leave by earliest end time. Two heaps maintain these sets. After sorting meetings by start, return finished rooms to the idle heap; take the smallest idle index if any, otherwise delay the earliest-ending room by the meeting length. A delayed end time is the previous end plus the duration, and a long chain exceeds $2^{31}$, so that timestamp is 64-bit.
 
 <!-- thinking:end -->
 
@@ -148,8 +148,8 @@ class Solution:
 class Solution {
     public int mostBooked(int n, int[][] meetings) {
         Arrays.sort(meetings, (a, b) -> a[0] - b[0]);
-        PriorityQueue<int[]> busy
-            = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        PriorityQueue<long[]> busy = new PriorityQueue<>(
+            (a, b) -> a[0] == b[0] ? Long.compare(a[1], b[1]) : Long.compare(a[0], b[0]));
         PriorityQueue<Integer> idle = new PriorityQueue<>();
         for (int i = 0; i < n; ++i) {
             idle.offer(i);
@@ -158,16 +158,16 @@ class Solution {
         for (var v : meetings) {
             int s = v[0], e = v[1];
             while (!busy.isEmpty() && busy.peek()[0] <= s) {
-                idle.offer(busy.poll()[1]);
+                idle.offer((int) busy.poll()[1]);
             }
             int i = 0;
             if (!idle.isEmpty()) {
                 i = idle.poll();
-                busy.offer(new int[] {e, i});
+                busy.offer(new long[] {e, i});
             } else {
                 var x = busy.poll();
-                i = x[1];
-                busy.offer(new int[] {x[0] + e - s, i});
+                i = (int) x[1];
+                busy.offer(new long[] {x[0] + e - s, i});
             }
             ++cnt[i];
         }
