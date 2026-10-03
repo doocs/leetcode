@@ -8,15 +8,16 @@ class Solution {
             g[a].add(new int[] {b, w, i});
             g[b].add(new int[] {a, w, i});
         }
-        int[] dist = new int[n];
-        final int inf = 1 << 30;
+        long[] dist = new long[n];
+        final long inf = (long) 1e18;
         Arrays.fill(dist, inf);
         dist[0] = 0;
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        pq.offer(new int[] {0, 0});
+        PriorityQueue<long[]> pq = new PriorityQueue<>((a, b) -> Long.compare(a[0], b[0]));
+        pq.offer(new long[] {0, 0});
         while (!pq.isEmpty()) {
             var p = pq.poll();
-            int da = p[0], a = p[1];
+            long da = p[0];
+            int a = (int) p[1];
             if (da > dist[a]) {
                 continue;
             }
@@ -24,7 +25,7 @@ class Solution {
                 int b = e[0], w = e[1];
                 if (dist[b] > dist[a] + w) {
                     dist[b] = dist[a] + w;
-                    pq.offer(new int[] {dist[b], b});
+                    pq.offer(new long[] {dist[b], b});
                 }
             }
         }
