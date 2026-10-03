@@ -1,3 +1,6 @@
+import math
+
+
 class Solution:
     def xorAfterQueries(self, nums: List[int], queries: List[List[int]]) -> int:
         MOD = 1_000_000_007

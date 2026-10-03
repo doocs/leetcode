@@ -109,6 +109,9 @@ tags:
 #### Python3
 
 ```python
+import math
+
+
 class Solution:
     def xorAfterQueries(self, nums: List[int], queries: List[List[int]]) -> int:
         MOD = 1_000_000_007
@@ -333,6 +336,11 @@ public:
 #### Go
 
 ```go
+import (
+	"math"
+	"sort"
+)
+
 func xorAfterQueries(nums []int, queries [][]int) int {
 	const mod = 1_000_000_007
 	n := len(nums)

@@ -1,3 +1,8 @@
+import (
+	"math"
+	"sort"
+)
+
 func xorAfterQueries(nums []int, queries [][]int) int {
 	const mod = 1_000_000_007
 	n := len(nums)
