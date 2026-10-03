@@ -10,7 +10,7 @@ var findNthDigit = function (n) {
         ++k;
         cnt *= 10;
     }
-    const num = Math.pow(10, k - 1) + (n - 1) / k;
+    const num = Math.pow(10, k - 1) + Math.floor((n - 1) / k);
     const idx = (n - 1) % k;
-    return num.toString()[idx];
+    return Number(num.toString()[idx]);
 };
