@@ -1,3 +1,6 @@
+from math import inf
+
+
 class Solution:
     def maximumStrength(self, nums: List[int], k: int) -> int:
         n = len(nums)

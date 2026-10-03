@@ -120,6 +120,9 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 #### Python3
 
 ```python
+from math import inf
+
+
 class Solution:
     def maximumStrength(self, nums: List[int], k: int) -> int:
         n = len(nums)
@@ -199,6 +202,8 @@ public:
 #### Go
 
 ```go
+import "math"
+
 func maximumStrength(nums []int, k int) int64 {
 	n := len(nums)
 	f := make([][][]int64, n+1)

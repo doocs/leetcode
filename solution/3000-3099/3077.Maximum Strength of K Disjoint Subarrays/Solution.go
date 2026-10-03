@@ -1,3 +1,5 @@
+import "math"
+
 func maximumStrength(nums []int, k int) int64 {
 	n := len(nums)
 	f := make([][][]int64, n+1)
