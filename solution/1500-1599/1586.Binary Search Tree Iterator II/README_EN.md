@@ -396,4 +396,366 @@ class BSTIterator {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Inorder + Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The iterator must support both $next$ and $prev$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search. Flattening the tree into a sorted array and moving an index is correct on a short tree.
+>
+> The tree can contain $10^5$ nodes. A left chain makes this inorder walk recurse once per node and overflow the call stack.
+>
+> Inorder of a BST is already nondecreasing. Each node finishes its left subtree, records itself, then visits the right subtree, and no return value is required.
+>
+> An explicit stack performs that inorder walk and writes the values into $nums$. The cursor $i$ starts at $-1$. $next$ and $prev$ move $i$ by one and return $nums[i]$; the bounds of $i$ answer whether another step exists.
+
+<!-- thinking:end -->
+
+An explicit stack walks the binary search tree inorder and stores every node value in an array $nums$. On entry we push an exit marker and the left child; on exit we append the node value and push the right child. The cursor $i$ starts at $-1$. Each $next()$ adds $1$ to $i$ and returns $nums[i]$; each $prev()$ subtracts $1$ from $i$ and returns $nums[i]$.
+
+In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $next()$ and $prev()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class BSTIterator:
+    def __init__(self, root: Optional[TreeNode]):
+        self.nums = []
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.left, 0))
+                continue
+            self.nums.append(node.val)
+            stk.append((node.right, 0))
+        self.i = -1
+
+    def hasNext(self) -> bool:
+        return self.i < len(self.nums) - 1
+
+    def next(self) -> int:
+        self.i += 1
+        return self.nums[self.i]
+
+    def hasPrev(self) -> bool:
+        return self.i > 0
+
+    def prev(self) -> int:
+        self.i -= 1
+        return self.nums[self.i]
+
+
+# Your BSTIterator object will be instantiated and called as such:
+# obj = BSTIterator(root)
+# param_1 = obj.hasNext()
+# param_2 = obj.next()
+# param_3 = obj.hasPrev()
+# param_4 = obj.prev()
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class BSTIterator {
+    private static class Frame {
+        TreeNode node;
+        int state;
+
+        Frame(TreeNode node, int state) {
+            this.node = node;
+            this.state = state;
+        }
+    }
+
+    private List<Integer> nums = new ArrayList<>();
+    private int i = -1;
+
+    public BSTIterator(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Deque<Frame> stk = new ArrayDeque<>();
+        stk.push(new Frame(root, 0));
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            TreeNode node = cur.node;
+            if (cur.state == 0) {
+                stk.push(new Frame(node, 1));
+                if (node.left != null) {
+                    stk.push(new Frame(node.left, 0));
+                }
+                continue;
+            }
+            nums.add(node.val);
+            if (node.right != null) {
+                stk.push(new Frame(node.right, 0));
+            }
+        }
+    }
+
+    public boolean hasNext() {
+        return i < nums.size() - 1;
+    }
+
+    public int next() {
+        return nums.get(++i);
+    }
+
+    public boolean hasPrev() {
+        return i > 0;
+    }
+
+    public int prev() {
+        return nums.get(--i);
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator obj = new BSTIterator(root);
+ * boolean param_1 = obj.hasNext();
+ * int param_2 = obj.next();
+ * boolean param_3 = obj.hasPrev();
+ * int param_4 = obj.prev();
+ */
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class BSTIterator {
+public:
+    BSTIterator(TreeNode* root) {
+        vector<pair<TreeNode*, int>> stk{{root, 0}};
+        while (!stk.empty()) {
+            auto [node, state] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            if (state == 0) {
+                stk.emplace_back(node, 1);
+                stk.emplace_back(node->left, 0);
+                continue;
+            }
+            nums.push_back(node->val);
+            stk.emplace_back(node->right, 0);
+        }
+        n = nums.size();
+    }
+
+    bool hasNext() {
+        return i < n - 1;
+    }
+
+    int next() {
+        return nums[++i];
+    }
+
+    bool hasPrev() {
+        return i > 0;
+    }
+
+    int prev() {
+        return nums[--i];
+    }
+
+private:
+    vector<int> nums;
+    int i = -1;
+    int n = 0;
+};
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator* obj = new BSTIterator(root);
+ * bool param_1 = obj->hasNext();
+ * int param_2 = obj->next();
+ * bool param_3 = obj->hasPrev();
+ * int param_4 = obj->prev();
+ */
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+type BSTIterator struct {
+	nums []int
+	i, n int
+}
+
+func Constructor(root *TreeNode) BSTIterator {
+	nums := []int{}
+	type frame struct {
+		node  *TreeNode
+		state int
+	}
+	stk := []frame{{root, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, state := cur.node, cur.state
+		if node == nil {
+			continue
+		}
+		if state == 0 {
+			stk = append(stk, frame{node, 1}, frame{node.Left, 0})
+			continue
+		}
+		nums = append(nums, node.Val)
+		stk = append(stk, frame{node.Right, 0})
+	}
+	return BSTIterator{nums, -1, len(nums)}
+}
+
+func (this *BSTIterator) HasNext() bool {
+	return this.i < this.n-1
+}
+
+func (this *BSTIterator) Next() int {
+	this.i++
+	return this.nums[this.i]
+}
+
+func (this *BSTIterator) HasPrev() bool {
+	return this.i > 0
+}
+
+func (this *BSTIterator) Prev() int {
+	this.i--
+	return this.nums[this.i]
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * obj := Constructor(root);
+ * param_1 := obj.HasNext();
+ * param_2 := obj.Next();
+ * param_3 := obj.HasPrev();
+ * param_4 := obj.Prev();
+ */
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class BSTIterator {
+    private nums: number[];
+    private n: number;
+    private i: number;
+
+    constructor(root: TreeNode | null) {
+        this.nums = [];
+        const stk: [TreeNode | null, number][] = [[root, 0]];
+        while (stk.length) {
+            const [node, state] = stk.pop()!;
+            if (!node) {
+                continue;
+            }
+            if (state === 0) {
+                stk.push([node, 1]);
+                stk.push([node.left, 0]);
+                continue;
+            }
+            this.nums.push(node.val);
+            stk.push([node.right, 0]);
+        }
+        this.n = this.nums.length;
+        this.i = -1;
+    }
+
+    hasNext(): boolean {
+        return this.i < this.n - 1;
+    }
+
+    next(): number {
+        return this.nums[++this.i];
+    }
+
+    hasPrev(): boolean {
+        return this.i > 0;
+    }
+
+    prev(): number {
+        return this.nums[--this.i];
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.hasNext()
+ * var param_2 = obj.next()
+ * var param_3 = obj.hasPrev()
+ * var param_4 = obj.prev()
+ */
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
