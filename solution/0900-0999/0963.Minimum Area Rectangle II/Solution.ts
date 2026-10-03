@@ -16,7 +16,7 @@ function minAreaFreeRect(points: number[][]): number {
                         const [x3, y3] = points[k];
                         const x4 = x2 - x1 + x3;
                         const y4 = y2 - y1 + y3;
-                        if (s.has(f(x4, y4))) {
+                        if (x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000 && s.has(f(x4, y4))) {
                             if ((x2 - x1) * (x3 - x1) + (y2 - y1) * (y3 - y1) === 0) {
                                 const ww = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
                                 const hh = (x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1);

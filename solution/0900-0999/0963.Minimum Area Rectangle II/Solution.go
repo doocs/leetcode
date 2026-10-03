@@ -17,7 +17,7 @@ func minAreaFreeRect(points [][]int) float64 {
 					if k != i {
 						x3, y3 := points[k][0], points[k][1]
 						x4, y4 := x2-x1+x3, y2-y1+y3
-						if s[f(x4, y4)] {
+						if x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000 && s[f(x4, y4)] {
 							if (x2-x1)*(x3-x1)+(y2-y1)*(y3-y1) == 0 {
 								ww := (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)
 								hh := (x3-x1)*(x3-x1) + (y3-y1)*(y3-y1)
