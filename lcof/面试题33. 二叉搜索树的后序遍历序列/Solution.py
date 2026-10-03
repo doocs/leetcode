@@ -1,14 +1,16 @@
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
-        def dfs(l, r):
+        stk = [(0, len(postorder) - 1)]
+        while stk:
+            l, r = stk.pop()
             if l >= r:
-                return True
+                continue
             v = postorder[r]
             i = l
             while i < r and postorder[i] < v:
                 i += 1
             if any(x < v for x in postorder[i:r]):
                 return False
-            return dfs(l, i - 1) and dfs(i, r - 1)
-
-        return dfs(0, len(postorder) - 1)
+            stk.append((i, r - 1))
+            stk.append((l, i - 1))
+        return True
