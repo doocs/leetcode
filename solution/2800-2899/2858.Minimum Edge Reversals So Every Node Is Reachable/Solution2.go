@@ -6,29 +6,33 @@ func minEdgeReversals(n int, edges [][]int) []int {
 		g[y] = append(g[y], [2]int{x, -1})
 	}
 	ans := make([]int, n)
-	var dfs func(int, int)
-	var dfs2 func(int, int)
-	dfs = func(i, fa int) {
+	stk := [][2]int{{0, -1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa := cur[0], cur[1]
 		for _, ne := range g[i] {
 			j, k := ne[0], ne[1]
 			if j != fa {
 				if k < 0 {
 					ans[0]++
 				}
-				dfs(j, i)
+				stk = append(stk, [2]int{j, i})
 			}
 		}
 	}
-	dfs2 = func(i, fa int) {
+	stk = append(stk, [2]int{0, -1})
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa := cur[0], cur[1]
 		for _, ne := range g[i] {
 			j, k := ne[0], ne[1]
 			if j != fa {
 				ans[j] = ans[i] + k
-				dfs2(j, i)
+				stk = append(stk, [2]int{j, i})
 			}
 		}
 	}
-	dfs(0, -1)
-	dfs2(0, -1)
 	return ans
 }

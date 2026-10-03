@@ -279,4 +279,214 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Rerooting + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every node as root we want the fewest reversals that make the whole tree reachable from that node. With $n \le 10^5$, searching once per root is $O(n^2)$, and recursing from $0$ to count backward edges is too deep: a chain makes the call depth $n$.
+>
+> Store a directed edge $x \to y$ as weight $1$ when walking from $x$ to $y$ and weight $-1$ when walking back. While the root is $0$, a negative weight on the step to a child means the edge points away from the child and must be reversed. Moving the root to child $j$ changes the answer to $ans[i] + k$: weight $1$ was already correct and now needs a reversal, weight $-1$ was a reversal and is no longer needed.
+>
+> Both walks use an explicit stack and go from a parent to its children. The first walk only adds the backward edges into $ans[0]$. The second writes each new root with that increment. A frame is $(node, parent)$, and a child is processed only after its parent's answer is known.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
+        ans = [0] * n
+        g = [[] for _ in range(n)]
+        for x, y in edges:
+            g[x].append((y, 1))
+            g[y].append((x, -1))
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j, k in g[i]:
+                if j != fa:
+                    if k < 0:
+                        ans[0] += 1
+                    stk.append((j, i))
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j, k in g[i]:
+                if j != fa:
+                    ans[j] = ans[i] + k
+                    stk.append((j, i))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] minEdgeReversals(int n, int[][] edges) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int x = e[0], y = e[1];
+            g[x].add(new int[] {y, 1});
+            g[y].add(new int[] {x, -1});
+        }
+        int[] ans = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1];
+            for (var ne : g[i]) {
+                int j = ne[0], k = ne[1];
+                if (j != fa) {
+                    ans[0] += k < 0 ? 1 : 0;
+                    stk.push(new int[] {j, i});
+                }
+            }
+        }
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1];
+            for (var ne : g[i]) {
+                int j = ne[0], k = ne[1];
+                if (j != fa) {
+                    ans[j] = ans[i] + k;
+                    stk.push(new int[] {j, i});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> minEdgeReversals(int n, vector<vector<int>>& edges) {
+        vector<vector<pair<int, int>>> g(n);
+        vector<int> ans(n);
+        for (auto& e : edges) {
+            int x = e[0], y = e[1];
+            g[x].emplace_back(y, 1);
+            g[y].emplace_back(x, -1);
+        }
+        vector<pair<int, int>> stk{{0, -1}};
+        while (!stk.empty()) {
+            auto [i, fa] = stk.back();
+            stk.pop_back();
+            for (auto& [j, k] : g[i]) {
+                if (j != fa) {
+                    ans[0] += k < 0;
+                    stk.emplace_back(j, i);
+                }
+            }
+        }
+        stk.emplace_back(0, -1);
+        while (!stk.empty()) {
+            auto [i, fa] = stk.back();
+            stk.pop_back();
+            for (auto& [j, k] : g[i]) {
+                if (j != fa) {
+                    ans[j] = ans[i] + k;
+                    stk.emplace_back(j, i);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minEdgeReversals(n int, edges [][]int) []int {
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		x, y := e[0], e[1]
+		g[x] = append(g[x], [2]int{y, 1})
+		g[y] = append(g[y], [2]int{x, -1})
+	}
+	ans := make([]int, n)
+	stk := [][2]int{{0, -1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa := cur[0], cur[1]
+		for _, ne := range g[i] {
+			j, k := ne[0], ne[1]
+			if j != fa {
+				if k < 0 {
+					ans[0]++
+				}
+				stk = append(stk, [2]int{j, i})
+			}
+		}
+	}
+	stk = append(stk, [2]int{0, -1})
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa := cur[0], cur[1]
+		for _, ne := range g[i] {
+			j, k := ne[0], ne[1]
+			if j != fa {
+				ans[j] = ans[i] + k
+				stk = append(stk, [2]int{j, i})
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minEdgeReversals(n: number, edges: number[][]): number[] {
+    const g: number[][][] = Array.from({ length: n }, () => []);
+    for (const [x, y] of edges) {
+        g[x].push([y, 1]);
+        g[y].push([x, -1]);
+    }
+    const ans: number[] = Array(n).fill(0);
+    const stk: [number, number][] = [[0, -1]];
+    while (stk.length) {
+        const [i, fa] = stk.pop()!;
+        for (const [j, k] of g[i]) {
+            if (j !== fa) {
+                ans[0] += k < 0 ? 1 : 0;
+                stk.push([j, i]);
+            }
+        }
+    }
+    stk.push([0, -1]);
+    while (stk.length) {
+        const [i, fa] = stk.pop()!;
+        for (const [j, k] of g[i]) {
+            if (j !== fa) {
+                ans[j] = ans[i] + k;
+                stk.push([j, i]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
