@@ -3,8 +3,7 @@ public:
     int numberOfStableArrays(int zero, int one, int limit) {
         const int mod = 1e9 + 7;
         using ll = long long;
-        ll f[zero + 1][one + 1][2];
-        memset(f, 0, sizeof(f));
+        vector<vector<array<ll, 2>>> f(zero + 1, vector<array<ll, 2>>(one + 1));
         for (int i = 1; i <= min(zero, limit); ++i) {
             f[i][0][0] = 1;
         }
