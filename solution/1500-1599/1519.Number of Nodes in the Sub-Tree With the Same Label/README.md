@@ -258,4 +258,201 @@ function countSubTrees(n: number, edges: number[][], labels: string): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对每个节点统计其子树中与自身标签相同的节点数。$n\le 10^5$，对每个节点再单独遍历子树是平方时间。一条链上第一次递归总是走向唯一的孩子，深度就是 $n$，会超出默认递归上限。
+>
+> 标签只有 $26$ 种。进入节点时该标签计数的增量，到离开时正好覆盖整棵子树。
+>
+> 因此用显式栈做后序。进入时先把当前计数从 $ans[i]$ 中减去，计数加一，再压入离开标记和子节点。离开时把最新计数加回 $ans[i]$，差值就是子树内该标签的出现次数。
+
+<!-- thinking:end -->
+
+我们先将边数组转换为邻接表 $g$。
+
+用显式栈从根节点 $0$ 遍历，并维护计数器 $cnt$。进入节点 $i$ 时，先将 $ans[i]$ 减去 $cnt[labels[i]]$，再把该标签的计数加 $1$，然后压入离开标记和子节点，这样子节点会先处理完。离开时把 $cnt[labels[i]]$ 加回 $ans[i]$。两次计数之差就是以 $i$ 为根的子树中该标签的出现次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = [0] * n
+        cnt = Counter()
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                ans[i] -= cnt[labels[i]]
+                cnt[labels[i]] += 1
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                ans[i] += cnt[labels[i]]
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] countSubTrees(int n, int[][] edges, String labels) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[] ans = new int[n];
+        int[] cnt = new int[26];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            int k = labels.charAt(i) - 'a';
+            if (state == 0) {
+                ans[i] -= cnt[k];
+                cnt[k]++;
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                ans[i] += cnt[k];
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> countSubTrees(int n, vector<vector<int>>& edges, string labels) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        int cnt[26]{};
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            int k = labels[i] - 'a';
+            if (state == 0) {
+                ans[i] -= cnt[k];
+                cnt[k]++;
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                ans[i] += cnt[k];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countSubTrees(n int, edges [][]int, labels string) []int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int, n)
+	cnt := [26]int{}
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		k := labels[i] - 'a'
+		if state == 0 {
+			ans[i] -= cnt[k]
+			cnt[k]++
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, j := range g[i] {
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			ans[i] += cnt[k]
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubTrees(n: number, edges: number[][], labels: string): number[] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const ans: number[] = Array(n).fill(0);
+    const cnt: number[] = Array(26).fill(0);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        const k = labels.charCodeAt(i) - 97;
+        if (state === 0) {
+            ans[i] -= cnt[k];
+            cnt[k]++;
+            stk.push([i, fa, 1]);
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    stk.push([j, i, 0]);
+                }
+            }
+        } else {
+            ans[i] += cnt[k];
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
