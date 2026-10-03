@@ -19,11 +19,11 @@ public:
                         if (k != i) {
                             int x3 = points[k][0], y3 = points[k][1];
                             int x4 = x2 - x1 + x3, y4 = y2 - y1 + y3;
-                            if (x4 >= 0 && x4 < 40000 && y4 >= 0 && y4 <= 40000 && s.count(f(x4, y4))) {
+                            if (x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000 && s.count(f(x4, y4))) {
                                 if ((x2 - x1) * (x3 - x1) + (y2 - y1) * (y3 - y1) == 0) {
-                                    int ww = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
-                                    int hh = (x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1);
-                                    ans = min(ans, sqrt(1LL * ww * hh));
+                                    long long ww = (long long) (x2 - x1) * (x2 - x1) + (long long) (y2 - y1) * (y2 - y1);
+                                    long long hh = (long long) (x3 - x1) * (x3 - x1) + (long long) (y3 - y1) * (y3 - y1);
+                                    ans = min(ans, sqrt(ww * hh));
                                 }
                             }
                         }
