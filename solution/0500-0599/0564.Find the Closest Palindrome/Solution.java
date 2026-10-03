@@ -1,29 +1,31 @@
+import java.math.BigInteger;
+
 class Solution {
     public String nearestPalindromic(String n) {
-        long x = Long.parseLong(n);
-        long ans = -1;
-        for (long t : get(n)) {
-            if (ans == -1 || Math.abs(t - x) < Math.abs(ans - x)
-                || (Math.abs(t - x) == Math.abs(ans - x) && t < ans)) {
+        BigInteger x = new BigInteger(n);
+        int l = n.length();
+        Set<BigInteger> res = new HashSet<>();
+        res.add(BigInteger.TEN.pow(l - 1).subtract(BigInteger.ONE));
+        res.add(BigInteger.TEN.pow(l).add(BigInteger.ONE));
+        BigInteger left = new BigInteger(n.substring(0, (l + 1) / 2));
+        for (int d = -1; d <= 1; ++d) {
+            BigInteger i = left.add(BigInteger.valueOf(d));
+            BigInteger j = l % 2 == 0 ? i : i.divide(BigInteger.TEN);
+            while (j.signum() > 0) {
+                i = i.multiply(BigInteger.TEN).add(j.mod(BigInteger.TEN));
+                j = j.divide(BigInteger.TEN);
+            }
+            res.add(i);
+        }
+        res.remove(x);
+        BigInteger ans = null;
+        for (BigInteger t : res) {
+            BigInteger dist = t.subtract(x).abs();
+            if (ans == null || dist.compareTo(ans.subtract(x).abs()) < 0
+                || (dist.compareTo(ans.subtract(x).abs()) == 0 && t.compareTo(ans) < 0)) {
                 ans = t;
             }
         }
-        return Long.toString(ans);
-    }
-
-    private Set<Long> get(String n) {
-        int l = n.length();
-        Set<Long> res = new HashSet<>();
-        res.add((long) Math.pow(10, l - 1) - 1);
-        res.add((long) Math.pow(10, l) + 1);
-        long left = Long.parseLong(n.substring(0, (l + 1) / 2));
-        for (long i = left - 1; i <= left + 1; ++i) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(i);
-            sb.append(new StringBuilder(i + "").reverse().substring(l & 1));
-            res.add(Long.parseLong(sb.toString()));
-        }
-        res.remove(Long.parseLong(n));
-        return res;
+        return ans.toString();
     }
 }
