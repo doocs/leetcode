@@ -66,17 +66,31 @@ public:
         d.assign(1010, 0);
         int n = nums.size();
         for (int i = 0; i < n; ++i) d[nums[i]] = i + 1;
-        return dfs(1, nums.size());
-    }
-
-    TreeNode* dfs(int l, int r) {
-        if (l > r) {
-            return nullptr;
+        struct Frame {
+            int l, r, side;
+            TreeNode* parent;
+        };
+        TreeNode* root = nullptr;
+        vector<Frame> stk{{1, n, 0, nullptr}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            if (cur.l > cur.r) {
+                continue;
+            }
+            int val = tree->query(1, cur.l, cur.r);
+            TreeNode* node = new TreeNode(val);
+            if (cur.parent == nullptr) {
+                root = node;
+            } else if (cur.side == 0) {
+                cur.parent->left = node;
+            } else {
+                cur.parent->right = node;
+            }
+            int i = d[val];
+            stk.push_back({i + 1, cur.r, 1, node});
+            stk.push_back({cur.l, i - 1, 0, node});
         }
-        int val = tree->query(1, l, r);
-        TreeNode* root = new TreeNode(val);
-        root->left = dfs(l, d[val] - 1);
-        root->right = dfs(d[val] + 1, r);
         return root;
     }
 };

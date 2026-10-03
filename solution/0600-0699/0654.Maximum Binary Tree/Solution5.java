@@ -25,18 +25,40 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             d[nums[i]] = i + 1;
         }
-        return dfs(1, n);
+        TreeNode root = null;
+        Deque<Frame> stk = new ArrayDeque<>();
+        stk.push(new Frame(1, n, null, 0));
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            if (cur.l > cur.r) {
+                continue;
+            }
+            int val = tree.query(1, cur.l, cur.r);
+            TreeNode node = new TreeNode(val);
+            if (cur.parent == null) {
+                root = node;
+            } else if (cur.side == 0) {
+                cur.parent.left = node;
+            } else {
+                cur.parent.right = node;
+            }
+            int i = d[val];
+            stk.push(new Frame(i + 1, cur.r, node, 1));
+            stk.push(new Frame(cur.l, i - 1, node, 0));
+        }
+        return root;
     }
 
-    private TreeNode dfs(int l, int r) {
-        if (l > r) {
-            return null;
+    private static class Frame {
+        int l, r, side;
+        TreeNode parent;
+
+        Frame(int l, int r, TreeNode parent, int side) {
+            this.l = l;
+            this.r = r;
+            this.parent = parent;
+            this.side = side;
         }
-        int val = tree.query(1, l, r);
-        TreeNode root = new TreeNode(val);
-        root.left = dfs(l, d[val] - 1);
-        root.right = dfs(d[val] + 1, r);
-        return root;
     }
 }
 
