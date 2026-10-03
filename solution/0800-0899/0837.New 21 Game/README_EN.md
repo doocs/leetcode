@@ -284,13 +284,13 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 > **Thinking**
 >
-> Memoization still recurses. The same recurrence fills downward from $k-2$: $f[i]$ comes from $f[i+1]$ and the window end $f[i+\textit{maxPts}+1]$.
+> Solution 1 already fills the probabilities from the high scores downward. Each $f[i]$ comes from $f[i+1]$ and the window end $f[i+\textit{maxPts}+1]$.
 >
-> Terminals in $[k,\min(n,k+\textit{maxPts}))$ are $1$. The answer is $f[0]$, computed in linear time.
+> Terminals in $[k,\min(n,k+\textit{maxPts}))$ are $1$. The answer is $f[0]$. Time stays linear.
 
 <!-- thinking:end -->
 
-We can convert the memoized search in Solution 1 into dynamic programming.
+Solution 1 already fills this table from the high scores downward. The transitions below are the same ones.
 
 Define $f[i]$ to represent the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $f[0]$.
 
@@ -299,6 +299,198 @@ When $k \leq i \leq \min(n, k + \textit{maxPts} - 1)$, we have $f[i] = 1$.
 When $i = k - 1$, we have $f[i] = \min(n-k+1, \textit{maxPts}) / \textit{maxPts}$.
 
 When $i \lt k - 1$, we have $f[i] = f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}$.
+
+Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def new21Game(self, n: int, k: int, maxPts: int) -> float:
+        f = [0] * (k + maxPts)
+        for i in range(k, min(n + 1, k + maxPts)):
+            f[i] = 1
+        f[k - 1] = min(n - k + 1, maxPts) / maxPts
+        for i in range(k - 2, -1, -1):
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public double new21Game(int n, int k, int maxPts) {
+        if (k == 0) {
+            return 1.0;
+        }
+        double[] f = new double[k + maxPts];
+        for (int i = k; i < Math.min(n + 1, k + maxPts); ++i) {
+            f[i] = 1;
+        }
+        f[k - 1] = Math.min(n - k + 1, maxPts) * 1.0 / maxPts;
+        for (int i = k - 2; i >= 0; --i) {
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    double new21Game(int n, int k, int maxPts) {
+        if (k == 0) {
+            return 1.0;
+        }
+        double f[k + maxPts];
+        memset(f, 0, sizeof(f));
+        for (int i = k; i < min(n + 1, k + maxPts); ++i) {
+            f[i] = 1;
+        }
+        f[k - 1] = min(n - k + 1, maxPts) * 1.0 / maxPts;
+        for (int i = k - 2; i >= 0; --i) {
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func new21Game(n int, k int, maxPts int) float64 {
+	if k == 0 {
+		return 1
+	}
+	f := make([]float64, k+maxPts)
+	for i := k; i < min(n+1, k+maxPts); i++ {
+		f[i] = 1
+	}
+	f[k-1] = float64(min(n-k+1, maxPts)) / float64(maxPts)
+	for i := k - 2; i >= 0; i-- {
+		f[i] = f[i+1] + (f[i+1]-f[i+maxPts+1])/float64(maxPts)
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function new21Game(n: number, k: number, maxPts: number): number {
+    if (k === 0) {
+        return 1;
+    }
+    const f: number[] = Array(k + maxPts).fill(0);
+    for (let i = k; i < Math.min(n + 1, k + maxPts); ++i) {
+        f[i] = 1;
+    }
+    f[k - 1] = Math.min(n - k + 1, maxPts) / maxPts;
+    for (let i = k - 2; i >= 0; --i) {
+        f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+    }
+    return f[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We add a uniform integer in $[1,\textit{maxPts}]$ until the total reaches $k$, and want the probability it is still $\le n$. $k$ can be $10^4$, so expanding every draw is impossible.
+>
+> After the one-step difference, every state except the closed form at $k-1$ reads a larger score first. The chain from $0$ to $k$ has length $k$ and overflows the stack.
+>
+> Larger scores are known if we walk downward. Let $f[i]$ be the success probability from total $i$, write the terminal window as $1$, and fill from $k-2$ down to $0$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the probability that a current score of $i$ ends at most $n$. The answer is $f[0]$.
+
+The value of $f[i]$ is as follows:
+
+- If $i \ge k$, drawing stops. The value is $1$ when $i \le n$, and $0$ otherwise;
+- Otherwise the next draw $j$ lies in $[1,..\textit{maxPts}]$, so $f[i] = \frac{1}{maxPts} \sum_{j=1}^{maxPts} f[i+j]$.
+
+Every state depends only on a larger score, so fill from $k - 2$ down to $0$. When $k = 0$ no draw has started, and the answer is $1$.
+
+The time complexity of the above method is $O(k \times \textit{maxPts})$, which will exceed the time limit, so we need to optimize it.
+
+When $i \lt k$, the following equation holds:
+
+$$
+\begin{aligned}
+f[i] &= (f[i + 1] + f[i + 2] + \cdots + f[i + \textit{maxPts}]) / \textit{maxPts} & (1)
+\end{aligned}
+$$
+
+When $i \lt k - 1$, the following equation holds:
+
+$$
+\begin{aligned}
+f[i+1] &= (f[i + 2] + f[i + 3] + \cdots + f[i + \textit{maxPts} + 1]) / \textit{maxPts} & (2)
+\end{aligned}
+$$
+
+Therefore, when $i \lt k-1$, we subtract equation $(2)$ from equation $(1)$ to get:
+
+$$
+\begin{aligned}
+f[i] - f[i+1] &= (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}
+\end{aligned}
+$$
+
+That is:
+
+$$
+\begin{aligned}
+f[i] &= f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}
+\end{aligned}
+$$
+
+If $i=k-1$, we have:
+
+$$
+\begin{aligned}
+f[i] &= f[k - 1] = (f[k] + f[k + 1] + \cdots + f[k + \textit{maxPts} - 1]) / \textit{maxPts} & (3)
+\end{aligned}
+$$
+
+We assume there are $i$ numbers not exceeding $n$, then $k+i-1 \leq n$, and since $i\leq \textit{maxPts}$, we have $i \leq \min(n-k+1, \textit{maxPts})$, so equation $(3)$ can be written as:
+
+$$
+\begin{aligned}
+f[k-1] &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
+\end{aligned}
+$$
+
+In summary, we have the following state transition equation:
+
+$$
+\begin{aligned}
+f[i] &= \begin{cases}
+1, & i \geq k, i \leq n \\
+0, & i \geq k, i \gt n \\
+\min(n-k+1, \textit{maxPts}) / \textit{maxPts}, & i = k - 1 \\
+f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}, & i < k - 1
+\end{cases}
+\end{aligned}
+$$
 
 Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
 
