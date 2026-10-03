@@ -73,11 +73,17 @@ tags:
 
 > **思考**
 >
-> 求任意方向矩形的最小面积， $n\le 50$，枚举三个顶点即可。以 $p_1$ 为直角顶点，若 $\overrightarrow{p_1p_2}\perp\overrightarrow{p_1p_3}$，则第四点由向量加法确定；哈希表 $O(1)$ 查询该点是否存在，面积为两边长之积。
+> 求任意方向矩形的最小面积，$n\le 50$，枚举三个顶点即可。以 $p_1$ 为直角顶点时，第四个顶点由两条边的向量和确定。
+>
+> 打包键 $x \times 40001 + y$ 在坐标越出 $[0, 4 \times 10^4]$ 后会与范围内的点重合，两条边的平方和也会超过 $2^{31}-1$。
+>
+> 坐标落在这个正方形内时键是唯一的，平方和放进 64 位整数才不会回绕。
+>
+> 因此第四点要同时落在范围内且键已存在，再用 64 位整数累加两条边的平方，最后开方得到面积。
 
 <!-- thinking:end -->
 
-我们用哈希表存放所有的点，然后枚举三个点 $p_1 = (x_1, y_1)$, $p_2 = (x_2, y_2)$, $p_3 = (x_3, y_3)$，其中 $p_2$ 和 $p_3$ 是矩形的对角线的两个端点。如果 $p_1$ 和 $p_2$ 构成的直线以及 $p_1$ 和 $p_3$ 构成的直线垂直，并且第四个点 $(x_4, y_4)=(x_2 - x_1 + x_3, y_2 - y_1 + y_3)$ 存在于哈希表中，那么就找到了一个矩形。此时，我们可以计算出矩形的面积，并更新答案。
+我们用哈希表存放所有的点，然后枚举三个点 $p_1 = (x_1, y_1)$, $p_2 = (x_2, y_2)$, $p_3 = (x_3, y_3)$。若 $\overrightarrow{p_1p_2}$ 与 $\overrightarrow{p_1p_3}$ 垂直，第四个顶点为 $(x_4, y_4)=(x_2 - x_1 + x_3, y_2 - y_1 + y_3)$。坐标落在 $[0, 4 \times 10^4]$ 内，打包键 $x \times 40001 + y$ 只在这个正方形里唯一，因此该点要同时落在范围内且键已存在。两条边的平方和可能超过 $2^{31}-1$，用 64 位整数累加后再开方，得到面积并更新答案。
 
 最后，如果找到满足条件的矩形，返回其中面积的最小值。否则，返回 $0$。
 
@@ -103,7 +109,7 @@ class Solution:
                             x3, y3 = points[k]
                             x4 = x2 - x1 + x3
                             y4 = y2 - y1 + y3
-                            if (x4, y4) in s:
+                            if 0 <= x4 <= 40000 and 0 <= y4 <= 40000 and (x4, y4) in s:
                                 v21 = (x2 - x1, y2 - y1)
                                 v31 = (x3 - x1, y3 - y1)
                                 if v21[0] * v31[0] + v21[1] * v31[1] == 0:
@@ -133,11 +139,14 @@ class Solution {
                         if (k != i) {
                             int x3 = points[k][0], y3 = points[k][1];
                             int x4 = x2 - x1 + x3, y4 = y2 - y1 + y3;
-                            if (s.contains(f(x4, y4))) {
+                            if (x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000
+                                && s.contains(f(x4, y4))) {
                                 if ((x2 - x1) * (x3 - x1) + (y2 - y1) * (y3 - y1) == 0) {
-                                    int ww = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
-                                    int hh = (x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1);
-                                    ans = Math.min(ans, Math.sqrt(1L * ww * hh));
+                                    long ww = (long) (x2 - x1) * (x2 - x1)
+                                        + (long) (y2 - y1) * (y2 - y1);
+                                    long hh = (long) (x3 - x1) * (x3 - x1)
+                                        + (long) (y3 - y1) * (y3 - y1);
+                                    ans = Math.min(ans, Math.sqrt(ww * hh));
                                 }
                             }
                         }
@@ -178,11 +187,11 @@ public:
                         if (k != i) {
                             int x3 = points[k][0], y3 = points[k][1];
                             int x4 = x2 - x1 + x3, y4 = y2 - y1 + y3;
-                            if (x4 >= 0 && x4 < 40000 && y4 >= 0 && y4 <= 40000 && s.count(f(x4, y4))) {
+                            if (x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000 && s.count(f(x4, y4))) {
                                 if ((x2 - x1) * (x3 - x1) + (y2 - y1) * (y3 - y1) == 0) {
-                                    int ww = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
-                                    int hh = (x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1);
-                                    ans = min(ans, sqrt(1LL * ww * hh));
+                                    long long ww = (long long) (x2 - x1) * (x2 - x1) + (long long) (y2 - y1) * (y2 - y1);
+                                    long long hh = (long long) (x3 - x1) * (x3 - x1) + (long long) (y3 - y1) * (y3 - y1);
+                                    ans = min(ans, sqrt(ww * hh));
                                 }
                             }
                         }
@@ -217,7 +226,7 @@ func minAreaFreeRect(points [][]int) float64 {
 					if k != i {
 						x3, y3 := points[k][0], points[k][1]
 						x4, y4 := x2-x1+x3, y2-y1+y3
-						if s[f(x4, y4)] {
+						if x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000 && s[f(x4, y4)] {
 							if (x2-x1)*(x3-x1)+(y2-y1)*(y3-y1) == 0 {
 								ww := (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)
 								hh := (x3-x1)*(x3-x1) + (y3-y1)*(y3-y1)
@@ -257,7 +266,7 @@ function minAreaFreeRect(points: number[][]): number {
                         const [x3, y3] = points[k];
                         const x4 = x2 - x1 + x3;
                         const y4 = y2 - y1 + y3;
-                        if (s.has(f(x4, y4))) {
+                        if (x4 >= 0 && x4 <= 40000 && y4 >= 0 && y4 <= 40000 && s.has(f(x4, y4))) {
                             if ((x2 - x1) * (x3 - x1) + (y2 - y1) * (y3 - y1) === 0) {
                                 const ww = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
                                 const hh = (x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1);

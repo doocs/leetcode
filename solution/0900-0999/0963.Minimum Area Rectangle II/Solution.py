@@ -13,7 +13,7 @@ class Solution:
                             x3, y3 = points[k]
                             x4 = x2 - x1 + x3
                             y4 = y2 - y1 + y3
-                            if (x4, y4) in s:
+                            if 0 <= x4 <= 40000 and 0 <= y4 <= 40000 and (x4, y4) in s:
                                 v21 = (x2 - x1, y2 - y1)
                                 v31 = (x3 - x1, y3 - y1)
                                 if v21[0] * v31[0] + v21[1] * v31[1] == 0:
