@@ -26,31 +26,24 @@ func minimumCost(target string, words []string, costs []int) int {
 	for i, word := range words {
 		trie.insert(word, costs[i])
 	}
-
 	n := len(target)
-	f := make([]int, n)
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i >= n {
-			return 0
-		}
-		if f[i] != 0 {
-			return f[i]
-		}
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
 		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
 		node := trie
 		for j := i; j < n; j++ {
 			idx := target[j] - 'a'
 			if node.children[idx] == nil {
-				return f[i]
+				break
 			}
 			node = node.children[idx]
-			f[i] = min(f[i], node.cost+dfs(j+1))
+			f[i] = min(f[i], node.cost+f[j+1])
 		}
-		return f[i]
 	}
-	if ans := dfs(0); ans < inf {
-		return ans
+	if f[0] < inf {
+		return f[0]
 	}
 	return -1
 }

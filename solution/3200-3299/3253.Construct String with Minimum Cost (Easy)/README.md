@@ -382,4 +382,266 @@ function minimumCost(target: string, words: string[], costs: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：字典树 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个位置都枚举所有单词会重复比较公共前缀，字典树把这些前缀收成一条路径。$\textit{target}$ 的长度可以到 $2000$，而沿树走第一个字符时就会计算下一个下标，递归深度就是 $n$。后缀 $i$ 的最小代价只依赖更靠右的后缀。于是令 $f[i]$ 为拼出 $\textit{target}[i:]$ 的最小代价，$f[n]=0$，从右往左沿字典树走到节点，用节点上的 $\textit{cost}$ 加上 $f[j+1]$ 更新。
+
+<!-- thinking:end -->
+
+先把每个单词插入字典树。节点的 $\textit{children}$ 指向后继字母，$\textit{cost}$ 是以该节点为结尾的单词的最小花费，没有单词在此结束时为无穷大。
+
+设 $f[i]$ 为从 $\textit{target}[i]$ 开始构造的最小花费，边界 $f[n]=0$。从 $i=n-1$ 递减到 $0$，从根出发沿 $\textit{target}[i:]$ 向下走。若第 $j$ 个字符没有对应子节点，这一段匹配结束。否则走到该节点后，用 $\textit{cost}+f[j+1]$ 更新 $f[i]$。若 $f[0]$ 仍为无穷大，返回 $-1$，否则返回 $f[0]$。
+
+时间复杂度 $O(n^2 + L)$，空间复杂度 $O(n + L)$。其中 $n$ 是 $\textit{target}$ 的长度，而 $L$ 是 $\textit{words}$ 数组中所有单词的长度之和。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children: List[Optional[Trie]] = [None] * 26
+        self.cost = inf
+
+    def insert(self, word: str, cost: int):
+        node = self
+        for c in word:
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.cost = min(node.cost, cost)
+
+
+class Solution:
+    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+        trie = Trie()
+        for word, cost in zip(words, costs):
+            trie.insert(word, cost)
+        n = len(target)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            node = trie
+            for j in range(i, n):
+                idx = ord(target[j]) - ord("a")
+                if node.children[idx] is None:
+                    break
+                node = node.children[idx]
+                f[i] = min(f[i], node.cost + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+#### Java
+
+```java
+class Trie {
+    public final int inf = 1 << 29;
+    public Trie[] children = new Trie[26];
+    public int cost = inf;
+
+    public void insert(String word, int cost) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.cost = Math.min(node.cost, cost);
+    }
+}
+
+class Solution {
+    public int minimumCost(String target, String[] words, int[] costs) {
+        Trie trie = new Trie();
+        for (int i = 0; i < words.length; ++i) {
+            trie.insert(words[i], costs[i]);
+        }
+        int n = target.length();
+        int inf = trie.inf;
+        int[] f = new int[n + 1];
+        Arrays.fill(f, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            Trie node = trie;
+            for (int j = i; j < n; ++j) {
+                int idx = target.charAt(j) - 'a';
+                if (node.children[idx] == null) {
+                    break;
+                }
+                node = node.children[idx];
+                f[i] = Math.min(f[i], node.cost + f[j + 1]);
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+const int inf = 1 << 29;
+
+class Trie {
+public:
+    Trie* children[26]{};
+    int cost = inf;
+
+    void insert(string& word, int cost) {
+        Trie* node = this;
+        for (char c : word) {
+            int idx = c - 'a';
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
+        }
+        node->cost = min(node->cost, cost);
+    }
+};
+
+class Solution {
+public:
+    int minimumCost(string target, vector<string>& words, vector<int>& costs) {
+        Trie* trie = new Trie();
+        for (int i = 0; i < words.size(); ++i) {
+            trie->insert(words[i], costs[i]);
+        }
+        int n = target.length();
+        vector<int> f(n + 1, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            Trie* node = trie;
+            for (int j = i; j < n; ++j) {
+                int idx = target[j] - 'a';
+                if (!node->children[idx]) {
+                    break;
+                }
+                node = node->children[idx];
+                f[i] = min(f[i], node->cost + f[j + 1]);
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+};
+```
+
+#### Go
+
+```go
+const inf = 1 << 29
+
+type Trie struct {
+	children [26]*Trie
+	cost     int
+}
+
+func NewTrie() *Trie {
+	return &Trie{cost: inf}
+}
+
+func (t *Trie) insert(word string, cost int) {
+	node := t
+	for _, c := range word {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = NewTrie()
+		}
+		node = node.children[idx]
+	}
+	node.cost = min(node.cost, cost)
+}
+
+func minimumCost(target string, words []string, costs []int) int {
+	trie := NewTrie()
+	for i, word := range words {
+		trie.insert(word, costs[i])
+	}
+	n := len(target)
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
+		node := trie
+		for j := i; j < n; j++ {
+			idx := target[j] - 'a'
+			if node.children[idx] == nil {
+				break
+			}
+			node = node.children[idx]
+			f[i] = min(f[i], node.cost+f[j+1])
+		}
+	}
+	if f[0] < inf {
+		return f[0]
+	}
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+const inf = 1 << 29;
+
+class Trie {
+    children: (Trie | null)[];
+    cost: number;
+
+    constructor() {
+        this.children = Array(26).fill(null);
+        this.cost = inf;
+    }
+
+    insert(word: string, cost: number): void {
+        let node: Trie = this;
+        for (const c of word) {
+            const idx = c.charCodeAt(0) - 97;
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx]!;
+        }
+        node.cost = Math.min(node.cost, cost);
+    }
+}
+
+function minimumCost(target: string, words: string[], costs: number[]): number {
+    const trie = new Trie();
+    for (let i = 0; i < words.length; ++i) {
+        trie.insert(words[i], costs[i]);
+    }
+    const n = target.length;
+    const f: number[] = Array(n + 1).fill(inf);
+    f[n] = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        let node: Trie | null = trie;
+        for (let j = i; j < n; ++j) {
+            const idx = target.charCodeAt(j) - 97;
+            if (!node?.children[idx]) {
+                break;
+            }
+            node = node.children[idx];
+            f[i] = Math.min(f[i], node!.cost + f[j + 1]);
+        }
+    }
+    return f[0] < inf ? f[0] : -1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
