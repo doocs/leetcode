@@ -279,4 +279,255 @@ func componentValue(nums []int, edges [][]int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After the deletions every component must have the same sum, so the number of pieces $k$ has to divide the total $s$ and the target $t = s/k$ cannot be smaller than the heaviest node. With $n \le 2 \times 10^4$, enumerating feasible $k$ from large to small is fine; recursing from the root for each $k$ is not, because a chain makes the call depth $n$.
+>
+> Whether a candidate $k$ works depends only on the value still attached to a node when its children have already been processed. Add the node weight to every child sum that was not cut: exactly $t$ is recorded as $0$, so that edge can be deleted; less than $t$ is passed to the parent; more than $t$ rejects this $k$.
+>
+> An explicit stack of $(node, parent, state)$ runs that postorder. On entry we push the exit marker and then the children, and on exit we write the remaining sum. A root remainder of $0$ means the tree splits into components of value $t$, and the number of deleted edges is $k - 1$.
+
+<!-- thinking:end -->
+
+Assume the number of connected blocks is $k$, then the number of edges to be deleted is $k-1$, and the value of each connected block is $\frac{s}{k}$, where $s$ is the sum of the values of all nodes in $nums$.
+
+We enumerate $k$ from large to small. If there exists a $k$ such that $\frac{s}{k}$ is an integer, and the value of each connected block obtained is equal, then directly return $k-1$. The initial value of $k$ is $\min(n, \frac{s}{mx})$, where $mx$ is the maximum value in $nums$.
+
+The key point is to judge whether for a given $\frac{s}{k}$, it is possible to divide several subtrees such that the value of each subtree is $\frac{s}{k}$.
+
+An explicit stack performs that check in postorder. When a node is left, add its weight to the child sums that were not cut: a sum equal to $\frac{s}{k}$ is stored as $0$, so the subtree can be disconnected from its parent; a smaller sum is left for the parent; a larger sum means the division fails. The division succeeds when the root remainder is $0$.
+
+The time complexity is $O(n \times \sqrt{s})$ and the space complexity is $O(n)$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+        def check(t: int) -> bool:
+            sz = [0] * n
+            stk = [(0, -1, 0)]
+            while stk:
+                i, fa, state = stk.pop()
+                if state == 0:
+                    stk.append((i, fa, 1))
+                    for j in g[i]:
+                        if j != fa:
+                            stk.append((j, i, 0))
+                else:
+                    x = nums[i]
+                    for j in g[i]:
+                        if j != fa:
+                            x += sz[j]
+                    if x > t:
+                        return False
+                    sz[i] = 0 if x == t else x
+            return sz[0] == 0
+
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = sum(nums)
+        mx = max(nums)
+        for k in range(min(n, s // mx), 1, -1):
+            if s % k == 0 and check(s // k):
+                return k - 1
+        return 0
+```
+
+#### Java
+
+```java
+class Solution {
+    public int componentValue(int[] nums, int[][] edges) {
+        int n = nums.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int s = sum(nums), mx = max(nums);
+        for (int k = Math.min(n, s / mx); k > 1; --k) {
+            if (s % k == 0 && check(nums, g, s / k)) {
+                return k - 1;
+            }
+        }
+        return 0;
+    }
+
+    private boolean check(int[] nums, List<Integer>[] g, int t) {
+        int n = nums.length;
+        int[] sz = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                int x = nums[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        x += sz[j];
+                    }
+                }
+                if (x > t) {
+                    return false;
+                }
+                sz[i] = x == t ? 0 : x;
+            }
+        }
+        return sz[0] == 0;
+    }
+
+    private int sum(int[] arr) {
+        int x = 0;
+        for (int v : arr) {
+            x += v;
+        }
+        return x;
+    }
+
+    private int max(int[] arr) {
+        int x = arr[0];
+        for (int v : arr) {
+            x = Math.max(x, v);
+        }
+        return x;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int componentValue(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        int mx = *max_element(nums.begin(), nums.end());
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        auto check = [&](int t) -> bool {
+            vector<int> sz(n);
+            vector<array<int, 3>> stk{{0, -1, 0}};
+            while (!stk.empty()) {
+                auto [i, fa, state] = stk.back();
+                stk.pop_back();
+                if (state == 0) {
+                    stk.push_back({i, fa, 1});
+                    for (int j : g[i]) {
+                        if (j != fa) {
+                            stk.push_back({j, i, 0});
+                        }
+                    }
+                } else {
+                    int x = nums[i];
+                    for (int j : g[i]) {
+                        if (j != fa) {
+                            x += sz[j];
+                        }
+                    }
+                    if (x > t) {
+                        return false;
+                    }
+                    sz[i] = x == t ? 0 : x;
+                }
+            }
+            return sz[0] == 0;
+        };
+        for (int k = min(n, s / mx); k > 1; --k) {
+            if (s % k == 0 && check(s / k)) {
+                return k - 1;
+            }
+        }
+        return 0;
+    }
+};
+```
+
+#### Go
+
+```go
+func componentValue(nums []int, edges [][]int) int {
+	s, mx := 0, slices.Max(nums)
+	for _, x := range nums {
+		s += x
+	}
+	n := len(nums)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	check := func(t int) bool {
+		sz := make([]int, n)
+		stk := [][3]int{{0, -1, 0}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa, state := cur[0], cur[1], cur[2]
+			if state == 0 {
+				stk = append(stk, [3]int{i, fa, 1})
+				for _, j := range g[i] {
+					if j != fa {
+						stk = append(stk, [3]int{j, i, 0})
+					}
+				}
+			} else {
+				x := nums[i]
+				for _, j := range g[i] {
+					if j != fa {
+						x += sz[j]
+					}
+				}
+				if x > t {
+					return false
+				}
+				if x == t {
+					sz[i] = 0
+				} else {
+					sz[i] = x
+				}
+			}
+		}
+		return sz[0] == 0
+	}
+	for k := min(n, s/mx); k > 1; k-- {
+		if s%k == 0 && check(s/k) {
+			return k - 1
+		}
+	}
+	return 0
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
