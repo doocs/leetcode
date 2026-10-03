@@ -180,7 +180,7 @@ class Solution:
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int[] dirs = {0, 1, 0, -1, 0};
-        Set<Integer> s = new HashSet<>(obstacles.length);
+        Set<Long> s = new HashSet<>(obstacles.length);
         for (var e : obstacles) {
             s.add(f(e[0], e[1]));
         }
@@ -206,8 +206,8 @@ class Solution {
         return ans;
     }
 
-    private int f(int x, int y) {
-        return x * 60010 + y;
+    private long f(int x, int y) {
+        return x * 200001L + y;
     }
 }
 ```
@@ -220,9 +220,9 @@ public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
         int dirs[5] = {0, 1, 0, -1, 0};
         auto f = [](int x, int y) {
-            return x * 60010 + y;
+            return 1LL * x * 200001 + y;
         };
-        unordered_set<int> s;
+        unordered_set<long long> s;
         for (auto& e : obstacles) {
             s.insert(f(e[0], e[1]));
         }
@@ -284,7 +284,7 @@ func robotSim(commands []int, obstacles [][]int) (ans int) {
 function robotSim(commands: number[], obstacles: number[][]): number {
     const dirs = [0, 1, 0, -1, 0];
     const s: Set<number> = new Set();
-    const f = (x: number, y: number) => x * 60010 + y;
+    const f = (x: number, y: number) => x * 200001 + y;
     for (const [x, y] of obstacles) {
         s.add(f(x, y));
     }
@@ -366,7 +366,7 @@ var robotSim = function (commands, obstacles) {
     const dirs = [0, 1, 0, -1, 0];
     const s = new Set();
 
-    const f = (x, y) => x * 60010 + y;
+    const f = (x, y) => x * 200001 + y;
 
     for (const [x, y] of obstacles) {
         s.add(f(x, y));
@@ -406,9 +406,9 @@ var robotSim = function (commands, obstacles) {
 public class Solution {
     public int RobotSim(int[] commands, int[][] obstacles) {
         int[] dirs = {0, 1, 0, -1, 0};
-        HashSet<int> s = new HashSet<int>();
+        HashSet<long> s = new HashSet<long>();
 
-        int F(int x, int y) => x * 60010 + y;
+        long F(int x, int y) => x * 200001L + y;
 
         foreach (var o in obstacles) {
             s.Add(F(o[0], o[1]));
