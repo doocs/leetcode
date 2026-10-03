@@ -104,36 +104,4 @@ LIMIT 1;
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法二
-
-<!-- thinking:start -->
-
-> **思考**
->
-> 方法一用 `LIMIT 1`。T-SQL 没有同样的 `LIMIT`，改用 `TOP 1` 表达相同的「按计数取第一」。
->
-> 分组与排序不变，只是限制行数的语法不同。
-
-<!-- thinking:end -->
-
-<!-- tabs:start -->
-
-#### MySQL
-
-```sql
-/* Write your T-SQL query statement below */
-SELECT TOP 1
-    customer_number
-FROM
-    orders
-GROUP BY customer_number
-ORDER BY COUNT(customer_number) DESC;
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->

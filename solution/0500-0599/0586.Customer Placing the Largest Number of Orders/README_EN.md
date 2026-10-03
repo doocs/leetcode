@@ -102,36 +102,4 @@ LIMIT 1;
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- thinking:start -->
-
-> **Thinking**
->
-> Solution 1 uses `LIMIT 1`. T-SQL writes the same “first by count” with `TOP 1`.
->
-> The grouping and ordering stay; only the row-limit syntax changes.
-
-<!-- thinking:end -->
-
-<!-- tabs:start -->
-
-#### MySQL
-
-```sql
-/* Write your T-SQL query statement below */
-SELECT TOP 1
-    customer_number
-FROM
-    orders
-GROUP BY customer_number
-ORDER BY COUNT(customer_number) DESC;
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->
