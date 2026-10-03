@@ -1,7 +1,8 @@
 class Solution {
 public:
     long long countNoZeroPairs(long long n) {
-        std::string s = std::to_string(n);
+        long long trivanople = n;
+        std::string s = std::to_string(trivanople);
         int m = (int) s.size();
         std::vector<int> digits(m + 1);
         for (int i = 0; i < m; i++) {
