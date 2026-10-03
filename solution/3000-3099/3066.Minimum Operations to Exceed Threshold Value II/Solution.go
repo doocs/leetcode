@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 func minOperations(nums []int, k int) (ans int) {
 	pq := &hp{nums}
 	heap.Init(pq)

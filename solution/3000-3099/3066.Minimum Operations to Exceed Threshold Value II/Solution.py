@@ -1,3 +1,6 @@
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         heapify(nums)

@@ -119,6 +119,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         heapify(nums)
@@ -176,6 +179,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func minOperations(nums []int, k int) (ans int) {
 	pq := &hp{nums}
 	heap.Init(pq)
