@@ -1,3 +1,6 @@
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         h = [-x for x in stones]

@@ -84,6 +84,9 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         h = [-x for x in stones]
@@ -143,6 +146,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func lastStoneWeight(stones []int) int {
 	q := &hp{stones}
 	heap.Init(q)
