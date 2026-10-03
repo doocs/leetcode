@@ -175,8 +175,7 @@ class Solution {
 public:
     int deleteString(string s) {
         int n = s.size();
-        int g[n + 1][n + 1];
-        memset(g, 0, sizeof(g));
+        vector<vector<int>> g(n + 1, vector<int>(n + 1));
         for (int i = n - 1; ~i; --i) {
             for (int j = i + 1; j < n; ++j) {
                 if (s[i] == s[j]) {
@@ -347,8 +346,7 @@ class Solution {
 public:
     int deleteString(string s) {
         int n = s.size();
-        int g[n + 1][n + 1];
-        memset(g, 0, sizeof(g));
+        vector<vector<int>> g(n + 1, vector<int>(n + 1));
         for (int i = n - 1; ~i; --i) {
             for (int j = i + 1; j < n; ++j) {
                 if (s[i] == s[j]) {
