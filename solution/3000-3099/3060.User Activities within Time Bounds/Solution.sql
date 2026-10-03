@@ -13,4 +13,4 @@ WITH
 SELECT DISTINCT
     user_id
 FROM T
-WHERE TIMESTAMPDIFF(HOUR, prev_session_end, session_start) <= 12;
+WHERE session_start <= DATE_ADD(prev_session_end, INTERVAL 12 HOUR);
