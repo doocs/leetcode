@@ -26,7 +26,7 @@ def find_golden_hour_customers(restaurant_orders: pd.DataFrame) -> pd.DataFrame:
     ).round()
     filtered = grouped[
         (grouped["total_orders"] >= 3)
-        & (grouped["peak_hour_percentage"] >= 60)
+        & (5 * grouped["peak_hour_count"] >= 3 * grouped["total_orders"])
         & (grouped["average_rating"] >= 4.0)
         & (grouped["non_null_rating_count"] / grouped["total_orders"] >= 0.5)
     ]

@@ -8,9 +8,8 @@ def find_users_with_high_tokens(prompts: pd.DataFrame) -> pd.DataFrame:
         max_tokens=("tokens", "max"),
     )
 
-    df["avg_tokens"] = df["avg_tokens"].round(2)
-
     df = df[(df["prompt_count"] >= 3) & (df["max_tokens"] > df["avg_tokens"])]
+    df["avg_tokens"] = df["avg_tokens"].round(2)
 
     df = (
         df.sort_values(["avg_tokens", "user_id"], ascending=[False, True])

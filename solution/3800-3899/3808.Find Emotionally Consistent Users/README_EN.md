@@ -168,7 +168,7 @@ WITH
             ROUND(MAX(cnt) / SUM(cnt), 2) reaction_ratio
         FROM t
         GROUP BY 1
-        HAVING reaction_ratio >= 0.60 AND SUM(cnt) >= 5
+        HAVING 5 * MAX(cnt) >= 3 * SUM(cnt) AND SUM(cnt) >= 5
     )
 SELECT user_id, reaction dominant_reaction, reaction_ratio
 FROM
@@ -204,7 +204,7 @@ def find_emotionally_consistent_users(reactions: pd.DataFrame) -> pd.DataFrame:
         )
     )
 
-    s = s[(s["reaction_ratio"] >= 0.60) & (s["total_cnt"] >= 5)]
+    s = s[(5 * s["mx_cnt"] >= 3 * s["total_cnt"]) & (s["total_cnt"] >= 5)]
 
     merged = pd.merge(
         s[["user_id", "mx_cnt", "reaction_ratio"]],
