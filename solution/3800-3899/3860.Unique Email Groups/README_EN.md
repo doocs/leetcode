@@ -243,7 +243,7 @@ We can use a hash set $\textit{st}$ to store the normalized result of each email
 - Split the email address into a local name and a domain name.
 - For the local name, remove all dots `.`, and if a plus sign `+` exists, remove the plus sign and everything after it. Then convert the local name to lowercase.
 - For the domain name, convert it to lowercase.
-- Concatenate the normalized local name and domain name to obtain the normalized email address, and add it to the hash set $\textit{st}$.
+- Concatenate the normalized local name, the @ separator, and the normalized domain name to obtain the normalized email address, and add it to the hash set $\textit{st}$.
 
 Finally, the number of elements in the hash set $\textit{st}$ is the number of unique email groups.
 
@@ -261,7 +261,7 @@ class Solution:
             local, domain = email.split("@")
             local = local.split("+")[0].replace(".", "").lower()
             domain = domain.lower()
-            normalized = local + domain
+            normalized = local + "@" + domain
             st.add(normalized)
         return len(st)
 ```
@@ -286,7 +286,7 @@ class Solution {
             local = local.replace(".", "").toLowerCase();
             domain = domain.toLowerCase();
 
-            String normalized = local + domain;
+            String normalized = local + "@" + domain;
             st.add(normalized);
         }
 
@@ -324,7 +324,7 @@ public:
                 c = tolower(c);
             }
 
-            st.insert(cleaned + domain);
+            st.insert(cleaned + "@" + domain);
         }
 
         return st.size();
@@ -351,7 +351,7 @@ func uniqueEmailGroups(emails []string) int {
 		local = strings.ToLower(local)
 		domain = strings.ToLower(domain)
 
-		normalized := local + domain
+		normalized := local + "@" + domain
 		st[normalized] = struct{}{}
 	}
 
@@ -370,7 +370,7 @@ function uniqueEmailGroups(emails: string[]): number {
         local = local.split('+')[0].replace(/\./g, '').toLowerCase();
         domain = domain.toLowerCase();
 
-        const normalized = local + domain;
+        const normalized = local + "@" + domain;
         st.add(normalized);
     }
 
