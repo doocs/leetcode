@@ -184,7 +184,7 @@ function longestEqualSubarray(nums: number[], k: number): number {
 
 <!-- solution:end -->
 
-<!-- source:start -->
+<!-- solution:start -->
 
 ### Solution 2: Hash Table + Two Pointers (Method 2)
 
