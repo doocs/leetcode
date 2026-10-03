@@ -182,23 +182,19 @@ session_id 是这张表的唯一主键。
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    -- 第一步：为每个学生的学习记录按照日期排序并编号
+WITH RECURSIVE
     ranked_sessions AS (
         SELECT
-            s.student_id,
+            ss.student_id,
             ss.session_date,
             ss.subject,
             ss.hours_studied,
             ROW_NUMBER() OVER (
-                PARTITION BY s.student_id
+                PARTITION BY ss.student_id
                 ORDER BY ss.session_date
-            ) AS rn
-        FROM
-            study_sessions ss
-            JOIN students s ON s.student_id = ss.student_id
+            ) AS session_rank
+        FROM study_sessions ss
     ),
-    -- 第二步：计算当前学习日期与前一次学习的日期差
     grouped_sessions AS (
         SELECT
             *,
@@ -211,14 +207,12 @@ WITH
             ) AS date_diff
         FROM ranked_sessions
     ),
-    -- 第三步：将学习记录按照日期差是否大于2进行分组（连续段）
     session_groups AS (
         SELECT
             *,
             SUM(
                 CASE
-                    WHEN date_diff > 2
-                    OR date_diff IS NULL THEN 1
+                    WHEN date_diff > 2 OR date_diff IS NULL THEN 1
                     ELSE 0
                 END
             ) OVER (
@@ -227,117 +221,86 @@ WITH
             ) AS group_id
         FROM grouped_sessions
     ),
-    -- 第四步：筛选出每个学生的每个连续学习段中包含至少6次学习的序列
-    valid_sequences AS (
+    numbered_sessions AS (
+        SELECT
+            *,
+            ROW_NUMBER() OVER (
+                PARTITION BY student_id, group_id
+                ORDER BY session_date
+            ) AS session_index,
+            COUNT(*) OVER (
+                PARTITION BY student_id, group_id
+            ) AS session_count,
+            SUM(hours_studied) OVER (
+                PARTITION BY student_id, group_id
+            ) AS total_hours
+        FROM session_groups
+    ),
+    cycle_candidates AS (
         SELECT
             student_id,
             group_id,
-            COUNT(*) AS session_count,
-            GROUP_CONCAT(subject ORDER BY session_date) AS subject_sequence,
-            SUM(hours_studied) AS total_hours
-        FROM session_groups
-        GROUP BY student_id, group_id
-        HAVING session_count >= 6
-    ),
-    -- 第五步：检测是否存在重复的科目循环模式
-    pattern_detected AS (
+            session_count,
+            total_hours,
+            3 AS cycle_length
+        FROM numbered_sessions
+        WHERE session_index = 1 AND session_count >= 6
+
+        UNION ALL
+
         SELECT
-            vs.student_id,
-            vs.total_hours,
-            vs.subject_sequence,
-            COUNT(
-                DISTINCT
-                SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', n), ',', -1)
-            ) AS cycle_length
-        FROM
-            valid_sequences vs
-            JOIN (
-                -- 生成1到100的数字，用于提取第n个科目
-                SELECT a.N + b.N * 10 + 1 AS n
-                FROM
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) a,
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) b
-            ) nums
-                ON n <= 10
-        WHERE
-            -- 简化匹配：检查前半段和后半段是否相同（即是否重复）
-            LENGTH(subject_sequence) > 0
-            AND LOCATE(',', subject_sequence) > 0
-            AND (
-                -- 匹配3科循环2轮的模式
-                subject_sequence LIKE CONCAT(
-                    SUBSTRING_INDEX(subject_sequence, ',', 3),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 6), ',', -3),
-                    '%'
-                )
-                OR subject_sequence LIKE CONCAT(
-                    -- 匹配4科循环2轮的模式
-                    SUBSTRING_INDEX(subject_sequence, ',', 4),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 8), ',', -4),
-                    '%'
-                )
+            student_id,
+            group_id,
+            session_count,
+            total_hours,
+            cycle_length + 1
+        FROM cycle_candidates
+        WHERE cycle_length < FLOOR(session_count / 2)
+    ),
+    matching_patterns AS (
+        SELECT
+            c.student_id,
+            c.group_id,
+            c.cycle_length,
+            c.total_hours
+        FROM cycle_candidates c
+        WHERE MOD(c.session_count, c.cycle_length) = 0
+            AND NOT EXISTS (
+                SELECT 1
+                FROM numbered_sessions current_session
+                JOIN numbered_sessions cycle_session
+                    ON cycle_session.student_id = current_session.student_id
+                    AND cycle_session.group_id = current_session.group_id
+                    AND cycle_session.session_index =
+                        MOD(current_session.session_index - 1, c.cycle_length) + 1
+                WHERE current_session.student_id = c.student_id
+                    AND current_session.group_id = c.group_id
+                    AND NOT (current_session.subject <=> cycle_session.subject)
             )
-        GROUP BY vs.student_id, vs.total_hours, vs.subject_sequence
     ),
-    -- 第六步：拼接学生基本信息，并过滤掉循环长度小于3的结果
-    final_output AS (
+    ranked_patterns AS (
         SELECT
-            s.student_id,
-            s.student_name,
-            s.major,
-            pd.cycle_length,
-            pd.total_hours AS total_study_hours
-        FROM
-            pattern_detected pd
-            JOIN students s ON s.student_id = pd.student_id
-        WHERE pd.cycle_length >= 3
+            student_id,
+            group_id,
+            cycle_length,
+            total_hours,
+            ROW_NUMBER() OVER (
+                PARTITION BY student_id, group_id
+                ORDER BY cycle_length
+            ) AS pattern_rank
+        FROM matching_patterns
     )
--- 第七步：输出结果，并按循环长度和总学习时长降序排列
-SELECT *
-FROM final_output
-ORDER BY cycle_length DESC, total_study_hours DESC;
+SELECT
+    s.student_id,
+    s.student_name,
+    s.major,
+    p.cycle_length,
+    p.total_hours AS total_study_hours
+FROM ranked_patterns p
+JOIN students s ON s.student_id = p.student_id
+WHERE p.pattern_rank = 1
+ORDER BY p.cycle_length DESC, p.total_hours DESC;
+
 ```
 
 #### Pandas
