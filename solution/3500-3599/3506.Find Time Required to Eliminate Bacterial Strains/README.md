@@ -102,13 +102,13 @@ tags:
 
 <!-- thinking:end -->
 
-先考虑只有一种细菌的情况，此时不需要分裂白细胞，直接让他去消灭细菌，时间花费为 $\textit{timeSeq}[0]$。
+先考虑只有一种细菌的情况，此时不需要分裂白细胞，直接让他去消灭细菌，时间花费为 $\textit{timeReq}[0]$。
 
-如果有两种细菌，此时需要把白细胞分裂为两种，然后让它们分别去消灭细菌，时间花费为 $\textit{splitTime} + \max(\textit{timeSeq}[0], \textit{timeSeq}[1])$。
+如果有两种细菌，此时需要把白细胞分裂为两种，然后让它们分别去消灭细菌，时间花费为 $\textit{splitTime} + \max(\textit{timeReq}[0], \textit{timeReq}[1])$。
 
 如果有超过两种细菌，此时每一步都需要考虑将几个白细胞进行分裂，正向思维不好处理。
 
-我们不妨采用逆向思维，不分裂白细胞，而是将细菌进行合并。我们选取任意两种细菌 $i$, $j$ 进行合并，合并成一种新的细菌的时间为 $\textit{splitTime} + \max(\textit{timeSeq}[i], \textit{timeSeq}[j])$。
+我们不妨采用逆向思维，不分裂白细胞，而是将细菌进行合并。我们选取任意两种细菌 $i$, $j$ 进行合并，合并成一种新的细菌的时间为 $\textit{splitTime} + \max(\textit{timeReq}[i], \textit{timeReq}[j])$。
 
 为了让耗时长的细菌尽可能少参与到合并中，我们可以每次贪心地选取耗时最小的两种细菌进行合并。因此，我们可以维护一个小根堆，每次取出最小的两种细菌进行合并，直到只剩下一种细菌。最后剩下的这个细菌的消灭时间就是答案。
 
@@ -119,6 +119,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minEliminationTime(self, timeReq: List[int], splitTime: int) -> int:
         heapify(timeReq)
@@ -171,6 +174,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func minEliminationTime(timeReq []int, splitTime int) int64 {
 	pq := hp{}
 	for _, v := range timeReq {

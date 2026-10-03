@@ -100,13 +100,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, consider the case where there is only one type of bacteria. In this case, there is no need to split the white blood cell (WBC); it can directly eliminate the bacteria, and the time cost is $\textit{timeSeq}[0]$.
+First, consider the case where there is only one type of bacteria. In this case, there is no need to split the white blood cell (WBC); it can directly eliminate the bacteria, and the time cost is $\textit{timeReq}[0]$.
 
-If there are two types of bacteria, the WBC needs to split into two, and each WBC eliminates one type of bacteria. The time cost is $\textit{splitTime} + \max(\textit{timeSeq}[0], \textit{timeSeq}[1])$.
+If there are two types of bacteria, the WBC needs to split into two, and each WBC eliminates one type of bacteria. The time cost is $\textit{splitTime} + \max(\textit{timeReq}[0], \textit{timeReq}[1])$.
 
 If there are more than two types of bacteria, at each step, we need to consider splitting the WBCs into multiple cells, which is difficult to handle with a forward-thinking approach.
 
-Instead, we can adopt a reverse-thinking approach: instead of splitting the WBCs, we merge the bacteria. We select any two types of bacteria $i$ and $j$ to merge into a new type of bacteria. The time cost for this merge is $\textit{splitTime} + \max(\textit{timeSeq}[i], \textit{timeSeq}[j])$.
+Instead, we can adopt a reverse-thinking approach: instead of splitting the WBCs, we merge the bacteria. We select any two types of bacteria $i$ and $j$ to merge into a new type of bacteria. The time cost for this merge is $\textit{splitTime} + \max(\textit{timeReq}[i], \textit{timeReq}[j])$.
 
 To minimize the involvement of bacteria with long elimination times in the merging process, we can greedily select the two bacteria with the smallest elimination times for merging at each step. Therefore, we can maintain a min-heap, repeatedly extracting the two bacteria with the smallest elimination times and merging them until only one type of bacteria remains. The elimination time of this final bacteria is the answer.
 
@@ -117,6 +117,9 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$,
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minEliminationTime(self, timeReq: List[int], splitTime: int) -> int:
         heapify(timeReq)
@@ -169,6 +172,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func minEliminationTime(timeReq []int, splitTime int) int64 {
 	pq := hp{}
 	for _, v := range timeReq {

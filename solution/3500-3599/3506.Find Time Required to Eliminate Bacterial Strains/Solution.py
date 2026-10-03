@@ -1,3 +1,6 @@
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minEliminationTime(self, timeReq: List[int], splitTime: int) -> int:
         heapify(timeReq)
