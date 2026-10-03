@@ -436,4 +436,419 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Connect node $i$ in the first tree to some node $j$ in the second; a target is any node within distance $k$. With $n, m, k \le 1000$, one walk from every start is $O(n^2 + m^2)$ and fits the limits.
+>
+> Recursing into each child and decreasing the remaining depth by one reaches depth $n$ on a chain when $k$ is close to $n$, which overflows the call stack. The count depends only on whether a node falls inside the budget, so sibling order does not matter.
+>
+> Each start therefore uses an explicit stack of $(node, parent, remaining\ depth)$. Popping a frame counts that node; a remaining depth of $0$ stops the walk, and otherwise each neighbor other than the parent is pushed with the budget decreased by one. The second tree's budget is $k - 1$ and does not depend on $i$, so its maximum is added to every start in the first tree.
+
+<!-- thinking:end -->
+
+According to the problem description, to maximize the number of target nodes for node $i$, we must connect node $i$ to one of the nodes $j$ in the second tree. Therefore, the number of target nodes for node $i$ can be divided into two parts:
+
+- In the first tree, the number of nodes reachable from node $i$ within a depth of $k$.
+- In the second tree, the maximum number of nodes reachable from any node $j$ within a depth of $k - 1$.
+
+To count nodes within a depth budget $d$ from a start, an explicit stack stores $(node, parent, remaining\ depth)$. Popping a frame counts that node. If the remaining depth is positive, each neighbor that is not the parent is pushed with the budget decreased by one. Let $t$ be the maximum count in the second tree with $d = k - 1$. For each node $i$ in the first tree, add $t$ to the count obtained with $d = k$.
+
+The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the two trees, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTargetNodes(
+        self, edges1: List[List[int]], edges2: List[List[int]], k: int
+    ) -> List[int]:
+        def build(edges: List[List[int]]) -> List[List[int]]:
+            n = len(edges) + 1
+            g = [[] for _ in range(n)]
+            for a, b in edges:
+                g[a].append(b)
+                g[b].append(a)
+            return g
+
+        def dfs(g: List[List[int]], a: int, fa: int, d: int) -> int:
+            if d < 0:
+                return 0
+            stk = [(a, fa, d)]
+            cnt = 0
+            while stk:
+                u, p, rem = stk.pop()
+                cnt += 1
+                if rem == 0:
+                    continue
+                for b in g[u]:
+                    if b != p:
+                        stk.append((b, u, rem - 1))
+            return cnt
+
+        g2 = build(edges2)
+        m = len(edges2) + 1
+        t = max(dfs(g2, i, -1, k - 1) for i in range(m))
+        g1 = build(edges1)
+        n = len(edges1) + 1
+        return [dfs(g1, i, -1, k) + t for i in range(n)]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] maxTargetNodes(int[][] edges1, int[][] edges2, int k) {
+        var g2 = build(edges2);
+        int m = edges2.length + 1;
+        int t = 0;
+        for (int i = 0; i < m; ++i) {
+            t = Math.max(t, dfs(g2, i, -1, k - 1));
+        }
+        var g1 = build(edges1);
+        int n = edges1.length + 1;
+        int[] ans = new int[n];
+        Arrays.fill(ans, t);
+        for (int i = 0; i < n; ++i) {
+            ans[i] += dfs(g1, i, -1, k);
+        }
+        return ans;
+    }
+
+    private List<Integer>[] build(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return g;
+    }
+
+    private int dfs(List<Integer>[] g, int a, int fa, int d) {
+        if (d < 0) {
+            return 0;
+        }
+        int cnt = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {a, fa, d});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int u = cur[0], p = cur[1], rem = cur[2];
+            ++cnt;
+            if (rem == 0) {
+                continue;
+            }
+            for (int b : g[u]) {
+                if (b != p) {
+                    stk.push(new int[] {b, u, rem - 1});
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> maxTargetNodes(vector<vector<int>>& edges1, vector<vector<int>>& edges2, int k) {
+        auto g2 = build(edges2);
+        int m = edges2.size() + 1;
+        int t = 0;
+        for (int i = 0; i < m; ++i) {
+            t = max(t, dfs(g2, i, -1, k - 1));
+        }
+
+        auto g1 = build(edges1);
+        int n = edges1.size() + 1;
+
+        vector<int> ans(n, t);
+        for (int i = 0; i < n; ++i) {
+            ans[i] += dfs(g1, i, -1, k);
+        }
+
+        return ans;
+    }
+
+private:
+    vector<vector<int>> build(const vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        return g;
+    }
+
+    int dfs(const vector<vector<int>>& g, int a, int fa, int d) {
+        if (d < 0) {
+            return 0;
+        }
+        int cnt = 0;
+        vector<array<int, 3>> stk{{a, fa, d}};
+        while (!stk.empty()) {
+            auto [u, p, rem] = stk.back();
+            stk.pop_back();
+            ++cnt;
+            if (rem == 0) {
+                continue;
+            }
+            for (int b : g[u]) {
+                if (b != p) {
+                    stk.push_back({b, u, rem - 1});
+                }
+            }
+        }
+        return cnt;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTargetNodes(edges1 [][]int, edges2 [][]int, k int) []int {
+	g2 := build(edges2)
+	m := len(edges2) + 1
+	t := 0
+	for i := 0; i < m; i++ {
+		t = max(t, dfs(g2, i, -1, k-1))
+	}
+
+	g1 := build(edges1)
+	n := len(edges1) + 1
+	ans := make([]int, n)
+	for i := 0; i < n; i++ {
+		ans[i] = t + dfs(g1, i, -1, k)
+	}
+	return ans
+}
+
+func build(edges [][]int) [][]int {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	return g
+}
+
+func dfs(g [][]int, a, fa, d int) int {
+	if d < 0 {
+		return 0
+	}
+	cnt := 0
+	stk := [][3]int{{a, fa, d}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		u, p, rem := cur[0], cur[1], cur[2]
+		cnt++
+		if rem == 0 {
+			continue
+		}
+		for _, b := range g[u] {
+			if b != p {
+				stk = append(stk, [3]int{b, u, rem - 1})
+			}
+		}
+	}
+	return cnt
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTargetNodes(edges1: number[][], edges2: number[][], k: number): number[] {
+    const g2 = build(edges2);
+    const m = edges2.length + 1;
+    let t = 0;
+    for (let i = 0; i < m; i++) {
+        t = Math.max(t, dfs(g2, i, -1, k - 1));
+    }
+
+    const g1 = build(edges1);
+    const n = edges1.length + 1;
+    const ans = Array(n).fill(t);
+
+    for (let i = 0; i < n; i++) {
+        ans[i] += dfs(g1, i, -1, k);
+    }
+
+    return ans;
+}
+
+function build(edges: number[][]): number[][] {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    return g;
+}
+
+function dfs(g: number[][], a: number, fa: number, d: number): number {
+    if (d < 0) {
+        return 0;
+    }
+    const stk: [number, number, number][] = [[a, fa, d]];
+    let cnt = 0;
+    while (stk.length) {
+        const [u, p, rem] = stk.pop()!;
+        cnt++;
+        if (rem === 0) {
+            continue;
+        }
+        for (const b of g[u]) {
+            if (b !== p) {
+                stk.push([b, u, rem - 1]);
+            }
+        }
+    }
+    return cnt;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_target_nodes(edges1: Vec<Vec<i32>>, edges2: Vec<Vec<i32>>, k: i32) -> Vec<i32> {
+        fn build(edges: &Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+            let n = edges.len() + 1;
+            let mut g = vec![vec![]; n];
+            for e in edges {
+                let a = e[0] as usize;
+                let b = e[1] as usize;
+                g[a].push(b as i32);
+                g[b].push(a as i32);
+            }
+            g
+        }
+
+        fn dfs(g: &Vec<Vec<i32>>, a: usize, fa: i32, d: i32) -> i32 {
+            if d < 0 {
+                return 0;
+            }
+            let mut cnt = 0;
+            let mut stk = vec![(a, fa, d)];
+            while let Some((u, p, rem)) = stk.pop() {
+                cnt += 1;
+                if rem == 0 {
+                    continue;
+                }
+                for &b in &g[u] {
+                    if b != p {
+                        stk.push((b as usize, u as i32, rem - 1));
+                    }
+                }
+            }
+            cnt
+        }
+
+        let g2 = build(&edges2);
+        let m = edges2.len() + 1;
+        let mut t = 0;
+        for i in 0..m {
+            t = t.max(dfs(&g2, i, -1, k - 1));
+        }
+
+        let g1 = build(&edges1);
+        let n = edges1.len() + 1;
+        let mut ans = vec![t; n];
+        for i in 0..n {
+            ans[i] += dfs(&g1, i, -1, k);
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] MaxTargetNodes(int[][] edges1, int[][] edges2, int k) {
+        var g2 = Build(edges2);
+        int m = edges2.Length + 1;
+        int t = 0;
+
+        for (int i = 0; i < m; i++) {
+            t = Math.Max(t, Dfs(g2, i, -1, k - 1));
+        }
+
+        var g1 = Build(edges1);
+        int n = edges1.Length + 1;
+        var ans = new int[n];
+        Array.Fill(ans, t);
+
+        for (int i = 0; i < n; i++) {
+            ans[i] += Dfs(g1, i, -1, k);
+        }
+
+        return ans;
+    }
+
+    private List<int>[] Build(int[][] edges) {
+        int n = edges.Length + 1;
+        var g = new List<int>[n];
+        for (int i = 0; i < n; i++) {
+            g[i] = new List<int>();
+        }
+        foreach (var e in edges) {
+            int a = e[0], b = e[1];
+            g[a].Add(b);
+            g[b].Add(a);
+        }
+        return g;
+    }
+
+    private int Dfs(List<int>[] g, int a, int fa, int d) {
+        if (d < 0) {
+            return 0;
+        }
+        int cnt = 0;
+        var stk = new Stack<(int, int, int)>();
+        stk.Push((a, fa, d));
+        while (stk.Count > 0) {
+            var (u, p, rem) = stk.Pop();
+            cnt++;
+            if (rem == 0) {
+                continue;
+            }
+            foreach (var b in g[u]) {
+                if (b != p) {
+                    stk.Push((b, u, rem - 1));
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
