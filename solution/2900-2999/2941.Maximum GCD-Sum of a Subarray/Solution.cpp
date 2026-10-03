@@ -13,7 +13,7 @@ public:
             vector<pair<int, int>> g;
             for (auto [j, x] : f) {
                 int y = gcd(x, nums[i]);
-                if (g.empt() || g.back().second != y) {
+                if (g.empty() || g.back().second != y) {
                     g.emplace_back(j, y);
                 }
             }
