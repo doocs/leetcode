@@ -1,13 +1,13 @@
 class Router {
 private:
     int lim;
-    unordered_set<long long> vis;
+    unordered_set<string> vis;
     deque<array<int, 3>> q;
     unordered_map<int, int> idx;
     unordered_map<int, vector<int>> d;
 
-    long long f(int a, int b, int c) {
-        return ((long long) a << 46) | ((long long) b << 29) | (long long) c;
+    string f(int a, int b, int c) {
+        return to_string(a) + "#" + to_string(b) + "#" + to_string(c);
     }
 
 public:
@@ -16,7 +16,7 @@ public:
     }
 
     bool addPacket(int source, int destination, int timestamp) {
-        long long x = f(source, destination, timestamp);
+        string x = f(source, destination, timestamp);
         if (vis.count(x)) {
             return false;
         }
