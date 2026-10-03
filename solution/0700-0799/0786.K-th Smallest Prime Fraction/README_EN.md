@@ -83,6 +83,9 @@ The third fraction is 2/5.
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
         h = [(1 / y, 0, j + 1) for j, y in enumerate(arr[1:])]
@@ -162,6 +165,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 type frac struct{ x, y, i, j int }
 type hp []frac
 

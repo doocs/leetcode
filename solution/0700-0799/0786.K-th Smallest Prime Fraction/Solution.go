@@ -1,3 +1,5 @@
+import "container/heap"
+
 type frac struct{ x, y, i, j int }
 type hp []frac
 
