@@ -112,7 +112,7 @@ Therefore, no balanced index exists and the answer is -1.</div>
 
 <!-- thinking:end -->
 
-We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $nums[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $nums[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early.
+We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $nums[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $nums[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early. Java, C++, and Go store this product in a 64-bit signed integer. If the multiplication would overflow, the true product is already greater than the remaining left sum, so the scan stops as well.
 
 If no balanced index is found after the enumeration, we return -1.
 
@@ -151,6 +151,9 @@ class Solution {
             if (s == p) {
                 return i;
             }
+            if (p > Long.MAX_VALUE / nums[i]) {
+                break;
+            }
             p *= nums[i];
             if (p >= s) {
                 break;
@@ -176,6 +179,9 @@ public:
             if (s == p) {
                 return i;
             }
+            if (p > LLONG_MAX / nums[i]) {
+                break;
+            }
             p *= nums[i];
             if (p >= s) {
                 break;
@@ -189,6 +195,8 @@ public:
 #### Go
 
 ```go
+import "math"
+
 func smallestBalancedIndex(nums []int) int {
 	s, p := 0, 1
 	for _, x := range nums {
@@ -198,6 +206,9 @@ func smallestBalancedIndex(nums []int) int {
 		s -= nums[i]
 		if s == p {
 			return i
+		}
+		if p > math.MaxInt64/nums[i] {
+			break
 		}
 		p *= nums[i]
 		if p >= s {
