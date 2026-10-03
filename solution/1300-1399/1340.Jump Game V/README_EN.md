@@ -315,7 +315,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Memoization expands in call order. Filling $f[i]$ from shorter bars to taller ones makes every legal $j$ already computed, so the same transition becomes iterative DP without a recursion stack.
+> Solution 1 already fills this table from shorter bars to taller ones. The transition below is that same table.
 
 <!-- thinking:end -->
 
@@ -328,6 +328,211 @@ We enumerate $i$ in the order of the tuples $(x, i)$, and enumerate all valid ju
 The final answer is $\max_{0 \leq i < n} f[i]$.
 
 The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{arr}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxJumps(self, arr: List[int], d: int) -> int:
+        n = len(arr)
+        f = [1] * n
+        for x, i in sorted(zip(arr, range(n))):
+            for j in range(i - 1, -1, -1):
+                if i - j > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+            for j in range(i + 1, n):
+                if j - i > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+        return max(f)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxJumps(int[] arr, int d) {
+        int n = arr.length;
+        Integer[] idx = new Integer[n];
+        Arrays.setAll(idx, i -> i);
+        Arrays.sort(idx, (i, j) -> arr[i] - arr[j]);
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int ans = 0;
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxJumps(vector<int>& arr, int d) {
+        int n = arr.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return arr[i] < arr[j]; });
+        vector<int> f(n, 1);
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+        }
+        return ranges::max(f);
+    }
+};
+```
+
+#### Go
+
+```go
+func maxJumps(arr []int, d int) int {
+	n := len(arr)
+	idx := make([]int, n)
+	f := make([]int, n)
+	for i := range f {
+		idx[i] = i
+		f[i] = 1
+	}
+	sort.Slice(idx, func(i, j int) bool { return arr[idx[i]] < arr[idx[j]] })
+	for _, i := range idx {
+		for j := i - 1; j >= 0; j-- {
+			if i-j > d || arr[j] >= arr[i] {
+				break
+			}
+			f[i] = max(f[i], 1+f[j])
+		}
+		for j := i + 1; j < n; j++ {
+			if j-i > d || arr[j] >= arr[i] {
+				break
+			}
+			f[i] = max(f[i], 1+f[j])
+		}
+	}
+	return slices.Max(f)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxJumps(arr: number[], d: number): number {
+    const n = arr.length;
+    const f: number[] = new Array(n).fill(1);
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((a, b) => arr[a] - arr[b]);
+    for (const i of idx) {
+        for (let j = i - 1; j >= 0; j--) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+        for (let j = i + 1; j < n; j++) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_jumps(arr: Vec<i32>, d: i32) -> i32 {
+        let n = arr.len();
+        let d = d as usize;
+
+        let mut idx: Vec<usize> = (0..n).collect();
+        idx.sort_by_key(|&i| arr[i]);
+
+        let mut f = vec![1; n];
+
+        for &i in &idx {
+            let mut j = i as i32 - 1;
+            while j >= 0 {
+                let k = j as usize;
+
+                if i - k > d || arr[k] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[k]);
+                j -= 1;
+            }
+
+            let mut j = i + 1;
+            while j < n {
+                if j - i > d || arr[j] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[j]);
+                j += 1;
+            }
+        }
+
+        *f.iter().max().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expanding every jump onto a shorter bar is exponential. The array length can reach $1000$, and the first call from a bar always lands on the next shorter neighbor, so the chain has depth $n$. A jump lands only on a strictly shorter index, and every index in between must also be strictly shorter, so $f[i]$ depends only on shorter indices. Sorting the indices by height makes every legal $j$ already final when $i$ is filled, and the update is $f[i] = \max(f[i], 1 + f[j])$ with each entry starting at $1$. The answer is the largest entry.
+
+<!-- thinking:end -->
+
+We let $f[i]$ be the maximum number of indices that can be visited starting from index $i$, and set $f[i] = 1$ initially.
+
+Sort the indices in increasing order of $\text{arr}[i]$. When index $i$ is processed, scan left and right until the distance exceeds $d$ or a bar at least as tall as $\text{arr}[i]$ appears. For each legal index $j$ on that scan, update $f[i] = \max(f[i], 1 + f[j])$. Shorter bars have already been processed, so $f[j]$ is final.
+
+The answer is the maximum value of $f[i]$.
+
+The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$, where $n$ is the length of $\text{arr}$.
 
 <!-- tabs:start -->
 
