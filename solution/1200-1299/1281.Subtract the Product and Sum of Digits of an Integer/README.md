@@ -80,8 +80,12 @@ tags:
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        nums = list(map(int, str(n)))
-        return prod(nums) - sum(nums)
+        x, y = 1, 0
+        while n:
+            n, v = divmod(n, 10)
+            x *= v
+            y += v
+        return x - y
 ```
 
 #### Java
