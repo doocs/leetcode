@@ -92,15 +92,15 @@ Inventory 表：
 >
 > 仓库容量 $500000$，优先装满所有 prime 套装，剩余再装非 prime。套装定义为该类型全部物品各一份。
 >
-> prime 套装面积为该类面积之和 $s$，可装 $\lfloor 500000/s \rfloor$ 套；余数再按非 prime 总面积整除。
+> prime 套装面积为该类面积之和 $s$，可装 $\lfloor 500000/s \rfloor$ 套；余数再按非 prime 总面积整除。该类没有物品时，`SUM` 得到 `NULL`，按 $0$ 处理，整座仓库都留给非 prime。
 >
-> 先求出 $s$，再分别对两类计数并乘上可装套数，用 $\texttt{UNION ALL}$ 拼成两行。
+> 先求出 $s$，再分别对两类计数并乘上可装套数，用 $\texttt{UNION ALL}$ 拼成两行，并按件数降序输出。
 
 <!-- thinking:end -->
 
-我们先计算出所有 prime_eligible 类型的物品的总面积，记录在 `T` 表的 `s` 字段中。
+我们先计算出所有 prime_eligible 类型的物品的总面积，记录在 `T` 表的 `s` 字段中。该类没有物品时，`SUM` 的结果是 `NULL`，`IFNULL` 将其记为 $0$。此时不存放 prime 套装，剩余面积就是全部 $500000$。
 
-接下来，我们分别计算 prime_eligible 和 not_prime 类型的物品的数量。对于 prime_eligible 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000}{s} \rfloor$，对于 not_prime 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000 \mod s}{\sum \textit{s1}} \rfloor$。其中 $\sum \textit{s1}$ 是所有 not_prime 类型的物品的总面积。再分别乘上 prime_eligible 和 not_prime 类型的物品的数量，就是我们的结果。
+接下来，我们分别计算 prime_eligible 和 not_prime 类型的物品的数量。当 $s > 0$ 时，prime_eligible 可存放的份数是 $\lfloor \frac{500000}{s} \rfloor$，not_prime 可存放的份数是 $\lfloor \frac{500000 \mod s}{\sum \textit{s1}} \rfloor$；当 $s = 0$ 时，prime 份数为 $0$，not_prime 份数为 $\lfloor \frac{500000}{\sum \textit{s1}} \rfloor$。其中 $\sum \textit{s1}$ 是所有 not_prime 类型的物品的总面积。再分别乘上两类物品的数量，得到两行件数，并按件数降序输出。
 
 <!-- tabs:start -->
 
@@ -110,17 +110,16 @@ Inventory 表：
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT SUM(square_footage) AS s
+        SELECT
+            IFNULL(SUM(square_footage), 0) AS s,
+            COUNT(1) AS cnt
         FROM Inventory
         WHERE item_type = 'prime_eligible'
     )
 SELECT
     'prime_eligible' AS item_type,
-    COUNT(1) * FLOOR(500000 / s) AS item_count
-FROM
-    Inventory
-    JOIN T
-WHERE item_type = 'prime_eligible'
+    IF(s = 0, 0, cnt * FLOOR(500000 / s)) AS item_count
+FROM T
 UNION ALL
 SELECT
     'not_prime',
@@ -128,7 +127,8 @@ SELECT
 FROM
     Inventory
     JOIN T
-WHERE item_type = 'not_prime';
+WHERE item_type = 'not_prime'
+ORDER BY item_count DESC, item_type DESC;
 ```
 
 <!-- tabs:end -->
