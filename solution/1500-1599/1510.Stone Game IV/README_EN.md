@@ -274,13 +274,11 @@ impl Solution {
 
 > **Thinking**
 >
-> Memoization still pays recursion and cache overhead, while the asymptotic cost matches a bottom-up table. Let $f[i]$ be whether $i$ stones is a win, and fill $i$ in increasing order. A single square that lands on a losing successor makes $f[i]$ true. The implementation is a loop and needs no call stack.
+> Solution 1 already fills this win/loss table from fewer stones to more. The $f[i]$ below is that same table.
 
 <!-- thinking:end -->
 
-We can also use dynamic programming to solve this problem.
-
-Define an array $f$, where $f[i]$ represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, then $f[i]$ is $true$, otherwise it is $false$. The answer is $f[n]$.
+Solution 1 already fills this table from fewer stones to more. Define an array $f$, where $f[i]$ represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, then $f[i]$ is $true$, otherwise it is $false$. The answer is $f[n]$.
 
 We enumerate $i$ in the range $[1,..n]$, and enumerate $j$ in the range $[1,..i]$, where $j$ is a square number. If the other player cannot win the game after the current player takes away $j$ stones, then the current player wins the game, i.e., $f[i] = true$. If all $j$ enumerated cannot satisfy the above condition, then the current player loses the game, i.e., $f[i] = false$. Therefore, we can get the state transition equation:
 
@@ -293,6 +291,142 @@ false, & \textit{otherwise}
 $$
 
 Finally, we return $f[n]$.
+
+The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$. Where $n$ is the number of stones in the pile.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        f = [False] * (n + 1)
+        for i in range(1, n + 1):
+            j = 1
+            while j <= i // j:
+                if not f[i - j * j]:
+                    f[i] = True
+                    break
+                j += 1
+        return f[n]
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean winnerSquareGame(int n) {
+        boolean[] f = new boolean[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool winnerSquareGame(int n) {
+        bool f[n + 1];
+        memset(f, false, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+#### Go
+
+```go
+func winnerSquareGame(n int) bool {
+	f := make([]bool, n+1)
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i/j; j++ {
+			if !f[i-j*j] {
+				f[i] = true
+				break
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+#### TypeScript
+
+```ts
+function winnerSquareGame(n: number): boolean {
+    const f: boolean[] = new Array(n + 1).fill(false);
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j * j <= i; ++j) {
+            if (!f[i - j * j]) {
+                f[i] = true;
+                break;
+            }
+        }
+    }
+    return f[n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn winner_square_game(n: i32) -> bool {
+        let n = n as usize;
+        let mut f = vec![false; n + 1];
+
+        for i in 1..=n {
+            let mut j = 1;
+            while j <= i / j {
+                if !f[i - j * j] {
+                    f[i] = true;
+                    break;
+                }
+                j += 1;
+            }
+        }
+
+        f[n]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expanding the whole game tree is exponential. There can be $10^5$ stones, and the first move always removes one stone, so the search has depth $n$. Whether a position is winning depends only on the remaining count, and only on smaller counts. Let $f[i]$ record a win with $i$ stones, with $f[0]$ losing, and scan $i$ upward. A square $j^2$ that leaves a losing position makes $f[i]$ winning.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be whether the player to move wins with $i$ stones. $f[0]$ is $false$, since no move remains. For $i$ from $1$ to $n$, enumerate squares $j^2 \le i$. If $f[i-j^2]$ is $false$, the opponent loses from there, so $f[i]$ is $true$ and the remaining squares can be skipped. If every square leaves a winning position for the opponent, $f[i]$ stays $false$. The answer is $f[n]$.
 
 The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$. Where $n$ is the number of stones in the pile.
 
