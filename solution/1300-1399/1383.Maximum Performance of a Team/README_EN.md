@@ -86,6 +86,9 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def maxPerformance(
         self, n: int, speed: List[int], efficiency: List[int], k: int
@@ -162,6 +165,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func maxPerformance(n int, speed []int, efficiency []int, k int) int {
 	t := make([][]int, n)
 	for i, s := range speed {

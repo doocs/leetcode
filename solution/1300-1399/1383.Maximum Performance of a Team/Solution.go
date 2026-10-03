@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 func maxPerformance(n int, speed []int, efficiency []int, k int) int {
 	t := make([][]int, n)
 	for i, s := range speed {
