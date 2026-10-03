@@ -10,6 +10,9 @@ public:
             if (s == p) {
                 return i;
             }
+            if (p > LLONG_MAX / nums[i]) {
+                break;
+            }
             p *= nums[i];
             if (p >= s) {
                 break;

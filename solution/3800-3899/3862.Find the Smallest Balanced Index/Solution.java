@@ -9,6 +9,9 @@ class Solution {
             if (s == p) {
                 return i;
             }
+            if (p > Long.MAX_VALUE / nums[i]) {
+                break;
+            }
             p *= nums[i];
             if (p >= s) {
                 break;
