@@ -38,15 +38,17 @@ difficulty: 中等
 
 > **思考**
 >
-> 过点数最多的直线，返回其上最小的两个下标。点的数量通常不大，三重枚举 $O(n^3)$ 可过。
+> 两点重合时，叉积两侧都是 $0$，后面的每个点都会被算成共线。
 >
-> 固定两点定直线，第三点用叉积 $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$ 判断共线，避开除法精度。
+> 这样得到的点数大于真实直线，返回的下标对也就不再是点数最多的直线上最小的两个编号。
 >
-> 枚举 $i<j<k$，用计数更新最大值及对应的 $(i,j)$。先枚举较小下标，自然满足「编号最小」的次序。
+> 直线要由两个位置不同的点确定，重合点落在通过该位置的每一条直线上，应当计入点集。
+>
+> 因此我们跳过重合的点对，用叉积扫描全部下标，只保留最先命中的两个作为候选。所有点都重合时，没有位置不同的点对，答案是 $[0, 1]$。
 
 <!-- thinking:end -->
 
-我们可以枚举任意两个点 $(x_1, y_1), (x_2, y_2)$，把这两个点连成一条直线，那么此时这条直线上的点的个数就是 2，接下来我们再枚举其他点 $(x_3, y_3)$，判断它们是否在同一条直线上，如果在，那么直线上的点的个数就加 1，如果不在，那么直线上的点的个数不变。找出所有直线上的点的个数的最大值，其对应的最小的两个点的编号即为答案。
+我们可以枚举两个位置不同的点 $(x_1, y_1)$ 与 $(x_2, y_2)$ 来确定一条直线。对每个下标 $k$，用叉积 $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$ 判断点 $k$ 是否在这条直线上。重合点与任一端点坐标相同，叉积为 $0$，会自然计入。记下这条直线上的点数，以及其中最小的两个下标。点数严格更大，或点数相同且下标对更小时更新答案。若所有点坐标都相同，不存在位置不同的点对，答案为 $[0, 1]$。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `points` 的长度。
 
@@ -59,19 +61,28 @@ class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
         n = len(points)
         mx = 0
+        x, y = 0, 1
         for i in range(n):
             x1, y1 = points[i]
             for j in range(i + 1, n):
                 x2, y2 = points[j]
-                cnt = 2
-                for k in range(j + 1, n):
+                if x1 == x2 and y1 == y2:
+                    continue
+                cnt = 0
+                a = b = -1
+                for k in range(n):
                     x3, y3 = points[k]
-                    a = (y2 - y1) * (x3 - x1)
-                    b = (y3 - y1) * (x2 - x1)
-                    cnt += a == b
-                if mx < cnt:
+                    c1 = (y2 - y1) * (x3 - x1)
+                    c2 = (y3 - y1) * (x2 - x1)
+                    if c1 == c2:
+                        cnt += 1
+                        if a < 0:
+                            a = k
+                        elif b < 0:
+                            b = k
+                if cnt > mx or (cnt == mx and (a, b) < (x, y)):
                     mx = cnt
-                    x, y = i, j
+                    x, y = a, b
         return [x, y]
 ```
 
@@ -82,24 +93,33 @@ class Solution {
     public int[] bestLine(int[][] points) {
         int n = points.length;
         int mx = 0;
-        int[] ans = new int[2];
+        int[] ans = {0, 1};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
+                if (x1 == x2 && y1 == y2) {
+                    continue;
+                }
+                int cnt = 0;
+                int a = -1, b = -1;
+                for (int k = 0; k < n; ++k) {
                     int x3 = points[k][0], y3 = points[k][1];
-                    int a = (y2 - y1) * (x3 - x1);
-                    int b = (y3 - y1) * (x2 - x1);
-                    if (a == b) {
+                    int c1 = (y2 - y1) * (x3 - x1);
+                    int c2 = (y3 - y1) * (x2 - x1);
+                    if (c1 == c2) {
                         ++cnt;
+                        if (a < 0) {
+                            a = k;
+                        } else if (b < 0) {
+                            b = k;
+                        }
                     }
                 }
-                if (mx < cnt) {
+                if (cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1])))) {
                     mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
+                    ans[0] = a;
+                    ans[1] = b;
                 }
             }
         }
@@ -116,22 +136,33 @@ public:
     vector<int> bestLine(vector<vector<int>>& points) {
         int n = points.size();
         int mx = 0;
-        vector<int> ans(2);
+        vector<int> ans = {0, 1};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
-                    int x3 = points[k][0], y3 = points[k][1];
-                    long a = (long) (y2 - y1) * (x3 - x1);
-                    long b = (long) (y3 - y1) * (x2 - x1);
-                    cnt += a == b;
+                if (x1 == x2 && y1 == y2) {
+                    continue;
                 }
-                if (mx < cnt) {
+                int cnt = 0;
+                int a = -1, b = -1;
+                for (int k = 0; k < n; ++k) {
+                    int x3 = points[k][0], y3 = points[k][1];
+                    long c1 = (long) (y2 - y1) * (x3 - x1);
+                    long c2 = (long) (y3 - y1) * (x2 - x1);
+                    if (c1 == c2) {
+                        ++cnt;
+                        if (a < 0) {
+                            a = k;
+                        } else if (b < 0) {
+                            b = k;
+                        }
+                    }
+                }
+                if (cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1])))) {
                     mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
+                    ans[0] = a;
+                    ans[1] = b;
                 }
             }
         }
@@ -145,24 +176,33 @@ public:
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
-	ans := make([]int, 2)
+	ans := []int{0, 1}
 	mx := 0
 	for i := 0; i < n; i++ {
 		x1, y1 := points[i][0], points[i][1]
 		for j := i + 1; j < n; j++ {
 			x2, y2 := points[j][0], points[j][1]
-			cnt := 2
-			for k := j + 1; k < n; k++ {
+			if x1 == x2 && y1 == y2 {
+				continue
+			}
+			cnt := 0
+			a, b := -1, -1
+			for k := 0; k < n; k++ {
 				x3, y3 := points[k][0], points[k][1]
-				a := (y2 - y1) * (x3 - x1)
-				b := (y3 - y1) * (x2 - x1)
-				if a == b {
+				c1 := (y2 - y1) * (x3 - x1)
+				c2 := (y3 - y1) * (x2 - x1)
+				if c1 == c2 {
 					cnt++
+					if a < 0 {
+						a = k
+					} else if b < 0 {
+						b = k
+					}
 				}
 			}
-			if mx < cnt {
+			if cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1]))) {
 				mx = cnt
-				ans[0], ans[1] = i, j
+				ans[0], ans[1] = a, b
 			}
 		}
 	}
@@ -176,31 +216,38 @@ func bestLine(points [][]int) []int {
 class Solution {
     func bestLine(_ points: [[Int]]) -> [Int] {
         let n = points.count
-        var maxCount = 0
-        var answer = [Int](repeating: 0, count: 2)
-
+        var mx = 0
+        var ans = [0, 1]
         for i in 0..<n {
             let x1 = points[i][0], y1 = points[i][1]
             for j in i + 1..<n {
                 let x2 = points[j][0], y2 = points[j][1]
-                var count = 2
-
-                for k in j + 1..<n {
+                if x1 == x2 && y1 == y2 {
+                    continue
+                }
+                var cnt = 0
+                var a = -1
+                var b = -1
+                for k in 0..<n {
                     let x3 = points[k][0], y3 = points[k][1]
-                    let a = (y2 - y1) * (x3 - x1)
-                    let b = (y3 - y1) * (x2 - x1)
-                    if a == b {
-                        count += 1
+                    let c1 = (y2 - y1) * (x3 - x1)
+                    let c2 = (y3 - y1) * (x2 - x1)
+                    if c1 == c2 {
+                        cnt += 1
+                        if a < 0 {
+                            a = k
+                        } else if b < 0 {
+                            b = k
+                        }
                     }
                 }
-
-                if maxCount < count {
-                    maxCount = count
-                    answer = [i, j]
+                if cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1]))) {
+                    mx = cnt
+                    ans = [a, b]
                 }
             }
         }
-        return answer
+        return ans
     }
 }
 ```
