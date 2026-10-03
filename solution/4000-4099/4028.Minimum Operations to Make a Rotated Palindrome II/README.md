@@ -106,6 +106,9 @@ tags:
 #### Python3
 
 ```python
+import math
+from math import inf
+
 import numpy as np
 
 
