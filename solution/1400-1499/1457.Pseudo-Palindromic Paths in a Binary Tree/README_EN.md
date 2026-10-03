@@ -302,4 +302,280 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A root-to-leaf path can be rearranged into a palindrome exactly when at most one value occurs an odd number of times. Values lie in $1$ through $9$ and $n$ reaches $10^5$, so a 10-bit mask updated by XOR records the parity of each value.
+>
+> Counting at the leaf and adding the two subtrees would finish the walk, but the search enters the left child first. A left chain can be $n$ nodes long, so recursion overflows before the leaf test. The mask depends only on the path from the root, so the two children do not depend on each other.
+>
+> An explicit stack stores each node with the mask from above. After a pop, the current value is XORed in. A leaf whose $mask \& (mask-1) = 0$ adds one path; otherwise the right child is pushed, then the left child, both with the updated mask.
+>
+> Each node is pushed once, and the leaf counts are the number of pseudo-palindromic paths.
+
+<!-- thinking:end -->
+
+A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
+
+Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $mask$ to represent the occurrence status of the node values in the current path. The $i$th bit of $mask$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $mask \& (mask - 1) = 0$, where $\&$ represents the bitwise AND operation.
+
+An explicit stack walks from the root. Each entry is a node and the mask above it. After a pop, set $mask = mask \oplus 2^{\textit{val}}$. If the node is a leaf and $mask \& (mask - 1) = 0$, add one to the answer. Otherwise push the right child and then the left child, both with the updated mask, and skip a missing child. The left child is pushed last, so it is handled first.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pseudoPalindromicPaths(self, root: Optional[TreeNode]) -> int:
+        ans = 0
+        stk = [(root, 0)]
+        while stk:
+            node, mask = stk.pop()
+            if node is None:
+                continue
+            mask ^= 1 << node.val
+            if node.left is None and node.right is None:
+                ans += (mask & (mask - 1)) == 0
+            else:
+                stk.append((node.right, mask))
+                stk.append((node.left, mask))
+        return ans
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int pseudoPalindromicPaths(TreeNode root) {
+        int ans = 0;
+        Deque<TreeNode> nodes = new ArrayDeque<>();
+        Deque<Integer> masks = new ArrayDeque<>();
+        if (root != null) {
+            nodes.push(root);
+            masks.push(0);
+        }
+        while (!nodes.isEmpty()) {
+            TreeNode node = nodes.pop();
+            int mask = masks.pop() ^ (1 << node.val);
+            if (node.left == null && node.right == null) {
+                if ((mask & (mask - 1)) == 0) {
+                    ++ans;
+                }
+            } else {
+                if (node.right != null) {
+                    nodes.push(node.right);
+                    masks.push(mask);
+                }
+                if (node.left != null) {
+                    nodes.push(node.left);
+                    masks.push(mask);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int pseudoPalindromicPaths(TreeNode* root) {
+        int ans = 0;
+        vector<pair<TreeNode*, int>> stk;
+        stk.emplace_back(root, 0);
+        while (!stk.empty()) {
+            auto [node, mask] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            mask ^= 1 << node->val;
+            if (!node->left && !node->right) {
+                ans += (mask & (mask - 1)) == 0;
+            } else {
+                stk.emplace_back(node->right, mask);
+                stk.emplace_back(node->left, mask);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pseudoPalindromicPaths(root *TreeNode) (ans int) {
+	stk := []struct {
+		node *TreeNode
+		mask int
+	}{{root, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, mask := cur.node, cur.mask
+		if node == nil {
+			continue
+		}
+		mask ^= 1 << node.Val
+		if node.Left == nil && node.Right == nil {
+			if mask&(mask-1) == 0 {
+				ans++
+			}
+		} else {
+			stk = append(stk, struct {
+				node *TreeNode
+				mask int
+			}{node.Right, mask}, struct {
+				node *TreeNode
+				mask int
+			}{node.Left, mask})
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pseudoPalindromicPaths(root: TreeNode | null): number {
+    let ans = 0;
+    const stk: [TreeNode | null, number][] = [[root, 0]];
+    while (stk.length) {
+        const cur = stk.pop()!;
+        const node = cur[0];
+        if (!node) {
+            continue;
+        }
+        const mask = cur[1] ^ (1 << node.val);
+        if (!node.left && !node.right) {
+            if ((mask & (mask - 1)) === 0) {
+                ++ans;
+            }
+        } else {
+            stk.push([node.right, mask]);
+            stk.push([node.left, mask]);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn pseudo_palindromic_paths(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut ans = 0;
+        let mut stk = vec![(root, 0)];
+        while let Some((node, mask)) = stk.pop() {
+            if let Some(node) = node {
+                let node = node.borrow();
+                let mask = mask ^ (1 << node.val);
+                if node.left.is_none() && node.right.is_none() {
+                    if mask & (mask - 1) == 0 {
+                        ans += 1;
+                    }
+                } else {
+                    stk.push((node.right.clone(), mask));
+                    stk.push((node.left.clone(), mask));
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
