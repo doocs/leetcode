@@ -1,3 +1,7 @@
+from functools import reduce
+from heapq import heapify, heapreplace
+
+
 class Solution:
     def maximumProduct(self, nums: List[int], k: int) -> int:
         heapify(nums)

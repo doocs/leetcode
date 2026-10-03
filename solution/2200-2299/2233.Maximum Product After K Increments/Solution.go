@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 func maximumProduct(nums []int, k int) int {
 	h := hp{nums}
 	for heap.Init(&h); k > 0; k-- {

@@ -81,6 +81,10 @@ tags:
 #### Python3
 
 ```python
+from functools import reduce
+from heapq import heapify, heapreplace
+
+
 class Solution:
     def maximumProduct(self, nums: List[int], k: int) -> int:
         heapify(nums)
@@ -141,6 +145,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func maximumProduct(nums []int, k int) int {
 	h := hp{nums}
 	for heap.Init(&h); k > 0; k-- {
