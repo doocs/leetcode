@@ -237,4 +237,232 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The reporting lines form a tree rooted at the head, and an edge costs that employee's inform time. With $n \le 10^5$, recursing from the head to score every subtree is too deep: a chain makes the call depth $n$.
+>
+> The time for employee $i$ to inform a whole subtree is $i$'s own inform time plus the slowest direct report. A leaf has no reports, so that time is $0$. The value depends only on results that are already known for the children.
+>
+> An explicit stack starts at $\textit{headID}$ and walks $(employee, state)$ in postorder. On entry we push the exit marker and then the reports, and on exit we store the maximum of $\textit{informTime}[i] + \textit{time}[j]$. The head's time is the answer.
+
+<!-- thinking:end -->
+
+We first build an adjacent list $g$ according to the $manager$ array, where $g[i]$ represents all direct subordinates of employee $i$.
+
+The time for employee $i$ to inform the whole subtree is $\textit{informTime}[i]$ plus the maximum time among the direct reports, or $0$ when there are no reports. An explicit stack walks from $\textit{headID}$ in postorder and writes that time when the node is left. The answer is the head's time.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of employees.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numOfMinutes(
+        self, n: int, headID: int, manager: List[int], informTime: List[int]
+    ) -> int:
+        g = [[] for _ in range(n)]
+        for i, x in enumerate(manager):
+            if x != -1:
+                g[x].append(i)
+        time = [0] * n
+        stk = [(headID, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j in g[i]:
+                    stk.append((j, 0))
+            else:
+                ans = 0
+                for j in g[i]:
+                    ans = max(ans, time[j] + informTime[i])
+                time[i] = ans
+        return time[headID]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numOfMinutes(int n, int headID, int[] manager, int[] informTime) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 0; i < n; ++i) {
+            if (manager[i] >= 0) {
+                g[manager[i]].add(i);
+            }
+        }
+        int[] time = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {headID, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                stk.push(new int[] {i, 1});
+                for (int j : g[i]) {
+                    stk.push(new int[] {j, 0});
+                }
+            } else {
+                int ans = 0;
+                for (int j : g[i]) {
+                    ans = Math.max(ans, time[j] + informTime[i]);
+                }
+                time[i] = ans;
+            }
+        }
+        return time[headID];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
+        vector<vector<int>> g(n);
+        for (int i = 0; i < n; ++i) {
+            if (manager[i] >= 0) {
+                g[manager[i]].push_back(i);
+            }
+        }
+        vector<int> time(n);
+        vector<array<int, 2>> stk{{headID, 0}};
+        while (!stk.empty()) {
+            auto [i, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, 1});
+                for (int j : g[i]) {
+                    stk.push_back({j, 0});
+                }
+            } else {
+                int ans = 0;
+                for (int j : g[i]) {
+                    ans = max(ans, time[j] + informTime[i]);
+                }
+                time[i] = ans;
+            }
+        }
+        return time[headID];
+    }
+};
+```
+
+#### Go
+
+```go
+func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
+	g := make([][]int, n)
+	for i, x := range manager {
+		if x != -1 {
+			g[x] = append(g[x], i)
+		}
+	}
+	time := make([]int, n)
+	stk := [][2]int{{headID, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			stk = append(stk, [2]int{i, 1})
+			for _, j := range g[i] {
+				stk = append(stk, [2]int{j, 0})
+			}
+		} else {
+			ans := 0
+			for _, j := range g[i] {
+				ans = max(ans, time[j]+informTime[i])
+			}
+			time[i] = ans
+		}
+	}
+	return time[headID]
+}
+```
+
+#### TypeScript
+
+```ts
+function numOfMinutes(n: number, headID: number, manager: number[], informTime: number[]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 0; i < n; ++i) {
+        if (manager[i] !== -1) {
+            g[manager[i]].push(i);
+        }
+    }
+    const time = Array(n).fill(0);
+    const stk: [number, number][] = [[headID, 0]];
+    while (stk.length) {
+        const [i, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, 1]);
+            for (const j of g[i]) {
+                stk.push([j, 0]);
+            }
+        } else {
+            let ans = 0;
+            for (const j of g[i]) {
+                ans = Math.max(ans, time[j] + informTime[i]);
+            }
+            time[i] = ans;
+        }
+    }
+    return time[headID];
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int NumOfMinutes(int n, int headID, int[] manager, int[] informTime) {
+        List<int>[] g = new List<int>[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new List<int>();
+        }
+        for (int i = 0; i < n; ++i) {
+            if (manager[i] != -1) {
+                g[manager[i]].Add(i);
+            }
+        }
+        int[] time = new int[n];
+        Stack<int[]> stk = new Stack<int[]>();
+        stk.Push(new int[] { headID, 0 });
+        while (stk.Count > 0) {
+            int[] cur = stk.Pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                stk.Push(new int[] { i, 1 });
+                foreach (int j in g[i]) {
+                    stk.Push(new int[] { j, 0 });
+                }
+            } else {
+                int ans = 0;
+                foreach (int j in g[i]) {
+                    ans = Math.Max(ans, time[j] + informTime[i]);
+                }
+                time[i] = ans;
+            }
+        }
+        return time[headID];
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
