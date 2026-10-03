@@ -205,8 +205,9 @@ public:
         int d[26]{};
         d['W' - 'A'] = 1;
         d['E' - 'A'] = 2;
-        int f[n][n + n + 1][4];
-        memset(f, -1, sizeof(f));
+        int span = n + n + 1;
+        vector<int> f(1LL * n * span * 4, -1);
+        auto at = [&](int i, int j, int k) -> int& { return f[(1LL * i * span + j) * 4 + k]; };
         auto calc = [](int x, int y) -> int {
             if (x == y) {
                 return 0;
@@ -224,8 +225,8 @@ public:
             if (i >= n) {
                 return j - n < 0 ? 1 : 0;
             }
-            if (f[i][j][k] != -1) {
-                return f[i][j][k];
+            if (at(i, j, k) != -1) {
+                return at(i, j, k);
             }
             int ans = 0;
             for (int l = 0; l < 3; ++l) {
@@ -234,7 +235,7 @@ public:
                 }
                 ans = (ans + dfs(i + 1, j + calc(d[s[i] - 'A'], l), l)) % mod;
             }
-            return f[i][j][k] = ans;
+            return at(i, j, k) = ans;
         };
         return dfs(0, n, 3);
     }
