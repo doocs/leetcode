@@ -276,6 +276,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int minReorder(int n, int[][] connections) {
@@ -307,6 +309,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -337,6 +341,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minReorder(n int, connections [][]int) (ans int) {
 	g := make([][][2]int, n)
@@ -363,6 +369,8 @@ func minReorder(n int, connections [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minReorder(n: number, connections: number[][]): number {
