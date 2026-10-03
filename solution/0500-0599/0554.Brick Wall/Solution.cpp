@@ -1,9 +1,9 @@
 class Solution {
 public:
     int leastBricks(vector<vector<int>>& wall) {
-        unordered_map<int, int> cnt;
+        unordered_map<long long, int> cnt;
         for (const auto& row : wall) {
-            int s = 0;
+            long long s = 0;
             for (int i = 0; i + 1 < row.size(); ++i) {
                 s += row[i];
                 cnt[s]++;

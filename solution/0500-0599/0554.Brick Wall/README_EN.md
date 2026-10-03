@@ -63,7 +63,7 @@ tags:
 >
 > A vertical line that never cuts a brick's interior crosses $(\text{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
 >
-> Prefix-sum each row except the last brick and count gap positions. The most frequent gap is crossed least often; the answer is rows minus that frequency. The wall's edges are excluded, or the line would cross zero bricks.
+> Prefix-sum each row except the last brick and count gap positions. The most frequent gap is crossed least often; the answer is rows minus that frequency. The wall's edges are excluded, or the line would cross zero bricks. A gap is a sum of widths up to $2^{31}-1$, so it can exceed $2^{31}-1$. Java and C++ keep that sum in a 64-bit integer; a 32-bit sum treats positions $2^{32}$ apart as one gap.
 
 <!-- thinking:end -->
 
@@ -96,9 +96,9 @@ class Solution:
 ```java
 class Solution {
     public int leastBricks(List<List<Integer>> wall) {
-        Map<Integer, Integer> cnt = new HashMap<>();
+        Map<Long, Integer> cnt = new HashMap<>();
         for (var row : wall) {
-            int s = 0;
+            long s = 0;
             for (int i = 0; i + 1 < row.size(); ++i) {
                 s += row.get(i);
                 cnt.merge(s, 1, Integer::sum);
@@ -119,9 +119,9 @@ class Solution {
 class Solution {
 public:
     int leastBricks(vector<vector<int>>& wall) {
-        unordered_map<int, int> cnt;
+        unordered_map<long long, int> cnt;
         for (const auto& row : wall) {
-            int s = 0;
+            long long s = 0;
             for (int i = 0; i + 1 < row.size(); ++i) {
                 s += row[i];
                 cnt[s]++;
