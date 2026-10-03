@@ -144,8 +144,7 @@ class Solution {
 public:
     int findMaxForm(vector<string>& strs, int m, int n) {
         int sz = strs.size();
-        int f[sz + 1][m + 1][n + 1];
-        memset(f, 0, sizeof(f));
+        vector<vector<vector<int>>> f(sz + 1, vector<vector<int>>(m + 1, vector<int>(n + 1)));
         for (int i = 1; i <= sz; ++i) {
             auto [a, b] = count(strs[i - 1]);
             for (int j = 0; j <= m; ++j) {
