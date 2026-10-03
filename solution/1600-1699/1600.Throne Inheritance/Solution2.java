@@ -2,7 +2,6 @@ class ThroneInheritance {
     private String king;
     private Set<String> dead = new HashSet<>();
     private Map<String, List<String>> g = new HashMap<>();
-    private List<String> ans = new ArrayList<>();
 
     public ThroneInheritance(String kingName) {
         king = kingName;
@@ -17,18 +16,20 @@ class ThroneInheritance {
     }
 
     public List<String> getInheritanceOrder() {
-        ans.clear();
-        dfs(king);
+        List<String> ans = new ArrayList<>();
+        Deque<String> stk = new ArrayDeque<>();
+        stk.push(king);
+        while (!stk.isEmpty()) {
+            String x = stk.pop();
+            if (!dead.contains(x)) {
+                ans.add(x);
+            }
+            List<String> children = g.getOrDefault(x, List.of());
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(children.get(i));
+            }
+        }
         return ans;
-    }
-
-    private void dfs(String x) {
-        if (!dead.contains(x)) {
-            ans.add(x);
-        }
-        for (String y : g.getOrDefault(x, List.of())) {
-            dfs(y);
-        }
     }
 }
 

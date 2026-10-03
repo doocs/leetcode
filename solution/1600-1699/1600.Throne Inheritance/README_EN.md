@@ -396,4 +396,310 @@ public class ThroneInheritance {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Preorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The given $\textit{Successor}$ walks to the oldest child not yet listed, then backtracks to the parent. Simulating that definition on every query rescans children and becomes quadratic once the number of births reaches $10^5$. The same recurrence is a preorder walk of a multi-way tree: write the person, then visit children in birth order. Death does not reshape the tree; it only omits a name. Recursion along a birth chain uses a call depth equal to the family size and overflows Python once the chain reaches length $1000$. The query therefore uses a stack. A popped person is appended when still alive, and that person's children are pushed from last to first so the oldest child is popped next.
+
+<!-- thinking:end -->
+
+The inheritance order is a preorder traversal of a multi-way tree. A hash table $g$ stores each person's children in birth order, and a set $dead$ stores the people who have died.
+
+- When calling `birth(parentName, childName)`, append `childName` to the child list of `parentName`.
+- When calling `death(name)`, add `name` to $dead$.
+- When calling `getInheritanceOrder()`, the stack starts with the king. After `x` is popped, append `x` when `x` is not in $dead$, then push the children of `x` from last to first so birth order is preserved.
+
+In terms of time complexity, both `birth` and `death` have a time complexity of $O(1)$, and `getInheritanceOrder` has a time complexity of $O(n)$. The space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class ThroneInheritance:
+
+    def __init__(self, kingName: str):
+        self.king = kingName
+        self.dead = set()
+        self.g = defaultdict(list)
+
+    def birth(self, parentName: str, childName: str) -> None:
+        self.g[parentName].append(childName)
+
+    def death(self, name: str) -> None:
+        self.dead.add(name)
+
+    def getInheritanceOrder(self) -> List[str]:
+        ans = []
+        stk = [self.king]
+        while stk:
+            x = stk.pop()
+            if x not in self.dead:
+                ans.append(x)
+            for y in reversed(self.g[x]):
+                stk.append(y)
+        return ans
+
+
+# Your ThroneInheritance object will be instantiated and called as such:
+# obj = ThroneInheritance(kingName)
+# obj.birth(parentName,childName)
+# obj.death(name)
+# param_3 = obj.getInheritanceOrder()
+```
+
+#### Java
+
+```java
+class ThroneInheritance {
+    private String king;
+    private Set<String> dead = new HashSet<>();
+    private Map<String, List<String>> g = new HashMap<>();
+
+    public ThroneInheritance(String kingName) {
+        king = kingName;
+    }
+
+    public void birth(String parentName, String childName) {
+        g.computeIfAbsent(parentName, k -> new ArrayList<>()).add(childName);
+    }
+
+    public void death(String name) {
+        dead.add(name);
+    }
+
+    public List<String> getInheritanceOrder() {
+        List<String> ans = new ArrayList<>();
+        Deque<String> stk = new ArrayDeque<>();
+        stk.push(king);
+        while (!stk.isEmpty()) {
+            String x = stk.pop();
+            if (!dead.contains(x)) {
+                ans.add(x);
+            }
+            List<String> children = g.getOrDefault(x, List.of());
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(children.get(i));
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance obj = new ThroneInheritance(kingName);
+ * obj.birth(parentName,childName);
+ * obj.death(name);
+ * List<String> param_3 = obj.getInheritanceOrder();
+ */
+```
+
+#### C++
+
+```cpp
+class ThroneInheritance {
+public:
+    ThroneInheritance(string kingName) {
+        king = kingName;
+    }
+
+    void birth(string parentName, string childName) {
+        g[parentName].emplace_back(childName);
+    }
+
+    void death(string name) {
+        dead.insert(name);
+    }
+
+    vector<string> getInheritanceOrder() {
+        vector<string> ans;
+        vector<string> stk{king};
+        while (!stk.empty()) {
+            string x = stk.back();
+            stk.pop_back();
+            if (!dead.contains(x)) {
+                ans.emplace_back(x);
+            }
+            auto it = g.find(x);
+            if (it == g.end()) {
+                continue;
+            }
+            auto& children = it->second;
+            for (int i = (int) children.size() - 1; i >= 0; --i) {
+                stk.push_back(children[i]);
+            }
+        }
+        return ans;
+    }
+
+private:
+    string king;
+    unordered_set<string> dead;
+    unordered_map<string, vector<string>> g;
+};
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance* obj = new ThroneInheritance(kingName);
+ * obj->birth(parentName,childName);
+ * obj->death(name);
+ * vector<string> param_3 = obj->getInheritanceOrder();
+ */
+```
+
+#### Go
+
+```go
+type ThroneInheritance struct {
+	king string
+	dead map[string]bool
+	g    map[string][]string
+}
+
+func Constructor(kingName string) ThroneInheritance {
+	return ThroneInheritance{kingName, map[string]bool{}, map[string][]string{}}
+}
+
+func (this *ThroneInheritance) Birth(parentName string, childName string) {
+	this.g[parentName] = append(this.g[parentName], childName)
+}
+
+func (this *ThroneInheritance) Death(name string) {
+	this.dead[name] = true
+}
+
+func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
+	stk := []string{this.king}
+	for len(stk) > 0 {
+		x := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if !this.dead[x] {
+			ans = append(ans, x)
+		}
+		children := this.g[x]
+		for i := len(children) - 1; i >= 0; i-- {
+			stk = append(stk, children[i])
+		}
+	}
+	return
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * obj := Constructor(kingName);
+ * obj.Birth(parentName,childName);
+ * obj.Death(name);
+ * param_3 := obj.GetInheritanceOrder();
+ */
+```
+
+#### TypeScript
+
+```ts
+class ThroneInheritance {
+    private king: string;
+    private dead: Set<string> = new Set();
+    private g: Map<string, string[]> = new Map();
+
+    constructor(kingName: string) {
+        this.king = kingName;
+    }
+
+    birth(parentName: string, childName: string): void {
+        this.g.set(parentName, this.g.get(parentName) || []);
+        this.g.get(parentName)!.push(childName);
+    }
+
+    death(name: string): void {
+        this.dead.add(name);
+    }
+
+    getInheritanceOrder(): string[] {
+        const ans: string[] = [];
+        const stk: string[] = [this.king];
+        while (stk.length) {
+            const x = stk.pop()!;
+            if (!this.dead.has(x)) {
+                ans.push(x);
+            }
+            const children = this.g.get(x) || [];
+            for (let i = children.length - 1; i >= 0; --i) {
+                stk.push(children[i]);
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * var obj = new ThroneInheritance(kingName)
+ * obj.birth(parentName,childName)
+ * obj.death(name)
+ * var param_3 = obj.getInheritanceOrder()
+ */
+```
+
+#### C#
+
+```cs
+public class ThroneInheritance {
+    private string king;
+    private HashSet<string> dead = new HashSet<string>();
+    private Dictionary<string, List<string>> g = new Dictionary<string, List<string>>();
+
+    public ThroneInheritance(string kingName) {
+        king = kingName;
+    }
+
+    public void Birth(string parentName, string childName) {
+        if (!g.ContainsKey(parentName)) {
+            g[parentName] = new List<string>();
+        }
+        g[parentName].Add(childName);
+    }
+
+    public void Death(string name) {
+        dead.Add(name);
+    }
+
+    public IList<string> GetInheritanceOrder() {
+        List<string> ans = new List<string>();
+        Stack<string> stk = new Stack<string>();
+        stk.Push(king);
+        while (stk.Count > 0) {
+            string x = stk.Pop();
+            if (!dead.Contains(x)) {
+                ans.Add(x);
+            }
+            if (g.ContainsKey(x)) {
+                List<string> children = g[x];
+                for (int i = children.Count - 1; i >= 0; --i) {
+                    stk.Push(children[i]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance obj = new ThroneInheritance(kingName);
+ * obj.Birth(parentName,childName);
+ * obj.Death(name);
+ * IList<string> param_3 = obj.GetInheritanceOrder();
+ */
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
