@@ -93,6 +93,9 @@ collection.getRandom(); // getRandom 应该返回 1 或 2，两者的可能性�
 #### Python3
 
 ```python
+import random
+
+
 class RandomizedCollection:
     def __init__(self):
         """
@@ -118,7 +121,7 @@ class RandomizedCollection:
         if val not in self.m:
             return False
         idx_set = self.m[val]
-        idx = list(idx_set)[0]
+        idx = next(iter(idx_set))
         last_idx = len(self.l) - 1
         self.l[idx] = self.l[last_idx]
         idx_set.remove(idx)
