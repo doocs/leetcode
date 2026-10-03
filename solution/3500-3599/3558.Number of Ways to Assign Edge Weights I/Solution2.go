@@ -3,25 +3,26 @@ func assignEdgeWeights(edges [][]int) int {
 
 	n := len(edges) + 1
 	g := make([][]int, n+1)
-
 	for _, e := range edges {
 		u, v := e[0], e[1]
 		g[u] = append(g[u], v)
 		g[v] = append(g[v], u)
 	}
 
-	var dfs func(int, int) int
-	dfs = func(i, fa int) int {
-		res := 0
+	d := 0
+	stk := [][3]int{{1, 0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, dep := cur[0], cur[1], cur[2]
+		d = max(d, dep)
 		for _, j := range g[i] {
 			if j != fa {
-				res = max(res, dfs(j, i)+1)
+				stk = append(stk, [3]int{j, i, dep + 1})
 			}
 		}
-		return res
 	}
-
-	return pow(2, dfs(1, 0)-1, mod)
+	return pow(2, d-1, mod)
 }
 
 func pow(a, n, mod int) int {

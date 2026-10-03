@@ -303,4 +303,229 @@ function assignEdgeWeights(edges: number[][]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The path from $1$ to a deepest leaf has $d$ edges. Each edge is $1$ or $2$, and the cost is odd iff an odd number of them are $1$. Other edges are free. The number of odd-sized subsets of $d$ elements is $2^{d-1}$ ($0$ when $d = 0$).
+>
+> With $n \le 10^5$, recursing from the root into each child reaches depth $n$ on a chain and overflows the call stack. That depth is only the number of edges from the root, so sibling order does not change the maximum.
+>
+> An explicit stack of $(node, parent, depth)$ therefore starts at node $1$ with depth $0$. Popping a frame updates the maximum depth, and every neighbor other than the parent is pushed with the depth increased by one. A fast power then evaluates $2^{d-1}$.
+
+<!-- thinking:end -->
+
+First, we build an adjacency list $g$ from the edges, where $g[u]$ contains all neighbors of node $u$.
+
+An explicit stack then computes the depth $d$ of the tree. Each frame is $(node, parent, depth)$, starting from node $1$ at depth $0$. Popping a frame updates $d$ with the current depth, and every neighbor other than the parent is pushed with the depth increased by one. The answer is the number of ways to choose an odd number of elements from $d$. According to a well-known combinatorial identity, that number is $2^{d-1}$. Therefore, we can compute the answer using fast exponentiation.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def assignEdgeWeights(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n + 1)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        stk = [(1, 0, 0)]
+        d = 0
+        while stk:
+            i, fa, dep = stk.pop()
+            d = max(d, dep)
+            for j in g[i]:
+                if j != fa:
+                    stk.append((j, i, dep + 1))
+        return pow(2, d - 1, 10**9 + 7)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int assignEdgeWeights(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0];
+            int v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        int d = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {1, 0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], dep = cur[2];
+            d = Math.max(d, dep);
+            for (int j : g[i]) {
+                if (j != fa) {
+                    stk.push(new int[] {j, i, dep + 1});
+                }
+            }
+        }
+        return (int) pow(2, d - 1, 1_000_000_007);
+    }
+
+    private long pow(long a, int n, int mod) {
+        long res = 1;
+        while (n > 0) {
+            if ((n & 1) != 0) {
+                res = res * a % mod;
+            }
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int assignEdgeWeights(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n + 1);
+        for (auto& e : edges) {
+            int u = e[0];
+            int v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        int d = 0;
+        vector<array<int, 3>> stk{{1, 0, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, dep] = stk.back();
+            stk.pop_back();
+            d = max(d, dep);
+            for (int j : g[i]) {
+                if (j != fa) {
+                    stk.push_back({j, i, dep + 1});
+                }
+            }
+        }
+        return pow(2, d - 1, 1000000007);
+    }
+
+private:
+    long long pow(long long a, int n, int mod) {
+        long long res = 1;
+        while (n > 0) {
+            if (n & 1) {
+                res = res * a % mod;
+            }
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+#### Go
+
+```go
+func assignEdgeWeights(edges [][]int) int {
+	const mod = 1_000_000_007
+
+	n := len(edges) + 1
+	g := make([][]int, n+1)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+
+	d := 0
+	stk := [][3]int{{1, 0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, dep := cur[0], cur[1], cur[2]
+		d = max(d, dep)
+		for _, j := range g[i] {
+			if j != fa {
+				stk = append(stk, [3]int{j, i, dep + 1})
+			}
+		}
+	}
+	return pow(2, d-1, mod)
+}
+
+func pow(a, n, mod int) int {
+	res := 1
+	for n > 0 {
+		if n&1 > 0 {
+			res = res * a % mod
+		}
+		a = a * a % mod
+		n >>= 1
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function assignEdgeWeights(edges: number[][]): number {
+    const mod = 1_000_000_007;
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+
+    const stk: [number, number, number][] = [[1, 0, 0]];
+    let d = 0;
+    while (stk.length) {
+        const [i, fa, dep] = stk.pop()!;
+        d = Math.max(d, dep);
+        for (const j of g[i]) {
+            if (j !== fa) {
+                stk.push([j, i, dep + 1]);
+            }
+        }
+    }
+
+    const pow = (a: number, n: number, mod: number): number => {
+        let res = 1n;
+        let x = BigInt(a);
+        const m = BigInt(mod);
+
+        while (n > 0) {
+            if (n & 1) {
+                res = (res * x) % m;
+            }
+            x = (x * x) % m;
+            n >>= 1;
+        }
+
+        return Number(res);
+    };
+
+    return pow(2, d - 1, mod);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
