@@ -220,4 +220,187 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：两次显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只能向右或向下走，问能否翻转至多一个非端点格子，使左上到右下不连通。枚举翻转位置再判连通是立方级。网格上若存在两条内部不相交的路径，一次翻转就不够。先向下优先找出一条路径，把经过的格子清零，两端再恢复，然后同样再搜一次。行数可以到 $1000$，而第一步总是向下，调用深度就是 $m$。因此用显式栈保持同一顺序：先压入右方，再压入下方。
+
+<!-- thinking:end -->
+
+搜索使用显式栈，进入格子时把它置为 $0$，先处理下方再处理右方。
+
+我们先用显式栈搜索一次，判断从 $(0, 0)$ 到 $(m - 1, n - 1)$ 是否存在路径，记结果为 $a$。搜索过程中，我们将访问过的格子的值置为 $0$，以防止重复访问。
+
+接下来，我们将 $(0, 0)$ 和 $(m - 1, n - 1)$ 的值置为 $1$，再用显式栈搜索一次，判断从 $(0, 0)$ 到 $(m - 1, n - 1)$ 是否存在路径，记结果为 $b$。搜索过程中，我们将访问过的格子的值置为 $0$，避免重复访问。
+
+最后，如果 $a$ 和 $b$ 都为 `true`，则返回 `false`，否则返回 `true`。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+        def dfs() -> bool:
+            stk = [(0, 0)]
+            while stk:
+                i, j = stk.pop()
+                if i >= m or j >= n or grid[i][j] == 0:
+                    continue
+                grid[i][j] = 0
+                if i == m - 1 and j == n - 1:
+                    return True
+                stk.append((i, j + 1))
+                stk.append((i + 1, j))
+            return False
+
+        m, n = len(grid), len(grid[0])
+        a = dfs()
+        grid[0][0] = grid[-1][-1] = 1
+        b = dfs()
+        return not (a and b)
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean isPossibleToCutPath(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean a = dfs(grid, m, n);
+        grid[0][0] = 1;
+        grid[m - 1][n - 1] = 1;
+        boolean b = dfs(grid, m, n);
+        return !(a && b);
+    }
+
+    private boolean dfs(int[][] grid, int m, int n) {
+        int[] stk = new int[m * n * 2];
+        int top = 0;
+        stk[top++] = 0;
+        while (top > 0) {
+            int cur = stk[--top];
+            int i = cur / n;
+            int j = cur % n;
+            if (i >= m || j >= n || grid[i][j] == 0) {
+                continue;
+            }
+            grid[i][j] = 0;
+            if (i == m - 1 && j == n - 1) {
+                return true;
+            }
+            if (j + 1 < n) {
+                stk[top++] = i * n + j + 1;
+            }
+            if (i + 1 < m) {
+                stk[top++] = (i + 1) * n + j;
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool isPossibleToCutPath(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        auto dfs = [&]() {
+            vector<pair<int, int>> stk{{0, 0}};
+            while (!stk.empty()) {
+                auto [i, j] = stk.back();
+                stk.pop_back();
+                if (i >= m || j >= n || grid[i][j] == 0) {
+                    continue;
+                }
+                grid[i][j] = 0;
+                if (i == m - 1 && j == n - 1) {
+                    return true;
+                }
+                stk.emplace_back(i, j + 1);
+                stk.emplace_back(i + 1, j);
+            }
+            return false;
+        };
+        bool a = dfs();
+        grid[0][0] = grid[m - 1][n - 1] = 1;
+        bool b = dfs();
+        return !(a && b);
+    }
+};
+```
+
+#### Go
+
+```go
+func isPossibleToCutPath(grid [][]int) bool {
+	m, n := len(grid), len(grid[0])
+	dfs := func() bool {
+		stk := [][2]int{{0, 0}}
+		for len(stk) > 0 {
+			i, j := stk[len(stk)-1][0], stk[len(stk)-1][1]
+			stk = stk[:len(stk)-1]
+			if i >= m || j >= n || grid[i][j] == 0 {
+				continue
+			}
+			grid[i][j] = 0
+			if i == m-1 && j == n-1 {
+				return true
+			}
+			stk = append(stk, [2]int{i, j + 1}, [2]int{i + 1, j})
+		}
+		return false
+	}
+	a := dfs()
+	grid[0][0], grid[m-1][n-1] = 1, 1
+	b := dfs()
+	return !(a && b)
+}
+```
+
+#### TypeScript
+
+```ts
+function isPossibleToCutPath(grid: number[][]): boolean {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dfs = (): boolean => {
+        const stk: number[][] = [[0, 0]];
+        while (stk.length) {
+            const [i, j] = stk.pop()!;
+            if (i >= m || j >= n || grid[i][j] !== 1) {
+                continue;
+            }
+            grid[i][j] = 0;
+            if (i === m - 1 && j === n - 1) {
+                return true;
+            }
+            stk.push([i, j + 1], [i + 1, j]);
+        }
+        return false;
+    };
+    const a = dfs();
+    grid[0][0] = 1;
+    grid[m - 1][n - 1] = 1;
+    const b = dfs();
+    return !(a && b);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
