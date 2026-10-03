@@ -292,13 +292,13 @@ int* preorder(struct Node* root, int* returnSize) {
 
 > **思考**
 >
-> 递归使用调用栈。显式栈模拟前序时，为了让左孩子先出栈，孩子要按从右到左压栈。
+> 方法一已经用显式栈做前序，孩子从右往左入栈，使最左孩子先弹出。
 >
-> 弹出即访问，再把孩子逆序入栈。顺序与递归前序一致，避免了递归深度限制。
+> 本节是同一遍历。弹出即访问，再把孩子逆序入栈，顺序与定义中的前序一致。
 
 <!-- thinking:end -->
 
-我们也可以用迭代的方法来解决这个问题。
+本节同样用栈得到前序遍历。
 
 我们使用一个栈来帮助我们得到前序遍历，我们首先把根节点入栈，因为前序遍历是根节点、左子树、右子树，栈的特点是先进后出，所以我们先把节点的值加入答案，然后对该节点的每个子节点按照从右到左的顺序依次入栈。循环直到栈为空。
 
@@ -474,6 +474,243 @@ function preorder(root: Node | null): number[] {
             stk.push(children[i]);
         }
     }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> N 叉树前序是先根、再从左到右的子树。按定义递归时，一条高度为 $1000$ 的链会把调用栈用尽，而高度上限正是 $1000$。
+>
+> 瓶颈是这条单孩子链：每次只进入下一个孩子，调用深度与高度同阶。
+>
+> 前序在进入孩子之前就已经记下当前节点，因此不必等孩子返回。
+>
+> 用显式栈保存待访问节点。弹出后先写入答案，再把孩子从右往左压栈，最左孩子最先弹出，顺序与定义一致。空树直接返回空列表。
+
+<!-- thinking:end -->
+
+我们用栈模拟前序遍历。先将根入栈，弹出节点后把值加入答案，再按从右到左的顺序把孩子入栈，直到栈空。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children[::-1]:
+                stk.append(child)
+        return ans
+```
+
+#### Java
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public List<Integer> preorder(Node root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<Integer> ans = new ArrayList<>();
+        Deque<Node> stk = new ArrayDeque<>();
+        stk.push(root);
+        while (!stk.isEmpty()) {
+            Node node = stk.pop();
+            ans.add(node.val);
+            List<Node> children = node.children;
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(children.get(i));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> preorder(Node* root) {
+        if (!root) return {};
+        vector<int> ans;
+        stack<Node*> stk;
+        stk.push(root);
+        while (!stk.empty()) {
+            Node* node = stk.top();
+            ans.push_back(node->val);
+            stk.pop();
+            auto children = node->children;
+            for (int i = children.size() - 1; i >= 0; --i) stk.push(children[i]);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func preorder(root *Node) (ans []int) {
+	if root == nil {
+		return
+	}
+	stk := []*Node{root}
+	for len(stk) > 0 {
+		node := stk[len(stk)-1]
+		ans = append(ans, node.Val)
+		stk = stk[:len(stk)-1]
+		children := node.Children
+		for i := len(children) - 1; i >= 0; i-- {
+			stk = append(stk, children[i])
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
+    }
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        for (let i = children.length - 1; i >= 0; i--) {
+            stk.push(children[i]);
+        }
+    }
+    return ans;
+}
+```
+
+#### C
+
+```c
+/**
+ * Definition for a Node.
+ * struct Node {
+ *     int val;
+ *     int numChildren;
+ *     struct Node** children;
+ * };
+ */
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+int* preorder(struct Node* root, int* returnSize) {
+    int* ans = malloc(sizeof(int) * 10000);
+    *returnSize = 0;
+    if (!root) {
+        return ans;
+    }
+    struct Node** stk = malloc(sizeof(struct Node*) * 10000);
+    int top = 0;
+    stk[top++] = root;
+    while (top) {
+        struct Node* node = stk[--top];
+        ans[(*returnSize)++] = node->val;
+        for (int j = node->numChildren - 1; j >= 0; --j) {
+            stk[top++] = node->children[j];
+        }
+    }
+    free(stk);
     return ans;
 }
 ```
