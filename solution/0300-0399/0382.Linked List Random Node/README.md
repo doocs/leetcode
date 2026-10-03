@@ -94,6 +94,9 @@ solution.getRandom(); // 返回 3
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+import random
+
+
 class Solution:
     def __init__(self, head: Optional[ListNode]):
         self.head = head
