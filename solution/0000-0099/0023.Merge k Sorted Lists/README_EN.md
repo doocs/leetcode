@@ -101,6 +101,9 @@ The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$.
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         setattr(ListNode, "__lt__", lambda a, b: a.val < b.val)
@@ -201,6 +204,8 @@ public:
  *     Next *ListNode
  * }
  */
+import "container/heap"
+
 func mergeKLists(lists []*ListNode) *ListNode {
 	pq := hp{}
 	for _, head := range lists {

@@ -5,6 +5,8 @@
  *     Next *ListNode
  * }
  */
+import "container/heap"
+
 func mergeKLists(lists []*ListNode) *ListNode {
 	pq := hp{}
 	for _, head := range lists {
