@@ -18,4 +18,4 @@ SELECT
     duration_formatted
 FROM T
 WHERE rk <= 3
-ORDER BY 2, 3 DESC, 1 DESC;
+ORDER BY 2 DESC, 3 DESC, 1 DESC;
