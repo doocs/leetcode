@@ -1,7 +1,7 @@
 class Solution {
 public:
     int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
-        vector<int> g[n];
+        vector<vector<int>> g(n);
         vector<int> vis(n);
         for (auto& e : edges) {
             int a = e[0], b = e[1];
@@ -11,16 +11,22 @@ public:
         for (int i : restricted) {
             vis[i] = true;
         }
-        function<int(int)> dfs = [&](int i) {
+        int ans = 0;
+        vector<int> stk{0};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            if (vis[i]) {
+                continue;
+            }
             vis[i] = true;
-            int ans = 1;
+            ++ans;
             for (int j : g[i]) {
                 if (!vis[j]) {
-                    ans += dfs(j);
+                    stk.emplace_back(j);
                 }
             }
-            return ans;
-        };
-        return dfs(0);
+        }
+        return ans;
     }
 };
