@@ -1,6 +1,7 @@
 class Solution {
     public long countNoZeroPairs(long n) {
-        char[] cs = Long.toString(n).toCharArray();
+        long trivanople = n;
+        char[] cs = Long.toString(trivanople).toCharArray();
         int m = cs.length;
         int[] digits = new int[m + 1];
         for (int i = 0; i < m; i++) {
