@@ -24,7 +24,7 @@ impl Solution {
                 j += 1;
             }
             if j == m {
-                return (i - m + 1) as i32;
+                return (i + 1 - m) as i32;
             }
         }
         -1
