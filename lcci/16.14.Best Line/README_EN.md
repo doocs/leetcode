@@ -43,15 +43,17 @@ difficulty: Medium
 
 > **Thinking**
 >
-> Return the two smallest indices on a line that covers the most points. $n$ is small enough for $O(n^3)$.
+> When the two anchors are the same point, both sides of the cross product are $0$, so every later point is treated as collinear.
 >
-> Two points fix a line; a third is collinear when $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$, avoiding division.
+> The count then exceeds the true line, and the returned indices are no longer the two smallest on a maximum line.
 >
-> Enumerate $i<j<k$, update the best count and pair $(i,j)$. Smaller indices first already match the tie-break.
+> A line is fixed by two points at different positions. Copies of either point lie on that line and belong in the set.
+>
+> We therefore skip identical pairs, test every index with the cross product, and keep the first two indices that match. If every point has the same coordinates, no distinct pair exists and the answer is $[0, 1]$.
 
 <!-- thinking:end -->
 
-We can enumerate any two points $(x_1, y_1), (x_2, y_2)$, connect these two points into a line, and the number of points on this line is 2. Then we enumerate other points $(x_3, y_3)$, and determine whether they are on the same line. If they are, the number of points on the line increases by 1; otherwise, the number of points on the line remains the same. Find the maximum number of points on a line, and the corresponding smallest two point indices are the answer.
+We enumerate two points $(x_1, y_1)$ and $(x_2, y_2)$ that have different coordinates and use them to fix a line. For each index $k$, the point lies on that line when $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$. A copy of either endpoint makes both sides zero, so it is included. We record the size of this set and its two smallest indices. The answer is updated when the size is strictly larger, or the size is equal and the index pair is smaller. If every point has the same coordinates, there is no distinct pair and the answer is $[0, 1]$.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `points`.
 
@@ -64,19 +66,28 @@ class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
         n = len(points)
         mx = 0
+        x, y = 0, 1
         for i in range(n):
             x1, y1 = points[i]
             for j in range(i + 1, n):
                 x2, y2 = points[j]
-                cnt = 2
-                for k in range(j + 1, n):
+                if x1 == x2 and y1 == y2:
+                    continue
+                cnt = 0
+                a = b = -1
+                for k in range(n):
                     x3, y3 = points[k]
-                    a = (y2 - y1) * (x3 - x1)
-                    b = (y3 - y1) * (x2 - x1)
-                    cnt += a == b
-                if mx < cnt:
+                    c1 = (y2 - y1) * (x3 - x1)
+                    c2 = (y3 - y1) * (x2 - x1)
+                    if c1 == c2:
+                        cnt += 1
+                        if a < 0:
+                            a = k
+                        elif b < 0:
+                            b = k
+                if cnt > mx or (cnt == mx and (a, b) < (x, y)):
                     mx = cnt
-                    x, y = i, j
+                    x, y = a, b
         return [x, y]
 ```
 
@@ -87,24 +98,33 @@ class Solution {
     public int[] bestLine(int[][] points) {
         int n = points.length;
         int mx = 0;
-        int[] ans = new int[2];
+        int[] ans = {0, 1};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
+                if (x1 == x2 && y1 == y2) {
+                    continue;
+                }
+                int cnt = 0;
+                int a = -1, b = -1;
+                for (int k = 0; k < n; ++k) {
                     int x3 = points[k][0], y3 = points[k][1];
-                    int a = (y2 - y1) * (x3 - x1);
-                    int b = (y3 - y1) * (x2 - x1);
-                    if (a == b) {
+                    int c1 = (y2 - y1) * (x3 - x1);
+                    int c2 = (y3 - y1) * (x2 - x1);
+                    if (c1 == c2) {
                         ++cnt;
+                        if (a < 0) {
+                            a = k;
+                        } else if (b < 0) {
+                            b = k;
+                        }
                     }
                 }
-                if (mx < cnt) {
+                if (cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1])))) {
                     mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
+                    ans[0] = a;
+                    ans[1] = b;
                 }
             }
         }
@@ -121,22 +141,33 @@ public:
     vector<int> bestLine(vector<vector<int>>& points) {
         int n = points.size();
         int mx = 0;
-        vector<int> ans(2);
+        vector<int> ans = {0, 1};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
-                    int x3 = points[k][0], y3 = points[k][1];
-                    long a = (long) (y2 - y1) * (x3 - x1);
-                    long b = (long) (y3 - y1) * (x2 - x1);
-                    cnt += a == b;
+                if (x1 == x2 && y1 == y2) {
+                    continue;
                 }
-                if (mx < cnt) {
+                int cnt = 0;
+                int a = -1, b = -1;
+                for (int k = 0; k < n; ++k) {
+                    int x3 = points[k][0], y3 = points[k][1];
+                    long c1 = (long) (y2 - y1) * (x3 - x1);
+                    long c2 = (long) (y3 - y1) * (x2 - x1);
+                    if (c1 == c2) {
+                        ++cnt;
+                        if (a < 0) {
+                            a = k;
+                        } else if (b < 0) {
+                            b = k;
+                        }
+                    }
+                }
+                if (cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1])))) {
                     mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
+                    ans[0] = a;
+                    ans[1] = b;
                 }
             }
         }
@@ -150,24 +181,33 @@ public:
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
-	ans := make([]int, 2)
+	ans := []int{0, 1}
 	mx := 0
 	for i := 0; i < n; i++ {
 		x1, y1 := points[i][0], points[i][1]
 		for j := i + 1; j < n; j++ {
 			x2, y2 := points[j][0], points[j][1]
-			cnt := 2
-			for k := j + 1; k < n; k++ {
+			if x1 == x2 && y1 == y2 {
+				continue
+			}
+			cnt := 0
+			a, b := -1, -1
+			for k := 0; k < n; k++ {
 				x3, y3 := points[k][0], points[k][1]
-				a := (y2 - y1) * (x3 - x1)
-				b := (y3 - y1) * (x2 - x1)
-				if a == b {
+				c1 := (y2 - y1) * (x3 - x1)
+				c2 := (y3 - y1) * (x2 - x1)
+				if c1 == c2 {
 					cnt++
+					if a < 0 {
+						a = k
+					} else if b < 0 {
+						b = k
+					}
 				}
 			}
-			if mx < cnt {
+			if cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1]))) {
 				mx = cnt
-				ans[0], ans[1] = i, j
+				ans[0], ans[1] = a, b
 			}
 		}
 	}
@@ -181,31 +221,38 @@ func bestLine(points [][]int) []int {
 class Solution {
     func bestLine(_ points: [[Int]]) -> [Int] {
         let n = points.count
-        var maxCount = 0
-        var answer = [Int](repeating: 0, count: 2)
-
+        var mx = 0
+        var ans = [0, 1]
         for i in 0..<n {
             let x1 = points[i][0], y1 = points[i][1]
             for j in i + 1..<n {
                 let x2 = points[j][0], y2 = points[j][1]
-                var count = 2
-
-                for k in j + 1..<n {
+                if x1 == x2 && y1 == y2 {
+                    continue
+                }
+                var cnt = 0
+                var a = -1
+                var b = -1
+                for k in 0..<n {
                     let x3 = points[k][0], y3 = points[k][1]
-                    let a = (y2 - y1) * (x3 - x1)
-                    let b = (y3 - y1) * (x2 - x1)
-                    if a == b {
-                        count += 1
+                    let c1 = (y2 - y1) * (x3 - x1)
+                    let c2 = (y3 - y1) * (x2 - x1)
+                    if c1 == c2 {
+                        cnt += 1
+                        if a < 0 {
+                            a = k
+                        } else if b < 0 {
+                            b = k
+                        }
                     }
                 }
-
-                if maxCount < count {
-                    maxCount = count
-                    answer = [i, j]
+                if cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1]))) {
+                    mx = cnt
+                    ans = [a, b]
                 }
             }
         }
-        return answer
+        return ans
     }
 }
 ```
