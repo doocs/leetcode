@@ -99,7 +99,7 @@ ORDER BY
 
 > **Thinking**
 >
-> Solution 1's $\texttt{SUBSTRING}(name,2)$ runs to the end. Some engines spell the same slice as $\texttt{SUBSTRING}(name,2,\texttt{DATALENGTH}(name))$.
+> Solution 1's $\texttt{SUBSTRING}(name,2)$ omits the length and runs to the end. MySQL counts the third argument in characters, so $\texttt{CHAR\_LENGTH}(name)$ supplies that count and the slice from the second character is the same suffix.
 
 <!-- thinking:end -->
 
@@ -112,7 +112,7 @@ SELECT
     user_id,
     CONCAT(
         UPPER(LEFT(name, 1)),
-        LOWER(SUBSTRING(name, 2, DATALENGTH(name)))
+        LOWER(SUBSTRING(name, 2, CHAR_LENGTH(name)))
     ) AS name
 FROM
     users
