@@ -247,7 +247,7 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 > **思考**
 >
-> 方法一用递归，深树可能受栈限制。同一套访问集合改成队列 BFS，语义不变而避免递归深度。
+> 方法一已经用显式栈做深度优先。同一套访问集合也可以改成队列，按层统计可达结点。
 
 <!-- thinking:end -->
 
@@ -401,6 +401,202 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
             if (!vis[j]) {
                 vis[j] = true;
                 q.push(j);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 树中从 $0$ 出发，不能进入受限结点。$n \le 10^5$，一次遍历即可。把受限点视为已访问，则不会跨越。从 $0$ 递归进入下一个结点，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 建邻接表后用显式栈做深度优先：弹出当前点时若尚未访问，则计入答案，并把未访问邻居入栈。
+
+<!-- thinking:end -->
+
+我们首先根据给定的边构建一个邻接表 $g$，其中 $g[i]$ 表示与节点 $i$ 相邻的节点列表。然后我们定义一个哈希表 $vis$，用于记录受限节点或者已经访问过的节点，初始时将受限节点加入到 $vis$ 中。
+
+接下来用显式栈从节点 $0$ 做深度优先。弹出节点 $i$ 时，若它尚未访问，则把它加入 $vis$ 并计入答案，再把它的未访问邻居入栈。
+
+最后返回统计到的节点数即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def reachableNodes(
+        self, n: int, edges: List[List[int]], restricted: List[int]
+    ) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        for i in restricted:
+            vis[i] = True
+        ans = 0
+        stk = [0]
+        while stk:
+            i = stk.pop()
+            if vis[i]:
+                continue
+            vis[i] = True
+            ans += 1
+            for j in g[i]:
+                if not vis[j]:
+                    stk.append(j)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int reachableNodes(int n, int[][] edges, int[] restricted) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        boolean[] vis = new boolean[n];
+        for (int i : restricted) {
+            vis[i] = true;
+        }
+        int ans = 0;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(0);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++ans;
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    stk.push(j);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
+        vector<vector<int>> g(n);
+        vector<int> vis(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        for (int i : restricted) {
+            vis[i] = true;
+        }
+        int ans = 0;
+        vector<int> stk{0};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++ans;
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    stk.emplace_back(j);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func reachableNodes(n int, edges [][]int, restricted []int) int {
+	g := make([][]int, n)
+	vis := make([]bool, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	for _, i := range restricted {
+		vis[i] = true
+	}
+	ans := 0
+	stk := []int{0}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if vis[i] {
+			continue
+		}
+		vis[i] = true
+		ans++
+		for _, j := range g[i] {
+			if !vis[j] {
+				stk = append(stk, j)
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
+    const vis: boolean[] = Array(n).fill(false);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    for (const i of restricted) {
+        vis[i] = true;
+    }
+    let ans = 0;
+    const stk: number[] = [0];
+    while (stk.length) {
+        const i = stk.pop()!;
+        if (vis[i]) {
+            continue;
+        }
+        vis[i] = true;
+        ++ans;
+        for (const j of g[i]) {
+            if (!vis[j]) {
+                stk.push(j);
             }
         }
     }
