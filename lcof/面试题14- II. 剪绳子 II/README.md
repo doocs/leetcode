@@ -224,19 +224,30 @@ var cuttingRope = function (n) {
 
 ```cs
 public class Solution {
+    private const int mod = 1000000007;
+
     public int CuttingRope(int n) {
         if (n < 4) {
             return n - 1;
         }
-        int res = 1;
-        while (n > 4) {
-            res *= 3;
-            n -= 3;
+        if (n % 3 == 0) {
+            return qpow(3, n / 3);
         }
-        if (n == 4) {
-            return (res << 2) % 1000000007;
+        if (n % 3 == 1) {
+            return (int) (4L * qpow(3, n / 3 - 1) % mod);
         }
-        return (res * n) % 1000000007;
+        return 2 * qpow(3, n / 3) % mod;
+    }
+
+    private int qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
+            }
+            a = a * a % mod;
+        }
+        return (int) ans;
     }
 }
 ```
