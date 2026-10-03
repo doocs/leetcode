@@ -29,7 +29,11 @@ class Solution {
                 ans += (a1 + an) * x / 2 * cnt;
                 inventory[0] = nxt;
             }
-            orders -= tot;
+            if (tot >= orders) {
+                orders = 0;
+            } else {
+                orders -= (int) tot;
+            }
             ans %= MOD;
         }
         return (int) ans;
