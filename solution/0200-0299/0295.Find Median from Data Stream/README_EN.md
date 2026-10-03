@@ -101,6 +101,9 @@ The space complexity is $O(n)$, where $n$ is the number of elements.
 #### Python3
 
 ```python
+from heapq import heappop, heappush, heappushpop
+
+
 class MedianFinder:
 
     def __init__(self):
@@ -194,6 +197,11 @@ private:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 type MedianFinder struct {
 	minq hp
 	maxq hp

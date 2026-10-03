@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 type MedianFinder struct {
 	minq hp
 	maxq hp

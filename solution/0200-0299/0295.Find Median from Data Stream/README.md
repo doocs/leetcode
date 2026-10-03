@@ -96,6 +96,9 @@ medianFinder.findMedian(); // return 2.0</pre>
 #### Python3
 
 ```python
+from heapq import heappop, heappush, heappushpop
+
+
 class MedianFinder:
 
     def __init__(self):
@@ -189,6 +192,11 @@ private:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 type MedianFinder struct {
 	minq hp
 	maxq hp
