@@ -1,7 +1,6 @@
 func oddEvenJumps(arr []int) (ans int) {
 	n := len(arr)
 	rbt := redblacktree.NewWithIntComparator()
-	f := make([][2]int, n)
 	g := make([][2]int, n)
 	for i := n - 1; i >= 0; i-- {
 		if v, ok := rbt.Ceiling(arr[i]); ok {
@@ -16,22 +15,18 @@ func oddEvenJumps(arr []int) (ans int) {
 		}
 		rbt.Put(arr[i], i)
 	}
-	var dfs func(int, int) int
-	dfs = func(i, k int) int {
-		if i == n-1 {
-			return 1
+	f := make([][2]bool, n)
+	f[n-1][0], f[n-1][1] = true, true
+	for i := n - 2; i >= 0; i-- {
+		for k := 0; k < 2; k++ {
+			j := g[i][k]
+			if j != -1 {
+				f[i][k] = f[j][k^1]
+			}
 		}
-		if g[i][k] == -1 {
-			return 0
-		}
-		if f[i][k] != 0 {
-			return f[i][k]
-		}
-		f[i][k] = dfs(g[i][k], k^1)
-		return f[i][k]
 	}
 	for i := 0; i < n; i++ {
-		if dfs(i, 1) == 1 {
+		if f[i][1] {
 			ans++
 		}
 	}
