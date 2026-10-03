@@ -1,3 +1,6 @@
+from math import gcd, lcm
+
+
 class Solution:
     def maxScore(self, nums: List[int]) -> int:
         n = len(nums)
