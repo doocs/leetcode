@@ -13,18 +13,21 @@ class Solution {
 public:
     int goodNodes(TreeNode* root) {
         int ans = 0;
-        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int mx) {
-            if (!root) {
-                return;
+        vector<pair<TreeNode*, int>> stk;
+        stk.emplace_back(root, -1000000);
+        while (!stk.empty()) {
+            auto [node, mx] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
             }
-            if (mx <= root->val) {
+            if (mx <= node->val) {
                 ++ans;
-                mx = root->val;
+                mx = node->val;
             }
-            dfs(root->left, mx);
-            dfs(root->right, mx);
-        };
-        dfs(root, -1e6);
+            stk.emplace_back(node->right, mx);
+            stk.emplace_back(node->left, mx);
+        }
         return ans;
     }
 };
