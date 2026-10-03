@@ -1,3 +1,7 @@
+import random
+from bisect import bisect_left
+
+
 class Solution:
     def __init__(self, rects: List[List[int]]):
         self.rects = rects
