@@ -89,6 +89,9 @@ solution.pick(); // return 4
 #### Python3
 
 ```python
+from random import randrange
+
+
 class Solution:
     def __init__(self, n: int, blacklist: List[int]):
         self.k = n - len(blacklist)
