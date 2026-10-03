@@ -6,7 +6,7 @@ func findAnswer(n int, edges [][]int) []bool {
 		g[b] = append(g[b], [3]int{a, w, i})
 	}
 	dist := make([]int, n)
-	const inf int = 1 << 30
+	const inf int = 1e18
 	for i := range dist {
 		dist[i] = inf
 	}
