@@ -181,9 +181,8 @@ class Solution {
 public:
     int maxOperations(vector<int>& nums) {
         int n = nums.size();
-        int f[n][n];
         auto g = [&](int i, int j, int s) -> int {
-            memset(f, -1, sizeof(f));
+            vector<vector<int>> f(n, vector<int>(n, -1));
             function<int(int, int)> dfs = [&](int i, int j) -> int {
                 if (j - i < 1) {
                     return 0;
