@@ -1,0 +1,34 @@
+function countPairs(n: number, edges: number[][]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    const dfs = (i: number): number => {
+        if (vis[i]) {
+            return 0;
+        }
+        vis[i] = true;
+        const stk: number[] = [i];
+        let cnt = 0;
+        while (stk.length) {
+            const u = stk.pop()!;
+            cnt++;
+            for (const j of g[u]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        return cnt;
+    };
+    let [ans, s] = [0, 0];
+    for (let i = 0; i < n; ++i) {
+        const t = dfs(i);
+        ans += s * t;
+        s += t;
+    }
+    return ans;
+}
