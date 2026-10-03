@@ -79,7 +79,7 @@ Emails 表：
 >
 > 拆出域名后再过滤 `.com`，避免把本地域名误计入。按域名分组计数。
 >
-> 实现上用分割取最后一段，再 `contains('.com')` 后分组。
+> 实现上用分割取最后一段，再 `endswith('.com')` 后分组。
 
 <!-- thinking:end -->
 
@@ -106,7 +106,7 @@ import pandas as pd
 
 def find_unique_email_domains(emails: pd.DataFrame) -> pd.DataFrame:
     emails["email_domain"] = emails["email"].str.split("@").str[-1]
-    emails = emails[emails["email"].str.contains(".com")]
+    emails = emails[emails["email_domain"].str.endswith(".com")]
     return (
         emails.groupby("email_domain")
         .size()
