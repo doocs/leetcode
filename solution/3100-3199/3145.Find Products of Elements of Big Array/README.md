@@ -157,7 +157,7 @@ tags:
 
 最后，我们可以根据 $\textit{power}$ 的值，利用快速幂的方法，计算出 $2^{\textit{power}} \bmod \textit{mod}$ 的结果。
 
-时间复杂度 $O(q \times \log M)$，空间复杂度 $(\log M)$。其中 $q$ 为查询的个数，而 $M$ 为数字的上界，本题中 $M \le 10^{15}$。
+时间复杂度 $O(q \times \log M)$，空间复杂度 $O(\log M)$。其中 $q$ 为查询的个数，而 $M$ 为数字的上界，本题中 $M \le 10^{15}$。
 
 <!-- tabs:start -->
 

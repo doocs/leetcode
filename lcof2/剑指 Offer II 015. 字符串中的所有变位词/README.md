@@ -74,7 +74,7 @@ comments: true
 
 遍历结束后，返回答案数组。
 
-时间复杂度 $(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
+时间复杂度 $O(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 

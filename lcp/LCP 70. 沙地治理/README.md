@@ -78,7 +78,7 @@ difficulty: 困难
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/demo2.png" style="width: 80%">
 
-时间复杂度 $(n^2)$，其中 $n$ 为题目给定的参数。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n^2)$，其中 $n$ 为题目给定的参数。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ tags:
 
 最后，如果 $f[n-1] \geq \infty$，说明无法转换为严格递增数组，返回 $-1$，否则返回 $f[n-1]$。
 
-时间复杂度 $(n \times (\log m + \min(m, n)))$，空间复杂度 $O(n)$。其中 $n$ 为 $arr1$ 的长度。
+时间复杂度 $O(n \times (\log m + \min(m, n)))$，空间复杂度 $O(n)$。其中 $n$ 为 $arr1$ 的长度。
 
 <!-- tabs:start -->
 

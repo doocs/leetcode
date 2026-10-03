@@ -78,7 +78,7 @@ tags:
 
 我们可以先对 $\textit{numbers}$ 数组按照字符串长度进行排序，然后遍历数组中的每一个字符串 $\textit{s}$，判断此前是否有字符串 $\textit{t}$ 是 $\textit{s}$ 的前缀，如果有，说明存在一个字符串是另一个字符串的前缀，返回 $\textit{false}$。如果遍历完所有字符串都没有找到前缀关系，返回 $\textit{true}$。
 
-时间复杂度 $(n^2 \times m + n \times \log n)$，空间复杂度 $(m + \log n)$，其中 $n$ 是 $\textit{numbers}$ 数组的长度，而 $m$ 是 $\textit{numbers}$ 数组中字符串的平均长度。
+时间复杂度 $O(n^2 \times m + n \times \log n)$，空间复杂度 $O(m + \log n)$，其中 $n$ 是 $\textit{numbers}$ 数组的长度，而 $m$ 是 $\textit{numbers}$ 数组中字符串的平均长度。
 
 <!-- tabs:start -->
 

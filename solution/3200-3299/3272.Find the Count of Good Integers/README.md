@@ -117,7 +117,7 @@ $$
 
 最后，我们将所有的排列组合数量相加，得到最终的答案。
 
-时间复杂度 $({10}^m \times n \times \log n)$，空间复杂度 $O({10}^m \times n)$，其中 $m = \lfloor \frac{n - 1}{2} \rfloor$。
+时间复杂度 $O({10}^m \times n \times \log n)$，空间复杂度 $O({10}^m \times n)$，其中 $m = \lfloor \frac{n - 1}{2} \rfloor$。
 
 <!-- tabs:start -->
 

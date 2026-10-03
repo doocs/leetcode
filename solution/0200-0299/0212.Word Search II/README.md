@@ -78,7 +78,7 @@ tags:
 
 最后，我们将答案返回即可。
 
-时间复杂度 $(m \times n \times 3^{l-1})$，空间复杂度 $(k \times l)$。其中 $m$ 和 $n$ 分别是 `board` 的行数和列数。而 $l$ 和 $k$ 分别是 `words` 中的单词的平均长度和单词的个数。
+时间复杂度 $O(m \times n \times 3^{l-1})$，空间复杂度 $O(k \times l)$。其中 $m$ 和 $n$ 分别是 `board` 的行数和列数。而 $l$ 和 $k$ 分别是 `words` 中的单词的平均长度和单词的个数。
 
 <!-- tabs:start -->
 
