@@ -103,7 +103,7 @@ class Solution:
         cnt = Counter()
         for i, v in nums1 + nums2:
             cnt[i] += v
-        return sorted(cnt.items())
+        return [[i, v] for i, v in sorted(cnt.items())]
 ```
 
 #### Java
