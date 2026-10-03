@@ -51,7 +51,7 @@ timeDelays = [0, 0, 50, 50, 150]
 actions = ["TimeLimitedCache", "set", "set", "get", "get", "get", "count"]
 values = [[], [1, 42, 50], [1, 50, 100], [1], [1], [1], []]
 timeDelays = [0, 0, 40, 50, 120, 200, 250]
-<strong>输出：</strong> [null, false, true, 50, 50, -1]
+<strong>输出：</strong> [null, false, true, 50, 50, -1, 0]
 <strong>解释：</strong>
 在 t=0 时，缓存被构造。
 在 t=0 时，添加一个键值对 (1: 42) ，过期时间为 50ms。因为该值不存在，因此返回false。
