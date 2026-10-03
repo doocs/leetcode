@@ -6,11 +6,11 @@ class Solution:
             right = [0] * n
             cnt = Counter()
             for i in range(1, n):
-                cnt[nums[i - 1]] += 1 + cnt[nums[i - 1] - 1]
+                cnt[nums[i - 1]] = (cnt[nums[i - 1]] + 1 + cnt[nums[i - 1] - 1]) % mod
                 left[i] = cnt[nums[i] - 1]
             cnt = Counter()
             for i in range(n - 2, -1, -1):
-                cnt[nums[i + 1]] += 1 + cnt[nums[i + 1] + 1]
+                cnt[nums[i + 1]] = (cnt[nums[i + 1]] + 1 + cnt[nums[i + 1] + 1]) % mod
                 right[i] = cnt[nums[i] + 1]
             return sum((l + r + l * r) * x for l, r, x in zip(left, right, nums)) % mod
 
