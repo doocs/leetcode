@@ -8,13 +8,15 @@ public:
         for (const auto& e : conversions) {
             g[e[0]].push_back({e[1], e[2]});
         }
-        auto dfs = [&](this auto&& dfs, int s, long long mul) -> void {
+        vector<pair<int, long long>> stk{{0, 1}};
+        while (!stk.empty()) {
+            auto [s, mul] = stk.back();
+            stk.pop_back();
             ans[s] = mul;
             for (auto [t, w] : g[s]) {
-                dfs(t, mul * w % mod);
+                stk.push_back({t, mul * w % mod});
             }
-        };
-        dfs(0, 1);
+        }
         return ans;
     }
 };
