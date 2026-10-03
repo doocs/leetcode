@@ -1,3 +1,6 @@
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def kSmallestPairs(
         self, nums1: List[int], nums2: List[int], k: int

@@ -73,6 +73,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def kSmallestPairs(
         self, nums1: List[int], nums2: List[int], k: int
@@ -144,6 +147,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 func kSmallestPairs(nums1, nums2 []int, k int) (ans [][]int) {
 	m, n := len(nums1), len(nums2)
 	h := hp{nil, nums1, nums2}
