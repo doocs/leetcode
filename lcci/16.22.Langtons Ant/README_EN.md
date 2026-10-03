@@ -36,7 +36,7 @@ difficulty: Medium
 
 </strong>[
 
-&nbsp; &quot;\_X&quot;,
+&nbsp; &quot;_X&quot;,
 
 &nbsp; &quot;LX&quot;
 
@@ -52,9 +52,9 @@ difficulty: Medium
 
 </strong>[
 
-&nbsp; &quot;\_U&quot;,
+&nbsp; &quot;_U&quot;,
 
-&nbsp; &quot;X\_&quot;,
+&nbsp; &quot;X_&quot;,
 
 &nbsp; &quot;XX&quot;
 
