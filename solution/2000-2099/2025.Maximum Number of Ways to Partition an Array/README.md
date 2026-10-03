@@ -137,9 +137,9 @@ class Solution:
 class Solution {
     public int waysToPartition(int[] nums, int k) {
         int n = nums.length;
-        int[] s = new int[n];
+        long[] s = new long[n];
         s[0] = nums[0];
-        Map<Integer, Integer> right = new HashMap<>();
+        Map<Long, Integer> right = new HashMap<>();
         for (int i = 0; i < n - 1; ++i) {
             right.merge(s[i], 1, Integer::sum);
             s[i + 1] = s[i] + nums[i + 1];
@@ -148,7 +148,7 @@ class Solution {
         if (s[n - 1] % 2 == 0) {
             ans = right.getOrDefault(s[n - 1] / 2, 0);
         }
-        Map<Integer, Integer> left = new HashMap<>();
+        Map<Long, Integer> left = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             int d = k - nums[i];
             if ((s[n - 1] + d) % 2 == 0) {
