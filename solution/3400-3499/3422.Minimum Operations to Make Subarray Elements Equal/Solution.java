@@ -30,7 +30,7 @@ class Solution {
                 ++sz1;
             }
             if (i >= k - 1) {
-                ans = Math.min(ans, s2 - r.firstKey() * sz2 + r.firstKey() * sz1 - s1);
+                ans = Math.min(ans, s2 - 1L * r.firstKey() * sz2 + 1L * r.firstKey() * sz1 - s1);
                 int j = i - k + 1;
                 if (r.containsKey(nums[j])) {
                     if (r.merge(nums[j], -1, Integer::sum) == 0) {
