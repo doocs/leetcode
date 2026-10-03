@@ -28,20 +28,25 @@ func findAnswer(parent []int, s string) (ans []bool) {
 	}
 	dfsStr := []byte{}
 	pos := make([][2]int, n)
-	var dfs func(int)
-	dfs = func(i int) {
-		l := len(dfsStr) + 1
-		for _, j := range g[i] {
-			dfs(j)
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			pos[i][0] = len(dfsStr) + 1
+			stk = append(stk, [2]int{i, 1})
+			for t := len(g[i]) - 1; t >= 0; t-- {
+				stk = append(stk, [2]int{g[i][t], 0})
+			}
+		} else {
+			dfsStr = append(dfsStr, s[i])
+			pos[i][1] = len(dfsStr)
 		}
-		dfsStr = append(dfsStr, s[i])
-		r := len(dfsStr)
-		pos[i] = [2]int{l, r}
 	}
 
 	const base = 13331
 	const mod = 998244353
-	dfs(0)
 	h1 := NewHashing(string(dfsStr), base, mod)
 	for i, j := 0, len(dfsStr)-1; i < j; i, j = i+1, j-1 {
 		dfsStr[i], dfsStr[j] = dfsStr[j], dfsStr[i]
