@@ -287,4 +287,154 @@ function minCost(nums: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举全部切法是指数级的。数组长度可以到 $1000$，而本段右端从当前位置开始试，第一次总会先算紧邻后缀，递归深度就是 $n$。从下标 $i$ 起的最小代价只依赖更靠右的答案。于是令 $f[i]$ 为从 $i$ 拆到末尾的最小代价，$f[n]=0$，从右往左枚举右端点 $j$，用计数维护恰好出现一次的个数 $\textit{one}$，以 $k+(j-i+1)-\textit{one}+f[j+1]$ 更新。
+
+<!-- thinking:end -->
+
+设 $f[i]$ 为从下标 $i$ 开始拆分的最小代价，边界 $f[n]=0$。从 $i=n-1$ 递减到 $0$，枚举本段右端 $j$。用数组 $\textit{cnt}$ 统计 $nums[i..j]$ 里每个值的出现次数，用 $\textit{one}$ 统计恰好出现一次的值的个数。这一段的重要性是 $k + j - i + 1 - \textit{one}$，再加上后缀代价 $f[j+1]$，$f[i]$ 取所有右端点中的最小值。答案为 $f[0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minCost(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            cnt = Counter()
+            one = 0
+            ans = inf
+            for j in range(i, n):
+                cnt[nums[j]] += 1
+                if cnt[nums[j]] == 1:
+                    one += 1
+                elif cnt[nums[j]] == 2:
+                    one -= 1
+                ans = min(ans, k + j - i + 1 - one + f[j + 1])
+            f[i] = ans
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minCost(int[] nums, int k) {
+        int n = nums.length;
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int[] cnt = new int[n];
+            int one = 0;
+            long ans = Long.MAX_VALUE;
+            for (int j = i; j < n; ++j) {
+                int x = ++cnt[nums[j]];
+                if (x == 1) {
+                    ++one;
+                } else if (x == 2) {
+                    --one;
+                }
+                ans = Math.min(ans, (long) k + j - i + 1 - one + f[j + 1]);
+            }
+            f[i] = (int) ans;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minCost(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            vector<int> cnt(n);
+            int one = 0;
+            long long ans = 1LL << 60;
+            for (int j = i; j < n; ++j) {
+                int x = ++cnt[nums[j]];
+                if (x == 1) {
+                    ++one;
+                } else if (x == 2) {
+                    --one;
+                }
+                ans = min(ans, (long long) k + j - i + 1 - one + f[j + 1]);
+            }
+            f[i] = (int) ans;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minCost(nums []int, k int) int {
+	n := len(nums)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		cnt := make([]int, n)
+		one := 0
+		ans := k + n + 1
+		for j := i; j < n; j++ {
+			cnt[nums[j]]++
+			x := cnt[nums[j]]
+			if x == 1 {
+				one++
+			} else if x == 2 {
+				one--
+			}
+			ans = min(ans, k+j-i+1-one+f[j+1])
+		}
+		f[i] = ans
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(nums: number[], k: number): number {
+    const n = nums.length;
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        const cnt: number[] = Array(n).fill(0);
+        let one = 0;
+        let ans = Infinity;
+        for (let j = i; j < n; ++j) {
+            const x = ++cnt[nums[j]];
+            if (x == 1) {
+                ++one;
+            } else if (x == 2) {
+                --one;
+            }
+            ans = Math.min(ans, k + j - i + 1 - one + f[j + 1]);
+        }
+        f[i] = ans;
+    }
+    return f[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
