@@ -281,4 +281,256 @@ function countGoodNodes(edges: number[][]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is good when every child subtree has the same size. $n$ can reach $10^5$, so recomputing subtrees at every node is quadratic. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> A subtree size is known only after every child has been finished.
+>
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, read each child's subtree size. If those sizes match, the current node is good, and its own subtree size is stored. The unrooted tree is rooted at $0$.
+
+<!-- thinking:end -->
+
+First, we construct the adjacency list $\textit{g}$ of the tree based on the given edges $\textit{edges}$, where $\textit{g}[a]$ represents all the neighboring nodes of node $a$.
+
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $\textit{pre} = -1$, $\textit{cnt} = 1$, and $\textit{ok} = 1$. For each child, add its subtree size to $\textit{cnt}$. If that size differs from $\textit{pre}$, set $\textit{ok}$ to $0$. Then add $\textit{ok}$ to the answer and store $\textit{cnt}$ as the current node's subtree size.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countGoodNodes(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = 0
+        sz = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                pre = -1
+                cnt = ok = 1
+                for b in g[a]:
+                    if b != fa:
+                        cur = sz[b]
+                        cnt += cur
+                        if pre < 0:
+                            pre = cur
+                        elif pre != cur:
+                            ok = 0
+                ans += ok
+                sz[a] = cnt
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countGoodNodes(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int ans = 0;
+        int[] sz = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                int pre = -1, cnt = 1, ok = 1;
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        int curSz = sz[b];
+                        cnt += curSz;
+                        if (pre < 0) {
+                            pre = curSz;
+                        } else if (pre != curSz) {
+                            ok = 0;
+                        }
+                    }
+                }
+                ans += ok;
+                sz[a] = cnt;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countGoodNodes(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        int ans = 0;
+        vector<int> sz(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                int pre = -1, cnt = 1, ok = 1;
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        int curSz = sz[b];
+                        cnt += curSz;
+                        if (pre < 0) {
+                            pre = curSz;
+                        } else if (pre != curSz) {
+                            ok = 0;
+                        }
+                    }
+                }
+                ans += ok;
+                sz[a] = cnt;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countGoodNodes(edges [][]int) (ans int) {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	sz := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{a, fa, 1})
+			for _, b := range g[a] {
+				if b != fa {
+					stk = append(stk, [3]int{b, a, 0})
+				}
+			}
+		} else {
+			pre, cnt, ok := -1, 1, 1
+			for _, b := range g[a] {
+				if b != fa {
+					curSz := sz[b]
+					cnt += curSz
+					if pre < 0 {
+						pre = curSz
+					} else if pre != curSz {
+						ok = 0
+					}
+				}
+			}
+			ans += ok
+			sz[a] = cnt
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countGoodNodes(edges: number[][]): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let ans = 0;
+    const sz: number[] = Array(n).fill(0);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            let pre = -1;
+            let cnt = 1;
+            let ok = 1;
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    const cur = sz[b];
+                    cnt += cur;
+                    if (pre < 0) {
+                        pre = cur;
+                    } else if (pre !== cur) {
+                        ok = 0;
+                    }
+                }
+            }
+            ans += ok;
+            sz[a] = cnt;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
