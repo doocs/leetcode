@@ -170,7 +170,7 @@ By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_
 >
 > A recursive month list left-joins $2020$ rides and accepted rides, then sums distance and duration per month.
 >
-> A window $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$ is the three-month mean; $\texttt{LIMIT}\ 10$ drops months $11$ and $12$.
+> Grouping does not order the months. The window has to be $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ORDER BY month ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$ so the frame is that month and the next two. $\texttt{LIMIT}\ 10$ drops months $11$ and $12$.
 
 <!-- thinking:end -->
 
@@ -202,11 +202,17 @@ WITH RECURSIVE
 SELECT
     month,
     ROUND(
-        AVG(ride_distance) OVER (ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING),
+        AVG(ride_distance) OVER (
+            ORDER BY month
+            ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING
+        ),
         2
     ) AS average_ride_distance,
     ROUND(
-        AVG(ride_duration) OVER (ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING),
+        AVG(ride_duration) OVER (
+            ORDER BY month
+            ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING
+        ),
         2
     ) AS average_ride_duration
 FROM Ride
