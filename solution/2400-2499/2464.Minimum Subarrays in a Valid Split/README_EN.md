@@ -228,4 +228,121 @@ func gcd(a, b int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every split is exponential. The array length reaches $1000$, and the next piece always starts strictly to the right, so a search from the left has depth $n$. A piece is valid exactly when the GCD of its endpoints is greater than $1$, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end of the array, updating with $1+f[j+1]$ whenever $\gcd(nums[i], nums[j])>1$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the minimum number of pieces starting at index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, enumerate the right endpoint $j$ ($i \leq j < n$). If $\gcd(nums[i], nums[j]) > 1$, the range $[i, j]$ is one valid piece, and $f[i]$ is updated with $1 + f[j + 1]$. If $f[0]$ is still infinite, no valid split exists and the answer is $-1$; otherwise the answer is $f[0]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validSubarraySplit(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            for j in range(i, n):
+                if gcd(nums[i], nums[j]) > 1:
+                    f[i] = min(f[i], 1 + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int validSubarraySplit(int[] nums) {
+        int n = nums.length;
+        int inf = 0x3f3f3f3f;
+        int[] f = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            f[i] = inf;
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i; j < n; ++j) {
+                if (gcd(nums[i], nums[j]) > 1) {
+                    f[i] = Math.min(f[i], 1 + f[j + 1]);
+                }
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int validSubarraySplit(vector<int>& nums) {
+        int n = nums.size();
+        const int inf = 0x3f3f3f3f;
+        vector<int> f(n + 1, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i; j < n; ++j) {
+                if (__gcd(nums[i], nums[j]) > 1) {
+                    f[i] = min(f[i], 1 + f[j + 1]);
+                }
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+};
+```
+
+#### Go
+
+```go
+func validSubarraySplit(nums []int) int {
+	n := len(nums)
+	const inf int = 0x3f3f3f3f
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := i; j < n; j++ {
+			if gcd(nums[i], nums[j]) > 1 {
+				f[i] = min(f[i], 1+f[j+1])
+			}
+		}
+	}
+	if f[0] < inf {
+		return f[0]
+	}
+	return -1
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
