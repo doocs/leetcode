@@ -21,7 +21,7 @@ WITH
             *,
             RANK() OVER (
                 PARTITION BY season
-                ORDER BY total_quantity DESC, total_revenue DESC
+                ORDER BY total_quantity DESC, total_revenue DESC, category ASC
             ) AS rk
         FROM SeasonalSales
     )
