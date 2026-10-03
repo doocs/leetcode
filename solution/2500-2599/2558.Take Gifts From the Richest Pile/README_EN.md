@@ -93,6 +93,10 @@ The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(
 #### Python3
 
 ```python
+from heapq import heapify, heapreplace
+from math import sqrt
+
+
 class Solution:
     def pickGifts(self, gifts: List[int], k: int) -> int:
         h = [-v for v in gifts]
@@ -143,6 +147,12 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"math"
+	"sort"
+)
+
 func pickGifts(gifts []int, k int) (ans int64) {
 	h := &hp{gifts}
 	heap.Init(h)
