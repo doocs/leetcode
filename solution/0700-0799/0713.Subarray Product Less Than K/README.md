@@ -180,7 +180,7 @@ impl Solution {
                 p /= nums[l];
                 l += 1;
             }
-            ans += (r - l + 1) as i32;
+            ans += r as i32 - l as i32 + 1;
         }
 
         ans
