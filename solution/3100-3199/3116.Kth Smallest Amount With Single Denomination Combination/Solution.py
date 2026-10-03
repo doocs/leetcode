@@ -1,3 +1,7 @@
+from bisect import bisect_left
+from math import lcm
+
+
 class Solution:
     def findKthSmallest(self, coins: List[int], k: int) -> int:
         def check(mx: int) -> bool:

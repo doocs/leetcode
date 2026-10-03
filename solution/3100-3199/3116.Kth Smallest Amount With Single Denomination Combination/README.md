@@ -141,6 +141,10 @@ $$
 #### Python3
 
 ```python
+from bisect import bisect_left
+from math import lcm
+
+
 class Solution:
     def findKthSmallest(self, coins: List[int], k: int) -> int:
         def check(mx: int) -> bool:
@@ -265,6 +269,11 @@ public:
 #### Go
 
 ```go
+import (
+	"math/bits"
+	"sort"
+)
+
 func findKthSmallest(coins []int, k int) int64 {
 	var r int = 1e11
 	n := len(coins)
