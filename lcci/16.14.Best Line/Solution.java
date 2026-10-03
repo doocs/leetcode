@@ -10,8 +10,8 @@ class Solution {
                 int cnt = 2;
                 for (int k = j + 1; k < n; ++k) {
                     int x3 = points[k][0], y3 = points[k][1];
-                    int a = (y2 - y1) * (x3 - x1);
-                    int b = (y3 - y1) * (x2 - x1);
+                    long a = (long) (y2 - y1) * (x3 - x1);
+                    long b = (long) (y3 - y1) * (x2 - x1);
                     if (a == b) {
                         ++cnt;
                     }
