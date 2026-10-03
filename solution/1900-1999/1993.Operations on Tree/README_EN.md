@@ -452,4 +452,369 @@ class LockingTree {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Lock and unlock update one node. Upgrade requires the node and its ancestors to be unlocked and at least one descendant to be locked, then unlocks every descendant and locks the node. With $n\le 2000$, ancestors can be climbed through parent pointers. Recursion through descendants overflows Python once a chain reaches length $1000$. Whether a descendant is locked does not depend on visit order, so every child only needs to be seen. After the ancestor check, a stack starts with the children of the current node. A popped node is unlocked when it is locked, that fact is recorded, and its children are pushed. The node is locked for the user only after at least one lock was cleared.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class LockingTree:
+    def __init__(self, parent: List[int]):
+        n = len(parent)
+        self.locked = [-1] * n
+        self.parent = parent
+        self.children = [[] for _ in range(n)]
+        for son, fa in enumerate(parent[1:], 1):
+            self.children[fa].append(son)
+
+    def lock(self, num: int, user: int) -> bool:
+        if self.locked[num] == -1:
+            self.locked[num] = user
+            return True
+        return False
+
+    def unlock(self, num: int, user: int) -> bool:
+        if self.locked[num] == user:
+            self.locked[num] = -1
+            return True
+        return False
+
+    def upgrade(self, num: int, user: int) -> bool:
+        x = num
+        while x != -1:
+            if self.locked[x] != -1:
+                return False
+            x = self.parent[x]
+
+        find = False
+        stk = list(self.children[num])
+        while stk:
+            x = stk.pop()
+            if self.locked[x] != -1:
+                self.locked[x] = -1
+                find = True
+            for y in self.children[x]:
+                stk.append(y)
+        if not find:
+            return False
+        self.locked[num] = user
+        return True
+
+
+# Your LockingTree object will be instantiated and called as such:
+# obj = LockingTree(parent)
+# param_1 = obj.lock(num,user)
+# param_2 = obj.unlock(num,user)
+# param_3 = obj.upgrade(num,user)
+```
+
+#### Java
+
+```java
+class LockingTree {
+    private int[] locked;
+    private int[] parent;
+    private List<Integer>[] children;
+
+    public LockingTree(int[] parent) {
+        int n = parent.length;
+        locked = new int[n];
+        this.parent = parent;
+        children = new List[n];
+        Arrays.fill(locked, -1);
+        Arrays.setAll(children, i -> new ArrayList<>());
+        for (int i = 1; i < n; i++) {
+            children[parent[i]].add(i);
+        }
+    }
+
+    public boolean lock(int num, int user) {
+        if (locked[num] == -1) {
+            locked[num] = user;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean unlock(int num, int user) {
+        if (locked[num] == user) {
+            locked[num] = -1;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean upgrade(int num, int user) {
+        int x = num;
+        while (x != -1) {
+            if (locked[x] != -1) {
+                return false;
+            }
+            x = parent[x];
+        }
+        boolean find = false;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.addAll(children[num]);
+        while (!stk.isEmpty()) {
+            int cur = stk.pop();
+            if (locked[cur] != -1) {
+                locked[cur] = -1;
+                find = true;
+            }
+            for (int y : children[cur]) {
+                stk.push(y);
+            }
+        }
+        if (!find) {
+            return false;
+        }
+        locked[num] = user;
+        return true;
+    }
+}
+
+/**
+ * Your LockingTree object will be instantiated and called as such:
+ * LockingTree obj = new LockingTree(parent);
+ * boolean param_1 = obj.lock(num,user);
+ * boolean param_2 = obj.unlock(num,user);
+ * boolean param_3 = obj.upgrade(num,user);
+ */
+```
+
+#### C++
+
+```cpp
+class LockingTree {
+public:
+    LockingTree(vector<int>& parent) {
+        int n = parent.size();
+        locked = vector<int>(n, -1);
+        this->parent = parent;
+        children.resize(n);
+        for (int i = 1; i < n; ++i) {
+            children[parent[i]].push_back(i);
+        }
+    }
+
+    bool lock(int num, int user) {
+        if (locked[num] == -1) {
+            locked[num] = user;
+            return true;
+        }
+        return false;
+    }
+
+    bool unlock(int num, int user) {
+        if (locked[num] == user) {
+            locked[num] = -1;
+            return true;
+        }
+        return false;
+    }
+
+    bool upgrade(int num, int user) {
+        int x = num;
+        while (x != -1) {
+            if (locked[x] != -1) {
+                return false;
+            }
+            x = parent[x];
+        }
+        bool find = false;
+        vector<int> stk = children[num];
+        while (!stk.empty()) {
+            int x = stk.back();
+            stk.pop_back();
+            if (locked[x] != -1) {
+                find = true;
+                locked[x] = -1;
+            }
+            for (int y : children[x]) {
+                stk.push_back(y);
+            }
+        }
+        if (!find) {
+            return false;
+        }
+        locked[num] = user;
+        return true;
+    }
+
+private:
+    vector<int> locked;
+    vector<int> parent;
+    vector<vector<int>> children;
+};
+
+/**
+ * Your LockingTree object will be instantiated and called as such:
+ * LockingTree* obj = new LockingTree(parent);
+ * bool param_1 = obj->lock(num,user);
+ * bool param_2 = obj->unlock(num,user);
+ * bool param_3 = obj->upgrade(num,user);
+ */
+```
+
+#### Go
+
+```go
+type LockingTree struct {
+	locked   []int
+	parent   []int
+	children [][]int
+}
+
+func Constructor(parent []int) LockingTree {
+	n := len(parent)
+	locked := make([]int, n)
+	for i := range locked {
+		locked[i] = -1
+	}
+	children := make([][]int, n)
+	for i := 1; i < n; i++ {
+		children[parent[i]] = append(children[parent[i]], i)
+	}
+	return LockingTree{locked, parent, children}
+}
+
+func (this *LockingTree) Lock(num int, user int) bool {
+	if this.locked[num] == -1 {
+		this.locked[num] = user
+		return true
+	}
+	return false
+}
+
+func (this *LockingTree) Unlock(num int, user int) bool {
+	if this.locked[num] == user {
+		this.locked[num] = -1
+		return true
+	}
+	return false
+}
+
+func (this *LockingTree) Upgrade(num int, user int) bool {
+	x := num
+	for ; x != -1; x = this.parent[x] {
+		if this.locked[x] != -1 {
+			return false
+		}
+	}
+	find := false
+	stk := append([]int(nil), this.children[num]...)
+	for len(stk) > 0 {
+		x := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if this.locked[x] != -1 {
+			find = true
+			this.locked[x] = -1
+		}
+		for _, y := range this.children[x] {
+			stk = append(stk, y)
+		}
+	}
+	if !find {
+		return false
+	}
+	this.locked[num] = user
+	return true
+}
+
+/**
+ * Your LockingTree object will be instantiated and called as such:
+ * obj := Constructor(parent);
+ * param_1 := obj.Lock(num,user);
+ * param_2 := obj.Unlock(num,user);
+ * param_3 := obj.Upgrade(num,user);
+ */
+```
+
+#### TypeScript
+
+```ts
+class LockingTree {
+    private locked: number[];
+    private parent: number[];
+    private children: number[][];
+
+    constructor(parent: number[]) {
+        const n = parent.length;
+        this.locked = Array(n).fill(-1);
+        this.parent = parent;
+        this.children = Array(n)
+            .fill(0)
+            .map(() => []);
+        for (let i = 1; i < n; i++) {
+            this.children[parent[i]].push(i);
+        }
+    }
+
+    lock(num: number, user: number): boolean {
+        if (this.locked[num] === -1) {
+            this.locked[num] = user;
+            return true;
+        }
+        return false;
+    }
+
+    unlock(num: number, user: number): boolean {
+        if (this.locked[num] === user) {
+            this.locked[num] = -1;
+            return true;
+        }
+        return false;
+    }
+
+    upgrade(num: number, user: number): boolean {
+        let x = num;
+        for (; x !== -1; x = this.parent[x]) {
+            if (this.locked[x] !== -1) {
+                return false;
+            }
+        }
+        let find = false;
+        const stk: number[] = [...this.children[num]];
+        while (stk.length) {
+            const x = stk.pop()!;
+            if (this.locked[x] !== -1) {
+                this.locked[x] = -1;
+                find = true;
+            }
+            for (const y of this.children[x]) {
+                stk.push(y);
+            }
+        }
+        if (!find) {
+            return false;
+        }
+        this.locked[num] = user;
+        return true;
+    }
+}
+
+/**
+ * Your LockingTree object will be instantiated and called as such:
+ * var obj = new LockingTree(parent)
+ * var param_1 = obj.lock(num,user)
+ * var param_2 = obj.unlock(num,user)
+ * var param_3 = obj.upgrade(num,user)
+ */
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

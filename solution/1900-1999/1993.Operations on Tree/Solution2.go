@@ -41,17 +41,18 @@ func (this *LockingTree) Upgrade(num int, user int) bool {
 		}
 	}
 	find := false
-	var dfs func(int)
-	dfs = func(x int) {
+	stk := append([]int(nil), this.children[num]...)
+	for len(stk) > 0 {
+		x := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if this.locked[x] != -1 {
+			find = true
+			this.locked[x] = -1
+		}
 		for _, y := range this.children[x] {
-			if this.locked[y] != -1 {
-				find = true
-				this.locked[y] = -1
-			}
-			dfs(y)
+			stk = append(stk, y)
 		}
 	}
-	dfs(num)
 	if !find {
 		return false
 	}
