@@ -226,7 +226,7 @@ func maxEqualAdjacentPairs(nums []int) int {
 
 ```ts
 function maxEqualAdjacentPairs(nums: number[]): number {
-    const cnt = new Map<number, number>();
+    const cnt = new Map<bigint, number>();
     let ans = 0;
     let mx = 0;
 
@@ -239,7 +239,7 @@ function maxEqualAdjacentPairs(nums: number[]): number {
             if (x > y) {
                 [x, y] = [y, x];
             }
-            const key = x * 2 ** 30 + y;
+            const key = (BigInt(x) << 30n) | BigInt(y);
             cnt.set(key, (cnt.get(key) || 0) + 1);
             mx = Math.max(mx, cnt.get(key)!);
         }
