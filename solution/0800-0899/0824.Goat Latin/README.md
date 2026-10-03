@@ -157,7 +157,7 @@ function toGoatLatin(sentence: string): string {
 use std::collections::HashSet;
 impl Solution {
     pub fn to_goat_latin(sentence: String) -> String {
-        let set: HashSet<&char> = ['a', 'e', 'i', 'o', 'u'].into_iter().collect();
+        let set: HashSet<char> = ['a', 'e', 'i', 'o', 'u'].into_iter().collect();
         sentence
             .split_whitespace()
             .enumerate()
