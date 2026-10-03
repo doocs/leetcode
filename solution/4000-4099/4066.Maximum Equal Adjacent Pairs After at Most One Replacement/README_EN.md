@@ -111,7 +111,7 @@ $$
 \textit{key}=(x\ll 30)\mid y.
 $$
 
-Since $x,y\le 10^9$, the key fits in a $64$-bit integer. $\textit{cnt}[\textit{key}]$ is how often that pair occurs in adjacent positions. Over every candidate operation, the number of newly equal adjacent pairs is the maximum of these counts, $\textit{mx}$. Skipping the operation leaves $\textit{mx}=0$. The answer is $\textit{ans}+\textit{mx}$.
+Since $x,y\le 10^9$, the mathematical key fits in a $64$-bit integer. Because JavaScript `Number` cannot represent every such integer exactly, the TypeScript implementation uses a comma-separated string key. $\textit{cnt}[\textit{key}]$ is how often that pair occurs in adjacent positions. Over every candidate operation, the number of newly equal adjacent pairs is the maximum of these counts, $\textit{mx}$. Skipping the operation leaves $\textit{mx}=0$. The answer is $\textit{ans}+\textit{mx}$.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$.
 
@@ -237,7 +237,7 @@ function maxEqualAdjacentPairs(nums: number[]): number {
             if (x > y) {
                 [x, y] = [y, x];
             }
-            const key = x * 2 ** 30 + y;
+            const key = `${x},${y}`;
             cnt.set(key, (cnt.get(key) || 0) + 1);
             mx = Math.max(mx, cnt.get(key)!);
         }
