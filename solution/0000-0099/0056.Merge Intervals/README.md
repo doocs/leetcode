@@ -242,7 +242,7 @@ public class Solution {
 }
 ```
 
-### JavaScript
+#### JavaScript
 
 ```js
 /**
