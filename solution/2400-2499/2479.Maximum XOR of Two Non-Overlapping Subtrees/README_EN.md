@@ -383,4 +383,383 @@ func maxXor(n int, edges [][]int, values []int) int64 {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Binary Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the maximum XOR of two disjoint subtree sums, and $n$ reaches $5\times 10^4$. Recursing down a chain for the sums and again for the trie walk exhausts the call stack.
+>
+> The bottleneck is those two chains: each call steps to the next child, so the depth tracks $n$.
+>
+> A subtree sum depends only on its children. A query is valid only against a finished subtree that does not overlap the current one, which means the current sum must be inserted after its children.
+>
+> Both walks use an explicit stack. The first accumulates $s[i]$ after the children. The second searches a $48$-bit binary trie on pop, then inserts $s[i]$ once the children are done. Sums reach about $10^{14}$, so each bit still prefers the opposite branch.
+
+<!-- thinking:end -->
+
+An explicit stack computes each subtree sum. A second stack queries a binary trie before inserting that sum, so the two subtrees do not overlap.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 2
+
+    def insert(self, x):
+        node = self
+        for i in range(47, -1, -1):
+            v = (x >> i) & 1
+            if node.children[v] is None:
+                node.children[v] = Trie()
+            node = node.children[v]
+
+    def search(self, x):
+        node = self
+        res = 0
+        for i in range(47, -1, -1):
+            v = (x >> i) & 1
+            if node is None:
+                return res
+            if node.children[v ^ 1]:
+                res = res << 1 | 1
+                node = node.children[v ^ 1]
+            else:
+                res <<= 1
+                node = node.children[v]
+        return res
+
+
+class Solution:
+    def maxXor(self, n: int, edges: List[List[int]], values: List[int]) -> int:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in reversed(g[i]):
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                t = values[i]
+                for j in g[i]:
+                    if j != fa:
+                        t += s[j]
+                s[i] = t
+        ans = 0
+        tree = Trie()
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                ans = max(ans, tree.search(s[i]))
+                stk.append((i, fa, 1))
+                for j in reversed(g[i]):
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                tree.insert(s[i])
+        return ans
+```
+
+#### Java
+
+```java
+class Trie {
+    Trie[] children = new Trie[2];
+
+    void insert(long x) {
+        Trie node = this;
+        for (int i = 47; i >= 0; --i) {
+            int v = (int) (x >> i) & 1;
+            if (node.children[v] == null) {
+                node.children[v] = new Trie();
+            }
+            node = node.children[v];
+        }
+    }
+
+    long search(long x) {
+        Trie node = this;
+        long res = 0;
+        for (int i = 47; i >= 0; --i) {
+            int v = (int) (x >> i) & 1;
+            if (node == null) {
+                return res;
+            }
+            if (node.children[v ^ 1] != null) {
+                res = res << 1 | 1;
+                node = node.children[v ^ 1];
+            } else {
+                res <<= 1;
+                node = node.children[v];
+            }
+        }
+        return res;
+    }
+}
+
+class Solution {
+    public long maxXor(int n, int[][] edges, int[] values) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[] s = new long[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int k = g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i].get(k);
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                long t = values[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        t += s[j];
+                    }
+                }
+                s[i] = t;
+            }
+        }
+        long ans = 0;
+        Trie tree = new Trie();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                ans = Math.max(ans, tree.search(s[i]));
+                stk.push(new int[] {i, fa, 1});
+                for (int k = g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i].get(k);
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                tree.insert(s[i]);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+using ll = long long;
+
+class Trie {
+public:
+    vector<Trie*> children;
+    string v;
+    Trie()
+        : children(2) {}
+
+    void insert(ll x) {
+        Trie* node = this;
+        for (int i = 47; ~i; --i) {
+            int v = (x >> i) & 1;
+            if (!node->children[v]) node->children[v] = new Trie();
+            node = node->children[v];
+        }
+    }
+
+    ll search(ll x) {
+        Trie* node = this;
+        ll res = 0;
+        for (int i = 47; ~i; --i) {
+            if (!node) return res;
+            int v = (x >> i) & 1;
+            if (node->children[v ^ 1]) {
+                res = res << 1 | 1;
+                node = node->children[v ^ 1];
+            } else {
+                res <<= 1;
+                node = node->children[v];
+            }
+        }
+        return res;
+    }
+};
+
+class Solution {
+public:
+    long long maxXor(int n, vector<vector<int>>& edges, vector<int>& values) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        vector<ll> s(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int k = (int) g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i][k];
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                ll t = values[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        t += s[j];
+                    }
+                }
+                s[i] = t;
+            }
+        }
+        Trie tree;
+        ll ans = 0;
+        stk.push_back({0, -1, 0});
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                ans = max(ans, tree.search(s[i]));
+                stk.push_back({i, fa, 1});
+                for (int k = (int) g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i][k];
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                tree.insert(s[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+type Trie struct {
+	children [2]*Trie
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+
+func (this *Trie) insert(x int) {
+	node := this
+	for i := 47; i >= 0; i-- {
+		v := (x >> i) & 1
+		if node.children[v] == nil {
+			node.children[v] = newTrie()
+		}
+		node = node.children[v]
+	}
+}
+
+func (this *Trie) search(x int) int {
+	node := this
+	res := 0
+	for i := 47; i >= 0; i-- {
+		v := (x >> i) & 1
+		if node == nil {
+			return res
+		}
+		if node.children[v^1] != nil {
+			res = res<<1 | 1
+			node = node.children[v^1]
+		} else {
+			res <<= 1
+			node = node.children[v]
+		}
+	}
+	return res
+}
+
+func maxXor(n int, edges [][]int, values []int) int64 {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	s := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for k := len(g[i]) - 1; k >= 0; k-- {
+				j := g[i][k]
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			t := values[i]
+			for _, j := range g[i] {
+				if j != fa {
+					t += s[j]
+				}
+			}
+			s[i] = t
+		}
+	}
+	ans := 0
+	tree := newTrie()
+	stk = [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			ans = max(ans, tree.search(s[i]))
+			stk = append(stk, [3]int{i, fa, 1})
+			for k := len(g[i]) - 1; k >= 0; k-- {
+				j := g[i][k]
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			tree.insert(s[i])
+		}
+	}
+	return int64(ans)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

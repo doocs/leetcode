@@ -44,30 +44,48 @@ func maxXor(n int, edges [][]int, values []int) int64 {
 		g[b] = append(g[b], a)
 	}
 	s := make([]int, n)
-	var dfs1 func(i, fa int) int
-	dfs1 = func(i, fa int) int {
-		t := values[i]
-		for _, j := range g[i] {
-			if j != fa {
-				t += dfs1(j, i)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for k := len(g[i]) - 1; k >= 0; k-- {
+				j := g[i][k]
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
 			}
+		} else {
+			t := values[i]
+			for _, j := range g[i] {
+				if j != fa {
+					t += s[j]
+				}
+			}
+			s[i] = t
 		}
-		s[i] = t
-		return t
 	}
-	dfs1(0, -1)
 	ans := 0
 	tree := newTrie()
-	var dfs2 func(i, fa int)
-	dfs2 = func(i, fa int) {
-		ans = max(ans, tree.search(s[i]))
-		for _, j := range g[i] {
-			if j != fa {
-				dfs2(j, i)
+	stk = [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			ans = max(ans, tree.search(s[i]))
+			stk = append(stk, [3]int{i, fa, 1})
+			for k := len(g[i]) - 1; k >= 0; k-- {
+				j := g[i][k]
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
 			}
+		} else {
+			tree.insert(s[i])
 		}
-		tree.insert(s[i])
 	}
-	dfs2(0, -1)
 	return int64(ans)
 }
