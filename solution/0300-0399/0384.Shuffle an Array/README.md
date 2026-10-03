@@ -80,6 +80,9 @@ solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例�
 #### Python3
 
 ```python
+import random
+
+
 class Solution:
     def __init__(self, nums: List[int]):
         self.nums = nums
