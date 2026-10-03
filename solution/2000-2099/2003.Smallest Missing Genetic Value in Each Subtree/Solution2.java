@@ -1,15 +1,7 @@
 class Solution {
-    private List<Integer>[] g;
-    private boolean[] vis;
-    private boolean[] has;
-    private int[] nums;
-
     public int[] smallestMissingValueSubtree(int[] parents, int[] nums) {
         int n = nums.length;
-        this.nums = nums;
-        g = new List[n];
-        vis = new boolean[n];
-        has = new boolean[n + 2];
+        List<Integer>[] g = new List[n];
         Arrays.setAll(g, i -> new ArrayList<>());
         int idx = -1;
         for (int i = 0; i < n; ++i) {
@@ -25,8 +17,10 @@ class Solution {
         if (idx == -1) {
             return ans;
         }
+        boolean[] vis = new boolean[n];
+        boolean[] has = new boolean[n + 2];
         for (int i = 2; idx != -1; idx = parents[idx]) {
-            dfs(idx);
+            dfs(g, vis, has, nums, idx);
             while (has[i]) {
                 ++i;
             }
@@ -35,16 +29,21 @@ class Solution {
         return ans;
     }
 
-    private void dfs(int i) {
-        if (vis[i]) {
-            return;
-        }
-        vis[i] = true;
-        if (nums[i] < has.length) {
-            has[nums[i]] = true;
-        }
-        for (int j : g[i]) {
-            dfs(j);
+    private void dfs(List<Integer>[] g, boolean[] vis, boolean[] has, int[] nums, int start) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(start);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            if (nums[i] < has.length) {
+                has[nums[i]] = true;
+            }
+            for (int j : g[i]) {
+                stk.push(j);
+            }
         }
     }
 }
