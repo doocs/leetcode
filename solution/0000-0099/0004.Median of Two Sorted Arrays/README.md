@@ -353,26 +353,30 @@ class Solution {
 #### Nim
 
 ```nim
-import std/[algorithm, sequtils]
-
 proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
-  var
-    fullList: seq[int] = concat(nums1, nums2)
-    value: int = fullList.len div 2
+  let
+    m = nums1.len
+    n = nums2.len
 
-  fullList.sort()
+  proc f(i, j, k: int): int =
+    if i >= m:
+      return nums2[j + k - 1]
+    if j >= n:
+      return nums1[i + k - 1]
+    if k == 1:
+      return min(nums1[i], nums2[j])
+    let p = k div 2
+    let x = if i + p - 1 < m: nums1[i + p - 1] else: 1 shl 30
+    let y = if j + p - 1 < n: nums2[j + p - 1] else: 1 shl 30
+    if x < y:
+      result = f(i + p, j, k - p)
+    else:
+      result = f(i, j + p, k - p)
 
-  if fullList.len mod 2 == 0:
-    result = (fullList[value - 1] + fullList[value]) / 2
-  else:
-    result = fullList[value].toFloat()
-
-# Driver Code
-
-# var
-#   arrA: seq[int] = @[1, 2]
-#   arrB: seq[int] = @[3, 4, 5]
-# echo medianOfTwoSortedArrays(arrA, arrB)
+  let
+    a = f(0, 0, (m + n + 1) div 2)
+    b = f(0, 0, (m + n + 2) div 2)
+  result = (a + b) / 2
 ```
 
 #### C
