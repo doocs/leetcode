@@ -1,26 +1,15 @@
 class RecentCounter {
-    private int[] s = new int[10010];
-    private int idx;
+    private Deque<Integer> q = new ArrayDeque<>();
 
     public RecentCounter() {
     }
 
     public int ping(int t) {
-        s[idx++] = t;
-        return idx - search(t - 3000);
-    }
-
-    private int search(int x) {
-        int left = 0, right = idx;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (s[mid] >= x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        q.offer(t);
+        while (q.peek() < t - 3000) {
+            q.poll();
         }
-        return left;
+        return q.size();
     }
 }
 
