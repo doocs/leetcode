@@ -149,7 +149,7 @@ class Solution {
 public:
     vector<vector<int>> permute(int n) {
         vector<vector<int>> ans;
-        vector<bool> vis(n);
+        vector<bool> vis(n + 1);
         vector<int> t;
         auto dfs = [&](this auto&& dfs, int i) -> void {
             if (i >= n) {
