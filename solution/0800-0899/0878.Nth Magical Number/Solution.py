@@ -1,3 +1,7 @@
+from bisect import bisect_left
+from math import lcm
+
+
 class Solution:
     def nthMagicalNumber(self, n: int, a: int, b: int) -> int:
         mod = 10**9 + 7

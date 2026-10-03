@@ -1,3 +1,5 @@
+import "sort"
+
 func nthMagicalNumber(n int, a int, b int) int {
 	c := a * b / gcd(a, b)
 	const mod int = 1e9 + 7
