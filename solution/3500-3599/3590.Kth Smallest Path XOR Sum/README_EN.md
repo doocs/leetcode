@@ -610,4 +610,521 @@ func kthSmallest(par []int, vals []int, queries [][]int) []int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Small-to-Large Merge on an Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the $k$-th distinct root-to-node XOR inside a subtree, and both $n$ and the number of queries reach $5 \cdot 10^4$. Writing every path XOR, then merging subtree sets from small to large, is what makes those queries feasible.
+>
+> Both walks follow the first child. A chain can be $n$ nodes long, so recursion overflows before the path XORs are written or before a subtree Trie finishes merging. The binary Trie itself only descends by bits, a constant depth; the tree depth is the bottleneck.
+>
+> A node’s queries can be answered only after every child has been merged, and children are still finished one subtree at a time. An explicit stack stores a state that separates “children not yet expanded” from “children already returned”: push the node’s completion marker first, then push the children in reverse, so they pop in the original merge order.
+>
+> The path-XOR walk writes the current node before pushing its children with that prefix. When a node’s Trie is complete, its $k$-th query answers the queries hanging on that node.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class BinarySumTrie:
+    def __init__(self):
+        self.count = 0
+        self.children = [None, None]
+
+    def add(self, num: int, delta: int, bit=17):
+        self.count += delta
+        if bit < 0:
+            return
+        b = (num >> bit) & 1
+        if not self.children[b]:
+            self.children[b] = BinarySumTrie()
+        self.children[b].add(num, delta, bit - 1)
+
+    def collect(self, prefix=0, bit=17, output=None):
+        if output is None:
+            output = []
+        if self.count == 0:
+            return output
+        if bit < 0:
+            output.append(prefix)
+            return output
+        if self.children[0]:
+            self.children[0].collect(prefix, bit - 1, output)
+        if self.children[1]:
+            self.children[1].collect(prefix | (1 << bit), bit - 1, output)
+        return output
+
+    def exists(self, num: int, bit=17):
+        if self.count == 0:
+            return False
+        if bit < 0:
+            return True
+        b = (num >> bit) & 1
+        return self.children[b].exists(num, bit - 1) if self.children[b] else False
+
+    def find_kth(self, k: int, bit=17):
+        if k > self.count:
+            return -1
+        if bit < 0:
+            return 0
+        left_count = self.children[0].count if self.children[0] else 0
+        if k <= left_count:
+            return self.children[0].find_kth(k, bit - 1)
+        elif self.children[1]:
+            return (1 << bit) + self.children[1].find_kth(k - left_count, bit - 1)
+        else:
+            return -1
+
+
+class Solution:
+    def kthSmallest(
+        self, par: List[int], vals: List[int], queries: List[List[int]]
+    ) -> List[int]:
+        n = len(par)
+        tree = [[] for _ in range(n)]
+        for i in range(1, n):
+            tree[par[i]].append(i)
+
+        path_xor = vals[:]
+        narvetholi = path_xor
+        stk = [(0, 0)]
+        while stk:
+            node, acc = stk.pop()
+            path_xor[node] ^= acc
+            for child in reversed(tree[node]):
+                stk.append((child, path_xor[node]))
+
+        node_queries = defaultdict(list)
+        for idx, (u, k) in enumerate(queries):
+            node_queries[u].append((k, idx))
+
+        trie_pool = {}
+        result = [0] * len(queries)
+        stk = [(0, 0)]
+        while stk:
+            node, state = stk.pop()
+            if state == 0:
+                trie_pool[node] = BinarySumTrie()
+                trie_pool[node].add(path_xor[node], 1)
+                stk.append((node, 1))
+                for child in reversed(tree[node]):
+                    stk.append((child, 0))
+                continue
+            for child in tree[node]:
+                if trie_pool[node].count < trie_pool[child].count:
+                    trie_pool[node], trie_pool[child] = (
+                        trie_pool[child],
+                        trie_pool[node],
+                    )
+                for val in trie_pool[child].collect():
+                    if not trie_pool[node].exists(val):
+                        trie_pool[node].add(val, 1)
+            for k, idx in node_queries[node]:
+                if trie_pool[node].count < k:
+                    result[idx] = -1
+                else:
+                    result[idx] = trie_pool[node].find_kth(k)
+        return result
+```
+
+#### Java
+
+```java
+class BinarySumTrie {
+    int count;
+    BinarySumTrie[] children = new BinarySumTrie[2];
+
+    void add(int num, int delta, int bit) {
+        count += delta;
+        if (bit < 0) {
+            return;
+        }
+        int b = (num >> bit) & 1;
+        if (children[b] == null) {
+            children[b] = new BinarySumTrie();
+        }
+        children[b].add(num, delta, bit - 1);
+    }
+
+    void collect(int prefix, int bit, List<Integer> output) {
+        if (count == 0) {
+            return;
+        }
+        if (bit < 0) {
+            output.add(prefix);
+            return;
+        }
+        if (children[0] != null) {
+            children[0].collect(prefix, bit - 1, output);
+        }
+        if (children[1] != null) {
+            children[1].collect(prefix | (1 << bit), bit - 1, output);
+        }
+    }
+
+    boolean exists(int num, int bit) {
+        if (count == 0) {
+            return false;
+        }
+        if (bit < 0) {
+            return true;
+        }
+        int b = (num >> bit) & 1;
+        return children[b] != null && children[b].exists(num, bit - 1);
+    }
+
+    int findKth(int k, int bit) {
+        if (k > count) {
+            return -1;
+        }
+        if (bit < 0) {
+            return 0;
+        }
+        int leftCount = children[0] == null ? 0 : children[0].count;
+        if (k <= leftCount) {
+            return children[0].findKth(k, bit - 1);
+        }
+        if (children[1] != null) {
+            return (1 << bit) + children[1].findKth(k - leftCount, bit - 1);
+        }
+        return -1;
+    }
+}
+
+class Solution {
+    private static final int BITS = 17;
+
+    public int[] kthSmallest(int[] par, int[] vals, int[][] queries) {
+        int n = par.length;
+        List<Integer>[] tree = new List[n];
+        Arrays.setAll(tree, i -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            tree[par[i]].add(i);
+        }
+        int[] pathXor = vals.clone();
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int node = cur[0], acc = cur[1];
+            pathXor[node] ^= acc;
+            List<Integer> children = tree[node];
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(new int[] {children.get(i), pathXor[node]});
+            }
+        }
+
+        List<int[]>[] nodeQueries = new List[n];
+        Arrays.setAll(nodeQueries, i -> new ArrayList<>());
+        for (int i = 0; i < queries.length; ++i) {
+            nodeQueries[queries[i][0]].add(new int[] {queries[i][1], i});
+        }
+
+        BinarySumTrie[] pool = new BinarySumTrie[n];
+        int[] result = new int[queries.length];
+        stk.clear();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int node = cur[0], state = cur[1];
+            if (state == 0) {
+                pool[node] = new BinarySumTrie();
+                pool[node].add(pathXor[node], 1, BITS);
+                stk.push(new int[] {node, 1});
+                List<Integer> children = tree[node];
+                for (int i = children.size() - 1; i >= 0; --i) {
+                    stk.push(new int[] {children.get(i), 0});
+                }
+                continue;
+            }
+            for (int child : tree[node]) {
+                if (pool[node].count < pool[child].count) {
+                    BinarySumTrie tmp = pool[node];
+                    pool[node] = pool[child];
+                    pool[child] = tmp;
+                }
+                List<Integer> got = new ArrayList<>();
+                pool[child].collect(0, BITS, got);
+                for (int val : got) {
+                    if (!pool[node].exists(val, BITS)) {
+                        pool[node].add(val, 1, BITS);
+                    }
+                }
+            }
+            for (int[] q : nodeQueries[node]) {
+                result[q[1]] = pool[node].count < q[0] ? -1 : pool[node].findKth(q[0], BITS);
+            }
+        }
+        return result;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class BinarySumTrie {
+public:
+    int count = 0;
+    BinarySumTrie* children[2]{};
+
+    void add(int num, int delta, int bit) {
+        count += delta;
+        if (bit < 0) {
+            return;
+        }
+        int b = (num >> bit) & 1;
+        if (!children[b]) {
+            children[b] = new BinarySumTrie();
+        }
+        children[b]->add(num, delta, bit - 1);
+    }
+
+    void collect(int prefix, int bit, vector<int>& output) {
+        if (count == 0) {
+            return;
+        }
+        if (bit < 0) {
+            output.push_back(prefix);
+            return;
+        }
+        if (children[0]) {
+            children[0]->collect(prefix, bit - 1, output);
+        }
+        if (children[1]) {
+            children[1]->collect(prefix | (1 << bit), bit - 1, output);
+        }
+    }
+
+    bool exists(int num, int bit) {
+        if (count == 0) {
+            return false;
+        }
+        if (bit < 0) {
+            return true;
+        }
+        int b = (num >> bit) & 1;
+        return children[b] && children[b]->exists(num, bit - 1);
+    }
+
+    int findKth(int k, int bit) {
+        if (k > count) {
+            return -1;
+        }
+        if (bit < 0) {
+            return 0;
+        }
+        int leftCount = children[0] ? children[0]->count : 0;
+        if (k <= leftCount) {
+            return children[0]->findKth(k, bit - 1);
+        }
+        if (children[1]) {
+            return (1 << bit) + children[1]->findKth(k - leftCount, bit - 1);
+        }
+        return -1;
+    }
+};
+
+class Solution {
+public:
+    vector<int> kthSmallest(vector<int>& par, vector<int>& vals, vector<vector<int>>& queries) {
+        int n = par.size();
+        const int bits = 17;
+        vector<vector<int>> tree(n);
+        for (int i = 1; i < n; ++i) {
+            tree[par[i]].push_back(i);
+        }
+        vector<int> pathXor = vals;
+        vector<pair<int, int>> stk;
+        stk.emplace_back(0, 0);
+        while (!stk.empty()) {
+            auto [node, acc] = stk.back();
+            stk.pop_back();
+            pathXor[node] ^= acc;
+            for (int i = (int) tree[node].size() - 1; i >= 0; --i) {
+                stk.emplace_back(tree[node][i], pathXor[node]);
+            }
+        }
+        vector<vector<pair<int, int>>> nodeQueries(n);
+        for (int i = 0; i < (int) queries.size(); ++i) {
+            nodeQueries[queries[i][0]].push_back({queries[i][1], i});
+        }
+        vector<BinarySumTrie*> pool(n, nullptr);
+        vector<int> result(queries.size(), 0);
+        stk.clear();
+        stk.emplace_back(0, 0);
+        while (!stk.empty()) {
+            auto [node, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                pool[node] = new BinarySumTrie();
+                pool[node]->add(pathXor[node], 1, bits);
+                stk.emplace_back(node, 1);
+                for (int i = (int) tree[node].size() - 1; i >= 0; --i) {
+                    stk.emplace_back(tree[node][i], 0);
+                }
+                continue;
+            }
+            for (int child : tree[node]) {
+                if (pool[node]->count < pool[child]->count) {
+                    swap(pool[node], pool[child]);
+                }
+                vector<int> got;
+                pool[child]->collect(0, bits, got);
+                for (int val : got) {
+                    if (!pool[node]->exists(val, bits)) {
+                        pool[node]->add(val, 1, bits);
+                    }
+                }
+            }
+            for (auto [k, idx] : nodeQueries[node]) {
+                result[idx] = pool[node]->count < k ? -1 : pool[node]->findKth(k, bits);
+            }
+        }
+        return result;
+    }
+};
+```
+
+#### Go
+
+```go
+type binarySumTrie struct {
+	count    int
+	children [2]*binarySumTrie
+}
+
+func (t *binarySumTrie) add(num, delta, bit int) {
+	t.count += delta
+	if bit < 0 {
+		return
+	}
+	b := (num >> bit) & 1
+	if t.children[b] == nil {
+		t.children[b] = &binarySumTrie{}
+	}
+	t.children[b].add(num, delta, bit-1)
+}
+
+func (t *binarySumTrie) collect(prefix, bit int, output *[]int) {
+	if t.count == 0 {
+		return
+	}
+	if bit < 0 {
+		*output = append(*output, prefix)
+		return
+	}
+	if t.children[0] != nil {
+		t.children[0].collect(prefix, bit-1, output)
+	}
+	if t.children[1] != nil {
+		t.children[1].collect(prefix|(1<<bit), bit-1, output)
+	}
+}
+
+func (t *binarySumTrie) exists(num, bit int) bool {
+	if t.count == 0 {
+		return false
+	}
+	if bit < 0 {
+		return true
+	}
+	b := (num >> bit) & 1
+	return t.children[b] != nil && t.children[b].exists(num, bit-1)
+}
+
+func (t *binarySumTrie) findKth(k, bit int) int {
+	if k > t.count {
+		return -1
+	}
+	if bit < 0 {
+		return 0
+	}
+	leftCount := 0
+	if t.children[0] != nil {
+		leftCount = t.children[0].count
+	}
+	if k <= leftCount {
+		return t.children[0].findKth(k, bit-1)
+	}
+	if t.children[1] != nil {
+		return (1 << bit) + t.children[1].findKth(k-leftCount, bit-1)
+	}
+	return -1
+}
+
+func kthSmallest(par []int, vals []int, queries [][]int) []int {
+	n := len(par)
+	tree := make([][]int, n)
+	for i := 1; i < n; i++ {
+		tree[par[i]] = append(tree[par[i]], i)
+	}
+	pathXor := append([]int(nil), vals...)
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, acc := cur[0], cur[1]
+		pathXor[node] ^= acc
+		for i := len(tree[node]) - 1; i >= 0; i-- {
+			stk = append(stk, [2]int{tree[node][i], pathXor[node]})
+		}
+	}
+
+	nodeQueries := make([][][2]int, n)
+	for i, q := range queries {
+		nodeQueries[q[0]] = append(nodeQueries[q[0]], [2]int{q[1], i})
+	}
+
+	pool := make([]*binarySumTrie, n)
+	result := make([]int, len(queries))
+	stk = [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, state := cur[0], cur[1]
+		if state == 0 {
+			pool[node] = &binarySumTrie{}
+			pool[node].add(pathXor[node], 1, 17)
+			stk = append(stk, [2]int{node, 1})
+			for i := len(tree[node]) - 1; i >= 0; i-- {
+				stk = append(stk, [2]int{tree[node][i], 0})
+			}
+			continue
+		}
+		for _, child := range tree[node] {
+			if pool[node].count < pool[child].count {
+				pool[node], pool[child] = pool[child], pool[node]
+			}
+			got := []int{}
+			pool[child].collect(0, 17, &got)
+			for _, val := range got {
+				if !pool[node].exists(val, 17) {
+					pool[node].add(val, 1, 17)
+				}
+			}
+		}
+		for _, q := range nodeQueries[node] {
+			if pool[node].count < q[0] {
+				result[q[1]] = -1
+			} else {
+				result[q[1]] = pool[node].findKth(q[0], 17)
+			}
+		}
+	}
+	return result
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
