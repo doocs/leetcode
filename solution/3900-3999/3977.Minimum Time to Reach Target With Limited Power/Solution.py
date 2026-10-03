@@ -1,3 +1,7 @@
+from heapq import heappop, heappush
+from math import inf
+
+
 class Solution:
     def minTimeMaxPower(
         self,

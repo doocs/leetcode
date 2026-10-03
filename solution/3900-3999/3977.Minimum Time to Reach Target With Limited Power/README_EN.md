@@ -156,6 +156,10 @@ The time complexity is $O((n + m) \times \textit{power} \times \log (n \times \t
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+from math import inf
+
+
 class Solution:
     def minTimeMaxPower(
         self,
@@ -300,6 +304,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 type State struct {
 	d int64
 	p int

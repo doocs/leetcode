@@ -1,3 +1,5 @@
+import "container/heap"
+
 type State struct {
 	d int64
 	p int
