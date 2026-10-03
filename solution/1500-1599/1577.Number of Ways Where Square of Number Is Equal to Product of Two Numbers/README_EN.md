@@ -293,9 +293,9 @@ class Solution {
         for (int x : nums) {
             for (var e : cnt.entrySet()) {
                 int y = e.getKey(), v1 = e.getValue();
-                int z = (int) (1L * x * x / y);
-                if (y * z == x * x) {
-                    int v2 = cnt.getOrDefault(z, 0);
+                long z = 1L * x * x / y;
+                if (y * z == 1L * x * x && z == (int) z) {
+                    int v2 = cnt.getOrDefault((int) z, 0);
                     ans += v1 * (y == z ? v2 - 1 : v2);
                 }
             }
