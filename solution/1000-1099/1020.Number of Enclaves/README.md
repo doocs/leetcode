@@ -321,9 +321,9 @@ impl Solution {
 
 > **思考**
 >
-> 深度优先在 $m\times n$ 最大约 $2.5\times 10^5$ 时可能较深，递归栈不稳定。连通性本身只需按层扩展，不依赖搜索顺序。
+> 方法一已经用显式栈从边界淹没陆地。连通性不依赖搜索顺序，也可以把边界陆地放入队列按层扩展。
 >
-> 把边界陆地放入队列做广度优先，同样把能走到的格子改为 $0$，最后统计剩余 $1$。
+> 队列弹出后同样把四个方向上的 $1$ 标成 $0$。四条边界处理完后，剩下的 $1$ 仍是飞地。
 
 <!-- thinking:end -->
 
@@ -580,6 +580,293 @@ impl Solution {
         }
 
         grid.into_iter().flatten().sum()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 飞地是到不了边界的陆地。对每一块陆地单独判断能否离岛，会在同一张图上反复搜索。$m,n\le 500$，补集是「与边界连通的陆地」。
+>
+> 从边界上的 $1$ 递归淹没时，一条贴着边界蜿蜒的陆地链会长到上千格，调用栈会先被用尽。
+>
+> 淹没只要求把能走到的格子标成 $0$，不依赖递归返回值。
+>
+> 因此用显式栈保存待淹没的格子。弹出后把四个方向上仍为 $1$ 的邻居标 $0$ 并入栈。四条边界都处理完后，网格里剩下的 $1$ 就是飞地。
+
+<!-- thinking:end -->
+
+从四条边界上的陆地出发，用显式栈淹没所有能走到的陆地，将其标为 $0$。最后统计网格中剩余 $1$ 的个数。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        def flood(i: int, j: int):
+            stk = [(i, j)]
+            grid[i][j] = 0
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        grid[x][y] = 0
+                        stk.append((x, y))
+
+        m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
+        for j in range(n):
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    flood(i, j)
+        for i in range(m):
+            for j in (0, n - 1):
+                if grid[i][j]:
+                    flood(i, j)
+        return sum(sum(row) for row in grid)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numEnclaves(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        for (int j = 0; j < n; j++) {
+            for (int i : List.of(0, m - 1)) {
+                if (grid[i][j] == 1) {
+                    flood(grid, stk, dirs, i, j);
+                }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j : List.of(0, n - 1)) {
+                if (grid[i][j] == 1) {
+                    flood(grid, stk, dirs, i, j);
+                }
+            }
+        }
+        int ans = 0;
+        for (var row : grid) {
+            for (int x : row) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+
+    private void flood(int[][] grid, Deque<int[]> stk, int[] dirs, int i, int j) {
+        int m = grid.length, n = grid[0].length;
+        grid[i][j] = 0;
+        stk.push(new int[] {i, j});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            i = cur[0];
+            j = cur[1];
+            for (int k = 0; k < 4; k++) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
+                    grid[x][y] = 0;
+                    stk.push(new int[] {x, y});
+                }
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numEnclaves(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        auto flood = [&](int i, int j) {
+            vector<pair<int, int>> stk{{i, j}};
+            grid[i][j] = 0;
+            while (!stk.empty()) {
+                auto [a, b] = stk.back();
+                stk.pop_back();
+                for (int k = 0; k < 4; ++k) {
+                    int x = a + dirs[k], y = b + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
+                        grid[x][y] = 0;
+                        stk.emplace_back(x, y);
+                    }
+                }
+            }
+        };
+        for (int j = 0; j < n; ++j) {
+            for (int i : {0, m - 1}) {
+                if (grid[i][j] == 1) {
+                    flood(i, j);
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j : {0, n - 1}) {
+                if (grid[i][j] == 1) {
+                    flood(i, j);
+                }
+            }
+        }
+        int ans = 0;
+        for (const auto& row : grid) {
+            ans += accumulate(row.begin(), row.end(), 0);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numEnclaves(grid [][]int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	flood := func(i, j int) {
+		grid[i][j] = 0
+		stk := [][2]int{{i, j}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for k := 0; k < 4; k++ {
+				x, y := cur[0]+dirs[k], cur[1]+dirs[k+1]
+				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
+					grid[x][y] = 0
+					stk = append(stk, [2]int{x, y})
+				}
+			}
+		}
+	}
+	for j := 0; j < n; j++ {
+		for _, i := range [2]int{0, m - 1} {
+			if grid[i][j] == 1 {
+				flood(i, j)
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for _, j := range [2]int{0, n - 1} {
+			if grid[i][j] == 1 {
+				flood(i, j)
+			}
+		}
+	}
+	for _, row := range grid {
+		for _, x := range row {
+			ans += x
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numEnclaves(grid: number[][]): number {
+    const [m, n] = [grid.length, grid[0].length];
+    const dirs = [-1, 0, 1, 0, -1];
+    const flood = (i: number, j: number) => {
+        grid[i][j] = 0;
+        const stk: number[][] = [[i, j]];
+        while (stk.length) {
+            const [a, b] = stk.pop()!;
+            for (let k = 0; k < 4; ++k) {
+                const x = a + dirs[k];
+                const y = b + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
+                    grid[x][y] = 0;
+                    stk.push([x, y]);
+                }
+            }
+        }
+    };
+    for (let j = 0; j < n; ++j) {
+        for (const i of [0, m - 1]) {
+            if (grid[i][j] === 1) {
+                flood(i, j);
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (const j of [0, n - 1]) {
+            if (grid[i][j] === 1) {
+                flood(i, j);
+            }
+        }
+    }
+    return grid.flat().reduce((acc, cur) => acc + cur, 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_enclaves(mut grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let dirs = [-1, 0, 1, 0, -1];
+
+        let flood = |grid: &mut Vec<Vec<i32>>, i: usize, j: usize| {
+            grid[i][j] = 0;
+            let mut stk = vec![(i, j)];
+            while let Some((a, b)) = stk.pop() {
+                for k in 0..4 {
+                    let x = a as i32 + dirs[k];
+                    let y = b as i32 + dirs[k + 1];
+                    if x >= 0 && y >= 0 {
+                        let (x, y) = (x as usize, y as usize);
+                        if x < m && y < n && grid[x][y] == 1 {
+                            grid[x][y] = 0;
+                            stk.push((x, y));
+                        }
+                    }
+                }
+            }
+        };
+
+        for j in 0..n {
+            if grid[0][j] == 1 {
+                flood(&mut grid, 0, j);
+            }
+            if grid[m - 1][j] == 1 {
+                flood(&mut grid, m - 1, j);
+            }
+        }
+
+        for i in 0..m {
+            if grid[i][0] == 1 {
+                flood(&mut grid, i, 0);
+            }
+            if grid[i][n - 1] == 1 {
+                flood(&mut grid, i, n - 1);
+            }
+        }
+
+        grid.into_iter().flatten().filter(|&x| x == 1).count() as i32
     }
 }
 ```
