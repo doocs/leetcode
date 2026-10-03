@@ -407,4 +407,176 @@ function stringCount(n: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$n$ string is good when a rearrangement contains $leet$, so the counts of $l$, $e$, and $t$ must reach $1$, $2$, and $1$. Counting those strings by multinomial coefficients overcounts the overlapping cases. The useful state is only the capped counts, $2 \times 3 \times 2$ possibilities, and a string of length $i$ depends only on length $i - 1$.
+>
+> Recursing on the remaining length chains $n$ calls. For $n \le 10^5$ that overflows the call stack, and storing every layer in a C++ variable-length array puts about $9.6$MB on the stack.
+>
+> Two layers of $12$ states are enough. The empty string contributes $1$ only to the quota $(1, 2, 1)$. Each longer string appends one of $23$ other letters, or $l$, $e$, or $t$ under those caps. After $n$ characters, the state $(0, 0, 0)$ is the answer.
+
+<!-- thinking:end -->
+
+Let $f(i, l, e, t)$ be the number of strings of length $i$ that already contain at least $l$ letters `'l'`, $e$ letters `'e'`, and $t$ letters `'t'`. The three counts are capped at $1$, $2$, and $1$. The answer is $f(n, 0, 0, 0)$.
+
+For $i = 0$, only $f(0, 1, 2, 1) = 1$. Every other state is $0$.
+
+For $i \ge 1$, the last character is one of the $23$ letters other than `'l'`, `'e'`, and `'t'`, or it is one of those three letters:
+
+$$
+f(i, l, e, t) = 23 \cdot f(i - 1, l, e, t) + f(i - 1, \min(1, l + 1), e, t) + f(i - 1, l, \min(2, e + 1), t) + f(i - 1, l, e, \min(1, t + 1))
+$$
+
+Each value is reduced modulo $10^9 + 7$. Layer $i$ reads only layer $i - 1$, so the implementation keeps two arrays of $12$ states.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stringCount(self, n: int) -> int:
+        mod = 10**9 + 7
+        f = [[[0] * 2 for _ in range(3)] for _ in range(2)]
+        f[1][2][1] = 1
+        for _ in range(n):
+            g = [[[0] * 2 for _ in range(3)] for _ in range(2)]
+            for l in range(2):
+                for e in range(3):
+                    for t in range(2):
+                        a = f[l][e][t] * 23
+                        b = f[min(1, l + 1)][e][t]
+                        c = f[l][min(2, e + 1)][t]
+                        d = f[l][e][min(1, t + 1)]
+                        g[l][e][t] = (a + b + c + d) % mod
+            f = g
+        return f[0][0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int stringCount(int n) {
+        final int mod = (int) 1e9 + 7;
+        long[][][] f = new long[2][3][2];
+        f[1][2][1] = 1;
+        for (int i = 0; i < n; ++i) {
+            long[][][] g = new long[2][3][2];
+            for (int l = 0; l < 2; ++l) {
+                for (int e = 0; e < 3; ++e) {
+                    for (int t = 0; t < 2; ++t) {
+                        long a = f[l][e][t] * 23;
+                        long b = f[Math.min(1, l + 1)][e][t];
+                        long c = f[l][Math.min(2, e + 1)][t];
+                        long d = f[l][e][Math.min(1, t + 1)];
+                        g[l][e][t] = (a + b + c + d) % mod;
+                    }
+                }
+            }
+            f = g;
+        }
+        return (int) f[0][0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int stringCount(int n) {
+        const int mod = 1e9 + 7;
+        using ll = long long;
+        ll f[2][3][2]{};
+        f[1][2][1] = 1;
+        for (int i = 0; i < n; ++i) {
+            ll g[2][3][2]{};
+            for (int l = 0; l < 2; ++l) {
+                for (int e = 0; e < 3; ++e) {
+                    for (int t = 0; t < 2; ++t) {
+                        ll a = f[l][e][t] * 23;
+                        ll b = f[min(1, l + 1)][e][t];
+                        ll c = f[l][min(2, e + 1)][t];
+                        ll d = f[l][e][min(1, t + 1)];
+                        g[l][e][t] = (a + b + c + d) % mod;
+                    }
+                }
+            }
+            memcpy(f, g, sizeof(f));
+        }
+        return f[0][0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func stringCount(n int) int {
+	const mod int = 1e9 + 7
+	var f [2][3][2]int
+	f[1][2][1] = 1
+	for i := 0; i < n; i++ {
+		var g [2][3][2]int
+		for l := 0; l < 2; l++ {
+			for e := 0; e < 3; e++ {
+				for t := 0; t < 2; t++ {
+					a := f[l][e][t] * 23
+					b := f[min(1, l+1)][e][t]
+					c := f[l][min(2, e+1)][t]
+					d := f[l][e][min(1, t+1)]
+					g[l][e][t] = (a + b + c + d) % mod
+				}
+			}
+		}
+		f = g
+	}
+	return f[0][0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function stringCount(n: number): number {
+    const mod = 10 ** 9 + 7;
+    const layer = () =>
+        Array.from({ length: 2 }, () =>
+            Array.from({ length: 3 }, () => Array.from({ length: 2 }, () => 0)),
+        );
+    let f = layer();
+    f[1][2][1] = 1;
+    for (let i = 0; i < n; ++i) {
+        const g = layer();
+        for (let l = 0; l < 2; ++l) {
+            for (let e = 0; e < 3; ++e) {
+                for (let t = 0; t < 2; ++t) {
+                    const a = f[l][e][t] * 23;
+                    const b = f[Math.min(1, l + 1)][e][t];
+                    const c = f[l][Math.min(2, e + 1)][t];
+                    const d = f[l][e][Math.min(1, t + 1)];
+                    g[l][e][t] = (a + b + c + d) % mod;
+                }
+            }
+        }
+        f = g;
+    }
+    return f[0][0][0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
