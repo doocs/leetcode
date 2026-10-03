@@ -217,7 +217,7 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 <!-- solution:start -->
 
-### Solution 2: Two DFS Traversals
+### Solution 2: Two Explicit Stack Passes
 
 <!-- thinking:start -->
 
@@ -229,9 +229,9 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 The search uses an explicit stack, clears a cell when it is entered, and handles the cell below before the cell to the right.
 
-First, we perform a DFS traversal to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $a$. During the DFS process, we set the value of the visited cells to $0$ to prevent revisiting.
+First, we search once with an explicit stack to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $a$. During the search, we set the value of the visited cells to $0$ to prevent revisiting.
 
-Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and perform another DFS traversal to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $b$. During the DFS process, we set the value of the visited cells to $0$ to avoid revisiting.
+Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and search once more with an explicit stack to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $b$. During the search, we set the value of the visited cells to $0$ to avoid revisiting.
 
 Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return `true`.
 
