@@ -98,6 +98,9 @@ $$
 #### Python3
 
 ```python
+from math import lcm
+
+
 class Solution:
     def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
         ab = lcm(a, b)

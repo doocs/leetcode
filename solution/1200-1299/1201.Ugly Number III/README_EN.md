@@ -101,6 +101,9 @@ The time complexity is $O(\log m)$, where $m = 2 \times 10^9$. The space complex
 #### Python3
 
 ```python
+from math import lcm
+
+
 class Solution:
     def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
         ab = lcm(a, b)
