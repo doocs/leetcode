@@ -78,7 +78,7 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 <!-- solution:start -->
 
-### Solution 1: Enumeration
+### Solution 1: Tree DP
 
 <!-- thinking:start -->
 
@@ -90,14 +90,15 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 <!-- thinking:end -->
 
-We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
+Count the nodes each trip passes and store the totals in $cnt$, where $cnt[i]$ is how many trips visit node $i$. The search $dfs(i, fa, k)$ walks from $i$ toward $k$. It increments every node on the path and rolls the count back when $k$ is not in that subtree. $fa$ is the parent of $i$.
 
-- If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
-- If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+A second search, $dfs2(i, fa)$, returns the minimum price of the subtree in two cases: node $i$ keeps its price, or node $i$ is halved. For node $i$ those costs start at $a = cnt[i] \times price[i]$ and $b = a / 2$.
 
-Finally, return $ans$.
+Each child $j$ likewise returns $(x, y) = dfs2(j, i)$. If $i$ stays at full price, $j$ may choose either option, so $a = a + \min(x, y)$. If $i$ is halved, $j$ must stay at full price, so $b = b + x$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively. The space complexity is $O(1)$.
+$dfs2$ returns $(a, b)$. Calling $dfs2(0, -1)$ and taking the smaller component is the answer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(n)$, where $m$ is the number of trips and $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
