@@ -101,6 +101,9 @@ tags:
 #### Python3
 
 ```python
+from math import gcd, lcm
+
+
 class Solution:
     def maxLength(self, nums: List[int]) -> int:
         n = len(nums)
