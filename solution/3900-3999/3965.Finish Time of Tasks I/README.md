@@ -341,4 +341,220 @@ function finishTime(n: number, edges: number[][], baseTime: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 任务依赖是一棵以 $0$ 为根的树，非叶任务的完成时间取决于全部子任务的最早与最晚完成时间，再加上自身的 $\textit{baseTime}$。$n \le 10^5$，必须先得到每个子节点的答案，再计算当前节点。沿一条链递归时调用深度等于节点数，链长达到 $1000$ 就会超出 Python 的递归上限。因此栈中保存 $(节点, 状态)$：状态 $0$ 若是叶子就直接写入 $\textit{baseTime}[i]$，否则先压入退出标记再压入子节点；状态 $1$ 在子任务都已完成时取 $\textit{earliest}$ 与 $\textit{latest}$，自身耗时为 $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$，完成时间是 $\textit{latest}$ 加上该耗时。子节点的处理顺序不影响最早与最晚。
+
+<!-- thinking:end -->
+
+首先根据边列表 $\textit{edges}$ 建树，用邻接表 $g$ 存储每个节点的子节点。边 $u \to v$ 表示 $u$ 是 $v$ 的父节点。
+
+从根节点 $0$ 开始，用显式栈按后序计算每个任务的完成时间：
+
+- 叶子节点的完成时间就是 $\textit{baseTime}[i]$；
+- 非叶节点在所有子节点都算完之后，记子节点完成时间的最小值为 $\textit{earliest}$、最大值为 $\textit{latest}$；
+- 当前任务的自身耗时为 $\textit{ownDuration} = (\textit{latest} - \textit{earliest}) + \textit{baseTime}[i]$；
+- 任务 $i$ 的完成时间为 $\textit{latest} + \textit{ownDuration}$。
+
+答案是根节点的完成时间。题目保证该值小于 $2^{53}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+        fin = [0] * n
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                if not g[i]:
+                    fin[i] = baseTime[i]
+                else:
+                    stk.append((i, 1))
+                    for j in g[i]:
+                        stk.append((j, 0))
+            else:
+                earliest, latest = inf, -inf
+                for j in g[i]:
+                    a = fin[j]
+                    earliest = min(earliest, a)
+                    latest = max(latest, a)
+                own = (latest - earliest) + baseTime[i]
+                fin[i] = latest + own
+        return fin[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long finishTime(int n, int[][] edges, int[] baseTime) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+        }
+        long[] fin = new long[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                if (g[i].isEmpty()) {
+                    fin[i] = baseTime[i];
+                } else {
+                    stk.push(new int[] {i, 1});
+                    for (int j : g[i]) {
+                        stk.push(new int[] {j, 0});
+                    }
+                }
+            } else {
+                long earliest = Long.MAX_VALUE;
+                long latest = Long.MIN_VALUE;
+                for (int j : g[i]) {
+                    earliest = Math.min(earliest, fin[j]);
+                    latest = Math.max(latest, fin[j]);
+                }
+                long ownDuration = (latest - earliest) + baseTime[i];
+                fin[i] = latest + ownDuration;
+            }
+        }
+        return fin[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long finishTime(int n, vector<vector<int>>& edges, vector<int>& baseTime) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+        }
+        vector<long long> fin(n);
+        vector<array<int, 2>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                if (g[i].empty()) {
+                    fin[i] = baseTime[i];
+                } else {
+                    stk.push_back({i, 1});
+                    for (int j : g[i]) {
+                        stk.push_back({j, 0});
+                    }
+                }
+            } else {
+                long long earliest = LLONG_MAX;
+                long long latest = LLONG_MIN;
+                for (int j : g[i]) {
+                    earliest = min(earliest, fin[j]);
+                    latest = max(latest, fin[j]);
+                }
+                long long ownDuration = (latest - earliest) + baseTime[i];
+                fin[i] = latest + ownDuration;
+            }
+        }
+        return fin[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func finishTime(n int, edges [][]int, baseTime []int) int64 {
+	g := make([][]int, n)
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], e[1])
+	}
+	fin := make([]int64, n)
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			if len(g[i]) == 0 {
+				fin[i] = int64(baseTime[i])
+			} else {
+				stk = append(stk, [2]int{i, 1})
+				for _, j := range g[i] {
+					stk = append(stk, [2]int{j, 0})
+				}
+			}
+		} else {
+			var inf int64 = 1 << 62
+			earliest, latest := inf, -inf
+			for _, j := range g[i] {
+				earliest = min(earliest, fin[j])
+				latest = max(latest, fin[j])
+			}
+			ownDuration := (latest - earliest) + int64(baseTime[i])
+			fin[i] = latest + ownDuration
+		}
+	}
+	return fin[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function finishTime(n: number, edges: number[][], baseTime: number[]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+    }
+    const fin = Array(n).fill(0);
+    const stk: number[][] = [[0, 0]];
+    while (stk.length) {
+        const [i, state] = stk.pop()!;
+        if (state === 0) {
+            if (g[i].length === 0) {
+                fin[i] = baseTime[i];
+            } else {
+                stk.push([i, 1]);
+                for (const j of g[i]) {
+                    stk.push([j, 0]);
+                }
+            }
+        } else {
+            let earliest = Number.MAX_SAFE_INTEGER;
+            let latest = -Number.MAX_SAFE_INTEGER;
+            for (const j of g[i]) {
+                earliest = Math.min(earliest, fin[j]);
+                latest = Math.max(latest, fin[j]);
+            }
+            const ownDuration = latest - earliest + baseTime[i];
+            fin[i] = latest + ownDuration;
+        }
+    }
+    return fin[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
