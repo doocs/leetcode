@@ -1,5 +1,8 @@
 class Solution:
     def patternMatching(self, pattern: str, value: str) -> bool:
+        if not pattern:
+            return value == ""
+
         def check(la: int, lb: int) -> bool:
             i = 0
             a, b = "", ""
