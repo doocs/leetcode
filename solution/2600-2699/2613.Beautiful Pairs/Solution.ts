@@ -62,5 +62,5 @@ function dist(x1: number, y1: number, x2: number, y2: number): number {
 }
 
 function f(x: number, y: number): number {
-    return x * 100000 + y;
+    return x * 100001 + y;
 }
