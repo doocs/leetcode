@@ -480,4 +480,192 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每段恰好两把椅子，屏风插在相邻段之间的植物上。枚举切开方式是指数级的，而走廊长度可达 $10^5$。
+>
+> 从位置 $i$、当前段已有 $k$ 把椅子出发的方案数只依赖位置 $i+1$。按这个递推搜索时仍会先调用 $i+1$ 再返回，调用链深度为 $n$，栈会溢出。
+>
+> 从末尾往前走时，后一位置已经就绪。令 $f[i][k]$ 为该方案数。遇到椅子则计数变为 $k+1$，计数超过 $2$ 记为 $0$；计数为 $2$ 时再加上「新开一段」的选择。
+>
+> 我们从 $i=n-1$ 填到 $0$，边界 $f[n][2]=1$，返回 $f[0][0]$。
+
+<!-- thinking:end -->
+
+令 $f[i][k]$ 表示从走廊第 $i$ 个位置开始划分后缀、且当前段已经有 $k$ 把椅子时的方案数。答案为 $f[0][0]$。
+
+若 $i = n$，走廊已经走完。$k = 2$ 时值为 $1$，否则为 $0$，因此 $f[n][2] = 1$。
+
+否则，若 $\textit{corridor}[i]$ 是椅子，则新的计数 $nk = k + 1$，否则 $nk = k$。若 $nk > 2$，当前段已经出现第三把椅子，$f[i][k] = 0$。否则可以继续当前段，贡献 $f[i + 1][nk]$。当 $nk = 2$ 时还可以放下屏风并让下一段从空开始，贡献 $f[i + 1][0]$。两部分相加后对 $10^9 + 7$ 取模。
+
+我们从 $i = n - 1$ 往前计算到 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是走廊的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfWays(self, corridor: str) -> int:
+        mod = 10**9 + 7
+        n = len(corridor)
+        f = [[0, 0, 0] for _ in range(n + 1)]
+        f[n][2] = 1
+        for i in range(n - 1, -1, -1):
+            for k in range(3):
+                nk = k + (corridor[i] == "S")
+                if nk > 2:
+                    continue
+                f[i][k] = f[i + 1][nk]
+                if nk == 2:
+                    f[i][k] = (f[i][k] + f[i + 1][0]) % mod
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numberOfWays(String corridor) {
+        final int mod = (int) 1e9 + 7;
+        int n = corridor.length();
+        int[][] f = new int[n + 1][3];
+        f[n][2] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 0; k < 3; ++k) {
+                int nk = k + (corridor.charAt(i) == 'S' ? 1 : 0);
+                if (nk > 2) {
+                    continue;
+                }
+                f[i][k] = f[i + 1][nk];
+                if (nk == 2) {
+                    f[i][k] = (f[i][k] + f[i + 1][0]) % mod;
+                }
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numberOfWays(string corridor) {
+        int n = corridor.size();
+        const int mod = 1e9 + 7;
+        vector<vector<int>> f(n + 1, vector<int>(3));
+        f[n][2] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 0; k < 3; ++k) {
+                int nk = k + (corridor[i] == 'S');
+                if (nk > 2) {
+                    continue;
+                }
+                f[i][k] = f[i + 1][nk];
+                if (nk == 2) {
+                    f[i][k] = (f[i][k] + f[i + 1][0]) % mod;
+                }
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func numberOfWays(corridor string) int {
+	const mod = 1e9 + 7
+	n := len(corridor)
+	f := make([][3]int, n+1)
+	f[n][2] = 1
+	for i := n - 1; i >= 0; i-- {
+		for k := 0; k < 3; k++ {
+			nk := k
+			if corridor[i] == 'S' {
+				nk++
+			}
+			if nk > 2 {
+				continue
+			}
+			f[i][k] = f[i+1][nk]
+			if nk == 2 {
+				f[i][k] = (f[i][k] + f[i+1][0]) % mod
+			}
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfWays(corridor: string): number {
+    const mod = 10 ** 9 + 7;
+    const n = corridor.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(3).fill(0));
+    f[n][2] = 1;
+    for (let i = n - 1; i >= 0; --i) {
+        for (let k = 0; k < 3; ++k) {
+            let nk = k + (corridor[i] === 'S' ? 1 : 0);
+            if (nk > 2) {
+                continue;
+            }
+            f[i][k] = f[i + 1][nk];
+            if (nk === 2) {
+                f[i][k] = (f[i][k] + f[i + 1][0]) % mod;
+            }
+        }
+    }
+    return f[0][0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_ways(corridor: String) -> i32 {
+        let n = corridor.len();
+        let bytes = corridor.as_bytes();
+        let modv: i32 = 1_000_000_007;
+        let mut f = vec![[0; 3]; n + 1];
+        f[n][2] = 1;
+        for i in (0..n).rev() {
+            for k in 0..3 {
+                let mut nk = k;
+                if bytes[i] == b'S' {
+                    nk += 1;
+                }
+                if nk > 2 {
+                    continue;
+                }
+                f[i][k] = f[i + 1][nk];
+                if nk == 2 {
+                    f[i][k] = (f[i][k] + f[i + 1][0]) % modv;
+                }
+            }
+        }
+        f[0][0]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
