@@ -12,19 +12,31 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 		d[v] = i + 1
 	}
 	tree := newSegmentTree(nums)
-	var dfs func(l, r int) *TreeNode
-	dfs = func(l, r int) *TreeNode {
-		if l > r {
-			return nil
-		}
-		val := tree.query(1, l, r)
-		root := &TreeNode{Val: val}
-		root.Left = dfs(l, d[val]-1)
-		root.Right = dfs(d[val]+1, r)
-		return root
+	type frame struct {
+		l, r, side int
+		parent     *TreeNode
 	}
-
-	return dfs(1, len(nums))
+	var root *TreeNode
+	stk := []frame{{1, len(nums), 0, nil}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if cur.l > cur.r {
+			continue
+		}
+		val := tree.query(1, cur.l, cur.r)
+		node := &TreeNode{Val: val}
+		if cur.parent == nil {
+			root = node
+		} else if cur.side == 0 {
+			cur.parent.Left = node
+		} else {
+			cur.parent.Right = node
+		}
+		i := d[val]
+		stk = append(stk, frame{i + 1, cur.r, 1, node}, frame{cur.l, i - 1, 0, node})
+	}
+	return root
 }
 
 type node struct {
