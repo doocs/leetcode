@@ -315,4 +315,206 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Ordered Set + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. $n$ can reach $2 \times 10^4$. When every value is equal, each jump lands on the next index, so the call chain is as long as $n$ and exceeds the default recursion limit.
+>
+> Walking from right to left, the ordered map holds only indexes farther to the right, so $g[i][0/1]$ is either a larger index or $-1$.
+>
+> Reachability depends only on $(i,\text{parity})$ and only on a position to the right. Let $f[i][k]$ mean a jump of parity $k$ from $i$ can reach the end. Both cells of $f[n-1]$ are true. $i$ runs from $n-2$ down to $0$, and a real successor copies the opposite parity at that successor. The answer counts the true cells $f[i][1]$.
+
+<!-- thinking:end -->
+
+We first use an ordered set to preprocess the positions that can be jumped to from each position, recorded in array $g$, where $g[i][1]$ and $g[i][0]$ represent the positions that can be jumped to when the current position is an odd jump or an even jump, respectively. If no position can be jumped to, then both $g[i][1]$ and $g[i][0]$ are $-1$. The map stores only indexes to the right, so $g[i][k]$ is either $-1$ or strictly greater than $i$.
+
+Let $f[i][k]$ mean that, starting at index $i$ with the next jump of parity $k$, we can reach the end of the array. Both $f[n-1][0]$ and $f[n-1][1]$ are true. For $i$ from $n-2$ down to $0$, if $g[i][k] \neq -1$, then $f[i][k] = f[g[i][k]][k \oplus 1]$; otherwise $f[i][k]$ is false. The state on the right is already known when it is read.
+
+The answer is the number of indexes $i$ for which $f[i][1]$ is true.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def oddEvenJumps(self, arr: List[int]) -> int:
+        n = len(arr)
+        g = [[-1] * 2 for _ in range(n)]
+        sd = SortedDict()
+        for i in range(n - 1, -1, -1):
+            j = sd.bisect_left(arr[i])
+            g[i][1] = sd.values()[j] if j < len(sd) else -1
+            j = sd.bisect_right(arr[i]) - 1
+            g[i][0] = sd.values()[j] if j >= 0 else -1
+            sd[arr[i]] = i
+        f = [[False] * 2 for _ in range(n)]
+        f[-1][0] = f[-1][1] = True
+        for i in range(n - 2, -1, -1):
+            for k in range(2):
+                j = g[i][k]
+                if j != -1:
+                    f[i][k] = f[j][k ^ 1]
+        return sum(f[i][1] for i in range(n))
+```
+
+#### Java
+
+```java
+class Solution {
+    public int oddEvenJumps(int[] arr) {
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+        int n = arr.length;
+        int[][] g = new int[n][2];
+        for (int i = n - 1; i >= 0; --i) {
+            var hi = tm.ceilingEntry(arr[i]);
+            g[i][1] = hi == null ? -1 : hi.getValue();
+            var lo = tm.floorEntry(arr[i]);
+            g[i][0] = lo == null ? -1 : lo.getValue();
+            tm.put(arr[i], i);
+        }
+        boolean[][] f = new boolean[n][2];
+        f[n - 1][0] = f[n - 1][1] = true;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int k = 0; k < 2; ++k) {
+                int j = g[i][k];
+                if (j != -1) {
+                    f[i][k] = f[j][k ^ 1];
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (f[i][1]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int oddEvenJumps(vector<int>& arr) {
+        int n = arr.size();
+        map<int, int> d;
+        int g[n][2];
+        for (int i = n - 1; ~i; --i) {
+            auto it = d.lower_bound(arr[i]);
+            g[i][1] = it == d.end() ? -1 : it->second;
+            it = d.upper_bound(arr[i]);
+            g[i][0] = it == d.begin() ? -1 : prev(it)->second;
+            d[arr[i]] = i;
+        }
+        int f[n][2];
+        memset(f, 0, sizeof(f));
+        f[n - 1][0] = f[n - 1][1] = 1;
+        for (int i = n - 2; ~i; --i) {
+            for (int k = 0; k < 2; ++k) {
+                int j = g[i][k];
+                if (j != -1) {
+                    f[i][k] = f[j][k ^ 1];
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += f[i][1];
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func oddEvenJumps(arr []int) (ans int) {
+	n := len(arr)
+	rbt := redblacktree.NewWithIntComparator()
+	g := make([][2]int, n)
+	for i := n - 1; i >= 0; i-- {
+		if v, ok := rbt.Ceiling(arr[i]); ok {
+			g[i][1] = v.Value.(int)
+		} else {
+			g[i][1] = -1
+		}
+		if v, ok := rbt.Floor(arr[i]); ok {
+			g[i][0] = v.Value.(int)
+		} else {
+			g[i][0] = -1
+		}
+		rbt.Put(arr[i], i)
+	}
+	f := make([][2]bool, n)
+	f[n-1][0], f[n-1][1] = true, true
+	for i := n - 2; i >= 0; i-- {
+		for k := 0; k < 2; k++ {
+			j := g[i][k]
+			if j != -1 {
+				f[i][k] = f[j][k^1]
+			}
+		}
+	}
+	for i := 0; i < n; i++ {
+		if f[i][1] {
+			ans++
+		}
+	}
+	return
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BTreeMap;
+
+impl Solution {
+    pub fn odd_even_jumps(arr: Vec<i32>) -> i32 {
+        let n = arr.len();
+        let mut g = vec![[-1, -1]; n];
+        let mut tm: BTreeMap<i32, usize> = BTreeMap::new();
+
+        for i in (0..n).rev() {
+            if let Some((_, &v)) = tm.range(arr[i]..).next() {
+                g[i][1] = v as i32;
+            }
+            if let Some((_, &v)) = tm.range(..=arr[i]).next_back() {
+                g[i][0] = v as i32;
+            }
+            tm.insert(arr[i], i);
+        }
+
+        let mut f = vec![[false, false]; n];
+        f[n - 1] = [true, true];
+        for i in (0..n - 1).rev() {
+            for k in 0..2 {
+                let j = g[i][k];
+                if j != -1 {
+                    f[i][k] = f[j as usize][k ^ 1];
+                }
+            }
+        }
+
+        f.iter().filter(|row| row[1]).count() as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
