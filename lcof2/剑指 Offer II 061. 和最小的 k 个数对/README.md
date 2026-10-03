@@ -73,7 +73,7 @@ comments: true
 >
 > 两有序数组中取和最小的 $k$ 对数。枚举全部数对再排序，在 $k$ 与长度较大时浪费。
 >
-> 只需前 $k$ 小，因此各自至多取前 $k$ 个元素。用大小为 $k$ 的大根堆（存负和）动态淘汰较大的数对，最后堆中即为答案。
+> 只需前 $k$ 小，因此各自至多取前 $k$ 个元素。用大小为 $k$ 的大根堆按数对之和淘汰较大者，最后堆中即为答案。两个元素都可能是 $\pm 10^9$，单对之和仍在 $32$ 位内，但两个和相减会超过 $2^{31}$，堆序要按和的大小比较。
 
 <!-- thinking:end -->
 
@@ -101,7 +101,7 @@ class Solution:
 class Solution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         Queue<List<Integer>> pq = new PriorityQueue<>(
-            (p1, p2) -> { return p2.get(0) + p2.get(1) - (p1.get(0) + p1.get(1)); });
+            (p1, p2) -> Long.compare((long) p2.get(0) + p2.get(1), (long) p1.get(0) + p1.get(1)));
         for (int i = 0; i < nums1.length && i < k; i++) {
             for (int j = 0; j < nums2.length && j < k; j++) {
                 pq.offer(List.of(nums1[i], nums2[j]));
