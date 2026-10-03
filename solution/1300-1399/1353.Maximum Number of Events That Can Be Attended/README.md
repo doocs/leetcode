@@ -92,6 +92,11 @@ tags:
 #### Python3
 
 ```python
+from collections import defaultdict
+from heapq import heappop, heappush
+from math import inf
+
+
 class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
         g = defaultdict(list)
@@ -181,6 +186,12 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"math"
+	"sort"
+)
+
 func maxEvents(events [][]int) (ans int) {
 	g := map[int][]int{}
 	l, r := math.MaxInt32, 0
