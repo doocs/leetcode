@@ -127,6 +127,9 @@ tags:
 #### Python3
 
 ```python
+from math import inf
+
+
 class Solution:
     def maxSubarraySum(self, nums: List[int], k: int) -> int:
         n = len(nums)
