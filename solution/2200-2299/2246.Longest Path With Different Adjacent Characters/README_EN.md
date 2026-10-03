@@ -229,4 +229,214 @@ function longestPath(parent: number[], s: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest tree path whose adjacent labels differ. With $n \le 10^5$, recursing from the root for every downward chain is too deep: a chain makes the call depth $n$.
+>
+> Such a path either stays inside one subtree or joins two downward chains at one vertex. When a node is left, each child's downward length is already known. The chain can be attached only when $s[i] \neq s[j]$, and its length is the child's length plus one. Join that chain with the best one already seen, then keep the longer of the two as this node's downward chain.
+>
+> An explicit stack of $(node, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer and the downward length. Adding one at the end counts the nodes on the path.
+
+<!-- thinking:end -->
+
+First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
+
+An explicit stack walks from the root in postorder. When node $i$ is left, each child $j$ contributes $x$, one more than the longest chain downward from $j$. If $s[i] \neq s[j]$, update the answer with $ans = \max(ans, mx + x)$ and then set $mx = \max(mx, x)$. Here $mx$ is the longest downward chain from $i$ whose first step has a different character.
+
+Finally, we return $ans + 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPath(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        down = [0] * n
+        ans = 0
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j in g[i]:
+                    stk.append((j, 0))
+            else:
+                mx = 0
+                for j in g[i]:
+                    x = down[j] + 1
+                    if s[i] != s[j]:
+                        ans = max(ans, mx + x)
+                        mx = max(mx, x)
+                down[i] = mx
+        return ans + 1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestPath(int[] parent, String s) {
+        int n = parent.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].add(i);
+        }
+        int[] down = new int[n];
+        int ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                stk.push(new int[] {i, 1});
+                for (int j : g[i]) {
+                    stk.push(new int[] {j, 0});
+                }
+            } else {
+                int mx = 0;
+                for (int j : g[i]) {
+                    int x = down[j] + 1;
+                    if (s.charAt(i) != s.charAt(j)) {
+                        ans = Math.max(ans, mx + x);
+                        mx = Math.max(mx, x);
+                    }
+                }
+                down[i] = mx;
+            }
+        }
+        return ans + 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestPath(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].push_back(i);
+        }
+        vector<int> down(n);
+        int ans = 0;
+        vector<array<int, 2>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, 1});
+                for (int j : g[i]) {
+                    stk.push_back({j, 0});
+                }
+            } else {
+                int mx = 0;
+                for (int j : g[i]) {
+                    int x = down[j] + 1;
+                    if (s[i] != s[j]) {
+                        ans = max(ans, mx + x);
+                        mx = max(mx, x);
+                    }
+                }
+                down[i] = mx;
+            }
+        }
+        return ans + 1;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPath(parent []int, s string) int {
+	n := len(parent)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	down := make([]int, n)
+	ans := 0
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			stk = append(stk, [2]int{i, 1})
+			for _, j := range g[i] {
+				stk = append(stk, [2]int{j, 0})
+			}
+		} else {
+			mx := 0
+			for _, j := range g[i] {
+				x := down[j] + 1
+				if s[i] != s[j] {
+					ans = max(ans, x+mx)
+					mx = max(mx, x)
+				}
+			}
+			down[i] = mx
+		}
+	}
+	return ans + 1
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPath(parent: number[], s: string): number {
+    const n = parent.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push(i);
+    }
+    const down = Array(n).fill(0);
+    let ans = 0;
+    const stk: [number, number][] = [[0, 0]];
+    while (stk.length) {
+        const [i, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, 1]);
+            for (const j of g[i]) {
+                stk.push([j, 0]);
+            }
+        } else {
+            let mx = 0;
+            for (const j of g[i]) {
+                const x = down[j] + 1;
+                if (s[i] !== s[j]) {
+                    ans = Math.max(ans, mx + x);
+                    mx = Math.max(mx, x);
+                }
+            }
+            down[i] = mx;
+        }
+    }
+    return ans + 1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
