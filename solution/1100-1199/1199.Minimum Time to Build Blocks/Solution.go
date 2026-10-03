@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 func minBuildTime(blocks []int, split int) int {
 	q := hp{}
 	for _, v := range blocks {

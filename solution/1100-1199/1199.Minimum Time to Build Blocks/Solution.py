@@ -1,3 +1,6 @@
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
         heapify(blocks)

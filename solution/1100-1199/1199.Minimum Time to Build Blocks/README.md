@@ -84,13 +84,13 @@ tags:
 
 <!-- thinking:end -->
 
-先考虑只有一个街区的情况，此时不需要分裂工人，直接让他去建造街区，时间花费为 $\textit{block}[0]$。
+先考虑只有一个街区的情况，此时不需要分裂工人，直接让他去建造街区，时间花费为 $\textit{blocks}[0]$。
 
-如果有两个街区，此时需要把工人分裂为两个，然后让他们分别去建造街区，时间花费为 $\textit{split} + \max(\textit{block}[0], \textit{block}[1])$。
+如果有两个街区，此时需要把工人分裂为两个，然后让他们分别去建造街区，时间花费为 $\textit{split} + \max(\textit{blocks}[0], \textit{blocks}[1])$。
 
 如果有超过两个街区，此时每一步都需要考虑将几个工人进行分裂，正向思维不好处理。
 
-我们不妨采用逆向思维，不分裂工人，而是将街区进行合并。我们选取任意两个街区 $i$, $j$ 进行合并，建造一个新的街区的时间为 $\textit{split} + \max(\textit{block}[i], \textit{block}[j])$。
+我们不妨采用逆向思维，不分裂工人，而是将街区进行合并。我们选取任意两个街区 $i$, $j$ 进行合并，建造一个新的街区的时间为 $\textit{split} + \max(\textit{blocks}[i], \textit{blocks}[j])$。
 
 为了让耗时长的街区尽可能少参与到合并中，我们可以每次贪心地选取耗时最小的两个街区进行合并。因此，我们可以维护一个小根堆，每次取出最小的两个街区进行合并，直到只剩下一个街区。最后剩下的这个街区的建造时间就是答案。
 
@@ -101,6 +101,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
         heapify(blocks)
@@ -150,6 +153,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func minBuildTime(blocks []int, split int) int {
 	q := hp{}
 	for _, v := range blocks {

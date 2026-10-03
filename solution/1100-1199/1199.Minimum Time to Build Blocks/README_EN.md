@@ -82,13 +82,13 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 
 <!-- thinking:end -->
 
-First, consider the case where there is only one block. In this case, there is no need to split the worker, just let him build the block directly. The time cost is $block[0]$.
+First, consider the case where there is only one block. In this case, there is no need to split the worker, just let him build the block directly. The time cost is $blocks[0]$.
 
-If there are two blocks, you need to split the worker into two, and then let them build the blocks separately. The time cost is $split + \max(block[0], block[1])$.
+If there are two blocks, you need to split the worker into two, and then let them build the blocks separately. The time cost is $split + \max(blocks[0], blocks[1])$.
 
 If there are more than two blocks, at each step you need to consider how many workers to split. This is not easy to handle with forward thinking.
 
-We might as well use reverse thinking, not splitting workers, but merging blocks. We select any two blocks $i$, $j$ for merging. The time to build a new block is $split + \max(block[i], block[j])$.
+We might as well use reverse thinking, not splitting workers, but merging blocks. We select any two blocks $i$, $j$ for merging. The time to build a new block is $split + \max(blocks[i], blocks[j])$.
 
 In order to let the blocks with long time consumption participate in the merge as little as possible, we can greedily select the two blocks with the smallest time consumption for merging each time. Therefore, we can maintain a min heap, take out the two smallest blocks for merging each time, until there is only one block left. The build time of the last remaining block is the answer.
 
@@ -99,6 +99,9 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
         heapify(blocks)
@@ -148,6 +151,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func minBuildTime(blocks []int, split int) int {
 	q := hp{}
 	for _, v := range blocks {
