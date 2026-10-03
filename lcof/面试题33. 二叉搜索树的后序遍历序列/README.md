@@ -47,17 +47,23 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一：递归
+### 方法一：显式栈
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 后序末元为根，其左段应小于根、右段应大于根。检查右段是否全大于根后，对两段递归。最坏每次只削掉一个结点，时间为平方级。
+> 后序末元为根，其左段应小于根、右段应大于根。数组长度可以到 $1000$。递增序列里第一个不小于根的位置总在根的前一位，第一次调用就是 $\mathrm{dfs}(l, r-1)$，深度等于 $n$，会超出默认递归上限。
+>
+> 左右两段是否合法互不依赖调用顺序，只要两段都检查过即可。
+>
+> 因此把待查区间放进显式栈。弹出 $[l, r]$ 后找到第一个不小于根的位置 $i$，右段若出现小于根的值就失败，否则把右段 $[i, r-1]$ 和左段 $[l, i-1]$ 压栈。空区间直接跳过。
 
 <!-- thinking:end -->
 
-后序遍历的最后一个元素为根节点，根据二叉搜索树的性质，根节点左边的元素都小于根节点，根节点右边的元素都大于根节点。因此，我们找到第一个大于根节点的位置 $i$，那么 $i$ 右边的元素都应该大于根节点，否则返回 `false`。然后递归判断左右子树。
+后序遍历的最后一个元素为根节点，根据二叉搜索树的性质，根节点左边的元素都小于根节点，根节点右边的元素都大于根节点。因此，我们找到第一个大于等于根节点的位置 $i$，那么 $[i, r)$ 中的元素都应该大于等于根节点，否则返回 `false`。
+
+左右区间放进显式栈继续检查，而不是递归。初始区间是 $[0, n - 1]$。栈空时返回 `true`。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
@@ -68,59 +74,37 @@ difficulty: 中等
 ```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
-        def dfs(l, r):
+        stk = [(0, len(postorder) - 1)]
+        while stk:
+            l, r = stk.pop()
             if l >= r:
-                return True
+                continue
             v = postorder[r]
             i = l
             while i < r and postorder[i] < v:
                 i += 1
             if any(x < v for x in postorder[i:r]):
                 return False
-            return dfs(l, i - 1) and dfs(i, r - 1)
-
-        return dfs(0, len(postorder) - 1)
+            stk.append((i, r - 1))
+            stk.append((l, i - 1))
+        return True
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] postorder;
-
     public boolean verifyPostorder(int[] postorder) {
-        this.postorder = postorder;
-        return dfs(0, postorder.length - 1);
-    }
-
-    private boolean dfs(int l, int r) {
-        if (l >= r) {
-            return true;
-        }
-        int v = postorder[r];
-        int i = l;
-        while (i < r && postorder[i] < v) {
-            ++i;
-        }
-        for (int j = i; j < r; ++j) {
-            if (postorder[j] < v) {
-                return false;
-            }
-        }
-        return dfs(l, i - 1) && dfs(i, r - 1);
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    bool verifyPostorder(vector<int>& postorder) {
-        function<bool(int, int)> dfs = [&](int l, int r) -> bool {
+        int n = postorder.length;
+        int[] stk = new int[(n + 2) * 2];
+        int top = 0;
+        stk[top++] = 0;
+        stk[top++] = n - 1;
+        while (top > 0) {
+            int r = stk[--top];
+            int l = stk[--top];
             if (l >= r) {
-                return true;
+                continue;
             }
             int v = postorder[r];
             int i = l;
@@ -132,9 +116,44 @@ public:
                     return false;
                 }
             }
-            return dfs(l, i - 1) && dfs(i, r - 1);
-        };
-        return dfs(0, postorder.size() - 1);
+            stk[top++] = i;
+            stk[top++] = r - 1;
+            stk[top++] = l;
+            stk[top++] = i - 1;
+        }
+        return true;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool verifyPostorder(vector<int>& postorder) {
+        int n = postorder.size();
+        vector<pair<int, int>> stk{{0, n - 1}};
+        while (!stk.empty()) {
+            auto [l, r] = stk.back();
+            stk.pop_back();
+            if (l >= r) {
+                continue;
+            }
+            int v = postorder[r];
+            int i = l;
+            while (i < r && postorder[i] < v) {
+                ++i;
+            }
+            for (int j = i; j < r; ++j) {
+                if (postorder[j] < v) {
+                    return false;
+                }
+            }
+            stk.emplace_back(i, r - 1);
+            stk.emplace_back(l, i - 1);
+        }
+        return true;
     }
 };
 ```
@@ -143,10 +162,14 @@ public:
 
 ```go
 func verifyPostorder(postorder []int) bool {
-	var dfs func(l, r int) bool
-	dfs = func(l, r int) bool {
+	n := len(postorder)
+	stk := [][2]int{{0, n - 1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		l, r := cur[0], cur[1]
 		if l >= r {
-			return true
+			continue
 		}
 		v := postorder[r]
 		i := l
@@ -158,9 +181,9 @@ func verifyPostorder(postorder []int) bool {
 				return false
 			}
 		}
-		return dfs(l, i-1) && dfs(i, r-1)
+		stk = append(stk, [2]int{i, r - 1}, [2]int{l, i - 1})
 	}
-	return dfs(0, len(postorder)-1)
+	return true
 }
 ```
 
@@ -168,9 +191,11 @@ func verifyPostorder(postorder []int) bool {
 
 ```ts
 function verifyPostorder(postorder: number[]): boolean {
-    const dfs = (l: number, r: number): boolean => {
+    const stk: number[][] = [[0, postorder.length - 1]];
+    while (stk.length) {
+        const [l, r] = stk.pop()!;
         if (l >= r) {
-            return true;
+            continue;
         }
         const v = postorder[r];
         let i = l;
@@ -182,9 +207,10 @@ function verifyPostorder(postorder: number[]): boolean {
                 return false;
             }
         }
-        return dfs(l, i - 1) && dfs(i, r - 1);
-    };
-    return dfs(0, postorder.length - 1);
+        stk.push([i, r - 1]);
+        stk.push([l, i - 1]);
+    }
+    return true;
 }
 ```
 
@@ -192,26 +218,27 @@ function verifyPostorder(postorder: number[]): boolean {
 
 ```rust
 impl Solution {
-    fn dfs(start: usize, end: usize, max_val: i32, postorder: &Vec<i32>) -> bool {
-        if start >= end {
-            return true;
-        }
-        let root_val = postorder[end - 1];
-        for i in (start..end).rev() {
-            let val = postorder[i];
-            if val > max_val {
-                return false;
-            }
-            if val < root_val {
-                return (Self::dfs(start, i, root_val, postorder)
-                    && Self::dfs(i + 1, end - 1, max_val, postorder));
-            }
-        }
-        Self::dfs(start, end - 1, max_val, postorder)
-    }
-
     pub fn verify_postorder(postorder: Vec<i32>) -> bool {
-        Self::dfs(0, postorder.len(), i32::MAX, &postorder)
+        let n = postorder.len() as i32;
+        let mut stk = vec![(0, n - 1)];
+        while let Some((l, r)) = stk.pop() {
+            if l >= r {
+                continue;
+            }
+            let v = postorder[r as usize];
+            let mut i = l;
+            while i < r && postorder[i as usize] < v {
+                i += 1;
+            }
+            for j in i..r {
+                if postorder[j as usize] < v {
+                    return false;
+                }
+            }
+            stk.push((i, r - 1));
+            stk.push((l, i - 1));
+        }
+        true
     }
 }
 ```
@@ -224,9 +251,11 @@ impl Solution {
  * @return {boolean}
  */
 var verifyPostorder = function (postorder) {
-    const dfs = (l, r) => {
+    const stk = [[0, postorder.length - 1]];
+    while (stk.length) {
+        const [l, r] = stk.pop();
         if (l >= r) {
-            return true;
+            continue;
         }
         const v = postorder[r];
         let i = l;
@@ -238,9 +267,10 @@ var verifyPostorder = function (postorder) {
                 return false;
             }
         }
-        return dfs(l, i - 1) && dfs(i, r - 1);
-    };
-    return dfs(0, postorder.length - 1);
+        stk.push([i, r - 1]);
+        stk.push([l, i - 1]);
+    }
+    return true;
 };
 ```
 
@@ -248,28 +278,34 @@ var verifyPostorder = function (postorder) {
 
 ```cs
 public class Solution {
-    private int[] postorder;
-
     public bool VerifyPostorder(int[] postorder) {
-        this.postorder = postorder;
-        return dfs(0, postorder.Length - 1);
-    }
-
-    private bool dfs(int l, int r) {
-        if (l >= r) {
-            return true;
-        }
-        int v = postorder[r];
-        int i = l;
-        while (i < r && postorder[i] < v) {
-            ++i;
-        }
-        for (int j = i; j < r; ++j) {
-            if (postorder[j] < v) {
-                return false;
+        int n = postorder.Length;
+        int[] stk = new int[(n + 2) * 2];
+        int top = 0;
+        stk[top++] = 0;
+        stk[top++] = n - 1;
+        while (top > 0) {
+            int r = stk[--top];
+            int l = stk[--top];
+            if (l >= r) {
+                continue;
             }
+            int v = postorder[r];
+            int i = l;
+            while (i < r && postorder[i] < v) {
+                ++i;
+            }
+            for (int j = i; j < r; ++j) {
+                if (postorder[j] < v) {
+                    return false;
+                }
+            }
+            stk[top++] = i;
+            stk[top++] = r - 1;
+            stk[top++] = l;
+            stk[top++] = i - 1;
         }
-        return dfs(l, i - 1) && dfs(i, r - 1);
+        return true;
     }
 }
 ```
@@ -278,28 +314,24 @@ public class Solution {
 
 ```swift
 class Solution {
-    private var postorder: [Int] = []
-
     func verifyPostorder(_ postorder: [Int]) -> Bool {
-        self.postorder = postorder
-        return dfs(0, postorder.count - 1)
-    }
-
-    private func dfs(_ l: Int, _ r: Int) -> Bool {
-        if l >= r {
-            return true
-        }
-        let rootValue = postorder[r]
-        var i = l
-        while i < r && postorder[i] < rootValue {
-            i += 1
-        }
-        for j in i..<r {
-            if postorder[j] < rootValue {
+        var stk = [(0, postorder.count - 1)]
+        while let (l, r) = stk.popLast() {
+            if l >= r {
+                continue
+            }
+            let v = postorder[r]
+            var i = l
+            while i < r && postorder[i] < v {
+                i += 1
+            }
+            if i < r && postorder[i..<r].contains(where: { $0 < v }) {
                 return false
             }
+            stk.append((i, r - 1))
+            stk.append((l, i - 1))
         }
-        return dfs(l, i - 1) && dfs(i, r - 1)
+        return true
     }
 }
 ```
@@ -316,7 +348,7 @@ class Solution {
 
 > **思考**
 >
-> 递归反复扫描分段。从右往左看后序相当于“根、右、左”，值应先升后降。单调栈维护递减候选，弹出时更新父结点上界，若出现大于上界的值则非法。一次遍历即可。
+> 方法一已经用显式栈分段，但每段仍要线性扫描，最坏是平方时间。从右往左看后序相当于“根、右、左”，值应先升后降。单调栈维护递减候选，弹出时更新父结点上界，若出现大于上界的值则非法。一次遍历即可。
 
 <!-- thinking:end -->
 
