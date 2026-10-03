@@ -237,7 +237,7 @@ class SegmentTree {
             return;
         }
         if (node.l >= l && node.r <= r) {
-            node.v = (node.v + (node.r - node.l + 1) * v) % MOD;
+            node.v = (int) ((node.v + 1L * (node.r - node.l + 1) * v) % MOD);
             node.add += v;
             return;
         }
@@ -286,8 +286,8 @@ class SegmentTree {
         }
         if (node.add != 0) {
             Node left = node.left, right = node.right;
-            left.v = (left.v + (left.r - left.l + 1) * node.add) % MOD;
-            right.v = (right.v + (right.r - right.l + 1) * node.add) % MOD;
+            left.v = (int) ((left.v + 1L * (left.r - left.l + 1) * node.add) % MOD);
+            right.v = (int) ((right.v + 1L * (right.r - right.l + 1) * node.add) % MOD);
             left.add += node.add;
             right.add += node.add;
             node.add = 0;
@@ -378,7 +378,7 @@ public:
     void modify(int l, int r, int v, Node* node) {
         if (l > r) return;
         if (node->l >= l && node->r <= r) {
-            node->v = (node->v + (node->r - node->l + 1) * v) % MOD;
+            node->v = (node->v + 1LL * (node->r - node->l + 1) * v) % MOD;
             node->add += v;
             return;
         }
@@ -412,8 +412,8 @@ public:
         if (node->add) {
             Node* left = node->left;
             Node* right = node->right;
-            left->v = (left->v + (left->r - left->l + 1) * node->add) % MOD;
-            right->v = (right->v + (right->r - right->l + 1) * node->add) % MOD;
+            left->v = (left->v + 1LL * (left->r - left->l + 1) * node->add) % MOD;
+            right->v = (right->v + 1LL * (right->r - right->l + 1) * node->add) % MOD;
             left->add += node->add;
             right->add += node->add;
             node->add = 0;
