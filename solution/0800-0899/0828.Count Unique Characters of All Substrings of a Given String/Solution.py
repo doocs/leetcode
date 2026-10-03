@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
         d = defaultdict(list)

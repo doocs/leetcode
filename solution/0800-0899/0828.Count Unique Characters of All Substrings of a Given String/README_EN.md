@@ -94,6 +94,9 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 #### Python3
 
 ```python
+from collections import defaultdict
+
+
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
         d = defaultdict(list)
