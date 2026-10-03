@@ -20,7 +20,7 @@ impl Solution {
         let n = self.nums.len();
         let mut res = self.nums.clone();
         for i in 0..n {
-            let j = rand::thread_rng().gen_range(0, n);
+            let j = rand::thread_rng().gen_range(i..n);
             res.swap(i, j);
         }
         res
