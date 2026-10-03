@@ -125,7 +125,7 @@ class Solution:
 ```java
 class Solution {
     public int minSizeSubarray(int[] nums, int target) {
-        long s = Arrays.stream(nums).sum();
+        long s = Arrays.stream(nums).asLongStream().sum();
         int n = nums.length;
         int a = 0;
         if (target > s) {
