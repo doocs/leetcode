@@ -328,9 +328,9 @@ public class Solution {
 
 > **思考**
 >
-> 方法一已按连通分量计数，递归深度在最坏情况下可达 $O(mn)$。同一四连通定义下，用队列按层扩展邻接陆地，同样能一次性抹掉一座岛。
+> 方法一已经用显式栈按连通分量抹掉陆地。同一四连通定义下，也可以用队列按层扩展邻接陆地，同样一次抹掉一座岛。
 >
-> 扫描顺序与方法一相同，仅将递归改为显式 BFS，空间仍由队列规模决定。
+> 扫描顺序与方法一相同，空间仍由队列规模决定。
 
 <!-- thinking:end -->
 
@@ -833,6 +833,275 @@ impl Solution {
             }
         }
         ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法四：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 若将每个值为 $1$ 的格子单独计为一座岛，四连通的陆地会被重复计数。$m,n\le 300$，一次扫描即可，但同一连通块必须在一次搜索里全部改成 $0$。
+>
+> 从一块陆地递归走向下一个邻居时，一条 $1000$ 格的蛇形岛就会超出递归上限，而 $300\times 300$ 的网格容得下这条蛇。
+>
+> 抹掉一座岛不需要递归返回值，只需要把四连通的 $1$ 改成 $0$。
+>
+> 因此遇到 $1$ 就把它压入显式栈。弹出后把四个方向上仍为 $1$ 的邻居标成 $0$ 并入栈，每启动一次搜索将答案加一。
+
+<!-- thinking:end -->
+
+扫描每个格子，遇到 `'1'` 就用显式栈淹没整座岛，沿途把陆地改成 `'0'`，并将答案加 $1$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def flood(i: int, j: int):
+            stk = [(i, j)]
+            grid[i][j] = '0'
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
+                        grid[x][y] = '0'
+                        stk.append((x, y))
+
+        ans = 0
+        dirs = (-1, 0, 1, 0, -1)
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    flood(i, j)
+                    ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numIslands(char[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int ans = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    grid[i][j] = '0';
+                    stk.push(new int[] {i, j});
+                    while (!stk.isEmpty()) {
+                        int[] cur = stk.pop();
+                        int a = cur[0], b = cur[1];
+                        for (int k = 0; k < 4; ++k) {
+                            int x = a + dirs[k];
+                            int y = b + dirs[k + 1];
+                            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                                grid[x][y] = '0';
+                                stk.push(new int[] {x, y});
+                            }
+                        }
+                    }
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] != '1') {
+                    continue;
+                }
+                vector<pair<int, int>> stk{{i, j}};
+                grid[i][j] = '0';
+                while (!stk.empty()) {
+                    auto [a, b] = stk.back();
+                    stk.pop_back();
+                    for (int k = 0; k < 4; ++k) {
+                        int x = a + dirs[k], y = b + dirs[k + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                            grid[x][y] = '0';
+                            stk.emplace_back(x, y);
+                        }
+                    }
+                }
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numIslands(grid [][]byte) int {
+	m, n := len(grid), len(grid[0])
+	dirs := []int{-1, 0, 1, 0, -1}
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] != '1' {
+				continue
+			}
+			grid[i][j] = '0'
+			stk := [][2]int{{i, j}}
+			for len(stk) > 0 {
+				cur := stk[len(stk)-1]
+				stk = stk[:len(stk)-1]
+				for k := 0; k < 4; k++ {
+					x, y := cur[0]+dirs[k], cur[1]+dirs[k+1]
+					if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1' {
+						grid[x][y] = '0'
+						stk = append(stk, [2]int{x, y})
+					}
+				}
+			}
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] !== '1') {
+                continue;
+            }
+            grid[i][j] = '0';
+            const stk: number[][] = [[i, j]];
+            while (stk.length) {
+                const [a, b] = stk.pop()!;
+                for (let k = 0; k < 4; ++k) {
+                    const x = a + dirs[k];
+                    const y = b + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === '1') {
+                        grid[x][y] = '0';
+                        stk.push([x, y]);
+                    }
+                }
+            }
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        let mut grid = grid;
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut ans = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] != '1' {
+                    continue;
+                }
+                grid[i][j] = '0';
+                let mut stk = vec![(i, j)];
+                while let Some((a, b)) = stk.pop() {
+                    for k in 0..4 {
+                        let x = a as i32 + DIRS[k];
+                        let y = b as i32 + DIRS[k + 1];
+                        if x >= 0 && y >= 0 {
+                            let (x, y) = (x as usize, y as usize);
+                            if x < m && y < n && grid[x][y] == '1' {
+                                grid[x][y] = '0';
+                                stk.push((x, y));
+                            }
+                        }
+                    }
+                }
+                ans += 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int NumIslands(char[][] grid) {
+        int m = grid.Length;
+        int n = grid[0].Length;
+        int ans = 0;
+        int[] dirs = { -1, 0, 1, 0, -1 };
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] != '1') {
+                    continue;
+                }
+                grid[i][j] = '0';
+                var stk = new Stack<(int, int)>();
+                stk.Push((i, j));
+                while (stk.Count > 0) {
+                    var (a, b) = stk.Pop();
+                    for (int k = 0; k < 4; ++k) {
+                        int x = a + dirs[k];
+                        int y = b + dirs[k + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                            grid[x][y] = '0';
+                            stk.Push((x, y));
+                        }
+                    }
+                }
+                ans++;
+            }
+        }
+
+        return ans;
     }
 }
 ```
