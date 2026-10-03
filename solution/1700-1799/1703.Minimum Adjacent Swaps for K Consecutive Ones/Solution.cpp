@@ -18,8 +18,8 @@ public:
         int y = k - x;
         for (int i = x - 1; i < m - y; ++i) {
             int j = arr[i];
-            int ls = s[i + 1] - s[i + 1 - x];
-            int rs = s[i + 1 + y] - s[i + 1];
+            long ls = s[i + 1] - s[i + 1 - x];
+            long rs = s[i + 1 + y] - s[i + 1];
             long a = (j + j - x + 1L) * x / 2 - ls;
             long b = rs - (j + 1L + j + y) * y / 2;
             ans = min(ans, a + b);
