@@ -259,4 +259,159 @@ function minimizeConcatenatedLength(words: string[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word is attached to the left or the right, and equal letters that meet count once. There can be $1000$ words, and trying the right side first always moves to the next index, so the search has depth $n$. Only the current first and last letters affect later choices. Let $f[i][a][b]$ be the extra length from word $i$ with those ends, set $f[n]$ to $0$, and fill decreasing $i$ over every pair of ends.
+
+<!-- thinking:end -->
+
+Let $f[i][a][b]$ be the shortest extra length when connecting from word $i$, with the string so far starting with $a$ and ending with $b$. The boundary is $f[n][a][b]=0$. For $i$ from $n-1$ down to $1$, and for every pair of ends $a,b$, try both sides. Appending $words[i]$ saves one character when its first character equals $b$, and the new end is its last character. Prepending saves one character when its last character equals $a$, and the new start is its first character. $f[i][a][b]$ is the shorter of those two lengths plus $|words[i]|$. The answer is $|words[0]| + f[1][words[0][0]][words[0][|words[0]|-1]]$.
+
+The time complexity is $O(n \times |\Sigma|^2)$, and the space complexity is $O(n \times |\Sigma|^2)$. Here, $n$ is the number of words, and $|\Sigma|$ is the alphabet size, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+        n = len(words)
+        f = [[[0] * 26 for _ in range(26)] for _ in range(n + 1)]
+        for i in range(n - 1, 0, -1):
+            s = words[i]
+            m = len(s)
+            c, d = ord(s[0]) - 97, ord(s[-1]) - 97
+            for a in range(26):
+                for b in range(26):
+                    x = f[i + 1][a][d] - (c == b)
+                    y = f[i + 1][c][b] - (d == a)
+                    f[i][a][b] = m + min(x, y)
+        a, b = ord(words[0][0]) - 97, ord(words[0][-1]) - 97
+        return len(words[0]) + f[1][a][b]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimizeConcatenatedLength(String[] words) {
+        int n = words.length;
+        int[][][] f = new int[n + 1][26][26];
+        for (int i = n - 1; i > 0; --i) {
+            String s = words[i];
+            int m = s.length();
+            int c = s.charAt(0) - 'a';
+            int d = s.charAt(m - 1) - 'a';
+            for (int a = 0; a < 26; ++a) {
+                for (int b = 0; b < 26; ++b) {
+                    int x = f[i + 1][a][d] - (c == b ? 1 : 0);
+                    int y = f[i + 1][c][b] - (d == a ? 1 : 0);
+                    f[i][a][b] = m + Math.min(x, y);
+                }
+            }
+        }
+        int a = words[0].charAt(0) - 'a';
+        int b = words[0].charAt(words[0].length() - 1) - 'a';
+        return words[0].length() + f[1][a][b];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimizeConcatenatedLength(vector<string>& words) {
+        int n = words.size();
+        vector<vector<vector<int>>> f(n + 1, vector<vector<int>>(26, vector<int>(26)));
+        for (int i = n - 1; i > 0; --i) {
+            auto& s = words[i];
+            int m = s.size();
+            int c = s[0] - 'a';
+            int d = s[m - 1] - 'a';
+            for (int a = 0; a < 26; ++a) {
+                for (int b = 0; b < 26; ++b) {
+                    int x = f[i + 1][a][d] - (c == b);
+                    int y = f[i + 1][c][b] - (d == a);
+                    f[i][a][b] = m + min(x, y);
+                }
+            }
+        }
+        int a = words[0].front() - 'a';
+        int b = words[0].back() - 'a';
+        return words[0].size() + f[1][a][b];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimizeConcatenatedLength(words []string) int {
+	n := len(words)
+	f := make([][26][26]int, n+1)
+	for i := n - 1; i > 0; i-- {
+		s := words[i]
+		m := len(s)
+		c := int(s[0] - 'a')
+		d := int(s[m-1] - 'a')
+		for a := 0; a < 26; a++ {
+			for b := 0; b < 26; b++ {
+				x := f[i+1][a][d]
+				y := f[i+1][c][b]
+				if c == b {
+					x--
+				}
+				if d == a {
+					y--
+				}
+				f[i][a][b] = m + min(x, y)
+			}
+		}
+	}
+	a := int(words[0][0] - 'a')
+	b := int(words[0][len(words[0])-1] - 'a')
+	return len(words[0]) + f[1][a][b]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimizeConcatenatedLength(words: string[]): number {
+    const n = words.length;
+    const f: number[][][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: 26 }, () => Array(26).fill(0)),
+    );
+    for (let i = n - 1; i > 0; --i) {
+        const s = words[i];
+        const m = s.length;
+        const c = s.charCodeAt(0) - 97;
+        const d = s.charCodeAt(m - 1) - 97;
+        for (let a = 0; a < 26; ++a) {
+            for (let b = 0; b < 26; ++b) {
+                const x = f[i + 1][a][d] - (c === b ? 1 : 0);
+                const y = f[i + 1][c][b] - (d === a ? 1 : 0);
+                f[i][a][b] = m + Math.min(x, y);
+            }
+        }
+    }
+    const a = words[0].charCodeAt(0) - 97;
+    const b = words[0].charCodeAt(words[0].length - 1) - 97;
+    return words[0].length + f[1][a][b];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
