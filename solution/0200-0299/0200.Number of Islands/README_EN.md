@@ -324,9 +324,9 @@ public class Solution {
 
 > **Thinking**
 >
-> DFS already counts components, but the recursion depth can reach $O(mn)$. The same 4-connectivity can be expanded with a queue.
+> Solution 1 already clears each component with an explicit stack. The same 4-connectivity can be expanded with a queue.
 >
-> The scan order stays the same; only the search becomes explicit BFS, and space is bounded by the queue.
+> The scan order matches Solution 1. The extra space is still the size of the frontier.
 
 <!-- thinking:end -->
 
@@ -829,6 +829,275 @@ impl Solution {
             }
         }
         ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting every cell with value $1$ as its own island would double-count 4-connected land. With $m,n \le 300$, a full scan is acceptable, but each component must be cleared in one search.
+>
+> Recursing along a snake of $1000$ land cells overflows the call stack, and a $300\times 300$ grid can hold that snake.
+>
+> Clearing an island does not need a return value. It only rewrites 4-connected $1$s to $0$.
+>
+> When a $1$ is found, push it onto an explicit stack. Pop a cell and push each neighboring $1$ after marking it. Each time a search starts, add one to the answer.
+
+<!-- thinking:end -->
+
+Scan every cell. When the value is `'1'`, flood the island with an explicit stack, rewrite connected land to `'0'`, and add one to the answer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def flood(i: int, j: int):
+            stk = [(i, j)]
+            grid[i][j] = '0'
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
+                        grid[x][y] = '0'
+                        stk.append((x, y))
+
+        ans = 0
+        dirs = (-1, 0, 1, 0, -1)
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    flood(i, j)
+                    ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numIslands(char[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int ans = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    grid[i][j] = '0';
+                    stk.push(new int[] {i, j});
+                    while (!stk.isEmpty()) {
+                        int[] cur = stk.pop();
+                        int a = cur[0], b = cur[1];
+                        for (int k = 0; k < 4; ++k) {
+                            int x = a + dirs[k];
+                            int y = b + dirs[k + 1];
+                            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                                grid[x][y] = '0';
+                                stk.push(new int[] {x, y});
+                            }
+                        }
+                    }
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] != '1') {
+                    continue;
+                }
+                vector<pair<int, int>> stk{{i, j}};
+                grid[i][j] = '0';
+                while (!stk.empty()) {
+                    auto [a, b] = stk.back();
+                    stk.pop_back();
+                    for (int k = 0; k < 4; ++k) {
+                        int x = a + dirs[k], y = b + dirs[k + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                            grid[x][y] = '0';
+                            stk.emplace_back(x, y);
+                        }
+                    }
+                }
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numIslands(grid [][]byte) int {
+	m, n := len(grid), len(grid[0])
+	dirs := []int{-1, 0, 1, 0, -1}
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] != '1' {
+				continue
+			}
+			grid[i][j] = '0'
+			stk := [][2]int{{i, j}}
+			for len(stk) > 0 {
+				cur := stk[len(stk)-1]
+				stk = stk[:len(stk)-1]
+				for k := 0; k < 4; k++ {
+					x, y := cur[0]+dirs[k], cur[1]+dirs[k+1]
+					if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1' {
+						grid[x][y] = '0'
+						stk = append(stk, [2]int{x, y})
+					}
+				}
+			}
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] !== '1') {
+                continue;
+            }
+            grid[i][j] = '0';
+            const stk: number[][] = [[i, j]];
+            while (stk.length) {
+                const [a, b] = stk.pop()!;
+                for (let k = 0; k < 4; ++k) {
+                    const x = a + dirs[k];
+                    const y = b + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === '1') {
+                        grid[x][y] = '0';
+                        stk.push([x, y]);
+                    }
+                }
+            }
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        let mut grid = grid;
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut ans = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] != '1' {
+                    continue;
+                }
+                grid[i][j] = '0';
+                let mut stk = vec![(i, j)];
+                while let Some((a, b)) = stk.pop() {
+                    for k in 0..4 {
+                        let x = a as i32 + DIRS[k];
+                        let y = b as i32 + DIRS[k + 1];
+                        if x >= 0 && y >= 0 {
+                            let (x, y) = (x as usize, y as usize);
+                            if x < m && y < n && grid[x][y] == '1' {
+                                grid[x][y] = '0';
+                                stk.push((x, y));
+                            }
+                        }
+                    }
+                }
+                ans += 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int NumIslands(char[][] grid) {
+        int m = grid.Length;
+        int n = grid[0].Length;
+        int ans = 0;
+        int[] dirs = { -1, 0, 1, 0, -1 };
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] != '1') {
+                    continue;
+                }
+                grid[i][j] = '0';
+                var stk = new Stack<(int, int)>();
+                stk.Push((i, j));
+                while (stk.Count > 0) {
+                    var (a, b) = stk.Pop();
+                    for (int k = 0; k < 4; ++k) {
+                        int x = a + dirs[k];
+                        int y = b + dirs[k + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                            grid[x][y] = '0';
+                            stk.Push((x, y));
+                        }
+                    }
+                }
+                ans++;
+            }
+        }
+
+        return ans;
     }
 }
 ```
