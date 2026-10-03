@@ -386,7 +386,7 @@ impl Solution {
                 l += 1;
             }
 
-            ans = ans.max((r - l + 1) as i32);
+            ans = ans.max(r as i32 - l as i32 + 1);
         }
 
         ans
