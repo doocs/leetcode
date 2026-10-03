@@ -187,7 +187,10 @@ FROM restaurant_orders
 GROUP BY customer_id
 HAVING
     total_orders >= 3
-    AND peak_hour_percentage >= 60
+    AND 5 * SUM(
+        TIME(order_timestamp) BETWEEN '11:00:00' AND '14:00:00'
+        OR TIME(order_timestamp) BETWEEN '18:00:00' AND '21:00:00'
+    ) >= 3 * COUNT(1)
     AND average_rating >= 4.0
     AND SUM(order_rating IS NOT NULL) / total_orders >= 0.5
 ORDER BY average_rating DESC, customer_id DESC;
@@ -224,7 +227,7 @@ def find_golden_hour_customers(restaurant_orders: pd.DataFrame) -> pd.DataFrame:
     ).round()
     filtered = grouped[
         (grouped["total_orders"] >= 3)
-        & (grouped["peak_hour_percentage"] >= 60)
+        & (5 * grouped["peak_hour_count"] >= 3 * grouped["total_orders"])
         & (grouped["average_rating"] >= 4.0)
         & (grouped["non_null_rating_count"] / grouped["total_orders"] >= 0.5)
     ]

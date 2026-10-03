@@ -21,7 +21,7 @@ def find_emotionally_consistent_users(reactions: pd.DataFrame) -> pd.DataFrame:
         )
     )
 
-    s = s[(s["reaction_ratio"] >= 0.60) & (s["total_cnt"] >= 5)]
+    s = s[(5 * s["mx_cnt"] >= 3 * s["total_cnt"]) & (s["total_cnt"] >= 5)]
 
     merged = pd.merge(
         s[["user_id", "mx_cnt", "reaction_ratio"]],
