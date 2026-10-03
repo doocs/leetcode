@@ -184,7 +184,7 @@ int singleNumber(int* nums, int numsSize) {
                 count++;
             }
         }
-        ans |= (uint) (count % 3) << i;
+        ans |= (unsigned) (count % 3) << i;
     }
     return ans;
 }
