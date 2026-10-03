@@ -1,3 +1,5 @@
+import "container/heap"
+
 func reachableNodes(edges [][]int, maxMoves int, n int) (ans int) {
 	g := make([][]pair, n)
 	for _, e := range edges {

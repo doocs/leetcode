@@ -89,6 +89,11 @@ The nodes that are reachable are highlighted in yellow.
 #### Python3
 
 ```python
+from collections import defaultdict
+from heapq import heappop, heappush
+from math import inf
+
+
 class Solution:
     def reachableNodes(self, edges: List[List[int]], maxMoves: int, n: int) -> int:
         g = defaultdict(list)
@@ -200,6 +205,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 func reachableNodes(edges [][]int, maxMoves int, n int) (ans int) {
 	g := make([][]pair, n)
 	for _, e := range edges {
