@@ -85,6 +85,9 @@ tags:
 #### Python3
 
 ```python
+from math import hypot
+
+
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         points.sort(key=lambda p: hypot(p[0], p[1]))
@@ -177,6 +180,10 @@ impl Solution {
 #### Python3
 
 ```python
+import math
+from heapq import heappop, heappush
+
+
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         max_q = []

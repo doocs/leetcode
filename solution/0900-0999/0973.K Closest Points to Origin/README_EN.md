@@ -82,6 +82,9 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. H
 #### Python3
 
 ```python
+from math import hypot
+
+
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         points.sort(key=lambda p: hypot(p[0], p[1]))
@@ -174,6 +177,10 @@ The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$.
 #### Python3
 
 ```python
+import math
+from heapq import heappop, heappush
+
+
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         max_q = []
