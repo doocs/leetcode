@@ -395,4 +395,258 @@ function maxWalls(robots: number[], distance: number[], walls: number[]): number
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each robot fires left or right, clipped by its $\textit{distance}$ and by neighbors. Trying all $2^n$ assignments does not fit $n\le 10^5$.
+>
+> After sorting by position, robot $i$'s reachable interval depends only on robot $i+1$'s direction. $f[i][j]$ is the best total through robot $i$ when that next direction is $j$: the better of a left shot plus $f[i-1][0]$ and a right shot plus $f[i-1][1]$.
+>
+> Searching that recurrence still chains $n$ calls and overflows the stack. The two states are filled from $i=0$ upward, and binary search counts the walls inside each clipped interval.
+
+<!-- thinking:end -->
+
+We first store each robot with its range in an array and sort them by robot position. We also sort the wall positions.
+
+Define $f[i][j]$ as the number of walls that can be destroyed after considering robot $i$, when the next robot fires in direction $j$ (0 for left, 1 for right). The answer is $f[n - 1][1]$. There is no next robot when $i = n - 1$, so either value of $j$ gives the same result. When $i = 0$ there is no earlier state, and that prefix is 0.
+
+We fill $f$ for $i$ from $0$ to $n - 1$. For the current robot there are two firing directions.
+
+If it fires **left**, the range is $[\text{left}, \text{robot}[i][0]]$. Binary search counts the walls in that range. The total is $f[i - 1][0] + \text{count}$, where $\text{count}$ is the number of walls this robot destroys by firing left.
+
+If it fires **right**, the range is $[\text{robot}[i][0], \text{right}]$. Binary search counts the walls in that range. The total is $f[i - 1][1] + \text{count}$, where $\text{count}$ is the number of walls this robot destroys by firing right.
+
+$f[i][j]$ is the larger of those two totals.
+
+Time complexity $O(n \times \log n + m \times \log m + n \times \log m)$, space complexity $O(n)$. Where $n$ and $m$ are the numbers of robots and walls respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+        n = len(robots)
+        arr = sorted(zip(robots, distance), key=lambda x: x[0])
+        walls.sort()
+        f = [[0, 0] for _ in range(n)]
+        for i in range(n):
+            for j in range(2):
+                left = arr[i][0] - arr[i][1]
+                if i:
+                    left = max(left, arr[i - 1][0] + 1)
+                l = bisect_left(walls, left)
+                r = bisect_left(walls, arr[i][0] + 1)
+                ans = (f[i - 1][0] if i else 0) + r - l
+                right = arr[i][0] + arr[i][1]
+                if i + 1 < n:
+                    if j == 0:
+                        right = min(right, arr[i + 1][0] - arr[i + 1][1] - 1)
+                    else:
+                        right = min(right, arr[i + 1][0] - 1)
+                l = bisect_left(walls, arr[i][0])
+                r = bisect_left(walls, right + 1)
+                ans = max(ans, (f[i - 1][1] if i else 0) + r - l)
+                f[i][j] = ans
+        return f[n - 1][1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxWalls(int[] robots, int[] distance, int[] walls) {
+        int n = robots.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            arr[i][0] = robots[i];
+            arr[i][1] = distance[i];
+        }
+        Arrays.sort(arr, Comparator.comparingInt(a -> a[0]));
+        Arrays.sort(walls);
+        int[][] f = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < 2; ++j) {
+                int left = arr[i][0] - arr[i][1];
+                if (i > 0) {
+                    left = Math.max(left, arr[i - 1][0] + 1);
+                }
+                int l = lowerBound(walls, left);
+                int r = lowerBound(walls, arr[i][0] + 1);
+                int ans = (i > 0 ? f[i - 1][0] : 0) + (r - l);
+                int right = arr[i][0] + arr[i][1];
+                if (i + 1 < n) {
+                    if (j == 0) {
+                        right = Math.min(right, arr[i + 1][0] - arr[i + 1][1] - 1);
+                    } else {
+                        right = Math.min(right, arr[i + 1][0] - 1);
+                    }
+                }
+                l = lowerBound(walls, arr[i][0]);
+                r = lowerBound(walls, right + 1);
+                ans = Math.max(ans, (i > 0 ? f[i - 1][1] : 0) + (r - l));
+                f[i][j] = ans;
+            }
+        }
+        return f[n - 1][1];
+    }
+
+    private int lowerBound(int[] arr, int target) {
+        int idx = Arrays.binarySearch(arr, target);
+        if (idx < 0) {
+            return -idx - 1;
+        }
+        return idx;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxWalls(vector<int>& robots, vector<int>& distance, vector<int>& walls) {
+        int n = robots.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; i++) {
+            arr[i] = {robots[i], distance[i]};
+        }
+        ranges::sort(arr, {}, &pair<int, int>::first);
+        ranges::sort(walls);
+
+        vector<vector<int>> f(n, vector<int>(2));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < 2; ++j) {
+                int left = arr[i].first - arr[i].second;
+                if (i > 0) {
+                    left = max(left, arr[i - 1].first + 1);
+                }
+                int l = ranges::lower_bound(walls, left) - walls.begin();
+                int r = ranges::lower_bound(walls, arr[i].first + 1) - walls.begin();
+                int ans = (i ? f[i - 1][0] : 0) + (r - l);
+
+                int right = arr[i].first + arr[i].second;
+                if (i + 1 < n) {
+                    if (j == 0) {
+                        right = min(right, arr[i + 1].first - arr[i + 1].second - 1);
+                    } else {
+                        right = min(right, arr[i + 1].first - 1);
+                    }
+                }
+                l = ranges::lower_bound(walls, arr[i].first) - walls.begin();
+                r = ranges::lower_bound(walls, right + 1) - walls.begin();
+                ans = max(ans, (i ? f[i - 1][1] : 0) + (r - l));
+                f[i][j] = ans;
+            }
+        }
+        return f[n - 1][1];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxWalls(robots []int, distance []int, walls []int) int {
+	type pair struct {
+		x, d int
+	}
+	n := len(robots)
+	arr := make([]pair, n)
+	for i := 0; i < n; i++ {
+		arr[i] = pair{robots[i], distance[i]}
+	}
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i].x < arr[j].x
+	})
+	sort.Ints(walls)
+
+	f := make([][2]int, n)
+	for i := 0; i < n; i++ {
+		for j := 0; j < 2; j++ {
+			left := arr[i].x - arr[i].d
+			if i > 0 {
+				left = max(left, arr[i-1].x+1)
+			}
+			l := sort.SearchInts(walls, left)
+			r := sort.SearchInts(walls, arr[i].x+1)
+			ans := 0
+			if i > 0 {
+				ans = f[i-1][0]
+			}
+			ans += r - l
+
+			right := arr[i].x + arr[i].d
+			if i+1 < n {
+				if j == 0 {
+					right = min(right, arr[i+1].x-arr[i+1].d-1)
+				} else {
+					right = min(right, arr[i+1].x-1)
+				}
+			}
+			l = sort.SearchInts(walls, arr[i].x)
+			r = sort.SearchInts(walls, right+1)
+			prev := 0
+			if i > 0 {
+				prev = f[i-1][1]
+			}
+			ans = max(ans, prev+(r-l))
+			f[i][j] = ans
+		}
+	}
+	return f[n-1][1]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxWalls(robots: number[], distance: number[], walls: number[]): number {
+    type Pair = [number, number];
+    const n = robots.length;
+    const arr: Pair[] = robots.map((r, i) => [r, distance[i]]);
+
+    _.sortBy(arr, p => p[0]).forEach((p, i) => (arr[i] = p));
+    walls.sort((a, b) => a - b);
+    const f: number[][] = Array.from({ length: n }, () => Array(2).fill(0));
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < 2; ++j) {
+            let left = arr[i][0] - arr[i][1];
+            if (i > 0) {
+                left = Math.max(left, arr[i - 1][0] + 1);
+            }
+            let l = _.sortedIndex(walls, left);
+            let r = _.sortedIndex(walls, arr[i][0] + 1);
+            let ans = (i > 0 ? f[i - 1][0] : 0) + (r - l);
+
+            let right = arr[i][0] + arr[i][1];
+            if (i + 1 < n) {
+                if (j === 0) {
+                    right = Math.min(right, arr[i + 1][0] - arr[i + 1][1] - 1);
+                } else {
+                    right = Math.min(right, arr[i + 1][0] - 1);
+                }
+            }
+            l = _.sortedIndex(walls, arr[i][0]);
+            r = _.sortedIndex(walls, right + 1);
+            ans = Math.max(ans, (i > 0 ? f[i - 1][1] : 0) + (r - l));
+            f[i][j] = ans;
+        }
+    }
+    return f[n - 1][1];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
