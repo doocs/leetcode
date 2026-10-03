@@ -11,7 +11,7 @@ public:
         if (target == s) {
             return n;
         }
-        unordered_map<int, int> pos{{0, -1}};
+        unordered_map<long long, int> pos{{0, -1}};
         long long pre = 0;
         int b = 1 << 30;
         for (int i = 0; i < n; ++i) {
