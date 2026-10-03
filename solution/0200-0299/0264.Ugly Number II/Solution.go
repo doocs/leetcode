@@ -1,3 +1,5 @@
+import "container/heap"
+
 func nthUglyNumber(n int) int {
 	h := IntHeap([]int{1})
 	heap.Init(&h)

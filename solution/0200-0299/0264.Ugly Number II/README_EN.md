@@ -69,6 +69,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         h = [1]
@@ -139,6 +142,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 func nthUglyNumber(n int) int {
 	h := IntHeap([]int{1})
 	heap.Init(&h)

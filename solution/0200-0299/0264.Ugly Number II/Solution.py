@@ -1,3 +1,6 @@
+from heapq import heappop, heappush
+
+
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         h = [1]
