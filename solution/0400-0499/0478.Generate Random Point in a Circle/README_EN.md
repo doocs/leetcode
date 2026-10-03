@@ -78,6 +78,10 @@ solution.randPoint(); // return [0.36572, 0.17248]
 #### Python3
 
 ```python
+import math
+import random
+
+
 class Solution:
     def __init__(self, radius: float, x_center: float, y_center: float):
         self.radius = radius
