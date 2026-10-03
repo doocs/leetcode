@@ -106,7 +106,7 @@ encrypter.decrypt("eizfeiam"); // return 2.
 
 我们用一个哈希表 $\textit{mp}$ 记录每个字符的加密结果，用另一个哈希表 $\textit{cnt}$ 记录每个加密结果出现的次数。
 
-在构造函数中，我们遍历 $\textit{keys}$ 和 $\textit{values}$，将每个字符和其对应的加密结果存入 $\textit{mp}$ 中。然后遍历 $\textit{dictionary}$，统计每个加密结果出现的次数。时间复杂度 $(n + m)$，其中 $n$ 和 $m$ 分别是 $\textit{keys}$ 和 $\textit{dictionary}$ 的长度。
+在构造函数中，我们遍历 $\textit{keys}$ 和 $\textit{values}$，将每个字符和其对应的加密结果存入 $\textit{mp}$ 中。然后遍历 $\textit{dictionary}$，统计每个加密结果出现的次数。时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是 $\textit{keys}$ 和 $\textit{dictionary}$ 的长度。
 
 在加密函数中，我们遍历输入字符串 $\textit{word1}$ 的每个字符，查找其加密结果并拼接起来。如果某个字符没有对应的加密结果，说明无法加密，返回空字符串。时间复杂度 $O(k)$，其中 $k$ 是 $\textit{word1}$ 的长度。
 

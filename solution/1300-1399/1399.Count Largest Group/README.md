@@ -74,7 +74,7 @@ tags:
 
 最后返回 $ans$ 即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $(\log n)$。其中 $n$ 为给定的数字。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为给定的数字。
 
 <!-- tabs:start -->
 
