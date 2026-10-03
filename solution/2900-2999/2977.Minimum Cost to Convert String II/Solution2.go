@@ -51,21 +51,13 @@ func minimumCost(source string, target string, original []string, changed []stri
 		}
 	}
 	n := len(source)
-	f := make([]int, n)
-	for i := range f {
-		f[i] = -1
-	}
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i >= n {
-			return 0
-		}
-		if f[i] >= 0 {
-			return f[i]
-		}
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
 		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
 		if source[i] == target[i] {
-			f[i] = dfs(i + 1)
+			f[i] = f[i+1]
 		}
 		p, q := root, root
 		for j := i; j < n; j++ {
@@ -77,13 +69,11 @@ func minimumCost(source string, target string, original []string, changed []stri
 			if p.v < 0 || q.v < 0 {
 				continue
 			}
-			f[i] = min(f[i], dfs(j+1)+g[p.v][q.v])
+			f[i] = min(f[i], f[j+1]+g[p.v][q.v])
 		}
-		return f[i]
 	}
-	ans := dfs(0)
-	if ans >= inf {
-		ans = -1
+	if f[0] >= inf {
+		return -1
 	}
-	return int64(ans)
+	return int64(f[0])
 }
