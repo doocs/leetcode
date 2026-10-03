@@ -259,15 +259,215 @@ function postorder(root: Node | null): number[] {
 
 > **思考**
 >
-> 后序递归同样受栈深限制。用栈按「根、再从左到右压孩子」得到的是根-右-左，整体反转即为左-右-根。
+> 方法一已经用显式栈先记下根、再从左到右压孩子，最后反转得到后序。
 >
-> 这与「前序的镜像再反转」同一技巧。额外只要一个栈和一个答案数组。
+> 本节是同一遍历。弹出即记录，孩子从左到右入栈，整段反转后是左-右-根。
 
 <!-- thinking:end -->
 
-我们也可以用迭代的方法来解决这个问题。
+本节同样用栈得到后序遍历。
 
 我们使用一个栈来帮助我们得到后序遍历，我们首先把根节点入栈，因为后序遍历是左子树、右子树、根节点，栈的特点是先进后出，所以我们先把节点的值加入答案，然后对该节点的每个子节点按照从左到右的顺序依次入栈，这样可以得到根节点、右子树、左子树的遍历结果。最后把答案反转即可得到后序遍历的结果。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children:
+                stk.append(child)
+        return ans[::-1]
+```
+
+#### Java
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public List<Integer> postorder(Node root) {
+        LinkedList<Integer> ans = new LinkedList<>();
+        if (root == null) {
+            return ans;
+        }
+        Deque<Node> stk = new ArrayDeque<>();
+        stk.offer(root);
+        while (!stk.isEmpty()) {
+            root = stk.pollLast();
+            ans.addFirst(root.val);
+            for (Node child : root.children) {
+                stk.offer(child);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> postorder(Node* root) {
+        vector<int> ans;
+        if (!root) {
+            return ans;
+        }
+        stack<Node*> stk{{root}};
+        while (!stk.empty()) {
+            root = stk.top();
+            ans.push_back(root->val);
+            stk.pop();
+            for (Node* child : root->children) {
+                stk.push(child);
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func postorder(root *Node) []int {
+	var ans []int
+	if root == nil {
+		return ans
+	}
+	stk := []*Node{root}
+	for len(stk) > 0 {
+		root = stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		ans = append([]int{root.Val}, ans...)
+		for _, child := range root.Children {
+			stk = append(stk, child)
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function postorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
+    }
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        stk.push(...children);
+    }
+    return ans.reverse();
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> N 叉树后序是从左到右的子树、再根。按定义递归时，一条高度为 $1000$ 的链会把调用栈用尽，而高度上限正是 $1000$。
+>
+> 瓶颈是这条单孩子链：孩子先于根处理，调用深度与高度同阶。
+>
+> 先记下根、再从左到右把孩子压栈，得到的是根-右-左。整段反转之后就是左-右-根。
+>
+> 因此用显式栈完成这段遍历。弹出后先写入答案，再从左到右把孩子入栈，栈空后反转答案。空树直接返回空列表。
+
+<!-- thinking:end -->
+
+我们用栈模拟后序遍历。先将根入栈，弹出节点后把值加入答案，再按从左到右的顺序把孩子入栈。这样得到根、右子树、左子树的顺序，最后把答案反转，即为后序。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
