@@ -323,4 +323,390 @@ function bitCount(i: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^4$ and at most one character may change. Trying every change and then cutting the longest valid prefixes is about $O(n^2 |\Sigma|)$, which is tight.
+>
+> The unchanged transition always calls the next index first. The chain from index $0$ to $n$ has length $n$. Python raises RecursionError at $n=1500$, and Java and Node overflow at $n=8000$.
+>
+> A segment is cut when it would contain more than $k$ distinct letters, and only one change is available, so few masks are actually reached at one index. Each state also depends only on the next index.
+>
+> Record the reachable pairs $(\textit{cur}, t)$ from the left, then fill their maximum partition counts from the right. A finished string is worth $1$. If adding the current letter exceeds $k$, open a new segment and add $1$; while a change remains, also try every replacement letter.
+
+<!-- thinking:end -->
+
+State $(\textit{cur}, t)$ means the open segment already contains the letter mask $\textit{cur}$, and $t$ changes remain. The answer is the value of $(0, 1)$ at index $0$.
+
+First mark the states reachable at every index, starting from $(0, 1)$. Let $v = 1 \ll (s[i] - 'a')$ be the bit of the current letter.
+
+- Let $\textit{nxt} = \textit{cur} \mid v$. If $\textit{nxt}$ has more than $k$ bits, the open segment ends here: the next mask is $v$ and $t$ is unchanged. Otherwise the next mask is $\textit{nxt}$.
+- If $t = 1$, also replace $s[i]$ by every lowercase letter. For letter $j$, let $\textit{nxt} = \textit{cur} \mid (1 \ll j)$. When that mask has more than $k$ bits, the next state is mask $1 \ll j$ with no change left. Otherwise the next state is mask $\textit{nxt}$ with no change left.
+
+Then let $i$ run from $n - 1$ down to $0$ and evaluate the same transitions. At $i = n$ the string is finished and the value is $1$. A transition that cuts the open segment adds $1$ to the successor's value.
+
+The time complexity is $O(n \times |\Sigma| \times k)$, and the space complexity is $O(n \times |\Sigma| \times k)$, where $n$ is the length of $s$ and $|\Sigma|$ is the alphabet size.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxPartitionsAfterOperations(self, s: str, k: int) -> int:
+        n = len(s)
+        masks = [1 << (ord(c) - ord("a")) for c in s]
+        reach = [set() for _ in range(n + 1)]
+        reach[0].add((0, 1))
+        for i, v in enumerate(masks):
+            for cur, t in reach[i]:
+                nxt = cur | v
+                if nxt.bit_count() > k:
+                    reach[i + 1].add((v, t))
+                else:
+                    reach[i + 1].add((nxt, t))
+                if t:
+                    for j in range(26):
+                        bit = 1 << j
+                        nxt = cur | bit
+                        if nxt.bit_count() > k:
+                            reach[i + 1].add((bit, 0))
+                        else:
+                            reach[i + 1].add((nxt, 0))
+
+        def get(i: int, cur: int, t: int) -> int:
+            if i == n:
+                return 1
+            return f[i][(cur, t)]
+
+        f = [dict() for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            v = masks[i]
+            for cur, t in reach[i]:
+                nxt = cur | v
+                if nxt.bit_count() > k:
+                    ans = get(i + 1, v, t) + 1
+                else:
+                    ans = get(i + 1, nxt, t)
+                if t:
+                    for j in range(26):
+                        bit = 1 << j
+                        nxt = cur | bit
+                        if nxt.bit_count() > k:
+                            ans = max(ans, get(i + 1, bit, 0) + 1)
+                        else:
+                            ans = max(ans, get(i + 1, nxt, 0))
+                f[i][(cur, t)] = ans
+        return f[0][(0, 1)]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxPartitionsAfterOperations(String s, int k) {
+        int n = s.length();
+        int[] masks = new int[n];
+        for (int i = 0; i < n; ++i) {
+            masks[i] = 1 << (s.charAt(i) - 'a');
+        }
+        List<Set<Integer>> reach = new ArrayList<>();
+        List<Map<Integer, Integer>> f = new ArrayList<>();
+        for (int i = 0; i <= n; ++i) {
+            reach.add(new HashSet<>());
+            f.add(new HashMap<>());
+        }
+        reach.get(0).add(1);
+        for (int i = 0; i < n; ++i) {
+            int v = masks[i];
+            for (int key : reach.get(i)) {
+                int cur = key >> 1, t = key & 1;
+                add(reach.get(i + 1), cur, t, v, k);
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            int v = masks[i];
+            for (int key : reach.get(i)) {
+                int cur = key >> 1, t = key & 1;
+                int nxt = cur | v;
+                int ans = Integer.bitCount(nxt) > k ? value(f, n, i + 1, (v << 1) | t) + 1
+                                                    : value(f, n, i + 1, (nxt << 1) | t);
+                if (t == 1) {
+                    for (int j = 0; j < 26; ++j) {
+                        int bit = 1 << j;
+                        nxt = cur | bit;
+                        if (Integer.bitCount(nxt) > k) {
+                            ans = Math.max(ans, value(f, n, i + 1, bit << 1) + 1);
+                        } else {
+                            ans = Math.max(ans, value(f, n, i + 1, nxt << 1));
+                        }
+                    }
+                }
+                f.get(i).put(key, ans);
+            }
+        }
+        return f.get(0).get(1);
+    }
+
+    private void add(Set<Integer> reach, int cur, int t, int v, int k) {
+        int nxt = cur | v;
+        if (Integer.bitCount(nxt) > k) {
+            reach.add((v << 1) | t);
+        } else {
+            reach.add((nxt << 1) | t);
+        }
+        if (t == 1) {
+            for (int j = 0; j < 26; ++j) {
+                int bit = 1 << j;
+                nxt = cur | bit;
+                if (Integer.bitCount(nxt) > k) {
+                    reach.add(bit << 1);
+                } else {
+                    reach.add(nxt << 1);
+                }
+            }
+        }
+    }
+
+    private int value(List<Map<Integer, Integer>> f, int n, int i, int key) {
+        if (i == n) {
+            return 1;
+        }
+        return f.get(i).get(key);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxPartitionsAfterOperations(string s, int k) {
+        int n = s.size();
+        vector<int> masks(n);
+        for (int i = 0; i < n; ++i) {
+            masks[i] = 1 << (s[i] - 'a');
+        }
+        vector<unordered_set<int>> reach(n + 1);
+        vector<unordered_map<int, int>> f(n + 1);
+        reach[0].insert(1);
+        for (int i = 0; i < n; ++i) {
+            int v = masks[i];
+            for (int key : reach[i]) {
+                int cur = key >> 1, t = key & 1;
+                int nxt = cur | v;
+                if (__builtin_popcount(nxt) > k) {
+                    reach[i + 1].insert((v << 1) | t);
+                } else {
+                    reach[i + 1].insert((nxt << 1) | t);
+                }
+                if (t) {
+                    for (int j = 0; j < 26; ++j) {
+                        int bit = 1 << j;
+                        nxt = cur | bit;
+                        if (__builtin_popcount(nxt) > k) {
+                            reach[i + 1].insert(bit << 1);
+                        } else {
+                            reach[i + 1].insert(nxt << 1);
+                        }
+                    }
+                }
+            }
+        }
+        auto get = [&](int i, int key) -> int {
+            if (i == n) {
+                return 1;
+            }
+            return f[i].at(key);
+        };
+        for (int i = n - 1; i >= 0; --i) {
+            int v = masks[i];
+            for (int key : reach[i]) {
+                int cur = key >> 1, t = key & 1;
+                int nxt = cur | v;
+                int ans = __builtin_popcount(nxt) > k ? get(i + 1, (v << 1) | t) + 1
+                                                      : get(i + 1, (nxt << 1) | t);
+                if (t) {
+                    for (int j = 0; j < 26; ++j) {
+                        int bit = 1 << j;
+                        nxt = cur | bit;
+                        if (__builtin_popcount(nxt) > k) {
+                            ans = max(ans, get(i + 1, bit << 1) + 1);
+                        } else {
+                            ans = max(ans, get(i + 1, nxt << 1));
+                        }
+                    }
+                }
+                f[i][key] = ans;
+            }
+        }
+        return f[0].at(1);
+    }
+};
+```
+
+#### Go
+
+```go
+func maxPartitionsAfterOperations(s string, k int) int {
+	n := len(s)
+	masks := make([]int, n)
+	for i := 0; i < n; i++ {
+		masks[i] = 1 << (s[i] - 'a')
+	}
+	reach := make([]map[int]struct{}, n+1)
+	f := make([]map[int]int, n+1)
+	for i := 0; i <= n; i++ {
+		reach[i] = map[int]struct{}{}
+		f[i] = map[int]int{}
+	}
+	reach[0][1] = struct{}{}
+	for i, v := range masks {
+		for key := range reach[i] {
+			cur, t := key>>1, key&1
+			nxt := cur | v
+			if bits.OnesCount(uint(nxt)) > k {
+				reach[i+1][(v<<1)|t] = struct{}{}
+			} else {
+				reach[i+1][(nxt<<1)|t] = struct{}{}
+			}
+			if t == 1 {
+				for j := 0; j < 26; j++ {
+					bit := 1 << j
+					nxt = cur | bit
+					if bits.OnesCount(uint(nxt)) > k {
+						reach[i+1][bit<<1] = struct{}{}
+					} else {
+						reach[i+1][nxt<<1] = struct{}{}
+					}
+				}
+			}
+		}
+	}
+	get := func(i, key int) int {
+		if i == n {
+			return 1
+		}
+		return f[i][key]
+	}
+	for i := n - 1; i >= 0; i-- {
+		v := masks[i]
+		for key := range reach[i] {
+			cur, t := key>>1, key&1
+			nxt := cur | v
+			var ans int
+			if bits.OnesCount(uint(nxt)) > k {
+				ans = get(i+1, (v<<1)|t) + 1
+			} else {
+				ans = get(i+1, (nxt<<1)|t)
+			}
+			if t == 1 {
+				for j := 0; j < 26; j++ {
+					bit := 1 << j
+					nxt = cur | bit
+					if bits.OnesCount(uint(nxt)) > k {
+						ans = max(ans, get(i+1, bit<<1)+1)
+					} else {
+						ans = max(ans, get(i+1, nxt<<1))
+					}
+				}
+			}
+			f[i][key] = ans
+		}
+	}
+	return f[0][1]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxPartitionsAfterOperations(s: string, k: number): number {
+    const n = s.length;
+    const masks = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        masks[i] = 1 << (s.charCodeAt(i) - 97);
+    }
+    const reach: Set<number>[] = Array.from({ length: n + 1 }, () => new Set());
+    const f: Map<number, number>[] = Array.from({ length: n + 1 }, () => new Map());
+    reach[0].add(1);
+    for (let i = 0; i < n; ++i) {
+        const v = masks[i];
+        for (const key of reach[i]) {
+            const cur = key >> 1;
+            const t = key & 1;
+            let nxt = cur | v;
+            if (bitCount(nxt) > k) {
+                reach[i + 1].add((v << 1) | t);
+            } else {
+                reach[i + 1].add((nxt << 1) | t);
+            }
+            if (t) {
+                for (let j = 0; j < 26; ++j) {
+                    const bit = 1 << j;
+                    nxt = cur | bit;
+                    if (bitCount(nxt) > k) {
+                        reach[i + 1].add(bit << 1);
+                    } else {
+                        reach[i + 1].add(nxt << 1);
+                    }
+                }
+            }
+        }
+    }
+    const get = (i: number, key: number): number => {
+        if (i === n) {
+            return 1;
+        }
+        return f[i].get(key)!;
+    };
+    for (let i = n - 1; i >= 0; --i) {
+        const v = masks[i];
+        for (const key of reach[i]) {
+            const cur = key >> 1;
+            const t = key & 1;
+            let nxt = cur | v;
+            let ans = 0;
+            if (bitCount(nxt) > k) {
+                ans = get(i + 1, (v << 1) | t) + 1;
+            } else {
+                ans = get(i + 1, (nxt << 1) | t);
+            }
+            if (t) {
+                for (let j = 0; j < 26; ++j) {
+                    const bit = 1 << j;
+                    nxt = cur | bit;
+                    if (bitCount(nxt) > k) {
+                        ans = Math.max(ans, get(i + 1, bit << 1) + 1);
+                    } else {
+                        ans = Math.max(ans, get(i + 1, nxt << 1));
+                    }
+                }
+            }
+            f[i].set(key, ans);
+        }
+    }
+    return f[0].get(1)!;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
