@@ -38,22 +38,22 @@ DataFrame <code>products</code>
 </strong>+-----------------+----------+-------+
 | name            | quantity | price |
 +-----------------+----------+-------+
-| Wristwatch      | 32       | 135   |
+| Wristwatch      | None     | 135   |
 | WirelessEarbuds | None     | 821   |
-| GolfClubs       | None     | 9319  |
+| GolfClubs       | 779      | 9319  |
 | Printer         | 849      | 3051  |
 +-----------------+----------+-------+
 <strong>输出：
 </strong>+-----------------+----------+-------+
 | name            | quantity | price |
 +-----------------+----------+-------+
-| Wristwatch      | 32       | 135   |
+| Wristwatch      | 0        | 135   |
 | WirelessEarbuds | 0        | 821   |
-| GolfClubs       | 0        | 9319  |
+| GolfClubs       | 779      | 9319  |
 | Printer         | 849      | 3051  |
 +-----------------+----------+-------+
 <b>解释：</b>
-Toaster 和 Headphones 的数量被填充为 0。</pre>
+Wristwatch 和 WirelessEarbuds 的数量被填充为 0。</pre>
 
 <!-- description:end -->
 
