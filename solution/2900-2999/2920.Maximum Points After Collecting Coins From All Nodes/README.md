@@ -288,4 +288,248 @@ function maximumPoints(edges: number[][], coins: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：树形 DP + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 树上每个点可选「减 $k$」或「再右移一位」。后一种操作对尚未处理的子树生效，金币不超过 $10^4$，大约右移 $14$ 次后归零。$n \le 10^5$，从根按同一位移递归下去，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 节点 $i$ 在位移 $j$ 下的最优得分只依赖子节点在位移 $j$ 和 $j + 1$ 下的得分。方案甲取 $(coins[i] \gg j) - k$，子节点仍用 $j$；方案乙取 $coins[i] \gg (j + 1)$，子节点用 $j + 1$，并且 $j$ 不超过 $14$。
+>
+> 显式栈按 $(节点, 父节点, 状态)$ 做后序。孩子离开之后，再为当前点填上 $0$ 到 $14$ 的整张表。根在位移 $0$ 下的值就是答案。
+
+<!-- thinking:end -->
+
+我们先根据题目给定的边构建图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻接节点。
+
+$f[i][j]$ 表示节点 $i$ 的金币已经右移 $j$ 位时，子树能获得的最大积分。用显式栈从根做后序，孩子的表填完以后再填当前点。对每个位移 $j$（$0 \le j \le 14$）：
+
+如果我们使用第一种方法收集当前节点的金币，那么当前节点的积分为 $(coins[i] >> j) - k$，再累加每个子节点 $c$ 的 $f[c][j]$。
+
+如果我们使用第二种方法收集当前节点的金币，那么当前节点的积分为 $coins[i] >> (j + 1)$。当 $j < 14$ 时，再累加每个子节点的 $f[c][j + 1]$。金币不超过 $10^4$，右移 $14$ 位后剩余值已经是 $0$。
+
+$f[i][j]$ 取这两种方法的较大值。答案是 $f[0][0]$。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $M$ 表示 $coins[i]$ 的最大值。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+        n = len(coins)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        f = [[0] * 15 for _ in range(n)]
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for c in g[i]:
+                    if c != fa:
+                        stk.append((c, i, 0))
+            else:
+                for j in range(15):
+                    a = (coins[i] >> j) - k
+                    b = coins[i] >> (j + 1)
+                    for c in g[i]:
+                        if c != fa:
+                            a += f[c][j]
+                            if j < 14:
+                                b += f[c][j + 1]
+                    f[i][j] = max(a, b)
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumPoints(int[][] edges, int[] coins, int k) {
+        int n = coins.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[][] f = new int[n][15];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int c : g[i]) {
+                    if (c != fa) {
+                        stk.push(new int[] {c, i, 0});
+                    }
+                }
+            } else {
+                for (int j = 0; j < 15; ++j) {
+                    int a = (coins[i] >> j) - k;
+                    int b = coins[i] >> (j + 1);
+                    for (int c : g[i]) {
+                        if (c != fa) {
+                            a += f[c][j];
+                            if (j < 14) {
+                                b += f[c][j + 1];
+                            }
+                        }
+                    }
+                    f[i][j] = Math.max(a, b);
+                }
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumPoints(vector<vector<int>>& edges, vector<int>& coins, int k) {
+        int n = coins.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<array<int, 15>> f(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int c : g[i]) {
+                    if (c != fa) {
+                        stk.push_back({c, i, 0});
+                    }
+                }
+            } else {
+                for (int j = 0; j < 15; ++j) {
+                    int a = (coins[i] >> j) - k;
+                    int b = coins[i] >> (j + 1);
+                    for (int c : g[i]) {
+                        if (c != fa) {
+                            a += f[c][j];
+                            if (j < 14) {
+                                b += f[c][j + 1];
+                            }
+                        }
+                    }
+                    f[i][j] = max(a, b);
+                }
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumPoints(edges [][]int, coins []int, k int) int {
+	n := len(coins)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	f := make([][15]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, c := range g[i] {
+				if c != fa {
+					stk = append(stk, [3]int{c, i, 0})
+				}
+			}
+		} else {
+			for j := 0; j < 15; j++ {
+				a := (coins[i] >> j) - k
+				b := coins[i] >> (j + 1)
+				for _, c := range g[i] {
+					if c != fa {
+						a += f[c][j]
+						if j < 14 {
+							b += f[c][j+1]
+						}
+					}
+				}
+				f[i][j] = max(a, b)
+			}
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumPoints(edges: number[][], coins: number[], k: number): number {
+    const n = coins.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(15).fill(0));
+    const stk: [number, number, number][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, fa, 1]);
+            for (const c of g[i]) {
+                if (c !== fa) {
+                    stk.push([c, i, 0]);
+                }
+            }
+        } else {
+            for (let j = 0; j < 15; ++j) {
+                let a = (coins[i] >> j) - k;
+                let b = coins[i] >> (j + 1);
+                for (const c of g[i]) {
+                    if (c !== fa) {
+                        a += f[c][j];
+                        if (j < 14) {
+                            b += f[c][j + 1];
+                        }
+                    }
+                }
+                f[i][j] = Math.max(a, b);
+            }
+        }
+    }
+    return f[0][0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -288,4 +288,248 @@ function maximumPoints(edges: number[][], coins: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At each node we may subtract $k$ or right-shift the coins once more. The shift applies to the unprocessed subtree, and coins are at most $10^4$, so about $14$ shifts wipe them out. With $n \le 10^5$, recursing from the root at the same shift is too deep: a chain makes the call depth $n$.
+>
+> The best score of node $i$ after $j$ shifts depends only on the children's scores after $j$ shifts and after $j + 1$ shifts. One choice takes $(coins[i] \gg j) - k$ and keeps shift $j$ below; the other takes $coins[i] \gg (j + 1)$ and uses shift $j + 1$, stopping once $j$ reaches $14$.
+>
+> An explicit stack of $(node, parent, state)$ runs the postorder. After the children are left, we fill this node's table for shifts $0$ through $14$. The answer is the root's score at shift $0$.
+
+<!-- thinking:end -->
+
+First, we construct a graph $g$ based on the edges given in the problem, where $g[i]$ represents all adjacent nodes of node $i$.
+
+$f[i][j]$ is the maximum score of the subtree at node $i$ after the coins have been shifted right by $j$ bits. An explicit stack walks from the root in postorder and fills a node only after its children are filled. For each shift $j$ with $0 \le j \le 14$:
+
+If we collect the current node's coins by the first method, its score is $(coins[i] >> j) - k$, plus $f[c][j]$ for every child $c$.
+
+If we collect them by the second method, its score is $coins[i] >> (j + 1)$. When $j < 14$, we also add $f[c][j + 1]$ for every child. Coins are at most $10^4$, so after $14$ shifts the remainder is $0$.
+
+$f[i][j]$ is the larger of the two methods. The answer is $f[0][0]$.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+        n = len(coins)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        f = [[0] * 15 for _ in range(n)]
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for c in g[i]:
+                    if c != fa:
+                        stk.append((c, i, 0))
+            else:
+                for j in range(15):
+                    a = (coins[i] >> j) - k
+                    b = coins[i] >> (j + 1)
+                    for c in g[i]:
+                        if c != fa:
+                            a += f[c][j]
+                            if j < 14:
+                                b += f[c][j + 1]
+                    f[i][j] = max(a, b)
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumPoints(int[][] edges, int[] coins, int k) {
+        int n = coins.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[][] f = new int[n][15];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int c : g[i]) {
+                    if (c != fa) {
+                        stk.push(new int[] {c, i, 0});
+                    }
+                }
+            } else {
+                for (int j = 0; j < 15; ++j) {
+                    int a = (coins[i] >> j) - k;
+                    int b = coins[i] >> (j + 1);
+                    for (int c : g[i]) {
+                        if (c != fa) {
+                            a += f[c][j];
+                            if (j < 14) {
+                                b += f[c][j + 1];
+                            }
+                        }
+                    }
+                    f[i][j] = Math.max(a, b);
+                }
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumPoints(vector<vector<int>>& edges, vector<int>& coins, int k) {
+        int n = coins.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<array<int, 15>> f(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int c : g[i]) {
+                    if (c != fa) {
+                        stk.push_back({c, i, 0});
+                    }
+                }
+            } else {
+                for (int j = 0; j < 15; ++j) {
+                    int a = (coins[i] >> j) - k;
+                    int b = coins[i] >> (j + 1);
+                    for (int c : g[i]) {
+                        if (c != fa) {
+                            a += f[c][j];
+                            if (j < 14) {
+                                b += f[c][j + 1];
+                            }
+                        }
+                    }
+                    f[i][j] = max(a, b);
+                }
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumPoints(edges [][]int, coins []int, k int) int {
+	n := len(coins)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	f := make([][15]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, c := range g[i] {
+				if c != fa {
+					stk = append(stk, [3]int{c, i, 0})
+				}
+			}
+		} else {
+			for j := 0; j < 15; j++ {
+				a := (coins[i] >> j) - k
+				b := coins[i] >> (j + 1)
+				for _, c := range g[i] {
+					if c != fa {
+						a += f[c][j]
+						if j < 14 {
+							b += f[c][j+1]
+						}
+					}
+				}
+				f[i][j] = max(a, b)
+			}
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumPoints(edges: number[][], coins: number[], k: number): number {
+    const n = coins.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(15).fill(0));
+    const stk: [number, number, number][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, fa, 1]);
+            for (const c of g[i]) {
+                if (c !== fa) {
+                    stk.push([c, i, 0]);
+                }
+            }
+        } else {
+            for (let j = 0; j < 15; ++j) {
+                let a = (coins[i] >> j) - k;
+                let b = coins[i] >> (j + 1);
+                for (const c of g[i]) {
+                    if (c !== fa) {
+                        a += f[c][j];
+                        if (j < 14) {
+                            b += f[c][j + 1];
+                        }
+                    }
+                }
+                f[i][j] = Math.max(a, b);
+            }
+        }
+    }
+    return f[0][0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
