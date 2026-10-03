@@ -10,13 +10,13 @@ def find_longest_calls(contacts: pd.DataFrame, calls: pd.DataFrame) -> pd.DataFr
     ).apply(lambda x: "{:02}:{:02}:{:02}".format(x // 10000, x // 100 % 100, x % 100))
 
     merged_data["rk"] = merged_data.groupby("type")["duration"].rank(
-        method="dense", ascending=False
+        method="min", ascending=False
     )
 
     result = merged_data[merged_data["rk"] <= 3][
         ["first_name", "type", "duration_formatted"]
     ]
     result = result.sort_values(
-        by=["type", "duration_formatted", "first_name"], ascending=[True, False, False]
+        by=["type", "duration_formatted", "first_name"], ascending=[False, False, False]
     )
     return result
