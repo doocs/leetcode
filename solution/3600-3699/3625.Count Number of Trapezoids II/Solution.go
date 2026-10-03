@@ -23,7 +23,7 @@ func countTrapezoids(points [][]int) int {
 			}
 			cnt1[k][b]++
 
-			p := (x1+x2+2000)*4000 + (y1 + y2 + 2000)
+			p := (x1+x2+2000)*4001 + (y1 + y2 + 2000)
 			if cnt2[p] == nil {
 				cnt2[p] = make(map[float64]int)
 			}
