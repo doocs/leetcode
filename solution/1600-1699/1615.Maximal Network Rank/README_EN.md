@@ -80,9 +80,9 @@ tags:
 >
 > Network rank is the sum of two cities' degrees, minus one if they share a road. The number of cities is small enough to try every unordered pair.
 >
-> We need $O(1)$ adjacency tests and ready-made degrees.
+> Scanning the road list for every pair multiplies the adjacency test by the number of roads.
 >
-> An adjacency set $g$ gives both $\lvert g[a] \rvert$ and the test $a \in g[b]$. A double loop records the maximum.
+> While the edges are inserted, a degree array $\textit{cnt}$ and a $0/1$ matrix $\textit{g}$ record both quantities. For each $a \lt b$ the rank is $\textit{cnt}[a] + \textit{cnt}[b] - \textit{g}[a][b]$, and the double loop keeps the maximum.
 
 <!-- thinking:end -->
 
