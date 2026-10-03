@@ -19,7 +19,7 @@ difficulty: Easy
 
 <pre>
 
-<strong>Input: </strong> = &quot;leetcode&quot;
+<strong>Input: </strong>s = &quot;leetcode&quot;
 
 <strong>Output: </strong>false
 
