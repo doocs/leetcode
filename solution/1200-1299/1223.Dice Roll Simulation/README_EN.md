@@ -216,11 +216,11 @@ func dieSimulator(n int, rollMax []int) int {
 
 > **Thinking**
 >
-> Memoization follows the same transition in recursive order. Bottom-up, $f[i][j][x]$ is the count after $i$ rolls ending with face $j$ and streak $x$, accumulated from layer $i-1$ by the same rules. This removes the call stack and invites a rolling array.
+> Solution 1 already fills the suffix counts from the last roll. The same choices can be stored as a prefix: $f[i][j][x]$ is the number of sequences of $i$ rolls ending with face $j$ and streak $x$, accumulated from layer $i-1$.
 
 <!-- thinking:end -->
 
-We can change the memoization search in Solution 1 to dynamic programming.
+Solution 1 already fills this recurrence from the last roll. The counts below are the same choices written for the first $i$ rolls.
 
 Define $f[i][j][x]$ as the number of schemes for the first $i$ dice rolls, with the $i$-th dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. Initially, $f[1][j][1] = 1$, where $1 \leq j \leq 6$. The answer is:
 
@@ -361,6 +361,157 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A face may repeat only $rollMax$ times in a row. $n$ reaches $5000$, so listing sequences is impossible. The count depends only on the rolls still left, the previous face, and its current streak.
+>
+> Whether the next face changes or continues, it reads the next roll. The chain from roll $0$ to roll $n$ has length $n$. Python raises RecursionError at $n=2000$, and Java overflows at $n=5000$.
+>
+> Fill from the last roll. $f[i][j][x]$ is the number of ways to finish from roll $i$ when the previous face is $j$ with streak $x$, and $f[n][\cdot][\cdot]=1$. A different face moves to $(k,1)$. The same face is allowed only while $x$ is below its limit, and then moves to $(j,x+1)$.
+
+<!-- thinking:end -->
+
+Let $f[i][j][x]$ be the number of ways to finish the remaining rolls starting at roll $i$, when the previous face is $j$ and that face has already appeared $x$ times in a row. $j = 0$ means no roll has been made yet. The answer is $f[0][0][0]$.
+
+Set $f[n][j][x] = 1$, which means all $n$ rolls are done. Fill $i$ from $n - 1$ down to $0$. Enumerate the next face $k$:
+
+- If $k \ne j$, face $k$ may be rolled and the streak resets to $1$, contributing $f[i + 1][k][1]$.
+- If $k = j$ and $x < rollMax[j - 1]$, face $j$ may continue and the streak becomes $x + 1$, contributing $f[i + 1][j][x + 1]$.
+
+Add these contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j][x]$.
+
+The time complexity is $O(n \times k^2 \times M)$, and the space complexity is $O(n \times k \times M)$. Here $k$ is the number of faces, and $M$ is the maximum allowed streak.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+        mod = 10**9 + 7
+        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
+        for j in range(7):
+            for x in range(16):
+                f[n][j][x] = 1
+        for i in range(n - 1, -1, -1):
+            for j in range(7):
+                for x in range(16):
+                    ans = 0
+                    for k in range(1, 7):
+                        if k != j:
+                            ans += f[i + 1][k][1]
+                        elif x < rollMax[j - 1]:
+                            ans += f[i + 1][j][x + 1]
+                    f[i][j][x] = ans % mod
+        return f[0][0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int dieSimulator(int n, int[] rollMax) {
+        final int mod = 1000000007;
+        int[][][] f = new int[n + 1][7][16];
+        for (int j = 0; j < 7; ++j) {
+            for (int x = 0; x < 16; ++x) {
+                f[n][j][x] = 1;
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 7; ++j) {
+                for (int x = 0; x < 16; ++x) {
+                    long ans = 0;
+                    for (int k = 1; k <= 6; ++k) {
+                        if (k != j) {
+                            ans += f[i + 1][k][1];
+                        } else if (x < rollMax[j - 1]) {
+                            ans += f[i + 1][j][x + 1];
+                        }
+                    }
+                    f[i][j][x] = (int) (ans % mod);
+                }
+            }
+        }
+        return f[0][0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int dieSimulator(int n, vector<int>& rollMax) {
+        const int mod = 1e9 + 7;
+        vector<vector<vector<int>>> f(n + 1, vector<vector<int>>(7, vector<int>(16)));
+        for (int j = 0; j < 7; ++j) {
+            for (int x = 0; x < 16; ++x) {
+                f[n][j][x] = 1;
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 7; ++j) {
+                for (int x = 0; x < 16; ++x) {
+                    long ans = 0;
+                    for (int k = 1; k <= 6; ++k) {
+                        if (k != j) {
+                            ans += f[i + 1][k][1];
+                        } else if (x < rollMax[j - 1]) {
+                            ans += f[i + 1][j][x + 1];
+                        }
+                    }
+                    f[i][j][x] = ans % mod;
+                }
+            }
+        }
+        return f[0][0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func dieSimulator(n int, rollMax []int) int {
+	const mod = 1e9 + 7
+	f := make([][7][16]int, n+1)
+	for j := 0; j < 7; j++ {
+		for x := 0; x < 16; x++ {
+			f[n][j][x] = 1
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j < 7; j++ {
+			for x := 0; x < 16; x++ {
+				ans := 0
+				for k := 1; k <= 6; k++ {
+					if k != j {
+						ans += f[i+1][k][1]
+					} else if x < rollMax[j-1] {
+						ans += f[i+1][j][x+1]
+					}
+				}
+				f[i][j][x] = ans % mod
+			}
+		}
+	}
+	return f[0][0][0]
 }
 ```
 
