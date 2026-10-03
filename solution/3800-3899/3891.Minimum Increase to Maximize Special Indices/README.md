@@ -291,4 +291,125 @@ function minIncrease(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 特殊下标是严格的峰，只能把元素加 $1$，先尽量多造峰，再让总增量最小。$n$ 可以到 $10^5$，而每次抬高都先进入 $\mathrm{dfs}(i+2, j)$，这条链的长度约为 $n/2$，会超出默认递归上限。
+>
+> 峰不能相邻。奇数长度可以占满所有奇数下标；偶数长度必须在 $[1, n-2]$ 里跳过恰好一处。每个位置的代价只取决于左右邻居，后面的选择不再改变它。
+>
+> 因此令 $f[i][j]$ 表示从下标 $i$ 出发、还剩 $j$ 次跳过时的最小代价。$i \ge n-1$ 为 $0$。抬高当前下标要加上代价并转到 $i+2$；若 $j>0$，还可以改走 $i+1$ 并把额度用完。依赖的都是更大的下标，所以 $i$ 从 $n-2$ 递减到 $1$，答案是 $f[1][(n \bmod 2) \oplus 1]$。
+
+<!-- thinking:end -->
+
+我们注意到，如果数组长度为奇数，那么将所有奇数下标的元素增加到比相邻元素都大 1 就可以得到最大数量的特殊下标；如果数组长度为偶数，那么将下标范围为 $[1, n - 2]$ 中的下标，跳过其中一个，剩余的元素，按隔一个元素选择一个的方式增加到比相邻元素都大 1 就可以得到最大数量的特殊下标。
+
+令 $f[i][j]$ 表示从下标 $i$ 开始、还可以跳过 $j$ 个位置时，得到最多特殊下标所需的最少操作数。$i \ge n - 1$ 时 $f[i][j] = 0$。
+
+对 $i$ 从 $n - 2$ 递减到 $1$，先算出把 $nums[i]$ 抬到比左右邻居都大 $1$ 的代价
+
+$$
+cost = \max(0, \max(nums[i - 1], nums[i + 1]) + 1 - nums[i]).
+$$
+
+抬高这一格的代价是 $cost + f[i + 2][j]$；若 $j > 0$，还可以改成 $f[i + 1][0]$，取二者较小值。
+
+答案为 $f[1][(n \bmod 2) \oplus 1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minIncrease(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [[0, 0] for _ in range(n + 1)]
+        for i in range(n - 2, 0, -1):
+            cost = max(0, max(nums[i - 1], nums[i + 1]) + 1 - nums[i])
+            f[i][0] = cost + f[i + 2][0]
+            f[i][1] = min(cost + f[i + 2][1], f[i + 1][0])
+        return f[1][n & 1 ^ 1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long minIncrease(int[] nums) {
+        int n = nums.length;
+        long[][] f = new long[n + 1][2];
+        for (int i = n - 2; i >= 1; --i) {
+            int cost = Math.max(0, Math.max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+            f[i][0] = cost + f[i + 2][0];
+            f[i][1] = Math.min(cost + f[i + 2][1], f[i + 1][0]);
+        }
+        return f[1][(n & 1) ^ 1];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long minIncrease(vector<int>& nums) {
+        int n = nums.size();
+        vector<array<long long, 2>> f(n + 1);
+        for (int i = n - 2; i >= 1; --i) {
+            long long cost = max(0, max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+            f[i][0] = cost + f[i + 2][0];
+            f[i][1] = min(cost + f[i + 2][1], f[i + 1][0]);
+        }
+        return f[1][(n & 1) ^ 1];
+    }
+};
+```
+
+#### Go
+
+```go
+func minIncrease(nums []int) int64 {
+	n := len(nums)
+	f := make([][2]int64, n+1)
+	for i := n - 2; i >= 1; i-- {
+		cost := int64(max(0, max(nums[i-1], nums[i+1])+1-nums[i]))
+		f[i][0] = cost + f[i+2][0]
+		t := cost + f[i+2][1]
+		if f[i+1][0] < t {
+			t = f[i+1][0]
+		}
+		f[i][1] = t
+	}
+	return f[1][(n&1)^1]
+}
+```
+
+#### TypeScript
+
+```ts
+function minIncrease(nums: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => [0, 0]);
+    for (let i = n - 2; i >= 1; --i) {
+        const cost = Math.max(0, Math.max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+        f[i][0] = cost + f[i + 2][0];
+        f[i][1] = Math.min(cost + f[i + 2][1], f[i + 1][0]);
+    }
+    return f[1][(n & 1) ^ 1];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
