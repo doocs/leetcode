@@ -78,6 +78,9 @@ tags:
 #### Python3
 
 ```python
+from math import gcd
+
+
 class Solution:
     def mirrorReflection(self, p: int, q: int) -> int:
         g = gcd(p, q)
