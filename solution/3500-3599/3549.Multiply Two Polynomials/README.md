@@ -121,6 +121,9 @@ tags:
 #### Python3
 
 ```python
+import math
+
+
 class Solution:
     def multiply(self, poly1: List[int], poly2: List[int]) -> List[int]:
         if not poly1 or not poly2:
