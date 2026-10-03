@@ -190,7 +190,7 @@ func smallestSubarrays(nums []int) []int {
 }
 ```
 
-#### Typescript
+#### TypeScript
 
 ```ts
 function smallestSubarrays(nums: number[]): number[] {
