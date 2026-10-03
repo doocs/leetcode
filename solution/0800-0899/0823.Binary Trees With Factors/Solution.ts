@@ -1,12 +1,12 @@
 function numFactoredBinaryTrees(arr: number[]): number {
-    const mod = 10 ** 9 + 7;
+    const mod = 1000000007n;
     arr.sort((a, b) => a - b);
     const idx: Map<number, number> = new Map();
     const n = arr.length;
     for (let i = 0; i < n; ++i) {
         idx.set(arr[i], i);
     }
-    const f: number[] = new Array(n).fill(1);
+    const f: bigint[] = new Array(n).fill(1n);
     for (let i = 0; i < n; ++i) {
         const a = arr[i];
         for (let j = 0; j < i; ++j) {
@@ -20,5 +20,5 @@ function numFactoredBinaryTrees(arr: number[]): number {
             }
         }
     }
-    return f.reduce((a, b) => a + b) % mod;
+    return Number(f.reduce((a, b) => a + b, 0n) % mod);
 }
