@@ -329,7 +329,7 @@ var minScore = function (n, roads) {
 
 > **Thinking**
 >
-> Method 1 already finds that minimum. The same visit order can be a BFS queue; only the traversal changes.
+> Method 1 already finds that minimum with an explicit stack. The same visited set also works with a queue and expands the component layer by layer.
 
 <!-- thinking:end -->
 
@@ -577,6 +577,254 @@ var minScore = function (n, roads) {
             }
         }
         q = nq;
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$–$n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$. With $n \le 10^5$, recursing through that component is too deep: a chain makes the call depth $n$.
+>
+> An explicit stack starts at $1$. When a city is popped and still unvisited, every incident edge updates the minimum and unvisited neighbors are pushed.
+
+<!-- thinking:end -->
+
+According to the problem description, each edge can be traversed multiple times, and it is guaranteed that node $1$ and node $n$ are in the same connected component. Therefore, the problem is actually asking for the minimum edge weight in the connected component containing node $1$.
+
+We first build an undirected graph $g$ from $\textit{roads}$, then walk from node $1$ with an explicit stack. When a node is popped, we update the answer with $\textit{ans} = \min(\textit{ans}, w)$ for each of its edges and push its unvisited neighbors.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minScore(self, n: int, roads: List[List[int]]) -> int:
+        g = [[] for _ in range(n + 1)]
+        for a, b, w in roads:
+            g[a].append((b, w))
+            g[b].append((a, w))
+        ans = inf
+        vis = [False] * (n + 1)
+        stk = [1]
+        while stk:
+            a = stk.pop()
+            if vis[a]:
+                continue
+            vis[a] = True
+            for b, w in g[a]:
+                ans = min(ans, w)
+                if not vis[b]:
+                    stk.append(b)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minScore(int n, int[][] roads) {
+        List<int[]>[] g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
+        }
+        int ans = Integer.MAX_VALUE;
+        boolean[] vis = new boolean[n + 1];
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(1);
+        while (!stk.isEmpty()) {
+            int a = stk.pop();
+            if (vis[a]) {
+                continue;
+            }
+            vis[a] = true;
+            for (int[] nb : g[a]) {
+                int b = nb[0], w = nb[1];
+                ans = Math.min(ans, w);
+                if (!vis[b]) {
+                    stk.push(b);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minScore(int n, vector<vector<int>>& roads) {
+        vector<vector<pair<int, int>>> g(n + 1);
+        for (auto& e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].push_back({b, w});
+            g[b].push_back({a, w});
+        }
+        vector<char> vis(n + 1);
+        int ans = INT_MAX;
+        vector<int> stk{1};
+        while (!stk.empty()) {
+            int a = stk.back();
+            stk.pop_back();
+            if (vis[a]) {
+                continue;
+            }
+            vis[a] = 1;
+            for (auto& [b, w] : g[a]) {
+                ans = min(ans, w);
+                if (!vis[b]) {
+                    stk.push_back(b);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minScore(n int, roads [][]int) int {
+	g := make([][][2]int, n+1)
+	for _, e := range roads {
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], [2]int{b, w})
+		g[b] = append(g[b], [2]int{a, w})
+	}
+	vis := make([]bool, n+1)
+	ans := int(1e9)
+	stk := []int{1}
+	for len(stk) > 0 {
+		a := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if vis[a] {
+			continue
+		}
+		vis[a] = true
+		for _, nb := range g[a] {
+			b, w := nb[0], nb[1]
+			ans = min(ans, w)
+			if !vis[b] {
+				stk = append(stk, b)
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minScore(n: number, roads: number[][]): number {
+    const g: [number, number][][] = Array.from({ length: n + 1 }, () => []);
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+    const vis = new Array(n + 1).fill(false);
+    let ans = Infinity;
+    const stk: number[] = [1];
+    while (stk.length) {
+        const a = stk.pop()!;
+        if (vis[a]) {
+            continue;
+        }
+        vis[a] = true;
+        for (const [b, w] of g[a]) {
+            ans = Math.min(ans, w);
+            if (!vis[b]) {
+                stk.push(b);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
+        let mut g: Vec<Vec<(usize, i32)>> = vec![vec![]; n + 1];
+        for e in roads {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            let w = e[2];
+            g[a].push((b, w));
+            g[b].push((a, w));
+        }
+        let mut vis = vec![false; n + 1];
+        let mut ans = i32::MAX;
+        let mut stk = vec![1usize];
+        while let Some(a) = stk.pop() {
+            if vis[a] {
+                continue;
+            }
+            vis[a] = true;
+            for &(b, w) in &g[a] {
+                ans = ans.min(w);
+                if !vis[b] {
+                    stk.push(b);
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} roads
+ * @return {number}
+ */
+var minScore = function (n, roads) {
+    const g = Array.from({ length: n + 1 }, () => []);
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+    const vis = new Array(n + 1).fill(false);
+    let ans = Infinity;
+    const stk = [1];
+    while (stk.length) {
+        const a = stk.pop();
+        if (vis[a]) {
+            continue;
+        }
+        vis[a] = true;
+        for (const [b, w] of g[a]) {
+            ans = Math.min(ans, w);
+            if (!vis[b]) {
+                stk.push(b);
+            }
+        }
     }
     return ans;
 };

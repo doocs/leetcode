@@ -7,21 +7,23 @@ public:
             g[a].push_back({b, w});
             g[b].push_back({a, w});
         }
-
-        vector<bool> vis(n + 1, false);
+        vector<char> vis(n + 1);
         int ans = INT_MAX;
-
-        auto dfs = [&](this auto&& dfs, int a) -> void {
-            vis[a] = true;
+        vector<int> stk{1};
+        while (!stk.empty()) {
+            int a = stk.back();
+            stk.pop_back();
+            if (vis[a]) {
+                continue;
+            }
+            vis[a] = 1;
             for (auto& [b, w] : g[a]) {
                 ans = min(ans, w);
                 if (!vis[b]) {
-                    dfs(b);
+                    stk.push_back(b);
                 }
             }
-        };
-
-        dfs(1);
+        }
         return ans;
     }
 };
