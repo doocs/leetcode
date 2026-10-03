@@ -712,4 +712,540 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：字典树 + Floyd 算法 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把 $source$ 整段换成 $target$ 的每一种切法是指数级的。串长可以到 $1000$，而当前字符相等时第一次递归总是落到下一位置，调用深度就是 $n$。从下标 $i$ 起的最小代价只依赖更靠后的后缀。候选串不超过 $100$，先用字典树编号，Floyd 得到任意一对的替换代价。令 $f[n]=0$，按 $i$ 从 $n-1$ 降到 $0$：字符相等则可以免费用 $f[i+1]$，同时沿字典树同步走，每对已经编号的子串再用 $f[j+1]+g[x][y]$ 更新。$f[0]$ 仍不小于哨兵时返回 $-1$。
+
+<!-- thinking:end -->
+
+我们把 `original` 和 `changed` 中的每个字符串看作一个节点，用字典树为它们编号。$g[x][y]$ 表示编号 $x$ 的字符串换成编号 $y$ 的最小代价，初值为 $\infty$，自身为 $0$。用 Floyd 算法求出任意两个编号之间的最小代价。
+
+令 $f[i]$ 表示把 $source[i..]$ 变成 $target[i..]$ 的最小代价，$f[n] = 0$。按 $i$ 从 $n - 1$ 降到 $0$。若 $source[i] = target[i]$，可以免费留下这一位，先取 $f[i + 1]$。再从 $i$ 起沿字典树同步匹配 $source$ 与 $target$，一旦前缀 $source[i..j]$ 和 $target[i..j]$ 都有编号 $x$、$y$，就用 $f[j + 1] + g[x][y]$ 更新 $f[i]$。
+
+答案为 $f[0]$。若它不小于预先设定的上界，返回 $-1$。
+
+时间复杂度 $O(m^3 + n^2 + m \times n)$，空间复杂度 $O(m^2 + m \times n + n)$。其中 $m$ 和 $n$ 分别是数组 `original` 和 $source$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Node:
+    __slots__ = ["children", "v"]
+
+    def __init__(self):
+        self.children: List[Node | None] = [None] * 26
+        self.v = -1
+
+
+class Solution:
+    def minimumCost(
+        self,
+        source: str,
+        target: str,
+        original: List[str],
+        changed: List[str],
+        cost: List[int],
+    ) -> int:
+        m = len(cost)
+        g = [[inf] * (m << 1) for _ in range(m << 1)]
+        for i in range(m << 1):
+            g[i][i] = 0
+        root = Node()
+        idx = 0
+
+        def insert(w: str) -> int:
+            node = root
+            for c in w:
+                i = ord(c) - ord("a")
+                if node.children[i] is None:
+                    node.children[i] = Node()
+                node = node.children[i]
+            if node.v < 0:
+                nonlocal idx
+                node.v = idx
+                idx += 1
+            return node.v
+
+        for x, y, z in zip(original, changed, cost):
+            x = insert(x)
+            y = insert(y)
+            g[x][y] = min(g[x][y], z)
+        for k in range(idx):
+            for i in range(idx):
+                if g[i][k] >= inf:
+                    continue
+                for j in range(idx):
+                    if g[i][k] + g[k][j] < g[i][j]:
+                        g[i][j] = g[i][k] + g[k][j]
+
+        n = len(source)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            res = f[i + 1] if source[i] == target[i] else inf
+            p = q = root
+            for j in range(i, n):
+                p = p.children[ord(source[j]) - ord("a")]
+                q = q.children[ord(target[j]) - ord("a")]
+                if p is None or q is None:
+                    break
+                if p.v < 0 or q.v < 0:
+                    continue
+                res = min(res, f[j + 1] + g[p.v][q.v])
+            f[i] = res
+        return -1 if f[0] >= inf else f[0]
+```
+
+#### Java
+
+```java
+class Node {
+    Node[] children = new Node[26];
+    int v = -1;
+}
+
+class Solution {
+    private final long inf = 1L << 60;
+    private Node root = new Node();
+    private int idx;
+
+    private long[][] g;
+
+    public long minimumCost(
+        String source, String target, String[] original, String[] changed, int[] cost) {
+        int m = cost.length;
+        g = new long[m << 1][m << 1];
+        char[] s = source.toCharArray();
+        char[] t = target.toCharArray();
+        for (int i = 0; i < g.length; ++i) {
+            Arrays.fill(g[i], inf);
+            g[i][i] = 0;
+        }
+        for (int i = 0; i < m; ++i) {
+            int x = insert(original[i]);
+            int y = insert(changed[i]);
+            g[x][y] = Math.min(g[x][y], cost[i]);
+        }
+        for (int k = 0; k < idx; ++k) {
+            for (int i = 0; i < idx; ++i) {
+                if (g[i][k] >= inf) {
+                    continue;
+                }
+                for (int j = 0; j < idx; ++j) {
+                    g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+                }
+            }
+        }
+        int n = s.length;
+        long[] f = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            f[i] = inf;
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            long res = s[i] == t[i] ? f[i + 1] : inf;
+            Node p = root, q = root;
+            for (int j = i; j < n; ++j) {
+                int a = s[j] - 'a';
+                int b = t[j] - 'a';
+                if (p.children[a] == null || q.children[b] == null) {
+                    break;
+                }
+                p = p.children[a];
+                q = q.children[b];
+                if (p.v < 0 || q.v < 0) {
+                    continue;
+                }
+                long w = g[p.v][q.v];
+                if (w < inf) {
+                    res = Math.min(res, w + f[j + 1]);
+                }
+            }
+            f[i] = res;
+        }
+        return f[0] >= inf ? -1 : f[0];
+    }
+
+    private int insert(String w) {
+        Node node = root;
+        for (char c : w.toCharArray()) {
+            int i = c - 'a';
+            if (node.children[i] == null) {
+                node.children[i] = new Node();
+            }
+            node = node.children[i];
+        }
+        if (node.v < 0) {
+            node.v = idx++;
+        }
+        return node.v;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Node {
+public:
+    Node* children[26];
+    int v = -1;
+    Node() {
+        fill(children, children + 26, nullptr);
+    }
+};
+
+class Solution {
+private:
+    const long long inf = 1LL << 60;
+    Node* root = new Node();
+    int idx = 0;
+
+    vector<vector<long long>> g;
+
+    int insert(const string& w) {
+        Node* node = root;
+        for (char c : w) {
+            int i = c - 'a';
+            if (node->children[i] == nullptr) {
+                node->children[i] = new Node();
+            }
+            node = node->children[i];
+        }
+        if (node->v < 0) {
+            node->v = idx++;
+        }
+        return node->v;
+    }
+
+public:
+    long long minimumCost(string source, string target, vector<string>& original, vector<string>& changed, vector<int>& cost) {
+        int m = cost.size();
+        g = vector<vector<long long>>(m << 1, vector<long long>(m << 1, inf));
+        for (int i = 0; i < (int) g.size(); ++i) {
+            g[i][i] = 0;
+        }
+        for (int i = 0; i < m; ++i) {
+            int x = insert(original[i]);
+            int y = insert(changed[i]);
+            g[x][y] = min(g[x][y], static_cast<long long>(cost[i]));
+        }
+        for (int k = 0; k < idx; ++k) {
+            for (int i = 0; i < idx; ++i) {
+                if (g[i][k] >= inf) {
+                    continue;
+                }
+                for (int j = 0; j < idx; ++j) {
+                    g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+                }
+            }
+        }
+        int n = source.size();
+        vector<long long> f(n + 1, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            long long res = source[i] == target[i] ? f[i + 1] : inf;
+            Node* p = root;
+            Node* q = root;
+            for (int j = i; j < n; ++j) {
+                p = p->children[source[j] - 'a'];
+                q = q->children[target[j] - 'a'];
+                if (p == nullptr || q == nullptr) {
+                    break;
+                }
+                if (p->v < 0 || q->v < 0) {
+                    continue;
+                }
+                long long w = g[p->v][q->v];
+                if (w < inf) {
+                    res = min(res, w + f[j + 1]);
+                }
+            }
+            f[i] = res;
+        }
+        return f[0] >= inf ? -1 : f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+type Node struct {
+	children [26]*Node
+	v        int
+}
+
+func newNode() *Node {
+	return &Node{v: -1}
+}
+
+func minimumCost(source string, target string, original []string, changed []string, cost []int) int64 {
+	inf := 1 << 60
+	root := newNode()
+	idx := 0
+	m := len(cost)
+	g := make([][]int, m<<1)
+	for i := range g {
+		g[i] = make([]int, m<<1)
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+		g[i][i] = 0
+	}
+	insert := func(w string) int {
+		node := root
+		for _, c := range w {
+			i := c - 'a'
+			if node.children[i] == nil {
+				node.children[i] = newNode()
+			}
+			node = node.children[i]
+		}
+		if node.v < 0 {
+			node.v = idx
+			idx++
+		}
+		return node.v
+	}
+	for i := range original {
+		x := insert(original[i])
+		y := insert(changed[i])
+		g[x][y] = min(g[x][y], cost[i])
+	}
+	for k := 0; k < idx; k++ {
+		for i := 0; i < idx; i++ {
+			if g[i][k] >= inf {
+				continue
+			}
+			for j := 0; j < idx; j++ {
+				g[i][j] = min(g[i][j], g[i][k]+g[k][j])
+			}
+		}
+	}
+	n := len(source)
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
+		if source[i] == target[i] {
+			f[i] = f[i+1]
+		}
+		p, q := root, root
+		for j := i; j < n; j++ {
+			p = p.children[source[j]-'a']
+			q = q.children[target[j]-'a']
+			if p == nil || q == nil {
+				break
+			}
+			if p.v < 0 || q.v < 0 {
+				continue
+			}
+			f[i] = min(f[i], f[j+1]+g[p.v][q.v])
+		}
+	}
+	if f[0] >= inf {
+		return -1
+	}
+	return int64(f[0])
+}
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    children: (Node | null)[] = Array(26).fill(null);
+    v: number = -1;
+}
+
+function minimumCost(
+    source: string,
+    target: string,
+    original: string[],
+    changed: string[],
+    cost: number[],
+): number {
+    const m = cost.length;
+    const n = source.length;
+    const g: number[][] = Array.from({ length: m << 1 }, () => Array(m << 1).fill(Infinity));
+    const root: Node = new Node();
+    let idx: number = 0;
+    const insert = (w: string): number => {
+        let node: Node = root;
+        for (const c of w) {
+            const i: number = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (node.children[i] === null) {
+                node.children[i] = new Node();
+            }
+            node = node.children[i] as Node;
+        }
+        if (node.v < 0) {
+            node.v = idx++;
+        }
+        return node.v;
+    };
+    for (let i = 0; i < m; ++i) {
+        const x: number = insert(original[i]);
+        const y: number = insert(changed[i]);
+        g[x][y] = Math.min(g[x][y], cost[i]);
+    }
+    for (let k = 0; k < idx; ++k) {
+        for (let i = 0; i < idx; ++i) {
+            if (g[i][k] >= Infinity) {
+                continue;
+            }
+            for (let j = 0; j < idx; ++j) {
+                g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+            }
+        }
+    }
+    const f: number[] = Array(n + 1).fill(Infinity);
+    f[n] = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        let res: number = source[i] === target[i] ? f[i + 1] : Infinity;
+        let p: Node | null = root;
+        let q: Node | null = root;
+        for (let j = i; j < n; ++j) {
+            p = p.children[source.charCodeAt(j) - 97];
+            q = q.children[target.charCodeAt(j) - 97];
+            if (p === null || q === null) {
+                break;
+            }
+            if (p.v < 0 || q.v < 0) {
+                continue;
+            }
+            res = Math.min(res, g[p.v][q.v] + f[j + 1]);
+        }
+        f[i] = res;
+    }
+    return f[0] >= Infinity ? -1 : f[0];
+}
+```
+
+#### Rust
+
+```rust
+use std::cmp::min;
+
+struct Node {
+    children: [Option<Box<Node>>; 26],
+    v: i32,
+}
+
+impl Node {
+    fn new() -> Self {
+        Self {
+            children: std::array::from_fn(|_| None),
+            v: -1,
+        }
+    }
+}
+
+impl Solution {
+    pub fn minimum_cost(
+        source: String,
+        target: String,
+        original: Vec<String>,
+        changed: Vec<String>,
+        cost: Vec<i32>,
+    ) -> i64 {
+        let inf: i64 = 1 << 60;
+        let mut root = Box::new(Node::new());
+        let mut idx: usize = 0;
+        let m = cost.len();
+        let n = m << 1;
+
+        let mut g = vec![vec![inf; n]; n];
+        for i in 0..n {
+            g[i][i] = 0;
+        }
+
+        let mut insert = |w: &str, root: &mut Box<Node>, idx: &mut usize| -> usize {
+            let mut node: &mut Box<Node> = root;
+            for c in w.bytes() {
+                let i = (c - b'a') as usize;
+                if node.children[i].is_none() {
+                    node.children[i] = Some(Box::new(Node::new()));
+                }
+                node = node.children[i].as_mut().unwrap();
+            }
+            if node.v < 0 {
+                node.v = *idx as i32;
+                *idx += 1;
+            }
+            node.v as usize
+        };
+
+        for i in 0..m {
+            let x = insert(&original[i], &mut root, &mut idx);
+            let y = insert(&changed[i], &mut root, &mut idx);
+            g[x][y] = min(g[x][y], cost[i] as i64);
+        }
+
+        for k in 0..idx {
+            for i in 0..idx {
+                if g[i][k] >= inf {
+                    continue;
+                }
+                for j in 0..idx {
+                    let v = g[i][k] + g[k][j];
+                    if v < g[i][j] {
+                        g[i][j] = v;
+                    }
+                }
+            }
+        }
+
+        let s = source.into_bytes();
+        let t = target.into_bytes();
+        let len = s.len();
+        let mut f = vec![inf; len + 1];
+        f[len] = 0;
+        for i in (0..len).rev() {
+            let mut res = if s[i] == t[i] { f[i + 1] } else { inf };
+            let mut p: Option<&Box<Node>> = Some(&root);
+            let mut q: Option<&Box<Node>> = Some(&root);
+            for j in i..len {
+                p = p.and_then(|x| x.children[(s[j] - b'a') as usize].as_ref());
+                q = q.and_then(|x| x.children[(t[j] - b'a') as usize].as_ref());
+                if p.is_none() || q.is_none() {
+                    break;
+                }
+                let pv = p.unwrap().v;
+                let qv = q.unwrap().v;
+                if pv < 0 || qv < 0 {
+                    continue;
+                }
+                let c = g[pv as usize][qv as usize];
+                if c < inf {
+                    let v = c + f[j + 1];
+                    if v < res {
+                        res = v;
+                    }
+                }
+            }
+            f[i] = res;
+        }
+        if f[0] >= inf {
+            -1
+        } else {
+            f[0]
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
