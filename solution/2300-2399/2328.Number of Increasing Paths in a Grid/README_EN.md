@@ -264,4 +264,208 @@ function countPaths(grid: number[][]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strictly increasing paths may start at any cell. The grid has up to $10^5$ cells. Memoizing a walk toward larger neighbors follows one chain on a strictly increasing row of length $1000$, and both $m$ and $n$ can be $1000$, which exhausts the call stack.
+>
+> The bottleneck is that chain: every call steps into a strictly larger neighbor that has not been finished.
+>
+> The count at a cell depends only on strictly larger neighbors, so those edges form a DAG.
+>
+> Sort cells by decreasing value. Set $f[i][j]=1$, then add the finished counts of the four larger neighbors and reduce modulo $10^9+7$. The sum of every $f[i][j]$, reduced again, is the number of paths.
+
+<!-- thinking:end -->
+
+Let $f[i][j]$ be the number of strictly increasing paths that start at row $i$ and column $j$. A cell contributes one path by itself, so the initial value is $1$. It may also step to a strictly larger neighbor, which gives
+
+$$
+f[i][j] = 1 + \sum_{\substack{(x,y)\sim(i,j)\\ grid[i][j] < grid[x][y]}} f[x][y] \pmod{10^9+7}.
+$$
+
+A larger cell does not depend on the current one. Processing cells from largest value to smallest finishes those neighbors first. The answer is $\sum f[i][j]$ modulo $10^9+7$.
+
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$. Here $m$ and $n$ are the number of rows and columns.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPaths(self, grid: List[List[int]]) -> int:
+        mod = 10**9 + 7
+        m, n = len(grid), len(grid[0])
+        f = [[1] * n for _ in range(m)]
+        cells = [(grid[i][j], i, j) for i in range(m) for j in range(n)]
+        cells.sort(reverse=True)
+        dirs = (-1, 0, 1, 0, -1)
+        for _, i, j in cells:
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid[i][j] < grid[x][y]:
+                    f[i][j] = (f[i][j] + f[x][y]) % mod
+        return sum(sum(row) for row in f) % mod
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countPaths(int[][] grid) {
+        final int mod = (int) 1e9 + 7;
+        int m = grid.length, n = grid[0].length;
+        int[][] f = new int[m][n];
+        int[][] cells = new int[m * n][3];
+        for (int i = 0, k = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[i][j] = 1;
+                cells[k][0] = grid[i][j];
+                cells[k][1] = i;
+                cells[k][2] = j;
+                ++k;
+            }
+        }
+        Arrays.sort(cells, (a, b) -> Integer.compare(b[0], a[0]));
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int[] cell : cells) {
+            int i = cell[1], j = cell[2];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                    f[i][j] = (f[i][j] + f[x][y]) % mod;
+                }
+            }
+        }
+        long ans = 0;
+        for (int[] row : f) {
+            for (int v : row) {
+                ans += v;
+            }
+        }
+        return (int) (ans % mod);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countPaths(vector<vector<int>>& grid) {
+        const int mod = 1e9 + 7;
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int>> f(m, vector<int>(n, 1));
+        vector<array<int, 3>> cells;
+        cells.reserve(m * n);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cells.push_back({grid[i][j], i, j});
+            }
+        }
+        sort(cells.begin(), cells.end(), [](const array<int, 3>& a, const array<int, 3>& b) {
+            return a[0] > b[0];
+        });
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        for (auto& cell : cells) {
+            int i = cell[1], j = cell[2];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                    f[i][j] = (f[i][j] + f[x][y]) % mod;
+                }
+            }
+        }
+        long long ans = 0;
+        for (auto& row : f) {
+            for (int v : row) {
+                ans += v;
+            }
+        }
+        return ans % mod;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPaths(grid [][]int) int {
+	const mod = 1e9 + 7
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m)
+	cells := make([][3]int, 0, m*n)
+	for i := 0; i < m; i++ {
+		f[i] = make([]int, n)
+		for j := 0; j < n; j++ {
+			f[i][j] = 1
+			cells = append(cells, [3]int{grid[i][j], i, j})
+		}
+	}
+	sort.Slice(cells, func(a, b int) bool { return cells[a][0] > cells[b][0] })
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	for _, cell := range cells {
+		i, j := cell[1], cell[2]
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y] {
+				f[i][j] = (f[i][j] + f[x][y]) % mod
+			}
+		}
+	}
+	ans := 0
+	for _, row := range f {
+		for _, v := range row {
+			ans = (ans + v) % mod
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countPaths(grid: number[][]): number {
+    const mod = 1e9 + 7;
+    const m = grid.length;
+    const n = grid[0].length;
+    const f: number[][] = Array.from({ length: m }, () => Array(n).fill(1));
+    const cells: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            cells.push([grid[i][j], i, j]);
+        }
+    }
+    cells.sort((a, b) => b[0] - a[0]);
+    const dirs = [-1, 0, 1, 0, -1];
+    for (const [_, i, j] of cells) {
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                f[i][j] = (f[i][j] + f[x][y]) % mod;
+            }
+        }
+    }
+    let ans = 0;
+    for (const row of f) {
+        for (const v of row) {
+            ans = (ans + v) % mod;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
