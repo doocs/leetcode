@@ -371,4 +371,334 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit-Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must add one edge between two trees to minimize the new diameter. With $n,m\le 10^5$, trying every pair of endpoints and recomputing the diameter is $nm$ work and is not viable. Recursing from an arbitrary node to a farthest node is too deep as well: a chain makes the call depth $n$.
+>
+> The new diameter is one of two kinds: it stays inside an original tree, hence $\max(d_1,d_2)$; or it crosses the new edge, in which case the optimum joins points near the two centers and has length equal to the sum of the two radii plus one. It remains only to compute each diameter.
+>
+> An explicit stack walks from an arbitrary node to a farthest node $a$, then from $a$ to a farthest node $b$. The $a$–$b$ path is a diameter. Two passes per tree are linear.
+
+<!-- thinking:end -->
+
+We denote $d_1$ and $d_2$ as the diameters of the two trees, respectively. Then, the diameter of the merged tree can be one of the following two cases:
+
+1. The diameter of the merged tree is the diameter of one of the original trees, i.e., $\max(d_1, d_2)$;
+2. The diameter of the merged tree passes through both of the original trees. We calculate the radii of the original two trees as $r_1 = \lceil \frac{d_1}{2} \rceil$ and $r_2 = \lceil \frac{d_2}{2} \rceil$, respectively. Then, the diameter of the merged tree is $r_1 + r_2 + 1$.
+
+We take the maximum of these two cases.
+
+When calculating the diameter of a tree, we use two explicit-stack passes. First, we arbitrarily select a node and walk from this node to find the farthest node from it, denoted as node $a$. Then, we walk from node $a$ to find the farthest node from node $a$, denoted as node $b$. It can be proven that the path between node $a$ and node $b$ is the diameter of the tree.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the two trees, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumDiameterAfterMerge(
+        self, edges1: List[List[int]], edges2: List[List[int]]
+    ) -> int:
+        d1 = self.treeDiameter(edges1)
+        d2 = self.treeDiameter(edges2)
+        return max(d1, d2, (d1 + 1) // 2 + (d2 + 1) // 2 + 1)
+
+    def treeDiameter(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        def farthest(start: int) -> tuple:
+            ans, node = 0, start
+            stk = [(start, -1, 0)]
+            while stk:
+                i, fa, t = stk.pop()
+                if ans < t:
+                    ans = t
+                    node = i
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, t + 1))
+            return ans, node
+
+        _, a = farthest(0)
+        ans, _ = farthest(a)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumDiameterAfterMerge(int[][] edges1, int[][] edges2) {
+        int d1 = treeDiameter(edges1);
+        int d2 = treeDiameter(edges2);
+        return Math.max(Math.max(d1, d2), (d1 + 1) / 2 + (d2 + 1) / 2 + 1);
+    }
+
+    public int treeDiameter(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        int[] p = farthest(g, 0);
+        p = farthest(g, p[1]);
+        return p[0];
+    }
+
+    private int[] farthest(List<Integer>[] g, int start) {
+        int ans = 0, node = start;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {start, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], t = cur[2];
+            if (ans < t) {
+                ans = t;
+                node = i;
+            }
+            for (int j : g[i]) {
+                if (j != fa) {
+                    stk.push(new int[] {j, i, t + 1});
+                }
+            }
+        }
+        return new int[] {ans, node};
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumDiameterAfterMerge(vector<vector<int>>& edges1, vector<vector<int>>& edges2) {
+        int d1 = treeDiameter(edges1);
+        int d2 = treeDiameter(edges2);
+        return max({d1, d2, (d1 + 1) / 2 + (d2 + 1) / 2 + 1});
+    }
+
+    int treeDiameter(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        auto farthest = [&](int start) {
+            int ans = 0, node = start;
+            vector<array<int, 3>> stk{{start, -1, 0}};
+            while (!stk.empty()) {
+                auto [i, fa, t] = stk.back();
+                stk.pop_back();
+                if (ans < t) {
+                    ans = t;
+                    node = i;
+                }
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, t + 1});
+                    }
+                }
+            }
+            return pair<int, int>{ans, node};
+        };
+        int a = farthest(0).second;
+        return farthest(a).first;
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumDiameterAfterMerge(edges1 [][]int, edges2 [][]int) int {
+	d1 := treeDiameter(edges1)
+	d2 := treeDiameter(edges2)
+	return max(d1, d2, (d1+1)/2+(d2+1)/2+1)
+}
+
+func treeDiameter(edges [][]int) int {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	farthest := func(start int) (int, int) {
+		ans, node := 0, start
+		stk := [][3]int{{start, -1, 0}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa, t := cur[0], cur[1], cur[2]
+			if ans < t {
+				ans, node = t, i
+			}
+			for _, j := range g[i] {
+				if j != fa {
+					stk = append(stk, [3]int{j, i, t + 1})
+				}
+			}
+		}
+		return ans, node
+	}
+	_, a := farthest(0)
+	ans, _ := farthest(a)
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumDiameterAfterMerge(edges1: number[][], edges2: number[][]): number {
+    const d1 = treeDiameter(edges1);
+    const d2 = treeDiameter(edges2);
+    return Math.max(d1, d2, Math.ceil(d1 / 2) + Math.ceil(d2 / 2) + 1);
+}
+
+function treeDiameter(edges: number[][]): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const farthest = (start: number): [number, number] => {
+        let ans = 0;
+        let node = start;
+        const stk: [number, number, number][] = [[start, -1, 0]];
+        while (stk.length) {
+            const [i, fa, t] = stk.pop()!;
+            if (ans < t) {
+                ans = t;
+                node = i;
+            }
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    stk.push([j, i, t + 1]);
+                }
+            }
+        }
+        return [ans, node];
+    };
+    const [, a] = farthest(0);
+    const [ans] = farthest(a);
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_diameter_after_merge(edges1: Vec<Vec<i32>>, edges2: Vec<Vec<i32>>) -> i32 {
+        let d1 = Self::tree_diameter(&edges1);
+        let d2 = Self::tree_diameter(&edges2);
+        d1.max(d2).max((d1 + 1) / 2 + (d2 + 1) / 2 + 1)
+    }
+
+    fn tree_diameter(edges: &Vec<Vec<i32>>) -> i32 {
+        let n = edges.len() + 1;
+        let mut g = vec![vec![]; n];
+        for e in edges {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        fn farthest(g: &Vec<Vec<usize>>, start: usize) -> (i32, usize) {
+            let mut ans = 0;
+            let mut node = start;
+            let mut stk = vec![(start, -1isize, 0i32)];
+            while let Some((i, fa, t)) = stk.pop() {
+                if ans < t {
+                    ans = t;
+                    node = i;
+                }
+                for &j in &g[i] {
+                    if j as isize != fa {
+                        stk.push((j, i as isize, t + 1));
+                    }
+                }
+            }
+            (ans, node)
+        }
+        let (_, a) = farthest(&g, 0);
+        let (ans, _) = farthest(&g, a);
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimumDiameterAfterMerge(int[][] edges1, int[][] edges2) {
+        int d1 = TreeDiameter(edges1);
+        int d2 = TreeDiameter(edges2);
+        return Math.Max(Math.Max(d1, d2), (d1 + 1) / 2 + (d2 + 1) / 2 + 1);
+    }
+
+    public int TreeDiameter(int[][] edges) {
+        int n = edges.Length + 1;
+        List<int>[] g = new List<int>[n];
+        for (int k = 0; k < n; ++k) {
+            g[k] = new List<int>();
+        }
+        foreach (var e in edges) {
+            int u = e[0], v = e[1];
+            g[u].Add(v);
+            g[v].Add(u);
+        }
+        int[] p = Farthest(g, 0);
+        p = Farthest(g, p[1]);
+        return p[0];
+    }
+
+    private int[] Farthest(List<int>[] g, int start) {
+        int ans = 0, node = start;
+        Stack<int[]> stk = new Stack<int[]>();
+        stk.Push(new int[] { start, -1, 0 });
+        while (stk.Count > 0) {
+            int[] cur = stk.Pop();
+            int i = cur[0], fa = cur[1], t = cur[2];
+            if (ans < t) {
+                ans = t;
+                node = i;
+            }
+            foreach (int j in g[i]) {
+                if (j != fa) {
+                    stk.Push(new int[] { j, i, t + 1 });
+                }
+            }
+        }
+        return new int[] { ans, node };
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
