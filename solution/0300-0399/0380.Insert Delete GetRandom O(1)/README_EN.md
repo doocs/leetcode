@@ -93,6 +93,9 @@ Time complexity $O(1)$, space complexity $O(n)$, where $n$ is the number of elem
 #### Python3
 
 ```python
+from random import choice
+
+
 class RandomizedSet:
     def __init__(self):
         self.d = {}

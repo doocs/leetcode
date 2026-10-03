@@ -99,6 +99,9 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 #### Python3
 
 ```python
+from random import choice
+
+
 class RandomizedSet:
     def __init__(self):
         self.d = {}
