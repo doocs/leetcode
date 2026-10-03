@@ -65,7 +65,7 @@ tags:
 >
 > 穿过整面墙，不穿过砖的内部时，穿过的砖数 = 行数 $-$ 该缝对齐的行数。枚举每条竖直缝再数行，会重复计算。
 >
-> 对各行（不含最后一块砖）做前缀和，哈希统计每个缝位置出现的次数。出现最多的缝穿过的砖最少，答案为行数减该次数。墙边缘不计入，否则穿过 $0$ 块砖，题目不允许。
+> 对各行（不含最后一块砖）做前缀和，哈希统计每个缝位置出现的次数。出现最多的缝穿过的砖最少，答案为行数减该次数。墙边缘不计入，否则穿过 $0$ 块砖，题目不允许。缝的位置是若干砖宽之和，宽度可达 $2^{31}-1$，前缀和会超过 $2^{31}-1$。Java 与 C++ 用 64 位整数累加；32 位求和会把相差 $2^{32}$ 的两条缝记成同一个键。
 
 <!-- thinking:end -->
 
@@ -98,9 +98,9 @@ class Solution:
 ```java
 class Solution {
     public int leastBricks(List<List<Integer>> wall) {
-        Map<Integer, Integer> cnt = new HashMap<>();
+        Map<Long, Integer> cnt = new HashMap<>();
         for (var row : wall) {
-            int s = 0;
+            long s = 0;
             for (int i = 0; i + 1 < row.size(); ++i) {
                 s += row.get(i);
                 cnt.merge(s, 1, Integer::sum);
@@ -121,9 +121,9 @@ class Solution {
 class Solution {
 public:
     int leastBricks(vector<vector<int>>& wall) {
-        unordered_map<int, int> cnt;
+        unordered_map<long long, int> cnt;
         for (const auto& row : wall) {
-            int s = 0;
+            long long s = 0;
             for (int i = 0; i + 1 < row.size(); ++i) {
                 s += row[i];
                 cnt[s]++;

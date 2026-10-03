@@ -1,8 +1,8 @@
 class Solution {
     public int leastBricks(List<List<Integer>> wall) {
-        Map<Integer, Integer> cnt = new HashMap<>();
+        Map<Long, Integer> cnt = new HashMap<>();
         for (var row : wall) {
-            int s = 0;
+            long s = 0;
             for (int i = 0; i + 1 < row.size(); ++i) {
                 s += row.get(i);
                 cnt.merge(s, 1, Integer::sum);
