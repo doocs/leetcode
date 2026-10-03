@@ -95,6 +95,10 @@ It can be shown that it is not possible to obtain a lower maximum satisfying all
 #### Python3
 
 ```python
+from bisect import bisect_left
+from math import lcm
+
+
 class Solution:
     def minimizeSet(
         self, divisor1: int, divisor2: int, uniqueCnt1: int, uniqueCnt2: int
