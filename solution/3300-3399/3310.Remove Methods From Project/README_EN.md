@@ -362,4 +362,283 @@ function remainingMethods(n: number, k: number, invocations: number[][]): number
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit-Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Methods reachable from $k$ along call edges are suspicious, yet we must not remove a node that a clean method still invokes. With $n \le 10^5$, linear traversals are enough.
+>
+> Recursing from $k$ into each callee reaches depth $n$ on a chain and overflows the call stack. Both the suspicious set and the later cleared set depend only on reachability, so neighbor order does not matter.
+>
+> Both passes therefore use an explicit stack. The first marks the directed closure of $k$, marking a node when it is pushed. The second starts from every still-unmarked node and, along undirected edges, clears any node a clean method can reach. Only nodes that remain marked are removed; the rest form the answer.
+
+<!-- thinking:end -->
+
+An explicit stack starts from $k$ and follows directed call edges, recording suspicious methods in $\textit{suspicious}$ and marking a node when it is pushed. We then scan from $0$ to $n - 1$. From each non-suspicious method, another explicit stack follows undirected edges and marks every reachable method as non-suspicious. Finally, we return all non-suspicious methods.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ represent the number of methods and the number of call relationships, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def remainingMethods(
+        self, n: int, k: int, invocations: List[List[int]]
+    ) -> List[int]:
+        f = [[] for _ in range(n)]
+        g = [[] for _ in range(n)]
+        for a, b in invocations:
+            f[a].append(b)
+            f[b].append(a)
+            g[a].append(b)
+        suspicious = [False] * n
+        suspicious[k] = True
+        stk = [k]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if not suspicious[j]:
+                    suspicious[j] = True
+                    stk.append(j)
+        vis = [False] * n
+        for i in range(n):
+            if suspicious[i] or vis[i]:
+                continue
+            vis[i] = True
+            stk = [i]
+            while stk:
+                u = stk.pop()
+                for j in f[u]:
+                    if not vis[j]:
+                        suspicious[j] = False
+                        vis[j] = True
+                        stk.append(j)
+        return [i for i in range(n) if not suspicious[i]]
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<Integer> remainingMethods(int n, int k, int[][] invocations) {
+        List<Integer>[] f = new List[n];
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(f, i -> new ArrayList<>());
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : invocations) {
+            int a = e[0], b = e[1];
+            f[a].add(b);
+            f[b].add(a);
+            g[a].add(b);
+        }
+        boolean[] suspicious = new boolean[n];
+        suspicious[k] = true;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(k);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            for (int j : g[i]) {
+                if (!suspicious[j]) {
+                    suspicious[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            if (suspicious[i] || vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            stk.push(i);
+            while (!stk.isEmpty()) {
+                int u = stk.pop();
+                for (int j : f[u]) {
+                    if (!vis[j]) {
+                        suspicious[j] = false;
+                        vis[j] = true;
+                        stk.push(j);
+                    }
+                }
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (!suspicious[i]) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) {
+        vector<vector<int>> f(n), g(n);
+        for (const auto& e : invocations) {
+            int a = e[0], b = e[1];
+            f[a].push_back(b);
+            f[b].push_back(a);
+            g[a].push_back(b);
+        }
+        vector<char> suspicious(n), vis(n);
+        suspicious[k] = 1;
+        vector<int> stk{k};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            for (int j : g[i]) {
+                if (!suspicious[j]) {
+                    suspicious[j] = 1;
+                    stk.push_back(j);
+                }
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (suspicious[i] || vis[i]) {
+                continue;
+            }
+            vis[i] = 1;
+            stk.push_back(i);
+            while (!stk.empty()) {
+                int u = stk.back();
+                stk.pop_back();
+                for (int j : f[u]) {
+                    if (!vis[j]) {
+                        suspicious[j] = 0;
+                        vis[j] = 1;
+                        stk.push_back(j);
+                    }
+                }
+            }
+        }
+        vector<int> ans;
+        for (int i = 0; i < n; ++i) {
+            if (!suspicious[i]) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func remainingMethods(n int, k int, invocations [][]int) []int {
+	suspicious := make([]bool, n)
+	vis := make([]bool, n)
+	f := make([][]int, n)
+	g := make([][]int, n)
+	for _, e := range invocations {
+		a, b := e[0], e[1]
+		f[a] = append(f[a], b)
+		f[b] = append(f[b], a)
+		g[a] = append(g[a], b)
+	}
+	suspicious[k] = true
+	stk := []int{k}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, j := range g[i] {
+			if !suspicious[j] {
+				suspicious[j] = true
+				stk = append(stk, j)
+			}
+		}
+	}
+	for i := 0; i < n; i++ {
+		if suspicious[i] || vis[i] {
+			continue
+		}
+		vis[i] = true
+		stk = []int{i}
+		for len(stk) > 0 {
+			u := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for _, j := range f[u] {
+				if !vis[j] {
+					suspicious[j] = false
+					vis[j] = true
+					stk = append(stk, j)
+				}
+			}
+		}
+	}
+	var ans []int
+	for i := 0; i < n; i++ {
+		if !suspicious[i] {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function remainingMethods(n: number, k: number, invocations: number[][]): number[] {
+    const suspicious: boolean[] = Array(n).fill(false);
+    const vis: boolean[] = Array(n).fill(false);
+    const f: number[][] = Array.from({ length: n }, () => []);
+    const g: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [a, b] of invocations) {
+        f[a].push(b);
+        f[b].push(a);
+        g[a].push(b);
+    }
+
+    suspicious[k] = true;
+    let stk: number[] = [k];
+    while (stk.length) {
+        const i = stk.pop()!;
+        for (const j of g[i]) {
+            if (!suspicious[j]) {
+                suspicious[j] = true;
+                stk.push(j);
+            }
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (suspicious[i] || vis[i]) {
+            continue;
+        }
+        vis[i] = true;
+        stk = [i];
+        while (stk.length) {
+            const u = stk.pop()!;
+            for (const j of f[u]) {
+                if (!vis[j]) {
+                    suspicious[j] = false;
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+    }
+
+    return Array.from({ length: n }, (_, i) => i).filter(i => !suspicious[i]);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
