@@ -295,4 +295,267 @@ func gcd(a, b int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Preprocessing + Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each node we want the closest ancestor whose value is coprime with it. With $n\le 10^5$ and values in $[1,50]$, one ancestor stack per value is enough. Recursing into each child from the root is too deep: a chain makes the call depth $n$.
+>
+> Precompute coprime pairs in $1..50$. On a visit, look at the stack top of every value coprime to $nums[i]$ and take the deepest.
+>
+> The explicit stack stores $(node, parent, depth, next child)$. Before walking to a child we push $(i,\textit{depth})$ onto the stack of $nums[i]$ and pop it after that child is finished, so the top stays the nearest ancestor.
+
+<!-- thinking:end -->
+
+Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
+
+Next, an explicit stack walks the tree in preorder from the root. For each node $i$, enumerate the values coprime to $nums[i]$ and take the ancestor $t$ of maximum depth among those stack tops; that is the nearest coprime ancestor. The stack array $stks$ has length $51$, and $stks[v]$ records nodes of value $v$ on the current root path together with their depths. Before walking to a child, push $(i,\textit{depth})$ onto $stks[nums[i]]$, and pop it after that child is finished.
+
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$. Where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        f = [[] for _ in range(51)]
+        for i in range(1, 51):
+            for j in range(1, 51):
+                if gcd(i, j) == 1:
+                    f[i].append(j)
+        stks = [[] for _ in range(51)]
+        ans = [-1] * n
+        stk = [(0, -1, 0, 0)]
+        while stk:
+            i, fa, depth, k = stk[-1]
+            if k == 0:
+                t = mx = -1
+                for v in f[nums[i]]:
+                    cur = stks[v]
+                    if cur and cur[-1][1] > mx:
+                        t, mx = cur[-1]
+                ans[i] = t
+            else:
+                jprev = g[i][k - 1]
+                if jprev != fa:
+                    stks[nums[i]].pop()
+            while k < len(g[i]) and g[i][k] == fa:
+                k += 1
+            if k == len(g[i]):
+                stk.pop()
+                continue
+            j = g[i][k]
+            stk[-1] = (i, fa, depth, k + 1)
+            stks[nums[i]].append((i, depth))
+            stk.append((j, i, depth + 1, 0))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] getCoprimes(int[] nums, int[][] edges) {
+        int n = nums.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        List<Integer>[] f = new List[51];
+        Deque<int[]>[] stks = new Deque[51];
+        Arrays.setAll(f, k -> new ArrayList<>());
+        Arrays.setAll(stks, k -> new ArrayDeque<>());
+        for (int i = 1; i < 51; ++i) {
+            for (int j = 1; j < 51; ++j) {
+                if (gcd(i, j) == 1) {
+                    f[i].add(j);
+                }
+            }
+        }
+        int[] ans = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.peek();
+            int i = cur[0], fa = cur[1], depth = cur[2], k = cur[3];
+            if (k == 0) {
+                int t = -1, mx = -1;
+                for (int v : f[nums[i]]) {
+                    Deque<int[]> s = stks[v];
+                    if (!s.isEmpty() && s.peek()[1] > mx) {
+                        t = s.peek()[0];
+                        mx = s.peek()[1];
+                    }
+                }
+                ans[i] = t;
+            } else {
+                int jprev = g[i].get(k - 1);
+                if (jprev != fa) {
+                    stks[nums[i]].pop();
+                }
+            }
+            while (k < g[i].size() && g[i].get(k) == fa) {
+                ++k;
+            }
+            if (k == g[i].size()) {
+                stk.pop();
+                continue;
+            }
+            int j = g[i].get(k);
+            cur[3] = k + 1;
+            stks[nums[i]].push(new int[] {i, depth});
+            stk.push(new int[] {j, i, depth + 1, 0});
+        }
+        return ans;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> getCoprimes(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        vector<vector<int>> g(n);
+        vector<vector<int>> f(51);
+        vector<vector<pair<int, int>>> stks(51);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].emplace_back(v);
+            g[v].emplace_back(u);
+        }
+        for (int i = 1; i < 51; ++i) {
+            for (int j = 1; j < 51; ++j) {
+                if (__gcd(i, j) == 1) {
+                    f[i].emplace_back(j);
+                }
+            }
+        }
+        vector<int> ans(n);
+        vector<array<int, 4>> stk{{0, -1, 0, 0}};
+        while (!stk.empty()) {
+            auto& cur = stk.back();
+            int i = cur[0], fa = cur[1], depth = cur[2], k = cur[3];
+            if (k == 0) {
+                int t = -1, mx = -1;
+                for (int v : f[nums[i]]) {
+                    auto& s = stks[v];
+                    if (!s.empty() && s.back().second > mx) {
+                        t = s.back().first;
+                        mx = s.back().second;
+                    }
+                }
+                ans[i] = t;
+            } else {
+                int jprev = g[i][k - 1];
+                if (jprev != fa) {
+                    stks[nums[i]].pop_back();
+                }
+            }
+            while (k < (int) g[i].size() && g[i][k] == fa) {
+                ++k;
+            }
+            if (k == (int) g[i].size()) {
+                stk.pop_back();
+                continue;
+            }
+            int j = g[i][k];
+            cur[3] = k + 1;
+            stks[nums[i]].emplace_back(i, depth);
+            stk.push_back({j, i, depth + 1, 0});
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func getCoprimes(nums []int, edges [][]int) []int {
+	n := len(nums)
+	g := make([][]int, n)
+	f := [51][]int{}
+	type pair struct{ first, second int }
+	stks := [51][]pair{}
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	for i := 1; i < 51; i++ {
+		for j := 1; j < 51; j++ {
+			if gcd(i, j) == 1 {
+				f[i] = append(f[i], j)
+			}
+		}
+	}
+	ans := make([]int, n)
+	type frame struct{ i, fa, depth, k int }
+	stk := []frame{{0, -1, 0, 0}}
+	for len(stk) > 0 {
+		cur := &stk[len(stk)-1]
+		i, fa, depth, k := cur.i, cur.fa, cur.depth, cur.k
+		if k == 0 {
+			t, mx := -1, -1
+			for _, v := range f[nums[i]] {
+				s := stks[v]
+				if len(s) > 0 && s[len(s)-1].second > mx {
+					t, mx = s[len(s)-1].first, s[len(s)-1].second
+				}
+			}
+			ans[i] = t
+		} else {
+			jprev := g[i][k-1]
+			if jprev != fa {
+				stks[nums[i]] = stks[nums[i]][:len(stks[nums[i]])-1]
+			}
+		}
+		for k < len(g[i]) && g[i][k] == fa {
+			k++
+		}
+		if k == len(g[i]) {
+			stk = stk[:len(stk)-1]
+			continue
+		}
+		j := g[i][k]
+		cur.k = k + 1
+		stks[nums[i]] = append(stks[nums[i]], pair{i, depth})
+		stk = append(stk, frame{j, i, depth + 1, 0})
+	}
+	return ans
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
