@@ -288,7 +288,7 @@ public:
                 ans.push_back(tree.query(*it) >= queries[i][2] || x - *it >= queries[i][2]);
             }
         }
-        ranges::reverse(ans);
+        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
