@@ -33,7 +33,7 @@ tags:
 
 <pre>
 <b>输入：</b>str = "code", times = 3
-<b>输出：</b>codecodecode"
+<b>输出：</b>"codecodecode"
 <b>解释：</b> "code" 被重复了 3 次
 </pre>
 
