@@ -94,7 +94,7 @@ tags:
 >
 > $n \le 100$、 $m \le 10^5$，若每次为会议线性扫描全部会议室找最早空闲者，时间为 $O(mn)$，在上限附近偏紧。会议开始时间互不相同，必须按时间顺序分配。
 >
-> 空闲会议室只需按编号取最小者，占用中的会议室则按结束时间出队。用两个堆分别维护这两类：会议按开始时间排序后，先把已结束的房间归还空闲堆；有空闲则取编号最小者，否则取出最早结束的那间并顺延时长。
+> 空闲会议室只需按编号取最小者，占用中的会议室则按结束时间出队。用两个堆分别维护这两类：会议按开始时间排序后，先把已结束的房间归还空闲堆；有空闲则取编号最小者，否则取出最早结束的那间并顺延时长。顺延后的结束时刻等于上一场结束时刻加上会议时长，连续占用可以超过 $2^{31}$，因此该时刻用 $64$ 位整数。
 
 <!-- thinking:end -->
 
@@ -148,8 +148,8 @@ class Solution:
 class Solution {
     public int mostBooked(int n, int[][] meetings) {
         Arrays.sort(meetings, (a, b) -> a[0] - b[0]);
-        PriorityQueue<int[]> busy
-            = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        PriorityQueue<long[]> busy = new PriorityQueue<>(
+            (a, b) -> a[0] == b[0] ? Long.compare(a[1], b[1]) : Long.compare(a[0], b[0]));
         PriorityQueue<Integer> idle = new PriorityQueue<>();
         for (int i = 0; i < n; ++i) {
             idle.offer(i);
@@ -158,16 +158,16 @@ class Solution {
         for (var v : meetings) {
             int s = v[0], e = v[1];
             while (!busy.isEmpty() && busy.peek()[0] <= s) {
-                idle.offer(busy.poll()[1]);
+                idle.offer((int) busy.poll()[1]);
             }
             int i = 0;
             if (!idle.isEmpty()) {
                 i = idle.poll();
-                busy.offer(new int[] {e, i});
+                busy.offer(new long[] {e, i});
             } else {
                 var x = busy.poll();
-                i = x[1];
-                busy.offer(new int[] {x[0] + e - s, i});
+                i = (int) x[1];
+                busy.offer(new long[] {x[0] + e - s, i});
             }
             ++cnt[i];
         }
