@@ -7,17 +7,16 @@ public:
         for (auto& e : conversions) {
             g[e[0]].emplace_back(e[1], e[2]);
         }
-
         vector<int> res(n);
-
-        auto dfs = [&](this auto&& dfs, int s, long long mul) -> void {
+        vector<pair<int, long long>> stk{{0, 1}};
+        while (!stk.empty()) {
+            auto [s, mul] = stk.back();
+            stk.pop_back();
             res[s] = mul;
             for (auto [t, w] : g[s]) {
-                dfs(t, mul * w % mod);
+                stk.push_back({t, mul * w % mod});
             }
-        };
-        dfs(0, 1);
-
+        }
         auto qpow = [&](long long x, int n) {
             long long res = 1;
             while (n) {
@@ -29,7 +28,6 @@ public:
             }
             return res;
         };
-
         vector<int> ans;
         for (auto& q : queries) {
             ans.push_back(res[q[1]] * qpow(res[q[0]], mod - 2) % mod);

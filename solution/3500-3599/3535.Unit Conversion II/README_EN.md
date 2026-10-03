@@ -356,4 +356,279 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Modular Inverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n - 1$ conversions and a unique path from $0$, so the graph is a directed tree rooted at $0$. With $n \le 10^5$, recursing from the root and multiplying along the way reaches depth $n$ on a chain and overflows the call stack. Each unit's factor relative to $0$ depends only on that path.
+>
+> An explicit stack of $(unit, accumulated\ factor)$ therefore starts at $(0, 1)$. Popping a frame writes $\textit{res}[i]$, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+>
+> A query asks for a ratio between two units. The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{MOD-2}$.
+
+<!-- thinking:end -->
+
+The conversion relations form a directed tree rooted at $0$. An explicit stack walks from the root. Each frame is $(unit, accumulated\ factor)$, starting from $(0, 1)$. Popping a frame writes `res[i]`, the number of units of type $i$ that equal $1$ unit of type $0$. Each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+
+For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
+
+The time complexity is $O(n + q \log MOD)$ and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def queryConversions(
+        self, conversions: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        mod = 10**9 + 7
+        n = len(conversions) + 1
+        g = [[] for _ in range(n)]
+        for s, t, w in conversions:
+            g[s].append((t, w))
+        res = [0] * n
+        stk = [(0, 1)]
+        while stk:
+            s, mul = stk.pop()
+            res[s] = mul
+            for t, w in g[s]:
+                stk.append((t, mul * w % mod))
+        ans = []
+        for x, y in queries:
+            ans.append(res[y] * pow(res[x], mod - 2, mod) % mod)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
+
+    public int[] queryConversions(int[][] conversions, int[][] queries) {
+        int n = conversions.length + 1;
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : conversions) {
+            g[e[0]].add(new int[] {e[1], e[2]});
+        }
+        int[] res = new int[n];
+        Deque<long[]> stk = new ArrayDeque<>();
+        stk.push(new long[] {0, 1});
+        while (!stk.isEmpty()) {
+            long[] cur = stk.pop();
+            int s = (int) cur[0];
+            long mul = cur[1];
+            res[s] = (int) mul;
+            for (var e : g[s]) {
+                stk.push(new long[] {e[0], mul * e[1] % mod});
+            }
+        }
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            int x = queries[i][0], y = queries[i][1];
+            ans[i] = (int) ((long) res[y] * qpow(res[x], mod - 2) % mod);
+        }
+        return ans;
+    }
+
+    private long qpow(long x, int n) {
+        long res = 1;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = res * x % mod;
+            }
+            x = x * x % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> queryConversions(vector<vector<int>>& conversions, vector<vector<int>>& queries) {
+        const int mod = 1e9 + 7;
+        int n = conversions.size() + 1;
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : conversions) {
+            g[e[0]].emplace_back(e[1], e[2]);
+        }
+        vector<int> res(n);
+        vector<pair<int, long long>> stk{{0, 1}};
+        while (!stk.empty()) {
+            auto [s, mul] = stk.back();
+            stk.pop_back();
+            res[s] = mul;
+            for (auto [t, w] : g[s]) {
+                stk.push_back({t, mul * w % mod});
+            }
+        }
+        auto qpow = [&](long long x, int n) {
+            long long res = 1;
+            while (n) {
+                if (n & 1) {
+                    res = res * x % mod;
+                }
+                x = x * x % mod;
+                n >>= 1;
+            }
+            return res;
+        };
+        vector<int> ans;
+        for (auto& q : queries) {
+            ans.push_back(res[q[1]] * qpow(res[q[0]], mod - 2) % mod);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func queryConversions(conversions [][]int, queries [][]int) []int {
+	const mod = int(1e9 + 7)
+	n := len(conversions) + 1
+
+	g := make([][]struct{ t, w int }, n)
+	for _, e := range conversions {
+		s, t, w := e[0], e[1], e[2]
+		g[s] = append(g[s], struct{ t, w int }{t, w})
+	}
+
+	res := make([]int, n)
+	stk := [][2]int{{0, 1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		s, mul := cur[0], cur[1]
+		res[s] = mul
+		for _, e := range g[s] {
+			stk = append(stk, [2]int{e.t, mul * e.w % mod})
+		}
+	}
+
+	qpow := func(x, n int) int {
+		res := 1
+		for n > 0 {
+			if n&1 > 0 {
+				res = res * x % mod
+			}
+			x = x * x % mod
+			n >>= 1
+		}
+		return res
+	}
+
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		ans[i] = res[q[1]] * qpow(res[q[0]], mod-2) % mod
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function queryConversions(conversions: number[][], queries: number[][]): number[] {
+    const mod = BigInt(1e9 + 7);
+    const n = conversions.length + 1;
+
+    const g: { t: number; w: number }[][] = Array.from({ length: n }, () => []);
+    for (const [s, t, w] of conversions) {
+        g[s].push({ t, w });
+    }
+
+    const res: number[] = Array(n).fill(0);
+    const stk: [number, number][] = [[0, 1]];
+    while (stk.length) {
+        const [s, mul] = stk.pop()!;
+        res[s] = mul;
+        for (const { t, w } of g[s]) {
+            stk.push([t, Number((BigInt(mul) * BigInt(w)) % mod)]);
+        }
+    }
+
+    const qpow = (x: number, n: number): number => {
+        let res = 1n;
+        let a = BigInt(x);
+        while (n > 0) {
+            if (n & 1) {
+                res = (res * a) % mod;
+            }
+            a = (a * a) % mod;
+            n >>= 1;
+        }
+        return Number(res);
+    };
+
+    const ans: number[] = [];
+    for (const [x, y] of queries) {
+        ans.push(Number((BigInt(res[y]) * BigInt(qpow(res[x], 1e9 + 5))) % mod));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn query_conversions(conversions: Vec<Vec<i32>>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        const MOD: i64 = 1_000_000_007;
+        let n = conversions.len() + 1;
+
+        let mut g = vec![Vec::<(usize, i64)>::new(); n];
+        for e in conversions {
+            g[e[0] as usize].push((e[1] as usize, e[2] as i64));
+        }
+
+        let mut res = vec![0_i64; n];
+        let mut stk = vec![(0_usize, 1_i64)];
+        while let Some((s, mul)) = stk.pop() {
+            res[s] = mul;
+            for &(t, w) in &g[s] {
+                stk.push((t, mul * w % MOD));
+            }
+        }
+
+        fn qpow(mut x: i64, mut n: i32) -> i64 {
+            let mut res = 1_i64;
+            while n > 0 {
+                if n & 1 == 1 {
+                    res = res * x % MOD;
+                }
+                x = x * x % MOD;
+                n >>= 1;
+            }
+            res
+        }
+
+        let mut ans = Vec::with_capacity(queries.len());
+        for q in queries {
+            let x = q[0] as usize;
+            let y = q[1] as usize;
+            ans.push((res[y] * qpow(res[x], 1_000_000_005) % MOD) as i32);
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
