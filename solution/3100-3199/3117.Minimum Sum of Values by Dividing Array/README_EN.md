@@ -320,4 +320,259 @@ function minimumValueSum(nums: number[], andValues: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into $m$ segments whose AND equals $\textit{andValues}[j]$, and minimize the sum of the segment endpoints. $n$ can be $10^4$, so enumerating every cut is exponential.
+>
+> The state is the index, the number of finished segments, and the running AND. Extending the current segment is always the first call, so the chain from index $0$ to $n$ has length $n$. Python raises RecursionError at $n=2000$, Java overflows at $n=10^4$, and Node overflows at $n=8000$.
+>
+> AND only drops bits. Subarrays that end at the same index have $O(\log M)$ distinct AND values, and the best future cost depends only on the segment index and that AND.
+>
+> Walk left to right and keep one map from $(j,a)$ to the minimum cost of reaching it. $a=-1$ means the new segment has no element yet. After absorbing $nums[i]$, stay in segment $j$, or, when the AND matches the target, close the segment, add $nums[i]$, and open the next one. The last segment can close only at the end of the array.
+
+<!-- thinking:end -->
+
+Scan the array from left to right and keep only the current layer. State $(j, a)$ means $j$ segments are finished and the AND of the open segment, before absorbing the next element, is $a$. Its value is the minimum sum of segment endpoints used to reach it. $a = -1$ means the open segment is empty. The only initial state is $(0, -1)$ with cost $0$. The answer is the cost of $(m, -1)$ after the whole array has been scanned.
+
+When handling $nums[i]$, consider every state $(j, a)$:
+
+- If $n - i < m - j$, too few elements remain for $m - j$ segments, so drop the state.
+- Let $a'$ be the bitwise AND of $a$ and $nums[i]$. The empty value $-1$ AND any number is that number itself. If $a' < \textit{andValues}[j]$, later ANDs can only get smaller and can no longer hit the target, so drop the state.
+- Otherwise $nums[i]$ can stay in the current segment. Move to $(j, a')$ with the same cost.
+- If $a' = \textit{andValues}[j]$, the current segment can also end at index $i$, adding $nums[i]$ to the cost. When $j + 1 < m$, the new state is $(j + 1, -1)$. When $j + 1 = m$, the division covers the array only if $i = n - 1$, and that state is $(m, -1)$.
+
+Keep the smaller cost for the same state. If $(m, -1)$ is absent, return $-1$.
+
+The time complexity is $O(n \times m \times \log M)$, and the space complexity is $O(m \times \log M)$. Here $n$ and $m$ are the lengths of $nums$ and $andValues$, and $M$ is the maximum value in $nums$, with $M \leq 10^5$ in this problem. Subarray ANDs that share a right endpoint change at most $O(\log M)$ times, so each layer has $O(m \times \log M)$ states.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
+        n, m = len(nums), len(andValues)
+        f = {(0, -1): 0}
+        for i, x in enumerate(nums):
+            g = {}
+            for (j, a), cost in f.items():
+                if n - i < m - j:
+                    continue
+                na = a & x
+                if na < andValues[j]:
+                    continue
+                g[j, na] = min(g.get((j, na), inf), cost)
+                if na == andValues[j]:
+                    t = cost + x
+                    if j + 1 == m:
+                        if i == n - 1:
+                            g[m, -1] = min(g.get((m, -1), inf), t)
+                    else:
+                        g[j + 1, -1] = min(g.get((j + 1, -1), inf), t)
+            f = g
+        ans = f.get((m, -1), inf)
+        return ans if ans < inf else -1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumValueSum(int[] nums, int[] andValues) {
+        final int inf = 1 << 29;
+        int n = nums.length, m = andValues.length;
+        final int stride = 100001;
+        Map<Integer, Integer> f = new HashMap<>();
+        f.put(0, 0);
+        for (int i = 0; i < n; ++i) {
+            Map<Integer, Integer> g = new HashMap<>();
+            for (var e : f.entrySet()) {
+                int key = e.getKey(), cost = e.getValue();
+                int j = key / stride;
+                int a = key % stride - 1;
+                if (n - i < m - j) {
+                    continue;
+                }
+                int na = a & nums[i];
+                if (na < andValues[j]) {
+                    continue;
+                }
+                int nk = j * stride + na + 1;
+                g.put(nk, Math.min(g.getOrDefault(nk, inf), cost));
+                if (na == andValues[j]) {
+                    int t = cost + nums[i];
+                    if (j + 1 == m) {
+                        if (i == n - 1) {
+                            int done = m * stride;
+                            g.put(done, Math.min(g.getOrDefault(done, inf), t));
+                        }
+                    } else {
+                        int nk2 = (j + 1) * stride;
+                        g.put(nk2, Math.min(g.getOrDefault(nk2, inf), t));
+                    }
+                }
+            }
+            f = g;
+        }
+        int ans = f.getOrDefault(m * stride, inf);
+        return ans >= inf ? -1 : ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumValueSum(vector<int>& nums, vector<int>& andValues) {
+        int n = nums.size(), m = andValues.size();
+        const int stride = 100001;
+        unordered_map<int, int> f;
+        f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            unordered_map<int, int> g;
+            for (auto& [key, cost] : f) {
+                int j = key / stride;
+                int a = key % stride - 1;
+                if (n - i < m - j) {
+                    continue;
+                }
+                int na = a & nums[i];
+                if (na < andValues[j]) {
+                    continue;
+                }
+                int nk = j * stride + na + 1;
+                if (!g.contains(nk) || g[nk] > cost) {
+                    g[nk] = cost;
+                }
+                if (na == andValues[j]) {
+                    int t = cost + nums[i];
+                    if (j + 1 == m) {
+                        if (i == n - 1) {
+                            int done = m * stride;
+                            if (!g.contains(done) || g[done] > t) {
+                                g[done] = t;
+                            }
+                        }
+                    } else {
+                        int nk2 = (j + 1) * stride;
+                        if (!g.contains(nk2) || g[nk2] > t) {
+                            g[nk2] = t;
+                        }
+                    }
+                }
+            }
+            f.swap(g);
+        }
+        int done = m * stride;
+        return f.contains(done) ? f[done] : -1;
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumValueSum(nums []int, andValues []int) int {
+	n, m := len(nums), len(andValues)
+	const stride = 100001
+	f := map[int]int{0: 0}
+	for i, x := range nums {
+		g := map[int]int{}
+		for key, cost := range f {
+			j := key / stride
+			a := key%stride - 1
+			if n-i < m-j {
+				continue
+			}
+			na := a & x
+			if na < andValues[j] {
+				continue
+			}
+			nk := j*stride + na + 1
+			if v, ok := g[nk]; !ok || v > cost {
+				g[nk] = cost
+			}
+			if na == andValues[j] {
+				t := cost + x
+				if j+1 == m {
+					if i == n-1 {
+						done := m * stride
+						if v, ok := g[done]; !ok || v > t {
+							g[done] = t
+						}
+					}
+				} else {
+					nk2 := (j + 1) * stride
+					if v, ok := g[nk2]; !ok || v > t {
+						g[nk2] = t
+					}
+				}
+			}
+		}
+		f = g
+	}
+	if ans, ok := f[m*stride]; ok {
+		return ans
+	}
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumValueSum(nums: number[], andValues: number[]): number {
+    const n = nums.length;
+    const m = andValues.length;
+    const inf = 1 << 29;
+    const stride = 100001;
+    let f = new Map<number, number>();
+    f.set(0, 0);
+    for (let i = 0; i < n; ++i) {
+        const g = new Map<number, number>();
+        for (const [key, cost] of f) {
+            const j = (key / stride) | 0;
+            const a = (key % stride) - 1;
+            if (n - i < m - j) {
+                continue;
+            }
+            const na = a & nums[i];
+            if (na < andValues[j]) {
+                continue;
+            }
+            const nk = j * stride + na + 1;
+            g.set(nk, Math.min(g.get(nk) ?? inf, cost));
+            if (na === andValues[j]) {
+                const t = cost + nums[i];
+                if (j + 1 === m) {
+                    if (i === n - 1) {
+                        const done = m * stride;
+                        g.set(done, Math.min(g.get(done) ?? inf, t));
+                    }
+                } else {
+                    const nk2 = (j + 1) * stride;
+                    g.set(nk2, Math.min(g.get(nk2) ?? inf, t));
+                }
+            }
+        }
+        f = g;
+    }
+    const ans = f.get(m * stride) ?? inf;
+    return ans >= inf ? -1 : ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
