@@ -77,6 +77,9 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 #### Python3
 
 ```python
+import random
+
+
 class Solution:
     def __init__(self, nums: List[int]):
         self.nums = nums
