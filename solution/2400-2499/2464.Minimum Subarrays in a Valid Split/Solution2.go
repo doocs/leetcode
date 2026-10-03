@@ -1,27 +1,19 @@
 func validSubarraySplit(nums []int) int {
 	n := len(nums)
-	f := make([]int, n)
-	var dfs func(int) int
 	const inf int = 0x3f3f3f3f
-	dfs = func(i int) int {
-		if i >= n {
-			return 0
-		}
-		if f[i] > 0 {
-			return f[i]
-		}
-		ans := inf
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
 		for j := i; j < n; j++ {
 			if gcd(nums[i], nums[j]) > 1 {
-				ans = min(ans, 1+dfs(j+1))
+				f[i] = min(f[i], 1+f[j+1])
 			}
 		}
-		f[i] = ans
-		return ans
 	}
-	ans := dfs(0)
-	if ans < inf {
-		return ans
+	if f[0] < inf {
+		return f[0]
 	}
 	return -1
 }
