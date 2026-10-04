@@ -80,7 +80,7 @@ tags:
 function invertObject(obj: Record<any, any>): Record<any, any> {
     const ans: Record<any, any> = {};
     for (const key in obj) {
-        if (ans.hasOwnProperty(obj[key])) {
+        if (Object.prototype.hasOwnProperty.call(ans, obj[key])) {
             if (Array.isArray(ans[obj[key]])) {
                 ans[obj[key]].push(key);
             } else {

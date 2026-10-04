@@ -29,7 +29,7 @@ function jsonToMatrix(arr: any[]): (string | number | boolean | null)[] {
     for (const row of kv) {
         const newRow: any[] = [];
         for (const key of keys) {
-            const v = row.find(r => r.hasOwnProperty(key))?.[key];
+            const v = row.find(r => Object.prototype.hasOwnProperty.call(r, key))?.[key];
             newRow.push(v === undefined ? '' : v);
         }
         ans.push(newRow);
