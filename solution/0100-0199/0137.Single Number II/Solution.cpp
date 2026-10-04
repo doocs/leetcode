@@ -8,7 +8,13 @@ public:
                 cnt += ((num >> i) & 1);
             }
             cnt %= 3;
-            ans |= cnt << i;
+            if (cnt) {
+                if (i == 31) {
+                    ans = INT_MIN + ans;
+                } else {
+                    ans |= cnt << i;
+                }
+            }
         }
         return ans;
     }

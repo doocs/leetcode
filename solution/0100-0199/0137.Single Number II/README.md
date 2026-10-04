@@ -66,6 +66,8 @@ tags:
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(1)$。其中 $n$ 和 $M$ 分别是数组的长度和数组中元素的范围。
 
+C++ 在处理符号位时直接加上 INT_MIN，避免对有符号整数进行可能溢出的左移。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -96,7 +98,13 @@ class Solution {
                 cnt += num >> i & 1;
             }
             cnt %= 3;
-            ans |= cnt << i;
+            if (cnt) {
+                if (i == 31) {
+                    ans = INT_MIN + ans;
+                } else {
+                    ans |= cnt << i;
+                }
+            }
         }
         return ans;
     }
