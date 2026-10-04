@@ -152,8 +152,8 @@ public:
         while (a <= b) {
             int x = b;
             int cnt = 1;
-            while (x >= (INT_MIN >> 1) && a <= (x << 1)) {
-                x <<= 1;
+            while (x >= -(1 << 30) && a <= x + x) {
+                x += x;
                 cnt <<= 1;
             }
             ans += cnt;
