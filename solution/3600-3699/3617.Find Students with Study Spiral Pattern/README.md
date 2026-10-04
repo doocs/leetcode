@@ -168,11 +168,11 @@ session_id 是这张表的唯一主键。
 
 > **思考**
 >
-> 螺旋模式要求一段日期连续（相邻间隔不超过 $2$ 天）的课程序列由长度至少 $3$ 的周期重复而成。按学生分组后必须先按日期排序，再按间隔切成连续段。
+> 若把周期长度理解成段长的任意约数，A、B、A、C 重复两轮会被记成 $4$，但这段只有 $3$ 门不同的课，与题目对周期长度的定义不符。连续段必须先按日期排好，间隔大于 $2$ 天就断开，同一天的场次再按 $\textit{session\_id}$ 区分先后。
 >
-> 仅长度不少于 $6$ 的段才可能包含至少两轮周期。对段长的每个约数 $\textit{cycle\_len}\ge 3$，比较后续块是否与首块相同。
+> 周期长度应取该段不同科目的个数 $k$。仅当 $k\ge 3$、段长不少于 $2k$ 且能被 $k$ 整除时，才可能构成至少两轮完整循环。
 >
-> 找到第一个合法周期即记录该学生的周期长度与总学时，再与学生表连接，按周期长度、总学时降序输出。
+> 此时比较每个位置是否等于首轮中的对应科目。整段都由这 $k$ 门课按原顺序重复，才记下周期长度与总学时，再与学生表连接，按周期长度、总学时降序输出。
 
 <!-- thinking:end -->
 
@@ -183,22 +183,21 @@ session_id 是这张表的唯一主键。
 ```sql
 # Write your MySQL query statement below
 WITH
-    -- 第一步：为每个学生的学习记录按照日期排序并编号
     ranked_sessions AS (
         SELECT
             s.student_id,
+            ss.session_id,
             ss.session_date,
             ss.subject,
             ss.hours_studied,
             ROW_NUMBER() OVER (
                 PARTITION BY s.student_id
-                ORDER BY ss.session_date
+                ORDER BY ss.session_date, ss.session_id
             ) AS rn
         FROM
             study_sessions ss
             JOIN students s ON s.student_id = ss.student_id
     ),
-    -- 第二步：计算当前学习日期与前一次学习的日期差
     grouped_sessions AS (
         SELECT
             *,
@@ -206,12 +205,11 @@ WITH
                 session_date,
                 LAG(session_date) OVER (
                     PARTITION BY student_id
-                    ORDER BY session_date
+                    ORDER BY session_date, session_id
                 )
             ) AS date_diff
         FROM ranked_sessions
     ),
-    -- 第三步：将学习记录按照日期差是否大于2进行分组（连续段）
     session_groups AS (
         SELECT
             *,
@@ -223,121 +221,64 @@ WITH
                 END
             ) OVER (
                 PARTITION BY student_id
-                ORDER BY session_date
+                ORDER BY session_date, session_id
             ) AS group_id
         FROM grouped_sessions
     ),
-    -- 第四步：筛选出每个学生的每个连续学习段中包含至少6次学习的序列
-    valid_sequences AS (
+    group_stats AS (
         SELECT
             student_id,
             group_id,
             COUNT(*) AS session_count,
-            GROUP_CONCAT(subject ORDER BY session_date) AS subject_sequence,
+            COUNT(DISTINCT subject) AS cycle_length,
             SUM(hours_studied) AS total_hours
         FROM session_groups
         GROUP BY student_id, group_id
-        HAVING session_count >= 6
+        HAVING
+            cycle_length >= 3
+            AND session_count >= cycle_length * 2
+            AND session_count % cycle_length = 0
     ),
-    -- 第五步：检测是否存在重复的科目循环模式
-    pattern_detected AS (
+    numbered_sessions AS (
         SELECT
-            vs.student_id,
-            vs.total_hours,
-            vs.subject_sequence,
-            COUNT(
-                DISTINCT
-                SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', n), ',', -1)
-            ) AS cycle_length
+            g.student_id,
+            g.group_id,
+            g.subject,
+            gs.cycle_length,
+            gs.total_hours,
+            ROW_NUMBER() OVER (
+                PARTITION BY g.student_id, g.group_id
+                ORDER BY g.session_date, g.session_id
+            ) AS session_index
         FROM
-            valid_sequences vs
-            JOIN (
-                -- 生成1到100的数字，用于提取第n个科目
-                SELECT a.N + b.N * 10 + 1 AS n
-                FROM
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) a,
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) b
-            ) nums
-                ON n <= 10
-        WHERE
-            -- 简化匹配：检查前半段和后半段是否相同（即是否重复）
-            LENGTH(subject_sequence) > 0
-            AND LOCATE(',', subject_sequence) > 0
-            AND (
-                -- 匹配3科循环2轮的模式
-                subject_sequence LIKE CONCAT(
-                    SUBSTRING_INDEX(subject_sequence, ',', 3),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 6), ',', -3),
-                    '%'
-                )
-                OR subject_sequence LIKE CONCAT(
-                    -- 匹配4科循环2轮的模式
-                    SUBSTRING_INDEX(subject_sequence, ',', 4),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 8), ',', -4),
-                    '%'
-                )
-            )
-        GROUP BY vs.student_id, vs.total_hours, vs.subject_sequence
-    ),
-    -- 第六步：拼接学生基本信息，并过滤掉循环长度小于3的结果
-    final_output AS (
-        SELECT
-            s.student_id,
-            s.student_name,
-            s.major,
-            pd.cycle_length,
-            pd.total_hours AS total_study_hours
-        FROM
-            pattern_detected pd
-            JOIN students s ON s.student_id = pd.student_id
-        WHERE pd.cycle_length >= 3
+            session_groups g
+            JOIN group_stats gs ON gs.student_id = g.student_id AND gs.group_id = g.group_id
     )
--- 第七步：输出结果，并按循环长度和总学习时长降序排列
-SELECT *
-FROM final_output
-ORDER BY cycle_length DESC, total_study_hours DESC;
+SELECT
+    s.student_id,
+    s.student_name,
+    s.major,
+    n.cycle_length,
+    n.total_hours AS total_study_hours
+FROM
+    numbered_sessions n
+    JOIN students s ON s.student_id = n.student_id
+WHERE
+    n.session_index = 1
+    AND NOT EXISTS (
+        SELECT 1
+        FROM
+            numbered_sessions cur
+            JOIN numbered_sessions cyc
+                ON cyc.student_id = cur.student_id
+                AND cyc.group_id = cur.group_id
+                AND cyc.session_index = (cur.session_index - 1) % n.cycle_length + 1
+        WHERE
+            cur.student_id = n.student_id
+            AND cur.group_id = n.group_id
+            AND NOT (cur.subject <=> cyc.subject)
+    )
+ORDER BY n.cycle_length DESC, n.total_hours DESC;
 ```
 
 #### Pandas
@@ -350,16 +291,17 @@ from datetime import timedelta
 def find_study_spiral_pattern(
     students: pd.DataFrame, study_sessions: pd.DataFrame
 ) -> pd.DataFrame:
+    # Convert session_date to datetime
     study_sessions["session_date"] = pd.to_datetime(study_sessions["session_date"])
 
     result = []
 
+    # Group study sessions by student
     for student_id, group in study_sessions.groupby("student_id"):
-        # 按日期排序
-        group = group.sort_values("session_date").reset_index(drop=True)
+        # Sort sessions by date, then by session id when dates tie
+        group = group.sort_values(["session_date", "session_id"]).reset_index(drop=True)
 
-        # 用于记录当前连续段
-        temp = []
+        temp = []  # Holds current contiguous segment
         last_date = None
 
         for idx, row in group.iterrows():
@@ -370,17 +312,17 @@ def find_study_spiral_pattern(
                 if delta <= 2:
                     temp.append(row)
                 else:
-                    # 处理之前的连续段
+                    # Check the previous contiguous segment
                     if len(temp) >= 6:
                         _check_pattern(student_id, temp, result)
                     temp = [row]
             last_date = row["session_date"]
 
-        # 最后一个连续段
+        # Check the final segment
         if len(temp) >= 6:
             _check_pattern(student_id, temp, result)
 
-    # 构造结果 DataFrame
+    # Build result DataFrame
     df_result = pd.DataFrame(
         result, columns=["student_id", "cycle_length", "total_study_hours"]
     )
@@ -396,7 +338,7 @@ def find_study_spiral_pattern(
             ]
         )
 
-    # 合并 student_name 和 major
+    # Join with students table to get name and major
     df_result = df_result.merge(students, on="student_id")
 
     df_result = df_result[
@@ -413,24 +355,22 @@ def _check_pattern(student_id, sessions, result):
     hours = sum(row["hours_studied"] for row in sessions)
 
     n = len(subjects)
-    for cycle_len in range(3, n // 2 + 1):
-        if n % cycle_len != 0:
-            continue
-        first_cycle = subjects[:cycle_len]
-        is_pattern = True
-        for i in range(1, n // cycle_len):
-            if subjects[i * cycle_len : (i + 1) * cycle_len] != first_cycle:
-                is_pattern = False
-                break
-        if is_pattern:
-            result.append(
-                {
-                    "student_id": student_id,
-                    "cycle_length": cycle_len,
-                    "total_study_hours": hours,
-                }
-            )
-            break  # 只记录最长周期的第一个匹配
+    # Cycle length is the number of distinct subjects, not an arbitrary divisor.
+    cycle_len = len(set(subjects))
+    if cycle_len < 3 or n < cycle_len * 2 or n % cycle_len != 0:
+        return
+
+    first_cycle = subjects[:cycle_len]
+    if subjects != first_cycle * (n // cycle_len):
+        return
+
+    result.append(
+        {
+            "student_id": student_id,
+            "cycle_length": cycle_len,
+            "total_study_hours": hours,
+        }
+    )
 ```
 
 <!-- tabs:end -->

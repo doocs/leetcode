@@ -3,12 +3,13 @@ WITH
     ranked_sessions AS (
         SELECT
             s.student_id,
+            ss.session_id,
             ss.session_date,
             ss.subject,
             ss.hours_studied,
             ROW_NUMBER() OVER (
                 PARTITION BY s.student_id
-                ORDER BY ss.session_date
+                ORDER BY ss.session_date, ss.session_id
             ) AS rn
         FROM
             study_sessions ss
@@ -21,7 +22,7 @@ WITH
                 session_date,
                 LAG(session_date) OVER (
                     PARTITION BY student_id
-                    ORDER BY session_date
+                    ORDER BY session_date, session_id
                 )
             ) AS date_diff
         FROM ranked_sessions
@@ -37,114 +38,61 @@ WITH
                 END
             ) OVER (
                 PARTITION BY student_id
-                ORDER BY session_date
+                ORDER BY session_date, session_id
             ) AS group_id
         FROM grouped_sessions
     ),
-    valid_sequences AS (
+    group_stats AS (
         SELECT
             student_id,
             group_id,
             COUNT(*) AS session_count,
-            GROUP_CONCAT(subject ORDER BY session_date) AS subject_sequence,
+            COUNT(DISTINCT subject) AS cycle_length,
             SUM(hours_studied) AS total_hours
         FROM session_groups
         GROUP BY student_id, group_id
-        HAVING session_count >= 6
+        HAVING
+            cycle_length >= 3
+            AND session_count >= cycle_length * 2
+            AND session_count % cycle_length = 0
     ),
-    pattern_detected AS (
+    numbered_sessions AS (
         SELECT
-            vs.student_id,
-            vs.total_hours,
-            vs.subject_sequence,
-            COUNT(
-                DISTINCT
-                SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', n), ',', -1)
-            ) AS cycle_length
+            g.student_id,
+            g.group_id,
+            g.subject,
+            gs.cycle_length,
+            gs.total_hours,
+            ROW_NUMBER() OVER (
+                PARTITION BY g.student_id, g.group_id
+                ORDER BY g.session_date, g.session_id
+            ) AS session_index
         FROM
-            valid_sequences vs
-            JOIN (
-                SELECT a.N + b.N * 10 + 1 AS n
-                FROM
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) a,
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) b
-            ) nums
-                ON n <= 10
-        WHERE
-            -- Check if the sequence repeats every `k` items, for some `k >= 3` and divides session_count exactly
-            -- We simplify by checking the start and middle halves are equal
-            LENGTH(subject_sequence) > 0
-            AND LOCATE(',', subject_sequence) > 0
-            AND (
-                -- For cycle length 3:
-                subject_sequence LIKE CONCAT(
-                    SUBSTRING_INDEX(subject_sequence, ',', 3),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 6), ',', -3),
-                    '%'
-                )
-                OR subject_sequence LIKE CONCAT(
-                    -- For cycle length 4:
-                    SUBSTRING_INDEX(subject_sequence, ',', 4),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 8), ',', -4),
-                    '%'
-                )
-            )
-        GROUP BY vs.student_id, vs.total_hours, vs.subject_sequence
-    ),
-    final_output AS (
-        SELECT
-            s.student_id,
-            s.student_name,
-            s.major,
-            pd.cycle_length,
-            pd.total_hours AS total_study_hours
-        FROM
-            pattern_detected pd
-            JOIN students s ON s.student_id = pd.student_id
-        WHERE pd.cycle_length >= 3
+            session_groups g
+            JOIN group_stats gs ON gs.student_id = g.student_id AND gs.group_id = g.group_id
     )
-SELECT *
-FROM final_output
-ORDER BY cycle_length DESC, total_study_hours DESC;
+SELECT
+    s.student_id,
+    s.student_name,
+    s.major,
+    n.cycle_length,
+    n.total_hours AS total_study_hours
+FROM
+    numbered_sessions n
+    JOIN students s ON s.student_id = n.student_id
+WHERE
+    n.session_index = 1
+    AND NOT EXISTS (
+        SELECT 1
+        FROM
+            numbered_sessions cur
+            JOIN numbered_sessions cyc
+                ON cyc.student_id = cur.student_id
+                AND cyc.group_id = cur.group_id
+                AND cyc.session_index = (cur.session_index - 1) % n.cycle_length + 1
+        WHERE
+            cur.student_id = n.student_id
+            AND cur.group_id = n.group_id
+            AND NOT (cur.subject <=> cyc.subject)
+    )
+ORDER BY n.cycle_length DESC, n.total_hours DESC;

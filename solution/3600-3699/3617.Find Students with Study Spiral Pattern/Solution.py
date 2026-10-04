@@ -12,8 +12,8 @@ def find_study_spiral_pattern(
 
     # Group study sessions by student
     for student_id, group in study_sessions.groupby("student_id"):
-        # Sort sessions by date
-        group = group.sort_values("session_date").reset_index(drop=True)
+        # Sort sessions by date, then by session id when dates tie
+        group = group.sort_values(["session_date", "session_id"]).reset_index(drop=True)
 
         temp = []  # Holds current contiguous segment
         last_date = None
@@ -69,29 +69,19 @@ def _check_pattern(student_id, sessions, result):
     hours = sum(row["hours_studied"] for row in sessions)
 
     n = len(subjects)
+    # Cycle length is the number of distinct subjects, not an arbitrary divisor.
+    cycle_len = len(set(subjects))
+    if cycle_len < 3 or n < cycle_len * 2 or n % cycle_len != 0:
+        return
 
-    # Try possible cycle lengths from 3 up to half of the sequence
-    for cycle_len in range(3, n // 2 + 1):
-        if n % cycle_len != 0:
-            continue
+    first_cycle = subjects[:cycle_len]
+    if subjects != first_cycle * (n // cycle_len):
+        return
 
-        # Extract the first cycle
-        first_cycle = subjects[:cycle_len]
-        is_pattern = True
-
-        # Compare each following cycle with the first
-        for i in range(1, n // cycle_len):
-            if subjects[i * cycle_len : (i + 1) * cycle_len] != first_cycle:
-                is_pattern = False
-                break
-
-        # If a repeated cycle is detected, store the result
-        if is_pattern:
-            result.append(
-                {
-                    "student_id": student_id,
-                    "cycle_length": cycle_len,
-                    "total_study_hours": hours,
-                }
-            )
-            break  # Stop at the first valid cycle found
+    result.append(
+        {
+            "student_id": student_id,
+            "cycle_length": cycle_len,
+            "total_study_hours": hours,
+        }
+    )
