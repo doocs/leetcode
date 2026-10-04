@@ -5,6 +5,6 @@ class Solution:
             local, domain = email.split("@")
             local = local.split("+")[0].replace(".", "").lower()
             domain = domain.lower()
-            normalized = local + domain
+            normalized = local + "@" + domain
             st.add(normalized)
         return len(st)

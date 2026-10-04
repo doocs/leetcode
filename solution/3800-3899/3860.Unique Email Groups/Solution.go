@@ -14,7 +14,7 @@ func uniqueEmailGroups(emails []string) int {
 		local = strings.ToLower(local)
 		domain = strings.ToLower(domain)
 
-		normalized := local + domain
+		normalized := local + "@" + domain
 		st[normalized] = struct{}{}
 	}
 

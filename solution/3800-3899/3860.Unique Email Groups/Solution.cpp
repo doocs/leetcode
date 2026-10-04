@@ -24,7 +24,7 @@ public:
                 c = tolower(c);
             }
 
-            st.insert(cleaned + domain);
+            st.insert(cleaned + "@" + domain);
         }
 
         return st.size();

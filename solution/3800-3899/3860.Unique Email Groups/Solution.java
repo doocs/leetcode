@@ -15,7 +15,7 @@ class Solution {
             local = local.replace(".", "").toLowerCase();
             domain = domain.toLowerCase();
 
-            String normalized = local + domain;
+            String normalized = local + "@" + domain;
             st.add(normalized);
         }
 
