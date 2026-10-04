@@ -226,7 +226,7 @@ def analyze_organization_hierarchy(employees: pd.DataFrame) -> pd.DataFrame:
     budget = {eid: salary for eid, salary in zip(employees['employee_id'], employees['salary'])}
 
     # Compute team size and budget for each employee
-    for eid in sorted(employees['employee_id'], reverse=True):
+    for eid in employees.sort_values('level', ascending=False)['employee_id']:
         manager_id = employees.loc[employees['employee_id'] == eid, 'manager_id'].values[0]
         if pd.notna(manager_id):
             team_size[manager_id] += team_size[eid] + 1

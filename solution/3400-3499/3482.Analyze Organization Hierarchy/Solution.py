@@ -28,7 +28,7 @@ def analyze_organization_hierarchy(employees: pd.DataFrame) -> pd.DataFrame:
     }
 
     # Compute team size and budget for each employee
-    for eid in sorted(employees["employee_id"], reverse=True):
+    for eid in employees.sort_values("level", ascending=False)["employee_id"]:
         manager_id = employees.loc[
             employees["employee_id"] == eid, "manager_id"
         ].values[0]
