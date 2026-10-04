@@ -148,7 +148,7 @@ public:
         }
         int k = 1e9;
         for (auto& [_, v] : cnt) {
-            ans = min(ans, v);
+            k = min(k, v);
         }
         for (;; --k) {
             int ans = 0;
