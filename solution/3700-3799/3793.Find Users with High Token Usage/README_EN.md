@@ -139,7 +139,7 @@ SELECT
     ROUND(AVG(tokens), 2) AS avg_tokens
 FROM prompts
 GROUP BY user_id
-HAVING prompt_count >= 3 AND MAX(tokens) > avg_tokens
+HAVING prompt_count >= 3 AND MAX(tokens) > AVG(tokens)
 ORDER BY avg_tokens DESC, user_id;
 ```
 
@@ -156,9 +156,8 @@ def find_users_with_high_tokens(prompts: pd.DataFrame) -> pd.DataFrame:
         max_tokens=("tokens", "max"),
     )
 
-    df["avg_tokens"] = df["avg_tokens"].round(2)
-
     df = df[(df["prompt_count"] >= 3) & (df["max_tokens"] > df["avg_tokens"])]
+    df["avg_tokens"] = df["avg_tokens"].round(2)
 
     df = (
         df.sort_values(["avg_tokens", "user_id"], ascending=[False, True])
