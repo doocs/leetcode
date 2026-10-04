@@ -168,9 +168,11 @@ session_id 是这张表的唯一主键。
 
 > **思考**
 >
-> 若把周期长度理解成段长的任意约数，A、B、A、C 重复两轮会被记成 $4$，但这段只有 $3$ 门不同的课，与题目对周期长度的定义不符。连续段必须先按日期排好，间隔大于 $2$ 天就断开，同一天的场次再按 $\textit{session\_id}$ 区分先后。
+> 若把周期长度理解成段长的任意约数，A、B、A、C 重复两轮会被记成 $4$，但这段只有 $3$ 门不同的课，与题目对周期长度的定义不符。
 >
-> 周期长度应取该段不同科目的个数 $k$。仅当 $k\ge 3$、段长不少于 $2k$ 且能被 $k$ 整除时，才可能构成至少两轮完整循环。
+> 间隔约束作用在该学生按时间排好的全部记录上。相邻两次学习只要有一次间隔大于 $2$ 天，这些记录就不是一段连续日期；同一天的场次再按 $\textit{session\_id}$ 区分先后。前面隔开很久的一节课，不能把后面碰巧重复的科目单独截出来当作螺旋。
+>
+> 整段都连续时，周期长度取不同科目的个数 $k$。仅当 $k\ge 3$、记录数不少于 $2k$ 且能被 $k$ 整除时，才可能构成至少两轮完整循环。
 >
 > 此时比较每个位置是否等于首轮中的对应科目。整段都由这 $k$ 门课按原顺序重复，才记下周期长度与总学时，再与学生表连接，按周期长度、总学时降序输出。
 
@@ -185,144 +187,97 @@ session_id 是这张表的唯一主键。
 WITH
     ranked_sessions AS (
         SELECT
-            s.student_id,
+            ss.student_id,
             ss.session_id,
             ss.session_date,
             ss.subject,
             ss.hours_studied,
-            ROW_NUMBER() OVER (
-                PARTITION BY s.student_id
-                ORDER BY ss.session_date, ss.session_id
-            ) AS rn
-        FROM
-            study_sessions ss
-            JOIN students s ON s.student_id = ss.student_id
-    ),
-    grouped_sessions AS (
-        SELECT
-            *,
             DATEDIFF(
-                session_date,
-                LAG(session_date) OVER (
-                    PARTITION BY student_id
-                    ORDER BY session_date, session_id
+                ss.session_date,
+                LAG(ss.session_date) OVER (
+                    PARTITION BY ss.student_id
+                    ORDER BY ss.session_date, ss.session_id
                 )
-            ) AS date_diff
-        FROM ranked_sessions
+            ) AS date_diff,
+            ROW_NUMBER() OVER (
+                PARTITION BY ss.student_id
+                ORDER BY ss.session_date, ss.session_id
+            ) AS session_index
+        FROM study_sessions ss
     ),
-    session_groups AS (
-        SELECT
-            *,
+    contiguous_students AS (
+        SELECT student_id
+        FROM ranked_sessions
+        GROUP BY student_id
+        HAVING
             SUM(
                 CASE
-                    WHEN date_diff > 2
-                    OR date_diff IS NULL THEN 1
+                    WHEN date_diff > 2 THEN 1
                     ELSE 0
                 END
-            ) OVER (
-                PARTITION BY student_id
-                ORDER BY session_date, session_id
-            ) AS group_id
-        FROM grouped_sessions
+            ) = 0
     ),
-    group_stats AS (
+    student_stats AS (
         SELECT
-            student_id,
-            group_id,
+            r.student_id,
             COUNT(*) AS session_count,
-            COUNT(DISTINCT subject) AS cycle_length,
-            SUM(hours_studied) AS total_hours
-        FROM session_groups
-        GROUP BY student_id, group_id
+            COUNT(DISTINCT r.subject) AS cycle_length,
+            SUM(r.hours_studied) AS total_hours
+        FROM
+            ranked_sessions r
+            JOIN contiguous_students c ON c.student_id = r.student_id
+        GROUP BY r.student_id
         HAVING
             cycle_length >= 3
             AND session_count >= cycle_length * 2
             AND session_count % cycle_length = 0
-    ),
-    numbered_sessions AS (
-        SELECT
-            g.student_id,
-            g.group_id,
-            g.subject,
-            gs.cycle_length,
-            gs.total_hours,
-            ROW_NUMBER() OVER (
-                PARTITION BY g.student_id, g.group_id
-                ORDER BY g.session_date, g.session_id
-            ) AS session_index
-        FROM
-            session_groups g
-            JOIN group_stats gs ON gs.student_id = g.student_id AND gs.group_id = g.group_id
     )
 SELECT
     s.student_id,
     s.student_name,
     s.major,
-    n.cycle_length,
-    n.total_hours AS total_study_hours
+    st.cycle_length,
+    st.total_hours AS total_study_hours
 FROM
-    numbered_sessions n
-    JOIN students s ON s.student_id = n.student_id
+    student_stats st
+    JOIN students s ON s.student_id = st.student_id
 WHERE
-    n.session_index = 1
-    AND NOT EXISTS (
+    NOT EXISTS (
         SELECT 1
         FROM
-            numbered_sessions cur
-            JOIN numbered_sessions cyc
+            ranked_sessions cur
+            JOIN ranked_sessions cyc
                 ON cyc.student_id = cur.student_id
-                AND cyc.group_id = cur.group_id
-                AND cyc.session_index = (cur.session_index - 1) % n.cycle_length + 1
-        WHERE
-            cur.student_id = n.student_id
-            AND cur.group_id = n.group_id
-            AND NOT (cur.subject <=> cyc.subject)
+                AND cyc.session_index = (cur.session_index - 1) % st.cycle_length + 1
+        WHERE cur.student_id = st.student_id AND NOT (cur.subject <=> cyc.subject)
     )
-ORDER BY n.cycle_length DESC, n.total_hours DESC;
+ORDER BY st.cycle_length DESC, st.total_hours DESC;
 ```
 
 #### Pandas
 
 ```python
 import pandas as pd
-from datetime import timedelta
 
 
 def find_study_spiral_pattern(
     students: pd.DataFrame, study_sessions: pd.DataFrame
 ) -> pd.DataFrame:
-    # Convert session_date to datetime
+    study_sessions = study_sessions.copy()
     study_sessions["session_date"] = pd.to_datetime(study_sessions["session_date"])
 
     result = []
 
-    # Group study sessions by student
     for student_id, group in study_sessions.groupby("student_id"):
-        # Sort sessions by date, then by session id when dates tie
         group = group.sort_values(["session_date", "session_id"]).reset_index(drop=True)
+        # One gap longer than two days breaks the whole record. A later fragment
+        # is not a separate spiral.
+        if len(group) >= 2:
+            gaps = group["session_date"].diff().dt.days.iloc[1:]
+            if (gaps > 2).any():
+                continue
+        _check_pattern(student_id, [row for _, row in group.iterrows()], result)
 
-        temp = []  # Holds current contiguous segment
-        last_date = None
-
-        for idx, row in group.iterrows():
-            if not temp:
-                temp.append(row)
-            else:
-                delta = (row["session_date"] - last_date).days
-                if delta <= 2:
-                    temp.append(row)
-                else:
-                    # Check the previous contiguous segment
-                    if len(temp) >= 6:
-                        _check_pattern(student_id, temp, result)
-                    temp = [row]
-            last_date = row["session_date"]
-
-        # Check the final segment
-        if len(temp) >= 6:
-            _check_pattern(student_id, temp, result)
-
-    # Build result DataFrame
     df_result = pd.DataFrame(
         result, columns=["student_id", "cycle_length", "total_study_hours"]
     )
@@ -338,9 +293,7 @@ def find_study_spiral_pattern(
             ]
         )
 
-    # Join with students table to get name and major
     df_result = df_result.merge(students, on="student_id")
-
     df_result = df_result[
         ["student_id", "student_name", "major", "cycle_length", "total_study_hours"]
     ]
