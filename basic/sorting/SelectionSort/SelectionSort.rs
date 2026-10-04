@@ -1,6 +1,6 @@
 fn selection_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
-    for i in 0..n - 1 {
+    for i in 0..n.saturating_sub(1) {
         let mut min_index = i;
         for j in i..n {
             if nums[j] < nums[min_index] {

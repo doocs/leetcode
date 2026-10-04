@@ -3,13 +3,13 @@ fn shell_sort(nums: &mut Vec<i32>) {
     let mut gap = n / 2;
     while gap > 0 {
         for i in gap..n {
-            let mut j = i - gap;
+            let mut j = i;
             let temp = nums[i];
-            while j >= (0 as usize) && nums[j] > temp {
-                nums[j + gap] = nums[j];
+            while j >= gap && nums[j - gap] > temp {
+                nums[j] = nums[j - gap];
                 j -= gap;
             }
-            nums[j + gap] = temp;
+            nums[j] = temp;
         }
         gap /= 2;
     }

@@ -132,13 +132,13 @@ func main() {
 fn insertion_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
     for i in 1..n {
-        let mut j = i - 1;
+        let mut j = i;
         let temp = nums[i];
-        while j >= (0 as usize) && nums[j] > temp {
-            nums[j + 1] = nums[j];
+        while j > 0 && nums[j - 1] > temp {
+            nums[j] = nums[j - 1];
             j -= 1;
         }
-        nums[j + 1] = temp;
+        nums[j] = temp;
     }
 }
 
