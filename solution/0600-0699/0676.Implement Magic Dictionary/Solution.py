@@ -1,26 +1,30 @@
 class Trie:
-    __slots__ = ["children", "is_end"]
+    __slots__ = "children", "is_end"
 
     def __init__(self):
-        self.children = {}
+        self.children: List[Optional[Trie]] = [None] * 26
         self.is_end = False
 
     def insert(self, w: str) -> None:
         node = self
         for c in w:
-            if c not in node.children:
-                node.children[c] = Trie()
-            node = node.children[c]
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
         node.is_end = True
 
     def search(self, w: str) -> bool:
-        def dfs(i: int, node: Trie, diff: int) -> bool:
+        def dfs(i: int, node: Optional[Trie], diff: int) -> bool:
             if i == len(w):
                 return diff == 1 and node.is_end
-            if w[i] in node.children and dfs(i + 1, node.children[w[i]], diff):
+            j = ord(w[i]) - ord("a")
+            if node.children[j] and dfs(i + 1, node.children[j], diff):
                 return True
             return diff == 0 and any(
-                dfs(i + 1, node.children[c], 1) for c in node.children if c != w[i]
+                node.children[k] and dfs(i + 1, node.children[k], 1)
+                for k in range(26)
+                if k != j
             )
 
         return dfs(0, self, 0)

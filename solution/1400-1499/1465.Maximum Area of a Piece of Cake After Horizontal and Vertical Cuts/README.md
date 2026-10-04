@@ -90,7 +90,7 @@ tags:
 
 注意要考虑边界情况，即 `horizontalCuts` 和 `verticalCuts` 的首尾元素。
 
-时间复杂度 $O(m\log m + n\log n)$，空间复杂度 $(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 `horizontalCuts` 和 `verticalCuts` 的长度。
+时间复杂度 $O(m\log m + n\log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 `horizontalCuts` 和 `verticalCuts` 的长度。
 
 <!-- tabs:start -->
 

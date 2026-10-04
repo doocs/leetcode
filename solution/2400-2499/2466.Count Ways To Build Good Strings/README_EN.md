@@ -211,7 +211,9 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 > **Thinking**
 >
-> Method 1 recurses on the current length. Let $f[i]$ be ways to reach length $i$, $f[0]=1$, from $f[i-zero]$ and $f[i-one]$, then sum $f$ on $[low,high]$. No recursion stack.
+> Method 1 fills a suffix table from length $high$. The same strings can be counted by the ways to reach each length: $f[0]=1$, add $f[i-zero]$ and $f[i-one]$, then sum $f$ on $[low,high]$.
+>
+> Fill left to right. Time stays $O(n)$.
 
 <!-- thinking:end -->
 
@@ -261,6 +263,121 @@ function countGoodStrings(low, high, zero, one) {
     const ans = f.slice(low, high + 1).reduce((acc, cur) => acc + cur, 0);
 
     return ans % mod;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step appends $zero$ zeros or $one$ ones, and a string is good when its length lies in $[low,high]$. $high \le 10^5$, so a decision tree over appends repeats many lengths.
+>
+> The shorter step is taken first. Both steps are at least $1$, so that call always moves to a larger length, and the chain can have length $high$ and overflow the stack.
+>
+> Longer lengths are known if we walk downward. Let $f[i]$ be the number of good strings when the length is already $i$: count $1$ inside the range, then add $f[i+zero]$ and $f[i+one]$, treating anything past $high$ as $0$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the number of good strings that can be built when the current length is already $i$. The answer is $f[0]$. Lengths past $high$ contribute $0$.
+
+Fill $i$ from $high$ down to $0$. If $low \le i \le high$, the current string is already good, so start from $1$. Then add $f[i + zero]$ and $f[i + one]$; an index past $high$ contributes $0$. Reduce each value modulo $10^9 + 7$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = high$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countGoodStrings(self, low: int, high: int, zero: int, one: int) -> int:
+        mod = 10**9 + 7
+        f = [0] * (high + 1)
+        for i in range(high, -1, -1):
+            ans = int(low <= i <= high)
+            if i + zero <= high:
+                ans += f[i + zero]
+            if i + one <= high:
+                ans += f[i + one]
+            f[i] = ans % mod
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countGoodStrings(int low, int high, int zero, int one) {
+        int[] f = new int[high + 1];
+        for (int i = high; i >= 0; --i) {
+            long ans = i >= low && i <= high ? 1 : 0;
+            if (i + zero <= high) {
+                ans += f[i + zero];
+            }
+            if (i + one <= high) {
+                ans += f[i + one];
+            }
+            f[i] = (int) (ans % MOD);
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countGoodStrings(int low, int high, int zero, int one) {
+        vector<int> f(high + 1);
+        for (int i = high; i >= 0; --i) {
+            long ans = i >= low && i <= high;
+            if (i + zero <= high) {
+                ans += f[i + zero];
+            }
+            if (i + one <= high) {
+                ans += f[i + one];
+            }
+            f[i] = ans % mod;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func countGoodStrings(low int, high int, zero int, one int) int {
+	const mod int = 1e9 + 7
+	f := make([]int, high+1)
+	for i := high; i >= 0; i-- {
+		ans := 0
+		if i >= low && i <= high {
+			ans++
+		}
+		if i+zero <= high {
+			ans += f[i+zero]
+		}
+		if i+one <= high {
+			ans += f[i+one]
+		}
+		f[i] = ans % mod
+	}
+	return f[0]
 }
 ```
 

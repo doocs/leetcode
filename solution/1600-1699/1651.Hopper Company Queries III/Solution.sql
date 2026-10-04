@@ -21,11 +21,17 @@ WITH RECURSIVE
 SELECT
     month,
     ROUND(
-        AVG(ride_distance) OVER (ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING),
+        AVG(ride_distance) OVER (
+            ORDER BY month
+            ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING
+        ),
         2
     ) AS average_ride_distance,
     ROUND(
-        AVG(ride_duration) OVER (ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING),
+        AVG(ride_duration) OVER (
+            ORDER BY month
+            ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING
+        ),
         2
     ) AS average_ride_duration
 FROM Ride

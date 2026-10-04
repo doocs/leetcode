@@ -198,6 +198,7 @@ function pivotArray(nums: number[], pivot: number): number[] {
             ans.push(x);
         }
     }
+    for (const x of nums) {
         if (x === pivot) {
             ans.push(x);
         }

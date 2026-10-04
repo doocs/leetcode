@@ -17,8 +17,8 @@ public:
             for (int i = 0; i < m; ++i) {
                 ans[idx[i]] = left + right;
                 if (i + 1 < m) {
-                    left += (idx[i + 1] - idx[i]) * (i + 1);
-                    right -= (idx[i + 1] - idx[i]) * (m - i - 1);
+                    left += (idx[i + 1] - idx[i]) * 1LL * (i + 1);
+                    right -= (idx[i + 1] - idx[i]) * 1LL * (m - i - 1);
                 }
             }
         }

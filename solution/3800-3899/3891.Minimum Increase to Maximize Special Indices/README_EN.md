@@ -288,4 +288,125 @@ function minIncrease(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special index is a strict peak. We may only add $1$, first making as many peaks as possible and then minimizing the total added. $n$ can reach $10^5$, and every raise enters $\mathrm{dfs}(i+2, j)$ first, so that chain is about $n/2$ deep and exceeds the default recursion limit.
+>
+> Peaks cannot be adjacent. An odd length can take every odd index; an even length must skip exactly one index in $[1, n-2]$. The cost at a position depends only on its two neighbors, and later choices do not change it.
+>
+> Let $f[i][j]$ be the minimum cost starting at index $i$ with $j$ skips left. Cells with $i \ge n-1$ are $0$. Raising the current index adds its cost and moves to $i+2$; if $j>0$, we may instead move to $i+1$ and spend the skip. Every dependency has a larger index, so $i$ runs from $n-2$ down to $1$. The answer is $f[1][(n \bmod 2) \oplus 1]$.
+
+<!-- thinking:end -->
+
+We observe that if the array length is odd, then increasing all elements at odd indices so that each is $1$ greater than both adjacent elements yields the maximum possible number of special indices. If the array length is even, then among indices in the range $[1, n - 2]$, we skip exactly one index, and for the remaining indices, increase every other element so that each is $1$ greater than both adjacent elements; this also yields the maximum possible number of special indices.
+
+Let $f[i][j]$ be the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ skips remaining. When $i \ge n - 1$, $f[i][j] = 0$.
+
+For $i$ from $n - 2$ down to $1$, first compute the cost of raising $nums[i]$ so that it is $1$ greater than both neighbors:
+
+$$
+cost = \max(0, \max(nums[i - 1], nums[i + 1]) + 1 - nums[i]).
+$$
+
+Raising this index costs $cost + f[i + 2][j]$. If $j > 0$, we may instead take $f[i + 1][0]$, and keep the smaller of the two.
+
+The answer is $f[1][(n \bmod 2) \oplus 1]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minIncrease(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [[0, 0] for _ in range(n + 1)]
+        for i in range(n - 2, 0, -1):
+            cost = max(0, max(nums[i - 1], nums[i + 1]) + 1 - nums[i])
+            f[i][0] = cost + f[i + 2][0]
+            f[i][1] = min(cost + f[i + 2][1], f[i + 1][0])
+        return f[1][n & 1 ^ 1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long minIncrease(int[] nums) {
+        int n = nums.length;
+        long[][] f = new long[n + 1][2];
+        for (int i = n - 2; i >= 1; --i) {
+            int cost = Math.max(0, Math.max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+            f[i][0] = cost + f[i + 2][0];
+            f[i][1] = Math.min(cost + f[i + 2][1], f[i + 1][0]);
+        }
+        return f[1][(n & 1) ^ 1];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long minIncrease(vector<int>& nums) {
+        int n = nums.size();
+        vector<array<long long, 2>> f(n + 1);
+        for (int i = n - 2; i >= 1; --i) {
+            long long cost = max(0, max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+            f[i][0] = cost + f[i + 2][0];
+            f[i][1] = min(cost + f[i + 2][1], f[i + 1][0]);
+        }
+        return f[1][(n & 1) ^ 1];
+    }
+};
+```
+
+#### Go
+
+```go
+func minIncrease(nums []int) int64 {
+	n := len(nums)
+	f := make([][2]int64, n+1)
+	for i := n - 2; i >= 1; i-- {
+		cost := int64(max(0, max(nums[i-1], nums[i+1])+1-nums[i]))
+		f[i][0] = cost + f[i+2][0]
+		t := cost + f[i+2][1]
+		if f[i+1][0] < t {
+			t = f[i+1][0]
+		}
+		f[i][1] = t
+	}
+	return f[1][(n&1)^1]
+}
+```
+
+#### TypeScript
+
+```ts
+function minIncrease(nums: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => [0, 0]);
+    for (let i = n - 2; i >= 1; --i) {
+        const cost = Math.max(0, Math.max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+        f[i][0] = cost + f[i + 2][0];
+        f[i][1] = Math.min(cost + f[i + 2][1], f[i + 1][0]);
+    }
+    return f[1][(n & 1) ^ 1];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

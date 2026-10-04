@@ -317,7 +317,7 @@ func countRestrictedPaths(n int, edges [][]int) int {
 
 > **思考**
 >
-> 方法一用记忆化沿距离下降边搜索。也可按 $\textit{dist}$ 升序递推路径数：距离更小的点先算完，再更新指向它的点。消除递归，结果相同。
+> 方法一已经按 $\textit{dist}$ 升序把方案数递推完。本节是同一递推，距离更小的点先算完，再累加到距离更大的邻居上，结果相同。
 
 <!-- thinking:end -->
 
@@ -403,6 +403,226 @@ class Solution {
         }
         return f[1];
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：堆优化 Dijkstra + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 限制路径要求沿途到 $n$ 的最短路严格下降。若对每个点记忆化搜索，只走向距离更小的邻居，一条 $n$ 个点的链会把调用栈拉到 $2\times 10^4$，超出递归上限。
+>
+> 瓶颈在这条下降链本身：每一步都进入尚未算完的更近点，搜索深度与 $n$ 同阶。
+>
+> 这些下降边构成有向无环图，点 $i$ 的方案数只依赖距离严格更小的邻居。
+>
+> 因此先从 $n$ 做堆优化 Dijkstra 得到 $\textit{dist}$，再把节点按 $\textit{dist}$ 升序处理。令 $f[n]=1$，对其余点把已算完的 $f[j]$ 加进来，并对 $10^9+7$ 取模。距离更小的点排在前面，依赖在累加时已经就绪。
+
+<!-- thinking:end -->
+
+先从 $n$ 做堆优化 Dijkstra，再按到 $n$ 的最短路从小到大递推限制路径数，并对 $10^9+7$ 取模。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+        g = defaultdict(list)
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        dist = [inf] * (n + 1)
+        dist[n] = 0
+        q = [(0, n)]
+        mod = 10**9 + 7
+        while q:
+            _, u = heappop(q)
+            for v, w in g[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    heappush(q, (dist[v], v))
+        arr = list(range(1, n + 1))
+        arr.sort(key=lambda i: dist[i])
+        f = [0] * (n + 1)
+        f[n] = 1
+        for i in arr:
+            for j, _ in g[i]:
+                if dist[i] > dist[j]:
+                    f[i] = (f[i] + f[j]) % mod
+        return f[1]
+```
+
+#### Java
+
+```java
+class Solution {
+    private static final int INF = Integer.MAX_VALUE;
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countRestrictedPaths(int n, int[][] edges) {
+        List<int[]>[] g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
+        }
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        q.offer(new int[] {0, n});
+        int[] dist = new int[n + 1];
+        Arrays.fill(dist, INF);
+        dist[n] = 0;
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int u = p[1];
+            for (int[] ne : g[u]) {
+                int v = ne[0], w = ne[1];
+                if (dist[v] > dist[u] + w) {
+                    dist[v] = dist[u] + w;
+                    q.offer(new int[] {dist[v], v});
+                }
+            }
+        }
+        int[] f = new int[n + 1];
+        f[n] = 1;
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = i + 1;
+        }
+        Arrays.sort(arr, (i, j) -> dist[i] - dist[j]);
+        for (int i : arr) {
+            for (int[] ne : g[i]) {
+                int j = ne[0];
+                if (dist[i] > dist[j]) {
+                    f[i] = (f[i] + f[j]) % MOD;
+                }
+            }
+        }
+        return f[1];
+    }
+}
+```
+
+#### C++
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    int countRestrictedPaths(int n, vector<vector<int>>& edges) {
+        const int inf = INT_MAX;
+        const int mod = 1e9 + 7;
+        vector<vector<pii>> g(n + 1);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].emplace_back(v, w);
+            g[v].emplace_back(u, w);
+        }
+        vector<int> dist(n + 1, inf);
+        dist[n] = 0;
+        priority_queue<pii, vector<pii>, greater<pii>> q;
+        q.emplace(0, n);
+        while (!q.empty()) {
+            auto [_, u] = q.top();
+            q.pop();
+            for (auto [v, w] : g[u]) {
+                if (dist[v] > dist[u] + w) {
+                    dist[v] = dist[u] + w;
+                    q.emplace(dist[v], v);
+                }
+            }
+        }
+        vector<int> order(n);
+        iota(order.begin(), order.end(), 1);
+        sort(order.begin(), order.end(), [&](int a, int b) { return dist[a] < dist[b]; });
+        vector<int> f(n + 1);
+        f[n] = 1;
+        for (int i : order) {
+            for (auto [j, _] : g[i]) {
+                if (dist[i] > dist[j]) {
+                    f[i] = (f[i] + f[j]) % mod;
+                }
+            }
+        }
+        return f[1];
+    }
+};
+```
+
+#### Go
+
+```go
+const inf = math.MaxInt32
+const mod = 1e9 + 7
+
+type pair struct {
+	first  int
+	second int
+}
+
+var _ heap.Interface = (*pairs)(nil)
+
+type pairs []pair
+
+func (a pairs) Len() int { return len(a) }
+func (a pairs) Less(i int, j int) bool {
+	return a[i].first < a[j].first || a[i].first == a[j].first && a[i].second < a[j].second
+}
+func (a pairs) Swap(i int, j int) { a[i], a[j] = a[j], a[i] }
+func (a *pairs) Push(x any)       { *a = append(*a, x.(pair)) }
+func (a *pairs) Pop() any         { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
+
+func countRestrictedPaths(n int, edges [][]int) int {
+	g := make([]pairs, n+1)
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]
+		g[u] = append(g[u], pair{v, w})
+		g[v] = append(g[v], pair{u, w})
+	}
+	dist := make([]int, n+1)
+	for i := range dist {
+		dist[i] = inf
+	}
+	dist[n] = 0
+	h := make(pairs, 0)
+	heap.Push(&h, pair{0, n})
+	for len(h) > 0 {
+		u := heap.Pop(&h).(pair).second
+		for _, ne := range g[u] {
+			v, w := ne.first, ne.second
+			if dist[v] > dist[u]+w {
+				dist[v] = dist[u] + w
+				heap.Push(&h, pair{dist[v], v})
+			}
+		}
+	}
+	order := make([]int, n)
+	for i := range order {
+		order[i] = i + 1
+	}
+	sort.Slice(order, func(a, b int) bool { return dist[order[a]] < dist[order[b]] })
+	f := make([]int, n+1)
+	f[n] = 1
+	for _, i := range order {
+		for _, ne := range g[i] {
+			j := ne.first
+			if dist[i] > dist[j] {
+				f[i] = (f[i] + f[j]) % mod
+			}
+		}
+	}
+	return f[1]
 }
 ```
 

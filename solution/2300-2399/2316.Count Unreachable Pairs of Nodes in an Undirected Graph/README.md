@@ -291,4 +291,280 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不可达点对来自不同连通块。$n \le 10^5$，不宜枚举点对。块与块之间的对数等于块大小的两两乘积。
+>
+> 从块内一点递归走进邻居，链上的调用深度就是块的大小；Python 里 `sum` 的生成器还会再占一层，几百个点就会超出递归栈。块的大小与访问顺序无关。
+>
+> 因此每个连通块改用显式栈：入栈时标记，弹出时计数，只把未标记的邻居压入。块大小 $t$ 与此前各块大小之和 $s$ 相乘累加，再把 $t$ 并入 $s$。
+
+<!-- thinking:end -->
+
+对于无向图中的任意两个节点，如果它们之间存在一条路径，那么它们之间就是互相可达的。
+
+因此，我们用显式栈找出每一个连通分量中的节点个数 $t$：从尚未访问的点出发，入栈时打上标记，弹出时计数，只把未标记的邻居压入栈。然后将当前连通分量中的节点个数 $t$ 与之前所有连通分量中的节点个数 $s$ 相乘，即可得到当前连通分量中的不可达点对数目 $s \times t$，然后将 $t$ 加到 $s$ 中。继续处理下一个连通分量，直到所有节点都访问过，即可得到答案。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPairs(self, n: int, edges: List[List[int]]) -> int:
+        def dfs(i: int) -> int:
+            if vis[i]:
+                return 0
+            vis[i] = True
+            stk = [i]
+            cnt = 0
+            while stk:
+                u = stk.pop()
+                cnt += 1
+                for j in g[u]:
+                    if not vis[j]:
+                        vis[j] = True
+                        stk.append(j)
+            return cnt
+
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        ans = s = 0
+        for i in range(n):
+            t = dfs(i)
+            ans += s * t
+            s += t
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long countPairs(int n, int[][] edges) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        boolean[] vis = new boolean[n];
+        long ans = 0, s = 0;
+        for (int i = 0; i < n; ++i) {
+            int t = dfs(g, vis, i);
+            ans += s * t;
+            s += t;
+        }
+        return ans;
+    }
+
+    private int dfs(List<Integer>[] g, boolean[] vis, int i) {
+        if (vis[i]) {
+            return 0;
+        }
+        vis[i] = true;
+        int cnt = 0;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(i);
+        while (!stk.isEmpty()) {
+            int u = stk.pop();
+            ++cnt;
+            for (int j : g[u]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long countPairs(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<char> vis(n);
+        auto dfs = [&](int i) {
+            if (vis[i]) {
+                return 0;
+            }
+            vis[i] = 1;
+            int cnt = 0;
+            vector<int> stk{i};
+            while (!stk.empty()) {
+                int u = stk.back();
+                stk.pop_back();
+                ++cnt;
+                for (int j : g[u]) {
+                    if (!vis[j]) {
+                        vis[j] = 1;
+                        stk.push_back(j);
+                    }
+                }
+            }
+            return cnt;
+        };
+        long long ans = 0, s = 0;
+        for (int i = 0; i < n; ++i) {
+            int t = dfs(i);
+            ans += s * t;
+            s += t;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPairs(n int, edges [][]int) (ans int64) {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	vis := make([]bool, n)
+	dfs := func(i int) int {
+		if vis[i] {
+			return 0
+		}
+		vis[i] = true
+		stk := []int{i}
+		cnt := 0
+		for len(stk) > 0 {
+			u := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			cnt++
+			for _, j := range g[u] {
+				if !vis[j] {
+					vis[j] = true
+					stk = append(stk, j)
+				}
+			}
+		}
+		return cnt
+	}
+	var s int64
+	for i := 0; i < n; i++ {
+		t := int64(dfs(i))
+		ans += s * t
+		s += t
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countPairs(n: number, edges: number[][]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    const dfs = (i: number): number => {
+        if (vis[i]) {
+            return 0;
+        }
+        vis[i] = true;
+        const stk: number[] = [i];
+        let cnt = 0;
+        while (stk.length) {
+            const u = stk.pop()!;
+            cnt++;
+            for (const j of g[u]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        return cnt;
+    };
+    let [ans, s] = [0, 0];
+    for (let i = 0; i < n; ++i) {
+        const t = dfs(i);
+        ans += s * t;
+        s += t;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_pairs(n: i32, edges: Vec<Vec<i32>>) -> i64 {
+        let n = n as usize;
+        let mut g = vec![vec![]; n];
+        let mut vis = vec![false; n];
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            g[u].push(v);
+            g[v].push(u);
+        }
+
+        fn dfs(g: &Vec<Vec<usize>>, vis: &mut Vec<bool>, u: usize) -> i64 {
+            if vis[u] {
+                return 0;
+            }
+            vis[u] = true;
+            let mut stk = vec![u];
+            let mut cnt = 0;
+            while let Some(x) = stk.pop() {
+                cnt += 1;
+                for &v in &g[x] {
+                    if !vis[v] {
+                        vis[v] = true;
+                        stk.push(v);
+                    }
+                }
+            }
+            cnt
+        }
+
+        let mut ans = 0;
+        let mut s = 0;
+        for u in 0..n {
+            let t = dfs(&g, &mut vis, u);
+            ans += t * s;
+            s += t;
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

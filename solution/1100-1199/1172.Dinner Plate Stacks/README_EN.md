@@ -123,7 +123,7 @@ For the `pop()` operation:
 
 - We directly call `popAtStack(stacks.length - 1)`.
 
-The time complexity is $(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of operations.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of operations.
 
 <!-- tabs:start -->
 

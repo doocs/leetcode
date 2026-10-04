@@ -100,19 +100,19 @@ class Solution:
 ```java
 class Solution {
     public int maxRotateFunction(int[] nums) {
-        int f = 0;
-        int s = 0;
+        long f = 0;
+        long s = 0;
         int n = nums.length;
         for (int i = 0; i < n; ++i) {
-            f += i * nums[i];
+            f += 1L * i * nums[i];
             s += nums[i];
         }
-        int ans = f;
+        long ans = f;
         for (int i = 1; i < n; ++i) {
-            f = f + s - n * nums[n - i];
+            f = f + s - 1L * n * nums[n - i];
             ans = Math.max(ans, f);
         }
-        return ans;
+        return (int) ans;
     }
 }
 ```
@@ -123,17 +123,18 @@ class Solution {
 class Solution {
 public:
     int maxRotateFunction(vector<int>& nums) {
-        int f = 0, s = 0, n = nums.size();
+        long long f = 0, s = 0;
+        int n = nums.size();
         for (int i = 0; i < n; ++i) {
-            f += i * nums[i];
+            f += 1LL * i * nums[i];
             s += nums[i];
         }
-        int ans = f;
+        long long ans = f;
         for (int i = 1; i < n; ++i) {
-            f = f + s - n * nums[n - i];
+            f = f + s - 1LL * n * nums[n - i];
             ans = max(ans, f);
         }
-        return ans;
+        return (int) ans;
     }
 };
 ```
@@ -178,16 +179,20 @@ function maxRotateFunction(nums: number[]): number {
 impl Solution {
     pub fn max_rotate_function(nums: Vec<i32>) -> i32 {
         let n = nums.len();
-        let sum: i32 = nums.iter().sum();
-        let mut pre: i32 = nums.iter().enumerate().map(|(i, &v)| (i as i32) * v).sum();
+        let sum: i64 = nums.iter().map(|&v| v as i64).sum();
+        let mut pre: i64 = nums
+            .iter()
+            .enumerate()
+            .map(|(i, &v)| i as i64 * v as i64)
+            .sum();
         (0..n)
             .map(|i| {
                 let res = pre;
-                pre = pre - (sum - nums[i]) + nums[i] * ((n - 1) as i32);
+                pre = pre - (sum - nums[i] as i64) + nums[i] as i64 * (n as i64 - 1);
                 res
             })
             .max()
-            .unwrap_or(0)
+            .unwrap_or(0) as i32
     }
 }
 ```

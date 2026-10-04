@@ -154,7 +154,7 @@ function minIncrementForUnique(nums: number[]): number {
 
 <!-- solution:end -->
 
-<!-- source:start -->
+<!-- solution:start -->
 
 ### Solution 2: Counting + Greedy
 

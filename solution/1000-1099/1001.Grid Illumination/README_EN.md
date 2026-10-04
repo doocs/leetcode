@@ -287,12 +287,14 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
     const col = new Map<number, number>();
     const diag1 = new Map<number, number>();
     const diag2 = new Map<number, number>();
-    const s = new Set<number>();
+    const s = new Set<string>();
+    const f = (i: number, j: number) => `${i},${j}`;
     for (const [i, j] of lamps) {
-        if (s.has(i * n + j)) {
+        const k = f(i, j);
+        if (s.has(k)) {
             continue;
         }
-        s.add(i * n + j);
+        s.add(k);
         row.set(i, (row.get(i) || 0) + 1);
         col.set(j, (col.get(j) || 0) + 1);
         diag1.set(i - j, (diag1.get(i - j) || 0) + 1);
@@ -307,10 +309,10 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
         }
         for (let x = i - 1; x <= i + 1; ++x) {
             for (let y = j - 1; y <= j + 1; ++y) {
-                if (x < 0 || x >= n || y < 0 || y >= n || !s.has(x * n + y)) {
+                if (x < 0 || x >= n || y < 0 || y >= n || !s.has(f(x, y))) {
                     continue;
                 }
-                s.delete(x * n + y);
+                s.delete(f(x, y));
                 row.set(x, row.get(x)! - 1);
                 col.set(y, col.get(y)! - 1);
                 diag1.set(x - y, diag1.get(x - y)! - 1);

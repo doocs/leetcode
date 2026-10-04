@@ -124,7 +124,7 @@ router.forwardPacket(); // There are no packets left, return <code>[]</code>.</d
 
 > **Thinking**
 >
-> The router must reject duplicates, evict the oldest packet by arrival, and count by destination and time window. Pack a triple into an integer for $O(1)$ membership; keep the cache in a queue and pop the front when full.
+> The router must reject duplicates, evict the oldest packet by arrival, and count by destination and time window. Source and destination are at most $2\times 10^5$ and a timestamp is at most $10^9$, so the triple needs $18+18+30$ bits and does not fit in one $64$-bit word. The set therefore stores the triple itself. The cache stays in a queue and drops the front once it is full.
 >
 > Timestamps for one destination are appended in order, and forwarding only advances a left pointer, so $\textit{getCount}$ is a binary search on the unforwarded suffix.
 
@@ -173,8 +173,8 @@ class Router:
         self.idx[d] += 1
         return [s, d, t]
 
-    def f(self, a: int, b: int, c: int) -> int:
-        return a << 46 | b << 29 | c
+    def f(self, a: int, b: int, c: int) -> tuple:
+        return (a, b, c)
 
     def getCount(self, destination: int, startTime: int, endTime: int) -> int:
         ls = self.d[destination]
@@ -196,7 +196,7 @@ class Router:
 ```java
 class Router {
     private int lim;
-    private Set<Long> vis = new HashSet<>();
+    private Set<Key> vis = new HashSet<>();
     private Deque<int[]> q = new ArrayDeque<>();
     private Map<Integer, Integer> idx = new HashMap<>();
     private Map<Integer, List<Integer>> d = new HashMap<>();
@@ -206,7 +206,7 @@ class Router {
     }
 
     public boolean addPacket(int source, int destination, int timestamp) {
-        long x = f(source, destination, timestamp);
+        Key x = f(source, destination, timestamp);
         if (vis.contains(x)) {
             return false;
         }
@@ -230,9 +230,11 @@ class Router {
         return new int[] {s, d_, t};
     }
 
-    private long f(int a, int b, int c) {
-        return ((long) a << 46) | ((long) b << 29) | (long) c;
+    private Key f(int a, int b, int c) {
+        return new Key(a, b, c);
     }
+
+    private record Key(int a, int b, int c) {}
 
     public int getCount(int destination, int startTime, int endTime) {
         List<Integer> ls = d.getOrDefault(destination, List.of());
@@ -271,13 +273,13 @@ class Router {
 class Router {
 private:
     int lim;
-    unordered_set<long long> vis;
+    unordered_set<string> vis;
     deque<array<int, 3>> q;
     unordered_map<int, int> idx;
     unordered_map<int, vector<int>> d;
 
-    long long f(int a, int b, int c) {
-        return ((long long) a << 46) | ((long long) b << 29) | (long long) c;
+    string f(int a, int b, int c) {
+        return to_string(a) + "#" + to_string(b) + "#" + to_string(c);
     }
 
 public:
@@ -286,7 +288,7 @@ public:
     }
 
     bool addPacket(int source, int destination, int timestamp) {
-        long long x = f(source, destination, timestamp);
+        string x = f(source, destination, timestamp);
         if (vis.count(x)) {
             return false;
         }
@@ -332,9 +334,11 @@ public:
 #### Go
 
 ```go
+type routerKey struct{ a, b, c int }
+
 type Router struct {
 	lim int
-	vis map[int64]struct{}
+	vis map[routerKey]struct{}
 	q   [][3]int
 	idx map[int]int
 	d   map[int][]int
@@ -343,15 +347,15 @@ type Router struct {
 func Constructor(memoryLimit int) Router {
 	return Router{
 		lim: memoryLimit,
-		vis: make(map[int64]struct{}),
+		vis: make(map[routerKey]struct{}),
 		q:   make([][3]int, 0),
 		idx: make(map[int]int),
 		d:   make(map[int][]int),
 	}
 }
 
-func (this *Router) f(a, b, c int) int64 {
-	return int64(a)<<46 | int64(b)<<29 | int64(c)
+func (this *Router) f(a, b, c int) routerKey {
+	return routerKey{a, b, c}
 }
 
 func (this *Router) AddPacket(source int, destination int, timestamp int) bool {
@@ -402,7 +406,7 @@ func (this *Router) GetCount(destination int, startTime int, endTime int) int {
 ```ts
 class Router {
     private lim: number;
-    private vis: Set<number>;
+    private vis: Set<string>;
     private q: [number, number, number][];
     private idx: Map<number, number>;
     private d: Map<number, number[]>;
@@ -415,8 +419,8 @@ class Router {
         this.d = new Map();
     }
 
-    private f(a: number, b: number, c: number): number {
-        return ((BigInt(a) << 46n) | (BigInt(b) << 29n) | BigInt(c)) as unknown as number;
+    private f(a: number, b: number, c: number): string {
+        return `${a}#${b}#${c}`;
     }
 
     addPacket(source: number, destination: number, timestamp: number): boolean {
@@ -481,11 +485,11 @@ class Router {
 #### Rust
 
 ```rust
-use std::collections::{HashSet, HashMap, VecDeque};
+use std::collections::{HashMap, HashSet, VecDeque};
 
 struct Router {
     lim: usize,
-    vis: HashSet<i64>,
+    vis: HashSet<(i32, i32, i32)>,
     q: VecDeque<(i32, i32, i32)>,
     idx: HashMap<i32, usize>,
     d: HashMap<i32, Vec<i32>>,
@@ -502,8 +506,8 @@ impl Router {
         }
     }
 
-    fn f(a: i32, b: i32, c: i32) -> i64 {
-        ((a as i64) << 46) | ((b as i64) << 29) | (c as i64)
+    fn f(a: i32, b: i32, c: i32) -> (i32, i32, i32) {
+        (a, b, c)
     }
 
     fn add_packet(&mut self, source: i32, destination: i32, timestamp: i32) -> bool {

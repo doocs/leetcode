@@ -113,7 +113,7 @@ tags:
 
 最后返回 $ans$ 即可。
 
-时间复杂度 $(m \times n)$，其中 $m$ 和 $n$ 分别是 $nums$ 和 $divisors$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是 $nums$ 和 $divisors$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

@@ -101,7 +101,7 @@ tags:
 - 其中 $\textit{cnt1}$ 记录斜率 $k$ 和截距 $b$ 出现的次数，键为斜率 $k$，值为另一个哈希表，记录截距 $b$ 出现的次数；
 - 其中 $\textit{cnt2}$ 记录点对的中点坐标和斜率 $k$ 出现的次数，键为点对的中点坐标 $p$，值为另一个哈希表，记录斜率 $k$ 出现的次数。
 
-对于点对 $(x_1, y_1)$ 和 $(x_2, y_2)$，我们记 $dx = x_2 - x_1$，并且 $dy = y_2 - y_1$。如果 $dx = 0$，则说明两点在同一条垂直线上，我们记斜率 $k = +\infty$，截距 $b = x_1$；否则斜率 $k = \frac{dy}{dx}$，截距 $b = \frac{y_1 \cdot dx - x_1 \cdot dy}{dx}$。点对的中点坐标 $p$ 可以表示为 $p = (x_1 + x_2 + 2000) \cdot 4000 + (y_1 + y_2 + 2000)$，这里加上偏移量是为了避免负数。
+对于点对 $(x_1, y_1)$ 和 $(x_2, y_2)$，我们记 $dx = x_2 - x_1$，并且 $dy = y_2 - y_1$。如果 $dx = 0$，则说明两点在同一条垂直线上，我们记斜率 $k = +\infty$，截距 $b = x_1$；否则斜率 $k = \frac{dy}{dx}$，截距 $b = \frac{y_1 \cdot dx - x_1 \cdot dy}{dx}$。点对的中点坐标 $p$ 可以表示为 $p = (x_1 + x_2 + 2000) \cdot 4001 + (y_1 + y_2 + 2000)$。加上偏移量是为了避免负数。两个平移后的和都落在 $[0, 4000]$，因此步长必须是 $4001$；步长取 $4000$ 时，$(s_x, 4000)$ 与 $(s_x + 1, 0)$ 会得到同一个键。
 
 接下来，我们遍历所有点对，计算出对应的斜率 $k$、截距 $b$ 和中点坐标 $p$，并更新哈希表 $\textit{cnt1}$ 和 $\textit{cnt2}$。
 
@@ -138,7 +138,7 @@ class Solution:
 
                 cnt1[k][b] += 1
 
-                p = (x1 + x2 + 2000) * 4000 + (y1 + y2 + 2000)
+                p = (x1 + x2 + 2000) * 4001 + (y1 + y2 + 2000)
                 cnt2[p][k] += 1
 
         ans = 0
@@ -181,7 +181,7 @@ class Solution {
                     b = 0.0;
                 }
                 cnt1.computeIfAbsent(k, _ -> new HashMap<>()).merge(b, 1, Integer::sum);
-                int p = (x1 + x2 + 2000) * 4000 + (y1 + y2 + 2000);
+                int p = (x1 + x2 + 2000) * 4001 + (y1 + y2 + 2000);
                 cnt2.computeIfAbsent(p, _ -> new HashMap<>()).merge(k, 1, Integer::sum);
             }
         }
@@ -228,7 +228,7 @@ public:
                 double b = (dx == 0 ? x1 : 1.0 * (1LL * y1 * dx - 1LL * x1 * dy) / dx);
 
                 cnt1[k][b] += 1;
-                int p = (x1 + x2 + 2000) * 4000 + (y1 + y2 + 2000);
+                int p = (x1 + x2 + 2000) * 4001 + (y1 + y2 + 2000);
                 cnt2[p][k] += 1;
             }
         }
@@ -281,7 +281,7 @@ func countTrapezoids(points [][]int) int {
 			}
 			cnt1[k][b]++
 
-			p := (x1+x2+2000)*4000 + (y1 + y2 + 2000)
+			p := (x1+x2+2000)*4001 + (y1 + y2 + 2000)
 			if cnt2[p] == nil {
 				cnt2[p] = make(map[float64]int)
 			}
@@ -332,7 +332,7 @@ function countTrapezoids(points: number[][]): number {
             const mapB = cnt1.get(k)!;
             mapB.set(b, (mapB.get(b) || 0) + 1);
 
-            const p = (x1 + x2 + 2000) * 4000 + (y1 + y2 + 2000);
+            const p = (x1 + x2 + 2000) * 4001 + (y1 + y2 + 2000);
 
             if (!cnt2.has(p)) {
                 cnt2.set(p, new Map());

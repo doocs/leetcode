@@ -131,11 +131,11 @@ Each row of this table contains information about calls, comprising of contact_i
 
 > **Thinking**
 >
-> The top three calls per type are required, with duration formatted as `HH:MM:SS`. A manual sort works, but ties need dense ranks.
+> Each call type keeps its three longest calls, then the rows are sorted by type, formatted duration, and first name, all descending. A dense rank would keep a shorter call once earlier ties fill the first places.
 >
-> Equi-join contacts to calls, rank $duration$ descending within each type, and keep rows whose rank is at most $3$.
+> Equi-join contacts to calls and assign $\textit{RANK}$ by $duration$ within each type. Ties share a rank and the next rank skips, so only ranks of at most $3$ remain.
 >
-> Convert seconds to a clock string and sort by type, formatted duration, and name. The window rank replaces a per-group sort.
+> Format the seconds as `HH:MM:SS` and sort all three output columns descending. The window decides membership; the sort decides order.
 
 <!-- thinking:end -->
 
@@ -166,7 +166,7 @@ SELECT
     duration_formatted
 FROM T
 WHERE rk <= 3
-ORDER BY 2, 3 DESC, 1 DESC;
+ORDER BY 2 DESC, 3 DESC, 1 DESC;
 ```
 
 #### Python3
@@ -184,14 +184,14 @@ def find_longest_calls(contacts: pd.DataFrame, calls: pd.DataFrame) -> pd.DataFr
     ).apply(lambda x: "{:02}:{:02}:{:02}".format(x // 10000, x // 100 % 100, x % 100))
 
     merged_data["rk"] = merged_data.groupby("type")["duration"].rank(
-        method="dense", ascending=False
+        method="min", ascending=False
     )
 
     result = merged_data[merged_data["rk"] <= 3][
         ["first_name", "type", "duration_formatted"]
     ]
     result = result.sort_values(
-        by=["type", "duration_formatted", "first_name"], ascending=[True, False, False]
+        by=["type", "duration_formatted", "first_name"], ascending=[False, False, False]
     )
     return result
 ```

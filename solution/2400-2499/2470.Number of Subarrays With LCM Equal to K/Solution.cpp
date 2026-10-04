@@ -1,15 +1,15 @@
 class Solution {
 public:
     int subarrayLCM(vector<int>& nums, int k) {
-        int n = nums.size();
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int a = nums[i];
-            for (int j = i; j < n; ++j) {
-                int b = nums[j];
-                int x = lcm(a, b);
-                ans += x == k;
-                a = x;
+        for (int i = 0; i < nums.size(); ++i) {
+            int a = 1;
+            for (int j = i; j < nums.size(); ++j) {
+                if (k % nums[j] != 0) {
+                    break;
+                }
+                a = lcm(a, nums[j]);
+                ans += a == k;
             }
         }
         return ans;

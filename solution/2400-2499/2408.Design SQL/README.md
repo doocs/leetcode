@@ -44,7 +44,7 @@ tags:
     	<li>如果&nbsp;<code>row.length</code>&nbsp;<strong>不</strong> 匹配列的预期数量，或者 <code>name</code> <strong>不是</strong> 一个合法的表，不进行任何插入并返回 <code>false</code>。</li>
     </ul>
     </li>
-    <li><code>void rmv(String name, int rowId, int columnId)</code>
+    <li><code>void rmv(String name, int rowId)</code>
     <ul>
     	<li>从表 <code>name</code>&nbsp;中移除行 <code>rowId</code>。</li>
     	<li>如果 <code>name</code> <strong>不是</strong> 一个合法的表或者没有 id 为 <code>rowId</code> 的行，不进行删除。</li>
@@ -186,15 +186,19 @@ sQL.ins("two", ["fourth", "fifth", "sixth"]);
 
 > **思考**
 >
-> 需要按表名插入行并以 $1$ 起始的行号、列号读取单元格。表的规模由操作次数决定，不必实现完整的关系型引擎。
+> 每张表都要保留稳定的行号和列数，删除一行之后其余行的编号保持不变。插入和删除最多 $2000$ 次，不必实现完整的关系型引擎。
 >
-> 用表名到行列表的哈希即可： $rowId$ 对应下标 $rowId-1$。题目保证不会读取已删除的行，因此 $\textit{deleteRow}$ 可以留空，不必真正移除元素。
+> 若只按下标 $rowId-1$ 存放行，被删单元格仍会被读到，导出也会带上已删除的行。行号在删除之后继续递增，空出来的编号不能再次使用。
+>
+> 因此我们用表名映射到「行号 → 单元格」的哈希表，同时记下每张表的列数和下一个行号。
+>
+> $\textit{ins}$ 只在表存在且行宽与列数一致时写入新行。$\textit{rmv}$ 删掉对应行号。$\textit{sel}$ 在表不存在、行已删除或列号越界时返回 $\texttt{<null>}$。$\textit{exp}$ 按行号顺序把仍然存在的行连同行号用逗号拼出来。
 
 <!-- thinking:end -->
 
-创建哈希表 `tables` 用于存储表名和表数据行的映射。直接模拟题目中的操作即可。
+分别记录每张表的列数，以及按行号存放的现存数据。直接模拟题目中的 $\textit{ins}$、$\textit{rmv}$、$\textit{sel}$ 和 $\textit{exp}$。
 
-每个操作的时间复杂度均为 $O(1)$，空间复杂度 $O(n)$。
+插入、删除和查询的平均时间复杂度为 $O(1)$。导出一张表需要扫描其中仍然存在的行。空间与插入的单元格总数成正比。
 
 <!-- tabs:start -->
 
@@ -203,53 +207,112 @@ sQL.ins("two", ["fourth", "fifth", "sixth"]);
 ```python
 class SQL:
     def __init__(self, names: List[str], columns: List[int]):
-        self.tables = defaultdict(list)
+        self.cols = dict(zip(names, columns))
+        self.rows = {name: {} for name in names}
+        self.nxt = {name: 1 for name in names}
 
-    def insertRow(self, name: str, row: List[str]) -> None:
-        self.tables[name].append(row)
+    def ins(self, name: str, row: List[str]) -> bool:
+        if name not in self.cols or len(row) != self.cols[name]:
+            return False
+        i = self.nxt[name]
+        self.rows[name][i] = row
+        self.nxt[name] = i + 1
+        return True
 
-    def deleteRow(self, name: str, rowId: int) -> None:
-        pass
+    def rmv(self, name: str, rowId: int) -> None:
+        if name in self.rows:
+            self.rows[name].pop(rowId, None)
 
-    def selectCell(self, name: str, rowId: int, columnId: int) -> str:
-        return self.tables[name][rowId - 1][columnId - 1]
+    def sel(self, name: str, rowId: int, columnId: int) -> str:
+        row = self.rows.get(name, {}).get(rowId)
+        if row is None or columnId < 1 or columnId > len(row):
+            return '<null>'
+        return row[columnId - 1]
+
+    def exp(self, name: str) -> List[str]:
+        if name not in self.rows:
+            return []
+        return [
+            ','.join([str(i), *self.rows[name][i]]) for i in sorted(self.rows[name])
+        ]
 
 
 # Your SQL object will be instantiated and called as such:
 # obj = SQL(names, columns)
-# obj.insertRow(name,row)
-# obj.deleteRow(name,rowId)
-# param_3 = obj.selectCell(name,rowId,columnId)
+# param_1 = obj.ins(name,row)
+# obj.rmv(name,rowId)
+# param_3 = obj.sel(name,rowId,columnId)
+# param_4 = obj.exp(name)
 ```
 
 #### Java
 
 ```java
 class SQL {
-    private Map<String, List<List<String>>> tables;
+    private final Map<String, Integer> cols = new HashMap<>();
+    private final Map<String, Map<Integer, List<String>>> rows = new HashMap<>();
+    private final Map<String, Integer> nxt = new HashMap<>();
 
-    public SQL(List<String> names, List<Integer> columns) {
-        tables = new HashMap<>(names.size());
+    public SQL(String[] names, int[] columns) {
+        for (int i = 0; i < names.length; ++i) {
+            cols.put(names[i], columns[i]);
+            rows.put(names[i], new HashMap<>());
+            nxt.put(names[i], 1);
+        }
     }
 
-    public void insertRow(String name, List<String> row) {
-        tables.computeIfAbsent(name, k -> new ArrayList<>()).add(row);
+    public boolean ins(String name, String[] row) {
+        if (!cols.containsKey(name) || row.length != cols.get(name)) {
+            return false;
+        }
+        int id = nxt.get(name);
+        rows.get(name).put(id, Arrays.asList(row));
+        nxt.put(name, id + 1);
+        return true;
     }
 
-    public void deleteRow(String name, int rowId) {
+    public void rmv(String name, int rowId) {
+        Map<Integer, List<String>> table = rows.get(name);
+        if (table != null) {
+            table.remove(rowId);
+        }
     }
 
-    public String selectCell(String name, int rowId, int columnId) {
-        return tables.get(name).get(rowId - 1).get(columnId - 1);
+    public String sel(String name, int rowId, int columnId) {
+        Map<Integer, List<String>> table = rows.get(name);
+        if (table == null || !table.containsKey(rowId)) {
+            return "<null>";
+        }
+        List<String> row = table.get(rowId);
+        if (columnId < 1 || columnId > row.size()) {
+            return "<null>";
+        }
+        return row.get(columnId - 1);
+    }
+
+    public String[] exp(String name) {
+        Map<Integer, List<String>> table = rows.get(name);
+        if (table == null) {
+            return new String[0];
+        }
+        List<Integer> ids = new ArrayList<>(table.keySet());
+        Collections.sort(ids);
+        String[] ans = new String[ids.size()];
+        for (int i = 0; i < ids.size(); ++i) {
+            int id = ids.get(i);
+            ans[i] = id + "," + String.join(",", table.get(id));
+        }
+        return ans;
     }
 }
 
 /**
  * Your SQL object will be instantiated and called as such:
  * SQL obj = new SQL(names, columns);
- * obj.insertRow(name,row);
- * obj.deleteRow(name,rowId);
- * String param_3 = obj.selectCell(name,rowId,columnId);
+ * boolean param_1 = obj.ins(name,row);
+ * obj.rmv(name,rowId);
+ * String param_3 = obj.sel(name,rowId,columnId);
+ * String[] param_4 = obj.exp(name);
  */
 ```
 
@@ -258,28 +321,66 @@ class SQL {
 ```cpp
 class SQL {
 public:
-    unordered_map<string, vector<vector<string>>> tables;
+    unordered_map<string, int> cols;
+    unordered_map<string, map<int, vector<string>>> rows;
+    unordered_map<string, int> nxt;
+
     SQL(vector<string>& names, vector<int>& columns) {
+        for (int i = 0; i < (int) names.size(); ++i) {
+            cols[names[i]] = columns[i];
+            nxt[names[i]] = 1;
+        }
     }
 
-    void insertRow(string name, vector<string> row) {
-        tables[name].push_back(row);
+    bool ins(string name, vector<string> row) {
+        if (!cols.count(name) || (int) row.size() != cols[name]) {
+            return false;
+        }
+        int id = nxt[name]++;
+        rows[name][id] = std::move(row);
+        return true;
     }
 
-    void deleteRow(string name, int rowId) {
+    void rmv(string name, int rowId) {
+        if (rows.count(name)) {
+            rows[name].erase(rowId);
+        }
     }
 
-    string selectCell(string name, int rowId, int columnId) {
-        return tables[name][rowId - 1][columnId - 1];
+    string sel(string name, int rowId, int columnId) {
+        if (!rows.count(name) || !rows[name].count(rowId)) {
+            return "<null>";
+        }
+        auto& row = rows[name][rowId];
+        if (columnId < 1 || columnId > (int) row.size()) {
+            return "<null>";
+        }
+        return row[columnId - 1];
+    }
+
+    vector<string> exp(string name) {
+        vector<string> ans;
+        if (!rows.count(name)) {
+            return ans;
+        }
+        for (auto& [id, row] : rows[name]) {
+            string s = to_string(id);
+            for (auto& cell : row) {
+                s += "," + cell;
+            }
+            ans.push_back(s);
+        }
+        return ans;
     }
 };
 
 /**
  * Your SQL object will be instantiated and called as such:
  * SQL* obj = new SQL(names, columns);
- * obj->insertRow(name,row);
- * obj->deleteRow(name,rowId);
- * string param_3 = obj->selectCell(name,rowId,columnId);
+ * bool param_1 = obj->ins(name,row);
+ * obj->rmv(name,rowId);
+ * string param_3 = obj->sel(name,rowId,columnId);
+ * vector<string> param_4 = obj->exp(name);
  */
 ```
 
@@ -287,31 +388,81 @@ public:
 
 ```go
 type SQL struct {
-	tables map[string][][]string
+	cols   map[string]int
+	rows   map[string]map[int][]string
+	nextId map[string]int
 }
 
 func Constructor(names []string, columns []int) SQL {
-	return SQL{map[string][][]string{}}
+	cols := map[string]int{}
+	rows := map[string]map[int][]string{}
+	nextId := map[string]int{}
+	for i, name := range names {
+		cols[name] = columns[i]
+		rows[name] = map[int][]string{}
+		nextId[name] = 1
+	}
+	return SQL{cols, rows, nextId}
 }
 
-func (this *SQL) InsertRow(name string, row []string) {
-	this.tables[name] = append(this.tables[name], row)
+func (this *SQL) Ins(name string, row []string) bool {
+	c, ok := this.cols[name]
+	if !ok || len(row) != c {
+		return false
+	}
+	id := this.nextId[name]
+	this.nextId[name] = id + 1
+	cp := append([]string(nil), row...)
+	this.rows[name][id] = cp
+	return true
 }
 
-func (this *SQL) DeleteRow(name string, rowId int) {
-
+func (this *SQL) Rmv(name string, rowId int) {
+	if table, ok := this.rows[name]; ok {
+		delete(table, rowId)
+	}
 }
 
-func (this *SQL) SelectCell(name string, rowId int, columnId int) string {
-	return this.tables[name][rowId-1][columnId-1]
+func (this *SQL) Sel(name string, rowId int, columnId int) string {
+	table, ok := this.rows[name]
+	if !ok {
+		return "<null>"
+	}
+	row, ok := table[rowId]
+	if !ok || columnId < 1 || columnId > len(row) {
+		return "<null>"
+	}
+	return row[columnId-1]
+}
+
+func (this *SQL) Exp(name string) []string {
+	table, ok := this.rows[name]
+	if !ok || len(table) == 0 {
+		return []string{}
+	}
+	ids := make([]int, 0, len(table))
+	for id := range table {
+		ids = append(ids, id)
+	}
+	sort.Ints(ids)
+	ans := make([]string, 0, len(ids))
+	for _, id := range ids {
+		s := strconv.Itoa(id)
+		for _, cell := range table[id] {
+			s += "," + cell
+		}
+		ans = append(ans, s)
+	}
+	return ans
 }
 
 /**
  * Your SQL object will be instantiated and called as such:
  * obj := Constructor(names, columns);
- * obj.InsertRow(name,row);
- * obj.DeleteRow(name,rowId);
- * param_3 := obj.SelectCell(name,rowId,columnId);
+ * param_1 := obj.Ins(name,row);
+ * obj.Rmv(name,rowId);
+ * param_3 := obj.Sel(name,rowId,columnId);
+ * param_4 := obj.Exp(name);
  */
 ```
 

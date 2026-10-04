@@ -355,13 +355,11 @@ class Solution {
 
 > **思考**
 >
-> 方法一已经是 $O(mn)$，但递归有调用栈，哈希缓存也有常数开销。 $|s|, |p|$ 到 $2000$ 时，深度与缓存都偏贵。
->
-> 缺的是同样转移的自底向上写法。先处理空串对 `*` 的边界，再按序填表即可，时间空间同阶，实现更稳。
+> 方法一已经按前缀从短到长填好同一张匹配表。下面的 $f[i][j]$ 与那张表是同一定义。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索转换为动态规划。
+方法一已经按前缀从短到长填好同一张表。
 
 定义 $f[i][j]$ 表示字符串 $s$ 的前 $i$ 个字符和字符串 $p$ 的前 $j$ 个字符是否匹配。初始时 $f[0][0] = \textit{true}$，表示两个空字符串是匹配的。对于 $j \in [1, n]$，如果 $p[j-1] = '*'$，那么 $f[0][j] = f[0][j-1]$。
 
@@ -508,6 +506,239 @@ function isMatch(s: string, p: string): boolean {
         }
     }
     return f[m][n];
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @param string $p
+     * @return boolean
+     */
+
+    function isMatch($s, $p) {
+        $m = strlen($s);
+        $n = strlen($p);
+        $f = [];
+        for ($i = 0; $i <= $m; $i++) {
+            $f[$i] = array_fill(0, $n + 1, false);
+        }
+        $f[0][0] = true;
+        for ($j = 1; $j <= $n; $j++) {
+            if ($p[$j - 1] == '*') {
+                $f[0][$j] = $f[0][$j - 1];
+            }
+        }
+        for ($i = 1; $i <= $m; $i++) {
+            for ($j = 1; $j <= $n; $j++) {
+                if ($p[$j - 1] == '*') {
+                    $f[$i][$j] = $f[$i - 1][$j] || $f[$i][$j - 1] || $f[$i - 1][$j - 1];
+                } else {
+                    $f[$i][$j] =
+                        $f[$i - 1][$j - 1] && ($p[$j - 1] == '?' || $s[$i - 1] == $p[$j - 1]);
+                }
+            }
+        }
+        return $f[$m][$n];
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按字符递归匹配是自然的：普通字符与 `?` 一对一消耗，`*` 可以对应空串或任意长度。$|s|$ 与 $|p|$ 都可以到 $2000$，而 `*` 的第一种走法总是先进入 $dfs(i+1, j)$，调用链的深度等于 $|s|$，会超出默认递归上限。
+>
+> 同一对下标会被反复询问，而一对前缀能否匹配只取决于更短的前缀。
+>
+> 因此令 $f[i][j]$ 表示 $s$ 的前 $i$ 个字符与 $p$ 的前 $j$ 个字符是否匹配。空串对空串为真，模式侧连续的 `*` 只沿 $j$ 继承上一格。$i$ 与 $j$ 都从小到大填写，`*` 读取上方、左方和左上方三个已经算过的格子，普通字符只读取左上方，一次正向扫描就完成全部转移。
+
+<!-- thinking:end -->
+
+定义 $f[i][j]$ 表示字符串 $s$ 的前 $i$ 个字符和字符串 $p$ 的前 $j$ 个字符是否匹配。初始时 $f[0][0] = \textit{true}$，表示两个空字符串是匹配的。对于 $j \in [1, n]$，如果 $p[j-1] = '*'$，那么 $f[0][j] = f[0][j-1]$。
+
+接下来我们考虑 $i \in [1, m]$ 和 $j \in [1, n]$ 的情况：
+
+- 如果 $p[j-1] = '*'$，那么 $f[i][j] = f[i-1][j] \lor f[i][j-1] \lor f[i-1][j-1]$。
+- 否则 $f[i][j] = (p[j-1] = '?' \lor s[i-1] = p[j-1]) \land f[i-1][j-1]$。
+
+最终答案为 $f[m][n]$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $p$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        f = [[False] * (n + 1) for _ in range(m + 1)]
+        f[0][0] = True
+        for j in range(1, n + 1):
+            if p[j - 1] == "*":
+                f[0][j] = f[0][j - 1]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if p[j - 1] == "*":
+                    f[i][j] = f[i - 1][j] or f[i][j - 1] or f[i - 1][j - 1]
+                else:
+                    f[i][j] = f[i - 1][j - 1] and (
+                        p[j - 1] == "?" or s[i - 1] == p[j - 1]
+                    )
+        return f[m][n]
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean isMatch(String s, String p) {
+        int m = s.length(), n = p.length();
+        boolean[][] f = new boolean[m + 1][n + 1];
+        f[0][0] = true;
+        for (int j = 1; j <= n; ++j) {
+            if (p.charAt(j - 1) == '*') {
+                f[0][j] = f[0][j - 1];
+            }
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p.charAt(j - 1) == '*') {
+                    f[i][j] = f[i - 1][j] || f[i][j - 1] || f[i - 1][j - 1];
+                } else {
+                    f[i][j] = f[i - 1][j - 1]
+                        && (p.charAt(j - 1) == '?' || s.charAt(i - 1) == p.charAt(j - 1));
+                }
+            }
+        }
+        return f[m][n];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.length(), n = p.length();
+        bool f[m + 1][n + 1];
+        memset(f, false, sizeof(f));
+        f[0][0] = true;
+        for (int j = 1; j <= n; ++j) {
+            if (p[j - 1] == '*') {
+                f[0][j] = f[0][j - 1];
+            }
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p[j - 1] == '*') {
+                    f[i][j] = f[i - 1][j] || f[i][j - 1] || f[i - 1][j - 1];
+                } else {
+                    f[i][j] = f[i - 1][j - 1] && (p[j - 1] == '?' || s[i - 1] == p[j - 1]);
+                }
+            }
+        }
+        return f[m][n];
+    }
+};
+```
+
+#### Go
+
+```go
+func isMatch(s string, p string) bool {
+	m, n := len(s), len(p)
+	f := make([][]bool, m+1)
+	for i := range f {
+		f[i] = make([]bool, n+1)
+	}
+	f[0][0] = true
+	for j := 1; j <= n; j++ {
+		if p[j-1] == '*' {
+			f[0][j] = f[0][j-1]
+		}
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if p[j-1] == '*' {
+				f[i][j] = f[i-1][j] || f[i][j-1] || f[i-1][j-1]
+			} else {
+				f[i][j] = f[i-1][j-1] && (p[j-1] == '?' || s[i-1] == p[j-1])
+			}
+		}
+	}
+	return f[m][n]
+}
+```
+
+#### TypeScript
+
+```ts
+function isMatch(s: string, p: string): boolean {
+    const m: number = s.length;
+    const n: number = p.length;
+    const f: boolean[][] = Array.from({ length: m + 1 }, () =>
+        Array.from({ length: n + 1 }, () => false),
+    );
+    f[0][0] = true;
+    for (let j = 1; j <= n; ++j) {
+        if (p.charAt(j - 1) === '*') {
+            f[0][j] = f[0][j - 1];
+        }
+    }
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (p[j - 1] === '*') {
+                f[i][j] = f[i - 1][j] || f[i][j - 1] || f[i - 1][j - 1];
+            } else {
+                f[i][j] = f[i - 1][j - 1] && (p[j - 1] === '?' || s[i - 1] === p[j - 1]);
+            }
+        }
+    }
+    return f[m][n];
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsMatch(string s, string p) {
+        int m = s.Length, n = p.Length;
+        bool[,] f = new bool[m + 1, n + 1];
+        f[0, 0] = true;
+        for (int j = 1; j <= n; ++j) {
+            if (p[j - 1] == '*') {
+                f[0, j] = f[0, j - 1];
+            }
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p[j - 1] == '*') {
+                    f[i, j] = f[i - 1, j] || f[i, j - 1] || f[i - 1, j - 1];
+                } else {
+                    f[i, j] = f[i - 1, j - 1] && (p[j - 1] == '?' || s[i - 1] == p[j - 1]);
+                }
+            }
+        }
+        return f[m, n];
+    }
 }
 ```
 

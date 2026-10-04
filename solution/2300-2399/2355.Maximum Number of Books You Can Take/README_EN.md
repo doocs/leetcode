@@ -80,7 +80,7 @@ It can be proven that 13 is the maximum number of books you can take.
 
 <!-- solution:start -->
 
-### Solution 1: Simulation
+### Solution 1: Monotonic Stack + Dynamic Programming
 
 <!-- thinking:start -->
 
@@ -92,9 +92,13 @@ It can be proven that 13 is the maximum number of books you can take.
 
 <!-- thinking:end -->
 
-We directly compare each row and column of the matrix $grid$. If they are equal, then it is a pair of equal row-column pairs, and we increment the answer by one.
+Let $dp[i]$ be the maximum number of books taken from a contiguous segment that ends at shelf $i$. Set $nums[i] = books[i] - i$. If the strictly decreasing pattern breaks at some $j$ with $0 \le j < i$, then $books[j] < books[i] - (i - j)$, that is $nums[j] < nums[i]$. A monotonic stack finds, for each index, the nearest strictly smaller $nums$ on the left and stores it as $j$. When no such index exists, $j = -1$.
 
-The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in the matrix $grid$. The space complexity is $O(1)$.
+The books taken from shelf $j + 1$ through $i$ form an arithmetic sequence with difference $1$. Its length is $cnt = \min(books[i], i - j)$, it ends at $books[i]$, and it starts at $u = books[i] - cnt + 1$. The sum of that sequence is $s = (u + books[i]) \times cnt / 2$. Then $dp[i] = s$, plus $dp[j]$ when $j \ne -1$.
+
+The answer is $\max\limits_{i} dp[i]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $books$.
 
 <!-- tabs:start -->
 

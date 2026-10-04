@@ -240,4 +240,205 @@ func maxOutput(n int, edges [][]int, price []int) int64 {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：树形 DP + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 树上一条路径的代价是点权和减去两个端点中的较小者。价格均为正，这等价于整条路径和减去一个端点。$n \le 10^5$，枚举路径是 $O(n^2)$；从根递归维护每棵子树的两条向下链，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 每个节点需要两条量：不删远端端点的最长向下链 $a$，以及删去远端端点的最长向下链 $b$。经过当前点的最优路径，是把已经得到的一条链与某个孩子的另一条链接上，$a$ 配孩子的 $d$，或 $b$ 配孩子的 $c$。
+>
+> 显式栈按 $(节点, 父节点, 状态)$ 做后序。进入时先压出栈标记再压孩子，离开时用孩子已经写下的两条链更新答案，并留下本节点的 $a$ 和 $b$。
+
+<!-- thinking:end -->
+
+由于每个节点价值均为正整数，因此，以节点 $root$ 作为根节点的最小的一条路径就是 $root$ 节点本身，那么价值和最大的一条路径与最小的一条路径的差值就等价于去掉路径的一个端点。
+
+对每个节点 $i$ 维护两个量：不去掉端点的最大向下路径和 $a$，以及去掉远端端点的最大向下路径和 $b$。用显式栈从根做后序，离开节点时再计算这两个量。
+
+初始化 $a = price[i]$，$b = 0$，表示只有节点 $i$ 自己。
+
+对于每个子节点 $j$，它的两个量已经记为 $c$ 和 $d$。经过 $i$ 的路径有两种拼法：
+
+- 前面不去掉端点的最大路径和加上当前子树去掉端点的最大路径和，即 $a + d$；
+- 前面去掉端点的最大路径和加上当前子树不去掉端点的最大路径和，即 $b + c$。
+
+我们更新答案的最大值，即 $ans = \max(ans, a + d, b + c)$。
+
+然后更新 $a$ 和 $b$，即 $a = \max(a, price[i] + c)$，$b = \max(b, price[i] + d)$。
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为节点个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        down = [(0, 0)] * n
+        ans = 0
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                a, b = price[i], 0
+                for j in g[i]:
+                    if j != fa:
+                        c, d = down[j]
+                        ans = max(ans, a + d, b + c)
+                        a = max(a, price[i] + c)
+                        b = max(b, price[i] + d)
+                down[i] = (a, b)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxOutput(int n, int[][] edges, int[] price) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[][] down = new long[n][2];
+        long ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                long a = price[i], b = 0;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        long c = down[j][0], d = down[j][1];
+                        ans = Math.max(ans, Math.max(a + d, b + c));
+                        a = Math.max(a, price[i] + c);
+                        b = Math.max(b, price[i] + d);
+                    }
+                }
+                down[i][0] = a;
+                down[i][1] = b;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxOutput(int n, vector<vector<int>>& edges, vector<int>& price) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        using ll = long long;
+        vector<pair<ll, ll>> down(n);
+        ll ans = 0;
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                ll a = price[i], b = 0;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        auto [c, d] = down[j];
+                        ans = max({ans, a + d, b + c});
+                        a = max(a, price[i] + c);
+                        b = max(b, price[i] + d);
+                    }
+                }
+                down[i] = {a, b};
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxOutput(n int, edges [][]int, price []int) int64 {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	type pair struct{ a, b int }
+	down := make([]pair, n)
+	ans := 0
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, j := range g[i] {
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			a, b := price[i], 0
+			for _, j := range g[i] {
+				if j != fa {
+					c, d := down[j].a, down[j].b
+					ans = max(ans, max(a+d, b+c))
+					a = max(a, price[i]+c)
+					b = max(b, price[i]+d)
+				}
+			}
+			down[i] = pair{a, b}
+		}
+	}
+	return int64(ans)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

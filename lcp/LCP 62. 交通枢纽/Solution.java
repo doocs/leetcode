@@ -6,7 +6,7 @@ class Solution {
         Set<Integer> vis = new HashSet<>();
         for (int[] p : path) {
             int a = p[0], b = p[1];
-            if (vis.add(a * 1000 + b)) {
+            if (vis.add(a * 1001 + b)) {
                 s.add(a);
                 s.add(b);
                 ind[b]++;

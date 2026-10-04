@@ -143,8 +143,7 @@ class Solution {
 public:
     int longestRepeatingSubstring(string s) {
         int n = s.length();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n));
         int ans = 0;
         for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {

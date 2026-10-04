@@ -1,14 +1,13 @@
 class Solution {
     public long interchangeableRectangles(int[][] rectangles) {
         long ans = 0;
-        int n = rectangles.length + 1;
         Map<Long, Integer> cnt = new HashMap<>();
         for (var e : rectangles) {
             int w = e[0], h = e[1];
             int g = gcd(w, h);
             w /= g;
             h /= g;
-            long x = (long) w * n + h;
+            long x = (long) w * 100001 + h;
             ans += cnt.getOrDefault(x, 0);
             cnt.merge(x, 1, Integer::sum);
         }

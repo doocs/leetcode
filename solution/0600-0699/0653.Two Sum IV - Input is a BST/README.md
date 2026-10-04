@@ -481,4 +481,276 @@ function findTarget(root: TreeNode | null, k: number): boolean {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：哈希表 + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在二叉搜索树里找两个结点，值之和为 $k$。先中序收集再双指针可以，但要额外存下全部值。遍历时用集合记下已经见过的值，遇到 $k$ 减去当前值就成功。较短的树上一次深度优先即可，也不必利用二叉搜索树的顺序。
+>
+> 结点个数可达 $10^4$。左链使这次遍历按结点个数递归，调用栈会溢出。
+>
+> 每个结点只依赖已经访问过的值，不需要先算完子树再返回。先看自己，再看左右孩子，判定不变。
+>
+> 因此用显式栈做深度优先。弹出结点时先查 $k$ 减去当前值，再把当前值放进集合，然后压入右孩子和左孩子。集合只属于这一次调用。
+
+<!-- thinking:end -->
+
+我们用哈希表记录已经访问的结点值，并用显式栈做深度优先遍历。弹出一个结点时，若 $k$ 减去当前值已经在表中，则返回 $\textit{true}$；否则把当前值放入表中，再把非空的右孩子和左孩子压栈。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉搜索树的节点个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        vis = set()
+        stk = []
+        if root is not None:
+            stk.append(root)
+        while stk:
+            node = stk.pop()
+            if k - node.val in vis:
+                return True
+            vis.add(node.val)
+            if node.right is not None:
+                stk.append(node.right)
+            if node.left is not None:
+                stk.append(node.left)
+        return False
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> vis = new HashSet<>();
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        if (root != null) {
+            stk.push(root);
+        }
+        while (!stk.isEmpty()) {
+            TreeNode node = stk.pop();
+            if (vis.contains(k - node.val)) {
+                return true;
+            }
+            vis.add(node.val);
+            if (node.right != null) {
+                stk.push(node.right);
+            }
+            if (node.left != null) {
+                stk.push(node.left);
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool findTarget(TreeNode* root, int k) {
+        unordered_set<int> vis;
+        vector<TreeNode*> stk;
+        if (root) {
+            stk.push_back(root);
+        }
+        while (!stk.empty()) {
+            TreeNode* node = stk.back();
+            stk.pop_back();
+            if (vis.count(k - node->val)) {
+                return true;
+            }
+            vis.insert(node->val);
+            if (node->right) {
+                stk.push_back(node->right);
+            }
+            if (node->left) {
+                stk.push_back(node->left);
+            }
+        }
+        return false;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func findTarget(root *TreeNode, k int) bool {
+	vis := map[int]bool{}
+	stk := []*TreeNode{}
+	if root != nil {
+		stk = append(stk, root)
+	}
+	for len(stk) > 0 {
+		node := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if vis[k-node.Val] {
+			return true
+		}
+		vis[node.Val] = true
+		if node.Right != nil {
+			stk = append(stk, node.Right)
+		}
+		if node.Left != nil {
+			stk = append(stk, node.Left)
+		}
+	}
+	return false
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findTarget(root: TreeNode | null, k: number): boolean {
+    const vis = new Set<number>();
+    const stk: (TreeNode | null)[] = [];
+    if (root) {
+        stk.push(root);
+    }
+    while (stk.length) {
+        const node = stk.pop()!;
+        if (!node) {
+            continue;
+        }
+        if (vis.has(k - node.val)) {
+            return true;
+        }
+        vis.add(node.val);
+        if (node.right) {
+            stk.push(node.right);
+        }
+        if (node.left) {
+            stk.push(node.left);
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::collections::HashSet;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
+        let mut vis = HashSet::new();
+        let mut stk = Vec::new();
+        if root.is_some() {
+            stk.push(root);
+        }
+        while let Some(node) = stk.pop() {
+            if let Some(node) = node {
+                let (val, left, right) = {
+                    let b = node.borrow();
+                    (b.val, b.left.clone(), b.right.clone())
+                };
+                if vis.contains(&(k - val)) {
+                    return true;
+                }
+                vis.insert(val);
+                if right.is_some() {
+                    stk.push(right);
+                }
+                if left.is_some() {
+                    stk.push(left);
+                }
+            }
+        }
+        false
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

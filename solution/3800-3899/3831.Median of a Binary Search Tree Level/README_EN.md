@@ -288,4 +288,246 @@ function levelMedian(root: TreeNode | null, level: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Inorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The median of one BST level takes the upper middle value when the count is even. Collecting that level and sorting it is correct, and $n$ can be $2 \times 10^5$.
+>
+> Inorder visits the left child first. A chain of that length recurses once per node and overflows the call stack.
+>
+> Inorder of a BST is already nondecreasing, so the values of the chosen level appear in sorted order and do not need another sort. A node only needs its own depth.
+>
+> An explicit stack performs the inorder walk. On entry it pushes an exit marker and the left child; on exit, a node whose depth equals $\textit{level}$ is appended, and then the right child is pushed. The median is $\textit{nums}[\lfloor |\textit{nums}|/2 \rfloor]$, or $-1$ when the level is empty.
+
+<!-- thinking:end -->
+
+The median is a sorted middle value, and an inorder walk of a binary search tree is already sorted, so the values on the requested level can be collected in that order. When the count is even, index $\lfloor |\textit{nums}|/2 \rfloor$ is the larger of the two middle values.
+
+An explicit stack carries the current node, its depth, and whether its left subtree has been expanded. On entry we push an exit marker and the left child. On exit, if the depth equals $\textit{level}$, the node value is appended to $\textit{nums}$, and then the right child is pushed.
+
+An empty $\textit{nums}$ returns $-1$; otherwise the middle entry is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelMedian(self, root: Optional[TreeNode], level: int) -> int:
+        nums = []
+        stk = [(root, 0, 0)]
+        while stk:
+            node, i, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, i, 1))
+                stk.append((node.left, i + 1, 0))
+                continue
+            if i == level:
+                nums.append(node.val)
+            stk.append((node.right, i + 1, 0))
+        return nums[len(nums) // 2] if nums else -1
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static class Frame {
+        TreeNode node;
+        int i;
+        int state;
+
+        Frame(TreeNode node, int i, int state) {
+            this.node = node;
+            this.i = i;
+            this.state = state;
+        }
+    }
+
+    public int levelMedian(TreeNode root, int level) {
+        List<Integer> nums = new ArrayList<>();
+        if (root == null) {
+            return -1;
+        }
+        Deque<Frame> stk = new ArrayDeque<>();
+        stk.push(new Frame(root, 0, 0));
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            TreeNode node = cur.node;
+            if (cur.state == 0) {
+                stk.push(new Frame(node, cur.i, 1));
+                if (node.left != null) {
+                    stk.push(new Frame(node.left, cur.i + 1, 0));
+                }
+                continue;
+            }
+            if (cur.i == level) {
+                nums.add(node.val);
+            }
+            if (node.right != null) {
+                stk.push(new Frame(node.right, cur.i + 1, 0));
+            }
+        }
+        return nums.isEmpty() ? -1 : nums.get(nums.size() / 2);
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int levelMedian(TreeNode* root, int level) {
+        vector<int> nums;
+        vector<tuple<TreeNode*, int, int>> stk{{root, 0, 0}};
+        while (!stk.empty()) {
+            auto [node, i, state] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            if (state == 0) {
+                stk.emplace_back(node, i, 1);
+                stk.emplace_back(node->left, i + 1, 0);
+                continue;
+            }
+            if (i == level) {
+                nums.push_back(node->val);
+            }
+            stk.emplace_back(node->right, i + 1, 0);
+        }
+        return nums.empty() ? -1 : nums[nums.size() / 2];
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelMedian(root *TreeNode, level int) int {
+	nums := make([]int, 0)
+	type frame struct {
+		node  *TreeNode
+		i     int
+		state int
+	}
+	stk := []frame{{root, 0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, i, state := cur.node, cur.i, cur.state
+		if node == nil {
+			continue
+		}
+		if state == 0 {
+			stk = append(stk, frame{node, i, 1}, frame{node.Left, i + 1, 0})
+			continue
+		}
+		if i == level {
+			nums = append(nums, node.Val)
+		}
+		stk = append(stk, frame{node.Right, i + 1, 0})
+	}
+	if len(nums) == 0 {
+		return -1
+	}
+	return nums[len(nums)/2]
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+function levelMedian(root: TreeNode | null, level: number): number {
+    const nums: number[] = [];
+    const stk: [TreeNode | null, number, number][] = [[root, 0, 0]];
+    while (stk.length) {
+        const [node, i, state] = stk.pop()!;
+        if (node === null) {
+            continue;
+        }
+        if (state === 0) {
+            stk.push([node, i, 1]);
+            stk.push([node.left, i + 1, 0]);
+            continue;
+        }
+        if (i === level) {
+            nums.push(node.val);
+        }
+        stk.push([node.right, i + 1, 0]);
+    }
+    if (nums.length === 0) {
+        return -1;
+    }
+    return nums[nums.length >> 1];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

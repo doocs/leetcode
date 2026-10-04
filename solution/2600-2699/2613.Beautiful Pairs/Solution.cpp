@@ -57,7 +57,7 @@ public:
     }
 
     long long f(int x, int y) {
-        return x * 100000LL + y;
+        return x * 100001LL + y;
     }
 
     int dist(int x1, int y1, int x2, int y2) {

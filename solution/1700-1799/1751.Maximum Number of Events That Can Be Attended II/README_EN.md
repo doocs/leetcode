@@ -317,11 +317,11 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 is memoized recursion. Sorting by end time lets us tabulate $f[i][j]$ as the best using the first $i$ events and $j$ slots, binary-searching the last non-conflicting event. Same complexity, no recursion stack.
+> Solution 1 sorts by start and fills a suffix table. Sorting by end instead, $f[i][j]$ is the best using the first $i$ events and $j$ slots, binary-searching the last non-conflicting event.
 
 <!-- thinking:end -->
 
-We can convert the memoization approach in Solution 1 to dynamic programming.
+Solution 1 sorts by start and fills a suffix table. Here we sort by end and define a prefix table.
 
 First, sort the events, this time by end time in ascending order. Then define $f[i][j]$ as the maximum total value by attending at most $j$ events among the first $i$ events. The answer is $f[n][k]$.
 
@@ -493,6 +493,217 @@ fn search(events: &Vec<Vec<i32>>, x: i32, hi: usize) -> usize {
     while l < r {
         let mid = (l + r) / 2;
         if events[mid][1] >= x {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    l
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Attend at most $k$ non-overlapping events for maximum total value. $k \times n \le 10^6$, so $n$ itself can be $10^6$ and listing subsets is impossible.
+>
+> After sorting by start, skipping calls $i+1$ with the same remaining slots before it returns, so the chain has length $n$ and overflows the stack.
+>
+> Later events and a smaller slot count are known if we walk backward. Let $f[i][c]$ be the best value from event $i$ with $c$ slots left, and fill $i$ from $n-1$ down to $0$.
+
+<!-- thinking:end -->
+
+First, we sort the events by their start time in ascending order. Let $f[i][c]$ be the maximum total value achievable by attending at most $c$ events starting from the $i$-th event. The answer is $f[0][k]$, and $f[n][c] = 0$.
+
+Fill $i$ from $n - 1$ down to $0$. If we do not attend the $i$-th event, the maximum value is $f[i + 1][c]$. If $c > 0$ and we attend it, binary search finds the first event $j$ whose start time is greater than the end time of the $i$-th event. The value is then $f[j][c - 1] + \text{value}[i]$. Take the larger of the two:
+
+$$
+f[i][c] = \max(f[i + 1][c], f[j][c - 1] + \text{value}[i])
+$$
+
+Here, $j$ is the index of the first event whose start time is greater than the end time of the $i$-th event. Because $j > i$, $f[j]$ is already filled.
+
+The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxValue(self, events: List[List[int]], k: int) -> int:
+        events.sort()
+        n = len(events)
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            _, ed, val = events[i]
+            j = bisect_right(events, ed, lo=i + 1, key=lambda x: x[0])
+            for c in range(k + 1):
+                f[i][c] = f[i + 1][c]
+                if c:
+                    f[i][c] = max(f[i][c], f[j][c - 1] + val)
+        return f[0][k]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxValue(int[][] events, int k) {
+        Arrays.sort(events, (a, b) -> a[0] - b[0]);
+        int n = events.length;
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int ed = events[i][1], val = events[i][2];
+            int j = search(events, ed, i + 1);
+            for (int c = 0; c <= k; ++c) {
+                f[i][c] = f[i + 1][c];
+                if (c > 0) {
+                    f[i][c] = Math.max(f[i][c], f[j][c - 1] + val);
+                }
+            }
+        }
+        return f[0][k];
+    }
+
+    private int search(int[][] events, int x, int lo) {
+        int l = lo, r = events.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (events[mid][0] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxValue(vector<vector<int>>& events, int k) {
+        ranges::sort(events);
+        int n = events.size();
+        vector<vector<int>> f(n + 1, vector<int>(k + 1));
+        for (int i = n - 1; i >= 0; --i) {
+            int ed = events[i][1], val = events[i][2];
+            vector<int> t = {ed};
+            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
+            for (int c = 0; c <= k; ++c) {
+                f[i][c] = f[i + 1][c];
+                if (c) {
+                    f[i][c] = max(f[i][c], f[p][c - 1] + val);
+                }
+            }
+        }
+        return f[0][k];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxValue(events [][]int, k int) int {
+	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
+	n := len(events)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	for i := n - 1; i >= 0; i-- {
+		ed, val := events[i][1], events[i][2]
+		j := sort.Search(n, func(h int) bool { return events[h][0] > ed })
+		for c := 0; c <= k; c++ {
+			f[i][c] = f[i+1][c]
+			if c > 0 {
+				f[i][c] = max(f[i][c], f[j][c-1]+val)
+			}
+		}
+	}
+	return f[0][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValue(events: number[][], k: number): number {
+    events.sort((a, b) => a[0] - b[0]);
+    const n = events.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    const search = (ed: number, lo: number): number => {
+        let left = lo;
+        let right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > ed) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    for (let i = n - 1; i >= 0; --i) {
+        const ed = events[i][1],
+            val = events[i][2];
+        const p = search(ed, i + 1);
+        for (let c = 0; c <= k; ++c) {
+            f[i][c] = f[i + 1][c];
+            if (c > 0) {
+                f[i][c] = Math.max(f[i][c], f[p][c - 1] + val);
+            }
+        }
+    }
+    return f[0][k];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_value(mut events: Vec<Vec<i32>>, k: i32) -> i32 {
+        events.sort_by_key(|e| e[0]);
+        let n = events.len();
+        let kk = k as usize;
+        let mut f = vec![vec![0; kk + 1]; n + 1];
+        for i in (0..n).rev() {
+            let ed = events[i][1];
+            let val = events[i][2];
+            let p = search(&events, ed, i + 1, n);
+            for c in 0..=kk {
+                f[i][c] = f[i + 1][c];
+                if c > 0 {
+                    f[i][c] = f[i][c].max(f[p][c - 1] + val);
+                }
+            }
+        }
+        f[0][kk]
+    }
+}
+
+fn search(events: &Vec<Vec<i32>>, x: i32, lo: usize, n: usize) -> usize {
+    let mut l = lo;
+    let mut r = n;
+    while l < r {
+        let mid = (l + r) / 2;
+        if events[mid][0] > x {
             r = mid;
         } else {
             l = mid + 1;

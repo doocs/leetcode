@@ -109,14 +109,13 @@ class Solution:
 class Solution {
     public long interchangeableRectangles(int[][] rectangles) {
         long ans = 0;
-        int n = rectangles.length + 1;
         Map<Long, Integer> cnt = new HashMap<>();
         for (var e : rectangles) {
             int w = e[0], h = e[1];
             int g = gcd(w, h);
             w /= g;
             h /= g;
-            long x = (long) w * n + h;
+            long x = (long) w * 100001 + h;
             ans += cnt.getOrDefault(x, 0);
             cnt.merge(x, 1, Integer::sum);
         }
@@ -136,14 +135,13 @@ class Solution {
 public:
     long long interchangeableRectangles(vector<vector<int>>& rectangles) {
         long long ans = 0;
-        int n = rectangles.size();
         unordered_map<long long, int> cnt;
         for (auto& e : rectangles) {
             int w = e[0], h = e[1];
             int g = gcd(w, h);
             w /= g;
             h /= g;
-            long long x = 1ll * w * (n + 1) + h;
+            long long x = 1LL * w * 100001 + h;
             ans += cnt[x];
             cnt[x]++;
         }
@@ -157,13 +155,12 @@ public:
 ```go
 func interchangeableRectangles(rectangles [][]int) int64 {
 	ans := 0
-	n := len(rectangles)
 	cnt := map[int]int{}
 	for _, e := range rectangles {
 		w, h := e[0], e[1]
 		g := gcd(w, h)
 		w, h = w/g, h/g
-		x := w*(n+1) + h
+		x := w*100001 + h
 		ans += cnt[x]
 		cnt[x]++
 	}
@@ -192,7 +189,7 @@ var interchangeableRectangles = function (rectangles) {
         const g = gcd(w, h);
         w = Math.floor(w / g);
         h = Math.floor(h / g);
-        const x = w * (rectangles.length + 1) + h;
+        const x = w * 100001 + h;
         ans += cnt.get(x) | 0;
         cnt.set(x, (cnt.get(x) | 0) + 1);
     }

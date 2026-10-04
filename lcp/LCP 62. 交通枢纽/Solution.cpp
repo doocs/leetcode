@@ -7,10 +7,10 @@ public:
         unordered_set<int> vis;
         for (auto& p : path) {
             int a = p[0], b = p[1];
-            if (vis.count(a * 1000 + b)) {
+            if (vis.count(a * 1001 + b)) {
                 continue;
             }
-            vis.insert(a * 1000 + b);
+            vis.insert(a * 1001 + b);
             s.insert(a);
             s.insert(b);
             ind[b]++;

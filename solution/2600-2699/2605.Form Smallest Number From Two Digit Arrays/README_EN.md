@@ -204,7 +204,7 @@ impl Solution {
 
 We can use a hash table or array to record the numbers in the arrays $nums1$ and $nums2$, and then enumerate $1 \sim 9$. If $i$ appears in both arrays, then $i$ is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.
 
-The time complexity is $(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively; and $C$ is the range of the numbers in the arrays $nums1$ and $nums2$, and the range in this problem is $C = 10$.
+The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively; and $C$ is the range of the numbers in the arrays $nums1$ and $nums2$, and the range in this problem is $C = 10$.
 
 <!-- tabs:start -->
 

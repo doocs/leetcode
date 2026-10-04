@@ -128,7 +128,7 @@ class Solution:
         k, s = divmod(sum, 9)
         ans = "9" * k
         if s:
-            ans += digits[s]
+            ans += str(s)
         ans += "0" * (num - len(ans))
         return ans
 ```

@@ -18,8 +18,8 @@ func finishTime(n int, edges [][]int, baseTime []int) int64 {
 
 		for _, j := range g[i] {
 			a := dfs(j)
-            earliest = min(earliest, a)
-            latest = max(latest, a)
+			earliest = min(earliest, a)
+			latest = max(latest, a)
 		}
 
 		ownDuration := (latest - earliest) + int64(baseTime[i])

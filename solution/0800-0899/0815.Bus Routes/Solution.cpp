@@ -32,9 +32,9 @@ public:
 
             for (int bus : g[stop]) {
                 if (!visBus.contains(bus)) {
+                    visBus.insert(bus);
                     for (int nextStop : routes[bus]) {
                         if (!visStop.contains(nextStop)) {
-                            visBus.insert(bus);
                             visStop.insert(nextStop);
                             q.push({nextStop, busCount + 1});
                         }

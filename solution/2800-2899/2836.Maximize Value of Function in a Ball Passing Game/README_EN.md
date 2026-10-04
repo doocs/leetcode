@@ -234,8 +234,8 @@ class Solution {
 public:
     long long getMaxFunctionValue(vector<int>& receiver, long long k) {
         int n = receiver.size(), m = 64 - __builtin_clzll(k);
-        int f[n][m];
-        long long g[n][m];
+        vector<vector<int>> f(n, vector<int>(m));
+        vector<vector<long long>> g(n, vector<long long>(m));
         for (int i = 0; i < n; ++i) {
             f[i][0] = receiver[i];
             g[i][0] = i;

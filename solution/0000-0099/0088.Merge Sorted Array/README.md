@@ -220,13 +220,9 @@ class Solution {
      * @return NULL
      */
     function merge(&$nums1, $m, $nums2, $n) {
-        while (count($nums1) > $m) {
-            array_pop($nums1);
+        for ($i = $m - 1, $j = $n - 1, $k = $m + $n - 1; $j >= 0; --$k) {
+            $nums1[$k] = $i >= 0 && $nums1[$i] > $nums2[$j] ? $nums1[$i--] : $nums2[$j--];
         }
-        for ($i = 0; $i < $n; $i++) {
-            array_push($nums1, $nums2[$i]);
-        }
-        asort($nums1);
     }
 }
 ```

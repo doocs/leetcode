@@ -246,7 +246,9 @@ function stoneGameVIII(stones: number[]): number {
 
 > **思考**
 >
-> 方法一的递推只向右看一项，递归与缓存可以改成从右往左的迭代： $f$ 先等于 $s[n-1]$，再对 $i=n-2,\ldots,1$ 做 $f=\max(f,s[i]-f)$。额外空间降为常数。
+> 方法一从右往左填了一张线性表，每一格只依赖下一格。这张表可以压成一个滚动值。
+>
+> $f$ 先等于 $s[n-1]$，再对 $i=n-2,\ldots,1$ 做 $f=\max(f,s[i]-f)$。额外空间降为常数。
 
 <!-- thinking:end -->
 
@@ -336,6 +338,129 @@ function stoneGameVIII(stones: number[]): number {
         f = Math.max(f, stones[i] - f);
     }
     return f;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：前缀和 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次合并最左至少两堆，得分加上新的前缀和，双方都要最大化自己与对手的分差。$n\le 10^5$，不能搜索所有切分。
+>
+> 从下标 $i$ 开始，当前玩家可以取 $s[i]$ 并让对手面对 $i+1$，或把决策继续右移。这个递推总会先调用 $i+1$，调用链长度为 $n$，栈会溢出。
+>
+> 下一格在从右往左走时已经就绪。令 $f[i]$ 为面对 $stones[i:]$ 的最大分差，$f[n-1]=s[n-1]$，从 $i=n-2$ 填到 $1$。
+
+<!-- thinking:end -->
+
+根据题目描述，每次取走最左边的 $x$ 个石子，把它们的和加到自己的分数中，然后把一个价值为这个和的石子放在最左边，相当于把这 $x$ 个石子合并成了一个价值为这个和的石子，前缀和不变。
+
+我们可以用一个长度为 $n$ 的前缀和数组 $s$ 来表示数组 $stones$ 的前缀和，其中 $s[i]$ 表示 $stones[0..i]$ 的元素和。
+
+令 $f[i]$ 表示当前从 $stones[i:]$ 中取石子时，当前玩家能得到的最大分数差。答案为 $f[1]$，因为 Alice 至少要取走前两堆。边界 $f[n - 1] = s[n - 1]$，此时只剩最后一堆，玩家只能取走它。
+
+我们从 $i = n - 2$ 填到 $1$。把决策继续右移，得到的分数差为 $f[i + 1]$；取走 $stones[0..i]$ 得到 $s[i]$，对手面对 $f[i + 1]$，当前分差为 $s[i] - f[i + 1]$。取两者的较大值：
+
+$$
+f[i] = \max(f[i + 1], s[i] - f[i + 1])
+$$
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $stones$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stoneGameVIII(self, stones: List[int]) -> int:
+        s = list(accumulate(stones))
+        n = len(s)
+        f = [0] * n
+        f[-1] = s[-1]
+        for i in range(n - 2, 0, -1):
+            f[i] = max(f[i + 1], s[i] - f[i + 1])
+        return f[1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int stoneGameVIII(int[] stones) {
+        int n = stones.length;
+        for (int i = 1; i < n; ++i) {
+            stones[i] += stones[i - 1];
+        }
+        int[] f = new int[n];
+        f[n - 1] = stones[n - 1];
+        for (int i = n - 2; i > 0; --i) {
+            f[i] = Math.max(f[i + 1], stones[i] - f[i + 1]);
+        }
+        return f[1];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int stoneGameVIII(vector<int>& stones) {
+        int n = stones.size();
+        for (int i = 1; i < n; ++i) {
+            stones[i] += stones[i - 1];
+        }
+        vector<int> f(n);
+        f[n - 1] = stones[n - 1];
+        for (int i = n - 2; i > 0; --i) {
+            f[i] = max(f[i + 1], stones[i] - f[i + 1]);
+        }
+        return f[1];
+    }
+};
+```
+
+#### Go
+
+```go
+func stoneGameVIII(stones []int) int {
+	n := len(stones)
+	for i := 1; i < n; i++ {
+		stones[i] += stones[i-1]
+	}
+	f := make([]int, n)
+	f[n-1] = stones[n-1]
+	for i := n - 2; i > 0; i-- {
+		f[i] = max(f[i+1], stones[i]-f[i+1])
+	}
+	return f[1]
+}
+```
+
+#### TypeScript
+
+```ts
+function stoneGameVIII(stones: number[]): number {
+    const n = stones.length;
+    for (let i = 1; i < n; ++i) {
+        stones[i] += stones[i - 1];
+    }
+    const f: number[] = Array(n).fill(0);
+    f[n - 1] = stones[n - 1];
+    for (let i = n - 2; i > 0; --i) {
+        f[i] = Math.max(f[i + 1], stones[i] - f[i + 1]);
+    }
+    return f[1];
 }
 ```
 

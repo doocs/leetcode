@@ -91,7 +91,7 @@ We can first compute the contribution of strictly increasing subsequences, then 
 
 To implement this, we define a function $\textit{calc}(\textit{nums})$, where $\textit{nums}$ is an array. This function returns the sum of all continuous subsequences of length greater than 1 in $\textit{nums}$.
 
-In the function, we can use two arrays, $\textit{left}$ and $\textit{right}$, to record the number of strictly increasing subsequences ending with $\textit{nums}[i] - 1$ on the left of each element $\textit{nums}[i]$, and the number of strictly increasing subsequences starting with $\textit{nums}[i] + 1$ on the right of each element $\textit{nums}[i]$. In this way, we can calculate the contribution of $\textit{nums}$ in all continuous subsequences of length greater than 1 in $O(n)$ time complexity.
+In the function, we can use two arrays, $\textit{left}$ and $\textit{right}$, to record the number of strictly increasing subsequences ending with $\textit{nums}[i] - 1$ on the left of each element $\textit{nums}[i]$, and the number of strictly increasing subsequences starting with $\textit{nums}[i] + 1$ on the right of each element $\textit{nums}[i]$. In this way, we can calculate the contribution of $\textit{nums}$ in all continuous subsequences of length greater than 1 in $O(n)$ time complexity. Each count is reduced modulo $10^9 + 7$ on update. Later steps only add and multiply these counts into a sum reduced by the same modulus, so the answer is unchanged and every intermediate value stays inside a 64-bit integer.
 
 In the main function, we first call $\textit{calc}(\textit{nums})$ to compute the contribution of strictly increasing subsequences, then reverse $\textit{nums}$ and call $\textit{calc}(\textit{nums})$ again to compute the contribution of strictly decreasing subsequences. Finally, adding the sum of all elements gives the answer.
 
@@ -110,11 +110,11 @@ class Solution:
             right = [0] * n
             cnt = Counter()
             for i in range(1, n):
-                cnt[nums[i - 1]] += 1 + cnt[nums[i - 1] - 1]
+                cnt[nums[i - 1]] = (cnt[nums[i - 1]] + 1 + cnt[nums[i - 1] - 1]) % mod
                 left[i] = cnt[nums[i] - 1]
             cnt = Counter()
             for i in range(n - 2, -1, -1):
-                cnt[nums[i + 1]] += 1 + cnt[nums[i + 1] + 1]
+                cnt[nums[i + 1]] = (cnt[nums[i + 1]] + 1 + cnt[nums[i + 1] + 1]) % mod
                 right[i] = cnt[nums[i] + 1]
             return sum((l + r + l * r) * x for l, r, x in zip(left, right, nums)) % mod
 
@@ -149,12 +149,14 @@ class Solution {
         long[] right = new long[n];
         Map<Integer, Long> cnt = new HashMap<>();
         for (int i = 1; i < n; ++i) {
-            cnt.merge(nums[i - 1], 1 + cnt.getOrDefault(nums[i - 1] - 1, 0L), Long::sum);
+            cnt.merge(nums[i - 1], (1 + cnt.getOrDefault(nums[i - 1] - 1, 0L)) % mod,
+                (a, b) -> (a + b) % mod);
             left[i] = cnt.getOrDefault(nums[i] - 1, 0L);
         }
         cnt.clear();
         for (int i = n - 2; i >= 0; --i) {
-            cnt.merge(nums[i + 1], 1 + cnt.getOrDefault(nums[i + 1] + 1, 0L), Long::sum);
+            cnt.merge(nums[i + 1], (1 + cnt.getOrDefault(nums[i + 1] + 1, 0L)) % mod,
+                (a, b) -> (a + b) % mod);
             right[i] = cnt.getOrDefault(nums[i] + 1, 0L);
         }
         long ans = 0;
@@ -180,14 +182,14 @@ public:
             unordered_map<int, ll> cnt;
 
             for (int i = 1; i < n; ++i) {
-                cnt[nums[i - 1]] += 1 + cnt[nums[i - 1] - 1];
+                cnt[nums[i - 1]] = (cnt[nums[i - 1]] + 1 + cnt[nums[i - 1] - 1]) % mod;
                 left[i] = cnt[nums[i] - 1];
             }
 
             cnt.clear();
 
             for (int i = n - 2; i >= 0; --i) {
-                cnt[nums[i + 1]] += 1 + cnt[nums[i + 1] + 1];
+                cnt[nums[i + 1]] = (cnt[nums[i + 1]] + 1 + cnt[nums[i + 1] + 1]) % mod;
                 right[i] = cnt[nums[i] + 1];
             }
 
@@ -220,14 +222,14 @@ func getSum(nums []int) int {
 		cnt := make(map[int]int64)
 
 		for i := 1; i < n; i++ {
-			cnt[nums[i-1]] += 1 + cnt[nums[i-1]-1]
+			cnt[nums[i-1]] = (cnt[nums[i-1]] + 1 + cnt[nums[i-1]-1]) % mod
 			left[i] = cnt[nums[i]-1]
 		}
 
 		cnt = make(map[int]int64)
 
 		for i := n - 2; i >= 0; i-- {
-			cnt[nums[i+1]] += 1 + cnt[nums[i+1]+1]
+			cnt[nums[i+1]] = (cnt[nums[i+1]] + 1 + cnt[nums[i+1]+1]) % mod
 			right[i] = cnt[nums[i]+1]
 		}
 

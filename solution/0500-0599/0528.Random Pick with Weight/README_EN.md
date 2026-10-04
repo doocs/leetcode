@@ -259,7 +259,7 @@ impl Solution {
     }
 
     fn pick_index(&self) -> i32 {
-        let x = thread_rng().gen_range(1, self.sum.last().unwrap() + 1);
+        let x = thread_rng().gen_range(1..=*self.sum.last().unwrap());
         let (mut left, mut right) = (1, self.sum.len() - 1);
         while left < right {
             let mid = (left + right) >> 1;

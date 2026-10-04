@@ -10,12 +10,12 @@ impl Solution {
             }
         }
         let mut ans = 0;
-        for i in 0..10 {
+        for i in 1..10 {
             let mut cnt: HashMap<i32, i32> = HashMap::new();
             cnt.insert(0, 1);
             let mut s = 0;
             for c in word.chars() {
-                s += (mp[(c as usize) - ('a' as usize)] - i) as i32;
+                s += mp[(c as usize) - ('a' as usize)] as i32 - i as i32;
                 ans += cnt.get(&s).cloned().unwrap_or(0);
                 *cnt.entry(s).or_insert(0) += 1;
             }

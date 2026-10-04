@@ -283,4 +283,216 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：换根 + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 以每个结点为根，统计把整棵树定向为从该点可达所需的最少翻边。$n \le 10^5$，对每个根各搜一次是 $O(n^2)$；从 $0$ 递归统计逆边，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 先把有向边 $x \to y$ 记成从 $x$ 走向 $y$ 的权 $1$、从 $y$ 走回 $x$ 的权 $-1$。以 $0$ 为根时，走向孩子的权为负就说明这条边背离根，需要翻一次。换根走到孩子 $j$ 时，答案变成 $ans[i] + k$：权 $1$ 表示原来顺着走、换根后要翻，权 $-1$ 表示原来要翻、换根后不用再翻。
+>
+> 两次遍历都用显式栈，从父节点走向孩子。第一次只累加根 $0$ 的逆边，第二次按上面的增量写下每个新根。栈里保存 $(节点, 父节点)$，父节点的答案写好之后再处理孩子。
+
+<!-- thinking:end -->
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
+        ans = [0] * n
+        g = [[] for _ in range(n)]
+        for x, y in edges:
+            g[x].append((y, 1))
+            g[y].append((x, -1))
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j, k in g[i]:
+                if j != fa:
+                    if k < 0:
+                        ans[0] += 1
+                    stk.append((j, i))
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j, k in g[i]:
+                if j != fa:
+                    ans[j] = ans[i] + k
+                    stk.append((j, i))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] minEdgeReversals(int n, int[][] edges) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int x = e[0], y = e[1];
+            g[x].add(new int[] {y, 1});
+            g[y].add(new int[] {x, -1});
+        }
+        int[] ans = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1];
+            for (var ne : g[i]) {
+                int j = ne[0], k = ne[1];
+                if (j != fa) {
+                    ans[0] += k < 0 ? 1 : 0;
+                    stk.push(new int[] {j, i});
+                }
+            }
+        }
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1];
+            for (var ne : g[i]) {
+                int j = ne[0], k = ne[1];
+                if (j != fa) {
+                    ans[j] = ans[i] + k;
+                    stk.push(new int[] {j, i});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> minEdgeReversals(int n, vector<vector<int>>& edges) {
+        vector<vector<pair<int, int>>> g(n);
+        vector<int> ans(n);
+        for (auto& e : edges) {
+            int x = e[0], y = e[1];
+            g[x].emplace_back(y, 1);
+            g[y].emplace_back(x, -1);
+        }
+        vector<pair<int, int>> stk{{0, -1}};
+        while (!stk.empty()) {
+            auto [i, fa] = stk.back();
+            stk.pop_back();
+            for (auto& [j, k] : g[i]) {
+                if (j != fa) {
+                    ans[0] += k < 0;
+                    stk.emplace_back(j, i);
+                }
+            }
+        }
+        stk.emplace_back(0, -1);
+        while (!stk.empty()) {
+            auto [i, fa] = stk.back();
+            stk.pop_back();
+            for (auto& [j, k] : g[i]) {
+                if (j != fa) {
+                    ans[j] = ans[i] + k;
+                    stk.emplace_back(j, i);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minEdgeReversals(n int, edges [][]int) []int {
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		x, y := e[0], e[1]
+		g[x] = append(g[x], [2]int{y, 1})
+		g[y] = append(g[y], [2]int{x, -1})
+	}
+	ans := make([]int, n)
+	stk := [][2]int{{0, -1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa := cur[0], cur[1]
+		for _, ne := range g[i] {
+			j, k := ne[0], ne[1]
+			if j != fa {
+				if k < 0 {
+					ans[0]++
+				}
+				stk = append(stk, [2]int{j, i})
+			}
+		}
+	}
+	stk = append(stk, [2]int{0, -1})
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa := cur[0], cur[1]
+		for _, ne := range g[i] {
+			j, k := ne[0], ne[1]
+			if j != fa {
+				ans[j] = ans[i] + k
+				stk = append(stk, [2]int{j, i})
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minEdgeReversals(n: number, edges: number[][]): number[] {
+    const g: number[][][] = Array.from({ length: n }, () => []);
+    for (const [x, y] of edges) {
+        g[x].push([y, 1]);
+        g[y].push([x, -1]);
+    }
+    const ans: number[] = Array(n).fill(0);
+    const stk: [number, number][] = [[0, -1]];
+    while (stk.length) {
+        const [i, fa] = stk.pop()!;
+        for (const [j, k] of g[i]) {
+            if (j !== fa) {
+                ans[0] += k < 0 ? 1 : 0;
+                stk.push([j, i]);
+            }
+        }
+    }
+    stk.push([0, -1]);
+    while (stk.length) {
+        const [i, fa] = stk.pop()!;
+        for (const [j, k] of g[i]) {
+            if (j !== fa) {
+                ans[j] = ans[i] + k;
+                stk.push([j, i]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

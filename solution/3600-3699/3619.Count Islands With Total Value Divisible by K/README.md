@@ -256,4 +256,216 @@ function countIslands(grid: number[][], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 岛屿是四连通的正值格子，答案只取决于每座岛的价值和能否被 $k$ 整除。对每个仍为正的格子做一次递归搜索，在进入格子时累加并清零，就能求出这座岛的和，同时避免把同一格子算进两座岛。
+>
+> 网格规模达到 $10^5$。一条蛇形岛屿会让递归深度跟着格子数一起增长，调用栈在求和结束前就会溢出。清零只是访问标记，邻格是否属于同一座岛仍然只看它是否仍为正。
+>
+> 待扩展的坐标可以放进显式栈。格子的值在入栈前加进总和并立刻清零，弹出后再把四个仍为正的邻居入栈，这样总和与递归版本一致，而栈的深度由我们自己控制。单格不超过 $10^6$、格子数不超过 $10^5$，一座岛的和可以到 $10^{11}$，因此总和用 64 位整数保存。
+>
+> 扫描整张网格，每遇到仍为正的格子就做一次这样的遍历，返回的和模 $k$ 为 $0$ 时答案加一。每个格子至多入栈一次。
+
+<!-- thinking:end -->
+
+我们用显式栈遍历每一座岛屿。从仍为正的格子 $(i, j)$ 出发，先把它的值记入总和 $s$，再将该格清零并压入栈。每次弹出一个格子，检查上、下、左、右四个相邻位置：若邻居仍为正，则把它的值累加到 $s$，清零后压栈。栈空时，$s$ 就是这座岛的总价值。清零发生在入栈之前，同一格子不会被重复累加。
+
+主函数扫描整个网格。遇到仍为正的格子就执行上述遍历，若 $s \bmod k = 0$ 则答案加一。$s$ 使用 64 位整数，避免 $10^5$ 个不超过 $10^6$ 的格子相加时溢出。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countIslands(self, grid: List[List[int]], k: int) -> int:
+        def flood(i: int, j: int) -> int:
+            s = grid[i][j]
+            grid[i][j] = 0
+            stk = [(i, j)]
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        s += grid[x][y]
+                        grid[x][y] = 0
+                        stk.append((x, y))
+            return s
+
+        m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] and flood(i, j) % k == 0:
+                    ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countIslands(int[][] grid, int k) {
+        int m = grid.length, n = grid[0].length;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    continue;
+                }
+                long s = grid[i][j];
+                grid[i][j] = 0;
+                stk.push(new int[] {i, j});
+                while (!stk.isEmpty()) {
+                    int[] p = stk.pop();
+                    int x0 = p[0], y0 = p[1];
+                    for (int d = 0; d < 4; ++d) {
+                        int x = x0 + dirs[d], y = y0 + dirs[d + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0) {
+                            s += grid[x][y];
+                            grid[x][y] = 0;
+                            stk.push(new int[] {x, y});
+                        }
+                    }
+                }
+                if (s % k == 0) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countIslands(vector<vector<int>>& grid, int k) {
+        int m = grid.size(), n = grid[0].size();
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        vector<pair<int, int>> stk;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (!grid[i][j]) {
+                    continue;
+                }
+                long long s = grid[i][j];
+                grid[i][j] = 0;
+                stk.emplace_back(i, j);
+                while (!stk.empty()) {
+                    auto [x0, y0] = stk.back();
+                    stk.pop_back();
+                    for (int d = 0; d < 4; ++d) {
+                        int x = x0 + dirs[d], y = y0 + dirs[d + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y]) {
+                            s += grid[x][y];
+                            grid[x][y] = 0;
+                            stk.emplace_back(x, y);
+                        }
+                    }
+                }
+                if (s % k == 0) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countIslands(grid [][]int, k int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	dirs := []int{-1, 0, 1, 0, -1}
+	stk := [][2]int{}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				continue
+			}
+			s := grid[i][j]
+			grid[i][j] = 0
+			stk = append(stk, [2]int{i, j})
+			for len(stk) > 0 {
+				p := stk[len(stk)-1]
+				stk = stk[:len(stk)-1]
+				for d := 0; d < 4; d++ {
+					x, y := p[0]+dirs[d], p[1]+dirs[d+1]
+					if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0 {
+						s += grid[x][y]
+						grid[x][y] = 0
+						stk = append(stk, [2]int{x, y})
+					}
+				}
+			}
+			if s%k == 0 {
+				ans++
+			}
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countIslands(grid: number[][], k: number): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dirs = [-1, 0, 1, 0, -1];
+    const stk: number[][] = [];
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 0) {
+                continue;
+            }
+            let s = grid[i][j];
+            grid[i][j] = 0;
+            stk.push([i, j]);
+            while (stk.length) {
+                const [x0, y0] = stk.pop()!;
+                for (let d = 0; d < 4; d++) {
+                    const x = x0 + dirs[d];
+                    const y = y0 + dirs[d + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0) {
+                        s += grid[x][y];
+                        grid[x][y] = 0;
+                        stk.push([x, y]);
+                    }
+                }
+            }
+            if (s % k === 0) {
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

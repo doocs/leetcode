@@ -98,7 +98,7 @@ Next, we use binary enumeration to enumerate all word combinations. Each bit in 
 
 Then, we count the number of occurrences of each letter in the current word combination and record it in the hash table or array $cur$. If the number of occurrences of each letter in $cur$ is not greater than the corresponding letter in $cnt$, it means the current word combination meets the requirements of the problem. We calculate the score of the current word combination and take the word combination with the highest score.
 
-The time complexity is $(2^n \times n \times M)$, and the space complexity is $O(C)$. Where $n$ and $M$ are the number of words in the word set and the maximum length of the word, respectively; and $C$ is the number of letters in the alphabet, in this problem, $C=26$.
+The time complexity is $O(2^n \times n \times M)$, and the space complexity is $O(C)$. Where $n$ and $M$ are the number of words in the word set and the maximum length of the word, respectively; and $C$ is the number of letters in the alphabet, in this problem, $C=26$.
 
 <!-- tabs:start -->
 

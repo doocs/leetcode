@@ -8,14 +8,14 @@ class Solution {
             ans.add(matrix[i][j]);
             matrix[i][j] += 300;
             int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x < 0 || x >= m || y < 0 || y >= n || matrix[i][j] > 100) {
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100) {
                 k = (k + 1) % 4;
             }
             i += dirs[k];
             j += dirs[k + 1];
         }
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
+        for (i = 0; i < m; ++i) {
+            for (j = 0; j < n; ++j) {
                 matrix[i][j] -= 300;
             }
         }

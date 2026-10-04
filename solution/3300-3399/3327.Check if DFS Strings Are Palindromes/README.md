@@ -373,4 +373,291 @@ func findAnswer(parent []int, s string) (ans []bool) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈 + 字符串哈希
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个子树的 $\textit{dfsStr}$ 是一段连续区间，要判断它是不是回文。$n \le 10^5$，对每个节点再扫一遍字符串是 $O(n^2)$；从根递归写下遍历序，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 后序离开节点时才把自己的字符接到串尾，所以一个节点的区间正好盖住它先写完的所有子孙。孩子必须按邻接表原来的顺序处理，区间的左右端点才和递归遍历一致。
+>
+> 显式栈按 $(节点, 状态)$ 做后序。进入时先压出栈标记，再逆序压孩子，这样孩子仍从左到右弹出。离开时记下 $[l, r]$。正串和反串各建一次哈希，$O(1)$ 比较区间前半与反串对应前半。
+
+<!-- thinking:end -->
+
+用显式栈按后序遍历树。离开节点时把该节点的字符接到 $\textit{dfsStr}$ 末尾，并记下它的区间 $[l, r]$。孩子按邻接表从左到右处理。
+
+然后使用字符串哈希，分别求出 $\textit{dfsStr}$ 和它的逆序串的哈希值，判断每个区间是不是回文串。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Hashing:
+    __slots__ = ["mod", "h", "p"]
+
+    def __init__(self, s: List[str], base: int, mod: int):
+        self.mod = mod
+        self.h = [0] * (len(s) + 1)
+        self.p = [1] * (len(s) + 1)
+        for i in range(1, len(s) + 1):
+            self.h[i] = (self.h[i - 1] * base + ord(s[i - 1])) % mod
+            self.p[i] = (self.p[i - 1] * base) % mod
+
+    def query(self, l: int, r: int) -> int:
+        return (self.h[r] - self.h[l - 1] * self.p[r - l + 1]) % self.mod
+
+
+class Solution:
+    def findAnswer(self, parent: List[int], s: str) -> List[bool]:
+        n = len(s)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        dfsStr = []
+        pos = [(0, 0)] * n
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                pos[i] = (len(dfsStr) + 1, 0)
+                stk.append((i, 1))
+                for j in reversed(g[i]):
+                    stk.append((j, 0))
+            else:
+                dfsStr.append(s[i])
+                l, _ = pos[i]
+                pos[i] = (l, len(dfsStr))
+
+        base, mod = 13331, 998244353
+        h1 = Hashing(dfsStr, base, mod)
+        h2 = Hashing(dfsStr[::-1], base, mod)
+        ans = []
+        for i in range(n):
+            l, r = pos[i]
+            k = r - l + 1
+            v1 = h1.query(l, l + k // 2 - 1)
+            v2 = h2.query(n - r + 1, n - r + 1 + k // 2 - 1)
+            ans.append(v1 == v2)
+        return ans
+```
+
+#### Java
+
+```java
+class Hashing {
+    private final long[] p;
+    private final long[] h;
+    private final long mod;
+
+    public Hashing(String word, long base, int mod) {
+        int n = word.length();
+        p = new long[n + 1];
+        h = new long[n + 1];
+        p[0] = 1;
+        this.mod = mod;
+        for (int i = 1; i <= n; i++) {
+            p[i] = p[i - 1] * base % mod;
+            h[i] = (h[i - 1] * base + word.charAt(i - 1)) % mod;
+        }
+    }
+
+    public long query(int l, int r) {
+        return (h[r] - h[l - 1] * p[r - l + 1] % mod + mod) % mod;
+    }
+}
+
+class Solution {
+    public boolean[] findAnswer(int[] parent, String s) {
+        int n = s.length();
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].add(i);
+        }
+        StringBuilder dfsStr = new StringBuilder();
+        int[][] pos = new int[n][2];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                pos[i][0] = dfsStr.length() + 1;
+                stk.push(new int[] {i, 1});
+                for (int t = g[i].size() - 1; t >= 0; --t) {
+                    stk.push(new int[] {g[i].get(t), 0});
+                }
+            } else {
+                dfsStr.append(s.charAt(i));
+                pos[i][1] = dfsStr.length();
+            }
+        }
+        final int base = 13331;
+        final int mod = 998244353;
+        Hashing h1 = new Hashing(dfsStr.toString(), base, mod);
+        Hashing h2 = new Hashing(new StringBuilder(dfsStr).reverse().toString(), base, mod);
+        boolean[] ans = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            int l = pos[i][0], r = pos[i][1];
+            int k = r - l + 1;
+            long v1 = h1.query(l, l + k / 2 - 1);
+            long v2 = h2.query(n + 1 - r, n + 1 - r + k / 2 - 1);
+            ans[i] = v1 == v2;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Hashing {
+private:
+    vector<long long> p;
+    vector<long long> h;
+    long long mod;
+
+public:
+    Hashing(string word, long long base, int mod) {
+        int n = word.size();
+        p.resize(n + 1);
+        h.resize(n + 1);
+        p[0] = 1;
+        this->mod = mod;
+        for (int i = 1; i <= n; i++) {
+            p[i] = (p[i - 1] * base) % mod;
+            h[i] = (h[i - 1] * base + word[i - 1] - 'a') % mod;
+        }
+    }
+
+    long long query(int l, int r) {
+        return (h[r] - h[l - 1] * p[r - l + 1] % mod + mod) % mod;
+    }
+};
+
+class Solution {
+public:
+    vector<bool> findAnswer(vector<int>& parent, string s) {
+        int n = s.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].push_back(i);
+        }
+        string dfsStr;
+        vector<pair<int, int>> pos(n);
+        vector<array<int, 2>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                pos[i].first = (int) dfsStr.size() + 1;
+                stk.push_back({i, 1});
+                for (int t = (int) g[i].size() - 1; t >= 0; --t) {
+                    stk.push_back({g[i][t], 0});
+                }
+            } else {
+                dfsStr.push_back(s[i]);
+                pos[i].second = (int) dfsStr.size();
+            }
+        }
+
+        const int base = 13331;
+        const int mod = 998244353;
+        Hashing h1(dfsStr, base, mod);
+        reverse(dfsStr.begin(), dfsStr.end());
+        Hashing h2(dfsStr, base, mod);
+        vector<bool> ans(n);
+        for (int i = 0; i < n; ++i) {
+            auto [l, r] = pos[i];
+            int k = r - l + 1;
+            long long v1 = h1.query(l, l + k / 2 - 1);
+            long long v2 = h2.query(n - r + 1, n - r + 1 + k / 2 - 1);
+            ans[i] = v1 == v2;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+type Hashing struct {
+	p   []int64
+	h   []int64
+	mod int64
+}
+
+func NewHashing(word string, base, mod int64) *Hashing {
+	n := len(word)
+	p := make([]int64, n+1)
+	h := make([]int64, n+1)
+	p[0] = 1
+	for i := 1; i <= n; i++ {
+		p[i] = p[i-1] * base % mod
+		h[i] = (h[i-1]*base + int64(word[i-1])) % mod
+	}
+	return &Hashing{p, h, mod}
+}
+
+func (hs *Hashing) query(l, r int) int64 {
+	return (hs.h[r] - hs.h[l-1]*hs.p[r-l+1]%hs.mod + hs.mod) % hs.mod
+}
+
+func findAnswer(parent []int, s string) (ans []bool) {
+	n := len(s)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	dfsStr := []byte{}
+	pos := make([][2]int, n)
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			pos[i][0] = len(dfsStr) + 1
+			stk = append(stk, [2]int{i, 1})
+			for t := len(g[i]) - 1; t >= 0; t-- {
+				stk = append(stk, [2]int{g[i][t], 0})
+			}
+		} else {
+			dfsStr = append(dfsStr, s[i])
+			pos[i][1] = len(dfsStr)
+		}
+	}
+
+	const base = 13331
+	const mod = 998244353
+	h1 := NewHashing(string(dfsStr), base, mod)
+	for i, j := 0, len(dfsStr)-1; i < j; i, j = i+1, j-1 {
+		dfsStr[i], dfsStr[j] = dfsStr[j], dfsStr[i]
+	}
+	h2 := NewHashing(string(dfsStr), base, mod)
+	for i := 0; i < n; i++ {
+		l, r := pos[i][0], pos[i][1]
+		k := r - l + 1
+		v1 := h1.query(l, l+k/2-1)
+		v2 := h2.query(n-r+1, n-r+1+k/2-1)
+		ans = append(ans, v1 == v2)
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

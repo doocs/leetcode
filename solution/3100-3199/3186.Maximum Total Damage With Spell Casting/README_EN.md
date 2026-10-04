@@ -317,4 +317,200 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Binary Search + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Taking damage $x$ forbids every other value in $[x-2,x+2]$, while equal copies of $x$ may all be taken. $n$ can be $10^5$, so subsets of the distinct damages are exponential.
+>
+> After sorting, skipping the current value always calls a later index first. When the damages are distinct and adjacent, that call advances by $1$, so the chain has length $n$ and overflows the stack.
+>
+> Later indexes are known if we walk backward. Let $f[i]$ be the best damage from index $i$: skipping lands on $i+\textit{cnt}[x]$, and taking lands on the first value greater than $x+2$, which binary search stores ahead of time.
+
+<!-- thinking:end -->
+
+Sort $\textit{power}$ and record the count of each damage in a hash table $\textit{cnt}$. For every index $i$, binary search stores in $\textit{nxt}[i]$ the first position whose value is greater than $\textit{power}[i] + 2$.
+
+Let $f[i]$ be the maximum damage obtainable from index $i$, with $f[n] = 0$. The answer is $f[0]$.
+
+Fill $i$ from $n - 1$ down to $0$. Write $x = \textit{power}[i]$. Skipping every copy of $x$ yields $f[i + \textit{cnt}[x]]$. Taking those copies yields $x \times \textit{cnt}[x] + f[\textit{nxt}[i]]$. An index past $n$ contributes $0$. Take the larger value:
+
+$$
+f[i] = \max(f[i + \textit{cnt}[x]],\ x \times \textit{cnt}[x] + f[\textit{nxt}[i]])
+$$
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumTotalDamage(self, power: List[int]) -> int:
+        n = len(power)
+        cnt = Counter(power)
+        power.sort()
+        nxt = [bisect_right(power, x + 2, lo=i + 1) for i, x in enumerate(power)]
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            j = i + cnt[power[i]]
+            a = f[j] if j <= n else 0
+            b = power[i] * cnt[power[i]] + f[nxt[i]]
+            f[i] = max(a, b)
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maximumTotalDamage(int[] power) {
+        Arrays.sort(power);
+        int n = power.length;
+        Map<Integer, Integer> cnt = new HashMap<>(n);
+        int[] nxt = new int[n];
+        for (int i = 0; i < n; ++i) {
+            cnt.merge(power[i], 1, Integer::sum);
+            int l = Arrays.binarySearch(power, power[i] + 3);
+            l = l < 0 ? -l - 1 : l;
+            nxt[i] = l;
+        }
+        long[] f = new long[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int j = i + cnt.get(power[i]);
+            long a = j <= n ? f[j] : 0;
+            long b = 1L * power[i] * cnt.get(power[i]) + f[nxt[i]];
+            f[i] = Math.max(a, b);
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maximumTotalDamage(vector<int>& power) {
+        sort(power.begin(), power.end());
+        int n = power.size();
+        unordered_map<int, int> cnt;
+        vector<int> nxt(n);
+        for (int i = 0; i < n; ++i) {
+            cnt[power[i]]++;
+            nxt[i] = upper_bound(power.begin() + i + 1, power.end(), power[i] + 2) - power.begin();
+        }
+        vector<long long> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            int j = i + cnt[power[i]];
+            long long a = j <= n ? f[j] : 0;
+            long long b = 1LL * power[i] * cnt[power[i]] + f[nxt[i]];
+            f[i] = max(a, b);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumTotalDamage(power []int) int64 {
+	n := len(power)
+	sort.Ints(power)
+	cnt := map[int]int{}
+	nxt := make([]int, n)
+	f := make([]int64, n+1)
+	for i, x := range power {
+		cnt[x]++
+		nxt[i] = sort.SearchInts(power, x+3)
+	}
+	for i := n - 1; i >= 0; i-- {
+		j := i + cnt[power[i]]
+		a := int64(0)
+		if j <= n {
+			a = f[j]
+		}
+		b := int64(power[i])*int64(cnt[power[i]]) + f[nxt[i]]
+		f[i] = max(a, b)
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumTotalDamage(power: number[]): number {
+    const n = power.length;
+    power.sort((a, b) => a - b);
+    const cnt: Record<number, number> = {};
+    const nxt: number[] = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        cnt[power[i]] = (cnt[power[i]] || 0) + 1;
+        let [l, r] = [i + 1, n];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (power[mid] > power[i] + 2) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        nxt[i] = l;
+    }
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        const j = i + cnt[power[i]];
+        const a = j <= n ? f[j] : 0;
+        const b = power[i] * cnt[power[i]] + f[nxt[i]];
+        f[i] = Math.max(a, b);
+    }
+    return f[0];
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn maximum_total_damage(mut power: Vec<i32>) -> i64 {
+        power.sort();
+        let n = power.len();
+        let mut cnt = HashMap::new();
+        let mut nxt = vec![0; n];
+
+        for i in 0..n {
+            *cnt.entry(power[i]).or_insert(0) += 1;
+            let j = match power[i + 1..].binary_search_by(|&x| x.cmp(&(power[i] + 2 + 1))) {
+                Ok(pos) | Err(pos) => i + 1 + pos,
+            };
+            nxt[i] = j;
+        }
+
+        let mut f = vec![0_i64; n + 1];
+        for i in (0..n).rev() {
+            let c = *cnt.get(&power[i]).unwrap();
+            let j = i + c as usize;
+            let a = if j <= n { f[j] } else { 0 };
+            let b = power[i] as i64 * c as i64 + f[nxt[i]];
+            f[i] = a.max(b);
+        }
+        f[0]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

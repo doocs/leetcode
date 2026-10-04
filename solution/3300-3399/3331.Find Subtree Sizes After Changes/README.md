@@ -269,4 +269,209 @@ function findSubtreeSizes(parent: number[], s: string): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个节点可改挂到最近的、字母相同的祖先之下。$n$ 可以到 $10^5$，不能先改边再另做一遍子树统计。一条链上第一次递归总是走向唯一的孩子，深度就是 $n$，会超出默认递归上限。
+>
+> 子树大小要等后代都统计完才能加到新的父节点上，同字母祖先只出现在当前路径上。
+>
+> 因此用显式栈做后序，并用 $\textit{d}[c]$ 记录字母 $c$ 仍在路径上的结点。进入时把自身大小记为 $1$ 并压入字母栈，再压入离开标记和孩子。离开时若字母栈里还有更早的同字母结点，就把当前子树大小加到它上面，否则加到父亲，然后弹出字母栈。
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findSubtreeSizes(self, parent: List[int], s: str) -> List[int]:
+        n = len(s)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        d = [[] for _ in range(26)]
+        ans = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                ans[i] = 1
+                idx = ord(s[i]) - 97
+                d[idx].append(i)
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    stk.append((j, i, 0))
+            else:
+                idx = ord(s[i]) - 97
+                k = d[idx][-2] if len(d[idx]) > 1 else fa
+                if k != -1:
+                    ans[k] += ans[i]
+                d[idx].pop()
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] findSubtreeSizes(int[] parent, String s) {
+        int n = s.length();
+        List<Integer>[] g = new List[n];
+        List<Integer>[] d = new List[26];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        Arrays.setAll(d, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].add(i);
+        }
+        int[] ans = new int[n];
+        char[] cs = s.toCharArray();
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            int idx = cs[i] - 'a';
+            if (state == 0) {
+                ans[i] = 1;
+                d[idx].add(i);
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    stk.push(new int[] {j, i, 0});
+                }
+            } else {
+                int k = d[idx].size() > 1 ? d[idx].get(d[idx].size() - 2) : fa;
+                if (k >= 0) {
+                    ans[k] += ans[i];
+                }
+                d[idx].remove(d[idx].size() - 1);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> findSubtreeSizes(vector<int>& parent, string s) {
+        int n = s.size();
+        vector<vector<int>> g(n);
+        vector<int> d[26];
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].push_back(i);
+        }
+        vector<int> ans(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            int idx = s[i] - 'a';
+            if (state == 0) {
+                ans[i] = 1;
+                d[idx].push_back(i);
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    stk.push_back({j, i, 0});
+                }
+            } else {
+                int k = d[idx].size() > 1 ? d[idx][d[idx].size() - 2] : fa;
+                if (k >= 0) {
+                    ans[k] += ans[i];
+                }
+                d[idx].pop_back();
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func findSubtreeSizes(parent []int, s string) []int {
+	n := len(s)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	d := [26][]int{}
+	ans := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		idx := int(s[i] - 'a')
+		if state == 0 {
+			ans[i] = 1
+			d[idx] = append(d[idx], i)
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, j := range g[i] {
+				stk = append(stk, [3]int{j, i, 0})
+			}
+		} else {
+			k := fa
+			if len(d[idx]) > 1 {
+				k = d[idx][len(d[idx])-2]
+			}
+			if k != -1 {
+				ans[k] += ans[i]
+			}
+			d[idx] = d[idx][:len(d[idx])-1]
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findSubtreeSizes(parent: number[], s: string): number[] {
+    const n = parent.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const d: number[][] = Array.from({ length: 26 }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push(i);
+    }
+    const ans: number[] = Array(n).fill(0);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        const idx = s.charCodeAt(i) - 97;
+        if (state === 0) {
+            ans[i] = 1;
+            d[idx].push(i);
+            stk.push([i, fa, 1]);
+            for (const j of g[i]) {
+                stk.push([j, i, 0]);
+            }
+        } else {
+            const k = d[idx].length > 1 ? d[idx][d[idx].length - 2] : fa;
+            if (k >= 0) {
+                ans[k] += ans[i];
+            }
+            d[idx].pop();
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

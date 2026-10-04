@@ -22,7 +22,11 @@ public:
                 ans += (a1 + an) * x / 2 * cnt;
                 inventory[0] = nxt;
             }
-            orders -= tot;
+            if (tot >= orders) {
+                orders = 0;
+            } else {
+                orders -= (int) tot;
+            }
             ans %= mod;
         }
         return ans;

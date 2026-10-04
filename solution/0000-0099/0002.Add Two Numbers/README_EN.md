@@ -481,23 +481,20 @@ end
 ]#
 
 # More efficient code churning ...
-proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLinkedList[int] =
+proc addTwoNumbers(l1: var SinglyLinkedList[int], l2: var SinglyLinkedList[int]): SinglyLinkedList[int] =
   var
-    aggregate: SinglyLinkedList
-    psum: seq[char]
-    temp_la, temp_lb: seq[int]
-
-  while not l1.head.isNil:
-    temp_la.add(l1.head.value)
-    l1.head = l1.head.next
-
-  while not l2.head.isNil:
-    temp_lb.add(l2.head.value)
-    l2.head = l2.head.next
-
-  psum = reversed($(reversed(temp_la).join("").parseInt() + reversed(temp_lb).join("").parseInt()))
-  for i in psum: aggregate.append(($i).parseInt())
-
+    aggregate: SinglyLinkedList[int]
+    carry = 0
+  while not l1.head.isNil or not l2.head.isNil or carry != 0:
+    var s = carry
+    if not l1.head.isNil:
+      s += l1.head.value
+      l1.head = l1.head.next
+    if not l2.head.isNil:
+      s += l2.head.value
+      l2.head = l2.head.next
+    carry = s div 10
+    aggregate.append(s mod 10)
   result = aggregate
 ```
 

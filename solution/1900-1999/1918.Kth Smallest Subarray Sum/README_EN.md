@@ -228,7 +228,7 @@ func kthSmallestSubarraySum(nums []int, k int) int {
 }
 ```
 
-#### Typescript
+#### TypeScript
 
 ```ts
 function kthSmallestSubarraySum(nums: number[], k: number): number {
@@ -280,7 +280,7 @@ impl Solution {
                     t -= nums[j];
                     j += 1;
                 }
-                cnt += (i - j + 1) as i32;
+                cnt += i as i32 - j as i32 + 1;
             }
             cnt
         };

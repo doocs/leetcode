@@ -9,7 +9,7 @@ var interchangeableRectangles = function (rectangles) {
         const g = gcd(w, h);
         w = Math.floor(w / g);
         h = Math.floor(h / g);
-        const x = w * (rectangles.length + 1) + h;
+        const x = w * 100001 + h;
         ans += cnt.get(x) | 0;
         cnt.set(x, (cnt.get(x) | 0) + 1);
     }

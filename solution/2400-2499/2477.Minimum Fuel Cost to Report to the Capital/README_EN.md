@@ -291,4 +291,264 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Greedy + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Everyone reaches the capital, and cars only move toward the root. $n$ can reach $10^5$. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> The fuel on an edge depends only on the child's subtree size, so a parent can be finished only after its children.
+>
+> An explicit stack walks the tree in postorder: on entry, push the exit marker and then the children. On exit the child's size $t$ is known, the edge costs $\lceil t/seats\rceil$, and $t$ is added to the current node. The root has no edge above it.
+
+<!-- thinking:end -->
+
+According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
+
+Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $seats$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{seats} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.
+
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, the subtree size $t$ of child $b$ is known: add $\lceil t/seats\rceil$ to the answer and add $t$ to the current node. The node itself starts as $1$ person. The root has no edge leading further up.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
+        n = len(roads) + 1
+        g = [[] for _ in range(n)]
+        for a, b in roads:
+            g[a].append(b)
+            g[b].append(a)
+        ans = 0
+        sz = [1] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                for b in g[a]:
+                    if b != fa:
+                        t = sz[b]
+                        ans += (t + seats - 1) // seats
+                        sz[a] += t
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long minimumFuelCost(int[][] roads, int seats) {
+        int n = roads.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : roads) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long ans = 0;
+        int[] sz = new int[n];
+        Arrays.fill(sz, 1);
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        int t = sz[b];
+                        ans += (t + seats - 1) / seats;
+                        sz[a] += t;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long minimumFuelCost(vector<vector<int>>& roads, int seats) {
+        int n = roads.size() + 1;
+        vector<vector<int>> g(n);
+        for (auto& e : roads) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        long long ans = 0;
+        vector<int> sz(n, 1);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        int t = sz[b];
+                        ans += (t + seats - 1) / seats;
+                        sz[a] += t;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumFuelCost(roads [][]int, seats int) (ans int64) {
+	n := len(roads) + 1
+	g := make([][]int, n)
+	for _, e := range roads {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	sz := make([]int, n)
+	for i := range sz {
+		sz[i] = 1
+	}
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{a, fa, 1})
+			for _, b := range g[a] {
+				if b != fa {
+					stk = append(stk, [3]int{b, a, 0})
+				}
+			}
+		} else {
+			for _, b := range g[a] {
+				if b != fa {
+					t := sz[b]
+					ans += int64((t + seats - 1) / seats)
+					sz[a] += t
+				}
+			}
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumFuelCost(roads: number[][], seats: number): number {
+    const n = roads.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of roads) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let ans = 0;
+    const sz: number[] = Array(n).fill(1);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    const t = sz[b];
+                    ans += Math.ceil(t / seats);
+                    sz[a] += t;
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_fuel_cost(roads: Vec<Vec<i32>>, seats: i32) -> i64 {
+        let n = roads.len() + 1;
+        let mut g: Vec<Vec<usize>> = vec![vec![]; n];
+        for road in roads.iter() {
+            let a = road[0] as usize;
+            let b = road[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        let mut ans: i64 = 0;
+        let mut sz = vec![1; n];
+        let mut stk: Vec<(usize, i32, u8)> = vec![(0, -1, 0)];
+        while let Some((a, fa, state)) = stk.pop() {
+            if state == 0 {
+                stk.push((a, fa, 1));
+                for &b in &g[a] {
+                    if b as i32 != fa {
+                        stk.push((b, a as i32, 0));
+                    }
+                }
+            } else {
+                for &b in &g[a] {
+                    if b as i32 != fa {
+                        let t = sz[b];
+                        ans += ((t + seats - 1) / seats) as i64;
+                        sz[a] += t;
+                    }
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

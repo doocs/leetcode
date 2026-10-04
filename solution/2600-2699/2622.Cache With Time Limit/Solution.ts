@@ -2,12 +2,8 @@ class TimeLimitedCache {
     #cache: Map<number, [value: number, expire: number]> = new Map();
 
     set(key: number, value: number, duration: number): boolean {
-        const isExist = this.#cache.has(key);
-
-        if (!this.#isExpired(key)) {
-            this.#cache.set(key, [value, Date.now() + duration]);
-        }
-
+        const isExist = this.#cache.has(key) && !this.#isExpired(key);
+        this.#cache.set(key, [value, Date.now() + duration]);
         return isExist;
     }
 

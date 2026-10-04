@@ -120,21 +120,21 @@ session_status 是 ('start', 'stop') 的 ENUM (category)。
 
 <!-- solution:start -->
 
-### 方法一：使用窗口函数
+### 方法一：运行深度配对
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 服务器日志按起止成对出现，总运行天数是所有 `start` 到下一次状态的秒差之和再除以 $86400$。自连接找下一行需要小心同一服务器的排序。
+> 样例中同一台服务器会连续写入两次 $\texttt{start}$，再写入两次 $\texttt{stop}$。把每条 $\texttt{start}$ 配到下一行，会得到 $\texttt{start}$ 到下一次 $\texttt{start}$ 的间隔，外层 $\texttt{stop}$ 则不会进入任何一段。
 >
-> 窗口函数 `LEAD(status_time)` 按 $server\_id$ 分区即可得到下一次时间戳，无需自连接。
+> 题解给出的区间是后出现的 $\texttt{start}$ 先被 $\texttt{stop}$ 关闭：$23{:}16{:}48$ 配到 $01{:}15{:}48$，$16{:}29{:}47$ 配到 $01{:}49{:}47$。这与栈的出入顺序一致。
 >
-> 因此先算出每条记录的下一时刻，再只保留 $session\_status='start'$ 的间隔并求和、整除一天秒数。
+> 按时间维护深度，$\texttt{start}$ 为 $+1$、$\texttt{stop}$ 为 $-1$。每条 $\texttt{start}$ 匹配其后第一条深度恰好比它小 $1$ 的 $\texttt{stop}$。各段秒数求和后整除 $86400$。
 
 <!-- thinking:end -->
 
-我们可以使用窗口函数 `LEAD` 来获取每个服务器的下一个状态的时间，那么两个状态之间的时间差就是服务器的一次运行时间。最后我们将所有服务器的运行时间相加，然后除以一天的秒数，就得到了服务器的总运行天数。
+同一台服务器上的 $\texttt{start}$ 与 $\texttt{stop}$ 可能嵌套。按时间计算深度后，每条 $\texttt{start}$ 与其后第一条深度少 $1$ 的 $\texttt{stop}$ 组成一段运行时间。把全部段的秒数相加，再向下取整到整天。
 
 <!-- tabs:start -->
 
@@ -145,17 +145,32 @@ session_status 是 ('start', 'stop') 的 ENUM (category)。
 WITH
     T AS (
         SELECT
-            session_status,
+            server_id,
             status_time,
-            LEAD(status_time) OVER (
+            session_status,
+            SUM(IF(session_status = 'start', 1, -1)) OVER (
                 PARTITION BY server_id
-                ORDER BY status_time
-            ) AS next_status_time
+                ORDER BY status_time, session_status
+                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+            ) AS depth
         FROM Servers
     )
-SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, status_time, next_status_time)) / 86400) AS total_uptime_days
-FROM T
-WHERE session_status = 'start';
+SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, start_time, stop_time)) / 86400) AS total_uptime_days
+FROM
+    (
+        SELECT
+            s.status_time AS start_time,
+            MIN(t.status_time) AS stop_time
+        FROM
+            T AS s
+            JOIN T AS t
+                ON s.server_id = t.server_id
+                AND t.session_status = 'stop'
+                AND t.depth = s.depth - 1
+                AND t.status_time > s.status_time
+        WHERE s.session_status = 'start'
+        GROUP BY s.server_id, s.status_time
+    ) AS p;
 ```
 
 <!-- tabs:end -->

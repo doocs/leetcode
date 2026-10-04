@@ -278,4 +278,247 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 树有 $n \le 5 \times 10^4$ 个结点，枚举每个子树再检查颜色需要重复遍历。一条链上第一次递归总是走向唯一的孩子，深度就是 $n$，会超出默认递归上限。
+>
+> 一棵子树同色，当且仅当根与每个孩子同色，且每个孩子的子树本身同色。这个判断要等孩子都处理完才能做。
+>
+> 因此用显式栈做后序。进入结点时先压入离开标记，再压入孩子。离开时根据孩子是否同色更新当前子树，只在整棵子树同色时用其规模更新答案。
+
+<!-- thinking:end -->
+
+我们先根据题目给定的边的信息，构建一个邻接表 $g$，其中 $g[a]$ 表示节点 $a$ 的所有相邻节点。然后我们创建一个长度为 $n$ 的数组 $size$，其中 $size[a]$ 表示以节点 $a$ 为根的子树的节点数。
+
+用显式栈从根结点 $0$ 做后序遍历。进入一个结点时，先压入该结点的离开标记，再压入它的孩子，这样孩子会先处理完。每个结点的 $size$ 初始为 $1$。离开时，用变量 $ok$ 记录以当前结点为根的子树是否同色，初始为真。对每个孩子 $b$，把 $ok$ 更新为 $ok$ 与 $colors[a] = colors[b]$ 且孩子子树同色的合取，并把 $size[b]$ 加进 $size[a]$。若 $ok$ 仍为真，则用 $size[a]$ 更新答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        size = [1] * n
+        ok = [False] * n
+        ans = 0
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                good = True
+                for b in g[a]:
+                    if b != fa:
+                        good = good and colors[a] == colors[b] and ok[b]
+                        size[a] += size[b]
+                if good:
+                    ans = max(ans, size[a])
+                ok[a] = good
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumSubtreeSize(int[][] edges, int[] colors) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[] size = new int[n];
+        Arrays.fill(size, 1);
+        boolean[] ok = new boolean[n];
+        int ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                boolean good = true;
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        good = good && colors[a] == colors[b] && ok[b];
+                        size[a] += size[b];
+                    }
+                }
+                if (good) {
+                    ans = Math.max(ans, size[a]);
+                }
+                ok[a] = good;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumSubtreeSize(vector<vector<int>>& edges, vector<int>& colors) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> size(n, 1);
+        vector<char> ok(n);
+        int ans = 0;
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                bool good = true;
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        good = good && colors[a] == colors[b] && ok[b];
+                        size[a] += size[b];
+                    }
+                }
+                if (good) {
+                    ans = max(ans, size[a]);
+                }
+                ok[a] = good;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	size := make([]int, n)
+	for i := range size {
+		size[i] = 1
+	}
+	ok := make([]bool, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{a, fa, 1})
+			for _, b := range g[a] {
+				if b != fa {
+					stk = append(stk, [3]int{b, a, 0})
+				}
+			}
+		} else {
+			good := true
+			for _, b := range g[a] {
+				if b != fa {
+					good = good && colors[a] == colors[b] && ok[b]
+					size[a] += size[b]
+				}
+			}
+			if good {
+				ans = max(ans, size[a])
+			}
+			ok[a] = good
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumSubtreeSize(edges: number[][], colors: number[]): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const size: number[] = Array(n).fill(1);
+    const ok: boolean[] = Array(n).fill(false);
+    let ans = 0;
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            let good = true;
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    good = good && colors[a] === colors[b] && ok[b];
+                    size[a] += size[b];
+                }
+            }
+            if (good) {
+                ans = Math.max(ans, size[a]);
+            }
+            ok[a] = good;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

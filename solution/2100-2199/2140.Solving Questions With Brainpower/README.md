@@ -250,11 +250,147 @@ impl Solution {
 
 > **思考**
 >
-> 方法一已是线性时间，但递归有栈开销。同一转移从后往前填表即可去掉记忆化。
+> 后缀最优只依赖更靠后的下标，同一转移从后往前填表即可。
 >
 > 令 $f[i]$ 为从 $i$ 起的最高分，则 $f[i]=\max(f[i+1],p+f[i+b+1])$，越界视为 $0$。
 >
 > 自 $n-1$ 递推到 $0$，返回 $f[0]$。
+
+<!-- thinking:end -->
+
+我们定义 $f[i]$ 表示从第 $i$ 个问题开始解决，能够获得的最高分数。那么答案就是 $f[0]$。
+
+考虑 $f[i]$，第 $i$ 个问题的分数为 $p$，需要跳过的问题数为 $b$。如果我们解决了第 $i$ 个问题，那么接下来我们需要解决 $b$ 个问题，因此 $f[i] = p + f[i + b + 1]$。如果我们跳过了第 $i$ 个问题，那么接下来我们从第 $i + 1$ 个问题开始解决，因此 $f[i] = f[i + 1]$。两者取最大值即可。状态转移方程如下：
+
+$$
+f[i] = \max(p + f[i + b + 1], f[i + 1])
+$$
+
+我们从后往前计算 $f$ 的值，最后返回 $f[0]$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是问题的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def mostPoints(self, questions: List[List[int]]) -> int:
+        n = len(questions)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            p, b = questions[i]
+            j = i + b + 1
+            f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long mostPoints(int[][] questions) {
+        int n = questions.length;
+        long[] f = new long[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int p = questions[i][0], b = questions[i][1];
+            int j = i + b + 1;
+            f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long mostPoints(vector<vector<int>>& questions) {
+        int n = questions.size();
+        long long f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 1; ~i; --i) {
+            int p = questions[i][0], b = questions[i][1];
+            int j = i + b + 1;
+            f[i] = max(f[i + 1], p + (j > n ? 0 : f[j]));
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func mostPoints(questions [][]int) int64 {
+	n := len(questions)
+	f := make([]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		p := int64(questions[i][0])
+		if j := i + questions[i][1] + 1; j <= n {
+			p += f[j]
+		}
+		f[i] = max(f[i+1], p)
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function mostPoints(questions: number[][]): number {
+    const n = questions.length;
+    const f = Array(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        const [p, b] = questions[i];
+        const j = i + b + 1;
+        f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
+    }
+    return f[0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn most_points(questions: Vec<Vec<i32>>) -> i64 {
+        let n = questions.len();
+        let mut f = vec![0; n + 1];
+        for i in (0..n).rev() {
+            let p = questions[i][0] as i64;
+            let b = questions[i][1] as usize;
+            let j = i + b + 1;
+            f[i] = f[i + 1].max(p + if j > n { 0 } else { f[j] });
+        }
+        f[0]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每题可选做或不做，做则跳过随后 $\textit{brainpower}$ 题。枚举这些路径是指数级的，而 $n\le 10^5$。
+>
+> 从下标 $i$ 出发的最高分只依赖更靠后的 $i+1$ 与 $i+b+1$。记忆化搜索仍会先调用下一题再返回，第一条调用链的深度为 $n$，栈会溢出。
+>
+> 从末尾往前走时，更靠后的状态已经就绪。令 $f[i]=\max(f[i+1],p+f[i+b+1])$，下标超过 $n$ 记为 $0$。
+>
+> 我们从 $i=n-1$ 填到 $0$，返回 $f[0]$。
 
 <!-- thinking:end -->
 

@@ -90,7 +90,7 @@ At t=250, count() returns 0 because the cache is empty.
 >
 > Entries expire; reads and counts must ignore stale keys. Sweeping the whole map on every call is allowed at this size, but expiry is just a timestamp check.
 >
-> Store $[value, expire]$ and compare `Date.now()` on access. `set` overwrites the key, refreshes the deadline, and reports whether the key already existed.
+> Store $[value, expire]$ and compare `Date.now()` on access. `set` always stores the new value and deadline, and returns true only when that key was already present and still unexpired.
 >
 > `count` filters entries that are still live; an eager purge is unnecessary.
 
@@ -105,12 +105,8 @@ class TimeLimitedCache {
     #cache: Map<number, [value: number, expire: number]> = new Map();
 
     set(key: number, value: number, duration: number): boolean {
-        const isExist = this.#cache.has(key);
-
-        if (!this.#isExpired(key)) {
-            this.#cache.set(key, [value, Date.now() + duration]);
-        }
-
+        const isExist = this.#cache.has(key) && !this.#isExpired(key);
+        this.#cache.set(key, [value, Date.now() + duration]);
         return isExist;
     }
 

@@ -128,7 +128,7 @@ class Solution:
         bfs(q1, vis1)
         bfs(q2, vis2)
 
-        return [(i, j) for i in range(m) for j in range(n) if vis1[i][j] and vis2[i][j]]
+        return [[i, j] for i in range(m) for j in range(n) if vis1[i][j] and vis2[i][j]]
 ```
 
 #### Java

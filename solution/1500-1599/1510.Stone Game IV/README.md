@@ -289,13 +289,11 @@ impl Solution {
 
 > **思考**
 >
-> 记忆化搜索按递归展开，调用开销与缓存管理都比按剩余量递推更重，渐近复杂度却相同。改成自底向上： $f[i]$ 表示剩 $i$ 枚时先手是否必胜，按 $i$ 从小到大枚举平方转移，遇到一个必败后继便可将 $f[i]$ 置真。实现为单层循环，不再依赖递归栈。
+> 方法一已经按剩余石子从少到多填好同一张胜负表。下面的 $f[i]$ 与那张表是同一定义。
 
 <!-- thinking:end -->
 
-我们也可以使用动态规划求解本题。
-
-定义数组 $f$，其中 $f[i]$ 表示当前石子堆中有 $i$ 个石子时，当前玩家是否能赢得比赛。如果当前玩家能赢得比赛，则 $f[i]$ 为 $true$，否则为 $false$。那么答案即为 $f[n]$。
+方法一已经按剩余石子从少到多填好同一张表。定义数组 $f$，其中 $f[i]$ 表示当前石子堆中有 $i$ 个石子时，当前玩家是否能赢得比赛。如果当前玩家能赢得比赛，则 $f[i]$ 为 $true$，否则为 $false$。那么答案即为 $f[n]$。
 
 我们在 $[1,..n]$ 的范围内枚举 $i$，并在 $[1,..i]$ 的范围内枚举 $j$，其中 $j$ 为平方数，如果当前玩家拿走 $j$ 个石子后，另一个玩家无法赢得比赛，则当前玩家赢得比赛，即 $f[i] = true$。如果枚举完所有的 $j$，都无法满足上述条件，则当前玩家输掉比赛，即 $f[i] = false$。因此我们可以得到状态转移方程：
 
@@ -308,6 +306,142 @@ false, & \textit{otherwise}
 $$
 
 最后，我们返回 $f[n]$ 即可。
+
+时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$。其中 $n$ 为石子堆中石子的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        f = [False] * (n + 1)
+        for i in range(1, n + 1):
+            j = 1
+            while j <= i // j:
+                if not f[i - j * j]:
+                    f[i] = True
+                    break
+                j += 1
+        return f[n]
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean winnerSquareGame(int n) {
+        boolean[] f = new boolean[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool winnerSquareGame(int n) {
+        bool f[n + 1];
+        memset(f, false, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+#### Go
+
+```go
+func winnerSquareGame(n int) bool {
+	f := make([]bool, n+1)
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i/j; j++ {
+			if !f[i-j*j] {
+				f[i] = true
+				break
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+#### TypeScript
+
+```ts
+function winnerSquareGame(n: number): boolean {
+    const f: boolean[] = new Array(n + 1).fill(false);
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j * j <= i; ++j) {
+            if (!f[i - j * j]) {
+                f[i] = true;
+                break;
+            }
+        }
+    }
+    return f[n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn winner_square_game(n: i32) -> bool {
+        let n = n as usize;
+        let mut f = vec![false; n + 1];
+
+        for i in 1..=n {
+            let mut j = 1;
+            while j <= i / j {
+                if !f[i - j * j] {
+                    f[i] = true;
+                    break;
+                }
+                j += 1;
+            }
+        }
+
+        f[n]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 展开整棵博弈树是指数级的。石子数可以到 $10^5$，而第一次总是先拿走 $1$ 枚，递归深度就是 $n$。一个局面是否必胜只由剩余石子数决定，并且只依赖更少的石子。于是令 $f[i]$ 表示剩 $i$ 枚时当前玩家是否必胜，$f[0]$ 为必败，按 $i$ 从小到大枚举平方数 $j^2$，只要存在后继 $f[i-j^2]$ 为必败，就把 $f[i]$ 标成必胜。
+
+<!-- thinking:end -->
+
+令 $f[i]$ 表示石子堆中有 $i$ 个石子时，当前玩家是否能赢得比赛。$f[0]$ 为 $false$，因为无法再取。从 $i=1$ 到 $n$，枚举平方数 $j^2 \le i$。若 $f[i-j^2]$ 为 $false$，对手拿到这个局面会输，于是 $f[i]$ 为 $true$，可以停止枚举。若所有平方取法都留给对手必胜局面，则 $f[i]$ 保持 $false$。答案为 $f[n]$。
 
 时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$。其中 $n$ 为石子堆中石子的数量。
 

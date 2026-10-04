@@ -398,4 +398,310 @@ public class ThroneInheritance {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈前序遍历
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 题目给出的 $\textit{Successor}$ 按「当前人最年长且尚未列入顺序的孩子，否则回溯到父亲」递推。若每次查询都按定义从国王一路模拟，单次查询会反复扫描子女列表；出生次数达到 $10^5$ 时，这样会落到平方级。该递推恰好是多叉树的前序：先写下本人，再按出生先后走各子树。死亡不改变树形，只是从最终顺序里去掉这个名字。沿一条出生链递归时，调用深度等于家族人数，链长达到 $1000$ 就会超出 Python 的递归上限。因此查询用栈做前序：弹出一个人，若仍在世就写入答案，再把子女按出生顺序的逆序压栈，这样先出生的孩子先被弹出。
+
+<!-- thinking:end -->
+
+王位继承顺序是多叉树的前序遍历。用哈希表 $g$ 按出生顺序存储每个人的孩子，用集合 $dead$ 存储已经去世的人。
+
+- 调用 `birth(parentName, childName)` 时，将 `childName` 追加到 `parentName` 的孩子列表末尾。
+- 调用 `death(name)` 时，将 `name` 加入 $dead$。
+- 调用 `getInheritanceOrder()` 时，栈里最初只有国王。弹出 `x` 后，若 `x` 不在 $dead$ 中就写入答案，再把 `x` 的孩子从最后一个到第一个压入栈，从而保持出生顺序。
+
+时间复杂度方面，`birth` 和 `death` 的时间复杂度均为 $O(1)$，`getInheritanceOrder` 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 是节点数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class ThroneInheritance:
+
+    def __init__(self, kingName: str):
+        self.king = kingName
+        self.dead = set()
+        self.g = defaultdict(list)
+
+    def birth(self, parentName: str, childName: str) -> None:
+        self.g[parentName].append(childName)
+
+    def death(self, name: str) -> None:
+        self.dead.add(name)
+
+    def getInheritanceOrder(self) -> List[str]:
+        ans = []
+        stk = [self.king]
+        while stk:
+            x = stk.pop()
+            if x not in self.dead:
+                ans.append(x)
+            for y in reversed(self.g[x]):
+                stk.append(y)
+        return ans
+
+
+# Your ThroneInheritance object will be instantiated and called as such:
+# obj = ThroneInheritance(kingName)
+# obj.birth(parentName,childName)
+# obj.death(name)
+# param_3 = obj.getInheritanceOrder()
+```
+
+#### Java
+
+```java
+class ThroneInheritance {
+    private String king;
+    private Set<String> dead = new HashSet<>();
+    private Map<String, List<String>> g = new HashMap<>();
+
+    public ThroneInheritance(String kingName) {
+        king = kingName;
+    }
+
+    public void birth(String parentName, String childName) {
+        g.computeIfAbsent(parentName, k -> new ArrayList<>()).add(childName);
+    }
+
+    public void death(String name) {
+        dead.add(name);
+    }
+
+    public List<String> getInheritanceOrder() {
+        List<String> ans = new ArrayList<>();
+        Deque<String> stk = new ArrayDeque<>();
+        stk.push(king);
+        while (!stk.isEmpty()) {
+            String x = stk.pop();
+            if (!dead.contains(x)) {
+                ans.add(x);
+            }
+            List<String> children = g.getOrDefault(x, List.of());
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(children.get(i));
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance obj = new ThroneInheritance(kingName);
+ * obj.birth(parentName,childName);
+ * obj.death(name);
+ * List<String> param_3 = obj.getInheritanceOrder();
+ */
+```
+
+#### C++
+
+```cpp
+class ThroneInheritance {
+public:
+    ThroneInheritance(string kingName) {
+        king = kingName;
+    }
+
+    void birth(string parentName, string childName) {
+        g[parentName].emplace_back(childName);
+    }
+
+    void death(string name) {
+        dead.insert(name);
+    }
+
+    vector<string> getInheritanceOrder() {
+        vector<string> ans;
+        vector<string> stk{king};
+        while (!stk.empty()) {
+            string x = stk.back();
+            stk.pop_back();
+            if (!dead.contains(x)) {
+                ans.emplace_back(x);
+            }
+            auto it = g.find(x);
+            if (it == g.end()) {
+                continue;
+            }
+            auto& children = it->second;
+            for (int i = (int) children.size() - 1; i >= 0; --i) {
+                stk.push_back(children[i]);
+            }
+        }
+        return ans;
+    }
+
+private:
+    string king;
+    unordered_set<string> dead;
+    unordered_map<string, vector<string>> g;
+};
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance* obj = new ThroneInheritance(kingName);
+ * obj->birth(parentName,childName);
+ * obj->death(name);
+ * vector<string> param_3 = obj->getInheritanceOrder();
+ */
+```
+
+#### Go
+
+```go
+type ThroneInheritance struct {
+	king string
+	dead map[string]bool
+	g    map[string][]string
+}
+
+func Constructor(kingName string) ThroneInheritance {
+	return ThroneInheritance{kingName, map[string]bool{}, map[string][]string{}}
+}
+
+func (this *ThroneInheritance) Birth(parentName string, childName string) {
+	this.g[parentName] = append(this.g[parentName], childName)
+}
+
+func (this *ThroneInheritance) Death(name string) {
+	this.dead[name] = true
+}
+
+func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
+	stk := []string{this.king}
+	for len(stk) > 0 {
+		x := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if !this.dead[x] {
+			ans = append(ans, x)
+		}
+		children := this.g[x]
+		for i := len(children) - 1; i >= 0; i-- {
+			stk = append(stk, children[i])
+		}
+	}
+	return
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * obj := Constructor(kingName);
+ * obj.Birth(parentName,childName);
+ * obj.Death(name);
+ * param_3 := obj.GetInheritanceOrder();
+ */
+```
+
+#### TypeScript
+
+```ts
+class ThroneInheritance {
+    private king: string;
+    private dead: Set<string> = new Set();
+    private g: Map<string, string[]> = new Map();
+
+    constructor(kingName: string) {
+        this.king = kingName;
+    }
+
+    birth(parentName: string, childName: string): void {
+        this.g.set(parentName, this.g.get(parentName) || []);
+        this.g.get(parentName)!.push(childName);
+    }
+
+    death(name: string): void {
+        this.dead.add(name);
+    }
+
+    getInheritanceOrder(): string[] {
+        const ans: string[] = [];
+        const stk: string[] = [this.king];
+        while (stk.length) {
+            const x = stk.pop()!;
+            if (!this.dead.has(x)) {
+                ans.push(x);
+            }
+            const children = this.g.get(x) || [];
+            for (let i = children.length - 1; i >= 0; --i) {
+                stk.push(children[i]);
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * var obj = new ThroneInheritance(kingName)
+ * obj.birth(parentName,childName)
+ * obj.death(name)
+ * var param_3 = obj.getInheritanceOrder()
+ */
+```
+
+#### C#
+
+```cs
+public class ThroneInheritance {
+    private string king;
+    private HashSet<string> dead = new HashSet<string>();
+    private Dictionary<string, List<string>> g = new Dictionary<string, List<string>>();
+
+    public ThroneInheritance(string kingName) {
+        king = kingName;
+    }
+
+    public void Birth(string parentName, string childName) {
+        if (!g.ContainsKey(parentName)) {
+            g[parentName] = new List<string>();
+        }
+        g[parentName].Add(childName);
+    }
+
+    public void Death(string name) {
+        dead.Add(name);
+    }
+
+    public IList<string> GetInheritanceOrder() {
+        List<string> ans = new List<string>();
+        Stack<string> stk = new Stack<string>();
+        stk.Push(king);
+        while (stk.Count > 0) {
+            string x = stk.Pop();
+            if (!dead.Contains(x)) {
+                ans.Add(x);
+            }
+            if (g.ContainsKey(x)) {
+                List<string> children = g[x];
+                for (int i = children.Count - 1; i >= 0; --i) {
+                    stk.Push(children[i]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance obj = new ThroneInheritance(kingName);
+ * obj.Birth(parentName,childName);
+ * obj.Death(name);
+ * IList<string> param_3 = obj.GetInheritanceOrder();
+ */
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

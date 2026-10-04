@@ -387,4 +387,246 @@ function minValidStrings(words: string[], target: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：字典树 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对每个起点把每个单词再比一遍，比较次数是 $|target|$ 乘词长总和。$|target|$ 可以到 $5\times 10^3$，而只要 $\textit{target}[i]$ 是某个词的首字母，第一次递归总是落到 $i+1$，调用深度就是 $n$。一段只能是某个词的前缀，所以从 $i$ 起的最少段数只依赖更靠后的下标。字典树存下所有词，令 $f[n]=0$，按 $i$ 从 $n-1$ 降到 $0$，沿 $\textit{target}$ 往下走，每进入一个存在的节点就用 $1+f[j+1]$ 更新 $f[i]$。$f[0]$ 仍不小于哨兵时返回 $-1$。
+
+<!-- thinking:end -->
+
+我们用字典树存储 $\textit{words}$ 中的所有字符串。令 $f[i]$ 表示从 $\textit{target}$ 的下标 $i$ 开始需要连接的最少字符串数，$f[n] = 0$。答案是 $f[0]$。
+
+按 $i$ 从 $n - 1$ 递减到 $0$。从字典树根出发，沿 $\textit{target}[i..]$ 向下走，每进入一个存在的节点，对应前缀就是一个有效字符串，用 $1 + f[j + 1]$ 更新 $f[i]$。
+
+若 $f[0]$ 不小于预先设定的上界，说明无法形成 $\textit{target}$，返回 $-1$，否则返回 $f[0]$。
+
+时间复杂度 $O(n^2 + L)$，空间复杂度 $O(n + L)$。其中 $n$ 是字符串 $\textit{target}$ 的长度，而 $L$ 是所有有效字符串的总长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children: List[Optional[Trie]] = [None] * 26
+
+    def insert(self, w: str):
+        node = self
+        for i in map(lambda c: ord(c) - 97, w):
+            if node.children[i] is None:
+                node.children[i] = Trie()
+            node = node.children[i]
+
+
+class Solution:
+    def minValidStrings(self, words: List[str], target: str) -> int:
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        n = len(target)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            node = trie
+            for j in range(i, n):
+                k = ord(target[j]) - 97
+                if node.children[k] is None:
+                    break
+                node = node.children[k]
+                f[i] = min(f[i], 1 + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+#### Java
+
+```java
+class Trie {
+    Trie[] children = new Trie[26];
+
+    void insert(String w) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int j = w.charAt(i) - 'a';
+            if (node.children[j] == null) {
+                node.children[j] = new Trie();
+            }
+            node = node.children[j];
+        }
+    }
+}
+
+class Solution {
+    public int minValidStrings(String[] words, String target) {
+        Trie trie = new Trie();
+        for (String w : words) {
+            trie.insert(w);
+        }
+        int n = target.length();
+        int inf = 1 << 30;
+        int[] f = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            f[i] = inf;
+        }
+        char[] s = target.toCharArray();
+        for (int i = n - 1; i >= 0; --i) {
+            Trie node = trie;
+            for (int j = i; j < n; ++j) {
+                int k = s[j] - 'a';
+                if (node.children[k] == null) {
+                    break;
+                }
+                node = node.children[k];
+                f[i] = Math.min(f[i], 1 + f[j + 1]);
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Trie {
+public:
+    Trie* children[26]{};
+
+    void insert(string& word) {
+        Trie* node = this;
+        for (char& c : word) {
+            int i = c - 'a';
+            if (!node->children[i]) {
+                node->children[i] = new Trie();
+            }
+            node = node->children[i];
+        }
+    }
+};
+
+class Solution {
+public:
+    int minValidStrings(vector<string>& words, string target) {
+        int n = target.size();
+        Trie* trie = new Trie();
+        for (auto& w : words) {
+            trie->insert(w);
+        }
+        const int inf = 1 << 30;
+        vector<int> f(n + 1, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            Trie* node = trie;
+            for (int j = i; j < n; ++j) {
+                int k = target[j] - 'a';
+                if (!node->children[k]) {
+                    break;
+                }
+                node = node->children[k];
+                f[i] = min(f[i], 1 + f[j + 1]);
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+};
+```
+
+#### Go
+
+```go
+type Trie struct {
+	children [26]*Trie
+}
+
+func (t *Trie) insert(word string) {
+	node := t
+	for _, c := range word {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
+		}
+		node = node.children[idx]
+	}
+}
+
+func minValidStrings(words []string, target string) int {
+	n := len(target)
+	trie := &Trie{}
+	for _, w := range words {
+		trie.insert(w)
+	}
+	const inf int = 1 << 30
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
+		node := trie
+		for j := i; j < n; j++ {
+			k := int(target[j] - 'a')
+			if node.children[k] == nil {
+				break
+			}
+			node = node.children[k]
+			f[i] = min(f[i], 1+f[j+1])
+		}
+	}
+	if f[0] < inf {
+		return f[0]
+	}
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+class Trie {
+    children: (Trie | null)[] = Array(26).fill(null);
+
+    insert(word: string): void {
+        let node: Trie = this;
+        for (const c of word) {
+            const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[i]) {
+                node.children[i] = new Trie();
+            }
+            node = node.children[i];
+        }
+    }
+}
+
+function minValidStrings(words: string[], target: string): number {
+    const n = target.length;
+    const trie = new Trie();
+    for (const w of words) {
+        trie.insert(w);
+    }
+    const inf = 1 << 30;
+    const f: number[] = Array(n + 1).fill(inf);
+    f[n] = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        let node: Trie | null = trie;
+        for (let j = i; j < n; ++j) {
+            const k = target.charCodeAt(j) - 97;
+            if (!node?.children[k]) {
+                break;
+            }
+            node = node.children[k];
+            f[i] = Math.min(f[i], 1 + f[j + 1]);
+        }
+    }
+    return f[0] < inf ? f[0] : -1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

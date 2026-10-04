@@ -314,4 +314,280 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree with fewer than three nodes places $1$ coin; otherwise it places the maximum product of three costs, or $0$ when that product is negative. The maximum is either the three largest costs or the two smallest costs times the largest. A subtree may contain $n$ nodes, so the full list cannot be sent upward, and each subtree keeps only the two smallest and three largest costs. Merging those lists by recursion along a chain uses a call depth equal to the node count and overflows Python once $n$ reaches $1000$, while $n$ can be $2 \times 10^4$. The stack stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ merges, sorts, and trims the child lists before writing the current answer.
+
+<!-- thinking:end -->
+
+There are two cases for the number of coins placed at node $a$:
+
+- If the subtree of $a$ has fewer than $3$ nodes, place $1$ coin.
+- If the subtree has at least $3$ nodes, take $3$ different nodes, place their maximum cost product at $a$, and place $0$ when that product is negative.
+
+When every cost is positive, the product uses the $3$ largest costs. When negatives appear, the two smallest costs times the largest cost must also be considered. Each subtree therefore keeps only its $2$ smallest costs and its $3$ largest costs.
+
+Build the graph from $edges$ and set every answer to $1$. An explicit stack processes nodes in postorder. Each frame is $(a, fa, state)$. When $state = 0$, push $(a, fa, 1)$ and then push every neighbor other than the parent with state $0$. When $state = 1$, merge $cost[a]$ with the already trimmed lists of the children and sort the result into $res$ of length $m$:
+
+- If $m \ge 3$, the number of coins at $a$ is $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$; otherwise it stays $1$.
+- If $m > 5$, keep only the first $2$ elements and the last $3$ elements of $res$ for the parent to merge.
+
+The merged list is sorted again, so the order in which children are pushed does not change the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
+        n = len(cost)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = [1] * n
+        sub = [None] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                res = [cost[a]]
+                for b in g[a]:
+                    if b != fa:
+                        res.extend(sub[b])
+                res.sort()
+                if len(res) >= 3:
+                    ans[a] = max(
+                        res[-3] * res[-2] * res[-1], res[0] * res[1] * res[-1], 0
+                    )
+                if len(res) > 5:
+                    res = res[:2] + res[-3:]
+                sub[a] = res
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long[] placedCoins(int[][] edges, int[] cost) {
+        int n = cost.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[] ans = new long[n];
+        Arrays.fill(ans, 1);
+        List<Integer>[] sub = new List[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                List<Integer> res = new ArrayList<>();
+                res.add(cost[a]);
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        res.addAll(sub[b]);
+                    }
+                }
+                Collections.sort(res);
+                int m = res.size();
+                if (m >= 3) {
+                    long x = (long) res.get(m - 1) * res.get(m - 2) * res.get(m - 3);
+                    long y = (long) res.get(0) * res.get(1) * res.get(m - 1);
+                    ans[a] = Math.max(0, Math.max(x, y));
+                }
+                if (m > 5) {
+                    res = new ArrayList<>(List.of(
+                        res.get(0), res.get(1), res.get(m - 3), res.get(m - 2), res.get(m - 1)));
+                }
+                sub[a] = res;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<long long> placedCoins(vector<vector<int>>& edges, vector<int>& cost) {
+        int n = cost.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<long long> ans(n, 1);
+        vector<vector<int>> sub(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [a, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                vector<int> res = {cost[a]};
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        res.insert(res.end(), sub[b].begin(), sub[b].end());
+                    }
+                }
+                sort(res.begin(), res.end());
+                int m = res.size();
+                if (m >= 3) {
+                    long long x = 1LL * res[m - 1] * res[m - 2] * res[m - 3];
+                    long long y = 1LL * res[0] * res[1] * res[m - 1];
+                    ans[a] = max({0LL, x, y});
+                }
+                if (m > 5) {
+                    res = {res[0], res[1], res[m - 3], res[m - 2], res[m - 1]};
+                }
+                sub[a] = std::move(res);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func placedCoins(edges [][]int, cost []int) []int64 {
+	n := len(cost)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int64, n)
+	for i := range ans {
+		ans[i] = 1
+	}
+	sub := make([][]int, n)
+	type frame struct{ a, fa, state int }
+	stk := []frame{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur.a, cur.fa, cur.state
+		if state == 0 {
+			stk = append(stk, frame{a, fa, 1})
+			for _, b := range g[a] {
+				if b != fa {
+					stk = append(stk, frame{b, a, 0})
+				}
+			}
+		} else {
+			res := []int{cost[a]}
+			for _, b := range g[a] {
+				if b != fa {
+					res = append(res, sub[b]...)
+				}
+			}
+			sort.Ints(res)
+			m := len(res)
+			if m >= 3 {
+				x := int64(res[m-1]) * int64(res[m-2]) * int64(res[m-3])
+				y := int64(res[0]) * int64(res[1]) * int64(res[m-1])
+				ans[a] = max(x, y, int64(0))
+			}
+			if m > 5 {
+				res = []int{res[0], res[1], res[m-3], res[m-2], res[m-1]}
+			}
+			sub[a] = res
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function placedCoins(edges: number[][], cost: number[]): number[] {
+    const n = cost.length;
+    const ans: number[] = Array(n).fill(1);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const sub: number[][] = Array(n);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            const res: number[] = [cost[a]];
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    res.push(...sub[b]);
+                }
+            }
+            res.sort((x, y) => x - y);
+            const m = res.length;
+            if (m >= 3) {
+                const x = res[m - 1] * res[m - 2] * res[m - 3];
+                const y = res[0] * res[1] * res[m - 1];
+                ans[a] = Math.max(0, x, y);
+            }
+            if (m > 5) {
+                sub[a] = [res[0], res[1], res[m - 3], res[m - 2], res[m - 1]];
+            } else {
+                sub[a] = res;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

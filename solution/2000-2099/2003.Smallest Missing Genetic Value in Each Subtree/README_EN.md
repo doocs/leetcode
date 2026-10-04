@@ -406,4 +406,333 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 10^5$, scanning every subtree separately revisits nodes too often. Gene values are unique, so mex $> 1$ can occur only on the path from the node with gene $1$ to the root; every other node answers $1$. If gene $1$ sits at the root of a chain, recursively marking that subtree has call depth $n$.
+>
+> Walking that path upward only enlarges the gene set (the parent adds sibling subtrees). Already marked genes need not be rescanned.
+>
+> An explicit stack marks the subtree from $idx$ toward the root and fills $has$. A monotone pointer $i$ finds the smallest missing value and writes $ans[idx]$.
+
+<!-- thinking:end -->
+
+We notice that each node has a unique gene value, so we only need to find the node $idx$ with gene value $1$, and all nodes except for those on the path from node $idx$ to the root node $0$ have an answer of $1$.
+
+Therefore, we initialize the answer array $ans$ to $[1,1,...,1]$, and our focus is on finding the answer for each node on the path from node $idx$ to the root node $0$.
+
+We can start from node $idx$ and use an explicit stack to mark the gene values that appear in the subtree rooted at $idx$, and record them in the array $has$. During the walk, we use an array $vis$ to mark the visited nodes to prevent repeated visits.
+
+Next, we start from $i=2$ and keep looking for the first gene value that has not appeared, which is the answer for node $idx$. Here, $i$ is strictly increasing, because the gene values are unique, so we can always find a gene value that has not appeared in $[1,..n+1]$.
+
+Then, we update the answer for node $idx$, i.e., $ans[idx]=i$, and update $idx$ to its parent node to continue the above process until $idx=-1$, which means we have reached the root node $0$.
+
+Finally, we return the answer array $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def smallestMissingValueSubtree(
+        self, parents: List[int], nums: List[int]
+    ) -> List[int]:
+        def dfs(i: int) -> None:
+            stk = [i]
+            while stk:
+                u = stk.pop()
+                if vis[u]:
+                    continue
+                vis[u] = True
+                if nums[u] < len(has):
+                    has[nums[u]] = True
+                for j in g[u]:
+                    stk.append(j)
+
+        n = len(nums)
+        ans = [1] * n
+        g = [[] for _ in range(n)]
+        idx = -1
+        for i, p in enumerate(parents):
+            if i:
+                g[p].append(i)
+            if nums[i] == 1:
+                idx = i
+        if idx == -1:
+            return ans
+        vis = [False] * n
+        has = [False] * (n + 2)
+        i = 2
+        while idx != -1:
+            dfs(idx)
+            while has[i]:
+                i += 1
+            ans[idx] = i
+            idx = parents[idx]
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] smallestMissingValueSubtree(int[] parents, int[] nums) {
+        int n = nums.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        int idx = -1;
+        for (int i = 0; i < n; ++i) {
+            if (i > 0) {
+                g[parents[i]].add(i);
+            }
+            if (nums[i] == 1) {
+                idx = i;
+            }
+        }
+        int[] ans = new int[n];
+        Arrays.fill(ans, 1);
+        if (idx == -1) {
+            return ans;
+        }
+        boolean[] vis = new boolean[n];
+        boolean[] has = new boolean[n + 2];
+        for (int i = 2; idx != -1; idx = parents[idx]) {
+            dfs(g, vis, has, nums, idx);
+            while (has[i]) {
+                ++i;
+            }
+            ans[idx] = i;
+        }
+        return ans;
+    }
+
+    private void dfs(List<Integer>[] g, boolean[] vis, boolean[] has, int[] nums, int start) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(start);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            if (nums[i] < has.length) {
+                has[nums[i]] = true;
+            }
+            for (int j : g[i]) {
+                stk.push(j);
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> smallestMissingValueSubtree(vector<int>& parents, vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> g(n);
+        int idx = -1;
+        for (int i = 0; i < n; ++i) {
+            if (i) {
+                g[parents[i]].push_back(i);
+            }
+            if (nums[i] == 1) {
+                idx = i;
+            }
+        }
+        vector<int> ans(n, 1);
+        if (idx == -1) {
+            return ans;
+        }
+        vector<char> vis(n), has(n + 2);
+        auto dfs = [&](int start) {
+            vector<int> stk{start};
+            while (!stk.empty()) {
+                int i = stk.back();
+                stk.pop_back();
+                if (vis[i]) {
+                    continue;
+                }
+                vis[i] = 1;
+                if (nums[i] < n + 2) {
+                    has[nums[i]] = 1;
+                }
+                for (int j : g[i]) {
+                    stk.push_back(j);
+                }
+            }
+        };
+        for (int i = 2; ~idx; idx = parents[idx]) {
+            dfs(idx);
+            while (has[i]) {
+                ++i;
+            }
+            ans[idx] = i;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func smallestMissingValueSubtree(parents []int, nums []int) []int {
+	n := len(nums)
+	g := make([][]int, n)
+	idx := -1
+	ans := make([]int, n)
+	for i, p := range parents {
+		if i > 0 {
+			g[p] = append(g[p], i)
+		}
+		if nums[i] == 1 {
+			idx = i
+		}
+		ans[i] = 1
+	}
+	if idx < 0 {
+		return ans
+	}
+	vis := make([]bool, n)
+	has := make([]bool, n+2)
+	dfs := func(start int) {
+		stk := []int{start}
+		for len(stk) > 0 {
+			i := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			if vis[i] {
+				continue
+			}
+			vis[i] = true
+			if nums[i] < len(has) {
+				has[nums[i]] = true
+			}
+			for _, j := range g[i] {
+				stk = append(stk, j)
+			}
+		}
+	}
+	for i := 2; idx != -1; idx = parents[idx] {
+		dfs(idx)
+		for has[i] {
+			i++
+		}
+		ans[idx] = i
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const ans: number[] = Array(n).fill(1);
+    let idx = -1;
+    for (let i = 0; i < n; ++i) {
+        if (i) {
+            g[parents[i]].push(i);
+        }
+        if (nums[i] === 1) {
+            idx = i;
+        }
+    }
+    if (idx === -1) {
+        return ans;
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    const has: boolean[] = Array(n + 2).fill(false);
+    const dfs = (start: number): void => {
+        const stk: number[] = [start];
+        while (stk.length) {
+            const i = stk.pop()!;
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            if (nums[i] < has.length) {
+                has[nums[i]] = true;
+            }
+            for (const j of g[i]) {
+                stk.push(j);
+            }
+        }
+    };
+    for (let i = 2; ~idx; idx = parents[idx]) {
+        dfs(idx);
+        while (has[i]) {
+            ++i;
+        }
+        ans[idx] = i;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_missing_value_subtree(parents: Vec<i32>, nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut ans = vec![1; n];
+        let mut g: Vec<Vec<usize>> = vec![vec![]; n];
+        let mut idx = -1;
+        for (i, &p) in parents.iter().enumerate() {
+            if i > 0 {
+                g[p as usize].push(i);
+            }
+            if nums[i] == 1 {
+                idx = i as i32;
+            }
+        }
+        if idx == -1 {
+            return ans;
+        }
+        let mut vis = vec![false; n];
+        let mut has = vec![false; n + 2];
+        let mut i = 2;
+        while idx != -1 {
+            let mut stk = vec![idx as usize];
+            while let Some(u) = stk.pop() {
+                if vis[u] {
+                    continue;
+                }
+                vis[u] = true;
+                if nums[u] < has.len() as i32 {
+                    has[nums[u] as usize] = true;
+                }
+                for &j in &g[u] {
+                    stk.push(j);
+                }
+            }
+            while has[i] {
+                i += 1;
+            }
+            ans[idx as usize] = i as i32;
+            idx = parents[idx as usize];
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

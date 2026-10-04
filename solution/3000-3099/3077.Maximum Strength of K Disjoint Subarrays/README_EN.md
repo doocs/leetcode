@@ -103,7 +103,7 @@ tags:
 
 For the $i$th number $nums[i - 1]$, if it is selected and is in the $j$th subarray, then its contribution to the answer is $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$. We denote $(-1)^{j+1}$ as $sign$, so its contribution to the answer is $sign \times nums[i - 1] \times (k - j + 1)$.
 
-We define $f[i][j][0]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is not selected. We define $f[i][j][1]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is selected. Initially, $f[0][0][1] = 0$, and the rest of the values are $-\infty$.
+We define $f[i][j][0]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is not selected. We define $f[i][j][1]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is selected. Initially, $f[0][0][0] = 0$, and the rest of the values are $-\infty$.
 
 When $i > 0$, we consider how $f[i][j]$ transitions.
 
@@ -175,23 +175,26 @@ class Solution {
 public:
     long long maximumStrength(vector<int>& nums, int k) {
         int n = nums.size();
-        long long f[n + 1][k + 1][2];
-        memset(f, -0x3f3f3f3f3f3f3f3f, sizeof(f));
-        f[0][0][0] = 0;
+        const long long inf = LLONG_MIN / 2;
+        vector<long long> f((n + 1LL) * (k + 1) * 2, inf);
+        auto at = [&](int i, int j, int t) -> long long& {
+            return f[(i * (k + 1) + j) * 2 + t];
+        };
+        at(0, 0, 0) = 0;
         for (int i = 1; i <= n; i++) {
             int x = nums[i - 1];
             for (int j = 0; j <= k; j++) {
                 long long sign = (j & 1) == 1 ? 1 : -1;
                 long long val = sign * x * (k - j + 1);
-                f[i][j][0] = max(f[i - 1][j][0], f[i - 1][j][1]);
-                f[i][j][1] = max(f[i][j][1], f[i - 1][j][1] + val);
+                at(i, j, 0) = max(at(i - 1, j, 0), at(i - 1, j, 1));
+                at(i, j, 1) = max(at(i, j, 1), at(i - 1, j, 1) + val);
                 if (j > 0) {
-                    long long t = max(f[i - 1][j - 1][0], f[i - 1][j - 1][1]) + val;
-                    f[i][j][1] = max(f[i][j][1], t);
+                    long long t = max(at(i - 1, j - 1, 0), at(i - 1, j - 1, 1)) + val;
+                    at(i, j, 1) = max(at(i, j, 1), t);
                 }
             }
         }
-        return max(f[n][k][0], f[n][k][1]);
+        return max(at(n, k, 0), at(n, k, 1));
     }
 };
 ```

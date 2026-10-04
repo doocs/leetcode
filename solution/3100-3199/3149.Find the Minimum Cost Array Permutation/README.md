@@ -98,7 +98,7 @@ tags:
 
 最后，我们利用一个函数 $\textit{g}(\textit{mask}, \textit{pre})$ 来构造得到最小分数的排列。我们首先将数字 $\textit{pre}$ 加入到排列中，然后枚举下一个选取的数字 $\textit{cur}$，如果数字 $\textit{cur}$ 还未被选取，且满足 $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ 的值等于 $\textit{dfs}(\textit{mask}, \textit{pre})$，那么我们就可以将数字 $\textit{cur}$ 加入到排列中。
 
-时间复杂度 $(n^2 \times 2^n)$，空间复杂度 $O(n \times 2^n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n^2 \times 2^n)$，空间复杂度 $O(n \times 2^n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

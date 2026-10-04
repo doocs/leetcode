@@ -78,17 +78,19 @@ Orders table:
 
 <!-- solution:start -->
 
-### 方法一：窗口函数
+### 方法一：按区间分组
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 每 $6$ 分钟构成一个区间，需该窗口内订单之和。按 `minute` 排序后用 `ROWS 5 PRECEDING` 的窗口和，并只保留 `minute` 为 $6$ 的倍数的行，对应每个区间的右端。
+> 区间按分钟的取值划分，$1$ 到 $6$ 为区间 $1$，$7$ 到 $12$ 为区间 $2$。六行窗口默认分钟从 $1$ 起连续，并且每一段的右端落在 $6$ 的倍数上。一旦出现空缺，或这一段并不以 $6$ 的倍数结束，窗口就会漏掉区间，或把相邻区间加在一起。
+>
+> $\lfloor (minute+5)/6 \rfloor$ 把每个分钟送进所属区间。按这个值分组并对 `order_count` 求和，得到该区间的订单总数，再按区间号升序输出。
 
 <!-- thinking:end -->
 
-我们可以用窗口函数 `sum() over()` 来计算每 $6$ 分钟的订单总数，然后每条记录中的 `minute` 能被 $6$ 整除的记录。
+按 $\lfloor (minute + 5) / 6 \rfloor$ 把每分钟划入对应区间，再对区间内的 `order_count` 求和，并按区间号升序输出。
 
 <!-- tabs:start -->
 
@@ -96,19 +98,12 @@ Orders table:
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            minute,
-            SUM(order_count) OVER (
-                ORDER BY minute
-                ROWS 5 PRECEDING
-            ) AS total_orders
-        FROM Orders
-    )
-SELECT minute / 6 AS interval_no, total_orders
-FROM T
-WHERE minute % 6 = 0;
+SELECT
+    (minute + 5) DIV 6 AS interval_no,
+    SUM(order_count) AS total_orders
+FROM Orders
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

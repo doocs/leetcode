@@ -240,9 +240,9 @@ function maxProfit(prices: number[], fee: number): number {
 
 > **思考**
 >
-> 方法一已是线性时间，但仍沿递归向下展开，需要 $O(n)$ 栈与记忆表。同一转移按天数正向写出来即可去掉递归。
+> 方法一从末尾填了一张后缀表。同样的选择也可以从左往右写：$f[i][0/1]$ 为前 $i$ 天结束时未持有 / 持有的最大利润。未持有由「继续空仓」或「今日卖出并扣费」转移；持有由「继续持有」或「今日买入」转移。
 >
-> 令 $f[i][0/1]$ 为前 $i$ 天结束时未持有 / 持有的最大利润，由前一天两态转移，最后取 $f[n-1][0]$。
+> 自左向右填表，答案为最后一天空仓。时间仍为 $O(n)$。
 
 <!-- thinking:end -->
 
@@ -422,6 +422,153 @@ function maxProfit(prices: number[], fee: number): number {
         [f0, f1] = [Math.max(f0, f1 + x - fee), Math.max(f1, f0 - x)];
     }
     return f0;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法四：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 可多次买卖，每次完整交易扣除手续费 $fee$。天数可达 $5\times 10^4$，按买卖决策树展开会重复大量子问题。
+>
+> 状态只是天数和是否持有。跳过当天总会先调用下一天再返回，调用链长度为 $n$，栈会溢出。
+>
+> 更靠后的天数在从末尾往前走时已经就绪。令 $f[i][j]$ 为从第 $i$ 天起、持有标记为 $j$ 的最大利润，从 $i=n-1$ 填到 $0$。卖出扣去 $fee$，买入则进入持有态。
+
+<!-- thinking:end -->
+
+令 $f[i][j]$ 表示从第 $i$ 天开始、状态为 $j$ 时能够获得的最大利润。$j$ 取 $0$ 或 $1$，分别表示当前不持有股票和持有股票。答案为 $f[0][0]$。越过最后一天的利润为 $0$，因此 $f[n][j] = 0$。
+
+我们从 $i = n - 1$ 填到 $0$。不交易则保留 $f[i + 1][j]$。若 $j > 0$，当前持有股票，可以卖出，利润为 $prices[i] + f[i + 1][0] - fee$。若 $j = 0$，当前不持有股票，可以买入，利润为 $-prices[i] + f[i + 1][1]$。取较大值：
+
+当 $j > 0$ 时，
+
+$$
+f[i][j] = \max(f[i + 1][j],\ prices[i] + f[i + 1][0] - fee)
+$$
+
+当 $j = 0$ 时，
+
+$$
+f[i][j] = \max(f[i + 1][j],\ -prices[i] + f[i + 1][1])
+$$
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        n = len(prices)
+        f = [[0] * 2 for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(2):
+                ans = f[i + 1][j]
+                if j:
+                    ans = max(ans, prices[i] + f[i + 1][0] - fee)
+                else:
+                    ans = max(ans, -prices[i] + f[i + 1][1])
+                f[i][j] = ans
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxProfit(int[] prices, int fee) {
+        int n = prices.length;
+        int[][] f = new int[n + 1][2];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                int ans = f[i + 1][j];
+                if (j > 0) {
+                    ans = Math.max(ans, prices[i] + f[i + 1][0] - fee);
+                } else {
+                    ans = Math.max(ans, -prices[i] + f[i + 1][1]);
+                }
+                f[i][j] = ans;
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int n = prices.size();
+        vector<vector<int>> f(n + 1, vector<int>(2));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                int ans = f[i + 1][j];
+                if (j) {
+                    ans = max(ans, prices[i] + f[i + 1][0] - fee);
+                } else {
+                    ans = max(ans, -prices[i] + f[i + 1][1]);
+                }
+                f[i][j] = ans;
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxProfit(prices []int, fee int) int {
+	n := len(prices)
+	f := make([][2]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j < 2; j++ {
+			ans := f[i+1][j]
+			if j > 0 {
+				ans = max(ans, prices[i]+f[i+1][0]-fee)
+			} else {
+				ans = max(ans, -prices[i]+f[i+1][1])
+			}
+			f[i][j] = ans
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProfit(prices: number[], fee: number): number {
+    const n = prices.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(2).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 0; j < 2; ++j) {
+            let ans = f[i + 1][j];
+            if (j) {
+                ans = Math.max(ans, prices[i] + f[i + 1][0] - fee);
+            } else {
+                ans = Math.max(ans, -prices[i] + f[i + 1][1]);
+            }
+            f[i][j] = ans;
+        }
+    }
+    return f[0][0];
 }
 ```
 

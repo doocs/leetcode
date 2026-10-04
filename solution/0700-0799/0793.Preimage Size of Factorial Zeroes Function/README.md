@@ -119,7 +119,7 @@ class Solution {
     }
 
     private int g(int k) {
-        long left = 0, right = 5 * k;
+        long left = 0, right = 5L * k;
         while (left < right) {
             long mid = (left + right) >> 1;
             if (f(mid) >= k) {

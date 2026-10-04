@@ -1,12 +1,4 @@
 function findClosestElements(arr: number[], k: number, x: number): number[] {
-    let l = 0;
-    let r = arr.length;
-    while (r - l > k) {
-        if (x - arr[l] <= arr[r - 1] - x) {
-            --r;
-        } else {
-            ++l;
-        }
-    }
-    return arr.slice(l, r);
+    arr.sort((a, b) => Math.abs(a - x) - Math.abs(b - x) || a - b);
+    return arr.slice(0, k).sort((a, b) => a - b);
 }

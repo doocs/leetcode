@@ -245,7 +245,7 @@ impl Solution {
 
 > **思考**
 >
-> 方法一用递归。同一张图改为从 $0$ 广搜，遇到未访问邻点时加上边权，避免深递归。
+> 方法一已经用显式栈遍历同一张邻接表。广搜从 $0$ 按层向外，第一次见到邻点时加上边权，访问顺序与栈不同。
 
 <!-- thinking:end -->
 
@@ -276,6 +276,8 @@ class Solution:
                     ans += c
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -308,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -338,6 +342,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minReorder(n int, connections [][]int) (ans int) {
 	g := make([][][2]int, n)
@@ -365,6 +371,8 @@ func minReorder(n int, connections [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minReorder(n: number, connections: number[][]): number {
     const g: [number, number][][] = Array.from({ length: n }, () => []);
@@ -389,6 +397,196 @@ function minReorder(n: number, connections: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 忽略方向后这是一棵树。从 $0$ 向外走时，沿原方向离开的边必须翻转。$n$ 可以到 $5\times 10^4$。一条链上第一次递归总是走向唯一的孩子，深度就是 $n$，会超出默认递归上限。
+>
+> 每条树边的代价在离开父节点时就已经确定，不必等子树返回后再相加。
+>
+> 因此用显式栈从 $0$ 遍历。弹出节点后，对每个不是父节点的邻点加上边权并压栈。正向边权为 $1$，反向边权为 $0$。
+
+<!-- thinking:end -->
+
+题目给定的路线图中有 $n$ 个节点和 $n-1$ 条边，如果我们忽略边的方向，那么这 $n$ 个节点构成了一棵树。而题目需要我们改变某些边的方向，使得每个节点都能到达节点 $0$。
+
+我们不妨考虑从节点 $0$ 出发，到达其他所有节点。方向与题目描述相反，意味着我们在构建图的时候，对于有向边 $[a, b]$，我们应该视为有向边 $[b, a]$。也即是说，如果要从 $a$ 到 $b$，我们需要变更一次方向；如果要从 $b$ 到 $a$，则不需要变更方向。
+
+用显式栈从节点 $0$ 遍历。弹出一个节点后，对每个不是父节点的邻点，把边权累加进答案，再将该邻点压栈。正向边的权为 $1$，反向边的权为 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是题目中节点的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in connections:
+            g[a].append((b, 1))
+            g[b].append((a, 0))
+        ans = 0
+        stk = [(0, -1)]
+        while stk:
+            a, fa = stk.pop()
+            for b, c in g[a]:
+                if b != fa:
+                    ans += c
+                    stk.append((b, a))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minReorder(int n, int[][] connections) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : connections) {
+            int a = e[0], b = e[1];
+            g[a].add(new int[] {b, 1});
+            g[b].add(new int[] {a, 0});
+        }
+        int ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1];
+            for (var e : g[a]) {
+                int b = e[0], c = e[1];
+                if (b != fa) {
+                    ans += c;
+                    stk.push(new int[] {b, a});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minReorder(int n, vector<vector<int>>& connections) {
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : connections) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b, 1);
+            g[b].emplace_back(a, 0);
+        }
+        int ans = 0;
+        vector<pair<int, int>> stk{{0, -1}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur.first, fa = cur.second;
+            for (auto& [b, c] : g[a]) {
+                if (b != fa) {
+                    ans += c;
+                    stk.emplace_back(b, a);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minReorder(n int, connections [][]int) (ans int) {
+	g := make([][][2]int, n)
+	for _, e := range connections {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], [2]int{b, 1})
+		g[b] = append(g[b], [2]int{a, 0})
+	}
+	stk := [][2]int{{0, -1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa := cur[0], cur[1]
+		for _, e := range g[a] {
+			b, c := e[0], e[1]
+			if b != fa {
+				ans += c
+				stk = append(stk, [2]int{b, a})
+			}
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minReorder(n: number, connections: number[][]): number {
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of connections) {
+        g[a].push([b, 1]);
+        g[b].push([a, 0]);
+    }
+    let ans = 0;
+    const stk: [number, number][] = [[0, -1]];
+    while (stk.length) {
+        const [a, fa] = stk.pop()!;
+        for (const [b, c] of g[a]) {
+            if (b !== fa) {
+                ans += c;
+                stk.push([b, a]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_reorder(n: i32, connections: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
+        let mut g: Vec<Vec<(i32, i32)>> = vec![vec![]; n];
+        for e in connections.iter() {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push((b as i32, 1));
+            g[b].push((a as i32, 0));
+        }
+        let mut ans = 0;
+        let mut stk: Vec<(usize, i32)> = vec![(0, -1)];
+        while let Some((a, fa)) = stk.pop() {
+            for &(b, c) in g[a].iter() {
+                if b != fa {
+                    ans += c;
+                    stk.push((b as usize, a as i32));
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 

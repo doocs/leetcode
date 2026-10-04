@@ -157,15 +157,16 @@ class Solution {
             g[a].add(new int[] {b, w, i});
             g[b].add(new int[] {a, w, i});
         }
-        int[] dist = new int[n];
-        final int inf = 1 << 30;
+        long[] dist = new long[n];
+        final long inf = (long) 1e18;
         Arrays.fill(dist, inf);
         dist[0] = 0;
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        pq.offer(new int[] {0, 0});
+        PriorityQueue<long[]> pq = new PriorityQueue<>((a, b) -> Long.compare(a[0], b[0]));
+        pq.offer(new long[] {0, 0});
         while (!pq.isEmpty()) {
             var p = pq.poll();
-            int da = p[0], a = p[1];
+            long da = p[0];
+            int a = (int) p[1];
             if (da > dist[a]) {
                 continue;
             }
@@ -173,7 +174,7 @@ class Solution {
                 int b = e[0], w = e[1];
                 if (dist[b] > dist[a] + w) {
                     dist[b] = dist[a] + w;
-                    pq.offer(new int[] {dist[b], b});
+                    pq.offer(new long[] {dist[b], b});
                 }
             }
         }
@@ -212,11 +213,11 @@ public:
             g[a].push_back({b, w, i});
             g[b].push_back({a, w, i});
         }
-        const int inf = 1 << 30;
-        vector<int> dist(n, inf);
+        const long long inf = (long long) 1e18;
+        vector<long long> dist(n, inf);
         dist[0] = 0;
 
-        using pii = pair<int, int>;
+        using pii = pair<long long, int>;
         priority_queue<pii, vector<pii>, greater<pii>> pq;
         pq.push({0, 0});
 
@@ -265,7 +266,7 @@ func findAnswer(n int, edges [][]int) []bool {
 		g[b] = append(g[b], [3]int{a, w, i})
 	}
 	dist := make([]int, n)
-	const inf int = 1 << 30
+	const inf int = 1e18
 	for i := range dist {
 		dist[i] = inf
 	}

@@ -292,4 +292,156 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every jump sequence is exponential. The array length reaches $1000$, and a legal step to the next index is always tried first, so the search has depth $n$. The most jumps from index $i$ depend only on later indexes. Let $f[i]$ be that number, with $f[n-1]=0$, and scan landing indexes from the right, updating with $1+f[j]$ when the absolute difference is at most $target$. A still-negative $f[0]$ means the end is unreachable, so the answer is $-1$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the maximum number of jumps from index $i$ to the end. Set $f[n-1]=0$ and every earlier entry to $-\infty$. For $i$ from $n-2$ down to $0$, enumerate a landing index $j$ ($i < j < n$). If $|nums[i]-nums[j]| \leq target$, update $f[i]$ with $1+f[j]$. If $f[0]$ is still negative, the end cannot be reached and the answer is $-1$; otherwise the answer is $f[0]$.
+
+Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumJumps(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        f = [-inf] * n
+        f[-1] = 0
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                if abs(nums[i] - nums[j]) <= target:
+                    f[i] = max(f[i], 1 + f[j])
+        return -1 if f[0] < 0 else f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumJumps(int[] nums, int target) {
+        int n = nums.length;
+        int[] f = new int[n];
+        Arrays.fill(f, -(1 << 30));
+        f[n - 1] = 0;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (Math.abs(nums[i] - nums[j]) <= target) {
+                    f[i] = Math.max(f[i], 1 + f[j]);
+                }
+            }
+        }
+        return f[0] < 0 ? -1 : f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumJumps(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> f(n, -(1 << 30));
+        f[n - 1] = 0;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (abs(nums[i] - nums[j]) <= target) {
+                    f[i] = max(f[i], 1 + f[j]);
+                }
+            }
+        }
+        return f[0] < 0 ? -1 : f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumJumps(nums []int, target int) int {
+	n := len(nums)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -(1 << 30)
+	}
+	f[n-1] = 0
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if abs(nums[i]-nums[j]) <= target {
+				f[i] = max(f[i], 1+f[j])
+			}
+		}
+	}
+	if f[0] < 0 {
+		return -1
+	}
+	return f[0]
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumJumps(nums: number[], target: number): number {
+    const n = nums.length;
+    const f: number[] = Array(n).fill(-(1 << 30));
+    f[n - 1] = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (Math.abs(nums[i] - nums[j]) <= target) {
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+        }
+    }
+    return f[0] < 0 ? -1 : f[0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_jumps(nums: Vec<i32>, target: i32) -> i32 {
+        let n = nums.len();
+        let mut f = vec![-(1 << 30); n];
+        f[n - 1] = 0;
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                if (nums[i] - nums[j]).abs() <= target {
+                    f[i] = f[i].max(1 + f[j]);
+                }
+            }
+        }
+        if f[0] < 0 {
+            -1
+        } else {
+            f[0]
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

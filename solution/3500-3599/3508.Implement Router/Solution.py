@@ -26,8 +26,8 @@ class Router:
         self.idx[d] += 1
         return [s, d, t]
 
-    def f(self, a: int, b: int, c: int) -> int:
-        return a << 46 | b << 29 | c
+    def f(self, a: int, b: int, c: int) -> tuple:
+        return (a, b, c)
 
     def getCount(self, destination: int, startTime: int, endTime: int) -> int:
         ls = self.d[destination]

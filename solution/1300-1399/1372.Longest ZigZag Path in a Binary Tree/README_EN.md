@@ -210,4 +210,174 @@ func longestZigZag(root *TreeNode) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zigzag must alternate left and right as it descends. Carrying the length of a path that last stepped left ($l$) or right ($r$), then recursing, is enough on a short tree: the left child continues with $r+1$ and a zero right length, and the right child is symmetric.
+>
+> The tree can contain $5\times 10^4$ nodes. A chain recurses once per node and overflows the call stack.
+>
+> The lengths at a node depend only on the parent's other direction, and the answer is a running maximum, so the walk does not need a return value.
+>
+> An explicit stack stores each node with the $l$ and $r$ of the step that reached it. After a node is popped, the maximum is updated and its children are pushed with those new lengths. The left child is pushed last, so it is visited first.
+
+<!-- thinking:end -->
+
+We walk the tree with an explicit stack. Each frame stores the current node and the zigzag lengths $l$ and $r$ of the step that arrived there.
+
+After a node is popped, $\max(l, r)$ updates the answer. A left child is pushed with left length $r+1$ and right length $0$; a right child is pushed with right length $l+1$ and left length $0$. The root starts with both lengths equal to $0$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def longestZigZag(self, root: TreeNode) -> int:
+        ans = 0
+        stk = [(root, 0, 0)]
+        while stk:
+            node, l, r = stk.pop()
+            if node is None:
+                continue
+            ans = max(ans, l, r)
+            stk.append((node.right, 0, l + 1))
+            stk.append((node.left, r + 1, 0))
+        return ans
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static class Frame {
+        TreeNode node;
+        int l;
+        int r;
+
+        Frame(TreeNode node, int l, int r) {
+            this.node = node;
+            this.l = l;
+            this.r = r;
+        }
+    }
+
+    public int longestZigZag(TreeNode root) {
+        int ans = 0;
+        Deque<Frame> stk = new ArrayDeque<>();
+        if (root != null) {
+            stk.push(new Frame(root, 0, 0));
+        }
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            ans = Math.max(ans, Math.max(cur.l, cur.r));
+            if (cur.node.right != null) {
+                stk.push(new Frame(cur.node.right, 0, cur.l + 1));
+            }
+            if (cur.node.left != null) {
+                stk.push(new Frame(cur.node.left, cur.r + 1, 0));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int longestZigZag(TreeNode* root) {
+        int ans = 0;
+        vector<tuple<TreeNode*, int, int>> stk{{root, 0, 0}};
+        while (!stk.empty()) {
+            auto [node, l, r] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            ans = max(ans, max(l, r));
+            stk.emplace_back(node->right, 0, l + 1);
+            stk.emplace_back(node->left, r + 1, 0);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func longestZigZag(root *TreeNode) int {
+	ans := 0
+	type frame struct {
+		node *TreeNode
+		l, r int
+	}
+	stk := []frame{{root, 0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if cur.node == nil {
+			continue
+		}
+		ans = max(ans, max(cur.l, cur.r))
+		stk = append(stk, frame{cur.node.Right, 0, cur.l + 1}, frame{cur.node.Left, cur.r + 1, 0})
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
