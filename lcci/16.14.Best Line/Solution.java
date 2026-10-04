@@ -14,8 +14,8 @@ class Solution {
                 int a = -1, b = -1;
                 for (int k = 0; k < n; ++k) {
                     int x3 = points[k][0], y3 = points[k][1];
-                    int c1 = (y2 - y1) * (x3 - x1);
-                    int c2 = (y3 - y1) * (x2 - x1);
+                    long c1 = (long) (y2 - y1) * (x3 - x1);
+                    long c2 = (long) (y3 - y1) * (x2 - x1);
                     if (c1 == c2) {
                         ++cnt;
                         if (a < 0) {
