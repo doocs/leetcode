@@ -1,5 +1,5 @@
 {
-  "cache_date": 1791078937,
+  "cache_date": 1791212968,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -5922,7 +5922,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1791072472
+      "retrieved": 1791212556
     },
     "solution/1200-1299/1295.Find Numbers with Even Number of Digits/README.md": {
       "authors": [
@@ -12300,7 +12300,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1791072472
+      "retrieved": 1791212556
     },
     "solution/0100-0199/0163.Missing Ranges/README.md": {
       "authors": [
@@ -14539,7 +14539,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790846690
+      "retrieved": 1791212556
     },
     "solution/1700-1799/1731.The Number of Employees Which Report to Each Employee/README.md": {
       "authors": [
@@ -26986,7 +26986,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791071654
+      "retrieved": 1791212556
     },
     "solution/2400-2499/2409.Count Days Spent Together/README.md": {
       "authors": [
@@ -30870,7 +30870,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1791072472
+      "retrieved": 1791212556
     },
     "solution/2600-2699/2623.Memoize/README.md": {
       "authors": [
@@ -33834,7 +33834,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791072472
+      "retrieved": 1791212556
     },
     "solution/2700-2799/2797.Partial Function with Placeholders/README.md": {
       "authors": [
@@ -35263,7 +35263,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791072472
+      "retrieved": 1791212556
     },
     "solution/2800-2899/2882.Drop Duplicate Rows/README.md": {
       "authors": [
@@ -35341,7 +35341,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791072472
+      "retrieved": 1791212556
     },
     "solution/2800-2899/2888.Reshape Data Concatenate/README.md": {
       "authors": [
@@ -39860,19 +39860,19 @@
     "solution/3100-3199/3166.Calculate Parking Fees and Duration/README.md": {
       "authors": [
         {
-          "login": "dajiaohuang",
-          "name": "dajiaohuang",
-          "url": "https://github.com/dajiaohuang",
-          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
         }
       ],
-      "retrieved": 1791078335
+      "retrieved": 1791212556
     },
     "solution/3100-3199/3167.Better Compression of String/README.md": {
       "authors": [
@@ -73271,7 +73271,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1791072460
+      "retrieved": 1791212560
     },
     "solution/1200-1299/1295.Find Numbers with Even Number of Digits/README_EN.md": {
       "authors": [
@@ -81954,7 +81954,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790846688
+      "retrieved": 1791212560
     },
     "solution/1700-1799/1731.The Number of Employees Which Report to Each Employee/README_EN.md": {
       "authors": [
@@ -107203,19 +107203,19 @@
     "solution/3100-3199/3166.Calculate Parking Fees and Duration/README_EN.md": {
       "authors": [
         {
-          "login": "dajiaohuang",
-          "name": "dajiaohuang",
-          "url": "https://github.com/dajiaohuang",
-          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
         }
       ],
-      "retrieved": 1791078333
+      "retrieved": 1791212560
     },
     "solution/3100-3199/3167.Better Compression of String/README_EN.md": {
       "authors": [
@@ -124969,7 +124969,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791072460
+      "retrieved": 1791212560
     },
     "lcci/01.01.Is Unique/README_EN.md": {
       "authors": [
@@ -135107,36 +135107,36 @@
     "solution/3800-3899/3860.Unique Email Groups/README.md": {
       "authors": [
         {
-          "login": "dajiaohuang",
-          "name": "dajiaohuang",
-          "url": "https://github.com/dajiaohuang",
-          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
         }
       ],
-      "retrieved": 1791078335
+      "retrieved": 1791212556
     },
     "solution/3800-3899/3860.Unique Email Groups/README_EN.md": {
       "authors": [
         {
-          "login": "dajiaohuang",
-          "name": "dajiaohuang",
-          "url": "https://github.com/dajiaohuang",
-          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
         }
       ],
-      "retrieved": 1791078333
+      "retrieved": 1791212560
     },
     "solution/3800-3899/3861.Minimum Capacity Box/README.md": {
       "authors": [
@@ -139297,7 +139297,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790513837
+      "retrieved": 1791212560
     },
     "solution/CONTEST_README.md": {
       "authors": [
@@ -139308,7 +139308,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790513860
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4049.Count Values With Equally Spaced Occurrences II/README_EN.md": {
       "authors": [
@@ -139627,7 +139627,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4062.Transform Array Using Pair Operations/README.md": {
       "authors": [
@@ -139638,7 +139638,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4064.Longest Subarray Divisible by K with At Most One Negation II/README.md": {
       "authors": [
@@ -139649,7 +139649,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4063.Longest Subarray Divisible by K with At Most One Negation I/README.md": {
       "authors": [
@@ -139660,7 +139660,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4067.Longest Subarray With Restricted Pair Sums/README.md": {
       "authors": [
@@ -139671,7 +139671,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4066.Maximum Equal Adjacent Pairs After at Most One Replacement/README.md": {
       "authors": [
@@ -139682,7 +139682,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791071654
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4065.Rearrange Array by Removing Distinct Values/README.md": {
       "authors": [
@@ -139693,7 +139693,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4068.Maximize Meeting Earnings with Idle Gaps/README.md": {
       "authors": [
@@ -139704,7 +139704,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791212556
     },
     "solution/4000-4099/4061.Minimum Queen Moves to Reach Target/README_EN.md": {
       "authors": [
@@ -139715,7 +139715,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790515157
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4062.Transform Array Using Pair Operations/README_EN.md": {
       "authors": [
@@ -139726,7 +139726,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790515157
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4063.Longest Subarray Divisible by K with At Most One Negation I/README_EN.md": {
       "authors": [
@@ -139737,7 +139737,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790515157
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4065.Rearrange Array by Removing Distinct Values/README_EN.md": {
       "authors": [
@@ -139748,7 +139748,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790594602
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4066.Maximum Equal Adjacent Pairs After at Most One Replacement/README_EN.md": {
       "authors": [
@@ -139759,7 +139759,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791071631
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4067.Longest Subarray With Restricted Pair Sums/README_EN.md": {
       "authors": [
@@ -139770,7 +139770,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790594602
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4068.Maximize Meeting Earnings with Idle Gaps/README_EN.md": {
       "authors": [
@@ -139781,7 +139781,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790594602
+      "retrieved": 1791212560
     },
     "solution/4000-4099/4064.Longest Subarray Divisible by K with At Most One Negation II/README_EN.md": {
       "authors": [
@@ -139792,7 +139792,95 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790515157
+      "retrieved": 1791212560
+    },
+    "solution/4000-4099/4071.Minimum Rotations to Dial a Number II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212556
+    },
+    "solution/4000-4099/4072.Maximum Alternating Subarray Sum With One Deletion/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212556
+    },
+    "solution/4000-4099/4070.Minimum Rotations to Dial a Number I/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212556
+    },
+    "solution/4000-4099/4073.Count Good Strings/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212556
+    },
+    "solution/4000-4099/4071.Minimum Rotations to Dial a Number II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212560
+    },
+    "solution/4000-4099/4070.Minimum Rotations to Dial a Number I/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212560
+    },
+    "solution/4000-4099/4072.Maximum Alternating Subarray Sum With One Deletion/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212560
+    },
+    "solution/4000-4099/4073.Count Good Strings/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1791212560
     }
   }
 }
