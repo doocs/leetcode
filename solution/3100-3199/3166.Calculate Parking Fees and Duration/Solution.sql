@@ -30,6 +30,7 @@ SELECT
     C.total_fee_paid,
     ROUND(C.total_fee_paid / (C.total_seconds / 3600), 2) AS avg_hourly_fee,
     P.lot_id AS most_time_lot
-FROM C
-LEFT JOIN P ON C.car_id = P.car_id AND P.rn = 1
+FROM
+    C
+    LEFT JOIN P ON C.car_id = P.car_id AND P.rn = 1
 ORDER BY C.car_id;

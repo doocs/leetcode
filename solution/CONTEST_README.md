@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 522 场周赛(2026-10-04 10:30, 90 分钟) 参赛人数 759
+
+- [4070. 拨号的最少旋转次数 I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README.md)
+- [4071. Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)
+- [4072. 一次删除后的最大交替子数组和](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README.md)
+- [4073. Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)
+
 #### 第 521 场周赛(2026-09-27 10:30, 90 分钟) 参赛人数 908
 
 - [4065. 移除不同值重排数组](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README.md)

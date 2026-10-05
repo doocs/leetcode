@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 简单
+rating: 1172
+source: 第 521 场周赛 Q1
 ---
 
 <!-- problem:start -->
