@@ -44,7 +44,7 @@ tags:
     	<li>如果&nbsp;<code>row.length</code>&nbsp;<strong>不</strong> 匹配列的预期数量，或者 <code>name</code> <strong>不是</strong> 一个合法的表，不进行任何插入并返回 <code>false</code>。</li>
     </ul>
     </li>
-    <li><code>void rmv(String name, int rowId)</code>
+    <li><code>void rmv(String name, int rowId, int columnId)</code>
     <ul>
     	<li>从表 <code>name</code>&nbsp;中移除行 <code>rowId</code>。</li>
     	<li>如果 <code>name</code> <strong>不是</strong> 一个合法的表或者没有 id 为 <code>rowId</code> 的行，不进行删除。</li>

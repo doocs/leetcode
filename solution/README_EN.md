@@ -4077,6 +4077,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4066  |  [Maximum Equal Adjacent Pairs After at Most One Replacement](/solution/4000-4099/4066.Maximum%20Equal%20Adjacent%20Pairs%20After%20at%20Most%20One%20Replacement/README_EN.md)  |    |  Medium  |  Weekly Contest 521  |
 |  4067  |  [Longest Subarray With Restricted Pair Sums](/solution/4000-4099/4067.Longest%20Subarray%20With%20Restricted%20Pair%20Sums/README_EN.md)  |    |  Medium  |  Weekly Contest 521  |
 |  4068  |  [Maximize Meeting Earnings with Idle Gaps](/solution/4000-4099/4068.Maximize%20Meeting%20Earnings%20with%20Idle%20Gaps/README_EN.md)  |    |  Hard  |  Weekly Contest 521  |
+|  4069  |  [Best Time to Buy and Sell Stock with Cooldown II](/solution/4000-4099/4069.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown%20II/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  🔒  |
+|  4070  |  [Minimum Rotations to Dial a Number I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 522  |
+|  4071  |  [Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 522  |
+|  4072  |  [Maximum Alternating Subarray Sum With One Deletion](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README_EN.md)  |    |  Medium  |  Weekly Contest 522  |
+|  4073  |  [Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README_EN.md)  |    |  Hard  |  Weekly Contest 522  |
 
 ## Copyright
 

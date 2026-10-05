@@ -370,7 +370,7 @@ function uniqueEmailGroups(emails: string[]): number {
         local = local.split('+')[0].replace(/\./g, '').toLowerCase();
         domain = domain.toLowerCase();
 
-        const normalized = local + "@" + domain;
+        const normalized = local + '@' + domain;
         st.add(normalized);
     }
 

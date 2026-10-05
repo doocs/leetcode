@@ -104,7 +104,7 @@ Weather table:
 | country_name | weather_type |
 +--------------+--------------+
 | USA          | Cold         |
-| Australia    | Cold         |
+| Austraila    | Cold         |
 | Peru         | Hot          |
 | China        | Warm         |
 | Morocco      | Hot          |

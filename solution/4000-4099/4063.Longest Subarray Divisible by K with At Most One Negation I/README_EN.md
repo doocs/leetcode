@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1740
+source: Biweekly Contest 192 Q3
 ---
 
 <!-- problem:start -->

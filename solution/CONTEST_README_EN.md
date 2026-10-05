@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 522
+
+- [4070. Minimum Rotations to Dial a Number I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README_EN.md)
+- [4071. Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README_EN.md)
+- [4072. Maximum Alternating Subarray Sum With One Deletion](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README_EN.md)
+- [4073. Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README_EN.md)
+
 #### Weekly Contest 521
 
 - [4065. Rearrange Array by Removing Distinct Values](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README_EN.md)
