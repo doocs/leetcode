@@ -210,30 +210,121 @@ difficulty: 简单
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次拨号只关心当前指针位置和目标数字，其余历史不会影响后续选择，因此可以按顺序贪心处理每一位。
+>
+> 从数字 $a$ 转到数字 $b$ 时，顺时针和逆时针两条路径的步数分别互补为 $10$。设两者的数字差为 $d=|a-b|$，那么最少旋转次数就是 $\min(d, 10-d)$。
+>
+> 初始指针在 $0$，依次累加相邻两次拨号之间的最小代价即可。
+
+<!-- thinking:end -->
+
+设上一位所在数字为 $\textit{pre}$，当前要拨到的数字为 $\textit{cur}$。由于拨号盘是环形的，从 $\textit{pre}$ 走到 $\textit{cur}$ 的最短距离为
+
+$$
+\min\bigl(|\textit{cur}-\textit{pre}|, 10-|\textit{cur}-\textit{pre}|\bigr).
+$$
+
+从初始位置 $0$ 开始遍历字符串中的每个字符，计算这一段最短距离并累加到答案中，然后更新 $\textit{pre}$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+	def minRotations(self, s: str) -> int:
+		ans = pre = 0
+		for cur in map(int, s):
+			diff = abs(cur - pre)
+			ans += min(diff, 10 - diff)
+			pre = cur
+		return ans
 
 ```
 
 #### Java
 
 ```java
+class Solution {
+	public int minRotations(String s) {
+		int ans = 0;
+		int pre = 0;
+		for (int i = 0; i < s.length(); ++i) {
+			int cur = s.charAt(i) - '0';
+			int diff = Math.abs(cur - pre);
+			ans += Math.min(diff, 10 - diff);
+			pre = cur;
+		}
+		return ans;
+	}
+}
 
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+	int minRotations(string s) {
+		int ans = 0;
+		int pre = 0;
+		for (int i = 0; i < s.size(); ++i) {
+			int cur = s[i] - '0';
+			int diff = abs(cur - pre);
+			ans += min(diff, 10 - diff);
+			pre = cur;
+		}
+		return ans;
+	}
+};
 
 ```
 
 #### Go
 
 ```go
+func minRotations(s string) int {
+	ans := 0
+	pre := 0
+	for i := 0; i < len(s); i++ {
+		cur := int(s[i] - '0')
+		diff := abs(cur - pre)
+		ans += min(diff, 10-diff)
+		pre = cur
+	}
+	return ans
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+```
+
+#### TypeScript
+
+```ts
+function minRotations(s: string): number {
+    let ans = 0;
+    let pre = 0;
+    for (let i = 0; i < s.length; ++i) {
+        const cur = s.charCodeAt(i) - 48;
+        const diff = Math.abs(cur - pre);
+        ans += Math.min(diff, 10 - diff);
+        pre = cur;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
