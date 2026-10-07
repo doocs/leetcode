@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1740
 source: 第 192 场双周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
 ---
 
 <!-- problem:start -->

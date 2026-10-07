@@ -3,6 +3,9 @@ comments: true
 difficulty: 中等
 rating: 1437
 source: 第 192 场双周赛 Q2
+tags:
+    - 脑筋急转弯
+    - 数组
 ---
 
 <!-- problem:start -->

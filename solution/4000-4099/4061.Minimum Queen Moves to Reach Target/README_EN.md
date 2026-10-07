@@ -3,6 +3,9 @@ comments: true
 difficulty: Easy
 rating: 1206
 source: Biweekly Contest 192 Q1
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->

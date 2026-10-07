@@ -3,6 +3,10 @@ comments: true
 difficulty: Medium
 rating: 1917
 source: Weekly Contest 521 Q3
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
 ---
 
 <!-- problem:start -->
@@ -17,15 +21,13 @@ source: Weekly Contest 521 Q3
 
 <p>You are given an integer array <code>nums</code>.</p>
 
-<p>A <strong>subarray</strong> <code>nums[l..r]</code> is valid if there are no three <strong>distinct</strong> indices <code>i</code>, <code>j</code>, and <code>k</code> such that <code>l &lt;= i, j, k &lt;= r</code> and:</p>
+<p>A <strong><span data-keyword="subarray-nonempty">subarray</span></strong> <code>nums[l..r]</code> is valid if there are no three <strong>distinct</strong> indices <code>i</code>, <code>j</code>, and <code>k</code> such that <code>l &lt;= i, j, k &lt;= r</code> and:</p>
 
 <ul>
 	<li><code>nums[i] + nums[j] == nums[k]</code></li>
 </ul>
 
 <p>Return the <strong>maximum</strong> length of a valid subarray of <code>nums</code>.</p>
-
-<p>A <strong>subarray</strong> is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

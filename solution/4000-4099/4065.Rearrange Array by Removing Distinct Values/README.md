@@ -3,6 +3,14 @@ comments: true
 difficulty: 简单
 rating: 1172
 source: 第 521 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 有序集合
+    - 排序
+    - 模拟
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

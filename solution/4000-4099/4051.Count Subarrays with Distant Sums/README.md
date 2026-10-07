@@ -3,6 +3,12 @@ comments: true
 difficulty: 困难
 rating: 2139
 source: 第 191 场双周赛 Q4
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 前缀和
 ---
 
 <!-- problem:start -->

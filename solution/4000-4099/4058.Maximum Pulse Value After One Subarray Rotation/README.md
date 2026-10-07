@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1899
 source: 第 520 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->

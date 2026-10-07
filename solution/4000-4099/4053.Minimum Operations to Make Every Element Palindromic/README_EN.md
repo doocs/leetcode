@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 2113
 source: Weekly Contest 519 Q2
+tags:
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

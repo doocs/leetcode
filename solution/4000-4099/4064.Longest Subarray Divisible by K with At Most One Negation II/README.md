@@ -3,6 +3,11 @@ comments: true
 difficulty: 困难
 rating: 2284
 source: 第 192 场双周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 前缀和
 ---
 
 <!-- problem:start -->

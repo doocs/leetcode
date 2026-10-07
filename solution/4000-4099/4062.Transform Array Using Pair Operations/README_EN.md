@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 1437
 source: Biweekly Contest 192 Q2
+tags:
+    - Brainteaser
+    - Array
 ---
 
 <!-- problem:start -->

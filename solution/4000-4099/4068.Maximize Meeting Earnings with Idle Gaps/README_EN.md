@@ -3,6 +3,11 @@ comments: true
 difficulty: Hard
 rating: 2189
 source: Weekly Contest 521 Q4
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -19,15 +24,13 @@ source: Weekly Contest 521 Q4
 
 <p>All meetings use <strong>half-open intervals</strong> <code>[start, end)</code>, so meetings that only touch at endpoints do <strong>not</strong> overlap.</p>
 
-<p>You may select any <strong>non-empty subset</strong> of meetings such that no two selected meetings overlap. You earn the revenue of each selected meeting.</p>
+<p>You may select any <strong>non-empty <span data-keyword="subset">subset</span></strong> of meetings such that no two selected meetings overlap. You earn the revenue of each selected meeting.</p>
 
 <p>Arrange the selected meetings in <strong>increasing order of their start times</strong>. For each pair of adjacent meetings in this order, you also earn 1 unit of revenue per unit of idle time between them. This idle time equals the later meeting&#39;s start time minus the earlier meeting&#39;s end time.</p>
 
 <p>No idle revenue is earned before the earliest selected meeting starts or after the latest selected meeting ends. If only one meeting is selected, no idle revenue is earned.</p>
 
 <p>Return the <strong>maximum total earnings</strong> achievable.</p>
-
-<p>A <strong>subset</strong> of an array is a selection of elements of the array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
