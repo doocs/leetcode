@@ -3,6 +3,14 @@ comments: true
 difficulty: Easy
 rating: 1172
 source: Weekly Contest 521 Q1
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Ordered Set
+    - Sorting
+    - Simulation
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

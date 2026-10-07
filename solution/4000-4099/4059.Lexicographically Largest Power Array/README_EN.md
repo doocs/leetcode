@@ -3,6 +3,10 @@ comments: true
 difficulty: Hard
 rating: 2321
 source: Weekly Contest 520 Q4
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
 ---
 
 <!-- problem:start -->

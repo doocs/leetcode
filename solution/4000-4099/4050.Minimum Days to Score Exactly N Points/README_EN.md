@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 1696
 source: Biweekly Contest 191 Q3
+tags:
+    - Math
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

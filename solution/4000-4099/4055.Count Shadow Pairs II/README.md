@@ -3,6 +3,15 @@ comments: true
 difficulty: 困难
 rating: 2630
 source: 第 519 场周赛 Q4
+tags:
+    - 栈
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 排序
+    - 单调栈
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1570
 source: 第 521 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 计数
 ---
 
 <!-- problem:start -->

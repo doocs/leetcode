@@ -4060,30 +4060,30 @@
 |  4047  |  [使所有元素的异或为零所需的最小操作次数](/solution/4000-4099/4047.Minimum%20Operations%20to%20Make%20XOR%20of%20All%20Elements%20Zero/README.md)  |    |  困难  |  🔒  |
 |  4048  |  [统计等间距出现整数数目 I](/solution/4000-4099/4048.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20I/README.md)  |    |  简单  |  第 191 场双周赛  |
 |  4049  |  [统计等间距出现整数数目 II](/solution/4000-4099/4049.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20II/README.md)  |    |  中等  |  第 191 场双周赛  |
-|  4050  |  [得到恰好 N 分的最少天数](/solution/4000-4099/4050.Minimum%20Days%20to%20Score%20Exactly%20N%20Points/README.md)  |    |  中等  |  第 191 场双周赛  |
-|  4051  |  [统计遥远子数组的数目](/solution/4000-4099/4051.Count%20Subarrays%20with%20Distant%20Sums/README.md)  |    |  困难  |  第 191 场双周赛  |
-|  4052  |  [行列循环移位](/solution/4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README.md)  |    |  简单  |  第 519 场周赛  |
-|  4053  |  [使每个元素变为回文数的最少操作次数](/solution/4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README.md)  |    |  中等  |  第 519 场周赛  |
+|  4050  |  [得到恰好 N 分的最少天数](/solution/4000-4099/4050.Minimum%20Days%20to%20Score%20Exactly%20N%20Points/README.md)  |  `数学`,`动态规划`  |  中等  |  第 191 场双周赛  |
+|  4051  |  [统计遥远子数组的数目](/solution/4000-4099/4051.Count%20Subarrays%20with%20Distant%20Sums/README.md)  |  `树状数组`,`线段树`,`数组`,`二分查找`,`前缀和`  |  困难  |  第 191 场双周赛  |
+|  4052  |  [行列循环移位](/solution/4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README.md)  |  `数组`,`矩阵`,`模拟`  |  简单  |  第 519 场周赛  |
+|  4053  |  [使每个元素变为回文数的最少操作次数](/solution/4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README.md)  |  `数组`,`二分查找`  |  中等  |  第 519 场周赛  |
 |  4054  |  [统计影子数对 I](/solution/4000-4099/4054.Count%20Shadow%20Pairs%20I/README.md)  |    |  中等  |  第 519 场周赛  |
-|  4055  |  [统计影子数对 II](/solution/4000-4099/4055.Count%20Shadow%20Pairs%20II/README.md)  |    |  困难  |  第 519 场周赛  |
+|  4055  |  [统计影子数对 II](/solution/4000-4099/4055.Count%20Shadow%20Pairs%20II/README.md)  |  `栈`,`树状数组`,`线段树`,`数组`,`二分查找`,`分治`,`排序`,`单调栈`  |  困难  |  第 519 场周赛  |
 |  4056  |  [统计相交区间对 I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README.md)  |    |  简单  |  第 520 场周赛  |
 |  4057  |  [统计相交区间对 II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README.md)  |    |  中等  |  第 520 场周赛  |
-|  4058  |  [一个子数组循环移动后的最大脉冲值](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README.md)  |    |  中等  |  第 520 场周赛  |
-|  4059  |  [字典序最大的答案数组](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README.md)  |    |  困难  |  第 520 场周赛  |
-|  4060  |  [计算偶好数](/solution/4000-4099/4060.Count%20Evenly%20Good%20Integers/README.md)  |    |  困难  |  🔒  |
-|  4061  |  [皇后到达目标格子的最少移动步数](/solution/4000-4099/4061.Minimum%20Queen%20Moves%20to%20Reach%20Target/README.md)  |    |  简单  |  第 192 场双周赛  |
-|  4062  |  [成对操作转化数组](/solution/4000-4099/4062.Transform%20Array%20Using%20Pair%20Operations/README.md)  |    |  中等  |  第 192 场双周赛  |
-|  4063  |  [至多一次取反能被 K 整除的最长子数组 I](/solution/4000-4099/4063.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20I/README.md)  |    |  中等  |  第 192 场双周赛  |
-|  4064  |  [至多一次取反能被 K 整除的最长子数组 II](/solution/4000-4099/4064.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20II/README.md)  |    |  困难  |  第 192 场双周赛  |
-|  4065  |  [移除不同值重排数组](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README.md)  |    |  简单  |  第 521 场周赛  |
-|  4066  |  [至多一次替换后的最大相邻相等元素对数](/solution/4000-4099/4066.Maximum%20Equal%20Adjacent%20Pairs%20After%20at%20Most%20One%20Replacement/README.md)  |    |  中等  |  第 521 场周赛  |
-|  4067  |  [数对和受限的最长子数组](/solution/4000-4099/4067.Longest%20Subarray%20With%20Restricted%20Pair%20Sums/README.md)  |    |  中等  |  第 521 场周赛  |
-|  4068  |  [考虑空闲时间的会议最大收益](/solution/4000-4099/4068.Maximize%20Meeting%20Earnings%20with%20Idle%20Gaps/README.md)  |    |  困难  |  第 521 场周赛  |
-|  4069  |  [Best Time to Buy and Sell Stock with Cooldown II](/solution/4000-4099/4069.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown%20II/README.md)  |    |  中等  |  🔒  |
+|  4058  |  [一个子数组循环移动后的最大脉冲值](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README.md)  |  `数组`,`动态规划`,`前缀和`  |  中等  |  第 520 场周赛  |
+|  4059  |  [字典序最大的答案数组](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README.md)  |  `贪心`,`位运算`,`数组`  |  困难  |  第 520 场周赛  |
+|  4060  |  [统计偶好数](/solution/4000-4099/4060.Count%20Evenly%20Good%20Integers/README.md)  |  `数学`,`动态规划`  |  困难  |  🔒  |
+|  4061  |  [皇后到达目标格子的最少移动步数](/solution/4000-4099/4061.Minimum%20Queen%20Moves%20to%20Reach%20Target/README.md)  |  `数组`,`数学`  |  简单  |  第 192 场双周赛  |
+|  4062  |  [成对操作转化数组](/solution/4000-4099/4062.Transform%20Array%20Using%20Pair%20Operations/README.md)  |  `脑筋急转弯`,`数组`  |  中等  |  第 192 场双周赛  |
+|  4063  |  [至多一次取反能被 K 整除的最长子数组 I](/solution/4000-4099/4063.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20I/README.md)  |  `数组`,`哈希表`,`前缀和`  |  中等  |  第 192 场双周赛  |
+|  4064  |  [至多一次取反能被 K 整除的最长子数组 II](/solution/4000-4099/4064.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20II/README.md)  |  `数组`,`哈希表`,`二分查找`,`前缀和`  |  困难  |  第 192 场双周赛  |
+|  4065  |  [移除不同值重排数组](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README.md)  |  `数组`,`哈希表`,`计数`,`有序集合`,`排序`,`模拟`,`堆（优先队列）`  |  简单  |  第 521 场周赛  |
+|  4066  |  [至多一次替换后的最大相邻相等元素对数](/solution/4000-4099/4066.Maximum%20Equal%20Adjacent%20Pairs%20After%20at%20Most%20One%20Replacement/README.md)  |  `数组`,`哈希表`,`计数`  |  中等  |  第 521 场周赛  |
+|  4067  |  [数对和受限的最长子数组](/solution/4000-4099/4067.Longest%20Subarray%20With%20Restricted%20Pair%20Sums/README.md)  |  `数组`,`哈希表`,`滑动窗口`  |  中等  |  第 521 场周赛  |
+|  4068  |  [考虑空闲时间的会议最大收益](/solution/4000-4099/4068.Maximize%20Meeting%20Earnings%20with%20Idle%20Gaps/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  困难  |  第 521 场周赛  |
+|  4069  |  [买卖股票的最佳时机含冷冻期 II](/solution/4000-4099/4069.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown%20II/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
 |  4070  |  [拨号的最少旋转次数 I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README.md)  |    |  简单  |  第 522 场周赛  |
-|  4071  |  [Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)  |    |  中等  |  第 522 场周赛  |
+|  4071  |  [拨号的最少旋转次数 II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)  |    |  中等  |  第 522 场周赛  |
 |  4072  |  [一次删除后的最大交替子数组和](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README.md)  |    |  中等  |  第 522 场周赛  |
-|  4073  |  [Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)  |    |  困难  |  第 522 场周赛  |
+|  4073  |  [统计好字符串数目](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)  |    |  困难  |  第 522 场周赛  |
 
 ## 版权
 
