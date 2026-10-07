@@ -245,7 +245,6 @@ class Solution:
 			ans += min(diff, 10 - diff)
 			pre = cur
 		return ans
-
 ```
 
 #### Java
@@ -264,7 +263,6 @@ class Solution {
 		return ans;
 	}
 }
-
 ```
 
 #### C++
@@ -284,7 +282,6 @@ public:
 		return ans;
 	}
 };
-
 ```
 
 #### Go
@@ -308,7 +305,6 @@ func abs(x int) int {
 	}
 	return x
 }
-
 ```
 
 #### TypeScript
