@@ -255,7 +255,6 @@ class Solution:
 			ans = min(ans, total - dist(pre, cur) + to_first + dist(pre, last))
 
 		return ans
-
 ```
 
 #### Java
@@ -287,7 +286,6 @@ class Solution {
 		return ans;
 	}
 }
-
 ```
 
 #### C++
@@ -320,7 +318,6 @@ public:
 		return ans;
 	}
 };
-
 ```
 
 #### Go
@@ -361,7 +358,6 @@ func minRotations(n int, s string) int {
 
 	return ans
 }
-
 ```
 
 #### TypeScript
