@@ -1,5 +1,5 @@
 {
-  "cache_date": 1791337525,
+  "cache_date": 1791338263,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -129540,13 +129540,19 @@
     "solution/3600-3699/3617.Find Students with Study Spiral Pattern/README_EN.md": {
       "authors": [
         {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1791337705
     },
     "solution/3600-3699/3618.Split Array by Prime Indices/README.md": {
       "authors": [
