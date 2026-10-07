@@ -167,11 +167,13 @@ Each row represents a study session by a student for a specific subject.
 
 > **Thinking**
 >
-> A spiral is a date-contiguous sequence (gaps at most two days) whose subjects repeat a cycle of length at least $3$. After grouping by student, sort by date and split on gaps.
+> Enumerating every divisor of the session list and treating it as the cycle length accepts a block such as A, B, A, C repeated twice with length $4$, even though only three subjects appear. The statement defines cycle length as the number of distinct subjects.
 >
-> Only a segment of length at least $6$ can contain two full cycles. For every divisor $\textit{cycle\_len}\ge 3$ of the length, compare later blocks with the first.
+> The two-day limit applies to every adjacent pair in that student's full date order. One gap longer than two days means the sessions are not one consecutive run, so a later fragment is not reported on its own. Sessions on the same date are ordered by $\textit{session\_id}$.
 >
-> The first valid cycle records that student's cycle length and total hours. Join the student table and sort by cycle length then hours, both descending.
+> When the whole record stays within that limit, the cycle length $k$ is the number of distinct subjects. At least two complete cycles require $k\ge 3$, at least $2k$ sessions, and a length divisible by $k$.
+>
+> Each session is then compared with the subject at the same offset in the first cycle. When the whole record repeats those $k$ subjects, record $k$ and the total hours, join the student table, and sort by cycle length and hours, both descending.
 
 <!-- thinking:end -->
 
@@ -184,196 +186,97 @@ Each row represents a study session by a student for a specific subject.
 WITH
     ranked_sessions AS (
         SELECT
-            s.student_id,
+            ss.student_id,
+            ss.session_id,
             ss.session_date,
             ss.subject,
             ss.hours_studied,
-            ROW_NUMBER() OVER (
-                PARTITION BY s.student_id
-                ORDER BY ss.session_date
-            ) AS rn
-        FROM
-            study_sessions ss
-            JOIN students s ON s.student_id = ss.student_id
-    ),
-    grouped_sessions AS (
-        SELECT
-            *,
             DATEDIFF(
-                session_date,
-                LAG(session_date) OVER (
-                    PARTITION BY student_id
-                    ORDER BY session_date
+                ss.session_date,
+                LAG(ss.session_date) OVER (
+                    PARTITION BY ss.student_id
+                    ORDER BY ss.session_date, ss.session_id
                 )
-            ) AS date_diff
-        FROM ranked_sessions
+            ) AS date_diff,
+            ROW_NUMBER() OVER (
+                PARTITION BY ss.student_id
+                ORDER BY ss.session_date, ss.session_id
+            ) AS session_index
+        FROM study_sessions ss
     ),
-    session_groups AS (
-        SELECT
-            *,
+    contiguous_students AS (
+        SELECT student_id
+        FROM ranked_sessions
+        GROUP BY student_id
+        HAVING
             SUM(
                 CASE
-                    WHEN date_diff > 2
-                    OR date_diff IS NULL THEN 1
+                    WHEN date_diff > 2 THEN 1
                     ELSE 0
                 END
-            ) OVER (
-                PARTITION BY student_id
-                ORDER BY session_date
-            ) AS group_id
-        FROM grouped_sessions
+            ) = 0
     ),
-    valid_sequences AS (
+    student_stats AS (
         SELECT
-            student_id,
-            group_id,
+            r.student_id,
             COUNT(*) AS session_count,
-            GROUP_CONCAT(subject ORDER BY session_date) AS subject_sequence,
-            SUM(hours_studied) AS total_hours
-        FROM session_groups
-        GROUP BY student_id, group_id
-        HAVING session_count >= 6
-    ),
-    pattern_detected AS (
-        SELECT
-            vs.student_id,
-            vs.total_hours,
-            vs.subject_sequence,
-            COUNT(
-                DISTINCT
-                SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', n), ',', -1)
-            ) AS cycle_length
+            COUNT(DISTINCT r.subject) AS cycle_length,
+            SUM(r.hours_studied) AS total_hours
         FROM
-            valid_sequences vs
-            JOIN (
-                SELECT a.N + b.N * 10 + 1 AS n
-                FROM
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) a,
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) b
-            ) nums
-                ON n <= 10
-        WHERE
-            -- Check if the sequence repeats every `k` items, for some `k >= 3` and divides session_count exactly
-            -- We simplify by checking the start and middle halves are equal
-            LENGTH(subject_sequence) > 0
-            AND LOCATE(',', subject_sequence) > 0
-            AND (
-                -- For cycle length 3:
-                subject_sequence LIKE CONCAT(
-                    SUBSTRING_INDEX(subject_sequence, ',', 3),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 6), ',', -3),
-                    '%'
-                )
-                OR subject_sequence LIKE CONCAT(
-                    -- For cycle length 4:
-                    SUBSTRING_INDEX(subject_sequence, ',', 4),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 8), ',', -4),
-                    '%'
-                )
-            )
-        GROUP BY vs.student_id, vs.total_hours, vs.subject_sequence
-    ),
-    final_output AS (
-        SELECT
-            s.student_id,
-            s.student_name,
-            s.major,
-            pd.cycle_length,
-            pd.total_hours AS total_study_hours
-        FROM
-            pattern_detected pd
-            JOIN students s ON s.student_id = pd.student_id
-        WHERE pd.cycle_length >= 3
+            ranked_sessions r
+            JOIN contiguous_students c ON c.student_id = r.student_id
+        GROUP BY r.student_id
+        HAVING
+            cycle_length >= 3
+            AND session_count >= cycle_length * 2
+            AND session_count % cycle_length = 0
     )
-SELECT *
-FROM final_output
-ORDER BY cycle_length DESC, total_study_hours DESC;
+SELECT
+    s.student_id,
+    s.student_name,
+    s.major,
+    st.cycle_length,
+    st.total_hours AS total_study_hours
+FROM
+    student_stats st
+    JOIN students s ON s.student_id = st.student_id
+WHERE
+    NOT EXISTS (
+        SELECT 1
+        FROM
+            ranked_sessions cur
+            JOIN ranked_sessions cyc
+                ON cyc.student_id = cur.student_id
+                AND cyc.session_index = (cur.session_index - 1) % st.cycle_length + 1
+        WHERE cur.student_id = st.student_id AND NOT (cur.subject <=> cyc.subject)
+    )
+ORDER BY st.cycle_length DESC, st.total_hours DESC;
 ```
 
 #### Pandas
 
 ```python
 import pandas as pd
-from datetime import timedelta
 
 
 def find_study_spiral_pattern(
     students: pd.DataFrame, study_sessions: pd.DataFrame
 ) -> pd.DataFrame:
-    # Convert session_date to datetime
+    study_sessions = study_sessions.copy()
     study_sessions["session_date"] = pd.to_datetime(study_sessions["session_date"])
 
     result = []
 
-    # Group study sessions by student
     for student_id, group in study_sessions.groupby("student_id"):
-        # Sort sessions by date
-        group = group.sort_values("session_date").reset_index(drop=True)
+        group = group.sort_values(["session_date", "session_id"]).reset_index(drop=True)
+        # One gap longer than two days breaks the whole record. A later fragment
+        # is not a separate spiral.
+        if len(group) >= 2:
+            gaps = group["session_date"].diff().dt.days.iloc[1:]
+            if (gaps > 2).any():
+                continue
+        _check_pattern(student_id, [row for _, row in group.iterrows()], result)
 
-        temp = []  # Holds current contiguous segment
-        last_date = None
-
-        for idx, row in group.iterrows():
-            if not temp:
-                temp.append(row)
-            else:
-                delta = (row["session_date"] - last_date).days
-                if delta <= 2:
-                    temp.append(row)
-                else:
-                    # Check the previous contiguous segment
-                    if len(temp) >= 6:
-                        _check_pattern(student_id, temp, result)
-                    temp = [row]
-            last_date = row["session_date"]
-
-        # Check the final segment
-        if len(temp) >= 6:
-            _check_pattern(student_id, temp, result)
-
-    # Build result DataFrame
     df_result = pd.DataFrame(
         result, columns=["student_id", "cycle_length", "total_study_hours"]
     )
@@ -389,9 +292,7 @@ def find_study_spiral_pattern(
             ]
         )
 
-    # Join with students table to get name and major
     df_result = df_result.merge(students, on="student_id")
-
     df_result = df_result[
         ["student_id", "student_name", "major", "cycle_length", "total_study_hours"]
     ]
@@ -406,32 +307,22 @@ def _check_pattern(student_id, sessions, result):
     hours = sum(row["hours_studied"] for row in sessions)
 
     n = len(subjects)
+    # Cycle length is the number of distinct subjects, not an arbitrary divisor.
+    cycle_len = len(set(subjects))
+    if cycle_len < 3 or n < cycle_len * 2 or n % cycle_len != 0:
+        return
 
-    # Try possible cycle lengths from 3 up to half of the sequence
-    for cycle_len in range(3, n // 2 + 1):
-        if n % cycle_len != 0:
-            continue
+    first_cycle = subjects[:cycle_len]
+    if subjects != first_cycle * (n // cycle_len):
+        return
 
-        # Extract the first cycle
-        first_cycle = subjects[:cycle_len]
-        is_pattern = True
-
-        # Compare each following cycle with the first
-        for i in range(1, n // cycle_len):
-            if subjects[i * cycle_len : (i + 1) * cycle_len] != first_cycle:
-                is_pattern = False
-                break
-
-        # If a repeated cycle is detected, store the result
-        if is_pattern:
-            result.append(
-                {
-                    "student_id": student_id,
-                    "cycle_length": cycle_len,
-                    "total_study_hours": hours,
-                }
-            )
-            break  # Stop at the first valid cycle found
+    result.append(
+        {
+            "student_id": student_id,
+            "cycle_length": cycle_len,
+            "total_study_hours": hours,
+        }
+    )
 ```
 
 <!-- tabs:end -->

@@ -168,11 +168,13 @@ session_id 是这张表的唯一主键。
 
 > **思考**
 >
-> 螺旋模式要求一段日期连续（相邻间隔不超过 $2$ 天）的课程序列由长度至少 $3$ 的周期重复而成。按学生分组后必须先按日期排序，再按间隔切成连续段。
+> 若把周期长度理解成段长的任意约数，A、B、A、C 重复两轮会被记成 $4$，但这段只有 $3$ 门不同的课，与题目对周期长度的定义不符。
 >
-> 仅长度不少于 $6$ 的段才可能包含至少两轮周期。对段长的每个约数 $\textit{cycle\_len}\ge 3$，比较后续块是否与首块相同。
+> 间隔约束作用在该学生按时间排好的全部记录上。相邻两次学习只要有一次间隔大于 $2$ 天，这些记录就不是一段连续日期；同一天的场次再按 $\textit{session\_id}$ 区分先后。前面隔开很久的一节课，不能把后面碰巧重复的科目单独截出来当作螺旋。
 >
-> 找到第一个合法周期即记录该学生的周期长度与总学时，再与学生表连接，按周期长度、总学时降序输出。
+> 整段都连续时，周期长度取不同科目的个数 $k$。仅当 $k\ge 3$、记录数不少于 $2k$ 且能被 $k$ 整除时，才可能构成至少两轮完整循环。
+>
+> 此时比较每个位置是否等于首轮中的对应科目。整段都由这 $k$ 门课按原顺序重复，才记下周期长度与总学时，再与学生表连接，按周期长度、总学时降序输出。
 
 <!-- thinking:end -->
 
@@ -183,204 +185,99 @@ session_id 是这张表的唯一主键。
 ```sql
 # Write your MySQL query statement below
 WITH
-    -- 第一步：为每个学生的学习记录按照日期排序并编号
     ranked_sessions AS (
         SELECT
-            s.student_id,
+            ss.student_id,
+            ss.session_id,
             ss.session_date,
             ss.subject,
             ss.hours_studied,
-            ROW_NUMBER() OVER (
-                PARTITION BY s.student_id
-                ORDER BY ss.session_date
-            ) AS rn
-        FROM
-            study_sessions ss
-            JOIN students s ON s.student_id = ss.student_id
-    ),
-    -- 第二步：计算当前学习日期与前一次学习的日期差
-    grouped_sessions AS (
-        SELECT
-            *,
             DATEDIFF(
-                session_date,
-                LAG(session_date) OVER (
-                    PARTITION BY student_id
-                    ORDER BY session_date
+                ss.session_date,
+                LAG(ss.session_date) OVER (
+                    PARTITION BY ss.student_id
+                    ORDER BY ss.session_date, ss.session_id
                 )
-            ) AS date_diff
-        FROM ranked_sessions
+            ) AS date_diff,
+            ROW_NUMBER() OVER (
+                PARTITION BY ss.student_id
+                ORDER BY ss.session_date, ss.session_id
+            ) AS session_index
+        FROM study_sessions ss
     ),
-    -- 第三步：将学习记录按照日期差是否大于2进行分组（连续段）
-    session_groups AS (
-        SELECT
-            *,
+    contiguous_students AS (
+        SELECT student_id
+        FROM ranked_sessions
+        GROUP BY student_id
+        HAVING
             SUM(
                 CASE
-                    WHEN date_diff > 2
-                    OR date_diff IS NULL THEN 1
+                    WHEN date_diff > 2 THEN 1
                     ELSE 0
                 END
-            ) OVER (
-                PARTITION BY student_id
-                ORDER BY session_date
-            ) AS group_id
-        FROM grouped_sessions
+            ) = 0
     ),
-    -- 第四步：筛选出每个学生的每个连续学习段中包含至少6次学习的序列
-    valid_sequences AS (
+    student_stats AS (
         SELECT
-            student_id,
-            group_id,
+            r.student_id,
             COUNT(*) AS session_count,
-            GROUP_CONCAT(subject ORDER BY session_date) AS subject_sequence,
-            SUM(hours_studied) AS total_hours
-        FROM session_groups
-        GROUP BY student_id, group_id
-        HAVING session_count >= 6
-    ),
-    -- 第五步：检测是否存在重复的科目循环模式
-    pattern_detected AS (
-        SELECT
-            vs.student_id,
-            vs.total_hours,
-            vs.subject_sequence,
-            COUNT(
-                DISTINCT
-                SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', n), ',', -1)
-            ) AS cycle_length
+            COUNT(DISTINCT r.subject) AS cycle_length,
+            SUM(r.hours_studied) AS total_hours
         FROM
-            valid_sequences vs
-            JOIN (
-                -- 生成1到100的数字，用于提取第n个科目
-                SELECT a.N + b.N * 10 + 1 AS n
-                FROM
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) a,
-                    (
-                        SELECT 0 AS N
-                        UNION
-                        SELECT 1
-                        UNION
-                        SELECT 2
-                        UNION
-                        SELECT 3
-                        UNION
-                        SELECT 4
-                        UNION
-                        SELECT 5
-                        UNION
-                        SELECT 6
-                        UNION
-                        SELECT 7
-                        UNION
-                        SELECT 8
-                        UNION
-                        SELECT 9
-                    ) b
-            ) nums
-                ON n <= 10
-        WHERE
-            -- 简化匹配：检查前半段和后半段是否相同（即是否重复）
-            LENGTH(subject_sequence) > 0
-            AND LOCATE(',', subject_sequence) > 0
-            AND (
-                -- 匹配3科循环2轮的模式
-                subject_sequence LIKE CONCAT(
-                    SUBSTRING_INDEX(subject_sequence, ',', 3),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 6), ',', -3),
-                    '%'
-                )
-                OR subject_sequence LIKE CONCAT(
-                    -- 匹配4科循环2轮的模式
-                    SUBSTRING_INDEX(subject_sequence, ',', 4),
-                    ',',
-                    SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 8), ',', -4),
-                    '%'
-                )
-            )
-        GROUP BY vs.student_id, vs.total_hours, vs.subject_sequence
-    ),
-    -- 第六步：拼接学生基本信息，并过滤掉循环长度小于3的结果
-    final_output AS (
-        SELECT
-            s.student_id,
-            s.student_name,
-            s.major,
-            pd.cycle_length,
-            pd.total_hours AS total_study_hours
-        FROM
-            pattern_detected pd
-            JOIN students s ON s.student_id = pd.student_id
-        WHERE pd.cycle_length >= 3
+            ranked_sessions r
+            JOIN contiguous_students c ON c.student_id = r.student_id
+        GROUP BY r.student_id
+        HAVING
+            cycle_length >= 3
+            AND session_count >= cycle_length * 2
+            AND session_count % cycle_length = 0
     )
--- 第七步：输出结果，并按循环长度和总学习时长降序排列
-SELECT *
-FROM final_output
-ORDER BY cycle_length DESC, total_study_hours DESC;
+SELECT
+    s.student_id,
+    s.student_name,
+    s.major,
+    st.cycle_length,
+    st.total_hours AS total_study_hours
+FROM
+    student_stats st
+    JOIN students s ON s.student_id = st.student_id
+WHERE
+    NOT EXISTS (
+        SELECT 1
+        FROM
+            ranked_sessions cur
+            JOIN ranked_sessions cyc
+                ON cyc.student_id = cur.student_id
+                AND cyc.session_index = (cur.session_index - 1) % st.cycle_length + 1
+        WHERE cur.student_id = st.student_id AND NOT (cur.subject <=> cyc.subject)
+    )
+ORDER BY st.cycle_length DESC, st.total_hours DESC;
 ```
 
 #### Pandas
 
 ```python
 import pandas as pd
-from datetime import timedelta
 
 
 def find_study_spiral_pattern(
     students: pd.DataFrame, study_sessions: pd.DataFrame
 ) -> pd.DataFrame:
+    study_sessions = study_sessions.copy()
     study_sessions["session_date"] = pd.to_datetime(study_sessions["session_date"])
 
     result = []
 
     for student_id, group in study_sessions.groupby("student_id"):
-        # 按日期排序
-        group = group.sort_values("session_date").reset_index(drop=True)
+        group = group.sort_values(["session_date", "session_id"]).reset_index(drop=True)
+        # One gap longer than two days breaks the whole record. A later fragment
+        # is not a separate spiral.
+        if len(group) >= 2:
+            gaps = group["session_date"].diff().dt.days.iloc[1:]
+            if (gaps > 2).any():
+                continue
+        _check_pattern(student_id, [row for _, row in group.iterrows()], result)
 
-        # 用于记录当前连续段
-        temp = []
-        last_date = None
-
-        for idx, row in group.iterrows():
-            if not temp:
-                temp.append(row)
-            else:
-                delta = (row["session_date"] - last_date).days
-                if delta <= 2:
-                    temp.append(row)
-                else:
-                    # 处理之前的连续段
-                    if len(temp) >= 6:
-                        _check_pattern(student_id, temp, result)
-                    temp = [row]
-            last_date = row["session_date"]
-
-        # 最后一个连续段
-        if len(temp) >= 6:
-            _check_pattern(student_id, temp, result)
-
-    # 构造结果 DataFrame
     df_result = pd.DataFrame(
         result, columns=["student_id", "cycle_length", "total_study_hours"]
     )
@@ -396,9 +293,7 @@ def find_study_spiral_pattern(
             ]
         )
 
-    # 合并 student_name 和 major
     df_result = df_result.merge(students, on="student_id")
-
     df_result = df_result[
         ["student_id", "student_name", "major", "cycle_length", "total_study_hours"]
     ]
@@ -413,24 +308,22 @@ def _check_pattern(student_id, sessions, result):
     hours = sum(row["hours_studied"] for row in sessions)
 
     n = len(subjects)
-    for cycle_len in range(3, n // 2 + 1):
-        if n % cycle_len != 0:
-            continue
-        first_cycle = subjects[:cycle_len]
-        is_pattern = True
-        for i in range(1, n // cycle_len):
-            if subjects[i * cycle_len : (i + 1) * cycle_len] != first_cycle:
-                is_pattern = False
-                break
-        if is_pattern:
-            result.append(
-                {
-                    "student_id": student_id,
-                    "cycle_length": cycle_len,
-                    "total_study_hours": hours,
-                }
-            )
-            break  # 只记录最长周期的第一个匹配
+    # Cycle length is the number of distinct subjects, not an arbitrary divisor.
+    cycle_len = len(set(subjects))
+    if cycle_len < 3 or n < cycle_len * 2 or n % cycle_len != 0:
+        return
+
+    first_cycle = subjects[:cycle_len]
+    if subjects != first_cycle * (n // cycle_len):
+        return
+
+    result.append(
+        {
+            "student_id": student_id,
+            "cycle_length": cycle_len,
+            "total_study_hours": hours,
+        }
+    )
 ```
 
 <!-- tabs:end -->
