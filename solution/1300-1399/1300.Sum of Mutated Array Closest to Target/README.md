@@ -67,7 +67,7 @@ tags:
 
 > **思考**
 >
-> 若对每个候选 $\textit{value}$ 都扫描一遍数组求转变后的和，则复杂度为 $O(n \times M)$。其中 $n \le 10^4$、$M \le 10^5$，难以稳定通过。
+> 若对每个候选 $\textit{value}$ 都扫描一遍数组求转变后的和，则复杂度为 $O(n \times M)$。其中 $n \le 10^4$、 $M \le 10^5$，难以稳定通过。
 >
 > 转变后的和只取决于「不超过 $\textit{value}$ 的部分原样保留、超过的部分一律改成 $\textit{value}$」。将数组排序后，分界点是一段前缀，可用二分定位，前缀和一次算出保留部分。因此按 $0$ 到 $\max(\textit{arr})$ 枚举 $\textit{value}$，每次 $O(\log n)$ 求转变和并维护与 $\textit{target}$ 的最小绝对差；差值相同时取更小的 $\textit{value}$。
 

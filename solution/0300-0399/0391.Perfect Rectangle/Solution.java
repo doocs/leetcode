@@ -6,7 +6,7 @@ class Solution {
         Map<Pair, Integer> cnt = new HashMap<>();
 
         for (int[] r : rectangles) {
-            area += (r[2] - r[0]) * (r[3] - r[1]);
+            area += (r[2] - r[0]) * 1L * (r[3] - r[1]);
 
             minX = Math.min(minX, r[0]);
             minY = Math.min(minY, r[1]);

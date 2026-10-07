@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 困难
+rating: 2321
+source: 第 520 场周赛 Q4
 ---
 
 <!-- problem:start -->

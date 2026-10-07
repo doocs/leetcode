@@ -111,7 +111,7 @@ Next, we consider the state transitions. For the $i$-th number $nums[i]$, we can
 
 - If we perform no operation, then $f[i][0] = \max(f[i-1][0], 0) + nums[i]$;
 - If we multiply by $k$, then $f[i][1] = \max(f[i-1][0], f[i-1][1], 0) + nums[i] \times k$;
-- If we divide by $k$, then $f[i][2] = \max(f[i-1][0], f[i-1][2], 0) + \lfloor \frac{nums[i]}{k} \rfloor$;
+- If we divide by $k$, then $f[i][2] = \max(f[i-1][0], f[i-1][2], 0) + \operatorname{trunc}(nums[i]/k)$, where the quotient is rounded toward zero;
 - If the operation has been completed, then $f[i][3] = \max(f[i-1][1], f[i-1][2], f[i-1][3]) + nums[i]$.
 
 We take the maximum among all states as the answer.

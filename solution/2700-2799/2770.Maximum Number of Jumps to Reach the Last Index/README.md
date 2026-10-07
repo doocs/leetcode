@@ -84,7 +84,7 @@ tags:
 
 > **思考**
 >
-> 从 $0$ 跳到末下标，一步要求值差的绝对值不超过 $target$，求最多跳数。$n\le 1000$，若用最短路思想会得到最少跳数，与题意相反。
+> 从 $0$ 跳到末下标，一步要求值差的绝对值不超过 $target$，求最多跳数。 $n\le 1000$，若用最短路思想会得到最少跳数，与题意相反。
 >
 > $dfs(i)$ 为从 $i$ 出发的最多跳数：枚举合法的 $j>i$ 取 $1+dfs(j)$ 的最大，到终点为 $0$，无路则为负无穷。记忆化后若结果为负则返回 $-1$。
 
@@ -283,6 +283,158 @@ impl Solution {
 
         let ans = dfs(0, &nums, target, &mut f);
         if ans < 0 { -1 } else { ans }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举全部跳跃序列是指数级的。数组长度可以到 $1000$，而相邻元素之差不超过 $target$ 时，第一次总会先跳到下一个下标，递归深度就是 $n$。从位置 $i$ 出发的最多跳数只依赖更靠右的位置。于是令 $f[i]$ 为从 $i$ 到末尾的最多跳数，$f[n-1]=0$，从右往左枚举合法落点 $j$，用 $1+f[j]$ 更新；若 $f[0]$ 仍为负，说明到不了终点，返回 $-1$。
+
+<!-- thinking:end -->
+
+设 $f[i]$ 为从下标 $i$ 跳到末尾的最多跳跃次数，边界 $f[n-1]=0$，其余位置先记为 $-\infty$。从 $i=n-2$ 递减到 $0$，枚举落点 $j$（$i < j < n$）。若 $|nums[i]-nums[j]| \leq target$，则可以用 $1+f[j]$ 更新 $f[i]$。若 $f[0]$ 仍为负，说明无法到达末尾，返回 $-1$，否则返回 $f[0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumJumps(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        f = [-inf] * n
+        f[-1] = 0
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                if abs(nums[i] - nums[j]) <= target:
+                    f[i] = max(f[i], 1 + f[j])
+        return -1 if f[0] < 0 else f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumJumps(int[] nums, int target) {
+        int n = nums.length;
+        int[] f = new int[n];
+        Arrays.fill(f, -(1 << 30));
+        f[n - 1] = 0;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (Math.abs(nums[i] - nums[j]) <= target) {
+                    f[i] = Math.max(f[i], 1 + f[j]);
+                }
+            }
+        }
+        return f[0] < 0 ? -1 : f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumJumps(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> f(n, -(1 << 30));
+        f[n - 1] = 0;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (abs(nums[i] - nums[j]) <= target) {
+                    f[i] = max(f[i], 1 + f[j]);
+                }
+            }
+        }
+        return f[0] < 0 ? -1 : f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumJumps(nums []int, target int) int {
+	n := len(nums)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -(1 << 30)
+	}
+	f[n-1] = 0
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if abs(nums[i]-nums[j]) <= target {
+				f[i] = max(f[i], 1+f[j])
+			}
+		}
+	}
+	if f[0] < 0 {
+		return -1
+	}
+	return f[0]
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumJumps(nums: number[], target: number): number {
+    const n = nums.length;
+    const f: number[] = Array(n).fill(-(1 << 30));
+    f[n - 1] = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (Math.abs(nums[i] - nums[j]) <= target) {
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+        }
+    }
+    return f[0] < 0 ? -1 : f[0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_jumps(nums: Vec<i32>, target: i32) -> i32 {
+        let n = nums.len();
+        let mut f = vec![-(1 << 30); n];
+        f[n - 1] = 0;
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                if (nums[i] - nums[j]).abs() <= target {
+                    f[i] = f[i].max(1 + f[j]);
+                }
+            }
+        }
+        if f[0] < 0 {
+            -1
+        } else {
+            f[0]
+        }
     }
 }
 ```

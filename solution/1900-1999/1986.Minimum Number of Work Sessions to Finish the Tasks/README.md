@@ -85,7 +85,7 @@ tags:
 
 > **思考**
 >
-> 任务分配到若干容量为 $\textit{sessionTime}$ 的时间段，段数最少。$n\le 14$，子集 DP 可行。
+> 任务分配到若干容量为 $\textit{sessionTime}$ 的时间段，段数最少。 $n\le 14$，子集 DP 可行。
 >
 > 先标记哪些子集能装进一段，再枚举状态 $i$ 的子集 $j$：若 $j$ 合法则 $f[i]=\min(f[i\oplus j]+1)$。
 >

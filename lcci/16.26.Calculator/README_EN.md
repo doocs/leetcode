@@ -18,7 +18,7 @@ difficulty: Medium
 <p><strong>Example&nbsp;1:</strong></p>
 <pre>
 
-<strong>Input: </strong>&quot;3+2\*2&quot;
+<strong>Input: </strong>&quot;3+2*2&quot;
 
 <strong>Output:</strong> 7
 

@@ -14,7 +14,7 @@ impl Solution {
                 if i + j == res.len() {
                     res.push(0);
                 }
-                let b = num2.get(m - j - 1).unwrap_or(&b'0') - b'0';
+                let b = if j < m { num2[m - 1 - j] - b'0' } else { 0 };
                 sum += a * b + res[i + j];
                 res[i + j] = sum % 10;
                 sum /= 10;

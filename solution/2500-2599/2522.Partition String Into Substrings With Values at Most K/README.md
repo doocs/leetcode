@@ -78,7 +78,7 @@ tags:
 
 > **思考**
 >
-> 要把数字串切成若干段，每段表示的整数值不超过 $k$，并最小化段数。$n\le 10^5$、$k$ 的位数很少，枚举全部切法不可行，但合法段的长度上界为 $k$ 的位数，从每个起点只能延伸常数段。
+> 要把数字串切成若干段，每段表示的整数值不超过 $k$，并最小化段数。 $n\le 10^5$、 $k$ 的位数很少，枚举全部切法不可行，但合法段的长度上界为 $k$ 的位数，从每个起点只能延伸常数段。
 >
 > 令 $\textit{dfs}(i)$ 为从下标 $i$ 起的最少段数。自 $i$ 向右累加数值，一旦超过 $k$ 即停止，对每个合法终点取 $1+\textit{dfs}(j+1)$ 的最小者。记忆化后每个起点只算一次；无法切开时得到 $\infty$，对外返回 $-1$。
 
@@ -218,6 +218,132 @@ func minimumPartition(s string, k int) int {
 	ans := dfs(0)
 	if ans < inf {
 		return ans
+	}
+	return -1
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举全部切法是指数级的。字符串长度可以到 $10^5$，而每一位都是 $1$ 到 $9$，只要当前数字不超过 $k$，第一次递归总是落到下一个下标，调用深度就是 $n$。一段的数值一旦超过 $k$ 就不能再延长，所以从下标 $i$ 出发的最少段数只依赖更靠后的位置。令 $f[i]$ 为从 $i$ 起到末尾的最少段数，$f[n]=0$，按 $i$ 从 $n-1$ 降到 $0$，向右累加子串值，对每个不超过 $k$ 的终点用 $f[j+1]$ 更新后再加一。$f[0]$ 仍不小于哨兵时返回 $-1$。
+
+<!-- thinking:end -->
+
+我们令 $f[i]$ 表示从字符串 $s$ 的下标 $i$ 开始的最少分割数，$f[n] = 0$。答案是 $f[0]$。
+
+按 $i$ 从 $n - 1$ 递减到 $0$。从 $i$ 向右累加子串对应的整数，一旦超过 $k$ 就停止。对每个不超过 $k$ 的终点 $j$，用 $f[j + 1]$ 更新 $f[i]$，然后把 $f[i]$ 加一。
+
+若 $f[0]$ 不小于预先设定的上界，说明不存在好分割，返回 $-1$，否则返回 $f[0]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumPartition(self, s: str, k: int) -> int:
+        n = len(s)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            v = 0
+            for j in range(i, n):
+                v = v * 10 + int(s[j])
+                if v > k:
+                    break
+                f[i] = min(f[i], f[j + 1])
+            f[i] += 1
+        return f[0] if f[0] < inf else -1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumPartition(String s, int k) {
+        int n = s.length();
+        int inf = 1 << 30;
+        int[] f = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            f[i] = inf;
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            long v = 0;
+            for (int j = i; j < n; ++j) {
+                v = v * 10 + (s.charAt(j) - '0');
+                if (v > k) {
+                    break;
+                }
+                f[i] = Math.min(f[i], f[j + 1]);
+            }
+            ++f[i];
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumPartition(string s, int k) {
+        int n = s.size();
+        const int inf = 1 << 30;
+        vector<int> f(n + 1, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            long long v = 0;
+            for (int j = i; j < n; ++j) {
+                v = v * 10 + (s[j] - '0');
+                if (v > k) {
+                    break;
+                }
+                f[i] = min(f[i], f[j + 1]);
+            }
+            ++f[i];
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumPartition(s string, k int) int {
+	n := len(s)
+	const inf = 1 << 30
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
+		v := 0
+		for j := i; j < n; j++ {
+			v = v*10 + int(s[j]-'0')
+			if v > k {
+				break
+			}
+			f[i] = min(f[i], f[j+1])
+		}
+		f[i]++
+	}
+	if f[0] < inf {
+		return f[0]
 	}
 	return -1
 }

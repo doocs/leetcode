@@ -63,7 +63,7 @@ tags:
 
 > **思考**
 >
-> 枚举所有子串再放入集合判断重复，$n\le 3\times 10^4$ 时平方级不可行。若存在长为 $L$ 的重复子串，则更短的也存在，长度具有单调性。
+> 枚举所有子串再放入集合判断重复， $n\le 3\times 10^4$ 时平方级不可行。若存在长为 $L$ 的重复子串，则更短的也存在，长度具有单调性。
 >
 > 对长度二分：检查函数把所有长为 $\textit{mid}$ 的切片放入集合，一旦碰撞就返回该串。能找到则尝试更长，否则缩短。
 >
@@ -94,24 +94,31 @@ tags:
 ```python
 class Solution:
     def longestDupSubstring(self, s: str) -> str:
-        def check(l):
+        def check(l: int) -> str:
             vis = set()
-            for i in range(n - l + 1):
-                t = s[i : i + l]
+            for i in range(1, n - l + 2):
+                j = i + l - 1
+                t = h[j] - h[i - 1] * p[j - i + 1]
                 if t in vis:
-                    return t
+                    return s[i - 1 : j]
                 vis.add(t)
             return ''
 
-        n = len(s)
+        base, n = 131, len(s)
+        p = [0] * (n + 10)
+        h = [0] * (n + 10)
+        p[0] = 1
+        for i, c in enumerate(s):
+            p[i + 1] = p[i] * base
+            h[i + 1] = h[i] * base + ord(c)
         left, right = 0, n
         ans = ''
         while left < right:
             mid = (left + right + 1) >> 1
             t = check(mid)
-            ans = t or ans
             if t:
                 left = mid
+                ans = t
             else:
                 right = mid - 1
         return ans

@@ -98,7 +98,7 @@ Activity table:
 >
 > 每台机器上进程成对出现 start/end，平均耗时是各对 $(\textit{end}-\textit{start})$ 的均值。按 $\texttt{machine\_id}$ 分组后，把 start 取负、end 取正再平均，得到的是一半差值，因而要再乘 $2$。
 >
-> $\texttt{CASE WHEN}$ 写符号，$\texttt{AVG}$ 后 $\texttt{ROUND}$ 到三位小数。
+> $\texttt{CASE WHEN}$ 写符号， $\texttt{AVG}$ 后 $\texttt{ROUND}$ 到三位小数。
 
 <!-- thinking:end -->
 

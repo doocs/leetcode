@@ -70,7 +70,7 @@ tags:
 
 > **思考**
 >
-> 划分由「两相等」「三相等」或「三连续递增」组成。$n \le 10^5$，递归划分会重叠。从下标 $i$ 出发是否合法只取决于 $i$ 之后的后缀。
+> 划分由「两相等」「三相等」或「三连续递增」组成。 $n \le 10^5$，递归划分会重叠。从下标 $i$ 出发是否合法只取决于 $i$ 之后的后缀。
 >
 > 记忆化 $dfs(i)$：尝试长度 $2$ 或 $3$ 的合法块并跳到块末。越界视为成功。
 
@@ -254,11 +254,13 @@ function validPartition(nums: number[]): boolean {
 
 > **思考**
 >
-> 方法一有递归常数。令 $f[i]$ 表示前 $i$ 个元素可否划分，按同样三种块从 $f[i-2]$、$f[i-3]$ 转移，改为递推。
+> 方法一从末尾填后缀，$f[i]$ 表示从下标 $i$ 起能否划分。同样三种块也可以按前缀来写：$f[i]$ 表示前 $i$ 个元素能否划分，由 $f[i-2]$ 与 $f[i-3]$ 转入。
+>
+> 自左向右填表，答案为 $f[n]$。时间仍为 $O(n)$。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索转换为动态规划。
+方法一从末尾判断后缀能否划分。下面改为判断前缀，转移仍是同样的三种块。
 
 设 $f[i]$ 表示数组的前 $i$ 个元素是否存在一种有效划分，初始时 $f[0] = true$，答案就是 $f[n]$。
 
@@ -365,6 +367,135 @@ function validPartition(nums: number[]): boolean {
         f[i] = (a && f[i - 2]) || ((b || c) && f[i - 3]);
     }
     return f[n];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 划分只能是两相等、三相等或三连续递增。$n \le 10^5$，按块枚举会重叠，而且两相等的块总会先尝试。
+>
+> 全相等时这次尝试连成一条长度为 $n/2$ 的调用链，栈会溢出。
+>
+> 更靠后的下标在从末尾往前走时已经就绪。令 $f[i]$ 表示从下标 $i$ 起能否划分，$f[n]$ 为真，从 $i=n-1$ 填到 $0$。合法块仍是跳到 $i+2$ 或 $i+3$。
+
+<!-- thinking:end -->
+
+令 $f[i]$ 表示从下标 $i$ 开始是否存在一种有效划分。答案为 $f[0]$，$f[n] = true$。
+
+从 $i = n - 1$ 填到 $0$。两相邻元素相等时，可以接上 $f[i + 2]$；三个元素相等，或依次递增 $1$ 时，可以接上 $f[i + 3]$。三种情况取或，都不成立则为 $false$：
+
+$$
+f[i] = \textit{OR}
+\begin{cases}
+f[i+2],&i+1 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
+f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
+f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \textit{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
+\end{cases}
+$$
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
+        f = [False] * n + [True]
+        for i in range(n - 1, -1, -1):
+            a = i + 1 < n and nums[i] == nums[i + 1]
+            b = i + 2 < n and nums[i] == nums[i + 1] == nums[i + 2]
+            c = (
+                i + 2 < n
+                and nums[i + 1] - nums[i] == 1
+                and nums[i + 2] - nums[i + 1] == 1
+            )
+            f[i] = (a and f[i + 2]) or ((b or c) and f[i + 3])
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean validPartition(int[] nums) {
+        int n = nums.length;
+        boolean[] f = new boolean[n + 1];
+        f[n] = true;
+        for (int i = n - 1; i >= 0; --i) {
+            boolean a = i + 1 < n && nums[i] == nums[i + 1];
+            boolean b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+            boolean c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+            f[i] = (a && f[i + 2]) || ((b || c) && f[i + 3]);
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool validPartition(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> f(n + 1);
+        f[n] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            bool a = i + 1 < n && nums[i] == nums[i + 1];
+            bool b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+            bool c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+            f[i] = (a && f[i + 2]) || ((b || c) && f[i + 3]);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func validPartition(nums []int) bool {
+	n := len(nums)
+	f := make([]bool, n+1)
+	f[n] = true
+	for i := n - 1; i >= 0; i-- {
+		a := i+1 < n && nums[i] == nums[i+1]
+		b := i+2 < n && nums[i] == nums[i+1] && nums[i+1] == nums[i+2]
+		c := i+2 < n && nums[i+1]-nums[i] == 1 && nums[i+2]-nums[i+1] == 1
+		f[i] = (a && f[i+2]) || ((b || c) && f[i+3])
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function validPartition(nums: number[]): boolean {
+    const n = nums.length;
+    const f: boolean[] = Array(n + 1).fill(false);
+    f[n] = true;
+    for (let i = n - 1; i >= 0; --i) {
+        const a = i + 1 < n && nums[i] == nums[i + 1];
+        const b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+        const c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+        f[i] = (a && f[i + 2]) || ((b || c) && f[i + 3]);
+    }
+    return f[0];
 }
 ```
 

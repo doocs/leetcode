@@ -1,6 +1,6 @@
 class Router {
     private int lim;
-    private Set<Long> vis = new HashSet<>();
+    private Set<Key> vis = new HashSet<>();
     private Deque<int[]> q = new ArrayDeque<>();
     private Map<Integer, Integer> idx = new HashMap<>();
     private Map<Integer, List<Integer>> d = new HashMap<>();
@@ -10,7 +10,7 @@ class Router {
     }
 
     public boolean addPacket(int source, int destination, int timestamp) {
-        long x = f(source, destination, timestamp);
+        Key x = f(source, destination, timestamp);
         if (vis.contains(x)) {
             return false;
         }
@@ -34,9 +34,11 @@ class Router {
         return new int[] {s, d_, t};
     }
 
-    private long f(int a, int b, int c) {
-        return ((long) a << 46) | ((long) b << 29) | (long) c;
+    private Key f(int a, int b, int c) {
+        return new Key(a, b, c);
     }
+
+    private record Key(int a, int b, int c) {}
 
     public int getCount(int destination, int startTime, int endTime) {
         List<Integer> ls = d.getOrDefault(destination, List.of());

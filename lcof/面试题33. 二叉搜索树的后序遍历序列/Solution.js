@@ -3,9 +3,11 @@
  * @return {boolean}
  */
 var verifyPostorder = function (postorder) {
-    const dfs = (l, r) => {
+    const stk = [[0, postorder.length - 1]];
+    while (stk.length) {
+        const [l, r] = stk.pop();
         if (l >= r) {
-            return true;
+            continue;
         }
         const v = postorder[r];
         let i = l;
@@ -17,7 +19,8 @@ var verifyPostorder = function (postorder) {
                 return false;
             }
         }
-        return dfs(l, i - 1) && dfs(i, r - 1);
-    };
-    return dfs(0, postorder.length - 1);
+        stk.push([i, r - 1]);
+        stk.push([l, i - 1]);
+    }
+    return true;
 };

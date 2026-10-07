@@ -94,7 +94,7 @@ tags:
 
 我们可以用一个邻接表 $g$ 来表示单位转换关系，其中 $g[i]$ 表示单位 $i$ 可以转换到的单位和对应的转换因子。
 
-然后，我们从根节点 $0$ 开始进行深度优先搜索，即调函数 $\textit{dfs}(s, \textit{mul})$，其中 $s$ 表示当前单位，$\textit{mul}$ 表示从单位 $0$ 转换到单位 $s$ 的转换因子。初始时 $s = 0$, $\textit{mul} = 1$。在每次递归中，我们将当前单位 $s$ 的转换因子 $\textit{mul}$ 存储到答案数组中，然后遍历当前单位 $s$ 的所有邻接单位 $t$，递归调用 $\textit{dfs}(t, \textit{mul} \times w \mod (10^9 + 7))$，其中 $w$ 为单位 $s$ 转换到单位 $t$ 的转换因子。
+然后，我们从根节点 $0$ 开始进行深度优先搜索，即调函数 $\textit{dfs}(s, \textit{mul})$，其中 $s$ 表示当前单位， $\textit{mul}$ 表示从单位 $0$ 转换到单位 $s$ 的转换因子。初始时 $s = 0$, $\textit{mul} = 1$。在每次递归中，我们将当前单位 $s$ 的转换因子 $\textit{mul}$ 存储到答案数组中，然后遍历当前单位 $s$ 的所有邻接单位 $t$，递归调用 $\textit{dfs}(t, \textit{mul} \times w \mod (10^9 + 7))$，其中 $w$ 为单位 $s$ 转换到单位 $t$ 的转换因子。
 
 最后，我们返回答案数组即可。
 
@@ -223,6 +223,165 @@ function baseUnitConversions(conversions: number[][]): number[] {
         }
     };
     dfs(0, 1);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 转换关系有 $n - 1$ 条且从 $0$ 可达唯一路径，故为一棵以 $0$ 为根的有向树。所求为 $1$ 个单位 $0$ 等于多少个单位 $i$，答案对 $10^9 + 7$ 取模。
+>
+> $n \le 10^5$。从根递归进入下一单位，链上的调用深度就是 $n$，会超出递归栈。每个单位的因子只取决于根到它的唯一路径，与兄弟的访问顺序无关。
+>
+> 因此用显式栈保存 $(单位, 累计因子)$。弹出时写下答案，再把每个后继以当前因子乘上边权、对模数取余后压入。根的因子是 $1$。
+
+<!-- thinking:end -->
+
+由于题目保证了单位 0 可以通过唯一的转换路径转换为其他单位，另外 $\textit{conversions}$ 的长度为 $n - 1$，因此单位转换关系是一棵以 $0$ 为根的有向树。
+
+我们可以用一个邻接表 $g$ 来表示单位转换关系，其中 $g[i]$ 表示单位 $i$ 可以转换到的单位和对应的转换因子。
+
+然后用显式栈从根出发。栈帧是 $(单位, 累计因子)$，初始为 $(0, 1)$。弹出时把累计因子写入答案，再对每个后继单位 $t$ 和边权 $w$，把 $(t, \textit{mul} \times w \bmod (10^9 + 7))$ 压入栈。
+
+最后，我们返回答案数组即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为单位的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def baseUnitConversions(self, conversions: List[List[int]]) -> List[int]:
+        mod = 10**9 + 7
+        n = len(conversions) + 1
+        g = [[] for _ in range(n)]
+        for s, t, w in conversions:
+            g[s].append((t, w))
+        ans = [0] * n
+        stk = [(0, 1)]
+        while stk:
+            s, mul = stk.pop()
+            ans[s] = mul
+            for t, w in g[s]:
+                stk.append((t, mul * w % mod))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] baseUnitConversions(int[][] conversions) {
+        final int mod = (int) 1e9 + 7;
+        int n = conversions.length + 1;
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : conversions) {
+            g[e[0]].add(new int[] {e[1], e[2]});
+        }
+        int[] ans = new int[n];
+        Deque<long[]> stk = new ArrayDeque<>();
+        stk.push(new long[] {0, 1});
+        while (!stk.isEmpty()) {
+            long[] cur = stk.pop();
+            int s = (int) cur[0];
+            long mul = cur[1];
+            ans[s] = (int) mul;
+            for (var e : g[s]) {
+                stk.push(new long[] {e[0], mul * e[1] % mod});
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> baseUnitConversions(vector<vector<int>>& conversions) {
+        const int mod = 1e9 + 7;
+        int n = conversions.size() + 1;
+        vector<vector<pair<int, int>>> g(n);
+        vector<int> ans(n);
+        for (const auto& e : conversions) {
+            g[e[0]].push_back({e[1], e[2]});
+        }
+        vector<pair<int, long long>> stk{{0, 1}};
+        while (!stk.empty()) {
+            auto [s, mul] = stk.back();
+            stk.pop_back();
+            ans[s] = mul;
+            for (auto [t, w] : g[s]) {
+                stk.push_back({t, mul * w % mod});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func baseUnitConversions(conversions [][]int) []int {
+	const mod = int(1e9 + 7)
+	n := len(conversions) + 1
+
+	g := make([][]struct{ t, w int }, n)
+	for _, e := range conversions {
+		s, t, w := e[0], e[1], e[2]
+		g[s] = append(g[s], struct{ t, w int }{t, w})
+	}
+
+	ans := make([]int, n)
+	stk := [][2]int{{0, 1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		s, mul := cur[0], cur[1]
+		ans[s] = mul
+		for _, e := range g[s] {
+			stk = append(stk, [2]int{e.t, mul * e.w % mod})
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function baseUnitConversions(conversions: number[][]): number[] {
+    const mod = BigInt(1e9 + 7);
+    const n = conversions.length + 1;
+    const g: { t: number; w: number }[][] = Array.from({ length: n }, () => []);
+    for (const [s, t, w] of conversions) {
+        g[s].push({ t, w });
+    }
+    const ans: number[] = Array(n).fill(0);
+    const stk: [number, number][] = [[0, 1]];
+    while (stk.length) {
+        const [s, mul] = stk.pop()!;
+        ans[s] = mul;
+        for (const { t, w } of g[s]) {
+            stk.push([t, Number((BigInt(mul) * BigInt(w)) % mod)]);
+        }
+    }
     return ans;
 }
 ```

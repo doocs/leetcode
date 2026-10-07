@@ -88,7 +88,7 @@ It can be shown that no other mapping can provide a lower cost.
 >
 > Letters are distinct and there are at most $26$ of them. Eight keys charge $1,2,\ldots$ presses according to how many letters already sit on that key.
 >
-> With unit frequencies the optimum spreads letters evenly across the eight keys, filling every round of eight “$k$-press” slots first.
+> With unit frequencies the optimum spreads letters evenly across the eight keys, filling every round of eight “ $k$-press” slots first.
 >
 > We add $k \times 8$ per full round and charge the remainder at the next $k$, without assigning letters explicitly.
 

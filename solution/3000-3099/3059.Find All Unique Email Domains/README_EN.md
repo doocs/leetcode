@@ -78,7 +78,7 @@ Output table is ordered by email_domains in ascending order.
 >
 > Split out the domain, then keep `.com` so local hosts are dropped. Group and count by domain.
 >
-> The code takes the last split segment, filters with `contains('.com')`, and groups.
+> The code takes the last split segment, filters with `endswith('.com')`, and groups.
 
 <!-- thinking:end -->
 
@@ -105,7 +105,7 @@ import pandas as pd
 
 def find_unique_email_domains(emails: pd.DataFrame) -> pd.DataFrame:
     emails["email_domain"] = emails["email"].str.split("@").str[-1]
-    emails = emails[emails["email"].str.contains(".com")]
+    emails = emails[emails["email_domain"].str.endswith(".com")]
     return (
         emails.groupby("email_domain")
         .size()

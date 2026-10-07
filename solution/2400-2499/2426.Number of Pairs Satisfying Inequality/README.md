@@ -77,7 +77,7 @@ tags:
 
 > **思考**
 >
-> 不等式 $nums1[i]-nums2[i] \le nums1[j]-nums2[j]+\textit{diff}$（$i<j$）在 $n \le 10^5$ 下不能双重循环。令 $v=a-b$，即统计左侧有多少 $v_i \le v_j+\textit{diff}$。
+> 不等式 $nums1[i]-nums2[i] \le nums1[j]-nums2[j]+\textit{diff}$（ $i<j$）在 $n \le 10^5$ 下不能双重循环。令 $v=a-b$，即统计左侧有多少 $v_i \le v_j+\textit{diff}$。
 >
 > 值域经平移后可用树状数组维护已出现的 $v$。按 $j$ 从左到右：先查询不超过 $v_j+\textit{diff}$ 的个数，再把 $v_j$ 插入。
 

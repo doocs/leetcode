@@ -72,7 +72,7 @@ AB -&gt; 28
 
 > **Thinking**
 >
-> Map a positive integer to an Excel column title: base $26$ with $A\ldots Z$ as $1\ldots 26$, and no zero. Ordinary base $26$ would emit $0$ instead of $Z$ on a zero remainder. Subtract $1$ before $\bmod 26$, map the remainder to $A$–$Z$, continue with the quotient, and reverse.
+> Map a positive integer to an Excel column title: base $26$ with $A\ldots Z$ as $1\ldots 26$, and no zero. Ordinary base $26$ would emit $0$ instead of $Z$ on a zero remainder. Subtract $1$ before $\bmod 26$, map the remainder to $A$– $Z$, continue with the quotient, and reverse.
 
 <!-- thinking:end -->
 

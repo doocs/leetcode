@@ -430,7 +430,7 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 首先，将所有查询按 $x$ 阈值降序排好，把全部数对按 $\textit{nums1}[i]$ 降序处理。
 迭代处理到第 $j$ 个查询时，将任何满足 $\textit{nums1}[i] \geq x_j$ 的数对加入单调栈。
 
-单调栈的数对排序规则是：按 $\textit{nums2}[i]$ 升序、$\textit{nums1}[i] + \textit{nums2}[i]$ 降序。
+单调栈的数对排序规则是：按 $\textit{nums2}[i]$ 升序、 $\textit{nums1}[i] + \textit{nums2}[i]$ 降序。
 
 如此保证栈中每个数对的 $\textit{nums2}[i]$ 更大时， $\textit{nums1}[i] + \textit{nums2}[i]$ 却更小，隔绝无效候选数对。
 
@@ -438,10 +438,10 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 #### 复杂度解析
 
-$n$ 是数组 $nums1$ 的长度，$m$ 是数组 $queries$ 的长度。
+$n$ 是数组 $nums1$ 的长度， $m$ 是数组 $queries$ 的长度。
 
-- 时间复杂度：$O((n + m) \times \log n + m \times \log m)$。
-- 空间复杂度：$O(n + m)$。
+- 时间复杂度： $O((n + m) \times \log n + m \times \log m)$。
+- 空间复杂度： $O(n + m)$。
 
 <!-- tabs:start -->
 

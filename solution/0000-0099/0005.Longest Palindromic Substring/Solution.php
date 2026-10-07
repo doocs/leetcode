@@ -4,30 +4,25 @@ class Solution {
      * @return string
      */
     function longestPalindrome($s) {
-        $start = 0;
-        $maxLength = 0;
-
-        for ($i = 0; $i < strlen($s); $i++) {
-            $len1 = $this->expandFromCenter($s, $i, $i);
-            $len2 = $this->expandFromCenter($s, $i, $i + 1);
-
-            $len = max($len1, $len2);
-
-            if ($len > $maxLength) {
-                $start = $i - intval(($len - 1) / 2);
-                $maxLength = $len;
+        $n = strlen($s);
+        $f = [];
+        for ($i = 0; $i < $n; $i++) {
+            $f[$i] = array_fill(0, $n, true);
+        }
+        $k = 0;
+        $mx = 1;
+        for ($i = $n - 2; $i >= 0; $i--) {
+            for ($j = $i + 1; $j < $n; $j++) {
+                $f[$i][$j] = false;
+                if ($s[$i] == $s[$j]) {
+                    $f[$i][$j] = $f[$i + 1][$j - 1];
+                    if ($f[$i][$j] && $mx < $j - $i + 1) {
+                        $k = $i;
+                        $mx = $j - $i + 1;
+                    }
+                }
             }
         }
-
-        return substr($s, $start, $maxLength);
-    }
-
-    function expandFromCenter($s, $left, $right) {
-        while ($left >= 0 && $right < strlen($s) && $s[$left] === $s[$right]) {
-            $left--;
-            $right++;
-        }
-
-        return $right - $left - 1;
+        return substr($s, $k, $mx);
     }
 }

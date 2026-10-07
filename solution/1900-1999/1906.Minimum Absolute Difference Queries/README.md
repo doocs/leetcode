@@ -86,7 +86,7 @@ tags:
 
 > **思考**
 >
-> 单次查询若排序再扫相邻差，代价为 $O((r-l)\log(r-l))$。$n\le 10^5$、$q\le 2\times 10^4$ 时，最坏会达到约 $O(qn\log n)$，不可接受。
+> 单次查询若排序再扫相邻差，代价为 $O((r-l)\log(r-l))$。 $n\le 10^5$、 $q\le 2\times 10^4$ 时，最坏会达到约 $O(qn\log n)$，不可接受。
 >
 > 值域仅为 $[1,100]$，区间内不同值的个数至多 $100$，最小绝对差必是区间内两个相邻不同取值之差。只需快速判断每个取值是否在 $[l,r]$ 中出现。
 >
@@ -168,7 +168,7 @@ class Solution {
 public:
     vector<int> minDifference(vector<int>& nums, vector<vector<int>>& queries) {
         int m = nums.size(), n = queries.size();
-        int preSum[m + 1][101];
+        vector<vector<int>> preSum(m + 1, vector<int>(101));
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= 100; ++j) {
                 int t = nums[i - 1] == j ? 1 : 0;

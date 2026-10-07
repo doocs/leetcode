@@ -237,7 +237,7 @@ function numberOfWays(n: number): number {
 >
 > 预先算好 $1..10^5$ 的 $f$，询问变成常数次下标访问。
 >
-> 按 $n<4$、$n<8$ 或更大分别返回 $f[n]$、$f[n]+f[n-4]$ 或再加 $f[n-8]$。
+> 按 $n<4$、 $n<8$ 或更大分别返回 $f[n]$、 $f[n]+f[n-4]$ 或再加 $f[n-8]$。
 
 <!-- thinking:end -->
 

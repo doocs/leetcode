@@ -99,7 +99,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Sorting and Classification
+### Solution 1: Sorting and Enumeration
 
 <!-- thinking:start -->
 
@@ -113,14 +113,15 @@ tags:
 
 <!-- thinking:end -->
 
-First, we sort the array. Then, we can classify the results based on the properties of a triangle.
+Enumerate the upper-left point $(x_1, y_1)$. A later point $(x_2, y_2)$ is a valid lower-right corner only when its $y$ is strictly larger than the $y$ of every lower-right point already accepted; otherwise it lies inside a rectangle that has already been formed.
 
-- If the sum of the two smaller numbers is less than or equal to the largest number, it cannot form a triangle. Return "Invalid".
-- If the three numbers are equal, it is an equilateral triangle. Return "Equilateral".
-- If two numbers are equal, it is an isosceles triangle. Return "Isosceles".
-- If none of the above conditions are met, it is a scalene triangle. Return "Scalene".
+Sort the points by increasing $x$. When two points share $x$, sort them by decreasing $y$.
 
-The time complexity is $O(1)$, and the space complexity is $O(1)$.
+For each upper-left point $(x_1, y_1)$, maintain $\textit{maxY}$, the largest $y$ among accepted lower-right points. Scan the following points $(x_2, y_2)$. If $\textit{maxY} < y_2 \le y_1$, the pair is valid: add one to the answer and set $\textit{maxY} = y_2$.
+
+After every upper-left point has been scanned, the answer is complete.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of points.
 
 <!-- tabs:start -->
 

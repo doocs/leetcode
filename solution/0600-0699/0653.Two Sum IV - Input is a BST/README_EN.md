@@ -471,4 +471,276 @@ function findTarget(root: TreeNode | null, k: number): boolean {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Hash Set and Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find two nodes whose values sum to $k$. Inorder plus two pointers works after collecting every value. A set of values already seen is enough: if $k$ minus the current value is present, return true. On a short tree one depth-first walk does this, and the BST order is not required.
+>
+> The tree can contain $10^4$ nodes. A left chain makes this walk recurse once per node and overflow the call stack.
+>
+> Each node depends only on values already visited. The children do not need to return before the node is checked.
+>
+> An explicit stack keeps that depth-first order. Pop a node, test $k$ minus its value, then store the value and push the right child and the left child. The set belongs to this call only.
+
+<!-- thinking:end -->
+
+A hash set stores values already visited, and an explicit stack walks the tree depth-first. When a node is popped, return true if $k$ minus its value is already in the set. Otherwise store the value and push the non-null right child and left child.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        vis = set()
+        stk = []
+        if root is not None:
+            stk.append(root)
+        while stk:
+            node = stk.pop()
+            if k - node.val in vis:
+                return True
+            vis.add(node.val)
+            if node.right is not None:
+                stk.append(node.right)
+            if node.left is not None:
+                stk.append(node.left)
+        return False
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> vis = new HashSet<>();
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        if (root != null) {
+            stk.push(root);
+        }
+        while (!stk.isEmpty()) {
+            TreeNode node = stk.pop();
+            if (vis.contains(k - node.val)) {
+                return true;
+            }
+            vis.add(node.val);
+            if (node.right != null) {
+                stk.push(node.right);
+            }
+            if (node.left != null) {
+                stk.push(node.left);
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool findTarget(TreeNode* root, int k) {
+        unordered_set<int> vis;
+        vector<TreeNode*> stk;
+        if (root) {
+            stk.push_back(root);
+        }
+        while (!stk.empty()) {
+            TreeNode* node = stk.back();
+            stk.pop_back();
+            if (vis.count(k - node->val)) {
+                return true;
+            }
+            vis.insert(node->val);
+            if (node->right) {
+                stk.push_back(node->right);
+            }
+            if (node->left) {
+                stk.push_back(node->left);
+            }
+        }
+        return false;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func findTarget(root *TreeNode, k int) bool {
+	vis := map[int]bool{}
+	stk := []*TreeNode{}
+	if root != nil {
+		stk = append(stk, root)
+	}
+	for len(stk) > 0 {
+		node := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if vis[k-node.Val] {
+			return true
+		}
+		vis[node.Val] = true
+		if node.Right != nil {
+			stk = append(stk, node.Right)
+		}
+		if node.Left != nil {
+			stk = append(stk, node.Left)
+		}
+	}
+	return false
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findTarget(root: TreeNode | null, k: number): boolean {
+    const vis = new Set<number>();
+    const stk: (TreeNode | null)[] = [];
+    if (root) {
+        stk.push(root);
+    }
+    while (stk.length) {
+        const node = stk.pop()!;
+        if (!node) {
+            continue;
+        }
+        if (vis.has(k - node.val)) {
+            return true;
+        }
+        vis.add(node.val);
+        if (node.right) {
+            stk.push(node.right);
+        }
+        if (node.left) {
+            stk.push(node.left);
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::collections::HashSet;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
+        let mut vis = HashSet::new();
+        let mut stk = Vec::new();
+        if root.is_some() {
+            stk.push(root);
+        }
+        while let Some(node) = stk.pop() {
+            if let Some(node) = node {
+                let (val, left, right) = {
+                    let b = node.borrow();
+                    (b.val, b.left.clone(), b.right.clone())
+                };
+                if vis.contains(&(k - val)) {
+                    return true;
+                }
+                vis.insert(val);
+                if right.is_some() {
+                    stk.push(right);
+                }
+                if left.is_some() {
+                    stk.push(left);
+                }
+            }
+        }
+        false
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

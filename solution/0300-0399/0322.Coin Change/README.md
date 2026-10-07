@@ -69,7 +69,7 @@ tags:
 >
 > 每种硬币可用任意多次，求凑出 $amount$ 的最少枚数。完全背包：物品为硬币、容量为金额。若 DFS 搜索组合，金额较大时重复子问题多。
 >
-> 定义 $f[i][j]$ 为用前 $i$ 种硬币凑 $j$ 的最少枚数。不选第 $i$ 种则继承 $f[i-1][j]$；若 $j\ge x$ 则可从 $f[i][j-x]$ 再加一枚。$f[0][0]=0$，其余为无穷，无法凑出返回 $-1$。
+> 定义 $f[i][j]$ 为用前 $i$ 种硬币凑 $j$ 的最少枚数。不选第 $i$ 种则继承 $f[i-1][j]$；若 $j\ge x$ 则可从 $f[i][j-x]$ 再加一枚。 $f[0][0]=0$，其余为无穷，无法凑出返回 $-1$。
 
 <!-- thinking:end -->
 
@@ -222,18 +222,24 @@ function coinChange(coins: number[], amount: number): number {
 ```rust
 impl Solution {
     pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
+        let m = coins.len();
         let n = amount as usize;
-        let mut f = vec![n + 1; n + 1];
-        f[0] = 0;
-        for &x in &coins {
-            for j in x as usize..=n {
-                f[j] = f[j].min(f[j - (x as usize)] + 1);
+        let inf = 1 << 30;
+        let mut f = vec![vec![inf; n + 1]; m + 1];
+        f[0][0] = 0;
+        for i in 1..=m {
+            let x = coins[i - 1] as usize;
+            for j in 0..=n {
+                f[i][j] = f[i - 1][j];
+                if j >= x {
+                    f[i][j] = f[i][j].min(f[i][j - x] + 1);
+                }
             }
         }
-        if f[n] > n {
+        if f[m][n] > amount {
             -1
         } else {
-            f[n] as i32
+            f[m][n]
         }
     }
 }
@@ -400,6 +406,28 @@ var coinChange = function (coins, amount) {
     }
     return f[n] > n ? -1 : f[n];
 };
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
+        let n = amount as usize;
+        let mut f = vec![n + 1; n + 1];
+        f[0] = 0;
+        for &x in &coins {
+            for j in x as usize..=n {
+                f[j] = f[j].min(f[j - (x as usize)] + 1);
+            }
+        }
+        if f[n] > n {
+            -1
+        } else {
+            f[n] as i32
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->

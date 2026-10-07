@@ -43,15 +43,17 @@ difficulty: Medium
 
 > **Thinking**
 >
-> Return the two smallest indices on a line that covers the most points. $n$ is small enough for $O(n^3)$.
+> When the two anchors are the same point, both sides of the cross product are $0$, so every later point is treated as collinear.
 >
-> Two points fix a line; a third is collinear when $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$, avoiding division.
+> The count then exceeds the true line, and the returned indices are no longer the two smallest on a maximum line.
 >
-> Enumerate $i<j<k$, update the best count and pair $(i,j)$. Smaller indices first already match the tie-break.
+> A line is fixed by two points at different positions. Copies of either point lie on that line and belong in the set.
+>
+> We therefore skip identical pairs, test every index with the cross product, and keep the first two indices that match. If every point has the same coordinates, no distinct pair exists and the answer is $[0, 1]$.
 
 <!-- thinking:end -->
 
-We can enumerate any two points $(x_1, y_1), (x_2, y_2)$, connect these two points into a line, and the number of points on this line is 2. Then we enumerate other points $(x_3, y_3)$, and determine whether they are on the same line. If they are, the number of points on the line increases by 1; otherwise, the number of points on the line remains the same. Find the maximum number of points on a line, and the corresponding smallest two point indices are the answer.
+We enumerate two points $(x_1, y_1)$ and $(x_2, y_2)$ that have different coordinates and use them to fix a line. For each index $k$, the point lies on that line when $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$. A copy of either endpoint makes both sides zero, so it is included. We record the size of this set and its two smallest indices. The answer is updated when the size is strictly larger, or the size is equal and the index pair is smaller. If every point has the same coordinates, there is no distinct pair and the answer is $[0, 1]$.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `points`.
 
@@ -64,19 +66,28 @@ class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
         n = len(points)
         mx = 0
+        x, y = 0, 1
         for i in range(n):
             x1, y1 = points[i]
             for j in range(i + 1, n):
                 x2, y2 = points[j]
-                cnt = 2
-                for k in range(j + 1, n):
+                if x1 == x2 and y1 == y2:
+                    continue
+                cnt = 0
+                a = b = -1
+                for k in range(n):
                     x3, y3 = points[k]
-                    a = (y2 - y1) * (x3 - x1)
-                    b = (y3 - y1) * (x2 - x1)
-                    cnt += a == b
-                if mx < cnt:
+                    c1 = (y2 - y1) * (x3 - x1)
+                    c2 = (y3 - y1) * (x2 - x1)
+                    if c1 == c2:
+                        cnt += 1
+                        if a < 0:
+                            a = k
+                        elif b < 0:
+                            b = k
+                if cnt > mx or (cnt == mx and (a, b) < (x, y)):
                     mx = cnt
-                    x, y = i, j
+                    x, y = a, b
         return [x, y]
 ```
 
@@ -87,24 +98,33 @@ class Solution {
     public int[] bestLine(int[][] points) {
         int n = points.length;
         int mx = 0;
-        int[] ans = new int[2];
+        int[] ans = {0, 1};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
+                if (x1 == x2 && y1 == y2) {
+                    continue;
+                }
+                int cnt = 0;
+                int a = -1, b = -1;
+                for (int k = 0; k < n; ++k) {
                     int x3 = points[k][0], y3 = points[k][1];
-                    int a = (y2 - y1) * (x3 - x1);
-                    int b = (y3 - y1) * (x2 - x1);
-                    if (a == b) {
+                    long c1 = (long) (y2 - y1) * (x3 - x1);
+                    long c2 = (long) (y3 - y1) * (x2 - x1);
+                    if (c1 == c2) {
                         ++cnt;
+                        if (a < 0) {
+                            a = k;
+                        } else if (b < 0) {
+                            b = k;
+                        }
                     }
                 }
-                if (mx < cnt) {
+                if (cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1])))) {
                     mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
+                    ans[0] = a;
+                    ans[1] = b;
                 }
             }
         }
@@ -121,22 +141,33 @@ public:
     vector<int> bestLine(vector<vector<int>>& points) {
         int n = points.size();
         int mx = 0;
-        vector<int> ans(2);
+        vector<int> ans = {0, 1};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
-                    int x3 = points[k][0], y3 = points[k][1];
-                    long a = (long) (y2 - y1) * (x3 - x1);
-                    long b = (long) (y3 - y1) * (x2 - x1);
-                    cnt += a == b;
+                if (x1 == x2 && y1 == y2) {
+                    continue;
                 }
-                if (mx < cnt) {
+                int cnt = 0;
+                int a = -1, b = -1;
+                for (int k = 0; k < n; ++k) {
+                    int x3 = points[k][0], y3 = points[k][1];
+                    long c1 = (long) (y2 - y1) * (x3 - x1);
+                    long c2 = (long) (y3 - y1) * (x2 - x1);
+                    if (c1 == c2) {
+                        ++cnt;
+                        if (a < 0) {
+                            a = k;
+                        } else if (b < 0) {
+                            b = k;
+                        }
+                    }
+                }
+                if (cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1])))) {
                     mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
+                    ans[0] = a;
+                    ans[1] = b;
                 }
             }
         }
@@ -150,24 +181,33 @@ public:
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
-	ans := make([]int, 2)
+	ans := []int{0, 1}
 	mx := 0
 	for i := 0; i < n; i++ {
 		x1, y1 := points[i][0], points[i][1]
 		for j := i + 1; j < n; j++ {
 			x2, y2 := points[j][0], points[j][1]
-			cnt := 2
-			for k := j + 1; k < n; k++ {
+			if x1 == x2 && y1 == y2 {
+				continue
+			}
+			cnt := 0
+			a, b := -1, -1
+			for k := 0; k < n; k++ {
 				x3, y3 := points[k][0], points[k][1]
-				a := (y2 - y1) * (x3 - x1)
-				b := (y3 - y1) * (x2 - x1)
-				if a == b {
+				c1 := (y2 - y1) * (x3 - x1)
+				c2 := (y3 - y1) * (x2 - x1)
+				if c1 == c2 {
 					cnt++
+					if a < 0 {
+						a = k
+					} else if b < 0 {
+						b = k
+					}
 				}
 			}
-			if mx < cnt {
+			if cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1]))) {
 				mx = cnt
-				ans[0], ans[1] = i, j
+				ans[0], ans[1] = a, b
 			}
 		}
 	}
@@ -181,31 +221,38 @@ func bestLine(points [][]int) []int {
 class Solution {
     func bestLine(_ points: [[Int]]) -> [Int] {
         let n = points.count
-        var maxCount = 0
-        var answer = [Int](repeating: 0, count: 2)
-
+        var mx = 0
+        var ans = [0, 1]
         for i in 0..<n {
             let x1 = points[i][0], y1 = points[i][1]
             for j in i + 1..<n {
                 let x2 = points[j][0], y2 = points[j][1]
-                var count = 2
-
-                for k in j + 1..<n {
+                if x1 == x2 && y1 == y2 {
+                    continue
+                }
+                var cnt = 0
+                var a = -1
+                var b = -1
+                for k in 0..<n {
                     let x3 = points[k][0], y3 = points[k][1]
-                    let a = (y2 - y1) * (x3 - x1)
-                    let b = (y3 - y1) * (x2 - x1)
-                    if a == b {
-                        count += 1
+                    let c1 = (y2 - y1) * (x3 - x1)
+                    let c2 = (y3 - y1) * (x2 - x1)
+                    if c1 == c2 {
+                        cnt += 1
+                        if a < 0 {
+                            a = k
+                        } else if b < 0 {
+                            b = k
+                        }
                     }
                 }
-
-                if maxCount < count {
-                    maxCount = count
-                    answer = [i, j]
+                if cnt > mx || (cnt == mx && (a < ans[0] || (a == ans[0] && b < ans[1]))) {
+                    mx = cnt
+                    ans = [a, b]
                 }
             }
         }
-        return answer
+        return ans
     }
 }
 ```
@@ -222,13 +269,17 @@ class Solution {
 
 > **Thinking**
 >
-> The cubic loop recounts the same line many times when $n$ grows.
+> Hashing the reduced $(\mathrm{d}x,\mathrm{d}y)$ directly breaks when two points coincide, because the gcd is $0$, and it also splits one line into opposite directions.
 >
-> Fix one point and hash reduced slopes of the others; equal keys are collinear, in $O(n^2\log m)$.
+> An anchor in the middle of a segment sees the two sides as negatives of each other, so each bucket undercounts and the chosen index pair is wrong.
+>
+> Copies of the anchor lie on every line through it, and opposite directions are the same line, so they must share one key.
+>
+> We therefore collect $(0,0)$ separately, canonicalize the reduced direction so that $\mathrm{d}x>0$ (or $\mathrm{d}y>0$ on a vertical line), and store indices under that key. The count is the anchor plus that bucket plus the copies, and the second index is the smallest among them.
 
 <!-- thinking:end -->
 
-We can enumerate a point $(x_1, y_1)$, store the slope of the line connecting $(x_1, y_1)$ and all other points $(x_2, y_2)$ in a hash table. Points with the same slope are on the same line, and the key of the hash table is the slope, and the value is the number of points on the line. Find the maximum value in the hash table, which is the answer. To avoid precision issues, we can reduce the slope $\frac{y_2 - y_1}{x_2 - x_1}$, and the reduction method is to find the greatest common divisor, and then divide the numerator and denominator by the greatest common divisor. The resulting numerator and denominator are used as the key of the hash table.
+We enumerate an anchor $(x_1, y_1)$ and hash the direction from it to every later point. A point that coincides with the anchor has no slope; we record it separately and add it to every line through the anchor. For the other points, reduce $(\mathrm{d}x, \mathrm{d}y)$ by their greatest common divisor, then fold opposite directions onto one key so that $\mathrm{d}x > 0$, or $\mathrm{d}y > 0$ when $\mathrm{d}x = 0$. Points that share a key are collinear with the anchor and with those copies. The number of points on the line is $1$ plus the size of that bucket plus the number of copies, and the second index is the smallest index among them. Anchors are scanned in increasing index order, and the answer is updated only when the count is strictly larger, or the count is equal and the index pair is smaller.
 
 The time complexity is $O(n^2 \times \log m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the length of the array `points` and the maximum difference between all horizontal and vertical coordinates in the array `points`, respectively.
 
@@ -244,18 +295,31 @@ class Solution:
 
         n = len(points)
         mx = 0
+        x = y = 0
         for i in range(n):
             x1, y1 = points[i]
             cnt = defaultdict(list)
+            dup = []
             for j in range(i + 1, n):
-                x2, y2 = points[j]
-                dx, dy = x2 - x1, y2 - y1
+                dx, dy = points[j][0] - x1, points[j][1] - y1
+                if dx == 0 and dy == 0:
+                    dup.append(j)
+                    continue
                 g = gcd(dx, dy)
-                k = (dx // g, dy // g)
-                cnt[k].append((i, j))
-                if mx < len(cnt[k]) or (mx == len(cnt[k]) and (x, y) > cnt[k][0]):
-                    mx = len(cnt[k])
-                    x, y = cnt[k][0]
+                dx //= g
+                dy //= g
+                if dx < 0 or (dx == 0 and dy < 0):
+                    dx, dy = -dx, -dy
+                cnt[(dx, dy)].append(j)
+            groups = (
+                [js + dup for js in cnt.values()] if cnt else ([dup] if dup else [])
+            )
+            for js in groups:
+                c = len(js) + 1
+                b = min(js)
+                if c > mx or (c == mx and (i, b) < (x, y)):
+                    mx = c
+                    x, y = i, b
         return [x, y]
 ```
 
@@ -269,24 +333,53 @@ class Solution {
         int[] ans = new int[2];
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
-            Map<String, List<int[]>> cnt = new HashMap<>();
+            Map<String, List<Integer>> cnt = new HashMap<>();
+            List<Integer> dup = new ArrayList<>();
             for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                int dx = x2 - x1, dy = y2 - y1;
+                int dx = points[j][0] - x1, dy = points[j][1] - y1;
+                if (dx == 0 && dy == 0) {
+                    dup.add(j);
+                    continue;
+                }
                 int g = gcd(dx, dy);
-                String key = (dx / g) + "." + (dy / g);
-                cnt.computeIfAbsent(key, k -> new ArrayList<>()).add(new int[] {i, j});
-                if (mx < cnt.get(key).size()
-                    || (mx == cnt.get(key).size()
-                        && (ans[0] > cnt.get(key).get(0)[0]
-                            || (ans[0] == cnt.get(key).get(0)[0]
-                                && ans[1] > cnt.get(key).get(0)[1])))) {
-                    mx = cnt.get(key).size();
-                    ans = cnt.get(key).get(0);
+                dx /= g;
+                dy /= g;
+                if (dx < 0 || (dx == 0 && dy < 0)) {
+                    dx = -dx;
+                    dy = -dy;
+                }
+                String key = dx + "." + dy;
+                cnt.computeIfAbsent(key, k -> new ArrayList<>()).add(j);
+            }
+            if (cnt.isEmpty()) {
+                if (!dup.isEmpty()) {
+                    int c = dup.size() + 1;
+                    if (better(mx, ans, c, i, dup.get(0))) {
+                        mx = c;
+                        ans[0] = i;
+                        ans[1] = dup.get(0);
+                    }
+                }
+                continue;
+            }
+            for (List<Integer> js : cnt.values()) {
+                int b = js.get(0);
+                if (!dup.isEmpty()) {
+                    b = Math.min(b, dup.get(0));
+                }
+                int c = js.size() + dup.size() + 1;
+                if (better(mx, ans, c, i, b)) {
+                    mx = c;
+                    ans[0] = i;
+                    ans[1] = b;
                 }
             }
         }
         return ans;
+    }
+
+    private boolean better(int mx, int[] ans, int c, int a, int b) {
+        return c > mx || (c == mx && (a < ans[0] || (a == ans[0] && b < ans[1])));
     }
 
     private int gcd(int a, int b) {
@@ -306,17 +399,42 @@ public:
         pair<int, int> ans = {0, 0};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
-            unordered_map<string, vector<pair<int, int>>> cnt;
+            unordered_map<string, vector<int>> cnt;
+            vector<int> dup;
             for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                int dx = x2 - x1, dy = y2 - y1;
-                int g = gcd(dx, dy);
-                string k = to_string(dx / g) + "." + to_string(dy / g);
-                cnt[k].push_back({i, j});
-                if (mx < cnt[k].size() || (mx == cnt[k].size() && ans > cnt[k][0])) {
-                    mx = cnt[k].size();
-                    ans = cnt[k][0];
+                int dx = points[j][0] - x1, dy = points[j][1] - y1;
+                if (dx == 0 && dy == 0) {
+                    dup.push_back(j);
+                    continue;
                 }
+                int g = gcd(dx, dy);
+                dx /= g;
+                dy /= g;
+                if (dx < 0 || (dx == 0 && dy < 0)) {
+                    dx = -dx;
+                    dy = -dy;
+                }
+                string k = to_string(dx) + "." + to_string(dy);
+                cnt[k].push_back(j);
+            }
+            auto consider = [&](int b, int c) {
+                if (c > mx || (c == mx && ans > pair<int, int>{i, b})) {
+                    mx = c;
+                    ans = {i, b};
+                }
+            };
+            if (cnt.empty()) {
+                if (!dup.empty()) {
+                    consider(dup[0], (int) dup.size() + 1);
+                }
+                continue;
+            }
+            for (auto& e : cnt) {
+                int b = e.second[0];
+                if (!dup.empty()) {
+                    b = min(b, dup[0]);
+                }
+                consider(b, (int) e.second.size() + (int) dup.size() + 1);
             }
         }
         return vector<int>{ans.first, ans.second};
@@ -333,22 +451,46 @@ public:
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
-	ans := make([]int, 2)
-	type pair struct{ i, j int }
+	ans := []int{0, 0}
+	type pair struct{ x, y int }
 	mx := 0
 	for i := 0; i < n; i++ {
 		x1, y1 := points[i][0], points[i][1]
-		cnt := map[pair][]pair{}
+		cnt := map[pair][]int{}
+		var dup []int
 		for j := i + 1; j < n; j++ {
-			x2, y2 := points[j][0], points[j][1]
-			dx, dy := x2-x1, y2-y1
-			g := gcd(dx, dy)
-			k := pair{dx / g, dy / g}
-			cnt[k] = append(cnt[k], pair{i, j})
-			if mx < len(cnt[k]) || (mx == len(cnt[k]) && (ans[0] > cnt[k][0].i || (ans[0] == cnt[k][0].i && ans[1] > cnt[k][0].j))) {
-				mx = len(cnt[k])
-				ans[0], ans[1] = cnt[k][0].i, cnt[k][0].j
+			dx, dy := points[j][0]-x1, points[j][1]-y1
+			if dx == 0 && dy == 0 {
+				dup = append(dup, j)
+				continue
 			}
+			g := gcd(dx, dy)
+			dx /= g
+			dy /= g
+			if dx < 0 || (dx == 0 && dy < 0) {
+				dx, dy = -dx, -dy
+			}
+			k := pair{dx, dy}
+			cnt[k] = append(cnt[k], j)
+		}
+		consider := func(b, c int) {
+			if c > mx || (c == mx && (i < ans[0] || (i == ans[0] && b < ans[1]))) {
+				mx = c
+				ans[0], ans[1] = i, b
+			}
+		}
+		if len(cnt) == 0 {
+			if len(dup) > 0 {
+				consider(dup[0], len(dup)+1)
+			}
+			continue
+		}
+		for _, js := range cnt {
+			b := js[0]
+			if len(dup) > 0 && dup[0] < b {
+				b = dup[0]
+			}
+			consider(b, len(js)+len(dup)+1)
 		}
 	}
 	return ans

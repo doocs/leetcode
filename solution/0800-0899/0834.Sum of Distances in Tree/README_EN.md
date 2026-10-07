@@ -290,4 +290,266 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Re-rooting DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of distances from every node. With $n\le 3\cdot 10^4$, a walk from each root is quadratic. After rerooting, neighboring answers differ only by subtree size versus the rest of the tree. Recursion along a chain uses a call depth equal to $n$ and overflows Python once the chain reaches length $1000$. Subtree sizes are known only after the children finish, so the first walk is a post-order stack: state $0$ adds the depth and pushes the children, and state $1$ totals $size$. The second answer depends only on the parent's answer and the finished sizes, so a pre-order stack passes $t-size[j]+n-size[j]$ to each child.
+
+<!-- thinking:end -->
+
+Root the tree at $0$ and walk in post-order. The stack holds a node, its parent, a depth, and a state. In state $0$, add the depth to $ans[0]$, push the same node with state $1$, and push every child. In state $1$, every child size is already stored, and $size[i]$ is $1$ plus those sizes.
+
+Then reroot with an explicit stack. It starts with $(0,-1,ans[0])$. When node $i$ is popped, write the current sum $t$ into $ans[i]$. Moving from $i$ to a child $j$ decreases the distances inside $j$'s subtree by $size[j]$ and increases the distances to every other node by $n-size[j]$, so the pushed sum is $t-size[j]+n-size[j]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+Similar problems:
+
+- [2581. Count Number of Possible Root Nodes](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = [0] * n
+        size = [0] * n
+        stk = [(0, -1, 0, 0)]
+        while stk:
+            i, fa, d, state = stk.pop()
+            if state == 0:
+                ans[0] += d
+                stk.append((i, fa, d, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, d + 1, 0))
+            else:
+                size[i] = 1
+                for j in g[i]:
+                    if j != fa:
+                        size[i] += size[j]
+        walk = [(0, -1, ans[0])]
+        while walk:
+            i, fa, t = walk.pop()
+            ans[i] = t
+            for j in g[i]:
+                if j != fa:
+                    walk.append((j, i, t - size[j] + n - size[j]))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] sumOfDistancesInTree(int n, int[][] edges) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[] ans = new int[n];
+        int[] size = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0, 0});
+        while (!stk.isEmpty()) {
+            int[] f = stk.pop();
+            int i = f[0], fa = f[1], d = f[2], state = f[3];
+            if (state == 0) {
+                ans[0] += d;
+                stk.push(new int[] {i, fa, d, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, d + 1, 0});
+                    }
+                }
+            } else {
+                size[i] = 1;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        size[i] += size[j];
+                    }
+                }
+            }
+        }
+        Deque<int[]> walk = new ArrayDeque<>();
+        walk.push(new int[] {0, -1, ans[0]});
+        while (!walk.isEmpty()) {
+            int[] f = walk.pop();
+            int i = f[0], fa = f[1], t = f[2];
+            ans[i] = t;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    walk.push(new int[] {j, i, t - size[j] + n - size[j]});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        vector<int> size(n);
+        vector<array<int, 4>> stk{{0, -1, 0, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, d, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                ans[0] += d;
+                stk.push_back({i, fa, d, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, d + 1, 0});
+                    }
+                }
+            } else {
+                size[i] = 1;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        size[i] += size[j];
+                    }
+                }
+            }
+        }
+        vector<array<int, 3>> walk{{0, -1, ans[0]}};
+        while (!walk.empty()) {
+            auto [i, fa, t] = walk.back();
+            walk.pop_back();
+            ans[i] = t;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    walk.push_back({j, i, t - size[j] + n - size[j]});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func sumOfDistancesInTree(n int, edges [][]int) []int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int, n)
+	size := make([]int, n)
+	type frame struct{ i, fa, d, state int }
+	stk := []frame{{0, -1, 0, 0}}
+	for len(stk) > 0 {
+		f := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if f.state == 0 {
+			ans[0] += f.d
+			stk = append(stk, frame{f.i, f.fa, f.d, 1})
+			for _, j := range g[f.i] {
+				if j != f.fa {
+					stk = append(stk, frame{j, f.i, f.d + 1, 0})
+				}
+			}
+		} else {
+			size[f.i] = 1
+			for _, j := range g[f.i] {
+				if j != f.fa {
+					size[f.i] += size[j]
+				}
+			}
+		}
+	}
+	type step struct{ i, fa, t int }
+	walk := []step{{0, -1, ans[0]}}
+	for len(walk) > 0 {
+		f := walk[len(walk)-1]
+		walk = walk[:len(walk)-1]
+		ans[f.i] = f.t
+		for _, j := range g[f.i] {
+			if j != f.fa {
+				walk = append(walk, step{j, f.i, f.t - size[j] + n - size[j]})
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const ans: number[] = new Array(n).fill(0);
+    const size: number[] = new Array(n).fill(0);
+    const stk: number[][] = [[0, -1, 0, 0]];
+    while (stk.length) {
+        const [i, fa, d, state] = stk.pop()!;
+        if (state === 0) {
+            ans[0] += d;
+            stk.push([i, fa, d, 1]);
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    stk.push([j, i, d + 1, 0]);
+                }
+            }
+        } else {
+            size[i] = 1;
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    size[i] += size[j];
+                }
+            }
+        }
+    }
+    const walk: number[][] = [[0, -1, ans[0]]];
+    while (walk.length) {
+        const [i, fa, t] = walk.pop()!;
+        ans[i] = t;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                walk.push([j, i, t - size[j] + n - size[j]]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

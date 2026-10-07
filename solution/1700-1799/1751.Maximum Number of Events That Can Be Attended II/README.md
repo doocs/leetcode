@@ -319,11 +319,11 @@ impl Solution {
 
 > **思考**
 >
-> 方法一是递归记忆化。按结束时间排序后可改成递推：$f[i][j]$ 为前 $i$ 个会议选 $j$ 个的最大价值，转移时二分最后一个不冲突的会议。消除递归栈，复杂度同阶。
+> 方法一按开始时间排序，并从末尾填一张后缀表。这里改按结束时间排序，$f[i][j]$ 为前 $i$ 个会议选 $j$ 个的最大价值，转移时二分最后一个不冲突的会议。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索改为动态规划。
+方法一按开始时间排序并从末尾填表。这里改按结束时间排序，定义前缀表。
 
 先将会议排序，这次我们按照结束时间从小到大排序。然后定义 $f[i][j]$ 表示前 $i$ 个会议中，最多参加 $j$ 个会议的最大价值和。答案即为 $f[n][k]$。
 
@@ -495,6 +495,217 @@ fn search(events: &Vec<Vec<i32>>, x: i32, hi: usize) -> usize {
     while l < r {
         let mid = (l + r) / 2;
         if events[mid][1] >= x {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    l
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划 + 二分查找
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最多参加 $k$ 个不重叠会议，价值和最大。$k \times n \le 10^6$，因此 $n$ 本身可以到 $10^6$，枚举子集不可行。
+>
+> 按开始时间排序后，不参加当前会议会先以同样的剩余次数调用 $i+1$，调用链长度为 $n$，栈会溢出。
+>
+> 更靠后的会议和更少的参加次数，在从末尾往前走时已经就绪。令 $f[i][c]$ 为从第 $i$ 场起最多参加 $c$ 场的最大价值和，从 $i=n-1$ 填到 $0$。
+
+<!-- thinking:end -->
+
+我们先将会议按照开始时间从小到大排序。令 $f[i][c]$ 表示从第 $i$ 个会议开始，最多参加 $c$ 个会议的最大价值和。答案为 $f[0][k]$，且 $f[n][c] = 0$。
+
+我们从 $i = n - 1$ 填到 $0$。不参加第 $i$ 个会议，价值和为 $f[i + 1][c]$。当 $c > 0$ 且参加第 $i$ 个会议时，通过二分查找找到第一个开始时间大于其结束时间的会议 $j$，价值和为 $f[j][c - 1] + \text{value}[i]$。取二者的较大值：
+
+$$
+f[i][c] = \max(f[i + 1][c], f[j][c - 1] + \text{value}[i])
+$$
+
+其中 $j$ 为第一个开始时间大于第 $i$ 个会议结束时间的会议。因为 $j > i$，$f[j]$ 已经算过。
+
+时间复杂度 $O(n \times \log n + n \times k)$，空间复杂度 $O(n \times k)$，其中 $n$ 为会议数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxValue(self, events: List[List[int]], k: int) -> int:
+        events.sort()
+        n = len(events)
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            _, ed, val = events[i]
+            j = bisect_right(events, ed, lo=i + 1, key=lambda x: x[0])
+            for c in range(k + 1):
+                f[i][c] = f[i + 1][c]
+                if c:
+                    f[i][c] = max(f[i][c], f[j][c - 1] + val)
+        return f[0][k]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxValue(int[][] events, int k) {
+        Arrays.sort(events, (a, b) -> a[0] - b[0]);
+        int n = events.length;
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int ed = events[i][1], val = events[i][2];
+            int j = search(events, ed, i + 1);
+            for (int c = 0; c <= k; ++c) {
+                f[i][c] = f[i + 1][c];
+                if (c > 0) {
+                    f[i][c] = Math.max(f[i][c], f[j][c - 1] + val);
+                }
+            }
+        }
+        return f[0][k];
+    }
+
+    private int search(int[][] events, int x, int lo) {
+        int l = lo, r = events.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (events[mid][0] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxValue(vector<vector<int>>& events, int k) {
+        ranges::sort(events);
+        int n = events.size();
+        vector<vector<int>> f(n + 1, vector<int>(k + 1));
+        for (int i = n - 1; i >= 0; --i) {
+            int ed = events[i][1], val = events[i][2];
+            vector<int> t = {ed};
+            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
+            for (int c = 0; c <= k; ++c) {
+                f[i][c] = f[i + 1][c];
+                if (c) {
+                    f[i][c] = max(f[i][c], f[p][c - 1] + val);
+                }
+            }
+        }
+        return f[0][k];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxValue(events [][]int, k int) int {
+	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
+	n := len(events)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	for i := n - 1; i >= 0; i-- {
+		ed, val := events[i][1], events[i][2]
+		j := sort.Search(n, func(h int) bool { return events[h][0] > ed })
+		for c := 0; c <= k; c++ {
+			f[i][c] = f[i+1][c]
+			if c > 0 {
+				f[i][c] = max(f[i][c], f[j][c-1]+val)
+			}
+		}
+	}
+	return f[0][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValue(events: number[][], k: number): number {
+    events.sort((a, b) => a[0] - b[0]);
+    const n = events.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    const search = (ed: number, lo: number): number => {
+        let left = lo;
+        let right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > ed) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    for (let i = n - 1; i >= 0; --i) {
+        const ed = events[i][1],
+            val = events[i][2];
+        const p = search(ed, i + 1);
+        for (let c = 0; c <= k; ++c) {
+            f[i][c] = f[i + 1][c];
+            if (c > 0) {
+                f[i][c] = Math.max(f[i][c], f[p][c - 1] + val);
+            }
+        }
+    }
+    return f[0][k];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_value(mut events: Vec<Vec<i32>>, k: i32) -> i32 {
+        events.sort_by_key(|e| e[0]);
+        let n = events.len();
+        let kk = k as usize;
+        let mut f = vec![vec![0; kk + 1]; n + 1];
+        for i in (0..n).rev() {
+            let ed = events[i][1];
+            let val = events[i][2];
+            let p = search(&events, ed, i + 1, n);
+            for c in 0..=kk {
+                f[i][c] = f[i + 1][c];
+                if c > 0 {
+                    f[i][c] = f[i][c].max(f[p][c - 1] + val);
+                }
+            }
+        }
+        f[0][kk]
+    }
+}
+
+fn search(events: &Vec<Vec<i32>>, x: i32, lo: usize, n: usize) -> usize {
+    let mut l = lo;
+    let mut r = n;
+    while l < r {
+        let mid = (l + r) / 2;
+        if events[mid][0] > x {
             r = mid;
         } else {
             l = mid + 1;

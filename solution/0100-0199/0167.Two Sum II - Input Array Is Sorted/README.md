@@ -72,7 +72,7 @@ tags:
 
 > **思考**
 >
-> 有序数组上的两数之和，下标从 $1$ 计，恰好一对答案。哈希表是 $O(n)$ 空间。对每个 $numbers[i]$ 在右侧二分 $target-numbers[i]$，$n\le 3\times 10^4$，时间 $O(n\log n)$，空间 $O(1)$。
+> 有序数组上的两数之和，下标从 $1$ 计，恰好一对答案。哈希表是 $O(n)$ 空间。对每个 $numbers[i]$ 在右侧二分 $target-numbers[i]$， $n\le 3\times 10^4$，时间 $O(n\log n)$，空间 $O(1)$。
 
 <!-- thinking:end -->
 

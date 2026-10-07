@@ -71,35 +71,114 @@ tags:
 > We must split $s$ into integers in $[1,k]$ with no leading zeros. $n\le 10^5$ rules out enumerating cuts. $k\le 10^9$, so a number starting at $i$ spans at most $10$ digits.
 >
 > Let $f(i)$ be the number of ways to restore $s[i:]$. A leading zero dies; otherwise try end indices $j$ while the value is $\le k$ and add $f(j+1)$. Memoize or compute right to left.
->
-> The solution tabs in this problem are still empty; this is the standard transition the implementation should follow.
 
 <!-- thinking:end -->
+
+Compute $f(i)$ from the right, with $f(n)=1$. If $s[i]$ is `0`, then $f(i)=0$. Otherwise extend a number from index $i$ and stop once it exceeds $k$, adding $f(j+1)$ for every valid cut. The answer is $f(0)$ modulo $10^9+7$.
+
+The time complexity is $O(n \times d)$ and the space complexity is $O(n)$, where $n$ is the length of $s$ and $d$ is the number of decimal digits of $k$, at most $10$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfArrays(self, s: str, k: int) -> int:
+        mod = 10**9 + 7
+        n = len(s)
+        f = [0] * (n + 1)
+        f[n] = 1
+        for i in range(n - 1, -1, -1):
+            if s[i] == '0':
+                continue
+            x = 0
+            for j in range(i, n):
+                x = x * 10 + int(s[j])
+                if x > k:
+                    break
+                f[i] = (f[i] + f[j + 1]) % mod
+        return f[0]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfArrays(String s, int k) {
+        final int mod = 1_000_000_007;
+        int n = s.length();
+        int[] f = new int[n + 1];
+        f[n] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s.charAt(i) == '0') {
+                continue;
+            }
+            long x = 0;
+            for (int j = i; j < n; ++j) {
+                x = x * 10 + s.charAt(j) - '0';
+                if (x > k) {
+                    break;
+                }
+                f[i] = (int) ((f[i] + f[j + 1]) % mod);
+            }
+        }
+        return f[0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfArrays(string s, int k) {
+        const int mod = 1e9 + 7;
+        int n = s.size();
+        vector<int> f(n + 1);
+        f[n] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[i] == '0') {
+                continue;
+            }
+            long long x = 0;
+            for (int j = i; j < n; ++j) {
+                x = x * 10 + s[j] - '0';
+                if (x > k) {
+                    break;
+                }
+                f[i] = (f[i] + f[j + 1]) % mod;
+            }
+        }
+        return f[0];
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func numberOfArrays(s string, k int) int {
+	const mod = int(1e9 + 7)
+	n := len(s)
+	f := make([]int, n+1)
+	f[n] = 1
+	for i := n - 1; i >= 0; i-- {
+		if s[i] == '0' {
+			continue
+		}
+		x := 0
+		for j := i; j < n; j++ {
+			x = x*10 + int(s[j]-'0')
+			if x > k {
+				break
+			}
+			f[i] = (f[i] + f[j+1]) % mod
+		}
+	}
+	return f[0]
+}
 ```
 
 <!-- tabs:end -->

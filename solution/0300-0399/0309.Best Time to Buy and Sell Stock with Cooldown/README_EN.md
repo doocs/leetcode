@@ -230,9 +230,9 @@ function maxProfit(prices: number[]): number {
 
 > **Thinking**
 >
-> The memoized recursion is the same recurrence filled forward. Let $f[i][0/1]$ be the best profit after day $i$ free or holding. Free comes from staying free or selling today; holding comes from staying put or buying after cooldown, i.e. from $f[i-2][0]$.
+> Solution 1 fills a suffix table from the end. The same choices can be written forward: $f[i][0/1]$ is the best profit after day $i$, free or holding. Free comes from staying free or selling today; holding comes from staying put or buying after cooldown, i.e. from $f[i-2][0]$.
 >
-> Fill left to right; the answer is free on the last day. Time stays $O(n)$ without recursion.
+> Fill left to right; the answer is free on the last day. Time stays $O(n)$.
 
 <!-- thinking:end -->
 
@@ -417,6 +417,153 @@ function maxProfit(prices: number[]): number {
         [f, f0, f1] = [f0, Math.max(f0, f1 + x), Math.max(f1, f - x)];
     }
     return f0;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may trade many times, but a sell forces a one-day cooldown. $n \le 5000$, so a raw decision tree is far too large.
+>
+> The state is the day and whether we hold. Skipping always calls the next day before it returns, so the chain has length $n$ and overflows the stack.
+>
+> Later days are known if we walk backward. Let $f[i][j]$ be the best profit from day $i$ with holding flag $j$, and fill $i$ from $n-1$ down to $0$. Selling lands on $i+2$, which is the cooldown.
+
+<!-- thinking:end -->
+
+Let $f[i][j]$ be the maximum profit starting from day $i$ in state $j$. The values of $j$ are $0$ and $1$, meaning we do not hold a stock and we hold a stock. The answer is $f[0][0]$. Days past the end contribute $0$, so $f[n][j] = f[n + 1][j] = 0$.
+
+Fill $i$ from $n - 1$ down to $0$. Doing nothing keeps $f[i + 1][j]$. If $j > 0$, we hold a stock and may sell it, earning $prices[i] + f[i + 2][0]$. The extra day is the cooldown. If $j = 0$, we may buy, earning $-prices[i] + f[i + 1][1]$. Take the larger value:
+
+$$
+f[i][j] = \max(f[i + 1][j],\ prices[i] + f[i + 2][0])
+$$
+
+when $j > 0$, and
+
+$$
+f[i][j] = \max(f[i + 1][j],\ -prices[i] + f[i + 1][1])
+$$
+
+when $j = 0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        f = [[0] * 2 for _ in range(n + 2)]
+        for i in range(n - 1, -1, -1):
+            for j in range(2):
+                ans = f[i + 1][j]
+                if j:
+                    ans = max(ans, prices[i] + f[i + 2][0])
+                else:
+                    ans = max(ans, -prices[i] + f[i + 1][1])
+                f[i][j] = ans
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] f = new int[n + 2][2];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                int ans = f[i + 1][j];
+                if (j > 0) {
+                    ans = Math.max(ans, prices[i] + f[i + 2][0]);
+                } else {
+                    ans = Math.max(ans, -prices[i] + f[i + 1][1]);
+                }
+                f[i][j] = ans;
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        vector<vector<int>> f(n + 2, vector<int>(2));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                int ans = f[i + 1][j];
+                if (j) {
+                    ans = max(ans, prices[i] + f[i + 2][0]);
+                } else {
+                    ans = max(ans, -prices[i] + f[i + 1][1]);
+                }
+                f[i][j] = ans;
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxProfit(prices []int) int {
+	n := len(prices)
+	f := make([][2]int, n+2)
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j < 2; j++ {
+			ans := f[i+1][j]
+			if j > 0 {
+				ans = max(ans, prices[i]+f[i+2][0])
+			} else {
+				ans = max(ans, -prices[i]+f[i+1][1])
+			}
+			f[i][j] = ans
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProfit(prices: number[]): number {
+    const n = prices.length;
+    const f: number[][] = Array.from({ length: n + 2 }, () => Array(2).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 0; j < 2; ++j) {
+            let ans = f[i + 1][j];
+            if (j) {
+                ans = Math.max(ans, prices[i] + f[i + 2][0]);
+            } else {
+                ans = Math.max(ans, -prices[i] + f[i + 1][1]);
+            }
+            f[i][j] = ans;
+        }
+    }
+    return f[0][0];
 }
 ```
 

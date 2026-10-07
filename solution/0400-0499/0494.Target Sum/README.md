@@ -72,9 +72,9 @@ tags:
 
 > **思考**
 >
-> 给每个数加正号或负号使结果为 $\textit{target}$。$2^n$ 枚举在 $n\le 20$ 时勉强，但可以化成子集和。
+> 给每个数加正号或负号使结果为 $\textit{target}$。 $2^n$ 枚举在 $n\le 20$ 时勉强，但可以化成子集和。
 >
-> 记负号部分之和为 $x$，则 $(s-x)-x=\textit{target}$，即 $x=(s-\textit{target})/2$。$s<\textit{target}$ 或差为奇数则无解。$f[i][j]$ 为前 $i$ 个数凑出 $j$ 的方案数。
+> 记负号部分之和为 $x$，则 $(s-x)-x=\textit{target}$，即 $x=(s-\textit{target})/2$。 $s<\textit{target}$ 或差为奇数则无解。 $f[i][j]$ 为前 $i$ 个数凑出 $j$ 的方案数。
 >
 > 空集对应 $f[0][0]=1$。选或不选 $x$ 的转移与 $0$-$1$ 背包计数相同。
 
@@ -301,7 +301,7 @@ var findTargetSumWays = function (nums, target) {
 
 <!-- thinking:end -->
 
-我们可以发现，方法一中的状态转移方程中，$f[i][j]$ 的值只和 $f[i - 1][j]$ 以及 $f[i - 1][j - \textit{nums}[i - 1]]$ 有关，因此我们去掉第一维空间，只使用一维数组即可。
+我们可以发现，方法一中的状态转移方程中， $f[i][j]$ 的值只和 $f[i - 1][j]$ 以及 $f[i - 1][j - \textit{nums}[i - 1]]$ 有关，因此我们去掉第一维空间，只使用一维数组即可。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$。
 

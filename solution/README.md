@@ -4070,6 +4070,20 @@
 |  4057  |  [统计相交区间对 II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README.md)  |    |  中等  |  第 520 场周赛  |
 |  4058  |  [一个子数组循环移动后的最大脉冲值](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README.md)  |    |  中等  |  第 520 场周赛  |
 |  4059  |  [字典序最大的答案数组](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README.md)  |    |  困难  |  第 520 场周赛  |
+|  4060  |  [计算偶好数](/solution/4000-4099/4060.Count%20Evenly%20Good%20Integers/README.md)  |    |  困难  |  🔒  |
+|  4061  |  [皇后到达目标格子的最少移动步数](/solution/4000-4099/4061.Minimum%20Queen%20Moves%20to%20Reach%20Target/README.md)  |    |  简单  |  第 192 场双周赛  |
+|  4062  |  [成对操作转化数组](/solution/4000-4099/4062.Transform%20Array%20Using%20Pair%20Operations/README.md)  |    |  中等  |  第 192 场双周赛  |
+|  4063  |  [至多一次取反能被 K 整除的最长子数组 I](/solution/4000-4099/4063.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20I/README.md)  |    |  中等  |  第 192 场双周赛  |
+|  4064  |  [至多一次取反能被 K 整除的最长子数组 II](/solution/4000-4099/4064.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20II/README.md)  |    |  困难  |  第 192 场双周赛  |
+|  4065  |  [移除不同值重排数组](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README.md)  |    |  简单  |  第 521 场周赛  |
+|  4066  |  [至多一次替换后的最大相邻相等元素对数](/solution/4000-4099/4066.Maximum%20Equal%20Adjacent%20Pairs%20After%20at%20Most%20One%20Replacement/README.md)  |    |  中等  |  第 521 场周赛  |
+|  4067  |  [数对和受限的最长子数组](/solution/4000-4099/4067.Longest%20Subarray%20With%20Restricted%20Pair%20Sums/README.md)  |    |  中等  |  第 521 场周赛  |
+|  4068  |  [考虑空闲时间的会议最大收益](/solution/4000-4099/4068.Maximize%20Meeting%20Earnings%20with%20Idle%20Gaps/README.md)  |    |  困难  |  第 521 场周赛  |
+|  4069  |  [Best Time to Buy and Sell Stock with Cooldown II](/solution/4000-4099/4069.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown%20II/README.md)  |    |  中等  |  🔒  |
+|  4070  |  [拨号的最少旋转次数 I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README.md)  |    |  简单  |  第 522 场周赛  |
+|  4071  |  [Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)  |    |  中等  |  第 522 场周赛  |
+|  4072  |  [一次删除后的最大交替子数组和](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README.md)  |    |  中等  |  第 522 场周赛  |
+|  4073  |  [Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)  |    |  困难  |  第 522 场周赛  |
 
 ## 版权
 

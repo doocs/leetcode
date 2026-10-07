@@ -82,7 +82,7 @@ tags:
 
 > **思考**
 >
-> 蛋糕被切成网格，最大块面积等于最大相邻水平间距乘最大相邻竖直间距。$h,w$ 很大但切口至多 $10^5$，对切口排序并补上边界 $0$ 与 $h$、$w$，取相邻差的最大值相乘，再模 $10^9+7$。
+> 蛋糕被切成网格，最大块面积等于最大相邻水平间距乘最大相邻竖直间距。 $h,w$ 很大但切口至多 $10^5$，对切口排序并补上边界 $0$ 与 $h$、 $w$，取相邻差的最大值相乘，再模 $10^9+7$。
 
 <!-- thinking:end -->
 
@@ -90,7 +90,7 @@ tags:
 
 注意要考虑边界情况，即 `horizontalCuts` 和 `verticalCuts` 的首尾元素。
 
-时间复杂度 $O(m\log m + n\log n)$，空间复杂度 $(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 `horizontalCuts` 和 `verticalCuts` 的长度。
+时间复杂度 $O(m\log m + n\log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 `horizontalCuts` 和 `verticalCuts` 的长度。
 
 <!-- tabs:start -->
 

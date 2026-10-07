@@ -77,7 +77,7 @@ tags:
 >
 > 一行能被一个传感器覆盖的连续列数为 $2k+1$（边界不足时按实际宽度）。行方向同理。
 >
-> 答案为 $\lceil n/(2k+1)\rceil\cdot\lceil m/(2k+1)\rceil$。$k=0$ 时退化为每个格子一个传感器。
+> 答案为 $\lceil n/(2k+1)\rceil\cdot\lceil m/(2k+1)\rceil$。 $k=0$ 时退化为每个格子一个传感器。
 
 <!-- thinking:end -->
 

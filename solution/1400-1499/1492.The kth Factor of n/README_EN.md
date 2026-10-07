@@ -173,7 +173,7 @@ function kthFactor(n: number, k: number): number {
 
 We can observe that if $n$ has a factor $x$, then $n$ must also have a factor $n/x$.
 
-Therefore, we first need to enumerate $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor]$, find all numbers that can divide $n$. If we find the $k$-th factor, then we can return it directly. If we do not find the $k$-th factor, then we need to enumerate $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$ in reverse order, and find the $k$-th factor.
+Therefore, we first need to enumerate $[1,2,...\left \lfloor \sqrt{n} \right \rfloor]$, find all numbers that can divide $n$. If we find the $k$-th factor, then we can return it directly. If we do not find the $k$-th factor, then we need to enumerate $[\left \lfloor \sqrt{n} \right \rfloor ,..1]$ in reverse order, and find the $k$-th factor.
 
 The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$.
 

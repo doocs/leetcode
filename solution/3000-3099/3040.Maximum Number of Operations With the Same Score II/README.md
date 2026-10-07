@@ -79,7 +79,7 @@ tags:
 
 > **思考**
 >
-> 与 I 不同，每次可删两端、开头两个或末尾两个，分数仍须全程一致。$n \le 2000$。
+> 与 I 不同，每次可删两端、开头两个或末尾两个，分数仍须全程一致。 $n \le 2000$。
 >
 > 第一次操作只有三种取法，分数 $s$ 因此只有三种。之后在区间 $[i,j]$ 上的最优次数只依赖 $s$。
 >
@@ -181,9 +181,8 @@ class Solution {
 public:
     int maxOperations(vector<int>& nums) {
         int n = nums.size();
-        int f[n][n];
         auto g = [&](int i, int j, int s) -> int {
-            memset(f, -1, sizeof(f));
+            vector<vector<int>> f(n, vector<int>(n, -1));
             function<int(int, int)> dfs = [&](int i, int j) -> int {
                 if (j - i < 1) {
                     return 0;

@@ -87,9 +87,9 @@ tags:
 
 > **思考**
 >
-> 工作区间不可重叠，$n \le 5\times 10^4$，按时间枚举子集不可行。做到第 $i$ 份与否只影响其后开始时间不早于其结束时间的工作。
+> 工作区间不可重叠， $n \le 5\times 10^4$，按时间枚举子集不可行。做到第 $i$ 份与否只影响其后开始时间不早于其结束时间的工作。
 >
-> 按开始时间排序后，$dfs(i)$ 在「跳过 $i$」与「做 $i$ 再跳到第一份 $start\ge end_i$ 的工作」之间取大。后者的下标用二分在有序开始时间上查找。记忆化使每个 $i$ 只算一次。
+> 按开始时间排序后， $dfs(i)$ 在「跳过 $i$」与「做 $i$ 再跳到第一份 $start\ge end_i$ 的工作」之间取大。后者的下标用二分在有序开始时间上查找。记忆化使每个 $i$ 只算一次。
 
 <!-- thinking:end -->
 
@@ -281,11 +281,11 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 > **思考**
 >
-> 记忆化按开始时间向后跳。改按结束时间排序后，$dp[i]$ 表示前 $i$ 份工作的最优报酬：不做则继承 $dp[i-1]$，做则加上在其开始前结束的最后一份工作的 $dp[j]$，$j$ 仍由二分得到。自底向上去掉递归，语义与方法一相同。
+> 方法一按开始时间排序，并从末尾填一张后缀表。这里改按结束时间排序，$dp[i]$ 表示前 $i$ 份工作的最优报酬：不做则继承 $dp[i-1]$，做则加上在其开始前结束的最后一份工作的 $dp[j]$，$j$ 仍由二分得到。
 
 <!-- thinking:end -->
 
-我们还可以将方法一中的记忆化搜索改为动态规划。
+方法一按开始时间排序并从末尾填表。这里改按结束时间排序，定义前缀表。
 
 先将工作排序，这次我们按照结束时间从小到大排序，然后定义 $dp[i]$，表示前 $i$ 份工作中，可以获得的最大报酬。答案即为 $dp[n]$。初始化 $dp[0]=0$。
 
@@ -474,6 +474,163 @@ class Solution {
         }
         return profits.last!
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划 + 二分查找
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 工作区间不可重叠，$n \le 5\times 10^4$，按时间枚举子集不可行。做到第 $i$ 份与否只影响其后开始时间不早于其结束时间的工作。
+>
+> 按开始时间排序后，跳过当前工作会先调用 $i+1$ 再返回，调用链长度为 $n$，栈会溢出。
+>
+> 更靠后的下标在从末尾往前走时已经就绪。令 $f[i]$ 为从第 $i$ 份工作开始的最大报酬，$f[n]=0$，填表时二分下一份相容工作，从 $i=n-1$ 填到 $0$。
+
+<!-- thinking:end -->
+
+我们先将工作按照开始时间从小到大排序。令 $f[i]$ 表示从第 $i$ 份工作开始可以获得的最大报酬，答案为 $f[0]$，且 $f[n] = 0$。
+
+我们从 $i = n - 1$ 填到 $0$。对于第 $i$ 份工作，不做则报酬为 $f[i + 1]$；做则通过二分查找找到在其结束时间之后开始的第一份工作 $j$，报酬为 $profit[i] + f[j]$。取两者的较大值：
+
+$$
+f[i]=\max(f[i+1],profit[i]+f[j])
+$$
+
+其中 $j$ 是满足 $startTime[j] \ge endTime[i]$ 的最小下标。因为 $j > i$，$f[j]$ 已经算过。
+
+时间复杂度 $O(n \times \log n)$，其中 $n$ 是工作的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
+        jobs = sorted(zip(startTime, endTime, profit))
+        n = len(profit)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            _, e, p = jobs[i]
+            j = bisect_left(jobs, e, lo=i + 1, key=lambda x: x[0])
+            f[i] = max(f[i + 1], p + f[j])
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+        int n = profit.length;
+        int[][] jobs = new int[n][3];
+        for (int i = 0; i < n; ++i) {
+            jobs[i] = new int[] {startTime[i], endTime[i], profit[i]};
+        }
+        Arrays.sort(jobs, (a, b) -> a[0] - b[0]);
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int e = jobs[i][1], p = jobs[i][2];
+            int j = search(jobs, e, i + 1);
+            f[i] = Math.max(f[i + 1], p + f[j]);
+        }
+        return f[0];
+    }
+
+    private int search(int[][] jobs, int x, int i) {
+        int left = i, right = jobs.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (jobs[mid][0] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
+        int n = profit.size();
+        vector<tuple<int, int, int>> jobs(n);
+        for (int i = 0; i < n; ++i) jobs[i] = {startTime[i], endTime[i], profit[i]};
+        sort(jobs.begin(), jobs.end());
+        vector<int> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            auto [_, e, p] = jobs[i];
+            tuple<int, int, int> t{e, 0, 0};
+            int j = lower_bound(jobs.begin() + i + 1, jobs.end(), t, [&](auto& l, auto& r) -> bool { return get<0>(l) < get<0>(r); }) - jobs.begin();
+            f[i] = max(f[i + 1], p + f[j]);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func jobScheduling(startTime []int, endTime []int, profit []int) int {
+	n := len(profit)
+	type tuple struct{ s, e, p int }
+	jobs := make([]tuple, n)
+	for i, p := range profit {
+		jobs[i] = tuple{startTime[i], endTime[i], p}
+	}
+	sort.Slice(jobs, func(i, j int) bool { return jobs[i].s < jobs[j].s })
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		j := sort.Search(n, func(k int) bool { return jobs[k].s >= jobs[i].e })
+		f[i] = max(f[i+1], jobs[i].p+f[j])
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
+    const n = startTime.length;
+    const f = new Array(n + 1).fill(0);
+    const idx = new Array(n).fill(0).map((_, i) => i);
+    idx.sort((i, j) => startTime[i] - startTime[j]);
+    const search = (x: number, left: number) => {
+        let l = left;
+        let r = n;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (startTime[idx[mid]] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = n - 1; i >= 0; --i) {
+        const j = search(endTime[idx[i]], i + 1);
+        f[i] = Math.max(f[i + 1], f[j] + profit[idx[i]]);
+    }
+    return f[0];
 }
 ```
 

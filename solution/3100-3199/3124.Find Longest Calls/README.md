@@ -132,11 +132,11 @@ type 字段是 ('incoming', 'outgoing') 的 ENUM (category)。
 
 > **思考**
 >
-> 需要按通话类型取出时长前三，并格式化时分秒。分组后手写排序可以完成，但并列名次要用密集名次处理。
+> 每种通话类型要保留时长前三名，并按类型、格式化时长和姓名降序输出。密集名次会在前面出现并列时把更短的通话也留在前三名里。
 >
-> 联系人与通话先按编号等值连接，再在类型内对 $duration$ 做降序 `rank`，筛选名次不超过 $3$ 的行。
+> 联系人与通话按编号等值连接后，在类型内对 $duration$ 做 $\textit{RANK}$。并列共用名次，下一名次跳过，只保留名次不超过 $3$ 的行。
 >
-> 时长先换成时分秒字符串，最后按类型、格式化时长与姓名排序输出。窗口函数一次完成组内排名。
+> 秒数格式化为时分秒后，三列都按降序排列。窗口排名决定入选，排序只决定输出顺序。
 
 <!-- thinking:end -->
 
@@ -167,7 +167,7 @@ SELECT
     duration_formatted
 FROM T
 WHERE rk <= 3
-ORDER BY 2, 3 DESC, 1 DESC;
+ORDER BY 2 DESC, 3 DESC, 1 DESC;
 ```
 
 #### Python3
@@ -185,14 +185,14 @@ def find_longest_calls(contacts: pd.DataFrame, calls: pd.DataFrame) -> pd.DataFr
     ).apply(lambda x: "{:02}:{:02}:{:02}".format(x // 10000, x // 100 % 100, x % 100))
 
     merged_data["rk"] = merged_data.groupby("type")["duration"].rank(
-        method="dense", ascending=False
+        method="min", ascending=False
     )
 
     result = merged_data[merged_data["rk"] <= 3][
         ["first_name", "type", "duration_formatted"]
     ]
     result = result.sort_values(
-        by=["type", "duration_formatted", "first_name"], ascending=[True, False, False]
+        by=["type", "duration_formatted", "first_name"], ascending=[False, False, False]
     )
     return result
 ```

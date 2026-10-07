@@ -50,7 +50,7 @@ difficulty: 中等
 
 > **思考**
 >
-> 无限序列按位数分段：$k$ 位数共 $9\times 10^{k-1}$ 个、占 $k$ 倍长度。先减去整段，定位到所在数字及该数字内的偏移。
+> 无限序列按位数分段： $k$ 位数共 $9\times 10^{k-1}$ 个、占 $k$ 倍长度。先减去整段，定位到所在数字及该数字内的偏移。
 >
 > 算出数字后转成字符串取对应位。
 
@@ -151,9 +151,9 @@ var findNthDigit = function (n) {
         ++k;
         cnt *= 10;
     }
-    const num = Math.pow(10, k - 1) + (n - 1) / k;
+    const num = Math.pow(10, k - 1) + Math.floor((n - 1) / k);
     const idx = (n - 1) % k;
-    return num.toString()[idx];
+    return Number(num.toString()[idx]);
 };
 ```
 

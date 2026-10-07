@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - prettier@3.9.9

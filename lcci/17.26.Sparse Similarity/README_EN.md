@@ -63,13 +63,23 @@ difficulty: Hard
 
 > **Thinking**
 >
-> Documents are sparse. Building a set per pair and intersecting wastes time on empty intersections.
+> The direct approach enumerates every pair of documents, builds a set for each, and computes the intersection and the union. Both the number of documents and the length of a document reach $500$, and the similarity of two arbitrary documents is close to $0$, so most of that work constructs and scans empty intersections.
 >
-> Invert: word $\mapsto$ document ids. Only pairs that share a word increment the intersection size.
+> At most $1000$ pairs actually need a similarity. The running time should touch only documents that share at least one word.
 >
-> $d[x]$ lists documents; each inverted list adds one to $cnt[(i,j)]$ for every pair. Similarity is $|\cap|/(|A|+|B|-|\cap|)$, plus $10^{-9}$ before a four-decimal format.
+> The documents that contain one word form pairs whose intersection includes at least that word. Summing these contributions yields the intersection size. Each document length is already known, so the union is the sum of the two lengths minus the intersection, and the words do not need to be scanned again.
+>
+> We therefore group document ids by word. Ids are appended from small to large, so each inverted list is ordered and the smaller id already comes first. The hash map stores only pairs with a nonempty intersection, and the similarity is computed from that key.
 
 <!-- thinking:end -->
+
+We use a hash map $d$ to record the document ids that contain each word. Documents are scanned in increasing id order, and the integers inside one document are distinct, so the ids in $d[x]$ are strictly increasing.
+
+Two documents have similarity greater than $0$ exactly when they share at least one word. For every document list in $d$, we enumerate its id pairs and accumulate them in a hash map $cnt$. The key is the pair $(i, j)$ with $i < j$, and the value is the size of the intersection. The size of the union is $|docs[i]| + |docs[j]| - |\cap|$. An empty document never enters a list, so it is skipped.
+
+While walking through $cnt$, the similarity is the ratio of the intersection to the union. Floating-point division can fall slightly short of the true value, so we add $10^{-9}$ before formatting the result to four decimal places. Each inverted list is already sorted by id, so the smaller id is the first component of the key.
+
+The time complexity is $O(m \times n^2)$ and the space complexity is $O(S)$, where $n$ is the number of documents, $m$ is the maximum document length, and $S$ is the total number of words. At most $1000$ pairs have similarity greater than $0$, and the inner loops run once per element of those intersections, so the running time on the given inputs is below this bound.
 
 <!-- tabs:start -->
 
@@ -102,31 +112,31 @@ class Solution:
 ```java
 class Solution {
     public List<String> computeSimilarities(int[][] docs) {
+        int n = docs.length;
         Map<Integer, List<Integer>> d = new HashMap<>();
-        for (int i = 0; i < docs.length; ++i) {
-            for (int v : docs[i]) {
-                d.computeIfAbsent(v, k -> new ArrayList<>()).add(i);
+        for (int i = 0; i < n; ++i) {
+            for (int x : docs[i]) {
+                d.computeIfAbsent(x, k -> new ArrayList<>()).add(i);
             }
         }
-        Map<String, Integer> cnt = new HashMap<>();
-        for (var ids : d.values()) {
-            int n = ids.size();
-            for (int i = 0; i < n; ++i) {
-                for (int j = i + 1; j < n; ++j) {
-                    String k = ids.get(i) + "," + ids.get(j);
-                    cnt.put(k, cnt.getOrDefault(k, 0) + 1);
+        Map<Long, Integer> cnt = new HashMap<>();
+        for (List<Integer> ids : d.values()) {
+            int m = ids.size();
+            for (int i = 0; i < m; ++i) {
+                for (int j = i + 1; j < m; ++j) {
+                    long key = 1L * ids.get(i) * n + ids.get(j);
+                    cnt.merge(key, 1, Integer::sum);
                 }
             }
         }
         List<String> ans = new ArrayList<>();
         for (var e : cnt.entrySet()) {
-            String k = e.getKey();
+            long key = e.getKey();
             int v = e.getValue();
-            String[] t = k.split(",");
-            int i = Integer.parseInt(t[0]), j = Integer.parseInt(t[1]);
+            int i = (int) (key / n), j = (int) (key % n);
             int tot = docs[i].length + docs[j].length - v;
-            double x = (double) v / tot;
-            ans.add(String.format("%s: %.4f", k, x));
+            double x = (double) v / tot + 1e-9;
+            ans.add(String.format("%d,%d: %.4f", i, j, x));
         }
         return ans;
     }
@@ -136,11 +146,10 @@ class Solution {
 #### C++
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<string> computeSimilarities(vector<vector<int>>& docs) {
+        using pii = pair<int, int>;
         double eps = 1e-9;
         unordered_map<int, vector<int>> d;
         for (int i = 0; i < docs.size(); ++i) {
@@ -197,9 +206,45 @@ func computeSimilarities(docs [][]int) []string {
 		i, j := k.i, k.j
 		tot := len(docs[i]) + len(docs[j]) - v
 		x := float64(v)/float64(tot) + 1e-9
-		ans = append(ans, strconv.Itoa(i)+","+strconv.Itoa(j)+": "+fmt.Sprintf("%.4f", x))
+		ans = append(ans, fmt.Sprintf("%d,%d: %.4f", i, j, x))
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function computeSimilarities(docs: number[][]): string[] {
+    const n = docs.length;
+    const d = new Map<number, number[]>();
+    for (let i = 0; i < n; ++i) {
+        for (const x of docs[i]) {
+            if (!d.has(x)) {
+                d.set(x, []);
+            }
+            d.get(x)!.push(i);
+        }
+    }
+    const cnt = new Map<number, number>();
+    for (const ids of d.values()) {
+        const m = ids.length;
+        for (let i = 0; i < m; ++i) {
+            for (let j = i + 1; j < m; ++j) {
+                const key = ids[i] * n + ids[j];
+                cnt.set(key, (cnt.get(key) ?? 0) + 1);
+            }
+        }
+    }
+    const ans: string[] = [];
+    for (const [key, v] of cnt) {
+        const i = Math.floor(key / n);
+        const j = key % n;
+        const tot = docs[i].length + docs[j].length - v;
+        const x = v / tot + 1e-9;
+        ans.push(`${i},${j}: ${x.toFixed(4)}`);
+    }
+    return ans;
 }
 ```
 

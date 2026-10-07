@@ -69,7 +69,7 @@ tags:
 
 > **思考**
 >
-> 小矩形能否无重叠、无缝铺成一个大矩形。扫描线或暴力对齐复杂。完美覆盖当且仅当面积相等，且除大矩形四角外每个顶点出现偶数次（$2$ 或 $4$）。
+> 小矩形能否无重叠、无缝铺成一个大矩形。扫描线或暴力对齐复杂。完美覆盖当且仅当面积相等，且除大矩形四角外每个顶点出现偶数次（ $2$ 或 $4$）。
 >
 > 累加面积并统计顶点出现次数。大矩形四角须恰出现一次，其余顶点次数为 $2$ 或 $4$，面积等于包围盒。
 
@@ -125,7 +125,7 @@ class Solution {
         Map<Pair, Integer> cnt = new HashMap<>();
 
         for (int[] r : rectangles) {
-            area += (r[2] - r[0]) * (r[3] - r[1]);
+            area += (r[2] - r[0]) * 1L * (r[3] - r[1]);
 
             minX = Math.min(minX, r[0]);
             minY = Math.min(minY, r[1]);
@@ -200,7 +200,7 @@ public:
         map<pii, int> cnt;
 
         for (auto& r : rectangles) {
-            area += (r[2] - r[0]) * (r[3] - r[1]);
+            area += (r[2] - r[0]) * 1LL * (r[3] - r[1]);
 
             minX = min(minX, r[0]);
             minY = min(minY, r[1]);

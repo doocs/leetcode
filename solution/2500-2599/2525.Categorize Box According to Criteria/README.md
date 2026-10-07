@@ -84,7 +84,7 @@ tags:
 >
 > 箱子按边长、体积是否达到“笨重”阈值以及质量是否达到“沉重”阈值分成四类。判断条件均为常数次比较。
 >
-> 把 $\textit{bulky}$、$\textit{heavy}$ 作成 $0/1$，用 $\textit{heavy}\ll 1\mid \textit{bulky}$ 作为下标，在 $[\textit{Neither},\textit{Bulky},\textit{Heavy},\textit{Both}]$ 中取值，避免多层分支。
+> 把 $\textit{bulky}$、 $\textit{heavy}$ 作成 $0/1$，用 $\textit{heavy}\ll 1\mid \textit{bulky}$ 作为下标，在 $[\textit{Neither},\textit{Bulky},\textit{Heavy},\textit{Both}]$ 中取值，避免多层分支。
 
 <!-- thinking:end -->
 

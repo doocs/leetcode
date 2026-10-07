@@ -67,7 +67,7 @@ tags:
 
 > **思考**
 >
-> 从每个格子沿下降路径流向海洋，同一格子会被反复搜索。$m,n\le 200$，正向搜索重复过多。
+> 从每个格子沿下降路径流向海洋，同一格子会被反复搜索。 $m,n\le 200$，正向搜索重复过多。
 >
 > 水往低处流的逆过程，是从海洋向「高度不低于当前」的格子爬。从太平洋、大西洋的边界分别 BFS，两份访问集合的交即为答案。
 >
@@ -128,7 +128,7 @@ class Solution:
         bfs(q1, vis1)
         bfs(q2, vis2)
 
-        return [(i, j) for i in range(m) for j in range(n) if vis1[i][j] and vis2[i][j]]
+        return [[i, j] for i in range(m) for j in range(n) if vis1[i][j] and vis2[i][j]]
 ```
 
 #### Java

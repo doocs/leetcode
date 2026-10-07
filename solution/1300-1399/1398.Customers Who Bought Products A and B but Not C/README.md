@@ -102,7 +102,7 @@ Orders table:
 
 > **思考**
 >
-> 买过 $A$、$B$ 却从未买 $C$ 的顾客。客户左连订单后按人分组，用条件求和：$\mathrm{SUM}(\textit{product}=A)>0$ 且 $B$ 同样，且 $C$ 的和为 $0$。
+> 买过 $A$、 $B$ 却从未买 $C$ 的顾客。客户左连订单后按人分组，用条件求和： $\mathrm{SUM}(\textit{product}=A)>0$ 且 $B$ 同样，且 $C$ 的和为 $0$。
 
 <!-- thinking:end -->
 

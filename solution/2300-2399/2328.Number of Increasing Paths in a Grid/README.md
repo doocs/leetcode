@@ -270,4 +270,212 @@ function countPaths(grid: number[][]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：排序 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 严格递增路径可从任意格出发。网格至多 $10^5$ 格。若从每个格子记忆化走向更大的邻居，一行严格递增的 $1000$ 个数就会把调用栈用尽，而 $m$ 和 $n$ 都可以到 $1000$。
+>
+> 瓶颈是这条递增链：每一步只进入尚未算完的更大邻居，深度与格子数同阶。
+>
+> 一格的方案数只依赖严格更大的邻居，这些边构成有向无环图。
+>
+> 因此按格子值从大到小处理。先令 $f[i][j]=1$，再把四个更大邻居已经算完的方案数加进来，并对 $10^9+7$ 取模。全部 $f$ 之和再取模，就是从任意格出发的路径总数。
+
+<!-- thinking:end -->
+
+令 $f[i][j]$ 表示从第 $i$ 行第 $j$ 列出发的严格递增路径数。一格至少有一条只含自己的路径，所以初值为 $1$。它还能走向四个方向上严格更大的邻居，因此
+
+$$
+f[i][j] = 1 + \sum_{\substack{(x,y)\sim(i,j)\\ grid[i][j] < grid[x][y]}} f[x][y] \pmod{10^9+7}.
+$$
+
+值更大的格子不依赖当前格子，按 $grid$ 从大到小处理时，这些 $f[x][y]$ 已经就绪。答案为 $\sum f[i][j]$ 对 $10^9+7$ 取模。
+
+时间复杂度 $O(mn \log(mn))$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是网格图的行数和列数。
+
+相似题目：
+
+- [329. 矩阵中的最长递增路径](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPaths(self, grid: List[List[int]]) -> int:
+        mod = 10**9 + 7
+        m, n = len(grid), len(grid[0])
+        f = [[1] * n for _ in range(m)]
+        cells = [(grid[i][j], i, j) for i in range(m) for j in range(n)]
+        cells.sort(reverse=True)
+        dirs = (-1, 0, 1, 0, -1)
+        for _, i, j in cells:
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid[i][j] < grid[x][y]:
+                    f[i][j] = (f[i][j] + f[x][y]) % mod
+        return sum(sum(row) for row in f) % mod
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countPaths(int[][] grid) {
+        final int mod = (int) 1e9 + 7;
+        int m = grid.length, n = grid[0].length;
+        int[][] f = new int[m][n];
+        int[][] cells = new int[m * n][3];
+        for (int i = 0, k = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[i][j] = 1;
+                cells[k][0] = grid[i][j];
+                cells[k][1] = i;
+                cells[k][2] = j;
+                ++k;
+            }
+        }
+        Arrays.sort(cells, (a, b) -> Integer.compare(b[0], a[0]));
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int[] cell : cells) {
+            int i = cell[1], j = cell[2];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                    f[i][j] = (f[i][j] + f[x][y]) % mod;
+                }
+            }
+        }
+        long ans = 0;
+        for (int[] row : f) {
+            for (int v : row) {
+                ans += v;
+            }
+        }
+        return (int) (ans % mod);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countPaths(vector<vector<int>>& grid) {
+        const int mod = 1e9 + 7;
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int>> f(m, vector<int>(n, 1));
+        vector<array<int, 3>> cells;
+        cells.reserve(m * n);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cells.push_back({grid[i][j], i, j});
+            }
+        }
+        sort(cells.begin(), cells.end(), [](const array<int, 3>& a, const array<int, 3>& b) {
+            return a[0] > b[0];
+        });
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        for (auto& cell : cells) {
+            int i = cell[1], j = cell[2];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                    f[i][j] = (f[i][j] + f[x][y]) % mod;
+                }
+            }
+        }
+        long long ans = 0;
+        for (auto& row : f) {
+            for (int v : row) {
+                ans += v;
+            }
+        }
+        return ans % mod;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPaths(grid [][]int) int {
+	const mod = 1e9 + 7
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m)
+	cells := make([][3]int, 0, m*n)
+	for i := 0; i < m; i++ {
+		f[i] = make([]int, n)
+		for j := 0; j < n; j++ {
+			f[i][j] = 1
+			cells = append(cells, [3]int{grid[i][j], i, j})
+		}
+	}
+	sort.Slice(cells, func(a, b int) bool { return cells[a][0] > cells[b][0] })
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	for _, cell := range cells {
+		i, j := cell[1], cell[2]
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y] {
+				f[i][j] = (f[i][j] + f[x][y]) % mod
+			}
+		}
+	}
+	ans := 0
+	for _, row := range f {
+		for _, v := range row {
+			ans = (ans + v) % mod
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countPaths(grid: number[][]): number {
+    const mod = 1e9 + 7;
+    const m = grid.length;
+    const n = grid[0].length;
+    const f: number[][] = Array.from({ length: m }, () => Array(n).fill(1));
+    const cells: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            cells.push([grid[i][j], i, j]);
+        }
+    }
+    cells.sort((a, b) => b[0] - a[0]);
+    const dirs = [-1, 0, 1, 0, -1];
+    for (const [_, i, j] of cells) {
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                f[i][j] = (f[i][j] + f[x][y]) % mod;
+            }
+        }
+    }
+    let ans = 0;
+    for (const row of f) {
+        for (const v of row) {
+            ans = (ans + v) % mod;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

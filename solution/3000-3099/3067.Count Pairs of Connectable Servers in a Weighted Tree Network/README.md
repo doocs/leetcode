@@ -84,7 +84,7 @@ tags:
 
 > **思考**
 >
-> 以某结点为中转、两条边不相交的路径，两端到中转的距离都整除 $\textit{signalSpeed}$。$n \le 1000$。
+> 以某结点为中转、两条边不相交的路径，两端到中转的距离都整除 $\textit{signalSpeed}$。 $n \le 1000$。
 >
 > 固定中转 $a$ 后，不同子树中的合法叶子两两配对。子树内可用 DFS 统计距离整除的结点数。
 >
@@ -274,6 +274,241 @@ function countPairsOfConnectableServers(edges: number[][], signalSpeed: number):
         let s = 0;
         for (const [b, w] of g[a]) {
             const t = dfs(b, a, w);
+            ans[a] += s * t;
+            s += t;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：枚举 + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 一对服务器能通过中转点 $a$ 相连，当且仅当两条路径没有公共边，并且两端到 $a$ 的距离都能被 $\textit{signalSpeed}$ 整除。$n \le 1000$，固定中转点之后，不同分支里的合法节点可以两两配对。每个分支里，距离能被整除的节点个数与访问顺序无关，用一次遍历就能数出来。沿一条链递归时调用深度等于节点数，在 $n = 1000$ 时会超出 Python 的递归上限。因此栈中保存 $(节点, 父节点, 已走距离)$：弹出时若距离能被整除就计入，再把其余邻接点以距离加上边权压入。对中转点 $a$ 的每个邻居得到个数 $t$，与此前分支的累计 $s$ 相乘加入答案，再把 $t$ 累入 $s$。
+
+<!-- thinking:end -->
+
+先根据给定的边建立邻接表 $g$，$g[a]$ 保存节点 $a$ 的邻居以及对应边权。
+
+枚举每个节点 $a$ 作为中转点。对 $a$ 的每个邻居 $b$，用显式栈统计 $b$ 所在分支中、到 $a$ 的距离能被 $\textit{signalSpeed}$ 整除的节点数 $t$。栈里每个元素是 $(节点, 父节点, 已走距离)$。从 $b$ 出发时距离就是边权，弹出一个节点后，若当前距离能被整除就把计数加一，再把除父节点以外的邻接点压入，距离加上对应边权。记此前各分支已经统计到的合法节点数为 $s$，则这些节点都能与当前分支的 $t$ 个节点配对，答案增加 $s \times t$，然后把 $t$ 累加进 $s$。分支的处理顺序不影响配对数。
+
+枚举完所有中转点后，就得到每个节点作为中转时的可连接对数。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 表示节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPairsOfConnectableServers(
+        self, edges: List[List[int]], signalSpeed: int
+    ) -> List[int]:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b, w in edges:
+            g[a].append((b, w))
+            g[b].append((a, w))
+
+        def count(start: int, fa: int, dist: int) -> int:
+            cnt = 0
+            stk = [(start, fa, dist)]
+            while stk:
+                a, parent, ws = stk.pop()
+                if ws % signalSpeed == 0:
+                    cnt += 1
+                for b, w in g[a]:
+                    if b != parent:
+                        stk.append((b, a, ws + w))
+            return cnt
+
+        ans = [0] * n
+        for a in range(n):
+            s = 0
+            for b, w in g[a]:
+                t = count(b, a, w)
+                ans[a] += s * t
+                s += t
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] countPairsOfConnectableServers(int[][] edges, int signalSpeed) {
+        int n = edges.length + 1;
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
+        }
+        int[] ans = new int[n];
+        for (int a = 0; a < n; ++a) {
+            int s = 0;
+            for (var e : g[a]) {
+                int t = count(g, e[0], a, e[1], signalSpeed);
+                ans[a] += s * t;
+                s += t;
+            }
+        }
+        return ans;
+    }
+
+    private int count(List<int[]>[] g, int start, int fa, int dist, int signalSpeed) {
+        int cnt = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {start, fa, dist});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], parent = cur[1], ws = cur[2];
+            if (ws % signalSpeed == 0) {
+                ++cnt;
+            }
+            for (var e : g[a]) {
+                int b = e[0], w = e[1];
+                if (b != parent) {
+                    stk.push(new int[] {b, a, ws + w});
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> countPairsOfConnectableServers(vector<vector<int>>& edges, int signalSpeed) {
+        int n = edges.size() + 1;
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].emplace_back(b, w);
+            g[b].emplace_back(a, w);
+        }
+        auto count = [&](int start, int fa, int dist) {
+            int cnt = 0;
+            vector<array<int, 3>> stk{{start, fa, dist}};
+            while (!stk.empty()) {
+                auto [a, parent, ws] = stk.back();
+                stk.pop_back();
+                if (ws % signalSpeed == 0) {
+                    ++cnt;
+                }
+                for (auto& [b, w] : g[a]) {
+                    if (b != parent) {
+                        stk.push_back({b, a, ws + w});
+                    }
+                }
+            }
+            return cnt;
+        };
+        vector<int> ans(n);
+        for (int a = 0; a < n; ++a) {
+            int s = 0;
+            for (auto& [b, w] : g[a]) {
+                int t = count(b, a, w);
+                ans[a] += s * t;
+                s += t;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPairsOfConnectableServers(edges [][]int, signalSpeed int) []int {
+	n := len(edges) + 1
+	type pair struct{ x, w int }
+	g := make([][]pair, n)
+	for _, e := range edges {
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], pair{b, w})
+		g[b] = append(g[b], pair{a, w})
+	}
+	count := func(start, fa, dist int) int {
+		cnt := 0
+		stk := [][3]int{{start, fa, dist}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			a, parent, ws := cur[0], cur[1], cur[2]
+			if ws%signalSpeed == 0 {
+				cnt++
+			}
+			for _, e := range g[a] {
+				b, w := e.x, e.w
+				if b != parent {
+					stk = append(stk, [3]int{b, a, ws + w})
+				}
+			}
+		}
+		return cnt
+	}
+	ans := make([]int, n)
+	for a := 0; a < n; a++ {
+		s := 0
+		for _, e := range g[a] {
+			t := count(e.x, a, e.w)
+			ans[a] += s * t
+			s += t
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countPairsOfConnectableServers(edges: number[][], signalSpeed: number): number[] {
+    const n = edges.length + 1;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b, w] of edges) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+    const count = (start: number, fa: number, dist: number): number => {
+        let cnt = 0;
+        const stk: number[][] = [[start, fa, dist]];
+        while (stk.length) {
+            const [a, parent, ws] = stk.pop()!;
+            if (ws % signalSpeed === 0) {
+                cnt++;
+            }
+            for (const [b, w] of g[a]) {
+                if (b !== parent) {
+                    stk.push([b, a, ws + w]);
+                }
+            }
+        }
+        return cnt;
+    };
+    const ans: number[] = Array(n).fill(0);
+    for (let a = 0; a < n; ++a) {
+        let s = 0;
+        for (const [b, w] of g[a]) {
+            const t = count(b, a, w);
             ans[a] += s * t;
             s += t;
         }

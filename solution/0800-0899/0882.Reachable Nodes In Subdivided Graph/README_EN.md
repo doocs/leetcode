@@ -102,7 +102,7 @@ class Solution:
             for v, cnt in g[u]:
                 if (t := d + cnt) < dist[v]:
                     dist[v] = t
-                    q.append((t, v))
+                    heappush(q, (t, v))
         ans = sum(d <= maxMoves for d in dist)
         for u, v, cnt in edges:
             a = min(cnt, max(0, maxMoves - dist[u]))

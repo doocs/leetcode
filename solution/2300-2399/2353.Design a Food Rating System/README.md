@@ -110,7 +110,7 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 
 我们还可以使用哈希表 $\textit{g}$ 来存储每种食物的评分和烹饪方式。即 $\textit{g}[\textit{food}] = (\textit{rating}, \textit{cuisine})$。
 
-在构造函数中，我们遍历 $\textit{foods}$、$\textit{cuisines}$ 和 $\textit{ratings}$，将每种食物的评分和烹饪方式存储到 $\textit{d}$ 和 $\textit{g}$ 中。
+在构造函数中，我们遍历 $\textit{foods}$、 $\textit{cuisines}$ 和 $\textit{ratings}$，将每种食物的评分和烹饪方式存储到 $\textit{d}$ 和 $\textit{g}$ 中。
 
 在 $\textit{changeRating}$ 函数中，我们首先获取食物 $\textit{food}$ 的原评分 $\textit{oldRating}$ 和烹饪方式 $\textit{cuisine}$，然后更新 $\textit{g}[\textit{food}]$ 的评分为 $\textit{newRating}$，并从 $\textit{d}[\textit{cuisine}]$ 中删除 $(\textit{oldRating}, \textit{food})$，并将 $(\textit{newRating}, \textit{food})$ 添加到 $\textit{d}[\textit{cuisine}]$ 中。
 

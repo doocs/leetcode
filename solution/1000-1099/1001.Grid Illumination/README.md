@@ -83,7 +83,7 @@ tags:
 >
 > 网格边长 $n$ 可达 $10^9$，按格子模拟照明或关灯既无法建图也无法扫描。灯与查询各自至多 $2\times 10^4$，真正有用的只是灯所在的行、列与两条对角线。
 >
-> 一盏位于 $(x,y)$ 的灯照亮整行 $x$、整列 $y$ 以及 $x-y$、$x+y$ 两条斜线。查询点被照亮当且仅当这四条线之一上仍有灯；随后只需关闭该点及其八邻域中仍存在的灯，并同步减少对应直线上的计数。
+> 一盏位于 $(x,y)$ 的灯照亮整行 $x$、整列 $y$ 以及 $x-y$、 $x+y$ 两条斜线。查询点被照亮当且仅当这四条线之一上仍有灯；随后只需关闭该点及其八邻域中仍存在的灯，并同步减少对应直线上的计数。
 >
 > 因此用集合去重灯的坐标，再用四张哈希表维护每条直线上的灯数。每次查询先看四条线的计数是否为正，再在常数个邻格上更新集合与计数，复杂度与灯数、查询数线性相关，与 $n$ 无关。
 
@@ -288,12 +288,14 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
     const col = new Map<number, number>();
     const diag1 = new Map<number, number>();
     const diag2 = new Map<number, number>();
-    const s = new Set<number>();
+    const s = new Set<string>();
+    const f = (i: number, j: number) => `${i},${j}`;
     for (const [i, j] of lamps) {
-        if (s.has(i * n + j)) {
+        const k = f(i, j);
+        if (s.has(k)) {
             continue;
         }
-        s.add(i * n + j);
+        s.add(k);
         row.set(i, (row.get(i) || 0) + 1);
         col.set(j, (col.get(j) || 0) + 1);
         diag1.set(i - j, (diag1.get(i - j) || 0) + 1);
@@ -308,10 +310,10 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
         }
         for (let x = i - 1; x <= i + 1; ++x) {
             for (let y = j - 1; y <= j + 1; ++y) {
-                if (x < 0 || x >= n || y < 0 || y >= n || !s.has(x * n + y)) {
+                if (x < 0 || x >= n || y < 0 || y >= n || !s.has(f(x, y))) {
                     continue;
                 }
-                s.delete(x * n + y);
+                s.delete(f(x, y));
                 row.set(x, row.get(x)! - 1);
                 col.set(y, col.get(y)! - 1);
                 diag1.set(x - y, diag1.get(x - y)! - 1);

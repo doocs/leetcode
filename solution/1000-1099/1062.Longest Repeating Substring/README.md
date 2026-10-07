@@ -69,7 +69,7 @@ tags:
 
 > **思考**
 >
-> 最长重复子串可用后缀数组或二分哈希，$n\le 2000$ 时 $O(n^2)$ 的 DP 更直接。以不同位置 $i>j$ 结尾的公共后缀长度，在 $s[i]=s[j]$ 时比以 $i-1,j-1$ 结尾的长度多 $1$。
+> 最长重复子串可用后缀数组或二分哈希， $n\le 2000$ 时 $O(n^2)$ 的 DP 更直接。以不同位置 $i>j$ 结尾的公共后缀长度，在 $s[i]=s[j]$ 时比以 $i-1,j-1$ 结尾的长度多 $1$。
 >
 > 令 $f[i][j]$ 为该公共后缀长，枚举 $i$ 与 $j<i$，相等则转移并更新全局最大。
 >
@@ -143,8 +143,7 @@ class Solution {
 public:
     int longestRepeatingSubstring(string s) {
         int n = s.length();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n));
         int ans = 0;
         for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {

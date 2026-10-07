@@ -19,7 +19,7 @@ function countTrapezoids(points: number[][]): number {
             const mapB = cnt1.get(k)!;
             mapB.set(b, (mapB.get(b) || 0) + 1);
 
-            const p = (x1 + x2 + 2000) * 4000 + (y1 + y2 + 2000);
+            const p = (x1 + x2 + 2000) * 4001 + (y1 + y2 + 2000);
 
             if (!cnt2.has(p)) {
                 cnt2.set(p, new Map());

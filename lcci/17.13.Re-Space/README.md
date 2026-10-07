@@ -52,7 +52,7 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 >
 > $dp[i]$ 为前 $i$ 个字符的最少未识别数。最后一字可单独算未匹配，或某 $sentence[j:i]$ 在词典中则转移到 $dp[j]$。
 >
-> 词典放入集合以便 $O(1)$ 查询。$dp[0]=0$，递推到 $n$。未单独做字典树，句长不大时双重循环足够。
+> 词典放入集合以便 $O(1)$ 查询。 $dp[0]=0$，递推到 $n$。未单独做字典树，句长不大时双重循环足够。
 
 <!-- thinking:end -->
 

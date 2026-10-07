@@ -311,4 +311,369 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：哈希表 + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 子树和等于左子树和、右子树和与根值之和，必须先得到两棵子树的和。若对每个结点再扫一遍子树，会重复累加。后序递归在回溯时计算当前和，在较短的树上是对的。
+>
+> 结点个数可达 $10^4$。左链使这次后序按结点个数递归，调用栈会溢出。
+>
+> 每个结点的和只由左右子树的和决定，所以必须先处理孩子，再处理父亲。出现次数可以边走边记在哈希表里。
+>
+> 因此用显式栈做后序遍历。进入结点时压入退出标记和左右孩子；退出时用左右子树和算出当前和，写入哈希表。全部结点处理完后，取出出现次数最大的那些和。
+
+<!-- thinking:end -->
+
+我们用哈希表 $\textit{cnt}$ 记录每个子树元素和出现的次数，并用显式栈对二叉树做后序遍历。进入结点时压入退出标记，再压入右孩子和左孩子；退出时，左右子树的和已经记下，当前子树和为二者与结点值之和，并更新 $\textit{cnt}$。
+
+最后遍历 $\textit{cnt}$，找到所有出现次数最多的子树元素和。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
+        cnt = Counter()
+        sub = {}
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.right, 0))
+                stk.append((node.left, 0))
+                continue
+            l = sub[id(node.left)] if node.left is not None else 0
+            r = sub[id(node.right)] if node.right is not None else 0
+            s = l + r + node.val
+            cnt[s] += 1
+            sub[id(node)] = s
+        if not cnt:
+            return []
+        mx = max(cnt.values())
+        return [k for k, v in cnt.items() if v == mx]
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static class Frame {
+        TreeNode node;
+        int state;
+
+        Frame(TreeNode node, int state) {
+            this.node = node;
+            this.state = state;
+        }
+    }
+
+    public int[] findFrequentTreeSum(TreeNode root) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        Map<TreeNode, Integer> sub = new IdentityHashMap<>();
+        int mx = 0;
+        if (root != null) {
+            Deque<Frame> stk = new ArrayDeque<>();
+            stk.push(new Frame(root, 0));
+            while (!stk.isEmpty()) {
+                Frame cur = stk.pop();
+                TreeNode node = cur.node;
+                if (cur.state == 0) {
+                    stk.push(new Frame(node, 1));
+                    if (node.right != null) {
+                        stk.push(new Frame(node.right, 0));
+                    }
+                    if (node.left != null) {
+                        stk.push(new Frame(node.left, 0));
+                    }
+                    continue;
+                }
+                int l = node.left == null ? 0 : sub.get(node.left);
+                int r = node.right == null ? 0 : sub.get(node.right);
+                int s = node.val + l + r;
+                mx = Math.max(mx, cnt.merge(s, 1, Integer::sum));
+                sub.put(node, s);
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (var e : cnt.entrySet()) {
+            if (e.getValue() == mx) {
+                ans.add(e.getKey());
+            }
+        }
+        return ans.stream().mapToInt(i -> i).toArray();
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> findFrequentTreeSum(TreeNode* root) {
+        unordered_map<int, int> cnt;
+        unordered_map<TreeNode*, int> sub;
+        int mx = 0;
+        vector<pair<TreeNode*, int>> stk{{root, 0}};
+        while (!stk.empty()) {
+            auto [node, state] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            if (state == 0) {
+                stk.emplace_back(node, 1);
+                if (node->right) {
+                    stk.emplace_back(node->right, 0);
+                }
+                if (node->left) {
+                    stk.emplace_back(node->left, 0);
+                }
+                continue;
+            }
+            int l = node->left ? sub[node->left] : 0;
+            int r = node->right ? sub[node->right] : 0;
+            int s = node->val + l + r;
+            mx = max(mx, ++cnt[s]);
+            sub[node] = s;
+        }
+        vector<int> ans;
+        for (const auto& [k, v] : cnt) {
+            if (v == mx) {
+                ans.push_back(k);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func findFrequentTreeSum(root *TreeNode) (ans []int) {
+	cnt := map[int]int{}
+	sub := map[*TreeNode]int{}
+	mx := 0
+	type frame struct {
+		node  *TreeNode
+		state int
+	}
+	stk := []frame{{root, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, state := cur.node, cur.state
+		if node == nil {
+			continue
+		}
+		if state == 0 {
+			stk = append(stk, frame{node, 1})
+			if node.Right != nil {
+				stk = append(stk, frame{node.Right, 0})
+			}
+			if node.Left != nil {
+				stk = append(stk, frame{node.Left, 0})
+			}
+			continue
+		}
+		l, r := 0, 0
+		if node.Left != nil {
+			l = sub[node.Left]
+		}
+		if node.Right != nil {
+			r = sub[node.Right]
+		}
+		s := node.Val + l + r
+		cnt[s]++
+		mx = max(mx, cnt[s])
+		sub[node] = s
+	}
+	for k, v := range cnt {
+		if v == mx {
+			ans = append(ans, k)
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findFrequentTreeSum(root: TreeNode | null): number[] {
+    const cnt = new Map<number, number>();
+    const sub = new Map<TreeNode, number>();
+    let mx = 0;
+    const stk: [TreeNode | null, number][] = [[root, 0]];
+    while (stk.length) {
+        const [node, state] = stk.pop()!;
+        if (!node) {
+            continue;
+        }
+        if (state === 0) {
+            stk.push([node, 1]);
+            if (node.right) {
+                stk.push([node.right, 0]);
+            }
+            if (node.left) {
+                stk.push([node.left, 0]);
+            }
+            continue;
+        }
+        const l = node.left ? sub.get(node.left)! : 0;
+        const r = node.right ? sub.get(node.right)! : 0;
+        const s = node.val + l + r;
+        cnt.set(s, (cnt.get(s) ?? 0) + 1);
+        mx = Math.max(mx, cnt.get(s)!);
+        sub.set(node, s);
+    }
+    return Array.from(cnt.entries())
+        .filter(([_, c]) => c === mx)
+        .map(([s, _]) => s);
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::collections::HashMap;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn find_frequent_tree_sum(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut cnt: HashMap<i32, i32> = HashMap::new();
+        let mut sub: HashMap<usize, i32> = HashMap::new();
+        let mut stk = vec![(root, 0)];
+        while let Some((node, state)) = stk.pop() {
+            if let Some(node) = node {
+                if state == 0 {
+                    let (left, right) = {
+                        let b = node.borrow();
+                        (b.left.clone(), b.right.clone())
+                    };
+                    stk.push((Some(node), 1));
+                    if right.is_some() {
+                        stk.push((right, 0));
+                    }
+                    if left.is_some() {
+                        stk.push((left, 0));
+                    }
+                } else {
+                    let b = node.borrow();
+                    let l = b
+                        .left
+                        .as_ref()
+                        .map(|n| sub[&(Rc::as_ptr(n) as usize)])
+                        .unwrap_or(0);
+                    let r = b
+                        .right
+                        .as_ref()
+                        .map(|n| sub[&(Rc::as_ptr(n) as usize)])
+                        .unwrap_or(0);
+                    let s = l + r + b.val;
+                    *cnt.entry(s).or_insert(0) += 1;
+                    drop(b);
+                    sub.insert(Rc::as_ptr(&node) as usize, s);
+                }
+            }
+        }
+        let mx = cnt.values().cloned().max().unwrap_or(0);
+        cnt.into_iter()
+            .filter(|&(_, v)| v == mx)
+            .map(|(k, _)| k)
+            .collect()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

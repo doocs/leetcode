@@ -2,7 +2,7 @@ use std::collections::{HashMap, HashSet, VecDeque};
 
 struct Router {
     lim: usize,
-    vis: HashSet<i64>,
+    vis: HashSet<(i32, i32, i32)>,
     q: VecDeque<(i32, i32, i32)>,
     idx: HashMap<i32, usize>,
     d: HashMap<i32, Vec<i32>>,
@@ -19,8 +19,8 @@ impl Router {
         }
     }
 
-    fn f(a: i32, b: i32, c: i32) -> i64 {
-        ((a as i64) << 46) | ((b as i64) << 29) | (c as i64)
+    fn f(a: i32, b: i32, c: i32) -> (i32, i32, i32) {
+        (a, b, c)
     }
 
     fn add_packet(&mut self, source: i32, destination: i32, timestamp: i32) -> bool {

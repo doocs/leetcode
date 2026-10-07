@@ -511,7 +511,7 @@ function countComponents(n: number, edges: number[][]): number {
 
 > **Thinking**
 >
-> To avoid recursion depth, replace the DFS with BFS: enqueue an unseen node, flood its component, and increment. Time stays $O(n+m)$.
+> Solution 1 expands each component with an explicit stack. A queue expands the same component in breadth-first order, and each new search still increments the count. Time stays $O(n + m)$.
 
 <!-- thinking:end -->
 
@@ -686,6 +686,233 @@ function countComponents(n: number, edges: number[][]): number {
     }
     return ans;
 }
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of connected components is the number of searches that start at an unvisited node and cover its component. With $n \le 2000$, one $O(n + m)$ traversal is enough. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. Each new component is therefore expanded on a stack: a node is marked when it is pushed, and unvisited neighbors are pushed after it is popped. Marking on push keeps every node out of the stack more than once. Each new start increments the answer.
+
+<!-- thinking:end -->
+
+Build an adjacency list $g$ from the given edges. $g[i]$ holds every neighbor of node $i$.
+
+Scan the nodes. When node $i$ is still unvisited, increment the answer, push $i$, and mark it visited. While the stack is not empty, pop node $u$ and push every neighbor that has not been visited, marking it at the same time. That search covers the component of $i$. Continue with the next unvisited node until every node has been seen. The order of the neighbors does not change the number of components.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        ans = 0
+        for i in range(n):
+            if vis[i]:
+                continue
+            ans += 1
+            stk = [i]
+            vis[i] = True
+            while stk:
+                u = stk.pop()
+                for v in g[u]:
+                    if not vis[v]:
+                        vis[v] = True
+                        stk.append(v)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countComponents(int n, int[][] edges) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        boolean[] vis = new boolean[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
+                continue;
+            }
+            ++ans;
+            Deque<Integer> stk = new ArrayDeque<>();
+            stk.push(i);
+            vis[i] = true;
+            while (!stk.isEmpty()) {
+                int u = stk.pop();
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        stk.push(v);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countComponents(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<char> vis(n);
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
+                continue;
+            }
+            ++ans;
+            vector<int> stk = {i};
+            vis[i] = 1;
+            while (!stk.empty()) {
+                int u = stk.back();
+                stk.pop_back();
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = 1;
+                        stk.push_back(v);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countComponents(n int, edges [][]int) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	vis := make([]bool, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		if vis[i] {
+			continue
+		}
+		ans++
+		stk := []int{i}
+		vis[i] = true
+		for len(stk) > 0 {
+			u := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for _, v := range g[u] {
+				if !vis[v] {
+					vis[v] = true
+					stk = append(stk, v)
+				}
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countComponents(n: number, edges: number[][]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
+        }
+        ++ans;
+        const stk: number[] = [i];
+        vis[i] = true;
+        while (stk.length) {
+            const u = stk.pop()!;
+            for (const v of g[u]) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    stk.push(v);
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var countComponents = function (n, edges) {
+    const g = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis = Array(n).fill(false);
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
+        }
+        ++ans;
+        const stk = [i];
+        vis[i] = true;
+        while (stk.length) {
+            const u = stk.pop();
+            for (const v of g[u]) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    stk.push(v);
+                }
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

@@ -87,7 +87,7 @@ tags:
 
 > **思考**
 >
-> 两数 $\operatorname{lcm} \le \textit{threshold}$ 则连边，求连通块数。$n \le 10^5$ 且 $\textit{threshold} \le 2 \times 10^5$，不能枚举数对。
+> 两数 $\operatorname{lcm} \le \textit{threshold}$ 则连边，求连通块数。 $n \le 10^5$ 且 $\textit{threshold} \le 2 \times 10^5$，不能枚举数对。
 >
 > 若 $a,b$ 的倍数都落在阈值内，它们会通过这些倍数相通。把每个 $\textit{num}$ 与其不超过阈值的倍数合并即可。
 >

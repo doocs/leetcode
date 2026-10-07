@@ -38,6 +38,27 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 522
+
+- [4070. Minimum Rotations to Dial a Number I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README_EN.md)
+- [4071. Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README_EN.md)
+- [4072. Maximum Alternating Subarray Sum With One Deletion](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README_EN.md)
+- [4073. Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README_EN.md)
+
+#### Weekly Contest 521
+
+- [4065. Rearrange Array by Removing Distinct Values](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README_EN.md)
+- [4066. Maximum Equal Adjacent Pairs After at Most One Replacement](/solution/4000-4099/4066.Maximum%20Equal%20Adjacent%20Pairs%20After%20at%20Most%20One%20Replacement/README_EN.md)
+- [4067. Longest Subarray With Restricted Pair Sums](/solution/4000-4099/4067.Longest%20Subarray%20With%20Restricted%20Pair%20Sums/README_EN.md)
+- [4068. Maximize Meeting Earnings with Idle Gaps](/solution/4000-4099/4068.Maximize%20Meeting%20Earnings%20with%20Idle%20Gaps/README_EN.md)
+
+#### Biweekly Contest 192
+
+- [4061. Minimum Queen Moves to Reach Target](/solution/4000-4099/4061.Minimum%20Queen%20Moves%20to%20Reach%20Target/README_EN.md)
+- [4062. Transform Array Using Pair Operations](/solution/4000-4099/4062.Transform%20Array%20Using%20Pair%20Operations/README_EN.md)
+- [4063. Longest Subarray Divisible by K with At Most One Negation I](/solution/4000-4099/4063.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20I/README_EN.md)
+- [4064. Longest Subarray Divisible by K with At Most One Negation II](/solution/4000-4099/4064.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20II/README_EN.md)
+
 #### Weekly Contest 520
 
 - [4056. Number of Intersecting Interval Pairs I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README_EN.md)

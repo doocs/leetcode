@@ -70,7 +70,7 @@ tags:
 
 > **思考**
 >
-> $a$ 只有 $4$ 个数，要从 $b$ 中按顺序选 $4$ 个位置相乘求和，最大化。$|b|\le 10^5$，枚举四下标为 $O(n^4)$。阶段只有 $4$，对 $b$ 的位置做匹配 DP。
+> $a$ 只有 $4$ 个数，要从 $b$ 中按顺序选 $4$ 个位置相乘求和，最大化。 $|b|\le 10^5$，枚举四下标为 $O(n^4)$。阶段只有 $4$，对 $b$ 的位置做匹配 DP。
 >
 > $\textit{dfs}(i,j)$：已用掉 $a$ 的前 $i$ 个、考虑到 $b[j]$。可跳过 $b[j]$，或选中并加上 $a[i]\times b[j]$。记忆化状态 $4\times n$。
 
@@ -214,6 +214,136 @@ function maxScore(a: number[], b: number[]): number {
         return (f[i][j] = Math.max(dfs(i, j + 1), a[i] * b[j] + dfs(i + 1, j + 1)));
     };
     return dfs(0, 0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $a$ 只有 $4$ 个数，要从 $b$ 中按顺序选 $4$ 个位置相乘求和，最大化。$|b|\le 10^5$，枚举四下标为 $O(n^4)$。阶段只有 $4$，另一维是 $b$ 的位置。
+>
+> 在阶段 $i$、位置 $b[j]$，下一步要么仍停在阶段 $i$ 看 $b[j+1]$，要么加上 $a[i]\times b[j]$ 后进入阶段 $i+1$。按这个递推搜索时仍会先调用 $j+1$ 再返回，调用链深度为 $n$，栈会溢出。
+>
+> 从 $b$ 的末尾往前走时，下一列已经就绪。令 $f[i][j]$ 为该最大得分；$a$ 已经用完时后缀得分为 $0$，否则走到 $b$ 的尽头记为负无穷。
+>
+> 我们从 $j=n-1$ 填到 $0$，返回 $f[0][0]$。
+
+<!-- thinking:end -->
+
+令 $f[i][j]$ 表示从数组 $a$ 的第 $i$ 个元素、数组 $b$ 的第 $j$ 个元素开始能够获得的最大得分。答案为 $f[0][0]$。
+
+若 $j = n$，数组 $b$ 已经走完。数组 $a$ 也走完时值为 $0$，否则为负无穷。若 $i = m$，数组 $a$ 已经走完，剩下的 $b$ 得分为 $0$。
+
+否则可以跳过 $b[j]$，得分为 $f[i][j + 1]$；也可以选中它，得分为 $a[i] \times b[j] + f[i + 1][j + 1]$。$f[i][j]$ 取两者的较大值。
+
+我们从 $j = n - 1$ 往前计算到 $0$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为数组 $a$ 和 $b$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxScore(self, a: List[int], b: List[int]) -> int:
+        m, n = len(a), len(b)
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(m):
+            f[i][n] = -inf
+        for j in range(n - 1, -1, -1):
+            for i in range(m - 1, -1, -1):
+                f[i][j] = max(f[i][j + 1], a[i] * b[j] + f[i + 1][j + 1])
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxScore(int[] a, int[] b) {
+        int m = a.length, n = b.length;
+        long[][] f = new long[m + 1][n + 1];
+        for (int i = 0; i < m; ++i) {
+            f[i][n] = Long.MIN_VALUE / 2;
+        }
+        for (int j = n - 1; j >= 0; --j) {
+            for (int i = m - 1; i >= 0; --i) {
+                f[i][j] = Math.max(f[i][j + 1], 1L * a[i] * b[j] + f[i + 1][j + 1]);
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxScore(vector<int>& a, vector<int>& b) {
+        int m = a.size(), n = b.size();
+        vector<vector<long long>> f(m + 1, vector<long long>(n + 1));
+        for (int i = 0; i < m; ++i) {
+            f[i][n] = LLONG_MIN / 2;
+        }
+        for (int j = n - 1; j >= 0; --j) {
+            for (int i = m - 1; i >= 0; --i) {
+                f[i][j] = max(f[i][j + 1], 1LL * a[i] * b[j] + f[i + 1][j + 1]);
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxScore(a []int, b []int) int64 {
+	m, n := len(a), len(b)
+	f := make([][]int64, m+1)
+	for i := range f {
+		f[i] = make([]int64, n+1)
+	}
+	for i := 0; i < m; i++ {
+		f[i][n] = math.MinInt64 / 2
+	}
+	for j := n - 1; j >= 0; j-- {
+		for i := m - 1; i >= 0; i-- {
+			f[i][j] = max(f[i][j+1], int64(a[i])*int64(b[j])+f[i+1][j+1])
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxScore(a: number[], b: number[]): number {
+    const m = a.length;
+    const n = b.length;
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 0; i < m; ++i) {
+        f[i][n] = -Infinity;
+    }
+    for (let j = n - 1; j >= 0; --j) {
+        for (let i = m - 1; i >= 0; --i) {
+            f[i][j] = Math.max(f[i][j + 1], a[i] * b[j] + f[i + 1][j + 1]);
+        }
+    }
+    return f[0][0];
 }
 ```
 

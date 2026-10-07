@@ -17,7 +17,7 @@ public:
                 double b = (dx == 0 ? x1 : 1.0 * (1LL * y1 * dx - 1LL * x1 * dy) / dx);
 
                 cnt1[k][b] += 1;
-                int p = (x1 + x2 + 2000) * 4000 + (y1 + y2 + 2000);
+                int p = (x1 + x2 + 2000) * 4001 + (y1 + y2 + 2000);
                 cnt2[p][k] += 1;
             }
         }

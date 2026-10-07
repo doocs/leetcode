@@ -70,7 +70,7 @@ tags:
 
 > **思考**
 >
-> 可从下标 $0$ 或 $1$ 出发，每步跨一或两级并支付当前阶费用。$n\le 1000$，朴素递归会重复计算同一台阶。
+> 可从下标 $0$ 或 $1$ 出发，每步跨一或两级并支付当前阶费用。 $n\le 1000$，朴素递归会重复计算同一台阶。
 >
 > 从 $i$ 出发的最小花费只依赖 $i+1$ 与 $i+2$，越过顶端代价为 $0$。记忆化后每个下标算一次。
 >
@@ -252,9 +252,7 @@ function minCostClimbingStairs(cost) {
 
 > **思考**
 >
-> 方法一已是线性，仍用递归栈。按到达第 $i$ 级（尚未支付 $i$ 的费用，或视为到达楼顶）正向转移即可。
->
-> $f[i]$ 表示到达位置 $i$ 的最小花费，由 $i-1$、$i-2$ 跨一步并支付对应 $cost$ 而来，$f[n]$ 即楼顶。
+> 方法一已经从楼顶向下填好离开每一级的花费。这里的 $f[i]$ 改成到达位置 $i$ 的最小花费，只依赖 $i-1$ 与 $i-2$，因此按 $i$ 从小到大填写，$f[n]$ 就是楼顶。
 
 <!-- thinking:end -->
 
@@ -437,6 +435,7 @@ public:
 
 ```go
 func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
 	var f, g int
 	for i := 2; i <= n; i++ {
 		f, g = g, min(f+cost[i-2], g+cost[i-1])
@@ -482,6 +481,131 @@ function minCostClimbingStairs(cost) {
         [f, g] = [g, Math.min(f + cost[i - 1], g + cost[i])];
     }
     return g;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法四：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 展开每一步的一阶和两阶，路径数是指数级的。台阶数可以到 $1000$，而第一次递归总是走到下一阶，调用深度就是 $n$。离开台阶 $i$ 的最小花费只依赖 $i+1$ 和 $i+2$，越过顶端为 $0$。令 $f[i] = \textit{cost}[i] + \min(f[i+1], f[i+2])$，从 $i = n-1$ 降到 $0$ 填写。答案是 $\min(f[0], f[1])$。
+
+<!-- thinking:end -->
+
+我们令 $f[i]$ 表示从第 $i$ 个阶梯出发爬到楼顶的最小花费。当 $i \ge n$ 时，$f[i] = 0$。对于 $i < n$，
+
+$$
+f[i] = \textit{cost}[i] + \min(f[i + 1], f[i + 2])
+$$
+
+按 $i$ 从 $n - 1$ 递减到 $0$ 计算。答案为 $\min(f[0], f[1])$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{cost}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        f = [0] * (n + 2)
+        for i in range(n - 1, -1, -1):
+            f[i] = cost[i] + min(f[i + 1], f[i + 2])
+        return min(f[0], f[1])
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        int[] f = new int[n + 2];
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = cost[i] + Math.min(f[i + 1], f[i + 2]);
+        }
+        return Math.min(f[0], f[1]);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> f(n + 2);
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = cost[i] + min(f[i + 1], f[i + 2]);
+        }
+        return min(f[0], f[1]);
+    }
+};
+```
+
+#### Go
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
+	f := make([]int, n+2)
+	for i := n - 1; i >= 0; i-- {
+		f[i] = cost[i] + min(f[i+1], f[i+2])
+	}
+	return min(f[0], f[1])
+}
+```
+
+#### TypeScript
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+    const n = cost.length;
+    const f: number[] = Array(n + 2).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        f[i] = cost[i] + Math.min(f[i + 1], f[i + 2]);
+    }
+    return Math.min(f[0], f[1]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
+        let n = cost.len();
+        let mut f = vec![0; n + 2];
+        for i in (0..n).rev() {
+            f[i] = cost[i] + f[i + 1].min(f[i + 2]);
+        }
+        f[0].min(f[1])
+    }
+}
+```
+
+#### JavaScript
+
+```js
+function minCostClimbingStairs(cost) {
+    const n = cost.length;
+    const f = Array(n + 2).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        f[i] = cost[i] + Math.min(f[i + 1], f[i + 2]);
+    }
+    return Math.min(f[0], f[1]);
 }
 ```
 

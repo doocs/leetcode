@@ -79,7 +79,7 @@ tags:
 >
 > Split the digits of $num$ into two integers whose sum is minimized. High places should be small, so the cheapest digits should fill those places on both numbers in turn.
 >
-> After counting digits $0$–$9$, append them in increasing order alternately to the two numbers, keeping their lengths close and their leading digits small.
+> After counting digits $0$– $9$, append them in increasing order alternately to the two numbers, keeping their lengths close and their leading digits small.
 
 <!-- thinking:end -->
 

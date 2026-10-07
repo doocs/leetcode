@@ -95,7 +95,7 @@ tags:
 >
 > 从 $1$ 到最深叶子的路径有 $d$ 条边，每条赋 $1$ 或 $2$，代价为奇数当且仅当有奇数条 $1$。其余边任意。
 >
-> 从 $d$ 条中选奇数条的方案数为 $2^{d-1}$（$d=0$ 时为 $0$）。DFS 求深度后快速幂即可。
+> 从 $d$ 条中选奇数条的方案数为 $2^{d-1}$（ $d=0$ 时为 $0$）。DFS 求深度后快速幂即可。
 
 <!-- thinking:end -->
 
@@ -299,6 +299,231 @@ function assignEdgeWeights(edges: number[][]): number {
     };
 
     return pow(2, dfs(1, 0) - 1, mod);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：显式栈 + 数学
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $1$ 到最深叶子的路径有 $d$ 条边，每条赋 $1$ 或 $2$，代价为奇数当且仅当有奇数条 $1$。其余边任意。从 $d$ 条中选奇数条的方案数为 $2^{d-1}$（$d = 0$ 时为 $0$）。
+>
+> $n \le 10^5$。从根递归进入孩子，链上的调用深度就是 $n$，会超出递归栈。这条深度只是根到某点的边数，兄弟的访问顺序不影响最大值。
+>
+> 因此用显式栈保存 $(节点, 父节点, 深度)$。弹出时更新最大深度，并把父节点以外的邻居以深度加一压入。得到 $d$ 后再对 $2^{d-1}$ 做快速幂。
+
+<!-- thinking:end -->
+
+我们先通过边构建出 $g$，其中 $g[u]$ 表示 $u$ 的所有邻接点。
+
+接下来用显式栈求树的深度 $d$。栈帧是 $(节点, 父节点, 深度)$，从节点 $1$、深度 $0$ 出发；弹出时用当前深度更新 $d$，并把尚未走过的邻居以深度加一压入。从 $d$ 中选出奇数个数的方案就是答案。根据定理，该方案数为 $2^{d-1}$，我们可以用快速幂求出答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def assignEdgeWeights(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n + 1)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        stk = [(1, 0, 0)]
+        d = 0
+        while stk:
+            i, fa, dep = stk.pop()
+            d = max(d, dep)
+            for j in g[i]:
+                if j != fa:
+                    stk.append((j, i, dep + 1))
+        return pow(2, d - 1, 10**9 + 7)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int assignEdgeWeights(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0];
+            int v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        int d = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {1, 0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], dep = cur[2];
+            d = Math.max(d, dep);
+            for (int j : g[i]) {
+                if (j != fa) {
+                    stk.push(new int[] {j, i, dep + 1});
+                }
+            }
+        }
+        return (int) pow(2, d - 1, 1_000_000_007);
+    }
+
+    private long pow(long a, int n, int mod) {
+        long res = 1;
+        while (n > 0) {
+            if ((n & 1) != 0) {
+                res = res * a % mod;
+            }
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int assignEdgeWeights(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n + 1);
+        for (auto& e : edges) {
+            int u = e[0];
+            int v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        int d = 0;
+        vector<array<int, 3>> stk{{1, 0, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, dep] = stk.back();
+            stk.pop_back();
+            d = max(d, dep);
+            for (int j : g[i]) {
+                if (j != fa) {
+                    stk.push_back({j, i, dep + 1});
+                }
+            }
+        }
+        return pow(2, d - 1, 1000000007);
+    }
+
+private:
+    long long pow(long long a, int n, int mod) {
+        long long res = 1;
+        while (n > 0) {
+            if (n & 1) {
+                res = res * a % mod;
+            }
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+#### Go
+
+```go
+func assignEdgeWeights(edges [][]int) int {
+	const mod = 1_000_000_007
+
+	n := len(edges) + 1
+	g := make([][]int, n+1)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+
+	d := 0
+	stk := [][3]int{{1, 0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, dep := cur[0], cur[1], cur[2]
+		d = max(d, dep)
+		for _, j := range g[i] {
+			if j != fa {
+				stk = append(stk, [3]int{j, i, dep + 1})
+			}
+		}
+	}
+	return pow(2, d-1, mod)
+}
+
+func pow(a, n, mod int) int {
+	res := 1
+	for n > 0 {
+		if n&1 > 0 {
+			res = res * a % mod
+		}
+		a = a * a % mod
+		n >>= 1
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function assignEdgeWeights(edges: number[][]): number {
+    const mod = 1_000_000_007;
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+
+    const stk: [number, number, number][] = [[1, 0, 0]];
+    let d = 0;
+    while (stk.length) {
+        const [i, fa, dep] = stk.pop()!;
+        d = Math.max(d, dep);
+        for (const j of g[i]) {
+            if (j !== fa) {
+                stk.push([j, i, dep + 1]);
+            }
+        }
+    }
+
+    const pow = (a: number, n: number, mod: number): number => {
+        let res = 1n;
+        let x = BigInt(a);
+        const m = BigInt(mod);
+
+        while (n > 0) {
+            if (n & 1) {
+                res = (res * x) % m;
+            }
+            x = (x * x) % m;
+            n >>= 1;
+        }
+
+        return Number(res);
+    };
+
+    return pow(2, d - 1, mod);
 }
 ```
 

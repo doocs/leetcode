@@ -229,7 +229,7 @@ function numEnclaves(grid: number[][]): number {
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y <= n && grid[x][y] === 1) {
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
                 dfs(x, y);
             }
         }
@@ -305,9 +305,9 @@ impl Solution {
 
 > **Thinking**
 >
-> DFS may recurse on the order of $2.5\times 10^5$ cells. Connectivity does not depend on search order.
+> Solution 1 already floods from the border with an explicit stack. Connectivity does not depend on search order, so a queue can clear the same cells by layers.
 >
-> A queue of border land cells runs the same flood in BFS, clearing reachable cells and counting what remains.
+> Pop a cell and mark each neighboring $1$. After the borders are processed, the remaining $1$s are still the enclaves.
 
 <!-- thinking:end -->
 
@@ -452,36 +452,87 @@ func numEnclaves(grid [][]int) (ans int) {
 
 ```ts
 function numEnclaves(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
+    const [m, n] = [grid.length, grid[0].length];
     const dirs = [-1, 0, 1, 0, -1];
     const q: number[][] = [];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] === 1 && (i === 0 || i === m - 1 || j === 0 || j === n - 1)) {
+    for (let j = 0; j < n; ++j) {
+        for (let i of [0, m - 1]) {
+            if (grid[i][j] === 1) {
                 q.push([i, j]);
                 grid[i][j] = 0;
             }
         }
     }
-    while (q.length) {
-        const [i, j] = q.shift()!;
+    for (let i = 0; i < m; ++i) {
+        for (let j of [0, n - 1]) {
+            if (grid[i][j] === 1) {
+                q.push([i, j]);
+                grid[i][j] = 0;
+            }
+        }
+    }
+    let head = 0;
+    while (head < q.length) {
+        const [i, j] = q[head++];
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y <= n && grid[x][y] === 1) {
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
                 q.push([x, y]);
                 grid[x][y] = 0;
             }
         }
     }
-    let ans = 0;
-    for (const row of grid) {
-        for (const v of row) {
-            ans += v;
+    return grid.flat().reduce((acc, cur) => acc + cur, 0);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn num_enclaves(mut grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut q = VecDeque::new();
+        let dirs = [-1, 0, 1, 0, -1];
+
+        for j in 0..n {
+            for &i in &[0, m - 1] {
+                if grid[i][j] == 1 {
+                    q.push_back((i, j));
+                    grid[i][j] = 0;
+                }
+            }
         }
+
+        for i in 0..m {
+            for &j in &[0, n - 1] {
+                if grid[i][j] == 1 {
+                    q.push_back((i, j));
+                    grid[i][j] = 0;
+                }
+            }
+        }
+
+        while let Some((i, j)) = q.pop_front() {
+            for k in 0..4 {
+                let x = i as isize + dirs[k];
+                let y = j as isize + dirs[k + 1];
+                if x >= 0 && x < m as isize && y >= 0 && y < n as isize {
+                    let (x, y) = (x as usize, y as usize);
+                    if grid[x][y] == 1 {
+                        q.push_back((x, y));
+                        grid[x][y] = 0;
+                    }
+                }
+            }
+        }
+
+        grid.into_iter().flatten().sum()
     }
-    return ans;
 }
 ```
 
@@ -756,6 +807,291 @@ func numEnclaves(grid [][]int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An enclave is land that cannot reach the border. Testing every land cell separately repeats the same search. With $m,n\le 500$, the complement is the land connected to the border.
+>
+> Recursing along a border-connected snake of about a thousand cells exhausts the call stack before the flood finishes.
+>
+> The flood only needs to mark reachable cells as $0$. It does not wait on a return value.
+>
+> An explicit stack holds the cells still to clear. Pop a cell and push each neighboring $1$ after marking it. After all four borders are processed, the remaining $1$s are enclaves.
+
+<!-- thinking:end -->
+
+Flood from every land cell on the four borders with an explicit stack, marking reachable cells as $0$. The number of $1$s left is the answer.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        def flood(i: int, j: int):
+            stk = [(i, j)]
+            grid[i][j] = 0
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        grid[x][y] = 0
+                        stk.append((x, y))
+
+        m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
+        for j in range(n):
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    flood(i, j)
+        for i in range(m):
+            for j in (0, n - 1):
+                if grid[i][j]:
+                    flood(i, j)
+        return sum(sum(row) for row in grid)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numEnclaves(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        for (int j = 0; j < n; j++) {
+            for (int i : List.of(0, m - 1)) {
+                if (grid[i][j] == 1) {
+                    flood(grid, stk, dirs, i, j);
+                }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j : List.of(0, n - 1)) {
+                if (grid[i][j] == 1) {
+                    flood(grid, stk, dirs, i, j);
+                }
+            }
+        }
+        int ans = 0;
+        for (var row : grid) {
+            for (int x : row) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+
+    private void flood(int[][] grid, Deque<int[]> stk, int[] dirs, int i, int j) {
+        int m = grid.length, n = grid[0].length;
+        grid[i][j] = 0;
+        stk.push(new int[] {i, j});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            i = cur[0];
+            j = cur[1];
+            for (int k = 0; k < 4; k++) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
+                    grid[x][y] = 0;
+                    stk.push(new int[] {x, y});
+                }
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numEnclaves(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        auto flood = [&](int i, int j) {
+            vector<pair<int, int>> stk{{i, j}};
+            grid[i][j] = 0;
+            while (!stk.empty()) {
+                auto [a, b] = stk.back();
+                stk.pop_back();
+                for (int k = 0; k < 4; ++k) {
+                    int x = a + dirs[k], y = b + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
+                        grid[x][y] = 0;
+                        stk.emplace_back(x, y);
+                    }
+                }
+            }
+        };
+        for (int j = 0; j < n; ++j) {
+            for (int i : {0, m - 1}) {
+                if (grid[i][j] == 1) {
+                    flood(i, j);
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j : {0, n - 1}) {
+                if (grid[i][j] == 1) {
+                    flood(i, j);
+                }
+            }
+        }
+        int ans = 0;
+        for (const auto& row : grid) {
+            ans += accumulate(row.begin(), row.end(), 0);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numEnclaves(grid [][]int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	flood := func(i, j int) {
+		grid[i][j] = 0
+		stk := [][2]int{{i, j}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for k := 0; k < 4; k++ {
+				x, y := cur[0]+dirs[k], cur[1]+dirs[k+1]
+				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
+					grid[x][y] = 0
+					stk = append(stk, [2]int{x, y})
+				}
+			}
+		}
+	}
+	for j := 0; j < n; j++ {
+		for _, i := range [2]int{0, m - 1} {
+			if grid[i][j] == 1 {
+				flood(i, j)
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for _, j := range [2]int{0, n - 1} {
+			if grid[i][j] == 1 {
+				flood(i, j)
+			}
+		}
+	}
+	for _, row := range grid {
+		for _, x := range row {
+			ans += x
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numEnclaves(grid: number[][]): number {
+    const [m, n] = [grid.length, grid[0].length];
+    const dirs = [-1, 0, 1, 0, -1];
+    const flood = (i: number, j: number) => {
+        grid[i][j] = 0;
+        const stk: number[][] = [[i, j]];
+        while (stk.length) {
+            const [a, b] = stk.pop()!;
+            for (let k = 0; k < 4; ++k) {
+                const x = a + dirs[k];
+                const y = b + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
+                    grid[x][y] = 0;
+                    stk.push([x, y]);
+                }
+            }
+        }
+    };
+    for (let j = 0; j < n; ++j) {
+        for (const i of [0, m - 1]) {
+            if (grid[i][j] === 1) {
+                flood(i, j);
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (const j of [0, n - 1]) {
+            if (grid[i][j] === 1) {
+                flood(i, j);
+            }
+        }
+    }
+    return grid.flat().reduce((acc, cur) => acc + cur, 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_enclaves(mut grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let dirs = [-1, 0, 1, 0, -1];
+
+        let flood = |grid: &mut Vec<Vec<i32>>, i: usize, j: usize| {
+            grid[i][j] = 0;
+            let mut stk = vec![(i, j)];
+            while let Some((a, b)) = stk.pop() {
+                for k in 0..4 {
+                    let x = a as i32 + dirs[k];
+                    let y = b as i32 + dirs[k + 1];
+                    if x >= 0 && y >= 0 {
+                        let (x, y) = (x as usize, y as usize);
+                        if x < m && y < n && grid[x][y] == 1 {
+                            grid[x][y] = 0;
+                            stk.push((x, y));
+                        }
+                    }
+                }
+            }
+        };
+
+        for j in 0..n {
+            if grid[0][j] == 1 {
+                flood(&mut grid, 0, j);
+            }
+            if grid[m - 1][j] == 1 {
+                flood(&mut grid, m - 1, j);
+            }
+        }
+
+        for i in 0..m {
+            if grid[i][0] == 1 {
+                flood(&mut grid, i, 0);
+            }
+            if grid[i][n - 1] == 1 {
+                flood(&mut grid, i, n - 1);
+            }
+        }
+
+        grid.into_iter().flatten().filter(|&x| x == 1).count() as i32
+    }
 }
 ```
 

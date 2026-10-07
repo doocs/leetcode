@@ -19,12 +19,14 @@ class Solution {
         long[] right = new long[n];
         Map<Integer, Long> cnt = new HashMap<>();
         for (int i = 1; i < n; ++i) {
-            cnt.merge(nums[i - 1], 1 + cnt.getOrDefault(nums[i - 1] - 1, 0L), Long::sum);
+            cnt.merge(nums[i - 1], (1 + cnt.getOrDefault(nums[i - 1] - 1, 0L)) % mod,
+                (a, b) -> (a + b) % mod);
             left[i] = cnt.getOrDefault(nums[i] - 1, 0L);
         }
         cnt.clear();
         for (int i = n - 2; i >= 0; --i) {
-            cnt.merge(nums[i + 1], 1 + cnt.getOrDefault(nums[i + 1] + 1, 0L), Long::sum);
+            cnt.merge(nums[i + 1], (1 + cnt.getOrDefault(nums[i + 1] + 1, 0L)) % mod,
+                (a, b) -> (a + b) % mod);
             right[i] = cnt.getOrDefault(nums[i] + 1, 0L);
         }
         long ans = 0;

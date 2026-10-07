@@ -76,7 +76,7 @@ tags:
 
 > **思考**
 >
-> 两棵不重叠子树权和的最大异或。$n \le 5\times 10^4$，先 DFS 求出每棵子树和 $s[i]$。再按「先查后插」的欧拉序：查询当前子树与已完全访问、且与之不相交的子树之最大异或，回溯后再插入自己，保证不相交。
+> 两棵不重叠子树权和的最大异或。 $n \le 5\times 10^4$，先 DFS 求出每棵子树和 $s[i]$。再按「先查后插」的欧拉序：查询当前子树与已完全访问、且与之不相交的子树之最大异或，回溯后再插入自己，保证不相交。
 >
 > 权和可达约 $10^{14}$，用 $48$ 位 $0$-$1$ 前缀树按位贪心取相反位。
 
@@ -385,6 +385,389 @@ func maxXor(n int, edges [][]int, values []int) int64 {
 		tree.insert(s[i])
 	}
 	dfs2(0, -1)
+	return int64(ans)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：显式栈 + 0-1 前缀树
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两棵不相交子树的权和要取最大异或。$n$ 达到 $5\times 10^4$，若用递归先算子树和、再按先查后插走一遍，一条链就会把调用栈用尽。
+>
+> 瓶颈在这条链上的两趟递归：每一趟都只走向下一个孩子，深度与 $n$ 同阶。
+>
+> 子树和只依赖孩子。异或查询则要求对方子树已经结束，且与当前子树不相交，所以要先查询，等孩子走完再插入。
+>
+> 因此两趟都改成显式栈。第一趟在孩子处理完后累加 $s[i]$。第二趟弹出时先用 $48$ 位 $0$-$1$ 前缀树查询 $s[i]$，压入退出标记和孩子，孩子清空后再插入 $s[i]$。权和可达约 $10^{14}$，仍按位贪心取相反位。
+
+<!-- thinking:end -->
+
+我们先用显式栈做后序，求出每个节点的子树和，记录在数组 $s$ 中。
+
+然后使用 0-1 前缀树维护已经结束的子树和。弹出一个节点时先查询它与已插入子树和的最大异或，再把它的孩子入栈；孩子都处理完之后，才把当前子树和插入前缀树，从而保证两棵子树不相交。
+
+时间复杂度 $O(n \times log M)$，其中 $n$ 为节点个数，而 $M$ 为子树和的最大值。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 2
+
+    def insert(self, x):
+        node = self
+        for i in range(47, -1, -1):
+            v = (x >> i) & 1
+            if node.children[v] is None:
+                node.children[v] = Trie()
+            node = node.children[v]
+
+    def search(self, x):
+        node = self
+        res = 0
+        for i in range(47, -1, -1):
+            v = (x >> i) & 1
+            if node is None:
+                return res
+            if node.children[v ^ 1]:
+                res = res << 1 | 1
+                node = node.children[v ^ 1]
+            else:
+                res <<= 1
+                node = node.children[v]
+        return res
+
+
+class Solution:
+    def maxXor(self, n: int, edges: List[List[int]], values: List[int]) -> int:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in reversed(g[i]):
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                t = values[i]
+                for j in g[i]:
+                    if j != fa:
+                        t += s[j]
+                s[i] = t
+        ans = 0
+        tree = Trie()
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                ans = max(ans, tree.search(s[i]))
+                stk.append((i, fa, 1))
+                for j in reversed(g[i]):
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                tree.insert(s[i])
+        return ans
+```
+
+#### Java
+
+```java
+class Trie {
+    Trie[] children = new Trie[2];
+
+    void insert(long x) {
+        Trie node = this;
+        for (int i = 47; i >= 0; --i) {
+            int v = (int) (x >> i) & 1;
+            if (node.children[v] == null) {
+                node.children[v] = new Trie();
+            }
+            node = node.children[v];
+        }
+    }
+
+    long search(long x) {
+        Trie node = this;
+        long res = 0;
+        for (int i = 47; i >= 0; --i) {
+            int v = (int) (x >> i) & 1;
+            if (node == null) {
+                return res;
+            }
+            if (node.children[v ^ 1] != null) {
+                res = res << 1 | 1;
+                node = node.children[v ^ 1];
+            } else {
+                res <<= 1;
+                node = node.children[v];
+            }
+        }
+        return res;
+    }
+}
+
+class Solution {
+    public long maxXor(int n, int[][] edges, int[] values) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[] s = new long[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int k = g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i].get(k);
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                long t = values[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        t += s[j];
+                    }
+                }
+                s[i] = t;
+            }
+        }
+        long ans = 0;
+        Trie tree = new Trie();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                ans = Math.max(ans, tree.search(s[i]));
+                stk.push(new int[] {i, fa, 1});
+                for (int k = g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i].get(k);
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                tree.insert(s[i]);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+using ll = long long;
+
+class Trie {
+public:
+    vector<Trie*> children;
+    string v;
+    Trie()
+        : children(2) {}
+
+    void insert(ll x) {
+        Trie* node = this;
+        for (int i = 47; ~i; --i) {
+            int v = (x >> i) & 1;
+            if (!node->children[v]) node->children[v] = new Trie();
+            node = node->children[v];
+        }
+    }
+
+    ll search(ll x) {
+        Trie* node = this;
+        ll res = 0;
+        for (int i = 47; ~i; --i) {
+            if (!node) return res;
+            int v = (x >> i) & 1;
+            if (node->children[v ^ 1]) {
+                res = res << 1 | 1;
+                node = node->children[v ^ 1];
+            } else {
+                res <<= 1;
+                node = node->children[v];
+            }
+        }
+        return res;
+    }
+};
+
+class Solution {
+public:
+    long long maxXor(int n, vector<vector<int>>& edges, vector<int>& values) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        vector<ll> s(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int k = (int) g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i][k];
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                ll t = values[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        t += s[j];
+                    }
+                }
+                s[i] = t;
+            }
+        }
+        Trie tree;
+        ll ans = 0;
+        stk.push_back({0, -1, 0});
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                ans = max(ans, tree.search(s[i]));
+                stk.push_back({i, fa, 1});
+                for (int k = (int) g[i].size() - 1; k >= 0; --k) {
+                    int j = g[i][k];
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                tree.insert(s[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+type Trie struct {
+	children [2]*Trie
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+
+func (this *Trie) insert(x int) {
+	node := this
+	for i := 47; i >= 0; i-- {
+		v := (x >> i) & 1
+		if node.children[v] == nil {
+			node.children[v] = newTrie()
+		}
+		node = node.children[v]
+	}
+}
+
+func (this *Trie) search(x int) int {
+	node := this
+	res := 0
+	for i := 47; i >= 0; i-- {
+		v := (x >> i) & 1
+		if node == nil {
+			return res
+		}
+		if node.children[v^1] != nil {
+			res = res<<1 | 1
+			node = node.children[v^1]
+		} else {
+			res <<= 1
+			node = node.children[v]
+		}
+	}
+	return res
+}
+
+func maxXor(n int, edges [][]int, values []int) int64 {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	s := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for k := len(g[i]) - 1; k >= 0; k-- {
+				j := g[i][k]
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			t := values[i]
+			for _, j := range g[i] {
+				if j != fa {
+					t += s[j]
+				}
+			}
+			s[i] = t
+		}
+	}
+	ans := 0
+	tree := newTrie()
+	stk = [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			ans = max(ans, tree.search(s[i]))
+			stk = append(stk, [3]int{i, fa, 1})
+			for k := len(g[i]) - 1; k >= 0; k-- {
+				j := g[i][k]
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			tree.insert(s[i])
+		}
+	}
 	return int64(ans)
 }
 ```

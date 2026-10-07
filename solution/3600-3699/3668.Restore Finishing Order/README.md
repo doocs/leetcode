@@ -77,7 +77,7 @@ tags:
 
 > **思考**
 >
-> $\textit{friends}$ 是 $\textit{order}$ 的子序列，要按完赛顺序输出这些好友。$n\le 100$，可建 ID 到名次的映射再排序。
+> $\textit{friends}$ 是 $\textit{order}$ 的子序列，要按完赛顺序输出这些好友。 $n\le 100$，可建 ID 到名次的映射再排序。
 >
 > 字典 $d[x]=i$ 记录完赛名次，对 $\textit{friends}$ 按 $d[x]$ 排序。
 >

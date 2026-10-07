@@ -61,7 +61,7 @@ tags:
 
 > **思考**
 >
-> 从每个石子尝试步长 $k-1,k,k+1$，同一「石子 + 上一步距」会被反复走到。$n\le 1100$，状态 $(i,k)$ 至多 $O(n^2)$ 个。
+> 从每个石子尝试步长 $k-1,k,k+1$，同一「石子 + 上一步距」会被反复走到。 $n\le 1100$，状态 $(i,k)$ 至多 $O(n^2)$ 个。
 >
 > 用哈希表把坐标映射到下标，记忆化 $dfs(i,k)$，只向确实存在的下一石子扩展。先建 $\textit{pos}$，落点查询才是常数时间。
 
@@ -148,8 +148,7 @@ class Solution {
 public:
     bool canCross(vector<int>& stones) {
         int n = stones.size();
-        int f[n][n];
-        memset(f, -1, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n, -1));
         unordered_map<int, int> pos;
         for (int i = 0; i < n; ++i) {
             pos[stones[i]] = i;
@@ -308,7 +307,7 @@ impl Solution {
 
 > **思考**
 >
-> 方法一的递归深度随路径增长。改为 $f[i][k]$ 表示能否以步长 $k$ 落到第 $i$ 块石子，由更早的 $j$ 转移，$k=\textit{stones}[i]-\textit{stones}[j]$。
+> 方法一的递归深度随路径增长。改为 $f[i][k]$ 表示能否以步长 $k$ 落到第 $i$ 块石子，由更早的 $j$ 转移， $k=\textit{stones}[i]-\textit{stones}[j]$。
 >
 > 若 $k-1>j$，更远的 $j$ 步长更大而中间石子更少，可以提前结束内层循环。自底向上填表，避免递归栈。
 

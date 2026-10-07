@@ -185,7 +185,7 @@ function kthGrammar(n: number, k: number): number {
 >
 > 方法一仍走 $n$ 层。观察从根到第 $k$ 位（改从 $0$ 编号）的路径：每次走向奇数孩子就翻转一次，翻转次数即 $k-1$ 的二进制中 $1$ 的个数。
 >
-> 因此答案为 $(k-1).\textit{bit\_count}\bmod 2$，与 $n$ 无关（$n$ 足够长即可）。
+> 因此答案为 $(k-1).\textit{bit\_count}\bmod 2$，与 $n$ 无关（ $n$ 足够长即可）。
 
 <!-- thinking:end -->
 

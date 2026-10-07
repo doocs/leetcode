@@ -83,7 +83,7 @@ We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix
 - If $y \le \sqrt{n}$, then we can directly query $suf[y][x]$;
 - If $y > \sqrt{n}$, then we can directly brute force the solution.
 
-The time complexity is $O((n +  m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
+The time complexity is $O((n + m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
 
 <!-- tabs:start -->
 

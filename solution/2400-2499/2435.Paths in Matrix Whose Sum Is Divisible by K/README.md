@@ -75,7 +75,7 @@ tags:
 
 > **思考**
 >
-> 只能向右或向下，路径数与格子乘积同阶，$m n \le 5\times 10^4$、$k \le 50$。需要的是路径和模 $k$ 为 $0$ 的条数，故把余数纳入状态。
+> 只能向右或向下，路径数与格子乘积同阶， $m n \le 5\times 10^4$、 $k \le 50$。需要的是路径和模 $k$ 为 $0$ 的条数，故把余数纳入状态。
 >
 > 令 $f[i][j][r]$ 为走到 $(i,j)$ 且和模 $K$ 为 $r$ 的方案，由上方或左方余数 $r-grid[i][j]$ 转移。起点单独置 $1$。
 
@@ -83,7 +83,7 @@ tags:
 
 我们记题目中的 $k$ 为 $K$，矩阵 $\textit{grid}$ 的行数和列数分别为 $m$ 和 $n$。
 
-定义 $f[i][j][k]$ 表示从起点 $(0, 0)$ 出发，到达位置 $(i, j)$，且路径上元素和对 $K$ 取模等于 $k$ 的路径数目。初始时，$f[0][0][\textit{grid}[0][0] \bmod K] = 1$。 最终答案即为 $f[m - 1][n - 1][0]$。
+定义 $f[i][j][k]$ 表示从起点 $(0, 0)$ 出发，到达位置 $(i, j)$，且路径上元素和对 $K$ 取模等于 $k$ 的路径数目。初始时， $f[0][0][\textit{grid}[0][0] \bmod K] = 1$。 最终答案即为 $f[m - 1][n - 1][0]$。
 
 我们可以得到状态转移方程：
 
@@ -155,8 +155,7 @@ public:
     int numberOfPaths(vector<vector<int>>& grid, int K) {
         const int mod = 1e9 + 7;
         int m = grid.size(), n = grid[0].size();
-        int f[m][n][K];
-        memset(f, 0, sizeof(f));
+        vector<vector<vector<int>>> f(m, vector<vector<int>>(n, vector<int>(K)));
         f[0][0][grid[0][0] % K] = 1;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {

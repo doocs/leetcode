@@ -72,7 +72,7 @@ tags:
 
 > **思考**
 >
-> 求距原点最近的 $k$ 个点。按欧氏距离排序后取前 $k$ 个即可，$n\le 10^4$ 时 $O(n\log n)$ 可接受。
+> 求距原点最近的 $k$ 个点。按欧氏距离排序后取前 $k$ 个即可， $n\le 10^4$ 时 $O(n\log n)$ 可接受。
 
 <!-- thinking:end -->
 
@@ -97,7 +97,7 @@ class Solution:
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
         Arrays.sort(
-            points, (p1, p2) -> Math.hypot(p1[0], p1[1]) - Math.hypot(p2[0], p2[1]) > 0 ? 1 : -1);
+            points, (p1, p2) -> Double.compare(Math.hypot(p1[0], p1[1]), Math.hypot(p2[0], p2[1])));
         return Arrays.copyOfRange(points, 0, k);
     }
 }

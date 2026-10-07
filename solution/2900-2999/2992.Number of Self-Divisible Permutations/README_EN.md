@@ -147,11 +147,15 @@ class Solution {
         }
         f[mask] = 0;
         for (int j = 1; j <= n; ++j) {
-            if ((mask >> j & 1) == 0 && (i % j == 0 || j % i == 0)) {
+            if ((mask >> j & 1) == 0 && gcd(i, j) == 1) {
                 f[mask] += dfs(mask | 1 << j);
             }
         }
         return f[mask];
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
 ```
@@ -174,7 +178,7 @@ public:
             }
             f[mask] = 0;
             for (int j = 1; j <= n; ++j) {
-                if ((mask >> j & 1) == 0 && (i % j == 0 || j % i == 0)) {
+                if ((mask >> j & 1) == 0 && __gcd(i, j) == 1) {
                     f[mask] += dfs(mask | 1 << j);
                 }
             }
@@ -204,13 +208,20 @@ func selfDivisiblePermutationCount(n int) int {
 		}
 		f[mask] = 0
 		for j := 1; j <= n; j++ {
-			if mask>>j&1 == 0 && (i%j == 0 || j%i == 0) {
+			if mask>>j&1 == 0 && gcd(i, j) == 1 {
 				f[mask] += dfs(mask | 1<<j)
 			}
 		}
 		return f[mask]
 	}
 	return dfs(0)
+}
+
+func gcd(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
 }
 ```
 
@@ -229,13 +240,22 @@ function selfDivisiblePermutationCount(n: number): number {
         }
         f[mask] = 0;
         for (let j = 1; j <= n; ++j) {
-            if (((mask >> j) & 1) === 0 && (i % j === 0 || j % i === 0)) {
+            if (((mask >> j) & 1) === 0 && gcd(i, j) === 1) {
                 f[mask] += dfs(mask | (1 << j));
             }
         }
         return f[mask];
     };
     return dfs(0);
+}
+
+function gcd(a: number, b: number): number {
+    while (b !== 0) {
+        const t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;
 }
 
 function bitCount(i: number): number {
@@ -301,12 +321,16 @@ class Solution {
         for (int mask = 0; mask < 1 << n; ++mask) {
             int i = Integer.bitCount(mask);
             for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                if (((mask >> (j - 1)) & 1) == 1 && gcd(i, j) == 1) {
                     f[mask] += f[mask ^ (1 << (j - 1))];
                 }
             }
         }
         return f[(1 << n) - 1];
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
 ```
@@ -323,7 +347,7 @@ public:
         for (int mask = 0; mask < 1 << n; ++mask) {
             int i = __builtin_popcount(mask);
             for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                if (((mask >> (j - 1)) & 1) == 1 && __gcd(i, j) == 1) {
                     f[mask] += f[mask ^ (1 << (j - 1))];
                 }
             }
@@ -342,12 +366,19 @@ func selfDivisiblePermutationCount(n int) int {
 	for mask := 0; mask < 1<<n; mask++ {
 		i := bits.OnesCount(uint(mask))
 		for j := 1; j <= n; j++ {
-			if mask>>(j-1)&1 == 1 && (i%j == 0 || j%i == 0) {
+			if mask>>(j-1)&1 == 1 && gcd(i, j) == 1 {
 				f[mask] += f[mask^(1<<(j-1))]
 			}
 		}
 	}
 	return f[(1<<n)-1]
+}
+
+func gcd(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
 }
 ```
 
@@ -360,12 +391,21 @@ function selfDivisiblePermutationCount(n: number): number {
     for (let mask = 0; mask < 1 << n; ++mask) {
         const i = bitCount(mask);
         for (let j = 1; j <= n; ++j) {
-            if ((mask >> (j - 1)) & 1 && (i % j === 0 || j % i === 0)) {
+            if ((mask >> (j - 1)) & 1 && gcd(i, j) === 1) {
                 f[mask] += f[mask ^ (1 << (j - 1))];
             }
         }
     }
     return f.at(-1)!;
+}
+
+function gcd(a: number, b: number): number {
+    while (b !== 0) {
+        const t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;
 }
 
 function bitCount(i: number): number {

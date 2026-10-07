@@ -106,7 +106,7 @@ tags:
 >
 > 先统计第 $j$ 列字母 $c$ 的出现次数 $\textit{cnt}[j][c]$，问题化为：匹配 $\textit{target}[i:]$ 且当前列号为 $j$。
 >
-> 记忆化 $dfs(i,j)$：可跳过第 $j$ 列，或用该列匹配 $\textit{target}[i]$ 并乘上计数；边界为 $i$ 走完返回 $1$、$j$ 走完返回 $0$。
+> 记忆化 $dfs(i,j)$：可跳过第 $j$ 列，或用该列匹配 $\textit{target}[i]$ 并乘上计数；边界为 $i$ 走完返回 $1$、 $j$ 走完返回 $0$。
 
 <!-- thinking:end -->
 
@@ -306,9 +306,9 @@ function numWays(words: string[], target: string): number {
 
 > **思考**
 >
-> 方法一的递归可改成递推以去掉调用栈。$f[i][j]$ 表示配完 $\textit{target}$ 前 $i$ 个字符、只用前 $j$ 列的方案数。
+> 方法一按后缀填表，每个状态都读取更大的列号。同一选择也可以记成前缀：配完 $\textit{target}$ 前 $i$ 个字符、只用前 $j$ 列的方案数。
 >
-> 不选第 $j$ 列则 $f[i][j-1]$，选则 $f[i-1][j-1]\times \textit{cnt}[j-1][\textit{target}[i-1]]$，初值 $f[0][\cdot]=1$。
+> 不选第 $j-1$ 列则等于 $f[i][j-1]$，选用则是 $f[i-1][j-1]$ 乘上该列计数。初值 $f[0][\cdot]=1$，按 $i$、$j$ 从小到大填写即可。
 
 <!-- thinking:end -->
 
@@ -428,6 +428,177 @@ func numWays(words []string, target string) int {
 		}
 	}
 	return f[m][n]
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：预处理 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 各单词等长，同一列的字母可以互换。直接对单词回溯，在 $m$ 与 $n$ 都不超过 $1000$ 时会重复搜索并超时。
+>
+> 先统计第 $j$ 列字母 $c$ 的次数 $\textit{cnt}[j][c]$。构造 $\textit{target}[i:]$ 时，可以跳过第 $j$ 列，也可以用它匹配当前字符并乘上计数。
+>
+> 两种选择读到的都是更大的列号。从第 $0$ 列一直走到第 $n$ 列，调用链长度就是 $n$。$n=1000$ 时 Python 会抛出 RecursionError。
+>
+> 因此改成填表。$f[i][j]$ 仍是从第 $j$ 列起构造 $\textit{target}[i:]$ 的方案数。目标配完为 $1$，列用尽为 $0$，所以先令 $f[m][j]=1$。$i$ 与 $j$ 都从大到小填写，$f[i][j+1]$ 和 $f[i+1][j+1]$ 已经算完。
+
+<!-- thinking:end -->
+
+我们注意到，字符串数组 $words$ 中的每一个字符串长度都相同，不妨记为 $n$，那么我们可以预处理出一个二维数组 $cnt$，其中 $cnt[j][c]$ 表示字符串数组 $words$ 中第 $j$ 个位置的字符 $c$ 的数量。
+
+接下来，定义 $f[i][j]$ 表示构造 $target[i,..]$ 且当前从 $words$ 的第 $j$ 列开始选取字符的方案数。答案就是 $f[0][0]$。
+
+若 $i = m$，说明 $target$ 已经全部选取，方案数为 $1$；若 $j = n$ 且 $i < m$，说明列已经用尽而目标尚未完成，方案数为 $0$。因此先把 $f[m][j]$ 置为 $1$（$0 \leq j \leq n$），其余格子置为 $0$。
+
+对于其余状态，按 $i$ 从 $m - 1$ 降到 $0$、$j$ 从 $n - 1$ 降到 $0$ 计算。不选择第 $j$ 列时，方案数为 $f[i][j + 1]$；选择第 $j$ 列时，方案数为 $f[i + 1][j + 1] \times cnt[j][target[i] - 'a']$。两者相加后对 $10^9 + 7$ 取模，得到 $f[i][j]$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numWays(self, words: List[str], target: str) -> int:
+        m, n = len(target), len(words[0])
+        cnt = [[0] * 26 for _ in range(n)]
+        for w in words:
+            for j, c in enumerate(w):
+                cnt[j][ord(c) - ord('a')] += 1
+        mod = 10**9 + 7
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for j in range(n + 1):
+            f[m][j] = 1
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                ans = f[i + 1][j + 1] * cnt[j][ord(target[i]) - ord('a')]
+                f[i][j] = (ans + f[i][j + 1]) % mod
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numWays(String[] words, String target) {
+        int m = target.length();
+        int n = words[0].length();
+        final int mod = (int) 1e9 + 7;
+        int[][] cnt = new int[n][26];
+        for (var w : words) {
+            for (int j = 0; j < n; ++j) {
+                cnt[j][w.charAt(j) - 'a']++;
+            }
+        }
+        int[][] f = new int[m + 1][n + 1];
+        for (int j = 0; j <= n; ++j) {
+            f[m][j] = 1;
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                long ans = f[i][j + 1];
+                ans += 1L * f[i + 1][j + 1] * cnt[j][target.charAt(i) - 'a'];
+                f[i][j] = (int) (ans % mod);
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numWays(vector<string>& words, string target) {
+        const int mod = 1e9 + 7;
+        int m = target.size(), n = words[0].size();
+        vector<vector<int>> cnt(n, vector<int>(26));
+        for (auto& w : words) {
+            for (int j = 0; j < n; ++j) {
+                ++cnt[j][w[j] - 'a'];
+            }
+        }
+        vector<vector<int>> f(m + 1, vector<int>(n + 1));
+        for (int j = 0; j <= n; ++j) {
+            f[m][j] = 1;
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                long long ans = f[i][j + 1];
+                ans += 1LL * f[i + 1][j + 1] * cnt[j][target[i] - 'a'];
+                f[i][j] = ans % mod;
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func numWays(words []string, target string) int {
+	m, n := len(target), len(words[0])
+	cnt := make([][26]int, n)
+	for _, w := range words {
+		for j, c := range w {
+			cnt[j][c-'a']++
+		}
+	}
+	const mod = 1e9 + 7
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	for j := range f[m] {
+		f[m][j] = 1
+	}
+	for i := m - 1; i >= 0; i-- {
+		for j := n - 1; j >= 0; j-- {
+			ans := f[i][j+1] + f[i+1][j+1]*cnt[j][target[i]-'a']
+			f[i][j] = ans % mod
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function numWays(words: string[], target: string): number {
+    const m = target.length;
+    const n = words[0].length;
+    const mod = 1e9 + 7;
+    const cnt = new Array(n).fill(0).map(() => new Array(26).fill(0));
+    for (const w of words) {
+        for (let j = 0; j < n; ++j) {
+            ++cnt[j][w.charCodeAt(j) - 97];
+        }
+    }
+    const f = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    for (let j = 0; j <= n; ++j) {
+        f[m][j] = 1;
+    }
+    for (let i = m - 1; i >= 0; --i) {
+        for (let j = n - 1; j >= 0; --j) {
+            const ans = f[i][j + 1] + f[i + 1][j + 1] * cnt[j][target.charCodeAt(i) - 97];
+            f[i][j] = ans % mod;
+        }
+    }
+    return f[0][0];
 }
 ```
 

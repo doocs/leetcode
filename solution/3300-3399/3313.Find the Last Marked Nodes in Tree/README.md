@@ -107,7 +107,7 @@ tags:
 >
 > 树上任意点的最远点必是直径的某个端点。因此只需确定直径两端 $a,b$。
 >
-> 三次 DFS 分别找到 $a$、$b$ 以及到它们的距离；对每个 $i$ 比较 $\textit{dist}(i,a)$ 与 $\textit{dist}(i,b)$，较大者对应的端点即为答案。
+> 三次 DFS 分别找到 $a$、 $b$ 以及到它们的距离；对每个 $i$ 比较 $\textit{dist}(i,a)$ 与 $\textit{dist}(i,b)$，较大者对应的端点即为答案。
 
 <!-- thinking:end -->
 
@@ -384,6 +384,327 @@ var lastMarkedNodes = function (edges) {
 
     const dist3 = Array(n).fill(0);
     dfs(b, -1, dist3);
+
+    const ans = [];
+    for (let i = 0; i < n; ++i) {
+        ans.push(dist2[i] > dist3[i] ? a : b);
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：求树的直径 + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $i$ 同时向外标记，最晚被标记的点是距离 $i$ 最远的点。对每个起点求最远点是 $O(n^2)$，与 $n \le 10^5$ 不符。从任意点递归走到最远点，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 树上任意点的最远点必是直径的某个端点。因此只需确定直径两端 $a,b$。
+>
+> 三次显式栈遍历分别找到 $a$、$b$ 以及到它们的距离。对每个 $i$ 比较 $\textit{dist}(i,a)$ 与 $\textit{dist}(i,b)$，较大者对应的端点即为答案。
+
+<!-- thinking:end -->
+
+根据题目描述，最后一个被标记的节点一定是树的直径的一个端点，因为树的直径上的节点到直径上的任意一个节点的距离最大。
+
+我们可以从任意一个节点开始用显式栈遍历，找到距离最远的节点 $a$，这个节点就是树的直径的一个端点。
+
+然后从节点 $a$ 开始再用显式栈遍历，找到距离最远的节点 $b$，这个节点就是树的直径的另一个端点，在这个过程中，我们计算出了每个节点到节点 $a$ 的距离，记为 $\textit{dist2}$。
+
+接着从节点 $b$ 开始用显式栈遍历，计算出每个节点到节点 $b$ 的距离，记为 $\textit{dist3}$。
+
+那么，对于每一个节点 $i$，如果 $\textit{dist2}[i] > \textit{dist3}[i]$，那么节点 $a$ 到节点 $i$ 的距离更远，所以节点 $a$ 是最后一个被标记的节点；否则，节点 $b$ 是最后一个被标记的节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
+        def dfs(start: int, dist: List[int]) -> None:
+            stk = [(start, -1)]
+            while stk:
+                i, fa = stk.pop()
+                for j in g[i]:
+                    if j != fa:
+                        dist[j] = dist[i] + 1
+                        stk.append((j, i))
+
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        dist1 = [-1] * n
+        dist1[0] = 0
+        dfs(0, dist1)
+        a = dist1.index(max(dist1))
+
+        dist2 = [-1] * n
+        dist2[a] = 0
+        dfs(a, dist2)
+        b = dist2.index(max(dist2))
+
+        dist3 = [-1] * n
+        dist3[b] = 0
+        dfs(b, dist3)
+
+        return [a if x > y else b for x, y in zip(dist2, dist3)]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] lastMarkedNodes(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        int[] dist1 = new int[n];
+        dfs(g, 0, dist1);
+        int a = maxNode(dist1);
+
+        int[] dist2 = new int[n];
+        dfs(g, a, dist2);
+        int b = maxNode(dist2);
+
+        int[] dist3 = new int[n];
+        dfs(g, b, dist3);
+
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = dist2[i] > dist3[i] ? a : b;
+        }
+        return ans;
+    }
+
+    private void dfs(List<Integer>[] g, int start, int[] dist) {
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {start, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    dist[j] = dist[i] + 1;
+                    stk.push(new int[] {j, i});
+                }
+            }
+        }
+    }
+
+    private int maxNode(int[] dist) {
+        int mx = 0;
+        for (int i = 0; i < dist.length; ++i) {
+            if (dist[mx] < dist[i]) {
+                mx = i;
+            }
+        }
+        return mx;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> lastMarkedNodes(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        auto dfs = [&](int start, vector<int>& dist) {
+            vector<pair<int, int>> stk{{start, -1}};
+            while (!stk.empty()) {
+                auto [i, fa] = stk.back();
+                stk.pop_back();
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        dist[j] = dist[i] + 1;
+                        stk.emplace_back(j, i);
+                    }
+                }
+            }
+        };
+
+        vector<int> dist1(n);
+        dfs(0, dist1);
+        int a = max_element(dist1.begin(), dist1.end()) - dist1.begin();
+
+        vector<int> dist2(n);
+        dfs(a, dist2);
+        int b = max_element(dist2.begin(), dist2.end()) - dist2.begin();
+
+        vector<int> dist3(n);
+        dfs(b, dist3);
+
+        vector<int> ans;
+        for (int i = 0; i < n; ++i) {
+            ans.push_back(dist2[i] > dist3[i] ? a : b);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func lastMarkedNodes(edges [][]int) (ans []int) {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	dfs := func(start int, dist []int) {
+		stk := [][2]int{{start, -1}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa := cur[0], cur[1]
+			for _, j := range g[i] {
+				if j != fa {
+					dist[j] = dist[i] + 1
+					stk = append(stk, [2]int{j, i})
+				}
+			}
+		}
+	}
+	maxNode := func(dist []int) int {
+		mx := 0
+		for i, d := range dist {
+			if dist[mx] < d {
+				mx = i
+			}
+		}
+		return mx
+	}
+
+	dist1 := make([]int, n)
+	dfs(0, dist1)
+	a := maxNode(dist1)
+
+	dist2 := make([]int, n)
+	dfs(a, dist2)
+	b := maxNode(dist2)
+
+	dist3 := make([]int, n)
+	dfs(b, dist3)
+
+	for i, x := range dist2 {
+		if x > dist3[i] {
+			ans = append(ans, a)
+		} else {
+			ans = append(ans, b)
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function lastMarkedNodes(edges: number[][]): number[] {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const dfs = (start: number, dist: number[]) => {
+        const stk: [number, number][] = [[start, -1]];
+        while (stk.length) {
+            const [i, fa] = stk.pop()!;
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    dist[j] = dist[i] + 1;
+                    stk.push([j, i]);
+                }
+            }
+        }
+    };
+
+    const dist1: number[] = Array(n).fill(0);
+    dfs(0, dist1);
+    const a = dist1.indexOf(Math.max(...dist1));
+
+    const dist2: number[] = Array(n).fill(0);
+    dfs(a, dist2);
+    const b = dist2.indexOf(Math.max(...dist2));
+
+    const dist3: number[] = Array(n).fill(0);
+    dfs(b, dist3);
+
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        ans.push(dist2[i] > dist3[i] ? a : b);
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} edges
+ * @return {number[]}
+ */
+var lastMarkedNodes = function (edges) {
+    const n = edges.length + 1;
+    const g = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const dfs = (start, dist) => {
+        const stk = [[start, -1]];
+        while (stk.length) {
+            const [i, fa] = stk.pop();
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    dist[j] = dist[i] + 1;
+                    stk.push([j, i]);
+                }
+            }
+        }
+    };
+
+    const dist1 = Array(n).fill(0);
+    dfs(0, dist1);
+    const a = dist1.indexOf(Math.max(...dist1));
+
+    const dist2 = Array(n).fill(0);
+    dfs(a, dist2);
+    const b = dist2.indexOf(Math.max(...dist2));
+
+    const dist3 = Array(n).fill(0);
+    dfs(b, dist3);
 
     const ans = [];
     for (let i = 0; i < n; ++i) {

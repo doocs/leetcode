@@ -257,13 +257,13 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 > **Thinking**
 >
-> Solution 1 is already $O(m \log m)$, yet recursion and `@cache` add constants. Sorting by end lets $f[i]$ be the best profit among the first $i$ rides, with no aftereffect.
+> Solution 1 sorts by start and fills one suffix table. Sorting by end instead lets $f[i]$ be the best profit among the first $i$ rides, with no aftereffect.
 >
-> Skip is $f[i-1]$; take binary-searches the last end $\le start_i$. Filling $f$ iteratively removes the call stack.
+> Skip is $f[i-1]$; take binary-searches the last end $\le start_i$.
 
 <!-- thinking:end -->
 
-We can change the memoization search in Solution 1 to dynamic programming.
+Solution 1 sorts by start and fills a suffix table. Here we sort by end and define a prefix table.
 
 First, sort $rides$, this time we sort by $end$ in ascending order. Then define $f[i]$, which represents the maximum tip that can be obtained from the first $i$ passengers. Initially, $f[0] = 0$, and the answer is $f[m]$.
 
@@ -392,6 +392,149 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
         f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
     }
     return f[m];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After sorting rides by start, ride $i$ only combines with later rides whose start is $\ge end_i$. Subsets are infeasible for $m \le 3 \times 10^4$; the state is the best profit from index $i$.
+>
+> Skip depends on $i+1$ and take depends on the first later start $\ge end_i$. A search of that recurrence still calls $i+1$ before it returns, so the chain has length $m$ and overflows the stack.
+>
+> Later indices are known if we walk from the end. Let $f[i]$ be that profit, with $f[m] = 0$, and binary-search $j$ while filling $i$ from $m-1$ down to $0$.
+
+<!-- thinking:end -->
+
+First, we sort $rides$ in ascending order by $start$. Let $f[i]$ be the maximum earnings from the $i$-th passenger onward. The answer is $f[0]$, and $f[m] = 0$.
+
+We fill $f$ from $i = m - 1$ down to $0$. For the $i$-th passenger we can skip the order, which keeps $f[i + 1]$, or accept it. Binary search finds the first passenger $j$ whose start is at least $end_i$. Accepting earns $f[j] + end_i - start_i + tip_i$. Take the larger of the two:
+
+$$
+f[i] = \max(f[i + 1], f[j] + end_i - start_i + tip_i)
+$$
+
+Where $j$ is the smallest index that satisfies $start_j \ge end_i$. Because $j > i$, $f[j]$ is already filled.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+        rides.sort()
+        m = len(rides)
+        f = [0] * (m + 1)
+        for i in range(m - 1, -1, -1):
+            st, ed, tip = rides[i]
+            j = bisect_left(rides, ed, lo=i + 1, key=lambda x: x[0])
+            f[i] = max(f[i + 1], f[j] + ed - st + tip)
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxTaxiEarnings(int n, int[][] rides) {
+        Arrays.sort(rides, (a, b) -> a[0] - b[0]);
+        int m = rides.length;
+        long[] f = new long[m + 1];
+        for (int i = m - 1; i >= 0; --i) {
+            int st = rides[i][0], ed = rides[i][1], tip = rides[i][2];
+            int j = search(rides, ed, i + 1);
+            f[i] = Math.max(f[i + 1], f[j] + ed - st + tip);
+        }
+        return f[0];
+    }
+
+    private int search(int[][] rides, int x, int l) {
+        int r = rides.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (rides[mid][0] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxTaxiEarnings(int n, vector<vector<int>>& rides) {
+        sort(rides.begin(), rides.end());
+        int m = rides.size();
+        vector<long long> f(m + 1);
+        for (int i = m - 1; i >= 0; --i) {
+            int st = rides[i][0], ed = rides[i][1], tip = rides[i][2];
+            int j = lower_bound(rides.begin() + i + 1, rides.end(), ed, [](auto& a, int val) { return a[0] < val; }) - rides.begin();
+            f[i] = max(f[i + 1], f[j] + ed - st + tip);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTaxiEarnings(n int, rides [][]int) int64 {
+	sort.Slice(rides, func(i, j int) bool { return rides[i][0] < rides[j][0] })
+	m := len(rides)
+	f := make([]int64, m+1)
+	for i := m - 1; i >= 0; i-- {
+		st, ed, tip := rides[i][0], rides[i][1], rides[i][2]
+		j := sort.Search(m, func(k int) bool { return rides[k][0] >= ed })
+		f[i] = max(f[i+1], int64(ed-st+tip)+f[j])
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTaxiEarnings(n: number, rides: number[][]): number {
+    rides.sort((a, b) => a[0] - b[0]);
+    const m = rides.length;
+    const f: number[] = Array(m + 1).fill(0);
+    const search = (x: number, l: number): number => {
+        let r = m;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (rides[mid][0] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = m - 1; i >= 0; --i) {
+        const [st, ed, tip] = rides[i];
+        const j = search(ed, i + 1);
+        f[i] = Math.max(f[i + 1], f[j] + ed - st + tip);
+    }
+    return f[0];
 }
 ```
 

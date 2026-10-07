@@ -67,9 +67,9 @@ tags:
 
 > **Thinking**
 >
-> A valid time lies in $00$:$00$–$23$:$59$. Hidden digits should be filled to make the latest such time. Constraints are local, so take the largest feasible digit from the left.
+> A valid time lies in $00$:$00$– $23$:$59$. Hidden digits should be filled to make the latest such time. Constraints are local, so take the largest feasible digit from the left.
 >
-> The hour tens digit depends on whether the units digit is already $4$–$9$; the hour units digit depends on whether the tens digit is $2$; the minute digits max out at $5$ and $9$.
+> The hour tens digit depends on whether the units digit is already $4$– $9$; the hour units digit depends on whether the tens digit is $2$; the minute digits max out at $5$ and $9$.
 
 <!-- thinking:end -->
 

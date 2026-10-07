@@ -59,7 +59,7 @@ tags:
 
 > **思考**
 >
-> $[\textit{low},\textit{high}]$ 上统计数位 $d$ 的出现次数，$\textit{high}\le 2\times 10^8$，枚举每个数不可行。区间计数化为 $f(\textit{high})-f(\textit{low}-1)$，其中 $f(n)$ 是 $1..n$ 中 $d$ 出现的次数。
+> $[\textit{low},\textit{high}]$ 上统计数位 $d$ 的出现次数， $\textit{high}\le 2\times 10^8$，枚举每个数不可行。区间计数化为 $f(\textit{high})-f(\textit{low}-1)$，其中 $f(n)$ 是 $1..n$ 中 $d$ 出现的次数。
 >
 > 按位填写时记录已出现次数、是否仍为前导零、是否贴上界。前导零不把 $0$ 计入 $d=0$ 的次数。
 >

@@ -73,7 +73,7 @@ tags:
 
 > **思考**
 >
-> 要把 $s$ 切成尽量少的平衡子串，即每段内各字符出现次数相等。枚举全部切法是指数级的，$n\le 1000$ 允许平方转移。
+> 要把 $s$ 切成尽量少的平衡子串，即每段内各字符出现次数相等。枚举全部切法是指数级的， $n\le 1000$ 允许平方转移。
 >
 > 从位置 $i$ 出发，向右扩展 $j$ 时可用频次表判断当前段是否平衡：若出现次数的种类数为 $1$，则该段可切。最优子结构只依赖起点。
 >
@@ -483,7 +483,7 @@ function minimumSubstringsInPartition(s: string): number {
 
 > **思考**
 >
-> 记忆化仍有递归与缓存开销。同一转移没有后效，可改成前缀最小段数。
+> 方法二已经按后缀记下同一组最少段数。同一转移没有后效，也可以改记成前缀。
 >
 > 令 $f[i]$ 为前 $i$ 个字符的最少段数。枚举右端 $i$，再向左扩 $j$，用种类数与最大频次判定平衡后用 $f[j]+1$ 更新 $f[i+1]$。
 >
@@ -491,7 +491,7 @@ function minimumSubstringsInPartition(s: string): number {
 
 <!-- thinking:end -->
 
-我们可以将记忆化搜索转换为动态规划，定义状态 $f[i]$ 对前 $i$ 个字符进行分割的最少子字符串数量。初始时 $f[0] = 0$，其余 $f[i] = +\infty$ 或者 $f[i] = n$。
+最少段数也可以记在前缀上。定义状态 $f[i]$ 为对前 $i$ 个字符进行分割的最少子字符串数量。初始时 $f[0] = 0$，其余 $f[i] = +\infty$ 或者 $f[i] = n$。
 
 接下来我们枚举 $i$ 从 $0$ 到 $n-1$，对于每个 $i$，我们维护一个哈希表 $\textit{cnt}$，表示当前子字符串中每个字符出现的次数。另外，我们维护两个变量 $k$ 和 $m$ 分别表示当前子字符串中的字符种类数和出现次数最多的字符的出现次数。对于一个子串 $s[j..i]$，如果 $i-j+1 = m \times k$，那么这个子串就是一个平衡子串。此时我们可以从 $j$ 开始分割，那么 $f[i+1] = \min(f[i+1], f[j] + 1)$。
 
@@ -620,6 +620,322 @@ function minimumSubstringsInPartition(s: string): number {
         }
     }
     return f[n];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法四：动态规划 + 哈希表
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举全部切法是指数级的。字符串长度可以到 $1000$，而单个字符本身就是平衡段，第一次转移总会落到下一个下标，递归深度就是 $n$。一段是否平衡只看这段里各字符的出现次数是否相同，起点 $i$ 的最少段数只依赖更靠右的答案。于是令 $f[i]$ 为从 $i$ 开始的最少段数，$f[n]=0$，从右往左扩展右端点，用 $cnt$ 与次数的次数 $freq$ 判断，仅一种次数时用 $1+f[j+1]$ 更新。
+
+<!-- thinking:end -->
+
+设 $f[i]$ 为从下标 $i$ 开始分割的最少子字符串数量，边界 $f[n]=0$。从 $i=n-1$ 递减到 $0$。对每个起点维护哈希表 $\textit{cnt}$，记录当前子串里每个字符的出现次数，以及哈希表 $\textit{freq}$，记录这些出现次数各自出现了多少次。枚举右端点 $j$ 从 $i$ 到 $n-1$，把 $s[j]$ 并入当前段并更新两张表。若 $\textit{freq}$ 的大小为 $1$，则 $s[i..j]$ 是平衡子串，用 $1+f[j+1]$ 更新 $f[i]$。每个字符单独成段一定合法，所以上界可以取 $n-i$。答案为 $f[0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n + |\Sigma|)$。其中 $n$ 为字符串 $s$ 的长度，而 $|\Sigma|$ 表示字符集的大小，本题中 $|\Sigma| = 26$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumSubstringsInPartition(self, s: str) -> int:
+        n = len(s)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            cnt = defaultdict(int)
+            freq = defaultdict(int)
+            ans = n - i
+            for j in range(i, n):
+                if cnt[s[j]]:
+                    freq[cnt[s[j]]] -= 1
+                    if not freq[cnt[s[j]]]:
+                        freq.pop(cnt[s[j]])
+                cnt[s[j]] += 1
+                freq[cnt[s[j]]] += 1
+                if len(freq) == 1:
+                    ans = min(ans, 1 + f[j + 1])
+            f[i] = ans
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumSubstringsInPartition(String s) {
+        int n = s.length();
+        char[] cs = s.toCharArray();
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int[] cnt = new int[26];
+            Map<Integer, Integer> freq = new HashMap<>(26);
+            int ans = n - i;
+            for (int j = i; j < n; ++j) {
+                int k = cs[j] - 'a';
+                if (cnt[k] > 0) {
+                    if (freq.merge(cnt[k], -1, Integer::sum) == 0) {
+                        freq.remove(cnt[k]);
+                    }
+                }
+                ++cnt[k];
+                freq.merge(cnt[k], 1, Integer::sum);
+                if (freq.size() == 1) {
+                    ans = Math.min(ans, 1 + f[j + 1]);
+                }
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumSubstringsInPartition(string s) {
+        int n = s.size();
+        vector<int> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            int cnt[26]{};
+            unordered_map<int, int> freq;
+            int ans = n - i;
+            for (int j = i; j < n; ++j) {
+                int k = s[j] - 'a';
+                if (cnt[k]) {
+                    freq[cnt[k]]--;
+                    if (freq[cnt[k]] == 0) {
+                        freq.erase(cnt[k]);
+                    }
+                }
+                ++cnt[k];
+                ++freq[cnt[k]];
+                if (freq.size() == 1) {
+                    ans = min(ans, 1 + f[j + 1]);
+                }
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumSubstringsInPartition(s string) int {
+	n := len(s)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		cnt := [26]int{}
+		freq := map[int]int{}
+		ans := n - i
+		for j := i; j < n; j++ {
+			k := int(s[j] - 'a')
+			if cnt[k] > 0 {
+				freq[cnt[k]]--
+				if freq[cnt[k]] == 0 {
+					delete(freq, cnt[k])
+				}
+			}
+			cnt[k]++
+			freq[cnt[k]]++
+			if len(freq) == 1 {
+				ans = min(ans, 1+f[j+1])
+			}
+		}
+		f[i] = ans
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumSubstringsInPartition(s: string): number {
+    const n = s.length;
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        const cnt: Map<number, number> = new Map();
+        const freq: Map<number, number> = new Map();
+        let ans = n - i;
+        for (let j = i; j < n; ++j) {
+            const k = s.charCodeAt(j) - 97;
+            if (freq.has(cnt.get(k)!)) {
+                freq.set(cnt.get(k)!, freq.get(cnt.get(k)!)! - 1);
+                if (freq.get(cnt.get(k)!) === 0) {
+                    freq.delete(cnt.get(k)!);
+                }
+            }
+            cnt.set(k, (cnt.get(k) || 0) + 1);
+            freq.set(cnt.get(k)!, (freq.get(cnt.get(k)!) || 0) + 1);
+            if (freq.size === 1) {
+                ans = Math.min(ans, 1 + f[j + 1]);
+            }
+        }
+        f[i] = ans;
+    }
+    return f[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法五：动态规划（优化）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每并入一个字符，都要在第二张表里删掉旧次数再插入新次数。平衡其实等价于段长等于最大频次乘以字符种类数，一张 $\textit{cnt}$ 就够。起点 $i$ 的答案仍只依赖右侧，所以 $f[i]$ 继续从右往左填写。扩展 $j$ 时维护种类数 $k$ 和最大频次 $m$，当 $j-i+1=k\cdot m$ 时用 $1+f[j+1]$ 更新。
+
+<!-- thinking:end -->
+
+方法一里的 $\textit{freq}$ 可以省去，只维护每个字符的出现次数 $\textit{cnt}$，以及种类数 $k$ 和最大频次 $m$。$f[i]$ 仍表示从下标 $i$ 开始的最少段数，$f[n]=0$。从右往左枚举起点 $i$，再向右扩展 $j$。若 $j-i+1 = m \times k$，则 $s[i..j]$ 平衡，用 $1+f[j+1]$ 更新 $f[i]$。答案为 $f[0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n + |\Sigma|)$。其中 $n$ 为字符串 $s$ 的长度，而 $|\Sigma|$ 表示字符集的大小，本题中 $|\Sigma| = 26$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumSubstringsInPartition(self, s: str) -> int:
+        n = len(s)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            cnt = defaultdict(int)
+            m = 0
+            ans = n - i
+            for j in range(i, n):
+                cnt[s[j]] += 1
+                m = max(m, cnt[s[j]])
+                if j - i + 1 == m * len(cnt):
+                    ans = min(ans, 1 + f[j + 1])
+            f[i] = ans
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumSubstringsInPartition(String s) {
+        int n = s.length();
+        char[] cs = s.toCharArray();
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int[] cnt = new int[26];
+            int ans = n - i;
+            int k = 0, m = 0;
+            for (int j = i; j < n; ++j) {
+                k += ++cnt[cs[j] - 'a'] == 1 ? 1 : 0;
+                m = Math.max(m, cnt[cs[j] - 'a']);
+                if (j - i + 1 == k * m) {
+                    ans = Math.min(ans, 1 + f[j + 1]);
+                }
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumSubstringsInPartition(string s) {
+        int n = s.size();
+        vector<int> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            int cnt[26]{};
+            int ans = n - i;
+            int k = 0, m = 0;
+            for (int j = i; j < n; ++j) {
+                k += ++cnt[s[j] - 'a'] == 1 ? 1 : 0;
+                m = max(m, cnt[s[j] - 'a']);
+                if (j - i + 1 == k * m) {
+                    ans = min(ans, 1 + f[j + 1]);
+                }
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumSubstringsInPartition(s string) int {
+	n := len(s)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		cnt := [26]int{}
+		ans := n - i
+		k, m := 0, 0
+		for j := i; j < n; j++ {
+			x := int(s[j] - 'a')
+			cnt[x]++
+			if cnt[x] == 1 {
+				k++
+			}
+			m = max(m, cnt[x])
+			if j-i+1 == k*m {
+				ans = min(ans, 1+f[j+1])
+			}
+		}
+		f[i] = ans
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumSubstringsInPartition(s: string): number {
+    const n = s.length;
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        const cnt: number[] = Array(26).fill(0);
+        let ans = n - i;
+        let [k, m] = [0, 0];
+        for (let j = i; j < n; ++j) {
+            const x = s.charCodeAt(j) - 97;
+            k += ++cnt[x] === 1 ? 1 : 0;
+            m = Math.max(m, cnt[x]);
+            if (j - i + 1 === k * m) {
+                ans = Math.min(ans, 1 + f[j + 1]);
+            }
+        }
+        f[i] = ans;
+    }
+    return f[0];
 }
 ```
 

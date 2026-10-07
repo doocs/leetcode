@@ -57,6 +57,8 @@ We can enumerate each binary bit $i$, and for each binary bit, we calculate the 
 
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array and the range of elements in the array, respectively. The space complexity is $O(1)$.
 
+The C++ implementation adds INT_MIN for the sign bit instead of left-shifting a signed integer into overflow.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -87,7 +89,13 @@ class Solution {
                 cnt += num >> i & 1;
             }
             cnt %= 3;
-            ans |= cnt << i;
+            if (cnt) {
+                if (i == 31) {
+                    ans = INT_MIN + ans;
+                } else {
+                    ans |= cnt << i;
+                }
+            }
         }
         return ans;
     }
@@ -184,7 +192,7 @@ int singleNumber(int* nums, int numsSize) {
                 count++;
             }
         }
-        ans |= (uint) (count % 3) << i;
+        ans |= (unsigned) (count % 3) << i;
     }
     return ans;
 }
@@ -447,7 +455,7 @@ function singleNumber(nums: number[]): number {
 
 #### JavaScript
 
-```ts
+```js
 function singleNumber(nums) {
     let [ans, acc] = [0, 0];
 

@@ -3,7 +3,7 @@ class Solution {
         int n = matrix.length;
         int left = matrix[0][0], right = matrix[n - 1][n - 1];
         while (left < right) {
-            int mid = (left + right) >>> 1;
+            int mid = (left + right) >> 1;
             if (check(matrix, mid, k, n)) {
                 right = mid;
             } else {

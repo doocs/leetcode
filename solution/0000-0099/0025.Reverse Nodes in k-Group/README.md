@@ -68,7 +68,7 @@ tags:
 
 > **思考**
 >
-> 题目进阶要求额外空间 $O(1)$。若按组递归翻转，$n \le 5000$ 时时间可以接受，但递归栈会随组数增长，不满足进阶条件。
+> 题目进阶要求额外空间 $O(1)$。若按组递归翻转， $n \le 5000$ 时时间可以接受，但递归栈会随组数增长，不满足进阶条件。
 >
 > 一组内部就是普通的链表翻转；组与组之间只需记住上一组的尾。真正需要先确认的是当前组是否凑满 $k$ 个——不足则保持原序，够则摘下翻转后再接回。
 >
@@ -170,6 +170,59 @@ class Solution {
         return dummy.next;
     }
 }
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* pre = dummy;
+
+        while (pre != nullptr) {
+            ListNode* cur = pre;
+            for (int i = 0; i < k; i++) {
+                cur = cur->next;
+                if (cur == nullptr) {
+                    return dummy->next;
+                }
+            }
+
+            ListNode* node = pre->next;
+            ListNode* nxt = cur->next;
+            cur->next = nullptr;
+            pre->next = reverse(node);
+            node->next = nxt;
+            pre = node;
+        }
+        return dummy->next;
+    }
+
+private:
+    ListNode* reverse(ListNode* head) {
+        ListNode* dummy = new ListNode();
+        ListNode* cur = head;
+        while (cur != nullptr) {
+            ListNode* nxt = cur->next;
+            cur->next = dummy->next;
+            dummy->next = cur;
+            cur = nxt;
+        }
+        return dummy->next;
+    }
+};
 ```
 
 #### Go

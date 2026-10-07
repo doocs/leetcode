@@ -88,28 +88,10 @@ class Solution:
 ```java
 class Solution {
     public int strStr(String haystack, String needle) {
-        if ("".equals(needle)) {
-            return 0;
-        }
-
-        int len1 = haystack.length();
-        int len2 = needle.length();
-        int p = 0;
-        int q = 0;
-        while (p < len1) {
-            if (haystack.charAt(p) == needle.charAt(q)) {
-                if (len2 == 1) {
-                    return p;
-                }
-                ++p;
-                ++q;
-            } else {
-                p -= q - 1;
-                q = 0;
-            }
-
-            if (q == len2) {
-                return p - q;
+        int n = haystack.length(), m = needle.length();
+        for (int i = 0; i + m <= n; ++i) {
+            if (haystack.substring(i, i + m).equals(needle)) {
+                return i;
             }
         }
         return -1;
@@ -244,17 +226,14 @@ class Solution {
      * @return Integer
      */
     function strStr($haystack, $needle) {
-        $strNew = str_replace($needle, '+', $haystack);
-        $cnt = substr_count($strNew, '+');
-        if ($cnt > 0) {
-            for ($i = 0; $i < strlen($strNew); $i++) {
-                if ($strNew[$i] == '+') {
-                    return $i;
-                }
+        $n = strlen($haystack);
+        $m = strlen($needle);
+        for ($i = 0; $i + $m <= $n; $i++) {
+            if (substr($haystack, $i, $m) === $needle) {
+                return $i;
             }
-        } else {
-            return -1;
         }
+        return -1;
     }
 }
 ```
@@ -348,7 +327,7 @@ class Solution {
 public:
     int strStr(string haystack, string needle) {
         int n = haystack.size(), m = needle.size();
-        const int mod = (1 << 31) - 1;
+        const long long mod = (1LL << 31) - 1;
         long long target = 0, sha = 0, multi = 1;
         for (int i = 0; i < m; ++i) {
             target = (target * 256 + needle[i]) % mod;
@@ -451,7 +430,7 @@ function strStr(haystack: string, needle: string): number {
 >
 > 方法二把窗口比较降到期望 $O(1)$，但仍依赖取模哈希，冲突时还要核对原串。我们希望最坏情况也是线性，且不引入哈希。
 >
-> 失配后不必把 $\textit{haystack}$ 的指针退回起点。$\textit{needle}$ 的前缀函数给出“当前已匹配前缀的最长真后缀”，从而知道下一次该从模式串的哪一位继续。
+> 失配后不必把 $\textit{haystack}$ 的指针退回起点。 $\textit{needle}$ 的前缀函数给出“当前已匹配前缀的最长真后缀”，从而知道下一次该从模式串的哪一位继续。
 >
 > 先对 $\textit{needle}$ 求 $\textit{next}$，再单次扫描 $\textit{haystack}$，失配只沿 $\textit{next}$ 回退。时间 $O(n+m)$，额外空间 $O(m)$。
 
@@ -643,7 +622,7 @@ impl Solution {
                 j += 1;
             }
             if j == m {
-                return (i - m + 1) as i32;
+                return (i + 1 - m) as i32;
             }
         }
         -1

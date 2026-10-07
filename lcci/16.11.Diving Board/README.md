@@ -42,9 +42,9 @@ k = 3
 >
 > $k$ 块板，各为短或长，求所有可能总长。递归枚举 $2^k$ 种选法，而不同总长至多 $k+1$ 种。
 >
-> 用了 $i$ 块长板则总长 $i\cdot longer+(k-i)\cdot shorter$。$k=0$ 无方案；两长度相等则只有一种。
+> 用了 $i$ 块长板则总长 $i\cdot longer+(k-i)\cdot shorter$。 $k=0$ 无方案；两长度相等则只有一种。
 >
-> 当 $longer\ne shorter$ 时，$i$ 从 $0$ 到 $k$ 严格递增，直接枚举即可，不必去重。
+> 当 $longer\ne shorter$ 时， $i$ 从 $0$ 到 $k$ 严格递增，直接枚举即可，不必去重。
 
 <!-- thinking:end -->
 

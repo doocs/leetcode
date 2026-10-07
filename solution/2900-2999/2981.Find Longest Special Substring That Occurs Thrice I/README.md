@@ -286,7 +286,7 @@ function maximumLength(s: string): number {
 
 > **思考**
 >
-> 方法一多次扫描整串。$n$ 很小时也可对每段 run 把长度为 $1 \ldots L$ 的特殊串出现次数直接加进哈希表：长 $j$ 的串在该 run 中出现 $L-j+1$ 次。最后取出现次数 $\ge 3$ 的最大长度。
+> 方法一多次扫描整串。 $n$ 很小时也可对每段 run 把长度为 $1 \ldots L$ 的特殊串出现次数直接加进哈希表：长 $j$ 的串在该 run 中出现 $L-j+1$ 次。最后取出现次数 $\ge 3$ 的最大长度。
 >
 > 与二分相比少了对数轮，但仍是按 run 做贡献，适合本题的短串。
 
@@ -331,7 +331,7 @@ function maximumLength(s: string): number {
 }
 ```
 
-### JavaScript
+#### JavaScript
 
 ```js
 function maximumLength(s) {

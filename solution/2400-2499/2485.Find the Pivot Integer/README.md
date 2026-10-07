@@ -204,7 +204,7 @@ class Solution {
 
 > **思考**
 >
-> 方法一已线性枚举。等式化简为 $x^2=n(n+1)/2$，故检查该三角形数是否完全平方：$x=\lfloor\sqrt{y}\rfloor$ 且 $x^2=y$。常数时间。
+> 方法一已线性枚举。等式化简为 $x^2=n(n+1)/2$，故检查该三角形数是否完全平方： $x=\lfloor\sqrt{y}\rfloor$ 且 $x^2=y$。常数时间。
 
 <!-- thinking:end -->
 

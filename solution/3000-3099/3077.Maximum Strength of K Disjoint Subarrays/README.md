@@ -79,7 +79,7 @@ tags:
 
 > **思考**
 >
-> 选 $k$ 个不相交子数组，第 $j$ 个带权 $k-j+1$ 且符号交替。$n \cdot k \le 10^6$，可接受 $O(nk)$ DP。
+> 选 $k$ 个不相交子数组，第 $j$ 个带权 $k-j+1$ 且符号交替。 $n \cdot k \le 10^6$，可接受 $O(nk)$ DP。
 >
 > 每个位置要决定：不选、接到当前段、或新开一段。新开一段才改变段号与符号。
 >
@@ -89,7 +89,7 @@ tags:
 
 对于第 $i$ 个数 $nums[i - 1]$，如果它被选择，且位于第 $j$ 个子数组，那么它对答案的贡献是 $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$，我们不妨将 $(-1)^{j+1}$ 记为 $sign$，那么它对答案的贡献是 $sign \times nums[i - 1] \times (k - j + 1)$。
 
-我们定义 $f[i][j][0]$ 表示从前 $i 个数中选择 $j$ 个子数组，且第 $i$ 个数不被选的最大能量值，定义 $f[i][j][1]$ 表示从前 $i$ 个数中选择 $j$ 个子数组，且第 $i$ 个数被选的最大能量值。初始时 $f[0][0][1] = 0$，其余的值都是 $-\infty$。
+我们定义 $f[i][j][0]$ 表示从前 $i 个数中选择 $j$ 个子数组，且第 $i$ 个数不被选的最大能量值，定义 $f[i][j][1]$ 表示从前 $i$ 个数中选择 $j$ 个子数组，且第 $i$ 个数被选的最大能量值。初始时 $f[0][0][0] = 0$，其余的值都是 $-\infty$。
 
 当 $i > 0$ 时，我们考虑 $f[i][j]$ 如何进行状态转移。
 
@@ -161,23 +161,26 @@ class Solution {
 public:
     long long maximumStrength(vector<int>& nums, int k) {
         int n = nums.size();
-        long long f[n + 1][k + 1][2];
-        memset(f, -0x3f3f3f3f3f3f3f3f, sizeof(f));
-        f[0][0][0] = 0;
+        const long long inf = LLONG_MIN / 2;
+        vector<long long> f((n + 1LL) * (k + 1) * 2, inf);
+        auto at = [&](int i, int j, int t) -> long long& {
+            return f[(i * (k + 1) + j) * 2 + t];
+        };
+        at(0, 0, 0) = 0;
         for (int i = 1; i <= n; i++) {
             int x = nums[i - 1];
             for (int j = 0; j <= k; j++) {
                 long long sign = (j & 1) == 1 ? 1 : -1;
                 long long val = sign * x * (k - j + 1);
-                f[i][j][0] = max(f[i - 1][j][0], f[i - 1][j][1]);
-                f[i][j][1] = max(f[i][j][1], f[i - 1][j][1] + val);
+                at(i, j, 0) = max(at(i - 1, j, 0), at(i - 1, j, 1));
+                at(i, j, 1) = max(at(i, j, 1), at(i - 1, j, 1) + val);
                 if (j > 0) {
-                    long long t = max(f[i - 1][j - 1][0], f[i - 1][j - 1][1]) + val;
-                    f[i][j][1] = max(f[i][j][1], t);
+                    long long t = max(at(i - 1, j - 1, 0), at(i - 1, j - 1, 1)) + val;
+                    at(i, j, 1) = max(at(i, j, 1), t);
                 }
             }
         }
-        return max(f[n][k][0], f[n][k][1]);
+        return max(at(n, k, 0), at(n, k, 1));
     }
 };
 ```

@@ -93,7 +93,7 @@ tags:
 
 > **思考**
 >
-> 从 $i$ 只能跳到距离不超过 $d$、严格更矮、且中间没有更高柱的位置，求从任意起点能访问的最多下标。$n \le 1000$，记忆化 $dfs(i)$：向左右扫描直到越界、超距或遇到不低于自己的柱，递归取最大访问数再加一。每个起点取最大。
+> 从 $i$ 只能跳到距离不超过 $d$、严格更矮、且中间没有更高柱的位置，求从任意起点能访问的最多下标。 $n \le 1000$，记忆化 $dfs(i)$：向左右扫描直到越界、超距或遇到不低于自己的柱，递归取最大访问数再加一。每个起点取最大。
 
 <!-- thinking:end -->
 
@@ -243,7 +243,7 @@ func maxJumps(arr []int, d int) (ans int) {
 
 #### TypeScript
 
-```typescript
+```ts
 function maxJumps(arr: number[], d: number): number {
     const n = arr.length;
     const f: number[] = new Array(n).fill(0);
@@ -328,7 +328,7 @@ impl Solution {
 
 > **思考**
 >
-> 记忆化按调用展开，转移顺序隐式。按柱高升序填 $f[i]$ 时，能跳到的 $j$ 一定更矮，因而 $f[j]$ 已算完，可改成迭代 DP，去掉递归栈。
+> 方法一已经按柱高从低到高填好同一张 $f$。下面的转移与那张表是同一定义。
 
 <!-- thinking:end -->
 
@@ -343,6 +343,211 @@ impl Solution {
 最终的答案即为 $\max_{0 \leq i \lt n} f[i]$。
 
 时间复杂度 $O(n \log n + n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxJumps(self, arr: List[int], d: int) -> int:
+        n = len(arr)
+        f = [1] * n
+        for x, i in sorted(zip(arr, range(n))):
+            for j in range(i - 1, -1, -1):
+                if i - j > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+            for j in range(i + 1, n):
+                if j - i > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+        return max(f)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxJumps(int[] arr, int d) {
+        int n = arr.length;
+        Integer[] idx = new Integer[n];
+        Arrays.setAll(idx, i -> i);
+        Arrays.sort(idx, (i, j) -> arr[i] - arr[j]);
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int ans = 0;
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxJumps(vector<int>& arr, int d) {
+        int n = arr.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return arr[i] < arr[j]; });
+        vector<int> f(n, 1);
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+        }
+        return ranges::max(f);
+    }
+};
+```
+
+#### Go
+
+```go
+func maxJumps(arr []int, d int) int {
+	n := len(arr)
+	idx := make([]int, n)
+	f := make([]int, n)
+	for i := range f {
+		idx[i] = i
+		f[i] = 1
+	}
+	sort.Slice(idx, func(i, j int) bool { return arr[idx[i]] < arr[idx[j]] })
+	for _, i := range idx {
+		for j := i - 1; j >= 0; j-- {
+			if i-j > d || arr[j] >= arr[i] {
+				break
+			}
+			f[i] = max(f[i], 1+f[j])
+		}
+		for j := i + 1; j < n; j++ {
+			if j-i > d || arr[j] >= arr[i] {
+				break
+			}
+			f[i] = max(f[i], 1+f[j])
+		}
+	}
+	return slices.Max(f)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxJumps(arr: number[], d: number): number {
+    const n = arr.length;
+    const f: number[] = new Array(n).fill(1);
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((a, b) => arr[a] - arr[b]);
+    for (const i of idx) {
+        for (let j = i - 1; j >= 0; j--) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+        for (let j = i + 1; j < n; j++) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_jumps(arr: Vec<i32>, d: i32) -> i32 {
+        let n = arr.len();
+        let d = d as usize;
+
+        let mut idx: Vec<usize> = (0..n).collect();
+        idx.sort_by_key(|&i| arr[i]);
+
+        let mut f = vec![1; n];
+
+        for &i in &idx {
+            let mut j = i as i32 - 1;
+            while j >= 0 {
+                let k = j as usize;
+
+                if i - k > d || arr[k] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[k]);
+                j -= 1;
+            }
+
+            let mut j = i + 1;
+            while j < n {
+                if j - i > d || arr[j] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[j]);
+                j += 1;
+            }
+        }
+
+        *f.iter().max().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：排序 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把每一步能落到的更矮柱子都展开，路径数是指数级的。数组长度可以到 $1000$，从一根柱子向相邻更矮的柱子走时，第一次调用总是落到下一根，递归深度就是 $n$。一次跳跃只能落到严格更矮、且中间没有不低于自己的位置，因此 $f[i]$ 只依赖更矮的下标。将下标按高度升序排列后，处理 $i$ 时左右窗口里合法的 $j$ 都已有最终答案，于是用 $f[i] = \max(f[i], 1 + f[j])$ 更新，初值为 $1$。答案取整张表的最大值。
+
+<!-- thinking:end -->
+
+我们令 $f[i]$ 表示从下标 $i$ 出发能够访问的最大下标数，初始时 $f[i] = 1$。
+
+将每个下标按照 $\text{arr}[i]$ 从小到大排序。处理下标 $i$ 时，分别向左、向右扫描，直到距离超过 $d$，或遇到高度不低于 $\text{arr}[i]$ 的柱子。对扫描中遇到的每个合法下标 $j$，用 $f[i] = \max(f[i], 1 + f[j])$ 更新。更矮的柱子已经处理完毕，因此 $f[j]$ 不再变化。
+
+答案为所有 $f[i]$ 的最大值。
+
+时间复杂度 $O(n \log n + n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{arr}$ 的长度。
 
 <!-- tabs:start -->
 

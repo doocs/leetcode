@@ -159,7 +159,7 @@ tags:
 
 > **思考**
 >
-> 从每名玩家沿 $receiver$ 走 $k$ 步并累加编号，$k$ 很大，逐步模拟不可行。传球关系是函数图，可用倍增：$f[i][j]$ 为走 $2^j$ 步到达的点，$g[i][j]$ 为这段路径上的编号和（不含终点）。按 $k$ 的二进制位拼接即可。
+> 从每名玩家沿 $receiver$ 走 $k$ 步并累加编号， $k$ 很大，逐步模拟不可行。传球关系是函数图，可用倍增： $f[i][j]$ 为走 $2^j$ 步到达的点， $g[i][j]$ 为这段路径上的编号和（不含终点）。按 $k$ 的二进制位拼接即可。
 
 <!-- thinking:end -->
 
@@ -251,8 +251,8 @@ class Solution {
 public:
     long long getMaxFunctionValue(vector<int>& receiver, long long k) {
         int n = receiver.size(), m = 64 - __builtin_clzll(k);
-        int f[n][m];
-        long long g[n][m];
+        vector<vector<int>> f(n, vector<int>(m));
+        vector<vector<long long>> g(n, vector<long long>(m));
         for (int i = 0; i < n; ++i) {
             f[i][0] = receiver[i];
             g[i][0] = i;

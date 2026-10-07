@@ -9,11 +9,11 @@ public:
             g[a].push_back({b, w, i});
             g[b].push_back({a, w, i});
         }
-        const int inf = 1 << 30;
-        vector<int> dist(n, inf);
+        const long long inf = (long long) 1e18;
+        vector<long long> dist(n, inf);
         dist[0] = 0;
 
-        using pii = pair<int, int>;
+        using pii = pair<long long, int>;
         priority_queue<pii, vector<pii>, greater<pii>> pq;
         pq.push({0, 0});
 

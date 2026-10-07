@@ -66,7 +66,7 @@ tags:
 
 > **思考**
 >
-> 无向图的连通块个数。从每个未访问点出发走完其所在分量，每开始一次搜索计数加一。$n,m$ 规模允许 $O(n+m)$。
+> 无向图的连通块个数。从每个未访问点出发走完其所在分量，每开始一次搜索计数加一。 $n,m$ 规模允许 $O(n+m)$。
 >
 > 建邻接表后 DFS：已访问返回 $0$，否则标记并递归邻居，返回 $1$。对全部点求和即块数。
 
@@ -517,7 +517,7 @@ function countComponents(n: number, edges: number[][]): number {
 
 > **思考**
 >
-> 若避免递归深度，可用队列把方法一改成 BFS：未访问点入队后扩展整块，计数同样加一。时间仍为 $O(n+m)$。
+> 方法一用显式栈按深度优先扩展连通块。若改用队列，则按广度优先扩展同一块，每开始一次搜索计数同样加一。时间仍为 $O(n + m)$。
 
 <!-- thinking:end -->
 
@@ -692,6 +692,233 @@ function countComponents(n: number, edges: number[][]): number {
     }
     return ans;
 }
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法四：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 无向图的连通块个数等于从每个未访问点出发、走完其所在分量的次数。$n \le 2000$，一次 $O(n + m)$ 的遍历就够。沿一条链递归扩展邻居时，调用深度等于节点数，链长达到 $1000$ 就会超出 Python 的递归上限。因此每个新连通块用栈扩展：入栈时立刻标记，弹出后把未访问的邻居压入。标记发生在入栈时，所以同一节点不会重复进入。每个新的起点使答案加一。
+
+<!-- thinking:end -->
+
+先根据给定的边构建邻接表 $g$，$g[i]$ 是节点 $i$ 的全部邻居。
+
+然后遍历所有节点。遇到未访问的节点 $i$，答案加一，并把 $i$ 压入栈、同时标记为已访问。栈不为空时弹出节点 $u$，把它每个尚未访问的邻居标记后压入栈。这一轮结束后，$i$ 所在的连通块都已访问。继续处理下一个未访问节点，直到所有节点都被访问过。邻居的入栈顺序不影响连通块的个数。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        ans = 0
+        for i in range(n):
+            if vis[i]:
+                continue
+            ans += 1
+            stk = [i]
+            vis[i] = True
+            while stk:
+                u = stk.pop()
+                for v in g[u]:
+                    if not vis[v]:
+                        vis[v] = True
+                        stk.append(v)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countComponents(int n, int[][] edges) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        boolean[] vis = new boolean[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
+                continue;
+            }
+            ++ans;
+            Deque<Integer> stk = new ArrayDeque<>();
+            stk.push(i);
+            vis[i] = true;
+            while (!stk.isEmpty()) {
+                int u = stk.pop();
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        stk.push(v);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countComponents(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<char> vis(n);
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
+                continue;
+            }
+            ++ans;
+            vector<int> stk = {i};
+            vis[i] = 1;
+            while (!stk.empty()) {
+                int u = stk.back();
+                stk.pop_back();
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = 1;
+                        stk.push_back(v);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countComponents(n int, edges [][]int) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	vis := make([]bool, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		if vis[i] {
+			continue
+		}
+		ans++
+		stk := []int{i}
+		vis[i] = true
+		for len(stk) > 0 {
+			u := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for _, v := range g[u] {
+				if !vis[v] {
+					vis[v] = true
+					stk = append(stk, v)
+				}
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countComponents(n: number, edges: number[][]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
+        }
+        ++ans;
+        const stk: number[] = [i];
+        vis[i] = true;
+        while (stk.length) {
+            const u = stk.pop()!;
+            for (const v of g[u]) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    stk.push(v);
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var countComponents = function (n, edges) {
+    const g = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis = Array(n).fill(false);
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
+        }
+        ++ans;
+        const stk = [i];
+        vis[i] = true;
+        while (stk.length) {
+            const u = stk.pop();
+            for (const v of g[u]) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    stk.push(v);
+                }
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

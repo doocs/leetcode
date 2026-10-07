@@ -86,7 +86,7 @@ tags:
 
 > **思考**
 >
-> 在树中选一组不相邻的边使权和最大。$n$ 与树同阶时，选或不选一条边只影响其两端。
+> 在树中选一组不相邻的边使权和最大。 $n$ 与树同阶时，选或不选一条边只影响其两端。
 >
 > $dfs(i)$ 返回二元组：连向父边被选时的最大权和，以及不被选时的最大权和。前者只能累加儿子「不选父边」的值；后者可在至多一个儿子上改选「选父边」并加上该边权。
 
@@ -212,6 +212,188 @@ func maxScore(edges [][]int) int64 {
 		return [2]int{a, b}
 	}
 	return int64(dfs(0)[1])
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：树形 DP + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在树中选一组不相邻的边，使权和最大。$n \le 10^5$，从根递归决定每条边选或不选，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 每个节点只要两个量：连向父节点的边被选中时的最大权和 $a$，以及这条边不选时的最大权和 $b$。父边被选中时，通向孩子的边都不能选，$a$ 是各孩子 $b$ 的和；父边不选时，最多再选一条通向孩子的边，增益是该孩子的 $a$ 减去 $b$ 再加上边权，取增益最大的一条。
+>
+> 显式栈按 $(节点, 状态)$ 做后序。进入时先压出栈标记再压孩子，离开时写下 $a$ 和 $b$。根没有父边，答案是根的 $b$。
+
+<!-- thinking:end -->
+
+对每个节点 $i$ 计算两个值 $(a, b)$。$a$ 表示节点 $i$ 与其父节点之间的边被选中时，子树里所选边的权值之和；$b$ 表示这条边不被选中时的权值之和。用显式栈从根做后序，离开节点时再写这两个值。
+
+对于当前节点 $i$：
+
+- 如果 $i$ 与父节点的边被选择，则它与子节点的所有边都不能被选择，那么 $a$ 就是其所有子节点的 $b$ 值之和；
+- 如果 $i$ 与父节点的边没被选择，那么可以选择它与子节点的最多一条边，那么 $b$ 就是选中的那个子节点的 $a$ 与其余子节点的 $b$ 之和，再加上对应边的权值。增益为负时这条边不选。
+
+根没有父边，答案是根的 $b$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxScore(self, edges: List[List[int]]) -> int:
+        n = len(edges)
+        g = [[] for _ in range(n)]
+        for i, (p, w) in enumerate(edges[1:], 1):
+            g[p].append((i, w))
+        down = [(0, 0)] * n
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j, _ in g[i]:
+                    stk.append((j, 0))
+            else:
+                a = b = t = 0
+                for j, w in g[i]:
+                    x, y = down[j]
+                    a += y
+                    b += y
+                    t = max(t, x - y + w)
+                b += t
+                down[i] = (a, b)
+        return down[0][1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxScore(int[][] edges) {
+        int n = edges.length;
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            int p = edges[i][0], w = edges[i][1];
+            g[p].add(new int[] {i, w});
+        }
+        long[][] down = new long[n][2];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                stk.push(new int[] {i, 1});
+                for (int[] nxt : g[i]) {
+                    stk.push(new int[] {nxt[0], 0});
+                }
+            } else {
+                long a = 0, b = 0, t = 0;
+                for (int[] nxt : g[i]) {
+                    int j = nxt[0], w = nxt[1];
+                    long x = down[j][0], y = down[j][1];
+                    a += y;
+                    b += y;
+                    t = Math.max(t, x - y + w);
+                }
+                b += t;
+                down[i][0] = a;
+                down[i][1] = b;
+            }
+        }
+        return down[0][1];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxScore(vector<vector<int>>& edges) {
+        int n = edges.size();
+        vector<vector<pair<int, int>>> g(n);
+        for (int i = 1; i < n; ++i) {
+            int p = edges[i][0], w = edges[i][1];
+            g[p].emplace_back(i, w);
+        }
+        using ll = long long;
+        vector<pair<ll, ll>> down(n);
+        vector<array<int, 2>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, 1});
+                for (auto& [j, w] : g[i]) {
+                    stk.push_back({j, 0});
+                }
+            } else {
+                ll a = 0, b = 0, t = 0;
+                for (auto& [j, w] : g[i]) {
+                    auto [x, y] = down[j];
+                    a += y;
+                    b += y;
+                    t = max(t, x - y + w);
+                }
+                b += t;
+                down[i] = {a, b};
+            }
+        }
+        return down[0].second;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxScore(edges [][]int) int64 {
+	n := len(edges)
+	g := make([][][2]int, n)
+	for i := 1; i < n; i++ {
+		p, w := edges[i][0], edges[i][1]
+		g[p] = append(g[p], [2]int{i, w})
+	}
+	down := make([][2]int, n)
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			stk = append(stk, [2]int{i, 1})
+			for _, e := range g[i] {
+				stk = append(stk, [2]int{e[0], 0})
+			}
+		} else {
+			var a, b, t int
+			for _, e := range g[i] {
+				j, w := e[0], e[1]
+				x, y := down[j][0], down[j][1]
+				a += y
+				b += y
+				t = max(t, x-y+w)
+			}
+			b += t
+			down[i] = [2]int{a, b}
+		}
+	}
+	return int64(down[0][1])
 }
 ```
 

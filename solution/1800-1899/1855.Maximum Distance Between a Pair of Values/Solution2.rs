@@ -8,7 +8,7 @@ impl Solution {
             while j < n && nums1[i] <= nums2[j] {
                 j += 1;
             }
-            res = res.max((j - i - 1) as i32);
+            res = res.max(j as i32 - i as i32 - 1);
         }
         res
     }

@@ -88,7 +88,7 @@ tags:
 
 > **思考**
 >
-> 一段合法当且仅当两端 $\gcd>1$，分割份数最少。从 $i$ 枚举右端 $j$，能切开则 $1+dfs(j+1)$。$n$ 通常不大，记忆化 $O(n^2)$ 次 $gcd$。无法分割则返回 $-1$。
+> 一段合法当且仅当两端 $\gcd>1$，分割份数最少。从 $i$ 枚举右端 $j$，能切开则 $1+dfs(j+1)$。 $n$ 通常不大，记忆化 $O(n^2)$ 次 $gcd$。无法分割则返回 $-1$。
 
 <!-- thinking:end -->
 
@@ -213,6 +213,123 @@ func validSubarraySplit(nums []int) int {
 	ans := dfs(0)
 	if ans < inf {
 		return ans
+	}
+	return -1
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举全部切法是指数级的。数组长度可以到 $1000$，而从左端点试右端点时，下一段的下标总是严格变大，递归深度就是 $n$。一段是否合法只看两端的最大公约数是否大于 $1$，下标 $i$ 起的最少段数只依赖更靠右的答案。于是令 $f[i]$ 为从 $i$ 开始的最少段数，$f[n]=0$，再从右往左枚举右端点 $j$，在 $\gcd(nums[i], nums[j])>1$ 时用 $1+f[j+1]$ 更新。
+
+<!-- thinking:end -->
+
+设 $f[i]$ 为从下标 $i$ 开始的最少分割段数，边界 $f[n]=0$。从 $i=n-1$ 递减到 $0$，枚举右端点 $j$（$i \leq j \lt n$）。若 $\gcd(nums[i], nums[j]) > 1$，则区间 $[i, j]$ 是一段合法子数组，用 $1 + f[j + 1]$ 更新 $f[i]$。最后若 $f[0]$ 仍为无穷大，说明无法完成分割，返回 $-1$，否则返回 $f[0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validSubarraySplit(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            for j in range(i, n):
+                if gcd(nums[i], nums[j]) > 1:
+                    f[i] = min(f[i], 1 + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int validSubarraySplit(int[] nums) {
+        int n = nums.length;
+        int inf = 0x3f3f3f3f;
+        int[] f = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            f[i] = inf;
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i; j < n; ++j) {
+                if (gcd(nums[i], nums[j]) > 1) {
+                    f[i] = Math.min(f[i], 1 + f[j + 1]);
+                }
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int validSubarraySplit(vector<int>& nums) {
+        int n = nums.size();
+        const int inf = 0x3f3f3f3f;
+        vector<int> f(n + 1, inf);
+        f[n] = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i; j < n; ++j) {
+                if (__gcd(nums[i], nums[j]) > 1) {
+                    f[i] = min(f[i], 1 + f[j + 1]);
+                }
+            }
+        }
+        return f[0] < inf ? f[0] : -1;
+    }
+};
+```
+
+#### Go
+
+```go
+func validSubarraySplit(nums []int) int {
+	n := len(nums)
+	const inf int = 0x3f3f3f3f
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		f[i] = inf
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := i; j < n; j++ {
+			if gcd(nums[i], nums[j]) > 1 {
+				f[i] = min(f[i], 1+f[j+1])
+			}
+		}
+	}
+	if f[0] < inf {
+		return f[0]
 	}
 	return -1
 }

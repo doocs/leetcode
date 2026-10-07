@@ -73,7 +73,7 @@ tags:
 
 > **思考**
 >
-> 每次取走两端之一，得分为剩余石子和，求先手减后手的最大差值。区间博弈可用记忆化：$dfs(i,j)$ 表示当前先手相对优势。
+> 每次取走两端之一，得分为剩余石子和，求先手减后手的最大差值。区间博弈可用记忆化： $dfs(i,j)$ 表示当前先手相对优势。
 >
 > 前缀和 $s$ 给出去掉左端或右端后的得分，转移取 $s[j+1]-s[i+1]-dfs(i+1,j)$ 与 $s[j]-s[i]-dfs(i,j-1)$ 的较大者。
 
@@ -237,11 +237,11 @@ function stoneGameVII(stones: number[]): number {
 
 > **思考**
 >
-> 方法一的递归可改成区间 DP。$f[i][j]$ 同上述含义，需先算短区间：按 $i$ 递减、$j$ 递增填表，答案 $f[0][n-1]$。
+> 方法一已经按 $i$ 递减、$j$ 递增填好同一组区间转移。下面的 $f[i][j]$ 与那张表是同一定义。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索转换为动态规划，定义 $f[i][j]$ 表示当剩下的石子为 $stones[i], stones[i + 1], \dots, stones[j]$ 时，先手与后手的得分差值。那么答案即为 $f[0][n - 1]$。
+方法一已经按 $i$ 递减、$j$ 递增填好同一组转移。定义 $f[i][j]$ 表示当剩下的石子为 $stones[i], stones[i + 1], \dots, stones[j]$ 时，先手与后手的得分差值。那么答案即为 $f[0][n - 1]$。
 
 状态转移方程如下：
 
@@ -252,6 +252,132 @@ $$
 在计算 $f[i][j]$ 时，我们需要保证 $f[i + 1][j]$ 和 $f[i][j - 1]$ 已经被计算出来，因此我们需要按照从大到小的顺序枚举 $i$，从小到大的顺序枚举 $j$。
 
 最后，答案即为 $f[0][n - 1]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为石子的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stoneGameVII(self, stones: List[int]) -> int:
+        s = list(accumulate(stones, initial=0))
+        n = len(stones)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                a = s[j + 1] - s[i + 1] - f[i + 1][j]
+                b = s[j] - s[i] - f[i][j - 1]
+                f[i][j] = max(a, b)
+        return f[0][-1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int stoneGameVII(int[] stones) {
+        int n = stones.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + stones[i];
+        }
+        int[][] f = new int[n][n];
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                int a = s[j + 1] - s[i + 1] - f[i + 1][j];
+                int b = s[j] - s[i] - f[i][j - 1];
+                f[i][j] = Math.max(a, b);
+            }
+        }
+        return f[0][n - 1];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int stoneGameVII(vector<int>& stones) {
+        int n = stones.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + stones[i];
+        }
+        vector<vector<int>> f(n, vector<int>(n));
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                int a = s[j + 1] - s[i + 1] - f[i + 1][j];
+                int b = s[j] - s[i] - f[i][j - 1];
+                f[i][j] = max(a, b);
+            }
+        }
+        return f[0][n - 1];
+    }
+};
+```
+
+#### Go
+
+```go
+func stoneGameVII(stones []int) int {
+	n := len(stones)
+	s := make([]int, n+1)
+	for i, x := range stones {
+		s[i+1] = s[i] + x
+	}
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = max(s[j+1]-s[i+1]-f[i+1][j], s[j]-s[i]-f[i][j-1])
+		}
+	}
+	return f[0][n-1]
+}
+```
+
+#### TypeScript
+
+```ts
+function stoneGameVII(stones: number[]): number {
+    const n = stones.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + stones[i];
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = n - 2; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            f[i][j] = Math.max(s[j + 1] - s[i + 1] - f[i + 1][j], s[j] - s[i] - f[i][j - 1]);
+        }
+    }
+    return f[0][n - 1];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 双方每一步都枚举左右两端，方案数是指数级的。石子个数可以到 $1000$，而先计算去掉左端的分支时，区间左端点每次加一，递归深度就是 $n$。先手在区间 $[i,j]$ 上的相对优势只依赖更短的区间。于是用 $f[i][j]$ 记下这个差值，单颗石子的差值为 $0$，按 $i$ 从大到小、$j$ 从小到大填写：去掉左端得 $s[j+1]-s[i+1]-f[i+1][j]$，去掉右端得 $s[j]-s[i]-f[i][j-1]$，取较大者。
+
+<!-- thinking:end -->
+
+先预处理前缀和 $s$，其中 $s[i]$ 表示前 $i$ 个石头的总和。令 $f[i][j]$ 表示剩下的石子为 $stones[i], stones[i + 1], \dots, stones[j]$ 时，当前先手与后手的得分差值。只剩一颗石子时差值为 $0$。从 $i=n-2$ 递减到 $0$，对每个 $i$ 让 $j$ 从 $i+1$ 增到 $n-1$。此时更短的区间 $f[i+1][j]$ 与 $f[i][j-1]$ 都已算过。去掉左端的得分为 $s[j+1]-s[i+1]-f[i+1][j]$，去掉右端的得分为 $s[j]-s[i]-f[i][j-1]$，$f[i][j]$ 取两者较大值。答案为 $f[0][n-1]$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为石子的数量。
 

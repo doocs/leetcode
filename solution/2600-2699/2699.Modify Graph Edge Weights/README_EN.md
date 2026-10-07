@@ -88,7 +88,7 @@ tags:
 
 > **Thinking**
 >
-> We must replace $-1$ edges with positive weights so the $source$–$destination$ shortest path equals $target$. Searching weight tuples is huge; $n \le 100$ allows repeated Dijkstra.
+> We must replace $-1$ edges with positive weights so the $source$– $destination$ shortest path equals $target$. Searching weight tuples is huge; $n \le 100$ allows repeated Dijkstra.
 >
 > Ignore $-1$ edges first: a positive-weight shortest path already below $target$ is impossible; equality lets us set the rest to the cap so no shortcut appears. If it is still larger, try each $-1$ edge as weight $1$; once the distance is $\le target$, raise that edge to hit $target$ exactly and cap the remaining $-1$ edges.
 >

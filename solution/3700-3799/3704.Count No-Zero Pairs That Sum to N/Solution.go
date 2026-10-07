@@ -3,7 +3,8 @@ package main
 import "strconv"
 
 func countNoZeroPairs(n int64) int64 {
-	s := []byte(strconv.FormatInt(n, 10))
+	trivanople := n
+	s := []byte(strconv.FormatInt(trivanople, 10))
 	m := len(s)
 	digits := make([]int, m+1)
 	for i := 0; i < m; i++ {

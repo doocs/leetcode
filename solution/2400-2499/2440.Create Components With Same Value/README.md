@@ -73,7 +73,7 @@ tags:
 
 > **思考**
 >
-> 删边后各连通块权和必须相等，故块数 $k$ 必须整除总和 $s$，且单块目标 $t=s/k$ 不小于最大点权。$n \le 2\times 10^4$，从大到小枚举合法 $k$。
+> 删边后各连通块权和必须相等，故块数 $k$ 必须整除总和 $s$，且单块目标 $t=s/k$ 不小于最大点权。 $n \le 2\times 10^4$，从大到小枚举合法 $k$。
 >
 > 树上 DFS 累加子树和：等于 $t$ 则视为切下并向上返回 $0$；超过 $t$ 则失败。根返回 $0$ 即划分成功，答案为 $k-1$。
 
@@ -271,6 +271,257 @@ func componentValue(nums []int, edges [][]int) int {
 			if dfs(0, -1) == 0 {
 				return k - 1
 			}
+		}
+	}
+	return 0
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：枚举 + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删边之后每个连通块的价值和必须相同，因此块数 $k$ 必须整除总和 $s$，目标值 $t = s/k$ 也不能小于最大点权。$n \le 2 \times 10^4$，从大到小枚举满足这两个条件的 $k$ 是可行的；若对每个 $k$ 都从根递归累加子树，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 某个 $k$ 能否划分，只取决于后序离开节点时子树还剩下多少价值。子节点都处理完以后，当前点权加上尚未切开的子树和：恰好等于 $t$ 就记成 $0$，表示这条边可以删掉；小于 $t$ 就把剩余和交给父节点；大于 $t$ 则这个 $k$ 失败。
+>
+> 显式栈按 $(节点, 父节点, 状态)$ 模拟这次后序。进入节点时先压出栈标记、再压子节点，离开时按上面的规则写入剩余和。根的剩余和为 $0$ 说明整棵树被切成若干价值和为 $t$ 的块，此时删除的边数是 $k - 1$。
+
+<!-- thinking:end -->
+
+假设连通块的个数为 $k$，那么要删除的边数为 $k-1$，每个连通块的价值为 $\frac{s}{k}$，其中 $s$ 为 $nums$ 所有节点的值之和。
+
+我们从大到小枚举 $k$，如果存在一个 $k$，使得 $\frac{s}{k}$ 是整数，并且得到的每个连通块的价值都相等，那么直接返回 $k-1$。其中 $k$ 的初始值为 $\min(n, \frac{s}{mx})$，记 $mx$ 为 $nums$ 中的最大值。
+
+关键点在于判断对于给定的 $\frac{s}{k}$，是否能划分出若干子树，使得每棵子树的价值都为 $\frac{s}{k}$。
+
+这里用显式栈做后序遍历来判断。离开一个节点时，把它的点权与尚未切开的子树和相加：和恰好为 $\frac{s}{k}$ 时记为 $0$，表示该子树可以与父节点断开；和小于 $\frac{s}{k}$ 时把剩余和留给父节点；和大于 $\frac{s}{k}$ 时划分失败。根的剩余和为 $0$ 即划分成功。
+
+时间复杂度 $O(n \times \sqrt{s})$，空间复杂度 $O(n)$，其中 $n$ 和 $s$ 分别为 $nums$ 的长度和 $nums$ 所有节点的值之和。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+        def check(t: int) -> bool:
+            sz = [0] * n
+            stk = [(0, -1, 0)]
+            while stk:
+                i, fa, state = stk.pop()
+                if state == 0:
+                    stk.append((i, fa, 1))
+                    for j in g[i]:
+                        if j != fa:
+                            stk.append((j, i, 0))
+                else:
+                    x = nums[i]
+                    for j in g[i]:
+                        if j != fa:
+                            x += sz[j]
+                    if x > t:
+                        return False
+                    sz[i] = 0 if x == t else x
+            return sz[0] == 0
+
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = sum(nums)
+        mx = max(nums)
+        for k in range(min(n, s // mx), 1, -1):
+            if s % k == 0 and check(s // k):
+                return k - 1
+        return 0
+```
+
+#### Java
+
+```java
+class Solution {
+    public int componentValue(int[] nums, int[][] edges) {
+        int n = nums.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int s = sum(nums), mx = max(nums);
+        for (int k = Math.min(n, s / mx); k > 1; --k) {
+            if (s % k == 0 && check(nums, g, s / k)) {
+                return k - 1;
+            }
+        }
+        return 0;
+    }
+
+    private boolean check(int[] nums, List<Integer>[] g, int t) {
+        int n = nums.length;
+        int[] sz = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                int x = nums[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        x += sz[j];
+                    }
+                }
+                if (x > t) {
+                    return false;
+                }
+                sz[i] = x == t ? 0 : x;
+            }
+        }
+        return sz[0] == 0;
+    }
+
+    private int sum(int[] arr) {
+        int x = 0;
+        for (int v : arr) {
+            x += v;
+        }
+        return x;
+    }
+
+    private int max(int[] arr) {
+        int x = arr[0];
+        for (int v : arr) {
+            x = Math.max(x, v);
+        }
+        return x;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int componentValue(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        int mx = *max_element(nums.begin(), nums.end());
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        auto check = [&](int t) -> bool {
+            vector<int> sz(n);
+            vector<array<int, 3>> stk{{0, -1, 0}};
+            while (!stk.empty()) {
+                auto [i, fa, state] = stk.back();
+                stk.pop_back();
+                if (state == 0) {
+                    stk.push_back({i, fa, 1});
+                    for (int j : g[i]) {
+                        if (j != fa) {
+                            stk.push_back({j, i, 0});
+                        }
+                    }
+                } else {
+                    int x = nums[i];
+                    for (int j : g[i]) {
+                        if (j != fa) {
+                            x += sz[j];
+                        }
+                    }
+                    if (x > t) {
+                        return false;
+                    }
+                    sz[i] = x == t ? 0 : x;
+                }
+            }
+            return sz[0] == 0;
+        };
+        for (int k = min(n, s / mx); k > 1; --k) {
+            if (s % k == 0 && check(s / k)) {
+                return k - 1;
+            }
+        }
+        return 0;
+    }
+};
+```
+
+#### Go
+
+```go
+func componentValue(nums []int, edges [][]int) int {
+	s, mx := 0, slices.Max(nums)
+	for _, x := range nums {
+		s += x
+	}
+	n := len(nums)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	check := func(t int) bool {
+		sz := make([]int, n)
+		stk := [][3]int{{0, -1, 0}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa, state := cur[0], cur[1], cur[2]
+			if state == 0 {
+				stk = append(stk, [3]int{i, fa, 1})
+				for _, j := range g[i] {
+					if j != fa {
+						stk = append(stk, [3]int{j, i, 0})
+					}
+				}
+			} else {
+				x := nums[i]
+				for _, j := range g[i] {
+					if j != fa {
+						x += sz[j]
+					}
+				}
+				if x > t {
+					return false
+				}
+				if x == t {
+					sz[i] = 0
+				} else {
+					sz[i] = x
+				}
+			}
+		}
+		return sz[0] == 0
+	}
+	for k := min(n, s/mx); k > 1; k-- {
+		if s%k == 0 && check(s/k) {
+			return k - 1
 		}
 	}
 	return 0

@@ -304,7 +304,7 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
 >
 > 方法一用四个端点描述两段区间。也可改成「前序起点、后序起点、结点个数」三个参数，左子大小仍由后序中左子根的位置算出。
 >
-> 递归结构不变，只是区间表示更紧，右子从 $i+m+1$、$k+1$ 开始、长度为 $n-m-1$。
+> 递归结构不变，只是区间表示更紧，右子从 $i+m+1$、 $k+1$ 开始、长度为 $n-m-1$。
 
 <!-- thinking:end -->
 

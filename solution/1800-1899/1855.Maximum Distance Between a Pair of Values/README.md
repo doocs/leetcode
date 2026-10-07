@@ -78,7 +78,7 @@ tags:
 
 > **思考**
 >
-> 两数组均非递增，求满足 $i\le j$ 且 $nums1[i]\le nums2[j]$ 的最大 $j-i$。枚举全部下标对为 $O(mn)$，$n\le 10^5$ 不可行。
+> 两数组均非递增，求满足 $i\le j$ 且 $nums1[i]\le nums2[j]$ 的最大 $j-i$。枚举全部下标对为 $O(mn)$， $n\le 10^5$ 不可行。
 >
 > 对固定 $i$，最远的合法 $j$ 是 $nums2[i:]$ 中最后一个不小于 $nums1[i]$ 的位置。将 $nums2$ 反转后可用二分查找该位置。
 
@@ -212,7 +212,7 @@ impl Solution {
                     right = mid;
                 }
             }
-            res = res.max((left - i - 1) as i32);
+            res = res.max(left as i32 - i as i32 - 1);
         }
         res
     }
@@ -260,11 +260,11 @@ var maxDistance = function (nums1, nums2) {
 
 > **思考**
 >
-> 方法一只用了 $nums2$ 的单调性。$nums1$ 同样非递增，故 $i$ 增大时对应的最远 $j$ 不会回退。双指针同步右移，总时间降为线性。
+> 方法一只用了 $nums2$ 的单调性。 $nums1$ 同样非递增，故 $i$ 增大时对应的最远 $j$ 不会回退。双指针同步右移，总时间降为线性。
 
 <!-- thinking:end -->
 
-在方法一中，我们只利用到 $nums2$ 是非递增数组这一条件，实际上，$nums1$ 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 $nums1$ 和 $nums2$。
+在方法一中，我们只利用到 $nums2$ 是非递增数组这一条件，实际上， $nums1$ 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 $nums1$ 和 $nums2$。
 
 时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别为 $nums1$ 和 $nums2$ 的长度。空间复杂度 $O(1)$。
 
@@ -370,7 +370,7 @@ impl Solution {
             while j < n && nums1[i] <= nums2[j] {
                 j += 1;
             }
-            res = res.max((j - i - 1) as i32);
+            res = res.max(j as i32 - i as i32 - 1);
         }
         res
     }

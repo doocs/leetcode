@@ -97,33 +97,35 @@ class Solution:
 #### Java
 
 ```java
+import java.math.BigInteger;
+
 class Solution {
     public String nearestPalindromic(String n) {
-        long x = Long.parseLong(n);
-        long ans = -1;
-        for (long t : get(n)) {
-            if (ans == -1 || Math.abs(t - x) < Math.abs(ans - x)
-                || (Math.abs(t - x) == Math.abs(ans - x) && t < ans)) {
+        BigInteger x = new BigInteger(n);
+        int l = n.length();
+        Set<BigInteger> res = new HashSet<>();
+        res.add(BigInteger.TEN.pow(l - 1).subtract(BigInteger.ONE));
+        res.add(BigInteger.TEN.pow(l).add(BigInteger.ONE));
+        BigInteger left = new BigInteger(n.substring(0, (l + 1) / 2));
+        for (int d = -1; d <= 1; ++d) {
+            BigInteger i = left.add(BigInteger.valueOf(d));
+            BigInteger j = l % 2 == 0 ? i : i.divide(BigInteger.TEN);
+            while (j.signum() > 0) {
+                i = i.multiply(BigInteger.TEN).add(j.mod(BigInteger.TEN));
+                j = j.divide(BigInteger.TEN);
+            }
+            res.add(i);
+        }
+        res.remove(x);
+        BigInteger ans = null;
+        for (BigInteger t : res) {
+            BigInteger dist = t.subtract(x).abs();
+            if (ans == null || dist.compareTo(ans.subtract(x).abs()) < 0
+                || (dist.compareTo(ans.subtract(x).abs()) == 0 && t.compareTo(ans) < 0)) {
                 ans = t;
             }
         }
-        return Long.toString(ans);
-    }
-
-    private Set<Long> get(String n) {
-        int l = n.length();
-        Set<Long> res = new HashSet<>();
-        res.add((long) Math.pow(10, l - 1) - 1);
-        res.add((long) Math.pow(10, l) + 1);
-        long left = Long.parseLong(n.substring(0, (l + 1) / 2));
-        for (long i = left - 1; i <= left + 1; ++i) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(i);
-            sb.append(new StringBuilder(i + "").reverse().substring(l & 1));
-            res.add(Long.parseLong(sb.toString()));
-        }
-        res.remove(Long.parseLong(n));
-        return res;
+        return ans.toString();
     }
 }
 ```
@@ -131,30 +133,70 @@ class Solution {
 #### C++
 
 ```cpp
+using i128 = __int128_t;
+
 class Solution {
 public:
     string nearestPalindromic(string n) {
-        long x = stol(n);
-        long ans = -1;
-        for (long t : get(n))
-            if (ans == -1 || abs(t - x) < abs(ans - x) || (abs(t - x) == abs(ans - x) && t < ans))
+        i128 x = parse(n);
+        int l = n.size();
+        set<i128> res;
+        res.insert(pow10(l - 1) - 1);
+        res.insert(pow10(l) + 1);
+        i128 left = parse(n.substr(0, (l + 1) / 2));
+        for (int d = -1; d <= 1; ++d) {
+            i128 i = left + d;
+            i128 j = l % 2 == 0 ? i : i / 10;
+            while (j) {
+                i = i * 10 + j % 10;
+                j /= 10;
+            }
+            res.insert(i);
+        }
+        res.erase(x);
+        i128 ans = -1;
+        for (i128 t : res) {
+            i128 dt = iabs(t - x);
+            i128 da = iabs(ans - x);
+            if (ans == -1 || dt < da || (dt == da && t < ans)) {
                 ans = t;
-        return to_string(ans);
+            }
+        }
+        return toStr(ans);
     }
 
-    unordered_set<long> get(string& n) {
-        int l = n.size();
-        unordered_set<long> res;
-        res.insert((long) pow(10, l - 1) - 1);
-        res.insert((long) pow(10, l) + 1);
-        long left = stol(n.substr(0, (l + 1) / 2));
-        for (long i = left - 1; i <= left + 1; ++i) {
-            string prefix = to_string(i);
-            string t = prefix + string(prefix.rbegin() + (l & 1), prefix.rend());
-            res.insert(stol(t));
+private:
+    i128 parse(const string& s) {
+        i128 x = 0;
+        for (char c : s) {
+            x = x * 10 + (c - '0');
         }
-        res.erase(stol(n));
-        return res;
+        return x;
+    }
+
+    i128 pow10(int k) {
+        i128 x = 1;
+        while (k--) {
+            x *= 10;
+        }
+        return x;
+    }
+
+    i128 iabs(i128 x) {
+        return x < 0 ? -x : x;
+    }
+
+    string toStr(i128 x) {
+        if (x == 0) {
+            return "0";
+        }
+        string s;
+        while (x) {
+            s.push_back(char('0' + x % 10));
+            x /= 10;
+        }
+        reverse(s.begin(), s.end());
+        return s;
     }
 };
 ```
@@ -163,36 +205,46 @@ public:
 
 ```go
 func nearestPalindromic(n string) string {
+	x := new(big.Int)
+	x.SetString(n, 10)
 	l := len(n)
-	res := []int{int(math.Pow10(l-1)) - 1, int(math.Pow10(l)) + 1}
-	left, _ := strconv.Atoi(n[:(l+1)/2])
-	for _, x := range []int{left - 1, left, left + 1} {
-		y := x
+	ten := big.NewInt(10)
+	base := new(big.Int).Exp(ten, big.NewInt(int64(l-1)), nil)
+	res := []*big.Int{
+		new(big.Int).Sub(new(big.Int).Set(base), big.NewInt(1)),
+		new(big.Int).Add(new(big.Int).Mul(new(big.Int).Set(base), ten), big.NewInt(1)),
+	}
+	left := new(big.Int)
+	left.SetString(n[:(l+1)/2], 10)
+	for d := int64(-1); d <= 1; d++ {
+		i := new(big.Int).Add(left, big.NewInt(d))
+		j := new(big.Int).Set(i)
 		if l&1 == 1 {
-			y /= 10
+			j.Quo(j, ten)
 		}
-		for ; y > 0; y /= 10 {
-			x = x*10 + y%10
+		for j.Sign() > 0 {
+			i.Mul(i, ten)
+			i.Add(i, new(big.Int).Mod(j, ten))
+			j.Quo(j, ten)
 		}
-		res = append(res, x)
+		res = append(res, i)
 	}
-	ans := -1
-	x, _ := strconv.Atoi(n)
+	var ans *big.Int
 	for _, t := range res {
-		if t != x {
-			if ans == -1 || abs(t-x) < abs(ans-x) || abs(t-x) == abs(ans-x) && t < ans {
-				ans = t
-			}
+		if t.Cmp(x) == 0 {
+			continue
+		}
+		dist := new(big.Int).Abs(new(big.Int).Sub(t, x))
+		if ans == nil {
+			ans = new(big.Int).Set(t)
+			continue
+		}
+		best := new(big.Int).Abs(new(big.Int).Sub(ans, x))
+		if dist.Cmp(best) < 0 || (dist.Cmp(best) == 0 && t.Cmp(ans) < 0) {
+			ans = new(big.Int).Set(t)
 		}
 	}
-	return strconv.Itoa(ans)
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+	return ans.String()
 }
 ```
 
@@ -225,8 +277,8 @@ function getCandidates(n) {
     const length = n.length;
     const res = new Set();
 
-    res.add(BigInt(Math.pow(10, length - 1) - 1));
-    res.add(BigInt(Math.pow(10, length) + 1));
+    res.add(10n ** BigInt(length - 1) - 1n);
+    res.add(10n ** BigInt(length) + 1n);
 
     const left = BigInt(n.substring(0, Math.ceil(length / 2)));
 

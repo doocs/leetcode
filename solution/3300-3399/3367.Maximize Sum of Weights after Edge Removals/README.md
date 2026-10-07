@@ -93,7 +93,7 @@ tags:
 
 > **思考**
 >
-> 删边后每个点度数不超过 $k$，使留下的边权和最大。$n \le 10^5$，需树上 DP。
+> 删边后每个点度数不超过 $k$，使留下的边权和最大。 $n \le 10^5$，需树上 DP。
 >
 > 对子树返回两个值：父边不强制保留时最多选 $k$ 条指向孩子的边，以及父边已占用一度时最多再选 $k-1$ 条。
 >
@@ -299,6 +299,272 @@ function maximizeSumOfWeights(edges: number[][], k: number): number {
 
     const [x, y] = dfs(0, -1);
     return Math.max(x, y);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：树上 DP + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删边之后每个点的度数不超过 $k$，留下的边权和要尽量大。$n \le 10^5$，从根递归做树形 DP 时，链的调用深度就是 $n$，会超出递归栈。
+>
+> 一个子树的最优值取决于父边是否已经占用了一度。父边空着时，当前点最多再保留 $k$ 条通向孩子的边；父边占用时最多再保留 $k - 1$ 条。先把每个孩子按“不连父边”的最优值加进来，再看连上这条边的增量 $w + b - a$：增量为正才值得保留，并且只留增量最大的若干条。
+>
+> 显式栈按 $(节点, 父节点, 状态)$ 做后序。进入节点时先压出栈标记、再压孩子，离开时写入上面的两个最优值。根没有父边，答案取它两个值中的较大者。
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximizeSumOfWeights(self, edges: List[List[int]], k: int) -> int:
+        n = len(edges) + 1
+        g: List[List[Tuple[int, int]]] = [[] for _ in range(n)]
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        keep = [0] * n
+        reserve = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            u, fa, state = stk.pop()
+            if state == 0:
+                stk.append((u, fa, 1))
+                for v, _ in g[u]:
+                    if v != fa:
+                        stk.append((v, u, 0))
+            else:
+                s = 0
+                t = []
+                for v, w in g[u]:
+                    if v == fa:
+                        continue
+                    a, b = keep[v], reserve[v]
+                    s += a
+                    if (d := (w + b - a)) > 0:
+                        t.append(d)
+                t.sort(reverse=True)
+                keep[u] = s + sum(t[:k])
+                reserve[u] = s + sum(t[: k - 1])
+        return max(keep[0], reserve[0])
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maximizeSumOfWeights(int[][] edges, int k) {
+        int n = edges.length + 1;
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
+        }
+        long[] keep = new long[n];
+        long[] reserve = new long[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int u = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {u, fa, 1});
+                for (var e : g[u]) {
+                    if (e[0] != fa) {
+                        stk.push(new int[] {e[0], u, 0});
+                    }
+                }
+            } else {
+                long s = 0;
+                List<Long> t = new ArrayList<>();
+                for (var e : g[u]) {
+                    int v = e[0], w = e[1];
+                    if (v == fa) {
+                        continue;
+                    }
+                    s += keep[v];
+                    long d = w + reserve[v] - keep[v];
+                    if (d > 0) {
+                        t.add(d);
+                    }
+                }
+                t.sort(Comparator.reverseOrder());
+                for (int i = 0; i < Math.min(t.size(), k - 1); ++i) {
+                    s += t.get(i);
+                }
+                reserve[u] = s;
+                keep[u] = s + (t.size() >= k ? t.get(k - 1) : 0);
+            }
+        }
+        return Math.max(keep[0], reserve[0]);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maximizeSumOfWeights(vector<vector<int>>& edges, int k) {
+        int n = edges.size() + 1;
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].emplace_back(v, w);
+            g[v].emplace_back(u, w);
+        }
+        using ll = long long;
+        vector<ll> keep(n), reserve(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [u, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({u, fa, 1});
+                for (auto& [v, w] : g[u]) {
+                    if (v != fa) {
+                        stk.push_back({v, u, 0});
+                    }
+                }
+            } else {
+                ll s = 0;
+                vector<ll> t;
+                for (auto& [v, w] : g[u]) {
+                    if (v == fa) {
+                        continue;
+                    }
+                    s += keep[v];
+                    ll d = w + reserve[v] - keep[v];
+                    if (d > 0) {
+                        t.push_back(d);
+                    }
+                }
+                ranges::sort(t, greater<>());
+                for (int i = 0; i < min((int) t.size(), k - 1); ++i) {
+                    s += t[i];
+                }
+                reserve[u] = s;
+                keep[u] = s + (t.size() >= (size_t) k ? t[k - 1] : 0);
+            }
+        }
+        return max(keep[0], reserve[0]);
+    }
+};
+```
+
+#### Go
+
+```go
+func maximizeSumOfWeights(edges [][]int, k int) int64 {
+	n := len(edges) + 1
+	g := make([][][]int, n)
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]
+		g[u] = append(g[u], []int{v, w})
+		g[v] = append(g[v], []int{u, w})
+	}
+	keep := make([]int64, n)
+	reserve := make([]int64, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		u, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{u, fa, 1})
+			for _, e := range g[u] {
+				if e[0] != fa {
+					stk = append(stk, [3]int{e[0], u, 0})
+				}
+			}
+		} else {
+			var s int64
+			var t []int64
+			for _, e := range g[u] {
+				v, w := e[0], e[1]
+				if v == fa {
+					continue
+				}
+				a, b := keep[v], reserve[v]
+				s += a
+				d := int64(w) + b - a
+				if d > 0 {
+					t = append(t, d)
+				}
+			}
+			sort.Slice(t, func(i, j int) bool {
+				return t[i] > t[j]
+			})
+			for i := 0; i < min(len(t), k-1); i++ {
+				s += t[i]
+			}
+			reserve[u] = s
+			if len(t) >= k {
+				s += t[k-1]
+			}
+			keep[u] = s
+		}
+	}
+	return max(keep[0], reserve[0])
+}
+```
+
+#### TypeScript
+
+```ts
+function maximizeSumOfWeights(edges: number[][], k: number): number {
+    const n = edges.length + 1;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [u, v, w] of edges) {
+        g[u].push([v, w]);
+        g[v].push([u, w]);
+    }
+    const keep = Array(n).fill(0);
+    const reserve = Array(n).fill(0);
+    const stk: [number, number, number][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [u, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([u, fa, 1]);
+            for (const [v] of g[u]) {
+                if (v !== fa) {
+                    stk.push([v, u, 0]);
+                }
+            }
+        } else {
+            let s = 0;
+            const t: number[] = [];
+            for (const [v, w] of g[u]) {
+                if (v === fa) continue;
+                const a = keep[v];
+                const b = reserve[v];
+                s += a;
+                const d = w + b - a;
+                if (d > 0) t.push(d);
+            }
+            t.sort((a, b) => b - a);
+            for (let i = 0; i < Math.min(t.length, k - 1); i++) {
+                s += t[i];
+            }
+            reserve[u] = s;
+            keep[u] = s + (t.length >= k ? t[k - 1] : 0);
+        }
+    }
+    return Math.max(keep[0], reserve[0]);
 }
 ```
 

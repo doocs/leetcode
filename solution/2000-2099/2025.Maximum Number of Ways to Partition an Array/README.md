@@ -83,11 +83,11 @@ tags:
 
 > **思考**
 >
-> 分割要求左右和相等，即某个前缀等于总和一半。$n \le 10^5$，至多改一个位置为 $k$，不能对每个改法再扫一遍前缀。
+> 分割要求左右和相等，即某个前缀等于总和一半。 $n \le 10^5$，至多改一个位置为 $k$，不能对每个改法再扫一遍前缀。
 >
 > 不改时，若总和为偶数，答案是前缀恰为半和的个数（不含末尾）。改 $nums[i]$ 为 $k$ 时，左侧前缀不变、右侧每个前缀加 $d=k-nums[i]$，合法切分分别对应两个不同的目标前缀。
 >
-> 用 $left$、$right$ 维护当前下标两侧的前缀计数，从左扫到右即可在线性时间内取最大值。
+> 用 $left$、 $right$ 维护当前下标两侧的前缀计数，从左扫到右即可在线性时间内取最大值。
 
 <!-- thinking:end -->
 
@@ -137,9 +137,9 @@ class Solution:
 class Solution {
     public int waysToPartition(int[] nums, int k) {
         int n = nums.length;
-        int[] s = new int[n];
+        long[] s = new long[n];
         s[0] = nums[0];
-        Map<Integer, Integer> right = new HashMap<>();
+        Map<Long, Integer> right = new HashMap<>();
         for (int i = 0; i < n - 1; ++i) {
             right.merge(s[i], 1, Integer::sum);
             s[i + 1] = s[i] + nums[i + 1];
@@ -148,7 +148,7 @@ class Solution {
         if (s[n - 1] % 2 == 0) {
             ans = right.getOrDefault(s[n - 1] / 2, 0);
         }
-        Map<Integer, Integer> left = new HashMap<>();
+        Map<Long, Integer> left = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             int d = k - nums[i];
             if ((s[n - 1] + d) % 2 == 0) {

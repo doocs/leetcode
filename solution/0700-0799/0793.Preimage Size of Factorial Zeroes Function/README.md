@@ -68,9 +68,9 @@ tags:
 
 > **思考**
 >
-> $f(x)$ 为 $x!$ 尾零个数，问有多少 $x$ 使 $f(x)=k$。$f$ 单调不降且会跳过某些值，跳过则答案为 $0$，否则一段连续 $x$ 同值，长度多为 $5$。
+> $f(x)$ 为 $x!$ 尾零个数，问有多少 $x$ 使 $f(x)=k$。 $f$ 单调不降且会跳过某些值，跳过则答案为 $0$，否则一段连续 $x$ 同值，长度多为 $5$。
 >
-> 最小的满足 $f(x)\ge k$ 的 $x$ 记为 $g(k)$，所求即 $g(k+1)-g(k)$。$f(x)\ge x/5$，故在 $[0,5k]$ 上二分 $g$。
+> 最小的满足 $f(x)\ge k$ 的 $x$ 记为 $g(k)$，所求即 $g(k+1)-g(k)$。 $f(x)\ge x/5$，故在 $[0,5k]$ 上二分 $g$。
 
 <!-- thinking:end -->
 
@@ -119,7 +119,7 @@ class Solution {
     }
 
     private int g(int k) {
-        long left = 0, right = 5 * k;
+        long left = 0, right = 5L * k;
         while (left < right) {
             long mid = (left + right) >> 1;
             if (f(mid) >= k) {

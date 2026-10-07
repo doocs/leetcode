@@ -67,9 +67,9 @@ tags:
 
 > **思考**
 >
-> 求 $i<j<k$ 且 $nums[i]<nums[j]<nums[k]$ 时 $nums[i]-nums[j]+nums[k]$ 的最大。$n \le 10^5$。
+> 求 $i<j<k$ 且 $nums[i]<nums[j]<nums[k]$ 时 $nums[i]-nums[j]+nums[k]$ 的最大。 $n \le 10^5$。
 >
-> 固定 $j$ 后，$k$ 应取右侧最大值（且须大于 $nums[j]$），$i$ 应取左侧小于 $nums[j]$ 的最大值。
+> 固定 $j$ 后， $k$ 应取右侧最大值（且须大于 $nums[j]$）， $i$ 应取左侧小于 $nums[j]$ 的最大值。
 >
 > 预计算后缀最大，左侧用有序集合动态插入，二分出小于 $nums[j]$ 的最大元。
 

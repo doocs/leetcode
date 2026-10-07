@@ -74,9 +74,9 @@ tags:
 
 > **思考**
 >
-> 长度为 $n$ 的小写串经重排后须能含 $leet$，即字母表至少 $1$ 个 $l$、$2$ 个 $e$、$1$ 个 $t$。直接构造满足计数的串再乘排列会重复。按位填写并记录三者是否已凑齐，状态数为 $n \times 2 \times 3 \times 2$。
+> 长度为 $n$ 的小写串经重排后须能含 $leet$，即字母表至少 $1$ 个 $l$、 $2$ 个 $e$、 $1$ 个 $t$。直接构造满足计数的串再乘排列会重复。按位填写并记录三者是否已凑齐，状态数为 $n \times 2 \times 3 \times 2$。
 >
-> $dfs(i,l,e,t)$ 对剩余长度枚举：放其他字母、$l$、$e$ 或 $t$，上界分别截断到 $1,2,1$。$n \le 10^5$ 时记忆化次数与状态同阶，再乘常数字母选择。
+> $dfs(i,l,e,t)$ 对剩余长度枚举：放其他字母、 $l$、 $e$ 或 $t$，上界分别截断到 $1,2,1$。 $n \le 10^5$ 时记忆化次数与状态同阶，再乘常数字母选择。
 
 <!-- thinking:end -->
 
@@ -248,7 +248,7 @@ function stringCount(n: number): number {
 >
 > 方法一按长度递推，状态转移次数与 $n$ 成正比，常数尚可但实现偏重。补集更直接：总串数 $26^n$ 减去缺 $l$、缺 $t$、或 $e$ 不足两个的串，再用容斥加回交集。
 >
-> 各集合均为「禁用若干字母或限制 $e$ 的个数」，可用快速幂求 $25^n$、$24^n$ 以及「恰 $0$ 或 $1$ 个 $e$」的项。$n$ 很大时比逐步 DP 更短。
+> 各集合均为「禁用若干字母或限制 $e$ 的个数」，可用快速幂求 $25^n$、 $24^n$ 以及「恰 $0$ 或 $1$ 个 $e$」的项。 $n$ 很大时比逐步 DP 更短。
 
 <!-- thinking:end -->
 
@@ -400,6 +400,178 @@ function stringCount(n: number): number {
     const abc = (qpow(23n, n) + ((BigInt(n) * qpow(23n, n - 1)) % mod)) % mod;
     const tot = qpow(26n, n);
     return Number((((tot - (a + b + c - ab - ac - bc + abc)) % mod) + mod) % mod);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 长度为 $n$ 的小写串经重排后须能含 $leet$，即 $l$、$e$、$t$ 的个数至少达到 $1$、$2$、$1$。按计数直接乘排列会把交叉情形算重。搜索里真正用到的只是截断后的三个计数，共 $2 \times 3 \times 2$ 种，长度为 $i$ 的方案只由长度为 $i - 1$ 的方案转移而来。
+>
+> 按剩余长度递归会形成长度为 $n$ 的调用链。$n \le 10^5$ 时调用栈放不下；若再把每一层都放进 C++ 的变长数组，约 $9.6$MB 也会压在栈上。
+>
+> 因此我们只保留相邻两层、每层 $12$ 个状态。空串仅在配额 $(1, 2, 1)$ 上记 $1$，随后逐个字符追加：$23$ 个其他字母，或受上限约束的 $l$、$e$、$t$。$n$ 个字符之后，状态 $(0, 0, 0)$ 即为答案。
+
+<!-- thinking:end -->
+
+我们记 $f(i, l, e, t)$ 为长度为 $i$、已经至少含有 $l$ 个 `'l'`、$e$ 个 `'e'` 和 $t$ 个 `'t'` 的字符串方案数。三个计数分别截断到 $1$、$2$ 和 $1$。答案为 $f(n, 0, 0, 0)$。
+
+当 $i = 0$ 时，只有 $f(0, 1, 2, 1) = 1$，其余状态均为 $0$。
+
+当 $i \ge 1$ 时，末尾字符可以是除 `'l'`、`'e'`、`'t'` 以外的 $23$ 个字母之一，也可以是这三个字母之一：
+
+$$
+f(i, l, e, t) = 23 \cdot f(i - 1, l, e, t) + f(i - 1, \min(1, l + 1), e, t) + f(i - 1, l, \min(2, e + 1), t) + f(i - 1, l, e, \min(1, t + 1))
+$$
+
+每一项都对 $10^9 + 7$ 取模。第 $i$ 层只读取第 $i - 1$ 层，因此实现中保留两层、每层 $12$ 个状态即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stringCount(self, n: int) -> int:
+        mod = 10**9 + 7
+        f = [[[0] * 2 for _ in range(3)] for _ in range(2)]
+        f[1][2][1] = 1
+        for _ in range(n):
+            g = [[[0] * 2 for _ in range(3)] for _ in range(2)]
+            for l in range(2):
+                for e in range(3):
+                    for t in range(2):
+                        a = f[l][e][t] * 23
+                        b = f[min(1, l + 1)][e][t]
+                        c = f[l][min(2, e + 1)][t]
+                        d = f[l][e][min(1, t + 1)]
+                        g[l][e][t] = (a + b + c + d) % mod
+            f = g
+        return f[0][0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int stringCount(int n) {
+        final int mod = (int) 1e9 + 7;
+        long[][][] f = new long[2][3][2];
+        f[1][2][1] = 1;
+        for (int i = 0; i < n; ++i) {
+            long[][][] g = new long[2][3][2];
+            for (int l = 0; l < 2; ++l) {
+                for (int e = 0; e < 3; ++e) {
+                    for (int t = 0; t < 2; ++t) {
+                        long a = f[l][e][t] * 23;
+                        long b = f[Math.min(1, l + 1)][e][t];
+                        long c = f[l][Math.min(2, e + 1)][t];
+                        long d = f[l][e][Math.min(1, t + 1)];
+                        g[l][e][t] = (a + b + c + d) % mod;
+                    }
+                }
+            }
+            f = g;
+        }
+        return (int) f[0][0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int stringCount(int n) {
+        const int mod = 1e9 + 7;
+        using ll = long long;
+        ll f[2][3][2]{};
+        f[1][2][1] = 1;
+        for (int i = 0; i < n; ++i) {
+            ll g[2][3][2]{};
+            for (int l = 0; l < 2; ++l) {
+                for (int e = 0; e < 3; ++e) {
+                    for (int t = 0; t < 2; ++t) {
+                        ll a = f[l][e][t] * 23;
+                        ll b = f[min(1, l + 1)][e][t];
+                        ll c = f[l][min(2, e + 1)][t];
+                        ll d = f[l][e][min(1, t + 1)];
+                        g[l][e][t] = (a + b + c + d) % mod;
+                    }
+                }
+            }
+            memcpy(f, g, sizeof(f));
+        }
+        return f[0][0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func stringCount(n int) int {
+	const mod int = 1e9 + 7
+	var f [2][3][2]int
+	f[1][2][1] = 1
+	for i := 0; i < n; i++ {
+		var g [2][3][2]int
+		for l := 0; l < 2; l++ {
+			for e := 0; e < 3; e++ {
+				for t := 0; t < 2; t++ {
+					a := f[l][e][t] * 23
+					b := f[min(1, l+1)][e][t]
+					c := f[l][min(2, e+1)][t]
+					d := f[l][e][min(1, t+1)]
+					g[l][e][t] = (a + b + c + d) % mod
+				}
+			}
+		}
+		f = g
+	}
+	return f[0][0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function stringCount(n: number): number {
+    const mod = 10 ** 9 + 7;
+    const layer = () =>
+        Array.from({ length: 2 }, () =>
+            Array.from({ length: 3 }, () => Array.from({ length: 2 }, () => 0)),
+        );
+    let f = layer();
+    f[1][2][1] = 1;
+    for (let i = 0; i < n; ++i) {
+        const g = layer();
+        for (let l = 0; l < 2; ++l) {
+            for (let e = 0; e < 3; ++e) {
+                for (let t = 0; t < 2; ++t) {
+                    const a = f[l][e][t] * 23;
+                    const b = f[Math.min(1, l + 1)][e][t];
+                    const c = f[l][Math.min(2, e + 1)][t];
+                    const d = f[l][e][Math.min(1, t + 1)];
+                    g[l][e][t] = (a + b + c + d) % mod;
+                }
+            }
+        }
+        f = g;
+    }
+    return f[0][0][0];
 }
 ```
 

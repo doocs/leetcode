@@ -100,7 +100,7 @@ tags:
 >
 > 一条锚定整串的正则即可同时约束起止与字符类，避免部分匹配把非法串放行。
 >
-> 模式 `^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\.com$` 过滤后按 $\textit{user\_id}$ 排序。
+> 模式 `^[A-Za-z0-9_]+@[A-Za-z]+\.com$` 过滤后按 $\textit{user\_id}$ 排序。
 
 <!-- thinking:end -->
 
@@ -114,7 +114,7 @@ tags:
 # Write your MySQL query statement below
 SELECT user_id, email
 FROM Users
-WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\\.com$'
+WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z]+\\.com$'
 ORDER BY 1;
 ```
 
@@ -125,7 +125,7 @@ import pandas as pd
 
 
 def find_valid_emails(users: pd.DataFrame) -> pd.DataFrame:
-    email_pattern = r"^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\.com$"
+    email_pattern = r"^[A-Za-z0-9_]+@[A-Za-z]+\.com$"
     valid_emails = users[users["email"].str.match(email_pattern)]
     valid_emails = valid_emails.sort_values(by="user_id")
     return valid_emails

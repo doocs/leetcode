@@ -89,7 +89,7 @@ Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美�
 
 > **思考**
 >
-> 按股票汇总资本损益：卖出加价、买入减价。对 $\textit{stock\_name}$ 分组后，$\mathrm{SUM}(\mathrm{IF}(\textit{operation}=\texttt{'Buy'},-\textit{price},\textit{price}))$ 一次求出净额。
+> 按股票汇总资本损益：卖出加价、买入减价。对 $\textit{stock\_name}$ 分组后， $\mathrm{SUM}(\mathrm{IF}(\textit{operation}=\texttt{'Buy'},-\textit{price},\textit{price}))$ 一次求出净额。
 
 <!-- thinking:end -->
 

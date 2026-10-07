@@ -82,11 +82,11 @@ tags:
 
 > **思考**
 >
-> 双方每次取 $1$～$3$ 堆，若直接递归所有取法，状态树随 $n\le 5\times 10^4$ 迅速膨胀，同一后缀会被反复计算。
+> 双方每次取 $1$～ $3$ 堆，若直接递归所有取法，状态树随 $n\le 5\times 10^4$ 迅速膨胀，同一后缀会被反复计算。
 >
 > 对当前玩家而言，只需最大化「本轮取走石子之和减去对手在剩余局面上的最优差值」。定义 $dfs(i)$ 为从下标 $i$ 起的最优得分差，枚举取到 $i,i+1,i+2$ 即可。
 >
-> 对 $dfs(i)$ 记忆化后每个起点只计算一次。$dfs(0)$ 的正负决定 Alice、Bob 或平局。
+> 对 $dfs(i)$ 记忆化后每个起点只计算一次。 $dfs(0)$ 的正负决定 Alice、Bob 或平局。
 
 <!-- thinking:end -->
 
@@ -326,6 +326,193 @@ impl Solution {
 
         let res = dfs(0, &stone_value, &mut f);
 
+        if res == 0 {
+            "Tie".to_string()
+        } else if res > 0 {
+            "Alice".to_string()
+        } else {
+            "Bob".to_string()
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 双方每次取 $1$～$3$ 堆。枚举整条对局是指数级的，而 $n\le 5\times 10^4$。
+>
+> 当前玩家要最大化「本轮取走石子之和减去对手在剩余局面上的最优差值」。从下标 $i$ 出发的差值只依赖 $i+1$、$i+2$ 与 $i+3$ 三个更靠后的起点。
+>
+> 按这个递推搜索时仍会先调用下一堆再返回，调用链深度为 $n$，栈会溢出。
+>
+> 从末尾往前走时，更靠后的差值已经就绪。令 $f[i]$ 为从 $i$ 起的最优得分差，我们从 $i=n-1$ 填到 $0$，再看 $f[0]$ 的正负。
+
+<!-- thinking:end -->
+
+我们定义 $f[i]$ 表示当前玩家在 $[i, n)$ 范围内进行游戏时，可以获得的最大得分差值。如果 $f[0] \gt 0$，则表示先手玩家 Alice 可以获胜；如果 $f[0] \lt 0$，则表示后手玩家 Bob 可以获胜；否则，表示两人打成平局。
+
+$f[i]$ 的计算方式如下：
+
+- 如果 $i \geq n$，说明当前没有石子可以拿了，值为 $0$；
+- 否则，我们枚举当前玩家拿走的最后一堆石子的下标 $j$，其中 $i \le j \lt \min(i + 3, n)$，即当前玩家拿走下标范围 $[i, j]$ 内的所有石子，得分之和为 $\sum_{k=i}^{j} \textit{stoneValue}[k]$，而另一个玩家在剩余局面上的最优得分差值为 $f[j + 1]$，从而当前玩家可以获得的得分差值为 $\sum_{k=i}^{j} \textit{stoneValue}[k] - f[j + 1]$。我们要使得当前玩家的得分差值最大，因此可以用 $\max$ 函数得到最大得分差值，即：
+
+$$
+f[i] = \max_{i \le j < \min(i+3, n)} \left\{\sum_{k=i}^{j} \textit{stoneValue}[k] - f[j + 1]\right\}
+$$
+
+我们从 $i = n - 1$ 往前计算到 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是石子堆的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stoneGameIII(self, stoneValue: List[int]) -> str:
+        n = len(stoneValue)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            ans = -inf
+            s = 0
+            for j in range(i, min(i + 3, n)):
+                s += stoneValue[j]
+                ans = max(ans, s - f[j + 1])
+            f[i] = ans
+        res = f[0]
+        if res == 0:
+            return 'Tie'
+        return 'Alice' if res > 0 else 'Bob'
+```
+
+#### Java
+
+```java
+class Solution {
+    public String stoneGameIII(int[] stoneValue) {
+        int n = stoneValue.length;
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int ans = Integer.MIN_VALUE;
+            int s = 0;
+            for (int j = i; j < i + 3 && j < n; ++j) {
+                s += stoneValue[j];
+                ans = Math.max(ans, s - f[j + 1]);
+            }
+            f[i] = ans;
+        }
+        int res = f[0];
+        if (res == 0) {
+            return "Tie";
+        }
+        return res > 0 ? "Alice" : "Bob";
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string stoneGameIII(vector<int>& stoneValue) {
+        int n = stoneValue.size();
+        vector<int> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            int ans = INT_MIN;
+            int s = 0;
+            for (int j = i; j < i + 3 && j < n; ++j) {
+                s += stoneValue[j];
+                ans = max(ans, s - f[j + 1]);
+            }
+            f[i] = ans;
+        }
+        int res = f[0];
+        if (res == 0) {
+            return "Tie";
+        }
+        return res > 0 ? "Alice" : "Bob";
+    }
+};
+```
+
+#### Go
+
+```go
+func stoneGameIII(stoneValue []int) string {
+	n := len(stoneValue)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		ans := -1 << 30
+		s := 0
+		for j := i; j < i+3 && j < n; j++ {
+			s += stoneValue[j]
+			ans = max(ans, s-f[j+1])
+		}
+		f[i] = ans
+	}
+	res := f[0]
+	if res == 0 {
+		return "Tie"
+	}
+	if res > 0 {
+		return "Alice"
+	}
+	return "Bob"
+}
+```
+
+#### TypeScript
+
+```ts
+function stoneGameIII(stoneValue: number[]): string {
+    const n = stoneValue.length;
+    const f = new Array<number>(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        let ans = Number.MIN_SAFE_INTEGER;
+        let s = 0;
+        for (let j = i; j < i + 3 && j < n; ++j) {
+            s += stoneValue[j];
+            ans = Math.max(ans, s - f[j + 1]);
+        }
+        f[i] = ans;
+    }
+    const res = f[0];
+    if (res === 0) {
+        return 'Tie';
+    }
+    return res > 0 ? 'Alice' : 'Bob';
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn stone_game_iii(stone_value: Vec<i32>) -> String {
+        let n = stone_value.len();
+        let mut f = vec![0; n + 1];
+        for i in (0..n).rev() {
+            let mut ans = i32::MIN;
+            let mut s = 0;
+            for j in i..(i + 3).min(n) {
+                s += stone_value[j];
+                ans = ans.max(s - f[j + 1]);
+            }
+            f[i] = ans;
+        }
+        let res = f[0];
         if res == 0 {
             "Tie".to_string()
         } else if res > 0 {

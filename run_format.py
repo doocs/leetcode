@@ -377,29 +377,20 @@ def format_rust_files(paths: List[str]) -> None:
 
 
 def run_prettier(root: Path = None) -> None:
-    """Run repo Prettier via node.exe so Windows can find the binary."""
+    """Format with `npx prettier --write`, including the pnpm bin shim."""
     root = root or Path(__file__).resolve().parent
-    prettier = root / "node_modules" / "prettier" / "bin" / "prettier.cjs"
-    node = shutil.which("node")
-    globs = ["**/*.md", "**/*.js", "**/*.ts", "**/*.php", "**/*.sql"]
-    extra = ["--write", "--log-level", "warn", "--no-error-on-unmatched-pattern"]
-    env = os.environ.copy()
-    opts = env.get("NODE_OPTIONS", "")
-    if "max-old-space-size" not in opts:
-        env["NODE_OPTIONS"] = f"{opts} --max-old-space-size=8192".strip()
-
-    if node and prettier.is_file():
-        cmd = [node, str(prettier), *extra, *globs]
-        shell = False
+    pattern = "**/*.{js,ts,php,sql,md}"
+    if os.name == "nt":
+        subprocess.check_call(
+            f'npx prettier --write "{pattern}"',
+            cwd=root,
+            shell=True,
+        )
     else:
-        npx = shutil.which("npx")
-        if not npx:
-            raise FileNotFoundError(
-                "prettier not found. Install Node.js and run `pnpm install`."
-            )
-        cmd = [npx, "prettier", *extra, *globs]
-        shell = os.name == "nt"
-    subprocess.check_call(cmd, cwd=root, env=env, shell=shell)
+        subprocess.check_call(
+            ["npx", "prettier", "--write", pattern],
+            cwd=root,
+        )
 
 
 def run():

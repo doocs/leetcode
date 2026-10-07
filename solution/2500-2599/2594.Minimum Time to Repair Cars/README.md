@@ -77,7 +77,7 @@ tags:
 >
 > 第 $i$ 名工人修 $x$ 辆车耗时 $r_i x^2$，工人并行，求修完 $\textit{cars}$ 辆的最短时间。分配方案很多，时间范围达 $r\cdot cars^2$。
 >
-> 时间越长能修的车越多，故对 $t$ 二分。时刻 $t$ 时工人 $r$ 能修 $\lfloor\sqrt{t/r}\rfloor$ 辆，总和达到 $\textit{cars}$ 则可行。$\textit{bisect\_left}$ 给出最小 $t$。
+> 时间越长能修的车越多，故对 $t$ 二分。时刻 $t$ 时工人 $r$ 能修 $\lfloor\sqrt{t/r}\rfloor$ 辆，总和达到 $\textit{cars}$ 则可行。 $\textit{bisect\_left}$ 给出最小 $t$。
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ tags:
 
 最终，我们返回左边界即可。
 
-时间复杂度 $(n \times \log M)$，空间复杂度 $O(1)$。其中 $n$ 为机械工的数量，而 $M$ 为二分查找的上界。
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(1)$。其中 $n$ 为机械工的数量，而 $M$ 为二分查找的上界。
 
 <!-- tabs:start -->
 

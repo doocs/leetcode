@@ -5,7 +5,7 @@ class Solution:
             if j == -1:
                 s.add(exp)
                 return
-            i = exp.rfind('{', 0, j - 1)
+            i = exp.rfind('{', 0, j)
             a, c = exp[:i], exp[j + 1 :]
             for b in exp[i + 1 : j].split(','):
                 dfs(a + b + c)

@@ -86,7 +86,7 @@ tags:
 >
 > Every counted submatrix must include the top-left cell $(0,0)$, so there are only $O(mn)$ candidates, with $m,n\le 10^3$. Rescanning each submatrix would be cubic and too slow.
 >
-> A 2D prefix sum answers the `X`/`Y` counts of $[0,0]$–$(i,j)$ in $O(1)$. At each cell, update by inclusion–exclusion and count when the `X` count is positive and equals the `Y` count. One $O(mn)$ pass suffices.
+> A 2D prefix sum answers the `X`/`Y` counts of $[0,0]$– $(i,j)$ in $O(1)$. At each cell, update by inclusion–exclusion and count when the `X` count is positive and equals the `Y` count. One $O(mn)$ pass suffices.
 
 <!-- thinking:end -->
 

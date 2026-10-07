@@ -67,7 +67,7 @@ tags:
 
 > **思考**
 >
-> 距离定义为横坐标异或与纵坐标异或之和等于 $k$。$k\le 100$，可枚举 $x$ 方向的异或值 $a$，则 $y$ 方向为 $k-a$，目标点由当前点异或还原。哈希表保存已扫过的点，按出现顺序配对以免重复。
+> 距离定义为横坐标异或与纵坐标异或之和等于 $k$。 $k\le 100$，可枚举 $x$ 方向的异或值 $a$，则 $y$ 方向为 $k-a$，目标点由当前点异或还原。哈希表保存已扫过的点，按出现顺序配对以免重复。
 
 <!-- thinking:end -->
 
@@ -160,8 +160,8 @@ func countPairs(coordinates [][]int, k int) (ans int) {
 
 ```ts
 function countPairs(coordinates: number[][], k: number): number {
-    const cnt: Map<number, number> = new Map();
-    const f = (x: number, y: number): number => x * 1000000 + y;
+    const cnt: Map<string, number> = new Map();
+    const f = (x: number, y: number): string => `${x},${y}`;
     let ans = 0;
     for (const [x2, y2] of coordinates) {
         for (let a = 0; a <= k; ++a) {

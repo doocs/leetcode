@@ -254,4 +254,216 @@ function countIslands(grid: number[][], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An island is a 4-connected component of positive cells, and the answer depends only on whether each component sum is divisible by $k$. A recursive walk that adds a cell and then zeroes it computes that sum and keeps the same cell out of a second island.
+>
+> The product $m \times n$ reaches $10^5$. A snaking island makes one recursive call per cell, so the call stack overflows before the sum is finished. Zeroing a cell is only a visit mark; a neighbor still belongs to the island exactly when it is still positive.
+>
+> The cells waiting to be expanded fit on an explicit stack. A cell’s value is added and the cell is zeroed before it is pushed, then its four still-positive neighbors are pushed after the pop. The sum matches the recursive walk, while the stack depth stays under our control. One island can total $10^{11}$, so the accumulator is a 64-bit integer.
+>
+> Scanning the grid and starting a walk from every remaining positive cell counts the islands whose sum is divisible by $k$. Each cell is pushed at most once.
+
+<!-- thinking:end -->
+
+We walk each island with an explicit stack. Starting from a still-positive cell $(i, j)$, record its value in the sum $s$, set the cell to $0$, and push its coordinates. Each pop checks the four neighbors. A neighbor that is still positive is added into $s$, zeroed, and pushed. When the stack is empty, $s$ is the island’s total value. Zeroing before the push keeps a cell from being counted twice.
+
+The main loop scans the grid. Every remaining positive cell starts one walk, and the answer increases when $s \bmod k = 0$. The sum is stored in a 64-bit integer so that $10^5$ cells of value up to $10^6$ do not overflow.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countIslands(self, grid: List[List[int]], k: int) -> int:
+        def flood(i: int, j: int) -> int:
+            s = grid[i][j]
+            grid[i][j] = 0
+            stk = [(i, j)]
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        s += grid[x][y]
+                        grid[x][y] = 0
+                        stk.append((x, y))
+            return s
+
+        m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] and flood(i, j) % k == 0:
+                    ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countIslands(int[][] grid, int k) {
+        int m = grid.length, n = grid[0].length;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    continue;
+                }
+                long s = grid[i][j];
+                grid[i][j] = 0;
+                stk.push(new int[] {i, j});
+                while (!stk.isEmpty()) {
+                    int[] p = stk.pop();
+                    int x0 = p[0], y0 = p[1];
+                    for (int d = 0; d < 4; ++d) {
+                        int x = x0 + dirs[d], y = y0 + dirs[d + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0) {
+                            s += grid[x][y];
+                            grid[x][y] = 0;
+                            stk.push(new int[] {x, y});
+                        }
+                    }
+                }
+                if (s % k == 0) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countIslands(vector<vector<int>>& grid, int k) {
+        int m = grid.size(), n = grid[0].size();
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        vector<pair<int, int>> stk;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (!grid[i][j]) {
+                    continue;
+                }
+                long long s = grid[i][j];
+                grid[i][j] = 0;
+                stk.emplace_back(i, j);
+                while (!stk.empty()) {
+                    auto [x0, y0] = stk.back();
+                    stk.pop_back();
+                    for (int d = 0; d < 4; ++d) {
+                        int x = x0 + dirs[d], y = y0 + dirs[d + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y]) {
+                            s += grid[x][y];
+                            grid[x][y] = 0;
+                            stk.emplace_back(x, y);
+                        }
+                    }
+                }
+                if (s % k == 0) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countIslands(grid [][]int, k int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	dirs := []int{-1, 0, 1, 0, -1}
+	stk := [][2]int{}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				continue
+			}
+			s := grid[i][j]
+			grid[i][j] = 0
+			stk = append(stk, [2]int{i, j})
+			for len(stk) > 0 {
+				p := stk[len(stk)-1]
+				stk = stk[:len(stk)-1]
+				for d := 0; d < 4; d++ {
+					x, y := p[0]+dirs[d], p[1]+dirs[d+1]
+					if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0 {
+						s += grid[x][y]
+						grid[x][y] = 0
+						stk = append(stk, [2]int{x, y})
+					}
+				}
+			}
+			if s%k == 0 {
+				ans++
+			}
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countIslands(grid: number[][], k: number): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dirs = [-1, 0, 1, 0, -1];
+    const stk: number[][] = [];
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 0) {
+                continue;
+            }
+            let s = grid[i][j];
+            grid[i][j] = 0;
+            stk.push([i, j]);
+            while (stk.length) {
+                const [x0, y0] = stk.pop()!;
+                for (let d = 0; d < 4; d++) {
+                    const x = x0 + dirs[d];
+                    const y = y0 + dirs[d + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0) {
+                        s += grid[x][y];
+                        grid[x][y] = 0;
+                        stk.push([x, y]);
+                    }
+                }
+            }
+            if (s % k === 0) {
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

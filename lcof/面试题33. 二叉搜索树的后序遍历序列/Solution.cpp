@@ -1,9 +1,13 @@
 class Solution {
 public:
     bool verifyPostorder(vector<int>& postorder) {
-        function<bool(int, int)> dfs = [&](int l, int r) -> bool {
+        int n = postorder.size();
+        vector<pair<int, int>> stk{{0, n - 1}};
+        while (!stk.empty()) {
+            auto [l, r] = stk.back();
+            stk.pop_back();
             if (l >= r) {
-                return true;
+                continue;
             }
             int v = postorder[r];
             int i = l;
@@ -15,8 +19,9 @@ public:
                     return false;
                 }
             }
-            return dfs(l, i - 1) && dfs(i, r - 1);
-        };
-        return dfs(0, postorder.size() - 1);
+            stk.emplace_back(i, r - 1);
+            stk.emplace_back(l, i - 1);
+        }
+        return true;
     }
 };

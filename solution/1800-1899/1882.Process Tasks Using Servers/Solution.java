@@ -7,14 +7,14 @@ class Solution {
             }
             return a[1] - b[1];
         });
-        PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> {
+        PriorityQueue<long[]> busy = new PriorityQueue<>((a, b) -> {
             if (a[0] != b[0]) {
-                return a[0] - b[0];
+                return Long.compare(a[0], b[0]);
             }
             if (a[1] != b[1]) {
-                return a[1] - b[1];
+                return Long.compare(a[1], b[1]);
             }
-            return a[2] - b[2];
+            return Long.compare(a[2], b[2]);
         });
         for (int i = 0; i < n; i++) {
             idle.offer(new int[] {servers[i], i});
@@ -24,18 +24,18 @@ class Solution {
         for (int j = 0; j < m; ++j) {
             int t = tasks[j];
             while (!busy.isEmpty() && busy.peek()[0] <= j) {
-                int[] p = busy.poll();
-                idle.offer(new int[] {p[1], p[2]});
+                long[] p = busy.poll();
+                idle.offer(new int[] {(int) p[1], (int) p[2]});
             }
             if (!idle.isEmpty()) {
                 int i = idle.poll()[1];
                 ans[j] = i;
-                busy.offer(new int[] {j + t, servers[i], i});
+                busy.offer(new long[] {(long) j + t, servers[i], i});
             } else {
-                int[] p = busy.poll();
-                int i = p[2];
+                long[] p = busy.poll();
+                int i = (int) p[2];
                 ans[j] = i;
-                busy.offer(new int[] {p[0] + t, p[1], i});
+                busy.offer(new long[] {p[0] + t, p[1], i});
             }
         }
         return ans;

@@ -67,7 +67,7 @@ tags:
 
 > **思考**
 >
-> 逐格扫描需要 $O(mn)$ 时间。$m, n \le 100$ 可以接受，但题目要求 $O(\log(mn))$。
+> 逐格扫描需要 $O(mn)$ 时间。 $m, n \le 100$ 可以接受，但题目要求 $O(\log(mn))$。
 >
 > 二维矩阵本身不便直接二分，但每一行递增，且上一行末尾小于下一行开头，因此按行拼接后是长度为 $mn$ 的有序序列。将逻辑下标 $mid$ 映射为 $matrix[\lfloor mid/n\rfloor][mid \bmod n]$，即可在 $[0, mn-1]$ 上做一次二分，不必真正展开数组。
 
@@ -187,27 +187,23 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 #### Rust
 
 ```rust
-use std::cmp::Ordering;
 impl Solution {
     pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
         let m = matrix.len();
         let n = matrix[0].len();
-        let mut i = 0;
-        let mut j = n;
-        while i < m && j > 0 {
-            match matrix[i][j - 1].cmp(&target) {
-                Ordering::Equal => {
-                    return true;
-                }
-                Ordering::Less => {
-                    i += 1;
-                }
-                Ordering::Greater => {
-                    j -= 1;
-                }
+        let mut left = 0;
+        let mut right = m * n - 1;
+        while left < right {
+            let mid = (left + right) >> 1;
+            let x = mid / n;
+            let y = mid % n;
+            if matrix[x][y] >= target {
+                right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        false
+        matrix[left / n][left % n] == target
     }
 }
 ```
@@ -348,27 +344,21 @@ func searchMatrix(matrix [][]int, target int) bool {
 #### Rust
 
 ```rust
-use std::cmp::Ordering;
 impl Solution {
     pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
         let m = matrix.len();
         let n = matrix[0].len();
-        let mut left = 0;
-        let mut right = m * n;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            let i = mid / n;
-            let j = mid % n;
-            match matrix[i][j].cmp(&target) {
-                Ordering::Equal => {
-                    return true;
-                }
-                Ordering::Less => {
-                    left = mid + 1;
-                }
-                Ordering::Greater => {
-                    right = mid;
-                }
+        let mut i = m as i32 - 1;
+        let mut j: i32 = 0;
+        while i >= 0 && j < n as i32 {
+            let cur = matrix[i as usize][j as usize];
+            if cur == target {
+                return true;
+            }
+            if cur > target {
+                i -= 1;
+            } else {
+                j += 1;
             }
         }
         false

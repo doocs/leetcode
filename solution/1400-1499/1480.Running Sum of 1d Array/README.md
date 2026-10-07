@@ -63,7 +63,7 @@ tags:
 
 > **思考**
 >
-> 输出每个前缀的和。$n\le 1000$，一次 `accumulate` 即可。
+> 输出每个前缀的和。 $n\le 1000$，一次 `accumulate` 即可。
 
 <!-- thinking:end -->
 

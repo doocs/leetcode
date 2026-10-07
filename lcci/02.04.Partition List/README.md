@@ -61,7 +61,7 @@ difficulty: 中等
 >
 > 相对次序只要求「小的一段」与「不小于的一段」各自保持原先后，因此可拆成两条链再拼接。
 >
-> 用 $left$、$right$ 两条带虚拟头的链分别尾插，遍历结束后令 $p1.next = right.next$ 并断开 $p2.next$，返回 $left.next$。节点只改指针，空间 $O(1)$。
+> 用 $left$、 $right$ 两条带虚拟头的链分别尾插，遍历结束后令 $p1.next = right.next$ 并断开 $p2.next$，返回 $left.next$。节点只改指针，空间 $O(1)$。
 
 <!-- thinking:end -->
 

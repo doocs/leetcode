@@ -39,7 +39,7 @@ difficulty: 中等
 >
 > 数位 DP 把「还剩多少位、已经出现多少个 $2$、是否贴上界」记成状态，记忆化后只与位数和计数有关。
 >
-> 把 $n$ 拆进 $a[1..l]$，$dfs(pos,cnt,limit)$ 从高位枚举数字 $0\ldots up$。$limit$ 为真时上界是 $a[pos]$。答案为 $dfs(l,0,True)$。
+> 把 $n$ 拆进 $a[1..l]$， $dfs(pos,cnt,limit)$ 从高位枚举数字 $0\ldots up$。 $limit$ 为真时上界是 $a[pos]$。答案为 $dfs(l,0,True)$。
 
 <!-- thinking:end -->
 

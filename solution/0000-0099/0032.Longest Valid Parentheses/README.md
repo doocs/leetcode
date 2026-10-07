@@ -71,7 +71,7 @@ tags:
 
 > **思考**
 >
-> 枚举每个子串再用栈判定是否有效，时间复杂度为 $O(n^2)$ 乃至 $O(n^3)$。$n \le 3 \times 10^4$，无法通过。
+> 枚举每个子串再用栈判定是否有效，时间复杂度为 $O(n^2)$ 乃至 $O(n^3)$。 $n \le 3 \times 10^4$，无法通过。
 >
 > 大量子串互相重叠：以某一位置结尾的最长有效括号，可以由更短的有效段拼接得到。因此可以按结尾位置递推。
 >
@@ -220,12 +220,13 @@ impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut ans = 0;
         let mut f = vec![0; s.len() + 1];
+        let chars = s.as_bytes();
         for i in 2..=s.len() {
-            if s.chars().nth(i - 1).unwrap() == ')' {
-                if s.chars().nth(i - 2).unwrap() == '(' {
+            if chars[i - 1] == b')' {
+                if chars[i - 2] == b'(' {
                     f[i] = f[i - 2] + 2;
                 } else if (i as i32) - f[i - 1] - 1 > 0
-                    && s.chars().nth(i - (f[i - 1] as usize) - 2).unwrap() == '('
+                    && chars[i - (f[i - 1] as usize) - 2] == b'('
                 {
                     f[i] = f[i - 1] + 2 + f[i - (f[i - 1] as usize) - 2];
                 }
@@ -285,6 +286,34 @@ public class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return integer
+     */
+    function longestValidParentheses($s) {
+        $n = strlen($s);
+        $f = array_fill(0, $n + 1, 0);
+        for ($i = 1; $i <= $n; $i++) {
+            if ($s[$i - 1] == ')') {
+                if ($i > 1 && $s[$i - 2] == '(') {
+                    $f[$i] = $f[$i - 2] + 2;
+                } else {
+                    $j = $i - $f[$i - 1] - 1;
+                    if ($j && $s[$j - 1] == '(') {
+                        $f[$i] = $f[$i - 1] + 2 + $f[$j - 1];
+                    }
+                }
+            }
+        }
+        return max($f);
     }
 }
 ```
@@ -395,8 +424,8 @@ impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut stack = vec![-1];
         let mut res = 0;
-        for i in 0..s.len() {
-            if let Some('(') = s.chars().nth(i) {
+        for (i, c) in s.bytes().enumerate() {
+            if c == b'(' {
                 stack.push(i as i32);
             } else {
                 stack.pop().unwrap();

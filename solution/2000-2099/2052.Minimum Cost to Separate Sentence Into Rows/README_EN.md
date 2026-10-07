@@ -92,7 +92,7 @@ The cost of the last row is not included in the total cost, and since there is o
 
 > **Thinking**
 >
-> Words are wrapped into lines; every line but the last costs $(k-$width$)^2$. Breaks are exponential, yet the minimum from word $i$ depends only on the suffix.
+> Words are wrapped into lines; every line but the last costs $(k-\textit{width})^2$. Breaks are exponential, yet the minimum from word $i$ depends only on the suffix.
 >
 > Prefix sums give a range length in $O(1)$. If the rest fits the last line, cost $0$; otherwise try the next break $j$ and add $(k-m)^2+dfs(j)$.
 >
@@ -269,6 +269,157 @@ function minimumCost(sentence: string, k: number): number {
         return (f[i] = ans);
     };
     return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Prefix Sum + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Listing every set of line breaks is exponential. The sentence length reaches $5000$, and the next line is always tried at the following word first, so the search is as deep as the number of words. The minimum cost from word $i$ depends only on later words. Prefix sums give a line width in constant time. Let $f[i]$ be that cost, zero when the remaining words fit on the last line, and otherwise fill from the right by adding $(k-m)^2+f[j]$.
+
+<!-- thinking:end -->
+
+Let $s[i]$ be the total length of the first $i$ words, and let $n$ be the number of words. Let $f[i]$ be the minimum cost of typesetting from word $i$. For $i$ from $n-1$ down to $0$, if the words from $i$ through the end, plus the spaces between them, fit in $k$, they form the last line and $f[i]=0$. Otherwise enumerate the next line start $j$ such that the width $m$ of words $i$ through $j-1$, including spaces, is at most $k$, and update $f[i]$ with $(k-m)^2+f[j]$. The answer is $f[0]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of words.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumCost(self, sentence: str, k: int) -> int:
+        nums = [len(w) for w in sentence.split()]
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
+        f = [0] * n
+        for i in range(n - 1, -1, -1):
+            if s[n] - s[i] + n - i - 1 <= k:
+                continue
+            ans = inf
+            j = i + 1
+            while j < n and (m := s[j] - s[i] + j - i - 1) <= k:
+                ans = min(ans, f[j] + (k - m) ** 2)
+                j += 1
+            f[i] = ans
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumCost(String sentence, int k) {
+        String[] words = sentence.split(" ");
+        int n = words.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + words[i].length();
+        }
+        int[] f = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[n] - s[i] + n - i - 1 <= k) {
+                continue;
+            }
+            int ans = Integer.MAX_VALUE;
+            for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+                int m = s[j] - s[i] + j - i - 1;
+                ans = Math.min(ans, f[j] + (k - m) * (k - m));
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumCost(string sentence, int k) {
+        istringstream iss(sentence);
+        vector<int> s = {0};
+        string w;
+        while (iss >> w) {
+            s.push_back(s.back() + (int) w.size());
+        }
+        int n = s.size() - 1;
+        vector<int> f(n);
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[n] - s[i] + n - i - 1 <= k) {
+                continue;
+            }
+            int ans = INT_MAX;
+            for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+                int m = s[j] - s[i] + j - i - 1;
+                ans = min(ans, f[j] + (k - m) * (k - m));
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumCost(sentence string, k int) int {
+	s := []int{0}
+	for _, w := range strings.Split(sentence, " ") {
+		s = append(s, s[len(s)-1]+len(w))
+	}
+	n := len(s) - 1
+	f := make([]int, n)
+	for i := n - 1; i >= 0; i-- {
+		if s[n]-s[i]+n-i-1 <= k {
+			continue
+		}
+		ans := math.MaxInt32
+		for j := i + 1; j < n && s[j]-s[i]+j-i-1 <= k; j++ {
+			m := s[j] - s[i] + j - i - 1
+			ans = min(ans, f[j]+(k-m)*(k-m))
+		}
+		f[i] = ans
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumCost(sentence: string, k: number): number {
+    const s: number[] = [0];
+    for (const w of sentence.split(' ')) {
+        s.push(s.at(-1)! + w.length);
+    }
+    const n = s.length - 1;
+    const f: number[] = Array(n).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        if (s[n] - s[i] + n - i - 1 <= k) {
+            continue;
+        }
+        let ans = Infinity;
+        for (let j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+            const m = s[j] - s[i] + j - i - 1;
+            ans = Math.min(ans, f[j] + (k - m) ** 2);
+        }
+        f[i] = ans;
+    }
+    return f[0];
 }
 ```
 

@@ -3,6 +3,9 @@ class Solution {
     private var value: String = ""
 
     func patternMatching(_ pattern: String, _ value: String) -> Bool {
+        if pattern.isEmpty {
+            return value.isEmpty
+        }
         self.pattern = pattern
         self.value = value
         var cnt = [Int](repeating: 0, count: 2)

@@ -86,7 +86,7 @@ tags:
 
 > **思考**
 >
-> 划分的是子序列而非子数组，同一段只需 $\max-\min\le k$。$n \le 10^5$，应先排序：相邻值最容易放在同一段。一段从当前最小值 $a$ 开始，遇到 $b-a>k$ 就必须新开一段并把 $a$ 换成 $b$。
+> 划分的是子序列而非子数组，同一段只需 $\max-\min\le k$。 $n \le 10^5$，应先排序：相邻值最容易放在同一段。一段从当前最小值 $a$ 开始，遇到 $b-a>k$ 就必须新开一段并把 $a$ 换成 $b$。
 >
 > 排序后一遍扫描，初始段数为 $1$。段数最少，因为每段都尽量向右延伸。
 
@@ -203,9 +203,9 @@ impl Solution {
 }
 ```
 
-#### Rust
+#### C#
 
-```rust
+```cs
 public class Solution {
     public int PartitionArray(int[] nums, int k) {
         Array.Sort(nums);

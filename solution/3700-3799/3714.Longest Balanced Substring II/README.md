@@ -238,7 +238,7 @@ class Solution {
     }
 
     private long f(int x, int y) {
-        return (x + 100000) << 20 | (y + 100000);
+        return ((long) (x + 100000) << 20) | (y + 100000);
     }
 }
 ```

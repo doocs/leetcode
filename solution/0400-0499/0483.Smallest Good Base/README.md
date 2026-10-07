@@ -61,13 +61,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数学
+### 方法一：二分查找
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 找最小进制 $k\ge 2$，使 $n$ 在该进制下全是 $1$。$k=n-1$ 一定可行（$11_k$），但 $n$ 达 $10^{18}$，不能从 $2$ 扫到 $n$。
+> 找最小进制 $k\ge 2$，使 $n$ 在该进制下全是 $1$。 $k=n-1$ 一定可行（ $11_k$），但 $n$ 达 $10^{18}$，不能从 $2$ 扫到 $n$。
 >
 > 位数 $m+1$ 满足 $m<60$。从大 $m$ 往小枚举，对 $k$ 二分使 $1+k+\cdots+k^m$ 等于 $n$。更大的 $m$ 对应更小的 $k$，因此从 $63$ 向下能先碰到最小进制。
 >
@@ -109,80 +109,11 @@ $$
 
 题目 $n$ 取值范围为 $[3, 10^{18}]$，又因为 $k>=2$，因此 $m<\log _{k} n<\log _{2} 10^{18}<60$。
 
-**结论二：** $k=\left \lfloor \sqrt[m]{n} \right \rfloor $
+依据结论一，$m$ 的取值落在 $[1, \log_k n)$ 内，且 $m=1$ 时 $k=n-1$ 必然有解。位数越大，对应的进制越小，因此从 $m=63$ 向下枚举，第一个使等比和等于 $n$ 的 $k$ 就是最小好进制。
 
-$$
-n=k^0+k^1+k^2+...+k^m>k^m
-$$
+对固定的 $m$，等比和 $1+k+\cdots+k^m$ 关于 $k$ 单调递增。在 $[2, n-1]$ 上二分 $k$，找到使该和大于等于 $n$ 的最小整数，再检查它是否恰好等于 $n$。乘法溢出时把和视为大于 $n$。若所有位数都未命中，返回 $n-1$。
 
-根据二项式定理：
-
-$$
-(a+b)^{n}=\sum_{k=0}^{n}\left(\begin{array}{l}
-n \\
-k
-\end{array}\right) a^{n-k} b^{k}
-$$
-
-整合，可得：
-
-$$
-(k+1)^{m}=\left(\begin{array}{c}
-m \\
-0
-\end{array}\right) k^{0}+\left(\begin{array}{c}
-m \\
-1
-\end{array}\right) k^{1}+\left(\begin{array}{c}
-m \\
-2
-\end{array}\right) k^{2}+\cdots+\left(\begin{array}{c}
-m \\
-m
-\end{array}\right) k^{m}
-$$
-
-当 $m>1$ 时，满足：
-
-$$
-\forall i \in[1, m-1],\left(\begin{array}{c}
-m \\
-i
-\end{array}\right)>1
-$$
-
-所以有：
-
-$$
-\begin{aligned}
-(k+1)^{m} &=\left(\begin{array}{c}
-m \\
-0
-\end{array}\right) k^{0}+\left(\begin{array}{c}
-m \\
-1
-\end{array}\right) k^{1}+\left(\begin{array}{c}
-m \\
-2
-\end{array}\right) k^{2}+\cdots+\left(\begin{array}{c}
-m \\
-m
-\end{array}\right) k^{m} \\
-&>k^{0}+k^{1}+k^{2}+\cdots+k^{m}=n
-\end{aligned}
-$$
-
-即：
-
-$$
-k < \sqrt[m]{n} < k+1
-$$
-
-由于 $k$ 是整数，因此 $k=\left \lfloor \sqrt[m]{n} \right \rfloor $。
-
-综上，依据结论一，我们知道 $m$ 的取值范围为 $[1,log_{k}n)$，且 $m=1$ 时必然有解。随着 $m$ 的增大，进制 $k$ 不断减小。所以我们只需要从大到小检查每一个 $m$ 可能的取值，利用结论二快速算出对应的 $k$ 值，然后校验计算出的 $k$ 值是否有效即可。如果 $k$ 值有效，我们即可返回结果。
-
-时间复杂度 $O(log^{2}n)$。
+时间复杂度 $O(\log^2 n)$。
 
 <!-- tabs:start -->
 
@@ -264,20 +195,43 @@ class Solution {
 class Solution {
 public:
     string smallestGoodBase(string n) {
-        long v = stol(n);
-        int mx = floor(log(v) / log(2));
-        for (int m = mx; m > 1; --m) {
-            int k = pow(v, 1.0 / m);
-            long mul = 1, s = 1;
-            for (int i = 0; i < m; ++i) {
-                mul *= k;
-                s += mul;
-            }
-            if (s == v) {
-                return to_string(k);
+        long long num = stoll(n);
+        for (int len = 63; len >= 2; --len) {
+            long long radix = getRadix(len, num);
+            if (radix != -1) {
+                return to_string(radix);
             }
         }
-        return to_string(v - 1);
+        return to_string(num - 1);
+    }
+
+    long long getRadix(int len, long long num) {
+        long long l = 2, r = num - 1;
+        while (l < r) {
+            long long mid = (l + r) >> 1;
+            if (calc(mid, len) >= num) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return calc(r, len) == num ? r : -1;
+    }
+
+    long long calc(long long radix, int len) {
+        long long p = 1, sum = 0;
+        for (int i = 0; i < len; ++i) {
+            if (LLONG_MAX - sum < p) {
+                return LLONG_MAX;
+            }
+            sum += p;
+            if (LLONG_MAX / p < radix) {
+                p = LLONG_MAX;
+            } else {
+                p *= radix;
+            }
+        }
+        return sum;
     }
 };
 ```

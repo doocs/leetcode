@@ -290,13 +290,13 @@ int* preorder(struct Node* root, int* returnSize) {
 
 > **Thinking**
 >
-> Recursion uses the call stack. An explicit stack must push children from right to left so the leftmost child pops first.
+> Solution 1 already walks preorder with an explicit stack, pushing children from right to left so the leftmost child pops first.
 >
-> Pop-and-visit, then push children reversed. The order matches recursive preorder without call-stack limits.
+> This section is the same walk. Pop a node, record it, then push its children in reverse. The order matches the preorder definition.
 
 <!-- thinking:end -->
 
-We can also solve this problem iteratively.
+This section uses the same explicit stack.
 
 We use a stack to help us get the pre-order traversal. We first push the root node into the stack. Since the pre-order traversal is root, left subtree, right subtree, and the characteristic of the stack is first in last out, we first add the node's value to the answer, then push each of the node's children into the stack in the order from right to left. We continue this process until the stack is empty.
 
@@ -472,6 +472,243 @@ function preorder(root: Node | null): number[] {
             stk.push(children[i]);
         }
     }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> N-ary preorder records the root, then the children from left to right. Recursion on a chain of height $1000$ exhausts the call stack, and $1000$ is the height limit.
+>
+> The bottleneck is that chain: each call steps into the single next child, so the depth tracks the height.
+>
+> Preorder records the current node before visiting children, so the walk does not wait for a child to return.
+>
+> An explicit stack holds the nodes still to visit. Pop a node, append its value, then push its children from right to left so the leftmost child pops first. An empty tree returns an empty list.
+
+<!-- thinking:end -->
+
+Simulate preorder with a stack. Push the root, and after popping a node append its value, then push its children from right to left until the stack is empty.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children[::-1]:
+                stk.append(child)
+        return ans
+```
+
+#### Java
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public List<Integer> preorder(Node root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<Integer> ans = new ArrayList<>();
+        Deque<Node> stk = new ArrayDeque<>();
+        stk.push(root);
+        while (!stk.isEmpty()) {
+            Node node = stk.pop();
+            ans.add(node.val);
+            List<Node> children = node.children;
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(children.get(i));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> preorder(Node* root) {
+        if (!root) return {};
+        vector<int> ans;
+        stack<Node*> stk;
+        stk.push(root);
+        while (!stk.empty()) {
+            Node* node = stk.top();
+            ans.push_back(node->val);
+            stk.pop();
+            auto children = node->children;
+            for (int i = children.size() - 1; i >= 0; --i) stk.push(children[i]);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func preorder(root *Node) (ans []int) {
+	if root == nil {
+		return
+	}
+	stk := []*Node{root}
+	for len(stk) > 0 {
+		node := stk[len(stk)-1]
+		ans = append(ans, node.Val)
+		stk = stk[:len(stk)-1]
+		children := node.Children
+		for i := len(children) - 1; i >= 0; i-- {
+			stk = append(stk, children[i])
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
+    }
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        for (let i = children.length - 1; i >= 0; i--) {
+            stk.push(children[i]);
+        }
+    }
+    return ans;
+}
+```
+
+#### C
+
+```c
+/**
+ * Definition for a Node.
+ * struct Node {
+ *     int val;
+ *     int numChildren;
+ *     struct Node** children;
+ * };
+ */
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+int* preorder(struct Node* root, int* returnSize) {
+    int* ans = malloc(sizeof(int) * 10000);
+    *returnSize = 0;
+    if (!root) {
+        return ans;
+    }
+    struct Node** stk = malloc(sizeof(struct Node*) * 10000);
+    int top = 0;
+    stk[top++] = root;
+    while (top) {
+        struct Node* node = stk[--top];
+        ans[(*returnSize)++] = node->val;
+        for (int j = node->numChildren - 1; j >= 0; --j) {
+            stk[top++] = node->children[j];
+        }
+    }
+    free(stk);
     return ans;
 }
 ```

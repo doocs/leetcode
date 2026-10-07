@@ -265,7 +265,7 @@ var sortArray = function (nums) {
 
 #### Rust
 
-```rs
+```rust
 impl Solution {
     pub fn sort_array(mut nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
@@ -391,36 +391,39 @@ class Solution:
 ```java
 class Solution {
     private int[] nums;
+    private int[] tmp;
 
     public int[] sortArray(int[] nums) {
         this.nums = nums;
-        quickSort(0, nums.length - 1);
+        tmp = new int[nums.length];
+        mergeSort(0, nums.length - 1);
         return nums;
     }
 
-    private void quickSort(int l, int r) {
+    private void mergeSort(int l, int r) {
         if (l >= r) {
             return;
         }
-        int i = l - 1, j = r + 1, k = l;
-        int x = nums[(l + r) >> 1];
-        while (k < j) {
-            if (nums[k] < x) {
-                swap(++i, k++);
-            } else if (nums[k] > x) {
-                swap(--j, k);
+        int mid = (l + r) >> 1;
+        mergeSort(l, mid);
+        mergeSort(mid + 1, r);
+        int i = l, j = mid + 1, k = 0;
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
             } else {
-                ++k;
+                tmp[k++] = nums[j++];
             }
         }
-        quickSort(l, i);
-        quickSort(j, r);
-    }
-
-    private void swap(int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= r) {
+            tmp[k++] = nums[j++];
+        }
+        for (i = l; i <= r; ++i) {
+            nums[i] = tmp[i - l];
+        }
     }
 }
 ```

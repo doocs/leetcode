@@ -250,9 +250,7 @@ function minCostClimbingStairs(cost) {
 
 > **Thinking**
 >
-> Solution 1 is already linear but recursive. The same relation fills forward.
->
-> $f[i]$ is the min cost to reach index $i$, from $i-1$ or $i-2$ paying that stair. $f[n]$ is the top.
+> Solution 1 already fills the cost of leaving each stair from the top downward. Here $f[i]$ is the cost of reaching index $i$, which depends only on $i-1$ and $i-2$, so the table is filled upward and $f[n]$ is the top.
 
 <!-- thinking:end -->
 
@@ -435,6 +433,7 @@ public:
 
 ```go
 func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
 	var f, g int
 	for i := 2; i <= n; i++ {
 		f, g = g, min(f+cost[i-2], g+cost[i-1])
@@ -480,6 +479,131 @@ function minCostClimbingStairs(cost) {
         [f, g] = [g, Math.min(f + cost[i - 1], g + cost[i])];
     }
     return g;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expanding every one-step and two-step choice is exponential. There can be $1000$ stairs, and the first call always moves to the next stair, so the chain has depth $n$. The cost of leaving stair $i$ depends only on $i+1$ and $i+2$, and past the top the cost is $0$. Set $f[i] = \textit{cost}[i] + \min(f[i+1], f[i+2])$ and fill $i$ from $n-1$ down to $0$. The answer is $\min(f[0], f[1])$.
+
+<!-- thinking:end -->
+
+We let $f[i]$ be the minimum cost of climbing from stair $i$ to the top. When $i \ge n$, $f[i] = 0$. For $i < n$,
+
+$$
+f[i] = \textit{cost}[i] + \min(f[i + 1], f[i + 2])
+$$
+
+Compute this for $i$ from $n - 1$ down to $0$. The answer is $\min(f[0], f[1])$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{cost}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        f = [0] * (n + 2)
+        for i in range(n - 1, -1, -1):
+            f[i] = cost[i] + min(f[i + 1], f[i + 2])
+        return min(f[0], f[1])
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        int[] f = new int[n + 2];
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = cost[i] + Math.min(f[i + 1], f[i + 2]);
+        }
+        return Math.min(f[0], f[1]);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> f(n + 2);
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = cost[i] + min(f[i + 1], f[i + 2]);
+        }
+        return min(f[0], f[1]);
+    }
+};
+```
+
+#### Go
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
+	f := make([]int, n+2)
+	for i := n - 1; i >= 0; i-- {
+		f[i] = cost[i] + min(f[i+1], f[i+2])
+	}
+	return min(f[0], f[1])
+}
+```
+
+#### TypeScript
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+    const n = cost.length;
+    const f: number[] = Array(n + 2).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        f[i] = cost[i] + Math.min(f[i + 1], f[i + 2]);
+    }
+    return Math.min(f[0], f[1]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
+        let n = cost.len();
+        let mut f = vec![0; n + 2];
+        for i in (0..n).rev() {
+            f[i] = cost[i] + f[i + 1].min(f[i + 2]);
+        }
+        f[0].min(f[1])
+    }
+}
+```
+
+#### JavaScript
+
+```js
+function minCostClimbingStairs(cost) {
+    const n = cost.length;
+    const f = Array(n + 2).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        f[i] = cost[i] + Math.min(f[i + 1], f[i + 2]);
+    }
+    return Math.min(f[0], f[1]);
 }
 ```
 

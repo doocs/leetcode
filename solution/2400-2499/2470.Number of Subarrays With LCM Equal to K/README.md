@@ -66,11 +66,11 @@ tags:
 
 > **思考**
 >
-> $n \le 1000$，枚举左端并向右延伸维护 LCM。LCM 单调不减，超过 $k$ 后可提前失去资格，但实现上直接累加 $x=k$ 的次数已足够。
+> $n \le 1000$，可以从每个左端点向右扫描。某个元素不能整除 $k$ 时，包含它的连续段的最小公倍数也不可能是 $k$，因此立刻停止。停止之前，运行中的最小公倍数始终整除 $k$，从而不超过 $k$。若先把两数相乘再除以最大公约数，$a \times b$ 会在真正的最小公倍数仍不超过 $2^{31}-1$ 时溢出，把本不是 $k$ 的段误判为答案。
 
 <!-- thinking:end -->
 
-枚举每个数作为子数组的第一个数，然后枚举每个数作为子数组的最后一个数，计算这个子数组的最小公倍数，如果最小公倍数等于 $k$，则答案加一。
+枚举每个下标作为左端点并向右延伸。遇到不能整除 $k$ 的元素就停止。延伸过程中运行的最小公倍数始终整除 $k$，等于 $k$ 时答案加一。
 
 时间复杂度 $O(n^2)$。
 
@@ -79,16 +79,19 @@ tags:
 #### Python3
 
 ```python
+from math import lcm
+
+
 class Solution:
     def subarrayLCM(self, nums: List[int], k: int) -> int:
-        n = len(nums)
         ans = 0
-        for i in range(n):
-            a = nums[i]
+        for i in range(len(nums)):
+            a = 1
             for b in nums[i:]:
-                x = lcm(a, b)
-                ans += x == k
-                a = x
+                if k % b:
+                    break
+                a = lcm(a, b)
+                ans += a == k
         return ans
 ```
 
@@ -97,24 +100,24 @@ class Solution:
 ```java
 class Solution {
     public int subarrayLCM(int[] nums, int k) {
-        int n = nums.length;
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int a = nums[i];
-            for (int j = i; j < n; ++j) {
-                int b = nums[j];
-                int x = lcm(a, b);
-                if (x == k) {
+        for (int i = 0; i < nums.length; ++i) {
+            int a = 1;
+            for (int j = i; j < nums.length; ++j) {
+                if (k % nums[j] != 0) {
+                    break;
+                }
+                a = lcm(a, nums[j]);
+                if (a == k) {
                     ++ans;
                 }
-                a = x;
             }
         }
         return ans;
     }
 
     private int lcm(int a, int b) {
-        return a * b / gcd(a, b);
+        return a / gcd(a, b) * b;
     }
 
     private int gcd(int a, int b) {
@@ -129,15 +132,15 @@ class Solution {
 class Solution {
 public:
     int subarrayLCM(vector<int>& nums, int k) {
-        int n = nums.size();
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int a = nums[i];
-            for (int j = i; j < n; ++j) {
-                int b = nums[j];
-                int x = lcm(a, b);
-                ans += x == k;
-                a = x;
+        for (int i = 0; i < nums.size(); ++i) {
+            int a = 1;
+            for (int j = i; j < nums.size(); ++j) {
+                if (k % nums[j] != 0) {
+                    break;
+                }
+                a = lcm(a, nums[j]);
+                ans += a == k;
             }
         }
         return ans;
@@ -149,13 +152,16 @@ public:
 
 ```go
 func subarrayLCM(nums []int, k int) (ans int) {
-	for i, a := range nums {
+	for i := range nums {
+		a := 1
 		for _, b := range nums[i:] {
-			x := lcm(a, b)
-			if x == k {
+			if k%b != 0 {
+				break
+			}
+			a = lcm(a, b)
+			if a == k {
 				ans++
 			}
-			a = x
 		}
 	}
 	return
@@ -169,7 +175,7 @@ func gcd(a, b int) int {
 }
 
 func lcm(a, b int) int {
-	return a * b / gcd(a, b)
+	return a / gcd(a, b) * b
 }
 ```
 

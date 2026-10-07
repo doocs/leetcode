@@ -70,7 +70,7 @@ comments: true
 
 否则，遍历结束后，返回 `false`。
 
-时间复杂度 $(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
+时间复杂度 $O(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -223,7 +223,7 @@ function checkInclusion(s1: string, s2: string): boolean {
 
 > **思考**
 >
-> 方法一每次滑动后都要比较两张表。用 $\textit{diff}$ 记录频次不同的字符种类，入窗、出窗时按计数穿越零的次数更新 $\textit{diff}$，$\textit{diff}=0$ 即覆盖成功，比较代价降为常数。
+> 方法一每次滑动后都要比较两张表。用 $\textit{diff}$ 记录频次不同的字符种类，入窗、出窗时按计数穿越零的次数更新 $\textit{diff}$， $\textit{diff}=0$ 即覆盖成功，比较代价降为常数。
 
 <!-- thinking:end -->
 

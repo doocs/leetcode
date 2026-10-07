@@ -14,7 +14,7 @@ impl Solution {
                     right = mid;
                 }
             }
-            res = res.max((left - i - 1) as i32);
+            res = res.max(left as i32 - i as i32 - 1);
         }
         res
     }

@@ -71,7 +71,7 @@ tags:
 >
 > 题目已经将个位放在链表头部，按位逆序存放，本质上就是竖式加法。若先把链表转成整数再相加，反而绕开了这一结构，也需要处理大整数。
 >
-> 两条链的长度可能不同，最高位还可能产生额外进位。每一位都是「当前两位数字（缺省为 $0$）与进位 $carry$ 之和」，再拆出个位和新的进位。从哑节点依次接上答案节点，两个指针同步前进；循环条件应为 $l_1$、$l_2$ 或 $carry$ 仍未结束，否则像 $[9] + [1]$ 这样的情况会丢失最后的进位。
+> 两条链的长度可能不同，最高位还可能产生额外进位。每一位都是「当前两位数字（缺省为 $0$）与进位 $carry$ 之和」，再拆出个位和新的进位。从哑节点依次接上答案节点，两个指针同步前进；循环条件应为 $l_1$、 $l_2$ 或 $carry$ 仍未结束，否则像 $[9] + [1]$ 这样的情况会丢失最后的进位。
 
 <!-- thinking:end -->
 
@@ -483,23 +483,20 @@ end
 ]#
 
 # More efficient code churning ...
-proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLinkedList[int] =
+proc addTwoNumbers(l1: var SinglyLinkedList[int], l2: var SinglyLinkedList[int]): SinglyLinkedList[int] =
   var
-    aggregate: SinglyLinkedList
-    psum: seq[char]
-    temp_la, temp_lb: seq[int]
-
-  while not l1.head.isNil:
-    temp_la.add(l1.head.value)
-    l1.head = l1.head.next
-
-  while not l2.head.isNil:
-    temp_lb.add(l2.head.value)
-    l2.head = l2.head.next
-
-  psum = reversed($(reversed(temp_la).join("").parseInt() + reversed(temp_lb).join("").parseInt()))
-  for i in psum: aggregate.append(($i).parseInt())
-
+    aggregate: SinglyLinkedList[int]
+    carry = 0
+  while not l1.head.isNil or not l2.head.isNil or carry != 0:
+    var s = carry
+    if not l1.head.isNil:
+      s += l1.head.value
+      l1.head = l1.head.next
+    if not l2.head.isNil:
+      s += l2.head.value
+      l2.head = l2.head.next
+    carry = s div 10
+    aggregate.append(s mod 10)
   result = aggregate
 ```
 

@@ -80,7 +80,7 @@ tags:
 
 > **思考**
 >
-> 之字形路径须左右交替下降。从每个节点、每种方向重新搜索会重复子树。DFS 时携带「若下一步向左/向右，当前已有的交错长度」：$l$ 表示到达本节点时最后一步向左的长度，$r$ 同理向右。进入左孩子时新的向左长度是 $r+1$，向右长度清零；右孩子对称。全程维护最大值。
+> 之字形路径须左右交替下降。从每个节点、每种方向重新搜索会重复子树。DFS 时携带「若下一步向左/向右，当前已有的交错长度」： $l$ 表示到达本节点时最后一步向左的长度， $r$ 同理向右。进入左孩子时新的向左长度是 $r+1$，向右长度清零；右孩子对称。全程维护最大值。
 
 <!-- thinking:end -->
 
@@ -204,6 +204,176 @@ func longestZigZag(root *TreeNode) int {
 		dfs(root.Right, 0, l+1)
 	}
 	dfs(root, 0, 0)
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 交错路径必须左右交替下降。从每个结点带着到达时最后一步向左的长度 $l$、向右的长度 $r$ 向下递归，左孩子接上 $r+1$ 并把向右长度清零，右孩子对称，可以在较短的树上求出最长交错路径。
+>
+> 结点个数可达 $5\times 10^4$。一条链会按结点个数递归，调用栈会溢出。
+>
+> 每个结点的 $l$ 和 $r$ 只由父结点的另一步决定，答案又只取全程最大值，不需要等子树返回。
+>
+> 因此用显式栈保存结点以及到达它的 $l$、$r$。弹出后更新答案，再把右孩子、左孩子连同新的长度压入栈。左孩子后压入，因而先被处理。
+
+<!-- thinking:end -->
+
+我们用显式栈遍历二叉树。栈中每个元素保存当前结点，以及到达该结点时最后一步向左、向右的交错长度 $l$ 和 $r$。
+
+弹出一个结点后，用 $\max(l, r)$ 更新答案。若存在左孩子，则它的向左长度为 $r+1$、向右长度为 $0$；右孩子的向右长度为 $l+1$、向左长度为 $0$。根结点的 $l$ 和 $r$ 都是 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def longestZigZag(self, root: TreeNode) -> int:
+        ans = 0
+        stk = [(root, 0, 0)]
+        while stk:
+            node, l, r = stk.pop()
+            if node is None:
+                continue
+            ans = max(ans, l, r)
+            stk.append((node.right, 0, l + 1))
+            stk.append((node.left, r + 1, 0))
+        return ans
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static class Frame {
+        TreeNode node;
+        int l;
+        int r;
+
+        Frame(TreeNode node, int l, int r) {
+            this.node = node;
+            this.l = l;
+            this.r = r;
+        }
+    }
+
+    public int longestZigZag(TreeNode root) {
+        int ans = 0;
+        Deque<Frame> stk = new ArrayDeque<>();
+        if (root != null) {
+            stk.push(new Frame(root, 0, 0));
+        }
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            ans = Math.max(ans, Math.max(cur.l, cur.r));
+            if (cur.node.right != null) {
+                stk.push(new Frame(cur.node.right, 0, cur.l + 1));
+            }
+            if (cur.node.left != null) {
+                stk.push(new Frame(cur.node.left, cur.r + 1, 0));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int longestZigZag(TreeNode* root) {
+        int ans = 0;
+        vector<tuple<TreeNode*, int, int>> stk{{root, 0, 0}};
+        while (!stk.empty()) {
+            auto [node, l, r] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            ans = max(ans, max(l, r));
+            stk.emplace_back(node->right, 0, l + 1);
+            stk.emplace_back(node->left, r + 1, 0);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func longestZigZag(root *TreeNode) int {
+	ans := 0
+	type frame struct {
+		node *TreeNode
+		l, r int
+	}
+	stk := []frame{{root, 0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if cur.node == nil {
+			continue
+		}
+		ans = max(ans, max(cur.l, cur.r))
+		stk = append(stk, frame{cur.node.Right, 0, cur.l + 1}, frame{cur.node.Left, cur.r + 1, 0})
+	}
 	return ans
 }
 ```

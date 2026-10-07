@@ -129,10 +129,10 @@ class Solution {
             for (int e : v) {
                 val += e;
             }
-            val -= (m * v.get(0));
+            val -= 1L * m * v.get(0);
             for (int i = 0; i < v.size(); ++i) {
                 int delta = i >= 1 ? v.get(i) - v.get(i - 1) : 0;
-                val += i * delta - (m - i) * delta;
+                val += 1L * i * delta - 1L * (m - i) * delta;
                 ans[v.get(i)] = val;
             }
         }
@@ -156,10 +156,10 @@ public:
             int m = v.size();
             long long val = 0;
             for (int e : v) val += e;
-            val -= m * v[0];
+            val -= 1LL * m * v[0];
             for (int i = 0; i < v.size(); ++i) {
                 int delta = i >= 1 ? v[i] - v[i - 1] : 0;
-                val += i * delta - (m - i) * delta;
+                val += 1LL * i * delta - 1LL * (m - i) * delta;
                 ans[v[i]] = val;
             }
         }

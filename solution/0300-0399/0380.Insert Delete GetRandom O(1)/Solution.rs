@@ -1,8 +1,9 @@
 use rand::Rng;
-use std::collections::HashSet;
+use std::collections::HashMap;
 
 struct RandomizedSet {
-    list: HashSet<i32>,
+    d: HashMap<i32, usize>,
+    q: Vec<i32>,
 }
 
 /**
@@ -12,20 +13,35 @@ struct RandomizedSet {
 impl RandomizedSet {
     fn new() -> Self {
         Self {
-            list: HashSet::new(),
+            d: HashMap::new(),
+            q: Vec::new(),
         }
     }
 
     fn insert(&mut self, val: i32) -> bool {
-        self.list.insert(val)
+        if self.d.contains_key(&val) {
+            return false;
+        }
+        self.d.insert(val, self.q.len());
+        self.q.push(val);
+        true
     }
 
     fn remove(&mut self, val: i32) -> bool {
-        self.list.remove(&val)
+        if !self.d.contains_key(&val) {
+            return false;
+        }
+        let i = self.d[&val];
+        let last = *self.q.last().unwrap();
+        self.d.insert(last, i);
+        self.q[i] = last;
+        self.q.pop();
+        self.d.remove(&val);
+        true
     }
 
     fn get_random(&self) -> i32 {
-        let i = rand::thread_rng().gen_range(0, self.list.len());
-        *self.list.iter().collect::<Vec<&i32>>()[i]
+        let i = rand::thread_rng().gen_range(0..self.q.len());
+        self.q[i]
     }
 }

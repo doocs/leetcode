@@ -88,7 +88,7 @@ tags:
 
 > **思考**
 >
-> 活塞在 $[0,height]$ 内匀速往返，面积是位置之和随时间的折线。$n\le 10^5$、$height\le 10^6$，不能枚举每一秒。速度只在碰到端点时变号，事件点有限。
+> 活塞在 $[0,height]$ 内匀速往返，面积是位置之和随时间的折线。 $n\le 10^5$、 $height\le 10^6$，不能枚举每一秒。速度只在碰到端点时变号，事件点有限。
 >
 > 初始面积为位置和，净速度为向上个数减向下个数。在「撞顶/撞底」时刻把对应活塞的速度贡献 $\pm 2$ 写入差分数。按时间排序扫事件，段内面积按匀速更新并取最大。
 
@@ -237,6 +237,40 @@ func maxArea(height int, positions []int, directions string) int64 {
 		ans = max(ans, res)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxArea(height: number, positions: number[], directions: string): number {
+    const delta = new Map<number, number>();
+    let diff = 0;
+    let res = 0;
+    for (let i = 0; i < positions.length; i++) {
+        const pos = positions[i];
+        const dir = directions[i];
+        res += pos;
+        if (dir === 'U') {
+            diff++;
+            delta.set(height - pos, (delta.get(height - pos) ?? 0) - 2);
+            delta.set(height * 2 - pos, (delta.get(height * 2 - pos) ?? 0) + 2);
+        } else {
+            diff--;
+            delta.set(pos, (delta.get(pos) ?? 0) + 2);
+            delta.set(height + pos, (delta.get(height + pos) ?? 0) - 2);
+        }
+    }
+    let ans = res;
+    let pre = 0;
+    const keys = [...delta.keys()].sort((a, b) => a - b);
+    for (const cur of keys) {
+        res += (cur - pre) * diff;
+        pre = cur;
+        diff += delta.get(cur)!;
+        ans = Math.max(ans, res);
+    }
+    return ans;
 }
 ```
 

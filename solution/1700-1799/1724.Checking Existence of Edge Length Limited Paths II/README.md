@@ -85,7 +85,7 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 >
 > 把边按权从小到大并入并查集，每次合并记录发生的时刻（即边权）。查询时只沿着「合并时刻 $<\textit{limit}$」的父指针跳，等价于只使用权更小的边。
 >
-> 可持久化并查集用 $\textit{version}[x]$ 保存结点被挂到父结点的权。$\textit{find}(x,t)$ 在 $t$ 之前停止上升，两点根相同则连通。
+> 可持久化并查集用 $\textit{version}[x]$ 保存结点被挂到父结点的权。 $\textit{find}(x,t)$ 在 $t$ 之前停止上升，两点根相同则连通。
 
 <!-- thinking:end -->
 

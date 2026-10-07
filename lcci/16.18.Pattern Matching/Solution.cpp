@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool patternMatching(string pattern, string value) {
+        if (pattern.empty()) {
+            return value.empty();
+        }
         int n = value.size();
         int cnt[2]{};
         for (char c : pattern) {

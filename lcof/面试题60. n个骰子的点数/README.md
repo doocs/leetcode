@@ -48,7 +48,7 @@ difficulty: 简单
 
 > **思考**
 >
-> 每个骰子 $1\sim 6$，点数和的分布可由前 $i-1$ 个骰子的分布转移而来。$f[i][j]$ 为 $i$ 个骰子和为 $j$ 的方案数，由 $f[i-1][j-k]$ 累加。最后除以 $6^n$ 得概率。
+> 每个骰子 $1\sim 6$，点数和的分布可由前 $i-1$ 个骰子的分布转移而来。 $f[i][j]$ 为 $i$ 个骰子和为 $j$ 的方案数，由 $f[i-1][j-k]$ 累加。最后除以 $6^n$ 得概率。
 
 <!-- thinking:end -->
 
@@ -331,6 +331,35 @@ class Solution {
         return ans;
     }
 }
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<double> dicesProbability(int n) {
+        vector<int> f(7, 1);
+        f[0] = 0;
+        for (int i = 2; i <= n; ++i) {
+            vector<int> g(6 * i + 1, 0);
+            for (int j = i; j <= 6 * i; ++j) {
+                for (int k = 1; k <= 6; ++k) {
+                    if (j - k >= 0 && j - k < f.size()) {
+                        g[j] += f[j - k];
+                    }
+                }
+            }
+            f = move(g);
+        }
+        double m = pow(6, n);
+        vector<double> ans;
+        for (int j = n; j <= 6 * n; ++j) {
+            ans.push_back(f[j] / m);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go

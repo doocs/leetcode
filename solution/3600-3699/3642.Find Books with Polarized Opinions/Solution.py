@@ -20,7 +20,10 @@ def find_polarized_books(
 
     agg_df["polarization_score"] = agg_df.apply(
         lambda r: float(
-            Decimal(r["low_or_high_count"] / r["count_sessions"]).quantize(
+            (
+                Decimal(int(r["low_or_high_count"]))
+                / Decimal(int(r["count_sessions"]))
+            ).quantize(
                 Decimal("0.01"), rounding=ROUND_HALF_UP
             )
         ),
@@ -31,7 +34,7 @@ def find_polarized_books(
         (agg_df["count_sessions"] >= 5)
         & (agg_df["max_rating"] >= 4)
         & (agg_df["min_rating"] <= 2)
-        & (agg_df["polarization_score"] >= 0.6)
+        & (5 * agg_df["low_or_high_count"] >= 3 * agg_df["count_sessions"])
     ]
 
     return result.sort_values(

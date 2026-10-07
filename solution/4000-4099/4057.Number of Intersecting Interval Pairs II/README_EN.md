@@ -1,6 +1,7 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1483
 source: Weekly Contest 520 Q2
 ---
 

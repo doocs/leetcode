@@ -80,7 +80,7 @@ tags:
 
 > **思考**
 >
-> 去掉结点后，分数为各连通块大小之积。$n \le 10^5$，需一次遍历得到所有分数。子树大小在 DFS 回溯时可知，补集大小为 $n-cnt$。
+> 去掉结点后，分数为各连通块大小之积。 $n \le 10^5$，需一次遍历得到所有分数。子树大小在 DFS 回溯时可知，补集大小为 $n-cnt$。
 >
 > 建出孩子邻接表，从根 DFS：把各孩子子树大小相乘，若还有上方块再乘 $n-cnt$。同步维护最高分及其出现次数。
 
@@ -341,6 +341,328 @@ public class Solution {
         }
 
         return cnt;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 去掉结点后，分数是各连通块大小的乘积。$n$ 可以到 $10^5$。一条链上第一次递归总是走向唯一的孩子，深度就是 $n$，会超出默认递归上限。
+>
+> 分数要等每个孩子的子树大小都确定后才能相乘，结点上方剩余部分的大小是 $n$ 减去这棵子树的大小。
+>
+> 因此用显式栈做后序。进入结点时先压入离开标记，再压入孩子。离开时把各孩子的子树大小相乘，若还有上方的块再乘 $n-cnt$，并维护最高分及其出现次数。
+
+<!-- thinking:end -->
+
+我们先根据给定的父节点数组 `parents` 构建图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。定义变量 $ans$ 表示最高得分的节点数目，变量 $mx$ 表示最高得分。
+
+用显式栈从根结点 $0$ 做后序遍历。进入一个结点时，先压入该结点的离开标记，再压入它的孩子，这样孩子会先处理完。离开时，各孩子的子树大小已经写好。初始化 $cnt = 1$、$score = 1$。把每个孩子的子树大小累乘到 $score$，并累加到 $cnt$。如果 $n - cnt > 0$，再把 $n - cnt$ 累乘到 $score$。若 $score$ 大于 $mx$，则把 $mx$ 更新为 $score$、$ans$ 更新为 $1$；若相等，则把 $ans$ 加 $1$。最后把 $cnt$ 记为当前结点的子树大小。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数目。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countHighestScoreNodes(self, parents: List[int]) -> int:
+        n = len(parents)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parents[i]].append(i)
+        ans = mx = 0
+        sz = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                cnt = score = 1
+                for j in g[i]:
+                    if j != fa:
+                        t = sz[j]
+                        score *= t
+                        cnt += t
+                if n - cnt:
+                    score *= n - cnt
+                if mx < score:
+                    mx = score
+                    ans = 1
+                elif mx == score:
+                    ans += 1
+                sz[i] = cnt
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countHighestScoreNodes(int[] parents) {
+        int n = parents.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].add(i);
+        }
+        int ans = 0;
+        long mx = 0;
+        int[] sz = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                int cnt = 1;
+                long score = 1;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        int t = sz[j];
+                        cnt += t;
+                        score *= t;
+                    }
+                }
+                if (n - cnt > 0) {
+                    score *= n - cnt;
+                }
+                if (mx < score) {
+                    mx = score;
+                    ans = 1;
+                } else if (mx == score) {
+                    ++ans;
+                }
+                sz[i] = cnt;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countHighestScoreNodes(vector<int>& parents) {
+        int n = parents.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].push_back(i);
+        }
+        int ans = 0;
+        long long mx = 0;
+        vector<int> sz(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                int cnt = 1;
+                long long score = 1;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        int t = sz[j];
+                        cnt += t;
+                        score *= t;
+                    }
+                }
+                if (n - cnt) {
+                    score *= n - cnt;
+                }
+                if (mx < score) {
+                    mx = score;
+                    ans = 1;
+                } else if (mx == score) {
+                    ++ans;
+                }
+                sz[i] = cnt;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countHighestScoreNodes(parents []int) (ans int) {
+	n := len(parents)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parents[i]] = append(g[parents[i]], i)
+	}
+	mx := 0
+	sz := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, j := range g[i] {
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			cnt, score := 1, 1
+			for _, j := range g[i] {
+				if j != fa {
+					t := sz[j]
+					cnt += t
+					score *= t
+				}
+			}
+			if n-cnt > 0 {
+				score *= n - cnt
+			}
+			if mx < score {
+				mx = score
+				ans = 1
+			} else if mx == score {
+				ans++
+			}
+			sz[i] = cnt
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countHighestScoreNodes(parents: number[]): number {
+    const n = parents.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; i++) {
+        g[parents[i]].push(i);
+    }
+    let ans = 0;
+    let mx = 0;
+    const sz: number[] = Array(n).fill(0);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, fa, 1]);
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    stk.push([j, i, 0]);
+                }
+            }
+        } else {
+            let cnt = 1;
+            let score = 1;
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    const t = sz[j];
+                    cnt += t;
+                    score *= t;
+                }
+            }
+            if (n - cnt) {
+                score *= n - cnt;
+            }
+            if (mx < score) {
+                mx = score;
+                ans = 1;
+            } else if (mx === score) {
+                ans++;
+            }
+            sz[i] = cnt;
+        }
+    }
+    return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountHighestScoreNodes(int[] parents) {
+        int n = parents.Length;
+        List<int>[] g = new List<int>[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new List<int>();
+        }
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].Add(i);
+        }
+        int ans = 0;
+        long mx = 0;
+        int[] sz = new int[n];
+        Stack<int[]> stk = new Stack<int[]>();
+        stk.Push(new int[] { 0, -1, 0 });
+        while (stk.Count > 0) {
+            int[] cur = stk.Pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.Push(new int[] { i, fa, 1 });
+                foreach (int j in g[i]) {
+                    if (j != fa) {
+                        stk.Push(new int[] { j, i, 0 });
+                    }
+                }
+            } else {
+                int cnt = 1;
+                long score = 1;
+                foreach (int j in g[i]) {
+                    if (j != fa) {
+                        int t = sz[j];
+                        cnt += t;
+                        score *= t;
+                    }
+                }
+                if (n - cnt > 0) {
+                    score *= n - cnt;
+                }
+                if (mx < score) {
+                    mx = score;
+                    ans = 1;
+                } else if (mx == score) {
+                    ++ans;
+                }
+                sz[i] = cnt;
+            }
+        }
+        return ans;
     }
 }
 ```

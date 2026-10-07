@@ -1,4 +1,7 @@
 function patternMatching(pattern: string, value: string): boolean {
+    if (pattern.length === 0) {
+        return value.length === 0;
+    }
     const cnt: number[] = [0, 0];
     for (const c of pattern) {
         cnt[c === 'a' ? 0 : 1]++;

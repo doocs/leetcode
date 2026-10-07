@@ -62,7 +62,7 @@ tags:
 
 > **思考**
 >
-> 对每个位置求右侧下一个更高温度的距离。$n\le 10^5$，对每个下标向右扫描是 $O(n^2)$。
+> 对每个位置求右侧下一个更高温度的距离。 $n\le 10^5$，对每个下标向右扫描是 $O(n^2)$。
 >
 > 这是「右侧下一个更大元」：用单调栈保存尚未找到答案、温度递减的下标。从右往左扫时，弹出所有不大于当前温度的栈顶，新的栈顶即是下一个更暖的一天。
 >
@@ -179,26 +179,6 @@ function dailyTemperatures(temperatures: number[]): number[] {
         stk.push(i);
     }
     return ans;
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
-        let n = temperatures.len();
-        let mut stack = vec![];
-        let mut res = vec![0; n];
-        for i in 0..n {
-            while !stack.is_empty() && temperatures[*stack.last().unwrap()] < temperatures[i] {
-                let j = stack.pop().unwrap();
-                res[j] = (i - j) as i32;
-            }
-            stack.push(i);
-        }
-        res
-    }
 }
 ```
 

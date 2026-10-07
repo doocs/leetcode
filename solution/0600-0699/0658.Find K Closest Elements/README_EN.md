@@ -154,16 +154,8 @@ func abs(x int) int {
 
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
-    let l = 0;
-    let r = arr.length;
-    while (r - l > k) {
-        if (x - arr[l] <= arr[r - 1] - x) {
-            --r;
-        } else {
-            ++l;
-        }
-    }
-    return arr.slice(l, r);
+    arr.sort((a, b) => Math.abs(a - x) - Math.abs(b - x) || a - b);
+    return arr.slice(0, k).sort((a, b) => a - b);
 }
 ```
 
@@ -172,17 +164,11 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
 ```rust
 impl Solution {
     pub fn find_closest_elements(arr: Vec<i32>, k: i32, x: i32) -> Vec<i32> {
-        let n = arr.len();
-        let mut l = 0;
-        let mut r = n;
-        while r - l != (k as usize) {
-            if x - arr[l] <= arr[r - 1] - x {
-                r -= 1;
-            } else {
-                l += 1;
-            }
-        }
-        arr[l..r].to_vec()
+        let mut arr = arr;
+        arr.sort_by_key(|&v| ((v - x).abs(), v));
+        arr.truncate(k as usize);
+        arr.sort();
+        arr
     }
 }
 ```
@@ -193,7 +179,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Binary search
+### Solution 2: Two Pointers
 
 <!-- thinking:start -->
 
@@ -202,6 +188,12 @@ impl Solution {
 > The answer is a contiguous slice. Shrink the farther endpoint until the window has length $k$; the slice is already sorted.
 
 <!-- thinking:end -->
+
+The $k$ elements closest to $x$ in a sorted array form one contiguous subarray.
+
+Set pointers $l$ and $r$ at the two ends. Compare $x - arr[l]$ with $arr[r - 1] - x$ and drop the farther end until $r - l = k$.
+
+The time complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -280,17 +272,16 @@ func findClosestElements(arr []int, k int, x int) []int {
 
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
-    let left = 0;
-    let right = arr.length - k;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (x - arr[mid] <= arr[mid + k] - x) {
-            right = mid;
+    let l = 0;
+    let r = arr.length;
+    while (r - l > k) {
+        if (x - arr[l] <= arr[r - 1] - x) {
+            --r;
         } else {
-            left = mid + 1;
+            ++l;
         }
     }
-    return arr.slice(left, left + k);
+    return arr.slice(l, r);
 }
 ```
 
@@ -299,19 +290,17 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
 ```rust
 impl Solution {
     pub fn find_closest_elements(arr: Vec<i32>, k: i32, x: i32) -> Vec<i32> {
-        let k = k as usize;
         let n = arr.len();
-        let mut left = 0;
-        let mut right = n - k;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if x - arr[mid] > arr[mid + k] - x {
-                left = mid + 1;
+        let mut l = 0;
+        let mut r = n;
+        while r - l != (k as usize) {
+            if x - arr[l] <= arr[r - 1] - x {
+                r -= 1;
             } else {
-                right = mid;
+                l += 1;
             }
         }
-        arr[left..left + k].to_vec()
+        arr[l..r].to_vec()
     }
 }
 ```
@@ -322,7 +311,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Binary Search
 
 <!-- thinking:start -->
 
@@ -331,6 +320,10 @@ impl Solution {
 > Two pointers are linear. The best left bound in $[0,n-k]$ is monotone: compare $x-arr[mid]$ with $arr[mid+k]-x$ and binary-search it.
 
 <!-- thinking:end -->
+
+On top of method 2, binary-search the left boundary of the window of length $k$ over $[0, n - k]$. At $\textit{mid}$, move the window left when $x - arr[\textit{mid}] \le arr[\textit{mid} + k] - x$, and right otherwise.
+
+The time complexity is $O(\log n)$.
 
 <!-- tabs:start -->
 
@@ -406,6 +399,46 @@ func findClosestElements(arr []int, k int, x int) []int {
 		}
 	}
 	return arr[left : left+k]
+}
+```
+
+#### TypeScript
+
+```ts
+function findClosestElements(arr: number[], k: number, x: number): number[] {
+    let left = 0;
+    let right = arr.length - k;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (x - arr[mid] <= arr[mid + k] - x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return arr.slice(left, left + k);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_closest_elements(arr: Vec<i32>, k: i32, x: i32) -> Vec<i32> {
+        let k = k as usize;
+        let n = arr.len();
+        let mut left = 0;
+        let mut right = n - k;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if x - arr[mid] > arr[mid + k] - x {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        arr[left..left + k].to_vec()
+    }
 }
 ```
 

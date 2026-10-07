@@ -3,6 +3,9 @@ class Solution {
     private String value;
 
     public boolean patternMatching(String pattern, String value) {
+        if (pattern.isEmpty()) {
+            return value.isEmpty();
+        }
         this.pattern = pattern;
         this.value = value;
         int[] cnt = new int[2];

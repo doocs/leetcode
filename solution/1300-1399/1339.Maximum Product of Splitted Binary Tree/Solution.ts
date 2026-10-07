@@ -20,18 +20,21 @@ function maxProduct(root: TreeNode | null): number {
         return root.val + sum(root.left) + sum(root.right);
     };
     const s = sum(root);
-    let ans = 0;
-    const mod = 1e9 + 7;
+    let ans = 0n;
+    const mod = 1000000007n;
     const dfs = (root: TreeNode | null): number => {
         if (!root) {
             return 0;
         }
         const t = root.val + dfs(root.left) + dfs(root.right);
         if (t < s) {
-            ans = Math.max(ans, t * (s - t));
+            const prod = BigInt(t) * BigInt(s - t);
+            if (prod > ans) {
+                ans = prod;
+            }
         }
         return t;
     };
     dfs(root);
-    return ans % mod;
+    return Number(ans % mod);
 }

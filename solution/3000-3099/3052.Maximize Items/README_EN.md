@@ -91,15 +91,15 @@ Output table is ordered by item count in descending order.</pre>
 >
 > The warehouse holds $500000$ and must be filled with complete prime sets first, then leftover space with non-prime sets. A set is one copy of every item of that type.
 >
-> A prime set has area $s$, the sum of prime items, so we store $\lfloor 500000/s \rfloor$ sets; the remainder is filled by the non-prime total area.
+> A prime set has area $s$, the sum of prime items, so we store $\lfloor 500000/s \rfloor$ sets; the remainder is filled by the non-prime total area. An empty prime category makes that sum `NULL`, which we treat as $0$ so the whole warehouse is left for non-prime sets.
 >
-> Compute $s$, multiply each type’s item count by the number of sets, and return the two rows with $\texttt{UNION ALL}$.
+> Compute $s$, multiply each type’s item count by the number of sets, and return the two rows with $\texttt{UNION ALL}$, ordered by item count descending.
 
 <!-- thinking:end -->
 
-First, we calculate the total area of all items of type `prime_eligible` and record it in the `s` field of table `T`.
+First, we calculate the total area of all items of type `prime_eligible` and record it in the `s` field of table `T`. If that category is empty, `SUM` is `NULL`, so `IFNULL` stores $0$. No prime set is stocked, and the remainder is the full $500000$.
 
-Next, we calculate the number of items of type `prime_eligible` and `not_prime` respectively. For items of type `prime_eligible`, the number of portions we can store is $\lfloor \frac{500000}{s} \rfloor$. For items of type `not_prime`, the number of portions we can store is $\lfloor \frac{500000 \mod s}{\sum \textit{s1}} \rfloor$. Where $\sum \textit{s1}$ is the total area of all items of type `not_prime`. Multiplying by the number of items of type `prime_eligible` and `not_prime` respectively gives us our result.
+Next, we calculate the number of items of type `prime_eligible` and `not_prime` respectively. For items of type `prime_eligible`, the number of portions we can store is $\lfloor \frac{500000}{s} \rfloor$ when $s > 0$, and $0$ otherwise. For items of type `not_prime`, the number of portions we can store is $\lfloor \frac{500000 \mod s}{\sum \textit{s1}} \rfloor$ when $s > 0$, and $\lfloor \frac{500000}{\sum \textit{s1}} \rfloor$ when $s = 0$. Where $\sum \textit{s1}$ is the total area of all items of type `not_prime`. Multiplying by the number of items of each type gives the two counts. The result is ordered by item count descending.
 
 <!-- tabs:start -->
 
@@ -109,17 +109,16 @@ Next, we calculate the number of items of type `prime_eligible` and `not_prime` 
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT SUM(square_footage) AS s
+        SELECT
+            IFNULL(SUM(square_footage), 0) AS s,
+            COUNT(1) AS cnt
         FROM Inventory
         WHERE item_type = 'prime_eligible'
     )
 SELECT
     'prime_eligible' AS item_type,
-    COUNT(1) * FLOOR(500000 / s) AS item_count
-FROM
-    Inventory
-    JOIN T
-WHERE item_type = 'prime_eligible'
+    IF(s = 0, 0, cnt * FLOOR(500000 / s)) AS item_count
+FROM T
 UNION ALL
 SELECT
     'not_prime',
@@ -127,7 +126,8 @@ SELECT
 FROM
     Inventory
     JOIN T
-WHERE item_type = 'not_prime';
+WHERE item_type = 'not_prime'
+ORDER BY item_count DESC, item_type DESC;
 ```
 
 <!-- tabs:end -->

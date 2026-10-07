@@ -90,7 +90,7 @@ tags:
 
 > **思考**
 >
-> 好节点的所有子树大小相等。$n\le 10^5$，对每个点重新算子树为平方。一次 DFS 即可在回溯时比较各子树大小并累加自身是否好。
+> 好节点的所有子树大小相等。 $n\le 10^5$，对每个点重新算子树为平方。一次 DFS 即可在回溯时比较各子树大小并累加自身是否好。
 >
 > $\textit{dfs}(a,\textit{fa})$ 返回子树点数；若所有孩子返回值相同则 $a$ 为好节点。无根树任取 $0$ 为根。线性时间。
 
@@ -277,6 +277,258 @@ function countGoodNodes(edges: number[][]): number {
         return cnt;
     };
     dfs(0, -1);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好节点要求每个孩子的子树大小都相等。$n$ 可以到 $10^5$，对每个点重新遍历子树是平方时间。一条链上第一次递归总是走向唯一的孩子，深度就是 $n$，会超出默认递归上限。
+>
+> 子树大小要等孩子都处理完才能比较。
+>
+> 因此用显式栈做后序。进入节点时先压入离开标记，再压入子节点。离开时读取各孩子的子树大小，若它们相同则当前节点是好节点，并把自身子树大小写回。无根树以 $0$ 为根。
+
+<!-- thinking:end -->
+
+我们先根据题目给定的边 $\textit{edges}$ 构建出树的邻接表 $\textit{g}$，其中 $\textit{g}[a]$ 表示节点 $a$ 的所有邻居节点。
+
+用显式栈从节点 $0$ 做后序遍历。进入一个节点时，先压入该节点的离开标记，再压入它的子节点，这样子节点会先处理完。离开时，各孩子的子树大小已经写好。初始化 $\textit{pre} = -1$、$\textit{cnt} = 1$、$\textit{ok} = 1$。对每个孩子，把子树大小累加进 $\textit{cnt}$；若与 $\textit{pre}$ 不同，则把 $\textit{ok}$ 置为 $0$。然后把 $\textit{ok}$ 累加进答案，并把 $\textit{cnt}$ 记为当前节点的子树大小。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示节点的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countGoodNodes(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = 0
+        sz = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                pre = -1
+                cnt = ok = 1
+                for b in g[a]:
+                    if b != fa:
+                        cur = sz[b]
+                        cnt += cur
+                        if pre < 0:
+                            pre = cur
+                        elif pre != cur:
+                            ok = 0
+                ans += ok
+                sz[a] = cnt
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countGoodNodes(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int ans = 0;
+        int[] sz = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                int pre = -1, cnt = 1, ok = 1;
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        int curSz = sz[b];
+                        cnt += curSz;
+                        if (pre < 0) {
+                            pre = curSz;
+                        } else if (pre != curSz) {
+                            ok = 0;
+                        }
+                    }
+                }
+                ans += ok;
+                sz[a] = cnt;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countGoodNodes(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        int ans = 0;
+        vector<int> sz(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                int pre = -1, cnt = 1, ok = 1;
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        int curSz = sz[b];
+                        cnt += curSz;
+                        if (pre < 0) {
+                            pre = curSz;
+                        } else if (pre != curSz) {
+                            ok = 0;
+                        }
+                    }
+                }
+                ans += ok;
+                sz[a] = cnt;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countGoodNodes(edges [][]int) (ans int) {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	sz := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{a, fa, 1})
+			for _, b := range g[a] {
+				if b != fa {
+					stk = append(stk, [3]int{b, a, 0})
+				}
+			}
+		} else {
+			pre, cnt, ok := -1, 1, 1
+			for _, b := range g[a] {
+				if b != fa {
+					curSz := sz[b]
+					cnt += curSz
+					if pre < 0 {
+						pre = curSz
+					} else if pre != curSz {
+						ok = 0
+					}
+				}
+			}
+			ans += ok
+			sz[a] = cnt
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countGoodNodes(edges: number[][]): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let ans = 0;
+    const sz: number[] = Array(n).fill(0);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            let pre = -1;
+            let cnt = 1;
+            let ok = 1;
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    const cur = sz[b];
+                    cnt += cur;
+                    if (pre < 0) {
+                        pre = cur;
+                    } else if (pre !== cur) {
+                        ok = 0;
+                    }
+                }
+            }
+            ans += ok;
+            sz[a] = cnt;
+        }
+    }
     return ans;
 }
 ```

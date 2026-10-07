@@ -90,7 +90,7 @@ tags:
 >
 > $n \le 100$, so every pair can be enumerated. The graph is a path plus the extra edge $(x,y)$.
 >
-> The shortest $i$–$j$ path is the minimum of the path distance and the two routes that use the extra edge in either direction.
+> The shortest $i$– $j$ path is the minimum of the path distance and the two routes that use the extra edge in either direction.
 >
 > We enumerate ordered pairs, take that minimum, and add $2$ to the corresponding bucket for $(i,j)$ and $(j,i)$.
 

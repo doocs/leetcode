@@ -1,6 +1,6 @@
 class Router {
     private lim: number;
-    private vis: Set<number>;
+    private vis: Set<string>;
     private q: [number, number, number][];
     private idx: Map<number, number>;
     private d: Map<number, number[]>;
@@ -13,8 +13,8 @@ class Router {
         this.d = new Map();
     }
 
-    private f(a: number, b: number, c: number): number {
-        return ((BigInt(a) << 46n) | (BigInt(b) << 29n) | BigInt(c)) as unknown as number;
+    private f(a: number, b: number, c: number): string {
+        return `${a}#${b}#${c}`;
     }
 
     addPacket(source: number, destination: number, timestamp: number): boolean {

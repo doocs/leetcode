@@ -78,7 +78,7 @@ tags:
 
 > **思考**
 >
-> 要反转单词顺序并挤掉多余空格。$n\le 10^4$。用双指针扫描，跳过空格后截出每个单词，收集后再整体反转拼接，首尾与词间空格自然消失。
+> 要反转单词顺序并挤掉多余空格。 $n\le 10^4$。用双指针扫描，跳过空格后截出每个单词，收集后再整体反转拼接，首尾与词间空格自然消失。
 
 <!-- thinking:end -->
 
@@ -343,6 +343,16 @@ function reverseWords(s: string): string {
 impl Solution {
     pub fn reverse_words(s: String) -> String {
         s.split_whitespace().rev().collect::<Vec<&str>>().join(" ")
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string ReverseWords(string s) {
+        return string.Join(" ", s.Trim().Split(" ").Where(word => !string.IsNullOrEmpty(word) && !string.IsNullOrEmpty(word.Trim())).Reverse());
     }
 }
 ```

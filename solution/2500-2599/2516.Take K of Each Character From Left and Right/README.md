@@ -229,7 +229,7 @@ impl Solution {
             return -1;
         }
 
-        let mut mx = 0;
+        let mut mx = 0i32;
         let mut j = 0;
         let mut cs = s.chars().collect::<Vec<char>>();
         for i in 0..cs.len() {
@@ -239,9 +239,9 @@ impl Solution {
                 *cnt.get_mut(&cs[j]).unwrap() += 1;
                 j += 1;
             }
-            mx = mx.max(i - j + 1);
+            mx = mx.max(i as i32 - j as i32 + 1);
         }
-        (cs.len() as i32) - (mx as i32)
+        cs.len() as i32 - mx
     }
 }
 ```

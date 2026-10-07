@@ -169,7 +169,7 @@ char* toLowerCase(char* s) {
 >
 > Solution 1 branches on `isupper`. Lowercase ASCII already has bit $5$ set, so or-ing $32$ is a no-op there and we can apply it uniformly.
 >
-> The TypeScript tab ors every character; the Rust tab still guards $A$–$Z$ so non-letters are untouched. Neither version calls a locale-aware lowercasing API.
+> The TypeScript tab ors every character; the Rust tab still guards $A$– $Z$ so non-letters are untouched. Neither version calls a locale-aware lowercasing API.
 
 <!-- thinking:end -->
 

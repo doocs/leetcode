@@ -67,9 +67,9 @@ tags:
 
 > **思考**
 >
-> 在 $0$、$1$ 个数受限下选最多字符串，是二维费用的 $0$-$1$ 背包。子集枚举不可行。
+> 在 $0$、 $1$ 个数受限下选最多字符串，是二维费用的 $0$-$1$ 背包。子集枚举不可行。
 >
-> $f[i][j][k]$：前 $i$ 个串、至多 $j$ 个 $0$、$k$ 个 $1$ 的最大个数。不选抄上一行，选则加上 $1$（费用够时）。
+> $f[i][j][k]$：前 $i$ 个串、至多 $j$ 个 $0$、 $k$ 个 $1$ 的最大个数。不选抄上一行，选则加上 $1$（费用够时）。
 >
 > 先统计当前串的 $0/1$ 个数再填表，保证转移用的是这一件物品的费用。
 
@@ -145,8 +145,7 @@ class Solution {
 public:
     int findMaxForm(vector<string>& strs, int m, int n) {
         int sz = strs.size();
-        int f[sz + 1][m + 1][n + 1];
-        memset(f, 0, sizeof(f));
+        vector<vector<vector<int>>> f(sz + 1, vector<vector<int>>(m + 1, vector<int>(n + 1)));
         for (int i = 1; i <= sz; ++i) {
             auto [a, b] = count(strs[i - 1]);
             for (int j = 0; j <= m; ++j) {

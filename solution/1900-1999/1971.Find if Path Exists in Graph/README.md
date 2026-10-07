@@ -274,7 +274,7 @@ impl Solution {
 
 > **思考**
 >
-> 递归深度在链状图上可能过大。改为队列 BFS，同样标记访问，层序扩展至终点或队列空。
+> 方法一用显式栈按深度优先扩展。队列按层扩展同样能判断连通：起点入队并标记，取出的点若是终点即成功，否则把未访问邻居入队。队列空则不可达。
 
 <!-- thinking:end -->
 
@@ -490,7 +490,7 @@ impl Solution {
 
 > **思考**
 >
-> 只需连通性、不要路径本身时，并查集把每条边两端合并，最后比较两点根是否相同，实现更短且无递归。
+> 只需连通性、不要路径本身时，并查集把每条边两端合并，最后比较两点根是否相同。不必再在图上行走。
 
 <!-- thinking:end -->
 
@@ -776,6 +776,234 @@ impl Solution {
         }
 
         uf.find(source as usize) == uf.find(destination as usize)
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法四：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 无向图上判断两点是否连通。$n \le 2 \times 10^5$，建邻接表后沿边扩展，用访问标记避免环路，到达终点即成功。时间与点数边数线性。
+>
+> 从起点递归进入邻居，链上的调用深度就是 $n$，会超出递归栈。是否连通与邻居的访问顺序无关。
+>
+> 因此改用显式栈。起点即终点时直接返回；否则入栈时标记，弹出后若邻居是终点则成功，只把未标记的邻居压入。栈空则不可达。
+
+<!-- thinking:end -->
+
+我们首先将 $\textit{edges}$ 转换成邻接表 $g$。若 $\textit{source}$ 就是 $\textit{destination}$，直接返回 $\textit{true}$。否则用显式栈从起点出发：入栈时把顶点记入 $\textit{vis}$，弹出后若某个邻居是终点则返回 $\textit{true}$，只把尚未标记的邻居压入栈。栈空则说明不存在路径。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validPath(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
+        if source == destination:
+            return True
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        vis = [False] * n
+        vis[source] = True
+        stk = [source]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if j == destination:
+                    return True
+                if not vis[j]:
+                    vis[j] = True
+                    stk.append(j)
+        return False
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        if (source == destination) {
+            return true;
+        }
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        boolean[] vis = new boolean[n];
+        vis[source] = true;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(source);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            for (int j : g[i]) {
+                if (j == destination) {
+                    return true;
+                }
+                if (!vis[j]) {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        if (source == destination) {
+            return true;
+        }
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        vector<char> vis(n);
+        vis[source] = 1;
+        vector<int> stk{source};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            for (int j : g[i]) {
+                if (j == destination) {
+                    return true;
+                }
+                if (!vis[j]) {
+                    vis[j] = 1;
+                    stk.push_back(j);
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+#### Go
+
+```go
+func validPath(n int, edges [][]int, source int, destination int) bool {
+	if source == destination {
+		return true
+	}
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	vis := make([]bool, n)
+	vis[source] = true
+	stk := []int{source}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, j := range g[i] {
+			if j == destination {
+				return true
+			}
+			if !vis[j] {
+				vis[j] = true
+				stk = append(stk, j)
+			}
+		}
+	}
+	return false
+}
+```
+
+#### TypeScript
+
+```ts
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    if (source === destination) {
+        return true;
+    }
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    vis[source] = true;
+    const stk: number[] = [source];
+    while (stk.length) {
+        const i = stk.pop()!;
+        for (const j of g[i]) {
+            if (j === destination) {
+                return true;
+            }
+            if (!vis[j]) {
+                vis[j] = true;
+                stk.push(j);
+            }
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
+        let n = n as usize;
+        let source = source as usize;
+        let destination = destination as usize;
+        if source == destination {
+            return true;
+        }
+
+        let mut g = vec![Vec::new(); n];
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            g[u].push(v);
+            g[v].push(u);
+        }
+
+        let mut vis = vec![false; n];
+        vis[source] = true;
+        let mut stk = vec![source];
+        while let Some(i) = stk.pop() {
+            for &j in &g[i] {
+                if j == destination {
+                    return true;
+                }
+                if !vis[j] {
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        false
     }
 }
 ```

@@ -76,7 +76,7 @@ tags:
 
 > **思考**
 >
-> 任意子数组翻转等价于可以任意重排。$n\le 1000$，两数组排序后相等当且仅当能互变。
+> 任意子数组翻转等价于可以任意重排。 $n\le 1000$，两数组排序后相等当且仅当能互变。
 
 <!-- thinking:end -->
 
@@ -211,7 +211,7 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 > **思考**
 >
-> 方法一花费 $O(n\log n)$。值域仅为 $1$～$1000$，比较频次即可，线性判定。
+> 方法一花费 $O(n\log n)$。值域仅为 $1$～ $1000$，比较频次即可，线性判定。
 
 <!-- thinking:end -->
 
@@ -325,6 +325,24 @@ impl Solution {
         }
         cnt.iter().all(|v| *v == 0)
     }
+}
+```
+
+#### C
+
+```c
+bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
+    int count[1001] = {0};
+    for (int i = 0; i < targetSize; i++) {
+        count[target[i]]++;
+        count[arr[i]]--;
+    }
+    for (int i = 0; i < 1001; i++) {
+        if (count[i] != 0) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 

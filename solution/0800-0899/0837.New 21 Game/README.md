@@ -73,9 +73,9 @@ tags:
 
 > **思考**
 >
-> 从 $0$ 开始每次均匀加 $[1,\textit{maxPts}]$，达到 $k$ 停止，求点数不超过 $n$ 的概率。$k,n\le 10^4$，按每次抽牌展开博弈树不可行，应对「当前点数」做记忆化。
+> 从 $0$ 开始每次均匀加 $[1,\textit{maxPts}]$，达到 $k$ 停止，求点数不超过 $n$ 的概率。 $k,n\le 10^4$，按每次抽牌展开博弈树不可行，应对「当前点数」做记忆化。
 >
-> $dfs(i)$ 为已有 $i$ 点时的成功概率。$i\ge k$ 时停止并按是否 $\le n$ 返回；$i=k-1$ 可闭式算出。其余用相邻状态的差分把转移从 $O(\textit{maxPts})$ 降到 $O(1)$。
+> $dfs(i)$ 为已有 $i$ 点时的成功概率。 $i\ge k$ 时停止并按是否 $\le n$ 返回； $i=k-1$ 可闭式算出。其余用相邻状态的差分把转移从 $O(\textit{maxPts})$ 降到 $O(1)$。
 
 <!-- thinking:end -->
 
@@ -284,13 +284,13 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 > **思考**
 >
-> 记忆化仍有递归开销。同一转移可自 $k-2$ 向下填表：$f[i]$ 由 $f[i+1]$ 与窗口右端 $f[i+\textit{maxPts}+1]$ 推出。
+> 方法一已经从高分往低分填好这张表。同一转移是：$f[i]$ 由 $f[i+1]$ 与窗口右端 $f[i+\textit{maxPts}+1]$ 推出。
 >
-> $[k,\min(n,k+\textit{maxPts}))$ 的终止态为 $1$，其余为 $0$。答案即 $f[0]$，线性完成。
+> $[k,\min(n,k+\textit{maxPts}))$ 的终止态为 $1$，其余为 $0$。答案为 $f[0]$，时间仍是线性的。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索改成动态规划。
+方法一已经按上述转移填表。下面直接写出同一组递推。
 
 定义 $f[i]$ 表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $f[0]$。
 
@@ -299,6 +299,198 @@ function new21Game(n: number, k: number, maxPts: number): number {
 当 $i = k - 1$ 时，有 $f[i] = \min(n-k+1, \textit{maxPts}) / \textit{maxPts}$。
 
 当 $i \lt k - 1$ 时，有 $f[i] = f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}$。
+
+时间复杂度 $O(k + \textit{maxPts})$，空间复杂度 $O(k + \textit{maxPts})$。其中 $k$ 为最大分数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def new21Game(self, n: int, k: int, maxPts: int) -> float:
+        f = [0] * (k + maxPts)
+        for i in range(k, min(n + 1, k + maxPts)):
+            f[i] = 1
+        f[k - 1] = min(n - k + 1, maxPts) / maxPts
+        for i in range(k - 2, -1, -1):
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public double new21Game(int n, int k, int maxPts) {
+        if (k == 0) {
+            return 1.0;
+        }
+        double[] f = new double[k + maxPts];
+        for (int i = k; i < Math.min(n + 1, k + maxPts); ++i) {
+            f[i] = 1;
+        }
+        f[k - 1] = Math.min(n - k + 1, maxPts) * 1.0 / maxPts;
+        for (int i = k - 2; i >= 0; --i) {
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    double new21Game(int n, int k, int maxPts) {
+        if (k == 0) {
+            return 1.0;
+        }
+        double f[k + maxPts];
+        memset(f, 0, sizeof(f));
+        for (int i = k; i < min(n + 1, k + maxPts); ++i) {
+            f[i] = 1;
+        }
+        f[k - 1] = min(n - k + 1, maxPts) * 1.0 / maxPts;
+        for (int i = k - 2; i >= 0; --i) {
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func new21Game(n int, k int, maxPts int) float64 {
+	if k == 0 {
+		return 1
+	}
+	f := make([]float64, k+maxPts)
+	for i := k; i < min(n+1, k+maxPts); i++ {
+		f[i] = 1
+	}
+	f[k-1] = float64(min(n-k+1, maxPts)) / float64(maxPts)
+	for i := k - 2; i >= 0; i-- {
+		f[i] = f[i+1] + (f[i+1]-f[i+maxPts+1])/float64(maxPts)
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function new21Game(n: number, k: number, maxPts: number): number {
+    if (k === 0) {
+        return 1;
+    }
+    const f: number[] = Array(k + maxPts).fill(0);
+    for (let i = k; i < Math.min(n + 1, k + maxPts); ++i) {
+        f[i] = 1;
+    }
+    f[k - 1] = Math.min(n - k + 1, maxPts) / maxPts;
+    for (let i = k - 2; i >= 0; --i) {
+        f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+    }
+    return f[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $0$ 开始每次均匀加 $[1,\textit{maxPts}]$，达到 $k$ 停止，求点数不超过 $n$ 的概率。$k$ 可达 $10^4$，按每次抽牌展开不可行。
+>
+> 差分之后，除了闭式的 $k-1$，每个状态都先访问更大的分数。从 $0$ 走到 $k$ 的调用链长度为 $k$，栈会溢出。
+>
+> 更大的分数在从高往低填时已经就绪。令 $f[i]$ 为当前点数 $i$ 的成功概率，终止区间先写成 $1$，再从 $k-2$ 填到 $0$。
+
+<!-- thinking:end -->
+
+令 $f[i]$ 表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。答案为 $f[0]$。
+
+$f[i]$ 的取值如下：
+
+- 如果 $i \ge k$，那么停止抽取数字，如果 $i \le n$，则为 $1$，否则为 $0$；
+- 否则，可以在 $[1,..\textit{maxPts}]$ 范围内抽取下一个数字 $j$，那么 $f[i] = \frac{1}{maxPts} \sum_{j=1}^{maxPts} f[i+j]$。
+
+每个状态只依赖更大的分数，因此从 $k - 2$ 填到 $0$。当 $k = 0$ 时尚未抽牌，答案为 $1$。
+
+以上方法的时间复杂度为 $O(k \times \textit{maxPts})$，会超出时间限制，我们需要优化一下。
+
+当 $i \lt k$ 时，以下等式成立：
+
+$$
+\begin{aligned}
+f[i] &= (f[i + 1] + f[i + 2] + \cdots + f[i + \textit{maxPts}]) / \ & (1)
+\end{aligned}
+$$
+
+当 $i \lt k - 1$ 时，以下等式成立：
+
+$$
+\begin{aligned}
+f[i+1] &= (f[i + 2] + f[i + 3] + \cdots + f[i + \textit{maxPts} + 1]) / \textit{maxPts} & (2)
+\end{aligned}
+$$
+
+因此，当 $i \lt k-1$ 时，我们将等式 $(1)$ 减去等式 $(2)$，得到：
+
+$$
+\begin{aligned}
+f[i] - f[i+1] &= (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}
+\end{aligned}
+$$
+
+即：
+
+$$
+\begin{aligned}
+f[i] &= f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}
+\end{aligned}
+$$
+
+如果 $i=k-1$，有：
+
+$$
+\begin{aligned}
+f[i] &= f[k - 1] &= f[k] + f[k + 1] + \cdots + f[k + \textit{maxPts} - 1] / \textit{maxPts} & (3)
+\end{aligned}
+$$
+
+我们假设有 $i$ 个数不超过 $n$，那么 $k+i-1 \leq n$，又因为 $i\leq \textit{maxPts}$，所以 $i \leq \min(n-k+1, \textit{maxPts})$，因此等式 $(3)$ 可以写成：
+
+$$
+\begin{aligned}
+f[k-1] &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
+\end{aligned}
+$$
+
+综上所述，有以下状态转移方程：
+
+$$
+\begin{aligned}
+f[i] &= \begin{cases}
+1, & i \geq k, i \leq n \\
+0, & i \geq k, i \gt n \\
+\min(n-k+1, \textit{maxPts}) / \textit{maxPts}, & i = k - 1 \\
+f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}, & i < k - 1
+\end{cases}
+\end{aligned}
+$$
 
 时间复杂度 $O(k + \textit{maxPts})$，空间复杂度 $O(k + \textit{maxPts})$。其中 $k$ 为最大分数。
 

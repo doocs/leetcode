@@ -86,7 +86,7 @@ tags:
 >
 > 日志表示进入子目录、停留或返回上一级，求回到根所需的最少 $../$ 次数。日志至多 $10^3$ 条，模拟当前深度即可，不必维护真实路径栈。
 >
-> 遇到非 $\texttt{./}$ 的目录名深度加一；$\texttt{../}$ 则深度与 $0$ 取最大后减一。最终深度就是还需要返回的步数。
+> 遇到非 $\texttt{./}$ 的目录名深度加一； $\texttt{../}$ 则深度与 $0$ 取最大后减一。最终深度就是还需要返回的步数。
 
 <!-- thinking:end -->
 
@@ -183,7 +183,7 @@ function minOperations(logs: string[]): number {
 
 #### JavaScript
 
-```ts
+```js
 function minOperations(logs) {
     let ans = 0;
     for (const x of logs) {

@@ -21,7 +21,7 @@ func computeSimilarities(docs [][]int) []string {
 		i, j := k.i, k.j
 		tot := len(docs[i]) + len(docs[j]) - v
 		x := float64(v)/float64(tot) + 1e-9
-		ans = append(ans, strconv.Itoa(i)+","+strconv.Itoa(j)+": "+fmt.Sprintf("%.4f", x))
+		ans = append(ans, fmt.Sprintf("%d,%d: %.4f", i, j, x))
 	}
 	return ans
 }

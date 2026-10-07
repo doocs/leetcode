@@ -62,7 +62,7 @@ tags:
 
 > **思考**
 >
-> $n$ 可达 $10^9$，逐个检查 $[1,n]$ 的二进制是否为 $s$ 的子串不可行。$s$ 长度至多 $1000$，它能提供的互异子串远少于 $10^9$，故 $n>1000$ 时可直接判否。
+> $n$ 可达 $10^9$，逐个检查 $[1,n]$ 的二进制是否为 $s$ 的子串不可行。 $s$ 长度至多 $1000$，它能提供的互异子串远少于 $10^9$，故 $n>1000$ 时可直接判否。
 >
 > 若整数 $x$ 的二进制出现在 $s$ 中，则 $\lfloor x/2\rfloor$ 相当于去掉最低位，也一定作为子串出现。因此只需验证较大的一半，即 $[\lfloor n/2\rfloor+1,n]$。
 >
@@ -162,16 +162,18 @@ function queryString(s: string, n: number): boolean {
 #### Rust
 
 ```rust
-func queryString(s string, n int) bool {
-	if n > 1000 {
-		return false
-	}
-	for i := n; i > n/2; i-- {
-		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
-			return false
-		}
-	}
-	return true
+impl Solution {
+    pub fn query_string(s: String, n: i32) -> bool {
+        if n > 1000 {
+            return false;
+        }
+        for i in (n / 2 + 1..=n).rev() {
+            if !s.contains(&format!("{:b}", i)) {
+                return false;
+            }
+        }
+        true
+    }
 }
 ```
 

@@ -109,7 +109,7 @@ tags:
 >
 > 当前位置能否取负，只取决于上一个数是否已经取负：取负后下一位必须为正。
 >
-> 记忆化 $dfs(i,j)$：$j=1$ 表示可以取负。始终尝试 $nums[i]+dfs(i+1,1)$，若允许再与 $-nums[i]+dfs(i+1,0)$ 取大。
+> 记忆化 $dfs(i,j)$： $j=1$ 表示可以取负。始终尝试 $nums[i]+dfs(i+1,1)$，若允许再与 $-nums[i]+dfs(i+1,0)$ 取大。
 
 <!-- thinking:end -->
 
@@ -265,15 +265,15 @@ function maximumTotalCost(nums: number[]): number {
 
 > **思考**
 >
-> 方法一已是线性状态，但仍用递归。两个布尔选择可压成两个滚动值。
+> 方法一从末尾填了一张线性表。两个选择还可以再压成两个滚动值。
 >
-> $f$ 为当前不取负的最大，$g$ 为取负的最大。不取负时前一位任意，取负时前一位必须不取负。
+> $f$ 为当前不取负的最大， $g$ 为取负的最大。不取负时前一位任意，取负时前一位必须不取负。
 >
-> 转移 $f=\max(f,g)+x$，$g=f_{old}-x$。答案为 $\max(f,g)$，额外空间降为常数。
+> 转移 $f=\max(f,g)+x$， $g=f_{old}-x$。答案为 $\max(f,g)$，额外空间降为常数。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索转换为动态规划。
+我们可以将方法一中的线性表压成两个滚动值。
 
 定义 $f$ 和 $g$ 为两个状态，其中 $f$ 表示当前数不取反的最大值，而 $g$ 表示当前数取反的最大值。
 
@@ -354,6 +354,133 @@ function maximumTotalCost(nums: number[]): number {
         [f, g] = [Math.max(f, g) + x, f - x];
     }
     return Math.max(f, g);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 划分后每段按正负交替计分，段首必须为正。枚举全部切法是指数的，而 $n\le 10^5$。
+>
+> 当前位置能否取负，只取决于后面的后缀：取正之后下一位可以取负，取负之后下一位必须为正。
+>
+> 按这个递推搜索时仍会先调用下一位置再返回，调用链深度为 $n$，栈会溢出。
+>
+> 从末尾往前走时，下一位置已经就绪。令 $f[i][j]$ 为从 $i$ 起的最优得分，$j=1$ 表示 $\textit{nums}[i]$ 可以取负。我们从 $i=n-1$ 填到 $0$，返回 $f[0][0]$。
+
+<!-- thinking:end -->
+
+如果当前数没有取负，下一个数既可以取负，也可以不取负；如果当前数取负了，下一个数只能不取负。
+
+令 $f[i][j]$ 表示从下标 $i$ 开始的后缀能得到的最大得分，其中 $j = 1$ 表示 $\textit{nums}[i]$ 可以取负，$j = 0$ 表示它必须保持为正。答案为 $f[0][0]$。数组末尾之后 $f[n][0] = f[n][1] = 0$。
+
+下标 $i$ 可以不取负，得分为 $\textit{nums}[i] + f[i + 1][1]$。当 $j = 1$ 时还可以取负，得分为 $-\textit{nums}[i] + f[i + 1][0]$。$f[i][j]$ 取这些选择中的较大值。
+
+我们从 $i = n - 1$ 往前计算到 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumTotalCost(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [[0, 0] for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(2):
+                ans = nums[i] + f[i + 1][1]
+                if j == 1:
+                    ans = max(ans, -nums[i] + f[i + 1][0])
+                f[i][j] = ans
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maximumTotalCost(int[] nums) {
+        int n = nums.length;
+        long[][] f = new long[n + 1][2];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                f[i][j] = nums[i] + f[i + 1][1];
+                if (j == 1) {
+                    f[i][j] = Math.max(f[i][j], -nums[i] + f[i + 1][0]);
+                }
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maximumTotalCost(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<long long>> f(n + 1, vector<long long>(2));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                f[i][j] = nums[i] + f[i + 1][1];
+                if (j) {
+                    f[i][j] = max(f[i][j], -nums[i] + f[i + 1][0]);
+                }
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumTotalCost(nums []int) int64 {
+	n := len(nums)
+	f := make([][2]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j < 2; j++ {
+			f[i][j] = int64(nums[i]) + f[i+1][1]
+			if j == 1 {
+				f[i][j] = max(f[i][j], int64(-nums[i])+f[i+1][0])
+			}
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumTotalCost(nums: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(2).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 0; j < 2; ++j) {
+            f[i][j] = nums[i] + f[i + 1][1];
+            if (j === 1) {
+                f[i][j] = Math.max(f[i][j], -nums[i] + f[i + 1][0]);
+            }
+        }
+    }
+    return f[0][0];
 }
 ```
 

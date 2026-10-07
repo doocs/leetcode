@@ -224,18 +224,24 @@ function coinChange(coins: number[], amount: number): number {
 ```rust
 impl Solution {
     pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
+        let m = coins.len();
         let n = amount as usize;
-        let mut f = vec![n + 1; n + 1];
-        f[0] = 0;
-        for &x in &coins {
-            for j in x as usize..=n {
-                f[j] = f[j].min(f[j - (x as usize)] + 1);
+        let inf = 1 << 30;
+        let mut f = vec![vec![inf; n + 1]; m + 1];
+        f[0][0] = 0;
+        for i in 1..=m {
+            let x = coins[i - 1] as usize;
+            for j in 0..=n {
+                f[i][j] = f[i - 1][j];
+                if j >= x {
+                    f[i][j] = f[i][j].min(f[i][j - x] + 1);
+                }
             }
         }
-        if f[n] > n {
+        if f[m][n] > amount {
             -1
         } else {
-            f[n] as i32
+            f[m][n]
         }
     }
 }
@@ -402,6 +408,28 @@ var coinChange = function (coins, amount) {
     }
     return f[n] > n ? -1 : f[n];
 };
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
+        let n = amount as usize;
+        let mut f = vec![n + 1; n + 1];
+        f[0] = 0;
+        for &x in &coins {
+            for j in x as usize..=n {
+                f[j] = f[j].min(f[j - (x as usize)] + 1);
+            }
+        }
+        if f[n] > n {
+            -1
+        } else {
+            f[n] as i32
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->

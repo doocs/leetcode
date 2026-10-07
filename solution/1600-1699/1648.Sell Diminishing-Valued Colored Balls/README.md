@@ -87,7 +87,7 @@ tags:
 
 > **思考**
 >
-> 每次应卖出当前库存最大的颜色。$\textit{orders}$ 可达 $10^9$，逐个卖会超时，需要按「同一最高库存的颜色个数」批量卖。
+> 每次应卖出当前库存最大的颜色。 $\textit{orders}$ 可达 $10^9$，逐个卖会超时，需要按「同一最高库存的颜色个数」批量卖。
 >
 > 库存降序后，最高档与下一档的差值是一批，一批数量为档内颜色数乘以该差值；若超过剩余订单，再按等差数列求和拆成整轮与余数。
 >
@@ -169,7 +169,11 @@ class Solution {
                 ans += (a1 + an) * x / 2 * cnt;
                 inventory[0] = nxt;
             }
-            orders -= tot;
+            if (tot >= orders) {
+                orders = 0;
+            } else {
+                orders -= (int) tot;
+            }
             ans %= MOD;
         }
         return (int) ans;
@@ -204,7 +208,11 @@ public:
                 ans += (a1 + an) * x / 2 * cnt;
                 inventory[0] = nxt;
             }
-            orders -= tot;
+            if (tot >= orders) {
+                orders = 0;
+            } else {
+                orders -= (int) tot;
+            }
             ans %= mod;
         }
         return ans;

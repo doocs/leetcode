@@ -71,7 +71,7 @@ tags:
 
 > **思考**
 >
-> 枕头在 $1..n$ 上来回传递，$\textit{time}$ 秒后落在谁手里。$\textit{time}\le 1000$，按秒模拟方向翻转即可。
+> 枕头在 $1..n$ 上来回传递， $\textit{time}$ 秒后落在谁手里。 $\textit{time}\le 1000$，按秒模拟方向翻转即可。
 
 <!-- thinking:end -->
 

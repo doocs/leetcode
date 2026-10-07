@@ -71,7 +71,7 @@ iterator.hasNext(); // 返回 false
 
 > **思考**
 >
-> 字符互异且长度不超过 $15$，组合数有限。预生成全部长度为 $combinationLength$ 的组合后，$next$/$hasNext$ 只做下标移动。DFS 按从左到右选或不选，保证字典序。
+> 字符互异且长度不超过 $15$，组合数有限。预生成全部长度为 $combinationLength$ 的组合后， $next$/$hasNext$ 只做下标移动。DFS 按从左到右选或不选，保证字典序。
 
 <!-- thinking:end -->
 

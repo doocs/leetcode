@@ -347,7 +347,7 @@ Another approach:
 
 In the main function, we call $dfs(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.
 
-The time complexity is $(C_{9}^k \times k)$, and the space complexity is $O(k)$.
+The time complexity is $O(C_{9}^k \times k)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 

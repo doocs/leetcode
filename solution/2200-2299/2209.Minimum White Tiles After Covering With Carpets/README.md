@@ -76,7 +76,7 @@ tags:
 
 > **思考**
 >
-> 有 $m$ 条长度为 $L$ 的地毯，要盖住尽量多的白砖。若枚举每条地毯的起点，方案数为指数级，$n, m \le 10^3$ 不可行。地毯互不要求重叠方式固定，决策可以按砖块从左到右进行。
+> 有 $m$ 条长度为 $L$ 的地毯，要盖住尽量多的白砖。若枚举每条地毯的起点，方案数为指数级， $n, m \le 10^3$ 不可行。地毯互不要求重叠方式固定，决策可以按砖块从左到右进行。
 >
 > 定义 $\textit{dfs}(i, j)$ 为从下标 $i$ 起、还剩 $j$ 条地毯时最少未被覆盖的白砖。黑砖无需覆盖，直接跳到 $i+1$；没有地毯时，剩余白砖数等于前缀和之差 $s[n]-s[i]$；白砖则可选择不盖（答案加 $1$ 并前进一格）或盖上（跳过 $L$ 格并消耗一条地毯）。
 >
@@ -92,7 +92,7 @@ tags:
 - 如果 $\textit{floor}[i] = 0$，则不需要使用地毯，直接跳过即可，即 $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$；
 - 如果 $j = 0$，那么我们可以直接利用前缀和数组 $s$ 计算出剩余未被覆盖的白色砖块的数目，即 $\textit{dfs}(i, j) = s[n] - s[i]$；
 - 如果 $\textit{floor}[i] = 1$，那么我们可以选择使用地毯覆盖，也可以选择不使用地毯覆盖，取两者的最小值即可，即 $\textit{dfs}(i, j) = \min(\textit{dfs}(i + 1,
-    j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$。
+  j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$。
 
 记忆化搜索即可。
 
@@ -319,6 +319,211 @@ impl Solution {
         }
 
         dfs(0, m, n, k, &s, &mut f, &a)
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有 $m$ 条长度为 $L$ 的地毯，要让露出的白砖尽量少。枚举每条地毯的起点是指数级的，$n$ 与 $m$ 都能到 $1000$。
+>
+> 从左到右看，黑砖一定先跳到下一格。一整条黑砖从下标 $0$ 走到 $n$，调用链长度就是 $n$。$n=1000$ 时 Python 会抛出 RecursionError。
+>
+> 跳过黑砖、留下白砖或铺上地毯，读到的都是更大的下标。铺地毯时还会少用一条。
+>
+> 因此从右往左填表。$f[i][j]$ 是从下标 $i$ 起、还剩 $j$ 条地毯时露出的最少白砖，$f[n][\cdot]=0$。黑砖复制 $f[i+1][j]$；没有地毯时答案是剩余白砖 $s[n]-s[i]$；白砖取留下它的 $1+f[i+1][j]$ 和铺上地毯的 $f[i+L][j-1]$ 中的较小值。
+
+<!-- thinking:end -->
+
+令 $s[i]$ 为 $\textit{floor}$ 前 $i$ 块砖中的白砖个数。定义 $f[i][j]$ 表示从下标 $i$ 开始、还剩 $j$ 条地毯时，最少露出多少块白砖。答案是 $f[0][\textit{numCarpets}]$。先令 $f[n][j] = 0$，表示砖块已经走完。
+
+按 $i$ 从 $n - 1$ 降到 $0$、$j$ 从 $0$ 到 $m$ 填写：
+
+- 若 $\textit{floor}[i] = 0$，这一块是黑砖，不消耗地毯，$f[i][j] = f[i + 1][j]$。
+- 若 $j = 0$，没有地毯可用，$f[i][j] = s[n] - s[i]$。
+- 否则这一块是白砖。不铺地毯会露出它，代价为 $1 + f[i + 1][j]$；铺一条长度为 $L$ 的地毯则跳到下标 $i + L$，地毯数变为 $j - 1$。当 $i + L \le n$ 时，这一支是 $f[i + L][j - 1]$，否则已经越出数组，代价为 $0$。$f[i][j]$ 取两者的较小值。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为字符串 $\textit{floor}$ 的长度和 $\textit{numCarpets}$ 的值。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
+        n = len(floor)
+        s = [0] * (n + 1)
+        for i, c in enumerate(floor):
+            s[i + 1] = s[i] + int(c == "1")
+        f = [[0] * (numCarpets + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(numCarpets + 1):
+                if floor[i] == "0":
+                    f[i][j] = f[i + 1][j]
+                elif j == 0:
+                    f[i][j] = s[n] - s[i]
+                else:
+                    cover = f[i + carpetLen][j - 1] if i + carpetLen <= n else 0
+                    f[i][j] = min(1 + f[i + 1][j], cover)
+        return f[0][numCarpets]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
+        int n = floor.length();
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + (floor.charAt(i) == '1' ? 1 : 0);
+        }
+        int[][] f = new int[n + 1][numCarpets + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j <= numCarpets; ++j) {
+                if (floor.charAt(i) == '0') {
+                    f[i][j] = f[i + 1][j];
+                } else if (j == 0) {
+                    f[i][j] = s[n] - s[i];
+                } else {
+                    int cover = i + carpetLen <= n ? f[i + carpetLen][j - 1] : 0;
+                    f[i][j] = Math.min(1 + f[i + 1][j], cover);
+                }
+            }
+        }
+        return f[0][numCarpets];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumWhiteTiles(string floor, int numCarpets, int carpetLen) {
+        int n = floor.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + (floor[i] == '1');
+        }
+        vector<vector<int>> f(n + 1, vector<int>(numCarpets + 1));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j <= numCarpets; ++j) {
+                if (floor[i] == '0') {
+                    f[i][j] = f[i + 1][j];
+                } else if (j == 0) {
+                    f[i][j] = s[n] - s[i];
+                } else {
+                    int cover = i + carpetLen <= n ? f[i + carpetLen][j - 1] : 0;
+                    f[i][j] = min(1 + f[i + 1][j], cover);
+                }
+            }
+        }
+        return f[0][numCarpets];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
+	n := len(floor)
+	s := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		s[i+1] = s[i]
+		if floor[i] == '1' {
+			s[i+1]++
+		}
+	}
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, numCarpets+1)
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j <= numCarpets; j++ {
+			if floor[i] == '0' {
+				f[i][j] = f[i+1][j]
+			} else if j == 0 {
+				f[i][j] = s[n] - s[i]
+			} else {
+				cover := 0
+				if i+carpetLen <= n {
+					cover = f[i+carpetLen][j-1]
+				}
+				f[i][j] = min(1+f[i+1][j], cover)
+			}
+		}
+	}
+	return f[0][numCarpets]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumWhiteTiles(floor: string, numCarpets: number, carpetLen: number): number {
+    const n = floor.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + (floor[i] === '1' ? 1 : 0);
+    }
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(numCarpets + 1).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 0; j <= numCarpets; ++j) {
+            if (floor[i] === '0') {
+                f[i][j] = f[i + 1][j];
+            } else if (j === 0) {
+                f[i][j] = s[n] - s[i];
+            } else {
+                const cover = i + carpetLen <= n ? f[i + carpetLen][j - 1] : 0;
+                f[i][j] = Math.min(1 + f[i + 1][j], cover);
+            }
+        }
+    }
+    return f[0][numCarpets];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_white_tiles(floor: String, num_carpets: i32, carpet_len: i32) -> i32 {
+        let n = floor.len();
+        let a: Vec<u8> = floor.bytes().collect();
+        let m = num_carpets as usize;
+        let k = carpet_len as usize;
+        let mut s = vec![0i32; n + 1];
+        for i in 0..n {
+            s[i + 1] = s[i] + if a[i] == b'1' { 1 } else { 0 };
+        }
+        let mut f = vec![vec![0i32; m + 1]; n + 1];
+        for i in (0..n).rev() {
+            for j in 0..=m {
+                if a[i] == b'0' {
+                    f[i][j] = f[i + 1][j];
+                } else if j == 0 {
+                    f[i][j] = s[n] - s[i];
+                } else {
+                    let cover = if i + k <= n { f[i + k][j - 1] } else { 0 };
+                    f[i][j] = (1 + f[i + 1][j]).min(cover);
+                }
+            }
+        }
+        f[0][m]
     }
 }
 ```

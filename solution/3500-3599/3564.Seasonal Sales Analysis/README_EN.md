@@ -208,7 +208,7 @@ WITH
             *,
             RANK() OVER (
                 PARTITION BY season
-                ORDER BY total_quantity DESC, total_revenue DESC
+                ORDER BY total_quantity DESC, total_revenue DESC, category ASC
             ) AS rk
         FROM SeasonalSales
     )
@@ -249,8 +249,8 @@ def seasonal_sales_analysis(
     )
     seasonal_sales["rk"] = (
         seasonal_sales.sort_values(
-            ["season", "total_quantity", "total_revenue"],
-            ascending=[True, False, False],
+            ["season", "total_quantity", "total_revenue", "category"],
+            ascending=[True, False, False, True],
         )
         .groupby("season")
         .cumcount()

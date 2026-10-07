@@ -45,6 +45,7 @@ impl Solution {
     pub fn find_number_of_lis(nums: Vec<i32>) -> i32 {
         let mut arr: Vec<i32> = nums.iter().cloned().collect();
         arr.sort();
+        arr.dedup();
         let m = arr.len();
         let mut tree = BinaryIndexedTree::new(m);
         for x in nums.iter() {

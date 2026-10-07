@@ -245,7 +245,7 @@ tags:
 - 将邮箱地址分为本地名和域名两部分。
 - 对于本地名，去掉所有的点 `.`，并且如果存在加号 `+`，则去掉加号及其后面的部分。最后将本地名转换为小写。
 - 对于域名，将其转换为小写。
-- 将规范化后的本地名和域名拼接起来，得到规范化后的邮箱地址，并将其加入哈希表 $\textit{st}$ 中。
+- 将规范化后的本地名、@ 分隔符和域名拼接起来，得到规范化后的邮箱地址，并将其加入哈希表 $\textit{st}$ 中。
 
 最后，哈希表 $\textit{st}$ 中的元素个数即为唯一邮箱组的数量。
 
@@ -263,7 +263,7 @@ class Solution:
             local, domain = email.split("@")
             local = local.split("+")[0].replace(".", "").lower()
             domain = domain.lower()
-            normalized = local + domain
+            normalized = local + "@" + domain
             st.add(normalized)
         return len(st)
 ```
@@ -288,7 +288,7 @@ class Solution {
             local = local.replace(".", "").toLowerCase();
             domain = domain.toLowerCase();
 
-            String normalized = local + domain;
+            String normalized = local + "@" + domain;
             st.add(normalized);
         }
 
@@ -326,7 +326,7 @@ public:
                 c = tolower(c);
             }
 
-            st.insert(cleaned + domain);
+            st.insert(cleaned + "@" + domain);
         }
 
         return st.size();
@@ -353,7 +353,7 @@ func uniqueEmailGroups(emails []string) int {
 		local = strings.ToLower(local)
 		domain = strings.ToLower(domain)
 
-		normalized := local + domain
+		normalized := local + "@" + domain
 		st[normalized] = struct{}{}
 	}
 
@@ -372,7 +372,7 @@ function uniqueEmailGroups(emails: string[]): number {
         local = local.split('+')[0].replace(/\./g, '').toLowerCase();
         domain = domain.toLowerCase();
 
-        const normalized = local + domain;
+        const normalized = local + '@' + domain;
         st.add(normalized);
     }
 

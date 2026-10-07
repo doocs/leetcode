@@ -92,7 +92,7 @@ tags:
 >
 > 相邻差已给定，隐数组在平移意义下形状固定，合法起点必须使全程落在 $[\textit{lower},\textit{upper}]$。若枚举起点再模拟，值域可达 $10^5$ 量级以外的平移，且 $n$ 也大。
 >
-> 设首项为 $0$ 做前缀和，记最小、最大前缀为 $\textit{mi}$、$\textit{mx}$。真实首项 $x$ 需满足 $\textit{lower}-\textit{mi}\le x\le \textit{upper}-\textit{mx}$，个数为区间长度与 $0$ 的较大者。
+> 设首项为 $0$ 做前缀和，记最小、最大前缀为 $\textit{mi}$、 $\textit{mx}$。真实首项 $x$ 需满足 $\textit{lower}-\textit{mi}\le x\le \textit{upper}-\textit{mx}$，个数为区间长度与 $0$ 的较大者。
 >
 > 一遍扫描维护前缀极值即可。
 

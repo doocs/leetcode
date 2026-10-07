@@ -209,7 +209,7 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 > **Thinking**
 >
-> Method 1 sorts. Values lie in $1$–$1000$, so comparing frequencies is enough and runs in linear time.
+> Method 1 sorts. Values lie in $1$– $1000$, so comparing frequencies is enough and runs in linear time.
 
 <!-- thinking:end -->
 
@@ -323,6 +323,24 @@ impl Solution {
         }
         cnt.iter().all(|v| *v == 0)
     }
+}
+```
+
+#### C
+
+```c
+bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
+    int count[1001] = {0};
+    for (int i = 0; i < targetSize; i++) {
+        count[target[i]]++;
+        count[arr[i]]--;
+    }
+    for (int i = 0; i < 1001; i++) {
+        if (count[i] != 0) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 

@@ -2,8 +2,8 @@ impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut stack = vec![-1];
         let mut res = 0;
-        for i in 0..s.len() {
-            if let Some('(') = s.chars().nth(i) {
+        for (i, c) in s.bytes().enumerate() {
+            if c == b'(' {
                 stack.push(i as i32);
             } else {
                 stack.pop().unwrap();

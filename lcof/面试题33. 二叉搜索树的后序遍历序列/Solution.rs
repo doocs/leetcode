@@ -1,23 +1,24 @@
 impl Solution {
-    fn dfs(start: usize, end: usize, max_val: i32, postorder: &Vec<i32>) -> bool {
-        if start >= end {
-            return true;
-        }
-        let root_val = postorder[end - 1];
-        for i in (start..end).rev() {
-            let val = postorder[i];
-            if val > max_val {
-                return false;
-            }
-            if val < root_val {
-                return (Self::dfs(start, i, root_val, postorder)
-                    && Self::dfs(i + 1, end - 1, max_val, postorder));
-            }
-        }
-        Self::dfs(start, end - 1, max_val, postorder)
-    }
-
     pub fn verify_postorder(postorder: Vec<i32>) -> bool {
-        Self::dfs(0, postorder.len(), i32::MAX, &postorder)
+        let n = postorder.len() as i32;
+        let mut stk = vec![(0, n - 1)];
+        while let Some((l, r)) = stk.pop() {
+            if l >= r {
+                continue;
+            }
+            let v = postorder[r as usize];
+            let mut i = l;
+            while i < r && postorder[i as usize] < v {
+                i += 1;
+            }
+            for j in i..r {
+                if postorder[j as usize] < v {
+                    return false;
+                }
+            }
+            stk.push((i, r - 1));
+            stk.push((l, i - 1));
+        }
+        true
     }
 }

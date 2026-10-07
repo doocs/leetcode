@@ -226,7 +226,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-$f[i][j]$ 只与上一行有关，用两个一维数组 $f$、$g$ 滚动即可，空间复杂度降为 $O(target)$。
+$f[i][j]$ 只与上一行有关，用两个一维数组 $f$、 $g$ 滚动即可，空间复杂度降为 $O(target)$。
 
 <!-- tabs:start -->
 

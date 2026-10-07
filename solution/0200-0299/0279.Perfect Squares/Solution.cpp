@@ -2,8 +2,7 @@ class Solution {
 public:
     int numSquares(int n) {
         int m = sqrt(n);
-        int f[m + 1][n + 1];
-        memset(f, 0x3f, sizeof(f));
+        vector<vector<int>> f(m + 1, vector<int>(n + 1, 1 << 30));
         f[0][0] = 0;
         for (int i = 1; i <= m; ++i) {
             for (int j = 0; j <= n; ++j) {

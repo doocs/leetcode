@@ -226,4 +226,175 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 杀掉一个进程会把它的全部后代一起杀掉。父子关系由两个平行数组给出，$n$ 最大为 $5 \times 10^4$，先建成每个进程的子进程列表更方便遍历。沿一条父子链递归收集时，调用深度等于进程数，链长达到 $1000$ 就会超出 Python 的递归上限。因此用栈保存待访问的进程：弹出时记入答案，再把子进程按相反顺序压入，收集顺序就与沿子列表的先序遍历相同。树没有环，每个进程只入栈一次。
+
+<!-- thinking:end -->
+
+先根据 $pid$ 和 $ppid$ 建图，$g[i]$ 表示进程 $i$ 的所有子进程。从进程 $kill$ 开始用显式栈遍历。弹出进程 $i$ 时把它加入答案，再把它的子进程按相反顺序压入栈，这样后弹出的是子列表中靠前的进程。每个后代都会被收集一次。题目允许按任意顺序返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是进程的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+        g = defaultdict(list)
+        for i, p in zip(pid, ppid):
+            g[p].append(i)
+        ans = []
+        stk = [kill]
+        while stk:
+            i = stk.pop()
+            ans.append(i)
+            for j in reversed(g[i]):
+                stk.append(j)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        int n = pid.size();
+        for (int i = 0; i < n; ++i) {
+            g.computeIfAbsent(ppid.get(i), k -> new ArrayList<>()).add(pid.get(i));
+        }
+        List<Integer> ans = new ArrayList<>();
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(kill);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            ans.add(i);
+            List<Integer> children = g.getOrDefault(i, List.of());
+            for (int k = children.size() - 1; k >= 0; --k) {
+                stk.push(children.get(k));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> killProcess(vector<int>& pid, vector<int>& ppid, int kill) {
+        unordered_map<int, vector<int>> g;
+        int n = pid.size();
+        for (int i = 0; i < n; ++i) {
+            g[ppid[i]].push_back(pid[i]);
+        }
+        vector<int> ans;
+        vector<int> stk = {kill};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            ans.push_back(i);
+            auto it = g.find(i);
+            if (it == g.end()) {
+                continue;
+            }
+            auto& children = it->second;
+            for (int k = (int) children.size() - 1; k >= 0; --k) {
+                stk.push_back(children[k]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func killProcess(pid []int, ppid []int, kill int) (ans []int) {
+	g := map[int][]int{}
+	for i, p := range ppid {
+		g[p] = append(g[p], pid[i])
+	}
+	stk := []int{kill}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		ans = append(ans, i)
+		children := g[i]
+		for k := len(children) - 1; k >= 0; k-- {
+			stk = append(stk, children[k])
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function killProcess(pid: number[], ppid: number[], kill: number): number[] {
+    const g: Map<number, number[]> = new Map();
+    for (let i = 0; i < pid.length; ++i) {
+        if (!g.has(ppid[i])) {
+            g.set(ppid[i], []);
+        }
+        g.get(ppid[i])!.push(pid[i]);
+    }
+    const ans: number[] = [];
+    const stk: number[] = [kill];
+    while (stk.length) {
+        const i = stk.pop()!;
+        ans.push(i);
+        const children = g.get(i) ?? [];
+        for (let k = children.length - 1; k >= 0; --k) {
+            stk.push(children[k]);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn kill_process(pid: Vec<i32>, ppid: Vec<i32>, kill: i32) -> Vec<i32> {
+        let mut g: HashMap<i32, Vec<i32>> = HashMap::new();
+        let n = pid.len();
+        for i in 0..n {
+            g.entry(ppid[i]).or_insert(Vec::new()).push(pid[i]);
+        }
+        let mut ans = Vec::new();
+        let mut stk = vec![kill];
+        while let Some(i) = stk.pop() {
+            ans.push(i);
+            if let Some(children) = g.get(&i) {
+                for &j in children.iter().rev() {
+                    stk.push(j);
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

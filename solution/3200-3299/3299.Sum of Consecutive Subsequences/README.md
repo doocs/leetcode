@@ -81,7 +81,7 @@ tags:
 
 > **思考**
 >
-> 连续子序列指相邻元素差为 $1$ 或 $-1$ 的子序列（不必下标连续），长度至少 $2$ 的贡献再加全部单点。$n\le 10^5$，枚举子序列不可行。一个元素的贡献等于它出现在多少条递增/递减链中。
+> 连续子序列指相邻元素差为 $1$ 或 $-1$ 的子序列（不必下标连续），长度至少 $2$ 的贡献再加全部单点。 $n\le 10^5$，枚举子序列不可行。一个元素的贡献等于它出现在多少条递增/递减链中。
 >
 > 对递增：左侧以 $x-1$ 结尾的链数与右侧以 $x+1$ 开头的链数相乘再加两侧单独延伸。哈希表从左、从右各扫一次得到 $left,right$，贡献 $(l+r+lr)\times x$。递减把数组反转后再算一遍，最后加上全数组之和。
 
@@ -93,7 +93,7 @@ tags:
 
 在实现上，我们定义一个函数 $\textit{calc}(\textit{nums})$，其中 $\textit{nums}$ 是一个数组，返回 $\textit{nums}$ 所有长度大于 $1$ 的连续子序列的和。
 
-在函数中，我们可以使用两个数组 $\textit{left}$ 和 $\textit{right}$ 分别记录每个元素 $\textit{nums}[i]$ 的左侧以 $\textit{nums}[i] - 1$ 结尾的连续递增子序列的个数，以及右侧以 $\textit{nums}[i] + 1$ 开头的连续递增子序列的个数。这样，我们就可以在 $O(n)$ 的时间复杂度内计算出 $\textit{nums}$ 在所有长度大于 $1$ 的连续子序列中的贡献。
+在函数中，我们可以使用两个数组 $\textit{left}$ 和 $\textit{right}$ 分别记录每个元素 $\textit{nums}[i]$ 的左侧以 $\textit{nums}[i] - 1$ 结尾的连续递增子序列的个数，以及右侧以 $\textit{nums}[i] + 1$ 开头的连续递增子序列的个数。这样，我们就可以在 $O(n)$ 的时间复杂度内计算出 $\textit{nums}$ 在所有长度大于 $1$ 的连续子序列中的贡献。每次更新后把个数对 $10^9 + 7$ 取模。后面只用加法和乘法把这些个数计入同样取模的答案，因此结果不变，中间值也不会超出 64 位整数。
 
 在主函数中，我们首先调用 $\textit{calc}(\textit{nums})$ 计算出连续递增子序列对答案的贡献，然后将 $\textit{nums}$ 反转后再次调用 $\textit{calc}(\textit{nums})$ 计算出连续递减子序列对答案的贡献，最后再加上所有元素的和即为答案。
 
@@ -112,11 +112,11 @@ class Solution:
             right = [0] * n
             cnt = Counter()
             for i in range(1, n):
-                cnt[nums[i - 1]] += 1 + cnt[nums[i - 1] - 1]
+                cnt[nums[i - 1]] = (cnt[nums[i - 1]] + 1 + cnt[nums[i - 1] - 1]) % mod
                 left[i] = cnt[nums[i] - 1]
             cnt = Counter()
             for i in range(n - 2, -1, -1):
-                cnt[nums[i + 1]] += 1 + cnt[nums[i + 1] + 1]
+                cnt[nums[i + 1]] = (cnt[nums[i + 1]] + 1 + cnt[nums[i + 1] + 1]) % mod
                 right[i] = cnt[nums[i] + 1]
             return sum((l + r + l * r) * x for l, r, x in zip(left, right, nums)) % mod
 
@@ -151,12 +151,14 @@ class Solution {
         long[] right = new long[n];
         Map<Integer, Long> cnt = new HashMap<>();
         for (int i = 1; i < n; ++i) {
-            cnt.merge(nums[i - 1], 1 + cnt.getOrDefault(nums[i - 1] - 1, 0L), Long::sum);
+            cnt.merge(nums[i - 1], (1 + cnt.getOrDefault(nums[i - 1] - 1, 0L)) % mod,
+                (a, b) -> (a + b) % mod);
             left[i] = cnt.getOrDefault(nums[i] - 1, 0L);
         }
         cnt.clear();
         for (int i = n - 2; i >= 0; --i) {
-            cnt.merge(nums[i + 1], 1 + cnt.getOrDefault(nums[i + 1] + 1, 0L), Long::sum);
+            cnt.merge(nums[i + 1], (1 + cnt.getOrDefault(nums[i + 1] + 1, 0L)) % mod,
+                (a, b) -> (a + b) % mod);
             right[i] = cnt.getOrDefault(nums[i] + 1, 0L);
         }
         long ans = 0;
@@ -182,14 +184,14 @@ public:
             unordered_map<int, ll> cnt;
 
             for (int i = 1; i < n; ++i) {
-                cnt[nums[i - 1]] += 1 + cnt[nums[i - 1] - 1];
+                cnt[nums[i - 1]] = (cnt[nums[i - 1]] + 1 + cnt[nums[i - 1] - 1]) % mod;
                 left[i] = cnt[nums[i] - 1];
             }
 
             cnt.clear();
 
             for (int i = n - 2; i >= 0; --i) {
-                cnt[nums[i + 1]] += 1 + cnt[nums[i + 1] + 1];
+                cnt[nums[i + 1]] = (cnt[nums[i + 1]] + 1 + cnt[nums[i + 1] + 1]) % mod;
                 right[i] = cnt[nums[i] + 1];
             }
 
@@ -222,14 +224,14 @@ func getSum(nums []int) int {
 		cnt := make(map[int]int64)
 
 		for i := 1; i < n; i++ {
-			cnt[nums[i-1]] += 1 + cnt[nums[i-1]-1]
+			cnt[nums[i-1]] = (cnt[nums[i-1]] + 1 + cnt[nums[i-1]-1]) % mod
 			left[i] = cnt[nums[i]-1]
 		}
 
 		cnt = make(map[int]int64)
 
 		for i := n - 2; i >= 0; i-- {
-			cnt[nums[i+1]] += 1 + cnt[nums[i+1]+1]
+			cnt[nums[i+1]] = (cnt[nums[i+1]] + 1 + cnt[nums[i+1]+1]) % mod
 			right[i] = cnt[nums[i]+1]
 		}
 

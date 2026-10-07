@@ -87,7 +87,7 @@ n = 2
 
 > **思考**
 >
-> 把「第二高」推广到第 $N$ 高：去重、降序后取下标 $N-1$。$N<1$ 或不足 $N$ 个不同薪水时返回 $\textit{NULL}$。SQL 里用 $\textit{LIMIT}\,1\,\textit{OFFSET}\,N-1$ 定位该行，外层保证空结果变成 $\textit{NULL}$。
+> 把「第二高」推广到第 $N$ 高：去重、降序后取下标 $N-1$。 $N<1$ 或不足 $N$ 个不同薪水时返回 $\textit{NULL}$。SQL 里用 $\textit{LIMIT}\,1\,\textit{OFFSET}\,N-1$ 定位该行，外层保证空结果变成 $\textit{NULL}$。
 
 <!-- thinking:end -->
 
@@ -106,7 +106,7 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
         return pd.DataFrame({"getNthHighestSalary(" + str(N) + ")": [None]})
     unique_salaries = employee.salary.unique()
     if len(unique_salaries) < N:
-        return pd.DataFrame([np.NaN], columns=[f"getNthHighestSalary({N})"])
+        return pd.DataFrame([None], columns=[f"getNthHighestSalary({N})"])
     else:
         salary = sorted(unique_salaries, reverse=True)[N - 1]
         return pd.DataFrame([salary], columns=[f"getNthHighestSalary({N})"])

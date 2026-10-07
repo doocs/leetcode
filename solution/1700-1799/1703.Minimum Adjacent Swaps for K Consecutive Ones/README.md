@@ -69,7 +69,7 @@ tags:
 
 > **思考**
 >
-> 相邻交换把 $k$ 个 $1$ 聚到连续区间，等价于把这些 $1$ 的下标搬到长度为 $k$ 的目标区间。若对每个窗口枚举目标位置，复杂度过高，$n\le 10^5$ 需要线性或近似线性做法。
+> 相邻交换把 $k$ 个 $1$ 聚到连续区间，等价于把这些 $1$ 的下标搬到长度为 $k$ 的目标区间。若对每个窗口枚举目标位置，复杂度过高， $n\le 10^5$ 需要线性或近似线性做法。
 >
 > 一次相邻交换只改变下标差 $1$，因此总交换次数等于各 $1$ 下标到目标位置的距离之和。该和在目标取这 $k$ 个下标的中位数时最小。
 >
@@ -120,17 +120,17 @@ class Solution {
             }
         }
         int m = arr.size();
-        int[] s = new int[m + 1];
+        long[] s = new long[m + 1];
         for (int i = 0; i < m; ++i) {
             s[i + 1] = s[i] + arr.get(i);
         }
-        long ans = 1 << 60;
+        long ans = 1L << 60;
         int x = (k + 1) / 2;
         int y = k - x;
         for (int i = x - 1; i < m - y; ++i) {
             int j = arr.get(i);
-            int ls = s[i + 1] - s[i + 1 - x];
-            int rs = s[i + 1 + y] - s[i + 1];
+            long ls = s[i + 1] - s[i + 1 - x];
+            long rs = s[i + 1 + y] - s[i + 1];
             long a = (j + j - x + 1L) * x / 2 - ls;
             long b = rs - (j + 1L + j + y) * y / 2;
             ans = Math.min(ans, a + b);
@@ -163,8 +163,8 @@ public:
         int y = k - x;
         for (int i = x - 1; i < m - y; ++i) {
             int j = arr[i];
-            int ls = s[i + 1] - s[i + 1 - x];
-            int rs = s[i + 1 + y] - s[i + 1];
+            long ls = s[i + 1] - s[i + 1 - x];
+            long rs = s[i + 1 + y] - s[i + 1];
             long a = (j + j - x + 1L) * x / 2 - ls;
             long b = rs - (j + 1L + j + y) * y / 2;
             ans = min(ans, a + b);

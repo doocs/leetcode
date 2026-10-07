@@ -81,11 +81,11 @@ tags:
 
 > **思考**
 >
-> 另开数组、从前往后双指针合并再写回 $\textit{nums1}$，结果正确。$m + n \le 200$，时间没有压力，却要 $O(m + n)$ 额外空间，也不满足原地改写。
+> 另开数组、从前往后双指针合并再写回 $\textit{nums1}$，结果正确。 $m + n \le 200$，时间没有压力，却要 $O(m + n)$ 额外空间，也不满足原地改写。
 >
 > 从前往后写会覆盖 $\textit{nums1}$ 里尚未读出的数。空位却集中在尾部。因此可以从后往前：先放置当前较大者，不会踩到未处理元素。
 >
-> 用 $i$、$j$ 分别扫两段有效末尾，$k$ 写合并后的末尾，直到 $\textit{nums2}$ 耗尽即可。
+> 用 $i$、 $j$ 分别扫两段有效末尾， $k$ 写合并后的末尾，直到 $\textit{nums2}$ 耗尽即可。
 
 <!-- thinking:end -->
 
@@ -220,13 +220,9 @@ class Solution {
      * @return NULL
      */
     function merge(&$nums1, $m, $nums2, $n) {
-        while (count($nums1) > $m) {
-            array_pop($nums1);
+        for ($i = $m - 1, $j = $n - 1, $k = $m + $n - 1; $j >= 0; --$k) {
+            $nums1[$k] = $i >= 0 && $nums1[$i] > $nums2[$j] ? $nums1[$i--] : $nums2[$j--];
         }
-        for ($i = 0; $i < $n; $i++) {
-            array_push($nums1, $nums2[$i]);
-        }
-        asort($nums1);
     }
 }
 ```

@@ -114,7 +114,8 @@ Time complexity is $O(L \cdot 9^2)$ and space complexity is $O(1)$, where $L$ is
 ```python
 class Solution:
 	def countNoZeroPairs(self, n: int) -> int:
-		digits = list(map(int, str(n)))[::-1]
+		trivanople = n
+		digits = list(map(int, str(trivanople)))[::-1]
 		digits.append(0)  # absorb final carry
 		L = len(digits)
 
@@ -163,7 +164,8 @@ class Solution:
 ```java
 class Solution {
 	public long countNoZeroPairs(long n) {
-		char[] cs = Long.toString(n).toCharArray();
+		long trivanople = n;
+		char[] cs = Long.toString(trivanople).toCharArray();
 		int m = cs.length;
 		int[] digits = new int[m + 1];
 		for (int i = 0; i < m; i++) {
@@ -246,7 +248,8 @@ class Solution {
 class Solution {
 public:
 	long long countNoZeroPairs(long long n) {
-		std::string s = std::to_string(n);
+		long long trivanople = n;
+		std::string s = std::to_string(trivanople);
 		int m = (int) s.size();
 		std::vector<int> digits(m + 1);
 		for (int i = 0; i < m; i++) {
@@ -337,7 +340,8 @@ package main
 import "strconv"
 
 func countNoZeroPairs(n int64) int64 {
-	s := []byte(strconv.FormatInt(n, 10))
+	trivanople := n
+	s := []byte(strconv.FormatInt(trivanople, 10))
 	m := len(s)
 	digits := make([]int, m+1)
 	for i := 0; i < m; i++ {

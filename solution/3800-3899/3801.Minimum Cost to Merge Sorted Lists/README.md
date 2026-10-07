@@ -169,7 +169,7 @@ $$
 
 最后一次合并的长度代价恒为 $\textit{cnt}[i]$。答案为 $f[2^n - 1]$。
 
-时间复杂度 $O(3^n + 2^n \times n \times \log V \times \log L)$，空间复杂度 $O(2^n)$。其中 $n$ 是列表个数，$V$ 是不同元素的个数，$L$ 是单个列表的最大长度。
+时间复杂度 $O(3^n + 2^n \times n \times \log V \times \log L)$，空间复杂度 $O(2^n)$。其中 $n$ 是列表个数， $V$ 是不同元素的个数， $L$ 是单个列表的最大长度。
 
 <!-- tabs:start -->
 

@@ -75,7 +75,7 @@ tags:
 
 > **思考**
 >
-> 每位要前缀不同数减后缀不同数。若每个 $i$ 都重建两个集合，$n \le 50$ 勉强，但重复计数可预处理。
+> 每位要前缀不同数减后缀不同数。若每个 $i$ 都重建两个集合， $n \le 50$ 勉强，但重复计数可预处理。
 >
 > 先自右向左用集合得到后缀不同数 $suf[i]$，再自左向右维护前缀集合，答案为 $|s|-suf[i+1]$。
 
@@ -217,7 +217,7 @@ impl Solution {
         s.clear();
         for i in 0..n {
             s.insert(nums[i]);
-            ans.push((s.len() - suf[i + 1]) as i32);
+            ans.push(s.len() as i32 - suf[i + 1] as i32);
         }
 
         ans

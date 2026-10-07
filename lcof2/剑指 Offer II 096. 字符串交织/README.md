@@ -74,7 +74,7 @@ comments: true
 
 > **思考**
 >
-> $s3$ 是否由 $s1$、$s2$ 交错组成。若长度和已不等则可立即否定。朴素递归在相同前缀上会重复展开。
+> $s3$ 是否由 $s1$、 $s2$ 交错组成。若长度和已不等则可立即否定。朴素递归在相同前缀上会重复展开。
 >
 > 状态 $(i,j)$ 表示两串前缀能否拼出 $s3$ 的前 $i+j$ 个字符。当前字符只能来自 $s1[i]$ 或 $s2[j]$ 之一，记忆化后每个状态计算一次。
 
@@ -356,7 +356,7 @@ class Solution {
 
 > **思考**
 >
-> 方法一是递归。把同一转移写成自底向上：$f[i][j]$ 由 $f[i-1][j]$ 或 $f[i][j-1]$ 在对应字符匹配时推得，避免递归栈。
+> 方法一是递归。把同一转移写成自底向上： $f[i][j]$ 由 $f[i-1][j]$ 或 $f[i][j-1]$ 在对应字符匹配时推得，避免递归栈。
 
 <!-- thinking:end -->
 
@@ -533,6 +533,37 @@ public class Solution {
             }
         }
         return f[m, n];
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func isInterleave(_ s1: String, _ s2: String, _ s3: String) -> Bool {
+        let m = s1.count, n = s2.count
+        if m + n != s3.count {
+            return false
+        }
+
+        let s1 = Array(s1), s2 = Array(s2), s3 = Array(s3)
+        var dp = Array(repeating: Array(repeating: false, count: n + 1), count: m + 1)
+        dp[0][0] = true
+
+        for i in 0...m {
+            for j in 0...n {
+                let k = i + j - 1
+                if i > 0 && s1[i - 1] == s3[k] {
+                    dp[i][j] = dp[i][j] || dp[i - 1][j]
+                }
+                if j > 0 && s2[j - 1] == s3[k] {
+                    dp[i][j] = dp[i][j] || dp[i][j - 1]
+                }
+            }
+        }
+
+        return dp[m][n]
     }
 }
 ```

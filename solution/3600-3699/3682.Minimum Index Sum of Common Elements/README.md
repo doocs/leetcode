@@ -93,7 +93,7 @@ tags:
 
 > **思考**
 >
-> 公共元素的最小下标和。若对 $\textit{nums1}$ 的每个值在 $\textit{nums2}$ 里扫描，$n\le 10^5$ 不可行。
+> 公共元素的最小下标和。若对 $\textit{nums1}$ 的每个值在 $\textit{nums2}$ 里扫描， $n\le 10^5$ 不可行。
 >
 > 哈希表记下 $\textit{nums2}$ 中每个值的首次下标，再扫 $\textit{nums1}$ 用 $i+d[x]$ 更新最小和。
 >

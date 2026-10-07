@@ -105,7 +105,7 @@ Employees 表：
 >
 > 员工表用 $\textit{reports\_to}$ 指向经理，要求每位经理的下属人数与平均年龄。
 >
-> 将下属行与经理行自连接，$\mathrm{COUNT}$ 与 $\mathrm{ROUND}(\mathrm{AVG}(\textit{age}))$ 按经理分组即可。
+> 将下属行与经理行自连接， $\mathrm{COUNT}$ 与 $\mathrm{ROUND}(\mathrm{AVG}(\textit{age}))$ 按经理分组即可。
 
 <!-- thinking:end -->
 

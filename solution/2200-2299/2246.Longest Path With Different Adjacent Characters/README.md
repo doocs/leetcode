@@ -76,7 +76,7 @@ tags:
 
 > **思考**
 >
-> 在树上找一条相邻字符均不同的最长路径。$n \le 10^5$，不能枚举端点对。路径要么完全落在某一子树，要么在某点处把两条合法向下链拼起来。
+> 在树上找一条相邻字符均不同的最长路径。 $n \le 10^5$，不能枚举端点对。路径要么完全落在某一子树，要么在某点处把两条合法向下链拼起来。
 >
 > DFS 返回「从当前点向下、且第一步字符不同」的最长链长。对每个儿子先递归；仅当 $s[i]\neq s[j]$ 时，用当前次长链与这条新链更新全局答案，并维护最长向下链。根上再加一（计入自身）。一次遍历即可。
 
@@ -227,6 +227,216 @@ function longestPath(parent: number[], s: string): number {
         return mx;
     };
     dfs(0);
+    return ans + 1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：树形 DP + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在树上找一条相邻字符均不同的最长路径。$n \le 10^5$，从根递归求每棵子树的向下链，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 这样的路径要么完全落在某一子树，要么在某个点把两条向下链拼起来。离开一个节点时，儿子的向下链已经知道：仅当 $s[i] \neq s[j]$ 时，这条链才能接到 $i$ 上，长度是儿子的链长加 $1$。用当前最长的一条与新链更新全局答案，并留下更长的那条作为本节点的向下链。
+>
+> 显式栈按 $(节点, 状态)$ 做后序。进入时先压出栈标记再压孩子，离开时按上面的规则更新答案和向下链。最后把答案加 $1$，补上路径经过的节点数。
+
+<!-- thinking:end -->
+
+我们先根据数组 $parent$ 构建邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。
+
+用显式栈从根做后序。离开节点 $i$ 时，遍历每个子节点 $j$，记 $x$ 为从 $j$ 向下的最长链再加 $1$。若 $s[i] \neq s[j]$，就用已经记下的最长向下链 $mx$ 与 $x$ 更新答案 $ans = \max(ans, mx + x)$，再把 $mx$ 更新为 $\max(mx, x)$。$mx$ 是从 $i$ 向下、且第一步字符不同的最长链。
+
+最后，我们返回 $ans + 1$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPath(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        down = [0] * n
+        ans = 0
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j in g[i]:
+                    stk.append((j, 0))
+            else:
+                mx = 0
+                for j in g[i]:
+                    x = down[j] + 1
+                    if s[i] != s[j]:
+                        ans = max(ans, mx + x)
+                        mx = max(mx, x)
+                down[i] = mx
+        return ans + 1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestPath(int[] parent, String s) {
+        int n = parent.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].add(i);
+        }
+        int[] down = new int[n];
+        int ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], state = cur[1];
+            if (state == 0) {
+                stk.push(new int[] {i, 1});
+                for (int j : g[i]) {
+                    stk.push(new int[] {j, 0});
+                }
+            } else {
+                int mx = 0;
+                for (int j : g[i]) {
+                    int x = down[j] + 1;
+                    if (s.charAt(i) != s.charAt(j)) {
+                        ans = Math.max(ans, mx + x);
+                        mx = Math.max(mx, x);
+                    }
+                }
+                down[i] = mx;
+            }
+        }
+        return ans + 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestPath(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].push_back(i);
+        }
+        vector<int> down(n);
+        int ans = 0;
+        vector<array<int, 2>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, 1});
+                for (int j : g[i]) {
+                    stk.push_back({j, 0});
+                }
+            } else {
+                int mx = 0;
+                for (int j : g[i]) {
+                    int x = down[j] + 1;
+                    if (s[i] != s[j]) {
+                        ans = max(ans, mx + x);
+                        mx = max(mx, x);
+                    }
+                }
+                down[i] = mx;
+            }
+        }
+        return ans + 1;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPath(parent []int, s string) int {
+	n := len(parent)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	down := make([]int, n)
+	ans := 0
+	stk := [][2]int{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, state := cur[0], cur[1]
+		if state == 0 {
+			stk = append(stk, [2]int{i, 1})
+			for _, j := range g[i] {
+				stk = append(stk, [2]int{j, 0})
+			}
+		} else {
+			mx := 0
+			for _, j := range g[i] {
+				x := down[j] + 1
+				if s[i] != s[j] {
+					ans = max(ans, x+mx)
+					mx = max(mx, x)
+				}
+			}
+			down[i] = mx
+		}
+	}
+	return ans + 1
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPath(parent: number[], s: string): number {
+    const n = parent.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push(i);
+    }
+    const down = Array(n).fill(0);
+    let ans = 0;
+    const stk: [number, number][] = [[0, 0]];
+    while (stk.length) {
+        const [i, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, 1]);
+            for (const j of g[i]) {
+                stk.push([j, 0]);
+            }
+        } else {
+            let mx = 0;
+            for (const j of g[i]) {
+                const x = down[j] + 1;
+                if (s[i] !== s[j]) {
+                    ans = Math.max(ans, mx + x);
+                    mx = Math.max(mx, x);
+                }
+            }
+            down[i] = mx;
+        }
+    }
     return ans + 1;
 }
 ```

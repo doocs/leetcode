@@ -68,7 +68,7 @@ tags:
 
 > **思考**
 >
-> 与上一题不同，每个数只能使用一次，且 $candidates$ 中含有重复值。若不处理重复，同一组数会按不同下标组合被搜索多次。$n \le 100$、$target \le 30$，更需要剪枝。
+> 与上一题不同，每个数只能使用一次，且 $candidates$ 中含有重复值。若不处理重复，同一组数会按不同下标组合被搜索多次。 $n \le 100$、 $target \le 30$，更需要剪枝。
 >
 > 因此先排序，使相同数字相邻。同一层中若 $j \gt i$ 且值与前一个相同，说明该值已经作为本层选择搜索过，可以直接跳过。递归改为 $dfs(j+1, \ldots)$，表示该下标用过就不能再用；若剩余 $s$ 小于当前值，则整支停止。
 
@@ -472,14 +472,14 @@ func combinationSum2(candidates []int, target int) (ans [][]int) {
 		if i >= len(candidates) || s < candidates[i] {
 			return
 		}
-		for j := i; j < len(candidates); j++ {
-			if j > i && candidates[j] == candidates[j-1] {
-				continue
-			}
-			t = append(t, candidates[j])
-			dfs(j+1, s-candidates[j])
-			t = t[:len(t)-1]
+		x := candidates[i]
+		t = append(t, x)
+		dfs(i+1, s-x)
+		t = t[:len(t)-1]
+		for i < len(candidates) && candidates[i] == x {
+			i++
 		}
+		dfs(i, s)
 	}
 	dfs(0, target)
 	return

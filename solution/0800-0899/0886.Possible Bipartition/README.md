@@ -76,7 +76,7 @@ tags:
 
 > **思考**
 >
-> 互讨厌的人不能同组，即嫌恶图是否二分。$n\le 2000$，染色 DFS 即可：相邻必须异色，遇同色则失败。
+> 互讨厌的人不能同组，即嫌恶图是否二分。 $n\le 2000$，染色 DFS 即可：相邻必须异色，遇同色则失败。
 >
 > 对每个未染色点染成 $1$，沿边染成 $3-c$。全部连通块都成功则可以划分。
 
@@ -293,9 +293,7 @@ impl Solution {
 
 > **思考**
 >
-> 染色需要递归栈。并查集把「应在同一组」的关系连起来：一个点的所有讨厌对象应彼此同组，且不能与自己同组。
->
-> 若发现自己与某个讨厌对象已在同一集合则失败；否则把这些讨厌对象合并到同一代表下。
+> 方法一已经用显式栈完成染色。并查集不保存颜色，而是把必须同组的人合并：一个人讨厌的所有对象应当彼此同组，并且不能和这个人自己同组。若发现自己与某个讨厌对象已经在同一集合则失败，否则把这些讨厌对象合并到同一代表下。
 
 <!-- thinking:end -->
 
@@ -463,6 +461,236 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 		}
 	}
 	return true
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈染色
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 互不喜欢的人不能同组，嫌恶关系构成无向图，问它是否二分。$n\le 2000$，沿一条嫌恶链递归时，调用深度等于人数，链长达到 $1000$ 就会超出 Python 的递归上限。二分图等价于能用两种颜色染色且每条边两端异色。因此用栈扩展连通块：未染色的人染成 $1$ 后入栈，弹出时若邻居已是同色则失败，若尚未染色就染成 $3$ 减去当前颜色再入栈。每个连通块都染完则可以分组。
+
+<!-- thinking:end -->
+
+用颜色 $0$、$1$、$2$ 表示未染色和两组。输入编号先减 $1$，图按下标 $0$ 存放。对每个颜色仍为 $0$ 的人，染成 $1$ 并压入栈。弹出 $i$ 时检查每个邻居 $j$：若 $j$ 与 $i$ 同色，返回 `false`；若 $j$ 还没染色，染成 $3$ 减去 $i$ 的颜色并压入栈。所有人都处理完则返回 `true`。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是人数和不喜欢的关系数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+        g = defaultdict(list)
+        for a, b in dislikes:
+            a, b = a - 1, b - 1
+            g[a].append(b)
+            g[b].append(a)
+        color = [0] * n
+        for start in range(n):
+            if color[start]:
+                continue
+            color[start] = 1
+            stk = [start]
+            while stk:
+                i = stk.pop()
+                for j in g[i]:
+                    if color[j] == color[i]:
+                        return False
+                    if color[j] == 0:
+                        color[j] = 3 - color[i]
+                        stk.append(j)
+        return True
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean possibleBipartition(int n, int[][] dislikes) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[] color = new int[n];
+        for (int start = 0; start < n; ++start) {
+            if (color[start] != 0) {
+                continue;
+            }
+            color[start] = 1;
+            Deque<Integer> stk = new ArrayDeque<>();
+            stk.push(start);
+            while (!stk.isEmpty()) {
+                int i = stk.pop();
+                for (int j : g[i]) {
+                    if (color[j] == color[i]) {
+                        return false;
+                    }
+                    if (color[j] == 0) {
+                        color[j] = 3 - color[i];
+                        stk.push(j);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
+        vector<vector<int>> g(n);
+        for (auto& e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> color(n);
+        for (int start = 0; start < n; ++start) {
+            if (color[start]) {
+                continue;
+            }
+            color[start] = 1;
+            vector<int> stk{start};
+            while (!stk.empty()) {
+                int i = stk.back();
+                stk.pop_back();
+                for (int j : g[i]) {
+                    if (color[j] == color[i]) {
+                        return false;
+                    }
+                    if (color[j] == 0) {
+                        color[j] = 3 - color[i];
+                        stk.push_back(j);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+#### Go
+
+```go
+func possibleBipartition(n int, dislikes [][]int) bool {
+	g := make([][]int, n)
+	for _, e := range dislikes {
+		a, b := e[0]-1, e[1]-1
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	color := make([]int, n)
+	for start := 0; start < n; start++ {
+		if color[start] != 0 {
+			continue
+		}
+		color[start] = 1
+		stk := []int{start}
+		for len(stk) > 0 {
+			i := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for _, j := range g[i] {
+				if color[j] == color[i] {
+					return false
+				}
+				if color[j] == 0 {
+					color[j] = 3 - color[i]
+					stk = append(stk, j)
+				}
+			}
+		}
+	}
+	return true
+}
+```
+
+#### TypeScript
+
+```ts
+function possibleBipartition(n: number, dislikes: number[][]): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of dislikes) {
+        g[a - 1].push(b - 1);
+        g[b - 1].push(a - 1);
+    }
+    const color: number[] = new Array(n).fill(0);
+    for (let start = 0; start < n; start++) {
+        if (color[start] !== 0) {
+            continue;
+        }
+        color[start] = 1;
+        const stk: number[] = [start];
+        while (stk.length) {
+            const i = stk.pop()!;
+            for (const j of g[i]) {
+                if (color[j] === color[i]) {
+                    return false;
+                }
+                if (color[j] === 0) {
+                    color[j] = 3 - color[i];
+                    stk.push(j);
+                }
+            }
+        }
+    }
+    return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn possible_bipartition(n: i32, dislikes: Vec<Vec<i32>>) -> bool {
+        let n = n as usize;
+        let mut g = vec![Vec::new(); n];
+        for d in dislikes.iter() {
+            let a = d[0] as usize - 1;
+            let b = d[1] as usize - 1;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        let mut color = vec![0; n];
+        for start in 0..n {
+            if color[start] != 0 {
+                continue;
+            }
+            color[start] = 1;
+            let mut stk = vec![start];
+            while let Some(i) = stk.pop() {
+                for &j in &g[i] {
+                    if color[j] == color[i] {
+                        return false;
+                    }
+                    if color[j] == 0 {
+                        color[j] = 3 - color[i];
+                        stk.push(j);
+                    }
+                }
+            }
+        }
+        true
+    }
 }
 ```
 

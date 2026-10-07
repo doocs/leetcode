@@ -76,7 +76,7 @@ tags:
 >
 > 每位访客到达时，统计仍在花期的花数。花与人均为 $5\times 10^4$，时间戳达 $10^9$，不能按天模拟。一朵花在 $t$ 开放当且仅当 $\textit{start} \le t \le \textit{end}$，即「已开放数减去已凋谢数」。
 >
-> 把所有 $\textit{start}$、$\textit{end}$ 分别排序。对到达时刻 $p$，用 $\textit{bisect\_right}$ 数出已开放的花，用 $\textit{bisect\_left}$ 数出结束时间小于 $p$ 的花，二者之差即答案。
+> 把所有 $\textit{start}$、 $\textit{end}$ 分别排序。对到达时刻 $p$，用 $\textit{bisect\_right}$ 数出已开放的花，用 $\textit{bisect\_left}$ 数出结束时间小于 $p$ 的花，二者之差即答案。
 
 <!-- thinking:end -->
 

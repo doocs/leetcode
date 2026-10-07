@@ -15,7 +15,7 @@ WITH
             ROUND(MAX(cnt) / SUM(cnt), 2) reaction_ratio
         FROM t
         GROUP BY 1
-        HAVING reaction_ratio >= 0.60 AND SUM(cnt) >= 5
+        HAVING 5 * MAX(cnt) >= 3 * SUM(cnt) AND SUM(cnt) >= 5
     )
 SELECT user_id, reaction dominant_reaction, reaction_ratio
 FROM

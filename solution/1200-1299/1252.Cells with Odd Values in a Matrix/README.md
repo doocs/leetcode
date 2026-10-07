@@ -306,7 +306,7 @@ func oddCells(m int, n int, indices [][]int) int {
 
 > **思考**
 >
-> 方法二仍枚举全部格子。$(i,j)$ 为奇数当且仅当行增量与列增量一奇一偶。统计奇行数 $cnt1$、奇列数 $cnt2$，奇数个数为 $cnt1(n-cnt2)+cnt2(m-cnt1)$，时间降到 $O(k+m+n)$。
+> 方法二仍枚举全部格子。 $(i,j)$ 为奇数当且仅当行增量与列增量一奇一偶。统计奇行数 $cnt1$、奇列数 $cnt2$，奇数个数为 $cnt1(n-cnt2)+cnt2(m-cnt1)$，时间降到 $O(k+m+n)$。
 
 <!-- thinking:end -->
 

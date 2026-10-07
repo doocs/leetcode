@@ -332,4 +332,259 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit Stacks
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bob follows the unique path from $bob$ to the root $0$, and Alice walks from $0$ to a leaf. The answer is her maximum net income. With $n\le 10^5$, recursion along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The path is unique, so the search does not need to return through every frame. A stack rooted at $0$ records each parent, and walking those parents writes Bob's arrival time into $ts$. Every other node keeps the sentinel $n$. Alice's score at node $i$ depends only on her time $t$ and $ts[i]$, so the second walk is a pre-order stack. A popped node adds half the gate, the whole gate, or nothing. A node whose only neighbor is its parent is a leaf, and that score updates the answer.
+
+<!-- thinking:end -->
+
+The tree has one path from $bob$ to $0$. An explicit stack walks the tree from node $0$ and records each node's parent. Walking from $bob$ along those parents then sets $ts$ to the step $t$ at which Bob arrives. Nodes that are not on this path keep the initial value $n$, meaning Bob never opens them.
+
+A second explicit stack moves Alice from $0$ toward a leaf. Each frame stores a node, its parent, the arrival time $t$, and the income $v$ collected before entering the node. After node $i$ is popped, the income has three cases:
+
+1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{amount[i]}{2}$.
+2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + amount[i]$.
+3. The time $t$ for Alice to reach node $i$ is greater than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice does not open the door at node $i$, and the score Alice gets is $v$, which remains unchanged.
+
+If $i$ has only one neighbor and that neighbor is its parent, then $i$ is a leaf and the current score updates the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def mostProfitablePath(
+        self, edges: List[List[int]], bob: int, amount: List[int]
+    ) -> int:
+        n = len(edges) + 1
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        parent = [-1] * n
+        seen = [False] * n
+        seen[0] = True
+        stk = [0]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if not seen[j]:
+                    seen[j] = True
+                    parent[j] = i
+                    stk.append(j)
+        ts = [n] * n
+        x, t = bob, 0
+        while x != -1:
+            ts[x] = t
+            x = parent[x]
+            t += 1
+        ans = -inf
+        walk = [(0, -1, 0, 0)]
+        while walk:
+            i, fa, t, v = walk.pop()
+            if t == ts[i]:
+                v += amount[i] // 2
+            elif t < ts[i]:
+                v += amount[i]
+            if len(g[i]) == 1 and g[i][0] == fa:
+                ans = max(ans, v)
+                continue
+            for j in g[i]:
+                if j != fa:
+                    walk.append((j, i, t + 1, v))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int mostProfitablePath(int[][] edges, int bob, int[] amount) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
+        boolean[] seen = new boolean[n];
+        seen[0] = true;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(0);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            for (int j : g[i]) {
+                if (!seen[j]) {
+                    seen[j] = true;
+                    parent[j] = i;
+                    stk.push(j);
+                }
+            }
+        }
+        int[] ts = new int[n];
+        Arrays.fill(ts, n);
+        for (int x = bob, t = 0; x != -1; x = parent[x], ++t) {
+            ts[x] = t;
+        }
+        int ans = Integer.MIN_VALUE;
+        Deque<int[]> walk = new ArrayDeque<>();
+        walk.push(new int[] {0, -1, 0, 0});
+        while (!walk.isEmpty()) {
+            int[] f = walk.pop();
+            int i = f[0], fa = f[1], t = f[2], v = f[3];
+            if (t == ts[i]) {
+                v += amount[i] >> 1;
+            } else if (t < ts[i]) {
+                v += amount[i];
+            }
+            if (g[i].size() == 1 && g[i].get(0) == fa) {
+                ans = Math.max(ans, v);
+                continue;
+            }
+            for (int j : g[i]) {
+                if (j != fa) {
+                    walk.push(new int[] {j, i, t + 1, v});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int mostProfitablePath(vector<vector<int>>& edges, int bob, vector<int>& amount) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        vector<int> parent(n, -1);
+        vector<char> seen(n);
+        seen[0] = 1;
+        vector<int> stk{0};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            for (int j : g[i]) {
+                if (!seen[j]) {
+                    seen[j] = 1;
+                    parent[j] = i;
+                    stk.push_back(j);
+                }
+            }
+        }
+        vector<int> ts(n, n);
+        for (int x = bob, t = 0; x != -1; x = parent[x], ++t) {
+            ts[x] = t;
+        }
+        int ans = INT_MIN;
+        vector<array<int, 4>> walk{{0, -1, 0, 0}};
+        while (!walk.empty()) {
+            auto [i, fa, t, v] = walk.back();
+            walk.pop_back();
+            if (t == ts[i]) {
+                v += amount[i] >> 1;
+            } else if (t < ts[i]) {
+                v += amount[i];
+            }
+            if (g[i].size() == 1 && g[i][0] == fa) {
+                ans = max(ans, v);
+                continue;
+            }
+            for (int j : g[i]) {
+                if (j != fa) {
+                    walk.push_back({j, i, t + 1, v});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func mostProfitablePath(edges [][]int, bob int, amount []int) int {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	parent := make([]int, n)
+	for i := range parent {
+		parent[i] = -1
+	}
+	seen := make([]bool, n)
+	seen[0] = true
+	stk := []int{0}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, j := range g[i] {
+			if !seen[j] {
+				seen[j] = true
+				parent[j] = i
+				stk = append(stk, j)
+			}
+		}
+	}
+	ts := make([]int, n)
+	for i := range ts {
+		ts[i] = n
+	}
+	for x, t := bob, 0; x != -1; x, t = parent[x], t+1 {
+		ts[x] = t
+	}
+	ans := -0x3f3f3f3f
+	type frame struct{ i, fa, t, v int }
+	walk := []frame{{0, -1, 0, 0}}
+	for len(walk) > 0 {
+		f := walk[len(walk)-1]
+		walk = walk[:len(walk)-1]
+		v := f.v
+		if f.t == ts[f.i] {
+			v += amount[f.i] >> 1
+		} else if f.t < ts[f.i] {
+			v += amount[f.i]
+		}
+		if len(g[f.i]) == 1 && g[f.i][0] == f.fa {
+			ans = max(ans, v)
+			continue
+		}
+		for _, j := range g[f.i] {
+			if j != f.fa {
+				walk = append(walk, frame{j, f.i, f.t + 1, v})
+			}
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

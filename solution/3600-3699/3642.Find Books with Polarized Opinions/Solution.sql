@@ -15,5 +15,5 @@ HAVING
     COUNT(1) >= 5
     AND MAX(session_rating) >= 4
     AND MIN(session_rating) <= 2
-    AND polarization_score >= 0.6
+    AND 5 * (SUM(session_rating <= 2) + SUM(session_rating >= 4)) >= 3 * COUNT(1)
 ORDER BY polarization_score DESC, title DESC;

@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1899
+source: 第 520 场周赛 Q3
 ---
 
 <!-- problem:start -->

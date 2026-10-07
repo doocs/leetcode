@@ -11,7 +11,7 @@ impl Solution {
                 j += 1;
             }
             if t == s {
-                mx = mx.max((i - j + 1) as i32);
+                mx = mx.max(i as i32 - j as i32 + 1);
             }
         }
         if mx == -1 {

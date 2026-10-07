@@ -74,7 +74,7 @@ tags:
 >
 > 等值段只能拆成长度 $2$ 或 $3$，且全局恰好一段长度为 $2$。枚举切分点为指数级，但同一字符必须连续处理。
 >
-> 双指针求出每段长度：模 $3$ 余 $1$ 无法拆成 $2$、$3$；余 $2$ 则消耗唯一的长度 $2$ 段，出现两次即失败。
+> 双指针求出每段长度：模 $3$ 余 $1$ 无法拆成 $2$、 $3$；余 $2$ 则消耗唯一的长度 $2$ 段，出现两次即失败。
 >
 > 扫完后必须恰好用过一次余 $2$，否则不合法。
 
@@ -93,14 +93,18 @@ tags:
 ```python
 class Solution:
     def isDecomposable(self, s: str) -> bool:
+        i, n = 0, len(s)
         cnt2 = 0
-        for _, g in groupby(s):
-            m = len(list(g))
-            if m % 3 == 1:
+        while i < n:
+            j = i
+            while j < n and s[j] == s[i]:
+                j += 1
+            if (j - i) % 3 == 1:
                 return False
-            cnt2 += m % 3 == 2
+            cnt2 += (j - i) % 3 == 2
             if cnt2 > 1:
                 return False
+            i = j
         return cnt2 == 1
 ```
 

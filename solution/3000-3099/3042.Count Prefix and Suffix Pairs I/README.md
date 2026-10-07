@@ -199,7 +199,7 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 > **思考**
 >
-> 枚举在 $n$、$m$ 变大后会慢。一对下标成为答案，当且仅当短串的每个前后字符对都与长串对齐。
+> 枚举在 $n$、 $m$ 变大后会慢。一对下标成为答案，当且仅当短串的每个前后字符对都与长串对齐。
 >
 > 把 $(s[i], s[m-1-i])$ 压成字典树边，按数组顺序插入时，沿路径累加已有结点计数，即可在总长线性时间内统计。
 
@@ -326,6 +326,34 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 		node.cnt++
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    children: Map<number, Node> = new Map<number, Node>();
+    cnt: number = 0;
+}
+
+function countPrefixSuffixPairs(words: string[]): number {
+    let ans: number = 0;
+    const trie: Node = new Node();
+    for (const s of words) {
+        let node: Node = trie;
+        const m: number = s.length;
+        for (let i: number = 0; i < m; ++i) {
+            const p: number = s.charCodeAt(i) * 32 + s.charCodeAt(m - i - 1);
+            if (!node.children.has(p)) {
+                node.children.set(p, new Node());
+            }
+            node = node.children.get(p)!;
+            ans += node.cnt;
+        }
+        ++node.cnt;
+    }
+    return ans;
 }
 ```
 

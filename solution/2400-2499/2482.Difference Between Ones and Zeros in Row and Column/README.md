@@ -92,7 +92,7 @@ tags:
 
 > **思考**
 >
-> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$，而零的个数由行宽列高减去一的个数得到。$mn \le 10^5$，先统计每行每列的 $1$，再填每个格子。
+> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$，而零的个数由行宽列高减去一的个数得到。 $mn \le 10^5$，先统计每行每列的 $1$，再填每个格子。
 
 <!-- thinking:end -->
 
@@ -231,8 +231,8 @@ impl Solution {
     pub fn ones_minus_zeros(grid: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let m = grid.len();
         let n = grid[0].len();
-        let mut rows = vec![0; m];
-        let mut cols = vec![0; n];
+        let mut rows = vec![0i32; m];
+        let mut cols = vec![0i32; n];
         for i in 0..m {
             for j in 0..n {
                 if grid[i][j] == 1 {
@@ -244,7 +244,7 @@ impl Solution {
         let mut ans = vec![vec![0; n]; m];
         for i in 0..m {
             for j in 0..n {
-                ans[i][j] = (rows[i] + cols[j] - (m - rows[i]) - (n - cols[j])) as i32;
+                ans[i][j] = rows[i] + cols[j] - (n as i32 - rows[i]) - (m as i32 - cols[j]);
             }
         }
         ans

@@ -96,7 +96,7 @@ The calculation process of the function $\textit{dfs}(\textit{mask}, \textit{pre
 
 Finally, we use a function $\textit{g}(\textit{mask}, \textit{pre})$ to construct the permutation that gets the minimum score. We first add the number $\textit{pre}$ to the permutation, and then enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, and it satisfies that the value of $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ is equal to $\textit{dfs}(\textit{mask}, \textit{pre})$, then we can add the number $\textit{cur}$ to the permutation.
 
-The time complexity is $(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -99,7 +99,7 @@ ORDER BY
 
 > **思考**
 >
-> 方法一的 $\texttt{SUBSTRING}(name,2)$ 取到串尾。某些引擎可用 $\texttt{SUBSTRING}(name,2,\texttt{DATALENGTH}(name))$ 显式给出长度，结果相同。
+> 方法一的 $\texttt{SUBSTRING}(name,2)$ 省略长度，直接取到串尾。MySQL 的三参数形式按字符计数，$\texttt{CHAR\_LENGTH}(name)$ 给出原串的字符个数，从第 $2$ 个字符起截取的结果与取到串尾相同。
 
 <!-- thinking:end -->
 
@@ -112,7 +112,7 @@ SELECT
     user_id,
     CONCAT(
         UPPER(LEFT(name, 1)),
-        LOWER(SUBSTRING(name, 2, DATALENGTH(name)))
+        LOWER(SUBSTRING(name, 2, CHAR_LENGTH(name)))
     ) AS name
 FROM
     users

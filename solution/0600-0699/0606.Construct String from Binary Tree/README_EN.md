@@ -279,4 +279,348 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Preorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A preorder string with parentheses can be built by recursion: a leaf is just the value, a missing right child wraps only the left, and otherwise both children are wrapped. That is correct on a short tree.
+>
+> The tree can contain $10^4$ nodes. A left chain makes this walk recurse once per node and overflow the call stack. Returning each subtree as a new string also copies the same characters many times.
+>
+> The characters are already ordered by the preorder walk and the empty-parenthesis rule, so a subtree does not need to return a finished string.
+>
+> One buffer and an explicit stack follow that order. On entry the walk writes the current value; if the node is not a leaf it writes `(`, then pushes an exit marker and the left child. After the left subtree it writes `)`, and wraps the right child the same way when one exists. A leaf leaves only its value, and a missing left child leaves an empty pair.
+
+<!-- thinking:end -->
+
+An explicit stack writes the preorder string into one buffer. On entry we write the node value. A leaf stops there. Otherwise we write `(`, push a marker meaning the left subtree is finished, and push the left child. When that marker pops we write `)`. If a right child exists, we write `(` and push that child with its own closing marker.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
+        parts = []
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if state == 0:
+                if node is None:
+                    continue
+                parts.append(str(node.val))
+                if node.left is None and node.right is None:
+                    continue
+                parts.append('(')
+                stk.append((node, 1))
+                stk.append((node.left, 0))
+                continue
+            if state == 1:
+                parts.append(')')
+                if node.right is not None:
+                    parts.append('(')
+                    stk.append((node, 2))
+                    stk.append((node.right, 0))
+                continue
+            parts.append(')')
+        return ''.join(parts)
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static class Frame {
+        TreeNode node;
+        int state;
+
+        Frame(TreeNode node, int state) {
+            this.node = node;
+            this.state = state;
+        }
+    }
+
+    public String tree2str(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        Deque<Frame> stk = new ArrayDeque<>();
+        stk.push(new Frame(root, 0));
+        while (!stk.isEmpty()) {
+            Frame cur = stk.pop();
+            TreeNode node = cur.node;
+            if (cur.state == 0) {
+                if (node == null) {
+                    continue;
+                }
+                sb.append(node.val);
+                if (node.left == null && node.right == null) {
+                    continue;
+                }
+                sb.append('(');
+                stk.push(new Frame(node, 1));
+                if (node.left != null) {
+                    stk.push(new Frame(node.left, 0));
+                }
+                continue;
+            }
+            if (cur.state == 1) {
+                sb.append(')');
+                if (node.right != null) {
+                    sb.append('(');
+                    stk.push(new Frame(node, 2));
+                    stk.push(new Frame(node.right, 0));
+                }
+                continue;
+            }
+            sb.append(')');
+        }
+        return sb.toString();
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    string tree2str(TreeNode* root) {
+        string res;
+        vector<pair<TreeNode*, int>> stk{{root, 0}};
+        while (!stk.empty()) {
+            auto [node, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                if (!node) {
+                    continue;
+                }
+                res += to_string(node->val);
+                if (!node->left && !node->right) {
+                    continue;
+                }
+                res.push_back('(');
+                stk.emplace_back(node, 1);
+                stk.emplace_back(node->left, 0);
+                continue;
+            }
+            if (state == 1) {
+                res.push_back(')');
+                if (node->right) {
+                    res.push_back('(');
+                    stk.emplace_back(node, 2);
+                    stk.emplace_back(node->right, 0);
+                }
+                continue;
+            }
+            res.push_back(')');
+        }
+        return res;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func tree2str(root *TreeNode) string {
+	var b strings.Builder
+	type frame struct {
+		node  *TreeNode
+		state int
+	}
+	stk := []frame{{root, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, state := cur.node, cur.state
+		if state == 0 {
+			if node == nil {
+				continue
+			}
+			b.WriteString(strconv.Itoa(node.Val))
+			if node.Left == nil && node.Right == nil {
+				continue
+			}
+			b.WriteByte('(')
+			stk = append(stk, frame{node, 1}, frame{node.Left, 0})
+			continue
+		}
+		if state == 1 {
+			b.WriteByte(')')
+			if node.Right != nil {
+				b.WriteByte('(')
+				stk = append(stk, frame{node, 2}, frame{node.Right, 0})
+			}
+			continue
+		}
+		b.WriteByte(')')
+	}
+	return b.String()
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function tree2str(root: TreeNode | null): string {
+    const parts: string[] = [];
+    const stk: [TreeNode | null, number][] = [[root, 0]];
+    while (stk.length) {
+        const [node, state] = stk.pop()!;
+        if (state === 0) {
+            if (!node) {
+                continue;
+            }
+            parts.push(`${node.val}`);
+            if (!node.left && !node.right) {
+                continue;
+            }
+            parts.push('(');
+            stk.push([node, 1]);
+            stk.push([node.left, 0]);
+            continue;
+        }
+        if (state === 1) {
+            parts.push(')');
+            if (node && node.right) {
+                parts.push('(');
+                stk.push([node, 2]);
+                stk.push([node.right, 0]);
+            }
+            continue;
+        }
+        parts.push(')');
+    }
+    return parts.join('');
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn tree2str(root: Option<Rc<RefCell<TreeNode>>>) -> String {
+        let mut res = String::new();
+        let mut stk = vec![(root, 0)];
+        while let Some((node, state)) = stk.pop() {
+            if state == 0 {
+                if let Some(node) = node {
+                    let (val, left, leaf) = {
+                        let b = node.borrow();
+                        (b.val, b.left.clone(), b.left.is_none() && b.right.is_none())
+                    };
+                    res.push_str(&val.to_string());
+                    if leaf {
+                        continue;
+                    }
+                    res.push('(');
+                    stk.push((Some(node), 1));
+                    if left.is_some() {
+                        stk.push((left, 0));
+                    }
+                }
+            } else if state == 1 {
+                if let Some(node) = node {
+                    res.push(')');
+                    let right = node.borrow().right.clone();
+                    if right.is_some() {
+                        res.push('(');
+                        stk.push((Some(node), 2));
+                        stk.push((right, 0));
+                    }
+                }
+            } else {
+                res.push(')');
+            }
+        }
+        res
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

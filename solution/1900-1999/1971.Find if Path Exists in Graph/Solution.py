@@ -5,9 +5,11 @@ class Solution:
         def dfs(i: int) -> bool:
             if i == destination:
                 return True
-            if i in vis:
-                return False
-            return any(dfs(j) for j in g[i])
+            vis.add(i)
+            for j in g[i]:
+                if j not in vis and dfs(j):
+                    return True
+            return False
 
         g = [[] for _ in range(n)]
         for u, v in edges:

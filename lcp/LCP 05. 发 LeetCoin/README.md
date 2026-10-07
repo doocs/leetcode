@@ -88,7 +88,7 @@ comments: true
 >
 > $N$ 与操作次数均可达 $5\times 10^4$。若每次给某名员工及其下属发币或查询子树和时都遍历子树，则无法在时限内完成。领导关系是一棵有根树，需要的是子树加法与子树求和。
 >
-> 深度优先遍历把一棵子树映射成一段连续下标：$u$ 的后代先编号，自身落在区间右端，于是 $[begin[u], end[u]]$ 恰好覆盖 $u$ 及其下属。区间加与区间求和交给带懒标记的线段树，单次操作降为对数代价；单独给一人发币则只修改 $end[v]$ 这一格。
+> 深度优先遍历把一棵子树映射成一段连续下标： $u$ 的后代先编号，自身落在区间右端，于是 $[begin[u], end[u]]$ 恰好覆盖 $u$ 及其下属。区间加与区间求和交给带懒标记的线段树，单次操作降为对数代价；单独给一人发币则只修改 $end[v]$ 这一格。
 
 <!-- thinking:end -->
 
@@ -237,7 +237,7 @@ class SegmentTree {
             return;
         }
         if (node.l >= l && node.r <= r) {
-            node.v = (node.v + (node.r - node.l + 1) * v) % MOD;
+            node.v = (int) ((node.v + 1L * (node.r - node.l + 1) * v) % MOD);
             node.add += v;
             return;
         }
@@ -286,8 +286,8 @@ class SegmentTree {
         }
         if (node.add != 0) {
             Node left = node.left, right = node.right;
-            left.v = (left.v + (left.r - left.l + 1) * node.add) % MOD;
-            right.v = (right.v + (right.r - right.l + 1) * node.add) % MOD;
+            left.v = (int) ((left.v + 1L * (left.r - left.l + 1) * node.add) % MOD);
+            right.v = (int) ((right.v + 1L * (right.r - right.l + 1) * node.add) % MOD);
             left.add += node.add;
             right.add += node.add;
             node.add = 0;
@@ -378,7 +378,7 @@ public:
     void modify(int l, int r, int v, Node* node) {
         if (l > r) return;
         if (node->l >= l && node->r <= r) {
-            node->v = (node->v + (node->r - node->l + 1) * v) % MOD;
+            node->v = (node->v + 1LL * (node->r - node->l + 1) * v) % MOD;
             node->add += v;
             return;
         }
@@ -412,8 +412,8 @@ public:
         if (node->add) {
             Node* left = node->left;
             Node* right = node->right;
-            left->v = (left->v + (left->r - left->l + 1) * node->add) % MOD;
-            right->v = (right->v + (right->r - right->l + 1) * node->add) % MOD;
+            left->v = (left->v + 1LL * (left->r - left->l + 1) * node->add) % MOD;
+            right->v = (right->v + 1LL * (right->r - right->l + 1) * node->add) % MOD;
             left->add += node->add;
             right->add += node->add;
             node->add = 0;

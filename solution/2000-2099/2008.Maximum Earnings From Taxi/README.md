@@ -74,7 +74,7 @@ tags:
 
 > **思考**
 >
-> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge end_i$」的后续乘客相容。$m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
+> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge end_i$」的后续乘客相容。 $m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
 >
 > 不接则转移到 $i+1$，接则二分找到第一个 $start \ge end_i$ 的下标 $j$，收益为路程加小费再加 $dfs(j)$。
 >
@@ -82,7 +82,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们先将 $rides$ 按照$start$ 从小到大排序，然后设计一个函数 $dfs(i)$，表示从第 $i$ 个乘客开始接单，最多能获得的小费。答案即为 $dfs(0)$。
+我们先将 $rides$ 按照 $start$ 从小到大排序，然后设计一个函数 $dfs(i)$，表示从第 $i$ 个乘客开始接单，最多能获得的小费。答案即为 $dfs(0)$。
 
 函数 $dfs(i)$ 的计算过程如下：
 
@@ -96,7 +96,7 @@ $$
 
 此过程中，我们可以使用记忆化搜索，将每个状态的答案保存下来，避免重复计算。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为$rides$ 的长度。
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $rides$ 的长度。
 
 <!-- tabs:start -->
 
@@ -257,13 +257,13 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 > **思考**
 >
-> 方法一已是 $O(m \log m)$，但递归栈与 `@cache` 常系数更大。按终点排序后，$f[i]$ 表示考虑前 $i$ 单的最大收益，转移无后效。
+> 方法一按起点排序，并从末尾填一张后缀表。这里改按终点排序，$f[i]$ 表示考虑前 $i$ 单的最大收益，转移无后效。
 >
-> 不接为 $f[i-1]$；接则二分最后一个终点 $\le start_i$ 的位置 $j$。迭代填表即可去掉递归。
+> 不接为 $f[i-1]$；接则二分最后一个终点 $\le start_i$ 的位置 $j$。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索改为动态规划。
+方法一按起点排序并从末尾填表。这里改按终点排序，定义前缀表。
 
 先将 $rides$ 排序，这次我们按照 $end$ 从小到大排序。然后定义 $f[i]$，表示前 $i$ 个乘客中，最多能获得的小费。初始时 $f[0] = 0$，答案为 $f[m]$。
 
@@ -275,7 +275,7 @@ $$
 
 其中 $j$ 是满足 $end_j \le start_i$ 的最大的下标，可以通过二分查找得到。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为$rides$ 的长度。
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $rides$ 的长度。
 
 相似题目：
 
@@ -392,6 +392,149 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
         f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
     }
     return f[m];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划 + 二分查找
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge end_i$」的后续乘客相容。$m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
+>
+> 不接依赖 $i+1$，接则依赖第一个起点 $\ge end_i$ 的下标。按这个递推搜索时仍会先调用 $i+1$ 再返回，调用链长度为 $m$，栈会溢出。
+>
+> 从末尾往前走时，更靠后的下标已经就绪。令 $f[i]$ 为该收益，$f[m] = 0$，填表时对 $j$ 做二分，从 $i = m-1$ 填到 $0$。
+
+<!-- thinking:end -->
+
+我们先将 $rides$ 按照 $start$ 从小到大排序。令 $f[i]$ 表示从第 $i$ 个乘客开始接单最多能获得的收益，答案为 $f[0]$，且 $f[m] = 0$。
+
+我们从 $i = m - 1$ 填到 $0$。对于第 $i$ 个乘客，不接单则收益为 $f[i + 1]$；接单时通过二分查找找到下车地点之后遇到的第一个乘客 $j$，收益为 $f[j] + end_i - start_i + tip_i$。取两者的较大值：
+
+$$
+f[i] = \max(f[i + 1], f[j] + end_i - start_i + tip_i)
+$$
+
+其中 $j$ 是满足 $start_j \ge end_i$ 的最小下标。因为 $j > i$，$f[j]$ 已经算过。
+
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $rides$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+        rides.sort()
+        m = len(rides)
+        f = [0] * (m + 1)
+        for i in range(m - 1, -1, -1):
+            st, ed, tip = rides[i]
+            j = bisect_left(rides, ed, lo=i + 1, key=lambda x: x[0])
+            f[i] = max(f[i + 1], f[j] + ed - st + tip)
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxTaxiEarnings(int n, int[][] rides) {
+        Arrays.sort(rides, (a, b) -> a[0] - b[0]);
+        int m = rides.length;
+        long[] f = new long[m + 1];
+        for (int i = m - 1; i >= 0; --i) {
+            int st = rides[i][0], ed = rides[i][1], tip = rides[i][2];
+            int j = search(rides, ed, i + 1);
+            f[i] = Math.max(f[i + 1], f[j] + ed - st + tip);
+        }
+        return f[0];
+    }
+
+    private int search(int[][] rides, int x, int l) {
+        int r = rides.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (rides[mid][0] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxTaxiEarnings(int n, vector<vector<int>>& rides) {
+        sort(rides.begin(), rides.end());
+        int m = rides.size();
+        vector<long long> f(m + 1);
+        for (int i = m - 1; i >= 0; --i) {
+            int st = rides[i][0], ed = rides[i][1], tip = rides[i][2];
+            int j = lower_bound(rides.begin() + i + 1, rides.end(), ed, [](auto& a, int val) { return a[0] < val; }) - rides.begin();
+            f[i] = max(f[i + 1], f[j] + ed - st + tip);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTaxiEarnings(n int, rides [][]int) int64 {
+	sort.Slice(rides, func(i, j int) bool { return rides[i][0] < rides[j][0] })
+	m := len(rides)
+	f := make([]int64, m+1)
+	for i := m - 1; i >= 0; i-- {
+		st, ed, tip := rides[i][0], rides[i][1], rides[i][2]
+		j := sort.Search(m, func(k int) bool { return rides[k][0] >= ed })
+		f[i] = max(f[i+1], int64(ed-st+tip)+f[j])
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTaxiEarnings(n: number, rides: number[][]): number {
+    rides.sort((a, b) => a[0] - b[0]);
+    const m = rides.length;
+    const f: number[] = Array(m + 1).fill(0);
+    const search = (x: number, l: number): number => {
+        let r = m;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (rides[mid][0] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = m - 1; i >= 0; --i) {
+        const [st, ed, tip] = rides[i];
+        const j = search(ed, i + 1);
+        f[i] = Math.max(f[i + 1], f[j] + ed - st + tip);
+    }
+    return f[0];
 }
 ```
 

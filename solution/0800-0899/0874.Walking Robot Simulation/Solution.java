@@ -1,7 +1,7 @@
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int[] dirs = {0, 1, 0, -1, 0};
-        Set<Integer> s = new HashSet<>(obstacles.length);
+        Set<Long> s = new HashSet<>(obstacles.length);
         for (var e : obstacles) {
             s.add(f(e[0], e[1]));
         }
@@ -27,7 +27,7 @@ class Solution {
         return ans;
     }
 
-    private int f(int x, int y) {
-        return x * 60010 + y;
+    private long f(int x, int y) {
+        return x * 200001L + y;
     }
 }

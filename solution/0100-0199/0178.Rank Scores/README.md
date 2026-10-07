@@ -83,7 +83,7 @@ Scores 表:
 
 > **思考**
 >
-> 分数降序排名，相同分数同名、名次连续（不跳号）。$\textit{RANK}$ 会在并列后留下空洞，$\textit{ROW\_NUMBER}$ 会拆开并列。$\textit{DENSE\_RANK}$ 正好给出连续且允许并列的名次，再按分数降序输出。
+> 分数降序排名，相同分数同名、名次连续（不跳号）。 $\textit{RANK}$ 会在并列后留下空洞， $\textit{ROW\_NUMBER}$ 会拆开并列。 $\textit{DENSE\_RANK}$ 正好给出连续且允许并列的名次，再按分数降序输出。
 
 <!-- thinking:end -->
 

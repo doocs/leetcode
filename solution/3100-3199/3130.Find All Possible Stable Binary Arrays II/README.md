@@ -92,7 +92,7 @@ tags:
 
 > **思考**
 >
-> 题意与 I 相同，但 $zero$、$one$ 更大，朴素回溯不可行。稳定约束仍只与剩余个数及下一位有关。
+> 题意与 I 相同，但 $zero$、 $one$ 更大，朴素回溯不可行。稳定约束仍只与剩余个数及下一位有关。
 >
 > 超限项同样是减去「连续 $limit+1$ 个相同位」的那一支，状态量仍为 $O(zero\cdot one)$。
 >
@@ -336,7 +336,7 @@ impl Solution {
 >
 > 方法一已是多项式时间，但递归深度与缓存开销在更大数据下更明显。
 >
-> 将同一转移改成迭代：$f[i][j][k]$ 按 $i$、$j$ 升序填表，边界与 I 中方法二一致。
+> 将同一转移改成迭代： $f[i][j][k]$ 按 $i$、 $j$ 升序填表，边界与 I 中方法二一致。
 >
 > 模运算写在递推里，最终返回 $f[zero][one][0]+f[zero][one][1]$，避免递归栈。
 
@@ -411,8 +411,7 @@ public:
     int numberOfStableArrays(int zero, int one, int limit) {
         const int mod = 1e9 + 7;
         using ll = long long;
-        ll f[zero + 1][one + 1][2];
-        memset(f, 0, sizeof(f));
+        vector<vector<array<ll, 2>>> f(zero + 1, vector<array<ll, 2>>(one + 1));
         for (int i = 1; i <= min(zero, limit); ++i) {
             f[i][0][0] = 1;
         }

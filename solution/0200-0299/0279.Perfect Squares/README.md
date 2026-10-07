@@ -57,7 +57,7 @@ tags:
 
 > **思考**
 >
-> 完全平方数可重复使用，求组成 $n$ 的最少个数，即完全背包。物品为 $1^2,\ldots,m^2$（$m=\lfloor\sqrt{n}\rfloor$）。
+> 完全平方数可重复使用，求组成 $n$ 的最少个数，即完全背包。物品为 $1^2,\ldots,m^2$（ $m=\lfloor\sqrt{n}\rfloor$）。
 >
 > $f[i][j]$ 表示用前 $i$ 种平方数凑 $j$ 的最少个数，转移为不选或再加一个 $i^2$。
 
@@ -142,8 +142,7 @@ class Solution {
 public:
     int numSquares(int n) {
         int m = sqrt(n);
-        int f[m + 1][n + 1];
-        memset(f, 0x3f, sizeof(f));
+        vector<vector<int>> f(m + 1, vector<int>(n + 1, 1 << 30));
         f[0][0] = 0;
         for (int i = 1; i <= m; ++i) {
             for (int j = 0; j <= n; ++j) {
@@ -285,8 +284,7 @@ class Solution {
 public:
     int numSquares(int n) {
         int m = sqrt(n);
-        int f[n + 1];
-        memset(f, 0x3f, sizeof(f));
+        vector<int> f(n + 1, 1 << 30);
         f[0] = 0;
         for (int i = 1; i <= m; ++i) {
             for (int j = i * i; j <= n; ++j) {

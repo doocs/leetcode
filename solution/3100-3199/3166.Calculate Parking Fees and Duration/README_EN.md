@@ -113,7 +113,7 @@ Each row of this table contains the ID of the parking lot, the ID of the car, th
 
 <!-- thinking:end -->
 
-We can first group by `car_id` and `lot_id` to calculate the parking duration for each car in each parking lot. Then, we use the `RANK()` function to rank the parking duration of each car in each parking lot to find the parking lot where each car has the longest parking duration.
+We can first group by `car_id` and `lot_id` to calculate the parking duration for each car in each parking lot. Then, we use the `ROW_NUMBER()` function to rank the parking duration of each car in each parking lot to find the parking lot where each car has the longest parking duration.
 
 Finally, we can group by `car_id` to calculate the total parking fee, average hourly fee, and the parking lot with the longest parking duration for each car.
 
@@ -135,25 +135,29 @@ WITH
     P AS (
         SELECT
             *,
-            RANK() OVER (
+            ROW_NUMBER() OVER (
                 PARTITION BY car_id
                 ORDER BY duration DESC
-            ) AS rk
+            ) AS rn
         FROM T
+    ),
+    C AS (
+        SELECT
+            car_id,
+            SUM(fee_paid) AS total_fee_paid,
+            SUM(TIMESTAMPDIFF(SECOND, entry_time, exit_time)) AS total_seconds
+        FROM ParkingTransactions
+        GROUP BY car_id
     )
 SELECT
-    t1.car_id,
-    SUM(fee_paid) AS total_fee_paid,
-    ROUND(
-        SUM(fee_paid) / (SUM(TIMESTAMPDIFF(SECOND, entry_time, exit_time)) / 3600),
-        2
-    ) AS avg_hourly_fee,
-    t2.lot_id AS most_time_lot
+    C.car_id,
+    C.total_fee_paid,
+    ROUND(C.total_fee_paid / (C.total_seconds / 3600), 2) AS avg_hourly_fee,
+    P.lot_id AS most_time_lot
 FROM
-    ParkingTransactions AS t1
-    LEFT JOIN P AS t2 ON t1.car_id = t2.car_id AND t2.rk = 1
-GROUP BY 1
-ORDER BY 1;
+    C
+    LEFT JOIN P ON C.car_id = P.car_id AND P.rn = 1
+ORDER BY C.car_id;
 ```
 
 <!-- tabs:end -->
