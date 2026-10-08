@@ -4,6 +4,7 @@ difficulty: 中等
 tags:
     - 树
     - 深度优先搜索
+    - 树形 DP
 ---
 
 <!-- problem:start -->

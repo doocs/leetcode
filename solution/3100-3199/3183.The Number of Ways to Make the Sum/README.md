@@ -4,6 +4,9 @@ difficulty: 中等
 tags:
     - 数组
     - 动态规划
+    - 背包问题
+    - 筛法
+    - 混合背包
 ---
 
 <!-- problem:start -->

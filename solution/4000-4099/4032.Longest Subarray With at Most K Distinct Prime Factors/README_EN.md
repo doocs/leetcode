@@ -3,6 +3,12 @@ comments: true
 difficulty: Medium
 rating: 1758
 source: Weekly Contest 516 Q3
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Number Theory
+    - Sliding Window
 ---
 
 <!-- problem:start -->

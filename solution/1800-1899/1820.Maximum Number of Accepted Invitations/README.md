@@ -6,6 +6,15 @@ tags:
     - 图
     - 数组
     - 矩阵
+    - 二分图
+    - 最大流
+    - 图的匹配
+    - 最大匹配
+    - Edmonds–Karp 算法
+    - Dinic 算法
+    - MPM 算法
+    - Push-Relabel 算法
+    - 网络流
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,9 @@ comments: true
 difficulty: Hard
 rating: 2099
 source: Weekly Contest 517 Q4
+tags:
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

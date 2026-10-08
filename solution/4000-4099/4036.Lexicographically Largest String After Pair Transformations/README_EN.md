@@ -3,6 +3,11 @@ comments: true
 difficulty: Medium
 rating: 1704
 source: Biweekly Contest 190 Q3
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+    - String
 ---
 
 <!-- problem:start -->

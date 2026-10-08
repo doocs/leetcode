@@ -1,6 +1,15 @@
 ---
 comments: true
 difficulty: Hard
+tags:
+    - Bit Manipulation
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Hash Table
+    - Prefix Sum
+    - Sliding Window
+    - Hash Function
 ---
 
 <!-- problem:start -->

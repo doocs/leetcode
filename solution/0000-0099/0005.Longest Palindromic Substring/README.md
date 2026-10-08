@@ -5,6 +5,7 @@ tags:
     - 双指针
     - 字符串
     - 动态规划
+    - Manacher 算法
 ---
 
 <!-- problem:start -->

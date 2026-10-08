@@ -5,6 +5,7 @@ rating: 1203
 source: 第 387 场周赛 Q1
 tags:
     - 数组
+    - 双指针
     - 模拟
 ---
 
@@ -26,7 +27,7 @@ tags:
 	<li>如果 <code>arr1</code> 的最后一个元素 <strong>大于 </strong><code>arr2</code> 的最后一个元素，就将 <code>nums[i]</code> 追加到 <code>arr1</code> 。否则，将 <code>nums[i]</code> 追加到 <code>arr2</code> 。</li>
 </ul>
 
-<p>通过连接数组 <code>arr1</code> 和 <code>arr2</code> 形成数组 <code>result</code> 。例如，如果 <code>arr1 == [1,2,3]</code> 且 <code>arr2 == [4,5,6]</code> ，那么 <code>result = [1,2,3,4,5,6]</code> 。</p>
+<p>通过连接数组 <code>arr1</code> 和 <code>arr2</code> 形成数组 <code>result</code> 。连接两个数组是将第二个数组追加到第一个数组的末尾；例如，将 <code>[1,2,3]</code> 与 <code>[4,5,6]</code> 连接得到 <code>[1,2,3,4,5,6]</code>。</p>
 
 <p>返回数组 <code>result</code> 。</p>
 

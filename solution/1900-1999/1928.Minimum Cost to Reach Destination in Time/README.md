@@ -7,6 +7,7 @@ tags:
     - 图
     - 数组
     - 动态规划
+    - Dijkstra 算法
 ---
 
 <!-- problem:start -->

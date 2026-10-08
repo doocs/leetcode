@@ -10,6 +10,8 @@ tags:
     - 滑动窗口
     - 哈希函数
     - 滚动哈希
+    - Boyer–Moore 算法
+    - 扩展 KMP
 ---
 
 <!-- problem:start -->

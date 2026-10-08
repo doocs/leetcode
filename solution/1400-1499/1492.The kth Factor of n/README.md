@@ -6,6 +6,7 @@ source: 第 29 场双周赛 Q2
 tags:
     - 数学
     - 数论
+    - 质因数分解
 ---
 
 <!-- problem:start -->

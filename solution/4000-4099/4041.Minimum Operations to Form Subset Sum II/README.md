@@ -3,6 +3,9 @@ comments: true
 difficulty: 困难
 rating: 2099
 source: 第 517 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

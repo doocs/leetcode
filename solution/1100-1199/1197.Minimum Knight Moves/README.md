@@ -5,6 +5,8 @@ rating: 1722
 source: 第 9 场双周赛 Q2
 tags:
     - 广度优先搜索
+    - 双向搜索
+    - A* 搜索
 ---
 
 <!-- problem:start -->

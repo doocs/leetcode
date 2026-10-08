@@ -19,9 +19,11 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a binary string <code>s</code>. In one second, <strong>all</strong> occurrences of <code>&quot;01&quot;</code> are <strong>simultaneously</strong> replaced with <code>&quot;10&quot;</code>. This process <strong>repeats</strong> until no occurrences of <code>&quot;01&quot;</code> exist.</p>
+<p>You are given a binary string <code>s</code>.</p>
 
-<p>Return<em> the number of seconds needed to complete this process.</em></p>
+<p>In one second, <strong>all</strong> occurrences of <code>&quot;01&quot;</code> are <strong>simultaneously</strong> replaced with <code>&quot;10&quot;</code>. This process <strong>repeats</strong> until no occurrences of <code>&quot;01&quot;</code> exist.</p>
+
+<p>Return the number of seconds needed to complete this process.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

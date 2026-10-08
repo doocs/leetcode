@@ -4,7 +4,9 @@ difficulty: 中等
 tags:
     - 几何
     - 数学
+    - 最大公约数
     - 数论
+    - 最小公倍数
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 tags:
     - 数据库
+    - 多边形
 ---
 
 <!-- problem:start -->

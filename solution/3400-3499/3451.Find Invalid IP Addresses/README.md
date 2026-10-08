@@ -29,10 +29,10 @@ log_id 是这张表的唯一主键。
 每一行包含服务器访问日志信息，包括 IP 地址和 HTTP 状态码。
 </pre>
 
-<p>编写一个解决方案来查找 <strong>无效的 IP 地址</strong>。一个 IPv4 地址如果满足以下任何条件之一，则无效：</p>
+<p>编写一个解决方案来查找 <strong>无效的 IP 地址</strong>。每个 IP 地址中的八位字节包含 <code>1</code> 到 <code>3</code> 位数字。一个 IPv4 地址如果满足以下任何条件之一，则无效：</p>
 
 <ul>
-	<li>任何 8 位字节中包含大于 255 的数字</li>
+	<li>任何 8 位字节中包含 <strong>大于</strong> <code>255</code> 的数字</li>
 	<li>任何 8 位字节中含有 <strong>前导零</strong>（如&nbsp;<code>01.02.03.04</code>）</li>
 	<li><strong>少于或多于</strong>&nbsp;<code>4</code>&nbsp;个 8 位字节</li>
 </ul>

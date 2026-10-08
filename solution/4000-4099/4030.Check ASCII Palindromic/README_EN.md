@@ -3,6 +3,10 @@ comments: true
 difficulty: Easy
 rating: 1165
 source: Weekly Contest 516 Q1
+tags:
+    - Bit Manipulation
+    - Two Pointers
+    - String
 ---
 
 <!-- problem:start -->

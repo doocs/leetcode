@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1888
 source: 第 518 场周赛 Q3
+tags:
+    - 栈
+    - 数组
+    - 单调栈
 ---
 
 <!-- problem:start -->

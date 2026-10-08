@@ -3,6 +3,10 @@ comments: true
 difficulty: Medium
 rating: 1463
 source: Weekly Contest 517 Q2
+tags:
+    - Array
+    - Math
+    - Simulation
 ---
 
 <!-- problem:start -->

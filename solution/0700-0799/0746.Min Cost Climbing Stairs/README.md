@@ -16,18 +16,20 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code> 是从楼梯第 <code>i</code> 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。</p>
+<p>给你一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code> 是从楼梯第 <code>i</code> 个台阶向上爬需要支付的费用。</p>
+
+<p>一旦你支付此费用，即可选择向上爬 <strong>一个</strong> 或者 <strong>两个</strong> 台阶。</p>
 
 <p>你可以选择从下标为 <code>0</code> 或下标为 <code>1</code> 的台阶开始爬楼梯。</p>
 
-<p>请你计算并返回达到楼梯顶部的最低花费。</p>
+<p>请你计算并返回达到楼梯顶部的 <strong>最低</strong> 花费，即最后一步之后的那个位置（下标 <code>cost.length</code>）。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>cost = [10,<em><strong>15</strong></em>,20]
+<strong>输入：</strong>cost = [10,<u>15</u>,20]
 <strong>输出：</strong>15
 <strong>解释：</strong>你将从下标为 1 的台阶开始。
 - 支付 15 ，向上爬两个台阶，到达楼梯顶部。
@@ -37,7 +39,7 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>cost = [<em><strong>1</strong></em>,100,<em><strong>1</strong></em>,1,<em><strong>1</strong></em>,100,<em><strong>1</strong></em>,<em><strong>1</strong></em>,100,<em><strong>1</strong></em>]
+<strong>输入：</strong>cost = [<u>1</u>,100,<u>1</u>,1,<u>1</u>,100,<u>1</u>,<u>1</u>,100,<u>1</u>]
 <strong>输出：</strong>6
 <strong>解释：</strong>你将从下标为 0 的台阶开始。
 - 支付 1 ，向上爬两个台阶，到达下标为 2 的台阶。

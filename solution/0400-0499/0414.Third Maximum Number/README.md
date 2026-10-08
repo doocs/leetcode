@@ -16,9 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个非空数组，返回此数组中 <strong>第三大的数</strong> 。如果不存在，则返回数组中最大的数。</p>
+<p>给定一个整数数组 <code>nums</code>。</p>
 
-<p> </p>
+<p>返回此数组中 <strong>第三大的数</strong> 。如果不存在，则返回数组中 <strong>最大</strong> 的数。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -43,16 +45,16 @@ tags:
 <strong>解释：</strong>注意，要求返回第三大的数，是指在所有不同数字中排第三大的数。
 此例中存在两个值为 2 的数，它们都排第二。在所有不同数字中排第三大的数为 1 。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 10<sup>4</sup></code></li>
-	<li><code>-2<sup>31</sup> <= nums[i] <= 2<sup>31</sup> - 1</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>进阶：</strong>你能设计一个时间复杂度 <code>O(n)</code> 的解决方案吗？</p>
 

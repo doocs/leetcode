@@ -39,9 +39,9 @@ It is guaranteed that each (machine_id, process_id) pair has a &#39;start&#39; a
 
 <p>&nbsp;</p>
 
-<p>There is a factory website that has several machines each running the <strong>same number of processes</strong>. Write a solution&nbsp;to find the <strong>average time</strong> each machine takes to complete a process.</p>
+<p>There is a factory website that has several machines, each running one or more processes. Write a solution&nbsp;to find the <strong>average time</strong> each machine takes to complete a process.</p>
 
-<p>The time to complete a process is the <code>&#39;end&#39; timestamp</code> minus the <code>&#39;start&#39; timestamp</code>. The average time is calculated by the total time to complete every process on the machine divided by the number of processes that were run.</p>
+<p>The time to complete a process is the <code>&#39;end&#39; timestamp</code> minus the <code>&#39;start&#39; timestamp</code>. The average time is calculated by the total time to complete every process on the machine divided by the number of processes that were run on that machine.</p>
 
 <p>The resulting table should have the <code>machine_id</code> along with the <strong>average time</strong> as <code>processing_time</code>, which should be <strong>rounded to 3 decimal places</strong>.</p>
 

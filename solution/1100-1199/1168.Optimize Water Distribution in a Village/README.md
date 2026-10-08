@@ -6,8 +6,11 @@ source: 第 7 场双周赛 Q4
 tags:
     - 并查集
     - 图
+    - Kruskal 算法
     - 最小生成树
+    - Prim 算法
     - 堆（优先队列）
+    - Boruvka 算法
 ---
 
 <!-- problem:start -->

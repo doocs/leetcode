@@ -6,6 +6,7 @@ source: 第 154 场周赛 Q2
 tags:
     - 栈
     - 字符串
+    - 括号序列
 ---
 
 <!-- problem:start -->

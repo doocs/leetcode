@@ -18,7 +18,9 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than </em><code>k</code>.</p>
+<p>You are given an array of integers <code>nums</code> and an integer <code>k</code>.</p>
+
+<p>Return the number of contiguous subarrays where the <strong>product</strong> of all the elements in the <strong>subarray</strong> is <strong>strictly less</strong> than <code>k</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

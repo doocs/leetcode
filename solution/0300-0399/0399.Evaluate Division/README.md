@@ -9,6 +9,8 @@ tags:
     - 数组
     - 字符串
     - 最短路
+    - Floyd 算法
+    - Bellman–Ford 算法
 ---
 
 <!-- problem:start -->

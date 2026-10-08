@@ -18,39 +18,54 @@ tags:
 
 <!-- description:start -->
 
-<p>给你二叉树的根节点 <code>root</code> ，请你采用前序遍历的方式，将二叉树转化为一个由括号和整数组成的字符串，返回构造出的字符串。</p>
+<p>给定二叉树的根节点 <code>root</code>，你的任务是按照一组特定的格式规则创建该树的字符串表示。该表示应基于二叉树的前序遍历，并且必须遵循以下规则：</p>
 
-<p>空节点使用一对空括号对 <code>"()"</code> 表示，转化后需要省略所有不影响字符串与原始二叉树之间的一对一映射关系的空括号对。</p>
+<ul>
+	<li>
+	<p><strong>节点表示</strong>：树中的每个节点都应使用其整数值表示。</p>
+	</li>
+	<li>
+	<p><strong>子节点的括号表示</strong>：如果一个节点至少有一个子节点（左子节点或右子节点），则其子节点应使用括号表示。具体来说：</p>
 
-<div class="original__bRMd">
-<div>
+    <ul>
+    	<li>如果一个节点存在左子节点，则应将左子节点的表示放在括号中，并紧跟在当前节点的值之后。</li>
+    	<li>如果一个节点存在右子节点，则也应将右子节点的表示放在括号中。右子节点对应的括号应位于左子节点对应括号之后。</li>
+    </ul>
+    </li>
+    <li>
+    <p><strong>省略空括号</strong>：最终的树字符串表示中，应省略所有空括号对（即 <code>()</code>），但有一种特殊情况除外：当一个节点存在右子节点但不存在左子节点时，必须保留一对空括号，以表示左子节点缺失。这样可以保证字符串表示与原二叉树结构之间的一一对应关系。</p>
+
+    <p>总而言之，当一个节点只有左子节点或者没有任何子节点时，应省略空括号对。但是，当一个节点只有右子节点而没有左子节点时，必须在右子节点的表示之前添加一对空括号，以准确表示树的结构。</p>
+    </li>
+
+</ul>
+
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/images/cons1-tree.jpg" style="width: 292px; height: 301px;" />
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/images/cons1-tree.jpg" style="padding: 10px; background: #fff; border-radius: .5rem;" />
 <pre>
-<strong>输入：</strong>root = [1,2,3,4]
-<strong>输出：</strong>"1(2(4))(3)"
-<strong>解释：</strong>初步转化后得到 "1(2(4)())(3()())" ，但省略所有不必要的空括号对后，字符串应该是"1(2(4))(3)" 。
+<strong>输入：</strong> root = [1,2,3,4]
+<strong>输出：</strong> "1(2(4))(3)"
+<strong>解释：</strong> 原本需要表示为 "1(2(4)())(3()())"，但需要省略所有空括号对。因此最终得到 "1(2(4))(3)"。
 </pre>
 
-<p><strong>示例 2：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/images/cons2-tree.jpg" style="width: 207px; height: 293px;" />
+<p><strong class="example">示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/images/cons2-tree.jpg" style="padding: 10px; background: #fff; border-radius: .5rem;" />
 <pre>
-<strong>输入：</strong>root = [1,2,3,null,4]
-<strong>输出：</strong>"1(2()(4))(3)"
-<strong>解释：</strong>和第一个示例类似，但是无法省略第一个空括号对，否则会破坏输入与输出一一映射的关系。</pre>
+<strong>输入：</strong> root = [1,2,3,null,4]
+<strong>输出：</strong> "1(2()(4))(3)"
+<strong>解释：</strong> 与第一个示例基本相同，不同之处在于 <code>2</code> 后面的 <code>()</code> 是必须保留的，因为它表示节点 <code>2</code> 不存在左子节点，但存在右子节点。
+</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>树中节点的数目范围是 <code>[1, 10<sup>4</sup>]</code></li>
+	<li>树中节点的数量范围为 <code>[1, 10<sup>4</sup>]</code>。</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
-</div>
-</div>
 
 <!-- description:end -->
 

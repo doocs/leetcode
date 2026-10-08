@@ -6,6 +6,7 @@ tags:
     - 哈希表
     - 回溯
     - 矩阵
+    - X 算法
 ---
 
 <!-- problem:start -->

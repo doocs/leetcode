@@ -4,6 +4,7 @@ difficulty: 中等
 tags:
     - 数学
     - 数论
+    - 素性测试
 ---
 
 <!-- problem:start -->

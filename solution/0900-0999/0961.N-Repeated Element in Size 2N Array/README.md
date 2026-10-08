@@ -4,6 +4,7 @@ difficulty: 简单
 tags:
     - 数组
     - 哈希表
+    - 抽屉原理
 ---
 
 <!-- problem:start -->

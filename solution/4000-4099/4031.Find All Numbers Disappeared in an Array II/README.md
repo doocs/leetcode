@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1416
 source: 第 516 场周赛 Q2
+tags:
+    - 数组
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

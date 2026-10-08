@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>You have a graph of <code>n</code> nodes. You are given an integer <code>n</code> and an array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the graph.</p>
+<p>You have a graph of <code>n</code> nodes labeled from 0 to <code>n - 1</code>. You are given an integer <code>n</code> and an array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the graph.</p>
 
 <p>Return <em>the number of connected components in the graph</em>.</p>
 

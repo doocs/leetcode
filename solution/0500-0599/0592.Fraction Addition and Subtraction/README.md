@@ -4,7 +4,9 @@ difficulty: 中等
 tags:
     - 数学
     - 字符串
+    - 最大公约数
     - 模拟
+    - 欧几里得算法
 ---
 
 <!-- problem:start -->

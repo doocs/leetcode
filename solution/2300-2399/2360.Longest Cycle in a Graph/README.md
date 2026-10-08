@@ -8,6 +8,8 @@ tags:
     - 广度优先搜索
     - 图
     - 拓扑排序
+    - Kosaraju 算法
+    - Tarjan 强连通分量算法
 ---
 
 <!-- problem:start -->

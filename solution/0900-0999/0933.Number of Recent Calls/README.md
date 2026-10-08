@@ -23,7 +23,7 @@ tags:
 
 <ul>
 	<li><code>RecentCounter()</code> 初始化计数器，请求数为 0 。</li>
-	<li><code>int ping(int t)</code> 在时间 <code>t</code> 添加一个新请求，其中 <code>t</code> 表示以毫秒为单位的某个时间，并返回过去 <code>3000</code> 毫秒内发生的所有请求数（包括新请求）。确切地说，返回在 <code>[t-3000, t]</code> 内发生的请求数。</li>
+	<li><code>int ping(int t)</code> 在时间 <code>t</code> 添加一个新请求，其中 <code>t</code> 表示以毫秒为单位的某个时间，然后返回在包含范围 <code>[t - 3000, t]</code> 内发生的请求数量，即新请求加上所有早于或等于 <code>3000</code> 毫秒前的请求。</li>
 </ul>
 
 <p><strong>保证</strong> 每次对 <code>ping</code> 的调用都使用比之前更大的 <code>t</code> 值。</p>

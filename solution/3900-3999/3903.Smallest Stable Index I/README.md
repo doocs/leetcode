@@ -25,7 +25,7 @@ tags:
 <p>换句话说：</p>
 
 <ul>
-	<li><code>max(nums[0..i])</code> 表示从下标 0 到下标 <code>i</code> 的元素中的<strong>&nbsp;最大值</strong>&nbsp;。</li>
+	<li><code>max(nums[0..i])</code> 表示从下标 0 到下标 <code>i</code>&nbsp;的元素中的<strong>&nbsp;最大值</strong>&nbsp;。</li>
 	<li><code>min(nums[i..n - 1])</code> 表示从下标 <code>i</code> 到下标 <code>n - 1</code> 的元素中的&nbsp;<strong>最小值&nbsp;</strong>。</li>
 </ul>
 

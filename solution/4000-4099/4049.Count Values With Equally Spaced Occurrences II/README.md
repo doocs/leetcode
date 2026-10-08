@@ -3,6 +3,9 @@ comments: true
 difficulty: 中等
 rating: 1405
 source: 第 191 场双周赛 Q2
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->

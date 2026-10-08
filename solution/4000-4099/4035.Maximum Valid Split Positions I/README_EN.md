@@ -3,6 +3,11 @@ comments: true
 difficulty: Medium
 rating: 1663
 source: Biweekly Contest 190 Q2
+tags:
+    - Array
+    - Math
+    - Enumeration
+    - Number Theory
 ---
 
 <!-- problem:start -->

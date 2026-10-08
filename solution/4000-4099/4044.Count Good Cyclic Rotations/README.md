@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1417
 source: 第 518 场周赛 Q2
+tags:
+    - 数组
+    - 前缀和
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

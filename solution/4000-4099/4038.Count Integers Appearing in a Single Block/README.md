@@ -3,11 +3,15 @@ comments: true
 difficulty: 简单
 rating: 1165
 source: 第 517 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 计数
 ---
 
 <!-- problem:start -->
 
-# [4038. 统计特殊整数个数](https://leetcode.cn/problems/count-integers-appearing-in-a-single-block)
+# [4038. 计算单个区间中出现的整数数量](https://leetcode.cn/problems/count-integers-appearing-in-a-single-block)
 
 [English Version](/solution/4000-4099/4038.Count%20Integers%20Appearing%20in%20a%20Single%20Block/README_EN.md)
 

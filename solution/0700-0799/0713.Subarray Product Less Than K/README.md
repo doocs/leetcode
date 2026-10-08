@@ -18,7 +18,10 @@ tags:
 
 <!-- description:start -->
 
-给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你返回子数组内所有元素的乘积严格小于<em> </em><code>k</code> 的连续子数组的数目。
+<p>给定一个整数数组 <code>nums</code> 和一个整数 <code>k</code>。</p>
+
+<p>请你返回 <strong>子数组</strong> 内所有元素的 <strong>乘积严格小于</strong><em> </em><code>k</code> 的连续子数组的数目。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>

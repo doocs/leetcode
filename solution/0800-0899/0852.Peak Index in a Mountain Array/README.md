@@ -4,6 +4,7 @@ difficulty: 中等
 tags:
     - 数组
     - 二分查找
+    - 三分查找
 ---
 
 <!-- problem:start -->

@@ -5,7 +5,9 @@ rating: 2220
 source: 第 96 场双周赛 Q4
 tags:
     - 数学
+    - 最大公约数
     - 数论
+    - 欧几里得算法
 ---
 
 <!-- problem:start -->

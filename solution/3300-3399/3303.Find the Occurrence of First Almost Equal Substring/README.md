@@ -6,6 +6,7 @@ source: 第 140 场双周赛 Q4
 tags:
     - 字符串
     - 字符串匹配
+    - KMP 算法
 ---
 
 <!-- problem:start -->

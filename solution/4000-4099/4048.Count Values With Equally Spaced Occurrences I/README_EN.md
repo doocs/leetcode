@@ -3,6 +3,9 @@ comments: true
 difficulty: Easy
 rating: 1191
 source: Biweekly Contest 191 Q1
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->
@@ -50,7 +53,7 @@ source: Biweekly Contest 191 Q1
 <div class="example-block">
 <p><strong>Input:</strong> <span class="example-io">nums = [8,8,8,8]</span></p>
 
-<p><strong>Output:</strong>&nbsp;0</p>
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
 
 <p><strong>Explanation:</strong></p>
 

@@ -1,6 +1,15 @@
 ---
 comments: true
 difficulty: 困难
+tags:
+    - 位运算
+    - 树状数组
+    - 线段树
+    - 数组
+    - 哈希表
+    - 前缀和
+    - 滑动窗口
+    - 哈希函数
 ---
 
 <!-- problem:start -->

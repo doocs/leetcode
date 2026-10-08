@@ -2,10 +2,12 @@
 comments: true
 difficulty: 困难
 tags:
+    - 队列
     - 数组
     - 二分查找
     - 动态规划
     - 前缀和
+    - 单调队列
 ---
 
 <!-- problem:start -->

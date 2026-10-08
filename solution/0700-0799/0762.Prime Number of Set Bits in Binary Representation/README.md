@@ -4,6 +4,7 @@ difficulty: 简单
 tags:
     - 位运算
     - 数学
+    - 素性测试
 ---
 
 <!-- problem:start -->

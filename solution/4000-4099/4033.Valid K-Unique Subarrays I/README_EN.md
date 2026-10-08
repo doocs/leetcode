@@ -3,6 +3,13 @@ comments: true
 difficulty: Hard
 rating: 2314
 source: Weekly Contest 516 Q4
+tags:
+    - Bit Manipulation
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Prefix Sum
+    - Hash Function
 ---
 
 <!-- problem:start -->

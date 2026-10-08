@@ -8,6 +8,7 @@ tags:
     - 拓扑排序
     - 动态规划
     - 最短路
+    - Dijkstra 算法
 ---
 
 <!-- problem:start -->
