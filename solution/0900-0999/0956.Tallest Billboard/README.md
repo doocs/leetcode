@@ -4,6 +4,9 @@ difficulty: 困难
 tags:
     - 数组
     - 动态规划
+    - 背包问题
+    - 0-1 背包
+    - 中途相遇
 ---
 
 <!-- problem:start -->

@@ -9,7 +9,7 @@ tags:
     - Dynamic Programming
     - Game Theory
     - Nim Game
-    - 'Sprague–Grundy '
+    - Sprague–Grundy
     - Impartial Game
 ---
 

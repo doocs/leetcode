@@ -6,7 +6,9 @@ source: 第 263 场周赛 Q4
 tags:
     - 广度优先搜索
     - 图
+    - k 短路
     - 最短路
+    - Dijkstra 算法
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,10 @@ comments: true
 difficulty: Easy
 rating: 1209
 source: Weekly Contest 518 Q1
+tags:
+    - String
+    - Enumeration
+    - Sliding Window
 ---
 
 <!-- problem:start -->

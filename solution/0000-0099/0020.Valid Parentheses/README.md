@@ -4,6 +4,7 @@ difficulty: 简单
 tags:
     - 栈
     - 字符串
+    - 括号序列
 ---
 
 <!-- problem:start -->

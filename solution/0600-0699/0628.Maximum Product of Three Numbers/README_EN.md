@@ -25,13 +25,13 @@ tags:
 <p><strong class="example">Example 1:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,2,3]</span></p>
+<p><strong>Input:</strong> <span class="example-io">nums = [1,2,-3]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">6</span></p>
+<p><strong>Output:</strong> <span class="example-io">-6</span></p>
 
 <p><strong>Explanation:</strong></p>
 
-<p>The only three numbers are 1, 2, and 3, so the maximum product is <code>1 * 2 * 3 = 6</code>.</p>
+<p>The only three numbers are 1, 2, and -3, so the maximum product is <code>1 * 2 * -3 = -6</code>.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>

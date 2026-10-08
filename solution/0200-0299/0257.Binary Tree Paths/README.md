@@ -19,7 +19,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个二叉树的根节点 <code>root</code> ，按 <strong>任意顺序</strong> ，返回所有从根节点到叶子节点的路径。</p>
+<p>给你一个二叉树的根节点 <code>root</code>。</p>
+
+<p>按 <strong>任意顺序</strong> ，返回所有 <strong>从根节点到叶子节点</strong> 的路径。</p>
 
 <p><strong>叶子节点</strong> 是指没有子节点的节点。</p>
 &nbsp;

@@ -3,6 +3,10 @@ comments: true
 difficulty: Medium
 rating: 1888
 source: Weekly Contest 518 Q3
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

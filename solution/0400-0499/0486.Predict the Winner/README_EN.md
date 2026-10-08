@@ -21,32 +21,50 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code>. Two players are playing a game with this array: player 1 and player 2.</p>
+<p>You are given an integer array <code>nums</code>.</p>
 
-<p>Player 1 and player 2 take turns, with player 1 starting first. Both players start the game with a score of <code>0</code>. At each turn, the player takes one of the numbers from either end of the array (i.e., <code>nums[0]</code> or <code>nums[nums.length - 1]</code>) which reduces the size of the array by <code>1</code>. The player adds the chosen number to their score. The game ends when there are no more elements in the array.</p>
+<p>Two players are playing a game with this array: Player 1 and Player 2.</p>
 
-<p>Return <code>true</code> if Player 1 can win the game. If the scores of both players are equal, then player 1 is still the winner, and you should also return <code>true</code>. You may assume that both players are playing optimally.</p>
+<p>Player 1 and Player 2 take turns, with Player 1 starting first. Both players start the game with a score of 0.</p>
+
+<p>At each turn, the current player takes the number at <strong>either end</strong> of the array (i.e., <code>nums[0]</code> or <code>nums[nums.length - 1]</code>), <strong>removing</strong> it from the array and adding it to their own score. The game ends when there are no more elements in the array.</p>
+
+<p>Return <code>true</code> if Player 1&#39;s final score is <strong>greater than or equal</strong> to Player 2&#39;s final score, and <code>false</code> otherwise.</p>
+
+<p><strong>Note</strong> that a tie counts as a win for Player 1. You may assume that both players play optimally.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [1,5,2]
-<strong>Output:</strong> false
-<strong>Explanation:</strong> Initially, player 1 can choose between 1 and 2. 
-If he chooses 2 (or 1), then player 2 can choose from 1 (or 2) and 5. If player 2 chooses 5, then player 1 will be left with 1 (or 2). 
-So, final score of player 1 is 1 + 2 = 3, and player 2 is 5. 
-Hence, player 1 will never be the winner and you need to return false.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,5,2]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">false</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>Player 1 must open by taking either 1 or 2, and both choices lead to the same result.</li>
+	<li>If Player 1 takes 1, the array becomes <code>[5,2]</code>. Player 2 takes 5, leaving 2 for Player 1.</li>
+	<li>If Player 1 takes 2, the array becomes <code>[1,5]</code>. Player 2 takes 5, leaving 1 for Player 1.</li>
+	<li>Either way, Player 1 finishes with <code>1 + 2 = 3</code> and Player 2 finishes with <code>5</code>. Player 1 can never win, so return <code>false</code>.</li>
+</ul>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [1,5,233,7]
-<strong>Output:</strong> true
-<strong>Explanation:</strong> Player 1 first chooses 1. Then player 2 has to choose between 5 and 7. No matter which number player 2 choose, player 1 can choose 233.
-Finally, player 1 has more score (234) than player 2 (12), so you need to return True representing player1 can win.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,5,233,7]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>Player 1 first takes 1, leaving <code>[5,233,7]</code>. Player 2 must then choose between 5 and 7, and no matter which number Player 2 chooses, Player 1 can take 233 on the next turn.</li>
+	<li>Player 1 finishes with a higher score (234) than Player 2 (12), so return <code>true</code>.</li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

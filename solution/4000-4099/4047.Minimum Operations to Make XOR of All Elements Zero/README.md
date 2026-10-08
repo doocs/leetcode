@@ -1,6 +1,11 @@
 ---
 comments: true
 difficulty: 困难
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 动态规划
 ---
 
 <!-- problem:start -->

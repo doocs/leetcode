@@ -3,6 +3,9 @@ comments: true
 difficulty: 简单
 rating: 1191
 source: 第 191 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->

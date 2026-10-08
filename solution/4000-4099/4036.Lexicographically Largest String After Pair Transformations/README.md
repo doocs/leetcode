@@ -3,6 +3,11 @@ comments: true
 difficulty: 中等
 rating: 1704
 source: 第 190 场双周赛 Q3
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 字符串
 ---
 
 <!-- problem:start -->

@@ -6,6 +6,7 @@ source: 第 131 场周赛 Q1
 tags:
     - 栈
     - 字符串
+    - 括号序列
 ---
 
 <!-- problem:start -->

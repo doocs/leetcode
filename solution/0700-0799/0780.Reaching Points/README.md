@@ -3,6 +3,8 @@ comments: true
 difficulty: 困难
 tags:
     - 数学
+    - 最大公约数
+    - 欧几里得算法
 ---
 
 <!-- problem:start -->

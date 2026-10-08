@@ -6,6 +6,7 @@ source: 第 177 场双周赛 Q2
 tags:
     - 哈希表
     - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

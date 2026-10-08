@@ -4,6 +4,7 @@ difficulty: 困难
 tags:
     - 数组
     - 回溯
+    - X 算法
 ---
 
 <!-- problem:start -->

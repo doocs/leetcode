@@ -4,6 +4,7 @@ difficulty: 中等
 tags:
     - 贪心
     - 数学
+    - 质因数分解
 ---
 
 <!-- problem:start -->

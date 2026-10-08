@@ -5,6 +5,7 @@ rating: 1844
 source: 第 184 场周赛 Q4
 tags:
     - 动态规划
+    - 图的着色
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,12 @@ comments: true
 difficulty: 中等
 rating: 1758
 source: 第 516 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 数论
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

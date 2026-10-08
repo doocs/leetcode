@@ -44,7 +44,7 @@ Hence, you should return &quot;Hello how are you&quot;.
 <strong>Input:</strong> s = &quot;What is the solution to this problem&quot;, k = 4
 <strong>Output:</strong> &quot;What is the solution&quot;
 <strong>Explanation:</strong>
-The words in s are [&quot;What&quot;, &quot;is&quot; &quot;the&quot;, &quot;solution&quot;, &quot;to&quot;, &quot;this&quot;, &quot;problem&quot;].
+The words in s are [&quot;What&quot;, &quot;is&quot;, &quot;the&quot;, &quot;solution&quot;, &quot;to&quot;, &quot;this&quot;, &quot;problem&quot;].
 The first 4 words are [&quot;What&quot;, &quot;is&quot;, &quot;the&quot;, &quot;solution&quot;].
 Hence, you should return &quot;What is the solution&quot;.</pre>
 

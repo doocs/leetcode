@@ -7,7 +7,10 @@ tags:
     - 并查集
     - 图
     - 数组
+    - Kruskal 算法
     - 最小生成树
+    - Prim 算法
+    - Boruvka 算法
 ---
 
 <!-- problem:start -->

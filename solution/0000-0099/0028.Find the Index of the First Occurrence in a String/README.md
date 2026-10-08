@@ -5,6 +5,9 @@ tags:
     - 双指针
     - 字符串
     - 字符串匹配
+    - KMP 算法
+    - Boyer–Moore 算法
+    - 扩展 KMP
 ---
 
 <!-- problem:start -->

@@ -7,6 +7,7 @@ tags:
     - Bit Manipulation
     - Tree
     - Depth-First Search
+    - Binary Indexed Tree
     - Segment Tree
     - Array
     - String

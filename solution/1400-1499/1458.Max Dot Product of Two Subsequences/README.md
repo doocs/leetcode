@@ -6,6 +6,7 @@ source: 第 190 场周赛 Q4
 tags:
     - 数组
     - 动态规划
+    - 最长公共子序列
 ---
 
 <!-- problem:start -->

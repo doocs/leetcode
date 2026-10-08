@@ -6,6 +6,7 @@ source: 第 134 场周赛 Q3
 tags:
     - 数组
     - 动态规划
+    - 最长公共子序列
 ---
 
 <!-- problem:start -->

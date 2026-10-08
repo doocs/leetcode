@@ -24,7 +24,7 @@ tags:
 
 <p>A <strong>deletion</strong> is defined as either removing an element from the <strong>front</strong> of the array or removing an element from the <strong>back</strong> of the array.</p>
 
-<p>Return <em>the <strong>minimum</strong> number of deletions it would take to remove <strong>both</strong> the minimum and maximum element from the array.</em></p>
+<p>Return the <strong>minimum</strong> number of deletions it would take to remove <strong>both</strong> the <strong>minimum</strong> and <strong>maximum</strong> element from the array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

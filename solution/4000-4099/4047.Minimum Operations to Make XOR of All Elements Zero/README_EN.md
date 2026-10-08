@@ -1,6 +1,11 @@
 ---
 comments: true
 difficulty: Hard
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

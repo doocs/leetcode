@@ -7,6 +7,9 @@ tags:
     - 图
     - 动态规划
     - 最短路
+    - Dijkstra 算法
+    - Floyd 算法
+    - Bellman–Ford 算法
 ---
 
 <!-- problem:start -->

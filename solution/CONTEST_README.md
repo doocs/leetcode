@@ -86,7 +86,7 @@ comments: true
 
 #### 第 517 场周赛(2026-08-30 10:30, 90 分钟) 参赛人数 946
 
-- [4038. 统计特殊整数个数](/solution/4000-4099/4038.Count%20Integers%20Appearing%20in%20a%20Single%20Block/README.md)
+- [4038. 计算单个区间中出现的整数数量](/solution/4000-4099/4038.Count%20Integers%20Appearing%20in%20a%20Single%20Block/README.md)
 - [4039. 解码值之和](/solution/4000-4099/4039.Sum%20of%20Decoded%20Numbers/README.md)
 - [4040. 构造子集和的最少操作次数 I](/solution/4000-4099/4040.Minimum%20Operations%20to%20Form%20Subset%20Sum%20I/README.md)
 - [4041. 构造子集和的最少操作次数 II](/solution/4000-4099/4041.Minimum%20Operations%20to%20Form%20Subset%20Sum%20II/README.md)

@@ -5,6 +5,9 @@ rating: 1489
 source: 第 152 场周赛 Q1
 tags:
     - 数学
+    - 素性测试
+    - 筛法
+    - 素数筛法
 ---
 
 <!-- problem:start -->

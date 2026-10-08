@@ -6,6 +6,7 @@ source: Biweekly Contest 175 Q4
 tags:
     - Queue
     - Array
+    - Binary Search
     - Divide and Conquer
     - Dynamic Programming
     - Prefix Sum

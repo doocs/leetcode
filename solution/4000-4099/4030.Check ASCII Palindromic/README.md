@@ -3,6 +3,10 @@ comments: true
 difficulty: 简单
 rating: 1165
 source: 第 516 场周赛 Q1
+tags:
+    - 位运算
+    - 双指针
+    - 字符串
 ---
 
 <!-- problem:start -->

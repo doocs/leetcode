@@ -20,11 +20,13 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a 2D integer <code>grid</code> of size <code>m x n</code> and an integer <code>x</code>. In one operation, you can <strong>add</strong> <code>x</code> to or <strong>subtract</strong> <code>x</code> from any element in the <code>grid</code>.</p>
+<p>You are given a 2D integer <code>grid</code> of size <code>m x n</code> and an integer <code>x</code>.</p>
+
+<p>In one operation, you can <strong>add</strong> <code>x</code> to or <strong>subtract</strong> <code>x</code> from any element in the <code>grid</code>.</p>
 
 <p>A <strong>uni-value grid</strong> is a grid where all the elements of it are equal.</p>
 
-<p>Return <em>the <strong>minimum</strong> number of operations to make the grid <strong>uni-value</strong></em>. If it is not possible, return <code>-1</code>.</p>
+<p>Return the <strong>minimum</strong> number of operations to make the grid <strong>uni-value</strong>. If it is not possible, return -1.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

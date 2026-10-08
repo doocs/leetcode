@@ -3,6 +3,10 @@ comments: true
 difficulty: Medium
 rating: 1416
 source: Weekly Contest 516 Q2
+tags:
+    - Array
+    - Binary Search
+    - Sorting
 ---
 
 <!-- problem:start -->

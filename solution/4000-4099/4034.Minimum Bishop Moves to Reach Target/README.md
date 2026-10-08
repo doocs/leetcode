@@ -3,6 +3,9 @@ comments: true
 difficulty: 中等
 rating: 1244
 source: 第 190 场双周赛 Q1
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
@@ -32,7 +35,7 @@ source: 第 190 场双周赛 Q1
 
 <p><strong>解释：</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/image.png" style="width: 300px; height: 307px;" /></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/111.png" style="width: 300px; height: 303px;" /></strong></p>
 
 <p>一步对角线移动即可将象直接从 <code>(8, 1)</code> 送达 <code>(1, 8)</code>。</p>
 </div>
@@ -46,7 +49,7 @@ source: 第 190 场双周赛 Q1
 
 <p><strong>解释：</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/screenshot-2026-07-23-at-23625am.png" style="width: 300px; height: 305px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/22-ezgifcom-invert-colors.png" style="width: 300px; height: 305px;" /></p>
 
 <p>象从 <code>(4, 2)</code> 移动到 <code>(3, 1)</code>，然后再从 <code>(3, 1)</code> 移动到 <code>(1, 3)</code>，经过 2 步移动到达目标位置。</p>
 </div>

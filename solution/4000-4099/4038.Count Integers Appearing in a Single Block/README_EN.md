@@ -3,6 +3,10 @@ comments: true
 difficulty: Easy
 rating: 1165
 source: Weekly Contest 517 Q1
+tags:
+    - Array
+    - Hash Table
+    - Counting
 ---
 
 <!-- problem:start -->

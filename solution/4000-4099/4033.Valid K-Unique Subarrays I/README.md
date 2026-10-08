@@ -3,6 +3,13 @@ comments: true
 difficulty: 困难
 rating: 2314
 source: 第 516 场周赛 Q4
+tags:
+    - 位运算
+    - 树状数组
+    - 线段树
+    - 数组
+    - 前缀和
+    - 哈希函数
 ---
 
 <!-- problem:start -->

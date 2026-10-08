@@ -4,6 +4,7 @@ difficulty: 简单
 tags:
     - 数学
     - 二分查找
+    - 牛顿迭代法
 ---
 
 <!-- problem:start -->

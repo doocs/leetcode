@@ -3,6 +3,11 @@ comments: true
 difficulty: 中等
 rating: 1663
 source: 第 190 场双周赛 Q2
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
 ---
 
 <!-- problem:start -->

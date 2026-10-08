@@ -5,6 +5,7 @@ rating: 2170
 source: 第 249 场周赛 Q3
 tags:
     - 动态规划
+    - 图的着色
 ---
 
 <!-- problem:start -->

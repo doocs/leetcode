@@ -6,6 +6,8 @@ source: 第 135 场周赛 Q3
 tags:
     - 数组
     - 动态规划
+    - 多边形
+    - 三角剖分
 ---
 
 <!-- problem:start -->

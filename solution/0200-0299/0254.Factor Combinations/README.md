@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 tags:
     - 回溯
+    - 质因数分解
 ---
 
 <!-- problem:start -->

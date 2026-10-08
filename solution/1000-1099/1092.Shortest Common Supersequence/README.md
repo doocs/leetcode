@@ -6,6 +6,7 @@ source: 第 141 场周赛 Q4
 tags:
     - 字符串
     - 动态规划
+    - 最长公共子序列
 ---
 
 <!-- problem:start -->

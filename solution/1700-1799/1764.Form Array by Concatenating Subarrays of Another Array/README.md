@@ -8,6 +8,7 @@ tags:
     - 数组
     - 双指针
     - 字符串匹配
+    - KMP 算法
 ---
 
 <!-- problem:start -->

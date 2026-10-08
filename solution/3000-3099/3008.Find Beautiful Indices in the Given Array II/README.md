@@ -10,6 +10,9 @@ tags:
     - 字符串匹配
     - 哈希函数
     - 滚动哈希
+    - KMP 算法
+    - Boyer–Moore 算法
+    - 扩展 KMP
 ---
 
 <!-- problem:start -->

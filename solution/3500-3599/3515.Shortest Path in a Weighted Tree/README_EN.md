@@ -45,9 +45,9 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/images/screenshot-2025-03-13-at-133524.png" style="width: 200px; height: 75px;" /></p>
 
 <ul>
-	<li>Query <code>[2,2]</code>: The shortest path from root node 1 to node 2 is 7.</li>
-	<li>Query <code>[1,1,2,4]</code>: The weight of edge <code>(1,2)</code> changes from 7 to 4.</li>
-	<li>Query <code>[2,2]</code>: The shortest path from root node 1 to node 2 is 4.</li>
+	<li>Query <code>[2, 2]</code>: The shortest path from root node 1 to node 2 is 7.</li>
+	<li>Query <code>[1, 1, 2, 4]</code>: The weight of edge <code>(1, 2)</code> changes from 7 to 4.</li>
+	<li>Query <code>[2, 2]</code>: The shortest path from root node 1 to node 2 is 4.</li>
 </ul>
 </div>
 
@@ -63,11 +63,11 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/images/screenshot-2025-03-13-at-132247.png" style="width: 180px; height: 141px;" /></p>
 
 <ul>
-	<li>Query <code>[2,1]</code>: The shortest path from root node 1 to node 1 is 0.</li>
-	<li>Query <code>[2,3]</code>: The shortest path from root node 1 to node 3 is 4.</li>
-	<li>Query <code>[1,1,3,7]</code>: The weight of edge <code>(1,3)</code> changes from 4 to 7.</li>
-	<li>Query <code>[2,2]</code>: The shortest path from root node 1 to node 2 is 2.</li>
-	<li>Query <code>[2,3]</code>: The shortest path from root node 1 to node 3 is 7.</li>
+	<li>Query <code>[2, 1]</code>: The shortest path from root node 1 to node 1 is 0.</li>
+	<li>Query <code>[2, 3]</code>: The shortest path from root node 1 to node 3 is 4.</li>
+	<li>Query <code>[1, 1, 3, 7]</code>: The weight of edge <code>(1, 3)</code> changes from 4 to 7.</li>
+	<li>Query <code>[2, 2]</code>: The shortest path from root node 1 to node 2 is 2.</li>
+	<li>Query <code>[2, 3]</code>: The shortest path from root node 1 to node 3 is 7.</li>
 </ul>
 </div>
 
@@ -83,11 +83,11 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/images/screenshot-2025-03-13-at-133306.png" style="width: 400px; height: 85px;" /></p>
 
 <ul>
-	<li>Query <code>[2,4]</code>: The shortest path from root node 1 to node 4 consists of edges <code>(1,2)</code>, <code>(2,3)</code>, and <code>(3,4)</code> with weights <code>2 + 1 + 5 = 8</code>.</li>
-	<li>Query <code>[2,3]</code>: The shortest path from root node 1 to node 3 consists of edges <code>(1,2)</code> and <code>(2,3)</code> with weights <code>2 + 1 = 3</code>.</li>
-	<li>Query <code>[1,2,3,3]</code>: The weight of edge <code>(2,3)</code> changes from 1 to 3.</li>
-	<li>Query <code>[2,2]</code>: The shortest path from root node 1 to node 2 is 2.</li>
-	<li>Query <code>[2,3]</code>: The shortest path from root node 1 to node 3 consists of edges <code>(1,2)</code> and <code>(2,3)</code> with updated weights <code>2 + 3 = 5</code>.</li>
+	<li>Query <code>[2, 4]</code>: The shortest path from root node 1 to node 4 consists of edges <code>(1, 2)</code>, <code>(2, 3)</code>, and <code>(3, 4)</code> with weights <code>2 + 1 + 5 = 8</code>.</li>
+	<li>Query <code>[2, 3]</code>: The shortest path from root node 1 to node 3 consists of edges <code>(1, 2)</code> and <code>(2, 3)</code> with weights <code>2 + 1 = 3</code>.</li>
+	<li>Query <code>[1, 2, 3, 3]</code>: The weight of edge <code>(2, 3)</code> changes from 1 to 3.</li>
+	<li>Query <code>[2, 2]</code>: The shortest path from root node 1 to node 2 is 2.</li>
+	<li>Query <code>[2, 3]</code>: The shortest path from root node 1 to node 3 consists of edges <code>(1, 2)</code> and <code>(2, 3)</code> with updated weights <code>2 + 3 = 5</code>.</li>
 </ul>
 </div>
 
@@ -107,7 +107,7 @@ tags:
 		<li><code>queries[i] == [1, u, v, w&#39;]</code> or,</li>
 		<li><code>queries[i] == [2, x]</code></li>
 		<li><code>1 &lt;= u, v, x &lt;= n</code></li>
-		<li><code data-end="37" data-start="29">(u, v)</code> is always an edge from <code data-end="74" data-start="67">edges</code>.</li>
+		<li><code>(u, v)</code> is always an edge from <code>edges</code>.</li>
 		<li><code>1 &lt;= w&#39; &lt;= 10<sup>4</sup></code></li>
 	</ul>
 	</li>

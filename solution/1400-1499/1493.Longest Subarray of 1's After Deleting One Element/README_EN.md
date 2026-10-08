@@ -19,9 +19,9 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a binary array <code>nums</code>, you should delete one element from it.</p>
+<p>You are given a binary array <code>nums</code>, you should delete <strong>one</strong> element from it.</p>
 
-<p>Return <em>the size of the longest non-empty subarray containing only </em><code>1</code><em>&#39;s in the resulting array</em>. Return <code>0</code> if there is no such subarray.</p>
+<p>Return the size of the <strong>longest non-empty subarray</strong> containing only 1&#39;s in the resulting array. Return 0 if there is no such <strong>subarray</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -53,7 +53,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li><code>nums[i]</code> is either 0 or 1.</li>
 </ul>
 
 <!-- description:end -->

@@ -4,7 +4,9 @@ difficulty: 中等
 tags:
     - 数组
     - 双指针
+    - 冒泡排序
     - 排序
+    - 快速排序
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,11 @@ comments: true
 difficulty: Hard
 rating: 2372
 source: Biweekly Contest 190 Q4
+tags:
+    - Array
+    - Math
+    - Enumeration
+    - Number Theory
 ---
 
 <!-- problem:start -->

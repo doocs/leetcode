@@ -9,6 +9,7 @@ tags:
     - 数组
     - 字符串
     - 数据流
+    - AC 自动机
 ---
 
 <!-- problem:start -->
