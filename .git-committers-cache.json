@@ -1,5 +1,5 @@
 {
-  "cache_date": 1791433405,
+  "cache_date": 1791539061,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -9870,13 +9870,19 @@
     "solution/1500-1599/1504.Count Submatrices With All Ones/README.md": {
       "authors": [
         {
+          "login": "StarsExpress",
+          "name": "StarsExpress",
+          "url": "https://github.com/StarsExpress",
+          "avatar": "https://avatars.githubusercontent.com/u/105488074?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791538529
     },
     "solution/1500-1599/1505.Minimum Possible Integer After at Most K Adjacent Swaps On Digits/README.md": {
       "authors": [
@@ -10513,13 +10519,19 @@
     "solution/1500-1599/1541.Minimum Insertions to Balance a Parentheses String/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791432850
+      "retrieved": 1791538529
     },
     "solution/1500-1599/1542.Find Longest Awesome Substring/README.md": {
       "authors": [
@@ -37657,13 +37669,19 @@
     "solution/0300-0399/0301.Remove Invalid Parentheses/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1791538529
     },
     "solution/3000-3099/3010.Divide an Array Into Subarrays With Minimum Cost I/README.md": {
       "authors": [
@@ -77249,13 +77267,19 @@
     "solution/1500-1599/1504.Count Submatrices With All Ones/README_EN.md": {
       "authors": [
         {
+          "login": "StarsExpress",
+          "name": "StarsExpress",
+          "url": "https://github.com/StarsExpress",
+          "avatar": "https://avatars.githubusercontent.com/u/105488074?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1791538529
     },
     "solution/1500-1599/1505.Minimum Possible Integer After at Most K Adjacent Swaps On Digits/README_EN.md": {
       "authors": [
@@ -77898,13 +77922,19 @@
     "solution/1500-1599/1541.Minimum Insertions to Balance a Parentheses String/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1791538529
     },
     "solution/1500-1599/1542.Find Longest Awesome Substring/README_EN.md": {
       "authors": [
@@ -105012,13 +105042,19 @@
     "solution/0300-0399/0301.Remove Invalid Parentheses/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1791538529
     },
     "solution/3000-3099/3010.Divide an Array Into Subarrays With Minimum Cost I/README_EN.md": {
       "authors": [
