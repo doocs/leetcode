@@ -350,9 +350,9 @@ A sum that originally took O(m) is compressed into an O(1) recurrence.
 Each cell is pushed **exactly once** and popped **at most once**,
 so `while` loop runs at most `m·n` times in total. Amortized, each cell costs O(1):
 
-| | Complexity |
-|---|---|
-| Time | O(m·n) |
+|       | Complexity                                  |
+| ----- | ------------------------------------------- |
+| Time  | O(m·n)                                      |
 | Space | O(m·n) (`table` plus the per-column stacks) |
 
 Outer double loop already accounts for `m·n` iterations, and inner `while` loop's pops are bounded by the total number of pushes,
