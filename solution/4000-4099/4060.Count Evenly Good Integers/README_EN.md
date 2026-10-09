@@ -1,6 +1,9 @@
 ---
 comments: true
 difficulty: Hard
+tags:
+    - Math
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

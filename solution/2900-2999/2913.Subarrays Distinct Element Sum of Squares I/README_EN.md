@@ -4,6 +4,7 @@ difficulty: Easy
 rating: 1297
 source: Biweekly Contest 116 Q1
 tags:
+    - Binary Indexed Tree
     - Segment Tree
     - Array
     - Hash Table

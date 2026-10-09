@@ -3,6 +3,9 @@ comments: true
 difficulty: 中等
 rating: 2113
 source: 第 519 场周赛 Q2
+tags:
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->

@@ -6,9 +6,12 @@ source: 第 194 场周赛 Q4
 tags:
     - 并查集
     - 图
+    - Kruskal 算法
     - 最小生成树
+    - Prim 算法
     - 排序
     - 强连通分量
+    - Boruvka 算法
 ---
 
 <!-- problem:start -->

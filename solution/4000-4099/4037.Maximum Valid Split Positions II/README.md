@@ -3,6 +3,11 @@ comments: true
 difficulty: 困难
 rating: 2372
 source: 第 190 场双周赛 Q4
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
 ---
 
 <!-- problem:start -->

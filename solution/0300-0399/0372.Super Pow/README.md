@@ -4,6 +4,8 @@ difficulty: 中等
 tags:
     - 数学
     - 分治
+    - 欧拉函数
+    - 欧拉定理
 ---
 
 <!-- problem:start -->

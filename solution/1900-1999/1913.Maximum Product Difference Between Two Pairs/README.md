@@ -6,6 +6,7 @@ source: 第 247 场周赛 Q1
 tags:
     - 数组
     - 排序
+    - 快速排序
 ---
 
 <!-- problem:start -->

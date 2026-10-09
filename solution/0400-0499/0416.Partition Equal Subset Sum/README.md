@@ -4,6 +4,8 @@ difficulty: 中等
 tags:
     - 数组
     - 动态规划
+    - 背包问题
+    - 0-1 背包
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 tags:
     - 数据库
+    - 平面最近点对
 ---
 
 <!-- problem:start -->

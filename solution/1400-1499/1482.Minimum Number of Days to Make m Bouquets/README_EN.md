@@ -24,7 +24,7 @@ tags:
 
 <p>The garden consists of <code>n</code> flowers, the <code>i<sup>th</sup></code> flower will bloom in the <code>bloomDay[i]</code> and then can be used in <strong>exactly one</strong> bouquet.</p>
 
-<p>Return <em>the minimum number of days you need to wait to be able to make </em><code>m</code><em> bouquets from the garden</em>. If it is impossible to make m bouquets return <code>-1</code>.</p>
+<p>Return the <strong>minimum</strong> number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

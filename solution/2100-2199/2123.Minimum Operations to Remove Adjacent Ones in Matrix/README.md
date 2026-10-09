@@ -6,6 +6,11 @@ tags:
     - 图
     - 数组
     - 矩阵
+    - Edmonds–Karp 算法
+    - Dinic 算法
+    - MPM 算法
+    - Push-Relabel 算法
+    - 网络流
 ---
 
 <!-- problem:start -->

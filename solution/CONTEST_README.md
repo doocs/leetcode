@@ -38,9 +38,9 @@ comments: true
 #### 第 522 场周赛(2026-10-04 10:30, 90 分钟) 参赛人数 759
 
 - [4070. 拨号的最少旋转次数 I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README.md)
-- [4071. Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)
+- [4071. 拨号的最少旋转次数 II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)
 - [4072. 一次删除后的最大交替子数组和](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README.md)
-- [4073. Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)
+- [4073. 统计好字符串数目](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)
 
 #### 第 521 场周赛(2026-09-27 10:30, 90 分钟) 参赛人数 908
 
@@ -86,7 +86,7 @@ comments: true
 
 #### 第 517 场周赛(2026-08-30 10:30, 90 分钟) 参赛人数 946
 
-- [4038. 统计特殊整数个数](/solution/4000-4099/4038.Count%20Integers%20Appearing%20in%20a%20Single%20Block/README.md)
+- [4038. 计算单个区间中出现的整数数量](/solution/4000-4099/4038.Count%20Integers%20Appearing%20in%20a%20Single%20Block/README.md)
 - [4039. 解码值之和](/solution/4000-4099/4039.Sum%20of%20Decoded%20Numbers/README.md)
 - [4040. 构造子集和的最少操作次数 I](/solution/4000-4099/4040.Minimum%20Operations%20to%20Form%20Subset%20Sum%20I/README.md)
 - [4041. 构造子集和的最少操作次数 II](/solution/4000-4099/4041.Minimum%20Operations%20to%20Form%20Subset%20Sum%20II/README.md)

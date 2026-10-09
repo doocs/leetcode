@@ -6,6 +6,8 @@ source: 第 181 场周赛 Q2
 tags:
     - 数组
     - 数学
+    - 筛法
+    - 质因数分解
 ---
 
 <!-- problem:start -->

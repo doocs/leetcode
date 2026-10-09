@@ -6,6 +6,7 @@ source: 第 430 场周赛 Q4
 tags:
     - 数学
     - 组合数学
+    - 费马小定理
 ---
 
 <!-- problem:start -->

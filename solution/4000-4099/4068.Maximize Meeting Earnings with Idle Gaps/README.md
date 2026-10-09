@@ -3,6 +3,11 @@ comments: true
 difficulty: 困难
 rating: 2189
 source: 第 521 场周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->

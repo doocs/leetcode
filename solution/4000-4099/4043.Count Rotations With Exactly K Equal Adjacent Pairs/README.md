@@ -3,6 +3,10 @@ comments: true
 difficulty: 简单
 rating: 1209
 source: 第 518 场周赛 Q1
+tags:
+    - 字符串
+    - 枚举
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

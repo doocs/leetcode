@@ -4,6 +4,7 @@ difficulty: 中等
 tags:
     - 字符串
     - 动态规划
+    - 最长公共子序列
 ---
 
 <!-- problem:start -->

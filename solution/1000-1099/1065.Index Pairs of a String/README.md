@@ -8,6 +8,7 @@ tags:
     - 数组
     - 字符串
     - 排序
+    - AC 自动机
 ---
 
 <!-- problem:start -->

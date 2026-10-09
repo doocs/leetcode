@@ -6,6 +6,7 @@ source: 第 129 场周赛 Q2
 tags:
     - 哈希表
     - 数学
+    - 抽屉原理
 ---
 
 <!-- problem:start -->

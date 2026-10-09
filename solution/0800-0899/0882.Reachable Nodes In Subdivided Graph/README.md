@@ -4,6 +4,7 @@ difficulty: 困难
 tags:
     - 图
     - 最短路
+    - Dijkstra 算法
     - 堆（优先队列）
 ---
 

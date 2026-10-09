@@ -29,12 +29,12 @@ log_id is the unique key for this table.
 Each row contains server access log information including IP address and HTTP status code.
 </pre>
 
-<p>Write a solution to find <strong>invalid IP addresses</strong>. An IPv4 address is invalid if it meets any of these conditions:</p>
+<p>Write a solution to find <strong>invalid IP addresses</strong>. Each octet in an IP address contains between <code>1</code> and <code>3</code> digits. An IPv4 address is invalid if it meets any of these conditions:</p>
 
 <ul>
-	<li>Contains numbers <strong>greater than</strong> <code>255</code> in any octet</li>
-	<li>Has <strong>leading zeros</strong> in any octet (like <code>01.02.03.04</code>)</li>
-	<li>Has <strong>less or more</strong> than <code>4</code> octets</li>
+	<li>Contains a number <strong>greater than</strong> <code>255</code> in any octet.</li>
+	<li>Has <strong>leading zeros</strong> in any octet (for example, <code>01.02.03.04</code>).</li>
+	<li>Has <strong>fewer or more</strong> than <code>4</code> octets.</li>
 </ul>
 
 <p>Return <em>the result table </em><em>ordered by</em> <code>invalid_count</code>,&nbsp;<code>ip</code>&nbsp;<em>in <strong>descending</strong> order respectively</em>.&nbsp;</p>

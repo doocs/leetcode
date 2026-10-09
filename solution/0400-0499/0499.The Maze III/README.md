@@ -9,7 +9,9 @@ tags:
     - 字符串
     - 矩阵
     - 最短路
+    - Dijkstra 算法
     - 堆（优先队列）
+    - A* 搜索
 ---
 
 <!-- problem:start -->

@@ -6,6 +6,7 @@ source: 第 150 场周赛 Q4
 tags:
     - 双指针
     - 字符串
+    - Lyndon 分解
 ---
 
 <!-- problem:start -->

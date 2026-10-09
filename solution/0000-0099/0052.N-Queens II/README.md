@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 tags:
     - 回溯
+    - X 算法
 ---
 
 <!-- problem:start -->

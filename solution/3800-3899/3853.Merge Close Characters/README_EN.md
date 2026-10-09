@@ -6,6 +6,7 @@ source: Biweekly Contest 177 Q2
 tags:
     - Hash Table
     - String
+    - Simulation
 ---
 
 <!-- problem:start -->

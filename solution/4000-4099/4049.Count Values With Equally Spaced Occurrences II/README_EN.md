@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 1405
 source: Biweekly Contest 191 Q2
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

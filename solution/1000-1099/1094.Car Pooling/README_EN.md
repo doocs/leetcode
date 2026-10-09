@@ -25,7 +25,9 @@ tags:
 
 <p>You are given the integer <code>capacity</code> and an array <code>trips</code> where <code>trips[i] = [numPassengers<sub>i</sub>, from<sub>i</sub>, to<sub>i</sub>]</code> indicates that the <code>i<sup>th</sup></code> trip has <code>numPassengers<sub>i</sub></code> passengers and the locations to pick them up and drop them off are <code>from<sub>i</sub></code> and <code>to<sub>i</sub></code> respectively. The locations are given as the number of kilometers due east from the car&#39;s initial location.</p>
 
-<p>Return <code>true</code><em> if it is possible to pick up and drop off all passengers for all the given trips, or </em><code>false</code><em> otherwise</em>.</p>
+<p>Passengers are dropped off before new passengers are picked up at the same location. At every point along the route, the total number of passengers in the car must not exceed <code>capacity</code>.</p>
+
+<p>Return <code>true</code> if it is possible to pick up and drop off all passengers for all the given trips, or <code>false</code> otherwise.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -33,6 +35,10 @@ tags:
 <pre>
 <strong>Input:</strong> trips = [[2,1,5],[3,3,7]], capacity = 4
 <strong>Output:</strong> false
+<strong>Explanation:</strong>
+At kilometer 1, 2 passengers are picked up, so the car holds 2.
+At kilometer 3, 3 more are picked up, so the car holds 5.
+Since 5 &gt; capacity = 4, the trips cannot all be completed.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -40,6 +46,12 @@ tags:
 <pre>
 <strong>Input:</strong> trips = [[2,1,5],[3,3,7]], capacity = 5
 <strong>Output:</strong> true
+<strong>Explanation:</strong>
+At kilometer 1, the car holds 2 passengers.
+At kilometer 3, the car holds 5 passengers.
+At kilometer 5, the first 2 are dropped off, so the car holds 3.
+At kilometer 7, the last 3 are dropped off, so the car holds 0.
+The maximum occupancy is 5, which never exceeds capacity = 5.
 </pre>
 
 <p>&nbsp;</p>

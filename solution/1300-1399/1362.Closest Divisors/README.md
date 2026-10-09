@@ -5,6 +5,7 @@ rating: 1533
 source: 第 177 场周赛 Q3
 tags:
     - 数学
+    - 质因数分解
 ---
 
 <!-- problem:start -->

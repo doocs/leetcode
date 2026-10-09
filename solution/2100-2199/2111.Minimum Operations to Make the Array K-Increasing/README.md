@@ -6,6 +6,7 @@ source: 第 272 场周赛 Q4
 tags:
     - 数组
     - 二分查找
+    - 最长上升子序列
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,9 @@ comments: true
 difficulty: 中等
 rating: 1696
 source: 第 191 场双周赛 Q3
+tags:
+    - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 1244
 source: Biweekly Contest 190 Q1
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->
@@ -33,7 +36,7 @@ source: Biweekly Contest 190 Q1
 
 <p><strong>Explanation:</strong></p>
 
-<p><strong>​​​​​​​</strong><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/image.png" style="width: 300px; height: 307px;" /></p>
+<p><strong>​​​​​​​<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/111.png" style="width: 300px; height: 303px;" />​​​​​​​</strong></p>
 
 <p>A single diagonal move takes the bishop straight from <code>(8, 1)</code> to <code>(1, 8)</code>.</p>
 </div>
@@ -47,7 +50,7 @@ source: Biweekly Contest 190 Q1
 
 <p><strong>Explanation:</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/screenshot-2026-07-23-at-23625am.png" style="width: 300px; height: 305px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/images/22-ezgifcom-invert-colors.png" style="width: 300px; height: 305px;" /></p>
 
 <p>The bishop moves from <code>(4, 2)</code> to <code>(3, 1)</code>, then from <code>(3, 1)</code> to <code>(1, 3)</code>, reaching the target in 2 moves.</p>
 </div>

@@ -3,6 +3,9 @@ comments: true
 difficulty: 中等
 rating: 1869
 source: 第 517 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

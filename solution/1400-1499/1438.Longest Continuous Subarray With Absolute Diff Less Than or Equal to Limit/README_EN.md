@@ -22,42 +22,61 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an array of integers <code>nums</code> and an integer <code>limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code>limit</code><em>.</em></p>
+<p>You are given an array of integers <code>nums</code> and an integer <code>limit</code>.</p>
+
+<p>Return the size of the <strong>longest non-empty subarray</strong> such that the <strong>absolute</strong> difference between <strong>every pair of elements</strong> in this <strong>subarray</strong> is <strong>less than or equal</strong> to <code>limit</code><em>.</em></p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [8,2,4,7], limit = 4
-<strong>Output:</strong> 2 
-<strong>Explanation:</strong> All subarrays are: 
-[8] with maximum absolute diff |8-8| = 0 &lt;= 4.
-[8,2] with maximum absolute diff |8-2| = 6 &gt; 4. 
-[8,2,4] with maximum absolute diff |8-2| = 6 &gt; 4.
-[8,2,4,7] with maximum absolute diff |8-2| = 6 &gt; 4.
-[2] with maximum absolute diff |2-2| = 0 &lt;= 4.
-[2,4] with maximum absolute diff |2-4| = 2 &lt;= 4.
-[2,4,7] with maximum absolute diff |2-7| = 5 &gt; 4.
-[4] with maximum absolute diff |4-4| = 0 &lt;= 4.
-[4,7] with maximum absolute diff |4-7| = 3 &lt;= 4.
-[7] with maximum absolute diff |7-7| = 0 &lt;= 4. 
-Therefore, the size of the longest subarray is 2.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [8,2,4,7], limit = 4</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>Checking every subarray, where the absolute difference is taken over all pairs of its elements:<br />
+<code>[8]</code> with maximum absolute diff <code>|8-8| = 0 &lt;= 4</code>.<br />
+<code>[8,2]</code> with maximum absolute diff <code>|8-2| = 6 &gt; 4</code>.<br />
+<code>[8,2,4]</code> with maximum absolute diff <code>|8-2| = 6 &gt; 4</code>.<br />
+<code>[8,2,4,7]</code> with maximum absolute diff <code>|8-2| = 6 &gt; 4</code>.<br />
+<code>[2]</code> with maximum absolute diff <code>|2-2| = 0 &lt;= 4</code>.<br />
+<code>[2,4]</code> with maximum absolute diff <code>|4-2| = 2 &lt;= 4</code>.<br />
+<code>[2,4,7]</code> with maximum absolute diff <code>|7-2| = 5 &gt; 4</code>. Note that the pair <code>(2, 7)</code> is not adjacent, but it is still compared.<br />
+<code>[4]</code> with maximum absolute diff <code>|4-4| = 0 &lt;= 4</code>.<br />
+<code>[4,7]</code> with maximum absolute diff <code>|7-4| = 3 &lt;= 4</code>.<br />
+<code>[7]</code> with maximum absolute diff <code>|7-7| = 0 &lt;= 4</code>.<br />
+Therefore, the size of the longest subarray is 2.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [10,1,2,4,7,2], limit = 5
-<strong>Output:</strong> 4 
-<strong>Explanation:</strong> The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 &lt;= 5.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [10,1,2,4,7,2], limit = 5</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">4</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The subarray <code>[2,4,7,2]</code> is valid because every pair of its elements differs by at most <code>5</code>, the largest being <code>|7-2| = 5</code>.</p>
+
+<p>It cannot be extended to the left, since <code>[1,2,4,7,2]</code> contains the pair <code>(1, 7)</code> with <code>|7-1| = 6 &gt; 5</code>. Therefore, the size of the longest subarray is 4.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [4,2,2,2,4,4,2,2], limit = 0
-<strong>Output:</strong> 3
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [4,2,2,2,4,4,2,2], limit = 0</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">3</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>Since <code>limit = 0</code>, every pair of elements in the subarray must be equal, so only runs of identical values qualify.</p>
+
+<p>The longest such run is <code>[2,2,2]</code>, of size 3.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

@@ -4,7 +4,6 @@ difficulty: Medium
 rating: 1847
 source: Biweekly Contest 13 Q3
 tags:
-    - Sort
     - Union Find
     - Array
     - Hash Table

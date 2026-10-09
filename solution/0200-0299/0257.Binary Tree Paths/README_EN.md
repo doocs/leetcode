@@ -19,7 +19,9 @@ tags:
 
 <!-- description:start -->
 
-<p>Given the <code>root</code> of a binary tree, return <em>all root-to-leaf paths in <strong>any order</strong></em>.</p>
+<p>You are given the <code>root</code> of a binary tree.</p>
+
+<p>Return all <strong>root-to-leaf</strong> paths<em> </em>in <strong>any order</strong>.</p>
 
 <p>A <strong>leaf</strong> is a node with no children.</p>
 

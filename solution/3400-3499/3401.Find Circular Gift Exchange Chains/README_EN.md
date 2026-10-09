@@ -39,7 +39,7 @@ Each row represents a record of a gift exchange between two employees, giver_id 
 	<li>The exchanges form a continuous <strong>loop</strong> (e.g., employee A gives a gift to B, B gives to C, and C gives back to A).</li>
 </ul>
 
-<p>Return <em>the result ordered by the chain length and total gift value of the chain in&nbsp;<strong>descending</strong> order</em>.&nbsp;</p>
+<p>Return <em>the result ordered by the chain length and total gift value of the chain in <strong>descending</strong> order</em>. If multiple different chains have the same <code dir="ltr">chain_length</code> and <code dir="ltr">total_gift_value</code>, include that combination only once.</p>
 
 <p>The result format is in the following example.</p>
 

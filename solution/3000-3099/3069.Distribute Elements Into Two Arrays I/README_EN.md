@@ -5,6 +5,7 @@ rating: 1203
 source: Weekly Contest 387 Q1
 tags:
     - Array
+    - Two Pointers
     - Simulation
 ---
 
@@ -26,7 +27,7 @@ tags:
 	<li>If the last element of <code>arr1</code> is<strong> greater</strong> than the last element of <code>arr2</code>, append <code>nums[i]</code> to <code>arr1</code>. Otherwise, append <code>nums[i]</code> to <code>arr2</code>.</li>
 </ul>
 
-<p>The array <code>result</code> is formed by concatenating the arrays <code>arr1</code> and <code>arr2</code>. For example, if <code>arr1 == [1,2,3]</code> and <code>arr2 == [4,5,6]</code>, then <code>result = [1,2,3,4,5,6]</code>.</p>
+<p>The array <code>result</code> is formed by concatenating the arrays <code>arr1</code> and <code>arr2</code>. Concatenating two arrays appends the second to the end of the first; for example, concatenating <code>[1,2,3]</code> with <code>[4,5,6]</code> gives <code>[1,2,3,4,5,6]</code>.</p>
 
 <p>Return <em>the array</em> <code>result</code>.</p>
 

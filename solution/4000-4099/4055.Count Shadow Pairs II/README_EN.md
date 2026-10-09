@@ -3,6 +3,15 @@ comments: true
 difficulty: Hard
 rating: 2630
 source: Weekly Contest 519 Q4
+tags:
+    - Stack
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Sorting
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

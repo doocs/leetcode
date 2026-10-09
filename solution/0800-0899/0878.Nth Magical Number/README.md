@@ -4,6 +4,8 @@ difficulty: 困难
 tags:
     - 数学
     - 二分查找
+    - 容斥原理
+    - 最小公倍数
 ---
 
 <!-- problem:start -->

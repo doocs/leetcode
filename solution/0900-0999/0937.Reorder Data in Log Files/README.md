@@ -30,13 +30,13 @@ tags:
 
 <ul>
 	<li>所有 <strong>字母日志</strong> 都排在 <strong>数字日志</strong> 之前。</li>
-	<li><strong>字母日志</strong> 在内容不同时，忽略标识符后，按内容字母顺序排序；在内容相同时，按标识符排序。</li>
+	<li><strong>字母日志</strong> 在内容不同时，忽略标识符后，按内容 <strong>字典顺序</strong> 排序；在内容相同时，按标识符排序。</li>
 	<li><strong>数字日志</strong> 应该保留原来的相对顺序。</li>
 </ul>
 
-<p>返回日志的最终顺序。</p>
+<p>返回日志的 <strong>最终</strong> 顺序。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -55,13 +55,13 @@ tags:
 <strong>输出：</strong>["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= logs.length <= 100</code></li>
-	<li><code>3 <= logs[i].length <= 100</code></li>
+	<li><code>1 &lt;= logs.length &lt;= 100</code></li>
+	<li><code>3 &lt;= logs[i].length &lt;= 100</code></li>
 	<li><code>logs[i]</code> 中，字与字之间都用 <strong>单个</strong> 空格分隔</li>
 	<li>题目数据保证 <code>logs[i]</code> 都有一个标识符，并且在标识符之后至少存在一个字</li>
 </ul>

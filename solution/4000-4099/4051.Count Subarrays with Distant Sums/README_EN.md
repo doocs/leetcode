@@ -3,6 +3,12 @@ comments: true
 difficulty: Hard
 rating: 2139
 source: Biweekly Contest 191 Q4
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Prefix Sum
 ---
 
 <!-- problem:start -->
@@ -17,11 +23,9 @@ source: Biweekly Contest 191 Q4
 
 <p>You are given an integer array <code>nums</code> and two integers <code>goal</code> and <code>k</code>.</p>
 
-<p>A <strong>subarray</strong> <code>nums[i..j]</code> is considered <strong>distant</strong> if the <strong>absolute difference</strong> between its sum and <code>goal</code> is <strong>at least</strong> <code>k</code>.</p>
+<p>A <span data-keyword="subarray-nonempty">subarray</span> <code>nums[i..j]</code> is considered <strong>distant</strong> if the <strong>absolute difference</strong> between its sum and <code>goal</code> is <strong>at least</strong> <code>k</code>.</p>
 
 <p>Return the number of <strong>distant</strong> subarrays.</p>
-
-<p>A <strong>subarray</strong> is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

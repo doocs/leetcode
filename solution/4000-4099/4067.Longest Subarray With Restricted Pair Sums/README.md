@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1917
 source: 第 521 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

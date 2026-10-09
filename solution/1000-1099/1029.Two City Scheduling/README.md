@@ -6,7 +6,9 @@ source: 第 133 场周赛 Q1
 tags:
     - 贪心
     - 数组
+    - 匈牙利算法
     - 排序
+    - SSP 算法
 ---
 
 <!-- problem:start -->

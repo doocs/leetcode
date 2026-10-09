@@ -4,6 +4,7 @@ difficulty: 中等
 tags:
     - 贪心
     - 数组
+    - 最长上升子序列
 ---
 
 <!-- problem:start -->

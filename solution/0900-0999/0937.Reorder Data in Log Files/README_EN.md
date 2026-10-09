@@ -30,11 +30,11 @@ tags:
 
 <ol>
 	<li>The <strong>letter-logs</strong> come before all <strong>digit-logs</strong>.</li>
-	<li>The <strong>letter-logs</strong> are sorted lexicographically by their contents. If their contents are the same, then sort them lexicographically by their identifiers.</li>
+	<li>The <strong>letter-logs</strong> are sorted lexicographically by their contents. If their contents are the same, then sort them <strong>lexicographically</strong> by their identifiers.</li>
 	<li>The <strong>digit-logs</strong> maintain their relative ordering.</li>
 </ol>
 
-<p>Return <em>the final order of the logs</em>.</p>
+<p>Return the <strong>final</strong> order of the logs.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

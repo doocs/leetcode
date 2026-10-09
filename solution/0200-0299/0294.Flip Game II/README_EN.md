@@ -8,7 +8,7 @@ tags:
     - Dynamic Programming
     - Backtracking
     - Game Theory
-    - 'Sprague–Grundy '
+    - Sprague–Grundy
     - Impartial Game
 ---
 

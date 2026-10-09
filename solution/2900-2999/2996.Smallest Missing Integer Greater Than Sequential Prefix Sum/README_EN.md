@@ -19,6 +19,8 @@ tags:
 
 <!-- description:start -->
 
+<p><strong>Note: </strong>The updated title is <strong>&quot;Smallest Missing Integer Greater Than or Equal to Sequential Prefix Sum&quot;.</strong></p>
+
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code>.</p>
 
 <p>A prefix <code>nums[0..i]</code> is <strong>sequential</strong> if, for all <code>1 &lt;= j &lt;= i</code>, <code>nums[j] = nums[j - 1] + 1</code>. In particular, the prefix consisting only of <code>nums[0]</code> is <strong>sequential</strong>.</p>

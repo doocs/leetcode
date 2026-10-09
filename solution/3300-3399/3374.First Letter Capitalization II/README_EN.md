@@ -18,27 +18,27 @@ tags:
 <p>Table: <code>user_content</code></p>
 
 <pre>
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| content_id  | int     |
-| content_text| varchar |
-+-------------+---------+
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| content_id   | int     |
+| content_text | varchar |
++--------------+---------+
 content_id is the unique key for this table.
 Each row contains a unique ID and the corresponding text content.
 </pre>
 
-<p>Write a solution to transform the text in the <code>content_text</code> column by applying the following rules:</p>
+<p>A <strong>word</strong> is a maximal non-empty sequence of characters that does not contain a space.</p>
+
+<p>Write a solution to transform the text in the <code>content_text</code> column by applying the following rules to each word:</p>
 
 <ul>
-	<li>Convert the <strong>first letter</strong> of each word to <strong>uppercase</strong> and the <strong>remaining</strong> letters to <strong>lowercase</strong></li>
-	<li>Special handling for words containing special characters:
-	<ul>
-		<li>For words connected with a hyphen <code>-</code>, <strong>both parts</strong> should be <strong>capitalized</strong> (<strong>e.g.</strong>, top-rated&nbsp;&rarr; Top-Rated)</li>
-	</ul>
-	</li>
-	<li>All other <strong>formatting</strong> and <strong>spacing</strong> should remain <strong>unchanged</strong></li>
+	<li>If the word starts with a character that is <strong>not</strong> an English letter, leave the entire word <strong>unchanged</strong>.</li>
+	<li>Otherwise, if the word consists of two or more non-empty parts of English letters connected by hyphens <code>-</code>, convert the <strong>first letter of each part</strong> to uppercase and the <strong>remaining letters of each part</strong> to lowercase. For example, <code>top-rated</code> becomes <code>Top-Rated</code> and <code>FR-ONT-end</code> becomes <code>Fr-Ont-End</code>.</li>
+	<li>Otherwise, convert the <strong>first letter</strong> of the word to uppercase and all <strong>remaining English letters</strong> to lowercase. Any special characters remain unchanged.</li>
 </ul>
+
+<p>All other <strong>formatting</strong> and <strong>spacing</strong> must remain <strong>unchanged</strong>.</p>
 
 <p>Return <em>the result table that includes both the original <code>content_text</code> and the modified text following the above rules</em>.</p>
 
@@ -81,25 +81,25 @@ Each row contains a unique ID and the corresponding text content.
 <ul>
 	<li>For content_id = 1:
 	<ul>
-		<li>Each word&#39;s first letter is capitalized: &quot;Hello World Of Sql&quot;</li>
+		<li>Each word&#39;s first letter is capitalized: &quot;Hello World Of Sql&quot;.</li>
 	</ul>
 	</li>
 	<li>For content_id = 2:
 	<ul>
-		<li>Contains the hyphenated word &quot;QUICK-brown&quot; which becomes &quot;Quick-Brown&quot;</li>
-		<li>Other words follow normal capitalization rules</li>
+		<li>The hyphenated word &quot;QUICK-brown&quot; becomes &quot;Quick-Brown&quot;.</li>
+		<li>Other words follow the normal capitalization rules.</li>
 	</ul>
 	</li>
 	<li>For content_id = 3:
 	<ul>
-		<li>Hyphenated word &quot;modern-day&quot; becomes &quot;Modern-Day&quot;</li>
-		<li>&quot;DATA&quot; is converted to &quot;Data&quot;</li>
+		<li>The hyphenated word &quot;modern-day&quot; becomes &quot;Modern-Day&quot;.</li>
+		<li>&quot;DATA&quot; is converted to &quot;Data&quot;.</li>
 	</ul>
 	</li>
 	<li>For content_id = 4:
 	<ul>
-		<li>Contains two hyphenated words: &quot;web-based&quot; &rarr; &quot;Web-Based&quot;</li>
-		<li>And &quot;FRONT-end&quot; &rarr; &quot;Front-End&quot;</li>
+		<li>&quot;web-based&quot; becomes &quot;Web-Based&quot;.</li>
+		<li>&quot;FRONT-end&quot; becomes &quot;Front-End&quot;.</li>
 	</ul>
 	</li>
 </ul>
@@ -109,7 +109,7 @@ Each row contains a unique ID and the corresponding text content.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>context_text</code> contains only English letters, and the characters in the list <code>[&#39;\&#39;, &#39; &#39;, &#39;@&#39;, &#39;-&#39;, &#39;/&#39;, &#39;^&#39;, &#39;,&#39;]</code></li>
+	<li><code>content_text</code> contains only English letters, spaces, and the characters <code>\</code>, <code>@</code>, <code>-</code>, <code>/</code>, <code>^</code>, and <code>,</code>.</li>
 </ul>
 
 <!-- description:end -->

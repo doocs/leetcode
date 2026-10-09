@@ -4,6 +4,7 @@ difficulty: 简单
 tags:
     - 数组
     - 字符串
+    - 最长上升子序列
 ---
 
 <!-- problem:start -->

@@ -5,6 +5,7 @@ rating: 1512
 source: 第 33 场双周赛 Q2
 tags:
     - 图
+    - 有向无环图
 ---
 
 <!-- problem:start -->

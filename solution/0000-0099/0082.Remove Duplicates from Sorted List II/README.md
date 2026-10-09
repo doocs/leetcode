@@ -16,7 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个已排序的链表的头&nbsp;<code>head</code> ，&nbsp;<em>删除原始链表中所有重复数字的节点，只留下不同的数字</em>&nbsp;。返回 <em>已排序的链表</em>&nbsp;。</p>
+<p>给定一个 <strong>已排序</strong> 的链表的头节点&nbsp;<code>head</code>。</p>
+
+<p>删除原始链表中所有 <strong>重复</strong> 数字的节点，只留下 <strong>不同</strong> 的数字。</p>
+
+<p>返回 <strong>已排序</strong> 的链表。</p>
 
 <p>&nbsp;</p>
 

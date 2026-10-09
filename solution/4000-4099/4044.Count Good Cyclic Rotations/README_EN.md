@@ -3,6 +3,10 @@ comments: true
 difficulty: Medium
 rating: 1417
 source: Weekly Contest 518 Q2
+tags:
+    - Array
+    - Prefix Sum
+    - Sliding Window
 ---
 
 <!-- problem:start -->

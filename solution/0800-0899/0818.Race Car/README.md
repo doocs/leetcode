@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 tags:
     - 动态规划
+    - A* 搜索
 ---
 
 <!-- problem:start -->

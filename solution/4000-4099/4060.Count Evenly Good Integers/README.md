@@ -1,11 +1,14 @@
 ---
 comments: true
 difficulty: 困难
+tags:
+    - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->
 
-# [4060. 计算偶好数 🔒](https://leetcode.cn/problems/count-evenly-good-integers)
+# [4060. 统计偶好数 🔒](https://leetcode.cn/problems/count-evenly-good-integers)
 
 [English Version](/solution/4000-4099/4060.Count%20Evenly%20Good%20Integers/README_EN.md)
 

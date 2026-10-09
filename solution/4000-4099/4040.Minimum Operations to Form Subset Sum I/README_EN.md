@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 1869
 source: Weekly Contest 517 Q3
+tags:
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

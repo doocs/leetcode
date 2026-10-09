@@ -2,10 +2,12 @@
 comments: true
 difficulty: Hard
 tags:
+    - Queue
     - Array
     - Binary Search
     - Dynamic Programming
     - Prefix Sum
+    - Monotonic Queue
 ---
 
 <!-- problem:start -->

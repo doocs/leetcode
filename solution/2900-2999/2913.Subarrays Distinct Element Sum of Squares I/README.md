@@ -4,6 +4,7 @@ difficulty: 简单
 rating: 1297
 source: 第 116 场双周赛 Q1
 tags:
+    - 树状数组
     - 线段树
     - 数组
     - 哈希表

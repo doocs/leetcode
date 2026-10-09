@@ -9,6 +9,8 @@ tags:
     - 拓扑排序
     - 数组
     - 动态规划
+    - Kosaraju 算法
+    - Tarjan 强连通分量算法
 ---
 
 <!-- problem:start -->

@@ -18,29 +18,29 @@ tags:
 <p>表：<code>user_content</code></p>
 
 <pre>
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| content_id  | int     |
-| content_text| varchar |
-+-------------+---------+
-content_id 是这张表的唯一主键。
-每一行包含一个不同的 ID 以及对应的文本内容。
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| content_id   | int     |
+| content_text | varchar |
++--------------+---------+
+content_id 是该表的唯一键。
+每一行包含一个唯一的 ID 以及对应的文本内容。
 </pre>
 
-<p>编写一个解决方案来根据下面的规则来转换&nbsp;<code>content_text</code>&nbsp;列中的文本：</p>
+<p><strong>单词</strong>是指不包含空格的极大非空字符序列。</p>
+
+<p>编写一个解决方案，按照以下规则对 <code>content_text</code> 列中的文本进行转换，并对每个单词应用这些规则：</p>
 
 <ul>
-	<li>将每个单词的 <strong>第一个字母</strong>&nbsp;转换为 <strong>大写</strong>，其余字母 <strong>保持小写</strong>。</li>
-	<li>特殊处理包含特殊字符的单词：
-	<ul>
-		<li>对于用短横&nbsp;<code>-</code>&nbsp;连接的词语，<strong>两个部份</strong>&nbsp;都应该&nbsp;<strong>大写</strong>（<strong>例如</strong>，top-rated&nbsp;→ Top-Rated）</li>
-	</ul>
-	</li>
-	<li>所有其他 <strong>格式</strong> 和 <strong>空格</strong> 应保持 <strong>不变</strong></li>
+	<li>如果单词以一个<strong>不是</strong>英文字母的字符开头，则保持整个单词<strong>不变</strong>。</li>
+	<li>否则，如果单词由两个或更多非空的英文字母部分通过连字符 <code>-</code> 连接而成，则将<strong>每个部分的首字母</strong>转换为大写，并将<strong>每个部分的其余字母</strong>转换为小写。例如，<code>top-rated</code> 转换为 <code>Top-Rated</code>，<code>FR-ONT-end</code> 转换为 <code>Fr-Ont-End</code>。</li>
+	<li>否则，将单词的<strong>首字母</strong>转换为大写，并将其余所有<strong>英文字母</strong>转换为小写。所有特殊字符保持不变。</li>
 </ul>
 
-<p>返回结果表同时包含原始的&nbsp;<code>content_text</code> 以及根据上述规则修改后的文本。</p>
+<p>所有其他<strong>格式</strong>和<strong>空格</strong>必须保持<strong>不变</strong>。</p>
+
+<p>返回<em>结果表，其中同时包含原始的 <code>content_text</code> 以及按照上述规则转换后的文本</em>。</p>
 
 <p>结果格式如下例所示。</p>
 
@@ -82,29 +82,37 @@ content_id 是这张表的唯一主键。
 <ul>
 	<li>对于 content_id = 1：
 	<ul>
-		<li>每个单词的首字母都是大写的："Hello World Of Sql"</li>
+		<li>将每个单词的首字母大写，得到 "Hello World Of Sql"。</li>
 	</ul>
 	</li>
 	<li>对于 content_id = 2：
 	<ul>
-		<li>包含的连字符词 "QUICK-brown" 变为 "Quick-Brown"</li>
-		<li>其它单词遵循普通的首字母大写规则</li>
+		<li>带连字符的单词 "QUICK-brown" 转换为 "Quick-Brown"。</li>
+		<li>其他单词按照普通的大小写转换规则处理。</li>
 	</ul>
 	</li>
 	<li>对于 content_id = 3：
 	<ul>
-		<li>连字符词 "modern-day" 变为 "Modern-Day"</li>
-		<li>"DATA" 转换为 "Data"</li>
+		<li>带连字符的单词 "modern-day" 转换为 "Modern-Day"。</li>
+		<li>"DATA" 转换为 "Data"。</li>
 	</ul>
 	</li>
 	<li>对于 content_id = 4：
 	<ul>
-		<li>包含两个连字符词："web-based" → "Web-Based"</li>
-		<li>以及 "FRONT-end" → "Front-End"</li>
+		<li>"web-based" 转换为 "Web-Based"。</li>
+		<li>"FRONT-end" 转换为 "Front-End"。</li>
 	</ul>
 	</li>
 </ul>
 </div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>content_text</code> 仅包含英文字母、空格以及字符 <code>\</code>、<code>@</code>、<code>-</code>、<code>/</code>、<code>^</code> 和 <code>,</code>。</li>
+</ul>
 
 <!-- description:end -->
 

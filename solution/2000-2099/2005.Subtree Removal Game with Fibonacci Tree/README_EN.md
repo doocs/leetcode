@@ -7,7 +7,7 @@ tags:
     - Dynamic Programming
     - Binary Tree
     - Game Theory
-    - 'Sprague–Grundy '
+    - Sprague–Grundy
 ---
 
 <!-- problem:start -->

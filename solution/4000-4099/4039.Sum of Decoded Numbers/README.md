@@ -3,6 +3,10 @@ comments: true
 difficulty: 中等
 rating: 1463
 source: 第 517 场周赛 Q2
+tags:
+    - 数组
+    - 数学
+    - 模拟
 ---
 
 <!-- problem:start -->

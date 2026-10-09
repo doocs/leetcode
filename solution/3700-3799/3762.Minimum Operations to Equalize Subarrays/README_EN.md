@@ -4,6 +4,7 @@ difficulty: Hard
 rating: 2497
 source: Weekly Contest 478 Q4
 tags:
+    - Binary Indexed Tree
     - Segment Tree
     - Array
     - Math

@@ -4,7 +4,6 @@ difficulty: 中等
 rating: 1847
 source: 第 13 场双周赛 Q3
 tags:
-    - 排序
     - 并查集
     - 数组
     - 哈希表
