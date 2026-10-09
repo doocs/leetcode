@@ -314,4 +314,167 @@ var numSubmat = function (mat) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：前缀和 + 单调栈
+
+<!-- thinking:start -->
+
+方法一的代码在双层循环中，是从当前行向上枚举，计算每一行的最小宽度并累加：
+
+```
+for k in range(i, -1, -1):
+    col = min(col, g[k][j])
+    ans += col
+```
+
+由此可见单调性：若 `g[k - 1][j] <= g[k][j]`，则 `g[k - 1][j]` 会限制上方所有行的宽度，它们的贡献都会被 `g[k - 1][j]` 限制。
+
+于是我们可对每一列 `j` 各维护一个栈，栈内 `table` 值**严格递增**（`>=` 的元素会被弹出）。
+
+处理 `(i, j)` 时，弹出所有 `table >= 当前值` 的元素，栈顶 `prev` 就是向上第一个**严格小于**当前值的位置。于是分成两段：
+
+- **第 `prev + 1` 到 `i` 行**：这段的值都 `>= table[i][j]`，最小值就是 `table[i][j]` 本身，贡献 `table[i][j] × (i - prev)`。
+- **第 `prev` 行及以上**：这段的最小值会被 `table[prev][j]` 压住，而 `table[prev][j] < table[i][j]` 且小于等于中间所有值，所以结果与以 `(prev, j)` 为右下角时**完全相同**，直接继承 `prev` 的 `cumulated_count`。
+
+因此若 `prev` 存在的话：
+
+```
+cumulated_count(i, j) = cumulated_count(prev, j) + table[i][j] × (i - prev)
+```
+
+反之，若 `prev` 不存在，也就是 `prev` 为-1时：
+
+```
+cumulated_count(i, j) = table[i][j] × (i - prev) = table[i][j] × (i + 1)
+```
+
+每个格子**恰好 push 一次**，且**至多 pop 一次**。
+
+所以 `while` 循环的总执行次数最多为 `m·n`，均摊后每个格子 O(1)：
+
+| | 复杂度 |
+|---|---|
+| 时间 | O(m·n) |
+| 空间 | O(m·n)（`table` 与各列的栈） |
+
+外层双循环本身就是 `m·n` 次，而内层 `while` 的弹出次数被 push 总数限制住，因此不会让复杂度退化成 O(m²·n)。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+from typing import NamedTuple
+
+
+class Tuple(NamedTuple):
+    entry: int
+    row_idx: int
+    cumulated_count: int
+
+
+class Solution:
+    def numSubmat(self, mat: list[list[int]]) -> int:
+        rows = len(mat)
+        cols = len(mat[0])
+
+        table = [[0] * cols for _ in range(rows)]
+
+        # `stack[j]`: each jth column's remaining tuples:
+        # (table entry, row idx, cumulated count until [i][j]).
+        stack: list[list[Tuple]] = [[] for _ in range(cols)]
+
+        submatrices_count = 0
+
+        for row_idx in range(rows):
+            for col_idx in range(cols):
+                if mat[row_idx][col_idx] == 1:
+                    table[row_idx][col_idx] = 1
+                    if col_idx > 0:
+                        table[row_idx][col_idx] += table[row_idx][col_idx - 1]
+
+                current_entry = table[row_idx][col_idx]
+
+                while stack[col_idx] and stack[col_idx][-1].entry >= current_entry:
+                    stack[col_idx].pop(-1)
+
+                cumulated_count = 0
+                prev_row_idx = -1
+
+                if stack[col_idx]:
+                    prev_row_idx = stack[col_idx][-1].row_idx  # Previous barrier.
+
+                    cumulated_count += stack[col_idx][
+                        -1
+                    ].cumulated_count  # Inheritance.
+
+                cumulated_count += current_entry * (row_idx - prev_row_idx)
+                submatrices_count += cumulated_count
+
+                stack[col_idx].append(Tuple(current_entry, row_idx, cumulated_count))
+
+        return submatrices_count
+```
+
+#### C++
+
+```cpp
+struct Tuple {
+    int entry;
+    int rowIdx;
+    int cumulatedCount;
+};
+
+class Solution {
+public:
+    int numSubmat(vector<vector<int>>& mat) {
+        int rows = mat.size();
+        int cols = mat[0].size();
+
+        vector<vector<int>> table(rows, vector<int>(cols, 0));
+
+        // `stacks[j]`: each jth column's remaining tuples:
+        // {table entry, row idx, cumulated count until [i][j]}.
+        vector<stack<Tuple>> stacks(cols);
+
+        int submatricesCount = 0;
+
+        for (int rowIdx = 0; rowIdx < rows; rowIdx++) {
+            for (int colIdx = 0; colIdx < cols; colIdx++) {
+                if (mat[rowIdx][colIdx] == 1) {
+                    table[rowIdx][colIdx] = 1;
+                    if (colIdx > 0)
+                        table[rowIdx][colIdx] += table[rowIdx][colIdx - 1];
+                }
+
+                int currentEntry = table[rowIdx][colIdx];
+
+                while (!stacks[colIdx].empty() && stacks[colIdx].top().entry >= currentEntry)
+                    stacks[colIdx].pop();
+
+                int cumulatedCount = 0;
+                int prevRowIdx = -1;
+
+                if (!stacks[colIdx].empty()) {
+                    prevRowIdx = stacks[colIdx].top().rowIdx; // Previous barrier.
+                    cumulatedCount += stacks[colIdx].top().cumulatedCount; // Inheritance.
+                }
+
+                cumulatedCount += currentEntry * (rowIdx - prevRowIdx);
+                submatricesCount += cumulatedCount;
+
+                stacks[colIdx].push({currentEntry, rowIdx, cumulatedCount});
+            }
+        }
+
+        return submatricesCount;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
