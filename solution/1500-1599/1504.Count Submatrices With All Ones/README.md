@@ -314,4 +314,279 @@ var numSubmat = function (mat) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：单调栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一里，每个右下角仍要从当前行向上扫描 $O(m)$ 行，再把沿途最小宽度累加进去，总时间是 $O(m^2 \times n)$。矩阵边长可达 $150$，这一层循环就是剩余的开销。
+>
+> 同一列上，一旦出现更窄的宽度，它上方每一行的贡献都会被这个宽度卡住，没有必要从当前行再逐行重扫。对每一列维护宽度严格递增的单调栈，栈顶就是上方最近的更窄位置：当前行到栈顶之间的最小宽度就是本行的 $g[i][j]$，栈顶及其上方的答案已经算好，直接沿用。每个格子至多入栈一次、出栈一次，向上的扫描就被摊成 $O(1)$。
+
+<!-- thinking:end -->
+
+我们仍先预处理二维数组 $g$，其中 $g[i][j]$ 表示第 $i$ 行从第 $j$ 列向左连续 $1$ 的个数。
+
+然后按列统计。对于第 $j$ 列，从上到下扫描每一行 $i$，并用单调栈保存三元组 $(w, r, c)$：宽度 $w$、所在行 $r$，以及以 $(r, j)$ 为右下角的全 $1$ 子矩阵个数 $c$。栈中的宽度保持严格递增。
+
+处理 $g[i][j]$ 时，弹出所有宽度大于等于当前值的栈顶。若栈为空，则从第 $0$ 行到第 $i$ 行的最小宽度都是 $g[i][j]$，以 $(i, j)$ 为右下角的子矩阵个数为 $g[i][j] \times (i + 1)$。否则设栈顶为 $(w, r, c)$，第 $r$ 行及以上的贡献已经记在 $c$ 中，第 $r + 1$ 行到第 $i$ 行的最小宽度都是 $g[i][j]$，因此个数为 $c + g[i][j] \times (i - r)$。将该结果累加到答案，并把当前宽度、行号与这个个数压入栈中。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numSubmat(self, mat: List[List[int]]) -> int:
+        m, n = len(mat), len(mat[0])
+        g = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                if mat[i][j]:
+                    g[i][j] = 1 if j == 0 else 1 + g[i][j - 1]
+        ans = 0
+        for j in range(n):
+            stk = []
+            for i in range(m):
+                cur = g[i][j]
+                while stk and stk[-1][0] >= cur:
+                    stk.pop()
+                cnt = cur * (i + 1)
+                if stk:
+                    cnt = stk[-1][2] + cur * (i - stk[-1][1])
+                ans += cnt
+                stk.append((cur, i, cnt))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numSubmat(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+        int[][] g = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] == 1) {
+                    g[i][j] = j == 0 ? 1 : 1 + g[i][j - 1];
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            List<int[]> stk = new ArrayList<>();
+            for (int i = 0; i < m; ++i) {
+                int cur = g[i][j];
+                while (!stk.isEmpty() && stk.get(stk.size() - 1)[0] >= cur) {
+                    stk.remove(stk.size() - 1);
+                }
+                int cnt = cur * (i + 1);
+                if (!stk.isEmpty()) {
+                    int[] t = stk.get(stk.size() - 1);
+                    cnt = t[2] + cur * (i - t[1]);
+                }
+                ans += cnt;
+                stk.add(new int[] {cur, i, cnt});
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numSubmat(vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+        vector<vector<int>> g(m, vector<int>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] == 1) {
+                    g[i][j] = j == 0 ? 1 : 1 + g[i][j - 1];
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            vector<array<int, 3>> stk;
+            for (int i = 0; i < m; ++i) {
+                int cur = g[i][j];
+                while (!stk.empty() && stk.back()[0] >= cur) {
+                    stk.pop_back();
+                }
+                int cnt = cur * (i + 1);
+                if (!stk.empty()) {
+                    cnt = stk.back()[2] + cur * (i - stk.back()[1]);
+                }
+                ans += cnt;
+                stk.push_back({cur, i, cnt});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numSubmat(mat [][]int) (ans int) {
+	m, n := len(mat), len(mat[0])
+	g := make([][]int, m)
+	for i := range g {
+		g[i] = make([]int, n)
+		for j := range g[i] {
+			if mat[i][j] == 1 {
+				if j == 0 {
+					g[i][j] = 1
+				} else {
+					g[i][j] = 1 + g[i][j-1]
+				}
+			}
+		}
+	}
+	for j := 0; j < n; j++ {
+		stk := [][3]int{}
+		for i := 0; i < m; i++ {
+			cur := g[i][j]
+			for len(stk) > 0 && stk[len(stk)-1][0] >= cur {
+				stk = stk[:len(stk)-1]
+			}
+			cnt := cur * (i + 1)
+			if len(stk) > 0 {
+				cnt = stk[len(stk)-1][2] + cur*(i-stk[len(stk)-1][1])
+			}
+			ans += cnt
+			stk = append(stk, [3]int{cur, i, cnt})
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numSubmat(mat: number[][]): number {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j]) {
+                g[i][j] = j === 0 ? 1 : 1 + g[i][j - 1];
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j < n; j++) {
+        const stk: number[][] = [];
+        for (let i = 0; i < m; i++) {
+            const cur = g[i][j];
+            while (stk.length > 0 && stk[stk.length - 1][0] >= cur) {
+                stk.pop();
+            }
+            let cnt = cur * (i + 1);
+            if (stk.length > 0) {
+                const t = stk[stk.length - 1];
+                cnt = t[2] + cur * (i - t[1]);
+            }
+            ans += cnt;
+            stk.push([cur, i, cnt]);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_submat(mat: Vec<Vec<i32>>) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut g = vec![vec![0; n]; m];
+        for i in 0..m {
+            for j in 0..n {
+                if mat[i][j] == 1 {
+                    g[i][j] = if j == 0 { 1 } else { 1 + g[i][j - 1] };
+                }
+            }
+        }
+        let mut ans = 0;
+        for j in 0..n {
+            let mut stk: Vec<(i32, i32, i32)> = Vec::new();
+            for i in 0..m {
+                let cur = g[i][j];
+                while !stk.is_empty() && stk.last().unwrap().0 >= cur {
+                    stk.pop();
+                }
+                let cnt = if stk.is_empty() {
+                    cur * (i as i32 + 1)
+                } else {
+                    let t = stk.last().unwrap();
+                    t.2 + cur * (i as i32 - t.1)
+                };
+                ans += cnt;
+                stk.push((cur, i as i32, cnt));
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+var numSubmat = function (mat) {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j]) {
+                g[i][j] = j === 0 ? 1 : 1 + g[i][j - 1];
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j < n; j++) {
+        const stk = [];
+        for (let i = 0; i < m; i++) {
+            const cur = g[i][j];
+            while (stk.length > 0 && stk[stk.length - 1][0] >= cur) {
+                stk.pop();
+            }
+            let cnt = cur * (i + 1);
+            if (stk.length > 0) {
+                const t = stk[stk.length - 1];
+                cnt = t[2] + cur * (i - t[1]);
+            }
+            ans += cnt;
+            stk.push([cur, i, cnt]);
+        }
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
