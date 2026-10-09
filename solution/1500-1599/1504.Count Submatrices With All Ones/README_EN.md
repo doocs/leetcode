@@ -309,165 +309,272 @@ var numSubmat = function (mat) {
 
 <!-- solution:start -->
 
-### Solution 2：Prefix Sum + Monotonic Stack
+### Solution 2: Monotonic Stack
 
 <!-- thinking:start -->
 
-In Approach 1, the double loop enumerates upward from current row,
-computing each row's minimum width and accumulating it:
+> **Thinking**
+>
+> Solution 1 still walks $O(m)$ rows upward at every bottom-right cell and adds the running minimum width, so the total stays $O(m^2 \times n)$. With side length $150$, that inner scan is the remaining cost.
+>
+> A narrower width on the same column caps every row above it, so those rows do not need another pass. One strictly increasing stack of widths per column makes the stack top the nearest smaller width above the current cell. Between that top and the current row the minimum width is $g[i][j]$, and the answer at the top and above is already stored. Each cell is pushed and popped at most once, which turns the upward scan into amortized $O(1)$.
 
-```
-for k in range(i, -1, -1):
-    col = min(col, g[k][j])
-    ans += col
-```
+<!-- thinking:end -->
 
-This reveals a monotonic structure: if `g[k - 1][j] <= g[k][j]`, then `g[k - 1][j]` caps the width of every row above it, so all their contributions are bounded by `g[k - 1][j]`.
+We still preprocess a 2D array $g$, where $g[i][j]$ is the number of consecutive $1$s from column $j$ to the left in row $i$.
 
-We can maintain one stack per column `j`, whose `table` values are **strictly increasing** (elements with `>=` the current value get popped).
+The count is then taken column by column. For column $j$, scan row $i$ from top to bottom and keep a monotonic stack of triples $(w, r, c)$: the width $w$, the row $r$, and the number $c$ of all-$1$ submatrices whose bottom-right corner is $(r, j)$. Widths on the stack stay strictly increasing.
 
-When processing `(i, j)`, pop every element whose `table >= current value`.
-Stack top `prev` is the first position above that is **strictly smaller** than current value.
-This splits the rows into two segments:
+When handling $g[i][j]$, pop every stack top whose width is at least the current value. If the stack is empty, every row from $0$ through $i$ has minimum width $g[i][j]$, so there are $g[i][j] \times (i + 1)$ submatrices with bottom-right corner $(i, j)$. Otherwise let the top be $(w, r, c)$. The contribution of row $r$ and above is already stored in $c$, and every row from $r + 1$ through $i$ has minimum width $g[i][j]$, so the count is $c + g[i][j] \times (i - r)$. Add this value to the answer, then push the current width, the row index, and the count onto the stack.
 
-- **Rows `prev + 1` to `i`**: all values here are `>= table[i][j]`, so minimum is `table[i][j]` itself, contributing `table[i][j] × (i - prev)`.
-- **Row `prev` and above**: minimum here is capped by `table[prev][j]`. Since `table[prev][j] < table[i][j]` and it is less than or equal to every value in between, the result is **exactly the same** as for submatrices with bottom-right corner `(prev, j)`, so we simply inherit `prev`'s `cumulated_count`.
-
-Therefore, when `prev` does exist:
-
-```
-cumulated_count(i, j) = cumulated_count(prev, j) + table[i][j] × (i - prev)
-```
-
-On the other hand, when `prev` does not exist, meaning that `prev` is -1:
-
-```
-cumulated_count(i, j) = table[i][j] × (i - prev) = table[i][j] × (i + 1)
-```
-
-A sum that originally took O(m) is compressed into an O(1) recurrence.
-
-Each cell is pushed **exactly once** and popped **at most once**,
-so `while` loop runs at most `m·n` times in total. Amortized, each cell costs O(1):
-
-|       | Complexity                                  |
-| ----- | ------------------------------------------- |
-| Time  | O(m·n)                                      |
-| Space | O(m·n) (`table` plus the per-column stacks) |
-
-Outer double loop already accounts for `m·n` iterations, and inner `while` loop's pops are bounded by the total number of pushes,
-so complexity never degrades to O(m²·n).
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-from typing import NamedTuple
-
-
-class Tuple(NamedTuple):
-    entry: int
-    row_idx: int
-    cumulated_count: int
-
-
 class Solution:
-    def numSubmat(self, mat: list[list[int]]) -> int:
-        rows = len(mat)
-        cols = len(mat[0])
+    def numSubmat(self, mat: List[List[int]]) -> int:
+        m, n = len(mat), len(mat[0])
+        g = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                if mat[i][j]:
+                    g[i][j] = 1 if j == 0 else 1 + g[i][j - 1]
+        ans = 0
+        for j in range(n):
+            stk = []
+            for i in range(m):
+                cur = g[i][j]
+                while stk and stk[-1][0] >= cur:
+                    stk.pop()
+                cnt = cur * (i + 1)
+                if stk:
+                    cnt = stk[-1][2] + cur * (i - stk[-1][1])
+                ans += cnt
+                stk.append((cur, i, cnt))
+        return ans
+```
 
-        table = [[0] * cols for _ in range(rows)]
+#### Java
 
-        # `stack[j]`: each jth column's remaining tuples:
-        # (table entry, row idx, cumulated count until [i][j]).
-        stack: list[list[Tuple]] = [[] for _ in range(cols)]
-
-        submatrices_count = 0
-
-        for row_idx in range(rows):
-            for col_idx in range(cols):
-                if mat[row_idx][col_idx] == 1:
-                    table[row_idx][col_idx] = 1
-                    if col_idx > 0:
-                        table[row_idx][col_idx] += table[row_idx][col_idx - 1]
-
-                current_entry = table[row_idx][col_idx]
-
-                while stack[col_idx] and stack[col_idx][-1].entry >= current_entry:
-                    stack[col_idx].pop(-1)
-
-                cumulated_count = 0
-                prev_row_idx = -1
-
-                if stack[col_idx]:
-                    prev_row_idx = stack[col_idx][-1].row_idx  # Previous barrier.
-
-                    cumulated_count += stack[col_idx][
-                        -1
-                    ].cumulated_count  # Inheritance.
-
-                cumulated_count += current_entry * (row_idx - prev_row_idx)
-                submatrices_count += cumulated_count
-
-                stack[col_idx].append(Tuple(current_entry, row_idx, cumulated_count))
-
-        return submatrices_count
+```java
+class Solution {
+    public int numSubmat(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+        int[][] g = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] == 1) {
+                    g[i][j] = j == 0 ? 1 : 1 + g[i][j - 1];
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            List<int[]> stk = new ArrayList<>();
+            for (int i = 0; i < m; ++i) {
+                int cur = g[i][j];
+                while (!stk.isEmpty() && stk.get(stk.size() - 1)[0] >= cur) {
+                    stk.remove(stk.size() - 1);
+                }
+                int cnt = cur * (i + 1);
+                if (!stk.isEmpty()) {
+                    int[] t = stk.get(stk.size() - 1);
+                    cnt = t[2] + cur * (i - t[1]);
+                }
+                ans += cnt;
+                stk.add(new int[] {cur, i, cnt});
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-struct Tuple {
-    int entry;
-    int rowIdx;
-    int cumulatedCount;
-};
-
 class Solution {
 public:
     int numSubmat(vector<vector<int>>& mat) {
-        int rows = mat.size();
-        int cols = mat[0].size();
-
-        vector<vector<int>> table(rows, vector<int>(cols, 0));
-
-        // `stacks[j]`: each jth column's remaining tuples:
-        // {table entry, row idx, cumulated count until [i][j]}.
-        vector<stack<Tuple>> stacks(cols);
-
-        int submatricesCount = 0;
-
-        for (int rowIdx = 0; rowIdx < rows; rowIdx++) {
-            for (int colIdx = 0; colIdx < cols; colIdx++) {
-                if (mat[rowIdx][colIdx] == 1) {
-                    table[rowIdx][colIdx] = 1;
-                    if (colIdx > 0)
-                        table[rowIdx][colIdx] += table[rowIdx][colIdx - 1];
+        int m = mat.size(), n = mat[0].size();
+        vector<vector<int>> g(m, vector<int>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] == 1) {
+                    g[i][j] = j == 0 ? 1 : 1 + g[i][j - 1];
                 }
-
-                int currentEntry = table[rowIdx][colIdx];
-
-                while (!stacks[colIdx].empty() && stacks[colIdx].top().entry >= currentEntry)
-                    stacks[colIdx].pop();
-
-                int cumulatedCount = 0;
-                int prevRowIdx = -1;
-
-                if (!stacks[colIdx].empty()) {
-                    prevRowIdx = stacks[colIdx].top().rowIdx; // Previous barrier.
-                    cumulatedCount += stacks[colIdx].top().cumulatedCount; // Inheritance.
-                }
-
-                cumulatedCount += currentEntry * (rowIdx - prevRowIdx);
-                submatricesCount += cumulatedCount;
-
-                stacks[colIdx].push({currentEntry, rowIdx, cumulatedCount});
             }
         }
-
-        return submatricesCount;
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            vector<array<int, 3>> stk;
+            for (int i = 0; i < m; ++i) {
+                int cur = g[i][j];
+                while (!stk.empty() && stk.back()[0] >= cur) {
+                    stk.pop_back();
+                }
+                int cnt = cur * (i + 1);
+                if (!stk.empty()) {
+                    cnt = stk.back()[2] + cur * (i - stk.back()[1]);
+                }
+                ans += cnt;
+                stk.push_back({cur, i, cnt});
+            }
+        }
+        return ans;
     }
+};
+```
+
+#### Go
+
+```go
+func numSubmat(mat [][]int) (ans int) {
+	m, n := len(mat), len(mat[0])
+	g := make([][]int, m)
+	for i := range g {
+		g[i] = make([]int, n)
+		for j := range g[i] {
+			if mat[i][j] == 1 {
+				if j == 0 {
+					g[i][j] = 1
+				} else {
+					g[i][j] = 1 + g[i][j-1]
+				}
+			}
+		}
+	}
+	for j := 0; j < n; j++ {
+		stk := [][3]int{}
+		for i := 0; i < m; i++ {
+			cur := g[i][j]
+			for len(stk) > 0 && stk[len(stk)-1][0] >= cur {
+				stk = stk[:len(stk)-1]
+			}
+			cnt := cur * (i + 1)
+			if len(stk) > 0 {
+				cnt = stk[len(stk)-1][2] + cur*(i-stk[len(stk)-1][1])
+			}
+			ans += cnt
+			stk = append(stk, [3]int{cur, i, cnt})
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numSubmat(mat: number[][]): number {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j]) {
+                g[i][j] = j === 0 ? 1 : 1 + g[i][j - 1];
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j < n; j++) {
+        const stk: number[][] = [];
+        for (let i = 0; i < m; i++) {
+            const cur = g[i][j];
+            while (stk.length > 0 && stk[stk.length - 1][0] >= cur) {
+                stk.pop();
+            }
+            let cnt = cur * (i + 1);
+            if (stk.length > 0) {
+                const t = stk[stk.length - 1];
+                cnt = t[2] + cur * (i - t[1]);
+            }
+            ans += cnt;
+            stk.push([cur, i, cnt]);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_submat(mat: Vec<Vec<i32>>) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut g = vec![vec![0; n]; m];
+        for i in 0..m {
+            for j in 0..n {
+                if mat[i][j] == 1 {
+                    g[i][j] = if j == 0 { 1 } else { 1 + g[i][j - 1] };
+                }
+            }
+        }
+        let mut ans = 0;
+        for j in 0..n {
+            let mut stk: Vec<(i32, i32, i32)> = Vec::new();
+            for i in 0..m {
+                let cur = g[i][j];
+                while !stk.is_empty() && stk.last().unwrap().0 >= cur {
+                    stk.pop();
+                }
+                let cnt = if stk.is_empty() {
+                    cur * (i as i32 + 1)
+                } else {
+                    let t = stk.last().unwrap();
+                    t.2 + cur * (i as i32 - t.1)
+                };
+                ans += cnt;
+                stk.push((cur, i as i32, cnt));
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+var numSubmat = function (mat) {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j]) {
+                g[i][j] = j === 0 ? 1 : 1 + g[i][j - 1];
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j < n; j++) {
+        const stk = [];
+        for (let i = 0; i < m; i++) {
+            const cur = g[i][j];
+            while (stk.length > 0 && stk[stk.length - 1][0] >= cur) {
+                stk.pop();
+            }
+            let cnt = cur * (i + 1);
+            if (stk.length > 0) {
+                const t = stk[stk.length - 1];
+                cnt = t[2] + cur * (i - t[1]);
+            }
+            ans += cnt;
+            stk.push([cur, i, cnt]);
+        }
+    }
+    return ans;
 };
 ```
 
