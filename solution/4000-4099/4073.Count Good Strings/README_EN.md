@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2125
+source: Weekly Contest 522 Q4
 ---
 
 <!-- problem:start -->

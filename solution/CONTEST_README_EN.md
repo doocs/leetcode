@@ -38,6 +38,12 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 523
+
+
+#### Biweekly Contest 193
+
+
 #### Weekly Contest 522
 
 - [4070. Minimum Rotations to Dial a Number I](/solution/4000-4099/4070.Minimum%20Rotations%20to%20Dial%20a%20Number%20I/README_EN.md)

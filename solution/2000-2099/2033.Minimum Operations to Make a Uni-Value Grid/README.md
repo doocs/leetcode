@@ -20,11 +20,13 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个大小为&nbsp;<code>m x n</code> 的二维整数网格 <code>grid</code> 和一个整数 <code>x</code> 。每一次操作，你可以对 <code>grid</code> 中的任一元素 <strong>加</strong> <code>x</code> 或 <strong>减</strong> <code>x</code> 。</p>
+<p>给你一个大小为&nbsp;<code>m x n</code> 的二维整数网格 <code>grid</code> 和一个整数 <code>x</code> 。</p>
+
+<p>每一次操作，你可以对 <code>grid</code> 中的任一元素 <strong>加</strong> <code>x</code> 或 <strong>减</strong> <code>x</code> 。</p>
 
 <p><strong>单值网格</strong> 是全部元素都相等的网格。</p>
 
-<p>返回使网格化为单值网格所需的 <strong>最小</strong> 操作数。如果不能，返回 <code>-1</code> 。</p>
+<p>返回使网格化为 <strong>单值</strong> 网格所需的 <strong>最小</strong> 操作数。如果不能，返回 -1 。</p>
 
 <p>&nbsp;</p>
 

@@ -24,34 +24,54 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>rec1 = [0,0,2,2], rec2 = [1,1,3,3]
-<strong>输出：</strong>true
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">rec1 = [0,0,2,2], rec2 = [1,1,3,3]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong> <span class="example-io">true</span></p>
 
-<pre>
-<strong>输入：</strong>rec1 = [0,0,1,1], rec2 = [1,0,2,1]
-<strong>输出：</strong>false
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>两个矩形在由 <code>(1,1)</code>、<code>(2,1)</code>、<code>(1,2)</code> 和 <code>(2,2)</code> 四个顶点围成的区域内重叠。</p>
 
-<pre>
-<strong>输入：</strong>rec1 = [0,0,1,1], rec2 = [2,2,3,3]
-<strong>输出：</strong>false
-</pre>
+<p>该区域的面积大于零，因此两个矩形重叠。</p>
+</div>
 
-<p>&nbsp;</p>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">rec1 = [0,0,1,1], rec2 = [1,0,2,1]</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>两个矩形共用 <code>x = 1</code> 处的竖直边，但它们没有任何公共的内部区域。</p>
+
+<p>由于它们的交集面积为零，因此两个矩形不重叠。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">rec1 = [0,0,1,1], rec2 = [2,2,3,3]</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>两个矩形完全分离。矩形 <code>rec1</code> 在 <code>x = 1</code> 和 <code>y = 1</code> 处结束，而矩形 <code>rec2</code> 从 <code>x = 2</code> 和 <code>y = 2</code> 处开始。</p>
+
+<p>因此，它们没有任何公共点，也就不存在重叠。</p>
+</div>
+&nbsp;
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>rect1.length == 4</code></li>
-	<li><code>rect2.length == 4</code></li>
+	<li><code>rec1.length == 4</code></li>
+	<li><code>rec2.length == 4</code></li>
 	<li><code>-10<sup>9</sup> &lt;= rec1[i], rec2[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>rec1</code> 和 <code>rec2</code> 表示一个面积不为零的有效矩形</li>
 </ul>
