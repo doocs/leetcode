@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1579
+source: 第 522 场周赛 Q2
 ---
 
 <!-- problem:start -->

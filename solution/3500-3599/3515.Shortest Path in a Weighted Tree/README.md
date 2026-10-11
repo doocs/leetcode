@@ -47,9 +47,9 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/images/1744423814-SDrlUl-screenshot-2025-03-13-at-133524.png" style="width: 200px; height: 75px;" /></p>
 
 <ul>
-	<li>查询 <code>[2,2]</code>：从根节点 1 到节点 2 的最短路径为 7。</li>
-	<li>操作&nbsp;<code>[1,1,2,4]</code>：边 <code>(1,2)</code> 的权重从 7 变为 4。</li>
-	<li>查询 <code>[2,2]</code>：从根节点 1 到节点 2 的最短路径为 4。</li>
+	<li>查询 <code>[2, 2]</code>：从根节点 1 到节点 2 的最短路径为 7。</li>
+	<li>操作&nbsp;<code>[1, 1, 2, 4]</code>：边 <code>(1, 2)</code> 的权重从 7 变为 4。</li>
+	<li>查询 <code>[2, 2]</code>：从根节点 1 到节点 2 的最短路径为 4。</li>
 </ul>
 </div>
 
@@ -65,11 +65,11 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/images/1744423824-zZqYvM-screenshot-2025-03-13-at-132247.png" style="width: 180px; height: 141px;" /></p>
 
 <ul>
-	<li>查询 <code>[2,1]</code>：从根节点 1 到节点 1 的最短路径为 0。</li>
-	<li>查询 <code>[2,3]</code>：从根节点 1 到节点 3 的最短路径为 4。</li>
-	<li>操作&nbsp;<code>[1,1,3,7]</code>：边 <code>(1,3)</code> 的权重从 4 改为 7。</li>
-	<li>查询 <code>[2,2]</code>：从根节点 1 到节点 2 的最短路径为 2。</li>
-	<li>查询 <code>[2,3]</code>：从根节点 1 到节点 3 的最短路径为 7。</li>
+	<li>查询 <code>[2, 1]</code>：从根节点 1 到节点 1 的最短路径为 0。</li>
+	<li>查询 <code>[2, 3]</code>：从根节点 1 到节点 3 的最短路径为 4。</li>
+	<li>操作&nbsp;<code>[1, 1, 3, 7]</code>：边 <code>(1, 3)</code> 的权重从 4 改为 7。</li>
+	<li>查询 <code>[2, 2]</code>：从根节点 1 到节点 2 的最短路径为 2。</li>
+	<li>查询 <code>[2, 3]</code>：从根节点 1 到节点 3 的最短路径为 7。</li>
 </ul>
 </div>
 
@@ -85,11 +85,11 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/images/1744423806-WSWbOq-screenshot-2025-03-13-at-133306.png" style="width: 400px; height: 83px;" /></p>
 
 <ul>
-	<li>查询 <code>[2,4]</code>：从根节点 1 到节点 4 的最短路径包含边 <code>(1,2)</code>、<code>(2,3)</code> 和 <code>(3,4)</code>，权重和为 <code>2 + 1 + 5 = 8</code>。</li>
-	<li>查询 <code>[2,3]</code>：路径为 <code>(1,2)</code> 和 <code>(2,3)</code>，权重和为 <code>2 + 1 = 3</code>。</li>
-	<li>操作&nbsp;<code>[1,2,3,3]</code>：边 <code>(2,3)</code> 的权重从 1 变为 3。</li>
-	<li>查询 <code>[2,2]</code>：最短路径为 2。</li>
-	<li>查询 <code>[2,3]</code>：路径权重变为 <code>2 + 3 = 5</code>。</li>
+	<li>查询 <code>[2, 4]</code>：从根节点 1 到节点 4 的最短路径包含边 <code>(1, 2)</code>、<code>(2, 3)</code> 和 <code>(3, 4)</code>，权重和为 <code>2 + 1 + 5 = 8</code>。</li>
+	<li>查询 <code>[2, 3]</code>：路径为 <code>(1, 2)</code> 和 <code>(2, 3)</code>，权重和为 <code>2 + 1 = 3</code>。</li>
+	<li>操作&nbsp;<code>[1, 2, 3, 3]</code>：边 <code>(2, 3)</code> 的权重从 1 变为 3。</li>
+	<li>查询 <code>[2, 2]</code>：最短路径为 2。</li>
+	<li>查询 <code>[2, 3]</code>：路径权重变为 <code>2 + 3 = 5</code>。</li>
 </ul>
 </div>
 

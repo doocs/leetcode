@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1156
+source: Weekly Contest 522 Q1
 ---
 
 <!-- problem:start -->

@@ -39,7 +39,7 @@ tags:
 	<li>交换形成一个连续的循环（即 员工 A 给 B 一份礼物，B 给 C，C 再给 A）。</li>
 </ul>
 
-<p>返回结果以链的长度和总礼物价值 <strong>降序</strong>&nbsp;排序。</p>
+<p>返回结果以链的长度和总礼物价值 <strong>降序</strong>&nbsp;排序。如果多个不同的链有相同的 <code>chain_length</code> 和 <code>total_gift_value</code>，则只包含该组合一次。</p>
 
 <p>结果格式如下所示。</p>
 

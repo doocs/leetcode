@@ -22,43 +22,62 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组 <code>nums</code> ，和一个表示限制的整数 <code>limit</code>，请你返回最长连续子数组的长度，该子数组中的任意两个元素之间的绝对差必须小于或者等于 <code>limit</code><em>。</em></p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>limit</code>。</p>
+
+<p>请你返回&nbsp;<strong>最长非空子数组&nbsp;</strong>的长度，要求该&nbsp;<strong>子数组&nbsp;</strong>中&nbsp;<strong>任意两个元素&nbsp;</strong>之间的差的&nbsp;<strong>绝对值&nbsp;</strong>都&nbsp;<strong>小于或等于</strong> <code>limit</code>。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [8,2,4,7], limit = 4
-<strong>输出：</strong>2 
-<strong>解释：</strong>所有子数组如下：
-[8] 最大绝对差 |8-8| = 0 &lt;= 4.
-[8,2] 最大绝对差 |8-2| = 6 &gt; 4. 
-[8,2,4] 最大绝对差 |8-2| = 6 &gt; 4.
-[8,2,4,7] 最大绝对差 |8-2| = 6 &gt; 4.
-[2] 最大绝对差 |2-2| = 0 &lt;= 4.
-[2,4] 最大绝对差 |2-4| = 2 &lt;= 4.
-[2,4,7] 最大绝对差 |2-7| = 5 &gt; 4.
-[4] 最大绝对差 |4-4| = 0 &lt;= 4.
-[4,7] 最大绝对差 |4-7| = 3 &lt;= 4.
-[7] 最大绝对差 |7-7| = 0 &lt;= 4. 
-因此，满足题意的最长子数组的长度为 2 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">nums = [8,2,4,7], limit = 4</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong> <span class="example-io">2</span></p>
 
-<pre>
-<strong>输入：</strong>nums = [10,1,2,4,7,2], limit = 5
-<strong>输出：</strong>4 
-<strong>解释：</strong>满足题意的最长子数组是 [2,4,7,2]，其最大绝对差 |2-7| = 5 &lt;= 5 。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>检查所有子数组，计算每个子数组中任意两个元素之间的最大绝对差：<br />
+<code>[8]</code> 的最大绝对差为 <code>|8-8| = 0 &lt;= 4</code>。<br />
+<code>[8,2]</code> 的最大绝对差为 <code>|8-2| = 6 &gt; 4</code>。<br />
+<code>[8,2,4]</code> 的最大绝对差为 <code>|8-2| = 6 &gt; 4</code>。<br />
+<code>[8,2,4,7]</code> 的最大绝对差为 <code>|8-2| = 6 &gt; 4</code>。<br />
+<code>[2]</code> 的最大绝对差为 <code>|2-2| = 0 &lt;= 4</code>。<br />
+<code>[2,4]</code> 的最大绝对差为 <code>|4-2| = 2 &lt;= 4</code>。<br />
+<code>[2,4,7]</code> 的最大绝对差为 <code>|7-2| = 5 &gt; 4</code>。注意，元素对 <code>(2, 7)</code> 并不相邻，但仍然需要进行比较。<br />
+<code>[4]</code> 的最大绝对差为 <code>|4-4| = 0 &lt;= 4</code>。<br />
+<code>[4,7]</code> 的最大绝对差为 <code>|7-4| = 3 &lt;= 4</code>。<br />
+<code>[7]</code> 的最大绝对差为 <code>|7-7| = 0 &lt;= 4</code>。<br />
+因此，最长子数组的长度为 2。</p>
+</div>
 
-<pre>
-<strong>输入：</strong>nums = [4,2,2,2,4,4,2,2], limit = 0
-<strong>输出：</strong>3
-</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">nums = [10,1,2,4,7,2], limit = 5</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>子数组 <code>[2,4,7,2]</code> 满足条件，因为其中任意两个元素之间的绝对差都不超过 <code>5</code>，最大绝对差为 <code>|7-2| = 5</code>。</p>
+
+<p>该子数组无法向左扩展，因为 <code>[1,2,4,7,2]</code> 包含元素对 <code>(1, 7)</code>，其绝对差为 <code>|7-1| = 6 &gt; 5</code>。因此，最长子数组的长度为 4。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">nums = [4,2,2,2,4,4,2,2], limit = 0</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">3</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>由于 <code>limit = 0</code>，子数组中任意两个元素都必须相等，因此只有由相同元素连续组成的子数组才满足条件。</p>
+
+<p>满足条件的最长子数组为 <code>[2,2,2]</code>，长度为 3。</p>
+</div>
 
 <p>&nbsp;</p>
 
