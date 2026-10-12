@@ -4084,6 +4084,14 @@
 |  4071  |  [拨号的最少旋转次数 II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README.md)  |    |  中等  |  第 522 场周赛  |
 |  4072  |  [一次删除后的最大交替子数组和](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README.md)  |    |  中等  |  第 522 场周赛  |
 |  4073  |  [统计好字符串数目](/solution/4000-4099/4073.Count%20Good%20Strings/README.md)  |    |  困难  |  第 522 场周赛  |
+|  4074  |  [和为目标值的最大乘积对](/solution/4000-4099/4074.Maximum%20Product%20Pair%20With%20Target%20Sum/README.md)  |    |  简单  |  第 193 场双周赛  |
+|  4075  |  [最长有韧性的子数组 I](/solution/4000-4099/4075.Longest%20Resilient%20Subarray%20I/README.md)  |    |  中等  |  第 193 场双周赛  |
+|  4076  |  [最长有韧性的子数组 II](/solution/4000-4099/4076.Longest%20Resilient%20Subarray%20II/README.md)  |    |  中等  |  第 193 场双周赛  |
+|  4077  |  [前缀树中的最小逆序对数目](/solution/4000-4099/4077.Minimize%20Inversions%20in%20a%20Prefix%20Tree/README.md)  |    |  困难  |  第 193 场双周赛  |
+|  4078  |  [连续三项斐波那契数之和](/solution/4000-4099/4078.Three%20Fibonacci%20Sum/README.md)  |    |  简单  |  第 523 场周赛  |
+|  4079  |  [选择质数子集 I](/solution/4000-4099/4079.Prime%20Subset%20Selection%20I/README.md)  |    |  中等  |  第 523 场周赛  |
+|  4080  |  [设计公交车座位预订系统](/solution/4000-4099/4080.Design%20Bus%20Seat%20Booking%20System/README.md)  |    |  中等  |  第 523 场周赛  |
+|  4081  |  [选择质数子集 II](/solution/4000-4099/4081.Prime%20Subset%20Selection%20II/README.md)  |    |  困难  |  第 523 场周赛  |
 
 ## 版权
 
