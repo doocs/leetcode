@@ -105,32 +105,294 @@ busBooking.getMinTime(); // 返回 1。按照最优预订顺序，当前唯一�
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：记录预订开销
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 排数和调用次数都可以到 $10^5$，每次查询都重放全部预订顺序会超出时限。
+>
+> 靠窗座位多出来的 $2$ 秒，只在相邻中间座位已经被预订时出现，而且这个开销在 $\textit{toggle}$ 预订的那一刻就固定下来。$\textit{getTotalTime}$ 就是当前仍被占用的座位、各自在预订时记下的开销之和。
+>
+> $\textit{getMinTime}$ 可以重排这些座位的预订顺序。中间座位始终只要 $1$ 秒；先订靠窗、再订相邻的中间座位，额外的 $2$ 秒就不会出现。最少时间等于当前已预订的座位数。每个座位只保存预订当时的开销，总时间和座位数分开维护，单次操作都是 $O(1)$。
+
+<!-- thinking:end -->
+
+每一排用长度为 $4$ 的数组记录座位。位置上的值为 $0$ 表示空闲，否则表示该座位被预订时确定的秒数。变量 $\textit{tot}$ 维护这些秒数之和，另一个计数器维护当前已预订的座位数。
+
+$\textit{toggle}$ 遇到已预订座位时，从 $\textit{tot}$ 中减去它记下的开销，座位数减一，再把该位置清零。遇到空位时，中间座位 $\texttt{B}$ 和 $\texttt{C}$ 的开销为 $1$；靠窗座位 $\texttt{A}$ 和 $\texttt{D}$ 在相邻中间座位已被预订时开销为 $3$，否则为 $1$。把该开销写入数组，并同时更新 $\textit{tot}$ 与座位数。
+
+$\textit{getTotalTime}$ 返回 $\textit{tot}$，$\textit{getMinTime}$ 返回已预订的座位数。
+
+单次操作的时间复杂度为 $O(1)$，空间复杂度为 $O(n)$。其中 $n$ 是排数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BusBooking:
+    def __init__(self, n: int):
+        self.tot = 0
+        self.min_tot = 0
+        self.cost_data = [[0] * 4 for _ in range(n)]
 
+    def toggle(self, seat: str) -> None:
+        i = int(seat[1:]) - 1
+        j = ord(seat[0]) - ord("A")
+        if self.cost_data[i][j] > 0:
+            self.min_tot -= 1
+            self.tot -= self.cost_data[i][j]
+            self.cost_data[i][j] = 0
+            return
+        cost = 1
+        if (j == 0 and self.cost_data[i][1] > 0) or (
+            j == 3 and self.cost_data[i][2] > 0
+        ):
+            cost = 3
+        self.min_tot += 1
+        self.tot += cost
+        self.cost_data[i][j] = cost
+
+    def getTotalTime(self) -> int:
+        return self.tot
+
+    def getMinTime(self) -> int:
+        return self.min_tot
+
+
+# Your BusBooking object will be instantiated and called as such:
+# obj = BusBooking(n)
+# obj.toggle(seat)
+# param_2 = obj.getTotalTime()
+# param_3 = obj.getMinTime()
 ```
 
 #### Java
 
 ```java
+class BusBooking {
+    private int tot;
+    private int minTot;
+    private int[][] costData;
 
+    public BusBooking(int n) {
+        this.tot = 0;
+        this.minTot = 0;
+        this.costData = new int[n][4];
+    }
+
+    public void toggle(String seat) {
+        int i = Integer.parseInt(seat.substring(1)) - 1;
+        int j = seat.charAt(0) - 'A';
+        if (costData[i][j] > 0) {
+            minTot -= 1;
+            tot -= costData[i][j];
+            costData[i][j] = 0;
+            return;
+        }
+        int cost = 1;
+        if ((j == 0 && costData[i][1] > 0) || (j == 3 && costData[i][2] > 0)) {
+            cost = 3;
+        }
+        minTot += 1;
+        tot += cost;
+        costData[i][j] = cost;
+    }
+
+    public int getTotalTime() {
+        return tot;
+    }
+
+    public int getMinTime() {
+        return minTot;
+    }
+}
+
+/**
+ * Your BusBooking object will be instantiated and called as such:
+ * BusBooking obj = new BusBooking(n);
+ * obj.toggle(seat);
+ * int param_2 = obj.getTotalTime();
+ * int param_3 = obj.getMinTime();
+ */
 ```
 
 #### C++
 
 ```cpp
+class BusBooking {
+private:
+    int tot;
+    int min_tot;
+    vector<array<int, 4>> cost_data;
 
+public:
+    BusBooking(int n) {
+        tot = 0;
+        min_tot = 0;
+        cost_data = vector<array<int, 4>>(n, {0, 0, 0, 0});
+    }
+
+    void toggle(string seat) {
+        int i = 0;
+        for (int k = 1; k < seat.size(); k++) {
+            i = i * 10 + (seat[k] - '0');
+        }
+        i -= 1;
+        int j = seat[0] - 'A';
+
+        if (cost_data[i][j] > 0) {
+            min_tot -= 1;
+            tot -= cost_data[i][j];
+            cost_data[i][j] = 0;
+            return;
+        }
+
+        int cost = 1;
+        if ((j == 0 && cost_data[i][1] > 0) || (j == 3 && cost_data[i][2] > 0)) {
+            cost = 3;
+        }
+        min_tot += 1;
+        tot += cost;
+        cost_data[i][j] = cost;
+    }
+
+    int getTotalTime() {
+        return tot;
+    }
+
+    int getMinTime() {
+        return min_tot;
+    }
+};
+
+/**
+ * Your BusBooking object will be instantiated and called as such:
+ * BusBooking* obj = new BusBooking(n);
+ * obj->toggle(seat);
+ * int param_2 = obj->getTotalTime();
+ * int param_3 = obj->getMinTime();
+ */
 ```
 
 #### Go
 
 ```go
+type BusBooking struct {
+	tot      int
+	minTot   int
+	costData [][]int
+}
 
+func Constructor(n int) BusBooking {
+	costData := make([][]int, n)
+	for i := range costData {
+		costData[i] = make([]int, 4)
+	}
+	return BusBooking{
+		tot:      0,
+		minTot:   0,
+		costData: costData,
+	}
+}
+
+func (this *BusBooking) Toggle(seat string) {
+	i := 0
+	for k := 1; k < len(seat); k++ {
+		i = i*10 + int(seat[k]-'0')
+	}
+	i -= 1
+	j := int(seat[0] - 'A')
+
+	if this.costData[i][j] > 0 {
+		this.minTot -= 1
+		this.tot -= this.costData[i][j]
+		this.costData[i][j] = 0
+		return
+	}
+
+	cost := 1
+	if (j == 0 && this.costData[i][1] > 0) || (j == 3 && this.costData[i][2] > 0) {
+		cost = 3
+	}
+	this.minTot += 1
+	this.tot += cost
+	this.costData[i][j] = cost
+}
+
+func (this *BusBooking) GetTotalTime() int {
+	return this.tot
+}
+
+func (this *BusBooking) GetMinTime() int {
+	return this.minTot
+}
+
+/**
+ * Your BusBooking object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * obj.Toggle(seat);
+ * param_2 := obj.GetTotalTime();
+ * param_3 := obj.GetMinTime();
+ */
+```
+
+#### TypeScript
+
+```ts
+class BusBooking {
+    private tot: number;
+    private minTot: number;
+    private costData: number[][];
+
+    constructor(n: number) {
+        this.tot = 0;
+        this.minTot = 0;
+        this.costData = Array.from({ length: n }, () => new Array<number>(4).fill(0));
+    }
+
+    toggle(seat: string): void {
+        let i = 0;
+        for (let k = 1; k < seat.length; k++) {
+            i = i * 10 + (seat.charCodeAt(k) - '0'.charCodeAt(0));
+        }
+        i -= 1;
+        const j = seat.charCodeAt(0) - 'A'.charCodeAt(0);
+
+        if (this.costData[i][j] > 0) {
+            this.minTot -= 1;
+            this.tot -= this.costData[i][j];
+            this.costData[i][j] = 0;
+            return;
+        }
+
+        let cost = 1;
+        if ((j === 0 && this.costData[i][1] > 0) || (j === 3 && this.costData[i][2] > 0)) {
+            cost = 3;
+        }
+        this.minTot += 1;
+        this.tot += cost;
+        this.costData[i][j] = cost;
+    }
+
+    getTotalTime(): number {
+        return this.tot;
+    }
+
+    getMinTime(): number {
+        return this.minTot;
+    }
+}
+
+/**
+ * Your BusBooking object will be instantiated and called as such:
+ * var obj = new BusBooking(n)
+ * obj.toggle(seat)
+ * var param_2 = obj.getTotalTime()
+ * var param_3 = obj.getMinTime()
+ */
 ```
 
 <!-- tabs:end -->

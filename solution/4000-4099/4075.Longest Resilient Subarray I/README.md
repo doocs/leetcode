@@ -80,32 +80,133 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：同余分段
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 子数组长度可以到 $2500$。把每个区间都枚举出来，再逐个位置检查删除后的剩余和，计算量是三次方，超出了这个规模。
+>
+> 每个位置都要求 $\textit{sum}-a_i$ 能被 $k$ 整除，也就是每个 $a_i$ 都与 $\textit{sum}$ 模 $k$ 同余。区间内的元素模 $k$ 因此全部相同。记这个余数为 $r$，长度 $L$ 还要满足 $(L-1)r\equiv 0\pmod{k}$。
+>
+> 相同余数只连成若干连续段。段内长度每次增加 $1$，条件又只和当前长度以及 $r$ 有关，顺着每一段走一遍就能记下所有合法长度。
+
+<!-- thinking:end -->
+
+先把每个元素对 $k$ 取模。模 $k$ 相同的元素组成若干连续段。设当前段的余数是 $r$，段内已经连续出现了 $\textit{cnt}$ 个元素。长度为 $1$ 时剩余和为 $0$，这一段始终有韧性。当
+
+$$
+r\cdot(\textit{cnt}-1)\equiv 0\pmod{k}
+$$
+
+时，这一段长度为 $\textit{cnt}$ 的前缀是有韧性子数组，用它更新答案。余数发生变化时重新开始计数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def resilientSubarray(self, nums: list[int], k: int) -> int:
+        ans = cnt = 0
+        for i, x in enumerate(nums):
+            x %= k
+            if i and nums[i - 1] % k == x:
+                cnt += 1
+            else:
+                cnt = 1
+            if x * (cnt - 1) % k == 0:
+                ans = max(ans, cnt)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int resilientSubarray(int[] nums, int k) {
+        int ans = 0, cnt = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int x = nums[i] % k;
+            if (i > 0 && nums[i - 1] % k == x) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            if (x * (cnt - 1) % k == 0) {
+                ans = Math.max(ans, cnt);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int resilientSubarray(vector<int>& nums, int k) {
+        int ans = 0, cnt = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            int x = nums[i] % k;
+            if (i > 0 && nums[i - 1] % k == x) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            if (x * (cnt - 1) % k == 0) {
+                ans = max(ans, cnt);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func resilientSubarray(nums []int, k int) int {
+	ans, cnt := 0, 0
+	for i, v := range nums {
+		x := v % k
+		if i > 0 && nums[i-1]%k == x {
+			cnt++
+		} else {
+			cnt = 1
+		}
+		if x*(cnt-1)%k == 0 {
+			ans = max(ans, cnt)
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function resilientSubarray(nums: number[], k: number): number {
+    let ans = 0,
+        cnt = 0;
+    for (let i = 0; i < nums.length; i++) {
+        const x = nums[i] % k;
+        if (i > 0 && nums[i - 1] % k === x) {
+            cnt++;
+        } else {
+            cnt = 1;
+        }
+        if ((x * (cnt - 1)) % k === 0) {
+            ans = Math.max(ans, cnt);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

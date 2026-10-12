@@ -143,32 +143,134 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Map
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, checking every pair of indices is already fast enough. Negative values need separate care: once the sum is fixed, moving the two numbers closer to $\textit{target}/2$ does not make the product larger, so each product is compared directly.
+>
+> The complement of $x$ is always $y=\textit{target}-x$. A valid pair also requires the two values to be different, so the case $x=y$ can be skipped.
+>
+> The product depends only on those two values. While scanning from left to right, a hash map stores the latest index of each value; when $x$ is seen, look up $y$ and keep the pair with the larger product.
+
+<!-- thinking:end -->
+
+Use a hash map $\textit{pos}$ to store the latest index of each value. Scan $\textit{nums}[i]=x$ from left to right and set $y=\textit{target}-x$. If $x\neq y$, $y$ has already occurred, and $x\cdot y$ is greater than the best product so far, update the answer and place the larger value first so that $\textit{nums}[i]>\textit{nums}[j]$. If no valid pair is found, the answer stays $[-1,-1]$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+from math import inf
 
+
+class Solution:
+    def maxProductPair(self, nums: list[int], target: int) -> list[int]:
+        pos = {}
+        mx = -inf
+        ans = [-1, -1]
+        for i, x in enumerate(nums):
+            y = target - x
+            if x != y and x * y > mx and y in pos:
+                j = pos[y]
+                mx = x * y
+                ans = [i, j] if x > y else [j, i]
+            pos[x] = i
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] maxProductPair(int[] nums, int target) {
+        Map<Integer, Integer> pos = new HashMap<>();
+        int mx = Integer.MIN_VALUE;
+        int[] ans = {-1, -1};
+        for (int i = 0; i < nums.length; ++i) {
+            int x = nums[i], y = target - x;
+            if (x != y && x * y > mx && pos.containsKey(y)) {
+                int j = pos.get(y);
+                mx = x * y;
+                ans = x > y ? new int[] {i, j} : new int[] {j, i};
+            }
+            pos.put(x, i);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> maxProductPair(vector<int>& nums, int target) {
+        unordered_map<int, int> pos;
+        int mx = INT_MIN;
+        vector<int> ans = {-1, -1};
+        for (int i = 0; i < nums.size(); ++i) {
+            int x = nums[i], y = target - x;
+            if (x != y && x * y > mx && pos.contains(y)) {
+                int j = pos[y];
+                mx = x * y;
+                ans = x > y ? vector<int>{i, j} : vector<int>{j, i};
+            }
+            pos[x] = i;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxProductPair(nums []int, target int) []int {
+	pos := map[int]int{}
+	mx := -int(^uint(0)>>1) - 1
+	ans := []int{-1, -1}
+	for i, x := range nums {
+		y := target - x
+		if j, ok := pos[y]; x != y && ok && x*y > mx {
+			mx = x * y
+			if x > y {
+				ans = []int{i, j}
+			} else {
+				ans = []int{j, i}
+			}
+		}
+		pos[x] = i
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxProductPair(nums: number[], target: number): number[] {
+    const pos = new Map<number, number>();
+    let mx = -Infinity;
+    let ans = [-1, -1];
+    for (let i = 0; i < nums.length; ++i) {
+        const x = nums[i],
+            y = target - x;
+        if (x !== y && x * y > mx && pos.has(y)) {
+            const j = pos.get(y)!;
+            mx = x * y;
+            ans = x > y ? [i, j] : [j, i];
+        }
+        pos.set(x, i);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

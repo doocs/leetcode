@@ -75,32 +75,133 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Congruent Runs
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray can be as long as $2500$. Enumerating every interval and then checking the sum after each deletion is cubic, which is too much for this limit.
+>
+> Requiring $\textit{sum}-a_i$ to be divisible by $k$ at every index means every $a_i$ is congruent to $\textit{sum}$ modulo $k$. All elements in the subarray therefore share one residue $r$, and the length $L$ must also satisfy $(L-1)r\equiv 0\pmod{k}$.
+>
+> Equal residues form contiguous runs. Inside a run the length grows by $1$, and the condition depends only on that length and $r$, so one pass over each run records every feasible length.
+
+<!-- thinking:end -->
+
+Reduce every element modulo $k$. Equal residues form contiguous runs. Let $r$ be the residue of the current run and $\textit{cnt}$ its current length. A run of length $1$ is always resilient, because the remaining sum is $0$. Whenever
+
+$$
+r\cdot(\textit{cnt}-1)\equiv 0\pmod{k},
+$$
+
+the prefix of length $\textit{cnt}$ is resilient, and the answer is updated with $\textit{cnt}$. A change of residue starts a new run.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def resilientSubarray(self, nums: list[int], k: int) -> int:
+        ans = cnt = 0
+        for i, x in enumerate(nums):
+            x %= k
+            if i and nums[i - 1] % k == x:
+                cnt += 1
+            else:
+                cnt = 1
+            if x * (cnt - 1) % k == 0:
+                ans = max(ans, cnt)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int resilientSubarray(int[] nums, int k) {
+        int ans = 0, cnt = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int x = nums[i] % k;
+            if (i > 0 && nums[i - 1] % k == x) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            if (x * (cnt - 1) % k == 0) {
+                ans = Math.max(ans, cnt);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int resilientSubarray(vector<int>& nums, int k) {
+        int ans = 0, cnt = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            int x = nums[i] % k;
+            if (i > 0 && nums[i - 1] % k == x) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            if (x * (cnt - 1) % k == 0) {
+                ans = max(ans, cnt);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func resilientSubarray(nums []int, k int) int {
+	ans, cnt := 0, 0
+	for i, v := range nums {
+		x := v % k
+		if i > 0 && nums[i-1]%k == x {
+			cnt++
+		} else {
+			cnt = 1
+		}
+		if x*(cnt-1)%k == 0 {
+			ans = max(ans, cnt)
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function resilientSubarray(nums: number[], k: number): number {
+    let ans = 0,
+        cnt = 0;
+    for (let i = 0; i < nums.length; i++) {
+        const x = nums[i] % k;
+        if (i > 0 && nums[i - 1] % k === x) {
+            cnt++;
+        } else {
+            cnt = 1;
+        }
+        if ((x * (cnt - 1)) % k === 0) {
+            ans = Math.max(ans, cnt);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
