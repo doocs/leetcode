@@ -226,6 +226,7 @@ func minInsertions(s string) int {
 	return ans
 }
 ```
+
 #### TypeScript
 
 ```ts
