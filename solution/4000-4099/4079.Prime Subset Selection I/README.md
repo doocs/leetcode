@@ -95,32 +95,206 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：埃氏筛 + 贪心
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要在总和不超过 $s$ 的前提下让质数个数最多。$n$ 到 $10^6$、$s$ 到 $10^9$，按背包枚举子集放不下这个范围。
+>
+> 个数相同的子集里，和最小的选法由最小的那些质数组成。能达到的最大个数，就是从小到大累加后仍不超过 $s$ 的最长前缀。
+>
+> 先筛出不超过 $10^6$ 的质数。查询时按升序选取，直到下一个质数大于 $n$，或者大于剩下的预算。
+
+<!-- thinking:end -->
+
+用埃氏筛预处理所有不超过 $10^6$ 的质数，并按升序保存。给定 $n$ 和 $s$ 后，从小到大扫描这张表。当前质数 $p$ 大于 $n$，或者大于剩余预算 $s$ 时停止；否则把 $p$ 放入答案，并从 $s$ 中减去 $p$。
+
+这样得到的是不超过 $n$ 的最小若干个质数。在个数相同的子集中它们的和最小，因此个数已经最大。题目允许返回任意一个最优子集。
+
+筛法的时间复杂度为 $O(M\log\log M)$，空间复杂度为 $O(M)$，其中 $M=10^6$。单次查询的时间复杂度为 $O(\pi(n))$，$\pi(n)$ 表示不超过 $n$ 的质数个数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+mx = 10**6
+primes = []
+is_prime = [True] * (mx + 1)
+is_prime[0] = is_prime[1] = False
 
+for i in range(2, mx + 1):
+    if is_prime[i]:
+        primes.append(i)
+        if i * i <= mx:
+            for j in range(i * i, mx + 1, i):
+                is_prime[j] = False
+
+
+class Solution:
+    def maxPrimes(self, n: int, s: int) -> list[int]:
+        ans = []
+        for p in primes:
+            if p > n or p > s:
+                break
+            ans.append(p)
+            s -= p
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    static int mx = 1000000;
+    static List<Integer> primes = new ArrayList<>();
 
+    static {
+        boolean[] isPrime = new boolean[mx + 1];
+        Arrays.fill(isPrime, true);
+        isPrime[0] = isPrime[1] = false;
+
+        for (int i = 2; i <= mx; i++) {
+            if (isPrime[i]) {
+                primes.add(i);
+                if (i <= mx / i) {
+                    for (int j = i * i; j <= mx; j += i) {
+                        isPrime[j] = false;
+                    }
+                }
+            }
+        }
+    }
+
+    public List<Integer> maxPrimes(int n, int s) {
+        List<Integer> ans = new ArrayList<>();
+        for (int p : primes) {
+            if (p > n || p > s) {
+                break;
+            }
+            ans.add(p);
+            s -= p;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+    static const int mx = 1000000;
+    static vector<int> primes;
 
+public:
+    vector<int> maxPrimes(int n, int s) {
+        vector<int> ans;
+        for (int p : primes) {
+            if (p > n || p > s) {
+                break;
+            }
+            ans.push_back(p);
+            s -= p;
+        }
+        return ans;
+    }
+};
+
+const int Solution::mx;
+vector<int> Solution::primes = [] {
+    vector<bool> isPrime(mx + 1, true);
+    isPrime[0] = isPrime[1] = false;
+    vector<int> primes;
+
+    for (int i = 2; i <= mx; i++) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+            if (i <= mx / i) {
+                for (int j = i * i; j <= mx; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+    }
+    return primes;
+}();
 ```
 
 #### Go
 
 ```go
+const mx = 1000000
 
+var primes = func() []int {
+	isPrime := make([]bool, mx+1)
+	for i := 2; i <= mx; i++ {
+		isPrime[i] = true
+	}
+
+	primes := make([]int, 0)
+	for i := 2; i <= mx; i++ {
+		if isPrime[i] {
+			primes = append(primes, i)
+			if i <= mx/i {
+				for j := i * i; j <= mx; j += i {
+					isPrime[j] = false
+				}
+			}
+		}
+	}
+	return primes
+}()
+
+func maxPrimes(n int, s int) []int {
+	ans := make([]int, 0)
+	for _, p := range primes {
+		if p > n || p > s {
+			break
+		}
+		ans = append(ans, p)
+		s -= p
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+const mx = 10 ** 6;
+
+const primes: number[] = (() => {
+    const isPrime = new Uint8Array(mx + 1).fill(1);
+    isPrime[0] = isPrime[1] = 0;
+    const primes: number[] = [];
+
+    for (let i = 2; i <= mx; i++) {
+        if (isPrime[i]) {
+            primes.push(i);
+            if (i <= mx / i) {
+                for (let j = i * i; j <= mx; j += i) {
+                    isPrime[j] = 0;
+                }
+            }
+        }
+    }
+    return primes;
+})();
+
+function maxPrimes(n: number, s: number): number[] {
+    const ans: number[] = [];
+    for (const p of primes) {
+        if (p > n || p > s) {
+            break;
+        }
+        ans.push(p);
+        s -= p;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
