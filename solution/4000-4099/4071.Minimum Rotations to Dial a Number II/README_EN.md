@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1579
+source: Weekly Contest 522 Q2
 ---
 
 <!-- problem:start -->

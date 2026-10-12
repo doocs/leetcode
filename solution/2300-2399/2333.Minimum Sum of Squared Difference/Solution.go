@@ -1,47 +1,31 @@
 func minSumSquareDiff(nums1 []int, nums2 []int, k1 int, k2 int) int64 {
 	k := k1 + k2
-	s, mx := 0, 0
-	n := len(nums1)
-	d := make([]int, n)
-	for i, v := range nums1 {
-		d[i] = abs(v - nums2[i])
-		s += d[i]
-		mx = max(mx, d[i])
+	var s int64
+	mx := 0
+	cnt := make([]int, 100001)
+	for i, a := range nums1 {
+		v := abs(a - nums2[i])
+		cnt[v]++
+		s += int64(v)
+		mx = max(mx, v)
 	}
-	if s <= k {
+	if s <= int64(k) {
 		return 0
 	}
-	left, right := 0, mx
-	for left < right {
-		mid := (left + right) >> 1
-		t := 0
-		for _, v := range d {
-			t += max(v-mid, 0)
+	for v := mx; v > 0 && k > 0; v-- {
+		if cnt[v] == 0 {
+			continue
 		}
-		if t <= k {
-			right = mid
-		} else {
-			left = mid + 1
-		}
+		take := min(cnt[v], k)
+		k -= take
+		cnt[v] -= take
+		cnt[v-1] += take
 	}
-	for i, v := range d {
-		k -= max(v-left, 0)
-		d[i] = min(v, left)
+	var ans int64
+	for v := 0; v <= mx; v++ {
+		ans += int64(v) * int64(v) * int64(cnt[v])
 	}
-	for i, v := range d {
-		if k <= 0 {
-			break
-		}
-		if v == left {
-			d[i]--
-			k--
-		}
-	}
-	ans := 0
-	for _, v := range d {
-		ans += v * v
-	}
-	return int64(ans)
+	return ans
 }
 
 func abs(x int) int {

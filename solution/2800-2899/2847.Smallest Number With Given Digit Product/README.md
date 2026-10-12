@@ -16,7 +16,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个 <strong>正</strong> 整数 <code>n</code>，返回一个字符串，表示使其各位数字的乘积等于 <code>n</code>&nbsp;的 <strong>最小正整数</strong>，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
+<p>给定一个 <strong>正</strong> 整数 <code>n</code>。</p>
+
+<p>返回一个字符串，表示使其各位数字的乘积等于 <code>n</code>&nbsp;的 <strong>最小正整数</strong>，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
@@ -49,7 +51,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>18</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>15</sup></code></li>
 </ul>
 
 <!-- description:end -->
