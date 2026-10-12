@@ -24,7 +24,7 @@ tags:
 
 <p>一次 <strong>删除</strong> 操作定义为从数组的 <strong>前面</strong> 移除一个元素或从数组的 <strong>后面</strong> 移除一个元素。</p>
 
-<p>返回将数组中最小值和最大值 <strong>都</strong> 移除需要的最小删除次数。</p>
+<p>返回将数组中 <strong>最小值</strong> 和 <strong>最大值</strong> <strong>都</strong> 移除需要的 <strong>最小</strong> 删除次数。</p>
 
 <p>&nbsp;</p>
 

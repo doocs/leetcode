@@ -69,17 +69,27 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：二分查找
+### 方法一：贪心 + 计数
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 每次可将某个 $|nums1_i-nums2_i|$ 减一，共 $k_1+k_2$ 次，最小化平方和。 $n \le 10^5$ 且操作可达 $2 \times 10^9$，不能一次减一步。
+> 对任一位置做一次 $\pm 1$，无论改的是 $nums1$ 还是 $nums2$，都只是把该位置的绝对差值减一，因此 $k_1$ 与 $k_2$ 可以合成总预算 $k$。 $n \le 10^5$，预算最高到 $2 \times 10^9$，按次模拟或用堆维护当前最大值都会超时。
 >
-> 平方函数凸，应尽量削平较大差值。先二分最终保留的上限 $x$，使超出 $x$ 的总量不超过 $k$；再把剩余次数分给仍等于 $x$ 的位置。差值总和本就 $\le k$ 时答案为 $0$。
+> 平方严格凸，同一次操作减在更大的差值上，平方和下降更多，所以应当总是削当前最大的差值。差值本身不超过 $10^5$，相等的差值可以整层下移。
+>
+> 统计每个差值的出现次数后从大到小扫描：预算够覆盖整层，就把这一层全部并入下一层；否则用完剩余预算并停止。所有差值之和不超过 $k$ 时，答案为 $0$。
 
 <!-- thinking:end -->
+
+我们令 $k = k_1 + k_2$，并计算每个位置的差值 $d_i = |nums1_i - nums2_i|$。若这些差值之和不超过 $k$，则可以把它们全部降为 $0$，答案为 $0$。
+
+否则用数组 $cnt$ 记录每个差值出现的次数，记最大差值为 $m$。从 $v = m$ 起向下枚举：这一层有 $cnt[v]$ 个数，实际能减一的个数是 $\textit{take} = \min(cnt[v], k)$。把这 $\textit{take}$ 个数挪到 $v - 1$，并令 $k$ 减去 $\textit{take}$。 $k$ 用尽后即可停止。
+
+答案等于 $\sum_v v^2 \cdot cnt[v]$。
+
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组长度， $M$ 是差值的最大值，本题中 $M \le 10^5$。
 
 <!-- tabs:start -->
 
@@ -90,27 +100,26 @@ class Solution:
     def minSumSquareDiff(
         self, nums1: List[int], nums2: List[int], k1: int, k2: int
     ) -> int:
-        d = [abs(a - b) for a, b in zip(nums1, nums2)]
         k = k1 + k2
-        if sum(d) <= k:
+        s = mx = 0
+        cnt = [0] * 100001
+        for a, b in zip(nums1, nums2):
+            v = abs(a - b)
+            cnt[v] += 1
+            s += v
+            mx = max(mx, v)
+        if s <= k:
             return 0
-        left, right = 0, max(d)
-        while left < right:
-            mid = (left + right) >> 1
-            if sum(max(v - mid, 0) for v in d) <= k:
-                right = mid
-            else:
-                left = mid + 1
-        for i, v in enumerate(d):
-            d[i] = min(left, v)
-            k -= max(0, v - left)
-        for i, v in enumerate(d):
+        for v in range(mx, 0, -1):
+            if cnt[v] == 0:
+                continue
+            take = min(cnt[v], k)
+            k -= take
+            cnt[v] -= take
+            cnt[v - 1] += take
             if k == 0:
                 break
-            if v == left:
-                k -= 1
-                d[i] -= 1
-        return sum(v * v for v in d)
+        return sum(v * v * cnt[v] for v in range(mx + 1))
 ```
 
 #### Java
@@ -118,45 +127,31 @@ class Solution:
 ```java
 class Solution {
     public long minSumSquareDiff(int[] nums1, int[] nums2, int k1, int k2) {
-        int n = nums1.length;
-        int[] d = new int[n];
+        int k = k1 + k2;
         long s = 0;
         int mx = 0;
-        int k = k1 + k2;
-        for (int i = 0; i < n; ++i) {
-            d[i] = Math.abs(nums1[i] - nums2[i]);
-            s += d[i];
-            mx = Math.max(mx, d[i]);
+        int[] cnt = new int[100001];
+        for (int i = 0; i < nums1.length; ++i) {
+            int v = Math.abs(nums1[i] - nums2[i]);
+            ++cnt[v];
+            s += v;
+            mx = Math.max(mx, v);
         }
         if (s <= k) {
             return 0;
         }
-        int left = 0, right = mx;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            long t = 0;
-            for (int v : d) {
-                t += Math.max(v - mid, 0);
+        for (int v = mx; v > 0 && k > 0; --v) {
+            if (cnt[v] == 0) {
+                continue;
             }
-            if (t <= k) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            k -= Math.max(0, d[i] - left);
-            d[i] = Math.min(d[i], left);
-        }
-        for (int i = 0; i < n && k > 0; ++i) {
-            if (d[i] == left) {
-                --k;
-                --d[i];
-            }
+            int take = Math.min(cnt[v], k);
+            k -= take;
+            cnt[v] -= take;
+            cnt[v - 1] += take;
         }
         long ans = 0;
-        for (int v : d) {
-            ans += (long) v * v;
+        for (int v = 0; v <= mx; ++v) {
+            ans += (long) v * v * cnt[v];
         }
         return ans;
     }
@@ -166,44 +161,35 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long minSumSquareDiff(vector<int>& nums1, vector<int>& nums2, int k1, int k2) {
-        int n = nums1.size();
-        vector<int> d(n);
-        ll s = 0;
-        int mx = 0;
         int k = k1 + k2;
-        for (int i = 0; i < n; ++i) {
-            d[i] = abs(nums1[i] - nums2[i]);
-            s += d[i];
-            mx = max(mx, d[i]);
+        long long s = 0;
+        int mx = 0;
+        vector<int> cnt(100001);
+        for (int i = 0; i < nums1.size(); ++i) {
+            int v = abs(nums1[i] - nums2[i]);
+            ++cnt[v];
+            s += v;
+            mx = max(mx, v);
         }
-        if (s <= k) return 0;
-        int left = 0, right = mx;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            ll t = 0;
-            for (int v : d) t += max(v - mid, 0);
-            if (t <= k)
-                right = mid;
-            else
-                left = mid + 1;
+        if (s <= k) {
+            return 0;
         }
-        for (int i = 0; i < n; ++i) {
-            k -= max(0, d[i] - left);
-            d[i] = min(d[i], left);
-        }
-        for (int i = 0; i < n && k; ++i) {
-            if (d[i] == left) {
-                --k;
-                --d[i];
+        for (int v = mx; v > 0 && k > 0; --v) {
+            if (cnt[v] == 0) {
+                continue;
             }
+            int take = min(cnt[v], k);
+            k -= take;
+            cnt[v] -= take;
+            cnt[v - 1] += take;
         }
-        ll ans = 0;
-        for (int v : d) ans += 1ll * v * v;
+        long long ans = 0;
+        for (int v = 0; v <= mx; ++v) {
+            ans += 1LL * v * v * cnt[v];
+        }
         return ans;
     }
 };
@@ -214,48 +200,32 @@ public:
 ```go
 func minSumSquareDiff(nums1 []int, nums2 []int, k1 int, k2 int) int64 {
 	k := k1 + k2
-	s, mx := 0, 0
-	n := len(nums1)
-	d := make([]int, n)
-	for i, v := range nums1 {
-		d[i] = abs(v - nums2[i])
-		s += d[i]
-		mx = max(mx, d[i])
+	var s int64
+	mx := 0
+	cnt := make([]int, 100001)
+	for i, a := range nums1 {
+		v := abs(a - nums2[i])
+		cnt[v]++
+		s += int64(v)
+		mx = max(mx, v)
 	}
-	if s <= k {
+	if s <= int64(k) {
 		return 0
 	}
-	left, right := 0, mx
-	for left < right {
-		mid := (left + right) >> 1
-		t := 0
-		for _, v := range d {
-			t += max(v-mid, 0)
+	for v := mx; v > 0 && k > 0; v-- {
+		if cnt[v] == 0 {
+			continue
 		}
-		if t <= k {
-			right = mid
-		} else {
-			left = mid + 1
-		}
+		take := min(cnt[v], k)
+		k -= take
+		cnt[v] -= take
+		cnt[v-1] += take
 	}
-	for i, v := range d {
-		k -= max(v-left, 0)
-		d[i] = min(v, left)
+	var ans int64
+	for v := 0; v <= mx; v++ {
+		ans += int64(v) * int64(v) * int64(cnt[v])
 	}
-	for i, v := range d {
-		if k <= 0 {
-			break
-		}
-		if v == left {
-			d[i]--
-			k--
-		}
-	}
-	ans := 0
-	for _, v := range d {
-		ans += v * v
-	}
-	return int64(ans)
+	return ans
 }
 
 func abs(x int) int {

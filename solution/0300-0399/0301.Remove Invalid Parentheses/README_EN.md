@@ -255,10 +255,20 @@ func removeInvalidParentheses(s string) []string {
 ```
 ### Typscript
 
+<<<<<<< HEAD
 ```ts
 function removeInvalidParentheses(s: string): string[] {
     const n = s.length;
     let l = 0, r = 0;
+=======
+#### TypeScript
+
+```ts
+function removeInvalidParentheses(s: string): string[] {
+    const n = s.length;
+    let l = 0,
+        r = 0;
+>>>>>>> af91c82b5d8912f186732e254c0193bccbfc24ca
     for (const c of s) {
         if (c === '(') {
             l++;
@@ -299,6 +309,10 @@ function removeInvalidParentheses(s: string): string[] {
     return Array.from(ans);
 }
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> af91c82b5d8912f186732e254c0193bccbfc24ca
 <!-- tabs:end -->
 
 <!-- solution:end -->

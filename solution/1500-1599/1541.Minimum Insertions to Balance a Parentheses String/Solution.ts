@@ -20,4 +20,8 @@ function minInsertions(s: string): number {
     }
     ans += x << 1;
     return ans;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> af91c82b5d8912f186732e254c0193bccbfc24ca

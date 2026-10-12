@@ -26,15 +26,16 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [1,2,3]
-<strong>输出：</strong>6
-</pre>
+<strong>输入：</strong>nums = [1,2,-3]
+<strong>输出：</strong>-6
+<strong>解释：</strong>只有三个数字 1、2 和 -3，因此最大乘积是 1 * 2 * -3 = -6。</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [1,2,3,4]
 <strong>输出：</strong>24
+<strong>解释：</strong>最大的乘积来自三个最大的数字：2 * 3 * 4 = 24。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -42,6 +43,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [-1,-2,-3]
 <strong>输出：</strong>-6
+<strong>解释：</strong>只有三个数字 -1、-2 和 -3，因此最大乘积是 (-1) * (-2) * (-3) = -6。
 </pre>
 
 <p>&nbsp;</p>
