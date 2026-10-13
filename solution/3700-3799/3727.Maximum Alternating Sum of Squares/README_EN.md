@@ -99,11 +99,12 @@ The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, wh
 ```python
 class Solution:
     def maxAlternatingSum(self, nums: List[int]) -> int:
-        nums.sort(key=lambda x: x * x)
-        n = len(nums)
-        s1 = sum(x * x for x in nums[: n // 2])
-        s2 = sum(x * x for x in nums[n // 2 :])
-        return s2 - s1
+        nums = [x * x for x in nums]
+        nums.sort()
+        ans, m = 0, len(nums) >> 1
+        for i, x in enumerate(nums):
+            ans += -x if i < m else x
+        return ans
 ```
 
 #### Java
@@ -117,12 +118,9 @@ class Solution {
         }
         Arrays.sort(nums);
         long ans = 0;
-        int m = n / 2;
-        for (int i = 0; i < m; ++i) {
-            ans -= nums[i];
-        }
-        for (int i = m; i < n; ++i) {
-            ans += nums[i];
+        int m = n >> 1;
+        for (int i = 0; i < n; ++i) {
+            ans += i < m ? -nums[i] : nums[i];
         }
         return ans;
     }
@@ -139,12 +137,10 @@ public:
             x = x * x;
         }
         ranges::sort(nums);
-        long long ans = 0, m = nums.size() / 2;
-        for (int i = 0; i < m; ++i) {
-            ans -= nums[i];
-        }
-        for (int i = m; i < nums.size(); ++i) {
-            ans += nums[i];
+        long long ans = 0;
+        int m = nums.size() >> 1;
+        for (int i = 0; i < nums.size(); ++i) {
+            ans += i < m ? -nums[i] : nums[i];
         }
         return ans;
     }
@@ -159,12 +155,13 @@ func maxAlternatingSum(nums []int) (ans int64) {
 		nums[i] *= x
 	}
 	slices.Sort(nums)
-	m := len(nums) / 2
-	for _, x := range nums[:m] {
-		ans -= int64(x)
-	}
-	for _, x := range nums[m:] {
-		ans += int64(x)
+	m := len(nums) >> 1
+	for i, x := range nums {
+		if i < m {
+			ans -= int64(x)
+		} else {
+			ans += int64(x)
+		}
 	}
 	return
 }
@@ -174,20 +171,34 @@ func maxAlternatingSum(nums []int) (ans int64) {
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {
-    const n = nums.length;
-    for (let i = 0; i < n; i++) {
-        nums[i] = nums[i] ** 2;
-    }
-    nums.sort((a, b) => a - b);
-    const m = Math.floor(n / 2);
+    nums = nums.map(x => x * x).sort((a, b) => a - b);
     let ans = 0;
-    for (let i = 0; i < m; i++) {
-        ans -= nums[i];
-    }
-    for (let i = m; i < n; i++) {
-        ans += nums[i];
+    const n = nums.length;
+    const m = n >> 1;
+    for (let i = 0; i < n; i++) {
+        ans += i < m ? -nums[i] : nums[i];
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_alternating_sum(nums: Vec<i32>) -> i64 {
+        let mut nums: Vec<i64> = nums
+            .into_iter()
+            .map(|x| i64::from(x) * i64::from(x))
+            .collect();
+        nums.sort();
+        let m = nums.len() >> 1;
+        let mut ans = 0i64;
+        for (i, &x) in nums.iter().enumerate() {
+            ans += if i < m { -x } else { x };
+        }
+        ans
+    }
 }
 ```
 

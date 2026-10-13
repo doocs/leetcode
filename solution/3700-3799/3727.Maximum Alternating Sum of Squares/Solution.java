@@ -6,12 +6,9 @@ class Solution {
         }
         Arrays.sort(nums);
         long ans = 0;
-        int m = n / 2;
-        for (int i = 0; i < m; ++i) {
-            ans -= nums[i];
-        }
-        for (int i = m; i < n; ++i) {
-            ans += nums[i];
+        int m = n >> 1;
+        for (int i = 0; i < n; ++i) {
+            ans += i < m ? -nums[i] : nums[i];
         }
         return ans;
     }
