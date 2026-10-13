@@ -3,12 +3,13 @@ func maxAlternatingSum(nums []int) (ans int64) {
 		nums[i] *= x
 	}
 	slices.Sort(nums)
-	m := len(nums) / 2
-	for _, x := range nums[:m] {
-		ans -= int64(x)
-	}
-	for _, x := range nums[m:] {
-		ans += int64(x)
+	m := len(nums) >> 1
+	for i, x := range nums {
+		if i < m {
+			ans -= int64(x)
+		} else {
+			ans += int64(x)
+		}
 	}
 	return
 }
