@@ -30,7 +30,7 @@ jobs:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           GIT_BEFORE: ${{ github.event.before }}
         run: bash .github/scripts/fetch-diff-base.sh
-      - uses: dtolnay/rust-toolchain@7e38f4b43b4db5c8dd498af069a4f6196df1d067 # stable
+      - uses: dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f # stable
         with:
           toolchain: stable
           components: rustfmt
