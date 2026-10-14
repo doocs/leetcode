@@ -103,7 +103,7 @@ tags:
 
 > **Thinking**
 >
-> With a fixed digit sum, the sum of squares is maximized by using as many $9$s as possible. If $9\times num<sum$ there is no solution; otherwise we write as many $9$s as we can, place the remainder in the next digit, and pad with zeros to length $num$, which also yields the numerically largest such integer.
+> Enumerating every $\text{num}$-digit integer whose digits sum to $\text{sum}$ and then comparing scores cannot finish when $\text{num}$ reaches $2\times 10^5$. The candidate set grows exponentially with the length, and the score still depends on how the digits are spread out, so the comparison itself is the bottleneck. Squaring is convex on the non-negative integers, so a fixed sum produces a larger sum of squares when the digits are concentrated; the optimal multiset is therefore as many $9$s as possible plus at most one remainder. Writing those larger digits from the high end leaves the score unchanged and selects the numerically largest integer among ties, which is why the answer is assembled directly in that order.
 
 <!-- thinking:end -->
 
@@ -212,6 +212,74 @@ function maxSumOfSquares(num: number, sum: number): string {
 
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_sum_of_squares(num: i32, sum: i32) -> String {
+        if num * 9 < sum {
+            return String::new();
+        }
+        let k = sum / 9;
+        let s = sum % 9;
+        let mut ans = "9".repeat(k as usize);
+        if s > 0 {
+            ans.push((b'0' + s as u8) as char);
+        }
+        if ans.len() < num as usize {
+            ans.push_str(&"0".repeat(num as usize - ans.len()));
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string MaxSumOfSquares(int num, int sum) {
+        if (num * 9 < sum) {
+            return "";
+        }
+        int k = sum / 9;
+        int s = sum % 9;
+        var ans = new StringBuilder(num);
+        ans.Append('9', k);
+        if (s > 0) {
+            ans.Append(s);
+        }
+        ans.Append('0', num - ans.Length);
+        return ans.ToString();
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @param {number} sum
+ * @return {string}
+ */
+var maxSumOfSquares = function (num, sum) {
+    if (num * 9 < sum) {
+        return '';
+    }
+    const k = Math.floor(sum / 9);
+    const s = sum % 9;
+    let ans = '9'.repeat(k);
+    if (s > 0) {
+        ans += String.fromCharCode('0'.charCodeAt(0) + s);
+    }
+    if (ans.length < num) {
+        ans += '0'.repeat(num - ans.length);
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
