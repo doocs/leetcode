@@ -27,8 +27,8 @@ importers:
         specifier: ^3.9.10
         version: 3.9.10
       prettier-plugin-sql-cst:
-        specifier: ^0.22.1
-        version: 0.22.1
+        specifier: ^0.23.0
+        version: 0.23.0
 
 packages:
 
@@ -418,8 +418,8 @@ packages:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
 
-  prettier-plugin-sql-cst@0.22.1:
-    resolution: {integrity: sha512-QEJnqIZ+KRykv+SzZmjwkQ+6qA5Xen+xyvNsMi9shCVqRVOyzz6t51pANy91ih9bZL9cmXAaBgmXp2bOMtZCpg==}
+  prettier-plugin-sql-cst@0.23.0:
+    resolution: {integrity: sha512-e0ttJhTzk2a+M4QTbpgKP8XqZuSFeOoVpP8OLSift4ea+UdejPP0y0rD2QgiQdZjeD6EHOPJVEdodkJIQ8HlyQ==}
 
   prettier@3.9.10:
     resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
@@ -443,8 +443,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  sql-parser-cst@0.42.1:
-    resolution: {integrity: sha512-lfpuhl60s2IRIxWCARthbBvXb2NBLOsVZxzaQLBDDgEZAmT8QYzRWD3qfFX2egZ5y0BYVur7DAQEJSrXxs1WKQ==}
+  sql-parser-cst@0.42.2:
+    resolution: {integrity: sha512-Yo3DBJnGrmdr56PnURrUCgb8+jKl56Iv7SNIHrpbgNZfSA1kI71bDyQNSAHbPIHjgdbvkVE/fGP5tOXBCoeNxA==}
 
   string-argv@0.3.2:
     resolution: {integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==}
@@ -830,10 +830,10 @@ snapshots:
 
   picomatch@4.0.7: {}
 
-  prettier-plugin-sql-cst@0.22.1:
+  prettier-plugin-sql-cst@0.23.0:
     dependencies:
       prettier: 3.9.10
-      sql-parser-cst: 0.42.1
+      sql-parser-cst: 0.42.2
 
   prettier@3.9.10: {}
 
@@ -845,7 +845,7 @@ snapshots:
 
   semver@7.8.5: {}
 
-  sql-parser-cst@0.42.1: {}
+  sql-parser-cst@0.42.2: {}
 
   string-argv@0.3.2: {}
 
