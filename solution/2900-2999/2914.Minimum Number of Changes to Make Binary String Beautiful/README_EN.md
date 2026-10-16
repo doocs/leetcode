@@ -161,6 +161,80 @@ function minChanges(s: string): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_changes(s: String) -> i32 {
+        let s = s.as_bytes();
+        let mut ans = 0;
+        let mut i = 1;
+        while i < s.len() {
+            if s[i] != s[i - 1] {
+                ans += 1;
+            }
+            i += 2;
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minChanges = function (s) {
+    let ans = 0;
+    for (let i = 1; i < s.length; i += 2) {
+        if (s[i] !== s[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinChanges(string s) {
+        int ans = 0;
+        for (int i = 1; i < s.Length; i += 2) {
+            if (s[i] != s[i - 1]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function minChanges($s) {
+        $ans = 0;
+        $n = strlen($s);
+        for ($i = 1; $i < $n; $i += 2) {
+            if ($s[$i] != $s[$i - 1]) {
+                ++$ans;
+            }
+        }
+        return $ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

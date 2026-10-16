@@ -5,12 +5,10 @@ public:
             x = x * x;
         }
         ranges::sort(nums);
-        long long ans = 0, m = nums.size() / 2;
-        for (int i = 0; i < m; ++i) {
-            ans -= nums[i];
-        }
-        for (int i = m; i < nums.size(); ++i) {
-            ans += nums[i];
+        long long ans = 0;
+        int m = nums.size() >> 1;
+        for (int i = 0; i < nums.size(); ++i) {
+            ans += i < m ? -nums[i] : nums[i];
         }
         return ans;
     }

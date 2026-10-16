@@ -4082,6 +4082,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4071  |  [Minimum Rotations to Dial a Number II](/solution/4000-4099/4071.Minimum%20Rotations%20to%20Dial%20a%20Number%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 522  |
 |  4072  |  [Maximum Alternating Subarray Sum With One Deletion](/solution/4000-4099/4072.Maximum%20Alternating%20Subarray%20Sum%20With%20One%20Deletion/README_EN.md)  |    |  Medium  |  Weekly Contest 522  |
 |  4073  |  [Count Good Strings](/solution/4000-4099/4073.Count%20Good%20Strings/README_EN.md)  |    |  Hard  |  Weekly Contest 522  |
+|  4074  |  [Maximum Product Pair With Target Sum](/solution/4000-4099/4074.Maximum%20Product%20Pair%20With%20Target%20Sum/README_EN.md)  |    |  Easy  |  Biweekly Contest 193  |
+|  4075  |  [Longest Resilient Subarray I](/solution/4000-4099/4075.Longest%20Resilient%20Subarray%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 193  |
+|  4076  |  [Longest Resilient Subarray II](/solution/4000-4099/4076.Longest%20Resilient%20Subarray%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 193  |
+|  4077  |  [Minimize Inversions in a Prefix Tree](/solution/4000-4099/4077.Minimize%20Inversions%20in%20a%20Prefix%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 193  |
+|  4078  |  [Three Fibonacci Sum](/solution/4000-4099/4078.Three%20Fibonacci%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 523  |
+|  4079  |  [Prime Subset Selection I](/solution/4000-4099/4079.Prime%20Subset%20Selection%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 523  |
+|  4080  |  [Design Bus Seat Booking System](/solution/4000-4099/4080.Design%20Bus%20Seat%20Booking%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 523  |
+|  4081  |  [Prime Subset Selection II](/solution/4000-4099/4081.Prime%20Subset%20Selection%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 523  |
 
 ## Copyright
 
