@@ -101,19 +101,237 @@ tags:
 #### Java
 
 ```java
+class Solution {
+    private static final long MOD = 1000000007L;
+    private long[] sum;
+    private long[] sumSq;
+    private long[] lazy;
 
+    public int sumCounts(int[] nums) {
+        int n = nums.length;
+        int size = 4 * n;
+        sum = new long[size];
+        sumSq = new long[size];
+        lazy = new long[size];
+
+        Map<Integer, Integer> last = new HashMap<>();
+        long ans = 0;
+
+        for (int r = 0; r < n; r++) {
+            int x = nums[r];
+            int p = last.getOrDefault(x, -1);
+            update(1, 0, n - 1, p + 1, r, 1L);
+            last.put(x, r);
+            ans = (ans + sumSq[1]) % MOD;
+        }
+
+        return (int) ans;
+    }
+
+    private void apply(int node, int l, int r, long v) {
+        long len = r - l + 1;
+        sumSq[node] = (sumSq[node] + 2L * v % MOD * sum[node] % MOD + v * v % MOD * len % MOD) % MOD;
+        sum[node] = (sum[node] + v * len) % MOD;
+        lazy[node] = (lazy[node] + v) % MOD;
+    }
+
+    private void pushDown(int node, int l, int r) {
+        if (lazy[node] != 0 && l != r) {
+            int mid = (l + r) >> 1;
+            long v = lazy[node];
+            apply(node << 1, l, mid, v);
+            apply(node << 1 | 1, mid + 1, r, v);
+            lazy[node] = 0;
+        }
+    }
+
+    private void update(int node, int l, int r, int ql, int qr, long v) {
+        if (ql > r || qr < l) return;
+        if (ql <= l && r <= qr) {
+            apply(node, l, r, v);
+            return;
+        }
+        pushDown(node, l, r);
+        int mid = (l + r) >> 1;
+        update(node << 1, l, mid, ql, qr, v);
+        update(node << 1 | 1, mid + 1, r, ql, qr, v);
+        sum[node] = (sum[node << 1] + sum[node << 1 | 1]) % MOD;
+        sumSq[node] = (sumSq[node << 1] + sumSq[node << 1 | 1]) % MOD;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int sumCounts(vector<int>& nums) {
+        const long long MOD = 1000000007LL;
+        int n = nums.size();
+        vector<long long> sum(4 * n, 0);     // sum of cnt
+        vector<long long> sumSq(4 * n, 0);   // sum of cnt^2
+        vector<long long> lazy(4 * n, 0);    // pending add
+        function<void(int,int,int,long long)> apply = [&](int node, int l, int r, long long v) {
+            long long len = r - l + 1;
+            sumSq[node] = (sumSq[node] + 2LL * v % MOD * sum[node] % MOD + v * v % MOD * len % MOD) % MOD;
+            sum[node] = (sum[node] + v * len) % MOD;
+            lazy[node] = (lazy[node] + v) % MOD;
+        };
+        function<void(int,int,int)> pushDown = [&](int node, int l, int r) {
+            if (lazy[node] != 0 && l != r) {
+                int mid = (l + r) >> 1;
+                long long v = lazy[node];
+                apply(node << 1, l, mid, v);
+                apply(node << 1 | 1, mid + 1, r, v);
+                lazy[node] = 0;
+            }
+        };
+        function<void(int,int,int,int,int,long long)> update = [&](int node, int l, int r, int ql, int qr, long long v) {
+            if (ql > r || qr < l) return;
+            if (ql <= l && r <= qr) {
+                apply(node, l, r, v);
+                return;
+            }
+            pushDown(node, l, r);
+            int mid = (l + r) >> 1;
+            update(node << 1, l, mid, ql, qr, v);
+            update(node << 1 | 1, mid + 1, r, ql, qr, v);
+            sum[node] = (sum[node << 1] + sum[node << 1 | 1]) % MOD;
+            sumSq[node] = (sumSq[node << 1] + sumSq[node << 1 | 1]) % MOD;
+        };
+        unordered_map<int, int> last;
+        long long ans = 0;
+        for (int r = 0; r < n; r++) {
+            int x = nums[r];
+            int p = last.count(x) ? last[x] : -1;
+            update(1, 0, n - 1, p + 1, r, 1LL);
+            last[x] = r;
+            ans = (ans + sumSq[1]) % MOD;
+        }
+        return (int)ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sumCounts(nums []int) int {
+	const MOD = 1000000007
+	n := len(nums)
+	size := 4 * n
+	sum := make([]int64, size)
+	sumSq := make([]int64, size)
+	lazy := make([]int64, size)   
+	var apply func(node, l, r int, v int64)
+	apply = func(node, l, r int, v int64) {
+		length := int64(r - l + 1)
+		sumSq[node] = (sumSq[node] + 2*v*sum[node] + v*v%MOD*length) % MOD
+		sum[node] = (sum[node] + v*length) % MOD
+		lazy[node] = (lazy[node] + v) % MOD
+	}
+	var pushDown func(node, l, r int)
+	pushDown = func(node, l, r int) {
+		if lazy[node] != 0 && l != r {
+			mid := (l + r) >> 1
+			v := lazy[node]
+			apply(node<<1, l, mid, v)
+			apply(node<<1|1, mid+1, r, v)
+			lazy[node] = 0
+		}
+	}
+	var update func(node, l, r, ql, qr int, v int64)
+	update = func(node, l, r, ql, qr int, v int64) {
+		if ql > r || qr < l {
+			return
+		}
+		if ql <= l && r <= qr {
+			apply(node, l, r, v)
+			return
+		}
+		pushDown(node, l, r)
+		mid := (l + r) >> 1
+		update(node<<1, l, mid, ql, qr, v)
+		update(node<<1|1, mid+1, r, ql, qr, v)
+		sum[node] = (sum[node<<1] + sum[node<<1|1]) % MOD
+		sumSq[node] = (sumSq[node<<1] + sumSq[node<<1|1]) % MOD
+	}
+	last := make(map[int]int)
+	var ans int64 = 0
+	for r := 0; r < n; r++ {
+		x := nums[r]
+		p := -1
+		if v, ok := last[x]; ok {
+			p = v
+		}
+		update(1, 0, n-1, p+1, r, 1)
+		last[x] = r
+		ans = (ans + sumSq[1]) % MOD
+	}
+	return int(ans)
+}
+```
+#### TypeScript
 
+```ts
+function sumCounts(nums: number[]): number {
+    const MOD = 1000000007n;
+    const n = nums.length;
+    const size = 4 * n;
+    const sum = new Array<bigint>(size).fill(0n);     
+    const sumSq = new Array<bigint>(size).fill(0n);    
+    const lazy = new Array<bigint>(size).fill(0n);     
+    const build = (node: number, l: number, r: number): void => {
+        if (l === r) {
+            sum[node] = 0n;
+            sumSq[node] = 0n;
+            return;
+        }
+        const mid = (l + r) >> 1;
+        build(node << 1, l, mid);
+        build((node << 1) | 1, mid + 1, r);
+    };
+    const apply = (node: number, l: number, r: number, v: bigint): void => {
+        const len = BigInt(r - l + 1);
+        sumSq[node] = (sumSq[node] + 2n * v * sum[node] + v * v * len) % MOD;
+        sum[node] = (sum[node] + v * len) % MOD;
+        lazy[node] = (lazy[node] + v) % MOD;
+    };
+    const pushDown = (node: number, l: number, r: number): void => {
+        if (lazy[node] !== 0n && l !== r) {
+            const mid = (l + r) >> 1;
+            const v = lazy[node];
+            apply(node << 1, l, mid, v);
+            apply((node << 1) | 1, mid + 1, r, v);
+            lazy[node] = 0n;
+        }
+    };
+    const update = (node: number, l: number, r: number, ql: number, qr: number, v: bigint): void => {
+        if (ql > r || qr < l) return;
+        if (ql <= l && r <= qr) {
+            apply(node, l, r, v);
+            return;
+        }
+        pushDown(node, l, r);
+        const mid = (l + r) >> 1;
+        update(node << 1, l, mid, ql, qr, v);
+        update((node << 1) | 1, mid + 1, r, ql, qr, v);
+        sum[node] = (sum[node << 1] + sum[(node << 1) | 1]) % MOD;
+        sumSq[node] = (sumSq[node << 1] + sumSq[(node << 1) | 1]) % MOD;
+    };
+    build(1, 0, n - 1);
+    const last = new Map<number, number>();
+    let ans = 0n;
+    for (let r = 0; r < n; r++) {
+        const x = nums[r];
+        const p = last.has(x) ? last.get(x)! : -1;
+        update(1, 0, n - 1, p + 1, r, 1n);
+        last.set(x, r);
+        ans = (ans + sumSq[1]) % MOD;
+    }
+    return Number(ans);
+}
 ```
 
 <!-- tabs:end -->
