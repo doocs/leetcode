@@ -130,7 +130,7 @@ def format_flat_nav(items: List[NavItem], indent: int = 4) -> str:
     return "\n".join(f"{pad}- {item.num}. {item.name}: {item.dest}" for item in items)
 
 
-def format_ranged_nav(items: List[NavItem], index_label: str, indent: int = 4) -> str:
+def format_ranged_nav(items: List[NavItem], indent: int = 4) -> str:
     buckets: Dict[int, List[NavItem]] = defaultdict(list)
     for item in items:
         buckets[range_start(item.num)].append(item)
@@ -141,8 +141,10 @@ def format_ranged_nav(items: List[NavItem], index_label: str, indent: int = 4) -
     for start in sorted(buckets):
         group = sorted(buckets[start], key=lambda x: x.sort_key)
         dest_dir = group[0].dest.rsplit("/", 1)[0]
-        lines.append(f"{pad}- {range_label(start)}:")
-        lines.append(f"{child}- {index_label}: {dest_dir}/{range_slug(start)}.md")
+        # MkDocs uses this nav label as the page <title>.
+        label = range_label(start)
+        lines.append(f"{pad}- {label}:")
+        lines.append(f"{child}- {label}: {dest_dir}/{range_slug(start)}.md")
         for item in group:
             lines.append(f"{child}- {item.num}. {item.name}: {item.dest}")
     return "\n".join(lines)
@@ -258,7 +260,7 @@ def main() -> None:
             return ""
         return f"  - {title}:\n{body}\n"
 
-    lc = format_ranged_nav(nav_cn["solution"], "目录")
+    lc = format_ranged_nav(nav_cn["solution"])
     lcci = format_flat_nav(nav_cn["lcci"])
     lcof = format_flat_nav(nav_cn["lcof"])
     lcof2 = format_flat_nav(nav_cn["lcof2"])
@@ -272,7 +274,7 @@ def main() -> None:
         + "  - 专项训练: tags.md\n  - 竞赛专区: contest.md\n"
     )
 
-    lc_en = format_ranged_nav(nav_en["solution"], "Index")
+    lc_en = format_ranged_nav(nav_en["solution"])
     lcci_en = format_flat_nav(nav_en["lcci"])
 
     en_nav_sections = (

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /search/
+Disallow: /en/search/
+
+Sitemap: https://leetcode.doocs.org/sitemap.xml
+Sitemap: https://leetcode.doocs.org/en/sitemap.xml

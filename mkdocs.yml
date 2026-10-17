@@ -89,6 +89,7 @@ plugins:
 
 hooks:
   - hooks/edit_url.py
+  - hooks/revision_date.py
   - hooks/committer.py
   - hooks/thinking_block.py
   - hooks/fix_markdown_block.py
