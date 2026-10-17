@@ -20,5 +20,5 @@
     "*.go": "node scripts/run-py.js run_format.py --gofmt",
     "*.rs": "rustfmt --edition 2021"
   },
-  "packageManager": "pnpm@11.27.1"
+  "packageManager": "pnpm@11.28.6"
 }
