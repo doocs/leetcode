@@ -89,17 +89,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Permutation Cycles
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> The target order is uniquely given by $(\textit{digitSum}(x), x)$. The minimum number of swaps in a permutation is $n$ minus the number of cycles.
->
-> Map each value to its index in the sorted array and walk those pointers, marking visits. Each cycle of length $\ell$ needs $\ell-1$ swaps, so the total is $n$ minus the cycle count.
+> Any two positions may be swapped. Computing the target order and then moving each misplaced value into place is correct on the samples, but $n$ reaches $10^5$ and a fresh scan at every step is quadratic. Under arbitrary swaps, the minimum count is given by the cycle decomposition of the permutation from the current array to the target order: a cycle of length $\ell$ needs $\ell-1$ swaps, so the total is $n$ minus the number of cycles. The target order is fixed by $(\textit{digitSum}(x), x)$, so we sort to build a map from each value to its destination index and walk that map cycle by cycle; both the hash table and the traversal order come from the permutation itself.
 
 <!-- thinking:end -->
+
+We first compute the digit sum of each element, pair it with the element, and sort these pairs in ascending order of digit sum. When two digit sums are equal, the smaller value comes first. The sorted order is the target sequence.
+
+Let $n$ be the length of the array. Treat the original array as a permutation: the value at index $i$ should move to its index in the target sequence. If this permutation contains $c$ cycles, the minimum number of swaps is $n - c$. We store each value's target index in a hash table. Starting from every unvisited index, we repeatedly jump to the index where the current value belongs, until we reach a visited index and thus close one cycle. The answer starts at $n$ and decreases by one for each cycle.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -294,6 +298,185 @@ function minSwaps(nums: number[]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_swaps(nums: Vec<i32>) -> i32 {
+        fn digit_sum(mut x: i32) -> i32 {
+            let mut s = 0;
+            while x != 0 {
+                s += x % 10;
+                x /= 10;
+            }
+            s
+        }
+
+        let n = nums.len();
+        let mut arr: Vec<(i32, i32)> = nums.iter().map(|&x| (digit_sum(x), x)).collect();
+        arr.sort();
+        let mut d = HashMap::new();
+        for (i, &(_, x)) in arr.iter().enumerate() {
+            d.insert(x, i);
+        }
+        let mut vis = vec![false; n];
+        let mut ans = n as i32;
+        for i in 0..n {
+            if !vis[i] {
+                ans -= 1;
+                let mut j = i;
+                while !vis[j] {
+                    vis[j] = true;
+                    j = d[&nums[j]];
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+function f(x) {
+    let s = 0;
+    while (x !== 0) {
+        s += x % 10;
+        x = Math.floor(x / 10);
+    }
+    return s;
+}
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSwaps = function (nums) {
+    const n = nums.length;
+    const arr = new Array(n);
+    for (let i = 0; i < n; i++) {
+        arr[i] = [f(nums[i]), nums[i]];
+    }
+    arr.sort((a, b) => (a[0] !== b[0] ? a[0] - b[0] : a[1] - b[1]));
+    const d = new Map();
+    for (let i = 0; i < n; i++) {
+        d.set(arr[i][1], i);
+    }
+    const vis = new Array(n).fill(false);
+    let ans = n;
+    for (let i = 0; i < n; i++) {
+        if (!vis[i]) {
+            ans--;
+            let j = i;
+            while (!vis[j]) {
+                vis[j] = true;
+                j = d.get(nums[j]);
+            }
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinSwaps(int[] nums) {
+        int n = nums.Length;
+        int[][] arr = new int[n][];
+        for (int i = 0; i < n; i++) {
+            arr[i] = new int[] { F(nums[i]), nums[i] };
+        }
+        Array.Sort(arr, (a, b) => {
+            if (a[0] != b[0]) {
+                return a[0].CompareTo(b[0]);
+            }
+            return a[1].CompareTo(b[1]);
+        });
+        Dictionary<int, int> d = new Dictionary<int, int>();
+        for (int i = 0; i < n; i++) {
+            d[arr[i][1]] = i;
+        }
+        bool[] vis = new bool[n];
+        int ans = n;
+        for (int i = 0; i < n; i++) {
+            if (!vis[i]) {
+                ans--;
+                int j = i;
+                while (!vis[j]) {
+                    vis[j] = true;
+                    j = d[nums[j]];
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int F(int x) {
+        int s = 0;
+        while (x != 0) {
+            s += x % 10;
+            x /= 10;
+        }
+        return s;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function minSwaps($nums) {
+        $n = count($nums);
+        $arr = [];
+        foreach ($nums as $x) {
+            $arr[] = [$this->f($x), $x];
+        }
+        usort($arr, function ($a, $b) {
+            if ($a[0] != $b[0]) {
+                return $a[0] <=> $b[0];
+            }
+            return $a[1] <=> $b[1];
+        });
+        $d = [];
+        for ($i = 0; $i < $n; $i++) {
+            $d[$arr[$i][1]] = $i;
+        }
+        $vis = array_fill(0, $n, false);
+        $ans = $n;
+        for ($i = 0; $i < $n; $i++) {
+            if (!$vis[$i]) {
+                $ans--;
+                $j = $i;
+                while (!$vis[$j]) {
+                    $vis[$j] = true;
+                    $j = $d[$nums[$j]];
+                }
+            }
+        }
+        return $ans;
+    }
+
+    private function f($x) {
+        $s = 0;
+        while ($x != 0) {
+            $s += $x % 10;
+            $x = intdiv($x, 10);
+        }
+        return $s;
+    }
 }
 ```
 
