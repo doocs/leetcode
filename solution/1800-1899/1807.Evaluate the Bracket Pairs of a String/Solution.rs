@@ -1,30 +1,20 @@
 use std::collections::HashMap;
+
 impl Solution {
     pub fn evaluate(s: String, knowledge: Vec<Vec<String>>) -> String {
-        let s = s.as_bytes();
-        let n = s.len();
-        let mut map = HashMap::new();
-        for v in knowledge.iter() {
-            map.insert(&v[0], &v[1]);
+        let aa: HashMap<&str, &str> = knowledge
+            .iter()
+            .map(|bb| (bb[0].as_str(), bb[1].as_str()))
+            .collect();
+        let mut cc = String::with_capacity(s.len());
+        let mut dd = s.as_str();
+        while let Some((ee, ff)) = dd.split_once('(') {
+            let (gg, asd) = ff.split_once(')').unwrap();
+            cc.push_str(ee);
+            cc.push_str(aa.get(gg).copied().unwrap_or("?"));
+            dd = asd;
         }
-        let mut ans = String::new();
-        let mut i = 0;
-        while i < n {
-            if s[i] == b'(' {
-                i += 1;
-                let mut j = i;
-                let mut key = String::new();
-                while s[j] != b')' {
-                    key.push(s[j] as char);
-                    j += 1;
-                }
-                ans.push_str(map.get(&key).unwrap_or(&&'?'.to_string()));
-                i = j;
-            } else {
-                ans.push(s[i] as char);
-            }
-            i += 1;
-        }
-        ans
+        cc.push_str(dd);
+        cc
     }
 }
