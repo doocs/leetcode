@@ -88,3 +88,8 @@
 .md-typeset .lc-badge__value {
     background: #4051b5;
 }
+
+.md-typeset .highlight {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 12rem;
+}

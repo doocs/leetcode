@@ -5,7 +5,8 @@
      iframe load: lazy frames drop postMessage until the widget exists. -->
 <script>
     (function () {
-        var mount = document.currentScript.parentNode
+        var marker = document.currentScript
+        var mount = marker.parentNode
         var theme = "preferred_color_scheme"
 
         function currentTheme() {
@@ -59,6 +60,7 @@
 
         theme = currentTheme()
 
+        function start() {
         var giscus = document.createElement("script")
         giscus.async = true
         giscus.crossOrigin = "anonymous"
@@ -80,20 +82,42 @@
             giscus.setAttribute(key, attrs[key])
         })
         giscus.src = "https://giscus.app/client.js"
-        mount.insertBefore(giscus, document.currentScript)
+        mount.insertBefore(giscus, marker)
         watchFrame()
 
-        document.addEventListener("DOMContentLoaded", function () {
+        function bindPalette() {
             var ref = document.querySelector("[data-md-component=palette]")
-            if (!ref) {
+            if (!ref || ref.getAttribute("data-giscus-bound")) {
                 return
             }
+            ref.setAttribute("data-giscus-bound", "1")
             ref.addEventListener("change", function () {
                 theme = currentTheme()
                 giscus.setAttribute("data-theme", theme)
                 bindFrame(document.querySelector(".giscus-frame"))
             })
-        })
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", bindPalette)
+        } else {
+            bindPalette()
+        }
+        }
+
+        var comments = document.getElementById("__comments")
+        if (!comments || !("IntersectionObserver" in window)) {
+            start()
+        } else {
+            var observer = new IntersectionObserver(function (entries) {
+                if (!entries.some(function (entry) { return entry.isIntersecting })) {
+                    return
+                }
+                observer.disconnect()
+                start()
+            }, { rootMargin: "800px 0px" })
+            observer.observe(comments)
+        }
     })()
 </script>
 {% endif %}

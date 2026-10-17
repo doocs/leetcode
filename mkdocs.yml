@@ -97,6 +97,7 @@ hooks:
   - hooks/tags.py
   - hooks/stay_on_page.py
   - hooks/conditional_mathjax.py
+  - hooks/page_speed.py
 
 markdown_extensions:
   - admonition

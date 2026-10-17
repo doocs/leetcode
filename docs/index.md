@@ -31,7 +31,7 @@ hide:
 ## Stars 趋势
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
+  <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" loading="lazy" decoding="async" /></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ hide:
   <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" rel="noopener noreferrer">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark">
-      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721">
+      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" loading="lazy" decoding="async">
     </picture>
   </a>
 </p>
@@ -49,7 +49,7 @@ hide:
 感谢以下所有朋友对本项目的贡献，因为有你们，我们的项目正在变得越来越好！
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
+  <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" alt="" loading="lazy" decoding="async" /></a>
 </p>
 
 ## 加入我们
@@ -86,11 +86,11 @@ graph TD;
 感谢以下个人、组织对本项目的支持和赞助！你们的支持是我们持续更新和维护的动力。
 
 <p align="center">
-<a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
+<a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890" alt="" loading="lazy" decoding="async"></a>
 </p>
 
 <p align="center">
-<a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
+<a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" alt="" loading="lazy" decoding="async"></a>
 </p>
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
@@ -104,5 +104,5 @@ graph TD;
 欢迎各位小伙伴们添加 @yanglbme 的个人微信（微信号：YLB0109），备注 「**leetcode**」。后续我们会创建算法、技术相关的交流群，大家一起交流学习，分享经验，共同进步。
 
 <p align="center">
-  <a href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px"></a>
+  <a href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" alt="" loading="lazy" decoding="async"></a>
 </p>

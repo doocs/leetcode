@@ -31,7 +31,7 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 ## Stargazers over time
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
+  <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" loading="lazy" decoding="async" /></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
   <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" rel="noopener noreferrer">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark">
-      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721">
+      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" loading="lazy" decoding="async">
     </picture>
   </a>
 </p>
@@ -49,7 +49,7 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 This project exists thanks to all the people who contribute.
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
+  <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" alt="" loading="lazy" decoding="async" /></a>
 </p>
 
 ## Contributions
@@ -84,11 +84,11 @@ You can also directly click the button below to edit the code online with GitHub
 Thank you to all our backers and sponsors!
 
 <p align="center">
-  <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
+  <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890" alt="" loading="lazy" decoding="async"></a>
 </p>
 
 <p align="center">
-  <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
+  <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" alt="" loading="lazy" decoding="async"></a>
 </p>
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
@@ -102,5 +102,5 @@ The copyright of this project belongs to [Doocs](https://github.com/doocs) commu
 We welcome everyone to add @yanglbme's personal WeChat (WeChat ID: YLB0109), with the note "leetcode". In the future, we will create algorithm and technology related discussion groups, where we can learn and share experiences together, and make progress together.
 
 <p align="center">
-  <a href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="260px"></a>
+  <a href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="260px" alt="" loading="lazy" decoding="async"></a>
 </p>
