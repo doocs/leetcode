@@ -168,4 +168,129 @@ function targetIndices(nums: number[], target: number): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：计数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一为了得到下标，先对整个数组做比较排序，时间停在 $O(n\log n)$。返回的下标只由 $target$ 在有序序列中的位置决定，其它元素彼此的先后并不影响答案。
+>
+> 严格小于 $target$ 的个数就是这段连续下标的起点，等于 $target$ 的个数就是区间长度。这两个量在原数组上各计一次即可，不必再比较元素的相对次序，因此用一次扫描代替排序。
+
+<!-- thinking:end -->
+
+等于 $target$ 的元素在非递减排序后占据一段连续下标。这段下标的起点等于数组中严格小于 $target$ 的元素个数，长度等于等于 $target$ 的元素个数。
+
+遍历一次 $\textit{nums}$，分别用 $\textit{less}$、$\textit{equal}$ 统计这两类元素。答案就是区间 $[\textit{less}, \textit{less} + \textit{equal})$ 中的全部整数。$\textit{equal} = 0$ 时区间为空。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        less = equal = 0
+        for x in nums:
+            if x < target:
+                less += 1
+            elif x == target:
+                equal += 1
+        return list(range(less, less + equal))
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        int less = 0, equal = 0;
+        for (int x : nums) {
+            if (x < target) {
+                ++less;
+            } else if (x == target) {
+                ++equal;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = less; i < less + equal; ++i) {
+            ans.add(i);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> targetIndices(vector<int>& nums, int target) {
+        int less = 0, equal = 0;
+        for (int x : nums) {
+            if (x < target) {
+                ++less;
+            } else if (x == target) {
+                ++equal;
+            }
+        }
+        vector<int> ans;
+        for (int i = less; i < less + equal; ++i) {
+            ans.push_back(i);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func targetIndices(nums []int, target int) (ans []int) {
+	less, equal := 0, 0
+	for _, x := range nums {
+		if x < target {
+			less++
+		} else if x == target {
+			equal++
+		}
+	}
+	for i := less; i < less+equal; i++ {
+		ans = append(ans, i)
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function targetIndices(nums: number[], target: number): number[] {
+    let less = 0;
+    let equal = 0;
+    for (const x of nums) {
+        if (x < target) {
+            ++less;
+        } else if (x == target) {
+            ++equal;
+        }
+    }
+    const ans: number[] = [];
+    for (let i = less; i < less + equal; ++i) {
+        ans.push(i);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
