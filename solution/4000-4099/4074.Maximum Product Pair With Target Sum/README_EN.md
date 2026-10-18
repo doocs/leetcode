@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1232
+source: Biweekly Contest 193 Q1
 ---
 
 <!-- problem:start -->

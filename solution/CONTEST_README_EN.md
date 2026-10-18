@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 524
+
+- [4083. Minimum Deletions to Make Array Sharp](/solution/4000-4099/4083.Minimum%20Deletions%20to%20Make%20Array%20Sharp/README_EN.md)
+- [4084. Last Visited Cell in a Directional Grid](/solution/4000-4099/4084.Last%20Visited%20Cell%20in%20a%20Directional%20Grid/README_EN.md)
+- [4085. Find Root of a Colored Tree](/solution/4000-4099/4085.Find%20Root%20of%20a%20Colored%20Tree/README_EN.md)
+- [4086. Minimum Interval Selection to Cover Target Intervals](/solution/4000-4099/4086.Minimum%20Interval%20Selection%20to%20Cover%20Target%20Intervals/README_EN.md)
+
 #### Weekly Contest 523
 
 - [4078. Three Fibonacci Sum](/solution/4000-4099/4078.Three%20Fibonacci%20Sum/README_EN.md)
