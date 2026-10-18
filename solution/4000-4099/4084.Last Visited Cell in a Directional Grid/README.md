@@ -83,32 +83,167 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 网格最多有 $10^5$ 个单元格。只顺着箭头走、不记下到过哪里，路径一旦成环就停不下来。
+>
+> 结束条件只有两种：下一步越出网格，或者下一步进入已经访问过的单元格。这两种情况下这一步都不执行，答案是上一个合法坐标。
+>
+> 每格最多进入一次。用二维布尔数组标记访问，从 $(0,0)$ 出发，按当前字符更新行列，不能继续时返回记录下来的坐标。
+
+<!-- thinking:end -->
+
+从 $(0,0)$ 开始模拟。用布尔数组 $\textit{vis}$ 标记已经访问的单元格。每一步先记下当前坐标 $(r,c)$，再根据 $\textit{grid}[r][c]$ 移动：$L$ 和 $R$ 改变列，$U$ 和 $D$ 改变行。若新坐标越界，或者对应单元格已经访问过，则不执行这次移动，直接返回记录下来的坐标。每个单元格至多访问一次。
+
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def lastVisitedCell(self, grid: list[list[str]]) -> list[int]:
+        m, n = len(grid), len(grid[0])
+        r = c = 0
+        vis = [[False] * n for _ in range(m)]
+        while 1:
+            cur = [r, c]
+            vis[r][c] = True
+            match grid[r][c]:
+                case "L":
+                    c -= 1
+                case "R":
+                    c += 1
+                case "U":
+                    r -= 1
+                case "D":
+                    r += 1
+            if 0 <= r < m and 0 <= c < n and not vis[r][c]:
+                continue
+            return cur
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] lastVisitedCell(char[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int r = 0, c = 0;
+        boolean[][] vis = new boolean[m][n];
+        while (true) {
+            int[] cur = {r, c};
+            vis[r][c] = true;
+            switch (grid[r][c]) {
+                case 'L' -> c--;
+                case 'R' -> c++;
+                case 'U' -> r--;
+                case 'D' -> r++;
+            }
+            if (r >= 0 && r < m && c >= 0 && c < n && !vis[r][c]) {
+                continue;
+            }
+            return cur;
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> lastVisitedCell(vector<vector<char>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int r = 0, c = 0;
+        vector<vector<bool>> vis(m, vector<bool>(n));
+        while (true) {
+            vector<int> cur = {r, c};
+            vis[r][c] = true;
+            switch (grid[r][c]) {
+            case 'L': c--; break;
+            case 'R': c++; break;
+            case 'U': r--; break;
+            case 'D': r++; break;
+            }
+            if (r >= 0 && r < m && c >= 0 && c < n && !vis[r][c]) {
+                continue;
+            }
+            return cur;
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func lastVisitedCell(grid [][]byte) []int {
+	m, n := len(grid), len(grid[0])
+	r, c := 0, 0
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
+	}
+	for {
+		cur := []int{r, c}
+		vis[r][c] = true
+		switch grid[r][c] {
+		case 'L':
+			c--
+		case 'R':
+			c++
+		case 'U':
+			r--
+		case 'D':
+			r++
+		}
+		if r >= 0 && r < m && c >= 0 && c < n && !vis[r][c] {
+			continue
+		}
+		return cur
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function lastVisitedCell(grid: string[][]): number[] {
+    const m = grid.length,
+        n = grid[0].length;
+    let r = 0,
+        c = 0;
+    const vis = Array.from({ length: m }, () => Array(n).fill(false));
+    while (true) {
+        const cur = [r, c];
+        vis[r][c] = true;
+        switch (grid[r][c]) {
+            case 'L':
+                c--;
+                break;
+            case 'R':
+                c++;
+                break;
+            case 'U':
+                r--;
+                break;
+            case 'D':
+                r++;
+                break;
+        }
+        if (r >= 0 && r < m && c >= 0 && c < n && !vis[r][c]) {
+            continue;
+        }
+        return cur;
+    }
+}
 ```
 
 <!-- tabs:end -->

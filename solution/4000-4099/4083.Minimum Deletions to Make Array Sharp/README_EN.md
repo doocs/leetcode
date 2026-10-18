@@ -68,32 +68,94 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Count Adjacent Equals
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $100$, so comparing adjacent elements is cheap, but enumerating every deletion subset is exponential. Adjacent XOR is $0$ exactly when the two values are equal, so searching subsets is unnecessary.
+>
+> The bottleneck is a contiguous run of equal values. Relative order is fixed, so a run can keep only one element. Runs of different values are already separated by an unequal boundary, and deleting the extras inside a run does not make those runs interfere.
+>
+> A run of length $k$ costs $k-1$ deletions, and it contains exactly $k-1$ adjacent equal pairs. One left-to-right scan that counts positions where $\textit{nums}[i]=\textit{nums}[i-1]$ is the minimum number of deletions.
+
+<!-- thinking:end -->
+
+Two integers have bitwise XOR $0$ if and only if they are equal. The task is therefore to delete as few elements as possible, without changing the relative order, so that every pair of adjacent remaining elements is different.
+
+Scan the array from left to right. If $\textit{nums}[i]=\textit{nums}[i-1]$, those two positions cannot both stay. Treat each contiguous run of equal values as one group. A group of length $k$ must lose $k-1$ elements, and that group contains exactly $k-1$ adjacent equal pairs. Elements on either side of a group boundary are already different, so keeping one element from each group still leaves unequal neighbors. The minimum number of deletions is the number of adjacent equal pairs.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minDeletions(self, nums: list[int]) -> int:
+        return sum(x == y for x, y in pairwise(nums))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minDeletions(int[] nums) {
+        int ans = 0;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] == nums[i - 1]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minDeletions(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] == nums[i - 1]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minDeletions(nums []int) (ans int) {
+	for i := 1; i < len(nums); i++ {
+		if nums[i] == nums[i-1] {
+			ans++
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minDeletions(nums: number[]): number {
+    let ans: number = 0;
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] === nums[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

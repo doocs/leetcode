@@ -80,32 +80,167 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid has at most $10^5$ cells. Following the arrows without remembering visited cells never stops once the path enters a cycle.
+>
+> Movement ends in only two cases: the next step would leave the grid, or it would enter a cell that was already visited. In both cases that step is not taken, and the answer is the previous valid coordinate.
+>
+> Each cell is entered at most once. Mark visits in a two-dimensional boolean array, start at $(0,0)$, update the row and column from the current character, and return the saved coordinate when the next step is illegal.
+
+<!-- thinking:end -->
+
+Simulate from $(0,0)$. Use a boolean array $\textit{vis}$ to mark cells that have already been visited. At each step, save the current coordinate $(r,c)$, then move according to $\textit{grid}[r][c]$: $L$ and $R$ change the column, while $U$ and $D$ change the row. If the new coordinate is outside the grid or its cell has already been visited, do not take that step and return the saved coordinate. Each cell is visited at most once.
+
+The time complexity is $O(mn)$ and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def lastVisitedCell(self, grid: list[list[str]]) -> list[int]:
+        m, n = len(grid), len(grid[0])
+        r = c = 0
+        vis = [[False] * n for _ in range(m)]
+        while 1:
+            cur = [r, c]
+            vis[r][c] = True
+            match grid[r][c]:
+                case "L":
+                    c -= 1
+                case "R":
+                    c += 1
+                case "U":
+                    r -= 1
+                case "D":
+                    r += 1
+            if 0 <= r < m and 0 <= c < n and not vis[r][c]:
+                continue
+            return cur
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] lastVisitedCell(char[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int r = 0, c = 0;
+        boolean[][] vis = new boolean[m][n];
+        while (true) {
+            int[] cur = {r, c};
+            vis[r][c] = true;
+            switch (grid[r][c]) {
+                case 'L' -> c--;
+                case 'R' -> c++;
+                case 'U' -> r--;
+                case 'D' -> r++;
+            }
+            if (r >= 0 && r < m && c >= 0 && c < n && !vis[r][c]) {
+                continue;
+            }
+            return cur;
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> lastVisitedCell(vector<vector<char>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int r = 0, c = 0;
+        vector<vector<bool>> vis(m, vector<bool>(n));
+        while (true) {
+            vector<int> cur = {r, c};
+            vis[r][c] = true;
+            switch (grid[r][c]) {
+            case 'L': c--; break;
+            case 'R': c++; break;
+            case 'U': r--; break;
+            case 'D': r++; break;
+            }
+            if (r >= 0 && r < m && c >= 0 && c < n && !vis[r][c]) {
+                continue;
+            }
+            return cur;
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func lastVisitedCell(grid [][]byte) []int {
+	m, n := len(grid), len(grid[0])
+	r, c := 0, 0
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
+	}
+	for {
+		cur := []int{r, c}
+		vis[r][c] = true
+		switch grid[r][c] {
+		case 'L':
+			c--
+		case 'R':
+			c++
+		case 'U':
+			r--
+		case 'D':
+			r++
+		}
+		if r >= 0 && r < m && c >= 0 && c < n && !vis[r][c] {
+			continue
+		}
+		return cur
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function lastVisitedCell(grid: string[][]): number[] {
+    const m = grid.length,
+        n = grid[0].length;
+    let r = 0,
+        c = 0;
+    const vis = Array.from({ length: m }, () => Array(n).fill(false));
+    while (true) {
+        const cur = [r, c];
+        vis[r][c] = true;
+        switch (grid[r][c]) {
+            case 'L':
+                c--;
+                break;
+            case 'R':
+                c++;
+                break;
+            case 'U':
+                r--;
+                break;
+            case 'D':
+                r++;
+                break;
+        }
+        if (r >= 0 && r < m && c >= 0 && c < n && !vis[r][c]) {
+            continue;
+        }
+        return cur;
+    }
+}
 ```
 
 <!-- tabs:end -->
