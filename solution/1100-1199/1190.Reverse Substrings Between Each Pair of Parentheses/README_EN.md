@@ -78,6 +78,8 @@ We can directly use a stack to simulate the reversal process.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
+The Rust implementation reuses the input byte buffer as a stack, with $k$ recording its current length. On a closing parenthesis, it reverses the suffix starting at the matching opening parenthesis, then decrements $k$ to discard that opening parenthesis, which is now at the end. It uses $O(1)$ auxiliary space beyond the reused input buffer.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -145,6 +147,30 @@ public:
         return stk;
     }
 };
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn reverse_parentheses(s: String) -> String {
+        let mut s = s.into_bytes();
+        let mut k = 0;
+        for i in 0..s.len() {
+            let c = s[i];
+            if c == b')' {
+                let j = s[..k].iter().rposition(|&ch| ch == b'(').unwrap();
+                s[j..k].reverse();
+                k -= 1;
+            } else {
+                s[k] = c;
+                k += 1;
+            }
+        }
+        s.truncate(k);
+        String::from_utf8(s).unwrap()
+    }
+}
 ```
 
 #### Go
