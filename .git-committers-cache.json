@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792367087,
+  "cache_date": 1792367874,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -3913,6 +3913,12 @@
     "solution/1100-1199/1190.Reverse Substrings Between Each Pair of Parentheses/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -3937,7 +3943,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1791432850
+      "retrieved": 1792367274
     },
     "solution/1100-1199/1191.K-Concatenation Maximum Sum/README.md": {
       "authors": [
@@ -12016,6 +12022,12 @@
     "solution/1600-1699/1614.Maximum Nesting Depth of the Parentheses/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -12028,7 +12040,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1791432850
+      "retrieved": 1792367274
     },
     "solution/1600-1699/1615.Maximal Network Rank/README.md": {
       "authors": [
@@ -71322,6 +71334,12 @@
     "solution/1100-1199/1190.Reverse Substrings Between Each Pair of Parentheses/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -71346,7 +71364,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792367292
     },
     "solution/1100-1199/1191.K-Concatenation Maximum Sum/README_EN.md": {
       "authors": [
@@ -79431,6 +79449,12 @@
     "solution/1600-1699/1614.Maximum Nesting Depth of the Parentheses/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -79443,7 +79467,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792367292
     },
     "solution/1600-1699/1615.Maximal Network Rank/README_EN.md": {
       "authors": [
