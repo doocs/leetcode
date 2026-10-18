@@ -1,19 +1,18 @@
 impl Solution {
     pub fn reverse_parentheses(s: String) -> String {
-        let mut s = s.into_bytes();
-        let mut k = 0;
-        for i in 0..s.len() {
-            let c = s[i];
-            if c == b')' {
-                let j = s[..k].iter().rposition(|&ch| ch == b'(').unwrap();
-                s[j..k].reverse();
-                k -= 1;
+        let mut stk = Vec::new();
+        for c in s.chars() {
+            if c == ')' {
+                let mut t = Vec::new();
+                while *stk.last().unwrap() != '(' {
+                    t.push(stk.pop().unwrap());
+                }
+                stk.pop();
+                stk.extend(t);
             } else {
-                s[k] = c;
-                k += 1;
+                stk.push(c);
             }
         }
-        s.truncate(k);
-        String::from_utf8(s).unwrap()
+        stk.into_iter().collect()
     }
 }
