@@ -236,29 +236,26 @@ function evaluate(s: string, knowledge: string[][]): string {
 
 ```rust
 use std::collections::HashMap;
+
 impl Solution {
     pub fn evaluate(s: String, knowledge: Vec<Vec<String>>) -> String {
-        let s = s.as_bytes();
-        let n = s.len();
-        let mut map = HashMap::new();
-        for v in knowledge.iter() {
-            map.insert(&v[0], &v[1]);
+        let mut d = HashMap::new();
+        for e in &knowledge {
+            d.insert(e[0].as_str(), e[1].as_str());
         }
         let mut ans = String::new();
+        let n = s.len();
         let mut i = 0;
         while i < n {
-            if s[i] == b'(' {
-                i += 1;
-                let mut j = i;
-                let mut key = String::new();
-                while s[j] != b')' {
-                    key.push(s[j] as char);
+            if s.as_bytes()[i] == b'(' {
+                let mut j = i + 1;
+                while s.as_bytes()[j] != b')' {
                     j += 1;
                 }
-                ans.push_str(map.get(&key).unwrap_or(&&'?'.to_string()));
+                ans.push_str(d.get(&s[i + 1..j]).copied().unwrap_or("?"));
                 i = j;
             } else {
-                ans.push(s[i] as char);
+                ans.push(s.as_bytes()[i] as char);
             }
             i += 1;
         }
