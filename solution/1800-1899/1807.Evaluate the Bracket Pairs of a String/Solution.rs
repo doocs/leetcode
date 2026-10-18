@@ -2,19 +2,26 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn evaluate(s: String, knowledge: Vec<Vec<String>>) -> String {
-        let aa: HashMap<&str, &str> = knowledge
-            .iter()
-            .map(|bb| (bb[0].as_str(), bb[1].as_str()))
-            .collect();
-        let mut cc = String::with_capacity(s.len());
-        let mut dd = s.as_str();
-        while let Some((ee, ff)) = dd.split_once('(') {
-            let (gg, asd) = ff.split_once(')').unwrap();
-            cc.push_str(ee);
-            cc.push_str(aa.get(gg).copied().unwrap_or("?"));
-            dd = asd;
+        let mut d = HashMap::new();
+        for e in &knowledge {
+            d.insert(e[0].as_str(), e[1].as_str());
         }
-        cc.push_str(dd);
-        cc
+        let mut ans = String::new();
+        let n = s.len();
+        let mut i = 0;
+        while i < n {
+            if s.as_bytes()[i] == b'(' {
+                let mut j = i + 1;
+                while s.as_bytes()[j] != b')' {
+                    j += 1;
+                }
+                ans.push_str(d.get(&s[i + 1..j]).copied().unwrap_or("?"));
+                i = j;
+            } else {
+                ans.push(s.as_bytes()[i] as char);
+            }
+            i += 1;
+        }
+        ans
     }
 }
