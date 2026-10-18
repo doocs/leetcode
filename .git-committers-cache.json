@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792222377,
+  "cache_date": 1792297351,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -2020,6 +2020,12 @@
     "solution/1000-1099/1096.Brace Expansion II/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -2032,7 +2038,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1790301861
+      "retrieved": 1792296809
     },
     "solution/1000-1099/1097.Game Play Analysis V/README.md": {
       "authors": [
@@ -16080,6 +16086,12 @@
     "solution/1800-1899/1807.Evaluate the Bracket Pairs of a String/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -16092,7 +16104,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1792296809
     },
     "solution/1800-1899/1808.Maximize Number of Nice Divisors/README.md": {
       "authors": [
@@ -43256,6 +43268,12 @@
     "solution/3400-3499/3414.Maximum Score of Non-overlapping Intervals/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -43274,7 +43292,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/192109895?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1792296809
     },
     "solution/3400-3499/3415.Find Products with Three Consecutive Digits/README.md": {
       "authors": [
@@ -69411,6 +69429,12 @@
     "solution/1000-1099/1096.Brace Expansion II/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -69423,7 +69447,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1790301857
+      "retrieved": 1792296801
     },
     "solution/1000-1099/1097.Game Play Analysis V/README_EN.md": {
       "authors": [
@@ -83561,6 +83585,12 @@
     "solution/1800-1899/1807.Evaluate the Bracket Pairs of a String/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -83573,7 +83603,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792296801
     },
     "solution/1800-1899/1808.Maximize Number of Nice Divisors/README_EN.md": {
       "authors": [
@@ -110563,6 +110593,12 @@
     "solution/3400-3499/3414.Maximum Score of Non-overlapping Intervals/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -110581,7 +110617,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/192109895?v=4"
         }
       ],
-      "retrieved": 1789822596
+      "retrieved": 1792296801
     },
     "solution/3400-3499/3415.Find Products with Three Consecutive Digits/README_EN.md": {
       "authors": [
@@ -127992,13 +128028,19 @@
     "solution/3500-3599/3550.Smallest Index With Digit Sum Equal to Index/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1792296809
     },
     "solution/3500-3599/3551.Minimum Swaps to Sort by Digit Sum/README.md": {
       "authors": [
@@ -128047,13 +128089,19 @@
     "solution/3500-3599/3550.Smallest Index With Digit Sum Equal to Index/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792296801
     },
     "solution/3500-3599/3551.Minimum Swaps to Sort by Digit Sum/README_EN.md": {
       "authors": [
