@@ -2,18 +2,20 @@ use std::collections::BTreeSet;
 
 impl Solution {
     pub fn brace_expansion_ii(expression: String) -> Vec<String> {
-        fn asd(aa: String, bb: &mut BTreeSet<String>) {
-            let Some(cc) = aa.find('}') else {
-                bb.insert(aa);
+        fn dfs(exp: String, s: &mut BTreeSet<String>) {
+            let Some(j) = exp.find('}') else {
+                s.insert(exp);
                 return;
             };
-            let dd = aa[..cc].rfind('{').unwrap();
-            for ee in aa[dd + 1..cc].split(',') {
-                asd(format!("{}{}{}", &aa[..dd], ee, &aa[cc + 1..]), bb);
+            let i = exp[..j].rfind('{').unwrap();
+            let a = &exp[..i];
+            let c = &exp[j + 1..];
+            for b in exp[i + 1..j].split(',') {
+                dfs(format!("{}{}{}", a, b, c), s);
             }
         }
-        let mut cc = BTreeSet::new();
-        asd(expression, &mut cc);
-        cc.into_iter().collect()
+        let mut s = BTreeSet::new();
+        dfs(expression, &mut s);
+        s.into_iter().collect()
     }
 }
