@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2104
+source: Weekly Contest 523 Q4
 ---
 
 <!-- problem:start -->

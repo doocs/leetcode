@@ -4092,6 +4092,11 @@
 |  4079  |  [选择质数子集 I](/solution/4000-4099/4079.Prime%20Subset%20Selection%20I/README.md)  |    |  中等  |  第 523 场周赛  |
 |  4080  |  [设计公交车座位预订系统](/solution/4000-4099/4080.Design%20Bus%20Seat%20Booking%20System/README.md)  |    |  中等  |  第 523 场周赛  |
 |  4081  |  [选择质数子集 II](/solution/4000-4099/4081.Prime%20Subset%20Selection%20II/README.md)  |    |  困难  |  第 523 场周赛  |
+|  4082  |  [Minimum Operations to Stabilize a Binary Tree](/solution/4000-4099/4082.Minimum%20Operations%20to%20Stabilize%20a%20Binary%20Tree/README.md)  |    |  困难  |  🔒  |
+|  4083  |  [使相邻元素按位异或非零的最少删除次数](/solution/4000-4099/4083.Minimum%20Deletions%20to%20Make%20Array%20Sharp/README.md)  |    |  简单  |  第 524 场周赛  |
+|  4084  |  [有向网格中的最后访问单元格](/solution/4000-4099/4084.Last%20Visited%20Cell%20in%20a%20Directional%20Grid/README.md)  |    |  中等  |  第 524 场周赛  |
+|  4085  |  [找到颜色树的根](/solution/4000-4099/4085.Find%20Root%20of%20a%20Colored%20Tree/README.md)  |    |  中等  |  第 524 场周赛  |
+|  4086  |  [覆盖目标区间的最少区间](/solution/4000-4099/4086.Minimum%20Interval%20Selection%20to%20Cover%20Target%20Intervals/README.md)  |    |  困难  |  第 524 场周赛  |
 
 ## 版权
 

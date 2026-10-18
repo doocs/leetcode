@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1134
+source: Weekly Contest 523 Q1
 ---
 
 <!-- problem:start -->

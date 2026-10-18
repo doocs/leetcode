@@ -4090,6 +4090,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4079  |  [Prime Subset Selection I](/solution/4000-4099/4079.Prime%20Subset%20Selection%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 523  |
 |  4080  |  [Design Bus Seat Booking System](/solution/4000-4099/4080.Design%20Bus%20Seat%20Booking%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 523  |
 |  4081  |  [Prime Subset Selection II](/solution/4000-4099/4081.Prime%20Subset%20Selection%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 523  |
+|  4082  |  [Minimum Operations to Stabilize a Binary Tree](/solution/4000-4099/4082.Minimum%20Operations%20to%20Stabilize%20a%20Binary%20Tree/README_EN.md)  |    |  Hard  |  🔒  |
+|  4083  |  [Minimum Deletions to Make Array Sharp](/solution/4000-4099/4083.Minimum%20Deletions%20to%20Make%20Array%20Sharp/README_EN.md)  |    |  Easy  |  Weekly Contest 524  |
+|  4084  |  [Last Visited Cell in a Directional Grid](/solution/4000-4099/4084.Last%20Visited%20Cell%20in%20a%20Directional%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 524  |
+|  4085  |  [Find Root of a Colored Tree](/solution/4000-4099/4085.Find%20Root%20of%20a%20Colored%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 524  |
+|  4086  |  [Minimum Interval Selection to Cover Target Intervals](/solution/4000-4099/4086.Minimum%20Interval%20Selection%20to%20Cover%20Target%20Intervals/README_EN.md)  |    |  Hard  |  Weekly Contest 524  |
 
 ## Copyright
 

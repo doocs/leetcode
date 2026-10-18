@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1778
+source: 第 523 场周赛 Q3
 ---
 
 <!-- problem:start -->
