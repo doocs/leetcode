@@ -68,6 +68,8 @@ We design a function $dfs(l, r, t)$, where $l$ and $r$ represent the number of l
 
 The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
 
+The Rust implementation counts the remaining opening and closing parentheses. It adds an opening parenthesis only when `open_left > 0`, and a closing parenthesis only when `close_left > open_left`, so it never enters an invalid state. A single preallocated string is reused with `push` and `pop`; only complete answers are cloned. Its time complexity is $O(n C_n)$, where $C_n$ is the number of valid sequences, and its auxiliary space complexity is $O(n)$, excluding the output.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -140,6 +142,36 @@ public:
 };
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn generate_parenthesis(n: i32) -> Vec<String> {
+        fn dfs(open_left: i32, close_left: i32, path: &mut String, ans: &mut Vec<String>) {
+            if open_left == 0 && close_left == 0 {
+                ans.push(path.clone());
+                return;
+            }
+            if open_left > 0 {
+                path.push('(');
+                dfs(open_left - 1, close_left, path, ans);
+                path.pop();
+            }
+            if close_left > open_left {
+                path.push(')');
+                dfs(open_left, close_left - 1, path, ans);
+                path.pop();
+            }
+        }
+
+        let mut ans = Vec::new();
+        let mut path = String::with_capacity(n as usize * 2);
+        dfs(n, n, &mut path, &mut ans);
+        ans
+    }
+}
+```
+
 #### Go
 
 ```go
@@ -179,31 +211,6 @@ function generateParenthesis(n: number): string[] {
     const ans: string[] = [];
     dfs(0, 0, '');
     return ans;
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut ans = Vec::new();
-
-        fn dfs(ans: &mut Vec<String>, l: i32, r: i32, t: String, n: i32) {
-            if l > n || r > n || l < r {
-                return;
-            }
-            if l == n && r == n {
-                ans.push(t);
-                return;
-            }
-            dfs(ans, l + 1, r, format!("{}(", t), n);
-            dfs(ans, l, r + 1, format!("{})", t), n);
-        }
-
-        dfs(&mut ans, 0, 0, String::new(), n);
-        ans
-    }
 }
 ```
 
