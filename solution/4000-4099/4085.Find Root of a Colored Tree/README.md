@@ -89,32 +89,200 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：按颜色定向
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举每一个节点当作根，再向下检查子节点个数和各层颜色。节点数达到 $10^5$，每次都要走完整棵树，总时间是 $O(n^2)$。
+>
+> 重复的计算是边的父子方向。三条序列同属循环 $W \to R \to B \to W$，差别只在起点。将 $W,R,B$ 编号为 $0,1,2$ 后，深度每增加一层，颜色编号就加 $1$ 再对 $3$ 取模。一条边是否合法、父节点在哪一端，都由两端颜色决定。
+>
+> 于是只需邻接表，并按颜色清点每个点的邻居。颜色 $(c + 2) \bmod 3$ 的邻居才可能是父节点，个数不能超过 $1$；同色邻居不在这条循环上。没有父节点邻居、且度数小于 $3$ 的点，全部邻居都是子节点，个数不超过两个，它就是所求的根。
+
+<!-- thinking:end -->
+
+将 $W$、$R$、$B$ 分别编号为 $0$、$1$、$2$，使循环 $W \to R \to B \to W$ 对应编号加 $1$ 再对 $3$ 取模，并按 $\textit{edges}$ 建无向邻接表。对节点 $u$，设颜色编号为 $c$，统计三种颜色的邻居各有多少。
+
+度数大于 $3$、存在同色邻居，或颜色为 $(c + 2) \bmod 3$ 的邻居多于一个时，返回 $-1$。根没有父节点，最多两个子节点，度数不超过 $2$；其他节点再加上一个父节点，度数不超过 $3$。同色不能位于相邻深度。颜色 $(c + 2) \bmod 3$ 比 $c$ 在循环中落后一格，只可能是父节点，而父节点只有一个。
+
+度数小于 $3$、且没有颜色为 $(c + 2) \bmod 3$ 的邻居时，$u$ 的邻居都是子节点，个数不超过 $2$，把 $u$ 记为答案。每条颜色合法的边都会给其中一端增加一个父节点计数，树一共 $n - 1$ 条边。所有节点的这个计数都不超过 $1$ 时，计数为 $0$ 的节点恰好一个。若该点度数为 $3$，三个邻居都是子节点，不满足至多两个子节点的条件，答案保持 $-1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点个数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findColoredRoot(self, edges: list[list[int]], colors: str) -> int:
+        d = {"W": 0, "R": 1, "B": 2}
+        n = len(colors)
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        ans = -1
+        for u, vs in enumerate(g):
+            if len(vs) > 3:
+                return -1
+            cnt = [0] * 3
+            for v in vs:
+                cnt[d[colors[v]]] += 1
+            c = d[colors[u]]
+            if cnt[c] > 0 or cnt[(c + 2) % 3] > 1:
+                return -1
+            if len(vs) < 3 and cnt[(c + 2) % 3] == 0:
+                ans = u
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int findColoredRoot(int[][] edges, String colors) {
+        int n = colors.length();
+        int[] d = new int[128];
+        d['W'] = 0;
+        d['R'] = 1;
+        d['B'] = 2;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        int ans = -1;
+        for (int u = 0; u < n; ++u) {
+            List<Integer> vs = g[u];
+            if (vs.size() > 3) {
+                return -1;
+            }
+            int[] cnt = new int[3];
+            for (int v : vs) {
+                ++cnt[d[colors.charAt(v)]];
+            }
+            int c = d[colors.charAt(u)];
+            if (cnt[c] > 0 || cnt[(c + 2) % 3] > 1) {
+                return -1;
+            }
+            if (vs.size() < 3 && cnt[(c + 2) % 3] == 0) {
+                ans = u;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int findColoredRoot(vector<vector<int>>& edges, string colors) {
+        int d[128]{};
+        d['W'] = 0;
+        d['R'] = 1;
+        d['B'] = 2;
+        int n = colors.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        int ans = -1;
+        for (int u = 0; u < n; ++u) {
+            auto& vs = g[u];
+            if (vs.size() > 3) {
+                return -1;
+            }
+            int cnt[3]{};
+            for (int v : vs) {
+                ++cnt[d[colors[v]]];
+            }
+            int c = d[colors[u]];
+            if (cnt[c] > 0 || cnt[(c + 2) % 3] > 1) {
+                return -1;
+            }
+            if (vs.size() < 3 && cnt[(c + 2) % 3] == 0) {
+                ans = u;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findColoredRoot(edges [][]int, colors string) int {
+	d := [128]int{'W': 0, 'R': 1, 'B': 2}
+	n := len(colors)
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	ans := -1
+	for u, vs := range g {
+		if len(vs) > 3 {
+			return -1
+		}
+		cnt := [3]int{}
+		for _, v := range vs {
+			cnt[d[colors[v]]]++
+		}
+		c := d[colors[u]]
+		if cnt[c] > 0 || cnt[(c+2)%3] > 1 {
+			return -1
+		}
+		if len(vs) < 3 && cnt[(c+2)%3] == 0 {
+			ans = u
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function findColoredRoot(edges: number[][], colors: string): number {
+    const d: Record<string, number> = { W: 0, R: 1, B: 2 };
+    const n = colors.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    let ans = -1;
+    for (let u = 0; u < n; ++u) {
+        const vs = g[u];
+        if (vs.length > 3) {
+            return -1;
+        }
+        const cnt = [0, 0, 0];
+        for (const v of vs) {
+            ++cnt[d[colors[v]]];
+        }
+        const c = d[colors[u]];
+        if (cnt[c] > 0 || cnt[(c + 2) % 3] > 1) {
+            return -1;
+        }
+        if (vs.length < 3 && cnt[(c + 2) % 3] === 0) {
+            ans = u;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
