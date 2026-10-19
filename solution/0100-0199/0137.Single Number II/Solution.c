@@ -1,13 +1,13 @@
 int singleNumber(int* nums, int numsSize) {
     int ans = 0;
     for (int i = 0; i < 32; i++) {
-        int count = 0;
+        int cnt = 0;
         for (int j = 0; j < numsSize; j++) {
             if (nums[j] >> i & 1) {
-                count++;
+                cnt++;
             }
         }
-        ans |= (unsigned) (count % 3) << i;
+        ans |= (unsigned) (cnt % 3) << i;
     }
     return ans;
 }
