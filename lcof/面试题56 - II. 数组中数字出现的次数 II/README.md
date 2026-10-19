@@ -57,6 +57,8 @@ difficulty: 中等
 
 时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 是数组的长度；而 $C$ 是整数的位数，本题中 $C=32$。
 
+Python、Go 和 Swift 的整数宽于 32 位。符号位若直接做或运算，会得到 $2^{31}$ 而不是 $-2^{31}$，因此这一位要减去 $2^{31}$。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -69,7 +71,14 @@ class Solution:
             for i in range(32):
                 cnt[i] += x & 1
                 x >>= 1
-        return sum(1 << i for i in range(32) if cnt[i] % 3)
+        ans = 0
+        for i in range(32):
+            if cnt[i] % 3:
+                if i == 31:
+                    ans -= 1 << i
+                else:
+                    ans |= 1 << i
+        return ans
 ```
 
 #### Java
@@ -130,9 +139,13 @@ func singleNumber(nums []int) (ans int) {
 			x >>= 1
 		}
 	}
-	for i, v := range cnt {
-		if v%3 == 1 {
-			ans |= 1 << i
+	for i := range cnt {
+		if cnt[i]%3 == 1 {
+			if i == 31 {
+				ans -= 1 << i
+			} else {
+				ans |= 1 << i
+			}
 		}
 	}
 	return
@@ -144,18 +157,18 @@ func singleNumber(nums []int) (ans int) {
 ```rust
 impl Solution {
     pub fn single_number(nums: Vec<i32>) -> i32 {
-        let mut counts = [0; 32];
-        for num in nums.iter() {
+        let mut cnt = [0; 32];
+        for x in nums.iter() {
             for i in 0..32 {
-                counts[i] += (num >> i) & 1;
+                cnt[i] += (x >> i) & 1;
             }
         }
-        let mut res = 0;
-        for count in counts.iter().rev() {
-            res <<= 1;
-            res |= count % 3;
+        let mut ans = 0;
+        for i in (0..32).rev() {
+            ans <<= 1;
+            ans |= cnt[i] % 3;
         }
-        res
+        ans
     }
 }
 ```
@@ -191,11 +204,11 @@ var singleNumber = function (nums) {
 public class Solution {
     public int SingleNumber(int[] nums) {
         int[] cnt = new int[32];
-        foreach(int x in nums) {
-            int v = x;
+        foreach(int num in nums) {
+            int x = num;
             for (int i = 0; i < 32; ++i) {
-                cnt[i] += v & 1;
-                v >>= 1;
+                cnt[i] += x & 1;
+                x >>= 1;
             }
         }
         int ans = 0;
@@ -214,24 +227,28 @@ public class Solution {
 ```swift
 class Solution {
     func singleNumber(_ nums: [Int]) -> Int {
-        var bitCounts = [Int](repeating: 0, count: 32)
+        var cnt = [Int](repeating: 0, count: 32)
 
         for num in nums {
             var x = num
             for i in 0..<32 {
-                bitCounts[i] += x & 1
+                cnt[i] += x & 1
                 x >>= 1
             }
         }
 
-        var result = 0
+        var ans = 0
         for i in 0..<32 {
-            if bitCounts[i] % 3 == 1 {
-                result |= 1 << i
+            if cnt[i] % 3 == 1 {
+                if i == 31 {
+                    ans -= 1 << i
+                } else {
+                    ans |= 1 << i
+                }
             }
         }
 
-        return result
+        return ans
     }
 }
 ```

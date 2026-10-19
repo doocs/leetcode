@@ -5,4 +5,11 @@ class Solution:
             for i in range(32):
                 cnt[i] += x & 1
                 x >>= 1
-        return sum(1 << i for i in range(32) if cnt[i] % 3)
+        ans = 0
+        for i in range(32):
+            if cnt[i] % 3:
+                if i == 31:
+                    ans -= 1 << i
+                else:
+                    ans |= 1 << i
+        return ans

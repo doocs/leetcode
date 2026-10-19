@@ -1,22 +1,26 @@
 class Solution {
     func singleNumber(_ nums: [Int]) -> Int {
-        var bitCounts = [Int](repeating: 0, count: 32)
-        
+        var cnt = [Int](repeating: 0, count: 32)
+
         for num in nums {
             var x = num
             for i in 0..<32 {
-                bitCounts[i] += x & 1
+                cnt[i] += x & 1
                 x >>= 1
             }
         }
-        
-        var result = 0
+
+        var ans = 0
         for i in 0..<32 {
-            if bitCounts[i] % 3 == 1 {
-                result |= 1 << i
+            if cnt[i] % 3 == 1 {
+                if i == 31 {
+                    ans -= 1 << i
+                } else {
+                    ans |= 1 << i
+                }
             }
         }
-        
-        return result
+
+        return ans
     }
 }

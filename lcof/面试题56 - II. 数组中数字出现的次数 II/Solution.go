@@ -6,9 +6,13 @@ func singleNumber(nums []int) (ans int) {
 			x >>= 1
 		}
 	}
-	for i, v := range cnt {
-		if v%3 == 1 {
-			ans |= 1 << i
+	for i := range cnt {
+		if cnt[i]%3 == 1 {
+			if i == 31 {
+				ans -= 1 << i
+			} else {
+				ans |= 1 << i
+			}
 		}
 	}
 	return
