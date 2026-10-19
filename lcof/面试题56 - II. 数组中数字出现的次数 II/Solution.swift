@@ -13,7 +13,11 @@ class Solution {
         var result = 0
         for i in 0..<32 {
             if bitCounts[i] % 3 == 1 {
-                result |= 1 << i
+                if i == 31 {
+                    result -= 1 << i
+                } else {
+                    result |= 1 << i
+                }
             }
         }
         

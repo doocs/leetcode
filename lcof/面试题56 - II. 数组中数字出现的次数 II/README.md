@@ -57,6 +57,8 @@ difficulty: 中等
 
 时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 是数组的长度；而 $C$ 是整数的位数，本题中 $C=32$。
 
+Python、Go 和 Swift 的整数宽于 32 位。符号位若直接做或运算，会得到 $2^{31}$ 而不是 $-2^{31}$，因此这一位要减去 $2^{31}$。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -69,7 +71,14 @@ class Solution:
             for i in range(32):
                 cnt[i] += x & 1
                 x >>= 1
-        return sum(1 << i for i in range(32) if cnt[i] % 3)
+        ans = 0
+        for i in range(32):
+            if cnt[i] % 3:
+                if i == 31:
+                    ans -= 1 << i
+                else:
+                    ans |= 1 << i
+        return ans
 ```
 
 #### Java
@@ -132,7 +141,11 @@ func singleNumber(nums []int) (ans int) {
 	}
 	for i, v := range cnt {
 		if v%3 == 1 {
-			ans |= 1 << i
+			if i == 31 {
+				ans -= 1 << i
+			} else {
+				ans |= 1 << i
+			}
 		}
 	}
 	return
@@ -215,7 +228,7 @@ public class Solution {
 class Solution {
     func singleNumber(_ nums: [Int]) -> Int {
         var bitCounts = [Int](repeating: 0, count: 32)
-
+        
         for num in nums {
             var x = num
             for i in 0..<32 {
@@ -223,14 +236,18 @@ class Solution {
                 x >>= 1
             }
         }
-
+        
         var result = 0
         for i in 0..<32 {
             if bitCounts[i] % 3 == 1 {
-                result |= 1 << i
+                if i == 31 {
+                    result -= 1 << i
+                } else {
+                    result |= 1 << i
+                }
             }
         }
-
+        
         return result
     }
 }

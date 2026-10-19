@@ -8,7 +8,11 @@ func singleNumber(nums []int) (ans int) {
 	}
 	for i, v := range cnt {
 		if v%3 == 1 {
-			ans |= 1 << i
+			if i == 31 {
+				ans -= 1 << i
+			} else {
+				ans |= 1 << i
+			}
 		}
 	}
 	return
