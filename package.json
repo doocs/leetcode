@@ -11,7 +11,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
-    "prettier-plugin-sql-cst": "^0.22.1"
+    "prettier-plugin-sql-cst": "^0.23.1"
   },
   "lint-staged": {
     "*.{js,ts,php,sql,md}": "prettier --write",
