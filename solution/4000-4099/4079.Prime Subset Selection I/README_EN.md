@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1467
+source: Weekly Contest 523 Q2
 ---
 
 <!-- problem:start -->

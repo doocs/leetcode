@@ -98,13 +98,7 @@ class Solution {
                 cnt += num >> i & 1;
             }
             cnt %= 3;
-            if (cnt) {
-                if (i == 31) {
-                    ans = INT_MIN + ans;
-                } else {
-                    ans |= cnt << i;
-                }
-            }
+            ans |= cnt << i;
         }
         return ans;
     }
@@ -124,7 +118,13 @@ public:
                 cnt += ((num >> i) & 1);
             }
             cnt %= 3;
-            ans |= cnt << i;
+            if (cnt) {
+                if (i == 31) {
+                    ans = INT_MIN + ans;
+                } else {
+                    ans |= cnt << i;
+                }
+            }
         }
         return ans;
     }
@@ -154,8 +154,8 @@ func singleNumber(nums []int) int {
 function singleNumber(nums: number[]): number {
     let ans = 0;
     for (let i = 0; i < 32; i++) {
-        const count = nums.reduce((r, v) => r + ((v >> i) & 1), 0);
-        ans |= (count % 3) << i;
+        const cnt = nums.reduce((r, num) => r + ((num >> i) & 1), 0);
+        ans |= (cnt % 3) << i;
     }
     return ans;
 }
@@ -167,8 +167,8 @@ function singleNumber(nums: number[]): number {
 function singleNumber(nums) {
     let ans = 0;
     for (let i = 0; i < 32; i++) {
-        const count = nums.reduce((r, v) => r + ((v >> i) & 1), 0);
-        ans |= (count % 3) << i;
+        const cnt = nums.reduce((r, num) => r + ((num >> i) & 1), 0);
+        ans |= (cnt % 3) << i;
     }
     return ans;
 }
@@ -181,8 +181,8 @@ impl Solution {
     pub fn single_number(nums: Vec<i32>) -> i32 {
         let mut ans = 0;
         for i in 0..32 {
-            let count = nums.iter().map(|v| (v >> i) & 1).sum::<i32>();
-            ans |= count % 3 << i;
+            let cnt = nums.iter().map(|num| (num >> i) & 1).sum::<i32>();
+            ans |= cnt % 3 << i;
         }
         ans
     }
@@ -195,13 +195,13 @@ impl Solution {
 int singleNumber(int* nums, int numsSize) {
     int ans = 0;
     for (int i = 0; i < 32; i++) {
-        int count = 0;
+        int cnt = 0;
         for (int j = 0; j < numsSize; j++) {
             if (nums[j] >> i & 1) {
-                count++;
+                cnt++;
             }
         }
-        ans |= (unsigned) (count % 3) << i;
+        ans |= (unsigned) (cnt % 3) << i;
     }
     return ans;
 }

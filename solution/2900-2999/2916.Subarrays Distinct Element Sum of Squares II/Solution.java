@@ -1,51 +1,83 @@
 class Solution {
-    private static final long MOD = 1000000007L;
-    private long[] sum;
-    private long[] sumSq;
-    private long[] lazy;
+    private static final int MOD = 1000000007;
+
+    static class Node {
+        int l, r;
+        long sum, sumSq;
+        int lazy;
+    }
+
+    static class SegmentTree {
+        Node[] tr;
+
+        SegmentTree(int n) {
+            tr = new Node[n << 2];
+            for (int i = 0; i < tr.length; i++) {
+                tr[i] = new Node();
+            }
+            build(1, 0, n - 1);
+        }
+
+        void build(int u, int l, int r) {
+            tr[u].l = l;
+            tr[u].r = r;
+            if (l == r) {
+                return;
+            }
+            int mid = (l + r) >> 1;
+            build(u << 1, l, mid);
+            build(u << 1 | 1, mid + 1, r);
+        }
+
+        void apply(int u, int v) {
+            long len = tr[u].r - tr[u].l + 1L;
+            long add = v;
+            tr[u].sumSq += 2 * add * tr[u].sum + add * add * len;
+            tr[u].sum += add * len;
+            tr[u].lazy += v;
+        }
+
+        void pushdown(int u) {
+            if (tr[u].lazy != 0) {
+                apply(u << 1, tr[u].lazy);
+                apply(u << 1 | 1, tr[u].lazy);
+                tr[u].lazy = 0;
+            }
+        }
+
+        void pushup(int u) {
+            tr[u].sum = tr[u << 1].sum + tr[u << 1 | 1].sum;
+            tr[u].sumSq = tr[u << 1].sumSq + tr[u << 1 | 1].sumSq;
+        }
+
+        void modify(int u, int l, int r, int v) {
+            if (tr[u].l >= l && tr[u].r <= r) {
+                apply(u, v);
+                return;
+            }
+            pushdown(u);
+            int mid = (tr[u].l + tr[u].r) >> 1;
+            if (l <= mid) {
+                modify(u << 1, l, r, v);
+            }
+            if (r > mid) {
+                modify(u << 1 | 1, l, r, v);
+            }
+            pushup(u);
+        }
+    }
+
     public int sumCounts(int[] nums) {
         int n = nums.length;
-        int size = 4 * n;
-        sum = new long[size];
-        sumSq = new long[size];
-        lazy = new long[size];
+        SegmentTree st = new SegmentTree(n);
         Map<Integer, Integer> last = new HashMap<>();
         long ans = 0;
-        for (int r = 0; r < n; r++) {
-            int x = nums[r];
-            int p = last.getOrDefault(x, -1);
-            update(1, 0, n - 1, p + 1, r, 1L);
-            last.put(x, r);
-            ans = (ans + sumSq[1]) % MOD;
+        for (int i = 0; i < n; i++) {
+            int p = last.getOrDefault(nums[i], -1);
+            st.modify(1, p + 1, i, 1);
+            last.put(nums[i], i);
+            ans = (ans + st.tr[1].sumSq) % MOD;
         }
         return (int) ans;
-    }
-    private void apply(int node, int l, int r, long v) {
-        long len = r - l + 1;
-        sumSq[node] = (sumSq[node] + 2L * v % MOD * sum[node] % MOD + v * v % MOD * len % MOD) % MOD;
-        sum[node] = (sum[node] + v * len) % MOD;
-        lazy[node] = (lazy[node] + v) % MOD;
-    }
-    private void pushDown(int node, int l, int r) {
-        if (lazy[node] != 0 && l != r) {
-            int mid = (l + r) >> 1;
-            long v = lazy[node];
-            apply(node << 1, l, mid, v);
-            apply(node << 1 | 1, mid + 1, r, v);
-            lazy[node] = 0;
-        }
-    }
-    private void update(int node, int l, int r, int ql, int qr, long v) {
-        if (ql > r || qr < l) return;
-        if (ql <= l && r <= qr) {
-            apply(node, l, r, v);
-            return;
-        }
-        pushDown(node, l, r);
-        int mid = (l + r) >> 1;
-        update(node << 1, l, mid, ql, qr, v);
-        update(node << 1 | 1, mid + 1, r, ql, qr, v);
-        sum[node] = (sum[node << 1] + sum[node << 1 | 1]) % MOD;
-        sumSq[node] = (sumSq[node << 1] + sumSq[node << 1 | 1]) % MOD;
     }
 }

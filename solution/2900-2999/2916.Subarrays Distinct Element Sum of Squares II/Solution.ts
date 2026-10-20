@@ -1,57 +1,79 @@
+const MOD = 1_000_000_007;
+
 function sumCounts(nums: number[]): number {
-    const MOD = 1000000007n;
     const n = nums.length;
-    const size = 4 * n;
-    const sum = new Array<bigint>(size).fill(0n);     
-    const sumSq = new Array<bigint>(size).fill(0n);    
-    const lazy = new Array<bigint>(size).fill(0n);     
-    const build = (node: number, l: number, r: number): void => {
+
+    interface Node {
+        l: number;
+        r: number;
+        sum: number;
+        sumSq: number;
+        lazy: number;
+    }
+
+    const tr: Node[] = Array.from({ length: n << 2 }, () => ({
+        l: 0,
+        r: 0,
+        sum: 0,
+        sumSq: 0,
+        lazy: 0,
+    }));
+
+    const build = (u: number, l: number, r: number) => {
+        tr[u].l = l;
+        tr[u].r = r;
         if (l === r) {
-            sum[node] = 0n;
-            sumSq[node] = 0n;
             return;
         }
         const mid = (l + r) >> 1;
-        build(node << 1, l, mid);
-        build((node << 1) | 1, mid + 1, r);
+        build(u << 1, l, mid);
+        build((u << 1) | 1, mid + 1, r);
     };
-    const apply = (node: number, l: number, r: number, v: bigint): void => {
-        const len = BigInt(r - l + 1);
-        sumSq[node] = (sumSq[node] + 2n * v * sum[node] + v * v * len) % MOD;
-        sum[node] = (sum[node] + v * len) % MOD;
-        lazy[node] = (lazy[node] + v) % MOD;
+
+    const apply = (u: number, v: number) => {
+        const len = tr[u].r - tr[u].l + 1;
+        tr[u].sumSq += 2 * v * tr[u].sum + v * v * len;
+        tr[u].sum += v * len;
+        tr[u].lazy += v;
     };
-    const pushDown = (node: number, l: number, r: number): void => {
-        if (lazy[node] !== 0n && l !== r) {
-            const mid = (l + r) >> 1;
-            const v = lazy[node];
-            apply(node << 1, l, mid, v);
-            apply((node << 1) | 1, mid + 1, r, v);
-            lazy[node] = 0n;
+
+    const pushdown = (u: number) => {
+        if (tr[u].lazy !== 0) {
+            apply(u << 1, tr[u].lazy);
+            apply((u << 1) | 1, tr[u].lazy);
+            tr[u].lazy = 0;
         }
     };
-    const update = (node: number, l: number, r: number, ql: number, qr: number, v: bigint): void => {
-        if (ql > r || qr < l) return;
-        if (ql <= l && r <= qr) {
-            apply(node, l, r, v);
+
+    const pushup = (u: number) => {
+        tr[u].sum = tr[u << 1].sum + tr[(u << 1) | 1].sum;
+        tr[u].sumSq = tr[u << 1].sumSq + tr[(u << 1) | 1].sumSq;
+    };
+
+    const modify = (u: number, l: number, r: number, v: number) => {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            apply(u, v);
             return;
         }
-        pushDown(node, l, r);
-        const mid = (l + r) >> 1;
-        update(node << 1, l, mid, ql, qr, v);
-        update((node << 1) | 1, mid + 1, r, ql, qr, v);
-        sum[node] = (sum[node << 1] + sum[(node << 1) | 1]) % MOD;
-        sumSq[node] = (sumSq[node << 1] + sumSq[(node << 1) | 1]) % MOD;
+        pushdown(u);
+        const mid = (tr[u].l + tr[u].r) >> 1;
+        if (l <= mid) {
+            modify(u << 1, l, r, v);
+        }
+        if (r > mid) {
+            modify((u << 1) | 1, l, r, v);
+        }
+        pushup(u);
     };
+
     build(1, 0, n - 1);
     const last = new Map<number, number>();
-    let ans = 0n;
-    for (let r = 0; r < n; r++) {
-        const x = nums[r];
-        const p = last.has(x) ? last.get(x)! : -1;
-        update(1, 0, n - 1, p + 1, r, 1n);
-        last.set(x, r);
-        ans = (ans + sumSq[1]) % MOD;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        const p = last.get(nums[i]) ?? -1;
+        modify(1, p + 1, i, 1);
+        last.set(nums[i], i);
+        ans = (ans + tr[1].sumSq) % MOD;
     }
-    return Number(ans);
+    return ans;
 }

@@ -1,11 +1,11 @@
 public class Solution {
     public int SingleNumber(int[] nums) {
         int[] cnt = new int[32];
-        foreach(int x in nums) {
-            int v = x;
+        foreach(int num in nums) {
+            int x = num;
             for (int i = 0; i < 32; ++i) {
-                cnt[i] += v & 1;
-                v >>= 1;
+                cnt[i] += x & 1;
+                x >>= 1;
             }
         }
         int ans = 0;

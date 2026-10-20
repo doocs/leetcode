@@ -91,17 +91,21 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序 + 置换环
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 目标序由 $(\textit{digitSum}(x), x)$ 唯一确定，所需最少交换次数等于排列中循环个数的补： $n$ 减去循环数。
->
-> 将每个值映射到排序后的下标，沿映射走一圈并标记访问。每个循环无论多长都可用循环长度减一次交换排好，故答案为 $n$ 减循环个数。
+> 任意两个位置都可以交换。先求出目标序列，再逐个把错位元素换到目标位置，在样例上能够得到正确答案，但 $n$ 达到 $10^5$ 时，每一步重新扫描剩余元素会退化成平方时间。任意交换下，最少次数由当前排列到目标排列的循环分解决定：长度为 $\ell$ 的循环只需 $\ell-1$ 次即可归位，总数等于 $n$ 减去循环个数。目标序由 $(\textit{digitSum}(x), x)$ 唯一确定，因此先排序建立每个值到目标下标的映射，再沿这条映射逐环访问；哈希表与遍历顺序都来自该置换本身。
 
 <!-- thinking:end -->
+
+我们先计算每个元素的数位和，把元素与数位和组成二元组，并按数位和升序排序；数位和相同时，数值较小的排在前面。排序后的顺序就是目标序列。
+
+记数组长度为 $n$。把原数组看作一个置换：下标 $i$ 上的数值应当放到它在目标序列中的下标。若该置换含有 $c$ 个循环，则最少交换次数为 $n - c$。实现时用哈希表记下每个数值的目标下标，从每个尚未访问的位置出发，不断跳到当前数值应去的下标，直到进入已访问位置，这样就找出一个循环。答案初始化为 $n$，每发现一个循环就减一。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -296,6 +300,185 @@ function minSwaps(nums: number[]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_swaps(nums: Vec<i32>) -> i32 {
+        fn digit_sum(mut x: i32) -> i32 {
+            let mut s = 0;
+            while x != 0 {
+                s += x % 10;
+                x /= 10;
+            }
+            s
+        }
+
+        let n = nums.len();
+        let mut arr: Vec<(i32, i32)> = nums.iter().map(|&x| (digit_sum(x), x)).collect();
+        arr.sort();
+        let mut d = HashMap::new();
+        for (i, &(_, x)) in arr.iter().enumerate() {
+            d.insert(x, i);
+        }
+        let mut vis = vec![false; n];
+        let mut ans = n as i32;
+        for i in 0..n {
+            if !vis[i] {
+                ans -= 1;
+                let mut j = i;
+                while !vis[j] {
+                    vis[j] = true;
+                    j = d[&nums[j]];
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+function f(x) {
+    let s = 0;
+    while (x !== 0) {
+        s += x % 10;
+        x = Math.floor(x / 10);
+    }
+    return s;
+}
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSwaps = function (nums) {
+    const n = nums.length;
+    const arr = new Array(n);
+    for (let i = 0; i < n; i++) {
+        arr[i] = [f(nums[i]), nums[i]];
+    }
+    arr.sort((a, b) => (a[0] !== b[0] ? a[0] - b[0] : a[1] - b[1]));
+    const d = new Map();
+    for (let i = 0; i < n; i++) {
+        d.set(arr[i][1], i);
+    }
+    const vis = new Array(n).fill(false);
+    let ans = n;
+    for (let i = 0; i < n; i++) {
+        if (!vis[i]) {
+            ans--;
+            let j = i;
+            while (!vis[j]) {
+                vis[j] = true;
+                j = d.get(nums[j]);
+            }
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinSwaps(int[] nums) {
+        int n = nums.Length;
+        int[][] arr = new int[n][];
+        for (int i = 0; i < n; i++) {
+            arr[i] = new int[] { F(nums[i]), nums[i] };
+        }
+        Array.Sort(arr, (a, b) => {
+            if (a[0] != b[0]) {
+                return a[0].CompareTo(b[0]);
+            }
+            return a[1].CompareTo(b[1]);
+        });
+        Dictionary<int, int> d = new Dictionary<int, int>();
+        for (int i = 0; i < n; i++) {
+            d[arr[i][1]] = i;
+        }
+        bool[] vis = new bool[n];
+        int ans = n;
+        for (int i = 0; i < n; i++) {
+            if (!vis[i]) {
+                ans--;
+                int j = i;
+                while (!vis[j]) {
+                    vis[j] = true;
+                    j = d[nums[j]];
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int F(int x) {
+        int s = 0;
+        while (x != 0) {
+            s += x % 10;
+            x /= 10;
+        }
+        return s;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function minSwaps($nums) {
+        $n = count($nums);
+        $arr = [];
+        foreach ($nums as $x) {
+            $arr[] = [$this->f($x), $x];
+        }
+        usort($arr, function ($a, $b) {
+            if ($a[0] != $b[0]) {
+                return $a[0] <=> $b[0];
+            }
+            return $a[1] <=> $b[1];
+        });
+        $d = [];
+        for ($i = 0; $i < $n; $i++) {
+            $d[$arr[$i][1]] = $i;
+        }
+        $vis = array_fill(0, $n, false);
+        $ans = $n;
+        for ($i = 0; $i < $n; $i++) {
+            if (!$vis[$i]) {
+                $ans--;
+                $j = $i;
+                while (!$vis[$j]) {
+                    $vis[$j] = true;
+                    $j = $d[$nums[$j]];
+                }
+            }
+        }
+        return $ans;
+    }
+
+    private function f($x) {
+        $s = 0;
+        while ($x != 0) {
+            $s += $x % 10;
+            $x = intdiv($x, 10);
+        }
+        return $s;
+    }
 }
 ```
 
