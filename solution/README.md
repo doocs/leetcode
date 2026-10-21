@@ -4097,6 +4097,7 @@
 |  4084  |  [有向网格中的最后访问单元格](/solution/4000-4099/4084.Last%20Visited%20Cell%20in%20a%20Directional%20Grid/README.md)  |    |  中等  |  第 524 场周赛  |
 |  4085  |  [找到颜色树的根](/solution/4000-4099/4085.Find%20Root%20of%20a%20Colored%20Tree/README.md)  |    |  中等  |  第 524 场周赛  |
 |  4086  |  [覆盖目标区间的最少区间](/solution/4000-4099/4086.Minimum%20Interval%20Selection%20to%20Cover%20Target%20Intervals/README.md)  |    |  困难  |  第 524 场周赛  |
+|  4087  |  [Maximum Subarray Sum of Fixed Length After at Most K Swaps](/solution/4000-4099/4087.Maximum%20Subarray%20Sum%20of%20Fixed%20Length%20After%20at%20Most%20K%20Swaps/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
