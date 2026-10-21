@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792595629,
+  "cache_date": 1792596432,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -8104,6 +8104,12 @@
     "solution/1400-1499/1409.Queries on a Permutation With Key/README.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -8116,7 +8122,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/59782701?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1792595836
     },
     "solution/0100-0199/0141.Linked List Cycle/README.md": {
       "authors": [
@@ -75519,6 +75525,12 @@
     "solution/1400-1499/1409.Queries on a Permutation With Key/README_EN.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -75531,7 +75543,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/59782701?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792595842
     },
     "solution/0100-0199/0141.Linked List Cycle/README_EN.md": {
       "authors": [
