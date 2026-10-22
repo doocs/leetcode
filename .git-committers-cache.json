@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792596432,
+  "cache_date": 1792630006,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -8325,6 +8325,12 @@
     "solution/1400-1499/1420.Build Array Where You Can Find The Maximum Exactly K Comparisons/README.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -8337,7 +8343,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/59782701?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1792629457
     },
     "solution/1400-1499/1421.NPV Queries/README.md": {
       "authors": [
@@ -8720,13 +8726,19 @@
     "solution/1400-1499/1443.Minimum Time to Collect All Apples in a Tree/README.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791432850
+      "retrieved": 1792629457
     },
     "solution/1400-1499/1444.Number of Ways of Cutting a Pizza/README.md": {
       "authors": [
@@ -75752,6 +75764,12 @@
     "solution/1400-1499/1420.Build Array Where You Can Find The Maximum Exactly K Comparisons/README_EN.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -75764,7 +75782,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/59782701?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792629466
     },
     "solution/1400-1499/1421.NPV Queries/README_EN.md": {
       "authors": [
@@ -76141,13 +76159,19 @@
     "solution/1400-1499/1443.Minimum Time to Collect All Apples in a Tree/README_EN.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791071631
+      "retrieved": 1792629466
     },
     "solution/1400-1499/1444.Number of Ways of Cutting a Pizza/README_EN.md": {
       "authors": [
