@@ -79,32 +79,171 @@ difficulty: 困难
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序 + 贪心
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两组区间的长度都能到 $5 \times 10^4$，枚举可用区间的子集无法检查每个目标里的全部实数点。坐标上界是 $10^5$，差分可以标出目标的并集，但并集之间的空隙本来就没有覆盖要求。
+>
+> 目标会重叠，又会被这些空隙隔开。从左到右记下已经覆盖到的位置之后，下一步只取决于下一个必须落在某个选中区间里的点。
+>
+> 两类区间都按左端点排序后，已覆盖到 $\textit{cur}$ 时，目标 $[l, r]$ 的下一个必达点是 $\max(l, \textit{cur})$。覆盖停在目标内部就从 $\textit{cur}$ 续上；$l$ 更靠右时，中间的开区间不属于任何目标，这些点不必覆盖。左端点不超过该点的可用区间都能包含它，右端最远的一个可以换掉其余选择，后面还需要的区间不会更多。
+>
+> 必达点只向右移动，可用区间按左端点用一个指针扫过即可。右端没有超过已覆盖位置的区间，补不上目标内部还没盖住的实数点。
+
+<!-- thinking:end -->
+
+将 $\textit{availableIntervals}$ 和 $\textit{targetIntervals}$ 按左端点升序排序。$\textit{cur}$ 是当前已经覆盖到的最右端点，初始为 $0$。指针 $i$ 从左到右扫描可用区间。
+
+按排序后的顺序处理目标 $[l, r]$。$\textit{cur} \ge r$ 时该目标已经覆盖完毕。否则令 $\textit{uncover} = \max(l, \textit{cur})$，并在左端点不超过 $\textit{uncover}$ 的可用区间中取右端点的最大值 $\textit{nxt}$。$\textit{nxt} < \textit{uncover}$ 说明没有可用区间包含这个点；$\textit{nxt} = \textit{cur}$ 说明覆盖不能再向右延伸。两种情况都返回 $-1$。否则选中右端最远的那个区间，令 $\textit{cur} = \textit{nxt}$，答案加 $1$，直到 $\textit{cur} \ge r$。
+
+闭区间只在端点相接时连成一片。前一段的右端点等于下一段的左端点时，中间没有未覆盖的实数。若下一段的左端点至少比前一段的右端点大 $1$，且这段空隙落在某个目标内部，其中的实数点就没有被覆盖，算法返回 $-1$。
+
+每个区间只被指针扫描一次。时间复杂度 $O(n \log n + m \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别是可用区间和目标区间的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minSelection(
+        self, availableIntervals: list[list[int]], targetIntervals: list[list[int]]
+    ) -> int:
+        availableIntervals.sort(key=lambda x: x[0])
+        targetIntervals.sort(key=lambda x: x[0])
+        ans = cur = 0
+        i = 0
+        for l, r in targetIntervals:
+            while cur < r:
+                uncover = max(l, cur)
+                nxt = cur
+                while (
+                    i < len(availableIntervals) and availableIntervals[i][0] <= uncover
+                ):
+                    nxt = max(nxt, availableIntervals[i][1])
+                    i += 1
+                if nxt < uncover or nxt == cur:
+                    return -1
+                cur = nxt
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minSelection(int[][] availableIntervals, int[][] targetIntervals) {
+        Arrays.sort(availableIntervals, (a, b) -> a[0] - b[0]);
+        Arrays.sort(targetIntervals, (a, b) -> a[0] - b[0]);
+        int ans = 0, cur = 0, i = 0;
+        for (int[] t : targetIntervals) {
+            int l = t[0], r = t[1];
+            while (cur < r) {
+                int uncover = Math.max(l, cur);
+                int nxt = cur;
+                while (i < availableIntervals.length && availableIntervals[i][0] <= uncover) {
+                    nxt = Math.max(nxt, availableIntervals[i][1]);
+                    i++;
+                }
+                if (nxt < uncover || nxt == cur) {
+                    return -1;
+                }
+                cur = nxt;
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minSelection(vector<vector<int>>& availableIntervals, vector<vector<int>>& targetIntervals) {
+        sort(availableIntervals.begin(), availableIntervals.end(), [](auto& a, auto& b) { return a[0] < b[0]; });
+        sort(targetIntervals.begin(), targetIntervals.end(), [](auto& a, auto& b) { return a[0] < b[0]; });
+        int ans = 0, cur = 0, i = 0;
+        for (auto& t : targetIntervals) {
+            int l = t[0], r = t[1];
+            while (cur < r) {
+                int uncover = max(l, cur);
+                int nxt = cur;
+                while (i < (int) availableIntervals.size() && availableIntervals[i][0] <= uncover) {
+                    nxt = max(nxt, availableIntervals[i][1]);
+                    i++;
+                }
+                if (nxt < uncover || nxt == cur) {
+                    return -1;
+                }
+                cur = nxt;
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minSelection(availableIntervals [][]int, targetIntervals [][]int) int {
+	sort.Slice(availableIntervals, func(a, b int) bool { return availableIntervals[a][0] < availableIntervals[b][0] })
+	sort.Slice(targetIntervals, func(a, b int) bool { return targetIntervals[a][0] < targetIntervals[b][0] })
+	ans, cur, i := 0, 0, 0
+	for _, t := range targetIntervals {
+		l, r := t[0], t[1]
+		for cur < r {
+			uncover := max(l, cur)
+			nxt := cur
+			for i < len(availableIntervals) && availableIntervals[i][0] <= uncover {
+				nxt = max(nxt, availableIntervals[i][1])
+				i++
+			}
+			if nxt < uncover || nxt == cur {
+				return -1
+			}
+			cur = nxt
+			ans++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minSelection(availableIntervals: number[][], targetIntervals: number[][]): number {
+    availableIntervals.sort((a, b) => a[0] - b[0]);
+    targetIntervals.sort((a, b) => a[0] - b[0]);
+    let ans = 0,
+        cur = 0,
+        i = 0;
+    for (const [l, r] of targetIntervals) {
+        while (cur < r) {
+            const uncover = Math.max(l, cur);
+            let nxt = cur;
+            while (i < availableIntervals.length && availableIntervals[i][0] <= uncover) {
+                nxt = Math.max(nxt, availableIntervals[i][1]);
+                i++;
+            }
+            if (nxt < uncover || nxt === cur) {
+                return -1;
+            }
+            cur = nxt;
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
