@@ -96,7 +96,7 @@ Process each target $[l, r]$ in that order. The target is already covered when $
 
 Closed intervals form one continuous cover only when they meet at an endpoint. If one selected interval ends where the next begins, no real point between them is missing. If the next left endpoint is at least $1$ larger than the previous right endpoint and that gap lies inside a target, the real points in the gap are uncovered and the search returns $-1$.
 
-Each interval is scanned once. The time complexity is $O((n + m) \log (n + m))$ and the space complexity is $O(\log (n + m))$, where $n$ and $m$ are the numbers of available intervals and target intervals.
+Each interval is scanned once. The time complexity is $O(n \log n + m \log m)$ and the space complexity is $O(\log n + \log m)$, where $n$ and $m$ are the numbers of available intervals and target intervals.
 
 <!-- tabs:start -->
 
