@@ -203,77 +203,6 @@ public:
 };
 ```
 
-#### Rust
-
-```rust
-impl Solution {
-    pub fn remove_invalid_parentheses(s: String) -> Vec<String> {
-        fn dfs(
-            buf: &mut [u8],
-            i: usize,
-            len: usize,
-            l: usize,
-            r: usize,
-            balance: usize,
-            prev_removed: bool,
-            ans: &mut Vec<String>,
-        ) {
-            if buf.len() - i < l + r + balance {
-                return;
-            }
-            if i == buf.len() {
-                let t = std::str::from_utf8(&buf[..len]).unwrap();
-                if !ans.iter().any(|s| s == t) {
-                    ans.push(t.to_owned());
-                }
-                return;
-            }
-            let c = buf[i];
-            if prev_removed || i == 0 || c != buf[i - 1] {
-                match c {
-                    b'(' if l > 0 => dfs(buf, i + 1, len, l - 1, r, balance, true, ans),
-                    b')' if r > 0 => dfs(buf, i + 1, len, l, r - 1, balance, true, ans),
-                    _ => {}
-                }
-            }
-            if c == b')' && balance == 0 {
-                return;
-            }
-            let saved = buf[len];
-            buf[len] = c;
-            dfs(
-                buf,
-                i + 1,
-                len + 1,
-                l,
-                r,
-                match c {
-                    b'(' => balance + 1,
-                    b')' => balance - 1,
-                    _ => balance,
-                },
-                false,
-                ans,
-            );
-            buf[len] = saved;
-        }
-        let (l, r) = s.bytes().fold((0usize, 0usize), |(l, r), c| match c {
-            b'(' => (l + 1, r),
-            b')' if l > 0 => (l - 1, r),
-            b')' => (l, r + 1),
-            _ => (l, r),
-        });
-        if l == 0 && r == 0 {
-            return vec![s];
-        }
-        let mut buf = s.into_bytes();
-        let mut ans = Vec::new();
-        dfs(&mut buf, 0, 0, l, r, 0, false, &mut ans);
-        ans
-    }
-}
-```
-
 #### Go
 
 ```go
@@ -370,6 +299,69 @@ function removeInvalidParentheses(s: string): string[] {
 
     dfs(0, l, r, 0, 0, '');
     return Array.from(ans);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn remove_invalid_parentheses(s: String) -> Vec<String> {
+        let s = s.into_bytes();
+        let mut l = 0;
+        let mut r = 0;
+        for &c in &s {
+            if c == b'(' {
+                l += 1;
+            } else if c == b')' {
+                if l > 0 {
+                    l -= 1;
+                } else {
+                    r += 1;
+                }
+            }
+        }
+        let mut ans = HashSet::new();
+
+        fn dfs(
+            s: &[u8],
+            i: usize,
+            l: usize,
+            r: usize,
+            lcnt: usize,
+            rcnt: usize,
+            t: &mut Vec<u8>,
+            ans: &mut HashSet<String>,
+        ) {
+            let n = s.len();
+            if i == n {
+                if l == 0 && r == 0 {
+                    ans.insert(String::from_utf8(t.clone()).unwrap());
+                }
+                return;
+            }
+            if n - i < l + r || lcnt < rcnt {
+                return;
+            }
+            let c = s[i];
+            if c == b'(' && l > 0 {
+                dfs(s, i + 1, l - 1, r, lcnt, rcnt, t, ans);
+            }
+            if c == b')' && r > 0 {
+                dfs(s, i + 1, l, r - 1, lcnt, rcnt, t, ans);
+            }
+            let x = if c == b'(' { 1 } else { 0 };
+            let y = if c == b')' { 1 } else { 0 };
+            t.push(c);
+            dfs(s, i + 1, l, r, lcnt + x, rcnt + y, t, ans);
+            t.pop();
+        }
+
+        dfs(&s, 0, l, r, 0, 0, &mut Vec::new(), &mut ans);
+        ans.into_iter().collect()
+    }
 }
 ```
 
