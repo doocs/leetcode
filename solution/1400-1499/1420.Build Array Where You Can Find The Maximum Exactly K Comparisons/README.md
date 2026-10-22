@@ -244,4 +244,105 @@ func numOfArrays(n int, m int, k int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：前缀和优化
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一计算每个状态时，都要重新枚举比当前最大值小的旧最大值，多出一层 $O(m)$ 循环。固定长度和查找代价后，相邻两个最大值所需的和只差前一个最大值对应的状态。我们按最大值从小到大维护这个前缀和，就能在 $O(1)$ 时间算出每个状态。转移只依赖上一层长度，因此只需保留两层 DP。
+
+<!-- thinking:end -->
+
+设 $dp[c][j]$ 表示当前长度、查找代价为 $c$、最大值为 $j$ 的数组个数。追加一个数时，要么最大值不变，有 $j$ 种选择；要么从较小的最大值增大到 $j$。在递增枚举 $j$ 时维护 $prefix = \sum_{x=1}^{j-1} dp_{\mathrm{prev}}[c-1][x]$，于是
+
+$$dp_{\mathrm{next}}[c][j] = j \cdot dp_{\mathrm{prev}}[c][j] + prefix \pmod{10^9+7}.$$
+
+长度为 $1$ 时，初始化 $dp[1][j]=1$。答案为所有 $1 \le j \le m$ 的 $dp[k][j]$ 之和。时间复杂度为 $O(nkm)$，比方法一的 $O(nkm^2)$ 少一层枚举；只保留前后两层，空间复杂度从 $O(nkm)$ 降为 $O(km)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numOfArrays(self, n: int, m: int, k: int) -> int:
+        if k == 0:
+            return 0
+        mod = 10**9 + 7
+        dp = [[0] * (m + 1) for _ in range(k + 1)]
+        for j in range(1, m + 1):
+            dp[1][j] = 1
+        for i in range(2, n + 1):
+            nxt = [[0] * (m + 1) for _ in range(k + 1)]
+            for c in range(1, min(i, k) + 1):
+                prefix = 0
+                for j in range(1, m + 1):
+                    prefix = (prefix + dp[c - 1][j - 1]) % mod
+                    nxt[c][j] = (dp[c][j] * j + prefix) % mod
+            dp = nxt
+        return sum(dp[k]) % mod
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numOfArrays(int n, int m, int k) {
+        if (k == 0) return 0;
+        constexpr int mod = 1e9 + 7;
+        vector<vector<long long>> dp(k + 1, vector<long long>(m + 1));
+        for (int j = 1; j <= m; ++j) dp[1][j] = 1;
+        for (int i = 2; i <= n; ++i) {
+            vector<vector<long long>> nxt(k + 1, vector<long long>(m + 1));
+            for (int c = 1; c <= min(i, k); ++c) {
+                long long prefix = 0;
+                for (int j = 1; j <= m; ++j) {
+                    prefix = (prefix + dp[c - 1][j - 1]) % mod;
+                    nxt[c][j] = (dp[c][j] * j + prefix) % mod;
+                }
+            }
+            dp.swap(nxt);
+        }
+        long long ans = 0;
+        for (int j = 1; j <= m; ++j) ans = (ans + dp[k][j]) % mod;
+        return ans;
+    }
+};
+```
+
+#### TypeScript
+
+```ts
+function numOfArrays(n: number, m: number, k: number): number {
+    if (k === 0) {
+        return 0;
+    }
+    const mod = 1e9 + 7;
+    let dp: number[][] = Array.from({ length: k + 1 }, () => Array(m + 1).fill(0));
+    for (let j = 1; j <= m; ++j) {
+        dp[1][j] = 1;
+    }
+    for (let i = 2; i <= n; ++i) {
+        const next: number[][] = Array.from({ length: k + 1 }, () => Array(m + 1).fill(0));
+        for (let c = 1; c <= Math.min(i, k); ++c) {
+            let prefix = 0;
+            for (let j = 1; j <= m; ++j) {
+                prefix = (prefix + dp[c - 1][j - 1]) % mod;
+                next[c][j] = (dp[c][j] * j + prefix) % mod;
+            }
+        }
+        dp = next;
+    }
+    return dp[k].reduce((sum, count) => (sum + count) % mod, 0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

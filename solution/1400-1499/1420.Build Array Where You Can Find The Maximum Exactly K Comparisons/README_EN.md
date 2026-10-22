@@ -212,4 +212,105 @@ func numOfArrays(n int, m int, k int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Prefix Sum Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first DP computes each state by scanning every smaller previous maximum, which adds an $O(m)$ loop. For a fixed length and search cost, adjacent maxima need almost the same sum: the sum for maximum $j$ adds only the state at $j-1$ to the sum for $j-1$. We can maintain that prefix while increasing $j$, so each state takes $O(1)$ time. Only the previous length is needed, so two DP layers suffice.
+
+<!-- thinking:end -->
+
+Let $dp[c][j]$ count arrays of the current length with search cost $c$ and maximum $j$. When we append a value, it either does not raise the maximum (with $j$ choices) or raises a smaller maximum to $j$. For each new length, maintain $prefix = \sum_{x=1}^{j-1} dp_{\mathrm{prev}}[c-1][x]$ while increasing $j$. Then
+
+$$dp_{\mathrm{next}}[c][j] = j \cdot dp_{\mathrm{prev}}[c][j] + prefix \pmod{10^9+7}.$$
+
+Initialize $dp[1][j]=1$ for arrays of length $1$. The answer is the sum of $dp[k][j]$ for $1 \le j \le m$. The time complexity is $O(nkm)$, reduced from $O(nkm^2)$ in Solution 1. Keeping only the previous and next lengths uses $O(km)$ space instead of $O(nkm)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numOfArrays(self, n: int, m: int, k: int) -> int:
+        if k == 0:
+            return 0
+        mod = 10**9 + 7
+        dp = [[0] * (m + 1) for _ in range(k + 1)]
+        for j in range(1, m + 1):
+            dp[1][j] = 1
+        for i in range(2, n + 1):
+            nxt = [[0] * (m + 1) for _ in range(k + 1)]
+            for c in range(1, min(i, k) + 1):
+                prefix = 0
+                for j in range(1, m + 1):
+                    prefix = (prefix + dp[c - 1][j - 1]) % mod
+                    nxt[c][j] = (dp[c][j] * j + prefix) % mod
+            dp = nxt
+        return sum(dp[k]) % mod
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numOfArrays(int n, int m, int k) {
+        if (k == 0) return 0;
+        constexpr int mod = 1e9 + 7;
+        vector<vector<long long>> dp(k + 1, vector<long long>(m + 1));
+        for (int j = 1; j <= m; ++j) dp[1][j] = 1;
+        for (int i = 2; i <= n; ++i) {
+            vector<vector<long long>> nxt(k + 1, vector<long long>(m + 1));
+            for (int c = 1; c <= min(i, k); ++c) {
+                long long prefix = 0;
+                for (int j = 1; j <= m; ++j) {
+                    prefix = (prefix + dp[c - 1][j - 1]) % mod;
+                    nxt[c][j] = (dp[c][j] * j + prefix) % mod;
+                }
+            }
+            dp.swap(nxt);
+        }
+        long long ans = 0;
+        for (int j = 1; j <= m; ++j) ans = (ans + dp[k][j]) % mod;
+        return ans;
+    }
+};
+```
+
+#### TypeScript
+
+```ts
+function numOfArrays(n: number, m: number, k: number): number {
+    if (k === 0) {
+        return 0;
+    }
+    const mod = 1e9 + 7;
+    let dp: number[][] = Array.from({ length: k + 1 }, () => Array(m + 1).fill(0));
+    for (let j = 1; j <= m; ++j) {
+        dp[1][j] = 1;
+    }
+    for (let i = 2; i <= n; ++i) {
+        const next: number[][] = Array.from({ length: k + 1 }, () => Array(m + 1).fill(0));
+        for (let c = 1; c <= Math.min(i, k); ++c) {
+            let prefix = 0;
+            for (let j = 1; j <= m; ++j) {
+                prefix = (prefix + dp[c - 1][j - 1]) % mod;
+                next[c][j] = (dp[c][j] * j + prefix) % mod;
+            }
+        }
+        dp = next;
+    }
+    return dp[k].reduce((sum, count) => (sum + count) % mod, 0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
