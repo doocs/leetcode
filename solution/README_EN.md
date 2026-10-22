@@ -4095,6 +4095,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4084  |  [Last Visited Cell in a Directional Grid](/solution/4000-4099/4084.Last%20Visited%20Cell%20in%20a%20Directional%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 524  |
 |  4085  |  [Find Root of a Colored Tree](/solution/4000-4099/4085.Find%20Root%20of%20a%20Colored%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 524  |
 |  4086  |  [Minimum Interval Selection to Cover Target Intervals](/solution/4000-4099/4086.Minimum%20Interval%20Selection%20to%20Cover%20Target%20Intervals/README_EN.md)  |    |  Hard  |  Weekly Contest 524  |
+|  4087  |  [Maximum Subarray Sum of Fixed Length After at Most K Swaps](/solution/4000-4099/4087.Maximum%20Subarray%20Sum%20of%20Fixed%20Length%20After%20at%20Most%20K%20Swaps/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

@@ -185,4 +185,103 @@ func numberOfArrays(s string, k int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Rolling Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores a value for every suffix, although a number starting at a position can use at most $d$ digits, where $d$ is the number of digits in $k$. While scanning from right to left, the next state therefore reads only the following $d$ suffix counts. We can keep those counts in a circular array of length $d+1$: the slot for the current position cannot overlap any slot that it still needs to read. This preserves the same transitions while removing the $O(n)$ DP array.
+
+<!-- thinking:end -->
+
+Let $f(i)$ be the number of valid partitions of $s[i:]$, with $f(n)=1$. If $s[i]$ is `0`, then $f(i)=0$. Otherwise, extend the first number by at most $d$ digits; for every value at most $k$, add $f(j+1)$ modulo $10^9+7$.
+
+Store $f(i)$ at index $i \bmod (d+1)$. Every value read while computing $f(i)$ has an index in $[i+1,i+d]$, so none shares the slot for $i$. The time complexity is $O(nd)$, as in Solution 1, while the auxiliary space drops from $O(n)$ to $O(d)$; here $d\le 10$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfArrays(self, s: str, k: int) -> int:
+        mod = 10**9 + 7
+        n = len(s)
+        d = len(str(k))
+        f = [0] * (d + 1)
+        f[n % (d + 1)] = 1
+        for i in range(n - 1, -1, -1):
+            ways = 0
+            if s[i] != '0':
+                value = 0
+                for j in range(i, min(n, i + d)):
+                    value = value * 10 + int(s[j])
+                    if value > k:
+                        break
+                    ways = (ways + f[(j + 1) % (d + 1)]) % mod
+            f[i % (d + 1)] = ways
+        return f[0]
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numberOfArrays(string s, int k) {
+        constexpr int mod = 1e9 + 7;
+        int n = s.size(), d = to_string(k).size();
+        vector<int> f(d + 1);
+        f[n % (d + 1)] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            int ways = 0;
+            if (s[i] != '0') {
+                long long value = 0;
+                for (int j = i; j < n && j < i + d; ++j) {
+                    value = value * 10 + s[j] - '0';
+                    if (value > k) break;
+                    ways = (ways + f[(j + 1) % (d + 1)]) % mod;
+                }
+            }
+            f[i % (d + 1)] = ways;
+        }
+        return f[0];
+    }
+};
+```
+
+#### TypeScript
+
+```ts
+function numberOfArrays(s: string, k: number): number {
+    const mod = 1e9 + 7;
+    const n = s.length;
+    const d = String(k).length;
+    const f = Array(d + 1).fill(0);
+    f[n % (d + 1)] = 1;
+    for (let i = n - 1; i >= 0; --i) {
+        let ways = 0;
+        if (s[i] !== '0') {
+            let value = 0;
+            for (let j = i; j < n && j < i + d; ++j) {
+                value = value * 10 + s.charCodeAt(j) - 48;
+                if (value > k) {
+                    break;
+                }
+                ways = (ways + f[(j + 1) % (d + 1)]) % mod;
+            }
+        }
+        f[i % (d + 1)] = ways;
+    }
+    return f[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
