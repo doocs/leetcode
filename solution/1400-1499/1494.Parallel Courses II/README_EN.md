@@ -258,49 +258,50 @@ func minNumberOfSemesters(n int, relations [][]int, k int) int {
 
 ```ts
 function minNumberOfSemesters(n: number, relations: number[][], k: number): number {
-    const prerequisites = Array(n + 1).fill(0);
-    for (const [before, after] of relations) {
-        prerequisites[after] |= 1 << before;
+    const d: number[] = Array(n + 1).fill(0);
+    for (const [x, y] of relations) {
+        d[y] |= 1 << x;
     }
-    const size = 1 << (n + 1);
-    const popcount = new Uint8Array(size);
-    for (let mask = 1; mask < size; ++mask) {
-        popcount[mask] = popcount[mask >> 1] + (mask & 1);
-    }
-    const seen = new Uint8Array(size);
-    seen[0] = 1;
-    const queue: [number, number][] = [[0, 0]];
-    const target = size - 2;
-    for (let head = 0; head < queue.length; ++head) {
-        const [done, semesters] = queue[head];
-        if (done === target) {
-            return semesters;
+    const q: number[][] = [[0, 0]];
+    const vis = new Set<number>([0]);
+    while (q.length) {
+        const [cur, t] = q.shift()!;
+        if (cur === (1 << (n + 1)) - 2) {
+            return t;
         }
-        let available = 0;
-        for (let course = 1; course <= n; ++course) {
-            if (
-                !(done & (1 << course)) &&
-                (done & prerequisites[course]) === prerequisites[course]
-            ) {
-                available |= 1 << course;
+        let nxt = 0;
+        for (let i = 1; i <= n; ++i) {
+            if ((cur & d[i]) === d[i]) {
+                nxt |= 1 << i;
             }
         }
-        if (popcount[available] <= k) {
-            const next = done | available;
-            if (!seen[next]) {
-                seen[next] = 1;
-                queue.push([next, semesters + 1]);
+        nxt ^= cur;
+        if (bitCount(nxt) <= k) {
+            if (!vis.has(nxt | cur)) {
+                vis.add(nxt | cur);
+                q.push([nxt | cur, t + 1]);
             }
         } else {
-            for (let take = available; take; take = (take - 1) & available) {
-                if (popcount[take] === k && !seen[done | take]) {
-                    seen[done | take] = 1;
-                    queue.push([done | take, semesters + 1]);
+            const x = nxt;
+            while (nxt > 0) {
+                if (bitCount(nxt) === k && !vis.has(nxt | cur)) {
+                    vis.add(nxt | cur);
+                    q.push([nxt | cur, t + 1]);
                 }
+                nxt = (nxt - 1) & x;
             }
         }
     }
     return 0;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
