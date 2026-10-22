@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792630006,
+  "cache_date": 1792630759,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -8264,13 +8264,19 @@
     "solution/1400-1499/1416.Restore The Array/README.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1792630190
     },
     "solution/1400-1499/1417.Reformat The String/README.md": {
       "authors": [
@@ -75697,13 +75703,19 @@
     "solution/1400-1499/1416.Restore The Array/README_EN.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790420898
+      "retrieved": 1792630174
     },
     "solution/1400-1499/1417.Reformat The String/README_EN.md": {
       "authors": [
