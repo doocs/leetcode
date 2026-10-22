@@ -20,12 +20,4 @@ function minInsertions(s: string): number {
     }
     ans += x << 1;
     return ans;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> af91c82b5d8912f186732e254c0193bccbfc24ca
-=======
-}
->>>>>>> dda3fb9a1b3657c336e2f84c75dd8601846e6fbf

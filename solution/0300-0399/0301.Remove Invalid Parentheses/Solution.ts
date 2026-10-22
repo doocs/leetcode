@@ -1,16 +1,7 @@
 function removeInvalidParentheses(s: string): string[] {
     const n = s.length;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    let l = 0, r = 0;
-=======
     let l = 0,
         r = 0;
->>>>>>> af91c82b5d8912f186732e254c0193bccbfc24ca
-=======
-    let l = 0,
-        r = 0;
->>>>>>> dda3fb9a1b3657c336e2f84c75dd8601846e6fbf
     for (const c of s) {
         if (c === '(') {
             l++;
@@ -49,12 +40,4 @@ function removeInvalidParentheses(s: string): string[] {
 
     dfs(0, l, r, 0, 0, '');
     return Array.from(ans);
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> af91c82b5d8912f186732e254c0193bccbfc24ca
-=======
-}
->>>>>>> dda3fb9a1b3657c336e2f84c75dd8601846e6fbf
