@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792672792,
+  "cache_date": 1792717190,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -9702,13 +9702,19 @@
     "solution/1400-1499/1494.Parallel Courses II/README.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791432850
+      "retrieved": 1792716753
     },
     "solution/1400-1499/1495.Friendly Movies Streamed Last Month/README.md": {
       "authors": [
@@ -37723,6 +37729,12 @@
     "solution/0300-0399/0301.Remove Invalid Parentheses/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "mehdijony",
           "name": "mehdijony",
           "url": "https://github.com/mehdijony",
@@ -37735,7 +37747,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791538529
+      "retrieved": 1792716753
     },
     "solution/3000-3099/3010.Divide an Array Into Subarrays With Minimum Cost I/README.md": {
       "authors": [
@@ -46310,6 +46322,12 @@
     "solution/0000-0099/0042.Trapping Rain Water/README.md": {
       "authors": [
         {
+          "login": "dulanachathurma",
+          "name": "dulanachathurma",
+          "url": "https://github.com/dulanachathurma",
+          "avatar": "https://avatars.githubusercontent.com/u/219115402?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -46334,7 +46352,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1792716753
     },
     "solution/0400-0499/0420.Strong Password Checker/README.md": {
       "authors": [
@@ -55342,13 +55360,19 @@
     "solution/0800-0899/0856.Score of Parentheses/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791432850
+      "retrieved": 1792716753
     },
     "solution/0800-0899/0857.Minimum Cost to Hire K Workers/README.md": {
       "authors": [
@@ -77159,13 +77183,19 @@
     "solution/1400-1499/1494.Parallel Courses II/README_EN.md": {
       "authors": [
         {
+          "login": "aimee-RH",
+          "name": "aimee-RH",
+          "url": "https://github.com/aimee-RH",
+          "avatar": "https://avatars.githubusercontent.com/u/182139164?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792716755
     },
     "solution/1400-1499/1495.Friendly Movies Streamed Last Month/README_EN.md": {
       "authors": [
@@ -105156,6 +105186,12 @@
     "solution/0300-0399/0301.Remove Invalid Parentheses/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "mehdijony",
           "name": "mehdijony",
           "url": "https://github.com/mehdijony",
@@ -105168,7 +105204,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1791538529
+      "retrieved": 1792716755
     },
     "solution/3000-3099/3010.Divide an Array Into Subarrays With Minimum Cost I/README_EN.md": {
       "authors": [
@@ -113653,6 +113689,12 @@
     "solution/0000-0099/0042.Trapping Rain Water/README_EN.md": {
       "authors": [
         {
+          "login": "dulanachathurma",
+          "name": "dulanachathurma",
+          "url": "https://github.com/dulanachathurma",
+          "avatar": "https://avatars.githubusercontent.com/u/219115402?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -113677,7 +113719,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792716755
     },
     "solution/0400-0499/0420.Strong Password Checker/README_EN.md": {
       "authors": [
@@ -122577,13 +122619,19 @@
     "solution/0800-0899/0856.Score of Parentheses/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792716755
     },
     "solution/0800-0899/0857.Minimum Cost to Hire K Workers/README_EN.md": {
       "authors": [
@@ -137116,13 +137164,19 @@
     "solution/3900-3999/3942.Minimum Operations to Sort a Permutation/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790513860
+      "retrieved": 1792716753
     },
     "solution/3900-3999/3940.Limit Occurrences in Sorted Array/README_EN.md": {
       "authors": [
@@ -137149,13 +137203,19 @@
     "solution/3900-3999/3942.Minimum Operations to Sort a Permutation/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1792716755
     },
     "solution/3900-3999/3941.Password Strength/README_EN.md": {
       "authors": [
