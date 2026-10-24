@@ -58,61 +58,57 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Simulation
+### Solution 1: Prefix Sum
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Days together are the length of the intersection of two date intervals. Dates are $\texttt{MM-DD}$, so string order matches calendar order: the intersection starts at the later arrival and ends at the earlier departure.
+> Days together are the length of the intersection of two closed intervals. Scanning every day of the year fits the constraints, but the inputs are $\texttt{MM-DD}$ strings, so both comparison and counting need one shared index.
 >
-> The year is not a leap year. Convert each date to a day-of-year with the month-length table, then subtract and add one. An empty intersection yields zero.
+> Adding the preceding month lengths on each conversion repeats the same constant work. Lexicographic order of this format matches the calendar, so the overlap runs from the later arrival to the earlier departure. Month lengths in a non-leap year are fixed; once their prefix sums $f$ are known, month $m$ and day $d$ is day $f_{m-1}+d$ of the year.
+>
+> The two endpoints are converted through $f$, then subtracted and adjusted by one. If the start falls after the end, the intersection is empty.
 
 <!-- thinking:end -->
 
-We convert the dates into days, and then calculate the number of days both people are in Rome.
+We take the later arrival and the earlier departure, map both dates to a day of the year with the month-length prefix, and return the length of that closed interval.
 
-The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is a constant.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+f = list(accumulate([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], initial=0))
+
+
 class Solution:
     def countDaysTogether(
         self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str
     ) -> int:
-        a = max(arriveAlice, arriveBob)
-        b = min(leaveAlice, leaveBob)
-        days = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
-        x = sum(days[: int(a[:2]) - 1]) + int(a[3:])
-        y = sum(days[: int(b[:2]) - 1]) + int(b[3:])
-        return max(y - x + 1, 0)
+        start = max(arriveAlice, arriveBob)
+        end = min(leaveAlice, leaveBob)
+        d1 = f[int(start[:2]) - 1] + int(start[3:])
+        d2 = f[int(end[:2]) - 1] + int(end[3:])
+        return max(d2 - d1 + 1, 0)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] days = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    static final int[] f = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
     public int countDaysTogether(
         String arriveAlice, String leaveAlice, String arriveBob, String leaveBob) {
-        String a = arriveAlice.compareTo(arriveBob) < 0 ? arriveBob : arriveAlice;
-        String b = leaveAlice.compareTo(leaveBob) < 0 ? leaveAlice : leaveBob;
-        int x = f(a), y = f(b);
-        return Math.max(y - x + 1, 0);
-    }
-
-    private int f(String s) {
-        int i = Integer.parseInt(s.substring(0, 2)) - 1;
-        int res = 0;
-        for (int j = 0; j < i; ++j) {
-            res += days[j];
-        }
-        res += Integer.parseInt(s.substring(3));
-        return res;
+        String start = arriveAlice.compareTo(arriveBob) > 0 ? arriveAlice : arriveBob;
+        String end = leaveAlice.compareTo(leaveBob) < 0 ? leaveAlice : leaveBob;
+        int d1
+            = f[Integer.parseInt(start.substring(0, 2)) - 1] + Integer.parseInt(start.substring(3));
+        int d2 = f[Integer.parseInt(end.substring(0, 2)) - 1] + Integer.parseInt(end.substring(3));
+        return Math.max(d2 - d1 + 1, 0);
     }
 }
 ```
@@ -122,24 +118,14 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    static constexpr int f[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
     int countDaysTogether(string arriveAlice, string leaveAlice, string arriveBob, string leaveBob) {
-        string a = arriveAlice < arriveBob ? arriveBob : arriveAlice;
-        string b = leaveAlice < leaveBob ? leaveAlice : leaveBob;
-        int x = f(a), y = f(b);
-        return max(0, y - x + 1);
-    }
-
-    int f(string s) {
-        int m, d;
-        sscanf(s.c_str(), "%d-%d", &m, &d);
-        int res = 0;
-        for (int i = 0; i < m - 1; ++i) {
-            res += days[i];
-        }
-        res += d;
-        return res;
+        string start = max(arriveAlice, arriveBob);
+        string end = min(leaveAlice, leaveBob);
+        int d1 = f[stoi(start.substr(0, 2)) - 1] + stoi(start.substr(3));
+        int d2 = f[stoi(end.substr(0, 2)) - 1] + stoi(end.substr(3));
+        return max(d2 - d1 + 1, 0);
     }
 };
 ```
@@ -147,31 +133,39 @@ public:
 #### Go
 
 ```go
+var f = [12]int{0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}
+
 func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, leaveBob string) int {
-	days := []int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
-	f := func(s string) int {
-		m, _ := strconv.Atoi(s[:2])
-		d, _ := strconv.Atoi(s[3:])
-		res := 0
-		for i := 0; i < m-1; i++ {
-			res += days[i]
-		}
-		res += d
-		return res
+	start := arriveAlice
+	if arriveBob > start {
+		start = arriveBob
 	}
-	a, b := arriveAlice, leaveBob
-	if arriveAlice < arriveBob {
-		a = arriveBob
+	end := leaveAlice
+	if leaveBob < end {
+		end = leaveBob
 	}
-	if leaveAlice < leaveBob {
-		b = leaveAlice
-	}
-	x, y := f(a), f(b)
-	ans := y - x + 1
-	if ans < 0 {
-		return 0
-	}
-	return ans
+	d1 := f[int(start[0]-'0')*10+int(start[1]-'0')-1] + int(start[3]-'0')*10 + int(start[4]-'0')
+	d2 := f[int(end[0]-'0')*10+int(end[1]-'0')-1] + int(end[3]-'0')*10 + int(end[4]-'0')
+	return max(d2-d1+1, 0)
+}
+```
+
+#### TypeScript
+
+```ts
+const f = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+
+function countDaysTogether(
+    arriveAlice: string,
+    leaveAlice: string,
+    arriveBob: string,
+    leaveBob: string,
+): number {
+    const start = arriveAlice > arriveBob ? arriveAlice : arriveBob;
+    const end = leaveAlice < leaveBob ? leaveAlice : leaveBob;
+    const d1 = f[Number(start.slice(0, 2)) - 1] + Number(start.slice(3));
+    const d2 = f[Number(end.slice(0, 2)) - 1] + Number(end.slice(3));
+    return Math.max(d2 - d1 + 1, 0);
 }
 ```
 
