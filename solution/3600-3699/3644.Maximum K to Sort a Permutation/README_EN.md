@@ -76,19 +76,29 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> We may swap indices (or values) whose bitwise AND equals $k$ until the permutation is sorted. Misplaced values must remain reachable under that AND.
+> The direct approach tries $k$ from large to small and asks whether the misplaced values can be sorted using only swaps whose bitwise AND equals $k$. With $n \le 10^5$, any pair of values may be swapped, so building that graph is quadratic and enumeration does not fit.
 >
-> A swap preserves the bits shared with $k$. The AND of every misplaced value is the largest feasible $k$: any larger $k$ would require a $1$-bit that some misplaced value lacks.
+> What must move is each value that is not stored at its own index. Such a value takes part in at least one swap, so every bit set in $k$ has to be set in that value as well. A feasible $k$ therefore cannot exceed the bitwise AND of all misplaced values.
 >
-> AND those misplaced values into $\textit{ans}$. If nothing is misplaced, $k=0$. Initializing $\textit{ans}$ to $-1$ starts the AND from all-ones.
+> Call that AND $k$ again. The number $k$ itself belongs to the permutation of $[0,n)$, and its AND with every misplaced value is exactly $k$, so it can be used as a hub to arrange those values in any order. An array that is already sorted needs no swap, and the answer is $0$.
+>
+> The identity element of AND is all-ones, so $\textit{ans}$ starts at $-1$ and only combines entries with $\textit{nums}[i] \ne i$. When the permutation is sorted, $\textit{ans}$ stays $-1$, and $\max(\textit{ans}, 0)$ turns that sentinel into $0$.
 
 <!-- thinking:end -->
+
+We maintain $\textit{ans}$ as the bitwise AND of every element that is not in its home position, starting from $-1$.
+
+Scan each index $i$. If $\textit{nums}[i] \ne i$, fold $\textit{nums}[i]$ into $\textit{ans}$ with a bitwise AND.
+
+When the scan finishes, $\textit{ans}$ is still $-1$ if the array is already sorted, in which case the result is $0$. Otherwise $\textit{ans}$ is the largest feasible $k$. Return $\max(\textit{ans}, 0)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -162,6 +172,38 @@ function sortPermutation(nums: number[]): number {
         }
     }
     return Math.max(ans, 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sort_permutation(nums: Vec<i32>) -> i32 {
+        let mut ans = -1;
+        for (i, &x) in nums.iter().enumerate() {
+            if i as i32 != x {
+                ans &= x;
+            }
+        }
+        ans.max(0)
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int SortPermutation(int[] nums) {
+        int ans = -1;
+        for (int i = 0; i < nums.Length; i++) {
+            if (i != nums[i]) {
+                ans &= nums[i];
+            }
+        }
+        return Math.Max(ans, 0);
+    }
 }
 ```
 

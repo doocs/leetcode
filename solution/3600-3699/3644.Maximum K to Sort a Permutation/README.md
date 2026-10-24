@@ -80,19 +80,29 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 允许交换满足 $i\land j=k$ 的下标（或值）以使排列归位。不在原位的值必须能通过与 $k$ 的按位与相互到达。
+> 最直接的做法是从大到小尝试 $k$，再判断错位元素能否只通过「按位与等于 $k$」的交换回到原位。$n \le 10^5$，任意两个值都可能满足交换条件，显式建图已经是平方级别，枚举无法通过。
 >
-> 一次交换不改变「与 $k$ 的公共 $1$ 位」。所有错位元素的按位与给出最大可行 $k$：更大的 $k$ 会丢掉某个错位值已有的 $0$ 位，从而无法交换。
+> 必须移动的是那些不在自身下标上的值。每个这样的值至少参与一次交换，因此 $k$ 中每一个为 $1$ 的二进制位，在该值里也必须为 $1$。可行的 $k$ 于是不能超过全体错位值的按位与。
 >
-> 遍历错位对 $\textit{ans}$ 做与运算，全已有序则 $k$ 可取 $0$。 $\textit{ans}$ 初值 $-1$ 使与运算从全 $1$ 开始。
+> 将这个按位与仍然记作 $k$。数 $k$ 属于排列 $[0,n)$，它与任意错位值的按位与都恰好等于 $k$，故可以作为中转，把错位元素排成任意顺序。若排列已经有序，则不需要交换，答案为 $0$。
+>
+> 按位与的单位元是全 $1$，所以 $\textit{ans}$ 从 $-1$ 开始，扫描时只并入满足 $\textit{nums}[i] \ne i$ 的值。数组有序时 $\textit{ans}$ 保持 $-1$，最后与 $0$ 取较大者即可。
 
 <!-- thinking:end -->
+
+我们用 $\textit{ans}$ 维护所有不在原位的元素的按位与，初始值为 $-1$。
+
+遍历下标 $i$。若 $\textit{nums}[i] \ne i$，则把 $\textit{nums}[i]$ 按位与进 $\textit{ans}$。
+
+扫描结束后，数组有序时 $\textit{ans}$ 仍为 $-1$，应当返回 $0$；否则 $\textit{ans}$ 就是最大可行的 $k$。因此返回 $\max(\textit{ans}, 0)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -166,6 +176,38 @@ function sortPermutation(nums: number[]): number {
         }
     }
     return Math.max(ans, 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sort_permutation(nums: Vec<i32>) -> i32 {
+        let mut ans = -1;
+        for (i, &x) in nums.iter().enumerate() {
+            if i as i32 != x {
+                ans &= x;
+            }
+        }
+        ans.max(0)
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int SortPermutation(int[] nums) {
+        int ans = -1;
+        for (int i = 0; i < nums.Length; i++) {
+            if (i != nums[i]) {
+                ans &= nums[i];
+            }
+        }
+        return Math.Max(ans, 0);
+    }
 }
 ```
 

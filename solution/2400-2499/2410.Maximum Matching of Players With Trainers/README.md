@@ -69,17 +69,15 @@ tags:
 
 > **思考**
 >
-> $n,m \le 10^5$，枚举配对会超时。每位运动员应匹配能力刚好够用的训练师，以免浪费更强者。
+> $n,m \le 10^5$，两两尝试配对会超时。训练师若能匹配更弱的运动员，也就能匹配更强的运动员，所以应把刚好够用的训练师分给当前最弱的运动员。
 >
-> 双方排序后双指针：对每位运动员跳过能力不足的训练师，能匹配则双方前进。训练师指针只增不减，总时间由排序主导。
+> 两边按能力升序排列后，从弱到强处理运动员，训练师指针只向前走：能力不足的跳过，遇到第一个够用的就配上一对。总时间由排序决定。
 
 <!-- thinking:end -->
 
-根据题目描述，每位运动员应该尽可能匹配能力值最接近的训练师，因此我们可以对运动员和训练师的能力值进行排序，然后使用双指针的方法进行匹配。
+把运动员和训练师都按能力从小到大排序。指针 $i$ 和 $j$ 分别指向当前考虑到的运动员和训练师。
 
-我们用两个指针 $i$ 和 $j$ 分别指向运动员和训练师的数组，初始时都指向数组的起始位置。然后我们逐个遍历运动员的能力值，如果当前训练师的能力值小于当前运动员的能力值，我们就将训练师的指针向右移动一位，直到找到一个能力值大于等于当前运动员的训练师。如果找不到这样的训练师，说明当前运动员无法匹配任何训练师，此时我们返回当前运动员的下标即可。否则，，我们可以将当前运动员和训练师匹配，然后将两个指针都向右移动一位。继续这个过程直到遍历完所有的运动员。
-
-如果我们遍历完所有的运动员，说明所有的运动员都能匹配到训练师，此时我们返回运动员的数量即可。
+从最弱的运动员开始匹配。训练师能力低于这名运动员时，将 $j$ 右移，直到能力足够，或训练师已经用完。训练师用完后，后面的运动员只会更强，匹配结束，答案就是已经配上的人数 $i$。否则当前这一对可以匹配，两个指针各前进一步。所有运动员都匹配成功时，返回运动员人数。
 
 时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(\max(\log m, \log n))$。其中 $m$ 和 $n$ 分别为运动员和训练师的数量。
 
@@ -202,6 +200,134 @@ impl Solution {
             j += 1;
         }
         players.len() as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：贪心 + 双指针（遍历训练师）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一在处理每名运动员时，还要用内层循环跳过能力不足的训练师，训练师用完则提前返回。改成遍历训练师之后，这两步都可以省去。
+>
+> 两边按能力升序排列，从弱到强查看训练师，指针停在最弱的未匹配运动员上。训练师能力不足时，剩余运动员只会更强，直接跳过。能力足够就完成匹配，指针前进一步。指针最终的位置就是匹配数，复杂度与方法一相同。
+
+<!-- thinking:end -->
+
+同样先把运动员和训练师按能力从小到大排序。指针 $j$ 指向尚未匹配的最弱运动员，初始为 $0$。
+
+从弱到强查看每名训练师。若仍有运动员未匹配，且该运动员的能力不超过这名训练师，就配成一对，并将 $j$ 加一。否则这名训练师无法匹配剩下的任何运动员，直接跳过。遍历结束后，$j$ 就是最大匹配数。
+
+时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(\max(\log m, \log n))$。其中 $m$ 和 $n$ 分别为运动员和训练师的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+        players.sort()
+        trainers.sort()
+        j = 0
+        for t in trainers:
+            if j < len(players) and players[j] <= t:
+                j += 1
+        return j
+```
+
+#### Java
+
+```java
+class Solution {
+    public int matchPlayersAndTrainers(int[] players, int[] trainers) {
+        Arrays.sort(players);
+        Arrays.sort(trainers);
+        int j = 0, m = players.length;
+        for (int t : trainers) {
+            if (j < m && players[j] <= t) {
+                ++j;
+            }
+        }
+        return j;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
+        ranges::sort(players);
+        ranges::sort(trainers);
+        int j = 0, m = players.size();
+        for (int t : trainers) {
+            if (j < m && players[j] <= t) {
+                ++j;
+            }
+        }
+        return j;
+    }
+};
+```
+
+#### Go
+
+```go
+func matchPlayersAndTrainers(players []int, trainers []int) int {
+	sort.Ints(players)
+	sort.Ints(trainers)
+	j, m := 0, len(players)
+	for _, t := range trainers {
+		if j < m && players[j] <= t {
+			j++
+		}
+	}
+	return j
+}
+```
+
+#### TypeScript
+
+```ts
+function matchPlayersAndTrainers(players: number[], trainers: number[]): number {
+    players.sort((a, b) => a - b);
+    trainers.sort((a, b) => a - b);
+    let j = 0;
+    const m = players.length;
+    for (const t of trainers) {
+        if (j < m && players[j] <= t) {
+            ++j;
+        }
+    }
+    return j;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn match_players_and_trainers(mut players: Vec<i32>, mut trainers: Vec<i32>) -> i32 {
+        players.sort();
+        trainers.sort();
+        let mut j = 0;
+        for &t in &trainers {
+            if j < players.len() && players[j] <= t {
+                j += 1;
+            }
+        }
+        j as i32
     }
 }
 ```
