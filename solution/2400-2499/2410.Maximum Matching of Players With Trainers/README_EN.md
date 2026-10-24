@@ -72,19 +72,17 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 
 > **Thinking**
 >
-> Pair enumeration fails at $n,m\le 10^5$. Each player should take the weakest trainer who can still train them, so stronger trainers remain for later players.
+> Trying every pair is too slow when $n,m \le 10^5$. A trainer who can match a weaker player can also match a stronger one, so the weakest remaining player should take the weakest trainer who is still good enough.
 >
-> Sort both arrays and walk with two pointers: skip trainers below the current player, then consume one match. The trainer pointer never moves left, so the cost is dominated by sorting.
+> Sort both arrays and handle players from weakest to strongest. The trainer pointer only moves forward: skip trainers who are too weak, then take the first one who can match. Sorting determines the running time.
 
 <!-- thinking:end -->
 
-According to the problem description, each athlete should be matched with the trainer whose ability value is as close as possible. Therefore, we can sort the ability values of both athletes and trainers, and then use the two-pointer method for matching.
+Sort players and trainers by ability in non-decreasing order. Pointers $i$ and $j$ mark the player and the trainer under consideration.
 
-We use two pointers $i$ and $j$ to point to the arrays of athletes and trainers, respectively, both initially pointing to the start of the arrays. Then we traverse the ability values of the athletes one by one. If the current trainer's ability value is less than the current athlete's ability value, we move the trainer's pointer to the right by one position until we find a trainer whose ability value is greater than or equal to the current athlete's. If no such trainer is found, it means the current athlete cannot be matched with any trainer, and we return the current athlete's index. Otherwise, we can match the current athlete with the trainer, and then move both pointers to the right by one position. Continue this process until all athletes have been traversed.
+Start from the weakest player. While the trainer's capacity is below the player's ability, move $j$ right until a trainer is strong enough or none remain. If the trainers run out, every later player is at least as strong, so matching stops and the answer is $i$, the number already matched. Otherwise this pair matches and both pointers move forward by one. If every player is matched, return the number of players.
 
-If we traverse all athletes, it means all athletes can be matched with trainers, and we return the number of athletes.
-
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\max(\log m, \log n))$. Here, $m$ and $n$ are the numbers of athletes and trainers, respectively.
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\max(\log m, \log n))$, where $m$ and $n$ are the numbers of players and trainers, respectively.
 
 <!-- tabs:start -->
 
@@ -205,6 +203,134 @@ impl Solution {
             j += 1;
         }
         players.len() as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Greedy + Two Pointers (Iterate over Trainers)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 still walks past trainers who are too weak for the current player, and returns early once no trainer remains. Moving the outer loop onto the trainers removes that inner scan and the early return.
+>
+> Sort both arrays and go through the trainers from weakest to strongest, keeping a pointer on the weakest unmatched player. A trainer too weak for that player is too weak for everyone left, and is skipped; a trainer strong enough produces one match and the pointer advances. The pointer's final value is the answer, and the complexity is unchanged.
+
+<!-- thinking:end -->
+
+Sort players and trainers by ability in non-decreasing order. Pointer $j$ marks the weakest unmatched player and starts at $0$.
+
+Go through the trainers from weakest to strongest. If some player is still unmatched and that player's ability does not exceed the trainer's capacity, count one match and increment $j$. Otherwise this trainer cannot match any remaining player and is skipped. After the scan, $j$ is the maximum number of matches.
+
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\max(\log m, \log n))$, where $m$ and $n$ are the numbers of players and trainers, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+        players.sort()
+        trainers.sort()
+        j = 0
+        for t in trainers:
+            if j < len(players) and players[j] <= t:
+                j += 1
+        return j
+```
+
+#### Java
+
+```java
+class Solution {
+    public int matchPlayersAndTrainers(int[] players, int[] trainers) {
+        Arrays.sort(players);
+        Arrays.sort(trainers);
+        int j = 0, m = players.length;
+        for (int t : trainers) {
+            if (j < m && players[j] <= t) {
+                ++j;
+            }
+        }
+        return j;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
+        ranges::sort(players);
+        ranges::sort(trainers);
+        int j = 0, m = players.size();
+        for (int t : trainers) {
+            if (j < m && players[j] <= t) {
+                ++j;
+            }
+        }
+        return j;
+    }
+};
+```
+
+#### Go
+
+```go
+func matchPlayersAndTrainers(players []int, trainers []int) int {
+	sort.Ints(players)
+	sort.Ints(trainers)
+	j, m := 0, len(players)
+	for _, t := range trainers {
+		if j < m && players[j] <= t {
+			j++
+		}
+	}
+	return j
+}
+```
+
+#### TypeScript
+
+```ts
+function matchPlayersAndTrainers(players: number[], trainers: number[]): number {
+    players.sort((a, b) => a - b);
+    trainers.sort((a, b) => a - b);
+    let j = 0;
+    const m = players.length;
+    for (const t of trainers) {
+        if (j < m && players[j] <= t) {
+            ++j;
+        }
+    }
+    return j;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn match_players_and_trainers(mut players: Vec<i32>, mut trainers: Vec<i32>) -> i32 {
+        players.sort();
+        trainers.sort();
+        let mut j = 0;
+        for &t in &trainers {
+            if j < players.len() && players[j] <= t {
+                j += 1;
+            }
+        }
+        j as i32
     }
 }
 ```
