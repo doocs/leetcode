@@ -4100,6 +4100,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4089  |  [Count Subarrays With Loose Bounds](/solution/4000-4099/4089.Count%20Subarrays%20With%20Loose%20Bounds/README_EN.md)  |    |  Medium  |  Biweekly Contest 194  |
 |  4090  |  [Count Magical Substring Pairs I](/solution/4000-4099/4090.Count%20Magical%20Substring%20Pairs%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 194  |
 |  4091  |  [Count Magical Substring Pairs II](/solution/4000-4099/4091.Count%20Magical%20Substring%20Pairs%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 194  |
+|  4092  |  [Binary Digit Score](/solution/4000-4099/4092.Binary%20Digit%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 525  |
+|  4093  |  [Maximize Sum After At Most K Digit Rearrangements](/solution/4000-4099/4093.Maximize%20Sum%20After%20At%20Most%20K%20Digit%20Rearrangements/README_EN.md)  |    |  Medium  |  Weekly Contest 525  |
+|  4094  |  [Count Frequency Staircase Subarrays I](/solution/4000-4099/4094.Count%20Frequency%20Staircase%20Subarrays%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 525  |
+|  4095  |  [Count Frequency Staircase Subarrays II](/solution/4000-4099/4095.Count%20Frequency%20Staircase%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 525  |
 
 ## Copyright
 
