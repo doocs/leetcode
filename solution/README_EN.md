@@ -4096,6 +4096,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4085  |  [Find Root of a Colored Tree](/solution/4000-4099/4085.Find%20Root%20of%20a%20Colored%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 524  |
 |  4086  |  [Minimum Interval Selection to Cover Target Intervals](/solution/4000-4099/4086.Minimum%20Interval%20Selection%20to%20Cover%20Target%20Intervals/README_EN.md)  |    |  Hard  |  Weekly Contest 524  |
 |  4087  |  [Maximum Subarray Sum of Fixed Length After at Most K Swaps](/solution/4000-4099/4087.Maximum%20Subarray%20Sum%20of%20Fixed%20Length%20After%20at%20Most%20K%20Swaps/README_EN.md)  |    |  Medium  |  🔒  |
+|  4088  |  [Difference Between Peaks and Valleys](/solution/4000-4099/4088.Difference%20Between%20Peaks%20and%20Valleys/README_EN.md)  |    |  Easy  |  Biweekly Contest 194  |
+|  4089  |  [Count Subarrays With Loose Bounds](/solution/4000-4099/4089.Count%20Subarrays%20With%20Loose%20Bounds/README_EN.md)  |    |  Medium  |  Biweekly Contest 194  |
+|  4090  |  [Count Magical Substring Pairs I](/solution/4000-4099/4090.Count%20Magical%20Substring%20Pairs%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 194  |
+|  4091  |  [Count Magical Substring Pairs II](/solution/4000-4099/4091.Count%20Magical%20Substring%20Pairs%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 194  |
 
 ## Copyright
 
