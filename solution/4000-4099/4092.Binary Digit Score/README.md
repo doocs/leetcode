@@ -92,32 +92,82 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位计数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $a$ 和 $b$ 都不超过 $100$，二进制里 $1$ 的个数可以直接数出来。得分只由两个置位数的大小关系决定。
+>
+> $s_1\ge s_2$ 时得分是乘积，否则是 $s_2$ 对 $s_1$ 的整数商。两个数都至少为 $1$，$s_1$ 不会是 $0$。
+>
+> 分别做一次位计数，再按这个大小关系返回即可。
+
+<!-- thinking:end -->
+
+记 $s_1$、$s_2$ 分别为 $a$、$b$ 的二进制表示中 $1$ 的个数。若 $s_1\ge s_2$，得分为 $s_1\cdot s_2$；否则得分为 $s_2/s_1$ 的整数商。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def calculateScore(self, a: int, b: int) -> int:
+        s1 = a.bit_count()
+        s2 = b.bit_count()
+        return s1 * s2 if s1 >= s2 else s2 // s1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int calculateScore(int a, int b) {
+        int s1 = Integer.bitCount(a);
+        int s2 = Integer.bitCount(b);
+        return s1 >= s2 ? s1 * s2 : s2 / s1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int calculateScore(int a, int b) {
+        int s1 = __builtin_popcount(a);
+        int s2 = __builtin_popcount(b);
+        return s1 >= s2 ? s1 * s2 : s2 / s1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func calculateScore(a int, b int) int {
+	s1 := bits.OnesCount(uint(a))
+	s2 := bits.OnesCount(uint(b))
+	if s1 >= s2 {
+		return s1 * s2
+	}
+	return s2 / s1
+}
+```
 
+#### TypeScript
+
+```ts
+function calculateScore(a: number, b: number): number {
+    const s1 = a.toString(2).replace(/0/g, '').length;
+    const s2 = b.toString(2).replace(/0/g, '').length;
+    return s1 >= s2 ? s1 * s2 : Math.floor(s2 / s1);
+}
 ```
 
 <!-- tabs:end -->
