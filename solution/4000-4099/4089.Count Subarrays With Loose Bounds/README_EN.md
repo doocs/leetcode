@@ -61,32 +61,115 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can reach $10^5$, so enumerating every subarray is quadratic. An element outside $[\textit{minK},\textit{maxK}]$ makes every subarray that contains it invalid and splits the array into independent pieces.
+>
+> Inside a piece whose elements all lie in range, every subarray is valid. When the right endpoint advances, every newly valid subarray ends at that endpoint.
+>
+> It is enough to keep the left endpoint $l$ of the current valid piece. Each time the right endpoint $r$ advances, the new valid subarrays are those that end at $r$ and start in $[l,r]$, and there are $r-l+1$ of them. An out-of-range element moves $l$ to the position just after it.
+
+<!-- thinking:end -->
+
+A loose-bound subarray is one in which every element belongs to $[\textit{minK},\textit{maxK}]$. An out-of-range position splits the array, and no valid subarray crosses it.
+
+Let $l$ be the left endpoint of the current valid segment, initially $0$. Scan the right endpoint $r$ from left to right. If $\textit{nums}[r]<\textit{minK}$ or $\textit{nums}[r]>\textit{maxK}$, set $l=r+1$. Otherwise every element of $\textit{nums}[l..r]$ lies inside the bounds, so every subarray that ends at $r$ and starts at or after $l$ is valid. There are $r-l+1$ of them, and that count is added to the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countSubarrays(self, nums: list[int], minK: int, maxK: int) -> int:
+        ans = l = 0
+        for r, x in enumerate(nums):
+            if x < minK or x > maxK:
+                l = r + 1
+            else:
+                ans += r - l + 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long countSubarrays(int[] nums, int minK, int maxK) {
+        long ans = 0;
+        int l = 0;
+        for (int r = 0; r < nums.length; r++) {
+            int x = nums[r];
+            if (x < minK || x > maxK) {
+                l = r + 1;
+            } else {
+                ans += r - l + 1;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int minK, int maxK) {
+        long long ans = 0;
+        int l = 0;
+        for (int r = 0; r < nums.size(); r++) {
+            int x = nums[r];
+            if (x < minK || x > maxK) {
+                l = r + 1;
+            } else {
+                ans += r - l + 1;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSubarrays(nums []int, minK int, maxK int) (ans int64) {
+	l := 0
+	for r, x := range nums {
+		if x < minK || x > maxK {
+			l = r + 1
+		} else {
+			ans += int64(r - l + 1)
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function countSubarrays(nums: number[], minK: number, maxK: number): number {
+    let ans = 0;
+    let l = 0;
+    for (let r = 0; r < nums.length; r++) {
+        const x = nums[r];
+        if (x < minK || x > maxK) {
+            l = r + 1;
+        } else {
+            ans += r - l + 1;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

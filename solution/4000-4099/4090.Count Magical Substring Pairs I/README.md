@@ -231,32 +231,149 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举分割点
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 三元组 $(i,j,k)$ 有 $O(n^3)$ 个。$n=2000$ 时，对每个三元组重新统计不同字符数放不下。$s_1$ 以 $j$ 结尾、$s_2$ 以 $j+1$ 开头，分割位置已经把左右两边拆开。
+>
+> 同一个 $j$ 上，左串向左加长、右串向右加长，不同字符数都会变化。两边只比不同字符的个数。相同个数的左串先归成一组，右串每扩展一次就能直接累加。
+>
+> 固定 $j$ 后从 $j$ 向左扩展，用哈希表维护 $s[i..j]$ 的字符集合，再用长度为 $27$ 的数组记下每种不同字符数对应的左端点个数。随后从 $j+1$ 向右扩展，当前不同字符数为 $d$ 时，把左侧 $d$ 的个数加入答案。
+
+<!-- thinking:end -->
+
+对每个分割下标 $j$（$0\le j<n-1$），需要统计满足 $i\le j<k$、且 $s[i..j]$ 与 $s[j+1..k]$ 的不同字符数相等的 $(i,k)$。
+
+从 $i=j$ 向左走到 $0$。哈希表记录 $s[i..j]$ 中每个字符的出现次数，表中键的个数就是这段的不同字符数。$\textit{cnt}[d]$ 表示不同字符数恰好为 $d$ 的左端点个数。再从 $k=j+1$ 向右走到 $n-1$，用另一个哈希表维护 $s[j+1..k]$ 的不同字符数 $d$，把 $\textit{cnt}[d]$ 累加进答案。
+
+字符集大小是常数 $26$，每个分割点左右各扫描一次。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串长度，$|\Sigma|=26$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def countMagicalPairs(self, s: str) -> int:
+        n = len(s)
+        ans = 0
+        for j in range(n - 1):
+            cnt1 = defaultdict(int)
+            cnt = [0] * 27
+            for i in range(j, -1, -1):
+                cnt1[s[i]] += 1
+                cnt[len(cnt1)] += 1
 
+            cnt2 = defaultdict(int)
+            for k in range(j + 1, n):
+                cnt2[s[k]] += 1
+                ans += cnt[len(cnt2)]
+
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countMagicalPairs(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (int j = 0; j < n - 1; j++) {
+            Map<Character, Integer> cnt1 = new HashMap<>();
+            int[] cnt = new int[27];
+            for (int i = j; i >= 0; i--) {
+                cnt1.merge(s.charAt(i), 1, Integer::sum);
+                cnt[cnt1.size()]++;
+            }
+            Map<Character, Integer> cnt2 = new HashMap<>();
+            for (int k = j + 1; k < n; k++) {
+                cnt2.merge(s.charAt(k), 1, Integer::sum);
+                ans += cnt[cnt2.size()];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countMagicalPairs(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (int j = 0; j < n - 1; j++) {
+            unordered_map<char, int> cnt1;
+            int cnt[27]{};
+            for (int i = j; i >= 0; i--) {
+                cnt1[s[i]]++;
+                cnt[cnt1.size()]++;
+            }
+            unordered_map<char, int> cnt2;
+            for (int k = j + 1; k < n; k++) {
+                cnt2[s[k]]++;
+                ans += cnt[cnt2.size()];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countMagicalPairs(s string) int {
+	n := len(s)
+	ans := 0
+	for j := 0; j < n-1; j++ {
+		cnt1 := map[byte]int{}
+		cnt := [27]int{}
+		for i := j; i >= 0; i-- {
+			cnt1[s[i]]++
+			cnt[len(cnt1)]++
+		}
+		cnt2 := map[byte]int{}
+		for k := j + 1; k < n; k++ {
+			cnt2[s[k]]++
+			ans += cnt[len(cnt2)]
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countMagicalPairs(s: string): number {
+    const n = s.length;
+    let ans = 0;
+    for (let j = 0; j < n - 1; j++) {
+        const cnt1 = new Map<string, number>();
+        const cnt = new Array(27).fill(0);
+        for (let i = j; i >= 0; i--) {
+            const c = s[i];
+            cnt1.set(c, (cnt1.get(c) ?? 0) + 1);
+            cnt[cnt1.size]++;
+        }
+        const cnt2 = new Map<string, number>();
+        for (let k = j + 1; k < n; k++) {
+            const c = s[k];
+            cnt2.set(c, (cnt2.get(c) ?? 0) + 1);
+            ans += cnt[cnt2.size];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

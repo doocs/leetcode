@@ -96,32 +96,109 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $100$, so comparing each interior index with its two neighbors is enough. A peak or a valley depends only on three adjacent positions, so the difference can be accumulated during the scan.
+>
+> Equal neighbors satisfy neither definition. A position contributes a positive value only when it is strictly greater than both sides, and a negative value only when it is strictly smaller than both sides.
+>
+> The required difference is the sum of these contributions. One left-to-right scan adds $\textit{nums}[i]$ at a peak and subtracts $\textit{nums}[i]$ at a valley.
+
+<!-- thinking:end -->
+
+Index $i$ is a peak exactly when $0<i<n-1$ and $\textit{nums}[i]$ is strictly greater than both $\textit{nums}[i-1]$ and $\textit{nums}[i+1]$. A valley uses the same bounds with both comparisons reversed. Endpoints are never included.
+
+Scan $i$ from $1$ to $n-2$. Add the current value when it is greater than both neighbors, and subtract it when it is smaller than both neighbors. Every other position leaves the answer unchanged.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def peakValleyDifference(self, nums: list[int]) -> int:
+        ans = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i - 1] < nums[i] > nums[i + 1]:
+                ans += nums[i]
+            elif nums[i - 1] > nums[i] < nums[i + 1]:
+                ans -= nums[i]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int peakValleyDifference(int[] nums) {
+        int ans = 0;
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
+                ans += nums[i];
+            } else if (nums[i - 1] > nums[i] && nums[i] < nums[i + 1]) {
+                ans -= nums[i];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int peakValleyDifference(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 1; i < nums.size() - 1; i++) {
+            if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
+                ans += nums[i];
+            } else if (nums[i - 1] > nums[i] && nums[i] < nums[i + 1]) {
+                ans -= nums[i];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func peakValleyDifference(nums []int) int {
+	ans := 0
+	for i := 1; i < len(nums)-1; i++ {
+		if nums[i-1] < nums[i] && nums[i] > nums[i+1] {
+			ans += nums[i]
+		} else if nums[i-1] > nums[i] && nums[i] < nums[i+1] {
+			ans -= nums[i]
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function peakValleyDifference(nums: number[]): number {
+    let ans = 0;
+    for (let i = 1; i < nums.length - 1; i++) {
+        if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
+            ans += nums[i];
+        } else if (nums[i - 1] > nums[i] && nums[i] < nums[i + 1]) {
+            ans -= nums[i];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
