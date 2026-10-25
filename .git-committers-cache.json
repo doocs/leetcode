@@ -1,5 +1,5 @@
 {
-  "cache_date": 1792835211,
+  "cache_date": 1792886941,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -27063,13 +27063,19 @@
     "solution/2400-2499/2409.Count Days Spent Together/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792807483
+      "retrieved": 1792886351
     },
     "solution/0200-0299/0241.Different Ways to Add Parentheses/README.md": {
       "authors": [
@@ -94688,13 +94694,19 @@
     "solution/2400-2499/2409.Count Days Spent Together/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792807484
+      "retrieved": 1792886354
     },
     "solution/0200-0299/0241.Different Ways to Add Parentheses/README_EN.md": {
       "authors": [
