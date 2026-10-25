@@ -231,32 +231,242 @@ difficulty: 困难
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：滑动窗口
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按分割点把左右两边各扫一遍是 $O(n^2)$ 的。这里 $n$ 达到 $10^5$，不能再对每个 $j$ 重新扩展。仍然只需要知道：以某个位置结尾的子串里，不同字符数恰好为 $k$ 的有多少个。
+>
+> 以固定右端点结尾时，子串向左加长，不同字符数只会不降。因此“不超过 $k$”的最长后缀，比“不超过 $k-1$”的最长后缀，多出来的正好是不同字符数恰好为 $k$ 的那些后缀。
+>
+> 对每个上界 $k=1,\ldots,26$ 用双指针维护这个最长后缀，右端点只增、左端点只增。原串给出以每个下标结尾的个数，反转后再做一遍，给出从每个下标向右延伸的个数。分割点两侧按 $k$ 相乘后求和。
+
+<!-- thinking:end -->
+
+记 $f[r][k]$ 为以 $r$ 结尾、不同字符数不超过 $k$ 的最长子串的长度，并令 $f[r][0]=0$。以 $r$ 结尾的子串越长，不同字符数越多，所以长度不超过 $f[r][k]$ 的后缀，不同字符数都不超过 $k$。不同字符数恰好为 $k$ 的个数是 $f[r][k]-f[r][k-1]$。
+
+对每个 $k\in[1,26]$ 做一次双指针。右端点 $r$ 从左向右移动，把 $s[r]$ 纳入窗口；窗口内不同字符数大于 $k$ 时，不断右移左端点，直到不超过 $k$。此时窗口就是以 $r$ 结尾、不同字符数不超过 $k$ 的最长子串，$f[r][k]$ 等于窗口长度。每个 $k$ 上左端点只增不减。
+
+对原串算出的 $f$ 统计以某个下标结尾的子串。把 $s$ 反转后再计算一次。反转串中以 $n-2-j$ 结尾的子串，对应原串里从下标 $j+1$ 起向右延伸的子串。对每个分割点 $j$，枚举不同字符数 $k$，把两侧恰好为 $k$ 的个数相乘，加进答案。
+
+时间复杂度 $O(|\Sigma|\cdot n)$，空间复杂度 $O(|\Sigma|\cdot n)$。其中 $n$ 是字符串长度，$|\Sigma|=26$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def calc(self, s: str) -> list[list[int]]:
+        n = len(s)
+        f = [[0] * 27 for _ in range(n)]
+        for k in range(1, 27):
+            cnt = [0] * 26
+            l = distinct = 0
+            for r, c in enumerate(s):
+                c = ord(c) - ord("a")
+                if cnt[c] == 0:
+                    distinct += 1
+                cnt[c] += 1
+                while distinct > k:
+                    c = ord(s[l]) - ord("a")
+                    cnt[c] -= 1
+                    if cnt[c] == 0:
+                        distinct -= 1
+                    l += 1
+                f[r][k] = r - l + 1
+        return f
 
+    def countMagicalPairs(self, s: str) -> int:
+        n = len(s)
+        left = self.calc(s)
+        right = self.calc(s[::-1])
+        ans = 0
+        for j in range(n - 1):
+            r = n - 2 - j
+            for k in range(1, 27):
+                ans += (left[j][k] - left[j][k - 1]) * (right[r][k] - right[r][k - 1])
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private long[][] calc(String s) {
+        int n = s.length();
+        long[][] f = new long[n][27];
+        for (int k = 1; k <= 26; k++) {
+            int[] cnt = new int[26];
+            int l = 0, distinct = 0;
+            for (int r = 0; r < n; r++) {
+                if (cnt[s.charAt(r) - 'a']++ == 0) {
+                    distinct++;
+                }
+                while (distinct > k) {
+                    if (--cnt[s.charAt(l++) - 'a'] == 0) {
+                        distinct--;
+                    }
+                }
+                f[r][k] = r - l + 1L;
+            }
+        }
+        return f;
+    }
 
+    public long countMagicalPairs(String s) {
+        int n = s.length();
+        long[][] left = calc(s);
+        long[][] right = calc(new StringBuilder(s).reverse().toString());
+        long ans = 0;
+        for (int j = 0; j < n - 1; j++) {
+            int r = n - 2 - j;
+            for (int k = 1; k <= 26; k++) {
+                ans += (left[j][k] - left[j][k - 1]) * (right[r][k] - right[r][k - 1]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+    vector<array<long long, 27>> calc(const string& s) {
+        int n = s.size();
+        vector<array<long long, 27>> f(n);
+        for (int k = 1; k <= 26; k++) {
+            int cnt[26] = {};
+            int l = 0, distinct = 0;
+            for (int r = 0; r < n; r++) {
+                if (cnt[s[r] - 'a']++ == 0) {
+                    distinct++;
+                }
+                while (distinct > k) {
+                    if (--cnt[s[l++] - 'a'] == 0) {
+                        distinct--;
+                    }
+                }
+                f[r][k] = r - l + 1LL;
+            }
+        }
+        return f;
+    }
 
+public:
+    long long countMagicalPairs(string s) {
+        int n = s.size();
+        auto left = calc(s);
+        reverse(s.begin(), s.end());
+        auto right = calc(s);
+        long long ans = 0;
+        for (int j = 0; j < n - 1; j++) {
+            int r = n - 2 - j;
+            for (int k = 1; k <= 26; k++) {
+                ans += (left[j][k] - left[j][k - 1])
+                    * (right[r][k] - right[r][k - 1]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func calc(s string) [][]int64 {
+	n := len(s)
+	f := make([][]int64, n)
+	for i := range f {
+		f[i] = make([]int64, 27)
+	}
+	for k := 1; k <= 26; k++ {
+		var cnt [26]int
+		l, distinct := 0, 0
+		for r := 0; r < n; r++ {
+			c := s[r] - 'a'
+			if cnt[c] == 0 {
+				distinct++
+			}
+			cnt[c]++
+			for distinct > k {
+				c = s[l] - 'a'
+				cnt[c]--
+				if cnt[c] == 0 {
+					distinct--
+				}
+				l++
+			}
+			f[r][k] = int64(r - l + 1)
+		}
+	}
+	return f
+}
 
+func countMagicalPairs(s string) int64 {
+	n := len(s)
+	left := calc(s)
+	b := []byte(s)
+	for i, j := 0, n-1; i < j; i, j = i+1, j-1 {
+		b[i], b[j] = b[j], b[i]
+	}
+	right := calc(string(b))
+	var ans int64
+	for j := 0; j < n-1; j++ {
+		r := n - 2 - j
+		for k := 1; k <= 26; k++ {
+			ans += (left[j][k] - left[j][k-1]) *
+				(right[r][k] - right[r][k-1])
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countMagicalPairs(s: string): number {
+    const calc = (s: string): number[][] => {
+        const n = s.length;
+        const f = Array.from({ length: n }, () => new Array(27).fill(0));
+        for (let k = 1; k <= 26; k++) {
+            const cnt = new Array(26).fill(0);
+            let l = 0;
+            let distinct = 0;
+            for (let r = 0; r < n; r++) {
+                const c = s.charCodeAt(r) - 97;
+                if (cnt[c]++ === 0) {
+                    distinct++;
+                }
+                while (distinct > k) {
+                    if (--cnt[s.charCodeAt(l++) - 97] === 0) {
+                        distinct--;
+                    }
+                }
+                f[r][k] = r - l + 1;
+            }
+        }
+        return f;
+    };
+
+    const n = s.length;
+    const left = calc(s);
+    const right = calc(s.split('').reverse().join(''));
+    let ans = 0;
+    for (let j = 0; j < n - 1; j++) {
+        const r = n - 2 - j;
+        for (let k = 1; k <= 26; k++) {
+            ans += (left[j][k] - left[j][k - 1]) * (right[r][k] - right[r][k - 1]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

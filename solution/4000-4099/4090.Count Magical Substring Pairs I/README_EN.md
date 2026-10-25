@@ -229,32 +229,149 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Split Points
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^3)$ triples. With $n=2000$, recomputing the distinct count for every triple does not fit. $s_1$ ends at $j$ and $s_2$ starts at $j+1$, so the split already separates the two sides.
+>
+> For a fixed $j$, extending the left substring further left and the right substring further right both change the distinct counts. The two sides are compared by distinct count alone. Left substrings with the same count are grouped first, so each right extension adds that group size directly.
+>
+> Fix $j$ and expand left from $j$. A hash map keeps the character set of $s[i..j]$, and a length-$27$ array records how many left endpoints have each distinct count. Then expand from $j+1$ to the right. When the current distinct count is $d$, add the number of left substrings whose count is also $d$.
+
+<!-- thinking:end -->
+
+For each split index $j$ with $0\le j<n-1$, count the pairs $(i,k)$ satisfying $i\le j<k$ whose substrings $s[i..j]$ and $s[j+1..k]$ have the same number of distinct characters.
+
+Move $i$ from $j$ down to $0$. A hash map stores the occurrence count of each character in $s[i..j]$, and the number of keys is the distinct count of that substring. Let $\textit{cnt}[d]$ be the number of left endpoints whose substring has exactly $d$ distinct characters. Then move $k$ from $j+1$ up to $n-1$, maintain the distinct count $d$ of $s[j+1..k]$ with a second hash map, and add $\textit{cnt}[d]$ to the answer.
+
+The alphabet size is the constant $26$, and each split scans the left side once and the right side once.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string and $|\Sigma|=26$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def countMagicalPairs(self, s: str) -> int:
+        n = len(s)
+        ans = 0
+        for j in range(n - 1):
+            cnt1 = defaultdict(int)
+            cnt = [0] * 27
+            for i in range(j, -1, -1):
+                cnt1[s[i]] += 1
+                cnt[len(cnt1)] += 1
 
+            cnt2 = defaultdict(int)
+            for k in range(j + 1, n):
+                cnt2[s[k]] += 1
+                ans += cnt[len(cnt2)]
+
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countMagicalPairs(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (int j = 0; j < n - 1; j++) {
+            Map<Character, Integer> cnt1 = new HashMap<>();
+            int[] cnt = new int[27];
+            for (int i = j; i >= 0; i--) {
+                cnt1.merge(s.charAt(i), 1, Integer::sum);
+                cnt[cnt1.size()]++;
+            }
+            Map<Character, Integer> cnt2 = new HashMap<>();
+            for (int k = j + 1; k < n; k++) {
+                cnt2.merge(s.charAt(k), 1, Integer::sum);
+                ans += cnt[cnt2.size()];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countMagicalPairs(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (int j = 0; j < n - 1; j++) {
+            unordered_map<char, int> cnt1;
+            int cnt[27]{};
+            for (int i = j; i >= 0; i--) {
+                cnt1[s[i]]++;
+                cnt[cnt1.size()]++;
+            }
+            unordered_map<char, int> cnt2;
+            for (int k = j + 1; k < n; k++) {
+                cnt2[s[k]]++;
+                ans += cnt[cnt2.size()];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countMagicalPairs(s string) int {
+	n := len(s)
+	ans := 0
+	for j := 0; j < n-1; j++ {
+		cnt1 := map[byte]int{}
+		cnt := [27]int{}
+		for i := j; i >= 0; i-- {
+			cnt1[s[i]]++
+			cnt[len(cnt1)]++
+		}
+		cnt2 := map[byte]int{}
+		for k := j + 1; k < n; k++ {
+			cnt2[s[k]]++
+			ans += cnt[len(cnt2)]
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countMagicalPairs(s: string): number {
+    const n = s.length;
+    let ans = 0;
+    for (let j = 0; j < n - 1; j++) {
+        const cnt1 = new Map<string, number>();
+        const cnt = new Array(27).fill(0);
+        for (let i = j; i >= 0; i--) {
+            const c = s[i];
+            cnt1.set(c, (cnt1.get(c) ?? 0) + 1);
+            cnt[cnt1.size]++;
+        }
+        const cnt2 = new Map<string, number>();
+        for (let k = j + 1; k < n; k++) {
+            const c = s[k];
+            cnt2.set(c, (cnt2.get(c) ?? 0) + 1);
+            ans += cnt[cnt2.size];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
