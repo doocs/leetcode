@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 525 场周赛(2026-10-25 10:30, 90 分钟) 参赛人数 1022
+
+- [4092. 二进制位得分](/solution/4000-4099/4092.Binary%20Digit%20Score/README.md)
+- [4093. 至多 K 次数字重排后的最大和](/solution/4000-4099/4093.Maximize%20Sum%20After%20At%20Most%20K%20Digit%20Rearrangements/README.md)
+- [4094. 统计频次阶梯子数组的数目 I](/solution/4000-4099/4094.Count%20Frequency%20Staircase%20Subarrays%20I/README.md)
+- [4095. 统计频次阶梯子数组的数目 II](/solution/4000-4099/4095.Count%20Frequency%20Staircase%20Subarrays%20II/README.md)
+
 #### 第 194 场双周赛(2026-10-24 22:30, 90 分钟) 参赛人数 708
 
 - [4088. 峰值与谷值的差](/solution/4000-4099/4088.Difference%20Between%20Peaks%20and%20Valleys/README.md)

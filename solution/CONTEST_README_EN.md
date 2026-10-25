@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 525
+
+- [4092. Binary Digit Score](/solution/4000-4099/4092.Binary%20Digit%20Score/README_EN.md)
+- [4093. Maximize Sum After At Most K Digit Rearrangements](/solution/4000-4099/4093.Maximize%20Sum%20After%20At%20Most%20K%20Digit%20Rearrangements/README_EN.md)
+- [4094. Count Frequency Staircase Subarrays I](/solution/4000-4099/4094.Count%20Frequency%20Staircase%20Subarrays%20I/README_EN.md)
+- [4095. Count Frequency Staircase Subarrays II](/solution/4000-4099/4095.Count%20Frequency%20Staircase%20Subarrays%20II/README_EN.md)
+
 #### Biweekly Contest 194
 
 - [4088. Difference Between Peaks and Valleys](/solution/4000-4099/4088.Difference%20Between%20Peaks%20and%20Valleys/README_EN.md)
