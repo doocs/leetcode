@@ -90,32 +90,82 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Count
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $a$ and $b$ are at most $100$, so the number of $1$s in their binary representations can be counted directly. The score depends only on how those two popcounts compare.
+>
+> When $s_1\ge s_2$ the score is the product; otherwise it is the integer quotient of $s_2$ divided by $s_1$. Both inputs are at least $1$, so $s_1$ is never $0$.
+>
+> Count the set bits of each number once, then return according to that comparison.
+
+<!-- thinking:end -->
+
+Let $s_1$ and $s_2$ be the number of $1$s in the binary representations of $a$ and $b$. If $s_1\ge s_2$, the score is $s_1\cdot s_2$. Otherwise it is the integer quotient $s_2/s_1$.
+
+The time complexity is $O(1)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def calculateScore(self, a: int, b: int) -> int:
+        s1 = a.bit_count()
+        s2 = b.bit_count()
+        return s1 * s2 if s1 >= s2 else s2 // s1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int calculateScore(int a, int b) {
+        int s1 = Integer.bitCount(a);
+        int s2 = Integer.bitCount(b);
+        return s1 >= s2 ? s1 * s2 : s2 / s1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int calculateScore(int a, int b) {
+        int s1 = __builtin_popcount(a);
+        int s2 = __builtin_popcount(b);
+        return s1 >= s2 ? s1 * s2 : s2 / s1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func calculateScore(a int, b int) int {
+	s1 := bits.OnesCount(uint(a))
+	s2 := bits.OnesCount(uint(b))
+	if s1 >= s2 {
+		return s1 * s2
+	}
+	return s2 / s1
+}
+```
 
+#### TypeScript
+
+```ts
+function calculateScore(a: number, b: number): number {
+    const s1 = a.toString(2).replace(/0/g, '').length;
+    const s2 = b.toString(2).replace(/0/g, '').length;
+    return s1 >= s2 ? s1 * s2 : Math.floor(s2 / s1);
+}
 ```
 
 <!-- tabs:end -->
