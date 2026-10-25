@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 194
+
+- [4088. Difference Between Peaks and Valleys](/solution/4000-4099/4088.Difference%20Between%20Peaks%20and%20Valleys/README_EN.md)
+- [4089. Count Subarrays With Loose Bounds](/solution/4000-4099/4089.Count%20Subarrays%20With%20Loose%20Bounds/README_EN.md)
+- [4090. Count Magical Substring Pairs I](/solution/4000-4099/4090.Count%20Magical%20Substring%20Pairs%20I/README_EN.md)
+- [4091. Count Magical Substring Pairs II](/solution/4000-4099/4091.Count%20Magical%20Substring%20Pairs%20II/README_EN.md)
+
 #### Weekly Contest 524
 
 - [4083. Minimum Deletions to Make Array Sharp](/solution/4000-4099/4083.Minimum%20Deletions%20to%20Make%20Array%20Sharp/README_EN.md)

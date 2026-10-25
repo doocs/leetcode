@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 194 场双周赛(2026-10-24 22:30, 90 分钟) 参赛人数 708
+
+- [4088. 峰值与谷值的差](/solution/4000-4099/4088.Difference%20Between%20Peaks%20and%20Valleys/README.md)
+- [4089. 统计宽界子数组的数目](/solution/4000-4099/4089.Count%20Subarrays%20With%20Loose%20Bounds/README.md)
+- [4090. 统计神奇子字符串对 I](/solution/4000-4099/4090.Count%20Magical%20Substring%20Pairs%20I/README.md)
+- [4091. 统计神奇子字符串对 II](/solution/4000-4099/4091.Count%20Magical%20Substring%20Pairs%20II/README.md)
+
 #### 第 524 场周赛(2026-10-18 10:30, 90 分钟) 参赛人数 1023
 
 - [4083. 使相邻元素按位异或非零的最少删除次数](/solution/4000-4099/4083.Minimum%20Deletions%20to%20Make%20Array%20Sharp/README.md)
