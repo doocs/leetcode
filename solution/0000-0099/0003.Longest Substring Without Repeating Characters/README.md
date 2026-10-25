@@ -88,14 +88,16 @@ tags:
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        cnt = Counter()
+        last_seen = {}
         ans = l = 0
+        
         for r, c in enumerate(s):
-            cnt[c] += 1
-            while cnt[c] > 1:
-                cnt[s[l]] -= 1
-                l += 1
+            # If c was seen inside or to the right of the current left boundary
+            if c in last_seen and last_seen[c] >= l:
+                l = last_seen[c] + 1
+            last_seen[c] = r
             ans = max(ans, r - l + 1)
+            
         return ans
 ```
 
