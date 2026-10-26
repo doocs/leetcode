@@ -153,32 +153,170 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举左端点
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 不超过 $1500$，把每个子数组从头统计一遍频次是立方级的。固定左端点后，右端点每向右一步只多一个元素，频次和首次出现次序都可以增量维护。
+>
+> 第 $m$ 个新值必须恰好出现 $m$ 次。次数只会增加，一旦某个值超过自己的次序，从这个左端点继续向右延伸仍然包含这次多余出现。
+>
+> 用 $\textit{ok}$ 记录已经恰好达到自身次序的值的个数。它等于当前不同值个数时，按首次出现顺序的频次就是 $1,2,\ldots,k$。因此每个左端点配两张哈希表，从左到右扩展，超限就停止。
+
+<!-- thinking:end -->
+
+枚举子数组左端点 $i$。哈希表 $\textit{orders}$ 记录每个值在 $\textit{nums}[i..j]$ 中的首次出现次序，从 $1$ 开始编号；哈希表 $\textit{cnt}$ 记录出现次数。$\textit{ok}$ 是次数已经恰好等于自身次序的值的个数。
+
+右端点 $j$ 从 $i$ 向右移动。若 $\textit{nums}[j]$ 是新值，它的次序等于当前不同值个数加一，然后把它的次数加一。次数超过次序时，更长的子数组仍然含有这次多余出现，这一左端点停止扩展。次数刚好等于次序时，$\textit{ok}$ 加一。$\textit{ok}$ 等于不同值个数时，这些值按首次出现顺序的频次恰好是 $1,2,\ldots,k$，答案加一。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countStaircase(self, nums: list[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i in range(n):
+            orders = {}
+            cnt = defaultdict(int)
+            ok = 0
+            for j in range(i, n):
+                x = nums[j]
+                if x not in orders:
+                    orders[x] = len(orders) + 1
+                cnt[x] += 1
+                if cnt[x] > orders[x]:
+                    break
+                if cnt[x] == orders[x]:
+                    ok += 1
+                    if ok == len(cnt):
+                        ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countStaircase(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            var orders = new HashMap<Integer, Integer>();
+            var cnt = new HashMap<Integer, Integer>();
+            int ok = 0;
+            for (int j = i; j < n; ++j) {
+                int x = nums[j];
+                orders.putIfAbsent(x, orders.size() + 1);
+                int count = cnt.merge(x, 1, Integer::sum);
+                int order = orders.get(x);
+                if (count > order) {
+                    break;
+                }
+                if (count == order && ++ok == cnt.size()) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countStaircase(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            unordered_map<int, int> orders, cnt;
+            int ok = 0;
+            for (int j = i; j < n; ++j) {
+                int x = nums[j];
+                if (!orders.contains(x)) {
+                    orders[x] = orders.size() + 1;
+                }
+                int count = ++cnt[x];
+                int order = orders[x];
+                if (count > order) {
+                    break;
+                }
+                if (count == order && ++ok == (int) cnt.size()) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countStaircase(nums []int) int {
+	n := len(nums)
+	ans := 0
+	for i := 0; i < n; i++ {
+		orders := map[int]int{}
+		cnt := map[int]int{}
+		ok := 0
+		for j := i; j < n; j++ {
+			x := nums[j]
+			if _, exists := orders[x]; !exists {
+				orders[x] = len(orders) + 1
+			}
+			cnt[x]++
+			count := cnt[x]
+			order := orders[x]
+			if count > order {
+				break
+			}
+			if count == order && func() int { ok++; return ok }() == len(cnt) {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countStaircase(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const orders = new Map<number, number>();
+        const cnt = new Map<number, number>();
+        let ok = 0;
+        for (let j = i; j < n; ++j) {
+            const x = nums[j];
+            if (!orders.has(x)) {
+                orders.set(x, orders.size + 1);
+            }
+            const count = cnt.set(x, (cnt.get(x) ?? 0) + 1).get(x)!;
+            const order = orders.get(x)!;
+            if (count > order) {
+                break;
+            }
+            if (count === order && ++ok === cnt.size) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
