@@ -151,32 +151,170 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Left Endpoints
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $1500$, so recounting every subarray from scratch is cubic. With the left endpoint fixed, each step of the right endpoint adds one element, and both the frequencies and the first-occurrence order can be updated incrementally.
+>
+> The $m$-th new value must occur exactly $m$ times. Counts only increase, so once a value exceeds its order, every longer subarray from this left endpoint still contains that extra occurrence.
+>
+> $\textit{ok}$ counts how many values have reached exactly their own order. When it equals the number of distinct values, the frequencies in first-occurrence order are $1,2,\ldots,k$. Each left endpoint therefore keeps two hash maps and expands to the right, stopping at the first excess.
+
+<!-- thinking:end -->
+
+Enumerate the left endpoint $i$. The hash map $\textit{orders}$ stores the first-occurrence rank of each value in $\textit{nums}[i..j]$, numbered from $1$. The hash map $\textit{cnt}$ stores the occurrence counts. $\textit{ok}$ is the number of values whose count is exactly equal to their rank.
+
+Move the right endpoint $j$ from $i$ toward the right. If $\textit{nums}[j]$ is new, its rank is one more than the current number of distinct values; then increment its count. When a count exceeds its rank, every longer subarray from this left endpoint still contains that extra occurrence, so the scan stops. When a count becomes equal to its rank, increment $\textit{ok}$. When $\textit{ok}$ equals the number of distinct values, those frequencies in first-occurrence order are exactly $1,2,\ldots,k$, and the answer increases by one.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countStaircase(self, nums: list[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i in range(n):
+            orders = {}
+            cnt = defaultdict(int)
+            ok = 0
+            for j in range(i, n):
+                x = nums[j]
+                if x not in orders:
+                    orders[x] = len(orders) + 1
+                cnt[x] += 1
+                if cnt[x] > orders[x]:
+                    break
+                if cnt[x] == orders[x]:
+                    ok += 1
+                    if ok == len(cnt):
+                        ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countStaircase(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            var orders = new HashMap<Integer, Integer>();
+            var cnt = new HashMap<Integer, Integer>();
+            int ok = 0;
+            for (int j = i; j < n; ++j) {
+                int x = nums[j];
+                orders.putIfAbsent(x, orders.size() + 1);
+                int count = cnt.merge(x, 1, Integer::sum);
+                int order = orders.get(x);
+                if (count > order) {
+                    break;
+                }
+                if (count == order && ++ok == cnt.size()) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countStaircase(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            unordered_map<int, int> orders, cnt;
+            int ok = 0;
+            for (int j = i; j < n; ++j) {
+                int x = nums[j];
+                if (!orders.contains(x)) {
+                    orders[x] = orders.size() + 1;
+                }
+                int count = ++cnt[x];
+                int order = orders[x];
+                if (count > order) {
+                    break;
+                }
+                if (count == order && ++ok == (int) cnt.size()) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countStaircase(nums []int) int {
+	n := len(nums)
+	ans := 0
+	for i := 0; i < n; i++ {
+		orders := map[int]int{}
+		cnt := map[int]int{}
+		ok := 0
+		for j := i; j < n; j++ {
+			x := nums[j]
+			if _, exists := orders[x]; !exists {
+				orders[x] = len(orders) + 1
+			}
+			cnt[x]++
+			count := cnt[x]
+			order := orders[x]
+			if count > order {
+				break
+			}
+			if count == order && func() int { ok++; return ok }() == len(cnt) {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countStaircase(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const orders = new Map<number, number>();
+        const cnt = new Map<number, number>();
+        let ok = 0;
+        for (let j = i; j < n; ++j) {
+            const x = nums[j];
+            if (!orders.has(x)) {
+                orders.set(x, orders.size + 1);
+            }
+            const count = cnt.set(x, (cnt.get(x) ?? 0) + 1).get(x)!;
+            const order = orders.get(x)!;
+            if (count > order) {
+                break;
+            }
+            if (count === order && ++ok === cnt.size) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
