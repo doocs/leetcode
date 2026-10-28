@@ -5,7 +5,7 @@
     "preview": "node scripts/run-py.js scripts/preview.py"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.3",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@prettier/plugin-php": "^0.26.0",
     "husky": "^9.1.7",
