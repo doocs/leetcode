@@ -15,8 +15,8 @@ importers:
         specifier: ^21.2.3
         version: 21.2.3
       '@prettier/plugin-php':
-        specifier: ^0.25.0
-        version: 0.25.0(prettier@3.9.10)
+        specifier: ^0.26.0
+        version: 0.26.0(prettier@3.9.10)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -125,8 +125,8 @@ packages:
     resolution: {integrity: sha512-aalGyl7dbB5PArRebDIX43ZvBlXrYm9uWzGJ26t+4SzJVPsOuvfILGGbw5X4yX7i50YEmJ8zvbiWnqH/AAnZqg==}
     engines: {node: '>=22'}
 
-  '@prettier/plugin-php@0.25.0':
-    resolution: {integrity: sha512-hi0NhucbspYqw5pZYKywEk5CxsBwA0pBcG6K08AZw7OQDoUm4Hhbxql7z/SzQGeTRHqak5PwDnVNgttZiZdrlg==}
+  '@prettier/plugin-php@0.26.0':
+    resolution: {integrity: sha512-qaKv27XSAPSnEpieY+H6Ktgzn7bQIjPKYmVWDVY4pJwnm7E1RC0whzMYHidWlfyyZK3qpnY7HPnjmecTnNC/uA==}
     peerDependencies:
       prettier: ^3.0.0
 
@@ -392,8 +392,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  linguist-languages@8.2.0:
-    resolution: {integrity: sha512-KCUUH9x97QWYU0SXOCGxUrZR6cSfuQrMhABB7L/0I8N0LXOeaKe7+RZs7FAwvWCV2qKfZ4Wv1luLq4OfMezSJg==}
+  linguist-languages@9.5.0:
+    resolution: {integrity: sha512-Wtg9O6iHNBYFJQVtPNwWCaWkNEqZqiCGI4gSkeH8TqvgZUyb1IUWmFSa9Z9UhT392/aX6Peoa91bH9sDah1ZVw==}
 
   lint-staged@17.6.0:
     resolution: {integrity: sha512-nOhBfYkZEwkFtNzD5pK9s9LkcWoxJ+whLzEnhqi9nl7zTB5n7tg8+9iYgMGx2Wm3VlLu8cbNj0RACzY+nWi5iQ==}
@@ -624,9 +624,9 @@ snapshots:
 
   '@conventional-changelog/template@1.4.0': {}
 
-  '@prettier/plugin-php@0.25.0(prettier@3.9.10)':
+  '@prettier/plugin-php@0.26.0(prettier@3.9.10)':
     dependencies:
-      linguist-languages: 8.2.0
+      linguist-languages: 9.5.0
       php-parser: 3.7.0
       prettier: 3.9.10
 
@@ -803,7 +803,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  linguist-languages@8.2.0: {}
+  linguist-languages@9.5.0: {}
 
   lint-staged@17.6.0:
     dependencies:

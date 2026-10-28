@@ -7,7 +7,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@prettier/plugin-php": "^0.25.0",
+    "@prettier/plugin-php": "^0.26.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
