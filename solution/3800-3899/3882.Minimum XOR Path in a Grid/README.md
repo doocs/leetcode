@@ -327,4 +327,222 @@ function minCost(grid: number[][]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划（滚动数组）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一为每个格子保留全部异或可达性，空间随 $mn$ 增长。格子 $(i,j)$ 只读取正上方和正左方，行优先扫描时这两处已经结束。上一行在进入当前行时仍然完整，当前行只需要已经写下的左邻，因此两行滚动数组就够。转移仍按格值 $x$ 回看 $k \oplus x$，答案还是右下角最小的可达异或，空间降到 $O(n\cdot\textit{mx})$。
+
+<!-- thinking:end -->
+
+定义 $f[i \bmod 2][j][k]$ 表示能否从 $(0,0)$ 走到第 $i$ 行第 $j$ 列，且路径上全部格子值的按位异或等于 $k$。 $\textit{mx}$ 的取法与方法一相同，起点同样有 $f[0][0][\textit{grid}[0][0]]=\text{true}$。
+
+按先行后列的顺序处理格子 $(i,j)$，记其值为 $x$。若它不是起点，则枚举 $k\in[0,\textit{mx})$。行下标对 $2$ 取模后，当前槽位可能留有更早一行的结果，因此先把 $f[i \bmod 2][j][k]$ 置为假，再检查上方和左方：
+
+- 当 $i>0$ 且 $f[(i-1)\bmod 2][j][k\oplus x]$ 为真时，可以从上方进入，令 $f[i \bmod 2][j][k]=\text{true}$；
+- 当 $j>0$ 且 $f[i \bmod 2][j-1][k\oplus x]$ 为真时，可以从左方进入，令 $f[i \bmod 2][j][k]=\text{true}$。
+
+第 $i$ 行写在下标 $i \bmod 2$，上一行留在 $(i-1)\bmod 2$，左方与当前格共用这一行。最后取 $f[(m-1)\bmod 2][n-1]$ 中最小的为真的 $k$。从左上角到右下角至少有一条路径，这个 $k$ 一定存在。
+
+时间复杂度 $O(mn\cdot\textit{mx})$，空间复杂度 $O(n\cdot\textit{mx})$。其中 $m$、 $n$ 为网格的行数与列数， $\textit{mx}\le 1024$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minCost(self, grid: list[list[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        mx = 1 << (max(max(row) for row in grid)).bit_length()
+        f = [[[False] * mx for _ in range(n)] for _ in range(2)]
+        f[0][0][grid[0][0]] = True
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if i > 0 or j > 0:
+                    for k in range(mx):
+                        f[i & 1][j][k] = False
+                        if i > 0 and f[(i - 1) & 1][j][k ^ x]:
+                            f[i & 1][j][k] = True
+                        if j > 0 and f[i & 1][j - 1][k ^ x]:
+                            f[i & 1][j][k] = True
+        return next(k for k in range(mx) if f[(m - 1) & 1][n - 1][k])
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minCost(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int mx = 0;
+        for (int[] row : grid) {
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+        }
+        mx = 1 << (Integer.SIZE - Integer.numberOfLeadingZeros(mx));
+        boolean[][][] f = new boolean[2][n][mx];
+        f[0][0][grid[0][0]] = true;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int x = grid[i][j];
+                if (i > 0 || j > 0) {
+                    for (int k = 0; k < mx; k++) {
+                        f[i & 1][j][k] = false;
+                        if (i > 0 && f[(i - 1) & 1][j][k ^ x]) {
+                            f[i & 1][j][k] = true;
+                        }
+                        if (j > 0 && f[i & 1][j - 1][k ^ x]) {
+                            f[i & 1][j][k] = true;
+                        }
+                    }
+                }
+            }
+        }
+        for (int k = 0;; k++) {
+            if (f[(m - 1) & 1][n - 1][k]) {
+                return k;
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minCost(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int mx = 0;
+        for (auto& row : grid) {
+            for (int x : row) {
+                mx = max(mx, x);
+            }
+        }
+        mx = 1 << bit_width(static_cast<unsigned>(mx));
+        vector<vector<vector<char>>> f(2, vector<vector<char>>(n, vector<char>(mx, 0)));
+        f[0][0][grid[0][0]] = 1;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int x = grid[i][j];
+                if (i > 0 || j > 0) {
+                    for (int k = 0; k < mx; k++) {
+                        f[i & 1][j][k] = 0;
+                        if (i > 0 && f[(i - 1) & 1][j][k ^ x]) {
+                            f[i & 1][j][k] = 1;
+                        }
+                        if (j > 0 && f[i & 1][j - 1][k ^ x]) {
+                            f[i & 1][j][k] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        for (int k = 0;; k++) {
+            if (f[(m - 1) & 1][n - 1][k]) {
+                return k;
+            }
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func minCost(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	mx := 0
+	for _, row := range grid {
+		for _, x := range row {
+			if x > mx {
+				mx = x
+			}
+		}
+	}
+	mx = 1 << bits.Len(uint(mx))
+	f := make([][][]bool, 2)
+	for i := range f {
+		f[i] = make([][]bool, n)
+		for j := range f[i] {
+			f[i][j] = make([]bool, mx)
+		}
+	}
+	f[0][0][grid[0][0]] = true
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			x := grid[i][j]
+			if i > 0 || j > 0 {
+				for k := 0; k < mx; k++ {
+					f[i&1][j][k] = false
+					if i > 0 && f[(i-1)&1][j][k^x] {
+						f[i&1][j][k] = true
+					}
+					if j > 0 && f[i&1][j-1][k^x] {
+						f[i&1][j][k] = true
+					}
+				}
+			}
+		}
+	}
+	for k := 0; ; k++ {
+		if f[(m-1)&1][n-1][k] {
+			return k
+		}
+	}
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(grid: number[][]): number {
+    const m = grid.length,
+        n = grid[0].length;
+    let mx = 0;
+    for (const row of grid) {
+        for (const x of row) {
+            mx = Math.max(mx, x);
+        }
+    }
+    mx = 1 << (32 - Math.clz32(mx));
+    const f: boolean[][][] = Array.from({ length: 2 }, () =>
+        Array.from({ length: n }, () => new Array<boolean>(mx).fill(false)),
+    );
+    f[0][0][grid[0][0]] = true;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = grid[i][j];
+            if (i > 0 || j > 0) {
+                for (let k = 0; k < mx; k++) {
+                    f[i & 1][j][k] = false;
+                    if (i > 0 && f[(i - 1) & 1][j][k ^ x]) {
+                        f[i & 1][j][k] = true;
+                    }
+                    if (j > 0 && f[i & 1][j - 1][k ^ x]) {
+                        f[i & 1][j][k] = true;
+                    }
+                }
+            }
+        }
+    }
+    for (let k = 0; ; k++) {
+        if (f[(m - 1) & 1][n - 1][k]) {
+            return k;
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
