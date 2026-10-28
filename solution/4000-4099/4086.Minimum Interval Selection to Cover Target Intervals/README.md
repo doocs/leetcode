@@ -89,15 +89,15 @@ difficulty: 困难
 >
 > 目标会重叠，又会被这些空隙隔开。从左到右记下已经覆盖到的位置之后，下一步只取决于下一个必须落在某个选中区间里的点。
 >
-> 两类区间都按左端点排序后，已覆盖到 $\textit{cur}$ 时，目标 $[l, r]$ 的下一个必达点是 $\max(l, \textit{cur})$。覆盖停在目标内部就从 $\textit{cur}$ 续上；$l$ 更靠右时，中间的开区间不属于任何目标，这些点不必覆盖。左端点不超过该点的可用区间都能包含它，右端最远的一个可以换掉其余选择，后面还需要的区间不会更多。
+> 两类区间都按左端点排序后，已覆盖到 $\textit{cur}$ 时，目标 $[l, r]$ 的下一个必达点是 $\max(l, \textit{cur})$。覆盖停在目标内部就从 $\textit{cur}$ 续上； $l$ 更靠右时，中间的开区间不属于任何目标，这些点不必覆盖。左端点不超过该点的可用区间都能包含它，右端最远的一个可以换掉其余选择，后面还需要的区间不会更多。
 >
 > 必达点只向右移动，可用区间按左端点用一个指针扫过即可。右端没有超过已覆盖位置的区间，补不上目标内部还没盖住的实数点。
 
 <!-- thinking:end -->
 
-将 $\textit{availableIntervals}$ 和 $\textit{targetIntervals}$ 按左端点升序排序。$\textit{cur}$ 是当前已经覆盖到的最右端点，初始为 $0$。指针 $i$ 从左到右扫描可用区间。
+将 $\textit{availableIntervals}$ 和 $\textit{targetIntervals}$ 按左端点升序排序。 $\textit{cur}$ 是当前已经覆盖到的最右端点，初始为 $0$。指针 $i$ 从左到右扫描可用区间。
 
-按排序后的顺序处理目标 $[l, r]$。$\textit{cur} \ge r$ 时该目标已经覆盖完毕。否则令 $\textit{uncover} = \max(l, \textit{cur})$，并在左端点不超过 $\textit{uncover}$ 的可用区间中取右端点的最大值 $\textit{nxt}$。$\textit{nxt} < \textit{uncover}$ 说明没有可用区间包含这个点；$\textit{nxt} = \textit{cur}$ 说明覆盖不能再向右延伸。两种情况都返回 $-1$。否则选中右端最远的那个区间，令 $\textit{cur} = \textit{nxt}$，答案加 $1$，直到 $\textit{cur} \ge r$。
+按排序后的顺序处理目标 $[l, r]$。 $\textit{cur} \ge r$ 时该目标已经覆盖完毕。否则令 $\textit{uncover} = \max(l, \textit{cur})$，并在左端点不超过 $\textit{uncover}$ 的可用区间中取右端点的最大值 $\textit{nxt}$。 $\textit{nxt} < \textit{uncover}$ 说明没有可用区间包含这个点； $\textit{nxt} = \textit{cur}$ 说明覆盖不能再向右延伸。两种情况都返回 $-1$。否则选中右端最远的那个区间，令 $\textit{cur} = \textit{nxt}$，答案加 $1$，直到 $\textit{cur} \ge r$。
 
 闭区间只在端点相接时连成一片。前一段的右端点等于下一段的左端点时，中间没有未覆盖的实数。若下一段的左端点至少比前一段的右端点大 $1$，且这段空隙落在某个目标内部，其中的实数点就没有被覆盖，算法返回 $-1$。
 

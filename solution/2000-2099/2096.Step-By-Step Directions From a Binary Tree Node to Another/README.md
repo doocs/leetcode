@@ -718,7 +718,7 @@ var getDirections = function (root, startValue, destValue) {
 
 > **思考**
 >
-> 从起点到终点的最短路径一定经过二者的最近公共祖先。祖先之上的每一步都是 `U`，从祖先到终点再按左右孩子记 `L` 或 `R`。$n$ 可以到 $10^5$，三次线性遍历都在时限内。
+> 从起点到终点的最短路径一定经过二者的最近公共祖先。祖先之上的每一步都是 `U`，从祖先到终点再按左右孩子记 `L` 或 `R`。 $n$ 可以到 $10^5$，三次线性遍历都在时限内。
 >
 > 求祖先和记录方向都先走进左孩子。一条左链的长度可以到 $n$，递归会在方向串写完之前溢出。
 >
@@ -1225,7 +1225,7 @@ var getDirections = function (root, startValue, destValue) {
 
 <!-- thinking:end -->
 
-我们用显式栈从 $\textit{root}$ 出发，分别找到 $\textit{startValue}$ 和 $\textit{destValue}$ 的方向串，记为 $\textit{pathToStart}$ 和 $\textit{pathToDest}$。栈在向左失败后把路径末尾改成 `R` 再向右，因此方向串与原先的深度优先搜索一致。去掉二者的最长公共前缀后，$\textit{pathToStart}$ 剩下的长度就是答案中 `U` 的个数，$\textit{pathToDest}$ 剩下的部分就是向下的方向，把两段拼接起来即可。
+我们用显式栈从 $\textit{root}$ 出发，分别找到 $\textit{startValue}$ 和 $\textit{destValue}$ 的方向串，记为 $\textit{pathToStart}$ 和 $\textit{pathToDest}$。栈在向左失败后把路径末尾改成 `R` 再向右，因此方向串与原先的深度优先搜索一致。去掉二者的最长公共前缀后， $\textit{pathToStart}$ 剩下的长度就是答案中 `U` 的个数， $\textit{pathToDest}$ 剩下的部分就是向下的方向，把两段拼接起来即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 

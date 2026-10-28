@@ -166,7 +166,7 @@ AcceptedRides table:
 >
 > 递归生成 $12$ 个月，左连接 $2020$ 年行程与接受记录，按月汇总距离、时长。
 >
-> 分组后的行序并不等于月份顺序。窗口必须写成 $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ORDER BY month ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$，才是当月及随后两月的均值。$\texttt{LIMIT}\ 10$ 去掉 $11$、$12$ 月。
+> 分组后的行序并不等于月份顺序。窗口必须写成 $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ORDER BY month ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$，才是当月及随后两月的均值。 $\texttt{LIMIT}\ 10$ 去掉 $11$、 $12$ 月。
 
 <!-- thinking:end -->
 

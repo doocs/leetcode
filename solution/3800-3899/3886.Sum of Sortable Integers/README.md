@@ -106,7 +106,7 @@ tags:
 
 > **思考**
 >
-> 若对每个因数的每一段都尝试全部 $k$ 种循环移位，单段比较就是 $O(k^2)$。$n \le 10^5$ 时，这一做法会超出时间限制。
+> 若对每个因数的每一段都尝试全部 $k$ 种循环移位，单段比较就是 $O(k^2)$。 $n \le 10^5$ 时，这一做法会超出时间限制。
 >
 > 开销集中在同一段被反复旋转。一段经循环移位后能变成非递减，当且仅当首尾相接后严格下降至多出现一次。各段都旋成非递减之后，每个分界处还要满足左侧最大值不超过右侧最小值，拼接结果才会全局非递减。
 >
@@ -116,11 +116,11 @@ tags:
 
 <!-- thinking:end -->
 
-先求出三个辅助数组。$\textit{prefMax}[i]$ 是 $\textit{nums}[0..i-1]$ 的最大值，$\textit{prefMax}[0] = 0$。$\textit{suffMin}[i]$ 是 $\textit{nums}[i..n-1]$ 的最小值。$\textit{prefDrop}[i]$ 统计下标对 $(0,1),\ldots,(i-1,i)$ 中 $\textit{nums}[j-1] > \textit{nums}[j]$ 的次数。
+先求出三个辅助数组。 $\textit{prefMax}[i]$ 是 $\textit{nums}[0..i-1]$ 的最大值， $\textit{prefMax}[0] = 0$。 $\textit{suffMin}[i]$ 是 $\textit{nums}[i..n-1]$ 的最小值。 $\textit{prefDrop}[i]$ 统计下标对 $(0,1),\ldots,(i-1,i)$ 中 $\textit{nums}[j-1] > \textit{nums}[j]$ 的次数。
 
 接着枚举 $n$ 的每个因数 $k$，把数组分成若干长度为 $k$ 的段。对起点 $i$，段内相邻下降次数为 $\textit{prefDrop}[i+k-1] - \textit{prefDrop}[i]$，若 $\textit{nums}[i+k-1] > \textit{nums}[i]$ 再加一次。这个总数不超过 $1$，并且 $\textit{prefMax}[i] \le \textit{suffMin}[i]$ 时，该段可以通过循环移位接到前面的有序部分之后。全部分段都通过，就把 $k$ 加入答案。
 
-时间复杂度 $O(n + \sigma(n))$，空间复杂度 $O(n)$。其中 $n$ 是数组长度，$\sigma(n)$ 是 $n$ 的全部正因数之和。
+时间复杂度 $O(n + \sigma(n))$，空间复杂度 $O(n)$。其中 $n$ 是数组长度， $\sigma(n)$ 是 $n$ 的全部正因数之和。
 
 <!-- tabs:start -->
 

@@ -184,7 +184,7 @@ function targetIndices(nums: number[], target: number): number[] {
 
 等于 $target$ 的元素在非递减排序后占据一段连续下标。这段下标的起点等于数组中严格小于 $target$ 的元素个数，长度等于等于 $target$ 的元素个数。
 
-遍历一次 $\textit{nums}$，分别用 $\textit{less}$、$\textit{equal}$ 统计这两类元素。答案就是区间 $[\textit{less}, \textit{less} + \textit{equal})$ 中的全部整数。$\textit{equal} = 0$ 时区间为空。
+遍历一次 $\textit{nums}$，分别用 $\textit{less}$、 $\textit{equal}$ 统计这两类元素。答案就是区间 $[\textit{less}, \textit{less} + \textit{equal})$ 中的全部整数。 $\textit{equal} = 0$ 时区间为空。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 

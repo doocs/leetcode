@@ -284,7 +284,7 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 > **思考**
 >
-> 方法一已经从高分往低分填好这张表。同一转移是：$f[i]$ 由 $f[i+1]$ 与窗口右端 $f[i+\textit{maxPts}+1]$ 推出。
+> 方法一已经从高分往低分填好这张表。同一转移是： $f[i]$ 由 $f[i+1]$ 与窗口右端 $f[i+\textit{maxPts}+1]$ 推出。
 >
 > $[k,\min(n,k+\textit{maxPts}))$ 的终止态为 $1$，其余为 $0$。答案为 $f[0]$，时间仍是线性的。
 
@@ -412,7 +412,7 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 > **思考**
 >
-> 从 $0$ 开始每次均匀加 $[1,\textit{maxPts}]$，达到 $k$ 停止，求点数不超过 $n$ 的概率。$k$ 可达 $10^4$，按每次抽牌展开不可行。
+> 从 $0$ 开始每次均匀加 $[1,\textit{maxPts}]$，达到 $k$ 停止，求点数不超过 $n$ 的概率。 $k$ 可达 $10^4$，按每次抽牌展开不可行。
 >
 > 差分之后，除了闭式的 $k-1$，每个状态都先访问更大的分数。从 $0$ 走到 $k$ 的调用链长度为 $k$，栈会溢出。
 >

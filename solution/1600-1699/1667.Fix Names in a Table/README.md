@@ -99,7 +99,7 @@ ORDER BY
 
 > **思考**
 >
-> 方法一的 $\texttt{SUBSTRING}(name,2)$ 省略长度，直接取到串尾。MySQL 的三参数形式按字符计数，$\texttt{CHAR\_LENGTH}(name)$ 给出原串的字符个数，从第 $2$ 个字符起截取的结果与取到串尾相同。
+> 方法一的 $\texttt{SUBSTRING}(name,2)$ 省略长度，直接取到串尾。MySQL 的三参数形式按字符计数， $\texttt{CHAR\_LENGTH}(name)$ 给出原串的字符个数，从第 $2$ 个字符起截取的结果与取到串尾相同。
 
 <!-- thinking:end -->
 

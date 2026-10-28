@@ -161,7 +161,7 @@ source: 第 193 场双周赛 Q1
 
 <!-- thinking:end -->
 
-用哈希表 $\textit{pos}$ 记录每个数值最近一次出现的下标。从左到右扫描 $\textit{nums}[i]=x$，令 $y=\textit{target}-x$。当 $x\neq y$、$y$ 已经出现，且 $x\cdot y$ 大于当前最大乘积时更新答案，并把较大的数放在前面，使 $\textit{nums}[i]>\textit{nums}[j]$。扫描结束后如果仍没有合法对，答案保持 $[-1,-1]$。
+用哈希表 $\textit{pos}$ 记录每个数值最近一次出现的下标。从左到右扫描 $\textit{nums}[i]=x$，令 $y=\textit{target}-x$。当 $x\neq y$、 $y$ 已经出现，且 $x\cdot y$ 大于当前最大乘积时更新答案，并把较大的数放在前面，使 $\textit{nums}[i]>\textit{nums}[j]$。扫描结束后如果仍没有合法对，答案保持 $[-1,-1]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组长度。
 

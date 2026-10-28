@@ -128,9 +128,9 @@ session_status 是 ('start', 'stop') 的 ENUM (category)。
 >
 > 样例中同一台服务器会连续写入两次 $\texttt{start}$，再写入两次 $\texttt{stop}$。把每条 $\texttt{start}$ 配到下一行，会得到 $\texttt{start}$ 到下一次 $\texttt{start}$ 的间隔，外层 $\texttt{stop}$ 则不会进入任何一段。
 >
-> 题解给出的区间是后出现的 $\texttt{start}$ 先被 $\texttt{stop}$ 关闭：$23{:}16{:}48$ 配到 $01{:}15{:}48$，$16{:}29{:}47$ 配到 $01{:}49{:}47$。这与栈的出入顺序一致。
+> 题解给出的区间是后出现的 $\texttt{start}$ 先被 $\texttt{stop}$ 关闭： $23{:}16{:}48$ 配到 $01{:}15{:}48$， $16{:}29{:}47$ 配到 $01{:}49{:}47$。这与栈的出入顺序一致。
 >
-> 按时间维护深度，$\texttt{start}$ 为 $+1$、$\texttt{stop}$ 为 $-1$。每条 $\texttt{start}$ 匹配其后第一条深度恰好比它小 $1$ 的 $\texttt{stop}$。各段秒数求和后整除 $86400$。
+> 按时间维护深度， $\texttt{start}$ 为 $+1$、 $\texttt{stop}$ 为 $-1$。每条 $\texttt{start}$ 匹配其后第一条深度恰好比它小 $1$ 的 $\texttt{stop}$。各段秒数求和后整除 $86400$。
 
 <!-- thinking:end -->
 

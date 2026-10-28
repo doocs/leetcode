@@ -94,7 +94,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $dp[i]$ 表示以书架 $i$ 为右端点时能取走的书的最大数量。令 $nums[i] = books[i] - i$。若往左的严格递减在某个 $j$ 处断开（$0 \le j < i$），则 $books[j] < books[i] - (i - j)$，也就是 $nums[j] < nums[i]$。用单调栈为每个位置求出左侧第一个严格更小的 $nums$，记为 $j$；不存在时 $j = -1$。
+我们定义 $dp[i]$ 表示以书架 $i$ 为右端点时能取走的书的最大数量。令 $nums[i] = books[i] - i$。若往左的严格递减在某个 $j$ 处断开（ $0 \le j < i$），则 $books[j] < books[i] - (i - j)$，也就是 $nums[j] < nums[i]$。用单调栈为每个位置求出左侧第一个严格更小的 $nums$，记为 $j$；不存在时 $j = -1$。
 
 从 $j + 1$ 到 $i$ 实际取走的本数是公差为 $1$ 的等差数列。其长度为 $cnt = \min(books[i], i - j)$，末项为 $books[i]$，首项为 $u = books[i] - cnt + 1$，和为 $s = (u + books[i]) \times cnt / 2$。于是 $dp[i] = s$，若 $j \ne -1$ 再加 $dp[j]$。
 

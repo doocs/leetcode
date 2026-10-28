@@ -349,7 +349,7 @@ function finishTime(n: number, edges: number[][], baseTime: number[]): number {
 
 > **思考**
 >
-> 任务依赖是一棵以 $0$ 为根的树，非叶任务的完成时间取决于全部子任务的最早与最晚完成时间，再加上自身的 $\textit{baseTime}$。$n \le 10^5$，必须先得到每个子节点的答案，再计算当前节点。沿一条链递归时调用深度等于节点数，链长达到 $1000$ 就会超出 Python 的递归上限。因此栈中保存 $(节点, 状态)$：状态 $0$ 若是叶子就直接写入 $\textit{baseTime}[i]$，否则先压入退出标记再压入子节点；状态 $1$ 在子任务都已完成时取 $\textit{earliest}$ 与 $\textit{latest}$，自身耗时为 $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$，完成时间是 $\textit{latest}$ 加上该耗时。子节点的处理顺序不影响最早与最晚。
+> 任务依赖是一棵以 $0$ 为根的树，非叶任务的完成时间取决于全部子任务的最早与最晚完成时间，再加上自身的 $\textit{baseTime}$。 $n \le 10^5$，必须先得到每个子节点的答案，再计算当前节点。沿一条链递归时调用深度等于节点数，链长达到 $1000$ 就会超出 Python 的递归上限。因此栈中保存 $(节点, 状态)$：状态 $0$ 若是叶子就直接写入 $\textit{baseTime}[i]$，否则先压入退出标记再压入子节点；状态 $1$ 在子任务都已完成时取 $\textit{earliest}$ 与 $\textit{latest}$，自身耗时为 $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$，完成时间是 $\textit{latest}$ 加上该耗时。子节点的处理顺序不影响最早与最晚。
 
 <!-- thinking:end -->
 
