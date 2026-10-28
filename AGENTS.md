@@ -105,14 +105,14 @@ GitHub Actions automatically run:
 
 ## Markdown math
 
-GitHub renders `$...$` as inline math only when the opening `$` is separated from the character before it. In Chinese prose, a Han character or fullwidth punctuation glued to that `$` leaves the formula as plain text. Fullwidth punctuation here includes CJK marks such as `。、` and fullwidth forms such as `，；：？！（）【】《》「」～`.
+GitHub renders `$...$` as inline math only when the opening `$` is separated from the character before it. A Han character or fullwidth punctuation glued to that opening `$` leaves the formula as plain text.
 
 Follow this in every Markdown prose region that contains math, including algorithm write-ups and Thinking blocks:
 
-- Put one ASCII space before the opening `$`. Write `可达。 $k$`, `， $b$`, and `$1$～ $3$`. Do not write `可达。$k$`, `，$b$`, or `$1$～$3$`.
+- Put one ASCII space before the opening `$` when the previous character is a Han character or fullwidth punctuation.
 - Treat an opening `$$` the same way when it does not already start a line and is not already preceded by whitespace.
-- Keep the closing `$` flush with the formula. `$\Delta=val-旧值$` is correct; a space before the closer, as in `$\Delta=val-旧值 $`, drops the formula.
-- Do not insert this space inside fenced code, inline code, or `<pre>` blocks, and do not rewrite a currency amount such as `（$19.99）`.
+- Keep the closing `$` flush with the formula. A space before the closer drops the formula.
+- Do not insert this space inside fenced code, inline code, or `<pre>` blocks, and do not rewrite a currency amount that uses a single `$`.
 
 ## Thinking section (how we arrive at the answer)
 
