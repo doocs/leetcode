@@ -103,45 +103,221 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Move only right or down and minimize the path XOR. At most $1000$ cells, values below $2^{10}$.
+> Moves are only right or down, and the goal is the minimum XOR of a whole path. There are at most $1000$ cells and values are below $2^{10}$, but the number of paths still grows exponentially with the row and column counts, so enumerating paths does not fit.
 >
-> A usual shortest path fails: the next cost depends on the current XOR, so comparison optimality does not hold.
+> XOR has no optimal substructure under numeric comparison. A smaller prefix XOR can become larger after later cells are appended, so every XOR that has already occurred must be kept.
 >
-> A state is $(\textit{cell},\textit{xor})$. The XOR universe is $1024$, about $10^6$ states, enough for BFS or DP to the lower-right minimum.
+> After a cell is reached, later choices depend only on the current XOR. A state $(i,j,k)$ records whether cell $(i,j)$ is reachable with path XOR $k$. Since $k < 1024$, there are about $10^6$ states.
 >
-> Transitions are only right and down.
+> Transitions go only right or down, so a row-major scan finds the upper and left cells already finished. A boolean array $f[i][j][k]$ stores reachability; a cell of value $x$ is entered from XOR $k \oplus x$. The smallest $k$ that is true at the lower-right cell is the answer.
 
 <!-- thinking:end -->
+
+Define $f[i][j][k]$ as whether cell $(i, j)$ is reachable from $(0, 0)$ with the bitwise XOR of every cell on the path equal to $k$.
+
+Let $M$ be the maximum value in the grid. Every path XOR lies in $[0, \textit{mx})$, where $\textit{mx} = 2^{b}$ and $b$ is the bit length of $M$. When $M = 0$, $b = 0$ and $\textit{mx} = 1$. Cell values are at most $1023$, so $\textit{mx} \le 1024$.
+
+The path at the start contains only that cell, so $f[0][0][\textit{grid}[0][0]] = \text{true}$.
+
+Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, \textit{mx})$ is considered. Because $(k \oplus x) \oplus x = k$, the XOR before entering the cell is $k \oplus x$:
+
+- If $i > 0$ and $f[i - 1][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i][j][k] = \text{true}$.
+- If $j > 0$ and $f[i][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i][j][k] = \text{true}$.
+
+Moves are only right or down, so the upper and left cells are already finished when $(i, j)$ is scanned. The answer is the smallest $k$ for which $f[m - 1][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
+
+The time complexity is $O(mn \cdot \textit{mx})$ and the space complexity is $O(mn \cdot \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCost(self, grid: list[list[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        mx = 1 << (max(max(row) for row in grid)).bit_length()
+        f = [[[False] * mx for _ in range(n)] for _ in range(m)]
+        f[0][0][grid[0][0]] = True
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if i > 0 or j > 0:
+                    for k in range(mx):
+                        if i > 0 and f[i - 1][j][k ^ x]:
+                            f[i][j][k] = True
+                        if j > 0 and f[i][j - 1][k ^ x]:
+                            f[i][j][k] = True
+        return next(k for k in range(mx) if f[m - 1][n - 1][k])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minCost(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int mx = 0;
+        for (int[] row : grid) {
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+        }
+        mx = 1 << (Integer.SIZE - Integer.numberOfLeadingZeros(mx));
+        boolean[][][] f = new boolean[m][n][mx];
+        f[0][0][grid[0][0]] = true;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int x = grid[i][j];
+                if (i > 0 || j > 0) {
+                    for (int k = 0; k < mx; k++) {
+                        if (i > 0 && f[i - 1][j][k ^ x]) {
+                            f[i][j][k] = true;
+                        }
+                        if (j > 0 && f[i][j - 1][k ^ x]) {
+                            f[i][j][k] = true;
+                        }
+                    }
+                }
+            }
+        }
+        for (int k = 0;; k++) {
+            if (f[m - 1][n - 1][k]) {
+                return k;
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minCost(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int mx = 0;
+        for (auto& row : grid) {
+            for (int x : row) {
+                mx = max(mx, x);
+            }
+        }
+        mx = 1 << bit_width(static_cast<unsigned>(mx));
+        vector<vector<vector<char>>> f(m, vector<vector<char>>(n, vector<char>(mx, 0)));
+        f[0][0][grid[0][0]] = 1;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int x = grid[i][j];
+                if (i > 0 || j > 0) {
+                    for (int k = 0; k < mx; k++) {
+                        if (i > 0 && f[i - 1][j][k ^ x]) {
+                            f[i][j][k] = 1;
+                        }
+                        if (j > 0 && f[i][j - 1][k ^ x]) {
+                            f[i][j][k] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        for (int k = 0;; k++) {
+            if (f[m - 1][n - 1][k]) {
+                return k;
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	mx := 0
+	for _, row := range grid {
+		for _, x := range row {
+			if x > mx {
+				mx = x
+			}
+		}
+	}
+	mx = 1 << bits.Len(uint(mx))
+	f := make([][][]bool, m)
+	for i := range f {
+		f[i] = make([][]bool, n)
+		for j := range f[i] {
+			f[i][j] = make([]bool, mx)
+		}
+	}
+	f[0][0][grid[0][0]] = true
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			x := grid[i][j]
+			if i > 0 || j > 0 {
+				for k := 0; k < mx; k++ {
+					if i > 0 && f[i-1][j][k^x] {
+						f[i][j][k] = true
+					}
+					if j > 0 && f[i][j-1][k^x] {
+						f[i][j][k] = true
+					}
+				}
+			}
+		}
+	}
+	for k := 0; ; k++ {
+		if f[m-1][n-1][k] {
+			return k
+		}
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function minCost(grid: number[][]): number {
+    const m = grid.length,
+        n = grid[0].length;
+    let mx = 0;
+    for (const row of grid) {
+        for (const x of row) {
+            mx = Math.max(mx, x);
+        }
+    }
+    mx = 1 << (32 - Math.clz32(mx));
+    const f: boolean[][][] = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => new Array<boolean>(mx).fill(false)),
+    );
+    f[0][0][grid[0][0]] = true;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = grid[i][j];
+            if (i > 0 || j > 0) {
+                for (let k = 0; k < mx; k++) {
+                    if (i > 0 && f[i - 1][j][k ^ x]) {
+                        f[i][j][k] = true;
+                    }
+                    if (j > 0 && f[i][j - 1][k ^ x]) {
+                        f[i][j][k] = true;
+                    }
+                }
+            }
+        }
+    }
+    for (let k = 0; ; k++) {
+        if (f[m - 1][n - 1][k]) {
+            return k;
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
