@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793173366,
+  "cache_date": 1793180786,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -135833,13 +135833,19 @@
     "solution/3800-3899/3882.Minimum XOR Path in a Grid/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793172958
+      "retrieved": 1793180189
     },
     "solution/3800-3899/3883.Count Non Decreasing Arrays With Given Digit Sums/README.md": {
       "authors": [
@@ -135877,13 +135883,19 @@
     "solution/3800-3899/3882.Minimum XOR Path in a Grid/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793169438
+      "retrieved": 1793180160
     },
     "solution/3800-3899/3883.Count Non Decreasing Arrays With Given Digit Sums/README_EN.md": {
       "authors": [
