@@ -192,11 +192,11 @@ sQL.ins("two", ["fourth", "fifth", "sixth"]);
 >
 > 因此我们用表名映射到「行号 → 单元格」的哈希表，同时记下每张表的列数和下一个行号。
 >
-> $\textit{ins}$ 只在表存在且行宽与列数一致时写入新行。$\textit{rmv}$ 删掉对应行号。$\textit{sel}$ 在表不存在、行已删除或列号越界时返回 $\texttt{<null>}$。$\textit{exp}$ 按行号顺序把仍然存在的行连同行号用逗号拼出来。
+> $\textit{ins}$ 只在表存在且行宽与列数一致时写入新行。 $\textit{rmv}$ 删掉对应行号。 $\textit{sel}$ 在表不存在、行已删除或列号越界时返回 $\texttt{<null>}$。 $\textit{exp}$ 按行号顺序把仍然存在的行连同行号用逗号拼出来。
 
 <!-- thinking:end -->
 
-分别记录每张表的列数，以及按行号存放的现存数据。直接模拟题目中的 $\textit{ins}$、$\textit{rmv}$、$\textit{sel}$ 和 $\textit{exp}$。
+分别记录每张表的列数，以及按行号存放的现存数据。直接模拟题目中的 $\textit{ins}$、 $\textit{rmv}$、 $\textit{sel}$ 和 $\textit{exp}$。
 
 插入、删除和查询的平均时间复杂度为 $O(1)$。导出一张表需要扫描其中仍然存在的行。空间与插入的单元格总数成正比。
 

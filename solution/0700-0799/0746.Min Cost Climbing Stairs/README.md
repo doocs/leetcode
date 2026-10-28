@@ -254,7 +254,7 @@ function minCostClimbingStairs(cost) {
 
 > **思考**
 >
-> 方法一已经从楼顶向下填好离开每一级的花费。这里的 $f[i]$ 改成到达位置 $i$ 的最小花费，只依赖 $i-1$ 与 $i-2$，因此按 $i$ 从小到大填写，$f[n]$ 就是楼顶。
+> 方法一已经从楼顶向下填好离开每一级的花费。这里的 $f[i]$ 改成到达位置 $i$ 的最小花费，只依赖 $i-1$ 与 $i-2$，因此按 $i$ 从小到大填写， $f[n]$ 就是楼顶。
 
 <!-- thinking:end -->
 
@@ -502,7 +502,7 @@ function minCostClimbingStairs(cost) {
 
 <!-- thinking:end -->
 
-我们令 $f[i]$ 表示从第 $i$ 个阶梯出发爬到楼顶的最小花费。当 $i \ge n$ 时，$f[i] = 0$。对于 $i < n$，
+我们令 $f[i]$ 表示从第 $i$ 个阶梯出发爬到楼顶的最小花费。当 $i \ge n$ 时， $f[i] = 0$。对于 $i < n$，
 
 $$
 f[i] = \textit{cost}[i] + \min(f[i + 1], f[i + 2])
