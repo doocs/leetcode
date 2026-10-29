@@ -1,3 +1,34 @@
+struct BinaryIndexedTree {
+    n: usize,
+    tree: Vec<i32>,
+}
+
+impl BinaryIndexedTree {
+    fn new(n: usize) -> Self {
+        Self {
+            n,
+            tree: vec![0; n + 1],
+        }
+    }
+
+    fn update(&mut self, mut i: usize, delta: i32) {
+        i += 1;
+        while i <= self.n {
+            self.tree[i] ^= delta;
+            i += i & i.wrapping_neg();
+        }
+    }
+
+    fn query(&self, mut i: usize) -> i32 {
+        let mut res = 0;
+        while i > 0 {
+            res ^= self.tree[i];
+            i -= i & i.wrapping_neg();
+        }
+        res
+    }
+}
+
 impl Solution {
     pub fn palindrome_path(
         n: i32,
@@ -13,101 +44,109 @@ impl Solution {
             g[u].push(v);
             g[v].push(u);
         }
+
         let mut parent = vec![0usize; n];
         let mut depth = vec![0usize; n];
         let mut tin = vec![0usize; n];
         let mut tout = vec![0usize; n];
         let mut timer = 0usize;
-        let mut stack = vec![(0usize, 0usize, 0usize)];
-        while let Some((u, p, state)) = stack.pop() {
-            if state == 0 {
-                parent[u] = p;
-                depth[u] = if u == p { 0 } else { depth[p] + 1 };
-                tin[u] = timer;
-                timer += 1;
-                stack.push((u, p, 1));
-                for &v in &g[u] {
-                    if v != p {
-                        stack.push((v, u, 0));
-                    }
+
+        fn dfs(
+            u: usize,
+            p: usize,
+            g: &[Vec<usize>],
+            parent: &mut [usize],
+            depth: &mut [usize],
+            tin: &mut [usize],
+            tout: &mut [usize],
+            timer: &mut usize,
+        ) {
+            parent[u] = if p == usize::MAX { 0 } else { p };
+            tin[u] = *timer;
+            *timer += 1;
+            for &v in &g[u] {
+                if v != p {
+                    depth[v] = depth[u] + 1;
+                    dfs(v, u, g, parent, depth, tin, tout, timer);
                 }
-            } else {
-                tout[u] = timer - 1;
+            }
+            tout[u] = *timer;
+        }
+        dfs(
+            0,
+            usize::MAX,
+            &g,
+            &mut parent,
+            &mut depth,
+            &mut tin,
+            &mut tout,
+            &mut timer,
+        );
+
+        let m = (32 - (n as u32).leading_zeros()) as usize;
+        let mut up = vec![vec![0usize; n]; m];
+        up[0].clone_from(&parent);
+        for j in 1..m {
+            for i in 0..n {
+                up[j][i] = up[j - 1][up[j - 1][i]];
             }
         }
-        let log = (usize::BITS as usize) - n.leading_zeros() as usize + 1;
-        let mut up = vec![vec![0usize; n]; log];
-        up[0] = parent.clone();
-        up[0][0] = 0;
-        for k in 1..log {
-            for v in 0..n {
-                up[k][v] = up[k - 1][up[k - 1][v]];
+
+        let lca = |mut u: usize, mut v: usize| -> usize {
+            if depth[u] < depth[v] {
+                std::mem::swap(&mut u, &mut v);
             }
-        }
-        let lca = |u: usize, v: usize, depth: &[usize], up: &[Vec<usize>]| -> usize {
-            let (mut u, mut v) = if depth[u] >= depth[v] { (u, v) } else { (v, u) };
-            let diff = depth[u] - depth[v];
-            for k in 0..log {
-                if (diff >> k) & 1 == 1 {
-                    u = up[k][u];
+            let mut d = depth[u] - depth[v];
+            let mut j = 0;
+            while d > 0 {
+                if d & 1 == 1 {
+                    u = up[j][u];
                 }
+                d >>= 1;
+                j += 1;
             }
             if u == v {
                 return u;
             }
-            for k in (0..log).rev() {
-                if up[k][u] != up[k][v] {
-                    u = up[k][u];
-                    v = up[k][v];
+            for j in (0..m).rev() {
+                if up[j][u] != up[j][v] {
+                    u = up[j][u];
+                    v = up[j][v];
                 }
             }
-            up[0][u]
+            parent[u]
         };
-        let mut bit = vec![0u32; n + 2];
-        let bit_upd = |bit: &mut [u32], mut i: usize, delta: u32| {
-            i += 1;
-            while i < bit.len() {
-                bit[i] ^= delta;
-                i += i & i.wrapping_neg();
-            }
-        };
-        let bit_pref = |bit: &[u32], mut i: usize| -> u32 {
-            i += 1;
-            let mut r = 0u32;
-            while i > 0 {
-                r ^= bit[i];
-                i -= i & i.wrapping_neg();
-            }
-            r
-        };
-        let mut chars: Vec<u8> = s.into_bytes();
-        let bit_of = |c: u8| -> u32 { 1u32 << (c - b'a') };
-        let apply = |bit: &mut [u32], tin: &[usize], tout: &[usize], u: usize, delta: u32| {
-            bit_upd(bit, tin[u], delta);
-            if tout[u] + 1 < n {
-                bit_upd(bit, tout[u] + 1, delta);
-            }
-        };
-        for u in 0..n {
-            apply(&mut bit, &tin, &tout, u, bit_of(chars[u]));
+
+        let bytes = s.as_bytes();
+        let mut bit = vec![0i32; n];
+        for i in 0..n {
+            bit[i] = 1 << (bytes[i] - b'a') as u32;
         }
+
+        let mut tree = BinaryIndexedTree::new(n);
+        for i in 0..n {
+            tree.update(tin[i], bit[i]);
+            tree.update(tout[i], bit[i]);
+        }
+
         let mut ans = Vec::new();
-        for q in queries {
-            let parts: Vec<&str> = q.split_whitespace().collect();
+        for q in &queries {
+            let parts: Vec<&str> = q.split(' ').collect();
+            let u: usize = parts[1].parse().unwrap();
             if parts[0] == "update" {
-                let u: usize = parts[1].parse().unwrap();
-                let c = parts[2].as_bytes()[0];
-                let delta = bit_of(chars[u]) ^ bit_of(c);
-                if delta != 0 {
-                    apply(&mut bit, &tin, &tout, u, delta);
-                    chars[u] = c;
+                let x = bit[u];
+                let y = 1 << (parts[2].as_bytes()[0] - b'a') as u32;
+                if x != y {
+                    let delta = x ^ y;
+                    tree.update(tin[u], delta);
+                    tree.update(tout[u], delta);
+                    bit[u] = y;
                 }
             } else {
-                let u: usize = parts[1].parse().unwrap();
                 let v: usize = parts[2].parse().unwrap();
-                let w = lca(u, v, &depth, &up);
-                let mask = bit_pref(&bit, tin[u]) ^ bit_pref(&bit, tin[v]) ^ bit_of(chars[w]);
-                ans.push(mask & mask.wrapping_sub(1) == 0);
+                let w = lca(u, v);
+                let mask = tree.query(tin[u] + 1) ^ tree.query(tin[v] + 1) ^ bit[w];
+                ans.push(mask & (mask - 1) == 0);
             }
         }
         ans
