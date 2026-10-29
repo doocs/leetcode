@@ -118,7 +118,7 @@ tags:
 
 <!-- thinking:end -->
 
-We store the parity of each character in a $26$-bit mask: bit $c$ is $1$ when character $c$ occurs an odd number of times. The characters on a path can be rearranged into a palindrome if and only if this mask has at most one bit set, including the all-zero mask, that is, $\textit{mask} \& (\textit{mask} - 1) = 0$.
+We store the parity of each character in a $26$-bit mask: bit $c$ is $1$ when character $c$ occurs an odd number of times. The characters on a path can be rearranged into a palindrome if and only if this mask has at most one bit set, including the all-zero mask. Equivalently, the bitwise AND of the mask and the mask minus one is $0$.
 
 Let $\textit{pref}(u)$ be the XOR of the masks from the root to node $u$, inclusive. If $w$ is the lowest common ancestor of $u$ and $v$, the mask of the path from $u$ to $v$ is
 
