@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793180786,
+  "cache_date": 1793273185,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -39058,6 +39058,12 @@
     "solution/0000-0099/0031.Next Permutation/README.md": {
       "authors": [
         {
+          "login": "Goldloli",
+          "name": "Goldloli",
+          "url": "https://github.com/Goldloli",
+          "avatar": "https://avatars.githubusercontent.com/u/39011904?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -39076,7 +39082,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/53973174?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1793272684
     },
     "solution/0300-0399/0310.Minimum Height Trees/README.md": {
       "authors": [
@@ -106521,6 +106527,12 @@
     "solution/0000-0099/0031.Next Permutation/README_EN.md": {
       "authors": [
         {
+          "login": "Goldloli",
+          "name": "Goldloli",
+          "url": "https://github.com/Goldloli",
+          "avatar": "https://avatars.githubusercontent.com/u/39011904?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -106539,7 +106551,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/53973174?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1793272705
     },
     "solution/0300-0399/0310.Minimum Height Trees/README_EN.md": {
       "authors": [
