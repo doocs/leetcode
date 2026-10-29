@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793276264,
+  "cache_date": 1793277046,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -134908,13 +134908,19 @@
     "solution/3800-3899/3841.Palindromic Path Queries in a Tree/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793275878
+      "retrieved": 1793276446
     },
     "solution/3800-3899/3842.Toggle Light Bulbs/README.md": {
       "authors": [
@@ -135002,13 +135008,19 @@
     "solution/3800-3899/3841.Palindromic Path Queries in a Tree/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793275884
+      "retrieved": 1793276437
     },
     "solution/3800-3899/3842.Toggle Light Bulbs/README_EN.md": {
       "authors": [
