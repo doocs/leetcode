@@ -102,45 +102,651 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Euler Tour + Binary Indexed Tree + Binary Lifting
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> A path can be rearranged into a palindrome iff at most one character has odd frequency. $n,q \le 5 \times 10^4$ forbids walking each path.
+> A path can be rearranged into a palindrome iff at most one character has an odd count. With $n$ and the number of queries at most $5 \times 10^4$, walking each path is too slow.
 >
-> Parity of letter counts is a $26$-bit mask. The path mask is the XOR of the two rootward prefixes, cancelling the LCA.
+> The bottleneck is supporting point updates while still reading the parity of every letter on an arbitrary path.
 >
-> Updating a node's character changes rootward masks in a structured way, which a tree difference or Euler-tour structure can maintain.
+> Pack the $26$ letter parities into a bitmask. The path mask is the XOR of the two rootward prefixes, then the XOR of the LCA's character: the shared prefix and the LCA itself both cancel. Writing each node's mask at its Euler enter and exit times makes a prefix of an XOR Fenwick tree equal the rootward mask.
 >
-> A query fetches the LCA and checks that the path mask has at most one bit set; an update rewrites the character and the masks.
+> Binary lifting finds the LCA. The path is palindromic when the mask has at most one bit set. An update XORs the difference of the old and new masks at that node's enter and exit times.
 
 <!-- thinking:end -->
+
+We store the parity of each character in a $26$-bit mask: bit $c$ is $1$ when character $c$ occurs an odd number of times. The characters on a path can be rearranged into a palindrome if and only if this mask has at most one bit set, including the all-zero mask, that is, $\textit{mask} \& (\textit{mask} - 1) = 0$.
+
+Let $\textit{pref}(u)$ be the XOR of the masks from the root to node $u$, inclusive. If $w$ is the lowest common ancestor of $u$ and $v$, the mask of the path from $u$ to $v$ is
+
+$$\textit{pref}(u) \oplus \textit{pref}(v) \oplus \textit{bit}[w].$$
+
+The portion from the root to $w$ appears once in each prefix and cancels. Node $w$ itself also cancels, so we XOR $\textit{bit}[w]$ to put it back on the path.
+
+We maintain $\textit{pref}(u)$ with an Euler tour and an XOR binary indexed tree. During the DFS we record the entry time $\textit{tin}[u]$ and the exit time $\textit{tout}[u]$, and add $\textit{bit}[u]$ at both positions. A prefix query that ends at $\textit{tin}[u]$ counts each node on the path from the root to $u$ exactly once: its entry time lies inside the prefix and its exit time lies outside. A subtree that has already been fully exited is counted twice and cancels. The tree accumulates from index $1$, so $\textit{query}(\textit{tin}[u] + 1)$ in the code is $\textit{pref}(u)$.
+
+When the character of node $u$ changes, let $\delta$ be the XOR of the old and new masks, and XOR $\delta$ at $\textit{tin}[u]$ and $\textit{tout}[u]$. The LCA is precomputed with binary lifting and each query takes $O(\log n)$.
+
+The time complexity is $O((n + q) \log n)$ and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of operations.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.tree = [0] * (n + 1)
 
+    def update(self, i: int, delta: int) -> None:
+        i += 1
+        while i <= self.n:
+            self.tree[i] ^= delta
+            i += i & -i
+
+    def query(self, i: int) -> int:
+        res = 0
+        while i:
+            res ^= self.tree[i]
+            i -= i & -i
+        return res
+
+
+class Solution:
+    def palindromePath(
+        self, n: int, edges: list[list[int]], s: str, queries: list[str]
+    ) -> list[bool]:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        parent = [-1] * n
+        depth = [0] * n
+        tin = [0] * n
+        tout = [0] * n
+        timer = 0
+
+        def dfs(u: int, p: int) -> None:
+            nonlocal timer
+            parent[u] = p
+            tin[u] = timer
+            timer += 1
+            for v in g[u]:
+                if v != p:
+                    depth[v] = depth[u] + 1
+                    dfs(v, u)
+            tout[u] = timer
+
+        dfs(0, -1)
+
+        m = n.bit_length()
+        up = [parent[:]]
+        up[0][0] = 0
+        for j in range(1, m):
+            prev = up[-1]
+            up.append([prev[prev[i]] for i in range(n)])
+
+        def lca(u: int, v: int) -> int:
+            if depth[u] < depth[v]:
+                u, v = v, u
+            d = depth[u] - depth[v]
+            j = 0
+            while d:
+                if d & 1:
+                    u = up[j][u]
+                d >>= 1
+                j += 1
+            if u == v:
+                return u
+            for j in range(m - 1, -1, -1):
+                if up[j][u] != up[j][v]:
+                    u = up[j][u]
+                    v = up[j][v]
+            return parent[u]
+
+        bit = [1 << (ord(c) - ord("a")) for c in s]
+        tree = BinaryIndexedTree(n)
+
+        for u in range(n):
+            tree.update(tin[u], bit[u])
+            tree.update(tout[u], bit[u])
+
+        ans = []
+        for q in queries:
+            op, a, b = q.split()
+            u = int(a)
+            if op == "update":
+                x = bit[u]
+                y = 1 << (ord(b) - ord("a"))
+                if x != y:
+                    delta = x ^ y
+                    tree.update(tin[u], delta)
+                    tree.update(tout[u], delta)
+                    bit[u] = y
+            else:
+                v = int(b)
+                w = lca(u, v)
+                mask = tree.query(tin[u] + 1) ^ tree.query(tin[v] + 1) ^ bit[w]
+                ans.append(mask & (mask - 1) == 0)
+
+        return ans
 ```
 
 #### Java
 
 ```java
+class BinaryIndexedTree {
+    int n;
+    int[] tree;
 
+    BinaryIndexedTree(int n) {
+        this.n = n;
+        tree = new int[n + 1];
+    }
+
+    void update(int i, int delta) {
+        for (i++; i <= n; i += i & -i) {
+            tree[i] ^= delta;
+        }
+    }
+
+    int query(int i) {
+        int res = 0;
+        for (; i > 0; i -= i & -i) {
+            res ^= tree[i];
+        }
+        return res;
+    }
+}
+
+class Solution {
+    List<Integer>[] g;
+    int[] parent, depth, tin, tout, bit;
+    int[][] up;
+    int timer, m;
+
+    public List<Boolean> palindromePath(int n, int[][] edges, String s, String[] queries) {
+        g = new List[n];
+        for (int i = 0; i < n; i++) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+            g[e[1]].add(e[0]);
+        }
+
+        parent = new int[n];
+        depth = new int[n];
+        tin = new int[n];
+        tout = new int[n];
+        timer = 0;
+        dfs(0, -1);
+
+        m = 32 - Integer.numberOfLeadingZeros(n);
+        up = new int[m][n];
+        System.arraycopy(parent, 0, up[0], 0, n);
+        for (int j = 1; j < m; j++) {
+            for (int i = 0; i < n; i++) {
+                up[j][i] = up[j - 1][up[j - 1][i]];
+            }
+        }
+
+        bit = new int[n];
+        for (int i = 0; i < n; i++) {
+            bit[i] = 1 << (s.charAt(i) - 'a');
+        }
+
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int i = 0; i < n; i++) {
+            tree.update(tin[i], bit[i]);
+            tree.update(tout[i], bit[i]);
+        }
+
+        List<Boolean> ans = new ArrayList<>();
+        for (String q : queries) {
+            String[] parts = q.split(" ");
+            int u = Integer.parseInt(parts[1]);
+            if (parts[0].equals("update")) {
+                int x = bit[u];
+                int y = 1 << (parts[2].charAt(0) - 'a');
+                if (x != y) {
+                    int delta = x ^ y;
+                    tree.update(tin[u], delta);
+                    tree.update(tout[u], delta);
+                    bit[u] = y;
+                }
+            } else {
+                int v = Integer.parseInt(parts[2]);
+                int w = lca(u, v);
+                int mask = tree.query(tin[u] + 1) ^ tree.query(tin[v] + 1) ^ bit[w];
+                ans.add((mask & (mask - 1)) == 0);
+            }
+        }
+        return ans;
+    }
+
+    void dfs(int u, int p) {
+        parent[u] = p == -1 ? 0 : p;
+        tin[u] = timer++;
+        for (int v : g[u]) {
+            if (v != p) {
+                depth[v] = depth[u] + 1;
+                dfs(v, u);
+            }
+        }
+        tout[u] = timer;
+    }
+
+    int lca(int u, int v) {
+        if (depth[u] < depth[v]) {
+            int t = u;
+            u = v;
+            v = t;
+        }
+        int d = depth[u] - depth[v];
+        for (int j = 0; d > 0; j++, d >>= 1) {
+            if ((d & 1) != 0) {
+                u = up[j][u];
+            }
+        }
+        if (u == v) {
+            return u;
+        }
+        for (int j = m - 1; j >= 0; j--) {
+            if (up[j][u] != up[j][v]) {
+                u = up[j][u];
+                v = up[j][v];
+            }
+        }
+        return parent[u];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class BinaryIndexedTree {
+    int n;
+    vector<int> tree;
 
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , tree(n + 1) {}
+
+    void update(int i, int delta) {
+        for (++i; i <= n; i += i & -i) {
+            tree[i] ^= delta;
+        }
+    }
+
+    int query(int i) {
+        int res = 0;
+        for (; i > 0; i -= i & -i) {
+            res ^= tree[i];
+        }
+        return res;
+    }
+};
+
+class Solution {
+    vector<vector<int>> g, up;
+    vector<int> parent, depth, tin, tout, bit;
+    int timer, m;
+
+    void dfs(int u, int p) {
+        parent[u] = p == -1 ? 0 : p;
+        tin[u] = timer++;
+        for (int v : g[u]) {
+            if (v != p) {
+                depth[v] = depth[u] + 1;
+                dfs(v, u);
+            }
+        }
+        tout[u] = timer;
+    }
+
+    int lca(int u, int v) {
+        if (depth[u] < depth[v]) {
+            swap(u, v);
+        }
+        int d = depth[u] - depth[v];
+        for (int j = 0; d; j++, d >>= 1) {
+            if (d & 1) {
+                u = up[j][u];
+            }
+        }
+        if (u == v) {
+            return u;
+        }
+        for (int j = m - 1; j >= 0; j--) {
+            if (up[j][u] != up[j][v]) {
+                u = up[j][u];
+                v = up[j][v];
+            }
+        }
+        return parent[u];
+    }
+
+public:
+    vector<bool> palindromePath(int n, vector<vector<int>>& edges, string s, vector<string>& queries) {
+        g.assign(n, {});
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+
+        parent.resize(n);
+        depth.assign(n, 0);
+        tin.resize(n);
+        tout.resize(n);
+        timer = 0;
+        dfs(0, -1);
+
+        m = 32 - __builtin_clz(n);
+        up.assign(m, vector<int>(n));
+        up[0] = parent;
+        for (int j = 1; j < m; j++) {
+            for (int i = 0; i < n; i++) {
+                up[j][i] = up[j - 1][up[j - 1][i]];
+            }
+        }
+
+        bit.resize(n);
+        for (int i = 0; i < n; i++) {
+            bit[i] = 1 << (s[i] - 'a');
+        }
+
+        BinaryIndexedTree tree(n);
+        for (int i = 0; i < n; i++) {
+            tree.update(tin[i], bit[i]);
+            tree.update(tout[i], bit[i]);
+        }
+
+        vector<bool> ans;
+        for (string& q : queries) {
+            stringstream ss(q);
+            string op;
+            int u;
+            ss >> op >> u;
+            if (op == "update") {
+                string c;
+                ss >> c;
+                int y = 1 << (c[0] - 'a');
+                if (bit[u] != y) {
+                    int delta = bit[u] ^ y;
+                    tree.update(tin[u], delta);
+                    tree.update(tout[u], delta);
+                    bit[u] = y;
+                }
+            } else {
+                int v;
+                ss >> v;
+                int w = lca(u, v);
+                int mask = tree.query(tin[u] + 1) ^ tree.query(tin[v] + 1) ^ bit[w];
+                ans.push_back((mask & (mask - 1)) == 0);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type BinaryIndexedTree struct {
+	n    int
+	tree []int
+}
 
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{n: n, tree: make([]int, n+1)}
+}
+
+func (b *BinaryIndexedTree) update(i, delta int) {
+	for i++; i <= b.n; i += i & -i {
+		b.tree[i] ^= delta
+	}
+}
+
+func (b *BinaryIndexedTree) query(i int) int {
+	res := 0
+	for ; i > 0; i -= i & -i {
+		res ^= b.tree[i]
+	}
+	return res
+}
+
+func palindromePath(n int, edges [][]int, s string, queries []string) []bool {
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+
+	parent := make([]int, n)
+	depth := make([]int, n)
+	tin := make([]int, n)
+	tout := make([]int, n)
+	timer := 0
+
+	var dfs func(int, int)
+	dfs = func(u, p int) {
+		if p == -1 {
+			parent[u] = 0
+		} else {
+			parent[u] = p
+		}
+		tin[u] = timer
+		timer++
+		for _, v := range g[u] {
+			if v != p {
+				depth[v] = depth[u] + 1
+				dfs(v, u)
+			}
+		}
+		tout[u] = timer
+	}
+	dfs(0, -1)
+
+	m := 1
+	for (1 << m) <= n {
+		m++
+	}
+	up := make([][]int, m)
+	up[0] = append([]int(nil), parent...)
+	for j := 1; j < m; j++ {
+		up[j] = make([]int, n)
+		for i := 0; i < n; i++ {
+			up[j][i] = up[j-1][up[j-1][i]]
+		}
+	}
+
+	bit := make([]int, n)
+	for i := 0; i < n; i++ {
+		bit[i] = 1 << (s[i] - 'a')
+	}
+
+	tree := NewBinaryIndexedTree(n)
+	for i := 0; i < n; i++ {
+		tree.update(tin[i], bit[i])
+		tree.update(tout[i], bit[i])
+	}
+
+	lca := func(u, v int) int {
+		if depth[u] < depth[v] {
+			u, v = v, u
+		}
+		d := depth[u] - depth[v]
+		for j := 0; d > 0; j++ {
+			if d&1 != 0 {
+				u = up[j][u]
+			}
+			d >>= 1
+		}
+		if u == v {
+			return u
+		}
+		for j := m - 1; j >= 0; j-- {
+			if up[j][u] != up[j][v] {
+				u = up[j][u]
+				v = up[j][v]
+			}
+		}
+		return parent[u]
+	}
+
+	ans := make([]bool, 0)
+	for _, q := range queries {
+		var op string
+		var u int
+		fmt.Sscanf(q, "%s %d", &op, &u)
+		if op == "update" {
+			var c string
+			fmt.Sscanf(q, "%s %d %s", &op, &u, &c)
+			y := 1 << (c[0] - 'a')
+			if bit[u] != y {
+				delta := bit[u] ^ y
+				tree.update(tin[u], delta)
+				tree.update(tout[u], delta)
+				bit[u] = y
+			}
+		} else {
+			var v int
+			fmt.Sscanf(q, "%s %d %d", &op, &u, &v)
+			w := lca(u, v)
+			mask := tree.query(tin[u]+1) ^ tree.query(tin[v]+1) ^ bit[w]
+			ans = append(ans, mask&(mask-1) == 0)
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+class BinaryIndexedTree {
+    n: number;
+    tree: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.tree = Array(n + 1).fill(0);
+    }
+
+    update(i: number, delta: number): void {
+        for (i++; i <= this.n; i += i & -i) {
+            this.tree[i] ^= delta;
+        }
+    }
+
+    query(i: number): number {
+        let res = 0;
+        for (; i > 0; i -= i & -i) {
+            res ^= this.tree[i];
+        }
+        return res;
+    }
+}
+
+function palindromePath(n: number, edges: number[][], s: string, queries: string[]): boolean[] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+
+    const parent = Array(n).fill(0);
+    const depth = Array(n).fill(0);
+    const tin = Array(n).fill(0);
+    const tout = Array(n).fill(0);
+    let timer = 0;
+
+    function dfs(u: number, p: number): void {
+        parent[u] = p === -1 ? 0 : p;
+        tin[u] = timer++;
+        for (const v of g[u]) {
+            if (v !== p) {
+                depth[v] = depth[u] + 1;
+                dfs(v, u);
+            }
+        }
+        tout[u] = timer;
+    }
+    dfs(0, -1);
+
+    const m = 32 - Math.clz32(n);
+    const up: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+    up[0] = [...parent];
+    for (let j = 1; j < m; j++) {
+        for (let i = 0; i < n; i++) {
+            up[j][i] = up[j - 1][up[j - 1][i]];
+        }
+    }
+
+    const bit = Array(n).fill(0);
+    for (let i = 0; i < n; i++) {
+        bit[i] = 1 << (s.charCodeAt(i) - 97);
+    }
+
+    const tree = new BinaryIndexedTree(n);
+    for (let i = 0; i < n; i++) {
+        tree.update(tin[i], bit[i]);
+        tree.update(tout[i], bit[i]);
+    }
+
+    function lca(u: number, v: number): number {
+        if (depth[u] < depth[v]) {
+            [u, v] = [v, u];
+        }
+        let d = depth[u] - depth[v];
+        for (let j = 0; d > 0; j++, d >>= 1) {
+            if (d & 1) {
+                u = up[j][u];
+            }
+        }
+        if (u === v) {
+            return u;
+        }
+        for (let j = m - 1; j >= 0; j--) {
+            if (up[j][u] !== up[j][v]) {
+                u = up[j][u];
+                v = up[j][v];
+            }
+        }
+        return parent[u];
+    }
+
+    const ans: boolean[] = [];
+    for (const q of queries) {
+        const parts = q.split(' ');
+        const u = Number(parts[1]);
+        if (parts[0] === 'update') {
+            const y = 1 << (parts[2].charCodeAt(0) - 97);
+            if (bit[u] !== y) {
+                const delta = bit[u] ^ y;
+                tree.update(tin[u], delta);
+                tree.update(tout[u], delta);
+                bit[u] = y;
+            }
+        } else {
+            const v = Number(parts[2]);
+            const w = lca(u, v);
+            const mask = tree.query(tin[u] + 1) ^ tree.query(tin[v] + 1) ^ bit[w];
+            ans.push((mask & (mask - 1)) === 0);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
