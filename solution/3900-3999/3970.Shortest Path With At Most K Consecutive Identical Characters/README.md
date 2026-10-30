@@ -99,44 +99,248 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：Dijkstra 算法
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 普通最短路忽略标签，可能走出超过 $k$ 个连续相同字符。状态必须带上「当前连续字符及其已经连续的长度」。
+> 边权非负，从节点 $0$ 走到 $n-1$ 的最短路可以直接用 Dijkstra，但拼接后的标签里连续相同字符不能超过 $k$ 个。无约束最短路可能正好走出超限的连续段，而更贵的路却能靠中途换标签把连续段打断； $n$ 与边数都到 $5 \times 10^4$，枚举路径不可行。
 >
-> 以 $(\textit{node},\textit{run})$ 为 Dijkstra 状态， $\textit{run}\le k$，转移时若下一标签相同则 $\textit{run}+1$，否则重置为 $1$。 $n$ 与 $k$ 的乘积决定状态数。
+> 到达同一节点时，结尾这段连续长度不同，后面还能再接几个相同标签也就不同，因此每个节点不能只保留一个距离。连续段只取决于当前标签和已经连续的个数：下一节点标签相同则加一，否则重置为 $1$，超过 $k$ 即丢弃，起点自身算作连续 $1$ 个。
 >
-> 仓库中该题尚无实现代码，思考止于「最短路状态扩展连续段」。
+> 状态取 $(u, \textit{cur})$， $\textit{dist}[u][\textit{cur}]$ 为到达该状态的最小边权和。边权非负，用小根堆按距离扩展，终点第一次出堆即为答案。
 
 <!-- thinking:end -->
+
+令 $\textit{dist}[u][\textit{cur}]$ 表示从节点 $0$ 到达节点 $u$、且以 $\textit{labels}[u]$ 结尾的连续相同字符个数为 $\textit{cur}$ 时的最小总边权。
+
+把 $\textit{edges}$ 建成邻接表。起点标签构成长度为 $1$ 的连续段，故 $\textit{dist}[0][1] = 0$，并将 $(0, 0, 1)$ 压入小根堆，三元组依次为当前距离、节点编号与连续长度。
+
+每次取出距离最小的 $(d, u, \textit{cur})$。若 $u = n - 1$，非负边权下这就是到达终点的最优解，返回 $d$。若 $d > \textit{dist}[u][\textit{cur}]$，该状态已经过期，跳过。
+
+否则枚举 $u$ 的出边 $(v, w)$。下一连续长度为：标签不同时 $\textit{nxt} = 1$，相同时 $\textit{nxt} = \textit{cur} + 1$。新距离 $\textit{nd} = d + w$。仅当 $\textit{nxt} \le k$ 且 $\textit{nd} < \textit{dist}[v][\textit{nxt}]$ 时更新 $\textit{dist}$ 并入堆。
+
+堆空仍未到达终点则返回 $-1$。
+
+时间复杂度 $O(k(n + m)\log (nk))$，空间复杂度 $O(nk + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def shortestPath(self, n: int, edges: List[List[int]], labels: str, k: int) -> int:
+        g = [[] for _ in range(n)]
+        for u, v, w in edges:
+            g[u].append((v, w))
 
+        dist = [[inf] * (k + 1) for _ in range(n)]
+        dist[0][1] = 0
+        pq = [(0, 0, 1)]
+        while pq:
+            d, u, cur = heappop(pq)
+            if u == n - 1:
+                return d
+            if d > dist[u][cur]:
+                continue
+            for v, w in g[u]:
+                nxt = 1 if labels[v] != labels[u] else cur + 1
+                nd = d + w
+                if nxt <= k and nd < dist[v][nxt]:
+                    dist[v][nxt] = nd
+                    heappush(pq, (nd, v, nxt))
+        return -1
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int shortestPath(int n, int[][] edges, String labels, int k) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            g[e[0]].add(new int[] {e[1], e[2]});
+        }
 
+        int[][] dist = new int[n][k + 1];
+        for (int[] d : dist) {
+            Arrays.fill(d, Integer.MAX_VALUE);
+        }
+        dist[0][1] = 0;
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
+        pq.offer(new int[] {0, 0, 1});
+
+        while (!pq.isEmpty()) {
+            int[] p = pq.poll();
+            int d = p[0], u = p[1], cur = p[2];
+            if (u == n - 1) {
+                return d;
+            }
+            if (d > dist[u][cur]) {
+                continue;
+            }
+            for (int[] e : g[u]) {
+                int v = e[0], w = e[1];
+                int nxt = labels.charAt(v) != labels.charAt(u) ? 1 : cur + 1;
+                int nd = d + w;
+                if (nxt <= k && nd < dist[v][nxt]) {
+                    dist[v][nxt] = nd;
+                    pq.offer(new int[] {nd, v, nxt});
+                }
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int shortestPath(int n, vector<vector<int>>& edges, string labels, int k) {
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : edges) {
+            g[e[0]].emplace_back(e[1], e[2]);
+        }
 
+        vector<vector<int>> dist(n, vector<int>(k + 1, INT_MAX));
+        dist[0][1] = 0;
+
+        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<>> pq;
+        pq.emplace(0, 0, 1);
+
+        while (!pq.empty()) {
+            auto [d, u, cur] = pq.top();
+            pq.pop();
+            if (u == n - 1) {
+                return d;
+            }
+            if (d > dist[u][cur]) {
+                continue;
+            }
+            for (auto [v, w] : g[u]) {
+                int nxt = labels[v] != labels[u] ? 1 : cur + 1;
+                int nd = d + w;
+                if (nxt <= k && nd < dist[v][nxt]) {
+                    dist[v][nxt] = nd;
+                    pq.emplace(nd, v, nxt);
+                }
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func shortestPath(n int, edges [][]int, labels string, k int) int {
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], [2]int{e[1], e[2]})
+	}
 
+	const inf = int(^uint(0) >> 1)
+	dist := make([][]int, n)
+	for i := range dist {
+		dist[i] = make([]int, k+1)
+		for j := range dist[i] {
+			dist[i][j] = inf
+		}
+	}
+
+	dist[0][1] = 0
+	pq := &hp{{0, 0, 1}}
+	heap.Init(pq)
+
+	for pq.Len() > 0 {
+		p := heap.Pop(pq).(tuple)
+		d, u, cur := p.d, p.u, p.cur
+
+		if u == n-1 {
+			return d
+		}
+		if d > dist[u][cur] {
+			continue
+		}
+
+		for _, e := range g[u] {
+			v, w := e[0], e[1]
+			nxt := cur + 1
+			if labels[v] != labels[u] {
+				nxt = 1
+			}
+			nd := d + w
+			if nxt <= k && nd < dist[v][nxt] {
+				dist[v][nxt] = nd
+				heap.Push(pq, tuple{nd, v, nxt})
+			}
+		}
+	}
+	return -1
+}
+
+type tuple struct {
+	d, u, cur int
+}
+
+type hp []tuple
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].d < h[j].d }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
+func (h *hp) Pop() any {
+	a := *h
+	v := a[len(a)-1]
+	*h = a[:len(a)-1]
+	return v
+}
+```
+
+#### TypeScript
+
+```ts
+function shortestPath(n: number, edges: number[][], labels: string, k: number): number {
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [u, v, w] of edges) {
+        g[u].push([v, w]);
+    }
+
+    const dist = Array.from({ length: n }, () => new Array(k + 1).fill(Infinity));
+    dist[0][1] = 0;
+
+    const pq = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
+    pq.enqueue([0, 0, 1]);
+
+    while (!pq.isEmpty()) {
+        const [d, u, cur] = pq.dequeue();
+
+        if (u === n - 1) {
+            return d;
+        }
+        if (d > dist[u][cur]) {
+            continue;
+        }
+
+        for (const [v, w] of g[u]) {
+            const nxt = labels[v] !== labels[u] ? 1 : cur + 1;
+            const nd = d + w;
+            if (nxt <= k && nd < dist[v][nxt]) {
+                dist[v][nxt] = nd;
+                pq.enqueue([nd, v, nxt]);
+            }
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
