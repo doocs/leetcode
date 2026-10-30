@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1878
+source: 第 524 场周赛 Q3
 ---
 
 <!-- problem:start -->

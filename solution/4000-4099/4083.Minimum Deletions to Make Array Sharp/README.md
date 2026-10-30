@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 简单
+rating: 1214
+source: 第 524 场周赛 Q1
 ---
 
 <!-- problem:start -->
