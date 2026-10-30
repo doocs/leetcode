@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793322906,
+  "cache_date": 1793351623,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -140400,7 +140400,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792328786
+      "retrieved": 1793351011
     },
     "solution/4000-4099/4084.Last Visited Cell in a Directional Grid/README.md": {
       "authors": [
@@ -140411,7 +140411,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793172958
+      "retrieved": 1793351011
     },
     "solution/4000-4099/4085.Find Root of a Colored Tree/README.md": {
       "authors": [
@@ -140422,7 +140422,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793172958
+      "retrieved": 1793351011
     },
     "solution/4000-4099/4086.Minimum Interval Selection to Cover Target Intervals/README.md": {
       "authors": [
@@ -140433,7 +140433,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793172958
+      "retrieved": 1793351011
     },
     "solution/4000-4099/4082.Minimum Operations to Stabilize a Binary Tree/README_EN.md": {
       "authors": [
@@ -140455,7 +140455,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792413753
+      "retrieved": 1793351013
     },
     "solution/4000-4099/4086.Minimum Interval Selection to Cover Target Intervals/README_EN.md": {
       "authors": [
@@ -140466,7 +140466,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792672246
+      "retrieved": 1793351013
     },
     "solution/4000-4099/4083.Minimum Deletions to Make Array Sharp/README_EN.md": {
       "authors": [
@@ -140477,7 +140477,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792328796
+      "retrieved": 1793351013
     },
     "solution/4000-4099/4084.Last Visited Cell in a Directional Grid/README_EN.md": {
       "authors": [
@@ -140488,7 +140488,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1792328796
+      "retrieved": 1793351013
     },
     "solution/4000-4099/4087.Maximum Subarray Sum of Fixed Length After at Most K Swaps/README.md": {
       "authors": [
@@ -140687,6 +140687,28 @@
         }
       ],
       "retrieved": 1792933521
+    },
+    "solution/4000-4099/4096.Simulate Bomb Explosions and Falling Boxes/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1793351011
+    },
+    "solution/4000-4099/4096.Simulate Bomb Explosions and Falling Boxes/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1793351013
     }
   }
 }
