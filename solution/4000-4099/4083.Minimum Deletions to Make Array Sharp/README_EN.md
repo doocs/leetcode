@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1214
+source: Weekly Contest 524 Q1
 ---
 
 <!-- problem:start -->
