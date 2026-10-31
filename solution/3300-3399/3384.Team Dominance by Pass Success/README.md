@@ -218,16 +218,16 @@ SELECT
     teams.team_name,
     halves.half_number,
     COALESCE(s.dominance, 0) AS dominance
-FROM teams
-CROSS JOIN halves
-LEFT JOIN s
-    ON teams.team_name = s.team_name
-   AND halves.half_number = s.half_number
+FROM
+    teams
+    CROSS JOIN halves
+    LEFT JOIN s ON teams.team_name = s.team_name AND halves.half_number = s.half_number
 ORDER BY teams.team_name, halves.half_number;
 ```
 
 <!-- tabs:end -->
-```
+
+````
 
 #### Pandas
 
@@ -259,7 +259,7 @@ def calculate_team_dominance(teams: pd.DataFrame, passes: pd.DataFrame) -> pd.Da
     result.columns = ["team_name", "half_number", "dominance"]
     result = result.sort_values(by=["team_name", "half_number"])
     return result
-```
+````
 
 <!-- tabs:end -->
 
