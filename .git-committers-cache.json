@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793351623,
+  "cache_date": 1793443011,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -130857,13 +130857,19 @@
     "solution/3600-3699/3665.Twisted Mirror Path Count/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1793442417
     },
     "solution/3600-3699/3666.Minimum Operations to Equalize Binary String/README.md": {
       "authors": [
@@ -130912,13 +130918,19 @@
     "solution/3600-3699/3665.Twisted Mirror Path Count/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1793442394
     },
     "solution/3600-3699/3666.Minimum Operations to Equalize Binary String/README_EN.md": {
       "authors": [
