@@ -162,7 +162,7 @@ pass_to 表示 player_id 对应队员接球。
 
 <!-- solution:start -->
 
-### 方法一：等值连接 + 分组求和
+### 方法一：补齐球队 × 半场骨架 + 等值连接 + 分组求和
 
 <!-- thinking:start -->
 
@@ -170,13 +170,15 @@ pass_to 表示 player_id 对应队员接球。
 >
 > 同队传球得 $1$ 分，跨队传球得 $-1$ 分，按球队与上下半场合计。时间戳 $\le 45{:}00$ 为上半场。
 >
-> 传球表分别按发起者、接收者连接球队表，即可比较两队名并打出优势值。
+> 传球表分别按发起者、接收者连接球队表，即可比较两队名并打出优势值，再按发起方队名与半场分组求和。
 >
-> 再按发起方队名与半场分组求和，最后按队名、半场排序。
+> **但要注意**：题目要求的是「每支球队」在上下两个半场的优势得分，即使某队在某半场没有任何发起传球，也应输出 $0$。若只从 `Passes` 出发分组，缺失的球队/半场不会出现。因此需要先构造「球队 × 半场」的完整骨架，再左连接统计结果。
 
 <!-- thinking:end -->
 
 我们可以通过等值连接，找到每次传球的发起方和接收方所在的球队，然后根据传球的时间戳判断传球发生在上半场还是下半场，根据传球的发起方和接收方所在的球队是否相同，计算出每次传球的优势值，最后按照球队名称和半场编号进行分组求和，得到每支球队在上半场和下半场的优势值。
+
+需要注意的是，**直接对 `Passes` 分组会遗漏「某队某半场无发起传球」的行**。因此需要先用「所有球队」与「两个半场」做笛卡尔积，得到每队两个半场的完整骨架，再将统计结果左连接到骨架上，未匹配到的行补 $0$。
 
 <!-- tabs:start -->
 
@@ -185,21 +187,47 @@ pass_to 表示 player_id 对应队员接球。
 ```sql
 # Write your MySQL query statement below
 WITH
+    teams AS (
+        SELECT DISTINCT team_name
+        FROM Teams
+    ),
+    halves AS (
+        SELECT 1 AS half_number
+        UNION ALL
+        SELECT 2
+    ),
     T AS (
         SELECT
             t1.team_name,
-            IF(time_stamp <= '45:00', 1, 2) half_number,
-            IF(t1.team_name = t2.team_name, 1, -1) dominance
+            IF(p.time_stamp <= '45:00', 1, 2) AS half_number,
+            IF(t1.team_name = t2.team_name, 1, -1) AS dominance
         FROM
             Passes p
             JOIN Teams t1 ON p.pass_from = t1.player_id
             JOIN Teams t2 ON p.pass_to = t2.player_id
+    ),
+    s AS (
+        SELECT
+            team_name,
+            half_number,
+            SUM(dominance) AS dominance
+        FROM T
+        GROUP BY team_name, half_number
     )
-SELECT team_name, half_number, SUM(dominance) dominance
-FROM T
-GROUP BY 1, 2
-ORDER BY 1, 2;
+SELECT
+    teams.team_name,
+    halves.half_number,
+    COALESCE(s.dominance, 0) AS dominance
+FROM
+    teams
+    CROSS JOIN halves
+    LEFT JOIN s ON teams.team_name = s.team_name AND halves.half_number = s.half_number
+ORDER BY teams.team_name, halves.half_number;
 ```
+
+<!-- tabs:end -->
+
+````
 
 #### Pandas
 
@@ -231,7 +259,7 @@ def calculate_team_dominance(teams: pd.DataFrame, passes: pd.DataFrame) -> pd.Da
     result.columns = ["team_name", "half_number", "dominance"]
     result = result.sort_values(by=["team_name", "half_number"])
     return result
-```
+````
 
 <!-- tabs:end -->
 
