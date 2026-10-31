@@ -4106,6 +4106,7 @@
 |  4093  |  [至多 K 次数字重排后的最大和](/solution/4000-4099/4093.Maximize%20Sum%20After%20At%20Most%20K%20Digit%20Rearrangements/README.md)  |    |  中等  |  第 525 场周赛  |
 |  4094  |  [统计频次阶梯子数组的数目 I](/solution/4000-4099/4094.Count%20Frequency%20Staircase%20Subarrays%20I/README.md)  |    |  中等  |  第 525 场周赛  |
 |  4095  |  [统计频次阶梯子数组的数目 II](/solution/4000-4099/4095.Count%20Frequency%20Staircase%20Subarrays%20II/README.md)  |    |  困难  |  第 525 场周赛  |
+|  4096  |  [Simulate Bomb Explosions and Falling Boxes](/solution/4000-4099/4096.Simulate%20Bomb%20Explosions%20and%20Falling%20Boxes/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
