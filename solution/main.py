@@ -493,16 +493,14 @@ def run():
         apply_stored_tag_locale(item)
     save_result(ls)
     ls = load_result()
-    generate_readme(ls)
     changed_files = [
+        *generate_readme(ls),
         *generate_question_readme(ls),
+        *generate_contest_readme(cls),
         *generate_category_readme(ls, "Database"),
         *generate_category_readme(ls, "JavaScript"),
         *refresh(ls),
     ]
-
-    # 生成周赛题目列表
-    generate_contest_readme(cls)
 
     format_repo(changed_files)
 

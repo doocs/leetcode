@@ -1,5 +1,3 @@
-import "math"
-
 func maximumScore(grid [][]int) int64 {
 	n := len(grid)
 	const inf = math.MinInt64 / 2

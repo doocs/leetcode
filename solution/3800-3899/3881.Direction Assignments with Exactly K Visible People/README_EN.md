@@ -258,8 +258,6 @@ public:
 #### Go
 
 ```go
-package main
-
 const N = 100001
 const MOD = 1e9 + 7
 

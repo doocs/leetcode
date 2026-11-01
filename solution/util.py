@@ -354,6 +354,22 @@ def select_templates(category):
 
 
 _IMAGE_SRC_RE = re.compile('src="(.*?)"')
+_PRE_OR_CODE_RE = re.compile(r"(<(?:pre|code)\b[^>]*>.*?</(?:pre|code)>)", re.S | re.I)
+
+
+def _normalize_description_for_compare(text: str) -> str:
+    """Normalize formatting-insensitive whitespace while preserving `<pre>`/`<code>` blocks."""
+    parts = _PRE_OR_CODE_RE.split(text)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r"\s+", " ", parts[i])
+    for i in range(1, len(parts), 2):
+        lines = [
+            re.sub(r"// +", "// ", re.sub(r" +(?=//)", " ", line.strip()))
+            for line in parts[i].splitlines()
+            if line.strip()
+        ]
+        parts[i] = "\n".join(lines)
+    return "".join(parts)
 
 
 def _extract_md_table_rows(text: str) -> List[List[str]]:
@@ -389,7 +405,9 @@ def _preserve_formatted_description(orig_text: str, raw_desc: str) -> str:
         orig_desc = orig_text[
             orig_text.index(start_tag) + len(start_tag) : orig_text.index(end_tag)
         ].strip()
-        if re.sub(r"\s+", " ", orig_desc) == re.sub(r"\s+", " ", raw_desc):
+        if _normalize_description_for_compare(
+            orig_desc
+        ) == _normalize_description_for_compare(raw_desc):
             return orig_desc
     return raw_desc
 
@@ -519,7 +537,8 @@ def _build_md_table(rows: List[List[str]], header: str) -> Tuple[str, List[List[
     return header + "".join(items), normalized_rows
 
 
-def generate_readme(result):
+def generate_readme(result) -> List[str]:
+    written: List[str] = []
     table_cn, _ = _build_md_table(
         [item["md_table_row_cn"] for item in result],
         "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |",
@@ -528,8 +547,11 @@ def generate_readme(result):
         [item["md_table_row_en"] for item in result],
         "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |",
     )
-    write_text("./README.md", readme_cn.format(table_cn))
-    write_text("./README_EN.md", readme_en.format(table_en))
+    if write_text("./README.md", readme_cn.format(table_cn)):
+        written.append(os.path.abspath("./README.md"))
+    if write_text("./README_EN.md", readme_en.format(table_en)):
+        written.append(os.path.abspath("./README_EN.md"))
+    return written
 
 
 def generate_question_readme(result) -> List[str]:
@@ -668,12 +690,16 @@ def refresh(result) -> List[str]:
     return written
 
 
-def generate_contest_readme(result: List):
+def generate_contest_readme(result: List) -> List[str]:
+    written: List[str] = []
     result.sort(key=lambda x: -x[0])
     content_cn = "\n\n".join(c[1] for c in result)
     content_en = "\n\n".join(c[2] for c in result)
     metadata_section = "---\ncomments: true\n---"
     content_cn = contest_readme_cn.format(metadata_section, content_cn)
-    write_text("./CONTEST_README.md", content_cn)
+    if write_text("./CONTEST_README.md", content_cn):
+        written.append(os.path.abspath("./CONTEST_README.md"))
     content_en = contest_readme_en.format(metadata_section, content_en)
-    write_text("./CONTEST_README_EN.md", content_en)
+    if write_text("./CONTEST_README_EN.md", content_en):
+        written.append(os.path.abspath("./CONTEST_README_EN.md"))
+    return written

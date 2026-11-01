@@ -228,11 +228,6 @@ public:
 #### Go
 
 ```go
-import (
-	"math"
-	"strconv"
-)
-
 func kthDigit(k int64) int {
 	if k <= 9 {
 		return int(k)

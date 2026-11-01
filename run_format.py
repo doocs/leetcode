@@ -21,7 +21,7 @@ SKIP_DIRS = {
 _INLINE_CODE_RE = re.compile(r"(```(python|java|cpp|c|go|rust)\n)(.*?)(```)", re.S)
 _PRETTIER_LOCKED_BLOCK = re.compile(
     r"(?:\[error\] Unable to write file [^\r\n]+:\r?\n)?"
-    r"\[error\] (?:UNKNOWN|EBUSY|EPERM|EACCES): [^\r\n]*?\bopen '([^']+)'\r?\n?"
+    r"\[error\] (?:UNKNOWN|EBUSY|EPERM|EACCES): [^\r\n]*?\bopen '([^\r\n]+)'\r?\n?"
 )
 
 _black_mod = None
@@ -121,9 +121,11 @@ def _strip_go_package(content: str, path: str = "") -> str:
 
 
 def _gofmt_str(content: str, path: str = "") -> str:
+    with_pkg = _add_go_package(content, path)
+    added = with_pkg != content
     proc = subprocess.run(
         ["gofmt"],
-        input=_add_go_package(content, path),
+        input=with_pkg,
         capture_output=True,
         encoding="utf-8",
         errors="replace",
@@ -131,12 +133,18 @@ def _gofmt_str(content: str, path: str = "") -> str:
     )
     if proc.returncode != 0:
         raise RuntimeError(proc.stderr.strip() or "gofmt failed")
-    return _strip_go_package(proc.stdout, path)
+    out = proc.stdout
+    if added:
+        return _strip_go_package(out, path)
+    if out and not out.endswith("\n"):
+        out += "\n"
+    return out
 
 
 def format_go_files(paths: List[str] = None) -> None:
     """Format Go files (handling the temporary `package main` header)."""
-    if paths is None:
+    all_mode = paths is None
+    if all_mode:
         paths = [p for p in find_all_paths() if p.endswith(".go")]
     else:
         paths = [p for p in paths if p.endswith(".go") and os.path.isfile(p)]
@@ -162,7 +170,11 @@ def format_go_files(paths: List[str] = None) -> None:
                 f.write(with_pkg)
             headered.append(path)
     try:
-        subprocess.check_call(["gofmt", "-w", "."], cwd=ROOT)
+        if all_mode:
+            subprocess.check_call(["gofmt", "-w", "."], cwd=ROOT)
+        else:
+            for i in range(0, len(paths), 64):
+                subprocess.check_call(["gofmt", "-w", *paths[i : i + 64]])
     finally:
         for path in headered:
             with open(path, "r", encoding="utf-8") as f:

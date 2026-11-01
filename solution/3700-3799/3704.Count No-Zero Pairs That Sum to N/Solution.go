@@ -1,7 +1,3 @@
-package main
-
-import "strconv"
-
 func countNoZeroPairs(n int64) int64 {
 	trivanople := n
 	s := []byte(strconv.FormatInt(trivanople, 10))

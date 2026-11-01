@@ -244,7 +244,6 @@ public:
 ```go
 import (
 	rbt "github.com/emirpasic/gods/v2/trees/redblacktree"
-	"cmp"
 )
 
 type pair struct{ p, id int }

@@ -230,8 +230,6 @@ public:
 #### Go
 
 ```go
-import "math"
-
 func findShortestWay(maze [][]int, ball []int, hole []int) string {
 	m, n := len(maze), len(maze[0])
 	r, c := ball[0], ball[1]
