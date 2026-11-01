@@ -95,7 +95,7 @@ $$
 
 答案即为 $f[m - 1][n - 1][0]$。
 
-时间复杂度 $O(\textit{mnK})$，空间复杂度 $O(\textit{mnK})$。其中 $m$ 和 $n$ 分别是矩阵 $\textit{grid}$ 的行数和列数，而 $K$ 是题目中的整数 $k$。
+时间复杂度 $O(mn \times K)$，空间复杂度 $O(mn \times K)$。其中 $m$ 和 $n$ 分别是矩阵 $\textit{grid}$ 的行数和列数，而 $K$ 是题目中的整数 $k$。
 
 <!-- tabs:start -->
 

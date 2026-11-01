@@ -85,7 +85,7 @@ The calculation process of the function $\textit{dfs}(i, j, x)$ is as follows:
 
 During the process, we can use memoization search to avoid repeated calculations.
 
-The time complexity is $O(nk^2M)$, and the space complexity is $O(\textit{nkM})$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
+The time complexity is $O(nk^2M)$, and the space complexity is $O(nk \times M)$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
 
 <!-- tabs:start -->
 
@@ -235,7 +235,7 @@ We enumerate the last dice roll as $j$, and the number of consecutive times $j$ 
 
 The final answer is the sum of all $f[n][j][x]$.
 
-The time complexity is $O(nk^2M)$, and the space complexity is $O(\textit{nkM})$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
+The time complexity is $O(nk^2M)$, and the space complexity is $O(nk \times M)$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
 
 <!-- tabs:start -->
 
@@ -393,7 +393,7 @@ Set $f[n][j][x] = 1$, which means all $n$ rolls are done. Fill $i$ from $n - 1$ 
 
 Add these contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j][x]$.
 
-The time complexity is $O(nk^2M)$, and the space complexity is $O(\textit{nkM})$, where $k$ is the number of faces, and $M$ is the maximum allowed streak.
+The time complexity is $O(nk^2M)$, and the space complexity is $O(nk \times M)$, where $k$ is the number of faces, and $M$ is the maximum allowed streak.
 
 <!-- tabs:start -->
 

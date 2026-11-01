@@ -77,7 +77,7 @@ Some of them are (0, 2), (2, 0), (2, 4), (3, 2), and (4, 4).
 >
 > Count lattice points covered by at least one circle. There are at most $200$ circles and coordinates stay within $100$, so the bounding box is small. Enumerating each disk and deduplicating needs a set; testing each lattice point against the circles is simpler.
 >
-> The box runs to $\max(x+r)$ and $\max(y+r)$. For each $(i,j)$ check whether some circle satisfies the squared-distance test, count it, and break. $O(\textit{XYn})$ fits the limits.
+> The box runs to $\max(x+r)$ and $\max(y+r)$. For each $(i,j)$ check whether some circle satisfies the squared-distance test, count it, and break. $O(X \times Y \times n)$ fits the limits.
 
 <!-- thinking:end -->
 

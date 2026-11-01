@@ -126,7 +126,7 @@ The specific steps are as follows:
         1. Pop the top of the heap (the longest interval), which is equivalent to "applying" this query;
         2. Increment `s` by 1 and do `d[r+1] -= 1` (so that after passing $r$, the coverage count automatically decreases);
 
-    - Repeat the above steps until `s \ge nums[i]` or no more intervals can be selected;
+    - Repeat the above steps until $s \ge \textit{nums}[i]$ or no more intervals can be selected;
     - If at this point `s < nums[i]`, it means it is impossible to make position $i$ zero, so return $-1$.
 
 4. After traversing all positions, the intervals remaining in the heap are those that were **not popped**, i.e., the queries that are truly **retained** (not used for the "zeroing" task). The heap size is the answer.

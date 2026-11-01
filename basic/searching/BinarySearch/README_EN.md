@@ -1,3 +1,5 @@
+<!-- solution:start -->
+
 # Binary Search
 
 ## Algorithm Templates
@@ -46,14 +48,14 @@ int search(int left, int right) {
 
 When doing binary search problems, you can follow the following routine:
 
-1. Write out the loop condition $left < right$;
-2. Inside the loop, start with $mid = left + \lfloor \frac{right - left}{2} \rfloor$;
-3. According to the specific problem, implement the $check()$ function (sometimes the logic is very simple, you can not define $check$), think about whether to use $right = mid$ (Template $1$) or $left = mid$ (Template $2$);
-    - If $right = mid$, then write the else statement $left = mid + 1$, and keep the lower midpoint formula $mid = left + \lfloor \frac{right - left}{2} \rfloor$;
-    - If $left = mid$, then write the else statement $right = mid - 1$, and add the odd remainder when calculating $mid$, that is, $mid = left + \lfloor \frac{right - left}{2} \rfloor + ((right - left) \bmod 2)$;
-4. When the loop ends, $left$ equals $right$.
+1. Write out the loop condition $\textit{left} < \textit{right}$;
+2. Inside the loop, start with $\textit{mid} = \textit{left} + \lfloor \frac{\textit{right} - \textit{left}}{2} \rfloor$;
+3. According to the specific problem, implement the $\textit{check}()$ function (sometimes the logic is very simple, you can not define $\textit{check}$), think about whether to use $\textit{right} = \textit{mid}$ (Template $1$) or $\textit{left} = \textit{mid}$ (Template $2$);
+    - If $\textit{right} = \textit{mid}$, then write the else statement $\textit{left} = \textit{mid} + 1$, and keep the lower midpoint formula $\textit{mid} = \textit{left} + \lfloor \frac{\textit{right} - \textit{left}}{2} \rfloor$;
+    - If $\textit{left} = \textit{mid}$, then write the else statement $\textit{right} = \textit{mid} - 1$, and add the odd remainder when calculating $\textit{mid}$, that is, $\textit{mid} = \textit{left} + \lfloor \frac{\textit{right} - \textit{left}}{2} \rfloor + ((\textit{right} - \textit{left}) \bmod 2)$;
+4. When the loop ends, $\textit{left}$ equals $\textit{right}$.
 
-Note that the advantage of these two templates is that they always keep the answer within the binary search interval, and the value corresponding to the end condition of the binary search is exactly at the position of the answer. For the case that may have no solution, just check whether the $left$ or $right$ after the binary search ends satisfies the problem.
+Note that the advantage of these two templates is that they always keep the answer within the binary search interval, and the value corresponding to the end condition of the binary search is exactly at the position of the answer. For the case that may have no solution, just check whether the $\textit{left}$ or $\textit{right}$ after the binary search ends satisfies the problem.
 
 ## Examples
 
@@ -62,3 +64,5 @@ Note that the advantage of these two templates is that they always keep the answ
 - [Find Peak Element](/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md)
 - [First Bad Version](/solution/0200-0299/0278.First%20Bad%20Version/README_EN.md)
 - [Fixed Point](/solution/1000-1099/1064.Fixed%20Point/README_EN.md)
+
+<!-- solution:end -->

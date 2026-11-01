@@ -148,16 +148,74 @@ def grouped_ident_phrase(inner: str) -> str | None:
     return " ".join(parts)
 
 
+# Lowercase chunks that are already products by juxtaposition: O(mn), O(nk).
+LOWER_DIM = {
+    "m",
+    "n",
+    "k",
+    "mn",
+    "nm",
+    "nk",
+    "kn",
+    "mk",
+    "km",
+    "mnk",
+    "nkm",
+    "nmk",
+    "mkn",
+    "kmn",
+    "knm",
+}
+# Two capitals inside big-O are separate sizes. Roman numerals such as CM=900
+# are not inside O(·), so they stay one identifier.
+UPPER_FACTORS = {"CM", "MU", "VE", "XY"}
+FORMULA_TEX = re.compile(
+    r"\\(?:le|ge|leq|geq|lt|gt|neq|times|cdot|frac|sqrt)(?![A-Za-z])"
+)
+
+
 def split_letter_product(ident: str) -> str | None:
-    """``nC`` and ``Cn`` are products of single-letter factors, not one name."""
+    """Split a token that is only single-letter factors, not one name.
+
+    ``Cn`` and ``nC`` alternate case. ``Cnm`` and ``mnK`` keep a lowercase
+    product such as ``nm`` together and separate the capital with ``\\times``.
+    ``XYn`` splits the leading capitals. Names such as ``Fib`` and ``mID``
+    do not parse and stay identifiers.
+    """
     if len(ident) < 2 or not ident.isalpha():
         return None
     if ident.islower() or ident.isupper():
         return None
-    for prev, curr in zip(ident, ident[1:]):
-        if prev.isupper() == curr.isupper():
+    if all(prev.isupper() != curr.isupper() for prev, curr in zip(ident, ident[1:])):
+        return r" \times ".join(ident)
+    parts: list[str] = []
+    i = 0
+    n = len(ident)
+    while i < n:
+        if ident[i].isupper():
+            j = i + 1
+            while j < n and ident[j].isupper():
+                j += 1
+            run = ident[i:j]
+            if len(run) >= 2:
+                if i != 0 or not re.fullmatch(r"[mnk]+", ident[j:]):
+                    return None
+                parts.extend(run)
+            else:
+                parts.append(run)
+            i = j
+            continue
+        j = i + 1
+        while j < n and ident[j].islower():
+            j += 1
+        chunk = ident[i:j]
+        if chunk not in LOWER_DIM:
             return None
-    return r" \times ".join(ident)
+        parts.append(chunk)
+        i = j
+    if len(parts) < 2:
+        return None
+    return r" \times ".join(parts)
 
 
 def radix_suffix(token: str) -> str | None:
@@ -386,7 +444,54 @@ def _normalize_math_expr(src: str) -> str:
             continue
         out.append(src[i])
         i += 1
-    return join_upper_phrases(separate_times("".join(out)))
+    return rewrite_o_pairs(join_upper_phrases(separate_times("".join(out))))
+
+
+def rewrite_o_pairs(src: str) -> str:
+    """``O(VE)`` and ``O(CM)`` are products. ``CM=900`` is a numeral."""
+
+    def body(inner: str) -> str:
+        def one(match: re.Match[str]) -> str:
+            word = match.group(1)
+            if word in UPPER_FACTORS:
+                return r" \times ".join(word)
+            return match.group(0)
+
+        return re.sub(r"\\textit\{([A-Z]{2})\}", one, inner)
+
+    out: list[str] = []
+    i = 0
+    while True:
+        j = src.find("O(", i)
+        if j < 0:
+            out.append(src[i:])
+            break
+        depth = 0
+        k = j + 1
+        while k < len(src):
+            if src[k] == "(":
+                depth += 1
+            elif src[k] == ")":
+                depth -= 1
+                if depth == 0:
+                    break
+            k += 1
+        if k >= len(src) or src[k] != ")":
+            out.append(src[i:])
+            break
+        out.append(src[i:j])
+        out.append("O(" + body(src[j + 2 : k]) + ")")
+        i = k + 1
+    return "".join(out)
+
+
+def formula_from_code(code: str) -> str | None:
+    """A backtick span that is only a TeX formula belongs in math."""
+    if not FORMULA_TEX.search(code):
+        return None
+    if re.search(r"\\(?:b|B|d|D|w|W|s|S|Z)(?![A-Za-z])", code):
+        return None
+    return "$" + normalize_math_span(code) + "$"
 
 
 def separate_times(src: str) -> str:
@@ -511,7 +616,9 @@ def normalize_prose(src: str) -> str:
                 out.append(src[i])
                 i += 1
                 continue
-            out.append(src[i : end + 1])
+            code = src[i + 1 : end]
+            formula = formula_from_code(code)
+            out.append(formula if formula is not None else src[i : end + 1])
             i = end + 1
             continue
         if src[i] == "\\" and i + 1 < n:
@@ -661,6 +768,21 @@ def self_test() -> None:
         "$\\textit{NOT} \\textit{IN}$": "$\\textit{NOT IN}$",
         "$O(\\textit{Kn}^2)$": "$O(K \\times n^2)$",
         "$O(\\textit{kC}_n^k)$": "$O(k \\times C_n^k)$",
+        "$O(\\textit{Cnm})$": "$O(C \\times nm)$",
+        "$O(\\textit{mnK})$": "$O(mn \\times K)$",
+        "$O(\\textit{nkM})$": "$O(nk \\times M)$",
+        "$O(\\textit{nmC})$": "$O(nm \\times C)$",
+        "$O(\\textit{XYn})$": "$O(X \\times Y \\times n)$",
+        "$O(\\textit{XY} n)$": "$O(X \\times Y n)$",
+        "$O(n + \\textit{CM})$": "$O(n + C \\times M)$",
+        "$O(\\textit{VE})$": "$O(V \\times E)$",
+        "$O(n \\log(\\textit{MU}))$": "$O(n \\log(M \\times U))$",
+        "$\\textit{CM}=900$": "$\\textit{CM}=900$",
+        "$\\textit{Fib}$": "$\\textit{Fib}$",
+        "$\\textit{mID}$": "$\\textit{mID}$",
+        "$\\textit{OR}$": "$\\textit{OR}$",
+        "`guess(x)\\le 0`": "$\\textit{guess}(x)\\le 0$",
+        "`s \\ge nums[i]`": "$s \\ge \\textit{nums}[i]$",
         "$UNION\\ ALL$": "$\\textit{UNION ALL}$",
         "$\\textit{NOT}\\ \\textit{IN}$": "$\\textit{NOT IN}$",
         "$\\textit{AND} \\textit{nums}$": "$\\textit{AND} \\textit{nums}$",
