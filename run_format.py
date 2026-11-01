@@ -5,6 +5,7 @@ import shutil
 import subprocess
 import sys
 import re
+import time
 from pathlib import Path
 
 suffixes = ["md", "py", "java", "c", "cpp", "go", "php", "cs", "rs", "js", "ts", "sql"]
@@ -377,20 +378,54 @@ def format_rust_files(paths: List[str]) -> None:
 
 
 def run_prettier(root: Path = None) -> None:
-    """Format with `npx prettier --write`, including the pnpm bin shim."""
+    """Format JS, TS, PHP, SQL, and Markdown with the local Prettier.
+
+    ``node`` runs ``prettier.cjs`` directly, with no shell. On Windows ``npx``
+    and ``prettier`` are ``.cmd`` shims; a shell re-parses the glob, and the
+    old caller ignored Prettier's exit code. Prettier expands the glob itself,
+    on every platform.
+
+    A sharing violation is retried three times after the first attempt.
+    Windows antivirus often locks a file that was just written (``UNKNOWN`` /
+    ``EBUSY`` / ``EPERM`` / ``EACCES``). Prettier rewrites a file only when its
+    contents change, so a later attempt writes just the files that failed.
+    """
     root = root or Path(__file__).resolve().parent
+    node = shutil.which("node")
+    cli = root / "node_modules" / "prettier" / "bin" / "prettier.cjs"
+    if not node or not cli.is_file():
+        raise SystemExit("node and local prettier are required (pnpm install).")
     pattern = "**/*.{js,ts,php,sql,md}"
-    if os.name == "nt":
-        subprocess.check_call(
-            f'npx prettier --write "{pattern}"',
-            cwd=root,
-            shell=True,
+    command = [
+        node,
+        str(cli),
+        "--write",
+        "--log-level",
+        "warn",
+        "--no-error-on-unmatched-pattern",
+        pattern,
+    ]
+    # Node's libuv message, e.g. "EBUSY: resource busy or locked, open '…'".
+    locked = re.compile(r"\b(?:UNKNOWN|EBUSY|EPERM|EACCES):")
+    # The first call is the initial format. Three further calls are retries.
+    retries = 3
+    print(f"prettier --write {pattern}", flush=True)
+    for attempt in range(1, retries + 2):
+        proc = subprocess.run(command, cwd=root, stderr=subprocess.PIPE)
+        err = proc.stderr or b""
+        if err:
+            sys.stderr.buffer.write(err)
+            sys.stderr.flush()
+        if proc.returncode == 0:
+            return
+        text = err.decode("utf-8", "replace")
+        if attempt > retries or not locked.search(text):
+            raise SystemExit(proc.returncode)
+        print(
+            f"prettier could not write a file, retrying ({attempt}/{retries})",
+            flush=True,
         )
-    else:
-        subprocess.check_call(
-            ["npx", "prettier", "--write", pattern],
-            cwd=root,
-        )
+        time.sleep(attempt)
 
 
 def run():
