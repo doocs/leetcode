@@ -126,8 +126,6 @@ Use one notation for symbols in solution prose (Thinking blocks and the algorith
 - Operator names stay commands: `\log`, `\ln`, and `\min` / `\max` / `\gcd` when they are called or subscripted. Do not write code identifiers with `\text`, `\mathrm`, or `\operatorname`.
 - Inline code is for a concrete code token (a call, a literal, a keyword cited as syntax), not for a symbol that also appears in a formula. Fenced blocks are for code, traces, and diagrams.
 
-`scripts/normalize_solution_math.py` rewrites `<!-- solution:start -->` regions to this scheme. `--check` exits non-zero when a file still differs.
-
 ## Thinking section (how we arrive at the answer)
 
 Optional in `README.md` / `README_EN.md`. When present, teach the path to the solution, not only the finished algorithm.
