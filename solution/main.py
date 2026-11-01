@@ -1,7 +1,4 @@
-import os
 import re
-import shutil
-import subprocess
 import sys
 import time
 from datetime import timezone, timedelta, datetime
@@ -420,42 +417,13 @@ def get_contests(fetch_new=True) -> List:
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run_prettier() -> None:
-    """Format generated text. Implementation lives in ``run_format.py``."""
+def _load_run_format():
     root = str(ROOT)
     if root not in sys.path:
         sys.path.insert(0, root)
-    from run_format import run_prettier as format_with_prettier
+    import run_format
 
-    format_with_prettier(ROOT)
-
-
-def format_rust_files() -> None:
-    skip = {"node_modules", "__pycache__", ".git", ".preview"}
-    rs_files = []
-    rustfmt = shutil.which("rustfmt")
-    if not rustfmt:
-        print("rustfmt not found; skip Rust formatting")
-        return
-    for dirpath, dirnames, filenames in os.walk(ROOT):
-        dirnames[:] = [name for name in dirnames if name not in skip]
-        for name in filenames:
-            if name.endswith(".rs"):
-                rs_files.append(os.path.join(dirpath, name))
-    failed = []
-    for i in range(0, len(rs_files), 64):
-        batch = rs_files[i : i + 64]
-        try:
-            subprocess.check_call([rustfmt, "--edition", "2021", *batch])
-        except subprocess.CalledProcessError:
-            for path in batch:
-                try:
-                    subprocess.check_call([rustfmt, "--edition", "2021", path])
-                except subprocess.CalledProcessError as exc:
-                    print(f"rustfmt failed: {path}: {exc}")
-                    failed.append(path)
-    if failed:
-        print(f"rustfmt skipped {len(failed)} file(s)")
+    return run_format
 
 
 def run():
@@ -525,24 +493,33 @@ def run():
         apply_stored_tag_locale(item)
     save_result(ls)
     ls = load_result()
-    generate_readme(ls)
-    generate_question_readme(ls)
+    changed_files = [
+        *generate_readme(ls),
+        *generate_question_readme(ls),
+        *generate_contest_readme(cls),
+        *generate_category_readme(ls, "Database"),
+        *generate_category_readme(ls, "JavaScript"),
+        *refresh(ls),
+    ]
 
-    # 生成周赛题目列表
-    generate_contest_readme(cls)
-
-    # 生成分类题目列表
-    generate_category_readme(ls, "Database")
-    generate_category_readme(ls, "JavaScript")
-
-    refresh(ls)
-    format_repo()
+    format_repo(changed_files)
 
 
-def format_repo() -> None:
+def format_repo(changed_files: List[str] = None) -> None:
     """Format generated files. Does not fetch questions or rewrite READMEs."""
-    run_prettier()
-    format_rust_files()
+    rf = _load_run_format()
+    if changed_files is not None:
+        dirty = rf.git_dirty_paths(ROOT)
+        targets = (
+            list(dict.fromkeys([*changed_files, *dirty]))
+            if dirty is not None
+            else changed_files
+        )
+        rf.run_prettier(ROOT, targets)
+        rf.format_rust_files(targets, strict=False)
+    else:
+        rf.run_prettier(ROOT)
+        rf.format_rust_files(rf.find_all_paths(ROOT), strict=False)
 
 
 if __name__ == "__main__":

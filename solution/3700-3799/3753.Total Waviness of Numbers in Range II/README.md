@@ -313,8 +313,6 @@ private:
 #### Go
 
 ```go
-import "strconv"
-
 func totalWaviness(num1 int64, num2 int64) int64 {
 	return calc(num2) - calc(num1-1)
 }

@@ -195,8 +195,6 @@ public:
 #### Go
 
 ```go
-import "math"
-
 func smallestBalancedIndex(nums []int) int {
 	s, p := 0, 1
 	for _, x := range nums {
