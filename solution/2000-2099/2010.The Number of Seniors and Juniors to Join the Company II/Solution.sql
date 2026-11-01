@@ -11,8 +11,7 @@ WITH
         SELECT
             employee_id,
             IFNULL(
-                SELECT
-                    MAX(cur)
+                SELECT MAX(cur)
                 FROM s
                 WHERE cur <= 70000,
                 0
@@ -20,12 +19,10 @@ WITH
         FROM Candidates
         WHERE experience = 'Junior'
     )
-SELECT
-    employee_id
+SELECT employee_id
 FROM s
 WHERE cur <= 70000
 UNION
-SELECT
-    employee_id
+SELECT employee_id
 FROM j
 WHERE cur <= 70000;

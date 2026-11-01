@@ -101,9 +101,8 @@ WITH
         GROUP BY 1
     )
 SELECT employee_id, team_size
-FROM
-    Employee
-    JOIN T USING (team_id);
+FROM Employee
+JOIN T USING (team_id);
 ```
 
 <!-- tabs:end -->
@@ -131,9 +130,8 @@ FROM
 ```sql
 # Write your MySQL query statement below
 SELECT e1.employee_id, COUNT(1) AS team_size
-FROM
-    Employee AS e1
-    LEFT JOIN Employee AS e2 USING (team_id)
+FROM Employee AS e1
+LEFT JOIN Employee AS e2 USING (team_id)
 GROUP BY 1;
 ```
 

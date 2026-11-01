@@ -90,9 +90,8 @@ We can use a self-join to join the `Seat` table with itself, and then filter out
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT a.seat_id
-FROM
-    Cinema AS a
-    JOIN Cinema AS b ON ABS(a.seat_id - b.seat_id) = 1 AND a.free AND b.free
+FROM Cinema AS a
+JOIN Cinema AS b ON ABS(a.seat_id - b.seat_id) = 1 AND a.free AND b.free
 ORDER BY 1;
 ```
 

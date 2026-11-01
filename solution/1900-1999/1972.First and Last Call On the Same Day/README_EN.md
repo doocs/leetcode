@@ -94,8 +94,7 @@ On 2021-08-11, user 1 and 5 had a call. This call was the only call for both of 
 # Write your MySQL query statement below
 WITH
     s AS (
-        SELECT
-            *
+        SELECT *
         FROM Calls
         UNION ALL
         SELECT
@@ -117,8 +116,7 @@ WITH
             ) last
         FROM s
     )
-SELECT DISTINCT
-    user_id
+SELECT DISTINCT user_id
 FROM t
 WHERE first = last;
 ```

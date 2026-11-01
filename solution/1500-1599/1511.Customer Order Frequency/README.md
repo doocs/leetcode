@@ -146,10 +146,9 @@ Moustafa 在 2020 年 6 月花费了 $110 (10 * 2 + 45 * 2), 在 7 月花费了 
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, name
-FROM
-    Orders
-    JOIN Product USING (product_id)
-    JOIN Customers USING (customer_id)
+FROM Orders
+JOIN Product USING (product_id)
+JOIN Customers USING (customer_id)
 WHERE YEAR(order_date) = 2020
 GROUP BY 1
 HAVING

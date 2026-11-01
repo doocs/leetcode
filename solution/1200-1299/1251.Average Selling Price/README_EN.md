@@ -120,10 +120,9 @@ We can use a left join to join the `Prices` table and the `UnitsSold` table on `
 SELECT
     p.product_id,
     IFNULL(ROUND(SUM(price * units) / SUM(units), 2), 0) AS average_price
-FROM
-    Prices AS p
-    LEFT JOIN UnitsSold AS u
-        ON p.product_id = u.product_id AND purchase_date BETWEEN start_date AND end_date
+FROM Prices AS p
+LEFT JOIN UnitsSold AS u
+    ON p.product_id = u.product_id AND purchase_date BETWEEN start_date AND end_date
 GROUP BY 1;
 ```
 

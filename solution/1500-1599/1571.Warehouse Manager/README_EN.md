@@ -130,9 +130,8 @@ We can use an inner join to join the `Warehouse` table and the `Products` table 
 SELECT
     name AS warehouse_name,
     SUM(width * length * height * units) AS volume
-FROM
-    Warehouse
-    JOIN Products USING (product_id)
+FROM Warehouse
+JOIN Products USING (product_id)
 GROUP BY 1;
 ```
 

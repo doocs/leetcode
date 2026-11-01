@@ -156,7 +156,7 @@ GROUP BY 1, 2;
 
 > **思考**
 >
-> 方法二用隐式逗号连接写出同一谓词。改成 `CROSS JOIN ... ON` 只是把过滤条件放到连接子句，语义不变。
+> 方法二用隐式逗号连接写出同一谓词。改成 `JOIN ... ON` 只是把过滤条件放到连接子句，语义不变。
 >
 > 选择哪种写法取决于风格与引擎对 ANSI JOIN 的偏好，聚合结果与方法二一致。
 
@@ -172,9 +172,8 @@ SELECT
     t1.player_id,
     t1.event_date,
     SUM(t2.games_played) AS games_played_so_far
-FROM
-    Activity AS t1
-    CROSS JOIN Activity AS t2 ON t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
+FROM Activity AS t1
+JOIN Activity AS t2 ON t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
 GROUP BY 1, 2;
 ```
 

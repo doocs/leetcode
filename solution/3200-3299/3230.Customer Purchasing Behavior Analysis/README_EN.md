@@ -168,9 +168,8 @@ Finally, we use the `T` and `R` tables to calculate the total transaction amount
 WITH
     T AS (
         SELECT *
-        FROM
-            Transactions
-            JOIN Products USING (product_id)
+        FROM Transactions
+        JOIN Products USING (product_id)
     ),
     P AS (
         SELECT
@@ -199,9 +198,8 @@ SELECT
     ROUND(AVG(amount), 2) avg_transaction_amount,
     r.category top_category,
     ROUND(COUNT(1) * 10 + SUM(amount) / 100, 2) loyalty_score
-FROM
-    T t
-    JOIN R r ON t.customer_id = r.customer_id AND r.rk = 1
+FROM T t
+JOIN R r ON t.customer_id = r.customer_id AND r.rk = 1
 GROUP BY 1
 ORDER BY 7 DESC, 1;
 ```

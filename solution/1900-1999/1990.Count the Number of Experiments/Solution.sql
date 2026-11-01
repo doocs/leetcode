@@ -21,7 +21,6 @@ WITH
             Exp
     )
 SELECT platform, experiment_name, COUNT(experiment_id) AS num_experiments
-FROM
-    T AS t
-    LEFT JOIN Experiments USING (platform, experiment_name)
+FROM T AS t
+LEFT JOIN Experiments USING (platform, experiment_name)
 GROUP BY 1, 2;

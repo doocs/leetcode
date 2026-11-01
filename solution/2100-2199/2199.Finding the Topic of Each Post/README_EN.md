@@ -140,9 +140,8 @@ Note that it is okay to have one word that expresses more than one topic.
 SELECT
     post_id,
     IFNULL(GROUP_CONCAT(DISTINCT topic_id), 'Ambiguous!') AS topic
-FROM
-    Posts
-    LEFT JOIN Keywords ON INSTR(CONCAT(' ', content, ' '), CONCAT(' ', word, ' ')) > 0
+FROM Posts
+LEFT JOIN Keywords ON INSTR(CONCAT(' ', content, ' '), CONCAT(' ', word, ' ')) > 0
 GROUP BY post_id;
 ```
 

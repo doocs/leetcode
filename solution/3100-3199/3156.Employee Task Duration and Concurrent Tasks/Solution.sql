@@ -20,9 +20,8 @@ WITH
         SELECT
             P.*,
             COUNT(1) AS concurrent_count
-        FROM
-            P
-            INNER JOIN Tasks USING (employee_id)
+        FROM P
+        INNER JOIN Tasks USING (employee_id)
         WHERE P.st >= Tasks.start_time AND P.ed <= Tasks.end_time
         GROUP BY 1, 2, 3
     )

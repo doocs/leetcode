@@ -9,9 +9,8 @@ WITH
                 PARTITION BY d.name
                 ORDER BY salary DESC
             ) AS rk
-        FROM
-            Employee AS e
-            JOIN Department AS d ON e.departmentId = d.id
+        FROM Employee AS e
+        JOIN Department AS d ON e.departmentId = d.id
     )
 SELECT department, employee, salary
 FROM T

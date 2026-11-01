@@ -153,9 +153,8 @@ WITH
     ),
     S AS (
         SELECT t1.year, t1.product_id, t1.curr_year_spend, t2.curr_year_spend prev_year_spend
-        FROM
-            T t1
-            LEFT JOIN T t2 ON t1.product_id = t2.product_id AND t1.year = t2.year + 1
+        FROM T t1
+        LEFT JOIN T t2 ON t1.product_id = t2.product_id AND t1.year = t2.year + 1
     )
 SELECT
     *,

@@ -124,9 +124,8 @@ Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 SELECT
     name,
     SUM(amount) AS balance
-FROM
-    Users
-    JOIN Transactions USING (account)
+FROM Users
+JOIN Transactions USING (account)
 GROUP BY account
 HAVING balance > 10000;
 ```

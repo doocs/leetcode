@@ -93,8 +93,7 @@ WITH
             SUM(frequency) OVER () AS s
         FROM Numbers
     )
-SELECT
-    ROUND(AVG(num), 1) AS median
+SELECT ROUND(AVG(num), 1) AS median
 FROM t
 WHERE rk1 >= s / 2 AND rk2 >= s / 2;
 ```

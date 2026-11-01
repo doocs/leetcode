@@ -173,10 +173,9 @@ WITH
             ROUND(AVG(rating), 2) rating,
             SUM(distance) distance,
             SUM(accidents) accidents
-        FROM
-            Drivers
-            JOIN Vehicles USING (driver_id)
-            JOIN Trips USING (vehicle_id)
+        FROM Drivers
+        JOIN Vehicles USING (driver_id)
+        JOIN Trips USING (vehicle_id)
         GROUP BY fuel_type, driver_id
     ),
     P AS (

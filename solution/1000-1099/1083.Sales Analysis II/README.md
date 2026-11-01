@@ -119,9 +119,8 @@ id 为 1 的买家购买了一部 S8，但是却没有购买 iPhone，而 id 为
 ```sql
 # Write your MySQL query statement below
 SELECT buyer_id
-FROM
-    Sales
-    JOIN Product USING (product_id)
+FROM Sales
+JOIN Product USING (product_id)
 GROUP BY 1
 HAVING SUM(product_name = 'S8') > 0 AND SUM(product_name = 'iPhone') = 0;
 ```

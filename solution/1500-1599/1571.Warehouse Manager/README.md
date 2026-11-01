@@ -130,9 +130,8 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 SELECT
     name AS warehouse_name,
     SUM(width * length * height * units) AS volume
-FROM
-    Warehouse
-    JOIN Products USING (product_id)
+FROM Warehouse
+JOIN Products USING (product_id)
 GROUP BY 1;
 ```
 

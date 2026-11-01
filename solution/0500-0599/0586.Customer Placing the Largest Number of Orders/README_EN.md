@@ -90,8 +90,7 @@ We can use `GROUP BY` to group the data by `customer_number`, and then sort the 
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_number
+SELECT customer_number
 FROM orders
 GROUP BY customer_number
 ORDER BY COUNT(1) DESC

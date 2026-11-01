@@ -129,11 +129,9 @@ WITH RECURSIVE
         FROM t
         WHERE subtask_id > 1
     )
-SELECT
-    T.*
-FROM
-    T
-    LEFT JOIN Executed USING (task_id, subtask_id)
+SELECT T.*
+FROM T
+LEFT JOIN Executed USING (task_id, subtask_id)
 WHERE Executed.subtask_id IS NULL;
 ```
 

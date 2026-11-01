@@ -121,9 +121,8 @@ We can first use an equi-join to join the two tables based on the `content_id` f
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT title
-FROM
-    TVProgram
-    JOIN Content USING (content_id)
+FROM TVProgram
+JOIN Content USING (content_id)
 WHERE
     DATE_FORMAT(program_date, '%Y%m') = '202006'
     AND kids_content = 'Y'

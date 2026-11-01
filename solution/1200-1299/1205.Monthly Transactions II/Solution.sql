@@ -4,9 +4,8 @@ WITH
         SELECT * FROM Transactions
         UNION
         SELECT id, country, 'chargeback', amount, c.trans_date
-        FROM
-            Transactions AS t
-            JOIN Chargebacks AS c ON t.id = c.trans_id
+        FROM Transactions AS t
+        JOIN Chargebacks AS c ON t.id = c.trans_id
     )
 SELECT
     DATE_FORMAT(trans_date, '%Y-%m') AS month,

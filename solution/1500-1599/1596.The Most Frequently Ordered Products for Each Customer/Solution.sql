@@ -12,7 +12,6 @@ WITH
         GROUP BY 1, 2
     )
 SELECT customer_id, product_id, product_name
-FROM
-    T
-    JOIN Products USING (product_id)
+FROM T
+JOIN Products USING (product_id)
 WHERE rk = 1;

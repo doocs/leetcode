@@ -127,9 +127,8 @@ We can use a left join to join the `Signups` table and the `Confirmations` table
 SELECT
     user_id,
     ROUND(IFNULL(SUM(action = 'confirmed') / COUNT(1), 0), 2) AS confirmation_rate
-FROM
-    SignUps
-    LEFT JOIN Confirmations USING (user_id)
+FROM SignUps
+LEFT JOIN Confirmations USING (user_id)
 GROUP BY 1;
 ```
 

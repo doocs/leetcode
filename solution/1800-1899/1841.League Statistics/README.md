@@ -159,9 +159,8 @@ SELECT
     SUM(goals) AS goal_for,
     SUM(away_goals) AS goal_against,
     (SUM(goals) - SUM(away_goals)) AS goal_diff
-FROM
-    Scores AS s
-    JOIN Teams AS t ON s.team_id = t.team_id
+FROM Scores AS s
+JOIN Teams AS t ON s.team_id = t.team_id
 GROUP BY s.team_id
 ORDER BY points DESC, goal_diff DESC, team_name;
 ```

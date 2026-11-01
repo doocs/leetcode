@@ -132,9 +132,8 @@ WITH
                 PARTITION BY user_id
                 ORDER BY SUM(quantity * price) DESC
             ) AS rk
-        FROM
-            Sales
-            JOIN Product USING (product_id)
+        FROM Sales
+        JOIN Product USING (product_id)
         GROUP BY 1, 2
     )
 SELECT user_id, product_id

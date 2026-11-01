@@ -156,9 +156,8 @@ WITH
                 PARTITION BY type
                 ORDER BY duration DESC
             ) AS rk
-        FROM
-            Calls AS c1
-            JOIN Contacts AS c2 ON c1.contact_id = c2.id
+        FROM Calls AS c1
+        JOIN Contacts AS c2 ON c1.contact_id = c2.id
     )
 SELECT
     first_name,
