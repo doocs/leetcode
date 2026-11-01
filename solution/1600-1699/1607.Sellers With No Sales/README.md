@@ -142,9 +142,8 @@ Frank 在 2019 年卖出 1 次, 在 2020 年没有卖出。</pre>
 ```sql
 # Write your MySQL query statement below
 SELECT seller_name
-FROM
-    Seller
-    LEFT JOIN Orders USING (seller_id)
+FROM Seller
+LEFT JOIN Orders USING (seller_id)
 GROUP BY seller_id
 HAVING IFNULL(SUM(YEAR(sale_date) = 2020), 0) = 0
 ORDER BY 1;

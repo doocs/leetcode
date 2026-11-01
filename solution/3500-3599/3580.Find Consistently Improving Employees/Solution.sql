@@ -19,9 +19,8 @@ SELECT
     employee_id,
     name,
     SUM(delta) AS improvement_score
-FROM
-    recent
-    JOIN employees USING (employee_id)
+FROM recent
+JOIN employees USING (employee_id)
 WHERE rn > 1 AND rn <= 3
 GROUP BY 1
 HAVING COUNT(*) = 2 AND MIN(delta) > 0

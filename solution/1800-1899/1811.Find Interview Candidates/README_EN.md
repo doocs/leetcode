@@ -150,10 +150,11 @@ WITH
         SELECT
             user_id,
             (
-                contest_id - ROW_NUMBER() OVER (
-                    PARTITION BY user_id
-                    ORDER BY contest_id
-                )
+                contest_id -
+                    ROW_NUMBER() OVER (
+                        PARTITION BY user_id
+                        ORDER BY contest_id
+                    )
             ) AS diff
         FROM S
     ),
@@ -170,9 +171,8 @@ WITH
         HAVING COUNT(1) >= 3
     )
 SELECT name, mail
-FROM
-    P AS p
-    LEFT JOIN Users AS u ON p.user_id = u.user_id;
+FROM P AS p
+LEFT JOIN Users AS u ON p.user_id = u.user_id;
 ```
 
 <!-- tabs:end -->

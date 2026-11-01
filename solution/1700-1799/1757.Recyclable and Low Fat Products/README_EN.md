@@ -99,8 +99,7 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
 #### MySQL
 
 ```sql
-SELECT
-    product_id
+SELECT product_id
 FROM Products
 WHERE low_fats = 'Y' AND recyclable = 'Y';
 ```

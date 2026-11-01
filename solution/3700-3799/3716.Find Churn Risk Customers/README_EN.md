@@ -212,9 +212,8 @@ SELECT
     l.current_monthly_amount,
     h.max_historical_amount,
     DATEDIFF(h.last_event_date, h.start_date) AS days_as_subscriber
-FROM
-    latest_event l
-    JOIN user_history h ON l.user_id = h.user_id
+FROM latest_event l
+JOIN user_history h ON l.user_id = h.user_id
 WHERE
     l.last_event_type <> 'cancel'
     AND h.downgrade_count >= 1

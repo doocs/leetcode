@@ -182,9 +182,8 @@ WITH
         WHERE activity_type = 'paid'
     )
 SELECT user_id, trial_avg_duration, paid_avg_duration
-FROM
-    F
-    JOIN P USING (user_id)
+FROM F
+JOIN P USING (user_id)
 ORDER BY 1;
 ```
 

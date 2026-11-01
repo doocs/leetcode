@@ -2,9 +2,8 @@
 WITH
     T AS (
         SELECT DISTINCT *
-        FROM
-            Logins
-            JOIN Accounts USING (id)
+        FROM Logins
+        JOIN Accounts USING (id)
     ),
     P AS (
         SELECT

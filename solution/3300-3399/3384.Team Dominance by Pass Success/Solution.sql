@@ -12,20 +12,11 @@ WITH
     T AS (
         SELECT
             t1.team_name,
-            IF(p.time_stamp <= '45:00', 1, 2) AS half_number,
-            IF(t1.team_name = t2.team_name, 1, -1) AS dominance
-        FROM
-            Passes p
-            JOIN Teams t1 ON p.pass_from = t1.player_id
-            JOIN Teams t2 ON p.pass_to = t2.player_id
-    ),
-    s AS (
-        SELECT
-            team_name,
-            half_number,
-            SUM(dominance) AS dominance
-        FROM T
-        GROUP BY team_name, half_number
+            IF(time_stamp <= '45:00', 1, 2) half_number,
+            IF(t1.team_name = t2.team_name, 1, -1) dominance
+        FROM Passes p
+        JOIN Teams t1 ON p.pass_from = t1.player_id
+        JOIN Teams t2 ON p.pass_to = t2.player_id
     )
 SELECT
     teams.team_name,

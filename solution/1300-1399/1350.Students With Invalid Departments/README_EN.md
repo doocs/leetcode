@@ -147,9 +147,8 @@ We can also use a left join to join the `Students` table with the `Departments` 
 ```sql
 # Write your MySQL query statement below
 SELECT s.id, s.name
-FROM
-    Students AS s
-    LEFT JOIN Departments AS d ON s.department_id = d.id
+FROM Students AS s
+LEFT JOIN Departments AS d ON s.department_id = d.id
 WHERE d.id IS NULL;
 ```
 

@@ -229,10 +229,9 @@ SELECT
     p1.product_name most_exp_product,
     p2.product_name cheapest_product,
     ROUND(p2.quantity / p1.quantity, 2) imbalance_ratio
-FROM
-    P1 p1
-    JOIN P2 p2 ON p1.store_id = p2.store_id AND p1.quantity < p2.quantity
-    JOIN stores s ON p1.store_id = s.store_id
+FROM P1 p1
+JOIN P2 p2 ON p1.store_id = p2.store_id AND p1.quantity < p2.quantity
+JOIN stores s ON p1.store_id = s.store_id
 ORDER BY imbalance_ratio DESC, store_name;
 ```
 

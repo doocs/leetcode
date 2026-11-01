@@ -117,9 +117,8 @@ Purchases 表:
 WITH
     P AS (
         SELECT *
-        FROM
-            Purchases
-            JOIN Products USING (product_id)
+        FROM Purchases
+        JOIN Products USING (product_id)
     ),
     T AS (
         SELECT invoice_id, SUM(price * quantity) AS amount
@@ -129,9 +128,8 @@ WITH
         LIMIT 1
     )
 SELECT product_id, quantity, (quantity * price) AS price
-FROM
-    P
-    JOIN T USING (invoice_id);
+FROM P
+JOIN T USING (invoice_id);
 ```
 
 <!-- tabs:end -->

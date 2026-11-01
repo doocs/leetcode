@@ -123,9 +123,8 @@ SELECT
     IFNULL(SUM(paid), 0) AS paid,
     IFNULL(SUM(canceled), 0) AS canceled,
     IFNULL(SUM(refunded), 0) AS refunded
-FROM
-    Product
-    LEFT JOIN Invoice USING (product_id)
+FROM Product
+LEFT JOIN Invoice USING (product_id)
 GROUP BY product_id
 ORDER BY name;
 ```

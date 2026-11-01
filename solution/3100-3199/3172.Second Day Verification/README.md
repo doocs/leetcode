@@ -130,12 +130,11 @@ signup_action 是 ('Verified', 'Not Verified') 的枚举类型。
 ```sql
 # Write your MySQL query statement below
 SELECT user_id
-FROM
-    Emails AS e
-    JOIN texts AS t
-        ON e.email_id = t.email_id
-        AND DATEDIFF(action_date, signup_date) = 1
-        AND signup_action = 'Verified'
+FROM Emails AS e
+JOIN texts AS t
+    ON e.email_id = t.email_id
+    AND DATEDIFF(action_date, signup_date) = 1
+    AND signup_action = 'Verified'
 ORDER BY 1;
 ```
 

@@ -124,9 +124,8 @@ WITH
             department_id,
             AVG(amount) OVER (PARTITION BY pay_date) AS company_avg_amount,
             AVG(amount) OVER (PARTITION BY pay_date, department_id) AS department_avg_amount
-        FROM
-            Salary AS s
-            JOIN Employee AS e ON s.employee_id = e.employee_id
+        FROM Salary AS s
+        JOIN Employee AS e ON s.employee_id = e.employee_id
     )
 SELECT DISTINCT
     pay_month,
@@ -164,9 +163,8 @@ FROM t;
 WITH
     S AS (
         SELECT *
-        FROM
-            Salary
-            JOIN Employee USING (employee_id)
+        FROM Salary
+        JOIN Employee USING (employee_id)
     ),
     T AS (
         SELECT

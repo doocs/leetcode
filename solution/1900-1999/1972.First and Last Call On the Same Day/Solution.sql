@@ -1,8 +1,7 @@
 # Write your MySQL query statement below
 WITH
     s AS (
-        SELECT
-            *
+        SELECT *
         FROM Calls
         UNION ALL
         SELECT
@@ -24,7 +23,6 @@ WITH
             ) AS last
         FROM s
     )
-SELECT DISTINCT
-    user_id
+SELECT DISTINCT user_id
 FROM t
 WHERE first = last;

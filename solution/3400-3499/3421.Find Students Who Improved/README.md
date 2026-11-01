@@ -142,13 +142,11 @@ WITH
             f.subject,
             f.score AS first_score,
             l.score AS latest_score
-        FROM
-            RankedScores f
-            JOIN RankedScores l ON f.student_id = l.student_id AND f.subject = l.subject
+        FROM RankedScores f
+        JOIN RankedScores l ON f.student_id = l.student_id AND f.subject = l.subject
         WHERE f.rn_first = 1 AND l.rn_latest = 1
     )
-SELECT
-    *
+SELECT *
 FROM FirstAndLatestScores
 WHERE latest_score > first_score
 ORDER BY 1, 2;

@@ -7,10 +7,9 @@ WITH
             t2.team_name AS team_to,
             IF(t1.team_name = t2.team_name, 1, 0) same_team_flag,
             p.time_stamp
-        FROM
-            Passes p
-            JOIN Teams t1 ON p.pass_from = t1.player_id
-            JOIN Teams t2 ON p.pass_to = t2.player_id
+        FROM Passes p
+        JOIN Teams t1 ON p.pass_from = t1.player_id
+        JOIN Teams t2 ON p.pass_to = t2.player_id
     ),
     StreakGroups AS (
         SELECT

@@ -166,8 +166,7 @@ FROM
 WHERE
     Employee.DepartmentId = Department.Id
     AND (
-        SELECT
-            COUNT(DISTINCT e2.Salary)
+        SELECT COUNT(DISTINCT e2.Salary)
         FROM Employee AS e2
         WHERE e2.Salary > Employee.Salary AND Employee.DepartmentId = e2.DepartmentId
     ) < 3;
@@ -206,9 +205,8 @@ WITH
         FROM Employee
     )
 SELECT d.name AS Department, t.name AS Employee, salary AS Salary
-FROM
-    T AS t
-    JOIN Department AS d ON t.departmentId = d.id
+FROM T AS t
+JOIN Department AS d ON t.departmentId = d.id
 WHERE rk <= 3;
 ```
 

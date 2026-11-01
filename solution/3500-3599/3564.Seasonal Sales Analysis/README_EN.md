@@ -198,9 +198,8 @@ WITH
             category,
             SUM(quantity) AS total_quantity,
             SUM(quantity * price) AS total_revenue
-        FROM
-            sales
-            JOIN products USING (product_id)
+        FROM sales
+        JOIN products USING (product_id)
         GROUP BY 1, 2
     ),
     TopCategoryPerSeason AS (

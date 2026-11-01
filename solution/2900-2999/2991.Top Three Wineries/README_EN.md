@@ -135,10 +135,9 @@ SELECT
     t1.winery AS top_winery,
     IFNULL(t2.winery, 'No second winery') AS second_winery,
     IFNULL(t3.winery, 'No third winery') AS third_winery
-FROM
-    T AS t1
-    LEFT JOIN T AS t2 ON t1.country = t2.country AND t1.rk = t2.rk - 1
-    LEFT JOIN T AS t3 ON t2.country = t3.country AND t2.rk = t3.rk - 1
+FROM T AS t1
+LEFT JOIN T AS t2 ON t1.country = t2.country AND t1.rk = t2.rk - 1
+LEFT JOIN T AS t3 ON t2.country = t3.country AND t2.rk = t3.rk - 1
 WHERE t1.rk = 1
 ORDER BY 1;
 ```

@@ -11,8 +11,7 @@ WITH
         SELECT
             employee_id,
             IFNULL(
-                SELECT
-                    MAX(cur)
+                SELECT MAX(cur)
                 FROM s
                 WHERE cur <= 70000,
                 0

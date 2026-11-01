@@ -117,9 +117,8 @@ Users 102 and 103 spent the same amount and we break the tie by their ID while u
 ```sql
 # Write your MySQL query statement below
 SELECT user_id, SUM(quantity * price) AS spending
-FROM
-    Sales
-    JOIN Product USING (product_id)
+FROM Sales
+JOIN Product USING (product_id)
 GROUP BY 1
 ORDER BY 2 DESC, 1;
 ```

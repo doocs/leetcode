@@ -96,15 +96,15 @@ Delivery 表：
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
+SELECT ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM Delivery
 WHERE
-    (customer_id, order_date) IN (
-        SELECT customer_id, MIN(order_date)
-        FROM Delivery
-        GROUP BY 1
-    );
+    (customer_id, order_date) IN
+        (
+            SELECT customer_id, MIN(order_date)
+            FROM Delivery
+            GROUP BY 1
+        );
 ```
 
 <!-- tabs:end -->
@@ -141,8 +141,7 @@ WITH
             ) AS rk
         FROM Delivery
     )
-SELECT
-    ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
+SELECT ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM T
 WHERE rk = 1;
 ```

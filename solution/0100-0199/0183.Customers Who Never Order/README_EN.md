@@ -125,10 +125,11 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
 SELECT name AS Customers
 FROM Customers
 WHERE
-    id NOT IN (
-        SELECT customerId
-        FROM Orders
-    );
+    id NOT IN
+        (
+            SELECT customerId
+            FROM Orders
+        );
 ```
 
 <!-- tabs:end -->
@@ -156,9 +157,8 @@ Use `LEFT JOIN` to join the tables and return the data where `CustomerId` is `NU
 ```sql
 # Write your MySQL query statement below
 SELECT name AS Customers
-FROM
-    Customers AS c
-    LEFT JOIN Orders AS o ON c.id = o.customerId
+FROM Customers AS c
+LEFT JOIN Orders AS o ON c.id = o.customerId
 WHERE o.id IS NULL;
 ```
 

@@ -92,8 +92,7 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_number
+SELECT customer_number
 FROM orders
 GROUP BY customer_number
 ORDER BY COUNT(1) DESC

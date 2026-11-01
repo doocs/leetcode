@@ -87,11 +87,10 @@ We use the `SUM` function to calculate the total quantity of products and the to
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    ROUND(
-        SUM(item_count * order_occurrences) / SUM(order_occurrences),
-        2
-    ) AS average_items_per_order
+SELECT ROUND(
+    SUM(item_count * order_occurrences) / SUM(order_occurrences),
+    2
+) AS average_items_per_order
 FROM Orders;
 ```
 
