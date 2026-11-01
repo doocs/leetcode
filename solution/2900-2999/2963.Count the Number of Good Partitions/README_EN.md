@@ -73,21 +73,21 @@ tags:
 
 > **Thinking**
 >
-> A good partition keeps equal values in one part, so each value’s first-to-last span must lie inside a single piece. Last-occurrence map $last$ cuts the array into unsplittable blocks; each boundary between blocks may be cut or not.
+> A good partition keeps equal values in one part, so each value’s first-to-last span must lie inside a single piece. Last-occurrence map $\textit{last}$ cuts the array into unsplittable blocks; each boundary between blocks may be cut or not.
 >
 > While scanning, $j$ tracks the current block’s right end; $i=j$ increments the block count $k$. $k$ blocks give $k-1$ optional cuts, i.e. $2^{k-1}$ modulo the prime.
 
 <!-- thinking:end -->
 
-According to the problem description, we know that the same number must be in the same subarray. Therefore, we use a hash table $last$ to record the index of the last occurrence of each number.
+According to the problem description, we know that the same number must be in the same subarray. Therefore, we use a hash table $\textit{last}$ to record the index of the last occurrence of each number.
 
 Next, we use an index $j$ to mark the index of the last element that has appeared among the elements, and use a variable $k$ to record the number of subarrays that can currently be divided.
 
-Then, we traverse the array $nums$ from left to right. For the current number $nums[i]$ we are traversing, we get its last occurrence index and update $j = \max(j, last[nums[i]])$. If $i = j$, it means that the current position can be the end of a subarray, and we increase $k$ by $1$. Continue to traverse until the entire array is traversed.
+Then, we traverse the array $\textit{nums}$ from left to right. For the current number $\textit{nums}[i]$ we are traversing, we get its last occurrence index and update $j = \max(j, \textit{last}[\textit{nums}[i]])$. If $i = j$, it means that the current position can be the end of a subarray, and we increase $k$ by $1$. Continue to traverse until the entire array is traversed.
 
 Finally, we consider the number of division schemes for $k$ subarrays. The number of subarrays is $k$, and there are $k-1$ positions that can be divided (concatenated), so the number of schemes is $2^{k-1}$. Since the answer may be very large, we need to take the modulo of $10^9 + 7$. Here we can use fast power to speed up the calculation.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

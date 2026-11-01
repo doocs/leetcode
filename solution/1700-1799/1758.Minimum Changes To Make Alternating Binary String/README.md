@@ -67,9 +67,9 @@ tags:
 
 > **思考**
 >
-> 目标只有两种交替串： $0101\ldots$ 与 $1010\ldots$。对其中一种的修改次数为 $cnt$，另一种恰为 $n-cnt$。
+> 目标只有两种交替串： $0101\ldots$ 与 $1010\ldots$。对其中一种的修改次数为 $\textit{cnt}$，另一种恰为 $n-\textit{cnt}$。
 >
-> 一次遍历统计与 $0101\ldots$ 的差异，答案取 $cnt$ 与 $n-cnt$ 的较小者。
+> 一次遍历统计与 $0101\ldots$ 的差异，答案取 $\textit{cnt}$ 与 $n-\textit{cnt}$ 的较小者。
 
 <!-- thinking:end -->
 

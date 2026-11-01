@@ -86,17 +86,17 @@ For ans[i] == -1, It can be shown that there is no building where Alice and Bob 
 >
 > They meet at some $j \ge \max(a,b)$ strictly taller than the shorter one (or simply at the right building when it is already taller). Scanning the suffix per query is too slow for $n,q \le 5 \times 10^4$.
 >
-> Process queries by decreasing right endpoint and insert buildings to the right of $r$ into a Fenwick tree keyed by compressed height and storing the smallest index. A query for the smallest index taller than $heights[l]$ is the meeting building.
+> Process queries by decreasing right endpoint and insert buildings to the right of $r$ into a Fenwick tree keyed by compressed height and storing the smallest index. A query for the smallest index taller than $\textit{heights}[l]$ is the meeting building.
 
 <!-- thinking:end -->
 
-Let's denote $queries[i] = [l_i, r_i]$, where $l_i \le r_i$. If $l_i = r_i$ or $heights[l_i] < heights[r_i]$, then the answer is $r_i$. Otherwise, we need to find the smallest $j$ among all $j > r_i$ and $heights[j] > heights[l_i]$.
+Let's denote $\textit{queries}[i] = [l_i, r_i]$, where $l_i \le r_i$. If $l_i = r_i$ or $\textit{heights}[l_i] < \textit{heights}[r_i]$, then the answer is $r_i$. Otherwise, we need to find the smallest $j$ among all $j > r_i$ and $\textit{heights}[j] > \textit{heights}[l_i]$.
 
-We can sort $queries$ in descending order of $r_i$, and use a pointer $j$ to point to the current index of $heights$ being traversed.
+We can sort $\textit{queries}$ in descending order of $r_i$, and use a pointer $j$ to point to the current index of $\textit{heights}$ being traversed.
 
-Next, we traverse each query $queries[i] = (l, r)$. For the current query, if $j > r$, then we loop to insert $heights[j]$ into the binary indexed tree. The binary indexed tree maintains the minimum index of the suffix height (after discretization). Then, we judge whether $l = r$ or $heights[l] < heights[r]$. If it is, then the answer to the current query is $r$. Otherwise, we query the minimum index of $heights[l]$ in the binary indexed tree, which is the answer to the current query.
+Next, we traverse each query $\textit{queries}[i] = (l, r)$. For the current query, if $j > r$, then we loop to insert $\textit{heights}[j]$ into the binary indexed tree. The binary indexed tree maintains the minimum index of the suffix height (after discretization). Then, we judge whether $l = r$ or $\textit{heights}[l] < \textit{heights}[r]$. If it is, then the answer to the current query is $r$. Otherwise, we query the minimum index of $\textit{heights}[l]$ in the binary indexed tree, which is the answer to the current query.
 
-The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $heights$ and $queries$ respectively.
+The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{heights}$ and $\textit{queries}$ respectively.
 
 Similar problems:
 

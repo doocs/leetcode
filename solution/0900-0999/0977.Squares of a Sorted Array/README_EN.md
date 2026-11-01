@@ -64,9 +64,9 @@ After sorting, it becomes [0,1,9,16,100].
 
 <!-- thinking:end -->
 
-Since the array $nums$ is already sorted in non-decreasing order, the square values of the negative numbers in the array are decreasing, and the square values of the positive numbers are increasing. We can use two pointers, each pointing to the ends of the array. Each time we compare the square values of the elements pointed to by the two pointers, we put the larger square value at the end of the result array.
+Since the array $\textit{nums}$ is already sorted in non-decreasing order, the square values of the negative numbers in the array are decreasing, and the square values of the positive numbers are increasing. We can use two pointers, each pointing to the ends of the array. Each time we compare the square values of the elements pointed to by the two pointers, we put the larger square value at the end of the result array.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

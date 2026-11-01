@@ -83,9 +83,9 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 
 > **思考**
 >
-> 要支持修改 $nums2$ 的一个元素，并查询 $nums1[i]+nums2[j]=tot$ 的对数。 $nums2$ 很长，每次查询双层枚举不可行。
+> 要支持修改 $\textit{nums2}$ 的一个元素，并查询 $\textit{nums1}[i]+\textit{nums2}[j]=\textit{tot}$ 的对数。 $\textit{nums2}$ 很长，每次查询双层枚举不可行。
 >
-> $nums1$ 长度不超过 $10^3$，对其枚举即可。用哈希表维护 $nums2$ 的频次： $\textit{count}$ 对每个 $x\in nums1$ 累加 $cnt[tot-x]$； $\textit{add}$ 时先减旧值再加新值。
+> $\textit{nums1}$ 长度不超过 $10^3$，对其枚举即可。用哈希表维护 $\textit{nums2}$ 的频次： $\textit{count}$ 对每个 $x\in \textit{nums1}$ 累加 $\textit{cnt}[\textit{tot}-x]$； $\textit{add}$ 时先减旧值再加新值。
 
 <!-- thinking:end -->
 
@@ -93,11 +93,11 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 
 能否只枚举长度较短的数组 $\textit{nums1}$ 呢？答案是可以的。我们用一个哈希表 $\textit{cnt}$ 统计数组 $\textit{nums2}$ 中每个元素出现的次数，然后枚举数组 $\textit{nums1}$ 中的每个元素 $x$，计算 $\textit{cnt}[\textit{tot} - x]$ 的值之和即可。
 
-在调用 $\text{add}$ 方法时，我们需要先将 $\textit{nums2}[index]$ 对应的值从 $\textit{cnt}$ 中减去 $1$，然后将 $\textit{nums2}[index]$ 的值加上 $\textit{val}$，最后将 $\textit{nums2}[index]$ 对应的值加上 $1$。
+在调用 $\textit{add}$ 方法时，我们需要先将 $\textit{nums2}[\textit{index}]$ 对应的值从 $\textit{cnt}$ 中减去 $1$，然后将 $\textit{nums2}[\textit{index}]$ 的值加上 $\textit{val}$，最后将 $\textit{nums2}[\textit{index}]$ 对应的值加上 $1$。
 
-在调用 $\text{count}$ 方法时，我们只需要遍历数组 $\textit{nums1}$，对于每个元素 $x$，计算 $\textit{cnt}[\textit{tot} - x]$ 的值之和即可。
+在调用 $\textit{count}$ 方法时，我们只需要遍历数组 $\textit{nums1}$，对于每个元素 $x$，计算 $\textit{cnt}[\textit{tot} - x]$ 的值之和即可。
 
-时间复杂度 $O(nq)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $q$ 是调用 $\text{count}$ 方法的次数。
+时间复杂度 $O(nq)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $q$ 是调用 $\textit{count}$ 方法的次数。
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ The target triplet [5,5,5] is now an element of triplets.
 >
 > A merge replaces two triplets by their coordinate-wise maximum. Any triplet that already exceeds the target in one coordinate can never be used, because maxima cannot shrink.
 >
-> Keep only triplets dominated by $target$ and take the coordinate-wise max among them. Equality with $target$ means each coordinate has a source and the merges can form it.
+> Keep only triplets dominated by $\textit{target}$ and take the coordinate-wise max among them. Equality with $\textit{target}$ means each coordinate has a source and the merges can form it.
 
 <!-- thinking:end -->
 

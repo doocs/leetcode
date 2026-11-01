@@ -79,8 +79,8 @@ We consider enumerating the number of operations, and define $f[i][j]$ as the mi
 
 For the $i$-th chocolate:
 
-- If $j = 0$, i.e., no operation is performed, then $f[i][j] = nums[i]$.
-- If $0 < j \leq n-1$, its minimum cost is the minimum cost within the index range $[i,.. (i - j + n) \bmod n]$, i.e., $f[i][j] = \min\{nums[i], nums[i - 1], \cdots, nums[(i - j + n) \bmod n]\}$, or it can be written as $f[i][j] = \min\{f[i][j - 1], nums[(i - j + n) \bmod n]\}$.
+- If $j = 0$, i.e., no operation is performed, then $f[i][j] = \textit{nums}[i]$.
+- If $0 < j \leq n-1$, its minimum cost is the minimum cost within the index range $[i,.. (i - j + n) \bmod n]$, i.e., $f[i][j] = \min\{\textit{nums}[i], \textit{nums}[i - 1], \cdots, \textit{nums}[(i - j + n) \bmod n]\}$, or it can be written as $f[i][j] = \min\{f[i][j - 1], \textit{nums}[(i - j + n) \bmod n]\}$.
 - If $j \ge n$, since when $j = n - 1$, all minimum costs have been covered, if $j$ continues to increase, the minimum cost will not change, but the increase in the number of operations will lead to an increase in the final cost, so we do not need to consider the case where $j \ge n$.
 
 In summary, we can get the state transition equation:
@@ -88,14 +88,14 @@ In summary, we can get the state transition equation:
 $$
 f[i][j] =
 \begin{cases}
-nums[i] ,& j = 0 \\
-\min(f[i][j - 1], nums[(i - j + n) \bmod n]) ,& 0 \lt j \leq n - 1
+\textit{nums}[i] ,& j = 0 \\
+\min(f[i][j - 1], \textit{nums}[(i - j + n) \bmod n]) ,& 0 \lt j \leq n - 1
 \end{cases}
 $$
 
 Finally, we only need to enumerate the number of operations $j$, calculate the minimum cost under each number of operations, and take the minimum value. That is, the answer is $\min\limits_{0 \leq j \leq n - 1} \sum\limits_{i = 0}^{n - 1} f[i][j] + x \times j$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

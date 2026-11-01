@@ -63,7 +63,7 @@ tags:
 >
 > Contiguity means a suffix grows only when the current pair matches: it is one plus the suffix of the prefixes, otherwise zero.
 >
-> Let $f[i][j]$ be the common suffix ending at $nums1[i-1]$ and $nums2[j-1]$. Take the global maximum. Time $O(mn)$.
+> Let $f[i][j]$ be the common suffix ending at $\textit{nums1}[i-1]$ and $\textit{nums2}[j-1]$. Take the global maximum. Time $O(mn)$.
 
 <!-- thinking:end -->
 

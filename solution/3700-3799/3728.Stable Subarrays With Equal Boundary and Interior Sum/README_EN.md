@@ -94,23 +94,23 @@ tags:
 
 <!-- thinking:end -->
 
-We define a prefix sum array $\textit{s}$, where $s[i]$ represents the sum of the first $i$ elements in the array $\text{capacity}$, that is, $s[i] = \text{capacity}[0] + \text{capacity}[1] + \ldots + \text{capacity}[i-1]$. Initially, $s[0] = 0$.
+We define a prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements in the array $\textit{capacity}$, that is, $s[i] = \textit{capacity}[0] + \textit{capacity}[1] + \ldots + \textit{capacity}[i-1]$. Initially, $s[0] = 0$.
 
-According to the problem statement, a subarray $\text{capacity}[l..r]$ is a stable array if:
+According to the problem statement, a subarray $\textit{capacity}[l..r]$ is a stable array if:
 
 $$
-\text{capacity}[l] = \text{capacity}[r] = \text{capacity}[l + 1] + \text{capacity}[l + 2] + \ldots + \text{capacity}[r - 1]
+\textit{capacity}[l] = \textit{capacity}[r] = \textit{capacity}[l + 1] + \textit{capacity}[l + 2] + \ldots + \textit{capacity}[r - 1]
 $$
 
 That is:
 
 $$
-\text{capacity}[l] = \text{capacity}[r] = s[r] - s[l + 1]
+\textit{capacity}[l] = \textit{capacity}[r] = s[r] - s[l + 1]
 $$
 
-We can enumerate the right endpoint $r$. For each $r$, we calculate the left endpoint $l = r - 2$, and store the information of the left endpoints that meet the condition in a hash table. Specifically, we use a hash table $\text{cnt}$ to record the number of occurrences of each key-value pair $(\text{capacity}[l], \text{capacity}[l] + s[l + 1])$.
+We can enumerate the right endpoint $r$. For each $r$, we calculate the left endpoint $l = r - 2$, and store the information of the left endpoints that meet the condition in a hash table. Specifically, we use a hash table $\textit{cnt}$ to record the number of occurrences of each key-value pair $(\textit{capacity}[l], \textit{capacity}[l] + s[l + 1])$.
 
-When we enumerate the right endpoint $r$, we can query the hash table $\text{cnt}$ to get the number of left endpoints that meet the condition, that is, the number of occurrences of the key-value pair $(\text{capacity}[r], s[r])$, and add it to the answer.
+When we enumerate the right endpoint $r$, we can query the hash table $\textit{cnt}$ to get the number of left endpoints that meet the condition, that is, the number of occurrences of the key-value pair $(\textit{capacity}[r], s[r])$, and add it to the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

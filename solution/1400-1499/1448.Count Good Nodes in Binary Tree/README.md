@@ -77,17 +77,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root, mx)$，表示从当前节点 $root$ 开始搜索好节点，其中 $mx$ 表示从根节点到当前节点的路径（不包括当前节点）上的最大值。
+我们设计一个函数 $\textit{dfs}(\textit{root}, mx)$，表示从当前节点 $\textit{root}$ 开始搜索好节点，其中 $mx$ 表示从根节点到当前节点的路径（不包括当前节点）上的最大值。
 
-函数 $dfs(root, mx)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{root}, mx)$ 的执行逻辑如下：
 
-如果 $root$ 为空，说明搜索结束，直接返回；
+如果 $\textit{root}$ 为空，说明搜索结束，直接返回；
 
-否则，我们判断 $root.val$ 与 $mx$ 的大小关系。如果 $mx \leq root.val$，说明 $root$ 是好节点，答案加一，并且我们需要更新 $mx$ 的值为 $root.val$。
+否则，我们判断 $\textit{root}.\textit{val}$ 与 $mx$ 的大小关系。如果 $mx \leq \textit{root}.\textit{val}$，说明 $\textit{root}$ 是好节点，答案加一，并且我们需要更新 $mx$ 的值为 $\textit{root}.\textit{val}$。
 
-接下来，我们递归调用 $dfs(root.left, mx)$ 和 $dfs(root.right, mx)$。
+接下来，我们递归调用 $\textit{dfs}(\textit{root}.\textit{left}, mx)$ 和 $\textit{dfs}(\textit{root}.\textit{right}, mx)$。
 
-在主函数中，我们调用 $dfs(root, -10^6)$，其中 $-10^6$ 表示负无穷，因为题目中说明了每个节点权值的范围是 $[-10^4, 10^4]$，所以 $-10^6$ 肯定是一个比所有节点权值都小的值，这样就能保证 $dfs(root, -10^6)$ 一定会把根节点 $root$ 算作好节点。
+在主函数中，我们调用 $\textit{dfs}(\textit{root}, -10^6)$，其中 $-10^6$ 表示负无穷，因为题目中说明了每个节点权值的范围是 $[-10^4, 10^4]$，所以 $-10^6$ 肯定是一个比所有节点权值都小的值，这样就能保证 $\textit{dfs}(\textit{root}, -10^6)$ 一定会把根节点 $\textit{root}$ 算作好节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

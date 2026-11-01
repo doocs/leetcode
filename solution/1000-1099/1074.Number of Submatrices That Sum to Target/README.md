@@ -84,16 +84,16 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以枚举矩阵的上下边界 $i$ 和 $j$，每次算出当前上下边界内每列的元素和，记为数组 $col$，然后问题就转换为如何在数组 $col$ 中寻找和为目标值 $target$ 的子数组个数。我们累加这些子数组的个数，就是题目要求的答案。
+我们可以枚举矩阵的上下边界 $i$ 和 $j$，每次算出当前上下边界内每列的元素和，记为数组 $\textit{col}$，然后问题就转换为如何在数组 $\textit{col}$ 中寻找和为目标值 $\textit{target}$ 的子数组个数。我们累加这些子数组的个数，就是题目要求的答案。
 
-那么题目就变成了：给定一个数组 $nums$ 和目标值 $target$，计算有多少个子数组的和为 $target$，我们可以通过函数 $f(nums, target)$ 来求解。
+那么题目就变成了：给定一个数组 $\textit{nums}$ 和目标值 $\textit{target}$，计算有多少个子数组的和为 $\textit{target}$，我们可以通过函数 $f(\textit{nums}, \textit{target})$ 来求解。
 
-函数 $f(nums, target)$ 的计算方法如下：
+函数 $f(\textit{nums}, \textit{target})$ 的计算方法如下：
 
 - 定义一个哈希表 $d$，用来记录出现过的前缀和以及其出现次数，初始时 $d[0] = 1$；
-- 初始化变量 $s = 0, cnt = 0$，其中 $s$ 表示前缀和，而 $cnt$ 表示和为 $target$ 的子数组个数；
-- 从左到右遍历数组 $nums$，对于当前遍历到的元素 $x$，更新前缀和 $s = s + x$，如果 $d[s - target]$ 的值存在，那么更新 $cnt = cnt + d[s - target]$，即子数组个数增加 $d[s - target]$。然后更新哈希表中元素 $d[s]$ 的值，即 $d[s] = d[s] + 1$；继续遍历下一个元素；
-- 遍历结束之后，返回子数组个数 $cnt$。
+- 初始化变量 $s = 0, \textit{cnt} = 0$，其中 $s$ 表示前缀和，而 $\textit{cnt}$ 表示和为 $\textit{target}$ 的子数组个数；
+- 从左到右遍历数组 $\textit{nums}$，对于当前遍历到的元素 $x$，更新前缀和 $s = s + x$，如果 $d[s - \textit{target}]$ 的值存在，那么更新 $\textit{cnt} = \textit{cnt} + d[s - \textit{target}]$，即子数组个数增加 $d[s - \textit{target}]$。然后更新哈希表中元素 $d[s]$ 的值，即 $d[s] = d[s] + 1$；继续遍历下一个元素；
+- 遍历结束之后，返回子数组个数 $\textit{cnt}$。
 
 时间复杂度 $O(m^2n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 

@@ -63,9 +63,9 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 
 > **Thinking**
 >
-> Empty bottles exchange for a full one every $numExchange$ empties; we want the total number drunk. The values are small enough to simulate each exchange rather than seek a closed form.
+> Empty bottles exchange for a full one every $\textit{numExchange}$ empties; we want the total number drunk. The values are small enough to simulate each exchange rather than seek a closed form.
 >
-> Drink the initial $numBottles$ first. Whenever the empty count is at least the rate, spend $numExchange$ empties for one full bottle; after drinking it, the empty count falls by $numExchange-1$ and the answer grows by one. Stop when a further exchange is impossible.
+> Drink the initial $\textit{numBottles}$ first. Whenever the empty count is at least the rate, spend $\textit{numExchange}$ empties for one full bottle; after drinking it, the empty count falls by $\textit{numExchange}-1$ and the answer grows by one. Stop when a further exchange is impossible.
 
 <!-- thinking:end -->
 

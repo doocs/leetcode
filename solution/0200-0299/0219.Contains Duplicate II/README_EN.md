@@ -68,11 +68,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{d}$ to store the recently traversed numbers and their corresponding indices.
+We use a hash table $d$ to store the recently traversed numbers and their corresponding indices.
 
-Traverse the array $\textit{nums}$. For the current element $\textit{nums}[i]$, if it exists in the hash table and the difference between the indices is no more than $k$, return $\text{true}$. Otherwise, add the current element to the hash table.
+Traverse the array $\textit{nums}$. For the current element $\textit{nums}[i]$, if it exists in the hash table and the difference between the indices is no more than $k$, return $\textit{true}$. Otherwise, add the current element to the hash table.
 
-After traversing, return $\text{false}$.
+After traversing, return $\textit{false}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

@@ -77,7 +77,7 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $s$ to store all the words in $\textit{bannedWords}$. Then, we traverse each word in $\textit{message}$. If the word appears in the hash table $s$, we increment the counter $cnt$ by one. If $cnt$ is greater than or equal to $2$, we return $\text{true}$; otherwise, we return $\text{false}$.
+We use a hash table $s$ to store all the words in $\textit{bannedWords}$. Then, we traverse each word in $\textit{message}$. If the word appears in the hash table $s$, we increment the counter $\textit{cnt}$ by one. If $\textit{cnt}$ is greater than or equal to $2$, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
 The time complexity is $O((n + m)|w|)$, and the space complexity is $O(m|w|)$, where $n$ is the length of the array $\textit{message}$, and $m$ and $|w|$ are the length of the array $\textit{bannedWords}$ and the maximum length of the words in the array, respectively.
 

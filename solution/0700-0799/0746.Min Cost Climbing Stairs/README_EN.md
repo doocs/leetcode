@@ -74,7 +74,7 @@ The total cost is 6.
 >
 > The cost from $i$ depends only on $i+1$ and $i+2$; past the top it is $0$. Memoization computes each index once.
 >
-> The answer is $\min(dfs(0), dfs(1))$. Time and space $O(n)$.
+> The answer is $\min(\textit{dfs}(0), \textit{dfs}(1))$. Time and space $O(n)$.
 
 <!-- thinking:end -->
 
@@ -82,7 +82,7 @@ We design a function $\textit{dfs}(i)$, which represents the minimum cost requir
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i \ge \textit{len(cost)}$, it means the current position has exceeded the top of the stairs, and there is no need to climb further, so return $0$;
+- If $i \ge \textit{len}(\textit{cost})$, it means the current position has exceeded the top of the stairs, and there is no need to climb further, so return $0$;
 - Otherwise, we can choose to climb $1$ step with a cost of $\textit{cost}[i]$, then recursively call $\textit{dfs}(i + 1)$; or we can choose to climb $2$ steps with a cost of $\textit{cost}[i]$, then recursively call $\textit{dfs}(i + 2)$;
 - Return the minimum cost between these two options.
 

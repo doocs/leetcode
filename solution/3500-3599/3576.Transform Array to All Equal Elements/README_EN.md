@@ -83,7 +83,7 @@ tags:
 
 > **Thinking**
 >
-> Flipping two adjacent signs is a adjacent transposition of minuses. The only reachable constant arrays are all $nums[0]$ or all $-nums[0]$.
+> Flipping two adjacent signs is a adjacent transposition of minuses. The only reachable constant arrays are all $\textit{nums}[0]$ or all $-\textit{nums}[0]$.
 >
 > Scan left to right: if the current sign disagrees with the target, flip here (which inverts the rest) and increment the counter. Accept if the last element matches and the count is at most $k$. Try both targets.
 

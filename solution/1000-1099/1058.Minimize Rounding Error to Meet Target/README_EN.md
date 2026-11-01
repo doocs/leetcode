@@ -69,9 +69,9 @@ Use Floor, Ceil and Ceil operations to get (0.7 - 0) + (3 - 2.8) + (5 - 4.9) = 0
 
 > **Thinking**
 >
-> Each price floors, or ceils when it has a fraction. The all-floor sum is $\textit{mi}$ and the number of ceilable prices is the count of nonzero fractions; $target$ must lie in that range.
+> Each price floors, or ceils when it has a fraction. The all-floor sum is $mi$ and the number of ceilable prices is the count of nonzero fractions; $\textit{target}$ must lie in that range.
 >
-> Exactly $d=\textit{target}-\textit{mi}$ prices must ceil. Ceil error is $1-\{p\}$ and floor error is $\{p\}$, so the $d$ largest fractional parts should be ceiled.
+> Exactly $d=\textit{target}-mi$ prices must ceil. Ceil error is $1-\{p\}$ and floor error is $\{p\}$, so the $d$ largest fractional parts should be ceiled.
 >
 > Sorting those fractions descending yields the total error to three decimals.
 

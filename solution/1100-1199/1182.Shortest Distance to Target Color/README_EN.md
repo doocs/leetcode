@@ -71,9 +71,9 @@ The nearest 1 from index 6 is at index 3 (3 steps away).
 
 <!-- thinking:end -->
 
-We can preprocess the distance from each position to the nearest color $1$, $2$, $3$ on the left, and the distance from each position to the nearest color $1$, $2$, $3$ on the right, and record them in the arrays $left$ and $right$. Initially, $left[0][0] = left[0][1] = left[0][2] = -\infty$, and $right[n][0] = right[n][1] = right[n][2] = \infty$, where $n$ is the length of the array `colors`.
+We can preprocess the distance from each position to the nearest color $1$, $2$, $3$ on the left, and the distance from each position to the nearest color $1$, $2$, $3$ on the right, and record them in the arrays $\textit{left}$ and $\textit{right}$. Initially, $\textit{left}[0][0] = \textit{left}[0][1] = \textit{left}[0][2] = -\infty$, and $\textit{right}[n][0] = \textit{right}[n][1] = \textit{right}[n][2] = \infty$, where $n$ is the length of the array `colors`.
 
-Then for each query $(i, c)$, the minimum distance is $d = \min(i - left[i + 1][c - 1], right[i][c - 1] - i)$. If $d > n$, there is no solution, and the answer to this query is $-1$.
+Then for each query $(i, c)$, the minimum distance is $d = \min(i - \textit{left}[i + 1][c - 1], \textit{right}[i][c - 1] - i)$. If $d > n$, there is no solution, and the answer to this query is $-1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `colors`.
 

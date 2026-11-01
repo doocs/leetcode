@@ -322,7 +322,7 @@ function connect(root: Node | null): Node | null {
 
 使用递归进行前序遍历，每次遍历到一个节点时，将其左右子节点按顺序连接起来。
 
-具体地，我们设计一个函数 $dfs(left, right)$，表示将 $left$ 节点的 $next$ 指针指向 $right$ 节点。在函数中，我们首先判断 $left$ 和 $right$ 是否为空，若都不为空，则将 $left.next$ 指向 $right$，然后递归地调用 $dfs(left.left, left.right)$, $dfs(left.right, right.left)$, $dfs(right.left, right.right)$。
+具体地，我们设计一个函数 $\textit{dfs}(\textit{left}, \textit{right})$，表示将 $\textit{left}$ 节点的 $\textit{next}$ 指针指向 $\textit{right}$ 节点。在函数中，我们首先判断 $\textit{left}$ 和 $\textit{right}$ 是否为空，若都不为空，则将 $\textit{left}.\textit{next}$ 指向 $\textit{right}$，然后递归地调用 $\textit{dfs}(\textit{left}.\textit{left}, \textit{left}.\textit{right})$, $\textit{dfs}(\textit{left}.\textit{right}, \textit{right}.\textit{left})$, $\textit{dfs}(\textit{right}.\textit{left}, \textit{right}.\textit{right})$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 

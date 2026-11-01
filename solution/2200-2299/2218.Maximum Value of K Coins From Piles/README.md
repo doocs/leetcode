@@ -89,7 +89,7 @@ $$
 
 其中 $0 \leq h \leq j$，而 $s[h]$ 表示第 $i$ 组中取前 $h$ 个硬币的面值和。
 
-时间复杂度 $O(kL)$，空间复杂度 $O(nk)$。其中 $L$ 为所有硬币的数量，而 $n$ 为栈的数量。
+时间复杂度 $O(k \times L)$，空间复杂度 $O(nk)$。其中 $L$ 为所有硬币的数量，而 $n$ 为栈的数量。
 
 <!-- tabs:start -->
 
@@ -231,7 +231,7 @@ function maxValueOfCoins(piles: number[][], k: number): number {
 
 我们可以发现，对于第 $i$ 组，我们只需要用到 $f[i - 1][j]$ 和 $f[i][j - h]$，因此我们可以将二维数组优化为一维数组。
 
-时间复杂度 $O(kL)$，空间复杂度 $O(k)$。
+时间复杂度 $O(k \times L)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 

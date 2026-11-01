@@ -90,9 +90,9 @@ tags:
 
 我们可以用一个长度为 $121$ 的数组 $\textit{cnt}$ 记录每个年龄的人数。
 
-接下来，枚举所有可能的年龄对 $(\textit{ax}, \textit{ay})$，如果 $\textit{ax}$ 和 $\textit{ay}$ 不满足题目中的任意一个条件，这些年龄对 $(\textit{ax}, \textit{ay})$ 就可以互发好友请求。
+接下来，枚举所有可能的年龄对 $(ax, ay)$，如果 $ax$ 和 $ay$ 不满足题目中的任意一个条件，这些年龄对 $(ax, ay)$ 就可以互发好友请求。
 
-此时，如果 $\textit{ax} = \textit{ay}$，年龄相同，那么 $\textit{ax}$ 和 $\textit{ay}$ 之间的好友请求数为 $\textit{cnt}[\textit{ax}] \times (\textit{cnt}[\textit{ax}] - 1)$；否则，年龄不同，那么 $\textit{ax}$ 和 $\textit{ay}$ 之间的好友请求数为 $\textit{cnt}[\textit{ax}] \times \textit{cnt}[\textit{ay}]$。我们将这些好友请求数累加到答案中即可。
+此时，如果 $ax = ay$，年龄相同，那么 $ax$ 和 $ay$ 之间的好友请求数为 $\textit{cnt}[ax] \times (\textit{cnt}[ax] - 1)$；否则，年龄不同，那么 $ax$ 和 $ay$ 之间的好友请求数为 $\textit{cnt}[ax] \times \textit{cnt}[ay]$。我们将这些好友请求数累加到答案中即可。
 
 时间复杂度 $O(n + m^2)$。其中 $n$ 是数组 $\textit{ages}$ 的长度，而 $m$ 是年龄的最大值，本题中 $m = 121$。
 

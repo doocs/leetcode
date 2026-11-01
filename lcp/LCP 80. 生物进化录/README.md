@@ -169,4 +169,6 @@ func evolutionaryRecord(parents []int) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -72,7 +72,7 @@ tags:
 >
 > 组的人数须严格递增，分数和也须严格递增。 $n \le 10^5$，不能搜索分组。将成绩排序后依次分配 $1,2,\ldots,k$ 人，分数和自动递增。
 >
-> 人数约束成为 $\frac{k(k+1)}{2}\le n$。对 $k$ 二分（实现上对 $x^2+x$ 相对 $2n$ 做 $bisect$）得到最大可行组数。
+> 人数约束成为 $\frac{k(k+1)}{2}\le n$。对 $k$ 二分（实现上对 $x^2+x$ 相对 $2n$ 做 $\textit{bisect}$）得到最大可行组数。
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ tags:
 
 因此，我们要找到最大的 $k$，使得 $\frac{(1 + k) \times k}{2} \leq n$，其中 $n$ 为学生的总人数。我们可以使用二分查找来求解。
 
-我们定义二分查找的左边界为 $l = 1$，右边界为 $r = n$，每一次二分查找的中点为 $mid = \lfloor \frac{l + r + 1}{2} \rfloor$，如果 $(1 + mid) \times mid \gt 2 \times n$，则说明 $mid$ 太大，我们需要将右边界缩小至 $mid - 1$，否则我们需要将左边界增大至 $mid$。
+我们定义二分查找的左边界为 $l = 1$，右边界为 $r = n$，每一次二分查找的中点为 $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$，如果 $(1 + \textit{mid}) \times \textit{mid} \gt 2 \times n$，则说明 $\textit{mid}$ 太大，我们需要将右边界缩小至 $\textit{mid} - 1$，否则我们需要将左边界增大至 $\textit{mid}$。
 
 最后，我们将 $l$ 作为答案返回即可。
 

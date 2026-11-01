@@ -78,7 +78,7 @@ It can be shown that we cannot reduce the sum by at least half in less than 3 op
 >
 > Each operation halves one value; we want the sum to drop by at least half in as few moves as possible. $n \le 10^5$ rules out searching sequences. The decrement equals half of the chosen value, so every step should take the current maximum.
 >
-> Keep the numbers in a max-heap and let $s = \mathrm{sum}(nums)/2$ be the remaining reduction. Repeatedly pop $t$, subtract $t/2$ from $s$, and push $t/2$ back, until $s \le 0$. The number of pops is the answer.
+> Keep the numbers in a max-heap and let $s = \textit{sum}(\textit{nums})/2$ be the remaining reduction. Repeatedly pop $t$, subtract $t/2$ from $s$, and push $t/2$ back, until $s \le 0$. The number of pops is the answer.
 
 <!-- thinking:end -->
 

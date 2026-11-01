@@ -102,9 +102,9 @@ tags:
 
 <!-- thinking:end -->
 
-Since each task can only be completed by a worker with a specific skill, we can group the tasks by skill requirements and store them in a hash table $\textit{d}$, where the key is the skill requirement and the value is a priority queue sorted by profit in descending order.
+Since each task can only be completed by a worker with a specific skill, we can group the tasks by skill requirements and store them in a hash table $d$, where the key is the skill requirement and the value is a priority queue sorted by profit in descending order.
 
-Then, we iterate through the workers. For each worker, we find the corresponding priority queue in the hash table $\textit{d}$ based on their skill requirement, take the front element (i.e., the maximum profit the worker can earn), and remove it from the priority queue. If the priority queue is empty, we remove it from the hash table.
+Then, we iterate through the workers. For each worker, we find the corresponding priority queue in the hash table $d$ based on their skill requirement, take the front element (i.e., the maximum profit the worker can earn), and remove it from the priority queue. If the priority queue is empty, we remove it from the hash table.
 
 Finally, we add the maximum profit from the remaining tasks to the result.
 

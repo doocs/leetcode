@@ -87,9 +87,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use two pointers to maintain a range $s[j..i]$ such that there is at most one pair of adjacent characters that are equal, initially $j = 0$, $i = 1$. Initialize the answer $ans = 1$.
+We use two pointers to maintain a range $s[j..i]$ such that there is at most one pair of adjacent characters that are equal, initially $j = 0$, $i = 1$. Initialize the answer $\textit{ans} = 1$.
 
-We use $cnt$ to record the number of pairs of adjacent characters that are equal in the range. If $cnt > 1$, then we need to move the left pointer $j$ until $cnt \le 1$. Each time, we update the answer as $ans = \max(ans, i - j + 1)$.
+We use $\textit{cnt}$ to record the number of pairs of adjacent characters that are equal in the range. If $\textit{cnt} > 1$, then we need to move the left pointer $j$ until $\textit{cnt} \le 1$. Each time, we update the answer as $\textit{ans} = \max(\textit{ans}, i - j + 1)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 

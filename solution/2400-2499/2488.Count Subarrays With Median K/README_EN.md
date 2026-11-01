@@ -75,7 +75,7 @@ tags:
 
 > **Thinking**
 >
-> $nums$ is a permutation. A subarray with median $k$ contains $k$, and the count of values $>k$ minus those $<k$ is $0$ (odd length) or $1$ (even). At $n\le 10^5$, walk right from $k$ recording the balance $x$, then walk left pairing with $-x$ and $-x+1$.
+> $\textit{nums}$ is a permutation. A subarray with median $k$ contains $k$, and the count of values $>k$ minus those $<k$ is $0$ (odd length) or $1$ (even). At $n\le 10^5$, walk right from $k$ recording the balance $x$, then walk left pairing with $-x$ and $-x+1$.
 >
 > A one-sided balance in $\{0,1\}$ also counts. A map stores right-hand frequencies.
 
@@ -83,13 +83,13 @@ tags:
 
 First, we find the position $i$ of the median $k$ in the array, and then start traversing from $i$ to both sides, counting the number of subarrays with a median of $k$.
 
-Define an answer variable $ans$, which represents the number of subarrays with a median of $k$. Initially, $ans = 1$, which means that there is currently a subarray of length $1$ with a median of $k$. In addition, define a counter $cnt$, used to count the number of differences between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the currently traversed array.
+Define an answer variable $\textit{ans}$, which represents the number of subarrays with a median of $k$. Initially, $\textit{ans} = 1$, which means that there is currently a subarray of length $1$ with a median of $k$. In addition, define a counter $\textit{cnt}$, used to count the number of differences between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the currently traversed array.
 
-Next, start traversing to the right from $i + 1$. We maintain a variable $x$, which represents the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current right subarray. If $x \in [0, 1]$, then the median of the current right subarray is $k$, and the answer variable $ans$ is incremented by $1$. Then, we add the value of $x$ to the counter $cnt$.
+Next, start traversing to the right from $i + 1$. We maintain a variable $x$, which represents the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current right subarray. If $x \in [0, 1]$, then the median of the current right subarray is $k$, and the answer variable $\textit{ans}$ is incremented by $1$. Then, we add the value of $x$ to the counter $\textit{cnt}$.
 
-Similarly, start traversing to the left from $i - 1$, also maintaining a variable $x$, which represents the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current left subarray. If $x \in [0, 1]$, then the median of the current left subarray is $k$, and the answer variable $ans$ is incremented by $1$. If $-x$ or $-x + 1$ is also in the counter, it means that there is currently a subarray that spans both sides of $i$, with a median of $k$, and the answer variable $ans$ increases the corresponding value in the counter, that is, $ans += cnt[-x] + cnt[-x + 1]$.
+Similarly, start traversing to the left from $i - 1$, also maintaining a variable $x$, which represents the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current left subarray. If $x \in [0, 1]$, then the median of the current left subarray is $k$, and the answer variable $\textit{ans}$ is incremented by $1$. If $-x$ or $-x + 1$ is also in the counter, it means that there is currently a subarray that spans both sides of $i$, with a median of $k$, and the answer variable $\textit{ans}$ increases the corresponding value in the counter, that is, $\textit{ans} += \textit{cnt}[-x] + \textit{cnt}[-x + 1]$.
 
-Finally, return the answer variable $ans$.
+Finally, return the answer variable $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

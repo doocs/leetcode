@@ -98,14 +98,14 @@ tags:
 1. 若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；
 1. 任意节点的左、右子树也分别为二叉搜索树。
 
-我们可以递归判断当前节点 $root$ 与 $key$ 的大小关系：
+我们可以递归判断当前节点 $\textit{root}$ 与 $\textit{key}$ 的大小关系：
 
-1. 若 $root.val>key$，则递归左子树；
-1. 若 $root.val<key$，则递归右子树；
-1. 若 $root.val=key$，则进一步判断：
-    1. 若 $root$ 没有左子树，则 $root.right$ 顶替 $root$ 的位置；
-    1. 若 $root$ 没有右子树，则 $root.left$ 顶替 $root$ 的位置；
-    1. 若 $root$ 同时存在左右子树，则将左子树转移至右子树的最左节点的左子树上，然后 $root.right$ 顶替 $root$ 的位置。
+1. 若 $\textit{root}.\textit{val}>\textit{key}$，则递归左子树；
+1. 若 $\textit{root}.\textit{val}<\textit{key}$，则递归右子树；
+1. 若 $\textit{root}.\textit{val}=\textit{key}$，则进一步判断：
+    1. 若 $\textit{root}$ 没有左子树，则 $\textit{root}.\textit{right}$ 顶替 $\textit{root}$ 的位置；
+    1. 若 $\textit{root}$ 没有右子树，则 $\textit{root}.\textit{left}$ 顶替 $\textit{root}$ 的位置；
+    1. 若 $\textit{root}$ 同时存在左右子树，则将左子树转移至右子树的最左节点的左子树上，然后 $\textit{root}.\textit{right}$ 顶替 $\textit{root}$ 的位置。
 
 时间复杂度 $O(H)$。其中 $H$ 是树的高度。
 

@@ -103,7 +103,7 @@ $$
 f[i][j][k] = \min_{i \leq h < j} \{f[i][h][1] + f[h + 1][j][k - 1]\}
 $$
 
-我们将区间 $[i, j]$ 的 $K$ 堆石头合并成一堆，因此 $f[i][j][1] = f[i][j][K] + \sum_{t = i}^j stones[t]$，其中 $\sum_{t = i}^j stones[t]$ 表示区间 $[i, j]$ 中石头的总数。
+我们将区间 $[i, j]$ 的 $K$ 堆石头合并成一堆，因此 $f[i][j][1] = f[i][j][K] + \sum_{t = i}^j \textit{stones}[t]$，其中 $\sum_{t = i}^j \textit{stones}[t]$ 表示区间 $[i, j]$ 中石头的总数。
 
 最后答案即为 $f[1][n][1]$，其中 $n$ 为石头的堆数。
 

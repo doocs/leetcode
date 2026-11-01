@@ -59,7 +59,7 @@ tags:
 
 > **Thinking**
 >
-> A subarray sum is divisible by $k$ iff the two prefix sums are congruent modulo $k$. Enumerating intervals is quadratic. While scanning, a counter of residues tells how many earlier prefixes share the current $s$, which is the number of good subarrays ending here. Start with $cnt[0]=1$ for the empty prefix.
+> A subarray sum is divisible by $k$ iff the two prefix sums are congruent modulo $k$. Enumerating intervals is quadratic. While scanning, a counter of residues tells how many earlier prefixes share the current $s$, which is the number of good subarrays ending here. Start with $\textit{cnt}[0]=1$ for the empty prefix.
 
 <!-- thinking:end -->
 

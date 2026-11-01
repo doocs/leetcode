@@ -76,14 +76,14 @@ There are 0 hills and valleys so we return 0.
 >
 > Hills and valleys are defined against the closest unequal neighbors, so a run of equal values is one plateau. $n \le 100$ would allow a two-sided scan at each $i$, but that rereads the same plateau.
 >
-> A pointer $j$ remembers the last settled distinct height. If $nums[i] = nums[i+1]$ we are still inside a plateau and skip; otherwise compare $nums[i]$ with $nums[j]$ and $nums[i+1]$, then set $j = i$. One linear pass counts the hills and valleys.
+> A pointer $j$ remembers the last settled distinct height. If $\textit{nums}[i] = \textit{nums}[i+1]$ we are still inside a plateau and skip; otherwise compare $\textit{nums}[i]$ with $\textit{nums}[j]$ and $\textit{nums}[i+1]$, then set $j = i$. One linear pass counts the hills and valleys.
 
 <!-- thinking:end -->
 
 We initialize a pointer $j$ to point to the position with index $0$, and then traverse the array in the range $[1, n-1]$. For each position $i$:
 
-- If $nums[i] = nums[i+1]$, then skip.
-- Otherwise, if $nums[i]$ is greater than $nums[j]$ and $nums[i]$ is greater than $nums[i+1]$, then $i$ is a peak; if $nums[i]$ is less than $nums[j]$ and $nums[i]$ is less than $nums[i+1]$, then $i$ is a valley.
+- If $\textit{nums}[i] = \textit{nums}[i+1]$, then skip.
+- Otherwise, if $\textit{nums}[i]$ is greater than $\textit{nums}[j]$ and $\textit{nums}[i]$ is greater than $\textit{nums}[i+1]$, then $i$ is a peak; if $\textit{nums}[i]$ is less than $\textit{nums}[j]$ and $\textit{nums}[i]$ is less than $\textit{nums}[i+1]$, then $i$ is a valley.
 - Then, we update $j$ to $i$ and continue to traverse.
 
 After the traversal, we can get the number of peaks and valleys.

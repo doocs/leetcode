@@ -83,11 +83,11 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 
 <!-- thinking:end -->
 
-First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents the list of nodes adjacent to node $i$. Then we define a hash table $vis$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $vis$.
+First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents the list of nodes adjacent to node $i$. Then we define a hash table $\textit{vis}$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $\textit{vis}$.
 
-Next, we define a depth-first search function $dfs(i)$, which represents the number of nodes that can be reached starting from node $i$. In the $dfs(i)$ function, we first add node $i$ to $vis$, then traverse the nodes $j$ adjacent to node $i$. If $j$ is not in $vis$, we recursively call $dfs(j)$ and add the return value to the result.
+Next, we define a depth-first search function $\textit{dfs}(i)$, which represents the number of nodes that can be reached starting from node $i$. In the $\textit{dfs}(i)$ function, we first add node $i$ to $\textit{vis}$, then traverse the nodes $j$ adjacent to node $i$. If $j$ is not in $\textit{vis}$, we recursively call $\textit{dfs}(j)$ and add the return value to the result.
 
-Finally, we return $dfs(0)$.
+Finally, we return $\textit{dfs}(0)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -250,9 +250,9 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we first construct an adjacency list $g$ based on the given edges, then define a hash table $vis$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $vis$.
+Similar to Solution 1, we first construct an adjacency list $g$ based on the given edges, then define a hash table $\textit{vis}$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $\textit{vis}$.
 
-Next, we use breadth-first search to traverse the entire graph and count the number of reachable nodes. We define a queue $q$, initially add node $0$ to $q$, and add node $0$ to $vis$. Then we continuously take out node $i$ from $q$, accumulate the answer, and add the unvisited adjacent nodes of node $i$ to $q$ and $vis$.
+Next, we use breadth-first search to traverse the entire graph and count the number of reachable nodes. We define a queue $q$, initially add node $0$ to $q$, and add node $0$ to $\textit{vis}$. Then we continuously take out node $i$ from $q$, accumulate the answer, and add the unvisited adjacent nodes of node $i$ to $q$ and $\textit{vis}$.
 
 After the traversal, we return the answer.
 
@@ -425,9 +425,9 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 <!-- thinking:end -->
 
-First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents the list of nodes adjacent to node $i$. Then we define a hash table $vis$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $vis$.
+First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents the list of nodes adjacent to node $i$. Then we define a hash table $\textit{vis}$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $\textit{vis}$.
 
-Next, an explicit stack walks from node $0$. When node $i$ is popped and still unvisited, we add it to $vis$, count it, and push its unvisited neighbors.
+Next, an explicit stack walks from node $0$. When node $i$ is popped and still unvisited, we add it to $\textit{vis}$, count it, and push its unvisited neighbors.
 
 Finally, we return the number of nodes counted.
 

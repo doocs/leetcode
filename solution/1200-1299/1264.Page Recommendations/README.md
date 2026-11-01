@@ -113,7 +113,7 @@ Likes table:
 
 > **思考**
 >
-> 推荐页是好友喜欢而自己未喜欢的页面。好友关系无向，先把与用户 $1$ 相连的两端并成好友表，再连接 $Likes$，最后用子查询排除用户 $1$ 已喜欢的 $page\_id$。
+> 推荐页是好友喜欢而自己未喜欢的页面。好友关系无向，先把与用户 $1$ 相连的两端并成好友表，再连接 $\textit{Likes}$，最后用子查询排除用户 $1$ 已喜欢的 $\textit{page\_id}$。
 
 <!-- thinking:end -->
 
@@ -149,7 +149,7 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 
 > **思考**
 >
-> 方法一先物化好友表再连接。亦可把好友子查询直接写在 $Likes.user\_id$ 的 $IN$ 中，少一张 CTE，语义相同。
+> 方法一先物化好友表再连接。亦可把好友子查询直接写在 $\textit{Likes}.\textit{user\_id}$ 的 $\textit{IN}$ 中，少一张 CTE，语义相同。
 
 <!-- thinking:end -->
 

@@ -83,9 +83,9 @@ We order the result table by transaction_id after collecting these IDs.
 
 > **Thinking**
 >
-> We need every transaction that ties for the maximum amount on its calendar day. The $day$ column is a datetime, so the day-of-month number repeats across months.
+> We need every transaction that ties for the maximum amount on its calendar day. The $\textit{day}$ column is a datetime, so the day-of-month number repeats across months.
 >
-> Partition by $DATE(day)$, rank by $amount$ descending, keep rank $1$, and sort by $transaction\_id$.
+> Partition by $\textit{DATE}(\textit{day})$, rank by $\textit{amount}$ descending, keep rank $1$, and sort by $\textit{transaction\_id}$.
 
 <!-- thinking:end -->
 

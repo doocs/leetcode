@@ -79,9 +79,9 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 
 <!-- thinking:end -->
 
-Considering that each time we call $\text{seat}()$, we need to find the seat with the maximum distance, we can use an ordered set to store seat intervals. Each element of the ordered set is a tuple $(l, r)$, indicating that the seats between $l$ and $r$ (excluding $l$ and $r$) can be occupied by a student. Initially, the ordered set contains only one element $(-1, n)$, indicating that the seats between $(-1, n)$ can be occupied by a student.
+Considering that each time we call $\textit{seat}()$, we need to find the seat with the maximum distance, we can use an ordered set to store seat intervals. Each element of the ordered set is a tuple $(l, r)$, indicating that the seats between $l$ and $r$ (excluding $l$ and $r$) can be occupied by a student. Initially, the ordered set contains only one element $(-1, n)$, indicating that the seats between $(-1, n)$ can be occupied by a student.
 
-Additionally, we use two hash tables $\textit{left}$ and $\textit{right}$ to maintain the left and right neighbors of each occupied seat, making it easier to merge two seat intervals when calling $\text{leave}(p)$.
+Additionally, we use two hash tables $\textit{left}$ and $\textit{right}$ to maintain the left and right neighbors of each occupied seat, making it easier to merge two seat intervals when calling $\textit{leave}(p)$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(n)$, where $n$ is the number of seats in the exam room.
 

@@ -74,17 +74,17 @@ tags:
 >
 > One adjacent swap changes an index by $1$, so the cost equals the $L_1$ distance from the chosen ones to the target positions. That sum is minimized when the target is the median of the $k$ indices.
 >
-> Store ones' indices in $arr$ and build its prefix sums. Enumerate the window median $arr[i]$ and evaluate both sides in $O(1)$ via the prefix sums; keep the minimum.
+> Store ones' indices in $\textit{arr}$ and build its prefix sums. Enumerate the window median $\textit{arr}[i]$ and evaluate both sides in $O(1)$ via the prefix sums; keep the minimum.
 
 <!-- thinking:end -->
 
-We can store the indices of $1$s in the array $nums$ into an array $arr$. Next, we preprocess the prefix sum array $s$ of the array $arr$, where $s[i]$ represents the sum of the first $i$ elements in the array $arr$.
+We can store the indices of $1$s in the array $\textit{nums}$ into an array $\textit{arr}$. Next, we preprocess the prefix sum array $s$ of the array $\textit{arr}$, where $s[i]$ represents the sum of the first $i$ elements in the array $\textit{arr}$.
 
 For a subarray of length $k$, the number of elements on the left (including the median) is $x=\frac{k+1}{2}$, and the number of elements on the right is $y=k-x$.
 
-We enumerate the index $i$ of the median, where $x-1\leq i\leq len(arr)-y$. The prefix sum of the left array is $ls=s[i+1]-s[i+1-x]$, and the prefix sum of the right array is $rs=s[i+1+y]-s[i+1]$. The current median index in $nums$ is $j=arr[i]$. The number of operations required to move the left $x$ elements to $[j-x+1,..j]$ is $a=(j+j-x+1)\times\frac{x}{2}-ls$, and the number of operations required to move the right $y$ elements to $[j+1,..j+y]$ is $b=rs-(j+1+j+y)\times\frac{y}{2}$. The total number of operations is $a+b$, and we take the minimum of all total operation counts.
+We enumerate the index $i$ of the median, where $x-1\leq i\leq \textit{len}(\textit{arr})-y$. The prefix sum of the left array is $ls=s[i+1]-s[i+1-x]$, and the prefix sum of the right array is $rs=s[i+1+y]-s[i+1]$. The current median index in $\textit{nums}$ is $j=\textit{arr}[i]$. The number of operations required to move the left $x$ elements to $[j-x+1,..j]$ is $a=(j+j-x+1)\times\frac{x}{2}-ls$, and the number of operations required to move the right $y$ elements to $[j+1,..j+y]$ is $b=rs-(j+1+j+y)\times\frac{y}{2}$. The total number of operations is $a+b$, and we take the minimum of all total operation counts.
 
-The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ and $m$ are the length of the array $nums$ and the number of $1$s in the array $nums$, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ and $m$ are the length of the array $\textit{nums}$ and the number of $1$s in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ For Department 2:
 >
 > The percentage is $(\textit{rank}-1)$ over $(\textit{size}-1)$. A singleton department has a zero denominator.
 >
-> $RANK$ by mark descending gives the rank; a $COUNT$ window gives department size. $IFNULL$ yields $0$ for a single student, otherwise two decimal places.
+> $\textit{RANK}$ by mark descending gives the rank; a $\textit{COUNT}$ window gives department size. $\textit{IFNULL}$ yields $0$ for a single student, otherwise two decimal places.
 
 <!-- thinking:end -->
 

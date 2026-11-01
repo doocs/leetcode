@@ -74,18 +74,18 @@ tags:
 
 > **思考**
 >
-> 判断链表是否沿某条向下路径连续出现。链表与树规模不大，可在每个树节点尝试一次匹配。 $dfs(\textit{head},\textit{root})$ 要求从当前格起一路相等；主函数则对每个起点调用它，并递归左右子树换起点。链表空则匹配成功，树空或值不等则失败。
+> 判断链表是否沿某条向下路径连续出现。链表与树规模不大，可在每个树节点尝试一次匹配。 $\textit{dfs}(\textit{head},\textit{root})$ 要求从当前格起一路相等；主函数则对每个起点调用它，并递归左右子树换起点。链表空则匹配成功，树空或值不等则失败。
 
 <!-- thinking:end -->
 
-我们设计一个递归函数 $dfs(head, root)$，表示链表 $head$ 是否是以 $root$ 为起点的路径上的节点值一一对应的子路径。函数 $dfs(head, root)$ 的逻辑如下：
+我们设计一个递归函数 $\textit{dfs}(\textit{head}, \textit{root})$，表示链表 $\textit{head}$ 是否是以 $\textit{root}$ 为起点的路径上的节点值一一对应的子路径。函数 $\textit{dfs}(\textit{head}, \textit{root})$ 的逻辑如下：
 
-- 如果链表 $head$ 为空，说明链表已经遍历完了，返回 `true`；
-- 如果二叉树 $root$ 为空，说明二叉树已经遍历完了，但链表还没遍历完，返回 `false`；
-- 如果二叉树 $root$ 的值与链表 $head$ 的值不相等，返回 `false`；
-- 否则，返回 $dfs(head.next, root.left)$ 或 $dfs(head.next, root.right)$。
+- 如果链表 $\textit{head}$ 为空，说明链表已经遍历完了，返回 `true`；
+- 如果二叉树 $\textit{root}$ 为空，说明二叉树已经遍历完了，但链表还没遍历完，返回 `false`；
+- 如果二叉树 $\textit{root}$ 的值与链表 $\textit{head}$ 的值不相等，返回 `false`；
+- 否则，返回 $\textit{dfs}(\textit{head}.\textit{next}, \textit{root}.\textit{left})$ 或 $\textit{dfs}(\textit{head}.\textit{next}, \textit{root}.\textit{right})$。
 
-我们在主函数中，对二叉树的每个节点调用 $dfs(head, root)$，只要有一个返回 `true`，就说明链表是二叉树的子路径，返回 `true`；如果所有节点都返回 `false`，说明链表不是二叉树的子路径，返回 `false`。
+我们在主函数中，对二叉树的每个节点调用 $\textit{dfs}(\textit{head}, \textit{root})$，只要有一个返回 `true`，就说明链表是二叉树的子路径，返回 `true`；如果所有节点都返回 `false`，说明链表不是二叉树的子路径，返回 `false`。
 
 时间复杂度 $O(n^2))$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

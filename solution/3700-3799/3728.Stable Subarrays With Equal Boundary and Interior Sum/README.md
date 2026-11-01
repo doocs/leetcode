@@ -99,23 +99,23 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个前缀和数组 $\textit{s}$，其中 $s[i]$ 表示数组 $\text{capacity}$ 中前 $i$ 个元素的和，即 $s[i] = \text{capacity}[0] + \text{capacity}[1] + \ldots + \text{capacity}[i-1]$。初始时 $s[0] = 0$。
+我们定义一个前缀和数组 $s$，其中 $s[i]$ 表示数组 $\textit{capacity}$ 中前 $i$ 个元素的和，即 $s[i] = \textit{capacity}[0] + \textit{capacity}[1] + \ldots + \textit{capacity}[i-1]$。初始时 $s[0] = 0$。
 
-根据题意，子数组 $\text{capacity}[l..r]$ 是稳定数组的条件是：
+根据题意，子数组 $\textit{capacity}[l..r]$ 是稳定数组的条件是：
 
 $$
-\text{capacity}[l] = \text{capacity}[r] = \text{capacity}[l + 1] + \text{capacity}[l + 2] + \ldots + \text{capacity}[r - 1]
+\textit{capacity}[l] = \textit{capacity}[r] = \textit{capacity}[l + 1] + \textit{capacity}[l + 2] + \ldots + \textit{capacity}[r - 1]
 $$
 
 即：
 
 $$
-\text{capacity}[l] = \text{capacity}[r] = s[r] - s[l + 1]
+\textit{capacity}[l] = \textit{capacity}[r] = s[r] - s[l + 1]
 $$
 
-我们可以枚举右端点 $r$，对于每个 $r$，计算左端点 $l = r - 2$，并将满足条件的左端点信息存储在哈希表中。具体地，我们使用一个哈希表 $\text{cnt}$ 来记录每个键值对 $(\text{capacity}[l], \text{capacity}[l] + s[l + 1])$ 出现的次数。
+我们可以枚举右端点 $r$，对于每个 $r$，计算左端点 $l = r - 2$，并将满足条件的左端点信息存储在哈希表中。具体地，我们使用一个哈希表 $\textit{cnt}$ 来记录每个键值对 $(\textit{capacity}[l], \textit{capacity}[l] + s[l + 1])$ 出现的次数。
 
-当我们枚举到右端点 $r$ 时，我们可以通过查询哈希表 $\text{cnt}$ 来获取满足条件的左端点数量，即键值对 $(\text{capacity}[r], s[r])$ 出现的次数，并将其累加到答案中。
+当我们枚举到右端点 $r$ 时，我们可以通过查询哈希表 $\textit{cnt}$ 来获取满足条件的左端点数量，即键值对 $(\textit{capacity}[r], s[r])$ 出现的次数，并将其累加到答案中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 

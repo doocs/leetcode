@@ -111,11 +111,11 @@ Matches table:
 
 > **Thinking**
 >
-> A team may play no match; an inner join would drop its zero-point row. A left join from $Teams$ to $Matches$ on being host or guest keeps those teams.
+> A team may play no match; an inner join would drop its zero-point row. A left join from $\textit{Teams}$ to $\textit{Matches}$ on being host or guest keeps those teams.
 >
-> Points depend only on whether the team is host or guest and on the goal comparison: $3$ for a win, $1$ for a draw, $0$ otherwise. $CASE$ scores each row; we sum by $team\_id$.
+> Points depend only on whether the team is host or guest and on the goal comparison: $3$ for a win, $1$ for a draw, $0$ otherwise. $\textit{CASE}$ scores each row; we sum by $\textit{team\_id}$.
 >
-> We order by points descending and $team\_id$ ascending. The left join keeps the full roster; $CASE$ turns the win/draw/loss rule into an aggregable scalar.
+> We order by points descending and $\textit{team\_id}$ ascending. The left join keeps the full roster; $\textit{CASE}$ turns the win/draw/loss rule into an aggregable scalar.
 
 <!-- thinking:end -->
 

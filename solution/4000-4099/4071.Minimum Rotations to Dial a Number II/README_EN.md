@@ -214,21 +214,21 @@ source: Weekly Contest 522 Q2
 Define the total rotation cost between adjacent digits as $T$:
 
 $$
-T=\sum_{i=1}^{n-1} \operatorname{dist}(s[i-1], s[i]),
+T=\sum_{i=1}^{n-1} \textit{dist}(s[i-1], s[i]),
 $$
 
-where $\operatorname{dist}(a,b)$ is the shortest circular distance between digits $a$ and $b$.
+where $\textit{dist}(a,b)$ is the shortest circular distance between digits $a$ and $b$.
 
 If we reverse the whole string, namely $k=0$, the answer becomes
 
 $$
-\operatorname{dist}(0, s[n-1]) + T.
+\textit{dist}(0, s[n-1]) + T.
 $$
 
 If $k>0$, the prefix $s[0..k-1]$ stays in place, and all internal edges of the suffix keep the same total contribution. The only replaced edge is $(s[k-1], s[k])$, which becomes $(s[k-1], s[n-1])$. The starting digit is still $s[0]$, so the total cost is
 
 $$
-T - \operatorname{dist}(s[k-1], s[k]) + \operatorname{dist}(0, s[0]) + \operatorname{dist}(s[k-1], s[n-1]).
+T - \textit{dist}(s[k-1], s[k]) + \textit{dist}(0, s[0]) + \textit{dist}(s[k-1], s[n-1]).
 $$
 
 We enumerate all split points and take the minimum.

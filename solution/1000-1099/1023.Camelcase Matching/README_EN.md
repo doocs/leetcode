@@ -84,7 +84,7 @@ tags:
 
 We can traverse every string in `queries` and check whether it matches `pattern` or not. If it matches, we add `true` to the answer array, otherwise we add `false`.
 
-Next, we implement a function $check(s, t)$ to check whether the string $s$ matches the string $t$.
+Next, we implement a function $\textit{check}(s, t)$ to check whether the string $s$ matches the string $t$.
 
 We can use two pointers $i$ and $j$ to traverse the two strings. If the characters pointed to by $i$ and $j$ are not the same and $s[i]$ is a lowercase letter, then we move the pointer $i$ to the next position.
 

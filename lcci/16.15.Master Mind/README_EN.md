@@ -55,7 +55,7 @@ difficulty: Easy
 
 <!-- thinking:end -->
 
-We simultaneously traverse both strings, count the number of corresponding characters that are the same, and accumulate them in $x$. Then we record the characters and their frequencies in both strings in hash tables $cnt1$ and $cnt2$, respectively.
+We simultaneously traverse both strings, count the number of corresponding characters that are the same, and accumulate them in $x$. Then we record the characters and their frequencies in both strings in hash tables $\textit{cnt1}$ and $\textit{cnt2}$, respectively.
 
 Next, we traverse both hash tables, count the number of common characters, and accumulate them in $y$. The answer is then $[x, y - x]$.
 

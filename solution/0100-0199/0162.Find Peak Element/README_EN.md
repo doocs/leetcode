@@ -64,13 +64,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define the left boundary of binary search as $left=0$ and the right boundary as $right=n-1$, where $n$ is the length of the array. In each step of binary search, we find the middle element $mid$ of the current interval, and compare the values of $mid$ and its right neighbor $mid+1$:
+We define the left boundary of binary search as $\textit{left}=0$ and the right boundary as $\textit{right}=n-1$, where $n$ is the length of the array. In each step of binary search, we find the middle element $\textit{mid}$ of the current interval, and compare the values of $\textit{mid}$ and its right neighbor $\textit{mid}+1$:
 
-- If the value of $mid$ is greater than the value of $mid+1$, there exists a peak element on the left side, and we update the right boundary $right$ to $mid$.
-- Otherwise, there exists a peak element on the right side, and we update the left boundary $left$ to $mid+1$.
-- Finally, when the left boundary $left$ is equal to the right boundary $right$, we have found the peak element of the array.
+- If the value of $\textit{mid}$ is greater than the value of $\textit{mid}+1$, there exists a peak element on the left side, and we update the right boundary $\textit{right}$ to $\textit{mid}$.
+- Otherwise, there exists a peak element on the right side, and we update the left boundary $\textit{left}$ to $\textit{mid}+1$.
+- Finally, when the left boundary $\textit{left}$ is equal to the right boundary $\textit{right}$, we have found the peak element of the array.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$. Each step of binary search can reduce the search interval by half, so the time complexity is $O(\log n)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$. Each step of binary search can reduce the search interval by half, so the time complexity is $O(\log n)$.
 
 <!-- tabs:start -->
 

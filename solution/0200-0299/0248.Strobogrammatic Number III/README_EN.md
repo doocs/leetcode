@@ -59,7 +59,7 @@ tags:
 
 If the length is $1$, then the strobogrammatic numbers are only $0, 1, 8$; if the length is $2$, then the strobogrammatic numbers are only $11, 69, 88, 96$.
 
-We design a recursive function $dfs(u)$, which returns the strobogrammatic numbers of length $u$.
+We design a recursive function $\textit{dfs}(u)$, which returns the strobogrammatic numbers of length $u$.
 
 If $u$ is $0$, return a list containing an empty string, i.e., `[""]`; if $u$ is $1$, return the list `["0", "1", "8"]`.
 
@@ -67,9 +67,9 @@ If $u$ is greater than $1$, we traverse all the strobogrammatic numbers of lengt
 
 Note that if $u \neq n$, we can also add $0$ to both sides of the strobogrammatic number.
 
-Let the lengths of $low$ and $high$ be $a$ and $b$ respectively.
+Let the lengths of $\textit{low}$ and $\textit{high}$ be $a$ and $b$ respectively.
 
-Next, we traverse all lengths in the range $[a,..b]$. For each length $n$, we get all strobogrammatic numbers $dfs(n)$, and then check whether they are in the range $[low, high]$. If they are, we increment the answer.
+Next, we traverse all lengths in the range $[a,..b]$. For each length $n$, we get all strobogrammatic numbers $\textit{dfs}(n)$, and then check whether they are in the range $[\textit{low}, \textit{high}]$. If they are, we increment the answer.
 
 The time complexity is $O(2^{n+2} \log n)$.
 

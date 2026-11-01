@@ -98,19 +98,19 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ to represent the number of methods to get $j$ points exactly from the first $i$ types of questions. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$. The answer is $f[n][target]$.
+We define $f[i][j]$ to represent the number of methods to get $j$ points exactly from the first $i$ types of questions. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$. The answer is $f[n][\textit{target}]$.
 
-We can enumerate the $i$th type of questions, suppose the number of questions of this type is $count$, and the score is $marks$. Then we can get the following state transition equation:
+We can enumerate the $i$th type of questions, suppose the number of questions of this type is $\textit{count}$, and the score is $\textit{marks}$. Then we can get the following state transition equation:
 
 $$
-f[i][j] = \sum_{k=0}^{count} f[i-1][j-k \times marks]
+f[i][j] = \sum_{k=0}^{\textit{count}} f[i-1][j-k \times \textit{marks}]
 $$
 
 where $k$ represents the number of questions of the $i$th type.
 
-The final answer is $f[n][target]$. Note that the answer may be very large and needs to be modulo $10^9 + 7$.
+The final answer is $f[n][\textit{target}]$. Note that the answer may be very large and needs to be modulo $10^9 + 7$.
 
-The time complexity is $O(n target count)$, and the space complexity is $O(n target)$, where $n$ is the number of types of questions, and $target$ and $count$ are the target score and the number of questions of each type, respectively.
+The time complexity is $O(n \textit{target} \textit{count})$, and the space complexity is $O(n \textit{target})$, where $n$ is the number of types of questions, and $\textit{target}$ and $\textit{count}$ are the target score and the number of questions of each type, respectively.
 
 <!-- tabs:start -->
 

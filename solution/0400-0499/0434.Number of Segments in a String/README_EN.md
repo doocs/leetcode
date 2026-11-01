@@ -62,9 +62,9 @@ tags:
 
 <!-- thinking:end -->
 
-We split the string $\textit{s}$ by spaces and then count the number of non-empty words.
+We split the string $s$ by spaces and then count the number of non-empty words.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -165,11 +165,11 @@ class Solution {
 
 <!-- thinking:end -->
 
-We can also directly traverse each character $\text{s[i]}$ in the string. If $\text{s[i]}$ is not a space and $\text{s[i-1]}$ is a space or $i = 0$, then $\text{s[i]}$ marks the beginning of a new word, and we increment the answer by one.
+We can also directly traverse each character $s[i]$ in the string. If $s[i]$ is not a space and $s[i-1]$ is a space or $i = 0$, then $s[i]$ marks the beginning of a new word, and we increment the answer by one.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

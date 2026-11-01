@@ -122,7 +122,7 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 
 > **Thinking**
 >
-> Check-in, check-out, and the average time between two stations must be $O(1)$. Map each $\textit{id}$ to its check-in time and station; on check-out, add the duration into a $(\textit{start},\textit{end})\mapsto(\textit{total},\textit{count})$ table. The average is that ratio.
+> Check-in, check-out, and the average time between two stations must be $O(1)$. Map each $id$ to its check-in time and station; on check-out, add the duration into a $(\textit{start},\textit{end})\mapsto(\textit{total},\textit{count})$ table. The average is that ratio.
 
 <!-- thinking:end -->
 
@@ -135,7 +135,7 @@ When a passenger checks in, we store the passenger's id, check-in time, and chec
 
 When a passenger checks out, we retrieve the passenger's check-in time and station `(t0, station)` from `ts`, then calculate the passenger's travel time $t - t_0$, and store the passenger's travel time and number of trips in `d`.
 
-When we want to calculate a passenger's average travel time, we retrieve the passenger's total travel time and number of trips `(totalTime, count)` from `d`, then calculate the average travel time as $totalTime / count$.
+When we want to calculate a passenger's average travel time, we retrieve the passenger's total travel time and number of trips `(totalTime, count)` from `d`, then calculate the average travel time as $\textit{totalTime} / \textit{count}$.
 
 The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of passengers.
 

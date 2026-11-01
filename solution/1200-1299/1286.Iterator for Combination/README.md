@@ -71,11 +71,11 @@ iterator.hasNext(); // 返回 false
 
 > **思考**
 >
-> 字符互异且长度不超过 $15$，组合数有限。预生成全部长度为 $combinationLength$ 的组合后， $next$/$hasNext$ 只做下标移动。DFS 按从左到右选或不选，保证字典序。
+> 字符互异且长度不超过 $15$，组合数有限。预生成全部长度为 $\textit{combinationLength}$ 的组合后， $\textit{next}$/$\textit{hasNext}$ 只做下标移动。DFS 按从左到右选或不选，保证字典序。
 
 <!-- thinking:end -->
 
-我们通过 $DFS$ 枚举，预处理生成所有长度为 $combinationLength$ 的字符串，存放到 $cs$ 数组中。
+我们通过 $\textit{DFS}$ 枚举，预处理生成所有长度为 $\textit{combinationLength}$ 的字符串，存放到 $cs$ 数组中。
 
 <!-- tabs:start -->
 
@@ -275,11 +275,11 @@ func (this *CombinationIterator) HasNext() bool {
 
 > **思考**
 >
-> 方法一占用与组合数成正比的数组。用长度为 $n$ 的二进制掩码表示子集，从满掩码向下扫，只输出恰有 $combinationLength$ 个 $1$ 的掩码，按位还原字符。按需生成，不必存下全部串。
+> 方法一占用与组合数成正比的数组。用长度为 $n$ 的二进制掩码表示子集，从满掩码向下扫，只输出恰有 $\textit{combinationLength}$ 个 $1$ 的掩码，按位还原字符。按需生成，不必存下全部串。
 
 <!-- thinking:end -->
 
-我们看个例子，对于 $abcd$，若 $combinationLength$ 为 2，则 $cs$ 就是 $ab, ac, ad, bc, bd, cd, ...$。
+我们看个例子，对于 $\textit{abcd}$，若 $\textit{combinationLength}$ 为 2，则 $cs$ 就是 $ab, ac, ad, bc, bd, cd, ...$。
 
 对应的二进制数为：
 
@@ -295,7 +295,7 @@ func (this *CombinationIterator) HasNext() bool {
 
 观察到上述规律后，我们依次按照二进制编码从大到小的规律，将所有字符串依次求出。
 
-所谓的长度 $combinationLength$，只需要满足二进制编码中 $1$ 的个数满足要求即可。
+所谓的长度 $\textit{combinationLength}$，只需要满足二进制编码中 $1$ 的个数满足要求即可。
 
 <!-- tabs:start -->
 

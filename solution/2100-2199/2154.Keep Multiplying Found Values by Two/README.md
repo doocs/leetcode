@@ -84,9 +84,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\textit{s}$ 记录数组 $\textit{nums}$ 中的所有数字。
+我们用一个哈希表 $s$ 记录数组 $\textit{nums}$ 中的所有数字。
 
-接下来，我们从 $\textit{original}$ 开始，如果 $\textit{original}$ 在 $\textit{s}$ 中，我们将 $\textit{original}$ 乘以 $2$，直到 $\textit{original}$ 不在 $\textit{s}$ 中，返回 $\textit{original}$。
+接下来，我们从 $\textit{original}$ 开始，如果 $\textit{original}$ 在 $s$ 中，我们将 $\textit{original}$ 乘以 $2$，直到 $\textit{original}$ 不在 $s$ 中，返回 $\textit{original}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 

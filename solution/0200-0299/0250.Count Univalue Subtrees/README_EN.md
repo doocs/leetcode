@@ -66,7 +66,7 @@ tags:
 >
 > A subtree is univalue iff both children are univalue and the root equals those children. One bottom-up walk can count them.
 >
-> $dfs$ reports whether the subtree is univalue: if both sides succeed and the (possibly missing) child values equal the root, increment and return true.
+> $\textit{dfs}$ reports whether the subtree is univalue: if both sides succeed and the (possibly missing) child values equal the root, increment and return true.
 
 <!-- thinking:end -->
 

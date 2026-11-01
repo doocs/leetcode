@@ -114,7 +114,7 @@ tags:
 >
 > Buying 1-based index $i$ unlocks the next $i$ fruits for free. $n \le 1000$. From $i$, the next purchase is some $j \in [i+1,2i+1]$.
 >
-> $dfs(i)$ memoizes that minimum; when $2i \ge n$, buying $i$ covers the tail. Start at $1$.
+> $\textit{dfs}(i)$ memoizes that minimum; when $2i \ge n$, buying $i$ covers the tail. Start at $1$.
 
 <!-- thinking:end -->
 
@@ -353,7 +353,7 @@ function minimumCoins(prices: number[]): number {
 >
 > Method 2 spends $O(n)$ per $i$ to minimize a range of $f[j]$, i.e. $O(n^2)$, which is acceptable at $n=1000$. As $i$ decreases, the window $[i+1,2i+1]$ shrinks on the right, so a monotonic queue can store candidate indices.
 >
-> Going backwards, drop heads beyond $2i+1$, add $prices[q[0]-1]$ into $prices[i-1]$, and keep the queue increasing by $prices$. After the in-place update, $prices[0]$ is the answer.
+> Going backwards, drop heads beyond $2i+1$, add $\textit{prices}[q[0]-1]$ into $\textit{prices}[i-1]$, and keep the queue increasing by $\textit{prices}$. After the in-place update, $\textit{prices}[0]$ is the answer.
 
 <!-- thinking:end -->
 

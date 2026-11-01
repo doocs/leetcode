@@ -78,7 +78,7 @@ This problem essentially asks for the number of numbers in the given range $[l, 
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[0, ..r]$ and then subtract the result of $[0, ..l - 1]$, i.e.:
 
 $$
-ans = \sum_{i=0}^{r} ans_i -  \sum_{i=0}^{l-1} ans_i
+\textit{ans} = \sum_{i=0}^{r} \textit{ans}_i -  \sum_{i=0}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value for the range $[0, ..r]$.
@@ -89,14 +89,14 @@ First, we get the binary length of the number $n$, denoted as $m$. Then, based o
 
 - The digit $i$ represents the current position being searched, starting from the highest digit, i.e., the first character of the binary string.
 - The digit $\textit{pre}$ represents the digit at the previous binary position. For this problem, the initial value of $\textit{pre}$ is $0$.
-- The boolean $\textit{limit}$ indicates whether the digits that can be filled are restricted. If there is no restriction, then we can choose $[0,1]$. Otherwise, we can only choose $[0, \textit{up}]$.
+- The boolean $\textit{limit}$ indicates whether the digits that can be filled are restricted. If there is no restriction, then we can choose $[0,1]$. Otherwise, we can only choose $[0, up]$.
 
 The function executes as follows:
 
-If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search is over, directly return $1$. Otherwise, we enumerate the digits $j$ from $0$ to $\textit{up}$ for the position $i$. For each $j$:
+If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search is over, directly return $1$. Otherwise, we enumerate the digits $j$ from $0$ to $up$ for the position $i$. For each $j$:
 
 - If both $\textit{pre}$ and $j$ are $1$, it means there are consecutive $1$, so we skip it.
-- Otherwise, we recurse to the next level, update $\textit{pre}$ to $j$, and update $\textit{limit}$ to the logical AND of $\textit{limit}$ and whether $j$ equals $\textit{up}$.
+- Otherwise, we recurse to the next level, update $\textit{pre}$ to $j$, and update $\textit{limit}$ to the logical AND of $\textit{limit}$ and whether $j$ equals $up$.
 
 Finally, we sum all the results from the recursive calls to the next level, which is the answer.
 

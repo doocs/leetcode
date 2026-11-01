@@ -88,27 +88,27 @@ tags:
 
 > **Thinking**
 >
-> Count reorderings that build the same BST as $nums$, excluding the original sequence. $n\le 1000$ forbids listing permutations. The root must be the first value; the left and right sets are fixed by comparison, and their internal orders recurse.
+> Count reorderings that build the same BST as $\textit{nums}$, excluding the original sequence. $n\le 1000$ forbids listing permutations. The root must be the first value; the left and right sets are fixed by comparison, and their internal orders recurse.
 >
 > The two sides may interleave freely, contributing $C_{m+n}^{m}$ times each side's count. After precomputing binomials we recurse, then subtract one to drop the original array.
 
 <!-- thinking:end -->
 
-We design a function $dfs(nums)$, which is used to calculate the number of solutions of the binary search tree with $nums$ as nodes. Then the answer is $dfs(nums)-1$, because $dfs(nums)$ calculates the number of solutions of the binary search tree with $nums$ as nodes, while the problem requires the number of solutions of the binary search tree with $nums$ as nodes after reordering, so the answer needs to be subtracted by one.
+We design a function $\textit{dfs}(\textit{nums})$, which is used to calculate the number of solutions of the binary search tree with $\textit{nums}$ as nodes. Then the answer is $\textit{dfs}(\textit{nums})-1$, because $\textit{dfs}(\textit{nums})$ calculates the number of solutions of the binary search tree with $\textit{nums}$ as nodes, while the problem requires the number of solutions of the binary search tree with $\textit{nums}$ as nodes after reordering, so the answer needs to be subtracted by one.
 
-Next, let's take a look at how $dfs(nums)$ is calculated.
+Next, let's take a look at how $\textit{dfs}(\textit{nums})$ is calculated.
 
-For an array $nums$, its first element is the root node, so its left subtree elements are smaller than it, and its right subtree elements are larger than it. So we can divide the array into three parts, the first part is the root node, the second part is the elements of the left subtree, denoted as $left$, and the third part is the elements of the right subtree, denoted as $right$. Then, the number of elements in the left subtree is $m$, and the number of elements in the right subtree is $n$, so the number of solutions for $left$ and $right$ are $dfs(left)$ and $dfs(right)$ respectively. We can choose $m$ positions from $m + n$ positions in array $nums$ to place the elements of the left subtree, and the remaining $n$ positions to place the elements of the right subtree, so that we can ensure that the reordered binary search tree is the same as the original array $nums$. Therefore, the calculation method of $dfs(nums)$ is:
+For an array $\textit{nums}$, its first element is the root node, so its left subtree elements are smaller than it, and its right subtree elements are larger than it. So we can divide the array into three parts, the first part is the root node, the second part is the elements of the left subtree, denoted as $\textit{left}$, and the third part is the elements of the right subtree, denoted as $\textit{right}$. Then, the number of elements in the left subtree is $m$, and the number of elements in the right subtree is $n$, so the number of solutions for $\textit{left}$ and $\textit{right}$ are $\textit{dfs}(\textit{left})$ and $\textit{dfs}(\textit{right})$ respectively. We can choose $m$ positions from $m + n$ positions in array $\textit{nums}$ to place the elements of the left subtree, and the remaining $n$ positions to place the elements of the right subtree, so that we can ensure that the reordered binary search tree is the same as the original array $\textit{nums}$. Therefore, the calculation method of $\textit{dfs}(\textit{nums})$ is:
 
 $$
-dfs(nums) = C_{m+n}^m \times dfs(left) \times dfs(right)
+\textit{dfs}(\textit{nums}) = C_{m+n}^m \times \textit{dfs}(\textit{left}) \times \textit{dfs}(\textit{right})
 $$
 
 where $C_{m+n}^m$ represents the number of schemes to select $m$ positions from $m + n$ positions, which we can get through preprocessing.
 
-Note the modulo operation of the answer, because the value of $dfs(nums)$ may be very large, so we need to take the modulo of each step in the calculation process, and finally take the modulo of the entire result.
+Note the modulo operation of the answer, because the value of $\textit{dfs}(\textit{nums})$ may be very large, so we need to take the modulo of each step in the calculation process, and finally take the modulo of the entire result.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

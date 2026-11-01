@@ -76,18 +76,18 @@ tags:
 >
 > Players alternately remove a square number of stones from a pile of $n$; the one who takes the last stone wins. $n\le 10^5$, so expanding the full game tree would recompute the same remainder many times.
 >
-> A position depends only on the remaining count: it is winning if some move leaves the opponent in a losing position. Memoized $dfs(i)$ answers whether the player to move wins with $i$ stones, trying every $j^2\le i$. Each state has $O(\sqrt{i})$ transitions.
+> A position depends only on the remaining count: it is winning if some move leaves the opponent in a losing position. Memoized $\textit{dfs}(i)$ answers whether the player to move wins with $i$ stones, trying every $j^2\le i$. Each state has $O(\sqrt{i})$ transitions.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, it returns $true$; otherwise, it returns $false$. The answer is $dfs(n)$.
+We design a function $\textit{dfs}(i)$, which represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, it returns $\textit{true}$; otherwise, it returns $\textit{false}$. The answer is $\textit{dfs}(n)$.
 
-The calculation process of the function $dfs(i)$ is as follows:
+The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i \leq 0$, it means the current player cannot make any move, so the current player loses the game, return $false$;
-- Otherwise, enumerate the number of stones $j$ that the current player can take away, where $j$ is a square number. If the other player cannot win the game after the current player takes away $j$ stones, then the current player wins the game, return $true$. If all $j$ enumerated cannot satisfy the above condition, then the current player loses the game, return $false$.
+- If $i \leq 0$, it means the current player cannot make any move, so the current player loses the game, return $\textit{false}$;
+- Otherwise, enumerate the number of stones $j$ that the current player can take away, where $j$ is a square number. If the other player cannot win the game after the current player takes away $j$ stones, then the current player wins the game, return $\textit{true}$. If all $j$ enumerated cannot satisfy the above condition, then the current player loses the game, return $\textit{false}$.
 
-To avoid repeated calculations, we can use memoization, i.e., use an array $f$ to record the calculation results of the function $dfs(i)$.
+To avoid repeated calculations, we can use memoization, i.e., use an array $f$ to record the calculation results of the function $\textit{dfs}(i)$.
 
 The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the number of stones in the pile.
 
@@ -278,15 +278,15 @@ impl Solution {
 
 <!-- thinking:end -->
 
-Solution 1 already fills this table from fewer stones to more. Define an array $f$, where $f[i]$ represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, then $f[i]$ is $true$, otherwise it is $false$. The answer is $f[n]$.
+Solution 1 already fills this table from fewer stones to more. Define an array $f$, where $f[i]$ represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, then $f[i]$ is $\textit{true}$, otherwise it is $\textit{false}$. The answer is $f[n]$.
 
-We enumerate $i$ in the range $[1,..n]$, and enumerate $j$ in the range $[1,..i]$, where $j$ is a square number. If the other player cannot win the game after the current player takes away $j$ stones, then the current player wins the game, i.e., $f[i] = true$. If all $j$ enumerated cannot satisfy the above condition, then the current player loses the game, i.e., $f[i] = false$. Therefore, we can get the state transition equation:
+We enumerate $i$ in the range $[1,..n]$, and enumerate $j$ in the range $[1,..i]$, where $j$ is a square number. If the other player cannot win the game after the current player takes away $j$ stones, then the current player wins the game, i.e., $f[i] = \textit{true}$. If all $j$ enumerated cannot satisfy the above condition, then the current player loses the game, i.e., $f[i] = \textit{false}$. Therefore, we can get the state transition equation:
 
 $$
 f[i]=
 \begin{cases}
-true, & \textit{if } \exists j \in [1,..i], j^2 \leq i \textit{ and } f[i-j^2] = false\\
-false, & \textit{otherwise}
+\textit{true}, & \textit{if } \exists j \in [1,..i], j^2 \leq i \textit{ and } f[i-j^2] = \textit{false}\\
+\textit{false}, & \textit{otherwise}
 \end{cases}
 $$
 
@@ -426,7 +426,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-Let $f[i]$ be whether the player to move wins with $i$ stones. $f[0]$ is $false$, since no move remains. For $i$ from $1$ to $n$, enumerate squares $j^2 \le i$. If $f[i-j^2]$ is $false$, the opponent loses from there, so $f[i]$ is $true$ and the remaining squares can be skipped. If every square leaves a winning position for the opponent, $f[i]$ stays $false$. The answer is $f[n]$.
+Let $f[i]$ be whether the player to move wins with $i$ stones. $f[0]$ is $\textit{false}$, since no move remains. For $i$ from $1$ to $n$, enumerate squares $j^2 \le i$. If $f[i-j^2]$ is $\textit{false}$, the opponent loses from there, so $f[i]$ is $\textit{true}$ and the remaining squares can be skipped. If every square leaves a winning position for the opponent, $f[i]$ stays $\textit{false}$. The answer is $f[n]$.
 
 The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the number of stones in the pile.
 

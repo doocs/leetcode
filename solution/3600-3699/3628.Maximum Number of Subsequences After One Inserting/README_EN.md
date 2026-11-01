@@ -87,7 +87,7 @@ tags:
 >
 > Inserting $L$ adds the number of "CT" pairs, inserting $T$ adds "LC", and inserting $C$ adds some $l\cdot r$. The last is available in the same scan; the first two are two-letter subsequence counts.
 >
-> While walking, maintain $l,r$ and the maximum $l\cdot r$, then take the max with $\textit{calc}(\text{LC})$ and $\textit{calc}(\text{CT})$ and add it to the original "LCT" count.
+> While walking, maintain $l,r$ and the maximum $l\cdot r$, then take the max with $\textit{calc}(\textit{LC})$ and $\textit{calc}(\textit{CT})$ and add it to the original "LCT" count.
 
 <!-- thinking:end -->
 
@@ -99,7 +99,7 @@ Next, we need to consider the case of inserting one letter. Consider inserting a
 
 - Insert an "L": we only need to count the number of "CT" subsequences in the original string.
 - Insert a "T": we only need to count the number of "LC" subsequences in the original string.
-- Insert a "C": we only need to count the number of "LT" subsequences in the original string. In this case, during the enumeration process above, we can maintain a variable $\textit{mx}$ representing the current maximum value of $l \times r$.
+- Insert a "C": we only need to count the number of "LT" subsequences in the original string. In this case, during the enumeration process above, we can maintain a variable $mx$ representing the current maximum value of $l \times r$.
 
 Finally, we add the number of "LCT" subsequences in the original string to the maximum number of subsequences after inserting one letter to get the final result.
 

@@ -51,7 +51,7 @@ difficulty: 简单
 >
 > 不相同的位恰是 $A\oplus B$ 中的 $1$，故问题化为求异或的汉明重量。
 >
-> 先与 $0xFFFFFFFF$ 截成无符号 $32$ 位，避免语言中负数算术移位的差异，再 `bit_count`。
+> 先与 `0xFFFFFFFF` 截成无符号 $32$ 位，避免语言中负数算术移位的差异，再 `bit_count`。
 
 <!-- thinking:end -->
 

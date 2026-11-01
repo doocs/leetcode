@@ -79,13 +79,13 @@ const newArray = filter(arr, fn); // [20, 30]
 
 > **思考**
 >
-> 不能调用 `Array.filter`，须按真值回调筛选。一次顺序扫描即可保留满足 $fn(arr[i],i)$ 的元素，并维持相对次序。
+> 不能调用 `Array.filter`，须按真值回调筛选。一次顺序扫描即可保留满足 $fn(\textit{arr}[i],i)$ 的元素，并维持相对次序。
 
 <!-- thinking:end -->
 
-我们遍历数组 $arr$，对于每个元素 $arr[i]$，如果 $fn(arr[i], i)$ 为真，则将其加入答案数组中。最后返回答案数组即可。
+我们遍历数组 $\textit{arr}$，对于每个元素 $\textit{arr}[i]$，如果 $fn(\textit{arr}[i], i)$ 为真，则将其加入答案数组中。最后返回答案数组即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

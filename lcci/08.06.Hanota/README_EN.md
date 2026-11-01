@@ -55,11 +55,11 @@ difficulty: Easy
 >
 > The optimal plan is unique: move $n-1$ to the spare peg, move the largest, then move $n-1$ onto it.
 >
-> $dfs(n,a,b,c)$ follows that order; $n=1$ is a single pop/append. The length is $2^n-1$.
+> $\textit{dfs}(n,a,b,c)$ follows that order; $n=1$ is a single pop/append. The length is $2^n-1$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(n, a, b, c)$, which represents moving $n$ disks from $a$ to $c$, with $b$ as the auxiliary rod.
+We design a function $\textit{dfs}(n, a, b, c)$, which represents moving $n$ disks from $a$ to $c$, with $b$ as the auxiliary rod.
 
 First, we move $n - 1$ disks from $a$ to $b$, then move the $n$-th disk from $a$ to $c$, and finally move $n - 1$ disks from $b$ to $c$.
 
@@ -206,9 +206,9 @@ class Solution {
 
 We can use a stack to simulate the recursive process.
 
-We define a struct $Task$, which represents a task, where $n$ represents the number of disks, and $a$, $b$, $c$ represent the three rods.
+We define a struct $\textit{Task}$, which represents a task, where $n$ represents the number of disks, and $a$, $b$, $c$ represent the three rods.
 
-We push the initial task $Task(len(A), A, B, C)$ into the stack, and then continuously process the task at the top of the stack until the stack is empty.
+We push the initial task $\textit{Task}(\textit{len}(A), A, B, C)$ into the stack, and then continuously process the task at the top of the stack until the stack is empty.
 
 If $n = 1$, then we directly move the disk from $a$ to $c$.
 

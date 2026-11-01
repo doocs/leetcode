@@ -86,21 +86,21 @@ Only one ring is given. Thus, no rods have all three colors.
 
 > **Thinking**
 >
-> Each rod only needs to know whether red, green, and blue have all appeared. Scanning $rings$ separately for every rod repeats the same pairs; the string is even-length color–index pairs and can be processed in one pass.
+> Each rod only needs to know whether red, green, and blue have all appeared. Scanning $\textit{rings}$ separately for every rod repeats the same pairs; the string is even-length color–index pairs and can be processed in one pass.
 >
 > The three colors are independent flags and fit in three bits. Mapping `'R','G','B'` to $1,2,4$ and OR-ing into rod $j$ makes a rod complete exactly when its mask equals $7$.
 >
-> We therefore keep a length-$10$ array $\textit{mask}$, consume $rings$ two characters at a time, and count entries equal to $7$.
+> We therefore keep a length-$10$ array $\textit{mask}$, consume $\textit{rings}$ two characters at a time, and count entries equal to $7$.
 
 <!-- thinking:end -->
 
-We can use an array $mask$ of length $10$ to represent the color situation of the rings on each rod, where $mask[i]$ represents the color situation of the ring on the $i$th rod. If there are red, green, and blue rings on the $i$th rod, then the binary representation of $mask[i]$ is $111$, that is, $mask[i] = 7$.
+We can use an array $\textit{mask}$ of length $10$ to represent the color situation of the rings on each rod, where $\textit{mask}[i]$ represents the color situation of the ring on the $i$th rod. If there are red, green, and blue rings on the $i$th rod, then the binary representation of $\textit{mask}[i]$ is $111$, that is, $\textit{mask}[i] = 7$.
 
-We traverse the string $rings$. For each color position pair $(c, j)$, where $c$ represents the color of the ring and $j$ represents the number of the rod where the ring is located, we set the corresponding binary bit of $mask[j]$, that is, $mask[j] |= d[c]$, where $d[c]$ represents the binary bit corresponding to color $c$.
+We traverse the string $\textit{rings}$. For each color position pair $(c, j)$, where $c$ represents the color of the ring and $j$ represents the number of the rod where the ring is located, we set the corresponding binary bit of $\textit{mask}[j]$, that is, $\textit{mask}[j] |= d[c]$, where $d[c]$ represents the binary bit corresponding to color $c$.
 
-Finally, we count the number of elements in $mask$ that are $7$, which is the number of rods that have collected all three colors of rings.
+Finally, we count the number of elements in $\textit{mask}$ that are $7$, which is the number of rods that have collected all three colors of rings.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ represents the length of the string $rings$, and $|\Sigma|$ represents the size of the character set.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ represents the length of the string $\textit{rings}$, and $|\Sigma|$ represents the size of the character set.
 
 <!-- tabs:start -->
 
@@ -276,7 +276,7 @@ int countPoints(char* rings) {
 
 Enumerate rod numbers $0$ through $9$, and use string search to check whether that rod has appeared with blue, red, and green.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $rings$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{rings}$.
 
 <!-- tabs:start -->
 

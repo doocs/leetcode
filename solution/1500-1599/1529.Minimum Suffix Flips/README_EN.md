@@ -78,9 +78,9 @@ We need at least 3 flip operations to form target.
 
 > **Thinking**
 >
-> An operation flips a suffix; we must turn zeros into $target$. $n\le 10^5$, so we cannot simulate every suffix. Once a prefix already matches, the next flip should start at the first later mismatch.
+> An operation flips a suffix; we must turn zeros into $\textit{target}$. $n\le 10^5$, so we cannot simulate every suffix. Once a prefix already matches, the next flip should start at the first later mismatch.
 >
-> Scan left to right: the parity of the flip count is the current bit. If it differs from $target[i]$, we must flip the suffix at $i$. Each flip repairs the leftmost bit that earlier operations cannot change, so the count is minimal.
+> Scan left to right: the parity of the flip count is the current bit. If it differs from $\textit{target}[i]$, we must flip the suffix at $i$. Each flip repairs the leftmost bit that earlier operations cannot change, so the count is minimal.
 
 <!-- thinking:end -->
 

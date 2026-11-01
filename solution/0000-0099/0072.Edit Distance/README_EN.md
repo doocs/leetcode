@@ -71,17 +71,17 @@ exection -&gt; execution (insert &#39;u&#39;)
 
 > **Thinking**
 >
-> The first idea is recursion: at each position of $word1$ try insert, delete, or replace, then take the best. Correct, but exponential. $m,n \le 500$ needs a polynomial.
+> The first idea is recursion: at each position of $\textit{word1}$ try insert, delete, or replace, then take the best. Correct, but exponential. $m,n \le 500$ needs a polynomial.
 >
 > The bottleneck is overlapping subproblems — converting prefix $i$ into prefix $j$ is solved many times. Let $f[i][j]$ be that minimum. Equal last characters inherit the diagonal; otherwise the three operations map to three neighbors, take $\min$ plus one. Empty-string borders are delete-all / insert-all. The answer is $f[m][n]$.
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ as the minimum number of operations to convert $word1$ of length $i$ to $word2$ of length $j$. $f[i][0] = i$, $f[0][j] = j$, $i \in [1, m], j \in [0, n]$.
+We define $f[i][j]$ as the minimum number of operations to convert $\textit{word1}$ of length $i$ to $\textit{word2}$ of length $j$. $f[i][0] = i$, $f[0][j] = j$, $i \in [1, m], j \in [0, n]$.
 
 We consider $f[i][j]$:
 
-- If $word1[i - 1] = word2[j - 1]$, then we only need to consider the minimum number of operations to convert $word1$ of length $i - 1$ to $word2$ of length $j - 1$, so $f[i][j] = f[i - 1][j - 1]$;
+- If $\textit{word1}[i - 1] = \textit{word2}[j - 1]$, then we only need to consider the minimum number of operations to convert $\textit{word1}$ of length $i - 1$ to $\textit{word2}$ of length $j - 1$, so $f[i][j] = f[i - 1][j - 1]$;
 - Otherwise, we can consider insert, delete, and replace operations, then $f[i][j] = \min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1$.
 
 Finally, we can get the state transition equation:
@@ -97,7 +97,7 @@ $$
 
 Finally, we return $f[m][n]$.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $word1$ and $word2$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{word1}$ and $\textit{word2}$ respectively.
 
 <!-- tabs:start -->
 

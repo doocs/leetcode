@@ -59,7 +59,7 @@ tags:
 >
 > The area of a triangle is half the absolute cross product of two sides. With at most $50$ points, a triple loop is acceptable.
 >
-> Enumerate every triple, take $|\mathbf{u}\times\mathbf{v}|/2$, and keep the maximum. Collinear triples contribute $0$ and do not affect the answer.
+> Enumerate every triple, take $|u\times v|/2$, and keep the maximum. Collinear triples contribute $0$ and do not affect the answer.
 
 <!-- thinking:end -->
 

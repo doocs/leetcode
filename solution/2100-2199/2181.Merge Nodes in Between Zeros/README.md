@@ -82,9 +82,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个虚拟头节点 $\textit{dummy}$，以及一个指向当前节点的指针 $\textit{tail}$，一个变量 $\textit{s}$ 用来记录当前节点的值之和。
+我们定义一个虚拟头节点 $\textit{dummy}$，以及一个指向当前节点的指针 $\textit{tail}$，一个变量 $s$ 用来记录当前节点的值之和。
 
-接下来，我们从链表的第二个节点开始遍历，如果当前节点的值不为 0，我们将其加到 $\textit{s}$ 上，否则我们将 $\textit{s}$ 加到 $\textit{tail}$ 的后面，并将 $\textit{s}$ 置为 0，更新 $\textit{tail}$ 为 $\textit{tail}$ 的下一个节点。
+接下来，我们从链表的第二个节点开始遍历，如果当前节点的值不为 0，我们将其加到 $s$ 上，否则我们将 $s$ 加到 $\textit{tail}$ 的后面，并将 $s$ 置为 0，更新 $\textit{tail}$ 为 $\textit{tail}$ 的下一个节点。
 
 最后，我们返回 $\textit{dummy}$ 的下一个节点。
 

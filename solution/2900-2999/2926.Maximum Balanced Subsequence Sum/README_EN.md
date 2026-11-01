@@ -88,29 +88,29 @@ It is a balanced subsequence, and its sum is the maximum among the balanced subs
 
 > **Thinking**
 >
-> Balance $nums[i]-nums[j] \ge i-j$ rewrites as $nums[i]-i \ge nums[j]-j$. On $arr[t]=nums[t]-t$ we want a nondecreasing index sequence maximizing the sum of $nums$. The naive $f[i]=nums[i]+\max_{j<i, arr[j]\le arr[i]} f[j]$ (or just $nums[i]$) is $O(n^2)$ for $n \le 10^5$.
+> Balance $\textit{nums}[i]-\textit{nums}[j] \ge i-j$ rewrites as $\textit{nums}[i]-i \ge \textit{nums}[j]-j$. On $\textit{arr}[t]=\textit{nums}[t]-t$ we want a nondecreasing index sequence maximizing the sum of $\textit{nums}$. The naive $f[i]=\textit{nums}[i]+\max_{j<i, \textit{arr}[j]\le \textit{arr}[i]} f[j]$ (or just $\textit{nums}[i]$) is $O(n^2)$ for $n \le 10^5$.
 >
-> After compressing $arr$, a Fenwick tree stores the best $f$ among values up to a threshold. Scan in index order, query, then insert; a final prefix maximum is the answer.
+> After compressing $\textit{arr}$, a Fenwick tree stores the best $f$ among values up to a threshold. Scan in index order, query, then insert; a final prefix maximum is the answer.
 
 <!-- thinking:end -->
 
-According to the problem description, we can transform the inequality $nums[i] - nums[j] \ge i - j$ into $nums[i] - i \ge nums[j] - j$. Therefore, we consider defining a new array $arr$, where $arr[i] = nums[i] - i$. A balanced subsequence satisfies that for any $j < i$, $arr[j] \le arr[i]$. The problem is transformed into selecting an increasing subsequence in $arr$ such that the corresponding sum in $nums$ is maximized.
+According to the problem description, we can transform the inequality $\textit{nums}[i] - \textit{nums}[j] \ge i - j$ into $\textit{nums}[i] - i \ge \textit{nums}[j] - j$. Therefore, we consider defining a new array $\textit{arr}$, where $\textit{arr}[i] = \textit{nums}[i] - i$. A balanced subsequence satisfies that for any $j < i$, $\textit{arr}[j] \le \textit{arr}[i]$. The problem is transformed into selecting an increasing subsequence in $\textit{arr}$ such that the corresponding sum in $\textit{nums}$ is maximized.
 
-Suppose $i$ is the index of the last element in the subsequence, then we consider the index $j$ of the second to last element in the subsequence. If $arr[j] \le arr[i]$, we can consider whether to add $j$ to the subsequence.
+Suppose $i$ is the index of the last element in the subsequence, then we consider the index $j$ of the second to last element in the subsequence. If $\textit{arr}[j] \le \textit{arr}[i]$, we can consider whether to add $j$ to the subsequence.
 
-Therefore, we define $f[i]$ as the maximum sum of $nums$ when the index of the last element in the subsequence is $i$. The answer is $\max_{i=0}^{n-1} f[i]$.
+Therefore, we define $f[i]$ as the maximum sum of $\textit{nums}$ when the index of the last element in the subsequence is $i$. The answer is $\max_{i=0}^{n-1} f[i]$.
 
 The state transition equation is:
 
 $$
-f[i] = \max(\max_{j=0}^{i-1} f[j], 0) + nums[i]
+f[i] = \max(\max_{j=0}^{i-1} f[j], 0) + \textit{nums}[i]
 $$
 
-where $j$ satisfies $arr[j] \le arr[i]$.
+where $j$ satisfies $\textit{arr}[j] \le \textit{arr}[i]$.
 
-We can use a Binary Indexed Tree to maintain the maximum value of the prefix, i.e., for each $arr[i]$, we maintain the maximum value of $f[i]$ in the prefix $arr[0..i]$.
+We can use a Binary Indexed Tree to maintain the maximum value of the prefix, i.e., for each $\textit{arr}[i]$, we maintain the maximum value of $f[i]$ in the prefix $\textit{arr}[0..i]$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

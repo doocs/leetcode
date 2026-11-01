@@ -113,17 +113,17 @@ tags:
 
 <!-- thinking:end -->
 
-We consider each element $x$ in the array $nums$ as the boundary element and the maximum value of the subarray.
+We consider each element $x$ in the array $\textit{nums}$ as the boundary element and the maximum value of the subarray.
 
 Each subarray of length $1$ meets the condition, and for subarrays with length greater than $1$, all elements in the subarray cannot be greater than the boundary element $x$. We can implement this with a monotonic stack.
 
-We maintain a stack that decreases monotonically from the bottom to the top. Each element in the monotonic stack is a pair $[x, cnt]$, representing the element $x$ and the count $cnt$ of subarrays with $x$ as the boundary element and the maximum value.
+We maintain a stack that decreases monotonically from the bottom to the top. Each element in the monotonic stack is a pair $[x, \textit{cnt}]$, representing the element $x$ and the count $\textit{cnt}$ of subarrays with $x$ as the boundary element and the maximum value.
 
-We traverse the array $nums$ from left to right. For each element $x$, we continuously pop the top element of the stack until the stack is empty or the first element of the top element of the stack is greater than or equal to $x$. If the stack is empty, or the first element of the top element of the stack is greater than $x$, it means that we have encountered the first subarray with $x$ as the boundary element and the maximum value, and the length of this subarray is $1$, so we push $[x, 1]$ into the stack. If the first element of the top element of the stack is equal to $x$, it means that we have encountered a subarray with $x$ as the boundary element and the maximum value, and we add $1$ to the second element of the top element of the stack. Then, we add the second element of the top element of the stack to the answer.
+We traverse the array $\textit{nums}$ from left to right. For each element $x$, we continuously pop the top element of the stack until the stack is empty or the first element of the top element of the stack is greater than or equal to $x$. If the stack is empty, or the first element of the top element of the stack is greater than $x$, it means that we have encountered the first subarray with $x$ as the boundary element and the maximum value, and the length of this subarray is $1$, so we push $[x, 1]$ into the stack. If the first element of the top element of the stack is equal to $x$, it means that we have encountered a subarray with $x$ as the boundary element and the maximum value, and we add $1$ to the second element of the top element of the stack. Then, we add the second element of the top element of the stack to the answer.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

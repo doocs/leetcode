@@ -91,7 +91,7 @@ So, the output is 1.
 
 > **Thinking**
 >
-> Group $k$ needs $k$ distinct numbers, and number $i$ may be used at most $usageLimits[i]$ times; we want the most groups. Trying every group count and matching quotas is heavy.
+> Group $k$ needs $k$ distinct numbers, and number $i$ may be used at most $\textit{usageLimits}[i]$ times; we want the most groups. Trying every group count and matching quotas is heavy.
 >
 > Sort the limits and consume from the left: whenever the running remainder can open group $k+1$, do so and subtract $k+1$, rolling the rest into the next limit. Using smaller quotas first maximizes the number of groups.
 

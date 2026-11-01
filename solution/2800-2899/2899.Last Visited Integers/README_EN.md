@@ -97,7 +97,7 @@ tags:
 
 > **Thinking**
 >
-> Positive integers append to $seen$; a run of $-1$s means the $k$-th last seen value. A counter $k$ grows on $-1$ and resets on a positive number; if $k$ exceeds the length of $seen$, the answer is $-1$.
+> Positive integers append to $\textit{seen}$; a run of $-1$s means the $k$-th last seen value. A counter $k$ grows on $-1$ and resets on a positive number; if $k$ exceeds the length of $\textit{seen}$, the answer is $-1$.
 
 <!-- thinking:end -->
 

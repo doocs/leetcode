@@ -71,7 +71,7 @@ tags:
 
 > **思考**
 >
-> 求 $word$ 连续重复能作为 $sequence$ 子串的最大次数。两串长度不超过 $100$，从 $n/\lvert word \rvert$ 向下枚举 $k$，第一次 $word*k$ 出现即为答案。
+> 求 $\textit{word}$ 连续重复能作为 $\textit{sequence}$ 子串的最大次数。两串长度不超过 $100$，从 $n/\lvert \textit{word} \rvert$ 向下枚举 $k$，第一次 $\textit{word}*k$ 出现即为答案。
 
 <!-- thinking:end -->
 

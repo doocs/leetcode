@@ -105,27 +105,27 @@ tags:
 
 > **Thinking**
 >
-> Each split requires both sides to have length $1$ or sum at least $m$. There are $O(n^2)$ intervals, so memoization is viable. With prefix sums, $dfs(i,j)$ tries every cut $k$, checks the two sides, and recurses.
+> Each split requires both sides to have length $1$ or sum at least $m$. There are $O(n^2)$ intervals, so memoization is viable. With prefix sums, $\textit{dfs}(i,j)$ tries every cut $k$, checks the two sides, and recurses.
 
 <!-- thinking:end -->
 
-First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
+First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array $\textit{nums}$.
 
-Next, we design a function $dfs(i, j)$, which represents whether there is a way to split the index range $[i, j]$ of the array $nums$ that meets the conditions. If it exists, return `true`, otherwise return `false`.
+Next, we design a function $\textit{dfs}(i, j)$, which represents whether there is a way to split the index range $[i, j]$ of the array $\textit{nums}$ that meets the conditions. If it exists, return `true`, otherwise return `false`.
 
-The calculation process of the function $dfs(i, j)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 
 If $i = j$, then there is only one element, no need to split, return `true`;
 
 Otherwise, we enumerate the split point $k$, where $k \in [i, j]$, if the following conditions are met, then it can be split into two subarrays $nums[i,.. k]$ and $nums[k + 1,.. j]$:
 
-- The subarray $nums[i,..k]$ has only one element, or the sum of the elements of the subarray $nums[i,..k]$ is greater than or equal to $m$;
-- The subarray $nums[k + 1,..j]$ has only one element, or the sum of the elements of the subarray $nums[k + 1,..j]$ is greater than or equal to $m$;
-- Both $dfs(i, k)$ and $dfs(k + 1, j)$ are `true`.
+- The subarray $\textit{nums}[i,..k]$ has only one element, or the sum of the elements of the subarray $\textit{nums}[i,..k]$ is greater than or equal to $m$;
+- The subarray $\textit{nums}[k + 1,..j]$ has only one element, or the sum of the elements of the subarray $\textit{nums}[k + 1,..j]$ is greater than or equal to $m$;
+- Both $\textit{dfs}(i, k)$ and $\textit{dfs}(k + 1, j)$ are `true`.
 
-To avoid repeated calculations, we use the method of memoization search, and use a two-dimensional array $f$ to record all the return values of $dfs(i, j)$, where $f[i][j]$ represents the return value of $dfs(i, j)$.
+To avoid repeated calculations, we use the method of memoization search, and use a two-dimensional array $f$ to record all the return values of $\textit{dfs}(i, j)$, where $f[i][j]$ represents the return value of $\textit{dfs}(i, j)$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -332,7 +332,7 @@ No matter how you operate, there will always be a `length == 2` subarray left in
 
 > 📢 Note that when `nums.length <= 2`, no operation is needed.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

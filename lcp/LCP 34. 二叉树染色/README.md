@@ -50,17 +50,17 @@ difficulty: 中等
 >
 > 节点数 $10^4$，连续染色长度不超过 $k\le 10$。染色与否影响祖先的连续段，不能对每个节点独立决策。子树内的最优值只依赖「根上连续染色了几个节点」。
 >
-> 后序返回长度为 $k+1$ 的数组： $ans[0]$ 表示根不染色，取左右子树各自最优之和；根染色时枚举左右连续段 $i,j$ 且 $i+j<k$，把 $l[i]+r[j]+root.val$ 写入 $ans[i+j+1]$。整棵树再取最大值。
+> 后序返回长度为 $k+1$ 的数组： $\textit{ans}[0]$ 表示根不染色，取左右子树各自最优之和；根染色时枚举左右连续段 $i,j$ 且 $i+j<k$，把 $l[i]+r[j]+\textit{root}.\textit{val}$ 写入 $\textit{ans}[i+j+1]$。整棵树再取最大值。
 
 <!-- thinking:end -->
 
-我们考虑以 $root$ 为根节点的子树，且 $root$ 节点连着 $t$ 个染色节点的最大价值，其中 $t \in [0, k]$。我们用状态 $f[root][t]$ 来表示。
+我们考虑以 $\textit{root}$ 为根节点的子树，且 $\textit{root}$ 节点连着 $t$ 个染色节点的最大价值，其中 $t \in [0, k]$。我们用状态 $f[\textit{root}][t]$ 来表示。
 
-如果我们不染色 $root$ 节点，那么 $root$ 的左右节点可以连着 $t \in [0, k]$ 个染色节点，即 $f[root][0] = \max_{t \in [0, k]} f[root.left][t] + \max_{t \in [0, k]} f[root.right][t]$。
+如果我们不染色 $\textit{root}$ 节点，那么 $\textit{root}$ 的左右节点可以连着 $t \in [0, k]$ 个染色节点，即 $f[\textit{root}][0] = \max_{t \in [0, k]} f[\textit{root}.\textit{left}][t] + \max_{t \in [0, k]} f[\textit{root}.\textit{right}][t]$。
 
-如果我们染色 $root$ 节点，那么 $root$ 的左右节点可以连着最多共 $k-1$ 个染色节点，不妨假设左节点连着 $i$ 个染色节点，右节点连着 $j$ 个染色节点，其中 $i \in [0, k-1]$, $j \in [0, k-1-i]$，那么 $f[root][i + j + 1] = \max_{i \in [0, k-1], j \in [0, k-1-i]} f[root.left][i] + f[root.right][j] + root.val$。
+如果我们染色 $\textit{root}$ 节点，那么 $\textit{root}$ 的左右节点可以连着最多共 $k-1$ 个染色节点，不妨假设左节点连着 $i$ 个染色节点，右节点连着 $j$ 个染色节点，其中 $i \in [0, k-1]$, $j \in [0, k-1-i]$，那么 $f[\textit{root}][i + j + 1] = \max_{i \in [0, k-1], j \in [0, k-1-i]} f[\textit{root}.\textit{left}][i] + f[\textit{root}.\textit{right}][j] + \textit{root}.\textit{val}$。
 
-最后答案就是 $f[root][t]$ 中的最大值。
+最后答案就是 $f[\textit{root}][t]$ 中的最大值。
 
 时间复杂度 $O(nk^2)$，空间复杂度 $O(nk)$。其中 $n$ 和 $k$ 分别是二叉树的节点数和 $k$ 的值。
 

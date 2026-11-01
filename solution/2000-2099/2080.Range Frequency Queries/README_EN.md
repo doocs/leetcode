@@ -74,7 +74,7 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 >
 > Many range frequency queries on a static array. $n$ and the query count are $10^5$; a segment tree works, but one value only needs its index list.
 >
-> A hash map stores increasing indices; two binary searches on $[left,right]$ yield the count.
+> A hash map stores increasing indices; two binary searches on $[\textit{left},\textit{right}]$ yield the count.
 
 <!-- thinking:end -->
 

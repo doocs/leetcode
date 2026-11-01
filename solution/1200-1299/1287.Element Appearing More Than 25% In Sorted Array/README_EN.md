@@ -54,7 +54,7 @@ tags:
 
 > **Thinking**
 >
-> In a sorted array some value occurs more than $25\%$, i.e. spans at least $\lfloor n/4 \rfloor$. If $arr[i]=arr[i+\lfloor n/4 \rfloor]$, that value already covers enough length. The first hit from the left is the answer; sorted order turns counting into an index comparison.
+> In a sorted array some value occurs more than $25\%$, i.e. spans at least $\lfloor n/4 \rfloor$. If $\textit{arr}[i]=\textit{arr}[i+\lfloor n/4 \rfloor]$, that value already covers enough length. The first hit from the left is the answer; sorted order turns counting into an index comparison.
 
 <!-- thinking:end -->
 

@@ -78,17 +78,17 @@ Therefore, it is NOT a valid word square.
 
 > **Thinking**
 >
-> A word square needs $words[i][j]=words[j][i]$. Rows may have unequal lengths, so building a transpose first trips over missing columns.
+> A word square needs $\textit{words}[i][j]=\textit{words}[j][i]$. Rows may have unequal lengths, so building a transpose first trips over missing columns.
 >
-> Check each character against $words[j][i]$; any out-of-range index or mismatch fails.
+> Check each character against $\textit{words}[j][i]$; any out-of-range index or mismatch fails.
 >
-> A missing $words[j][i]$ is a failure: that is exactly a column that does not spell the same word.
+> A missing $\textit{words}[j][i]$ is a failure: that is exactly a column that does not spell the same word.
 
 <!-- thinking:end -->
 
-We observe that if $words[i][j] \neq words[j][i]$, we can directly return `false`.
+We observe that if $\textit{words}[i][j] \neq \textit{words}[j][i]$, we can directly return `false`.
 
-Therefore, we only need to iterate through each row, and then check whether each row satisfies $words[i][j] = words[j][i]$. Note that if the index is out of bounds, we also directly return `false`.
+Therefore, we only need to iterate through each row, and then check whether each row satisfies $\textit{words}[i][j] = \textit{words}[j][i]$. Note that if the index is out of bounds, we also directly return `false`.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of `words`.
 

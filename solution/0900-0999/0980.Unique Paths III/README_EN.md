@@ -90,15 +90,15 @@ Note that the starting and ending square can be anywhere in the grid.
 
 <!-- thinking:end -->
 
-We can first traverse the entire grid, find the starting point $(x, y)$, and count the number of blank spaces $cnt$.
+We can first traverse the entire grid, find the starting point $(x, y)$, and count the number of blank spaces $\textit{cnt}$.
 
-Next, we can start searching from the starting point to get all the path numbers. We design a function $dfs(i, j, k)$ to indicate that the path number is $k$ and the starting point is $(i, j)$.
+Next, we can start searching from the starting point to get all the path numbers. We design a function $\textit{dfs}(i, j, k)$ to indicate that the path number is $k$ and the starting point is $(i, j)$.
 
-In the function, we first determine whether the current cell is the end point. If it is, we determine whether $k$ is equal to $cnt + 1$. If it is, the current path is a valid path, and $1$ is returned, otherwise $0$ is returned.
+In the function, we first determine whether the current cell is the end point. If it is, we determine whether $k$ is equal to $\textit{cnt} + 1$. If it is, the current path is a valid path, and $1$ is returned, otherwise $0$ is returned.
 
 If the current cell is not the end point, we enumerate the four adjacent cells of the current cell. If the adjacent cell has not been visited, we mark the adjacent cell as visited, and then continue to search the path number from the adjacent cell. After the search is completed, we mark the adjacent cell as unvisited. After the search is completed, we return the sum of the path numbers of all adjacent cells.
 
-Finally, we return the path number from the starting point, that is, $dfs(x, y, 1)$.
+Finally, we return the path number from the starting point, that is, $\textit{dfs}(x, y, 1)$.
 
 The time complexity is $O(3^{mn})$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 

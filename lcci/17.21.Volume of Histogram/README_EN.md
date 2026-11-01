@@ -41,9 +41,9 @@ difficulty: Hard
 >
 > Trapping rain on a histogram. Scanning bounds per bar can be quadratic.
 >
-> Water at $i$ is the min of the tallest bars on each side minus $height[i]$; those extrema can be precomputed.
+> Water at $i$ is the min of the tallest bars on each side minus $\textit{height}[i]$; those extrema can be precomputed.
 >
-> $left[i]$ and $right[i]$ are inclusive prefix/suffix maxima; sum $\min(l,r)-h$. Length less than $3$ stores nothing.
+> $\textit{left}[i]$ and $\textit{right}[i]$ are inclusive prefix/suffix maxima; sum $\min(l,r)-h$. Length less than $3$ stores nothing.
 
 <!-- thinking:end -->
 

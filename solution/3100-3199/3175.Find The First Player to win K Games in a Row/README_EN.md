@@ -103,7 +103,7 @@ tags:
 >
 > A loser never returns before a yet-unseen stronger player. After $n-1$ consecutive wins the current player is the global maximum, so $k$ may be capped at $n-1$.
 >
-> Keep the champion index $i$ and a streak $cnt$, resetting on a stronger opponent. Stop when $cnt=k$ or the array ends.
+> Keep the champion index $i$ and a streak $\textit{cnt}$, resetting on a stronger opponent. Stop when $\textit{cnt}=k$ or the array ends.
 
 <!-- thinking:end -->
 

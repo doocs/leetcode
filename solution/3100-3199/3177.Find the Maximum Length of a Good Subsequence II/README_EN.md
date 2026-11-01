@@ -77,14 +77,14 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i][h]$ as the length of the longest good subsequence ending with $nums[i]$ and having no more than $h$ indices satisfying the condition. Initially, $f[i][h] = 1$. The answer is $\max(f[i][k])$, where $0 \le i < n$.
+We define $f[i][h]$ as the length of the longest good subsequence ending with $\textit{nums}[i]$ and having no more than $h$ indices satisfying the condition. Initially, $f[i][h] = 1$. The answer is $\max(f[i][k])$, where $0 \le i < n$.
 
-We consider how to calculate $f[i][h]$. We can enumerate $0 \le j < i$, if $nums[i] = nums[j]$, then $f[i][h] = \max(f[i][h], f[j][h] + 1)$; otherwise, if $h > 0$, then $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$. That is:
+We consider how to calculate $f[i][h]$. We can enumerate $0 \le j < i$, if $\textit{nums}[i] = \textit{nums}[j]$, then $f[i][h] = \max(f[i][h], f[j][h] + 1)$; otherwise, if $h > 0$, then $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$. That is:
 
 $$
 f[i][h]=
 \begin{cases}
-\max(f[i][h], f[j][h] + 1), & \textit{if } nums[i] = nums[j], \\
+\max(f[i][h], f[j][h] + 1), & \textit{if } \textit{nums}[i] = \textit{nums}[j], \\
 \max(f[i][h], f[j][h - 1] + 1), & \textit{if } h > 0.
 \end{cases}
 $$
@@ -95,7 +95,7 @@ The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$
 
 Due to the large data range of this problem, the above solution will time out and needs to be optimized.
 
-According to the state transition equation, if $nums[i] = nums[j]$, then we only need to get the maximum value of $f[j][h]$, we can maintain it with an array $mp$ of length $k + 1$. If $nums[i] \neq nums[j]$, we need to record the maximum value of $f[j][h - 1]$ corresponding to $nums[j]$, the maximum value and the second maximum value, we can maintain it with an array $g$ of length $k + 1$.
+According to the state transition equation, if $\textit{nums}[i] = \textit{nums}[j]$, then we only need to get the maximum value of $f[j][h]$, we can maintain it with an array $mp$ of length $k + 1$. If $\textit{nums}[i] \neq \textit{nums}[j]$, we need to record the maximum value of $f[j][h - 1]$ corresponding to $\textit{nums}[j]$, the maximum value and the second maximum value, we can maintain it with an array $g$ of length $k + 1$.
 
 The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array `nums`.
 

@@ -89,13 +89,13 @@ tags:
 
 > **思考**
 >
-> 在最大二叉树对应的数组末尾追加 $val$ 再重建。 $val$ 若大于根则成为新根，原树作左子树；否则 $val$ 只可能落在右脊上。沿右子树递归插入即可。
+> 在最大二叉树对应的数组末尾追加 $\textit{val}$ 再重建。 $\textit{val}$ 若大于根则成为新根，原树作左子树；否则 $\textit{val}$ 只可能落在右脊上。沿右子树递归插入即可。
 
 <!-- thinking:end -->
 
-如果 $val$ 是最大数，那么将 $val$ 作为新的根节点， $root$ 作为新的根节点的左子树。
+如果 $\textit{val}$ 是最大数，那么将 $\textit{val}$ 作为新的根节点， $\textit{root}$ 作为新的根节点的左子树。
 
-如果 $val$ 不是最大数，由于 $val$ 是在最后追加的数，那么一定是在 $root$ 的右边，所以将 $val$ 作为新节点插入 $root$ 的右子树即可。
+如果 $\textit{val}$ 不是最大数，由于 $\textit{val}$ 是在最后追加的数，那么一定是在 $\textit{root}$ 的右边，所以将 $\textit{val}$ 作为新节点插入 $\textit{root}$ 的右子树即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
@@ -300,13 +300,13 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 
 > **思考**
 >
-> 递归深度最坏为树高。改为沿右链迭代，找到第一个右孩子小于 $val$ 的位置，把旧右子树接到新结点左侧，避免递归栈。
+> 递归深度最坏为树高。改为沿右链迭代，找到第一个右孩子小于 $\textit{val}$ 的位置，把旧右子树接到新结点左侧，避免递归栈。
 
 <!-- thinking:end -->
 
-搜索右子树，找到 $curr.val \gt val \gt curr.right.val$ 的节点，然后创建新的节点 $node$，把 $node.left$ 指向 $curr.right$，然后 $curr.right$ 指向 $node$。
+搜索右子树，找到 $\textit{curr}.\textit{val} \gt \textit{val} \gt \textit{curr}.\textit{right}.\textit{val}$ 的节点，然后创建新的节点 $\textit{node}$，把 $\textit{node}.\textit{left}$ 指向 $\textit{curr}.\textit{right}$，然后 $\textit{curr}.\textit{right}$ 指向 $\textit{node}$。
 
-最后返回 $root$。
+最后返回 $\textit{root}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是树的节点数。
 

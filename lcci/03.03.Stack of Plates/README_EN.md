@@ -60,17 +60,17 @@ difficulty: Medium
 >
 > A stack that is full must start a new plate stack, and `popAt` targets a specific stack. Manual index arithmetic on one array is brittle when a middle stack disappears.
 >
-> Model the structure as a list of bounded stacks, with $stk[-1]$ the current one.
+> Model the structure as a list of bounded stacks, with $\textit{stk}[-1]$ the current one.
 >
-> `push` appends a new list when the last stack is full; `pop` delegates to `popAt` on the last index; `popAt` pops that stack and removes it if empty. $cap=0$ rejects every push.
+> `push` appends a new list when the last stack is full; `pop` delegates to `popAt` on the last index; `popAt` pops that stack and removes it if empty. $\textit{cap}=0$ rejects every push.
 
 <!-- thinking:end -->
 
-We can use a list of stacks $stk$ to simulate this process, initially $stk$ is empty.
+We can use a list of stacks $\textit{stk}$ to simulate this process, initially $\textit{stk}$ is empty.
 
-- When the `push` method is called, if $cap$ is 0, return directly. Otherwise, if $stk$ is empty or the length of the last stack in $stk$ is greater than or equal to $cap$, then create a new stack. Then add the element $val$ to the last stack in $stk$. The time complexity is $O(1)$.
+- When the `push` method is called, if $\textit{cap}$ is 0, return directly. Otherwise, if $\textit{stk}$ is empty or the length of the last stack in $\textit{stk}$ is greater than or equal to $\textit{cap}$, then create a new stack. Then add the element $\textit{val}$ to the last stack in $\textit{stk}$. The time complexity is $O(1)$.
 - When the `pop` method is called, return the result of `popAt(|stk| - 1)`. The time complexity is $O(1)$.
-- When the `popAt` method is called, if $index$ is not in the range $[0, |stk|)$, return -1. Otherwise, return the top element of $stk[index]$ and pop it out. If $stk[index]$ is empty after popping, remove it from $stk$. The time complexity is $O(1)$.
+- When the `popAt` method is called, if $\textit{index}$ is not in the range $[0, |\textit{stk}|)$, return -1. Otherwise, return the top element of $\textit{stk}[\textit{index}]$ and pop it out. If $\textit{stk}[\textit{index}]$ is empty after popping, remove it from $\textit{stk}$. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of elements.
 

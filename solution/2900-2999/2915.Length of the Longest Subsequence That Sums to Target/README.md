@@ -74,9 +74,9 @@ tags:
 
 > **思考**
 >
-> 求元素和恰为 $target$ 的最长子序列，每个数至多用一次，属于 0-1 背包。 $n,target \le 1000$，二维 $f[i][j]$ 记录前 $i$ 个数凑出 $j$ 的最大长度，不可行状态置为 $-\infty$。
+> 求元素和恰为 $\textit{target}$ 的最长子序列，每个数至多用一次，属于 0-1 背包。 $n,\textit{target} \le 1000$，二维 $f[i][j]$ 记录前 $i$ 个数凑出 $j$ 的最大长度，不可行状态置为 $-\infty$。
 >
-> 转移在「不选 / 选 $x$」之间取最大。最终若 $f[n][target]$ 非正则无解。
+> 转移在「不选 / 选 $x$」之间取最大。最终若 $f[n][\textit{target}]$ 非正则无解。
 
 <!-- thinking:end -->
 
@@ -88,9 +88,9 @@ $$
 f[i][j]=\max\{f[i-1][j],f[i-1][j-x]+1\}
 $$
 
-最终答案为 $f[n][target]$，如果 $f[n][target]\le0$，则不存在和为 $target$ 的子序列，返回 $-1$。
+最终答案为 $f[n][\textit{target}]$，如果 $f[n][\textit{target}]\le0$，则不存在和为 $\textit{target}$ 的子序列，返回 $-1$。
 
-时间复杂度 $O(n target)$，空间复杂度 $O(n target)$。其中 $n$ 为数组长度，而 $target$ 为目标值。
+时间复杂度 $O(n \textit{target})$，空间复杂度 $O(n \textit{target})$。其中 $n$ 为数组长度，而 $\textit{target}$ 为目标值。
 
 <!-- tabs:start -->
 
@@ -221,11 +221,11 @@ function lengthOfLongestSubsequence(nums: number[], target: number): number {
 
 > **思考**
 >
-> 方法一的 $f[i][j]$ 只依赖上一行，第一维可去掉。每个数至多选一次，内层对容量从大到小更新，以免同一元素被用两次。空间降为 $O(target)$，答案语义不变。
+> 方法一的 $f[i][j]$ 只依赖上一行，第一维可去掉。每个数至多选一次，内层对容量从大到小更新，以免同一元素被用两次。空间降为 $O(\textit{target})$，答案语义不变。
 
 <!-- thinking:end -->
 
-$f[i][j]$ 只与上一行 $f[i-1][\cdot]$ 有关，因此可以去掉第一维。每个数最多选一次，内层对 $j$ 从大到小更新，空间复杂度降为 $O(target)$。
+$f[i][j]$ 只与上一行 $f[i-1][\cdot]$ 有关，因此可以去掉第一维。每个数最多选一次，内层对 $j$ 从大到小更新，空间复杂度降为 $O(\textit{target})$。
 
 <!-- tabs:start -->
 

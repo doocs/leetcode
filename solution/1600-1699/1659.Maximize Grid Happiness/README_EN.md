@@ -93,32 +93,32 @@ The grid happiness is 90 + 80 + 90 = 260.
 >
 > Precompute each row's own happiness $f$, the bonus $g$ between two consecutive rows, and how many introverts/extroverts that row uses.
 >
-> Memoize $dfs(i,pre,ic,ec)$ over the current row: try every row mask, subtract people, add $f+g$, and keep the maximum.
+> Memoize $\textit{dfs}(i,\textit{pre},ic,ec)$ over the current row: try every row mask, subtract people, add $f+g$, and keep the maximum.
 
 <!-- thinking:end -->
 
 We notice that in the problem, $1 \leq m, n \leq 5$, and each grid cell has three states: no personnel assigned, introverted personnel assigned, and extroverted personnel assigned. Therefore, we can use $0$, $1$, $2$ to represent these three states, and each row in the grid can be represented by a ternary number of length $n$.
 
-We define a function $dfs(i, pre, ic, ec)$, which represents the maximum happiness of the grid starting from the $i$-th row, with the state of the previous row being $pre$, $ic$ introverted people left, and $ec$ extroverted people left. The answer is $dfs(0, 0, introvertsCount, extrovertsCount)$.
+We define a function $\textit{dfs}(i, \textit{pre}, ic, ec)$, which represents the maximum happiness of the grid starting from the $i$-th row, with the state of the previous row being $\textit{pre}$, $ic$ introverted people left, and $ec$ extroverted people left. The answer is $\textit{dfs}(0, 0, \textit{introvertsCount}, \textit{extrovertsCount})$.
 
-The calculation process of the function $dfs(i, pre, ic, ec)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, \textit{pre}, ic, ec)$ is as follows:
 
 If $i = m$, it means that all rows have been processed, so return $0$;
 
 If $ic = 0$ and $ec = 0$, it means that all people have been assigned, so return $0$;
 
-Otherwise, enumerate the current row's state $cur$, where $cur \in [0, 3^n)$, then calculate the happiness $f[cur]$ of the current row, and the contribution $g[pre][cur]$ to the happiness between the state $pre$ of the previous row, and recursively calculate $dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$, finally return the maximum value of $f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$, that is:
+Otherwise, enumerate the current row's state $\textit{cur}$, where $\textit{cur} \in [0, 3^n)$, then calculate the happiness $f[\textit{cur}]$ of the current row, and the contribution $g[\textit{pre}][\textit{cur}]$ to the happiness between the state $\textit{pre}$ of the previous row, and recursively calculate $\textit{dfs}(i + 1, \textit{cur}, ic - ix[\textit{cur}], ec - ex[\textit{cur}])$, finally return the maximum value of $f[\textit{cur}] + g[\textit{pre}][\textit{cur}] + \textit{dfs}(i + 1, \textit{cur}, ic - ix[\textit{cur}], ec - ex[\textit{cur}])$, that is:
 
 $$
-dfs(i, pre, ic, ec) = \max_{cur} \{f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])\}
+\textit{dfs}(i, \textit{pre}, ic, ec) = \max_{\textit{cur}} \{f[\textit{cur}] + g[\textit{pre}][\textit{cur}] + \textit{dfs}(i + 1, \textit{cur}, ic - ix[\textit{cur}], ec - ex[\textit{cur}])\}
 $$
 
 Where:
 
-- $ix[cur]$ represents the number of introverted people in state $cur$;
-- $ex[cur]$ represents the number of extroverted people in state $cur$;
-- $f[cur]$ represents the initial happiness of the people in state $cur$;
-- $g[pre][cur]$ represents the contribution to happiness of two adjacent state rows.
+- $ix[\textit{cur}]$ represents the number of introverted people in state $\textit{cur}$;
+- $ex[\textit{cur}]$ represents the number of extroverted people in state $\textit{cur}$;
+- $f[\textit{cur}]$ represents the initial happiness of the people in state $\textit{cur}$;
+- $g[\textit{pre}][\textit{cur}]$ represents the contribution to happiness of two adjacent state rows.
 
 These values can be obtained through preprocessing. And we can use the method of memoization to avoid repeated calculations.
 
@@ -476,23 +476,23 @@ function getMaxGridHappiness(
 >
 > Solution 1 transitions whole rows; $3^n$ grows quickly with width. Filling cell by cell, a contour of the last $n$ ternary digits is enough to score the left and upper neighbors.
 >
-> $dfs(pos,pre,ic,ec)$ tries $0/1/2$ at the current cell, rolls the contour, and adds $h[up][i]+h[left][i]$ plus $120$ or $40$ for the cell itself.
+> $\textit{dfs}(\textit{pos},\textit{pre},ic,ec)$ tries $0/1/2$ at the current cell, rolls the contour, and adds $h[up][i]+h[\textit{left}][i]$ plus $120$ or $40$ for the cell itself.
 
 <!-- thinking:end -->
 
-We can consider searching each grid cell, each time searching a position $(i, j)$, we denote $pos = i \times n + j$. Then its left and upper adjacent grids will affect their happiness contribution.
+We can consider searching each grid cell, each time searching a position $(i, j)$, we denote $\textit{pos} = i \times n + j$. Then its left and upper adjacent grids will affect their happiness contribution.
 
-We define a function $dfs(pos, pre, ic, ec)$, which represents the maximum happiness of the grid when we search to position $pos$, and the state of the previous $n$ grid cells is $pre$, with $ic$ introverted people left, and $ec$ extroverted people left. The answer is $dfs(0, 0, introvertsCount, extrovertsCount)$.
+We define a function $\textit{dfs}(\textit{pos}, \textit{pre}, ic, ec)$, which represents the maximum happiness of the grid when we search to position $\textit{pos}$, and the state of the previous $n$ grid cells is $\textit{pre}$, with $ic$ introverted people left, and $ec$ extroverted people left. The answer is $\textit{dfs}(0, 0, \textit{introvertsCount}, \textit{extrovertsCount})$.
 
-The calculation process of the function $dfs(pos, pre, ic, ec)$ is as follows:
+The calculation process of the function $\textit{dfs}(\textit{pos}, \textit{pre}, ic, ec)$ is as follows:
 
-If $pos = m \times n$, it means that all grid cells have been processed, so return $0$;
+If $\textit{pos} = m \times n$, it means that all grid cells have been processed, so return $0$;
 
 If $ic = 0$ and $ec = 0$, it means that all people have been assigned, so return $0$;
 
-Otherwise, we calculate the state $up = \frac{pre}{3^{n-1}}$ of the upper adjacent grid cell of the current grid cell based on $pre$, and the state $left = pre \bmod 3$ of the left adjacent grid cell (note that if $pos$ is in the $0$-th column, then $left = 0$).
+Otherwise, we calculate the state $up = \frac{\textit{pre}}{3^{n-1}}$ of the upper adjacent grid cell of the current grid cell based on $\textit{pre}$, and the state $\textit{left} = \textit{pre} \bmod 3$ of the left adjacent grid cell (note that if $\textit{pos}$ is in the $0$-th column, then $\textit{left} = 0$).
 
-Next, we enumerate the state $i$ of the current grid cell, where $i \in [0, 3)$. Then the state of the current $n$ grid cells is $cur = pre \bmod 3^{n-1} \times 3 + i$, and the happiness contribution of the current grid cell and its left and upper adjacent grid cells is $h[up][i]+h[left][i]$; the happiness of the current grid cell itself depends on whether personnel are assigned to this position, and whether the assigned personnel are introverted or extroverted. If they are introverted, the happiness is $120$, if they are extroverted, the happiness is $40$, otherwise, the happiness is $0$; then, if personnel are assigned to the current grid cell, we need to update $ic$ or $ec$ when we recursively call the function. Accumulate these happiness values, and take the maximum value as the return value of the function.
+Next, we enumerate the state $i$ of the current grid cell, where $i \in [0, 3)$. Then the state of the current $n$ grid cells is $\textit{cur} = \textit{pre} \bmod 3^{n-1} \times 3 + i$, and the happiness contribution of the current grid cell and its left and upper adjacent grid cells is $h[up][i]+h[\textit{left}][i]$; the happiness of the current grid cell itself depends on whether personnel are assigned to this position, and whether the assigned personnel are introverted or extroverted. If they are introverted, the happiness is $120$, if they are extroverted, the happiness is $40$, otherwise, the happiness is $0$; then, if personnel are assigned to the current grid cell, we need to update $ic$ or $ec$ when we recursively call the function. Accumulate these happiness values, and take the maximum value as the return value of the function.
 
 Similar to Solution 1, we can also use the method of memoization to avoid repeated calculations.
 

@@ -90,12 +90,12 @@ countIntervals.count();    // return 8
 
 According to the problem description, we need to maintain a set of intervals that supports adding intervals and querying operations. For adding intervals, we can use a segment tree to maintain the interval set.
 
-The segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(width)$. To update the value of an element, we only need to update $\log(width)$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.
+The segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(\textit{width})$. To update the value of an element, we only need to update $\log(\textit{width})$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.
 
 - Each node of the segment tree represents an interval;
 - The segment tree has a unique root node representing the entire range, such as $[1, N]$;
 - Each leaf node of the segment tree represents a unit interval of length 1, $[x, x]$;
-- For each internal node $[l, r]$, its left child is $[l, mid]$ and its right child is $[mid+1, r]$, where $mid = \lfloor (l + r) / 2 \rfloor$ (i.e., floor division).
+- For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$ and its right child is $[\textit{mid}+1, r]$, where $\textit{mid} = \lfloor (l + r) / 2 \rfloor$ (i.e., floor division).
 
 Since the data range in the problem is large, we can use a dynamically opened segment tree. A dynamically opened segment tree means that we only open nodes when needed, rather than opening all nodes at the beginning, which saves space.
 

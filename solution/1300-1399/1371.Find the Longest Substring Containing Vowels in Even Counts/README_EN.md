@@ -71,17 +71,17 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, if we use a number to represent the parity of the occurrences of each vowel in a prefix of the string $\textit{s}$, then when two prefixes have the same number, the substring between these two prefixes is a valid substring.
+According to the problem description, if we use a number to represent the parity of the occurrences of each vowel in a prefix of the string $s$, then when two prefixes have the same number, the substring between these two prefixes is a valid substring.
 
 We can use the lower five bits of a binary number to represent the parity of the five vowels, where the $i$-th bit being $1$ means the vowel appears an odd number of times in the substring, and $0$ means it appears an even number of times.
 
-We use $\textit{mask}$ to represent this binary number and use an array or hash table $\textit{d}$ to record the first occurrence of each $\textit{mask}$. Initially, we set $\textit{d}[0] = -1$, indicating that the start position of the empty string is $-1$.
+We use $\textit{mask}$ to represent this binary number and use an array or hash table $d$ to record the first occurrence of each $\textit{mask}$. Initially, we set $d[0] = -1$, indicating that the start position of the empty string is $-1$.
 
-We traverse the string $\textit{s}$, and if we encounter a vowel, we toggle the corresponding bit in $\textit{mask}$. Next, we check if $\textit{mask}$ has appeared before. If it has, we have found a valid substring, and its length is the current position minus the last occurrence of $\textit{mask}$. Otherwise, we store the current position of $\textit{mask}$ in $\textit{d}$.
+We traverse the string $s$, and if we encounter a vowel, we toggle the corresponding bit in $\textit{mask}$. Next, we check if $\textit{mask}$ has appeared before. If it has, we have found a valid substring, and its length is the current position minus the last occurrence of $\textit{mask}$. Otherwise, we store the current position of $\textit{mask}$ in $d$.
 
 After traversing the string, we will have found the longest valid substring.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

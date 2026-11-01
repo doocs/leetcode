@@ -80,7 +80,7 @@ Number 10 is contained in the table.
 
 > **Thinking**
 >
-> Consecutive logs differ by $1$. A $0/1$ from “difference from the previous row is $1$”, then a prefix sum, puts a run in one group. $MIN$/$MAX$ $log\_id$ per that id are the range ends.
+> Consecutive logs differ by $1$. A $0/1$ from “difference from the previous row is $1$”, then a prefix sum, puts a run in one group. $\textit{MIN}$/$\textit{MAX}$ $\textit{log\_id}$ per that id are the range ends.
 
 <!-- thinking:end -->
 
@@ -88,7 +88,7 @@ We need to find a way to group a continuous sequence of logs into the same group
 
 There are two ways to implement grouping:
 
-1. By calculating the difference between each log and the previous log, if the difference is $1$, then the two logs are continuous, and we set $delta$ to $0$, otherwise we set it to $1$. Then we take the prefix sum of $delta$ to obtain the grouping identifier for each row.
+1. By calculating the difference between each log and the previous log, if the difference is $1$, then the two logs are continuous, and we set $\textit{delta}$ to $0$, otherwise we set it to $1$. Then we take the prefix sum of $\textit{delta}$ to obtain the grouping identifier for each row.
 2. By calculating the difference between the current log and its row number, we obtain the grouping identifier for each row.
 
 <!-- tabs:start -->
@@ -126,7 +126,7 @@ GROUP BY pid;
 
 > **Thinking**
 >
-> Solution 1 discretizes gaps then prefix-sums. $log\_id$ minus row number is constant on a consecutive run, so that difference is the island key and we drop $LAG$ and the conditional $delta$.
+> Solution 1 discretizes gaps then prefix-sums. $\textit{log\_id}$ minus row number is constant on a consecutive run, so that difference is the island key and we drop $\textit{LAG}$ and the conditional $\textit{delta}$.
 
 <!-- thinking:end -->
 

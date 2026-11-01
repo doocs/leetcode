@@ -80,7 +80,7 @@ It is optimal to leave nums as is, and since 10 is the maximum value, we return 
 >
 > An operation moves value from $i$ to $i-1$, i.e. excess flows left. Minimizing the final maximum at $n\le 10^5$ is a binary search on that cap $mx$.
 >
-> Scan right to left: anything above $mx$ is forwarded. The guess is feasible iff $nums[0]$ plus the leftover forwarded amount is still $\le mx$.
+> Scan right to left: anything above $mx$ is forwarded. The guess is feasible iff $\textit{nums}[0]$ plus the leftover forwarded amount is still $\le mx$.
 
 <!-- thinking:end -->
 

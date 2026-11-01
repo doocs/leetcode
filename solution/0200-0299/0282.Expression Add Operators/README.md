@@ -73,7 +73,7 @@ tags:
 >
 > 在数字间插入 $+,-,*$ 或拼接多位，需枚举切分且乘法优先于加减。拼接时禁止前导零。
 >
-> DFS 记录上一操作数 $prev$ 与当前值 $curr$：加减直接改 $curr$，乘法则用 $curr-prev+prev\times\textit{next}$ 回退上一加法再改乘。
+> DFS 记录上一操作数 $\textit{prev}$ 与当前值 $\textit{curr}$：加减直接改 $\textit{curr}$，乘法则用 $\textit{curr}-\textit{prev}+\textit{prev}\times\textit{next}$ 回退上一加法再改乘。
 
 <!-- thinking:end -->
 

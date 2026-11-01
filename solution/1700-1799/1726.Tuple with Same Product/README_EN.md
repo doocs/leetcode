@@ -71,7 +71,7 @@ tags:
 
 <!-- thinking:end -->
 
-Assuming there are $n$ pairs of numbers, for any two pairs of numbers $a, b$ and $c, d$ that satisfy the condition $a \times b = c \times d$, there are a total of $\mathrm{C}_n^2 = \frac{n \times (n-1)}{2}$ such combinations.
+Assuming there are $n$ pairs of numbers, for any two pairs of numbers $a, b$ and $c, d$ that satisfy the condition $a \times b = c \times d$, there are a total of $C_n^2 = \frac{n \times (n-1)}{2}$ such combinations.
 
 According to the problem description, each combination that satisfies the above condition can form $8$ tuples that satisfy the problem requirements. Therefore, we can multiply the number of combinations with the same product by $8$ (equivalent to left shifting by $3$ bits) and add them up to get the result.
 

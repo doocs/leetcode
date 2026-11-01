@@ -55,7 +55,7 @@ One possible answer is: [0,-3,9,-10,null,5]，which represents the following tre
 >
 > Height is minimized when the two subtrees are as equal in size as possible, so the root should be the midpoint of the range.
 >
-> $dfs(l,r)$ returns null when $l>r$, otherwise builds the node at $mid=(l+r)//2$. Inorder matches the array, so the tree is a BST of height $\Theta(\log n)$.
+> $\textit{dfs}(l,r)$ returns null when $l>r$, otherwise builds the node at $\textit{mid}=(l+r)//2$. Inorder matches the array, so the tree is a BST of height $\Theta(\log n)$.
 
 <!-- thinking:end -->
 

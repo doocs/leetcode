@@ -80,7 +80,7 @@ It can be shown that we cannot make the array empty in less than 4 operations.
 
 <!-- thinking:end -->
 
-We use a hash table $count$ to count the number of occurrences of each element in the array. Then we traverse the hash table. For each element $x$, if it appears $c$ times, we can perform $\lfloor \frac{c+2}{3} \rfloor$ operations to delete $x$. Finally, we return the sum of the number of operations for all elements.
+We use a hash table $\textit{count}$ to count the number of occurrences of each element in the array. Then we traverse the hash table. For each element $x$, if it appears $c$ times, we can perform $\lfloor \frac{c+2}{3} \rfloor$ operations to delete $x$. Finally, we return the sum of the number of operations for all elements.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

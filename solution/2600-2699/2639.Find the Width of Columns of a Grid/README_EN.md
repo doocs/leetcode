@@ -74,11 +74,11 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 
 <!-- thinking:end -->
 
-We denote the number of columns in the matrix as $n$, and create an array $ans$ of length $n$, where $ans[i]$ represents the width of the $i$-th column. Initially, $ans[i] = 0$.
+We denote the number of columns in the matrix as $n$, and create an array $\textit{ans}$ of length $n$, where $\textit{ans}[i]$ represents the width of the $i$-th column. Initially, $\textit{ans}[i] = 0$.
 
-We traverse each row in the matrix. For each element in each row, we calculate its string length $w$, and update the value of $ans[j]$ to be $\max(ans[j], w)$.
+We traverse each row in the matrix. For each element in each row, we calculate its string length $w$, and update the value of $\textit{ans}[j]$ to be $\max(\textit{ans}[j], w)$.
 
-After traversing all rows, each element in the array $ans$ is the width of the corresponding column.
+After traversing all rows, each element in the array $\textit{ans}$ is the width of the corresponding column.
 
 The time complexity is $O(mn)$, and the space complexity is $O(\log M)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively, and $M$ is the absolute value of the maximum element in the matrix.
 

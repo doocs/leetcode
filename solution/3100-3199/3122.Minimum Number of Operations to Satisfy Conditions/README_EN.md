@@ -99,7 +99,7 @@ tags:
 >
 > Each column must become a single digit and adjacent columns must differ. Recursing over a digit per column yields $10^n$ states.
 >
-> Only the previous column's digit matters, and values lie in $0..9$. After counting the current column, changing it to $j$ costs $m-cnt[j]$.
+> Only the previous column's digit matters, and values lie in $0..9$. After counting the current column, changing it to $j$ costs $m-\textit{cnt}[j]$.
 >
 > Let $f[i][j]$ be the minimum cost for the first $i$ columns with column $i$ equal to $j$, taking $\min_{k\neq j} f[i-1][k]$ plus that cost. The answer is $\min f[n-1]$.
 
@@ -117,7 +117,7 @@ Where $\textit{cnt}[j]$ represents the number of cells in the $i$-th column that
 
 Finally, we only need to find the minimum value of $f[n-1][j]$.
 
-The time complexity is $O(n(m + C^2))$, and the space complexity is $O(nC)$, where $m$ and $n$ represent the number of rows and columns in the matrix respectively; and $C$ represents the number of types of numbers, here $C = 10$.
+The time complexity is $O(n(m + C^2))$, and the space complexity is $O(n \times C)$, where $m$ and $n$ represent the number of rows and columns in the matrix respectively; and $C$ represents the number of types of numbers, here $C = 10$.
 
 <!-- tabs:start -->
 

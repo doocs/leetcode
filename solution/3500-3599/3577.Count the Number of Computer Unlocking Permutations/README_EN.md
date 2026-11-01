@@ -105,9 +105,9 @@ tags:
 
 <!-- thinking:end -->
 
-Since the password for computer number $0$ is already unlocked, for any other computer $i$, if $\text{complexity}[i] \leq \text{complexity}[0]$, it is impossible to unlock computer $i$, so we return $0$. Otherwise, any permutation is valid, and there are exactly $(n - 1)!$ possible permutations.
+Since the password for computer number $0$ is already unlocked, for any other computer $i$, if $\textit{complexity}[i] \leq \textit{complexity}[0]$, it is impossible to unlock computer $i$, so we return $0$. Otherwise, any permutation is valid, and there are exactly $(n - 1)!$ possible permutations.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the $\text{complexity}$ array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the $\textit{complexity}$ array.
 
 <!-- tabs:start -->
 

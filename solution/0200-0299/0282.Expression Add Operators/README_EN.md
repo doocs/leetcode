@@ -71,7 +71,7 @@ tags:
 >
 > We insert $+$, $-$, $*$ or concatenate digits. Multiplication binds tighter than addition, and concatenated numbers may not have leading zeros.
 >
-> DFS keeps the last operand $prev$ and the value $curr$. Plus and minus update $curr$ directly; multiply rewinds the last term via $curr-prev+prev\times\textit{next}$.
+> DFS keeps the last operand $\textit{prev}$ and the value $\textit{curr}$. Plus and minus update $\textit{curr}$ directly; multiply rewinds the last term via $\textit{curr}-\textit{prev}+\textit{prev}\times\textit{next}$.
 
 <!-- thinking:end -->
 

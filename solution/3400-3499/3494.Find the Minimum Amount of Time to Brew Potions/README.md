@@ -146,9 +146,9 @@ tags:
 
 对于当前的药水 $x$，我们需要计算每个巫师完成该药水的时间。定义 $\textit{tot}$ 表示当前药水完成的时间，初始时 $\textit{tot} = 0$。
 
-对于每个巫师 $i$，他开始处理当前药水的时间为 $\max(\textit{tot}, f[i])$，处理该药水需要的时间为 $skill[i] \times mana[x]$，因此他完成该药水的时间为 $\max(\textit{tot}, f[i]) + skill[i] \times mana[x]$。我们更新 $\textit{tot}$ 为该值。
+对于每个巫师 $i$，他开始处理当前药水的时间为 $\max(\textit{tot}, f[i])$，处理该药水需要的时间为 $\textit{skill}[i] \times \textit{mana}[x]$，因此他完成该药水的时间为 $\max(\textit{tot}, f[i]) + \textit{skill}[i] \times \textit{mana}[x]$。我们更新 $\textit{tot}$ 为该值。
 
-由于酿造过程要求药水在当前巫师完成工作后必须立即传递给下一个巫师并开始处理，因此我们需要更新每个巫师完成上一瓶药水的时间 $f[i]$。对于最后一个巫师 $n-1$，我们直接将 $f[n-1]$ 更新为 $\textit{tot}$。对于其他巫师 $i$，我们可以通过倒序遍历来更新 $f[i]$，具体地， $f[i] = f[i+1] - skill[i+1] \times mana[x]$。
+由于酿造过程要求药水在当前巫师完成工作后必须立即传递给下一个巫师并开始处理，因此我们需要更新每个巫师完成上一瓶药水的时间 $f[i]$。对于最后一个巫师 $n-1$，我们直接将 $f[n-1]$ 更新为 $\textit{tot}$。对于其他巫师 $i$，我们可以通过倒序遍历来更新 $f[i]$，具体地， $f[i] = f[i+1] - \textit{skill}[i+1] \times \textit{mana}[x]$。
 
 最终 $f[n-1]$ 即为所有药水酿造完成的最短总时间。
 

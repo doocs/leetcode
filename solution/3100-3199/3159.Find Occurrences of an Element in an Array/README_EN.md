@@ -79,9 +79,9 @@ tags:
 >
 > Queries ask for the index of the $i$-th occurrence of $x$. Scanning from the left per query is $O(nm)$.
 >
-> All occurrence indices fit in an array $ids$, after which a query is one lookup.
+> All occurrence indices fit in an array $\textit{ids}$, after which a query is one lookup.
 >
-> Collect indices of $x$, then return $ids[i-1]$ or $-1$ when $i$ is too large.
+> Collect indices of $x$, then return $\textit{ids}[i-1]$ or $-1$ when $i$ is too large.
 
 <!-- thinking:end -->
 

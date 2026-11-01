@@ -80,15 +80,15 @@ You have id = 0 (green color in the figure) and the only friend of your friends 
 
 > **Thinking**
 >
-> We need videos watched by friends exactly $\textit{level}$ hops away, ordered by frequency then name. Unbounded DFS does not stop on a precise layer and revisits people. $\textit{level}$ rounds of BFS from $\textit{id}$ leave exactly that layer in the queue.
+> We need videos watched by friends exactly $\textit{level}$ hops away, ordered by frequency then name. Unbounded DFS does not stop on a precise layer and revisits people. $\textit{level}$ rounds of BFS from $id$ leave exactly that layer in the queue.
 >
 > A counter tallies their videos; sorting by $(\textit{cnt}[v], v)$ produces the names. A visited set keeps a person from entering more than once.
 
 <!-- thinking:end -->
 
-We can use the Breadth-First Search (BFS) method to start from $\textit{id}$ and find all friends at a distance of $\textit{level}$, then count the videos watched by these friends.
+We can use the Breadth-First Search (BFS) method to start from $id$ and find all friends at a distance of $\textit{level}$, then count the videos watched by these friends.
 
-Specifically, we can use a queue $\textit{q}$ to store the friends at the current level. Initially, add $\textit{id}$ to the queue $\textit{q}$. Use a hash table or a boolean array $\textit{vis}$ to record the friends that have already been visited. Then, perform $\textit{level}$ iterations, in each iteration dequeue all friends from the queue and enqueue their friends until all friends at distance $\textit{level}$ are found.
+Specifically, we can use a queue $q$ to store the friends at the current level. Initially, add $id$ to the queue $q$. Use a hash table or a boolean array $\textit{vis}$ to record the friends that have already been visited. Then, perform $\textit{level}$ iterations, in each iteration dequeue all friends from the queue and enqueue their friends until all friends at distance $\textit{level}$ are found.
 
 Next, we use a hash table $\textit{cnt}$ to count the videos watched by these friends and their frequencies. Finally, sort the key-value pairs in the hash table in ascending order by frequency, and if frequencies are the same, sort by video name in ascending order. Return the sorted list of video names.
 

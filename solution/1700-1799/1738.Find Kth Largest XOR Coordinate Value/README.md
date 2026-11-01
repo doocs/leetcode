@@ -86,7 +86,7 @@ tags:
 >
 > 坐标 $(i,j)$ 的值是左上矩形的异或。直接对每个矩形重算是 $O(m^2n^2)$， $m,n\le 1000$ 不可行。
 >
-> 二维前缀异或满足 $s[i][j]=s[i-1][j]\oplus s[i][j-1]\oplus s[i-1][j-1]\oplus matrix[i-1][j-1]$，可 $O(mn)$ 列出全部值。
+> 二维前缀异或满足 $s[i][j]=s[i-1][j]\oplus s[i][j-1]\oplus s[i-1][j-1]\oplus \textit{matrix}[i-1][j-1]$，可 $O(mn)$ 列出全部值。
 >
 > 在列表上取第 $k$ 大（排序或堆选择）即可。
 
@@ -95,13 +95,13 @@ tags:
 我们定义一个二维前缀异或数组 $s$，其中 $s[i][j]$ 表示矩阵前 $i$ 行和前 $j$ 列的元素异或运算的结果，即：
 
 $$
-s[i][j] = \bigoplus_{0 \leq x \leq i, 0 \leq y \leq j} matrix[x][y]
+s[i][j] = \bigoplus_{0 \leq x \leq i, 0 \leq y \leq j} \textit{matrix}[x][y]
 $$
 
 而 $s[i][j]$ 可以由 $s[i - 1][j]$, $s[i][j - 1]$ 和 $s[i - 1][j - 1]$ 三个元素计算得到，即：
 
 $$
-s[i][j] = s[i - 1][j] \oplus s[i][j - 1] \oplus s[i - 1][j - 1] \oplus matrix[i - 1][j - 1]
+s[i][j] = s[i - 1][j] \oplus s[i][j - 1] \oplus s[i - 1][j - 1] \oplus \textit{matrix}[i - 1][j - 1]
 $$
 
 我们遍历矩阵，计算出所有的 $s[i][j]$，然后将其排序，最后返回第 $k$ 大的元素即可。如果不想使用排序，也可以使用快速选择算法，这样可以优化时间复杂度。

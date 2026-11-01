@@ -111,7 +111,7 @@ The npv values of all other queries can be found in the NPV table.
 
 > **Thinking**
 >
-> A query $(id,year)$ may be absent from `NPV` and should report $0$. An inner join would drop those rows, so `Queries` is left-joined to `NPV` on both keys.
+> A query $(id,\textit{year})$ may be absent from `NPV` and should report $0$. An inner join would drop those rows, so `Queries` is left-joined to `NPV` on both keys.
 >
 > `IFNULL(npv, 0)` fills missing values while keeping every query row.
 

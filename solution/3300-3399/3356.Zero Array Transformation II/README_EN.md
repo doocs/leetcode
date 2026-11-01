@@ -122,13 +122,13 @@ tags:
 
 We notice that the more queries we use, the easier it is to turn the array into a zero array, which shows monotonicity. Therefore, we can use binary search to enumerate the number of queries and check whether the array can be turned into a zero array after the first $k$ queries.
 
-We define the left boundary $l$ and right boundary $r$ for binary search, initially $l = 0$, $r = m + 1$, where $m$ is the number of queries. We define a function $\text{check}(k)$ to indicate whether the array can be turned into a zero array after the first $k$ queries. We can use a difference array to maintain the value of each element.
+We define the left boundary $l$ and right boundary $r$ for binary search, initially $l = 0$, $r = m + 1$, where $m$ is the number of queries. We define a function $\textit{check}(k)$ to indicate whether the array can be turned into a zero array after the first $k$ queries. We can use a difference array to maintain the value of each element.
 
-Define an array $d$ of length $n + 1$, initialized to all $0$. For each of the first $k$ queries $[l, r, val]$, we add $val$ to $d[l]$ and subtract $val$ from $d[r + 1]$.
+Define an array $d$ of length $n + 1$, initialized to all $0$. For each of the first $k$ queries $[l, r, \textit{val}]$, we add $\textit{val}$ to $d[l]$ and subtract $\textit{val}$ from $d[r + 1]$.
 
 Then we iterate through the array $d$ in the range $[0, n - 1]$, accumulating the prefix sum $s$. If $\textit{nums}[i] > s$, it means $\textit{nums}$ cannot be transformed into a zero array, so we return $\textit{false}$.
 
-During the binary search, if $\text{check}(k)$ returns $\text{true}$, it means the array can be turned into a zero array, so we update the right boundary $r$ to $k$; otherwise, we update the left boundary $l$ to $k + 1$.
+During the binary search, if $\textit{check}(k)$ returns $\textit{true}$, it means the array can be turned into a zero array, so we update the right boundary $r$ to $k$; otherwise, we update the left boundary $l$ to $k + 1$.
 
 Finally, we check whether $l > m$. If so, return -1; otherwise, return $l$.
 

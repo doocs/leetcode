@@ -78,17 +78,17 @@ tags:
 
 > **思考**
 >
-> 两数组均非递增，求满足 $i\le j$ 且 $nums1[i]\le nums2[j]$ 的最大 $j-i$。枚举全部下标对为 $O(mn)$， $n\le 10^5$ 不可行。
+> 两数组均非递增，求满足 $i\le j$ 且 $\textit{nums1}[i]\le \textit{nums2}[j]$ 的最大 $j-i$。枚举全部下标对为 $O(mn)$， $n\le 10^5$ 不可行。
 >
-> 对固定 $i$，最远的合法 $j$ 是 $nums2[i:]$ 中最后一个不小于 $nums1[i]$ 的位置。将 $nums2$ 反转后可用二分查找该位置。
+> 对固定 $i$，最远的合法 $j$ 是 $\textit{nums2}[i:]$ 中最后一个不小于 $\textit{nums1}[i]$ 的位置。将 $\textit{nums2}$ 反转后可用二分查找该位置。
 
 <!-- thinking:end -->
 
-假设 $nums1$, $nums2$ 的长度分别为 $m$ 和 $n$。
+假设 $\textit{nums1}$, $\textit{nums2}$ 的长度分别为 $m$ 和 $n$。
 
-遍历数组 $nums1$，对于每个数字 $nums1[i]$，二分查找 $nums2$ 在 $[i,n)$ 范围内的数字，找到**最后一个**大于等于 $nums1[i]$ 的位置 $j$，计算此位置与 $i$ 的距离，并更新最大距离值 $ans$。
+遍历数组 $\textit{nums1}$，对于每个数字 $\textit{nums1}[i]$，二分查找 $\textit{nums2}$ 在 $[i,n)$ 范围内的数字，找到**最后一个**大于等于 $\textit{nums1}[i]$ 的位置 $j$，计算此位置与 $i$ 的距离，并更新最大距离值 $\textit{ans}$。
 
-时间复杂度 $O(m \log n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为 $nums1$ 和 $nums2$ 的长度。
+时间复杂度 $O(m \log n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -260,13 +260,13 @@ var maxDistance = function (nums1, nums2) {
 
 > **思考**
 >
-> 方法一只用了 $nums2$ 的单调性。 $nums1$ 同样非递增，故 $i$ 增大时对应的最远 $j$ 不会回退。双指针同步右移，总时间降为线性。
+> 方法一只用了 $\textit{nums2}$ 的单调性。 $\textit{nums1}$ 同样非递增，故 $i$ 增大时对应的最远 $j$ 不会回退。双指针同步右移，总时间降为线性。
 
 <!-- thinking:end -->
 
-在方法一中，我们只利用到 $nums2$ 是非递增数组这一条件，实际上， $nums1$ 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 $nums1$ 和 $nums2$。
+在方法一中，我们只利用到 $\textit{nums2}$ 是非递增数组这一条件，实际上， $\textit{nums1}$ 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 $\textit{nums1}$ 和 $\textit{nums2}$。
 
-时间复杂度 $O(m+n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为 $nums1$ 和 $nums2$ 的长度。
+时间复杂度 $O(m+n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -90,17 +90,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个函数 $\text{f}(x)$ 来计算每本书的罚款：
+我们定义一个函数 $f(x)$ 来计算每本书的罚款：
 
 $$
-\text{f}(x) = \begin{cases}
+f(x) = \begin{cases}
 1 & x = 1 \\
 2x & 2 \leq x \leq 5 \\
 3x & x > 5
 \end{cases}
 $$
 
-然后我们对数组 $\textit{daysLate}$ 中的每个元素 $x$ 计算 $\text{f}(x)$ 并累加得到总罚款。
+然后我们对数组 $\textit{daysLate}$ 中的每个元素 $x$ 计算 $f(x)$ 并累加得到总罚款。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{daysLate}$ 的长度。
 

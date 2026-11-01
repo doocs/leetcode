@@ -263,7 +263,7 @@ $$
 \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix} \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
 $$
 
-我们定义初始矩阵 $res = \begin{bmatrix} 1 & 0 \end{bmatrix}$，那么 $F_n$ 等于 $res$ 乘以 $\textit{base}^{n}$ 的结果矩阵中第一行的第二个元素。使用矩阵快速幂求解即可。
+我们定义初始矩阵 $\textit{res} = \begin{bmatrix} 1 & 0 \end{bmatrix}$，那么 $F_n$ 等于 $\textit{res}$ 乘以 $\textit{base}^{n}$ 的结果矩阵中第一行的第二个元素。使用矩阵快速幂求解即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 

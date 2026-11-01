@@ -78,13 +78,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we check if the length of the array $\textit{nums}$ is divisible by $\textit{k}$. If it is not divisible, it means the array cannot be divided into subarrays of length $\textit{k}$, and we return $\text{false}$ directly.
+First, we check if the length of the array $\textit{nums}$ is divisible by $k$. If it is not divisible, it means the array cannot be divided into subarrays of length $k$, and we return $\textit{false}$ directly.
 
 Next, we use a hash table $\textit{cnt}$ to count the occurrences of each number in the array $\textit{nums}$, and then we sort the array $\textit{nums}$.
 
-After sorting, we iterate through the array $\textit{nums}$, and for each number $x$, if $\textit{cnt}[x]$ is not $0$, we enumerate each number $y$ from $x$ to $x + \textit{k} - 1$. If $\textit{cnt}[y]$ is $0$, it means we cannot divide the array into subarrays of length $\textit{k}$, and we return $\text{false}$ directly. Otherwise, we decrement $\textit{cnt}[y]$ by $1$.
+After sorting, we iterate through the array $\textit{nums}$, and for each number $x$, if $\textit{cnt}[x]$ is not $0$, we enumerate each number $y$ from $x$ to $x + k - 1$. If $\textit{cnt}[y]$ is $0$, it means we cannot divide the array into subarrays of length $k$, and we return $\textit{false}$ directly. Otherwise, we decrement $\textit{cnt}[y]$ by $1$.
 
-After the loop, if no issues were encountered, it means we can divide the array into subarrays of length $\textit{k}$, and we return $\text{true}$.
+After the loop, if no issues were encountered, it means we can divide the array into subarrays of length $k$, and we return $\textit{true}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
@@ -233,13 +233,13 @@ function isPossibleDivide(nums: number[], k: number): boolean {
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we first check if the length of the array $\textit{nums}$ is divisible by $\textit{k}$. If it is not divisible, it means the array cannot be divided into subarrays of length $\textit{k}$, and we return $\text{false}$ directly.
+Similar to Solution 1, we first check if the length of the array $\textit{nums}$ is divisible by $k$. If it is not divisible, it means the array cannot be divided into subarrays of length $k$, and we return $\textit{false}$ directly.
 
-Next, we use an ordered set $\textit{sd}$ to count the occurrences of each number in the array $\textit{nums}$.
+Next, we use an ordered set $sd$ to count the occurrences of each number in the array $\textit{nums}$.
 
-Then, we repeatedly extract the smallest value $x$ from the ordered set and enumerate each number $y$ from $x$ to $x + \textit{k} - 1$. If these numbers all appear in the ordered set with non-zero occurrences, we decrement their occurrence count by $1$. If the occurrence count becomes $0$ after the decrement, we remove the number from the ordered set; otherwise, it means we cannot divide the array into subarrays of length $\textit{k}$, and we return $\text{false}$.
+Then, we repeatedly extract the smallest value $x$ from the ordered set and enumerate each number $y$ from $x$ to $x + k - 1$. If these numbers all appear in the ordered set with non-zero occurrences, we decrement their occurrence count by $1$. If the occurrence count becomes $0$ after the decrement, we remove the number from the ordered set; otherwise, it means we cannot divide the array into subarrays of length $k$, and we return $\textit{false}$.
 
-If we can successfully divide the array into subarrays of length $\textit{k}$, we return $\text{true}$ after completing the traversal.
+If we can successfully divide the array into subarrays of length $k$, we return $\textit{true}$ after completing the traversal.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

@@ -82,7 +82,7 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 >
 > The number of subarrays with sum $\le s$ is non-decreasing in $s$. Binary-search $s$ and count that quantity with a two-pointer window in linear time.
 >
-> The search range is $[\min nums,\sum nums]$; the final left bound is the $k$-th smallest sum.
+> The search range is $[\min \textit{nums},\sum \textit{nums}]$; the final left bound is the $k$-th smallest sum.
 
 <!-- thinking:end -->
 
@@ -98,7 +98,7 @@ The function $f(s)$ is calculated as follows:
 - Use a variable $\textit{cnt}$ to record the number of subarrays with sums less than or equal to $s$, initially $\textit{cnt} = 0$.
 - Traverse the array $\textit{nums}$. For each element $\textit{nums}[i]$, add it to the window, i.e., $t = t + \textit{nums}[i]$. If $t > s$, move the left boundary of the window to the right until $t \leq s$, i.e., repeatedly execute $t -= \textit{nums}[j]$ and $j = j + 1$. Then update $\textit{cnt}$ as $\textit{cnt} = \textit{cnt} + i - j + 1$. Continue to the next element until the entire array is traversed.
 
-Finally, return $cnt$ as the result of the function $f(s)$.
+Finally, return $\textit{cnt}$ as the result of the function $f(s)$.
 
 The time complexity is $O(n \log S)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$, and $S$ is the sum of all elements in the array $\textit{nums}$.
 

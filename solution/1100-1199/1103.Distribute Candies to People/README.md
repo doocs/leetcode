@@ -83,7 +83,7 @@ tags:
 
 我们可以直接模拟每一个人分到糖果的过程，按照题目描述的规则模拟即可。
 
-时间复杂度 $O(\max(\sqrt{candies}, num\_people))$，空间复杂度 $O(num\_people)$。其中 $candies$ 为糖果数量。
+时间复杂度 $O(\max(\sqrt{\textit{candies}}, \textit{num\_people}))$，空间复杂度 $O(\textit{num\_people})$。其中 $\textit{candies}$ 为糖果数量。
 
 <!-- tabs:start -->
 

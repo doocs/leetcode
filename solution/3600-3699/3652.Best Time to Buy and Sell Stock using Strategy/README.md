@@ -168,11 +168,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个数组 $\textit{s}$ 来表示前缀和，其中 $\textit{s}[i]$ 表示前 $i$ 天的利润和，即 $\textit{s}[i] = \sum_{j=0}^{i-1} \textit{prices}[j] \times \textit{strategy}[j]$。我们还用一个数组 $\textit{t}$ 来表示前缀和，其中 $\textit{t}[i]$ 表示前 $i$ 天的股票价格和，即 $\textit{t}[i] = \sum_{j=0}^{i-1} \textit{prices}[j]$。
+我们用一个数组 $s$ 来表示前缀和，其中 $s[i]$ 表示前 $i$ 天的利润和，即 $s[i] = \sum_{j=0}^{i-1} \textit{prices}[j] \times \textit{strategy}[j]$。我们还用一个数组 $t$ 来表示前缀和，其中 $t[i]$ 表示前 $i$ 天的股票价格和，即 $t[i] = \sum_{j=0}^{i-1} \textit{prices}[j]$。
 
-初始时，最大利润为 $\textit{s}[n]$。我们枚举修改的子数组的右端点 $i$，则左端点为 $i-k$。修改后，子数组内前 $k/2$ 天的策略变为 $0$，后 $k/2$ 天的策略变为 $1$，因此利润变化为：
+初始时，最大利润为 $s[n]$。我们枚举修改的子数组的右端点 $i$，则左端点为 $i-k$。修改后，子数组内前 $k/2$ 天的策略变为 $0$，后 $k/2$ 天的策略变为 $1$，因此利润变化为：
 
-$$\Delta = -(\textit{s}[i] - \textit{s}[i-k]) + (\textit{t}[i] - \textit{t}[i-k/2])$$
+$$\Delta = -(s[i] - s[i-k]) + (t[i] - t[i-k/2])$$
 
 因此，我们可以通过枚举所有可能的 $i$ 来更新最大利润。
 

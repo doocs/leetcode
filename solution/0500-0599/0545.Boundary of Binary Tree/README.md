@@ -89,14 +89,14 @@ tags:
 
 否则，我们可以通过深度优先搜索，找到二叉树的左边界、叶节点和右边界。
 
-具体地，我们可以通过一个递归函数 $\textit{dfs}$ 来找到这三个部分。在 $\textit{dfs}$ 函数中，我们需要传入一个列表 $\textit{nums}$，一个节点 $\textit{root}$ 和一个整数 $\textit{i}$，其中 $\textit{nums}$ 用来存储当前部分的节点值，而 $\textit{root}$ 和 $\textit{i}$ 分别表示当前节点和当前部分的类型（左边界, 叶节点或右边界）。
+具体地，我们可以通过一个递归函数 $\textit{dfs}$ 来找到这三个部分。在 $\textit{dfs}$ 函数中，我们需要传入一个列表 $\textit{nums}$，一个节点 $\textit{root}$ 和一个整数 $i$，其中 $\textit{nums}$ 用来存储当前部分的节点值，而 $\textit{root}$ 和 $i$ 分别表示当前节点和当前部分的类型（左边界, 叶节点或右边界）。
 
 函数的具体实现如下：
 
 - 如果 $\textit{root}$ 为空，那么直接返回。
-- 如果 $\textit{i} = 0$，那么我们需要找到左边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。如果 $\textit{root}$ 有左子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。
-- 如果 $\textit{i} = 1$，那么我们需要找到叶节点。如果 $\textit{root}$ 是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$，以及 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。
-- 如果 $\textit{i} = 2$，那么我们需要找到右边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中，如果 $\textit{root}$ 有右子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$。
+- 如果 $i = 0$，那么我们需要找到左边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。如果 $\textit{root}$ 有左子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $i$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $i$。
+- 如果 $i = 1$，那么我们需要找到叶节点。如果 $\textit{root}$ 是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $i$，以及 $\textit{nums}$, $\textit{root}$ 的右子节点和 $i$。
+- 如果 $i = 2$，那么我们需要找到右边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中，如果 $\textit{root}$ 有右子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $i$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $i$。
 
 我们分别调用 $\textit{dfs}$ 函数，找到左边界、叶节点和右边界，然后将这三个部分连接起来，即可得到答案。
 

@@ -97,7 +97,7 @@ tags:
 >
 > The square hole is limited by the longest run of consecutive removable horizontal bars and of vertical bars; the side is one plus the shorter of those runs. $n$ and $m$ may be $10^9$, so the grid cannot be simulated; at most $100$ bars are removable.
 >
-> Sort $hBars$ and $vBars$, scan the longest adjacent-difference-$1$ run, add one, take the minimum of the two sides, and square it.
+> Sort $\textit{hBars}$ and $\textit{vBars}$, scan the longest adjacent-difference-$1$ run, add one, take the minimum of the two sides, and square it.
 
 <!-- thinking:end -->
 

@@ -83,15 +83,15 @@ Thus, the minimum number of swaps required is 0.
 >
 > A fixed-length circular window is a modular slide of $k$ extra steps. Count $1$s in the first $k$ cells, then add the entering index and drop the leaving one.
 >
-> After a full pass return $k-\textit{mx}$.
+> After a full pass return $k-mx$.
 
 <!-- thinking:end -->
 
 First, we count the number of $1$s in the array, denoted as $k$. The problem is actually asking for a circular subarray of length $k$ that contains the maximum number of $1$s. Therefore, the minimum number of swaps is $k$ minus the maximum number of $1$s in that subarray.
 
-We can solve this problem using a sliding window. First, we count the number of $1$s in the first $k$ elements of the array, denoted as $cnt$. Then, we maintain a sliding window of length $k$. Each time we move the window one position to the right, we update $cnt$ and simultaneously update the maximum $cnt$ value, i.e., $mx = \max(mx, cnt)$. Finally, the answer is $k - mx$.
+We can solve this problem using a sliding window. First, we count the number of $1$s in the first $k$ elements of the array, denoted as $\textit{cnt}$. Then, we maintain a sliding window of length $k$. Each time we move the window one position to the right, we update $\textit{cnt}$ and simultaneously update the maximum $\textit{cnt}$ value, i.e., $mx = \max(mx, \textit{cnt})$. Finally, the answer is $k - mx$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

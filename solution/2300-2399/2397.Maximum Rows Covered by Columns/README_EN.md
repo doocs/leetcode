@@ -95,15 +95,15 @@ Note that s = {1, 2} will also cover 3 rows, but it can be shown that no more th
 
 > **Thinking**
 >
-> Choose exactly $numSelect$ columns to cover as many rows as possible (every $1$ in the row lies in a chosen column). $n \le 12$, so subsets of columns fit in a bit mask.
+> Choose exactly $\textit{numSelect}$ columns to cover as many rows as possible (every $1$ in the row lies in a chosen column). $n \le 12$, so subsets of columns fit in a bit mask.
 >
-> Pack each row as a mask. Enumerate column masks with the right popcount and count rows with $row \land mask = row$.
+> Pack each row as a mask. Enumerate column masks with the right popcount and count rows with $\textit{row} \land \textit{mask} = \textit{row}$.
 
 <!-- thinking:end -->
 
-First, we convert each row of the matrix into a binary number and record it in the array $rows$. Here, $rows[i]$ represents the binary number corresponding to the $i$-th row, and the $j$-th bit of this binary number $rows[i]$ represents the value of the $i$-th row and $j$-th column.
+First, we convert each row of the matrix into a binary number and record it in the array $\textit{rows}$. Here, $\textit{rows}[i]$ represents the binary number corresponding to the $i$-th row, and the $j$-th bit of this binary number $\textit{rows}[i]$ represents the value of the $i$-th row and $j$-th column.
 
-Next, we enumerate all $2^n$ column selection schemes, where $n$ is the number of columns in the matrix. For each column selection scheme, we check whether `numSelect` columns have been selected. If not, we skip it. Otherwise, we count how many rows in the matrix are covered by the selected columns, i.e., how many binary numbers $rows[i]$ are equal to the bitwise AND of $rows[i]$ and the column selection scheme $mask$. We then update the maximum number of rows.
+Next, we enumerate all $2^n$ column selection schemes, where $n$ is the number of columns in the matrix. For each column selection scheme, we check whether `numSelect` columns have been selected. If not, we skip it. Otherwise, we count how many rows in the matrix are covered by the selected columns, i.e., how many binary numbers $\textit{rows}[i]$ are equal to the bitwise AND of $\textit{rows}[i]$ and the column selection scheme $\textit{mask}$. We then update the maximum number of rows.
 
 The time complexity is $O(2^n m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 

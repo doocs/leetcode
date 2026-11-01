@@ -75,21 +75,21 @@ stockSpanner.next(85);  // return 6
 
 > **Thinking**
 >
-> Scanning backward from today until a strictly higher price appears is quadratic over many queries. Spans already covered by an earlier price need not be recounted: if the stack top is at most today's $price$, its span can be merged in.
+> Scanning backward from today until a strictly higher price appears is quadratic over many queries. Spans already covered by an earlier price need not be recounted: if the stack top is at most today's $\textit{price}$, its span can be merged in.
 >
-> A stack that is decreasing in price, storing $(price, cnt)$, pops and accumulates those spans before pushing. Each price enters and leaves once, so each query is amortized constant time.
+> A stack that is decreasing in price, storing $(\textit{price}, \textit{cnt})$, pops and accumulates those spans before pushing. Each price enters and leaves once, so each query is amortized constant time.
 
 <!-- thinking:end -->
 
-Based on the problem description, we know that for the current day's price $price$, we start from this price and look backwards to find the first price that is larger than this price. The difference in indices $cnt$ between these two prices is the span of the current day's price.
+Based on the problem description, we know that for the current day's price $\textit{price}$, we start from this price and look backwards to find the first price that is larger than this price. The difference in indices $\textit{cnt}$ between these two prices is the span of the current day's price.
 
 This is actually a classic monotonic stack model, where we find the first element larger than the current element on the left.
 
-We maintain a stack where the prices from the bottom to the top of the stack are monotonically decreasing. Each element in the stack is a $(price, cnt)$ data pair, where $price$ represents the price, and $cnt$ represents the span of the current price.
+We maintain a stack where the prices from the bottom to the top of the stack are monotonically decreasing. Each element in the stack is a $(\textit{price}, \textit{cnt})$ data pair, where $\textit{price}$ represents the price, and $\textit{cnt}$ represents the span of the current price.
 
-When the price $price$ appears, we compare it with the top element of the stack. If the price of the top element of the stack is less than or equal to $price$, we add the span $cnt$ of the current day's price to the span of the top element of the stack, and then pop the top element of the stack. This continues until the price of the top element of the stack is greater than $price$, or the stack is empty.
+When the price $\textit{price}$ appears, we compare it with the top element of the stack. If the price of the top element of the stack is less than or equal to $\textit{price}$, we add the span $\textit{cnt}$ of the current day's price to the span of the top element of the stack, and then pop the top element of the stack. This continues until the price of the top element of the stack is greater than $\textit{price}$, or the stack is empty.
 
-Finally, we push $(price, cnt)$ onto the stack and return $cnt$.
+Finally, we push $(\textit{price}, \textit{cnt})$ onto the stack and return $\textit{cnt}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of times `next(price)` is called.
 

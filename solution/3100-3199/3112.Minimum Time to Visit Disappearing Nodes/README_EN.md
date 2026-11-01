@@ -108,17 +108,17 @@ tags:
 >
 > Nodes vanish at given times, so an arrival must be strictly earlier. Searching separately from the source to each node repeats the same relaxations.
 >
-> The problem remains single-source shortest paths with nonnegative weights, plus the extra constraint $dist[u]+w < \textit{disappear}[v]$ when relaxing $v$.
+> The problem remains single-source shortest paths with nonnegative weights, plus the extra constraint $\textit{dist}[u]+w < \textit{disappear}[v]$ when relaxing $v$.
 >
-> Build the undirected graph and run heap Dijkstra from $0$. Keep $dist[i]$ when it is smaller than $\textit{disappear}[i]$, otherwise report $-1$.
+> Build the undirected graph and run heap Dijkstra from $0$. Keep $\textit{dist}[i]$ when it is smaller than $\textit{disappear}[i]$, otherwise report $-1$.
 
 <!-- thinking:end -->
 
-First, we create an adjacency list $\textit{g}$ to store the edges of the graph. Then, we create an array $\textit{dist}$ to store the shortest distances from node $0$ to other nodes. Initialize $\textit{dist}[0] = 0$, and the distances for the rest of the nodes are initialized to infinity.
+First, we create an adjacency list $g$ to store the edges of the graph. Then, we create an array $\textit{dist}$ to store the shortest distances from node $0$ to other nodes. Initialize $\textit{dist}[0] = 0$, and the distances for the rest of the nodes are initialized to infinity.
 
 Next, we use the Dijkstra algorithm to calculate the shortest distances from node $0$ to other nodes. The specific steps are as follows:
 
-1. Create a priority queue $\textit{pq}$ to store the distances and node numbers. Initially, add node $0$ to the queue with a distance of $0$.
+1. Create a priority queue $pq$ to store the distances and node numbers. Initially, add node $0$ to the queue with a distance of $0$.
 2. Remove a node $u$ from the queue. If the distance $du$ of $u$ is greater than $\textit{dist}[u]$, it means $u$ has already been updated, so we skip it directly.
 3. Iterate through all neighbor nodes $v$ of node $u$. If $\textit{dist}[v] > \textit{dist}[u] + w$ and $\textit{dist}[u] + w < \textit{disappear}[v]$, then update $\textit{dist}[v] = \textit{dist}[u] + w$ and add node $v$ to the queue.
 4. Repeat steps 2 and 3 until the queue is empty.

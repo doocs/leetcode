@@ -80,9 +80,9 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 
 > **Thinking**
 >
-> Permute $nums$ to maximize the sum of all requested range sums. Both $n$ and the number of requests reach $10^5$. An index that is covered more often should receive a larger value.
+> Permute $\textit{nums}$ to maximize the sum of all requested range sums. Both $n$ and the number of requests reach $10^5$. An index that is covered more often should receive a larger value.
 >
-> A difference array adds one to each $[l,r]$ in $O(1)$; a prefix sum then yields every index's coverage. Sorting coverages with $nums$ and multiplying aligned pairs assigns the largest values to the hottest positions.
+> A difference array adds one to each $[l,r]$ in $O(1)$; a prefix sum then yields every index's coverage. Sorting coverages with $\textit{nums}$ and multiplying aligned pairs assigns the largest values to the hottest positions.
 
 <!-- thinking:end -->
 

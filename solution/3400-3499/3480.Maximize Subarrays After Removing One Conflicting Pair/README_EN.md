@@ -94,9 +94,9 @@ We store all conflicting pairs $(a, b)$ (assuming $a < b$) in a list $g$, where 
 
 If no deletion occurs, we can enumerate each subarray's left endpoint $a$ in reverse order. The upper bound of its right endpoint is the minimum value $b_1$ among all $g[x \geq a]$ (excluding $b_1$), and the contribution to the answer is $b_1 - a$.
 
-If we delete a conflicting pair containing $b_1$, then the new $b_1$ becomes the second minimum value $b_2$ among all $g[x \geq a]$, and its additional contribution to the answer is $b_2 - b_1$. We use an array $\text{cnt}$ to record the additional contribution for each $b_1$.
+If we delete a conflicting pair containing $b_1$, then the new $b_1$ becomes the second minimum value $b_2$ among all $g[x \geq a]$, and its additional contribution to the answer is $b_2 - b_1$. We use an array $\textit{cnt}$ to record the additional contribution for each $b_1$.
 
-The final answer is the sum of all $b_1 - a$ contributions plus the maximum value of $\text{cnt}[b_1]$.
+The final answer is the sum of all $b_1 - a$ contributions plus the maximum value of $\textit{cnt}[b_1]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of conflicting pairs.
 

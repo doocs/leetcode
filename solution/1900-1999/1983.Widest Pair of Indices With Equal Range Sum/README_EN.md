@@ -85,15 +85,15 @@ There are no pairs of indices that meet the requirements.
 
 <!-- thinking:end -->
 
-We observe that for any index pair $(i, j)$, if $nums1[i] + nums1[i+1] + ... + nums1[j] = nums2[i] + nums2[i+1] + ... + nums2[j]$, then $nums1[i] - nums2[i] + nums1[i+1] - nums2[i+1] + ... + nums1[j] - nums2[j] = 0$. If we subtract the corresponding elements of array $nums1$ and array $nums2$ to get a new array $nums$, the problem is transformed into finding the longest subarray in $nums$ such that the sum of the subarray is $0$. This can be solved using the prefix sum + hash table method.
+We observe that for any index pair $(i, j)$, if $\textit{nums1}[i] + \textit{nums1}[i+1] + ... + \textit{nums1}[j] = \textit{nums2}[i] + \textit{nums2}[i+1] + ... + \textit{nums2}[j]$, then $\textit{nums1}[i] - \textit{nums2}[i] + \textit{nums1}[i+1] - \textit{nums2}[i+1] + ... + \textit{nums1}[j] - \textit{nums2}[j] = 0$. If we subtract the corresponding elements of array $\textit{nums1}$ and array $\textit{nums2}$ to get a new array $\textit{nums}$, the problem is transformed into finding the longest subarray in $\textit{nums}$ such that the sum of the subarray is $0$. This can be solved using the prefix sum + hash table method.
 
-We define a variable $s$ to represent the current prefix sum of $nums$, and use a hash table $d$ to store the first occurrence position of each prefix sum. Initially, $s = 0$ and $d[0] = -1$.
+We define a variable $s$ to represent the current prefix sum of $\textit{nums}$, and use a hash table $d$ to store the first occurrence position of each prefix sum. Initially, $s = 0$ and $d[0] = -1$.
 
-Next, we traverse each element $x$ in the array $nums$, calculate the value of $s$, and then check whether $s$ exists in the hash table. If $s$ exists in the hash table, it means that there is a subarray $nums[d[s]+1,..i]$ such that the sum of the subarray is $0$, and we update the answer to $\max(ans, i - d[s])$. Otherwise, we add the value of $s$ to the hash table, indicating that the first occurrence position of $s$ is $i$.
+Next, we traverse each element $x$ in the array $\textit{nums}$, calculate the value of $s$, and then check whether $s$ exists in the hash table. If $s$ exists in the hash table, it means that there is a subarray $\textit{nums}[d[s]+1,..i]$ such that the sum of the subarray is $0$, and we update the answer to $\max(\textit{ans}, i - d[s])$. Otherwise, we add the value of $s$ to the hash table, indicating that the first occurrence position of $s$ is $i$.
 
 After the traversal, we can get the final answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

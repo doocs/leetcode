@@ -62,17 +62,17 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 
 > **Thinking**
 >
-> A larger divisor only decreases the sum of ceilings, so the predicate is monotone. $n \le 5\times 10^4$ forbids trying every divisor. We binary-search the smallest $v$ in $[1,\max nums]$ such that $\sum \lceil nums_i/v \rceil \le threshold$. Each check is one linear scan.
+> A larger divisor only decreases the sum of ceilings, so the predicate is monotone. $n \le 5\times 10^4$ forbids trying every divisor. We binary-search the smallest $v$ in $[1,\max \textit{nums}]$ such that $\sum \lceil \textit{nums}_i/v \rceil \le \textit{threshold}$. Each check is one linear scan.
 
 <!-- thinking:end -->
 
-Notice that for number $v$, if the sum of results of dividing each number in $nums$ by $v$ is less than or equal to $threshold$, then all values greater than $v$ satisfy the condition. There is a monotonicity, so we can use binary search to find the smallest $v$ that satisfies the condition.
+Notice that for number $v$, if the sum of results of dividing each number in $\textit{nums}$ by $v$ is less than or equal to $\textit{threshold}$, then all values greater than $v$ satisfy the condition. There is a monotonicity, so we can use binary search to find the smallest $v$ that satisfies the condition.
 
-We define the left boundary of the binary search $l=1$, $r=\max(nums)$. Each time we take $mid=(l+r)/2$, calculate the sum of the results of dividing each number in $nums$ by $mid$ $s$, if $s$ is less than or equal to $threshold$, then it means that $mid$ satisfies the condition, we will update $r$ to $mid$, otherwise we will update $l$ to $mid+1$.
+We define the left boundary of the binary search $l=1$, $r=\max(\textit{nums})$. Each time we take $\textit{mid}=(l+r)/2$, calculate the sum of the results of dividing each number in $\textit{nums}$ by $\textit{mid}$ $s$, if $s$ is less than or equal to $\textit{threshold}$, then it means that $\textit{mid}$ satisfies the condition, we will update $r$ to $\textit{mid}$, otherwise we will update $l$ to $\textit{mid}+1$.
 
 Finally, return $l$.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$ and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

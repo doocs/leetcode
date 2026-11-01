@@ -110,24 +110,24 @@ tags:
 >
 > AND only loses bits, so a segment can be abandoned once it drops below the target. The state (index, finished segments, running AND) is unique, and distinct AND values are $O(\log M)$.
 >
-> Memoize $dfs(i,j,a)$: AND in $nums[i]$, then either extend the segment or, when the AND matches the target, cut and add $nums[i]$. Return infinity when too few elements remain or the AND undershoots.
+> Memoize $\textit{dfs}(i,j,a)$: AND in $\textit{nums}[i]$, then either extend the segment or, when the AND matches the target, cut and add $\textit{nums}[i]$. Return infinity when too few elements remain or the AND undershoots.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, a)$, which represents the possible minimum sum of subarray values that can be obtained starting from the $i$-th element, with $j$ subarrays already divided, and the bitwise AND result of the current subarray to be divided is $a$. The answer is $dfs(0, 0, -1)$.
+We design a function $\textit{dfs}(i, j, a)$, which represents the possible minimum sum of subarray values that can be obtained starting from the $i$-th element, with $j$ subarrays already divided, and the bitwise AND result of the current subarray to be divided is $a$. The answer is $\textit{dfs}(0, 0, -1)$.
 
-The execution process of the function $dfs(i, j, a)$ is as follows:
+The execution process of the function $\textit{dfs}(i, j, a)$ is as follows:
 
 - If $n - i < m - j$, it means that the remaining elements are not enough to divide into $m - j$ subarrays, return $+\infty$.
 - If $j = m$, it means that $m$ subarrays have been divided. At this time, check whether $i = n$ holds. If it holds, return $0$, otherwise return $+\infty$.
-- Otherwise, we perform a bitwise AND operation on $a$ and $nums[i]$ to get a new $a$. If $a < andValues[j]$, it means that the bitwise AND result of the current subarray to be divided does not meet the requirements, return $+\infty$. Otherwise, we have two choices:
-    - Do not divide the current element, i.e., $dfs(i + 1, j, a)$.
-    - Divide the current element, i.e., $dfs(i + 1, j + 1, -1) + nums[i]$.
+- Otherwise, we perform a bitwise AND operation on $a$ and $\textit{nums}[i]$ to get a new $a$. If $a < \textit{andValues}[j]$, it means that the bitwise AND result of the current subarray to be divided does not meet the requirements, return $+\infty$. Otherwise, we have two choices:
+    - Do not divide the current element, i.e., $\textit{dfs}(i + 1, j, a)$.
+    - Divide the current element, i.e., $\textit{dfs}(i + 1, j + 1, -1) + \textit{nums}[i]$.
 - Return the minimum of the above two choices.
 
-To avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, j, a)$ in a hash table.
+To avoid repeated calculations, we use the method of memoization search and store the result of $\textit{dfs}(i, j, a)$ in a hash table.
 
-The time complexity is $O(nm \log M)$, and the space complexity is $O(nm \log M)$, where $n$ and $m$ are the lengths of the arrays $nums$ and $andValues$ respectively; and $M$ is the maximum value in the array $nums$, in this problem $M \leq 10^5$.
+The time complexity is $O(nm \log M)$, and the space complexity is $O(nm \log M)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{andValues}$ respectively; and $M$ is the maximum value in the array $\textit{nums}$, in this problem $M \leq 10^5$.
 
 <!-- tabs:start -->
 
@@ -334,22 +334,22 @@ function minimumValueSum(nums: number[], andValues: number[]): number {
 >
 > AND only drops bits. Subarrays that end at the same index have $O(\log M)$ distinct AND values, and the best future cost depends only on the segment index and that AND.
 >
-> Walk left to right and keep one map from $(j,a)$ to the minimum cost of reaching it. $a=-1$ means the new segment has no element yet. After absorbing $nums[i]$, stay in segment $j$, or, when the AND matches the target, close the segment, add $nums[i]$, and open the next one. The last segment can close only at the end of the array.
+> Walk left to right and keep one map from $(j,a)$ to the minimum cost of reaching it. $a=-1$ means the new segment has no element yet. After absorbing $\textit{nums}[i]$, stay in segment $j$, or, when the AND matches the target, close the segment, add $\textit{nums}[i]$, and open the next one. The last segment can close only at the end of the array.
 
 <!-- thinking:end -->
 
 Scan the array from left to right and keep only the current layer. State $(j, a)$ means $j$ segments are finished and the AND of the open segment, before absorbing the next element, is $a$. Its value is the minimum sum of segment endpoints used to reach it. $a = -1$ means the open segment is empty. The only initial state is $(0, -1)$ with cost $0$. The answer is the cost of $(m, -1)$ after the whole array has been scanned.
 
-When handling $nums[i]$, consider every state $(j, a)$:
+When handling $\textit{nums}[i]$, consider every state $(j, a)$:
 
 - If $n - i < m - j$, too few elements remain for $m - j$ segments, so drop the state.
-- Let $a'$ be the bitwise AND of $a$ and $nums[i]$. The empty value $-1$ AND any number is that number itself. If $a' < \textit{andValues}[j]$, later ANDs can only get smaller and can no longer hit the target, so drop the state.
-- Otherwise $nums[i]$ can stay in the current segment. Move to $(j, a')$ with the same cost.
-- If $a' = \textit{andValues}[j]$, the current segment can also end at index $i$, adding $nums[i]$ to the cost. When $j + 1 < m$, the new state is $(j + 1, -1)$. When $j + 1 = m$, the division covers the array only if $i = n - 1$, and that state is $(m, -1)$.
+- Let $a'$ be the bitwise AND of $a$ and $\textit{nums}[i]$. The empty value $-1$ AND any number is that number itself. If $a' < \textit{andValues}[j]$, later ANDs can only get smaller and can no longer hit the target, so drop the state.
+- Otherwise $\textit{nums}[i]$ can stay in the current segment. Move to $(j, a')$ with the same cost.
+- If $a' = \textit{andValues}[j]$, the current segment can also end at index $i$, adding $\textit{nums}[i]$ to the cost. When $j + 1 < m$, the new state is $(j + 1, -1)$. When $j + 1 = m$, the division covers the array only if $i = n - 1$, and that state is $(m, -1)$.
 
 Keep the smaller cost for the same state. If $(m, -1)$ is absent, return $-1$.
 
-The time complexity is $O(nm \log M)$, and the space complexity is $O(m \log M)$, where $n$ and $m$ are the lengths of $nums$ and $andValues$, and $M$ is the maximum value in $nums$, with $M \leq 10^5$ in this problem. Subarray ANDs that share a right endpoint change at most $O(\log M)$ times, so each layer has $O(m \log M)$ states.
+The time complexity is $O(nm \log M)$, and the space complexity is $O(m \log M)$, where $n$ and $m$ are the lengths of $\textit{nums}$ and $\textit{andValues}$, and $M$ is the maximum value in $\textit{nums}$, with $M \leq 10^5$ in this problem. Subarray ANDs that share a right endpoint change at most $O(\log M)$ times, so each layer has $O(m \log M)$ states.
 
 <!-- tabs:start -->
 

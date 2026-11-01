@@ -72,7 +72,7 @@ tags:
 >
 > Order of digits does not matter, so no string conversion is needed.
 >
-> The loop stops at $0$; $nums[i] \ge 1$ so leading zeros are not an issue.
+> The loop stops at $0$; $\textit{nums}[i] \ge 1$ so leading zeros are not an issue.
 >
 > Accumulate matches.
 

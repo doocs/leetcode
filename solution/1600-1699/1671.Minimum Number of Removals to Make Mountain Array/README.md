@@ -84,11 +84,11 @@ tags:
 
 本题可以转化为求最长上升子序列和最长下降子序列。
 
-我们定义 $left[i]$ 表示以 $nums[i]$ 结尾的最长上升子序列的长度，定义 $right[i]$ 表示以 $nums[i]$ 开头的最长下降子序列的长度。
+我们定义 $\textit{left}[i]$ 表示以 $\textit{nums}[i]$ 结尾的最长上升子序列的长度，定义 $\textit{right}[i]$ 表示以 $\textit{nums}[i]$ 开头的最长下降子序列的长度。
 
-那么最终答案就是 $n - \max(left[i] + right[i] - 1)$，其中 $1 \leq i \leq n$，并且 $left[i] \gt 1$ 且 $right[i] \gt 1$。
+那么最终答案就是 $n - \max(\textit{left}[i] + \textit{right}[i] - 1)$，其中 $1 \leq i \leq n$，并且 $\textit{left}[i] \gt 1$ 且 $\textit{right}[i] \gt 1$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

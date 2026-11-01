@@ -83,7 +83,7 @@ The root node evaluates to True, so we return true.</pre>
 >
 > Leaves are booleans; inner nodes are OR or AND. At most $1000$ nodes, so evaluate by definition.
 >
-> A missing left child is a leaf. Otherwise recurse on both children and apply $or$ or $and$ from the node value. Each node is visited once.
+> A missing left child is a leaf. Otherwise recurse on both children and apply $or$ or $\textit{and}$ from the node value. Each node is visited once.
 
 <!-- thinking:end -->
 

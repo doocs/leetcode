@@ -55,7 +55,7 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 
 > **Thinking**
 >
-> With $n\le 150$ we need $\mathrm{lcm}(2,n)$. An even $n$ is already a multiple of $2$; otherwise multiply by $2$. The result is $O(1)$.
+> With $n\le 150$ we need $\textit{lcm}(2,n)$. An even $n$ is already a multiple of $2$; otherwise multiply by $2$. The result is $O(1)$.
 
 <!-- thinking:end -->
 

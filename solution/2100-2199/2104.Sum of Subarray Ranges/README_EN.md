@@ -88,7 +88,7 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 >
 > The sum of ranges is the sum of $\max-\min$ over every subarray. With $n\le 1000$, enumerating endpoints while maintaining the current max and min is $O(n^2)$ and acceptable.
 >
-> The inner scan need not restart: after fixing left index $i$, extending $j$ only updates $\textit{mi}$ and $\textit{mx}$ and adds their difference.
+> The inner scan need not restart: after fixing left index $i$, extending $j$ only updates $mi$ and $mx$ and adds their difference.
 >
 > A double loop therefore accumulates every range.
 

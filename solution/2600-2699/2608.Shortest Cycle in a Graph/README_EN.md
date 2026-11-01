@@ -67,15 +67,15 @@ tags:
 >
 > The shortest cycle can be found by deleting each edge and computing the shortest path between its ends. $n,m \le 1000$ makes $O(m(n+m))$ BFS affordable.
 >
-> Any cycle uses some edge $(u,v)$; after deleting it, $\mathrm{dist}(u,v)+1$ is the shortest cycle through that edge. We take the minimum over all edges, or report no cycle if none reconnects.
+> Any cycle uses some edge $(u,v)$; after deleting it, $\textit{dist}(u,v)+1$ is the shortest cycle through that edge. We take the minimum over all edges, or report no cycle if none reconnects.
 
 <!-- thinking:end -->
 
-We first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
+We first construct the adjacency list $g$ of the graph according to the array $\textit{edges}$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 
-Then we enumerate the two-directional edge $(u, v)$, if the path from vertex $u$ to vertex $v$ still exists after deleting this edge, then the length of the shortest cycle containing this edge is $dist[v] + 1$, where $dist[v]$ represents the shortest path length from vertex $u$ to vertex $v$. We take the minimum of all these cycles.
+Then we enumerate the two-directional edge $(u, v)$, if the path from vertex $u$ to vertex $v$ still exists after deleting this edge, then the length of the shortest cycle containing this edge is $\textit{dist}[v] + 1$, where $\textit{dist}[v]$ represents the shortest path length from vertex $u$ to vertex $v$. We take the minimum of all these cycles.
 
-The time complexity is $O(m^2)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $edges$ and the number of vertices.
+The time complexity is $O(m^2)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $\textit{edges}$ and the number of vertices.
 
 <!-- tabs:start -->
 
@@ -278,17 +278,17 @@ function findShortestCycle(n: number, edges: number[][]): number {
 
 > **Thinking**
 >
-> Solution 1 runs BFS once per edge. Starting BFS from every vertex is enough: the first already-visited neighbor that is not the parent closes a cycle of length $\mathrm{dist}(u)+\mathrm{dist}(v)+1$.
+> Solution 1 runs BFS once per edge. Starting BFS from every vertex is enough: the first already-visited neighbor that is not the parent closes a cycle of length $\textit{dist}(u)+\textit{dist}(v)+1$.
 >
 > When the graph is denser this does fewer searches, $O(n(n+m))$, and avoids deleting edges.
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
+Similar to Solution 1, we first construct the adjacency list $g$ of the graph according to the array $\textit{edges}$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 
 Then we enumerate the vertex $u$, if there are two paths from vertex $u$ to vertex $v$, then we currently find a cycle, the length is the sum of the length of the two paths. We take the minimum of all these cycles.
 
-The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $edges$ and the number of vertices.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $\textit{edges}$ and the number of vertices.
 
 <!-- tabs:start -->
 

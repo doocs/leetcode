@@ -86,7 +86,7 @@ The path sum is (3 + 1) = 4.</p>
 >
 > Nodes are encoded as depth, position, and value. Building an explicit tree is unnecessary.
 >
-> Map $depth\times 10+pos$ to the value. DFS from $11$ using the child-index formula; when both children are missing, add the path sum.
+> Map $\textit{depth}\times 10+\textit{pos}$ to the value. DFS from $11$ using the child-index formula; when both children are missing, add the path sum.
 
 <!-- thinking:end -->
 

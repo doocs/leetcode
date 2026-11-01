@@ -84,17 +84,17 @@ tags:
 >
 > For each node we want the closest ancestor whose value is coprime with it. $n\le 10^5$ but values lie in $[1,50]$, so one stack per value is enough.
 >
-> Precompute coprime pairs in $1..50$. During DFS, look at the stack top of every value coprime to $nums[i]$ and take the deepest.
+> Precompute coprime pairs in $1..50$. During DFS, look at the stack top of every value coprime to $\textit{nums}[i]$ and take the deepest.
 >
-> Push $(i,\textit{depth})$ onto the stack of $nums[i]$ before recursing and pop afterward, so the top is always the nearest ancestor.
+> Push $(i,\textit{depth})$ onto the stack of $\textit{nums}[i]$ before recursing and pop afterward, so the top is always the nearest ancestor.
 
 <!-- thinking:end -->
 
-Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
+Since the range of $\textit{nums}[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
 
-Next, we can use a backtracking method to traverse the entire tree from the root node. For each node $i$, we can get all the coprime numbers of $nums[i]$ through the array $f$. Then we enumerate all the coprime numbers of $nums[i]$, find the ancestor node $t$ that has appeared and has the maximum depth, which is the nearest coprime ancestor node of $i$. Here we can use a stack array $stks$ of length $51$ to get each appeared value $v$ and its depth. The top element of each stack $stks[v]$ is the nearest ancestor node with the maximum depth.
+Next, we can use a backtracking method to traverse the entire tree from the root node. For each node $i$, we can get all the coprime numbers of $\textit{nums}[i]$ through the array $f$. Then we enumerate all the coprime numbers of $\textit{nums}[i]$, find the ancestor node $t$ that has appeared and has the maximum depth, which is the nearest coprime ancestor node of $i$. Here we can use a stack array $\textit{stks}$ of length $51$ to get each appeared value $v$ and its depth. The top element of each stack $\textit{stks}[v]$ is the nearest ancestor node with the maximum depth.
 
-The time complexity is $O(nM)$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $\textit{nums}[i]$, in this problem $M = 50$.
 
 <!-- tabs:start -->
 
@@ -305,17 +305,17 @@ func gcd(a, b int) int {
 >
 > For each node we want the closest ancestor whose value is coprime with it. With $n\le 10^5$ and values in $[1,50]$, one ancestor stack per value is enough. Recursing into each child from the root is too deep: a chain makes the call depth $n$.
 >
-> Precompute coprime pairs in $1..50$. On a visit, look at the stack top of every value coprime to $nums[i]$ and take the deepest.
+> Precompute coprime pairs in $1..50$. On a visit, look at the stack top of every value coprime to $\textit{nums}[i]$ and take the deepest.
 >
-> The explicit stack stores $(node, parent, depth, next child)$. Before walking to a child we push $(i,\textit{depth})$ onto the stack of $nums[i]$ and pop it after that child is finished, so the top stays the nearest ancestor.
+> The explicit stack stores $(\textit{node}, \textit{parent}, \textit{depth}, \textit{next} \textit{child})$. Before walking to a child we push $(i,\textit{depth})$ onto the stack of $\textit{nums}[i]$ and pop it after that child is finished, so the top stays the nearest ancestor.
 
 <!-- thinking:end -->
 
-Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
+Since the range of $\textit{nums}[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
 
-Next, an explicit stack walks the tree in preorder from the root. For each node $i$, enumerate the values coprime to $nums[i]$ and take the ancestor $t$ of maximum depth among those stack tops; that is the nearest coprime ancestor. The stack array $stks$ has length $51$, and $stks[v]$ records nodes of value $v$ on the current root path together with their depths. Before walking to a child, push $(i,\textit{depth})$ onto $stks[nums[i]]$, and pop it after that child is finished.
+Next, an explicit stack walks the tree in preorder from the root. For each node $i$, enumerate the values coprime to $\textit{nums}[i]$ and take the ancestor $t$ of maximum depth among those stack tops; that is the nearest coprime ancestor. The stack array $\textit{stks}$ has length $51$, and $\textit{stks}[v]$ records nodes of value $v$ on the current root path together with their depths. Before walking to a child, push $(i,\textit{depth})$ onto $\textit{stks}[\textit{nums}[i]]$, and pop it after that child is finished.
 
-The time complexity is $O(nM)$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $\textit{nums}[i]$, in this problem $M = 50$.
 
 <!-- tabs:start -->
 

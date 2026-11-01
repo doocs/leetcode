@@ -69,11 +69,11 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 > **Thinking**
 >
-> A path from $begin$ to $end$ changing one letter at a time inside the word list. The list is small enough to search without a prebuilt graph.
+> A path from $\textit{begin}$ to $\textit{end}$ changing one letter at a time inside the word list. The list is small enough to search without a prebuilt graph.
 >
 > DFS tries each unused word that differs in one position, keeps the path on success, and backtracks otherwise.
 >
-> `check` counts mismatches; $vis$ blocks reuse. Hitting $endWord$ returns $ans$, else empty. Any path is accepted.
+> `check` counts mismatches; $\textit{vis}$ blocks reuse. Hitting $\textit{endWord}$ returns $\textit{ans}$, else empty. Any path is accepted.
 
 <!-- thinking:end -->
 

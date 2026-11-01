@@ -71,17 +71,17 @@ tags:
 
 > **思考**
 >
-> 线性扫描找 $arr[i]=i$ 的最小下标即可，进阶希望 $O(\log n)$。数组严格递增，故 $arr[i]-i$ 单调不降，第一个非负处即最小不动点候选。
+> 线性扫描找 $\textit{arr}[i]=i$ 的最小下标即可，进阶希望 $O(\log n)$。数组严格递增，故 $\textit{arr}[i]-i$ 单调不降，第一个非负处即最小不动点候选。
 >
-> 若 $arr[mid]\ge mid$，答案不会在右侧；否则只可能在 $mid$ 之后。
+> 若 $\textit{arr}[\textit{mid}]\ge \textit{mid}$，答案不会在右侧；否则只可能在 $\textit{mid}$ 之后。
 >
 > 二分到左端后检查是否真的相等，否则返回 $-1$。
 
 <!-- thinking:end -->
 
-题目给定的数组是按升序排列的，因此我们可以使用二分查找的方法找出最小的满足 $arr[i]$ 等于 $i$ 的下标 $i$。
+题目给定的数组是按升序排列的，因此我们可以使用二分查找的方法找出最小的满足 $\textit{arr}[i]$ 等于 $i$ 的下标 $i$。
 
-我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$。每一次，我们找到当前的中间位置 $mid$，如果中间位置满足 $arr[mid] \geq mid$，那么我们就确定了最小的不动点 🔒 的位置一定不会出现在下标大于 $mid$ 的位置，因此我们令 $right=mid$；如果中间位置满足 $arr[mid] \lt mid$，那么最小的不动点 🔒 一定出现在下标大于 $mid$ 的位置，因此我们令 $left=mid+1$。
+我们定义二分查找的左边界 $\textit{left}=0$，右边界 $\textit{right}=n-1$。每一次，我们找到当前的中间位置 $\textit{mid}$，如果中间位置满足 $\textit{arr}[\textit{mid}] \geq \textit{mid}$，那么我们就确定了最小的不动点 🔒 的位置一定不会出现在下标大于 $\textit{mid}$ 的位置，因此我们令 $\textit{right}=\textit{mid}$；如果中间位置满足 $\textit{arr}[\textit{mid}] \lt \textit{mid}$，那么最小的不动点 🔒 一定出现在下标大于 $\textit{mid}$ 的位置，因此我们令 $\textit{left}=\textit{mid}+1$。
 
 最后，如果我们没有找到最小的不动点 🔒，那么我们返回 $-1$。
 

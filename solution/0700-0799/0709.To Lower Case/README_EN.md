@@ -63,7 +63,7 @@ tags:
 >
 > Each uppercase letter is $32$ below its lowercase counterpart, i.e. bit $5$ of the code point. Bitwise-or with $32$ lowercases it; other characters stay unchanged.
 >
-> Map every character: if it is uppercase, emit $\operatorname{ord}(c)\,|\,32$. Time $O(n)$.
+> Map every character: if it is uppercase, emit $\textit{ord}(c)\,|\,32$. Time $O(n)$.
 
 <!-- thinking:end -->
 

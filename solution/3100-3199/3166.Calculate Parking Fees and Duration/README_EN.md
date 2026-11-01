@@ -107,7 +107,7 @@ Each row of this table contains the ID of the parking lot, the ID of the car, th
 >
 > Each car needs total fees, an hourly average, and the lot where it stayed longest. A second pass would be required after a naive group-by.
 >
-> Sum durations by $(car\_id,lot\_id)$, then rank lots per car by that duration to mark the longest stay.
+> Sum durations by $(\textit{car\_id},\textit{lot\_id})$, then rank lots per car by that duration to mark the longest stay.
 >
 > Aggregate fees and seconds from the raw table, left-join the rank-$1$ lot, and divide fee by hours rounded to two decimals.
 

@@ -79,17 +79,17 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 
 > **Thinking**
 >
-> A mountain needs $i<j<k$ and $nums[i]<nums[j]>nums[k]$, minimizing the sum. $n \le 50$ allows a triple loop. After fixing the peak $j$, only the left and right minima matter, and both must be strictly smaller than $nums[j]$.
+> A mountain needs $i<j<k$ and $\textit{nums}[i]<\textit{nums}[j]>\textit{nums}[k]$, minimizing the sum. $n \le 50$ allows a triple loop. After fixing the peak $j$, only the left and right minima matter, and both must be strictly smaller than $\textit{nums}[j]$.
 >
-> Precompute suffix minima in $right$, then scan left to right while tracking $left$. Test each peak and update the triple sum, or return $-1$ if none exists.
+> Precompute suffix minima in $\textit{right}$, then scan left to right while tracking $\textit{left}$. Test each peak and update the triple sum, or return $-1$ if none exists.
 
 <!-- thinking:end -->
 
-We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
+We can preprocess the minimum value on the right side of each position and record it in the array $\textit{right}[i]$, where $\textit{right}[i]$ represents the minimum value in $\textit{nums}[i+1..n-1]$.
 
-Next, we enumerate the middle element $nums[i]$ of the mountain triplet from left to right, and use a variable $left$ to represent the minimum value in $ums[0..i-1]$, and a variable $ans$ to represent the current minimum element sum found. For each $i$, we need to find the element $nums[i]$ that satisfies $left < nums[i]$ and $right[i+1] < nums[i]$, and update $ans$.
+Next, we enumerate the middle element $\textit{nums}[i]$ of the mountain triplet from left to right, and use a variable $\textit{left}$ to represent the minimum value in $\textit{ums}[0..i-1]$, and a variable $\textit{ans}$ to represent the current minimum element sum found. For each $i$, we need to find the element $\textit{nums}[i]$ that satisfies $\textit{left} < \textit{nums}[i]$ and $\textit{right}[i+1] < \textit{nums}[i]$, and update $\textit{ans}$.
 
-Finally, if $ans$ is still the initial value, it means that there is no mountain triplet, and we return $-1$.
+Finally, if $\textit{ans}$ is still the initial value, it means that there is no mountain triplet, and we return $-1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

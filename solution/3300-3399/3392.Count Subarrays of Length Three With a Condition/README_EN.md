@@ -66,7 +66,7 @@ tags:
 >
 > A length-$3$ subarray is counted when twice the sum of the wings equals the middle. With $n \le 100$ we enumerate the middle index.
 >
-> For each $i \in [1,n-2]$ we test $(nums[i-1]+nums[i+1])\times 2 = nums[i]$ and count the successes.
+> For each $i \in [1,n-2]$ we test $(\textit{nums}[i-1]+\textit{nums}[i+1])\times 2 = \textit{nums}[i]$ and count the successes.
 
 <!-- thinking:end -->
 

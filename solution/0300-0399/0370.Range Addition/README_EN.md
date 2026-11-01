@@ -209,7 +209,7 @@ The time complexity is $O(n \log n)$.
 
 A Binary Indexed Tree (BIT), also known as a Fenwick Tree, can efficiently perform the following two operations:
 
-1. **Point Update** `update(x, delta)`: Add a value $delta$ to the number at position $x$ in the sequence.
+1. **Point Update** `update(x, delta)`: Add a value $\textit{delta}$ to the number at position $x$ in the sequence.
 2. **Prefix Sum Query** `query(x)`: Query the sum of the interval $[1, ... , x]$ in the sequence, i.e., the prefix sum up to position $x$.
 
 The time complexity for both operations is $O(\log n)$.

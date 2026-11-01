@@ -73,27 +73,27 @@ The total cost is 1 + 1 + 2 = 4. It can be shown that it is the minimum cost pos
 
 > **Thinking**
 >
-> Each operation flips two bits, so an odd number of mismatches is impossible. Collect mismatch indices and let $dfs(i,j)$ take the best of pairing the two ends at cost $x$, or pairing the two leftmost / two rightmost indices at distance cost.
+> Each operation flips two bits, so an odd number of mismatches is impossible. Collect mismatch indices and let $\textit{dfs}(i,j)$ take the best of pairing the two ends at cost $x$, or pairing the two leftmost / two rightmost indices at distance cost.
 
 <!-- thinking:end -->
 
-We notice that since each operation reverses two characters, if the number of different characters in the two strings is odd, it is impossible to make them equal, and we directly return $-1$. Otherwise, we store the indices of the different characters in the two strings in an array $idx$, and let $m$ be the length of $idx$.
+We notice that since each operation reverses two characters, if the number of different characters in the two strings is odd, it is impossible to make them equal, and we directly return $-1$. Otherwise, we store the indices of the different characters in the two strings in an array $\textit{idx}$, and let $m$ be the length of $\textit{idx}$.
 
-Next, we design a function $dfs(i, j)$, which represents the minimum cost of reversing the characters in $idx[i..j]$. The answer is $dfs(0, m - 1)$.
+Next, we design a function $\textit{dfs}(i, j)$, which represents the minimum cost of reversing the characters in $\textit{idx}[i..j]$. The answer is $\textit{dfs}(0, m - 1)$.
 
-The calculation process of the function $dfs(i, j)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 
 If $i > j$, we do not need to perform any operation, and return $0$.
 
 Otherwise, we consider the two endpoints of the interval $[i, j]$:
 
-- If we perform the first operation on endpoint $i$, since the cost $x$ is fixed, the optimal choice is to reverse $idx[i]$ and $idx[j]$, and then recursively calculate $dfs(i + 1, j - 1)$, with a total cost of $dfs(i + 1, j - 1) + x$.
-- If we perform the second operation on endpoint $i$, we need to reverse all the characters in $[idx[i]..idx[i + 1]]$, and then recursively calculate $dfs(i + 2, j)$, with a total cost of $dfs(i + 2, j) + idx[i + 1] - idx[i]$.
-- If we perform the second operation on endpoint $j$, we need to reverse all the characters in $[idx[j - 1]..idx[j]]$, and then recursively calculate $dfs(i, j - 2)$, with a total cost of $dfs(i, j - 2) + idx[j] - idx[j - 1]$.
+- If we perform the first operation on endpoint $i$, since the cost $x$ is fixed, the optimal choice is to reverse $\textit{idx}[i]$ and $\textit{idx}[j]$, and then recursively calculate $\textit{dfs}(i + 1, j - 1)$, with a total cost of $\textit{dfs}(i + 1, j - 1) + x$.
+- If we perform the second operation on endpoint $i$, we need to reverse all the characters in $[\textit{idx}[i]..\textit{idx}[i + 1]]$, and then recursively calculate $\textit{dfs}(i + 2, j)$, with a total cost of $\textit{dfs}(i + 2, j) + \textit{idx}[i + 1] - \textit{idx}[i]$.
+- If we perform the second operation on endpoint $j$, we need to reverse all the characters in $[\textit{idx}[j - 1]..\textit{idx}[j]]$, and then recursively calculate $\textit{dfs}(i, j - 2)$, with a total cost of $\textit{dfs}(i, j - 2) + \textit{idx}[j] - \textit{idx}[j - 1]$.
 
-We take the minimum value of the above three operations as the value of $dfs(i, j)$.
+We take the minimum value of the above three operations as the value of $\textit{dfs}(i, j)$.
 
-To avoid redundant calculations, we can use memoization to record the return value of $dfs(i, j)$ in a 2D array $f$. If $f[i][j]$ is not equal to $-1$, it means that we have already calculated it, so we can directly return $f[i][j]$.
+To avoid redundant calculations, we can use memoization to record the return value of $\textit{dfs}(i, j)$ in a 2D array $f$. If $f[i][j]$ is not equal to $-1$, it means that we have already calculated it, so we can directly return $f[i][j]$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the strings.
 

@@ -210,7 +210,7 @@ func minTime(n int, edges [][]int, hasApple []bool) int {
 >
 > A subtree with no apple and no further work can be skipped. After the children are done, add their round-trip costs; if this node has an apple or that sum is positive, add the cost of the incoming edge, which is $0$ at the root and $2$ elsewhere.
 >
-> An explicit stack of $(node, parent, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store that cost. The root's cost is the answer.
+> An explicit stack of $(\textit{node}, \textit{parent}, \textit{state})$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store that cost. The root's cost is the answer.
 
 <!-- thinking:end -->
 

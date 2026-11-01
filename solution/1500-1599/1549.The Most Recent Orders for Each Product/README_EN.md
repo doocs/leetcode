@@ -136,9 +136,9 @@ The hard disk was never ordered and we do not include it in the result table.
 
 > **Thinking**
 >
-> For every product we want every order on its latest date. Several orders may share that date, so $ROW\_NUMBER$ would drop ties.
+> For every product we want every order on its latest date. Several orders may share that date, so $\textit{ROW\_NUMBER}$ would drop ties.
 >
-> Join $Orders$ to $Products$, then $RANK$ partitioned by product and ordered by date descending. Rows with $rk=1$ keep every latest-day order; sort by name and identifiers afterwards.
+> Join $\textit{Orders}$ to $\textit{Products}$, then $\textit{RANK}$ partitioned by product and ordered by date descending. Rows with $rk=1$ keep every latest-day order; sort by name and identifiers afterwards.
 
 <!-- thinking:end -->
 

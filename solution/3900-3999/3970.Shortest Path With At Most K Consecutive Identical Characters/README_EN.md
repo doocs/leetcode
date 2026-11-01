@@ -112,7 +112,7 @@ Build an adjacency list from $\textit{edges}$. The start label is a run of lengt
 
 Pop the triple $(d, u, \textit{cur})$ with the smallest distance. If $u = n - 1$, nonnegative weights make this the best way to reach the destination, so return $d$. If $d > \textit{dist}[u][\textit{cur}]$, the state is stale and is skipped.
 
-Otherwise scan each outgoing edge $(v, w)$. The next run length is $\textit{nxt} = 1$ when the labels differ and $\textit{nxt} = \textit{cur} + 1$ when they match. The new distance is $\textit{nd} = d + w$. Update $\textit{dist}[v][\textit{nxt}]$ and push the state only when $\textit{nxt} \le k$ and $\textit{nd} < \textit{dist}[v][\textit{nxt}]$.
+Otherwise scan each outgoing edge $(v, w)$. The next run length is $\textit{nxt} = 1$ when the labels differ and $\textit{nxt} = \textit{cur} + 1$ when they match. The new distance is $nd = d + w$. Update $\textit{dist}[v][\textit{nxt}]$ and push the state only when $\textit{nxt} \le k$ and $nd < \textit{dist}[v][\textit{nxt}]$.
 
 If the heap empties before the destination is reached, return $-1$.
 

@@ -74,7 +74,7 @@ tags:
 
 > **思考**
 >
-> $n\le 1000$，按下标生成 $start+2i$ 并依次异或即可。
+> $n\le 1000$，按下标生成 $\textit{start}+2i$ 并依次异或即可。
 
 <!-- thinking:end -->
 

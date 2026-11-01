@@ -75,16 +75,16 @@ tags:
 >
 > 从 $0$ 开始每次均匀加 $[1,\textit{maxPts}]$，达到 $k$ 停止，求点数不超过 $n$ 的概率。 $k,n\le 10^4$，按每次抽牌展开博弈树不可行，应对「当前点数」做记忆化。
 >
-> $dfs(i)$ 为已有 $i$ 点时的成功概率。 $i\ge k$ 时停止并按是否 $\le n$ 返回； $i=k-1$ 可闭式算出。其余用相邻状态的差分把转移从 $O(\textit{maxPts})$ 降到 $O(1)$。
+> $\textit{dfs}(i)$ 为已有 $i$ 点时的成功概率。 $i\ge k$ 时停止并按是否 $\le n$ 返回； $i=k-1$ 可闭式算出。其余用相邻状态的差分把转移从 $O(\textit{maxPts})$ 降到 $O(1)$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i)$，表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $dfs(0)$。
+我们设计一个函数 $\textit{dfs}(i)$，表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $\textit{dfs}(0)$。
 
-函数 $dfs(i)$ 的计算方法如下：
+函数 $\textit{dfs}(i)$ 的计算方法如下：
 
 - 如果 $i \ge k$，那么停止抽取数字，如果 $i \le n$，返回 $1$，否则返回 $0$；
-- 否则，可以在 $[1,..\textit{maxPts}]$ 范围内抽取下一个数字 $j$，那么 $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$。
+- 否则，可以在 $[1,..\textit{maxPts}]$ 范围内抽取下一个数字 $j$，那么 $\textit{dfs}(i) = \frac{1}{\textit{maxPts}} \sum_{j=1}^{\textit{maxPts}} \textit{dfs}(i+j)$。
 
 这里我们可以使用记忆化搜索来加速计算。
 
@@ -94,7 +94,7 @@ tags:
 
 $$
 \begin{aligned}
-dfs(i) &= (dfs(i + 1) + dfs(i + 2) + \cdots + dfs(i + \textit{maxPts})) / \ & (1)
+\textit{dfs}(i) &= (\textit{dfs}(i + 1) + \textit{dfs}(i + 2) + \cdots + \textit{dfs}(i + \textit{maxPts})) / \ & (1)
 \end{aligned}
 $$
 
@@ -102,7 +102,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i+1) &= (dfs(i + 2) + dfs(i + 3) + \cdots + dfs(i + \textit{maxPts} + 1)) / \textit{maxPts} & (2)
+\textit{dfs}(i+1) &= (\textit{dfs}(i + 2) + \textit{dfs}(i + 3) + \cdots + \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts} & (2)
 \end{aligned}
 $$
 
@@ -110,7 +110,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) - dfs(i+1) &= (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
+\textit{dfs}(i) - \textit{dfs}(i+1) &= (\textit{dfs}(i + 1) - \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -118,7 +118,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) &= dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
+\textit{dfs}(i) &= \textit{dfs}(i + 1) + (\textit{dfs}(i + 1) - \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -126,7 +126,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) &= dfs(k - 1) &= dfs(k) + dfs(k + 1) + \cdots + dfs(k + \textit{maxPts} - 1) / \textit{maxPts} & (3)
+\textit{dfs}(i) &= \textit{dfs}(k - 1) &= \textit{dfs}(k) + \textit{dfs}(k + 1) + \cdots + \textit{dfs}(k + \textit{maxPts} - 1) / \textit{maxPts} & (3)
 \end{aligned}
 $$
 
@@ -134,7 +134,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(k-1) &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
+\textit{dfs}(k-1) &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -142,11 +142,11 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) &= \begin{cases}
+\textit{dfs}(i) &= \begin{cases}
 1, & i \geq k, i \leq n \\
 0, & i \geq k, i \gt n \\
 \min(n-k+1, \textit{maxPts}) / \textit{maxPts}, & i = k - 1 \\
-dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i < k - 1
+\textit{dfs}(i + 1) + (\textit{dfs}(i + 1) - \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i < k - 1
 \end{cases}
 \end{aligned}
 $$
@@ -425,7 +425,7 @@ function new21Game(n: number, k: number, maxPts: number): number {
 $f[i]$ 的取值如下：
 
 - 如果 $i \ge k$，那么停止抽取数字，如果 $i \le n$，则为 $1$，否则为 $0$；
-- 否则，可以在 $[1,..\textit{maxPts}]$ 范围内抽取下一个数字 $j$，那么 $f[i] = \frac{1}{maxPts} \sum_{j=1}^{maxPts} f[i+j]$。
+- 否则，可以在 $[1,..\textit{maxPts}]$ 范围内抽取下一个数字 $j$，那么 $f[i] = \frac{1}{\textit{maxPts}} \sum_{j=1}^{\textit{maxPts}} f[i+j]$。
 
 每个状态只依赖更大的分数，因此从 $k - 2$ 填到 $0$。当 $k = 0$ 时尚未抽牌，答案为 $1$。
 

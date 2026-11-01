@@ -83,15 +83,15 @@ Therefore, the k-beauty is 2.
 
 > **Thinking**
 >
-> The $k$-beauty counts length-$k$ substrings that divide the number. $num \le 10^9$ has few digits, so converting every window of length $k$ is enough; skip a zero divisor.
+> The $k$-beauty counts length-$k$ substrings that divide the number. $\textit{num} \le 10^9$ has few digits, so converting every window of length $k$ is enough; skip a zero divisor.
 >
-> Stringify $num$ and take $s[i:i+k]$ at each start.
+> Stringify $\textit{num}$ and take $s[i:i+k]$ at each start.
 
 <!-- thinking:end -->
 
-We can convert $num$ to a string $s$, then enumerate all substrings of $s$ with length $k$, convert them to an integer $t$, and check if $t$ is divisible by $num$. If it is, we increment the answer.
+We can convert $\textit{num}$ to a string $s$, then enumerate all substrings of $s$ with length $k$, convert them to an integer $t$, and check if $t$ is divisible by $\textit{num}$. If it is, we increment the answer.
 
-The time complexity is $O(k \log num)$, and the space complexity is $O(\log num + k)$.
+The time complexity is $O(k \log \textit{num})$, and the space complexity is $O(\log \textit{num} + k)$.
 
 <!-- tabs:start -->
 
@@ -194,9 +194,9 @@ function divisorSubstrings(num: number, k: number): number {
 
 <!-- thinking:end -->
 
-We can maintain a sliding window of length $k$. Initially, the window contains the lowest $k$ digits of $num$. Then, for each iteration, we move the window one digit to the right, update the number in the window, and check if the number in the window is divisible by $num$. If it is, we increment the answer.
+We can maintain a sliding window of length $k$. Initially, the window contains the lowest $k$ digits of $\textit{num}$. Then, for each iteration, we move the window one digit to the right, update the number in the window, and check if the number in the window is divisible by $\textit{num}$. If it is, we increment the answer.
 
-The time complexity is $O(\log num)$, and the space complexity is $O(1)$.
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

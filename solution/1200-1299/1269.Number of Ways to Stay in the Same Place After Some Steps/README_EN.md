@@ -71,25 +71,25 @@ Stay, Stay
 
 > **Thinking**
 >
-> We walk $steps$ steps on an array of length $arrLen$ and return to the origin. $arrLen$ may be $10^6$, but $steps \le 500$, so reachable cells are at most $steps$. The count depends on position and remaining steps.
+> We walk $\textit{steps}$ steps on an array of length $\textit{arrLen}$ and return to the origin. $\textit{arrLen}$ may be $10^6$, but $\textit{steps} \le 500$, so reachable cells are at most $\textit{steps}$. The count depends on position and remaining steps.
 >
-> $dfs(i,j)$ is the number of ways from index $i$ with $j$ steps left to finish at $0$; we may go left, right, or stay. If $i>j$ we cannot return. Memoized states are $O(steps^2)$.
+> $\textit{dfs}(i,j)$ is the number of ways from index $i$ with $j$ steps left to finish at $0$; we may go left, right, or stay. If $i>j$ we cannot return. Memoized states are $O(\textit{steps}^2)$.
 
 <!-- thinking:end -->
 
-We observe the data range of the problem and find that $steps$ does not exceed $500$, which means that we can only go to the right for up to $500$ steps.
+We observe the data range of the problem and find that $\textit{steps}$ does not exceed $500$, which means that we can only go to the right for up to $500$ steps.
 
-We can design a function $dfs(i, j)$, which represents the number of schemes when we are currently at position $i$ and the remaining steps are $j$. So the answer is $dfs(0, steps)$.
+We can design a function $\textit{dfs}(i, j)$, which represents the number of schemes when we are currently at position $i$ and the remaining steps are $j$. So the answer is $\textit{dfs}(0, \textit{steps})$.
 
-The execution process of the function $dfs(i, j)$ is as follows:
+The execution process of the function $\textit{dfs}(i, j)$ is as follows:
 
-1. If $i \gt j$ or $i \geq arrLen$ or $i \lt 0$ or $j \lt 0$, then return $0$.
+1. If $i \gt j$ or $i \geq \textit{arrLen}$ or $i \lt 0$ or $j \lt 0$, then return $0$.
 1. If $i = 0$ and $j = 0$, then the pointer has stopped in place and there are no remaining steps, so return $1$.
-1. Otherwise, we can choose to move one step to the left, one step to the right, or stay still, so return $dfs(i - 1, j - 1) + dfs(i + 1, j - 1) + dfs(i, j - 1)$. Note the modulo operation of the answer.
+1. Otherwise, we can choose to move one step to the left, one step to the right, or stay still, so return $\textit{dfs}(i - 1, j - 1) + \textit{dfs}(i + 1, j - 1) + \textit{dfs}(i, j - 1)$. Note the modulo operation of the answer.
 
 During the process, we can use memoization search to avoid repeated calculations.
 
-The time complexity is $O(steps^2)$, and the space complexity is $O(steps^2)$, where $steps$ is the number of steps given in the problem.
+The time complexity is $O(\textit{steps}^2)$, and the space complexity is $O(\textit{steps}^2)$, where $\textit{steps}$ is the number of steps given in the problem.
 
 <!-- tabs:start -->
 

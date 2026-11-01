@@ -70,7 +70,7 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 
 > **Thinking**
 >
-> Adjacent houses cannot share a color, and $k$ colors make listing paintings infeasible. The best cost of color $j$ on house $i$ is $costs[i][j]$ plus the best of the other colors on house $i-1$.
+> Adjacent houses cannot share a color, and $k$ colors make listing paintings infeasible. The best cost of color $j$ on house $i$ is $\textit{costs}[i][j]$ plus the best of the other colors on house $i-1$.
 >
 > A rolling array $f$ stores the previous row; for each house and color we scan the other previous colors.
 

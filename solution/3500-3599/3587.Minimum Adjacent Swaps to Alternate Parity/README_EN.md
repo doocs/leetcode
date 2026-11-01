@@ -110,15 +110,15 @@ tags:
 
 For a valid arrangement, the number of odd and even numbers can only differ by 1 or be equal. Therefore, if the difference between the number of odd and even numbers is greater than 1, it is impossible to form a valid arrangement, and we should return -1 directly.
 
-We use an array $\text{pos}$ to store the indices of odd and even numbers, where $\text{pos}[0]$ stores the indices of even numbers and $\text{pos}[1]$ stores the indices of odd numbers.
+We use an array $\textit{pos}$ to store the indices of odd and even numbers, where $\textit{pos}[0]$ stores the indices of even numbers and $\textit{pos}[1]$ stores the indices of odd numbers.
 
 If the number of odd and even numbers is equal, there are two valid arrangements: odd numbers before even numbers, or even numbers before odd numbers. We can calculate the number of swaps required for both arrangements and take the minimum.
 
 If the number of odd numbers is greater than the number of even numbers, there is only one valid arrangement, which is odd numbers before even numbers. In this case, we only need to calculate the number of swaps for this arrangement.
 
-Therefore, we define a function $\text{calc}(k)$, where $k$ indicates the parity of the first element (0 for even, 1 for odd). This function calculates the number of swaps needed to transform the current arrangement into a valid arrangement starting with $k$. We just need to iterate over the indices in $\text{pos}[k]$ and sum the differences between each index and its position in the valid arrangement.
+Therefore, we define a function $\textit{calc}(k)$, where $k$ indicates the parity of the first element (0 for even, 1 for odd). This function calculates the number of swaps needed to transform the current arrangement into a valid arrangement starting with $k$. We just need to iterate over the indices in $\textit{pos}[k]$ and sum the differences between each index and its position in the valid arrangement.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -69,9 +69,9 @@ So the maximum possible sum is 4.</pre>
 
 For a pair of numbers $(a, b)$, we can assume $a \leq b$, then $\min(a, b) = a$. In order to make the sum as large as possible, the $b$ we choose should be as close to $a$ as possible, so as to retain a larger number.
 
-Therefore, we can sort the array $nums$, then divide every two adjacent numbers into a group, and add the first number of each group.
+Therefore, we can sort the array $\textit{nums}$, then divide every two adjacent numbers into a group, and add the first number of each group.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

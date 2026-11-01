@@ -87,7 +87,7 @@ Probability = 108 / 180 = 0.6
 >
 > $2n$ balls are split evenly, so the denominator is $C_{2n}^n$. At most $8$ colors and $6$ balls each, so we enumerate how many of color $i$ go into the first box.
 >
-> $dfs(i,j,\textit{diff})$: color $i$, $j$ slots left in box 1, difference of distinct-color counts. Putting all of a color on one side changes $diff$; otherwise it stays. Multiply by $\mathrm{comb}(balls[i],x)$. Divide accepting states by the total.
+> $\textit{dfs}(i,j,\textit{diff})$: color $i$, $j$ slots left in box 1, difference of distinct-color counts. Putting all of a color on one side changes $\textit{diff}$; otherwise it stays. Multiply by $\textit{comb}(\textit{balls}[i],x)$. Divide accepting states by the total.
 
 <!-- thinking:end -->
 

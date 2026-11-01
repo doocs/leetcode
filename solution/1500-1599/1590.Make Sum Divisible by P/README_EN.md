@@ -73,7 +73,7 @@ tags:
 >
 > Delete the shortest subarray so the remaining sum is divisible by $p$. $n\le 10^5$ rules out enumerating intervals. If the total is $k$ modulo $p$, the deleted piece must be $k$ modulo $p$ as well.
 >
-> Scan prefix sums modulo $p$ and remember the last index of each residue. At residue $cur$, look up $(cur-k)\bmod p$; the gap is a candidate deletion. Deleting the entire array is forbidden.
+> Scan prefix sums modulo $p$ and remember the last index of each residue. At residue $\textit{cur}$, look up $(\textit{cur}-k)\bmod p$; the gap is a candidate deletion. Deleting the entire array is forbidden.
 
 <!-- thinking:end -->
 
@@ -81,11 +81,11 @@ First, we calculate the sum of all elements in the array $\textit{nums}$ modulo 
 
 If $k$ is not $0$, we need to find the shortest subarray such that removing this subarray makes the sum of the remaining elements modulo $p$ equal to $0$.
 
-We can traverse the array $\textit{nums}$, maintaining the current prefix sum modulo $p$, denoted as $cur$. We use a hash table $last$ to record the last occurrence of each prefix sum modulo $p$.
+We can traverse the array $\textit{nums}$, maintaining the current prefix sum modulo $p$, denoted as $\textit{cur}$. We use a hash table $\textit{last}$ to record the last occurrence of each prefix sum modulo $p$.
 
-If there exists a subarray ending at $\textit{nums}[i]$ such that removing this subarray makes the sum of the remaining elements modulo $p$ equal to $0$, we need to find a previous prefix sum modulo $p$ equal to $target$ at position $j$ such that $(target + k - cur) \bmod p = 0$. If found, we can remove the subarray $\textit{nums}[j+1,..i]$ to make the sum of the remaining elements modulo $p$ equal to $0$.
+If there exists a subarray ending at $\textit{nums}[i]$ such that removing this subarray makes the sum of the remaining elements modulo $p$ equal to $0$, we need to find a previous prefix sum modulo $p$ equal to $\textit{target}$ at position $j$ such that $(\textit{target} + k - \textit{cur}) \bmod p = 0$. If found, we can remove the subarray $\textit{nums}[j+1,..i]$ to make the sum of the remaining elements modulo $p$ equal to $0$.
 
-Therefore, if there exists a $target = (cur - k + p) \bmod p$, we can update the answer to $\min(ans, i - j)$. Then, we update $last[cur]$ to $i$. We continue traversing the array $\textit{nums}$ until the end to get the answer.
+Therefore, if there exists a $\textit{target} = (\textit{cur} - k + p) \bmod p$, we can update the answer to $\min(\textit{ans}, i - j)$. Then, we update $\textit{last}[\textit{cur}]$ to $i$. We continue traversing the array $\textit{nums}$ until the end to get the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

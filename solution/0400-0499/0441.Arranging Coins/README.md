@@ -66,11 +66,11 @@ tags:
 
 <!-- thinking:end -->
 
-`(1 + x) * x / 2 <= n`，求解 x。
+$(1 + x) \times x / 2 \le n$，求解 $x$。
 
-`(x + 1/2)² <= 2n + 1/4`，即 `x <= sqrt(2n + 1/4) - 1/2`。
+$(x + 1/2)^2 \le 2n + 1/4$，即 $x \le \sqrt{2n + 1/4} - 1/2$。
 
-由于 2n 可能溢出，故转换为 `x <= sqrt(2) * sqrt(n + 1/8) - 1/2`。
+由于 $2n$ 可能溢出，故转换为 $x \le \sqrt{2} \times \sqrt{n + 1/8} - 1/2$。
 
 <!-- tabs:start -->
 
@@ -123,7 +123,7 @@ func arrangeCoins(n int) int {
 
 > **思考**
 >
-> 方法一依赖浮点开方，极大 $n$ 时精度可能偏差。对行数二分：判断 $mid(mid+1)/2\le n$，上取整更新左界，只用整数运算。
+> 方法一依赖浮点开方，极大 $n$ 时精度可能偏差。对行数二分：判断 $\textit{mid}(\textit{mid}+1)/2\le n$，上取整更新左界，只用整数运算。
 
 <!-- thinking:end -->
 

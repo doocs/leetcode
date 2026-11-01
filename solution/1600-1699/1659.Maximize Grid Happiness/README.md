@@ -95,32 +95,32 @@ tags:
 >
 > 预处理每行自身幸福感 $f$、相邻两行之间的贡献 $g$，以及该行消耗的内向、外向人数。
 >
-> 按行记忆化 $dfs(i,pre,ic,ec)$：枚举当前行状态，扣人数并累加 $f+g$，取最大。
+> 按行记忆化 $\textit{dfs}(i,\textit{pre},ic,ec)$：枚举当前行状态，扣人数并累加 $f+g$，取最大。
 
 <!-- thinking:end -->
 
 我们注意到，题目中 $1 \leq m, n \leq 5$，并且每个网格单元只有三种状态，即：不分配人员、分配内向的人、分配外向的人。因此，我们可以用 $0$, $1$, $2$ 表示这三种状态，网格中的每一行可以用一个长度为 $n$ 的三进制数表示。
 
-我们定义一个函数 $dfs(i, pre, ic, ec)$，表示当前从第 $i$ 行开始，且上一行的状态为 $pre$，内向的人还剩 $ic$ 个，外向的人还剩 $ec$ 个时，网格的最大幸福感。那么答案就是 $dfs(0, 0, introvertsCount, extrovertsCount)$。
+我们定义一个函数 $\textit{dfs}(i, \textit{pre}, ic, ec)$，表示当前从第 $i$ 行开始，且上一行的状态为 $\textit{pre}$，内向的人还剩 $ic$ 个，外向的人还剩 $ec$ 个时，网格的最大幸福感。那么答案就是 $\textit{dfs}(0, 0, \textit{introvertsCount}, \textit{extrovertsCount})$。
 
-函数 $dfs(i, pre, ic, ec)$ 的计算过程如下：
+函数 $\textit{dfs}(i, \textit{pre}, ic, ec)$ 的计算过程如下：
 
 如果 $i = m$，表示已经处理完了所有的行，那么返回 $0$；
 
 如果 $ic = 0$ 且 $ec = 0$，表示所有的人都已经分配完了，那么返回 $0$；
 
-否则，枚举当前行的状态 $cur$，其中 $cur \in [0, 3^n)$，然后计算当前行的幸福感 $f[cur]$，以及与上一行的状态 $pre$ 之间对幸福感的贡献 $g[pre][cur]$，并递归计算 $dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$，最后返回 $f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$ 的最大值，即：
+否则，枚举当前行的状态 $\textit{cur}$，其中 $\textit{cur} \in [0, 3^n)$，然后计算当前行的幸福感 $f[\textit{cur}]$，以及与上一行的状态 $\textit{pre}$ 之间对幸福感的贡献 $g[\textit{pre}][\textit{cur}]$，并递归计算 $\textit{dfs}(i + 1, \textit{cur}, ic - ix[\textit{cur}], ec - ex[\textit{cur}])$，最后返回 $f[\textit{cur}] + g[\textit{pre}][\textit{cur}] + \textit{dfs}(i + 1, \textit{cur}, ic - ix[\textit{cur}], ec - ex[\textit{cur}])$ 的最大值，即：
 
 $$
-dfs(i, pre, ic, ec) = \max_{cur} \{f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])\}
+\textit{dfs}(i, \textit{pre}, ic, ec) = \max_{\textit{cur}} \{f[\textit{cur}] + g[\textit{pre}][\textit{cur}] + \textit{dfs}(i + 1, \textit{cur}, ic - ix[\textit{cur}], ec - ex[\textit{cur}])\}
 $$
 
 其中：
 
-- $ix[cur]$ 表示状态 $cur$ 中内向的人的个数；
-- $ex[cur]$ 表示状态 $cur$ 中外向的人的个数；
-- $f[cur]$ 表示状态 $cur$ 中的人的初始幸福感；
-- $g[pre][cur]$ 表示两个相邻状态行对幸福感的贡献。
+- $ix[\textit{cur}]$ 表示状态 $\textit{cur}$ 中内向的人的个数；
+- $ex[\textit{cur}]$ 表示状态 $\textit{cur}$ 中外向的人的个数；
+- $f[\textit{cur}]$ 表示状态 $\textit{cur}$ 中的人的初始幸福感；
+- $g[\textit{pre}][\textit{cur}]$ 表示两个相邻状态行对幸福感的贡献。
 
 这些值都可以通过预处理得到。并且，我们可以使用记忆化搜索的方法，避免重复计算。
 
@@ -478,23 +478,23 @@ function getMaxGridHappiness(
 >
 > 方法一按整行转移，行宽变大时 $3^n$ 仍偏厚。改成逐格填，轮廓线只保留最近 $n$ 格的三进制状态，即可与左、上邻居结算。
 >
-> $dfs(pos,pre,ic,ec)$ 枚举当前格 $0/1/2$，滚动轮廓并加上 $h[up][i]+h[left][i]$ 与格子本身的 $120$ 或 $40$。
+> $\textit{dfs}(\textit{pos},\textit{pre},ic,ec)$ 枚举当前格 $0/1/2$，滚动轮廓并加上 $h[up][i]+h[\textit{left}][i]$ 与格子本身的 $120$ 或 $40$。
 
 <!-- thinking:end -->
 
-我们可以考虑搜索每个网格单元，每次搜索一个位置 $(i, j)$，我们记 $pos = i \times n + j$。那么它左边以及上边的相邻网格会影响到它们之间的幸福感贡献。
+我们可以考虑搜索每个网格单元，每次搜索一个位置 $(i, j)$，我们记 $\textit{pos} = i \times n + j$。那么它左边以及上边的相邻网格会影响到它们之间的幸福感贡献。
 
-我们定义一个函数 $dfs(pos, pre, ic, ec)$，表示当前搜索到位置 $pos$，且此前的 $n$ 个网格单元的状态为 $pre$，内向的人还剩 $ic$ 个，外向的人还剩 $ec$ 个时，网格的最大幸福感。那么答案就是 $dfs(0, 0, introvertsCount, extrovertsCount)$。
+我们定义一个函数 $\textit{dfs}(\textit{pos}, \textit{pre}, ic, ec)$，表示当前搜索到位置 $\textit{pos}$，且此前的 $n$ 个网格单元的状态为 $\textit{pre}$，内向的人还剩 $ic$ 个，外向的人还剩 $ec$ 个时，网格的最大幸福感。那么答案就是 $\textit{dfs}(0, 0, \textit{introvertsCount}, \textit{extrovertsCount})$。
 
-函数 $dfs(pos, pre, ic, ec)$ 的计算过程如下：
+函数 $\textit{dfs}(\textit{pos}, \textit{pre}, ic, ec)$ 的计算过程如下：
 
-如果 $pos = m \times n$，表示已经处理完了所有的网格单元，那么返回 $0$；
+如果 $\textit{pos} = m \times n$，表示已经处理完了所有的网格单元，那么返回 $0$；
 
 如果 $ic = 0$ 且 $ec = 0$，表示所有的人都已经分配完了，那么返回 $0$；
 
-否则，我们根据 $pre$ 算出当前网格单元的上边相邻网格单元的状态 $up = \frac{pre}{3^{n-1}}$，以及左边相邻网格单元的状态 $left = pre \bmod 3$（注意，如果 $pos$ 在第 $0$ 列，那么 $left = 0$）。
+否则，我们根据 $\textit{pre}$ 算出当前网格单元的上边相邻网格单元的状态 $up = \frac{\textit{pre}}{3^{n-1}}$，以及左边相邻网格单元的状态 $\textit{left} = \textit{pre} \bmod 3$（注意，如果 $\textit{pos}$ 在第 $0$ 列，那么 $\textit{left} = 0$）。
 
-接下来，我们枚举当前网格单元的状态 $i$，其中 $i \in [0, 3)$。那么当前的 $n$ 个网格单元的状态为 $cur = pre \bmod 3^{n-1} \times 3 + i$，当前网格单元以及左边和上边的相邻网格单元的幸福感贡献为 $h[up][i]+h[left][i]$；而当前网格单元本身的幸福感取决于该位置是否分配人员，以及分配的人员是内向的还是外向的，如果是内向的，那么幸福感为 $120$，如果是外向的，那么幸福感为 $40$，否则幸福感为 $0$；然后，如果当前网格单元分配了人员，那么我们递归调用时需要更新 $ic$ 或 $ec$。累计这些幸福感，取最大值作为函数的返回值。
+接下来，我们枚举当前网格单元的状态 $i$，其中 $i \in [0, 3)$。那么当前的 $n$ 个网格单元的状态为 $\textit{cur} = \textit{pre} \bmod 3^{n-1} \times 3 + i$，当前网格单元以及左边和上边的相邻网格单元的幸福感贡献为 $h[up][i]+h[\textit{left}][i]$；而当前网格单元本身的幸福感取决于该位置是否分配人员，以及分配的人员是内向的还是外向的，如果是内向的，那么幸福感为 $120$，如果是外向的，那么幸福感为 $40$，否则幸福感为 $0$；然后，如果当前网格单元分配了人员，那么我们递归调用时需要更新 $ic$ 或 $ec$。累计这些幸福感，取最大值作为函数的返回值。
 
 与方法一类似，我们也可以使用记忆化搜索的方法，避免重复计算。
 

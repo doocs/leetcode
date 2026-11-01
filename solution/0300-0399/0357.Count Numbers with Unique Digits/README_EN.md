@@ -56,7 +56,7 @@ tags:
 >
 > Count integers with at most $n$ digits and all distinct digits (including $0$). Brute force still works for $n=8$, but digit DP handles leading zeros and used digits uniformly.
 >
-> $dfs(i,mask,lead)$ is the remaining $i+1$ positions, the used-digit mask, and whether we are still leading zeros. A leading zero does not occupy a digit; otherwise $j$ enters the mask. Start at $i=n-1$; the memoized state space is small.
+> $\textit{dfs}(i,\textit{mask},\textit{lead})$ is the remaining $i+1$ positions, the used-digit mask, and whether we are still leading zeros. A leading zero does not occupy a digit; otherwise $j$ enters the mask. Start at $i=n-1$; the memoized state space is small.
 
 <!-- thinking:end -->
 
@@ -65,7 +65,7 @@ This problem essentially asks for the number of numbers in the given range $[l, 
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[1, ..r]$ and then subtract the result of $[1, ..l - 1]$, i.e.:
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value for the range $[1, ..10^n-1]$.
@@ -92,7 +92,7 @@ Finally, we sum all the results from the recursive calls to the next level, whic
 
 The answer is $\textit{dfs}(n - 1, 0, \textit{True})$.
 
-The time complexity is $O(nD 2^D)$, and the space complexity is $O(n 2^D)$, where $n$ is the length of the number $n$, and $D = 10$.
+The time complexity is $O(n \times D 2^D)$, and the space complexity is $O(n 2^D)$, where $n$ is the length of the number $n$, and $D = 10$.
 
 Similar Problems:
 

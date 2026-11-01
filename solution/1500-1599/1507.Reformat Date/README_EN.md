@@ -74,7 +74,7 @@ tags:
 
 > **Thinking**
 >
-> The input is always “day month year” and the output is $YYYY$-$MM$-$DD$. There is no search or DP; we only rewrite the three fields.
+> The input is always “day month year” and the output is $\textit{YYYY}$-$\textit{MM}$-$\textit{DD}$. There is no search or DP; we only rewrite the three fields.
 >
 > Split on spaces and reverse so the year sits first. Locate the month in a concatenated abbreviation string; the index divided by $3$, plus one, is the month number. Strip the day suffix and pad both month and day. Joining with hyphens yields the canonical date.
 

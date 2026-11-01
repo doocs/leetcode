@@ -68,9 +68,9 @@ tags:
 
 We can solve this problem with two DFS traversals.
 
-In the first traversal, we use a $\text{sum}(\text{root})$ function to recursively calculate the sum of all nodes in the entire tree, denoted as $s$.
+In the first traversal, we use a $\textit{sum}(\textit{root})$ function to recursively calculate the sum of all nodes in the entire tree, denoted as $s$.
 
-In the second traversal, we use a $\text{dfs}(\text{root})$ function to recursively traverse each node and calculate the sum of nodes in the subtree rooted at the current node, denoted as $t$. After splitting at the current node and its parent, the sums of the two subtrees are $t$ and $s - t$ respectively, and their product is $t \times (s - t)$. We traverse all nodes to find the maximum product, which is the answer.
+In the second traversal, we use a $\textit{dfs}(\textit{root})$ function to recursively traverse each node and calculate the sum of nodes in the subtree rooted at the current node, denoted as $t$. After splitting at the current node and its parent, the sums of the two subtrees are $t$ and $s - t$ respectively, and their product is $t \times (s - t)$. We traverse all nodes to find the maximum product, which is the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

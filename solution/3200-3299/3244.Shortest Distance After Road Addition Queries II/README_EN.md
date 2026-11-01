@@ -106,7 +106,7 @@ We define an array $\textit{nxt}$ of length $n - 1$, where $\textit{nxt}[i]$ rep
 
 For each query $[u, v]$, if $u'$ and $v'$ have already been connected before, and $u' \leq u < v \leq v'$, then we can skip this query. Otherwise, we need to set the next city number for cities from $\textit{nxt}[u]$ to $\textit{nxt}[v - 1]$ to $0$, and set $\textit{nxt}[u]$ to $v$.
 
-During this process, we maintain a variable $\textit{cnt}$, which represents the length of the shortest path from city $0$ to city $n - 1$. Initially, $\textit{cnt} = n - 1$. Each time we set the next city number for cities in $[\textit{nxt}[u], \textit{v})$ to $0$, $\textit{cnt}$ decreases by $1$.
+During this process, we maintain a variable $\textit{cnt}$, which represents the length of the shortest path from city $0$ to city $n - 1$. Initially, $\textit{cnt} = n - 1$. Each time we set the next city number for cities in $[\textit{nxt}[u], v)$ to $0$, $\textit{cnt}$ decreases by $1$.
 
 The time complexity is $O(n + q)$, and the space complexity is $O(n)$, where $n$ and $q$ are the number of cities and the number of queries, respectively.
 

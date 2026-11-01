@@ -77,20 +77,20 @@ tags:
 >
 > The bottleneck is asking the same suffix pair $(i, j)$ over and over. The state is only “does $s[i:]$ match $p[j:]$”; subproblems overlap heavily.
 >
-> Cache $dfs(i, j)$. The three `*` moves (consume one, advance both, skip `*`) are transitions on that state. Memoization turns exponential search into $O(mn)$.
+> Cache $\textit{dfs}(i, j)$. The three `*` moves (consume one, advance both, skip `*`) are transitions on that state. Memoization turns exponential search into $O(mn)$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$, which represents whether the string $s$ starting from the $i$-th character matches the string $p$ starting from the $j$-th character. The answer is $dfs(0, 0)$.
+We design a function $\textit{dfs}(i, j)$, which represents whether the string $s$ starting from the $i$-th character matches the string $p$ starting from the $j$-th character. The answer is $\textit{dfs}(0, 0)$.
 
-The execution process of the function $dfs(i, j)$ is as follows:
+The execution process of the function $\textit{dfs}(i, j)$ is as follows:
 
-- If $i \geq \textit{len}(s)$, then $dfs(i, j)$ is true only when $j \geq \textit{len}(p)$ or $p[j] = '*'$ and $dfs(i, j + 1)$ is true.
-- If $j \geq \textit{len}(p)$, then $dfs(i, j)$ is false.
-- If $p[j] = '*'$, then $dfs(i, j)$ is true if and only if $dfs(i + 1, j)$ or $dfs(i + 1, j + 1)$ or $dfs(i, j + 1)$ is true.
-- Otherwise, $dfs(i, j)$ is true if and only if $p[j] = '?'$ or $s[i] = p[j]$ and $dfs(i + 1, j + 1)$ is true.
+- If $i \geq \textit{len}(s)$, then $\textit{dfs}(i, j)$ is true only when $j \geq \textit{len}(p)$ or $p[j] = '*'$ and $\textit{dfs}(i, j + 1)$ is true.
+- If $j \geq \textit{len}(p)$, then $\textit{dfs}(i, j)$ is false.
+- If $p[j] = '*'$, then $\textit{dfs}(i, j)$ is true if and only if $\textit{dfs}(i + 1, j)$ or $\textit{dfs}(i + 1, j + 1)$ or $\textit{dfs}(i, j + 1)$ is true.
+- Otherwise, $\textit{dfs}(i, j)$ is true if and only if $p[j] = '?'$ or $s[i] = p[j]$ and $\textit{dfs}(i + 1, j + 1)$ is true.
 
-To avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, j)$ in a hash table.
+To avoid repeated calculations, we use the method of memoization search and store the result of $\textit{dfs}(i, j)$ in a hash table.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
 
@@ -552,7 +552,7 @@ class Solution {
 
 > **Thinking**
 >
-> Matching one character at a time is the natural first idea: a literal or `?` consumes one character, and `*` consumes the empty string or any run. Both strings can have length $2000$, and the first move on `*` is always $dfs(i+1, j)$, so that chain is as deep as $|s|$ and exceeds the default recursion limit.
+> Matching one character at a time is the natural first idea: a literal or `?` consumes one character, and `*` consumes the empty string or any run. Both strings can have length $2000$, and the first move on `*` is always $\textit{dfs}(i+1, j)$, so that chain is as deep as $|s|$ and exceeds the default recursion limit.
 >
 > The same index pair is asked repeatedly, and whether two prefixes match depends only on shorter prefixes.
 >

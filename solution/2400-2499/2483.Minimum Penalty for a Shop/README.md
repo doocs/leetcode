@@ -94,7 +94,7 @@ tags:
 
 如果商店在第 $0$ 小时关门，那么代价为 $\textit{customers}$ 中字符 `'Y'` 的数量，我们初始化答案变量 $\textit{ans}$ 为 $0$，代价变量 $\textit{cost}$ 为 $\textit{customers}$ 中字符 `'Y'` 的数量。
 
-接下来，我们枚举商店在第 $j$ 小时关门（ $1 \leq j \leq n$）。如果 $\textit{customers}[j - 1]$ 为 `'N'`，说明在开门期间没有顾客到达，代价增加 $1$；否则说明在关门期间有顾客到达，代价减少 $1$。如果当前代价 $\textit{cost}$ 小于最小代价 $\textit{mn}$，我们将答案变量 $\textit{ans}$ 更新为 $j$，并将最小代价 $\textit{mn}$ 更新为当前代价 $\textit{cost}$。
+接下来，我们枚举商店在第 $j$ 小时关门（ $1 \leq j \leq n$）。如果 $\textit{customers}[j - 1]$ 为 `'N'`，说明在开门期间没有顾客到达，代价增加 $1$；否则说明在关门期间有顾客到达，代价减少 $1$。如果当前代价 $\textit{cost}$ 小于最小代价 $mn$，我们将答案变量 $\textit{ans}$ 更新为 $j$，并将最小代价 $mn$ 更新为当前代价 $\textit{cost}$。
 
 遍历结束后，返回答案变量 $\textit{ans}$ 即可。
 

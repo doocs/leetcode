@@ -75,21 +75,21 @@ The sum of all the elements is 35 which is the maximum possible some out of ever
 
 > **Thinking**
 >
-> A linear subset has constant $prices[i]-i$. Group prices by that key and sum within each group; the largest group sum is the answer.
+> A linear subset has constant $\textit{prices}[i]-i$. Group prices by that key and sum within each group; the largest group sum is the answer.
 
 <!-- thinking:end -->
 
 We can transform the equation as follows:
 
 $$
-prices[i] - i = prices[j] - j
+\textit{prices}[i] - i = \textit{prices}[j] - j
 $$
 
-In fact, the problem is to find the maximum sum of all $prices[i]$ under the same $prices[i] - i$.
+In fact, the problem is to find the maximum sum of all $\textit{prices}[i]$ under the same $\textit{prices}[i] - i$.
 
-Therefore, we can use a hash table $cnt$ to store the sum of all $prices[i]$ under the same $prices[i] - i$, and finally take the maximum value in the hash table.
+Therefore, we can use a hash table $\textit{cnt}$ to store the sum of all $\textit{prices}[i]$ under the same $\textit{prices}[i] - i$, and finally take the maximum value in the hash table.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $prices$ array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{prices}$ array.
 
 <!-- tabs:start -->
 

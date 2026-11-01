@@ -68,16 +68,16 @@ tags:
 >
 > 从 1 个 `A` 出发，只靠复制与粘贴得到 $n$ 个。操作序列对应把当前长度倍增或累加，搜索树很宽。
 >
-> 若最后一次是把长度为 $n/j$ 的文本粘贴到共 $j$ 份，则 $dfs(n)=\min(dfs(n/j)+j)$。对因子记忆化， $n=1$ 为 $0$。
+> 若最后一次是把长度为 $n/j$ 的文本粘贴到共 $j$ 份，则 $\textit{dfs}(n)=\min(\textit{dfs}(n/j)+j)$。对因子记忆化， $n=1$ 为 $0$。
 
 <!-- thinking:end -->
 
-定义 $dfs(i)$ 为输出 $i$ 个字符的最少操作次数。初始化 `dfs(1)=0`。
+定义 $\textit{dfs}(i)$ 为输出 $i$ 个字符的最少操作次数。初始化 `dfs(1)=0`。
 
 当 $i\gt 1$ 时，有：
 
 $$
-dfs(i)=\min _{j \mid i} (dfs(\frac{i}{j})+j, i), 2\leq j\lt i
+\textit{dfs}(i)=\min _{j \mid i} (\textit{dfs}(\frac{i}{j})+j, i), 2\leq j\lt i
 $$
 
 时间复杂度 $O(n \sqrt{n})$。

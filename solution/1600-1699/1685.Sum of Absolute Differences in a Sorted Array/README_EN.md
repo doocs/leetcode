@@ -70,11 +70,11 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 
 <!-- thinking:end -->
 
-First, we calculate the sum of all elements in the array $nums$, denoted as $s$. We use a variable $t$ to record the sum of the elements that have been enumerated so far.
+First, we calculate the sum of all elements in the array $\textit{nums}$, denoted as $s$. We use a variable $t$ to record the sum of the elements that have been enumerated so far.
 
-Next, we enumerate $nums[i]$. Then $ans[i] = nums[i] \times i - t + s - t - nums[i] \times (n - i)$. After that, we update $t$, i.e., $t = t + nums[i]$. We continue to enumerate the next element until all elements are enumerated.
+Next, we enumerate $\textit{nums}[i]$. Then $\textit{ans}[i] = \textit{nums}[i] \times i - t + s - t - \textit{nums}[i] \times (n - i)$. After that, we update $t$, i.e., $t = t + \textit{nums}[i]$. We continue to enumerate the next element until all elements are enumerated.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

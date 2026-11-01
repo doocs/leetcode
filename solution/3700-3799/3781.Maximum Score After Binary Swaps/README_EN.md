@@ -82,7 +82,7 @@ tags:
 
 > **Thinking**
 >
-> A `1` can only swap with a `0` on its left, so each `1` may claim the best unused value among positions seen so far. Scanning left to right, we push $nums[i]$ into a max-heap and, on a `1`, pop the current top into the score.
+> A `1` can only swap with a `0` on its left, so each `1` may claim the best unused value among positions seen so far. Scanning left to right, we push $\textit{nums}[i]$ into a max-heap and, on a `1`, pop the current top into the score.
 
 <!-- thinking:end -->
 

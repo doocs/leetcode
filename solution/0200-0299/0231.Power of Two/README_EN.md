@@ -156,11 +156,11 @@ var isPowerOfTwo = function (n) {
 
 > **Thinking**
 >
-> Clearing the lowest set bit is equivalent to taking $\mathrm{lowbit}$. If $n>0$ and $n=n\mathrel{\&}(-n)$, that single bit is the whole number.
+> Clearing the lowest set bit is equivalent to taking $\textit{lowbit}$. If $n>0$ and $n=n\mathrel{\&}(-n)$, that single bit is the whole number.
 
 <!-- thinking:end -->
 
-According to the definition of $\text{lowbit}$, we know that $\text{lowbit}(x) = x \& (-x)$, which can get the decimal number represented by the last bit $1$ of $n$. Therefore, if $n > 0$ and $\text{lowbit}(n)$ equals $n$, then $n$ is a power of $2$.
+According to the definition of $\textit{lowbit}$, we know that $\textit{lowbit}(x) = x \& (-x)$, which can get the decimal number represented by the last bit $1$ of $n$. Therefore, if $n > 0$ and $\textit{lowbit}(n)$ equals $n$, then $n$ is a power of $2$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

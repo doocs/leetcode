@@ -69,9 +69,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们注意到，数组 $perm$ 是前 $n$ 个正整数的排列，因此 $perm$ 的所有元素的异或和为 $1 \oplus 2 \oplus \cdots \oplus n$，记为 $a$。而 $encode[i]=perm[i] \oplus perm[i+1]$，如果我们将 $encode[0],encode[2],\cdots,encode[n-3]$ 的所有元素的异或和记为 $b$，则 $perm[n-1]=a \oplus b$。知道了 $perm$ 的最后一个元素，我们就可以通过逆序遍历数组 $encode$ 求出 $perm$ 的所有元素。
+我们注意到，数组 $\textit{perm}$ 是前 $n$ 个正整数的排列，因此 $\textit{perm}$ 的所有元素的异或和为 $1 \oplus 2 \oplus \cdots \oplus n$，记为 $a$。而 $\textit{encode}[i]=\textit{perm}[i] \oplus \textit{perm}[i+1]$，如果我们将 $\textit{encode}[0],\textit{encode}[2],\cdots,\textit{encode}[n-3]$ 的所有元素的异或和记为 $b$，则 $\textit{perm}[n-1]=a \oplus b$。知道了 $\textit{perm}$ 的最后一个元素，我们就可以通过逆序遍历数组 $\textit{encode}$ 求出 $\textit{perm}$ 的所有元素。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $perm$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{perm}$ 的长度。
 
 <!-- tabs:start -->
 

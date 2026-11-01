@@ -184,11 +184,11 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 is linear in the bit length. Even indices are exactly the mask $0\texttt{x}5555$; $\textit{bit\_count}(n\&\textit{mask})$ is the even tally, and the complement mask yields the odd tally in constant time.
+> Solution 1 is linear in the bit length. Even indices are exactly the mask `0x5555`; $\textit{bit\_count}(n\&\textit{mask})$ is the even tally, and the complement mask yields the odd tally in constant time.
 
 <!-- thinking:end -->
 
-We can define a mask $\textit{mask} = \text{0x5555}$, which is represented in binary as $\text{0101 0101 0101 0101}_2$. Then, performing a bitwise AND operation between $n$ and $\textit{mask}$ will give us the bits at even indices in the binary representation of $n$. Performing a bitwise AND operation between $n$ and the complement of $\textit{mask}$ will give us the bits at odd indices in the binary representation of $n$. We can count the number of 1s in these two results.
+We can define a mask $\textit{mask} = \texttt{0x5555}$, which is represented in binary as $\text{0101 0101 0101 0101}_2$. Then, performing a bitwise AND operation between $n$ and $\textit{mask}$ will give us the bits at even indices in the binary representation of $n$. Performing a bitwise AND operation between $n$ and the complement of $\textit{mask}$ will give us the bits at odd indices in the binary representation of $n$. We can count the number of 1s in these two results.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 

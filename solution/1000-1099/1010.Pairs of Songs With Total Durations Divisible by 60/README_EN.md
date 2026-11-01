@@ -73,7 +73,7 @@ tags:
 
 If the sum of a pair $(a, b)$ is divisible by $60$, i.e., $(a + b) \bmod 60 = 0$, then $(a \bmod 60 + b \bmod 60) \bmod 60 = 0$. Let $x = a \bmod 60$ and $y = b \bmod 60$, then $(x + y) \bmod 60 = 0$, which means $y = (60 - x) \bmod 60$.
 
-Therefore, we can iterate over the song list and use an array $cnt$ of length $60$ to record the number of occurrences of each remainder $x$. For the current $x$, if there exists a remainder $y = (60 - x) \bmod 60$ in array $cnt$, we add $cnt[y]$ to the answer. Then we increment the count of $x$ in array $cnt$ by $1$. We continue iterating until the entire song list has been traversed.
+Therefore, we can iterate over the song list and use an array $\textit{cnt}$ of length $60$ to record the number of occurrences of each remainder $x$. For the current $x$, if there exists a remainder $y = (60 - x) \bmod 60$ in array $\textit{cnt}$, we add $\textit{cnt}[y]$ to the answer. Then we increment the count of $x$ in array $\textit{cnt}$ by $1$. We continue iterating until the entire song list has been traversed.
 
 After the iteration, we get the number of song pairs that satisfy the condition.
 

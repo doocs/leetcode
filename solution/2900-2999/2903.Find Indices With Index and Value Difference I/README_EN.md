@@ -84,17 +84,17 @@ Hence, [-1,-1] is returned.</pre>
 
 > **Thinking**
 >
-> $n \le 100$ allows checking every index pair. A valid pair needs $|i-j| \ge indexDifference$, so for each right endpoint $i$ it suffices to search $[0, i-indexDifference]$ for a value far enough from $nums[i]$.
+> $n \le 100$ allows checking every index pair. A valid pair needs $|i-j| \ge \textit{indexDifference}$, so for each right endpoint $i$ it suffices to search $[0, i-\textit{indexDifference}]$ for a value far enough from $\textit{nums}[i]$.
 >
-> That prefix is fully described by the indices $mi$ and $mx$ of its minimum and maximum. After folding in the newly eligible $nums[j]$, test $nums[i]-nums[mi]$ and $nums[mx]-nums[i]$. One scan yields any valid pair.
+> That prefix is fully described by the indices $mi$ and $mx$ of its minimum and maximum. After folding in the newly eligible $\textit{nums}[j]$, test $\textit{nums}[i]-\textit{nums}[mi]$ and $\textit{nums}[mx]-\textit{nums}[i]$. One scan yields any valid pair.
 
 <!-- thinking:end -->
 
-We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $indexDifference$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $indexDifference$, and $j` points to $0$.
+We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $\textit{indexDifference}$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $\textit{indexDifference}$, and $j` points to $0$.
 
 We use $mi$ and $mx$ to maintain the indices of the minimum and maximum values to the left of pointer $j$.
 
-When pointer $i$ moves to the right, we need to update $mi$ and $mx$. If $nums[j] \lt nums[mi]$, then $mi$ is updated to $j$; if $nums[j] \gt nums[mx]$, then $mx$ is updated to $j$. After updating $mi$ and $mx$, we can determine whether we have found a pair of indices that satisfy the condition. If $nums[i] - nums[mi] \ge valueDifference$, then we have found a pair of indices $[mi, i]$ that satisfy the condition; if $nums[mx] - nums[i] >= valueDifference$, then we have found a pair of indices $[mx, i]$ that satisfy the condition.
+When pointer $i$ moves to the right, we need to update $mi$ and $mx$. If $\textit{nums}[j] \lt \textit{nums}[mi]$, then $mi$ is updated to $j$; if $\textit{nums}[j] \gt \textit{nums}[mx]$, then $mx$ is updated to $j$. After updating $mi$ and $mx$, we can determine whether we have found a pair of indices that satisfy the condition. If $\textit{nums}[i] - \textit{nums}[mi] \ge \textit{valueDifference}$, then we have found a pair of indices $[mi, i]$ that satisfy the condition; if $\textit{nums}[mx] - \textit{nums}[i] >= \textit{valueDifference}$, then we have found a pair of indices $[mx, i]$ that satisfy the condition.
 
 If pointer $i$ moves to the end of the array and we have not found a pair of indices that satisfy the condition, we return $[-1, -1]$.
 

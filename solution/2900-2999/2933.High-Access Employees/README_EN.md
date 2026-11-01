@@ -85,7 +85,7 @@ So the answer is [&quot;ab&quot;,&quot;cd&quot;].</pre>
 
 > **Thinking**
 >
-> High access means at least three visits in one hour. After grouping by name, convert $HHMM$ to minutes and sort; three consecutive times lie in a $60$-minute window iff $t[i]-t[i-2] < 60$.
+> High access means at least three visits in one hour. After grouping by name, convert $\textit{HHMM}$ to minutes and sort; three consecutive times lie in a $60$-minute window iff $t[i]-t[i-2] < 60$.
 >
 > A hash map stores the timestamps, then one linear pass after sorting decides. $n \le 100$ makes grouping and sorting cheap.
 

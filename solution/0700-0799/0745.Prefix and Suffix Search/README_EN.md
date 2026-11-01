@@ -69,7 +69,7 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 >
 > Later words overwrite earlier ones, so the map keeps the largest index. Empty prefix and suffix are stored as well.
 >
-> Keys are $(pref,suff)$. $\textit{f}$ looks up or returns $-1$.
+> Keys are $(\textit{pref},\textit{suff})$. $f$ looks up or returns $-1$.
 
 <!-- thinking:end -->
 

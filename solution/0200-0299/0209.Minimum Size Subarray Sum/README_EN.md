@@ -73,13 +73,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$. Since all elements in the array $nums$ are positive integers, the array $s$ is also monotonically increasing. Also, we initialize the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
+First, we preprocess the prefix sum array $s$ of the array $\textit{nums}$, where $s[i]$ represents the sum of the first $i$ elements of the array $\textit{nums}$. Since all elements in the array $\textit{nums}$ are positive integers, the array $s$ is also monotonically increasing. Also, we initialize the answer $\textit{ans} = n + 1$, where $n$ is the length of the array $\textit{nums}$.
 
-Next, we traverse the prefix sum array $s$. For each element $s[i]$, we can find the smallest index $j$ that satisfies $s[j] \geq s[i] + target$ by binary search. If $j \leq n$, it means that there exists a subarray that satisfies the condition, and we can update the answer, i.e., $ans = min(ans, j - i)$.
+Next, we traverse the prefix sum array $s$. For each element $s[i]$, we can find the smallest index $j$ that satisfies $s[j] \geq s[i] + \textit{target}$ by binary search. If $j \leq n$, it means that there exists a subarray that satisfies the condition, and we can update the answer, i.e., $\textit{ans} = \min(\textit{ans}, j - i)$.
 
-Finally, if $ans \leq n$, it means that there exists a subarray that satisfies the condition, return $ans$, otherwise return $0$.
+Finally, if $\textit{ans} \leq n$, it means that there exists a subarray that satisfies the condition, return $\textit{ans}$, otherwise return $0$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -276,13 +276,13 @@ public class Solution {
 
 <!-- thinking:end -->
 
-We can use two pointers $j$ and $i$ to maintain a window, where the sum of all elements in the window is less than $target$. Initially, $j = 0$, and the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
+We can use two pointers $j$ and $i$ to maintain a window, where the sum of all elements in the window is less than $\textit{target}$. Initially, $j = 0$, and the answer $\textit{ans} = n + 1$, where $n$ is the length of the array $\textit{nums}$.
 
-Next, the pointer $i$ starts to move to the right from $0$, moving one step each time. We add the element corresponding to the pointer $i$ to the window and update the sum of the elements in the window. If the sum of the elements in the window is greater than or equal to $target$, it means that the current subarray satisfies the condition, and we can update the answer, i.e., $ans = \min(ans, i - j + 1)$. Then we continuously remove the element $nums[j]$ from the window until the sum of the elements in the window is less than $target$, and then repeat the above process.
+Next, the pointer $i$ starts to move to the right from $0$, moving one step each time. We add the element corresponding to the pointer $i$ to the window and update the sum of the elements in the window. If the sum of the elements in the window is greater than or equal to $\textit{target}$, it means that the current subarray satisfies the condition, and we can update the answer, i.e., $\textit{ans} = \min(\textit{ans}, i - j + 1)$. Then we continuously remove the element $\textit{nums}[j]$ from the window until the sum of the elements in the window is less than $\textit{target}$, and then repeat the above process.
 
-Finally, if $ans \leq n$, it means that there exists a subarray that satisfies the condition, return $ans$, otherwise return $0$.
+Finally, if $\textit{ans} \leq n$, it means that there exists a subarray that satisfies the condition, return $\textit{ans}$, otherwise return $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

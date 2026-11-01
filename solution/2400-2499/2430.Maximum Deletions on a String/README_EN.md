@@ -88,20 +88,20 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 >
 > With $n\le 4000$, an operation deletes a prefix that equals the next block of the same length. Search states collapse to the start $i$ of the remaining suffix. From $i$, try lengths $j$ and compare slices $s[i:i+j]$ and $s[i+j:i+2j]$; a match moves to $i+j$ with one extra deletion. Deleting everything at once is always legal, so the answer is at least $1$.
 >
-> Memoize $dfs(i)$. Slice comparison is linear in $j$, and the total time $O(n^2)$ fits the limit.
+> Memoize $\textit{dfs}(i)$. Slice comparison is linear in $j$, and the total time $O(n^2)$ fits the limit.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents the maximum number of operations needed to delete all characters from $s[i..]$. The answer is $dfs(0)$.
+We design a function $\textit{dfs}(i)$, which represents the maximum number of operations needed to delete all characters from $s[i..]$. The answer is $\textit{dfs}(0)$.
 
-The calculation process of the function $dfs(i)$ is as follows:
+The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i \geq n$, then $dfs(i) = 0$, return directly.
-- Otherwise, we enumerate the length of the string $j$, where $1 \leq j \leq (n-1)/2$. If $s[i..i+j] = s[i+j..i+j+j]$, we can delete $s[i..i+j]$, then $dfs(i)=max(dfs(i), dfs(i+j)+1)$. We need to enumerate all $j$ to find the maximum value of $dfs(i)$.
+- If $i \geq n$, then $\textit{dfs}(i) = 0$, return directly.
+- Otherwise, we enumerate the length of the string $j$, where $1 \leq j \leq (n-1)/2$. If $s[i..i+j] = s[i+j..i+j+j]$, we can delete $s[i..i+j]$, then $\textit{dfs}(i)=\max(\textit{dfs}(i), \textit{dfs}(i+j)+1)$. We need to enumerate all $j$ to find the maximum value of $\textit{dfs}(i)$.
 
 Here we need to quickly determine whether $s[i..i+j]$ is equal to $s[i+j..i+j+j]$. We can preprocess all the longest common prefixes of string $s$, that is, $g[i][j]$ represents the length of the longest common prefix of $s[i..]$ and $s[j..]$. In this way, we can quickly determine whether $s[i..i+j]$ is equal to $s[i+j..i+j+j]$, that is, $g[i][i+j] \geq j$.
 
-To avoid repeated calculations, we can use memoization search and use an array $f$ to record the value of the function $dfs(i)$.
+To avoid repeated calculations, we can use memoization search and use an array $f$ to record the value of the function $\textit{dfs}(i)$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
@@ -283,7 +283,7 @@ function deleteString(s: string): number {
 
 We can change the memoization search in Solution 1 to dynamic programming. Define $f[i]$ to represent the maximum number of operations needed to delete all characters from $s[i..]$. Initially, $f[i]=1$, and the answer is $f[0]$.
 
-We can enumerate $i$ from back to front. For each $i$, we enumerate the length of the string $j$, where $1 \leq j \leq (n-1)/2$. If $s[i..i+j] = s[i+j..i+j+j]$, we can delete $s[i..i+j]$, then $f[i]=max(f[i], f[i+j]+1)$. We need to enumerate all $j$ to find the maximum value of $f[i]$.
+We can enumerate $i$ from back to front. For each $i$, we enumerate the length of the string $j$, where $1 \leq j \leq (n-1)/2$. If $s[i..i+j] = s[i+j..i+j+j]$, we can delete $s[i..i+j]$, then $f[i]=\max(f[i], f[i+j]+1)$. We need to enumerate all $j$ to find the maximum value of $f[i]$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 

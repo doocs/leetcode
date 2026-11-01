@@ -71,13 +71,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以先对数组 $nums$ 进行排序，初始化答案为 $-1$。
+我们可以先对数组 $\textit{nums}$ 进行排序，初始化答案为 $-1$。
 
-接下来，我们枚举数组中的每个元素 $nums[i]$，并在数组中寻找满足 $nums[j] + nums[i] \lt k$ 的最大的 $nums[j]$。这里我们可以使用二分查找来加速寻找过程。如果找到了这样的 $nums[j]$，那么我们就可以更新答案，即 $ans = \max(ans, nums[i] + nums[j])$。
+接下来，我们枚举数组中的每个元素 $\textit{nums}[i]$，并在数组中寻找满足 $\textit{nums}[j] + \textit{nums}[i] \lt k$ 的最大的 $\textit{nums}[j]$。这里我们可以使用二分查找来加速寻找过程。如果找到了这样的 $\textit{nums}[j]$，那么我们就可以更新答案，即 $\textit{ans} = \max(\textit{ans}, \textit{nums}[i] + \textit{nums}[j])$。
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -198,13 +198,13 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 <!-- thinking:end -->
 
-与方法一类似，我们可以先对数组 $nums$ 进行排序，初始化答案为 $-1$。
+与方法一类似，我们可以先对数组 $\textit{nums}$ 进行排序，初始化答案为 $-1$。
 
-接下来，我们使用双指针 $i$ 和 $j$ 分别指向数组的左右两端，每次判断 $s = nums[i] + nums[j]$ 是否小于 $k$，如果小于 $k$，那么我们就可以更新答案，即 $ans = \max(ans, s)$，并将 $i$ 右移一位，否则将 $j$ 左移一位。
+接下来，我们使用双指针 $i$ 和 $j$ 分别指向数组的左右两端，每次判断 $s = \textit{nums}[i] + \textit{nums}[j]$ 是否小于 $k$，如果小于 $k$，那么我们就可以更新答案，即 $\textit{ans} = \max(\textit{ans}, s)$，并将 $i$ 右移一位，否则将 $j$ 左移一位。
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

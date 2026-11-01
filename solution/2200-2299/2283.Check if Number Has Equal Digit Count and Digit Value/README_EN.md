@@ -70,13 +70,13 @@ The indices 0 and 1 both violate the condition, so return false.
 
 > **Thinking**
 >
-> $num[i]$ must equal how many times digit $i$ occurs. The string is at most length $10$, so count then verify by index.
+> $\textit{num}[i]$ must equal how many times digit $i$ occurs. The string is at most length $10$, so count then verify by index.
 >
-> A $\textit{Counter}$ of the digits is compared with $num[i]$ at each position.
+> A $\textit{Counter}$ of the digits is compared with $\textit{num}[i]$ at each position.
 
 <!-- thinking:end -->
 
-We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the string $\textit{num}$. Then, we enumerate each digit in the string $\textit{num}$ and check if its occurrence count equals the digit itself. If this condition is satisfied for all digits, we return $\text{true}$; otherwise, we return $\text{false}$.
+We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the string $\textit{num}$. Then, we enumerate each digit in the string $\textit{num}$ and check if its occurrence count equals the digit itself. If this condition is satisfied for all digits, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{num}$, and $|\Sigma|$ is the range of possible digit values, which is $10$.
 

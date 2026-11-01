@@ -72,23 +72,23 @@ So the final output is 4.
 
 > **Thinking**
 >
-> Each key character may be reached clockwise or counterclockwise, then confirmed. Branching over every ring position for every key character grows with $|key|$.
+> Each key character may be reached clockwise or counterclockwise, then confirmed. Branching over every ring position for every key character grows with $|\textit{key}|$.
 >
 > Let $f[i][j]$ be the minimum steps to spell the first $i+1$ key characters and stop at index $j$. Precompute positions of each letter. A transition adds the shorter arc plus one press. The answer is the minimum among positions of the last key character.
 
 <!-- thinking:end -->
 
-First, we preprocess the positions of each character $c$ in the string $ring$, and record them in the array $pos[c]$. Suppose the lengths of the strings $key$ and $ring$ are $m$ and $n$, respectively.
+First, we preprocess the positions of each character $c$ in the string $\textit{ring}$, and record them in the array $\textit{pos}[c]$. Suppose the lengths of the strings $\textit{key}$ and $\textit{ring}$ are $m$ and $n$, respectively.
 
-Then we define $f[i][j]$ as the minimum number of steps to spell the first $i+1$ characters of the string $key$, and the $j$-th character of $ring$ is aligned with the $12:00$ direction. Initially, $f[i][j]=+\infty$. The answer is $\min_{0 \leq j < n} f[m - 1][j]$.
+Then we define $f[i][j]$ as the minimum number of steps to spell the first $i+1$ characters of the string $\textit{key}$, and the $j$-th character of $\textit{ring}$ is aligned with the $12:00$ direction. Initially, $f[i][j]=+\infty$. The answer is $\min_{0 \leq j < n} f[m - 1][j]$.
 
-We can first initialize $f[0][j]$, where $j$ is the position where the character $key[0]$ appears in $ring$. Since the $j$-th character of $ring$ is aligned with the $12:00$ direction, we only need $1$ step to spell $key[0]$. In addition, we need $min(j, n - j)$ steps to rotate $ring$ to the $12:00$ direction. Therefore, $f[0][j]=min(j, n - j) + 1$.
+We can first initialize $f[0][j]$, where $j$ is the position where the character $\textit{key}[0]$ appears in $\textit{ring}$. Since the $j$-th character of $\textit{ring}$ is aligned with the $12:00$ direction, we only need $1$ step to spell $\textit{key}[0]$. In addition, we need $\min(j, n - j)$ steps to rotate $\textit{ring}$ to the $12:00$ direction. Therefore, $f[0][j]=\min(j, n - j) + 1$.
 
-Next, we consider how the state transitions when $i \geq 1$. We can enumerate the position list $pos[key[i]]$ where $key[i]$ appears in $ring$, and enumerate the position list $pos[key[i-1]]$ where $key[i-1]$ appears in $ring$, and then update $f[i][j]$, i.e., $f[i][j]=\min_{k \in pos[key[i-1]]} f[i-1][k] + \min(\textit{abs}(j - k), n - \textit{abs}(j - k)) + 1$.
+Next, we consider how the state transitions when $i \geq 1$. We can enumerate the position list $\textit{pos}[\textit{key}[i]]$ where $\textit{key}[i]$ appears in $\textit{ring}$, and enumerate the position list $\textit{pos}[\textit{key}[i-1]]$ where $\textit{key}[i-1]$ appears in $\textit{ring}$, and then update $f[i][j]$, i.e., $f[i][j]=\min_{k \in \textit{pos}[\textit{key}[i-1]]} f[i-1][k] + \min(\textit{abs}(j - k), n - \textit{abs}(j - k)) + 1$.
 
 Finally, we return $\min_{0 \leq j \lt n} f[m - 1][j]$.
 
-The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $key$ and $ring$, respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $\textit{key}$ and $\textit{ring}$, respectively.
 
 <!-- tabs:start -->
 

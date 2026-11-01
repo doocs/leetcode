@@ -88,13 +88,13 @@ tags:
 
 We observe that a subarray can become an array of all $0$s if and only if the number of $1$s on each binary bit of all elements in the subarray is even.
 
-If there exist indices $i$ and $j$ such that $i \lt j$ and the subarrays $nums[0,..,i]$ and $nums[0,..,j]$ have the same parity of the number of $1$s on each binary bit, then we can turn the subarray $nums[i + 1,..,j]$ into an array of all $0$s.
+If there exist indices $i$ and $j$ such that $i \lt j$ and the subarrays $\textit{nums}[0,..,i]$ and $\textit{nums}[0,..,j]$ have the same parity of the number of $1$s on each binary bit, then we can turn the subarray $\textit{nums}[i + 1,..,j]$ into an array of all $0$s.
 
-Therefore, we can use the prefix XOR method and a hash table $cnt$ to count the occurrences of each prefix XOR value. We traverse the array, for each element $x$, we calculate its prefix XOR value $mask$, then add the number of occurrences of $mask$ to the answer. Then, we increase the number of occurrences of $mask$ by $1$.
+Therefore, we can use the prefix XOR method and a hash table $\textit{cnt}$ to count the occurrences of each prefix XOR value. We traverse the array, for each element $x$, we calculate its prefix XOR value $\textit{mask}$, then add the number of occurrences of $\textit{mask}$ to the answer. Then, we increase the number of occurrences of $\textit{mask}$ by $1$.
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

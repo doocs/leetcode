@@ -92,7 +92,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以贪心地选择在伤害值最大的回合中使用一次护甲技能，假设伤害值最大为 $\textit{mx}$，那么我们可以免受 $\min(\textit{mx}, \textit{armor})$ 的伤害，因此我们需要的最小生命值为 $\sum(\textit{damage}) - \min(\textit{mx}, \textit{armor}) + 1$。
+我们可以贪心地选择在伤害值最大的回合中使用一次护甲技能，假设伤害值最大为 $mx$，那么我们可以免受 $\min(mx, \textit{armor})$ 的伤害，因此我们需要的最小生命值为 $\sum(\textit{damage}) - \min(mx, \textit{armor}) + 1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{damage}$ 的长度。
 

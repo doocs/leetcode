@@ -64,15 +64,15 @@ tags:
 >
 > Split the binary array into three parts with the same numeric value. Leading zeros do not change the value; what must match is the count of ones and the bits that follow. If the total number of ones is not divisible by $3$, there is no answer; an all-zero array may be cut anywhere.
 >
-> Each part should contain $cnt/3$ ones. Locate the first $1$ of each third and advance the three pointers together until the last part ends. The split is valid only if every corresponding bit matches.
+> Each part should contain $\textit{cnt}/3$ ones. Locate the first $1$ of each third and advance the three pointers together until the last part ends. The split is valid only if every corresponding bit matches.
 
 <!-- thinking:end -->
 
-We denote the length of the array as $n$, and the number of '1's in the array as $cnt$.
+We denote the length of the array as $n$, and the number of '1's in the array as $\textit{cnt}$.
 
-Obviously, $cnt$ must be a multiple of $3$, otherwise the array cannot be divided into three equal parts, and we can return $[-1, -1]$ in advance. If $cnt$ is $0$, it means that all elements in the array are '0', and we can directly return $[0, n - 1]$.
+Obviously, $\textit{cnt}$ must be a multiple of $3$, otherwise the array cannot be divided into three equal parts, and we can return $[-1, -1]$ in advance. If $\textit{cnt}$ is $0$, it means that all elements in the array are '0', and we can directly return $[0, n - 1]$.
 
-We divide $cnt$ by $3$ to get the number of '1's in each part, and then find the position of the first '1' in each part in the array `arr` (refer to the $find(x)$ function in the following code), denoted as $i$, $j$, $k$ respectively.
+We divide $\textit{cnt}$ by $3$ to get the number of '1's in each part, and then find the position of the first '1' in each part in the array `arr` (refer to the $\textit{find}(x)$ function in the following code), denoted as $i$, $j$, $k$ respectively.
 
 ```bash
 0 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 0

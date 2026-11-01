@@ -90,11 +90,11 @@ tags:
 
 > **Thinking**
 >
-> Each update paints one ball and asks how many distinct colors exist. $limit$ may be $10^9$, so an array of balls is impossible, and rescanning after every paint is too slow.
+> Each update paints one ball and asks how many distinct colors exist. $\textit{limit}$ may be $10^9$, so an array of balls is impossible, and rescanning after every paint is too slow.
 >
 > Only the painted ball changes: increment the new color, decrement the old one and drop it at zero. The number of keys is the answer.
 >
-> Map balls to colors in $g$ and colors to counts in $cnt$. After each query append $len(cnt)$.
+> Map balls to colors in $g$ and colors to counts in $\textit{cnt}$. After each query append $\textit{len}(\textit{cnt})$.
 
 <!-- thinking:end -->
 

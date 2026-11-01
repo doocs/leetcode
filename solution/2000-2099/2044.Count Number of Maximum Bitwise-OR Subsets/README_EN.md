@@ -84,11 +84,11 @@ tags:
 
 <!-- thinking:end -->
 
-The maximum bitwise OR value $\textit{mx}$ in the array $\textit{nums}$ can be obtained by performing bitwise OR on all elements in the array.
+The maximum bitwise OR value $mx$ in the array $\textit{nums}$ can be obtained by performing bitwise OR on all elements in the array.
 
-Then we can use depth-first search to enumerate all subsets and count the number of subsets whose bitwise OR equals $\textit{mx}$. We design a function $\text{dfs(i, t)}$, which represents the number of subsets starting from index $\textit{i}$ with the current bitwise OR value being $\textit{t}$. Initially, $\textit{i} = 0$ and $\textit{t} = 0$.
+Then we can use depth-first search to enumerate all subsets and count the number of subsets whose bitwise OR equals $mx$. We design a function $\textit{dfs}(i, t)$, which represents the number of subsets starting from index $i$ with the current bitwise OR value being $t$. Initially, $i = 0$ and $t = 0$.
 
-In the function $\text{dfs(i, t)}$, if $\textit{i}$ equals the array length, it means we have enumerated all elements. At this point, if $\textit{t}$ equals $\textit{mx}$, we increment the answer by one. Otherwise, we can choose to either exclude the current element $\textit{nums[i]}$ or include the current element $\textit{nums[i]}$, so we can recursively call $\text{dfs(i + 1, t)}$ and $\text{dfs(i + 1, t | nums[i])}$.
+In the function $\textit{dfs}(i, t)$, if $i$ equals the array length, it means we have enumerated all elements. At this point, if $t$ equals $mx$, we increment the answer by one. Otherwise, we can choose to either exclude the current element $\textit{nums}[i]$ or include the current element $\textit{nums}[i]$, so we can recursively call $\textit{dfs}(i + 1, t)$ and $\textit{dfs}(i + 1, t | \textit{nums}[i])$.
 
 Finally, we return the answer.
 
@@ -263,9 +263,9 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can use binary enumeration to count the bitwise OR results of all subsets. For an array $\textit{nums}$ of length $n$, we can use an integer $\textit{mask}$ to represent a subset, where the $i$-th bit of $\textit{mask}$ being 1 means including element $\textit{nums[i]}$, and 0 means not including it.
+We can use binary enumeration to count the bitwise OR results of all subsets. For an array $\textit{nums}$ of length $n$, we can use an integer $\textit{mask}$ to represent a subset, where the $i$-th bit of $\textit{mask}$ being 1 means including element $\textit{nums}[i]$, and 0 means not including it.
 
-We can iterate through all possible $\textit{mask}$ values from $0$ to $2^n - 1$. For each $\textit{mask}$, we can calculate the bitwise OR result of the corresponding subset and update the maximum value $\textit{mx}$ and answer $\textit{ans}$.
+We can iterate through all possible $\textit{mask}$ values from $0$ to $2^n - 1$. For each $\textit{mask}$, we can calculate the bitwise OR result of the corresponding subset and update the maximum value $mx$ and answer $\textit{ans}$.
 
 The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 

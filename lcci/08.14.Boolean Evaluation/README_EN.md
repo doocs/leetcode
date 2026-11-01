@@ -61,11 +61,11 @@ difficulty: Medium
 
 > **Thinking**
 >
-> Parenthesize a boolean expression so it equals $result$, and count the ways. Each operator is a split of an interval DP.
+> Parenthesize a boolean expression so it equals $\textit{result}$, and count the ways. Each operator is a split of an interval DP.
 >
 > True and false counts of a substring are independent; memoization evaluates each substring once.
 >
-> $dfs(s)$ returns a pair: ways to obtain false and true. Every operator splits left/right, combined by $\&$, $|$, or $\hat{}$. A single `'0'`/`'1'` is the base case.
+> $\textit{dfs}(s)$ returns a pair: ways to obtain false and true. Every operator splits left/right, combined by $\&$, $|$, or $\hat{}$. A single `'0'`/`'1'` is the base case.
 
 <!-- thinking:end -->
 

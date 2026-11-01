@@ -77,19 +77,19 @@ tags:
 
 First, we check if $\textit{source}$ and $\textit{target}$ are the same. If they are, we directly return $0$.
 
-Next, we use a hash table $\textit{g}$ to build a mapping from stops to bus routes. For each bus route, we traverse all the stops it passes through and map each stop to that bus route, i.e., $\textit{g}[\textit{stop}]$ represents all bus routes passing through stop $\textit{stop}$.
+Next, we use a hash table $g$ to build a mapping from stops to bus routes. For each bus route, we traverse all the stops it passes through and map each stop to that bus route, i.e., $g[\textit{stop}]$ represents all bus routes passing through stop $\textit{stop}$.
 
 Then, we check if $\textit{source}$ and $\textit{target}$ are in the stop mapping. If they are not, we return $-1$.
 
-We use a queue $\textit{q}$ to perform a breadth-first search (BFS). Each element in the queue is a tuple $(\textit{stop}, \textit{busCount})$, representing the current stop $\textit{stop}$ and the number of buses taken to reach the current stop $\textit{busCount}$.
+We use a queue $q$ to perform a breadth-first search (BFS). Each element in the queue is a tuple $(\textit{stop}, \textit{busCount})$, representing the current stop $\textit{stop}$ and the number of buses taken to reach the current stop $\textit{busCount}$.
 
-We initialize a set $\textit{visBus}$ to record the bus routes that have been visited and a set $\textit{visStop}$ to record the stops that have been visited. Then, we add $\textit{source}$ to $\textit{visStop}$ and $(\textit{source}, 0)$ to the queue $\textit{q}$.
+We initialize a set $\textit{visBus}$ to record the bus routes that have been visited and a set $\textit{visStop}$ to record the stops that have been visited. Then, we add $\textit{source}$ to $\textit{visStop}$ and $(\textit{source}, 0)$ to the queue $q$.
 
-Next, we start the BFS. While the queue $\textit{q}$ is not empty, we take out the first element from the queue, which is the current stop $\textit{stop}$ and the number of buses taken to reach the current stop $\textit{busCount}$.
+Next, we start the BFS. While the queue $q$ is not empty, we take out the first element from the queue, which is the current stop $\textit{stop}$ and the number of buses taken to reach the current stop $\textit{busCount}$.
 
 If the current stop $\textit{stop}$ is the target stop $\textit{target}$, we return the number of buses taken to reach the target stop $\textit{busCount}$.
 
-Otherwise, we traverse all bus routes passing through the current stop. For each bus route, we traverse all stops on that route. If a stop $\textit{nextStop}$ has not been visited, we add it to $\textit{visStop}$ and add $(\textit{nextStop}, \textit{busCount} + 1)$ to the queue $\textit{q}$.
+Otherwise, we traverse all bus routes passing through the current stop. For each bus route, we traverse all stops on that route. If a stop $\textit{nextStop}$ has not been visited, we add it to $\textit{visStop}$ and add $(\textit{nextStop}, \textit{busCount} + 1)$ to the queue $q$.
 
 Finally, if we cannot reach the target stop, we return $-1$.
 

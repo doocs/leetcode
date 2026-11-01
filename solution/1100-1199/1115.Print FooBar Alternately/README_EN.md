@@ -85,11 +85,11 @@ class FooBar {
 
 We use two semaphores $f$ and $b$ to control the execution order of the two threads, where $f$ is initially set to $1$ and $b$ is set to $0$, indicating that thread $A$ executes first.
 
-When thread $A$ executes, it first performs the $acquire$ operation on $f$, which changes the value of $f$ to $0$. Thread $A$ then gains the right to use $f$ and can execute the $foo$ function. After that, it performs the $release$ operation on $b$, changing the value of $b$ to $1$. This allows thread $B$ to gain the right to use $b$ and execute the $bar$ function.
+When thread $A$ executes, it first performs the $\textit{acquire}$ operation on $f$, which changes the value of $f$ to $0$. Thread $A$ then gains the right to use $f$ and can execute the $\textit{foo}$ function. After that, it performs the $\textit{release}$ operation on $b$, changing the value of $b$ to $1$. This allows thread $B$ to gain the right to use $b$ and execute the $\textit{bar}$ function.
 
-When thread $B$ executes, it first performs the $acquire$ operation on $b$, which changes the value of $b$ to $0$. Thread $B$ then gains the right to use $b$ and can execute the $bar$ function. After that, it performs the $release$ operation on $f$, changing the value of $f$ to $1$. This allows thread $A$ to gain the right to use $f$ and execute the $foo$ function.
+When thread $B$ executes, it first performs the $\textit{acquire}$ operation on $b$, which changes the value of $b$ to $0$. Thread $B$ then gains the right to use $b$ and can execute the $\textit{bar}$ function. After that, it performs the $\textit{release}$ operation on $f$, changing the value of $f$ to $1$. This allows thread $A$ to gain the right to use $f$ and execute the $\textit{foo}$ function.
 
-Therefore, we only need to loop $n$ times, each time executing the $foo$ and $bar$ functions, first performing the $acquire$ operation, and then the $release$ operation.
+Therefore, we only need to loop $n$ times, each time executing the $\textit{foo}$ and $\textit{bar}$ functions, first performing the $\textit{acquire}$ operation, and then the $\textit{release}$ operation.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 

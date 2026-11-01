@@ -121,15 +121,15 @@ Therefore, we can first sort the block heights, then start jumping from the high
 
 The specific steps are as follows:
 
-1. Sort the array $\text{heights}$.
-1. Initialize the variable $\text{pre} = 0$ to represent the height of the previous block, and $\text{ans} = 0$ to represent the total calories burned.
-1. Use two pointers: the left pointer $\text{l}$ points to the beginning of the array, and the right pointer $\text{r}$ points to the end of the array.
-1. While $\text{l} < \text{r}$, do the following:
-    1. Calculate the calories burned from the previous block to the block pointed to by the right pointer and add it to $\text{ans}$.
-    1. Calculate the calories burned from the block pointed to by the right pointer to the block pointed to by the left pointer and add it to $\text{ans}$.
-    1. Update $\text{pre}$ to the height of the block pointed to by the left pointer.
+1. Sort the array $\textit{heights}$.
+1. Initialize the variable $\textit{pre} = 0$ to represent the height of the previous block, and $\textit{ans} = 0$ to represent the total calories burned.
+1. Use two pointers: the left pointer $l$ points to the beginning of the array, and the right pointer $r$ points to the end of the array.
+1. While $l < r$, do the following:
+    1. Calculate the calories burned from the previous block to the block pointed to by the right pointer and add it to $\textit{ans}$.
+    1. Calculate the calories burned from the block pointed to by the right pointer to the block pointed to by the left pointer and add it to $\textit{ans}$.
+    1. Update $\textit{pre}$ to the height of the block pointed to by the left pointer.
     1. Move the left pointer one step to the right and the right pointer one step to the left.
-1. Finally, calculate the calories burned from the previous block to the middle block and add it to $\text{ans}$.
+1. Finally, calculate the calories burned from the previous block to the middle block and add it to $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 

@@ -66,20 +66,20 @@ tags:
 >
 > A group is happy iff the leftover donuts are $0$ when it is served, i.e. the prefix sum of people is a multiple of $\textit{batchSize}$. There are at most $30$ groups, so $30!$ permutations are impossible.
 >
-> Groups whose size is already a multiple of $\textit{batchSize}$ never affect later groups and can be counted immediately. The rest are reduced to residues; each residue appears at most $30$ times, so five bits suffice and all counts fit in one integer $state$. Memoized $dfs(state,mod)$ tries one more residue and awards a point when $mod=0$.
+> Groups whose size is already a multiple of $\textit{batchSize}$ never affect later groups and can be counted immediately. The rest are reduced to residues; each residue appears at most $30$ times, so five bits suffice and all counts fit in one integer $\textit{state}$. Memoized $\textit{dfs}(\textit{state},\textit{mod})$ tries one more residue and awards a point when $\textit{mod}=0$.
 
 <!-- thinking:end -->
 
-The problem actually asks us to find an arrangement order that maximizes the number of groups whose prefix sum (referring to "number of people" here) modulo $batchSize$ equals $0$. Therefore, we can divide all customers into two categories:
+The problem actually asks us to find an arrangement order that maximizes the number of groups whose prefix sum (referring to "number of people" here) modulo $\textit{batchSize}$ equals $0$. Therefore, we can divide all customers into two categories:
 
-- Customers whose number is a multiple of $batchSize$. These customers will not affect the donuts of the next group of customers. We can greedily arrange these groups of customers first, so these groups of customers will be happy. The "initial answer" is the number of these groups.
-- Customers whose number is not a multiple of $batchSize$. The arrangement order of these customers will affect the donuts of the next group of customers. We can take the modulo $batchSize$ for the number of people $v$ in each group here, and the remainders form a set. The range of element values in the set is $[1,2...,batchSize-1]$. The maximum length of the $groups$ array is $30$, so the maximum number of each remainder does not exceed $30$. We can use $5$ binary bits to represent the quantity of a remainder, and the maximum $batchSize$ is $9$, so the total number of binary bits required to represent these remainders and their quantities is $5\times (9-1)=40$. We can use a $64$-bit integer $state$ to represent it.
+- Customers whose number is a multiple of $\textit{batchSize}$. These customers will not affect the donuts of the next group of customers. We can greedily arrange these groups of customers first, so these groups of customers will be happy. The "initial answer" is the number of these groups.
+- Customers whose number is not a multiple of $\textit{batchSize}$. The arrangement order of these customers will affect the donuts of the next group of customers. We can take the modulo $\textit{batchSize}$ for the number of people $v$ in each group here, and the remainders form a set. The range of element values in the set is $[1,2...,\textit{batchSize}-1]$. The maximum length of the $\textit{groups}$ array is $30$, so the maximum number of each remainder does not exceed $30$. We can use $5$ binary bits to represent the quantity of a remainder, and the maximum $\textit{batchSize}$ is $9$, so the total number of binary bits required to represent these remainders and their quantities is $5\times (9-1)=40$. We can use a $64$-bit integer $\textit{state}$ to represent it.
 
-Next, we design a function $dfs(state, mod)$, which represents the number of groups that can be happy when the arrangement state is $state$ and the current prefix remainder is $mod$. Then our "initial answer" plus $dfs(state, 0)$ is the final answer.
+Next, we design a function $\textit{dfs}(\textit{state}, \textit{mod})$, which represents the number of groups that can be happy when the arrangement state is $\textit{state}$ and the current prefix remainder is $\textit{mod}$. Then our "initial answer" plus $\textit{dfs}(\textit{state}, 0)$ is the final answer.
 
-The implementation logic of the function $dfs(state, mod)$ is as follows:
+The implementation logic of the function $\textit{dfs}(\textit{state}, \textit{mod})$ is as follows:
 
-We enumerate each remainder $i$ from $1$ to $batchSize-1$. If the quantity of the remainder $i$ is not $0$, we can subtract $1$ from the quantity of the remainder $i$, add $i$ to the current prefix remainder and take modulo $batchSize$, then recursively call the function $dfs$ to find the optimal solution of the sub-state, and take the maximum value. Finally, check whether $mod$ is $0$. If it is $0$, we return after adding $1$ to the maximum value, otherwise we directly return the maximum value.
+We enumerate each remainder $i$ from $1$ to $\textit{batchSize}-1$. If the quantity of the remainder $i$ is not $0$, we can subtract $1$ from the quantity of the remainder $i$, add $i$ to the current prefix remainder and take modulo $\textit{batchSize}$, then recursively call the function $\textit{dfs}$ to find the optimal solution of the sub-state, and take the maximum value. Finally, check whether $\textit{mod}$ is $0$. If it is $0$, we return after adding $1$ to the maximum value, otherwise we directly return the maximum value.
 
 During the process, we can use memorized search to avoid repeated calculation of states.
 
@@ -239,13 +239,13 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 
 > **Thinking**
 >
-> Solution 1 packs residue frequencies into bit fields. We can instead mask the remaining groups directly: if $m$ is the number of nonzero-residue groups, $dfs(state,x)$ enumerates unused groups (deduplicating equal residues) and scores a point when the prefix residue is $0$. The state space is $O(2^m)$, which is clearer when $m$ is small.
+> Solution 1 packs residue frequencies into bit fields. We can instead mask the remaining groups directly: if $m$ is the number of nonzero-residue groups, $\textit{dfs}(\textit{state},x)$ enumerates unused groups (deduplicating equal residues) and scores a point when the prefix residue is $0$. The state space is $O(2^m)$, which is clearer when $m$ is small.
 
 <!-- thinking:end -->
 
-First count the groups whose sizes are multiples of $batchSize$, then keep only the remainders of the other groups.
+First count the groups whose sizes are multiples of $\textit{batchSize}$, then keep only the remainders of the other groups.
 
-Use a bitmask for the set of placed groups, and let $dfs(state, x)$ be the number of additional happy groups when the placed set is $state$ and the current prefix remainder is $x$. Enumerate unused groups, skip duplicate remainders, and recurse. If $x = 0$, the current step makes one group happy.
+Use a bitmask for the set of placed groups, and let $\textit{dfs}(\textit{state}, x)$ be the number of additional happy groups when the placed set is $\textit{state}$ and the current prefix remainder is $x$. Enumerate unused groups, skip duplicate remainders, and recurse. If $x = 0$, the current step makes one group happy.
 
 The time complexity is $O(2^m m)$, and the space complexity is $O(2^m)$, where $m$ is the number of groups whose remainder is nonzero.
 

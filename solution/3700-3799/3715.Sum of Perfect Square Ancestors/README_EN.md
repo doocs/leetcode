@@ -192,7 +192,7 @@ tags:
 
 > **Thinking**
 >
-> $n\le 10^5$ forbids walking to the root from every node. The product $nums[i]\cdot nums[anc]$ is a square iff the two values share the same square-free kernel. A DFS maintains a frequency map of kernels on the root-to-node path, adding on entry and rolling back on exit.
+> $n\le 10^5$ forbids walking to the root from every node. The product $\textit{nums}[i]\cdot \textit{nums}[\textit{anc}]$ is a square iff the two values share the same square-free kernel. A DFS maintains a frequency map of kernels on the root-to-node path, adding on entry and rolling back on exit.
 
 <!-- thinking:end -->
 

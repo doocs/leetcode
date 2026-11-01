@@ -59,7 +59,7 @@ The XOR operation has the following three properties:
 - Any number XORed with itself results in $0$, i.e., $a \oplus a=0$.
 - The XOR operation satisfies the commutative and associative laws, i.e., $a \oplus b \oplus a=b \oplus a \oplus a=b \oplus (a \oplus a)=b \oplus 0=b$.
 
-Therefore, we can perform the following operations on two numbers $a$ and $b$ in the array $numbers$:
+Therefore, we can perform the following operations on two numbers $a$ and $b$ in the array $\textit{numbers}$:
 
 - $a=a \oplus b$, now $a$ stores the XOR result of the two numbers;
 - $b=a \oplus b$, now $b$ stores the original value of $a$;

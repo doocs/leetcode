@@ -86,7 +86,7 @@ skiplist.search(1); // return False, 1 has already been erased.</pre>
 >
 > Search, insert, and erase walk from the top level down to the closest node not exceeding the target, then drop a level. Expected jumps are logarithmic. A new node's height grows with probability $p$ so upper levels stay sparse.
 >
-> We use a multi-level list with a dummy head. $find\_closest$ slides within a level; $random\_level$ draws the new height. Each operation is $O(\log n)$ expected, with space proportional to nodes and height.
+> We use a multi-level list with a dummy head. $\textit{find\_closest}$ slides within a level; $\textit{random\_level}$ draws the new height. Each operation is $O(\log n)$ expected, with space proportional to nodes and height.
 
 <!-- thinking:end -->
 
@@ -102,7 +102,7 @@ For the $\textit{add}$ operation, we first randomly decide the level of the new 
 
 For the $\textit{erase}$ operation, similar to the search operation, we traverse each level of the skip list to find and delete the target node. When deleting a node, we need to update the $\textit{next}$ pointers at each level. If the highest level of the skip list has no nodes, we need to decrease the level of the skip list.
 
-Additionally, we define a $\textit{random\_level}$ method to randomly decide the level of the new node. This method generates a random number between $[1, \textit{max\_level}]$ until the generated random number is greater than or equal to $\textit{p}$. We also have a $\textit{find\_closest}$ method to find the node closest to the target value at each level.
+Additionally, we define a $\textit{random\_level}$ method to randomly decide the level of the new node. This method generates a random number between $[1, \textit{max\_level}]$ until the generated random number is greater than or equal to $p$. We also have a $\textit{find\_closest}$ method to find the node closest to the target value at each level.
 
 The time complexity of the above operations is $O(\log n)$, where $n$ is the number of nodes in the skip list. The space complexity is $O(n)$.
 

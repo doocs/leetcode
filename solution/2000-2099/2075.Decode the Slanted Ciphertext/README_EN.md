@@ -91,11 +91,11 @@ The blue arrows show how we can find originalText from encodedText.
 
 <!-- thinking:end -->
 
-First, we calculate the number of columns in the matrix $cols = \textit{len}(encodedText) / rows$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
+First, we calculate the number of columns in the matrix $\textit{cols} = \textit{len}(\textit{encodedText}) / \textit{rows}$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
 
 Finally, we return the answer, making sure to remove any trailing spaces.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $encodedText$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{encodedText}$.
 
 <!-- tabs:start -->
 

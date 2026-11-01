@@ -77,11 +77,11 @@ We return [2,3,0].
 
 <!-- thinking:end -->
 
-We can preprocess all the indices of the strings that start and end with a vowel, and record them in order in the array $nums$.
+We can preprocess all the indices of the strings that start and end with a vowel, and record them in order in the array $\textit{nums}$.
 
-Next, we iterate through each query $(l, r)$, and use binary search to find the first index $i$ in $nums$ that is greater than or equal to $l$, and the first index $j$ that is greater than $r$. Therefore, the answer to the current query is $j - i$.
+Next, we iterate through each query $(l, r)$, and use binary search to find the first index $i$ in $\textit{nums}$ that is greater than or equal to $l$, and the first index $j$ that is greater than $r$. Therefore, the answer to the current query is $j - i$.
 
-The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
+The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $\textit{words}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 
@@ -222,13 +222,13 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 
 <!-- thinking:end -->
 
-We can create a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the number of strings that start and end with a vowel in the first $i$ strings of the array $words$. Initially, $s[0] = 0$.
+We can create a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the number of strings that start and end with a vowel in the first $i$ strings of the array $\textit{words}$. Initially, $s[0] = 0$.
 
-Next, we iterate through the array $words$. If the current string starts and ends with a vowel, then $s[i+1] = s[i] + 1$, otherwise $s[i+1] = s[i]$.
+Next, we iterate through the array $\textit{words}$. If the current string starts and ends with a vowel, then $s[i+1] = s[i] + 1$, otherwise $s[i+1] = s[i]$.
 
 Finally, we iterate through each query $(l, r)$. Therefore, the answer to the current query is $s[r+1] - s[l]$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $\textit{words}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

@@ -72,7 +72,7 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 > **思考**
 >
-> `set` 的时间戳严格递增，同一 key 的历史天然有序。`get` 要不超过给定时间戳的最近一次值，线性扫描在 $2\times 10^5$ 次调用下偏慢。按 key 存 $(timestamp,value)$ 列表，查询时二分上界即可。
+> `set` 的时间戳严格递增，同一 key 的历史天然有序。`get` 要不超过给定时间戳的最近一次值，线性扫描在 $2\times 10^5$ 次调用下偏慢。按 key 存 $(\textit{timestamp},\textit{value})$ 列表，查询时二分上界即可。
 
 <!-- thinking:end -->
 

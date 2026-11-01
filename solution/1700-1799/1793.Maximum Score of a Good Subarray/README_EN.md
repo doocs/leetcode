@@ -72,11 +72,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can enumerate each element $nums[i]$ in $nums$ as the minimum value of the subarray, and use a monotonic stack to find the first position $left[i]$ on the left that is less than $nums[i]$ and the first position $right[i]$ on the right that is less than or equal to $nums[i]$. Then, the score of the subarray with $nums[i]$ as the minimum value is $nums[i] \times (right[i] - left[i] - 1)$.
+We can enumerate each element $\textit{nums}[i]$ in $\textit{nums}$ as the minimum value of the subarray, and use a monotonic stack to find the first position $\textit{left}[i]$ on the left that is less than $\textit{nums}[i]$ and the first position $\textit{right}[i]$ on the right that is less than or equal to $\textit{nums}[i]$. Then, the score of the subarray with $\textit{nums}[i]$ as the minimum value is $\textit{nums}[i] \times (\textit{right}[i] - \textit{left}[i] - 1)$.
 
-It should be noted that the answer can only be updated when the left and right boundaries $left[i]$ and $right[i]$ satisfy $left[i]+1 \leq k \leq right[i]-1$.
+It should be noted that the answer can only be updated when the left and right boundaries $\textit{left}[i]$ and $\textit{right}[i]$ satisfy $\textit{left}[i]+1 \leq k \leq \textit{right}[i]-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

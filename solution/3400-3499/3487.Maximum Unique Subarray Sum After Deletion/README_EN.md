@@ -95,9 +95,9 @@ tags:
 
 <!-- thinking:end -->
 
-We first find the maximum value $\textit{mx}$ in the array. If $\textit{mx} \leq 0$, then all elements in the array are less than or equal to 0. Since we need to select a non-empty subarray with the maximum element sum, the maximum element sum would be $\textit{mx}$.
+We first find the maximum value $mx$ in the array. If $mx \leq 0$, then all elements in the array are less than or equal to 0. Since we need to select a non-empty subarray with the maximum element sum, the maximum element sum would be $mx$.
 
-If $\textit{mx} > 0$, then we need to find all distinct positive integers in the array such that their sum is maximized. We can use a hash table $\textit{s}$ to record all distinct positive integers, and then iterate through the array, adding up all distinct positive integers.
+If $mx > 0$, then we need to find all distinct positive integers in the array such that their sum is maximized. We can use a hash table $s$ to record all distinct positive integers, and then iterate through the array, adding up all distinct positive integers.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

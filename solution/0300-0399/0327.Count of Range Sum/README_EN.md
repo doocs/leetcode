@@ -64,9 +64,9 @@ tags:
 
 > **Thinking**
 >
-> Count subarrays whose sum lies in $[lower,upper]$. A sum is a prefix difference; a double loop is $O(n^2)$. For prefix $x$ we need how many earlier prefixes fall in $[x-upper,x-lower]$.
+> Count subarrays whose sum lies in $[\textit{lower},\textit{upper}]$. A sum is a prefix difference; a double loop is $O(n^2)$. For prefix $x$ we need how many earlier prefixes fall in $[x-\textit{upper},x-\textit{lower}]$.
 >
-> Discretize all $x$, $x-lower$, and $x-upper$. A Fenwick tree stores frequencies of seen prefixes: query the interval, then insert $x$, so only earlier prefixes count.
+> Discretize all $x$, $x-\textit{lower}$, and $x-\textit{upper}$. A Fenwick tree stores frequencies of seen prefixes: query the interval, then insert $x$, so only earlier prefixes count.
 
 <!-- thinking:end -->
 

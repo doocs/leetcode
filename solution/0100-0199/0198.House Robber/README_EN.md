@@ -238,12 +238,12 @@ function rob(nums) {
 
 <!-- thinking:end -->
 
-We define $f[i]$ as the maximum total amount that can be robbed from the first $i$ houses, initially $f[0]=0$, $f[1]=nums[0]$.
+We define $f[i]$ as the maximum total amount that can be robbed from the first $i$ houses, initially $f[0]=0$, $f[1]=\textit{nums}[0]$.
 
 Consider the case where $i \gt 1$, the $i$th house has two options:
 
 - Do not rob the $i$th house, the total amount of robbery is $f[i-1]$;
-- Rob the $i$th house, the total amount of robbery is $f[i-2]+nums[i-1]$;
+- Rob the $i$th house, the total amount of robbery is $f[i-2]+\textit{nums}[i-1]$;
 
 Therefore, we can get the state transition equation:
 
@@ -251,8 +251,8 @@ $$
 f[i]=
 \begin{cases}
 0, & i=0 \\
-nums[0], & i=1 \\
-\max(f[i-1],f[i-2]+nums[i-1]), & i \gt 1
+\textit{nums}[0], & i=1 \\
+\max(f[i-1],f[i-2]+\textit{nums}[i-1]), & i \gt 1
 \end{cases}
 $$
 

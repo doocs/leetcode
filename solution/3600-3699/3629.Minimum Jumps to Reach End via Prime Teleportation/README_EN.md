@@ -117,9 +117,9 @@ tags:
 
 First, we preprocess the list of prime factors for every number up to $10^6$ and store them in $\textit{factors}$.
 
-Then we build a graph $g$. For each index $i$ and each $p \in \textit{factors}[nums[i]]$, we add $i$ to $g[p]$. In this way, we obtain the list of indices that can be reached by teleportation through each prime number $p$.
+Then we build a graph $g$. For each index $i$ and each $p \in \textit{factors}[\textit{nums}[i]]$, we add $i$ to $g[p]$. In this way, we obtain the list of indices that can be reached by teleportation through each prime number $p$.
 
-Next, we use breadth-first search to find the minimum number of jumps. We maintain a queue $q$ to store the indices that can currently be reached, with only index $0$ in $q$ initially. Each time we pop an index $i$ from $q$, if $i$ is the target index $n - 1$, we return the current number of jumps. Otherwise, we add all indices in $g[nums[i]]$ to $q$ and remove them from $g[nums[i]]$ to avoid repeated visits. At the same time, we also add the adjacent indices $i + 1$ and $i - 1$ to $q$ if they are within bounds.
+Next, we use breadth-first search to find the minimum number of jumps. We maintain a queue $q$ to store the indices that can currently be reached, with only index $0$ in $q$ initially. Each time we pop an index $i$ from $q$, if $i$ is the target index $n - 1$, we return the current number of jumps. Otherwise, we add all indices in $g[\textit{nums}[i]]$ to $q$ and remove them from $g[\textit{nums}[i]]$ to avoid repeated visits. At the same time, we also add the adjacent indices $i + 1$ and $i - 1$ to $q$ if they are within bounds.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array, and $M$ is the maximum value in the array.
 

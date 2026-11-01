@@ -73,9 +73,9 @@ tags:
 
 > **思考**
 >
-> 三类操作： $nums1$ 的区间 $0/1$ 翻转； $nums2$ 整体加上 $p\times\sum nums1$；查询 $\sum nums2$。 $n,q\le 10^5$，不能对每次翻转扫区间。
+> 三类操作： $\textit{nums1}$ 的区间 $0/1$ 翻转； $\textit{nums2}$ 整体加上 $p\times\sum \textit{nums1}$；查询 $\sum \textit{nums2}$。 $n,q\le 10^5$，不能对每次翻转扫区间。
 >
-> $\sum nums2$ 只需一个变量： $nums1$ 的区间和决定第二次操作的增量。线段树维护 $nums1$ 的区间 $1$ 的个数，懒标记表示整段翻转，翻转后区间和变为长度减去原和。第三次操作把当前 $s$ 记下即可。
+> $\sum \textit{nums2}$ 只需一个变量： $\textit{nums1}$ 的区间和决定第二次操作的增量。线段树维护 $\textit{nums1}$ 的区间 $1$ 的个数，懒标记表示整段翻转，翻转后区间和变为长度减去原和。第三次操作把当前 $s$ 记下即可。
 
 <!-- thinking:end -->
 
@@ -83,7 +83,7 @@ tags:
 
 - 操作 $1$ 是把数组 `nums1` 的下标区间 $[l,..r]$ 的所有数反转，即把 $0$ 变成 $1$，把 $1$ 变成 $0$。
 - 操作 $3$ 是求数组 `nums2` 的所有数之和。
-- 操作 $2$ 是把数组 `nums2` 的所有数之和加上 $p$ 乘以数组 `nums1` 所有数之和，即 $sum(nums2) = sum(nums2) + p * sum(nums1)$。
+- 操作 $2$ 是把数组 `nums2` 的所有数之和加上 $p$ 乘以数组 `nums1` 所有数之和，即 $\textit{sum}(\textit{nums2}) = \textit{sum}(\textit{nums2}) + p * \textit{sum}(\textit{nums1})$。
 
 因此，我们实际上只需要维护数组 `nums1` 的区间和即可，我们可以通过线段树来实现。
 
@@ -106,7 +106,7 @@ tags:
 
 执行操作 $1$ 时，我们只需要调用 `modify(1, l + 1, r + 1)` 即可。
 
-执行操作 $2$ 时，我们更新 $s = s + p \times query(1, 1, n)$ 即可。
+执行操作 $2$ 时，我们更新 $s = s + p \times \textit{query}(1, 1, n)$ 即可。
 
 执行操作 $3$ 时，我们只需要将 $s$ 加入答案数组即可。
 

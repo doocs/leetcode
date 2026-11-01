@@ -88,11 +88,11 @@ tags:
 
 <!-- thinking:end -->
 
-We first define a pointer $p$, initially $p = 0$, pointing to the first element of the array. We move $p$ to the right until we find the first element that doesn't satisfy strict increasing order, i.e., $nums[p] \geq nums[p + 1]$. If $p = 0$ at this point, it means the first part of the array doesn't have a strictly increasing section, so we return $\text{false}$ directly.
+We first define a pointer $p$, initially $p = 0$, pointing to the first element of the array. We move $p$ to the right until we find the first element that doesn't satisfy strict increasing order, i.e., $\textit{nums}[p] \geq \textit{nums}[p + 1]$. If $p = 0$ at this point, it means the first part of the array doesn't have a strictly increasing section, so we return $\textit{false}$ directly.
 
-Next, we define another pointer $q$, initially $q = p$, pointing to the first element of the second part of the array. We move $q$ to the right until we find the first element that doesn't satisfy strict decreasing order, i.e., $nums[q] \leq nums[q + 1]$. If $q = p$ or $q = n - 1$ at this point, it means the second part of the array doesn't have a strictly decreasing section or there's no third part, so we return $\text{false}$ directly.
+Next, we define another pointer $q$, initially $q = p$, pointing to the first element of the second part of the array. We move $q$ to the right until we find the first element that doesn't satisfy strict decreasing order, i.e., $\textit{nums}[q] \leq \textit{nums}[q + 1]$. If $q = p$ or $q = n - 1$ at this point, it means the second part of the array doesn't have a strictly decreasing section or there's no third part, so we return $\textit{false}$ directly.
 
-If all the above conditions are satisfied, it means the array is trionic, and we return $\text{true}$.
+If all the above conditions are satisfied, it means the array is trionic, and we return $\textit{true}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

@@ -86,15 +86,15 @@ It can be proven that 0 is the maximum cost.
 >
 > A substring cost is a range sum of values; the empty string costs $0$. Enumerating both ends is too slow for $n \le 10^5$.
 >
-> For a fixed right end, the best cost is the current prefix sum minus the smallest prefix seen so far (including the empty prefix $0$). One scan keeps the running sum $tot$ and its minimum $mi$, and updates the answer with $tot-mi$.
+> For a fixed right end, the best cost is the current prefix sum minus the smallest prefix seen so far (including the empty prefix $0$). One scan keeps the running sum $\textit{tot}$ and its minimum $mi$, and updates the answer with $\textit{tot}-mi$.
 >
 > Values go into a map; letters not listed use their default alphabet index.
 
 <!-- thinking:end -->
 
-According to the description of the problem, we traverse each character $c$ in the string $s$, obtain its corresponding value $v$, and then update the current prefix sum $tot=tot+v$. Then, the cost of the maximum cost substring ending with $c$ is $tot$ minus the minimum prefix sum $mi$, that is, $tot-mi$. We update the answer $ans=max(ans,tot-mi)$ and maintain the minimum prefix sum $mi=min(mi,tot)$.
+According to the description of the problem, we traverse each character $c$ in the string $s$, obtain its corresponding value $v$, and then update the current prefix sum $\textit{tot}=\textit{tot}+v$. Then, the cost of the maximum cost substring ending with $c$ is $\textit{tot}$ minus the minimum prefix sum $mi$, that is, $\textit{tot}-mi$. We update the answer $\textit{ans}=\max(\textit{ans},\textit{tot}-mi)$ and maintain the minimum prefix sum $mi=\min(mi,\textit{tot})$.
 
-After the traversal is over, return the answer $ans$.
+After the traversal is over, return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
@@ -227,7 +227,7 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 
 We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.
 
-We use the variable $f$ to maintain the cost of the maximum cost substring ending with the current character $c$. Each time we traverse to a character $c$, we update $f=max(f, 0) + v$. Then we update the answer $ans=max(ans,f)$.
+We use the variable $f$ to maintain the cost of the maximum cost substring ending with the current character $c$. Each time we traverse to a character $c$, we update $f=\max(f, 0) + v$. Then we update the answer $\textit{ans}=\max(\textit{ans},f)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 

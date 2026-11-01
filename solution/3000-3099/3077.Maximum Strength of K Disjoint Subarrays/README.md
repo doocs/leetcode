@@ -87,7 +87,7 @@ tags:
 
 <!-- thinking:end -->
 
-对于第 $i$ 个数 $nums[i - 1]$，如果它被选择，且位于第 $j$ 个子数组，那么它对答案的贡献是 $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$，我们不妨将 $(-1)^{j+1}$ 记为 $sign$，那么它对答案的贡献是 $sign \times nums[i - 1] \times (k - j + 1)$。
+对于第 $i$ 个数 $\textit{nums}[i - 1]$，如果它被选择，且位于第 $j$ 个子数组，那么它对答案的贡献是 $\textit{nums}[i - 1] \times (k - j + 1) \times (-1)^{j+1}$，我们不妨将 $(-1)^{j+1}$ 记为 $\textit{sign}$，那么它对答案的贡献是 $\textit{sign} \times \textit{nums}[i - 1] \times (k - j + 1)$。
 
 我们定义 $f[i][j][0]$ 表示从前 $i 个数中选择 $j$ 个子数组，且第 $i$ 个数不被选的最大能量值，定义 $f[i][j][1]$ 表示从前 $i$ 个数中选择 $j$ 个子数组，且第 $i$ 个数被选的最大能量值。初始时 $f[0][0][0] = 0$，其余的值都是 $-\infty$。
 
@@ -95,11 +95,11 @@ tags:
 
 如果第 $i$ 个数不被选，那么第 $i-1$ 个数既可以被选，也可以不被选，所以 $f[i][j][0] = \max(f[i-1][j][0], f[i-1][j][1])$。
 
-如果第 $i$ 个数被选，此时如果第 $i-1$ 个数与第 $i$ 个数位于同一个子数组中，那么 $f[i][j][1] = \max(f[i][j][1], f[i-1][j][1] + sign \times nums[i-1] \times (k - j + 1))$，否则 $f[i][j][1] = \max(f[i][j][1], \max(f[i-1][j-1][0], f[i-1][j-1][1]) + sign \times nums[i-1] \times (k - j + 1))$。我们取这两种情况的最大值作为 $f[i][j][1]$。
+如果第 $i$ 个数被选，此时如果第 $i-1$ 个数与第 $i$ 个数位于同一个子数组中，那么 $f[i][j][1] = \max(f[i][j][1], f[i-1][j][1] + \textit{sign} \times \textit{nums}[i-1] \times (k - j + 1))$，否则 $f[i][j][1] = \max(f[i][j][1], \max(f[i-1][j-1][0], f[i-1][j-1][1]) + \textit{sign} \times \textit{nums}[i-1] \times (k - j + 1))$。我们取这两种情况的最大值作为 $f[i][j][1]$。
 
 最终答案是 $\max(f[n][k][0], f[n][k][1])$。
 
-时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

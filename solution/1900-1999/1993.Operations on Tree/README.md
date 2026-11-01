@@ -108,17 +108,17 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 
 我们定义以下几个变量：
 
-- $locked$：记录每个节点的锁定状态，其中 $locked[i]$ 表示节点 $i$ 的锁定状态，如果节点 $i$ 未被上锁，则 $locked[i] = -1$，否则 $locked[i]$ 为锁定节点 $i$ 的用户编号。
-- $parent$：记录每个节点的父节点。
-- $children$：记录每个节点的子节点。
+- $\textit{locked}$：记录每个节点的锁定状态，其中 $\textit{locked}[i]$ 表示节点 $i$ 的锁定状态，如果节点 $i$ 未被上锁，则 $\textit{locked}[i] = -1$，否则 $\textit{locked}[i]$ 为锁定节点 $i$ 的用户编号。
+- $\textit{parent}$：记录每个节点的父节点。
+- $\textit{children}$：记录每个节点的子节点。
 
-调用 $lock$ 函数时，如果节点 $num$ 未被上锁，则将节点 $num$ 上锁，返回 `true`，否则返回 `false`。
+调用 $\textit{lock}$ 函数时，如果节点 $\textit{num}$ 未被上锁，则将节点 $\textit{num}$ 上锁，返回 `true`，否则返回 `false`。
 
-调用 $unlock$ 函数时，如果节点 $num$ 被上锁且上锁的用户编号为 $user$，则将节点 $num$ 解锁，返回 `true`，否则返回 `false`。
+调用 $\textit{unlock}$ 函数时，如果节点 $\textit{num}$ 被上锁且上锁的用户编号为 $\textit{user}$，则将节点 $\textit{num}$ 解锁，返回 `true`，否则返回 `false`。
 
-调用 $upgrade$ 函数时，我们首先判断节点 $num$ 及其祖先节点是否被上锁，如果是，则返回 $false$。否则，我们判断节点 $num$ 的子孙节点是否有被上锁的，如果没有，则返回 `false`。否则，我们将节点 $num$ 及其子孙节点解锁，然后将节点 $num$ 上锁，返回 `true`。
+调用 $\textit{upgrade}$ 函数时，我们首先判断节点 $\textit{num}$ 及其祖先节点是否被上锁，如果是，则返回 $\textit{false}$。否则，我们判断节点 $\textit{num}$ 的子孙节点是否有被上锁的，如果没有，则返回 `false`。否则，我们将节点 $\textit{num}$ 及其子孙节点解锁，然后将节点 $\textit{num}$ 上锁，返回 `true`。
 
-时间复杂度方面，初始化和 $upgrade$ 函数的时间复杂度均为 $O(n)$，而 $lock$ 和 $unlock$ 函数的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
+时间复杂度方面，初始化和 $\textit{upgrade}$ 函数的时间复杂度均为 $O(n)$，而 $\textit{lock}$ 和 $\textit{unlock}$ 函数的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
 
@@ -483,17 +483,17 @@ class LockingTree {
 
 我们定义以下几个变量：
 
-- $locked$：记录每个节点的锁定状态，其中 $locked[i]$ 表示节点 $i$ 的锁定状态，如果节点 $i$ 未被上锁，则 $locked[i] = -1$，否则 $locked[i]$ 为锁定节点 $i$ 的用户编号。
-- $parent$：记录每个节点的父节点。
-- $children$：记录每个节点的子节点。
+- $\textit{locked}$：记录每个节点的锁定状态，其中 $\textit{locked}[i]$ 表示节点 $i$ 的锁定状态，如果节点 $i$ 未被上锁，则 $\textit{locked}[i] = -1$，否则 $\textit{locked}[i]$ 为锁定节点 $i$ 的用户编号。
+- $\textit{parent}$：记录每个节点的父节点。
+- $\textit{children}$：记录每个节点的子节点。
 
-调用 $lock$ 函数时，如果节点 $num$ 未被上锁，则将节点 $num$ 上锁，返回 `true`，否则返回 `false`。
+调用 $\textit{lock}$ 函数时，如果节点 $\textit{num}$ 未被上锁，则将节点 $\textit{num}$ 上锁，返回 `true`，否则返回 `false`。
 
-调用 $unlock$ 函数时，如果节点 $num$ 被上锁且上锁的用户编号为 $user$，则将节点 $num$ 解锁，返回 `true`，否则返回 `false`。
+调用 $\textit{unlock}$ 函数时，如果节点 $\textit{num}$ 被上锁且上锁的用户编号为 $\textit{user}$，则将节点 $\textit{num}$ 解锁，返回 `true`，否则返回 `false`。
 
-调用 $upgrade$ 函数时，先从 $num$ 沿父亲指针向上走。只要 $num$ 自己或某个祖先已被上锁，就返回 `false`。否则用显式栈展开 $num$ 的子孙：弹出节点时，若它被锁就解开并把标记设为已找到锁，再把它的孩子压入栈。若一个被锁的子孙都没有，返回 `false`。否则把 $num$ 锁给 $user$，返回 `true`。
+调用 $\textit{upgrade}$ 函数时，先从 $\textit{num}$ 沿父亲指针向上走。只要 $\textit{num}$ 自己或某个祖先已被上锁，就返回 `false`。否则用显式栈展开 $\textit{num}$ 的子孙：弹出节点时，若它被锁就解开并把标记设为已找到锁，再把它的孩子压入栈。若一个被锁的子孙都没有，返回 `false`。否则把 $\textit{num}$ 锁给 $\textit{user}$，返回 `true`。
 
-时间复杂度方面，初始化和 $upgrade$ 函数的时间复杂度均为 $O(n)$，而 $lock$ 和 $unlock$ 函数的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
+时间复杂度方面，初始化和 $\textit{upgrade}$ 函数的时间复杂度均为 $O(n)$，而 $\textit{lock}$ 和 $\textit{unlock}$ 函数的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
 

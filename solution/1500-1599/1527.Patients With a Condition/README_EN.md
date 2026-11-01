@@ -75,9 +75,9 @@ Patients table:
 
 > **Thinking**
 >
-> We need patients whose condition list contains a code with prefix $DIAB1$. Codes are space-separated; a bare $LIKE\ \%DIAB1\%$ would also match $DIAB10$.
+> We need patients whose condition list contains a code with prefix $\textit{DIAB1}$. Codes are space-separated; a bare $\textit{LIKE}\ \%\textit{DIAB1}\%$ would also match $\textit{DIAB10}$.
 >
-> A matching code is either at the start ($DIAB1\%$) or after a space ($\%\ DIAB1\%$). The disjunction of those two prefix tests keeps the intended rows without catching a longer code.
+> A matching code is either at the start ($\textit{DIAB1}\%$) or after a space ($\%\ \textit{DIAB1}\%$). The disjunction of those two prefix tests keeps the intended rows without catching a longer code.
 
 <!-- thinking:end -->
 

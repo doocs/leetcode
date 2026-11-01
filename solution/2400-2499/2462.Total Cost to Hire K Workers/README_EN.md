@@ -90,17 +90,17 @@ The total hiring cost is 4.
 
 <!-- thinking:end -->
 
-First, we check if $candidates \times 2$ is greater than or equal to $n$. If it is, we directly return the sum of the costs of the first $k$ smallest workers.
+First, we check if $\textit{candidates} \times 2$ is greater than or equal to $n$. If it is, we directly return the sum of the costs of the first $k$ smallest workers.
 
-Otherwise, we use a min heap $pq$ to maintain the costs of the first $candidates$ workers and the last $candidates$ workers.
+Otherwise, we use a min heap $pq$ to maintain the costs of the first $\textit{candidates}$ workers and the last $\textit{candidates}$ workers.
 
-We first add the costs and corresponding indices of the first $candidates$ workers to the min heap $pq$, and then add the costs and corresponding indices of the last $candidates$ workers to the min heap $pq$. We use two pointers $l$ and $r$ to point to the indices of the front and back candidates, initially $l = candidates$, $r = n - candidates - 1$.
+We first add the costs and corresponding indices of the first $\textit{candidates}$ workers to the min heap $pq$, and then add the costs and corresponding indices of the last $\textit{candidates}$ workers to the min heap $pq$. We use two pointers $l$ and $r$ to point to the indices of the front and back candidates, initially $l = \textit{candidates}$, $r = n - \textit{candidates} - 1$.
 
 Then we perform $k$ iterations, each time taking the worker with the smallest cost from the min heap $pq$ and adding its cost to the answer. If $l > r$, it means that all the front and back candidates have been selected, and we skip directly. Otherwise, if the index of the current worker is less than $l$, it means it is a worker from the front, we add the cost and index of the $l$-th worker to the min heap $pq$, and then increment $l$; otherwise, we add the cost and index of the $r$-th worker to the min heap $pq$, and then decrement $r$.
 
 After the loop ends, we return the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $costs$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{costs}$.
 
 <!-- tabs:start -->
 

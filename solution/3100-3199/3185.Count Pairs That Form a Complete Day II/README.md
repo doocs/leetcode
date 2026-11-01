@@ -76,7 +76,7 @@ tags:
 >
 > 配对余数公式不变，哈希或长 $24$ 的数组均可。
 >
-> 从左扫描：答案加上 $cnt[(24-x\bmod 24)\bmod 24]$，再更新 $cnt[x\bmod 24]$。
+> 从左扫描：答案加上 $\textit{cnt}[(24-x\bmod 24)\bmod 24]$，再更新 $\textit{cnt}[x\bmod 24]$。
 
 <!-- thinking:end -->
 

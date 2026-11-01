@@ -125,13 +125,13 @@ Let $f[i][0]$ denote the maximum sum of a valid subsequence ending at index $i$ 
 
 When transitioning, we enumerate a predecessor index $j$ satisfying $j \leq i - k$:
 
-- State $f[i][0]$ (valley): transitions from $f[j][1]$, requiring $\text{nums}[j] > \text{nums}[i]$, i.e., query the maximum $f[\cdot][1]$ over the value range $(\text{nums}[i],\ +\infty)$:
+- State $f[i][0]$ (valley): transitions from $f[j][1]$, requiring $\textit{nums}[j] > \textit{nums}[i]$, i.e., query the maximum $f[\cdot][1]$ over the value range $(\textit{nums}[i],\ +\infty)$:
 
-$$f[i][0] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text{nums}[j] > \text{nums}[i]}} f[j][1]\right)$$
+$$f[i][0] = \textit{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \textit{nums}[j] > \textit{nums}[i]}} f[j][1]\right)$$
 
-- State $f[i][1]$ (peak): transitions from $f[j][0]$, requiring $\text{nums}[j] < \text{nums}[i]$, i.e., query the maximum $f[\cdot][0]$ over the value range $[1,\ \text{nums}[i]-1]$:
+- State $f[i][1]$ (peak): transitions from $f[j][0]$, requiring $\textit{nums}[j] < \textit{nums}[i]$, i.e., query the maximum $f[\cdot][0]$ over the value range $[1,\ \textit{nums}[i]-1]$:
 
-$$f[i][1] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text{nums}[j] < \text{nums}[i]}} f[j][0]\right)$$
+$$f[i][1] = \textit{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \textit{nums}[j] < \textit{nums}[i]}} f[j][0]\right)$$
 
 The final answer is $\max_{0 \leq i < n}\max(f[i][0],\ f[i][1])$.
 
@@ -139,8 +139,8 @@ The final answer is $\max_{0 \leq i < n}\max(f[i][0],\ f[i][1])$.
 
 The transitions involve dynamic prefix/suffix maximum queries over a value domain, which can be maintained efficiently with two **Binary Indexed Trees (BITs)**:
 
-- BIT $\text{bit}_0$: indexed by value, maintains the prefix maximum of $f[\cdot][0]$, used to query cases where $\text{nums}[j] < \text{nums}[i]$.
-- BIT $\text{bit}_1$: indexed by $m + 1 - \textit{rank}$ (reversed, where $m$ is the number of distinct values), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\text{nums}[j] > \text{nums}[i]$.
+- BIT $\textit{bit}_0$: indexed by value, maintains the prefix maximum of $f[\cdot][0]$, used to query cases where $\textit{nums}[j] < \textit{nums}[i]$.
+- BIT $\textit{bit}_1$: indexed by $m + 1 - \textit{rank}$ (reversed, where $m$ is the number of distinct values), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\textit{nums}[j] > \textit{nums}[i]$.
 
 To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we first insert the state of index $i - k$ into the BITs, then query.
 

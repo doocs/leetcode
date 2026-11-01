@@ -121,15 +121,15 @@ There is at least one subarray of length 2 that is unique, so the smallest uniqu
 
 <!-- thinking:end -->
 
-At $\textit{mid_len} = \frac{\textit{min_len} + \textit{max_len}}{2}$, for each candidate
-subarray length $\textit{mid_len}$, we slide a rolling hash window along all subarrays
+At $\textit{mid}_\textit{len} = \frac{\min_\textit{len} + \max_\textit{len}}{2}$, for each candidate
+subarray length $\textit{mid}_\textit{len}$, we slide a rolling hash window along all subarrays
 of such a length, recording how many times each hash value shows up.
 
-If any hash value appears exactly once, a unique subarray of length $\textit{mid_len}$ is found.
-We can thereby try to shrink $\textit{max_len}$ to $\textit{mid_len} - 1$.
+If any hash value appears exactly once, a unique subarray of length $\textit{mid}_\textit{len}$ is found.
+We can thereby try to shrink $\max_\textit{len}$ to $\textit{mid}_\textit{len} - 1$.
 
 Otherwise, it means that no unique subarray of that length exists, so we must raise
-$\textit{min_len}$ to $\textit{mid_len} + 1$.
+$\min_\textit{len}$ to $\textit{mid}_\textit{len} + 1$.
 
 This approach works because once a unique subarray exists at length $l$,
 any subarray with length $> l$ is also guaranteed to exist.

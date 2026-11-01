@@ -106,9 +106,9 @@ Therefore, we first reverse string $t$ and preprocess arrays $\textit{g1}$ and $
 
 We can initialize the answer $\textit{ans}$ as the maximum value in $\textit{g1}$ and $\textit{g2}$.
 
-Next, we define $\textit{f}[i][j]$ as the length of the palindromic substring ending at the $i$-th character of string $s$ and the $j$-th character of string $t$.
+Next, we define $f[i][j]$ as the length of the palindromic substring ending at the $i$-th character of string $s$ and the $j$-th character of string $t$.
 
-For $\textit{f}[i][j]$, if $s[i - 1]$ equals $t[j - 1]$, then $\textit{f}[i][j] = \textit{f}[i - 1][j - 1] + 1$. We then update the answer:
+For $f[i][j]$, if $s[i - 1]$ equals $t[j - 1]$, then $f[i][j] = f[i - 1][j - 1] + 1$. We then update the answer:
 
 $$
 \textit{ans} = \max(\textit{ans}, \textit{f}[i][j] \times 2 + (0 \text{ if } i \geq m \text{ else } \textit{g1}[i])) \\

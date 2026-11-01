@@ -94,7 +94,7 @@ tags:
 
 <!-- thinking:end -->
 
-行和列都是回文的，那么对于任意 $i \in [0, m / 2)$ 和 $j \in [0, n / 2)$，都需要满足 $\text{grid}[i][j] = \text{grid}[m - i - 1][j] = \text{grid}[i][n - j - 1] = \text{grid}[m - i - 1][n - j - 1]$，要么都变成 $0$，要么都变成 $1$，变成 $0$ 的次数为 $c_0 = \text{grid}[i][j] + \text{grid}[m - i - 1][j] + \text{grid}[i][n - j - 1] + \text{grid}[m - i - 1][n - j - 1]$，变成 $1$ 的次数为 $c_1 = 4 - c_0$，取两者的较小值，累加到答案中。
+行和列都是回文的，那么对于任意 $i \in [0, m / 2)$ 和 $j \in [0, n / 2)$，都需要满足 $\textit{grid}[i][j] = \textit{grid}[m - i - 1][j] = \textit{grid}[i][n - j - 1] = \textit{grid}[m - i - 1][n - j - 1]$，要么都变成 $0$，要么都变成 $1$，变成 $0$ 的次数为 $c_0 = \textit{grid}[i][j] + \textit{grid}[m - i - 1][j] + \textit{grid}[i][n - j - 1] + \textit{grid}[m - i - 1][n - j - 1]$，变成 $1$ 的次数为 $c_1 = 4 - c_0$，取两者的较小值，累加到答案中。
 
 接下来，我们再讨论 $m$ 和 $n$ 的奇偶性：
 
@@ -103,11 +103,11 @@ tags:
 - 如果 $m$ 是奇数，而 $n$ 是偶数，那么我们需要考虑最中间的一行；
 - 如果 $m$ 是偶数，而 $n$ 是奇数，那么我们需要考虑最中间的一列。
 
-对于后两种情况，我们需要统计最中间的一行或一列中对应位置不相同的格子对数 $\text{diff}$，以及对应位置相同且为 $1$ 的格子个数 $\text{cnt1}$，然后再分情况讨论：
+对于后两种情况，我们需要统计最中间的一行或一列中对应位置不相同的格子对数 $\textit{diff}$，以及对应位置相同且为 $1$ 的格子个数 $\textit{cnt1}$，然后再分情况讨论：
 
-- 如果 $\text{cnt1} \bmod 4 = 0$，那么我们只需要将 $\text{diff}$ 个格子变成 $0$ 即可，操作次数为 $\text{diff}$；
-- 否则，说明 $\text{cnt1} = 2$，此时如果 $\text{diff} \gt 0$，我们可以将其中一个格子变成 $1$，使得 $\text{cnt1} = 4$，那么剩下的 $\text{diff} - 1$ 个格子变成 $0$ 即可，操作次数一共为 $\text{diff}$。
-- 否则，如果 $\text{diff} = 0$，我们就把 $\text{2}$ 个格子变成 $0$，使得 $\text{cnt1} \bmod 4 = 0$，操作次数为 $\text{2}$。
+- 如果 $\textit{cnt1} \bmod 4 = 0$，那么我们只需要将 $\textit{diff}$ 个格子变成 $0$ 即可，操作次数为 $\textit{diff}$；
+- 否则，说明 $\textit{cnt1} = 2$，此时如果 $\textit{diff} \gt 0$，我们可以将其中一个格子变成 $1$，使得 $\textit{cnt1} = 4$，那么剩下的 $\textit{diff} - 1$ 个格子变成 $0$ 即可，操作次数一共为 $\textit{diff}$。
+- 否则，如果 $\textit{diff} = 0$，我们就把 $2$ 个格子变成 $0$，使得 $\textit{cnt1} \bmod 4 = 0$，操作次数为 $2$。
 
 我们将操作次数累加到答案中，最后返回答案即可。
 

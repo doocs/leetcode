@@ -77,9 +77,9 @@ It can be shown that there are only 2 powerful integers in this range.
 
 > **Thinking**
 >
-> Count integers in $[start,finish]$ whose digits are at most $limit$ and that end with $s$. The range is $f(finish)-f(start-1)$. Digit DP fills from the left: high digits respect $limit$ and a tight upper bound; the last $|s|$ digits must equal $s$ (and $s$ may not exceed the remaining bound when tight).
+> Count integers in $[\textit{start},\textit{finish}]$ whose digits are at most $\textit{limit}$ and that end with $s$. The range is $f(\textit{finish})-f(\textit{start}-1)$. Digit DP fills from the left: high digits respect $\textit{limit}$ and a tight upper bound; the last $|s|$ digits must equal $s$ (and $s$ may not exceed the remaining bound when tight).
 >
-> If $t$ is shorter than $s$ the count is $0$. Memoize $(pos,lim)$; the bound has at most $16$ digits.
+> If $t$ is shorter than $s$ the count is $0$. Memoize $(\textit{pos},\textit{lim})$; the bound has at most $16$ digits.
 
 <!-- thinking:end -->
 
@@ -88,7 +88,7 @@ This problem is essentially about finding the count of numbers in the given rang
 For the range $[l, .., r]$, we typically transform it into two subproblems: $[1, .., r]$ and $[1, .., l - 1]$, i.e.,
 
 $$
-ans = \sum_{i=1}^{r} ans_i - \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i - \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 For this problem, we calculate the count of numbers in $[1, \textit{finish}]$ that satisfy the conditions, and subtract the count of numbers in $[1, \textit{start} - 1]$ that satisfy the conditions to get the final answer.
@@ -99,9 +99,9 @@ The basic steps are as follows:
 
 1. Convert $\textit{start}$ and $\textit{finish}$ to strings for easier manipulation in Digit DP.
 2. Design a function $\textit{dfs}(\textit{pos}, \textit{lim})$, which represents the count of valid numbers starting from the $\textit{pos}$-th digit, with the current restriction condition $\textit{lim}$.
-3. If the maximum number of digits is less than the length of $\textit{s}$, return 0.
-4. If the remaining number of digits equals the length of $\textit{s}$, check if the current number satisfies the condition and return 1 or 0.
-5. Otherwise, calculate the upper limit of the current digit as $\textit{up} = \min(\textit{lim} ? \textit{t}[\textit{pos}] : 9, \textit{limit})$. Then iterate through the digits $i$ from 0 to $\textit{up}$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == \textit{t}[\textit{pos}])$, and accumulate the results.
+3. If the maximum number of digits is less than the length of $s$, return 0.
+4. If the remaining number of digits equals the length of $s$, check if the current number satisfies the condition and return 1 or 0.
+5. Otherwise, calculate the upper limit of the current digit as $up = \min(\textit{lim} ? t[\textit{pos}] : 9, \textit{limit})$. Then iterate through the digits $i$ from 0 to $up$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == t[\textit{pos}])$, and accumulate the results.
 6. If $\textit{lim}$ is false, store the current result in the cache to avoid redundant calculations.
 7. Finally, return the result.
 

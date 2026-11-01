@@ -92,7 +92,7 @@ Therefore, we return [[1,7],[2,4],[7,1]].
 >
 > Merge two lists by value, adding weights. Values and lengths are at most $1000$, so a map plus a sort is enough.
 >
-> Add every $(value,weight)$ into a counter, then emit items in increasing value.
+> Add every $(\textit{value},\textit{weight})$ into a counter, then emit items in increasing value.
 
 <!-- thinking:end -->
 

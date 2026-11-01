@@ -82,15 +82,15 @@ tags:
 
 <!-- thinking:end -->
 
-定义两个指针 $i$ 和 $j$，分别指向数组的首尾，用变量 $a$ 和 $b$ 分别表示首尾两个元素的值，变量 $ans$ 表示操作次数。
+定义两个指针 $i$ 和 $j$，分别指向数组的首尾，用变量 $a$ 和 $b$ 分别表示首尾两个元素的值，变量 $\textit{ans}$ 表示操作次数。
 
-如果 $a \lt b$，我们将指针 $i$ 向右移动一位，即 $i \leftarrow i + 1$，然后将 $a$ 加上指针 $i$ 指向的元素的值，即 $a \leftarrow a + nums[i]$，同时将操作次数加一，即 $ans \leftarrow ans + 1$。
+如果 $a \lt b$，我们将指针 $i$ 向右移动一位，即 $i \leftarrow i + 1$，然后将 $a$ 加上指针 $i$ 指向的元素的值，即 $a \leftarrow a + \textit{nums}[i]$，同时将操作次数加一，即 $\textit{ans} \leftarrow \textit{ans} + 1$。
 
-如果 $a \gt b$，我们将指针 $j$ 向左移动一位，即 $j \leftarrow j - 1$，然后将 $b$ 加上指针 $j$ 指向的元素的值，即 $b \leftarrow b + nums[j]$，同时将操作次数加一，即 $ans \leftarrow ans + 1$。
+如果 $a \gt b$，我们将指针 $j$ 向左移动一位，即 $j \leftarrow j - 1$，然后将 $b$ 加上指针 $j$ 指向的元素的值，即 $b \leftarrow b + \textit{nums}[j]$，同时将操作次数加一，即 $\textit{ans} \leftarrow \textit{ans} + 1$。
 
-否则，说明 $a = b$，此时我们将指针 $i$ 向右移动一位，即 $i \leftarrow i + 1$，将指针 $j$ 向左移动一位，即 $j \leftarrow j - 1$，并且更新 $a$ 和 $b$ 的值，即 $a \leftarrow nums[i]$ 以及 $b \leftarrow nums[j]$。
+否则，说明 $a = b$，此时我们将指针 $i$ 向右移动一位，即 $i \leftarrow i + 1$，将指针 $j$ 向左移动一位，即 $j \leftarrow j - 1$，并且更新 $a$ 和 $b$ 的值，即 $a \leftarrow \textit{nums}[i]$ 以及 $b \leftarrow \textit{nums}[j]$。
 
-循环上述过程，直至指针 $i \ge j$，返回操作次数 $ans$ 即可。
+循环上述过程，直至指针 $i \ge j$，返回操作次数 $\textit{ans}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 

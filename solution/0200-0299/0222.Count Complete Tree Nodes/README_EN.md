@@ -258,7 +258,7 @@ public class Solution {
 
 > **Thinking**
 >
-> The linear walk ignores that the last level is packed left. If the left and right heights match, the left subtree is perfect and contributes $2^{left}$ nodes (including the root), so we recurse only on the right; otherwise the right subtree is perfect and we recurse on the left.
+> The linear walk ignores that the last level is packed left. If the left and right heights match, the left subtree is perfect and contributes $2^{\textit{left}}$ nodes (including the root), so we recurse only on the right; otherwise the right subtree is perfect and we recurse on the left.
 >
 > Each height walk is $O(\log n)$ and the recursion depth is $O(\log n)$, for $O(\log^2 n)$ time.
 
@@ -270,10 +270,10 @@ Characteristics of a complete binary tree: leaf nodes can only appear on the bot
 
 If the number of layers in a full binary tree is $h$, then the total number of nodes is $2^h - 1$.
 
-We first count the heights of the left and right subtrees of $root$, denoted as $left$ and $right$.
+We first count the heights of the left and right subtrees of $\textit{root}$, denoted as $\textit{left}$ and $\textit{right}$.
 
-1. If $left = right$, it means that the left subtree is a full binary tree, so the total number of nodes in the left subtree is $2^{left} - 1$. Plus the $root$ node, it is $2^{left}$. Then we recursively count the right subtree.
-1. If $left > right$, it means that the right subtree is a full binary tree, so the total number of nodes in the right subtree is $2^{right} - 1$. Plus the $root$ node, it is $2^{right}$. Then we recursively count the left subtree.
+1. If $\textit{left} = \textit{right}$, it means that the left subtree is a full binary tree, so the total number of nodes in the left subtree is $2^{\textit{left}} - 1$. Plus the $\textit{root}$ node, it is $2^{\textit{left}}$. Then we recursively count the right subtree.
+1. If $\textit{left} > \textit{right}$, it means that the right subtree is a full binary tree, so the total number of nodes in the right subtree is $2^{\textit{right}} - 1$. Plus the $\textit{root}$ node, it is $2^{\textit{right}}$. Then we recursively count the left subtree.
 
 The time complexity is $O(\log^2 n)$.
 

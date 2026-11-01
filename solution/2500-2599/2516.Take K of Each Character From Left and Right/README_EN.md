@@ -71,11 +71,11 @@ It can be proven that 8 is the minimum number of minutes needed.
 
 <!-- thinking:end -->
 
-First, we use a hash table or an array of length $3$, denoted as $cnt$, to count the number of each character in string $s$. If any character appears less than $k$ times, it cannot be obtained, so we return $-1$ in advance.
+First, we use a hash table or an array of length $3$, denoted as $\textit{cnt}$, to count the number of each character in string $s$. If any character appears less than $k$ times, it cannot be obtained, so we return $-1$ in advance.
 
 The problem asks us to remove characters from the left and right sides of the string, so that the number of each remaining character is not less than $k$. We can consider the problem in reverse: remove a substring of certain size in the middle, so that in the remaining string on both sides, the number of each character is not less than $k$.
 
-Therefore, we maintain a sliding window, with pointers $j$ and $i$ representing the left and right boundaries of the window, respectively. The string within the window is what we want to remove. Each time we move the right boundary $i$, we add the corresponding character $s[i]$ to the window (i.e., remove one character $s[i]$). If the count of $cnt[s[i]]$ is less than $k$, then we move the left boundary $j$ in a loop until the count of $cnt[s[i]]$ is not less than $k$. The size of the window at this time is $i - j + 1$, and we update the maximum window size.
+Therefore, we maintain a sliding window, with pointers $j$ and $i$ representing the left and right boundaries of the window, respectively. The string within the window is what we want to remove. Each time we move the right boundary $i$, we add the corresponding character $s[i]$ to the window (i.e., remove one character $s[i]$). If the count of $\textit{cnt}[s[i]]$ is less than $k$, then we move the left boundary $j$ in a loop until the count of $\textit{cnt}[s[i]]$ is not less than $k$. The size of the window at this time is $i - j + 1$, and we update the maximum window size.
 
 The final answer is the length of string $s$ minus the size of the maximum window.
 

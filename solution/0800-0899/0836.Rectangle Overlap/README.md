@@ -94,16 +94,16 @@ tags:
 
 <!-- thinking:end -->
 
-我们记矩形 $\text{rec1}$ 的坐标点为 $(x_1, y_1, x_2, y_2)$，矩形 $\text{rec2}$ 的坐标点为 $(x_3, y_3, x_4, y_4)$。
+我们记矩形 $\textit{rec1}$ 的坐标点为 $(x_1, y_1, x_2, y_2)$，矩形 $\textit{rec2}$ 的坐标点为 $(x_3, y_3, x_4, y_4)$。
 
-那么当满足以下任一条件时，矩形 $\text{rec1}$ 和 $\text{rec2}$ 不重叠：
+那么当满足以下任一条件时，矩形 $\textit{rec1}$ 和 $\textit{rec2}$ 不重叠：
 
-- 满足 $y_3 \geq y_2$，即 $\text{rec2}$ 在 $\text{rec1}$ 的上方；
-- 满足 $y_4 \leq y_1$，即 $\text{rec2}$ 在 $\text{rec1}$ 的下方；
-- 满足 $x_3 \geq x_2$，即 $\text{rec2}$ 在 $\text{rec1}$ 的右方；
-- 满足 $x_4 \leq x_1$，即 $\text{rec2}$ 在 $\text{rec1}$ 的左方。
+- 满足 $y_3 \geq y_2$，即 $\textit{rec2}$ 在 $\textit{rec1}$ 的上方；
+- 满足 $y_4 \leq y_1$，即 $\textit{rec2}$ 在 $\textit{rec1}$ 的下方；
+- 满足 $x_3 \geq x_2$，即 $\textit{rec2}$ 在 $\textit{rec1}$ 的右方；
+- 满足 $x_4 \leq x_1$，即 $\textit{rec2}$ 在 $\textit{rec1}$ 的左方。
 
-当以上条件都不满足时，矩形 $\text{rec1}$ 和 $\text{rec2}$ 重叠。
+当以上条件都不满足时，矩形 $\textit{rec1}$ 和 $\textit{rec2}$ 重叠。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

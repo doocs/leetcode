@@ -80,7 +80,7 @@ tags:
 >
 > The maximum product of three numbers is either the three largest values or the two smallest (possibly negative) times the largest. Sorting is cheap for $n\le 10^4$.
 >
-> After sorting, compare $nums[-1]\times nums[-2]\times nums[-3]$ with $nums[-1]\times nums[0]\times nums[1]$.
+> After sorting, compare $\textit{nums}[-1]\times \textit{nums}[-2]\times \textit{nums}[-3]$ with $\textit{nums}[-1]\times \textit{nums}[0]\times \textit{nums}[1]$.
 
 <!-- thinking:end -->
 

@@ -117,7 +117,7 @@ tags:
 
 We can directly simulate the process of computing the degree of each vertex.
 
-For each vertex $i$, we traverse its corresponding row $\text{matrix}[i]$ and count the number of elements equal to 1, which is exactly the degree of vertex $i$.
+For each vertex $i$, we traverse its corresponding row $\textit{matrix}[i]$ and count the number of elements equal to 1, which is exactly the degree of vertex $i$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the number of vertices in the graph.
 

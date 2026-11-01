@@ -71,13 +71,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们先创建一个长度为 $n$ 的答案数组 $ans$。
+我们先创建一个长度为 $n$ 的答案数组 $\textit{ans}$。
 
-接下来，我们从左到右遍历字符串 $s$，记录最近出现的字符 $c$ 的位置 $pre$，那么对于位置 $i$，答案就是 $i - pre$，即 $ans[i] = i - pre$。
+接下来，我们从左到右遍历字符串 $s$，记录最近出现的字符 $c$ 的位置 $\textit{pre}$，那么对于位置 $i$，答案就是 $i - \textit{pre}$，即 $\textit{ans}[i] = i - \textit{pre}$。
 
-然后，我们从右到左遍历字符串 $s$，记录最近出现的字符 $c$ 的位置 $suf$，那么对于位置 $i$，答案就是 $suf - i$，即 $ans[i] = \min(ans[i], suf - i)$。
+然后，我们从右到左遍历字符串 $s$，记录最近出现的字符 $c$ 的位置 $\textit{suf}$，那么对于位置 $i$，答案就是 $\textit{suf} - i$，即 $\textit{ans}[i] = \min(\textit{ans}[i], \textit{suf} - i)$。
 
-最后返回答案数组 $ans$ 即可。
+最后返回答案数组 $\textit{ans}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $s$ 的长度。
 

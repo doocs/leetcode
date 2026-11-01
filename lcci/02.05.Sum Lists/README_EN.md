@@ -53,15 +53,15 @@ difficulty: Medium
 >
 > The digits are stored least-significant first, so addition is the usual pencil-and-paper rule. Converting to integers overflows when the lists are long.
 >
-> Walk both lists together and keep a carry. The loop must continue while $l_1$, $l_2$, or $carry$ remains.
+> Walk both lists together and keep a carry. The loop must continue while $l_1$, $l_2$, or $\textit{carry}$ remains.
 >
 > Each step uses `divmod` for the digit and the next carry, appending after a dummy head. No full integer is materialized.
 
 <!-- thinking:end -->
 
-We traverse two linked lists $l_1$ and $l_2$ simultaneously, and use a variable $carry$ to indicate whether there is a carry-over currently.
+We traverse two linked lists $l_1$ and $l_2$ simultaneously, and use a variable $\textit{carry}$ to indicate whether there is a carry-over currently.
 
-During each traversal, we take out the current digit of the corresponding linked list, calculate the sum of them and the carry-over $carry$, then update the value of the carry-over, and finally add the value of the current digit to the answer linked list. The traversal ends when both linked lists have been traversed and the carry-over is $0$.
+During each traversal, we take out the current digit of the corresponding linked list, calculate the sum of them and the carry-over $\textit{carry}$, then update the value of the carry-over, and finally add the value of the current digit to the answer linked list. The traversal ends when both linked lists have been traversed and the carry-over is $0$.
 
 Finally, we return the head node of the answer linked list.
 

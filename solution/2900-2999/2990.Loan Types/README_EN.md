@@ -79,7 +79,7 @@ Output table is ordered by user_id in ascending order.
 
 > **Thinking**
 >
-> A user must hold both Refinance and Mortgage. Group by $user_id$ and test $SUM(loan_type='Refinance')$ together with the Mortgage analogue.
+> A user must hold both Refinance and Mortgage. Group by $\textit{user}_id$ and test $\textit{SUM}(\textit{loan}_\textit{type}='\textit{Refinance}')$ together with the Mortgage analogue.
 >
 > That is shorter than two existence subqueries or a self-join. Sort by user id.
 

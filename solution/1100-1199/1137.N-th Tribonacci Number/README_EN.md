@@ -212,17 +212,17 @@ class Solution {
 
 <!-- thinking:end -->
 
-We define $Tib(n)$ as a $1 \times 3$ matrix $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$, where $T_n$, $T_{n - 1}$ and $T_{n - 2}$ represent the $n$th, $(n - 1)$th and $(n - 2)$th Tribonacci numbers, respectively.
+We define $\textit{Tib}(n)$ as a $1 \times 3$ matrix $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$, where $T_n$, $T_{n - 1}$ and $T_{n - 2}$ represent the $n$th, $(n - 1)$th and $(n - 2)$th Tribonacci numbers, respectively.
 
-We hope to derive $Tib(n)$ from $Tib(n-1) = \begin{bmatrix} T_{n - 1} & T_{n - 2} & T_{n - 3} \end{bmatrix}$. That is, we need a matrix $base$ such that $Tib(n - 1) \times base = Tib(n)$, i.e.,
+We hope to derive $\textit{Tib}(n)$ from $\textit{Tib}(n-1) = \begin{bmatrix} T_{n - 1} & T_{n - 2} & T_{n - 3} \end{bmatrix}$. That is, we need a matrix $\textit{base}$ such that $\textit{Tib}(n - 1) \times \textit{base} = \textit{Tib}(n)$, i.e.,
 
 $$
 \begin{bmatrix}
 T_{n - 1} & T_{n - 2} & T_{n - 3}
-\end{bmatrix} \times base = \begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}
+\end{bmatrix} \times \textit{base} = \begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}
 $$
 
-Since $T_n = T_{n - 1} + T_{n - 2} + T_{n - 3}$, the matrix $base$ is:
+Since $T_n = T_{n - 1} + T_{n - 2} + T_{n - 3}$, the matrix $\textit{base}$ is:
 
 $$
 \begin{bmatrix}
@@ -232,7 +232,7 @@ $$
 \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$, then $T_n$ is equal to the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 3}$. This can be solved using matrix exponentiation.
+We define the initial matrix $\textit{res} = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$, then $T_n$ is equal to the sum of all elements in the result matrix of $\textit{res}$ multiplied by $\textit{base}^{n - 3}$. This can be solved using matrix exponentiation.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

@@ -100,13 +100,13 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a 2D array $\textit{cnt}$ to record the number of balls of each color obtained by each player, and a hash table $\textit{s}$ to record the IDs of the winning players.
+We can use a 2D array $\textit{cnt}$ to record the number of balls of each color obtained by each player, and a hash table $s$ to record the IDs of the winning players.
 
-Traverse the $\textit{pick}$ array, for each element $[x, y]$, we increment $\textit{cnt}[x][y]$ by one. If $\textit{cnt}[x][y]$ is greater than $x$, we add $x$ to the hash table $\textit{s}$.
+Traverse the $\textit{pick}$ array, for each element $[x, y]$, we increment $\textit{cnt}[x][y]$ by one. If $\textit{cnt}[x][y]$ is greater than $x$, we add $x$ to the hash table $s$.
 
-Finally, return the size of the hash table $\textit{s}$.
+Finally, return the size of the hash table $s$.
 
-The time complexity is $O(m + nM)$, and the space complexity is $O(nM)$, where $m$ is the length of the $\textit{pick}$ array, and $n$ and $M$ are the number of players and the number of colors, respectively.
+The time complexity is $O(m + n \times M)$, and the space complexity is $O(n \times M)$, where $m$ is the length of the $\textit{pick}$ array, and $n$ and $M$ are the number of players and the number of colors, respectively.
 
 <!-- tabs:start -->
 

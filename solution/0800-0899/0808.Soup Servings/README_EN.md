@@ -83,15 +83,15 @@ So the total probability of A becoming empty first plus half the probability tha
 
 > **Thinking**
 >
-> Four operations deplete the soups with equal probability; we want the probability that A empties first (ties count as $1/2$). $n$ can be $10^9$, so a millilitre-level simulation is impossible. Each pour removes at least $25\,\mathrm{ml}$, so states shrink to $\lceil n/25\rceil$.
+> Four operations deplete the soups with equal probability; we want the probability that A empties first (ties count as $1/2$). $n$ can be $10^9$, so a millilitre-level simulation is impossible. Each pour removes at least $25\,ml$, so states shrink to $\lceil n/25\rceil$.
 >
-> $dfs(i,j)$ is the probability with $i$ and $j$ remaining units, with base cases $1$, $0$, or $1/2$. For large $n$, A almost surely finishes first, so the code returns $1$ when $n>4800$.
+> $\textit{dfs}(i,j)$ is the probability with $i$ and $j$ remaining units, with base cases $1$, $0$, or $1/2$. For large $n$, A almost surely finishes first, so the code returns $1$ when $n>4800$.
 
 <!-- thinking:end -->
 
 In this problem, since each operation is a multiple of $25$, we can consider every $25ml$ of soup as one unit. This reduces the data scale to $\left \lceil \frac{n}{25} \right \rceil$.
 
-We design a function $dfs(i, j)$, which represents the probability result when there are $i$ units of soup $A$ and $j$ units of soup $B$ remaining.
+We design a function $\textit{dfs}(i, j)$, which represents the probability result when there are $i$ units of soup $A$ and $j$ units of soup $B$ remaining.
 
 When $i \leq 0$ and $j \leq 0$, it means both soups are finished, and we should return $0.5$. When $i \leq 0$, it means soup $A$ is finished first, and we should return $1$. When $j \leq 0$, it means soup $B$ is finished first, and we should return $0$.
 
@@ -105,7 +105,7 @@ Next, for each operation, we have four choices:
 Each choice has a probability of $0.25$, so we can derive:
 
 $$
-dfs(i, j) = 0.25 \times (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3))
+\textit{dfs}(i, j) = 0.25 \times (\textit{dfs}(i - 4, j) + \textit{dfs}(i - 3, j - 1) + \textit{dfs}(i - 2, j - 2) + \textit{dfs}(i - 1, j - 3))
 $$
 
 We use memoization to store the results of the function.

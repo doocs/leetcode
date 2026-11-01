@@ -91,11 +91,11 @@ tags:
 
 根据题目描述，我们可以从字符串的高位开始，贪心的进行连续的替换操作，直到遇到一个比当前位数字小的数字为止。
 
-我们先将字符串 $\textit{num}$ 转换为字符数组 $\textit{s}$，用一个变量 $\textit{changed}$ 记录是否已经发生过变化，初始时 $\textit{changed} = \text{false}$。
+我们先将字符串 $\textit{num}$ 转换为字符数组 $s$，用一个变量 $\textit{changed}$ 记录是否已经发生过变化，初始时 $\textit{changed} = \textit{false}$。
 
-然后我们遍历字符数组 $\textit{s}$，对于每个字符 $\textit{c}$，我们将其转换为数字 $\textit{d} = \text{change}[\text{int}(\textit{c})]$，如果已经发生过变化且 $\textit{d} < \textit{c}$，则说明我们不能再继续变化，直接退出循环；否则，如果 $\textit{d} > \textit{c}$，则说明我们可以将 $\textit{c}$ 替换为 $\textit{d}$，此时我们将 $\textit{changed} = \text{true}$，并将 $\textit{s}[i]$ 替换为 $\textit{d}$。
+然后我们遍历字符数组 $s$，对于每个字符 $c$，我们将其转换为数字 $d = \textit{change}[\textit{int}(c)]$，如果已经发生过变化且 $d < c$，则说明我们不能再继续变化，直接退出循环；否则，如果 $d > c$，则说明我们可以将 $c$ 替换为 $d$，此时我们将 $\textit{changed} = \textit{true}$，并将 $s[i]$ 替换为 $d$。
 
-最后我们将字符数组 $\textit{s}$ 转换为字符串并返回即可。
+最后我们将字符数组 $s$ 转换为字符串并返回即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{num}$ 的长度。
 

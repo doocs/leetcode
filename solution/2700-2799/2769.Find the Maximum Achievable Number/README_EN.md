@@ -77,13 +77,13 @@ tags:
 
 > **Thinking**
 >
-> Each operation moves $x$ and $num$ one step in opposite directions, at most $t$ times; we want the largest $x$ that can meet $num$. Stepping them toward each other is unnecessary.
+> Each operation moves $x$ and $\textit{num}$ one step in opposite directions, at most $t$ times; we want the largest $x$ that can meet $\textit{num}$. Stepping them toward each other is unnecessary.
 >
-> One operation shrinks $x-num$ by $2$, so the largest feasible $x$ is $num+2t$.
+> One operation shrinks $x-\textit{num}$ by $2$, so the largest feasible $x$ is $\textit{num}+2t$.
 
 <!-- thinking:end -->
 
-Notice that every time we can decrease $x$ by $1$ and increase $num$ by $1$, the difference between $x$ and $num$ will decrease by $2$, and we can do this operation at most $t$ times, so the maximum reachable number is $num + t \times 2$.
+Notice that every time we can decrease $x$ by $1$ and increase $\textit{num}$ by $1$, the difference between $x$ and $\textit{num}$ will decrease by $2$, and we can do this operation at most $t$ times, so the maximum reachable number is $\textit{num} + t \times 2$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

@@ -203,13 +203,13 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash map $\textit{cnt}$ to record the frequency of each number in the current window. We use a priority queue $\textit{pq}$ to store the frequency and value of each number in the current window, with priority given to higher frequency, and for equal frequency, to smaller numbers.
+We use a hash map $\textit{cnt}$ to record the frequency of each number in the current window. We use a priority queue $pq$ to store the frequency and value of each number in the current window, with priority given to higher frequency, and for equal frequency, to smaller numbers.
 
-We design a function $\textit{get_mode()}$ to obtain the mode and its frequency in the current window. Specifically, we repeatedly pop the top element from the priority queue until its frequency matches the frequency recorded in the hash map; at that point, the top element is the mode and its frequency for the current window.
+We design a function $\textit{get}_\textit{mode}()$ to obtain the mode and its frequency in the current window. Specifically, we repeatedly pop the top element from the priority queue until its frequency matches the frequency recorded in the hash map; at that point, the top element is the mode and its frequency for the current window.
 
-We use a variable $\textit{ans}$ to record the sum of weights for all windows. Initially, we add the first $k$ numbers of the array to the hash map and priority queue, then call $\textit{get_mode()}$ to get the mode and its frequency for the first window, and add its weight to $\textit{ans}$.
+We use a variable $\textit{ans}$ to record the sum of weights for all windows. Initially, we add the first $k$ numbers of the array to the hash map and priority queue, then call $\textit{get}_\textit{mode}()$ to get the mode and its frequency for the first window, and add its weight to $\textit{ans}$.
 
-Next, starting from the $k$-th number, we add each number to the hash map and priority queue, and decrement the frequency of the leftmost number in the window in the hash map. Then, we call $\textit{get_mode()}$ to get the mode and its frequency for the current window, and add its weight to $\textit{ans}$.
+Next, starting from the $k$-th number, we add each number to the hash map and priority queue, and decrement the frequency of the leftmost number in the window in the hash map. Then, we call $\textit{get}_\textit{mode}()$ to get the mode and its frequency for the current window, and add its weight to $\textit{ans}$.
 
 Finally, we return $\textit{ans}$.
 

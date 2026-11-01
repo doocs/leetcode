@@ -115,7 +115,7 @@ tags:
 >
 > Pick $k$ index-increasing pairs from two arrays and maximize the sum of products. $n,m \le 100$ and $k \le \min(n,m)$ fit a 3-D DP.
 >
-> A pair consumes one element from each side and cannot go backwards. The choices are skip $nums1$, skip $nums2$, or pair both.
+> A pair consumes one element from each side and cannot go backwards. The choices are skip $\textit{nums1}$, skip $\textit{nums2}$, or pair both.
 >
 > Let $f[i][j][k]$ be the best score using the two prefixes and exactly $k$ pairs, with those three transitions.
 >
@@ -133,7 +133,7 @@ $$
 f[i][j][k] = \max\begin{cases}
 f[i-1][j][k], \\
 f[i][j-1][k], \\
-f[i-1][j-1][k-1] + nums1[i-1] * nums2[j-1]
+f[i-1][j-1][k-1] + \textit{nums1}[i-1] * \textit{nums2}[j-1]
 \end{cases}
 $$
 
@@ -141,7 +141,7 @@ The first case represents not selecting the $i$-th element of $\textit{nums1}$, 
 
 Finally, we need to return $f[n][m][K]$.
 
-The time complexity is $O(mnK)$, and the space complexity is $O(mnK)$, where $n$ and $m$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ respectively, and $K$ is $k$ in the problem.
+The time complexity is $O(mn \times K)$, and the space complexity is $O(mn \times K)$, where $n$ and $m$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ respectively, and $K$ is $k$ in the problem.
 
 <!-- tabs:start -->
 

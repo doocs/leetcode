@@ -78,9 +78,9 @@ The above figure represents the given linked list. The modified list contains
 
 <!-- thinking:end -->
 
-We define a dummy head node $\textit{dummy}$, a pointer $\textit{tail}$ pointing to the current node, and a variable $\textit{s}$ to record the sum of the values of the current nodes.
+We define a dummy head node $\textit{dummy}$, a pointer $\textit{tail}$ pointing to the current node, and a variable $s$ to record the sum of the values of the current nodes.
 
-Next, we traverse the linked list starting from the second node. If the value of the current node is not 0, we add it to $\textit{s}$. Otherwise, we add $\textit{s}$ to the node after $\textit{tail}$, set $\textit{s}$ to 0, and update $\textit{tail}$ to the next node.
+Next, we traverse the linked list starting from the second node. If the value of the current node is not 0, we add it to $s$. Otherwise, we add $s$ to the node after $\textit{tail}$, set $s$ to 0, and update $\textit{tail}$ to the next node.
 
 Finally, we return the node next to $\textit{dummy}$.
 

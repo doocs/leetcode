@@ -95,17 +95,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计函数 $dfs(i, j, k)$ 表示从第 $i$ 个水果开始，剩余 $j$ 元钱，剩余 $k$ 张优惠券时，最大的总美味度。
+我们设计函数 $\textit{dfs}(i, j, k)$ 表示从第 $i$ 个水果开始，剩余 $j$ 元钱，剩余 $k$ 张优惠券时，最大的总美味度。
 
 对于第 $i$ 个水果，可以选择购买或者不购买，如果购买，那么可以选择使用优惠券或者不使用优惠券。
 
-如果不购买，那么最大总美味度是 $dfs(i + 1, j, k)$；
+如果不购买，那么最大总美味度是 $\textit{dfs}(i + 1, j, k)$；
 
-如果购买，如果不使用优惠券（需要满足 $j\ge price[i]$），那么最大总美味度是 $dfs(i + 1, j - price[i], k) + tastiness[i]$；如果使用优惠券（需要满足 $k\gt 0$ 并且 $j\ge \lfloor \frac{price[i]}{2} \rfloor$），那么最大总美味度是 $dfs(i + 1, j - \lfloor \frac{price[i]}{2} \rfloor, k - 1) + tastiness[i]$。
+如果购买，如果不使用优惠券（需要满足 $j\ge \textit{price}[i]$），那么最大总美味度是 $\textit{dfs}(i + 1, j - \textit{price}[i], k) + \textit{tastiness}[i]$；如果使用优惠券（需要满足 $k\gt 0$ 并且 $j\ge \lfloor \frac{\textit{price}[i]}{2} \rfloor$），那么最大总美味度是 $\textit{dfs}(i + 1, j - \lfloor \frac{\textit{price}[i]}{2} \rfloor, k - 1) + \textit{tastiness}[i]$。
 
-最终的答案是 $dfs(0, maxAmount, maxCoupons)$。
+最终的答案是 $\textit{dfs}(0, \textit{maxAmount}, \textit{maxCoupons})$。
 
-时间复杂度 $O(n maxAmount maxCoupons)$。其中 $n$ 是水果的数量。
+时间复杂度 $O(n \textit{maxAmount} \textit{maxCoupons})$。其中 $n$ 是水果的数量。
 
 <!-- tabs:start -->
 

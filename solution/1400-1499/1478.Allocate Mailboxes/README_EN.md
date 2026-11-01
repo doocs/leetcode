@@ -66,7 +66,7 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 > **Thinking**
 >
-> $n\le 100$ houses and $k$ mailboxes. One mailbox on a contiguous segment sits at the median; after sorting, the cost satisfies $g[i][j]=g[i+1][j-1]+houses[j]-houses[i]$.
+> $n\le 100$ houses and $k$ mailboxes. One mailbox on a contiguous segment sits at the median; after sorting, the cost satisfies $g[i][j]=g[i+1][j-1]+\textit{houses}[j]-\textit{houses}[i]$.
 >
 > $f[i][j]$ is the min cost for the first $i+1$ houses with $j$ mailboxes, enumerating the previous cut $p$ and adding $g[p+1][i]$.
 

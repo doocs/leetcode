@@ -62,7 +62,7 @@ tags:
 
 > **Thinking**
 >
-> A subarray product is even iff it contains an even. For right end $i$, the left end may be any index up to the latest even, i.e. $last+1$ choices ($0$ if none). One pass keeps $last$.
+> A subarray product is even iff it contains an even. For right end $i$, the left end may be any index up to the latest even, i.e. $\textit{last}+1$ choices ($0$ if none). One pass keeps $\textit{last}$.
 
 <!-- thinking:end -->
 

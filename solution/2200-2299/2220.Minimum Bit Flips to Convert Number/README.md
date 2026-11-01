@@ -74,9 +74,9 @@ tags:
 
 > **思考**
 >
-> 一次翻转改变 $start$ 的某一比特，要使它变成 $goal$。两个整数至多约 $30$ 位，枚举翻转集合可以，但每位独立：只有 $start$ 与 $goal$ 不同的位才需要翻。
+> 一次翻转改变 $\textit{start}$ 的某一比特，要使它变成 $\textit{goal}$。两个整数至多约 $30$ 位，枚举翻转集合可以，但每位独立：只有 $\textit{start}$ 与 $\textit{goal}$ 不同的位才需要翻。
 >
-> 异或 $start \oplus goal$ 恰在这些位上为 $1$，统计二进制中 $1$ 的个数即为最少翻转次数。
+> 异或 $\textit{start} \oplus \textit{goal}$ 恰在这些位上为 $1$，统计二进制中 $1$ 的个数即为最少翻转次数。
 
 <!-- thinking:end -->
 

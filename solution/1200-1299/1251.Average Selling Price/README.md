@@ -101,9 +101,9 @@ UnitsSold table:
 
 > **思考**
 >
-> 均价是 $\sum price\times units / \sum units$，价格有时间区间。左连接 $Prices$ 与 $UnitsSold$，使购买日落在 $[start,end]$ 且产品相同；无销量的产品仍保留。
+> 均价是 $\sum \textit{price}\times \textit{units} / \sum \textit{units}$，价格有时间区间。左连接 $\textit{Prices}$ 与 $\textit{UnitsSold}$，使购买日落在 $[\textit{start},\textit{end}]$ 且产品相同；无销量的产品仍保留。
 >
-> 按产品聚合后用 $IFNULL$ 把空的加权平均写成 $0$。连接落实日期落在价期之内，分组完成加权平均。
+> 按产品聚合后用 $\textit{IFNULL}$ 把空的加权平均写成 $0$。连接落实日期落在价期之内，分组完成加权平均。
 
 <!-- thinking:end -->
 

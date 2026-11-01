@@ -105,16 +105,16 @@ tags:
 
 > **Thinking**
 >
-> The expression is a nested $\mathrm{op}(a,b)$ whose shape is given by parentheses, so recursive descent fits. At the current index we either parse a literal, or read an operator, recurse on the two operands, and apply $\mathrm{add}/\mathrm{sub}/\mathrm{mul}/\mathrm{div}$.
+> The expression is a nested $op(a,b)$ whose shape is given by parentheses, so recursive descent fits. At the current index we either parse a literal, or read an operator, recurse on the two operands, and apply $\textit{add}/\textit{sub}/\textit{mul}/\textit{div}$.
 
 <!-- thinking:end -->
 
-We define a recursive function $\text{parse}(i)$ to parse the subexpression starting from index $i$ and return the computed result along with the next unprocessed index position. The answer is $\text{parse}(0)[0]$.
+We define a recursive function $\textit{parse}(i)$ to parse the subexpression starting from index $i$ and return the computed result along with the next unprocessed index position. The answer is $\textit{parse}(0)[0]$.
 
-The implementation of the function $\text{parse}(i)$ is as follows:
+The implementation of the function $\textit{parse}(i)$ is as follows:
 
 1. If the current position $i$ is a digit or a negative sign `-`, continue scanning forward until a non-digit character is encountered, parse an integer, and return that integer along with the next unprocessed index position.
-2. Otherwise, the current position $i$ is the starting position of an operator `op`. We continue scanning forward until we encounter a left parenthesis `(`, parsing the operator string `op`. Then we skip the left parenthesis, recursively call $\text{parse}$ to parse the first parameter $a$, skip the comma, recursively call $\text{parse}$ to parse the second parameter $b$, and finally skip the right parenthesis `)`.
+2. Otherwise, the current position $i$ is the starting position of an operator `op`. We continue scanning forward until we encounter a left parenthesis `(`, parsing the operator string `op`. Then we skip the left parenthesis, recursively call $\textit{parse}$ to parse the first parameter $a$, skip the comma, recursively call $\textit{parse}$ to parse the second parameter $b$, and finally skip the right parenthesis `)`.
 3. Based on the operator `op`, calculate the result of $a$ and $b$, and return that result along with the next unprocessed index position.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the expression string.

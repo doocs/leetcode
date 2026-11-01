@@ -86,7 +86,7 @@ tags:
 
 首先，我们定义两个指针 $l$ 和 $r$，分别指向数组的起始位置和结束位置。然后，我们进入一个循环，直到 $l$ 小于 $r$。
 
-在每次循环中，我们计算中间位置 $mid$，并比较 $nums[mid]$ 和 $nums[n-1]$ 的值。如果 $nums[mid]$ 大于 $nums[n-1]$，说明最小值在 $mid$ 的右侧，因此我们将 $l$ 更新为 $mid + 1$。否则，最小值在 $mid$ 的左侧或 $mid$ 本身，因此我们将 $r$ 更新为 $mid$。当循环结束时，指针 $l$ 将指向最小值的位置，我们返回 $nums[l]$ 即可。
+在每次循环中，我们计算中间位置 $\textit{mid}$，并比较 $\textit{nums}[\textit{mid}]$ 和 $\textit{nums}[n-1]$ 的值。如果 $\textit{nums}[\textit{mid}]$ 大于 $\textit{nums}[n-1]$，说明最小值在 $\textit{mid}$ 的右侧，因此我们将 $l$ 更新为 $\textit{mid} + 1$。否则，最小值在 $\textit{mid}$ 的左侧或 $\textit{mid}$ 本身，因此我们将 $r$ 更新为 $\textit{mid}$。当循环结束时，指针 $l$ 将指向最小值的位置，我们返回 $\textit{nums}[l]$ 即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 

@@ -58,7 +58,7 @@ tags:
 >
 > Swap $v$ into index $v-1$ (cycle sort). Afterwards a value that is not $i+1$ at index $i$ is a leftover duplicate.
 >
-> The swap loop stops when $nums[i]=nums[nums[i]-1]$, so a duplicate collides with the value already in place and never cycles forever.
+> The swap loop stops when $\textit{nums}[i]=\textit{nums}[\textit{nums}[i]-1]$, so a duplicate collides with the value already in place and never cycles forever.
 
 <!-- thinking:end -->
 

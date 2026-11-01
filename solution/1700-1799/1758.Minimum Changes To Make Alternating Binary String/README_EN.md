@@ -68,9 +68,9 @@ tags:
 
 > **Thinking**
 >
-> Only two alternating targets exist: $0101\ldots$ and $1010\ldots$. If one needs $cnt$ flips, the other needs $n-cnt$.
+> Only two alternating targets exist: $0101\ldots$ and $1010\ldots$. If one needs $\textit{cnt}$ flips, the other needs $n-\textit{cnt}$.
 >
-> Count mismatches against $0101\ldots$ in one pass and return $\min(cnt,n-cnt)$.
+> Count mismatches against $0101\ldots$ in one pass and return $\min(\textit{cnt},n-\textit{cnt})$.
 
 <!-- thinking:end -->
 

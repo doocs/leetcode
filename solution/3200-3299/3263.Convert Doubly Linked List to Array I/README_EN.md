@@ -68,7 +68,7 @@ tags:
 >
 > Given the head of a doubly linked list, emit values left to right. The list is finite, so walking `next` is enough; `prev` is unused.
 >
-> Append $\textit{root.val}$ and advance until null. Linear time, constant extra space besides the answer.
+> Append $\textit{root}.\textit{val}$ and advance until null. Linear time, constant extra space besides the answer.
 
 <!-- thinking:end -->
 

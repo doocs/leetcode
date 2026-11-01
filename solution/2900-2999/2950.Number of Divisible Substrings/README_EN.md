@@ -169,7 +169,7 @@ Then, we enumerate the starting position $i$ of the substring, and then enumerat
 
 After the enumeration is over, return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(C)$, where $n$ is the length of the string $word$, and $C$ is the size of the character set, in this question $C=26$.
+The time complexity is $O(n^2)$, and the space complexity is $O(C)$, where $n$ is the length of the string $\textit{word}$, and $C$ is the size of the character set, in this question $C=26$.
 
 <!-- tabs:start -->
 
@@ -352,7 +352,7 @@ If the sum of the numbers in an integer subarray can be divided by its length, t
 
 We can enumerate the average value $i$ of the subarray. If the sum of the elements in a subarray can be divided by $i$, suppose the subarray is $a_1, a_2, \cdots, a_k$, then $a_1 + a_2 + \cdots + a_k = i \times k$, that is, $(a_1 - i) + (a_2 - i) + \cdots + (a_k - i) = 0$. If we regard $a_k - i$ as a new element $b_k$, then the original subarray becomes $b_1, b_2, \cdots, b_k$, where $b_1 + b_2 + \cdots + b_k = 0$. We only need to find out how many subarrays in the new array have an element sum of $0$, which can be implemented with "hash table" combined with "prefix sum".
 
-The time complexity is $O(10n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $word$.
+The time complexity is $O(10n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

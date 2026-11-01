@@ -70,7 +70,7 @@ tags:
 >
 > 三元组顺序无关，可先排序。固定最小下标 $i$ 后，在右侧用双指针统计和小于 $\textit{target}$ 的对数。
 >
-> 若 $nums[i]+nums[j]+nums[k]<\textit{target}$，则 $j$ 与 $(j,k]$ 中每个 $k'$ 都合法，一次加上 $k-j$ 并右移 $j$；否则左移 $k$。
+> 若 $\textit{nums}[i]+\textit{nums}[j]+\textit{nums}[k]<\textit{target}$，则 $j$ 与 $(j,k]$ 中每个 $k'$ 都合法，一次加上 $k-j$ 并右移 $j$；否则左移 $k$。
 
 <!-- thinking:end -->
 

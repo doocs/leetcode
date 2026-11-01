@@ -119,7 +119,7 @@ font-size: 0.85rem;
 >
 > The operation count is the number of blocks minus the frequency of the most common block. Counting is enough; the string need not be rewritten.
 >
-> Slice $word$ with step $k$, take the maximum count, and return $n/k$ minus that maximum.
+> Slice $\textit{word}$ with step $k$, take the maximum count, and return $n/k$ minus that maximum.
 
 <!-- thinking:end -->
 

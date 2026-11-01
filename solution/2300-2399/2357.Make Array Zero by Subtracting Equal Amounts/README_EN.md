@@ -73,7 +73,7 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 >
 > Each move picks a positive $x$ and subtracts it from every entry $\ge x$, which removes one distinct positive value. $n \le 100$, so counting those values is enough.
 >
-> Zeros never change and never create new positives. The answer is the size of $\{x \in nums: x>0\}$.
+> Zeros never change and never create new positives. The answer is the size of $\{x \in \textit{nums}: x>0\}$.
 
 <!-- thinking:end -->
 

@@ -55,9 +55,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can traverse the string $\textit{s}$, iterating over every $\textit{2k}$ characters, and then use the two-pointer technique to reverse the first $\textit{k}$ characters among these $\textit{2k}$ characters.
+We can traverse the string $s$, iterating over every $\textit{2k}$ characters, and then use the two-pointer technique to reverse the first $k$ characters among these $\textit{2k}$ characters.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

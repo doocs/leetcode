@@ -85,7 +85,7 @@ Listings table:
 
 > **思考**
 >
-> 城市均价高于全国均价。按 $city$ 分组后 $HAVING AVG(price)$ 与标量子查询 $AVG(price)$ 比较，后者对全表只算一次。
+> 城市均价高于全国均价。按 $\textit{city}$ 分组后 $\textit{HAVING AVG}(\textit{price})$ 与标量子查询 $\textit{AVG}(\textit{price})$ 比较，后者对全表只算一次。
 >
 > 结果按城市名排序。
 

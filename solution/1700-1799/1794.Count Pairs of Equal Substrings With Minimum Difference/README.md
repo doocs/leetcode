@@ -67,17 +67,17 @@ tags:
 
 > **思考**
 >
-> 四元组要求两段子串相等且 $j-a$ 最小。子串相等可收缩到单字符：取 $firstString$ 尽量靠左的字符与 $secondString$ 尽量靠右的相同字符。
+> 四元组要求两段子串相等且 $j-a$ 最小。子串相等可收缩到单字符：取 $\textit{firstString}$ 尽量靠左的字符与 $\textit{secondString}$ 尽量靠右的相同字符。
 >
-> 哈希表记下 $secondString$ 每个字符最后出现的位置。扫 $firstString$ 的每个 $i$，用 $i-\textit{last}[c]$ 更新全局最小差及其出现次数。
+> 哈希表记下 $\textit{secondString}$ 每个字符最后出现的位置。扫 $\textit{firstString}$ 的每个 $i$，用 $i-\textit{last}[c]$ 更新全局最小差及其出现次数。
 
 <!-- thinking:end -->
 
-题目实际上要我们找到一个最小的下标 $i$ 和一个最大的下标 $j$，使得 $firstString[i]$ 与 $secondString[j]$ 相等，且 $i - j$ 的值是所有满足条件的下标对中最小的。
+题目实际上要我们找到一个最小的下标 $i$ 和一个最大的下标 $j$，使得 $\textit{firstString}[i]$ 与 $\textit{secondString}[j]$ 相等，且 $i - j$ 的值是所有满足条件的下标对中最小的。
 
-因此，我们先用哈希表 $last$ 记录 $secondString$ 中每个字符最后一次出现的下标，然后遍历 $firstString$，对于每个字符 $c$，如果 $c$ 在 $secondString$ 中出现过，则计算 $i - last[c]$，如果 $i - last[c]$ 的值小于当前最小值，则更新最小值，同时更新答案为 1；如果 $i - last[c]$ 的值等于当前最小值，则答案加 1。
+因此，我们先用哈希表 $\textit{last}$ 记录 $\textit{secondString}$ 中每个字符最后一次出现的下标，然后遍历 $\textit{firstString}$，对于每个字符 $c$，如果 $c$ 在 $\textit{secondString}$ 中出现过，则计算 $i - \textit{last}[c]$，如果 $i - \textit{last}[c]$ 的值小于当前最小值，则更新最小值，同时更新答案为 1；如果 $i - \textit{last}[c]$ 的值等于当前最小值，则答案加 1。
 
-时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是 $firstString$ 和 $secondString$ 的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
+时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是 $\textit{firstString}$ 和 $\textit{secondString}$ 的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
 

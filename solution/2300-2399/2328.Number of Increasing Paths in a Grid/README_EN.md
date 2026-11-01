@@ -79,20 +79,20 @@ The total number of paths is 2 + 1 = 3.
 >
 > Strictly increasing paths may start anywhere and have any length. Up to $10^5$ cells makes enumeration impossible. Paths from a cell depend only on strictly larger neighbors.
 >
-> Memoize $dfs(i,j)$ as one (the cell itself) plus the four larger neighbors. Each cell is solved once; the sum over the grid is the answer.
+> Memoize $\textit{dfs}(i,j)$ as one (the cell itself) plus the four larger neighbors. Each cell is solved once; the sum over the grid is the answer.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$, which represents the number of strictly increasing paths that can be reached from the grid graph starting at the $i$-th row and $j$-th column. Then the answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$. In the search process, we can use a two-dimensional array $f$ to record the calculated results to avoid repeated calculation.
+We design a function $\textit{dfs}(i, j)$, which represents the number of strictly increasing paths that can be reached from the grid graph starting at the $i$-th row and $j$-th column. Then the answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} \textit{dfs}(i, j)$. In the search process, we can use a two-dimensional array $f$ to record the calculated results to avoid repeated calculation.
 
-The calculation process of the function $dfs(i, j)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 
 - If $f[i][j]$ is not $0$, it means that it has been calculated, and $f[i][j]$ is returned directly;
-- Otherwise, we initialize $f[i][j] = 1$, and then enumerate the four directions of $(i, j)$. If the grid $(x, y)$ in a certain direction satisfies $0 \leq x \lt m$, $0 \leq y \lt n$, and $grid[i][j] \lt grid[x][y]$, we can start from the grid $(i, j)$ to the grid $(x, y)$, and the number on the path is strictly increasing, so $f[i][j] += dfs(x, y)$.
+- Otherwise, we initialize $f[i][j] = 1$, and then enumerate the four directions of $(i, j)$. If the grid $(x, y)$ in a certain direction satisfies $0 \leq x \lt m$, $0 \leq y \lt n$, and $\textit{grid}[i][j] \lt \textit{grid}[x][y]$, we can start from the grid $(i, j)$ to the grid $(x, y)$, and the number on the path is strictly increasing, so $f[i][j] += \textit{dfs}(x, y)$.
 
 Finally, we return $f[i][j]$.
 
-The answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$.
+The answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} \textit{dfs}(i, j)$.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the grid graph, respectively.
 
@@ -285,7 +285,7 @@ function countPaths(grid: number[][]): number {
 Let $f[i][j]$ be the number of strictly increasing paths that start at row $i$ and column $j$. A cell contributes one path by itself, so the initial value is $1$. It may also step to a strictly larger neighbor, which gives
 
 $$
-f[i][j] = 1 + \sum_{\substack{(x,y)\sim(i,j)\\ grid[i][j] < grid[x][y]}} f[x][y] \pmod{10^9+7}.
+f[i][j] = 1 + \sum_{\substack{(x,y)\sim(i,j)\\ \textit{grid}[i][j] < \textit{grid}[x][y]}} f[x][y] \pmod{10^9+7}.
 $$
 
 A larger cell does not depend on the current one. Processing cells from largest value to smallest finishes those neighbors first. The answer is $\sum f[i][j]$ modulo $10^9+7$.

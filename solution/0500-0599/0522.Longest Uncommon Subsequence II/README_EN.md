@@ -64,7 +64,7 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
+We define a function $\textit{check}(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
 
 To determine if string $s$ is unique, we only need to take string $s$ itself and compare it with other strings in the list. If there exists a string for which $s$ is a subsequence, then $s$ is not unique. Otherwise, string $s$ is unique. We take the longest string among all unique strings.
 

@@ -82,7 +82,7 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 >
 > Sum every odd-length subarray. $n$ is typically at most $100$, so a triple loop would pass, yet it re-adds the same entries. The numbers of odd- and even-length subarrays ending at $i$ have closed forms.
 >
-> Let $f[i]$ and $g[i]$ be those two sums. An odd segment is an even segment ending at $i-1$ plus $arr[i]$, and there are $i/2+1$ of them; even segments are symmetric. The answer is the sum of all $f[i]$.
+> Let $f[i]$ and $g[i]$ be those two sums. An odd segment is an even segment ending at $i-1$ plus $\textit{arr}[i]$, and there are $i/2+1$ of them; even segments are symmetric. The answer is the sum of all $f[i]$.
 
 <!-- thinking:end -->
 

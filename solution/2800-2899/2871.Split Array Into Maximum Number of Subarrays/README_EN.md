@@ -81,7 +81,7 @@ It can be shown that we cannot split the array into more than 1 subarray with a 
 
 <!-- thinking:end -->
 
-We initialize a variable $score$ to record the score of the current subarray, and set $score=-1$ initially. Then we traverse the array, for each element $num$, we perform a bitwise AND operation between $score$ and $num$, and assign the result to $score$. If $score=0$, it means the score of the current subarray is 0, so we can split the current subarray and reset $score$ to $-1$. Finally, we return the number of split subarrays.
+We initialize a variable $\textit{score}$ to record the score of the current subarray, and set $\textit{score}=-1$ initially. Then we traverse the array, for each element $\textit{num}$, we perform a bitwise AND operation between $\textit{score}$ and $\textit{num}$, and assign the result to $\textit{score}$. If $\textit{score}=0$, it means the score of the current subarray is 0, so we can split the current subarray and reset $\textit{score}$ to $-1$. Finally, we return the number of split subarrays.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

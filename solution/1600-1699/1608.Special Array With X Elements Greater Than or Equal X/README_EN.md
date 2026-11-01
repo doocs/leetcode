@@ -82,7 +82,7 @@ x cannot be greater since there are only 2 numbers in nums.
 
 <!-- thinking:end -->
 
-We enumerate $x$ in the range of $[1..n]$, and then count the number of elements in the array that are greater than or equal to $x$, denoted as $cnt$. If there exists $cnt$ equal to $x$, return $x$ directly.
+We enumerate $x$ in the range of $[1..n]$, and then count the number of elements in the array that are greater than or equal to $x$, denoted as $\textit{cnt}$. If there exists $\textit{cnt}$ equal to $x$, return $x$ directly.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

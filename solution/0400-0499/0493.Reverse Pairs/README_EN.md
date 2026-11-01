@@ -73,11 +73,11 @@ tags:
 
 > **Thinking**
 >
-> A reverse pair is $i<j$ and $nums[i]>2\,nums[j]$. A double loop is $O(n^2)$. During mergesort both halves are sorted, so cross pairs can be counted before merging.
+> A reverse pair is $i<j$ and $\textit{nums}[i]>2\,\textit{nums}[j]$. A double loop is $O(n^2)$. During mergesort both halves are sorted, so cross pairs can be counted before merging.
 >
-> Recurse on both halves, then for each right value advance a left pointer until $nums[i]>2\,nums[j]$; the leftover left side all form pairs. Merge by raw value afterwards.
+> Recurse on both halves, then for each right value advance a left pointer until $\textit{nums}[i]>2\,\textit{nums}[j]$; the leftover left side all form pairs. Merge by raw value afterwards.
 >
-> Counting and merging stay separate: the count compares against $2\,nums[j]$, the merge compares the original values.
+> Counting and merging stay separate: the count compares against $2\,\textit{nums}[j]$, the merge compares the original values.
 
 <!-- thinking:end -->
 
@@ -276,9 +276,9 @@ func reversePairs(nums []int) int {
 
 > **Thinking**
 >
-> Solution 1 rewrites the array. After discretizing $nums$ and $2\,nums$, walk right to left, insert $2\,nums[j]$ into a Fenwick tree, and query how many inserted values are less than $nums[i]$.
+> Solution 1 rewrites the array. After discretizing $\textit{nums}$ and $2\,\textit{nums}$, walk right to left, insert $2\,\textit{nums}[j]$ into a Fenwick tree, and query how many inserted values are less than $\textit{nums}[i]$.
 >
-> The relative order of the original array is not needed beyond the right-to-left scan; the tree stores the $2\,nums$ already seen.
+> The relative order of the original array is not needed beyond the right-to-left scan; the tree stores the $2\,\textit{nums}$ already seen.
 
 <!-- thinking:end -->
 
@@ -507,7 +507,7 @@ func reversePairs(nums []int) int {
 
 > **Thinking**
 >
-> Replace the Fenwick tree with a segment tree: same discretization, insert $2\,nums$ from the right, query the count below $nums[i]$. Same algebra, with explicit interval nodes.
+> Replace the Fenwick tree with a segment tree: same discretization, insert $2\,\textit{nums}$ from the right, query the count below $\textit{nums}[i]$. Same algebra, with explicit interval nodes.
 
 <!-- thinking:end -->
 

@@ -53,9 +53,9 @@ difficulty: Medium
 
 > **Thinking**
 >
-> Rows and columns increase; find $target$. A full scan is $O(mn)$. Each row is sorted, so it admits binary search.
+> Rows and columns increase; find $\textit{target}$. A full scan is $O(mn)$. Each row is sorted, so it admits binary search.
 >
-> $bisect\_left$ on every row returns on a hit. Column monotonicity is unused; the cost is $O(m \log n)$.
+> $\textit{bisect\_left}$ on every row returns on a hit. Column monotonicity is unused; the cost is $O(m \log n)$.
 >
 > The implementation walks rows and searches, in $O(1)$ extra space, which is short when $m$ is modest.
 

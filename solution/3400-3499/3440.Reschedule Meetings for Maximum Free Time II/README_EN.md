@@ -117,19 +117,19 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, for meeting $i$, let $l_i$ be the non-free position to its left, $r_i$ be the non-free position to its right, and let the duration of meeting $i$ be $w_i = \text{endTime}[i] - \text{startTime}[i]$. Then:
+According to the problem description, for meeting $i$, let $l_i$ be the non-free position to its left, $r_i$ be the non-free position to its right, and let the duration of meeting $i$ be $w_i = \textit{endTime}[i] - \textit{startTime}[i]$. Then:
 
 $$
 l_i = \begin{cases}
 0 & i = 0 \\\\
-\text{endTime}[i - 1] & i > 0
+\textit{endTime}[i - 1] & i > 0
 \end{cases}
 $$
 
 $$
 r_i = \begin{cases}
-\text{eventTime} & i = n - 1 \\\\
-\text{startTime}[i + 1] & i < n - 1
+\textit{eventTime} & i = n - 1 \\\\
+\textit{startTime}[i + 1] & i < n - 1
 \end{cases}
 $$
 
@@ -139,19 +139,19 @@ $$
 r_i - l_i - w_i
 $$
 
-If there exists a maximum free time on the left, $\text{pre}_{i - 1}$, such that $\text{pre}_{i - 1} \geq w_i$, then meeting $i$ can be moved to that position on the left, resulting in a new free time:
+If there exists a maximum free time on the left, $\textit{pre}_{i - 1}$, such that $\textit{pre}_{i - 1} \geq w_i$, then meeting $i$ can be moved to that position on the left, resulting in a new free time:
 
 $$
 r_i - l_i
 $$
 
-Similarly, if there exists a maximum free time on the right, $\text{suf}_{i + 1}$, such that $\text{suf}_{i + 1} \geq w_i$, then meeting $i$ can be moved to that position on the right, resulting in a new free time:
+Similarly, if there exists a maximum free time on the right, $\textit{suf}_{i + 1}$, such that $\textit{suf}_{i + 1} \geq w_i$, then meeting $i$ can be moved to that position on the right, resulting in a new free time:
 
 $$
 r_i - l_i
 $$
 
-Therefore, we first preprocess two arrays, $\text{pre}$ and $\text{suf}$, where $\text{pre}[i]$ represents the maximum free time in the range $[0, i]$, and $\text{suf}[i]$ represents the maximum free time in the range $[i, n - 1]$. Then, for each meeting $i$, we calculate the maximum free time after moving it, and take the maximum value.
+Therefore, we first preprocess two arrays, $\textit{pre}$ and $\textit{suf}$, where $\textit{pre}[i]$ represents the maximum free time in the range $[0, i]$, and $\textit{suf}[i]$ represents the maximum free time in the range $[i, n - 1]$. Then, for each meeting $i$, we calculate the maximum free time after moving it, and take the maximum value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of meetings.
 

@@ -92,15 +92,15 @@ The answer is divided into the following three cases:
 2. Balanced substring with two characters, such as `"aabb"`.
 3. Balanced substring with three characters, such as `"abc"`.
 
-We define three functions $\text{calc1}(s)$, $\text{calc2}(s, a, b)$, and $\text{calc3}(s)$ to calculate the longest balanced substring length for the above three cases respectively, and finally return the maximum of the three.
+We define three functions $\textit{calc1}(s)$, $\textit{calc2}(s, a, b)$, and $\textit{calc3}(s)$ to calculate the longest balanced substring length for the above three cases respectively, and finally return the maximum of the three.
 
-For $\text{calc1}(s)$, we only need to traverse the string $s$, count the length of each consecutive character, and take the maximum value.
+For $\textit{calc1}(s)$, we only need to traverse the string $s$, count the length of each consecutive character, and take the maximum value.
 
-For $\text{calc2}(s, a, b)$, we can use prefix sum and hash table to calculate the longest balanced substring length. Specifically, we maintain a variable $d$ to represent the number of character $a$ minus the number of character $b$ in the current substring, and use a hash table to record the first occurrence position of each $d$ value. When we encounter the same $d$ value again, it means that the number of character $a$ and character $b$ in the substring from the last occurrence position to the current position are equal, i.e., the substring is balanced, and we update the answer.
+For $\textit{calc2}(s, a, b)$, we can use prefix sum and hash table to calculate the longest balanced substring length. Specifically, we maintain a variable $d$ to represent the number of character $a$ minus the number of character $b$ in the current substring, and use a hash table to record the first occurrence position of each $d$ value. When we encounter the same $d$ value again, it means that the number of character $a$ and character $b$ in the substring from the last occurrence position to the current position are equal, i.e., the substring is balanced, and we update the answer.
 
-For $\text{calc3}(s)$, we also use prefix sum and hash table to calculate the longest balanced substring length. We define an array $\textit{cnt}$ to record the counts of characters $a$, $b$, and $c$, and use a hash table to record the first occurrence position of each $(\textit{cnt}[a] - \textit{cnt}[b], \textit{cnt}[b] - \textit{cnt}[c])$ value. When we encounter the same value again, it means that the counts of characters $a$, $b$, and $c$ in the substring from the last occurrence position to the current position are equal, i.e., the substring is balanced, and we update the answer.
+For $\textit{calc3}(s)$, we also use prefix sum and hash table to calculate the longest balanced substring length. We define an array $\textit{cnt}$ to record the counts of characters $a$, $b$, and $c$, and use a hash table to record the first occurrence position of each $(\textit{cnt}[a] - \textit{cnt}[b], \textit{cnt}[b] - \textit{cnt}[c])$ value. When we encounter the same value again, it means that the counts of characters $a$, $b$, and $c$ in the substring from the last occurrence position to the current position are equal, i.e., the substring is balanced, and we update the answer.
 
-Finally, we calculate the values of $\text{calc1}(s)$, $\text{calc2}(s, 'a', 'b')$, $\text{calc2}(s, 'b', 'c')$, $\text{calc2}(s, 'a', 'c')$, and $\text{calc3}(s)$ respectively, and return their maximum value.
+Finally, we calculate the values of $\textit{calc1}(s)$, $\textit{calc2}(s, 'a', 'b')$, $\textit{calc2}(s, 'b', 'c')$, $\textit{calc2}(s, 'a', 'c')$, and $\textit{calc3}(s)$ respectively, and return their maximum value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 

@@ -89,19 +89,19 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 
 > **Thinking**
 >
-> Equal tasks need at least $space$ days between them and must run in the given order. $n \le 10^5$, so we should not insert idle days on an explicit calendar.
+> Equal tasks need at least $\textit{space}$ days between them and must run in the given order. $n \le 10^5$, so we should not insert idle days on an explicit calendar.
 >
-> A map stores the next allowed day of each task. Advance one day, take the max with that allowed day, then write the next allowed time as $ans+space+1$.
+> A map stores the next allowed day of each task. Advance one day, take the max with that allowed day, then write the next allowed time as $\textit{ans}+\textit{space}+1$.
 
 <!-- thinking:end -->
 
-We can use a hash table $day$ to record the next time each task can be executed. Initially, all values in $day$ are $0$. We use a variable $ans$ to record the current time.
+We can use a hash table $\textit{day}$ to record the next time each task can be executed. Initially, all values in $\textit{day}$ are $0$. We use a variable $\textit{ans}$ to record the current time.
 
-We iterate through the array $tasks$. For each task $task$, we increment the current time $ans$ by one, indicating that one day has passed since the last task execution. If $day[task] > ans$ at this time, it means that task $task$ can only be executed on the $day[task]$ day. Therefore, we update the current time $ans = \max(ans, day[task])$. Then we update the value of $day[task]$ to $ans + space + 1$, indicating that the next time task $task$ can be executed is at $ans + space + 1$.
+We iterate through the array $\textit{tasks}$. For each task $\textit{task}$, we increment the current time $\textit{ans}$ by one, indicating that one day has passed since the last task execution. If $\textit{day}[\textit{task}] > \textit{ans}$ at this time, it means that task $\textit{task}$ can only be executed on the $\textit{day}[\textit{task}]$ day. Therefore, we update the current time $\textit{ans} = \max(\textit{ans}, \textit{day}[\textit{task}])$. Then we update the value of $\textit{day}[\textit{task}]$ to $\textit{ans} + \textit{space} + 1$, indicating that the next time task $\textit{task}$ can be executed is at $\textit{ans} + \textit{space} + 1$.
 
-After the iteration, we return $ans$.
+After the iteration, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $tasks$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{tasks}$.
 
 <!-- tabs:start -->
 

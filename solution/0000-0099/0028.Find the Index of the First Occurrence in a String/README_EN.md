@@ -60,7 +60,7 @@ The first occurrence is at index 0, so we return 0.
 
 > **Thinking**
 >
-> The first idea is to try every start $i$ in $haystack$ and test whether the length-$m$ slice equals $needle$. With $n,m \le 10^4$, the worst case $O((n-m)m)$ is about $10^8$ and usually passes.
+> The first idea is to try every start $i$ in $\textit{haystack}$ and test whether the length-$m$ slice equals $\textit{needle}$. With $n,m \le 10^4$, the worst case $O((n-m)m)$ is about $10^8$ and usually passes.
 >
 > The bottleneck is paying $m$ character comparisons at many near-matches. Smarter matchers amortize toward linear time, but this size does not force them yet.
 >
@@ -257,9 +257,9 @@ class Solution {
 >
 > Solution 1 may compare all $m$ characters at every start, approaching $O(nm)$. We want the next window to reuse work from the last one.
 >
-> A fixed-length substring can be rolling-hashed: add the incoming character, drop the outgoing one, update in $O(1)$. When the window hash equals $needle$'s hash, compare the raw strings to rule out a collision.
+> A fixed-length substring can be rolling-hashed: add the incoming character, drop the outgoing one, update in $O(1)$. When the window hash equals $\textit{needle}$'s hash, compare the raw strings to rule out a collision.
 >
-> One scan of $haystack$ then costs expected $O(n+m)$.
+> One scan of $\textit{haystack}$ then costs expected $O(n+m)$.
 
 <!-- thinking:end -->
 

@@ -89,13 +89,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we can count the occurrence of each character in the string and put all the counts into an array $nums$. Since the string only contains lowercase letters, the length of the array $nums$ will not exceed $26$.
+First, we can count the occurrence of each character in the string and put all the counts into an array $\textit{nums}$. Since the string only contains lowercase letters, the length of the array $\textit{nums}$ will not exceed $26$.
 
 Next, we can enumerate the minimum frequency $v$ of characters in the $K$ special strings within the range $[0,..n]$, and then use a function $f(v)$ to calculate the minimum number of deletions to adjust the frequency of all characters to $v$. The minimum value of all $f(v)$ is the answer.
 
 The calculation method of function $f(v)$ is as follows:
 
-Traverse each element $x$ in the array $nums$. If $x < v$, it means that we need to delete all characters with a frequency of $x$, and the number of deletions is $x$. If $x > v + k$, it means that we need to adjust all characters with a frequency of $x$ to $v + k$, and the number of deletions is $x - v - k$. The sum of all deletion counts is the value of $f(v)$.
+Traverse each element $x$ in the array $\textit{nums}$. If $x < v$, it means that we need to delete all characters with a frequency of $x$, and the number of deletions is $x$. If $x > v + k$, it means that we need to adjust all characters with a frequency of $x$ to $v + k$, and the number of deletions is $x - v - k$. The sum of all deletion counts is the value of $f(v)$.
 
 The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 

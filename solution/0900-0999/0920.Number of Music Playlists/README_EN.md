@@ -69,11 +69,11 @@ tags:
 
 > **Thinking**
 >
-> A playlist of length $goal$ must use exactly $n$ distinct songs, and a repeat of the same song needs a gap of at least $k$. $goal,n\le 100$, so DP fits. $f[i][j]$ is the number of lists of $i$ songs using $j$ distinct ones: $n-j+1$ choices for a new song, and $j-k$ for a repeat when $j>k$. The answer is $f[goal][n]$.
+> A playlist of length $\textit{goal}$ must use exactly $n$ distinct songs, and a repeat of the same song needs a gap of at least $k$. $\textit{goal},n\le 100$, so DP fits. $f[i][j]$ is the number of lists of $i$ songs using $j$ distinct ones: $n-j+1$ choices for a new song, and $j-k$ for a repeat when $j>k$. The answer is $f[\textit{goal}][n]$.
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ to be the number of playlists that can be made from $i$ songs with exactly $j$ different songs. We have $f[0][0] = 1$ and the answer is $f[goal][n]$.
+We define $f[i][j]$ to be the number of playlists that can be made from $i$ songs with exactly $j$ different songs. We have $f[0][0] = 1$ and the answer is $f[\textit{goal}][n]$.
 
 For $f[i][j]$, we can choose a song that we have not listened before, so the previous state is $f[i - 1][j - 1]$, and there are $n - (j - 1) = n - j + 1$ options. Thus, $f[i][j] += f[i - 1][j - 1] \times (n - j + 1)$. We can also choose a song that we have listened before, so the previous state is $f[i - 1][j]$, and there are $j - k$ options. Thus, $f[i][j] += f[i - 1][j] \times (j - k)$, where $j \geq k$.
 
@@ -86,9 +86,9 @@ f[i - 1][j - 1] \times (n - j + 1) + f[i - 1][j] \times (j - k) & i \geq 1, j \g
 \end{cases}
 $$
 
-The final answer is $f[goal][n]$.
+The final answer is $f[\textit{goal}][n]$.
 
-The time complexity is $O(goal n)$, and the space complexity is $O(goal n)$, where $goal$ and $n$ are the parameters given in the problem.
+The time complexity is $O(\textit{goal} n)$, and the space complexity is $O(\textit{goal} n)$, where $\textit{goal}$ and $n$ are the parameters given in the problem.
 
 <!-- tabs:start -->
 

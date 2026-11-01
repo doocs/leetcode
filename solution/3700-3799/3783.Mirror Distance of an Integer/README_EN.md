@@ -94,9 +94,9 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $\text{reverse}(x)$ to reverse the digits of integer $x$. Specifically, we initialize a variable $y$ to $0$, then repeatedly append the last digit of $x$ to the end of $y$, and remove the last digit from $x$, until $x$ becomes $0$. Finally, $y$ is the reversed integer.
+We define a function $\textit{reverse}(x)$ to reverse the digits of integer $x$. Specifically, we initialize a variable $y$ to $0$, then repeatedly append the last digit of $x$ to the end of $y$, and remove the last digit from $x$, until $x$ becomes $0$. Finally, $y$ is the reversed integer.
 
-Next, we compute the mirror distance of integer $n$, which is $\text{abs}(n - \text{reverse}(n))$, and return the result.
+Next, we compute the mirror distance of integer $n$, which is $\textit{abs}(n - \textit{reverse}(n))$, and return the result.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the size of the input integer.
 

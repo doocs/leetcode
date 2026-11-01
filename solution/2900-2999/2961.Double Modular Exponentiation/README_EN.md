@@ -75,15 +75,15 @@ Therefore we return [] as the answer.
 
 > **Thinking**
 >
-> Test whether $(a^b \bmod 10)^c \bmod m$ equals $target$. Exponents and moduli are at most $10^3$, so two modular powers suffice.
+> Test whether $(a^b \bmod 10)^c \bmod m$ equals $\textit{target}$. Exponents and moduli are at most $10^3$, so two modular powers suffice.
 >
-> Enumerate $variables$ and collect matching indices.
+> Enumerate $\textit{variables}$ and collect matching indices.
 
 <!-- thinking:end -->
 
 We can directly simulate according to the problem description. For the power operation modulo, we can use the fast power method to speed up the calculation.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $variables$; and $M$ is the maximum value in $b_i$ and $c_i$, in this problem $M \le 10^3$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{variables}$; and $M$ is the maximum value in $b_i$ and $c_i$, in this problem $M \le 10^3$.
 
 <!-- tabs:start -->
 

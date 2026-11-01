@@ -88,9 +88,9 @@ Therefore, we return&nbsp;<code node="[object Object]">[6,10,7]</code>.
 
 > **Thinking**
 >
-> Each query asks for the maximum $nums1+nums2$ among points with $nums1\ge x$ and $nums2\ge y$. Both arrays have length $10^5$, so scanning every point per query is impossible.
+> Each query asks for the maximum $\textit{nums1}+\textit{nums2}$ among points with $\textit{nums1}\ge x$ and $\textit{nums2}\ge y$. Both arrays have length $10^5$, so scanning every point per query is impossible.
 >
-> This is a two-dimensional dominance maximum. Process points and queries in decreasing first coordinate so that when $(x,y)$ arrives, every point with $nums1\ge x$ is already inserted. A Fenwick tree stores prefix maxima of the sums on reversed, discretized $nums2$, which answers $nums2\ge y$.
+> This is a two-dimensional dominance maximum. Process points and queries in decreasing first coordinate so that when $(x,y)$ arrives, every point with $\textit{nums1}\ge x$ is already inserted. A Fenwick tree stores prefix maxima of the sums on reversed, discretized $\textit{nums2}$, which answers $\textit{nums2}\ge y$.
 
 <!-- thinking:end -->
 
@@ -99,16 +99,16 @@ This problem belongs to the category of two-dimensional partial order problems.
 A two-dimensional partial order problem is defined as follows: given several pairs of points $(a_1, b_1)$, $(a_2, b_2)$, ..., $(a_n, b_n)$, and a defined partial order relation, now given a point $(a_i, b_i)$, we need to find the number/maximum value of point pairs $(a_j, b_j)$ that satisfy the partial order relation. That is:
 
 $$
-\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { def }}{=} a_{j} \lesseqgtr a_{i} \text { and } b_{j} \lesseqgtr b_{i}
+\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { \textit{def} }}{=} a_{j} \lesseqgtr a_{i} \text { \textit{and} } b_{j} \lesseqgtr b_{i}
 $$
 
 The general solution to two-dimensional partial order problems is to sort one dimension and use a data structure to handle the second dimension (this data structure is generally a binary indexed tree).
 
-For this problem, we can create an array $nums$, where $nums[i]=(nums_1[i], nums_2[i])$, and then sort $nums$ in descending order according to $nums_1$. We also sort the queries $queries$ in descending order according to $x$.
+For this problem, we can create an array $\textit{nums}$, where $\textit{nums}[i]=(\textit{nums}_1[i], \textit{nums}_2[i])$, and then sort $\textit{nums}$ in descending order according to $\textit{nums}_1$. We also sort the queries $\textit{queries}$ in descending order according to $x$.
 
-Next, we iterate through each query $queries[i] = (x, y)$. For the current query, we loop to insert the value of $nums_2$ for all elements in $nums$ that are greater than or equal to $x$ into the binary indexed tree. The binary indexed tree maintains the maximum value of $nums_1 + nums_2$ in the discretized $nums_2$ interval. Therefore, we only need to query the maximum value corresponding to the interval greater than or equal to the discretized $y$ in the binary indexed tree. Note that since the binary indexed tree maintains the prefix maximum value, we can insert $nums_2$ in reverse order into the binary indexed tree in the implementation.
+Next, we iterate through each query $\textit{queries}[i] = (x, y)$. For the current query, we loop to insert the value of $\textit{nums}_2$ for all elements in $\textit{nums}$ that are greater than or equal to $x$ into the binary indexed tree. The binary indexed tree maintains the maximum value of $\textit{nums}_1 + \textit{nums}_2$ in the discretized $\textit{nums}_2$ interval. Therefore, we only need to query the maximum value corresponding to the interval greater than or equal to the discretized $y$ in the binary indexed tree. Note that since the binary indexed tree maintains the prefix maximum value, we can insert $\textit{nums}_2$ in reverse order into the binary indexed tree in the implementation.
 
-The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array $nums$, and $m$ is the length of the array $queries$.
+The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array $\textit{nums}$, and $m$ is the length of the array $\textit{queries}$.
 
 Similar problems:
 
@@ -427,23 +427,23 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 > **Thinking**
 >
-> The Fenwick tree needs discretization and index reversal. After popping points in decreasing $nums1$, a monotonic stack keeps candidates in increasing $nums2$ and decreasing sum, dropping a smaller $nums2$ that is not better. A query binary-searches the first stack entry with $nums2\ge y$.
+> The Fenwick tree needs discretization and index reversal. After popping points in decreasing $\textit{nums1}$, a monotonic stack keeps candidates in increasing $\textit{nums2}$ and decreasing sum, dropping a smaller $\textit{nums2}$ that is not better. A query binary-searches the first stack entry with $\textit{nums2}\ge y$.
 
 <!-- thinking:end -->
 
 We process queries in descending order of their corresponding $x$ threshold.
 At the same time, we also sort number pairs in descending order of $\textit{nums1}[i]$.
 
-For each $query_j$, all number pairs satisfying $\textit{nums1}[i] \geq x_j$ are added to a monotonic stack.
+For each $\textit{query}_j$, all number pairs satisfying $\textit{nums1}[i] \geq x_j$ are added to a monotonic stack.
 
 Such a stack runs in ascending order of $\textit{nums2}[i]$ but descending order
 of $\textit{nums1}[i] + \textit{nums2}[i]$, ensuring that any candidate with a larger $\textit{nums2}[i]$
 has a smaller $\textit{nums1}[i] + \textit{nums2}[i]$ instead, so only effective candidates are kept.
 
-For each $query_j$, binary search locates the first stack entry having
+For each $\textit{query}_j$, binary search locates the first stack entry having
 $\textit{nums2}[i] \geq y_j$. Its corresponding $\textit{nums1}[i] + \textit{nums2}[i]$ is the answer.
 
-The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array $nums2$, and $m$ is the length of the array $queries$.
+The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array $\textit{nums2}$, and $m$ is the length of the array $\textit{queries}$.
 
 <!-- tabs:start -->
 

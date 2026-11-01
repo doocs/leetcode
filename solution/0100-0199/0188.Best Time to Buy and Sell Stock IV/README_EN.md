@@ -64,16 +64,16 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, k)$ to represent the maximum profit that can be obtained when starting from day $i$, completing at most $j$ transactions, and holding the stock with the current state $k$ (not holding the stock is represented by $0$, and holding the stock is represented by $1$). The answer is $dfs(0, k, 0)$.
+We design a function $\textit{dfs}(i, j, k)$ to represent the maximum profit that can be obtained when starting from day $i$, completing at most $j$ transactions, and holding the stock with the current state $k$ (not holding the stock is represented by $0$, and holding the stock is represented by $1$). The answer is $\textit{dfs}(0, k, 0)$.
 
-The execution logic of the function $dfs(i, j, k)$ is as follows:
+The execution logic of the function $\textit{dfs}(i, j, k)$ is as follows:
 
 - If $i$ is greater than or equal to $n$, return $0$ directly.
-- The i-th day can choose not to do anything, then $dfs(i, j, k) = dfs(i + 1, j, k)$.
-- If $k > 0$, the i-th day can choose to sell the stock, then $dfs(i, j, k) = \max(dfs(i + 1, j - 1, 0) + prices[i], dfs(i + 1, j, k))$.
-- Otherwise, if $j > 0$, the i-th day can choose to buy the stock, then $dfs(i, j, k) = \max(dfs(i + 1, j - 1, 1) - prices[i], dfs(i + 1, j, k))$.
+- The i-th day can choose not to do anything, then $\textit{dfs}(i, j, k) = \textit{dfs}(i + 1, j, k)$.
+- If $k > 0$, the i-th day can choose to sell the stock, then $\textit{dfs}(i, j, k) = \max(\textit{dfs}(i + 1, j - 1, 0) + \textit{prices}[i], \textit{dfs}(i + 1, j, k))$.
+- Otherwise, if $j > 0$, the i-th day can choose to buy the stock, then $\textit{dfs}(i, j, k) = \max(\textit{dfs}(i + 1, j - 1, 1) - \textit{prices}[i], \textit{dfs}(i + 1, j, k))$.
 
-The value of $dfs(i, j, k)$ is the maximum value of the above three cases.
+The value of $\textit{dfs}(i, j, k)$ is the maximum value of the above three cases.
 
 During the process, we can use memoization search to save the results of each calculation to avoid repeated calculations.
 
@@ -280,19 +280,19 @@ public class Solution {
 
 We can also use dynamic programming to define $f[i][j][k]$ as the maximum profit that can be obtained when completing at most j transactions (here we define the number of transactions as the number of purchases), and holding the stock with the current state k on the i-th day. The initial value of $f[i][j][k]$ is 0. The answer is $f[n - 1][k][0]$.
 
-When $i = 0$, the stock price is $prices[0]$. For any $j$ \in [1, k]$, we have $f[0][j][1] = -prices[0]$, which means buying the stock on the 0-th day with a profit of $-prices[0]$.
+When $i = 0$, the stock price is $\textit{prices}[0]$. For any $j$ \in [1, k]$, we \textit{have} $f[0][j][1] = -prices[0]$, which means buying the stock on the 0-th day with a profit of $-prices[0]$.
 
 When $i > 0$:
 
-- If the i-th day does not hold the stock, it may be that the stock was held on the i-1-th day and sold on the i-th day, or the stock was not held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][0] = \max(f[i - 1][j][1] + prices[i], f[i - 1][j][0])$.
-- If the i-th day holds the stock, it may be that the stock was not held on the i-1-th day and bought on the i-th day, or the stock was held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][1] = max(f[i - 1][j - 1][0] - prices[i], f[i - 1][j][1])$.
+- If the i-th day does not hold the stock, it may be that the stock was held on the i-1-th day and sold on the i-th day, or the stock was not held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][0] = \max(f[i - 1][j][1] + \textit{prices}[i], f[i - 1][j][0])$.
+- If the i-th day holds the stock, it may be that the stock was not held on the i-1-th day and bought on the i-th day, or the stock was held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][1] = \max(f[i - 1][j - 1][0] - \textit{prices}[i], f[i - 1][j][1])$.
 
 Therefore, when $i > 0$, we can get the state transition equation:
 
 $$
 \begin{aligned}
-f[i][j][0] &= \max(f[i - 1][j][1] + prices[i], f[i - 1][j][0]) \\
-f[i][j][1] &= \max(f[i - 1][j - 1][0] - prices[i], f[i - 1][j][1])
+f[i][j][0] &= \max(f[i - 1][j][1] + \textit{prices}[i], f[i - 1][j][0]) \\
+f[i][j][1] &= \max(f[i - 1][j - 1][0] - \textit{prices}[i], f[i - 1][j][1])
 \end{aligned}
 $$
 

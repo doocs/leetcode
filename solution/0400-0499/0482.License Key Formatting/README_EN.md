@@ -70,7 +70,7 @@ Note that the two extra dashes are not needed and can be removed.
 
 First, we count the number of characters in the string $s$ excluding the hyphens, and take the modulus of $k$ to determine the number of characters in the first group. If it is $0$, then the number of characters in the first group is $k$; otherwise, it is the result of the modulus operation.
 
-Next, we iterate through the string $s$. For each character, if it is a hyphen, we skip it; otherwise, we convert it to an uppercase letter and add it to the answer string. Meanwhile, we maintain a counter $cnt$, representing the remaining number of characters in the current group. When $cnt$ decreases to $0$, we need to update $cnt$ to $k$, and if the current character is not the last one, we need to add a hyphen to the answer string.
+Next, we iterate through the string $s$. For each character, if it is a hyphen, we skip it; otherwise, we convert it to an uppercase letter and add it to the answer string. Meanwhile, we maintain a counter $\textit{cnt}$, representing the remaining number of characters in the current group. When $\textit{cnt}$ decreases to $0$, we need to update $\textit{cnt}$ to $k$, and if the current character is not the last one, we need to add a hyphen to the answer string.
 
 Finally, we remove the hyphen at the end of the answer string and return the answer string.
 

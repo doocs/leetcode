@@ -79,7 +79,7 @@ Therefore, we return [0,2,2,0,0].
 >
 > Count how many $2\times 2$ blocks contain $0$ through $4$ black cells. There are $(m-1)(n-1)$ blocks and the grid can be $10^5$ on a side, so the blocks cannot all be visited.
 >
-> A black cell touches at most four blocks. Increment those blocks in a hash map, fill $ans[1..4]$ from the map values, and set $ans[0]$ to the number of blocks minus the map size.
+> A black cell touches at most four blocks. Increment those blocks in a hash map, fill $\textit{ans}[1..4]$ from the map values, and set $\textit{ans}[0]$ to the number of blocks minus the map size.
 
 <!-- thinking:end -->
 
@@ -87,11 +87,11 @@ For each $2 \times 2$ submatrix, we can use its upper-left corner coordinate $(x
 
 For each black cell $(x, y)$, its contribution to the 4 submatrices is $1$, namely the matrices $(x - 1, y - 1)$, $(x - 1, y)$, $(x, y - 1)$, $(x, y)$.
 
-Therefore, we traverse all the black cells, and then accumulate the number of black cells in each submatrix, recorded in the hash table $cnt$.
+Therefore, we traverse all the black cells, and then accumulate the number of black cells in each submatrix, recorded in the hash table $\textit{cnt}$.
 
-Finally, we traverse all the values in $cnt$ (greater than $0$), count the number of times they appear, and record them in the answer array $ans$, while $ans[0]$ represents the number of submatrices without black cells, the value is $(m - 1) \times (n - 1) - \sum_{i = 1}^4 ans[i]$.
+Finally, we traverse all the values in $\textit{cnt}$ (greater than $0$), count the number of times they appear, and record them in the answer array $\textit{ans}$, while $\textit{ans}[0]$ represents the number of submatrices without black cells, the value is $(m - 1) \times (n - 1) - \sum_{i = 1}^4 \textit{ans}[i]$.
 
-The time complexity is $O(l)$, and the space complexity is $O(l)$, where $l$ is the length of $coordinates$.
+The time complexity is $O(l)$, and the space complexity is $O(l)$, where $l$ is the length of $\textit{coordinates}$.
 
 <!-- tabs:start -->
 

@@ -267,7 +267,7 @@ tags:
 >
 > A separate shortest-path search from every shop toward every other shop is about $O(n^2 \log n)$, which is tight for $n\le 1000$. Outbound travel is empty-handed while the return multiplies by $\textit{tax}$, so the two directions do not share one distance table.
 >
-> Compute empty-handed distances and loaded distances separately — the latter is shortest paths on edges $cost\cdot tax$. For shop $i$ the answer is $\min_j(\mathrm{dist}_{\mathrm{empty}}(i,j)+\textit{prices}[j]+\mathrm{dist}_{\mathrm{load}}(j,i))$.
+> Compute empty-handed distances and loaded distances separately — the latter is shortest paths on edges $\textit{cost}\cdot \textit{tax}$. For shop $i$ the answer is $\min_j(\textit{dist}_{\textit{empty}}(i,j)+\textit{prices}[j]+\textit{dist}_{\textit{load}}(j,i))$.
 >
 > This directory has no implemented solution yet; the walkthrough stops at that two-weight reduction.
 

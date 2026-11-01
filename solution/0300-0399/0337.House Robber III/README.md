@@ -75,18 +75,18 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个函数 $dfs(root)$，表示偷取以 $root$ 为根的二叉树的最大金额。该函数返回一个二元组 $(a, b)$，其中 $a$ 表示偷取 $root$ 节点时能得到的最大金额，而 $b$ 表示不偷取 $root$ 节点时能得到的最大金额。
+我们定义一个函数 $\textit{dfs}(\textit{root})$，表示偷取以 $\textit{root}$ 为根的二叉树的最大金额。该函数返回一个二元组 $(a, b)$，其中 $a$ 表示偷取 $\textit{root}$ 节点时能得到的最大金额，而 $b$ 表示不偷取 $\textit{root}$ 节点时能得到的最大金额。
 
-函数 $dfs(root)$ 的计算过程如下：
+函数 $\textit{dfs}(\textit{root})$ 的计算过程如下：
 
-如果 $root$ 为空，那么显然有 $dfs(root) = (0, 0)$。
+如果 $\textit{root}$ 为空，那么显然有 $\textit{dfs}(\textit{root}) = (0, 0)$。
 
-否则，我们首先计算出左右子节点的结果，即 $dfs(root.left)$ 和 $dfs(root.right)$，这样就得到了两对值 $(l_a, l_b)$ 以及 $(r_a, r_b)$。对于 $dfs(root)$ 的结果，我们可以分为两种情况：
+否则，我们首先计算出左右子节点的结果，即 $\textit{dfs}(\textit{root}.\textit{left})$ 和 $\textit{dfs}(\textit{root}.\textit{right})$，这样就得到了两对值 $(l_a, l_b)$ 以及 $(r_a, r_b)$。对于 $\textit{dfs}(\textit{root})$ 的结果，我们可以分为两种情况：
 
-- 如果偷取 $root$ 节点，那么不能偷取其左右子节点，结果为 $root.val + l_b + r_b$；
-- 如果不偷取 $root$ 节点，那么可以偷取其左右子节点，结果为 $\max(l_a, l_b) + \max(r_a, r_b)$。
+- 如果偷取 $\textit{root}$ 节点，那么不能偷取其左右子节点，结果为 $\textit{root}.\textit{val} + l_b + r_b$；
+- 如果不偷取 $\textit{root}$ 节点，那么可以偷取其左右子节点，结果为 $\max(l_a, l_b) + \max(r_a, r_b)$。
 
-在主函数中，我们可以直接返回 $dfs(root)$ 的较大值，即 $\max(dfs(root))$。
+在主函数中，我们可以直接返回 $\textit{dfs}(\textit{root})$ 的较大值，即 $\max(\textit{dfs}(\textit{root}))$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

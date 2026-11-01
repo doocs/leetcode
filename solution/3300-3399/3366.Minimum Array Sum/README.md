@@ -109,7 +109,7 @@ tags:
 - 如果 $k \gt 0$ 并且 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j][k-1] + (x - d))$；
 - 如果 $j \gt 0$ 并且 $k \gt 0$，那么可以同时使用操作 1 和操作 2。如果先使用操作 1，那么 $x$ 变为 $\lceil \frac{x+1}{2} \rceil$，如果 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x+1}{2} \rceil - d)$；如果先使用操作 2，那么 $x$ 变为 $x - d$，如果 $x \geq d$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x-d+1}{2} \rceil)$。
 
-最终答案为 $\min_{j=0}^{op1} \min_{k=0}^{op2} f[n][j][k]$，如果为 $+\infty$，则输出 $-1$。
+最终答案为 $\min_{j=0}^{\textit{op1}} \min_{k=0}^{\textit{op2}} f[n][j][k]$，如果为 $+\infty$，则输出 $-1$。
 
 时间复杂度 $O(n \textit{op1} \textit{op2})$，空间复杂度 $O(n \textit{op1} \textit{op2})$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 

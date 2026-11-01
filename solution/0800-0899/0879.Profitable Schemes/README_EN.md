@@ -67,22 +67,22 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
 >
 > Each crime may be taken or skipped under a people cap and a profit floor. The state is “item $i$, $j$ people used, profit capped at $\textit{minProfit}$”.
 >
-> $dfs(i,j,k)$ skips the crime or takes it when people remain. Capping profit merges all states that already meet the threshold. At the end, $k$ must equal $\textit{minProfit}$.
+> $\textit{dfs}(i,j,k)$ skips the crime or takes it when people remain. Capping profit merges all states that already meet the threshold. At the end, $k$ must equal $\textit{minProfit}$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, k)$, which means that we start from the $i$-th job, and have chosen $j$ employees, and the current profit is $k$, then the number of schemes in this case is $dfs(0, 0, 0)$.
+We design a function $\textit{dfs}(i, j, k)$, which means that we start from the $i$-th job, and have chosen $j$ employees, and the current profit is $k$, then the number of schemes in this case is $\textit{dfs}(0, 0, 0)$.
 
-The execution process of function $dfs(i, j, k)$ is as follows:
+The execution process of function $\textit{dfs}(i, j, k)$ is as follows:
 
-- If $i = n$, it means that all the jobs have been considered. If $k \geq minProfit$, the number of schemes is $1$, otherwise the number of schemes is $0$;
-- If $i < n$, we can choose not to choose the $i$-th job, then the number of schemes is $dfs(i + 1, j, k)$; if $j + group[i] \leq n$, we can also choose the $i$-th job, then the number of schemes is $dfs(i + 1, j + group[i], \min(k + profit[i], minProfit))$. Here we limit the profit upper limit to $minProfit$, because the profit exceeding $minProfit$ has no effect on our answer.
+- If $i = n$, it means that all the jobs have been considered. If $k \geq \textit{minProfit}$, the number of schemes is $1$, otherwise the number of schemes is $0$;
+- If $i < n$, we can choose not to choose the $i$-th job, then the number of schemes is $\textit{dfs}(i + 1, j, k)$; if $j + \textit{group}[i] \leq n$, we can also choose the $i$-th job, then the number of schemes is $\textit{dfs}(i + 1, j + \textit{group}[i], \min(k + \textit{profit}[i], \textit{minProfit}))$. Here we limit the profit upper limit to $\textit{minProfit}$, because the profit exceeding $\textit{minProfit}$ has no effect on our answer.
 
-Finally, return $dfs(0, 0, 0)$.
+Finally, return $\textit{dfs}(0, 0, 0)$.
 
-In order to avoid repeated calculation, we can use the method of memoization. We use a three-dimensional array $f$ to record all the results of $dfs(i, j, k)$. When we calculate the value of $dfs(i, j, k)$, we store it in $f[i][j][k]$. When we call $dfs(i, j, k)$, if $f[i][j][k]$ has been calculated, we return $f[i][j][k]$ directly.
+In order to avoid repeated calculation, we can use the method of memoization. We use a three-dimensional array $f$ to record all the results of $\textit{dfs}(i, j, k)$. When we calculate the value of $\textit{dfs}(i, j, k)$, we store it in $f[i][j][k]$. When we call $\textit{dfs}(i, j, k)$, if $f[i][j][k]$ has been calculated, we return $f[i][j][k]$ directly.
 
-The time complexity is $O(mn minProfit)$, and the space complexity is $O(mn minProfit)$, where $m$ and $n$ are the number of jobs and employees, and $minProfit$ is the minimum profit.
+The time complexity is $O(mn \textit{minProfit})$, and the space complexity is $O(mn \textit{minProfit})$, where $m$ and $n$ are the number of jobs and employees, and $\textit{minProfit}$ is the minimum profit.
 
 <!-- tabs:start -->
 
@@ -232,11 +232,11 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 We define $f[i][j][k]$ to be the number of schemes to make a profit of at least $k$ with $i$ jobs and $j$ workers. Initially, we have $f[0][j][0] = 1$, which means that there is only one scheme to make a profit of $0$ without any jobs.
 
-For the $i$-th job, we can choose to work or not to work. If we do not work, then $f[i][j][k] = f[i - 1][j][k]$; if we work, then $f[i][j][k] = f[i - 1][j - group[i - 1]][max(0, k - profit[i - 1])]$. We need to enumerate $j$ and $k$, and add up all the schemes.
+For the $i$-th job, we can choose to work or not to work. If we do not work, then $f[i][j][k] = f[i - 1][j][k]$; if we work, then $f[i][j][k] = f[i - 1][j - \textit{group}[i - 1]][\max(0, k - \textit{profit}[i - 1])]$. We need to enumerate $j$ and $k$, and add up all the schemes.
 
-The final answer is $f[m][n][minProfit]$.
+The final answer is $f[m][n][\textit{minProfit}]$.
 
-The time complexity is $O(mn minProfit)$, and the space complexity is $O(mn minProfit)$, where $m$ and $n$ are the numbers of jobs and workers, and $minProfit$ is the minimum profit to make.
+The time complexity is $O(mn \textit{minProfit})$, and the space complexity is $O(mn \textit{minProfit})$, where $m$ and $n$ are the numbers of jobs and workers, and $\textit{minProfit}$ is the minimum profit to make.
 
 <!-- tabs:start -->
 

@@ -79,11 +79,11 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 >
 > A valid triplet needs strictly increasing prices. After fixing the middle index $j$, the left side wants the largest profit among cheaper items and the right side the largest among costlier ones; each side is a linear scan. For modest $n$, $O(n^2)$ suffices.
 >
-> If either side is empty, $j$ is unusable. The answer is the maximum of $left+profits[j]+right$ over valid $j$.
+> If either side is empty, $j$ is unusable. The answer is the maximum of $\textit{left}+\textit{profits}[j]+\textit{right}$ over valid $j$.
 
 <!-- thinking:end -->
 
-We can enumerate the middle element $profits[j]$, and then enumerate the left element $profits[i]$ and the right element $profits[k]$. For each $profits[j]$, we need to find the maximum $profits[i]$ and the maximum $profits[k]$ such that $prices[i] < prices[j] < prices[k]$. We define $left$ as the maximum value on the left of $profits[j]$, and $right$ as the maximum value on the right of $profits[j]$. If they exist, we update the answer as $ans = \max(ans, left + profits[j] + right)$.
+We can enumerate the middle element $\textit{profits}[j]$, and then enumerate the left element $\textit{profits}[i]$ and the right element $\textit{profits}[k]$. For each $\textit{profits}[j]$, we need to find the maximum $\textit{profits}[i]$ and the maximum $\textit{profits}[k]$ such that $\textit{prices}[i] < \textit{prices}[j] < \textit{prices}[k]$. We define $\textit{left}$ as the maximum value on the left of $\textit{profits}[j]$, and $\textit{right}$ as the maximum value on the right of $\textit{profits}[j]$. If they exist, we update the answer as $\textit{ans} = \max(\textit{ans}, \textit{left} + \textit{profits}[j] + \textit{right})$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
@@ -272,9 +272,9 @@ impl Solution {
 
 We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 10^6$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{prices}$, and $M$ is the maximum value in the array $\textit{prices}$. In this problem, $M \le 10^6$.
 
-Since the length of $prices$ does not exceed $2000$, and the value of $prices[i]$ reaches $10^6$, we can discretize $prices$, which can reduce the space complexity to $O(n)$.
+Since the length of $\textit{prices}$ does not exceed $2000$, and the value of $\textit{prices}[i]$ reaches $10^6$, we can discretize $\textit{prices}$, which can reduce the space complexity to $O(n)$.
 
 <!-- tabs:start -->
 

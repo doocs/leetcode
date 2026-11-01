@@ -63,7 +63,7 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 > **Thinking**
 >
-> $n\le 1000$. Emit $start+2i$ and XOR the values together.
+> $n\le 1000$. Emit $\textit{start}+2i$ and XOR the values together.
 
 <!-- thinking:end -->
 

@@ -100,7 +100,7 @@ tags:
 - 用变量 $\textit{cnt}$ 记录子数组和小于等于 $s$ 的个数，初始时 $\textit{cnt} = 0$。
 - 遍历数组 $\textit{nums}$，每次遍历到一个元素 $\textit{nums}[i]$，我们将其加入窗口，即 $t = t + \textit{nums}[i]$。如果此时 $t \gt s$，我们需要不断地将窗口的左边界右移，直到 $t \le s$ 为止，即不断地执行 $t -= \textit{nums}[j]$，并且 $j = j + 1$。接下来我们更新 $\textit{cnt}$，即 $\textit{cnt} = \textit{cnt} + i - j + 1$。继续遍历下一个元素，直到遍历完整个数组。
 
-最后将 $cnt$ 作为函数 $f(s)$ 的返回值。
+最后将 $\textit{cnt}$ 作为函数 $f(s)$ 的返回值。
 
 时间复杂度 $O(n \log S)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $S$ 为数组 $\textit{nums}$ 中所有元素之和。
 

@@ -95,9 +95,9 @@ tags:
 
 <!-- thinking:end -->
 
-We notice that for each position $i$, if $lights[i] = v$ where $v > 0$, then position $i$ is illuminated, and the illumination range is $[i - v, i + v]$. We can use a difference array to maintain the illumination range at each position.
+We notice that for each position $i$, if $\textit{lights}[i] = v$ where $v > 0$, then position $i$ is illuminated, and the illumination range is $[i - v, i + v]$. We can use a difference array to maintain the illumination range at each position.
 
-We define an array $d$ of length $n$. For each position $i$, if $lights[i] = v$ where $v > 0$, we add $1$ to $d[i - v]$ and subtract $1$ from $d[i + v + 1]$.
+We define an array $d$ of length $n$. For each position $i$, if $\textit{lights}[i] = v$ where $v > 0$, we add $1$ to $d[i - v]$ and subtract $1$ from $d[i + v + 1]$.
 
 Then, we compute the prefix sum of $d$ to obtain the illumination status at each position.
 

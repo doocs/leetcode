@@ -90,19 +90,19 @@ tags:
 
 We can directly simulate character matching and replacement.
 
-Assume the lengths of the string $word$ and the string $abbr$ are $m$ and $n$ respectively. We use two pointers $i$ and $j$ to point to the initial positions of the string $word$ and the string $abbr$ respectively, and use an integer variable $x$ to record the current matched number in $abbr$.
+Assume the lengths of the string $\textit{word}$ and the string $\textit{abbr}$ are $m$ and $n$ respectively. We use two pointers $i$ and $j$ to point to the initial positions of the string $\textit{word}$ and the string $\textit{abbr}$ respectively, and use an integer variable $x$ to record the current matched number in $\textit{abbr}$.
 
-Loop to match each character of the string $word$ and the string $abbr$:
+Loop to match each character of the string $\textit{word}$ and the string $\textit{abbr}$:
 
-If the character $abbr[j]$ pointed by the pointer $j$ is a number, if $abbr[j]$ is `'0'` and $x$ is $0$, it means that the number in $abbr$ has leading zeros, so it is not a valid abbreviation, return `false`; otherwise, update $x$ to $x \times 10 + abbr[j] - '0'$.
+If the character $\textit{abbr}[j]$ pointed by the pointer $j$ is a number, if $\textit{abbr}[j]$ is `'0'` and $x$ is $0$, it means that the number in $\textit{abbr}$ has leading zeros, so it is not a valid abbreviation, return `false`; otherwise, update $x$ to $x \times 10 + \textit{abbr}[j] - '0'$.
 
-If the character $abbr[j]$ pointed by the pointer $j$ is not a number, then we move the pointer $i$ forward by $x$ positions at this time, and then reset $x$ to $0$. If $i \geq m$ or $word[i] \neq abbr[j]$ at this time, it means that the two strings cannot match, return `false`; otherwise, move the pointer $i$ forward by $1$ position.
+If the character $\textit{abbr}[j]$ pointed by the pointer $j$ is not a number, then we move the pointer $i$ forward by $x$ positions at this time, and then reset $x$ to $0$. If $i \geq m$ or $\textit{word}[i] \neq \textit{abbr}[j]$ at this time, it means that the two strings cannot match, return `false`; otherwise, move the pointer $i$ forward by $1$ position.
 
-Then we move the pointer $j$ forward by $1$ position, repeat the above process, until $i$ exceeds the length of the string $word$ or $j$ exceeds the length of the string $abbr$.
+Then we move the pointer $j$ forward by $1$ position, repeat the above process, until $i$ exceeds the length of the string $\textit{word}$ or $j$ exceeds the length of the string $\textit{abbr}$.
 
-Finally, if $i + x$ equals $m$ and $j$ equals $n$, it means that the string $word$ can be abbreviated as the string $abbr$, return `true`; otherwise return `false`.
+Finally, if $i + x$ equals $m$ and $j$ equals $n$, it means that the string $\textit{word}$ can be abbreviated as the string $\textit{abbr}$, return `true`; otherwise return `false`.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the string $word$ and the string $abbr$ respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the string $\textit{word}$ and the string $\textit{abbr}$ respectively.
 
 <!-- tabs:start -->
 

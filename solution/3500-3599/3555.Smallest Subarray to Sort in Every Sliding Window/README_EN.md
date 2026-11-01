@@ -85,9 +85,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can enumerate every subarray of length $k$. For each subarray $nums[i...i + k - 1]$, we need to find the smallest continuous segment such that, after sorting it, the entire subarray becomes non-decreasing.
+We can enumerate every subarray of length $k$. For each subarray $\textit{nums}[i...i + k - 1]$, we need to find the smallest continuous segment such that, after sorting it, the entire subarray becomes non-decreasing.
 
-For the subarray $nums[i...i + k - 1]$, we can traverse from left to right, maintaining a maximum value $mx$. If the current value is less than $mx$, it means the current value is not in the correct position, so we update the right boundary $r$ to the current position. Similarly, we can traverse from right to left, maintaining a minimum value $mi$. If the current value is greater than $mi$, it means the current value is not in the correct position, so we update the left boundary $l$ to the current position. Initially, both $l$ and $r$ are set to $-1$. If neither $l$ nor $r$ is updated, it means the subarray is already sorted, so we return $0$; otherwise, we return $r - l + 1$.
+For the subarray $\textit{nums}[i...i + k - 1]$, we can traverse from left to right, maintaining a maximum value $mx$. If the current value is less than $mx$, it means the current value is not in the correct position, so we update the right boundary $r$ to the current position. Similarly, we can traverse from right to left, maintaining a minimum value $mi$. If the current value is greater than $mi$, it means the current value is not in the correct position, so we update the left boundary $l$ to the current position. Initially, both $l$ and $r$ are set to $-1$. If neither $l$ nor $r$ is updated, it means the subarray is already sorted, so we return $0$; otherwise, we return $r - l + 1$.
 
 The time complexity is $O(nk)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 

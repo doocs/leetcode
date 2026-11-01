@@ -73,12 +73,12 @@ tags:
 
 <!-- thinking:end -->
 
-We design a recursive function $\text{dfs}(root, t)$, which takes two parameters: the current node $root$ and the binary number $t$ corresponding to the parent node of the current node. The return value of the function is the sum of binary numbers represented by paths from the current node to leaf nodes. The answer is $\textrm{dfs}(root, 0)$.
+We design a recursive function $\textit{dfs}(\textit{root}, t)$, which takes two parameters: the current node $\textit{root}$ and the binary number $t$ corresponding to the parent node of the current node. The return value of the function is the sum of binary numbers represented by paths from the current node to leaf nodes. The answer is $\textit{dfs}(\textit{root}, 0)$.
 
 The logic of the recursive function is as follows:
 
-- If the current node $root$ is null, return $0$; otherwise, calculate the binary number $t$ corresponding to the current node, i.e., $t = t \ll 1 | root.val$.
-- If the current node is a leaf node, return $t$; otherwise, return the sum of $\textrm{dfs}(root.left, t)$ and $\textrm{dfs}(root.right, t)$.
+- If the current node $\textit{root}$ is null, return $0$; otherwise, calculate the binary number $t$ corresponding to the current node, i.e., $t = t \ll 1 | \textit{root}.\textit{val}$.
+- If the current node is a leaf node, return $t$; otherwise, return the sum of $\textit{dfs}(\textit{root}.\textit{left}, t)$ and $\textit{dfs}(\textit{root}.\textit{right}, t)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.
 

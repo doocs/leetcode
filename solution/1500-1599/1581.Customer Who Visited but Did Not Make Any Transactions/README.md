@@ -110,7 +110,7 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 >
 > 统计每位顾客「到访但未消费」的次数。消费记录在另一张表，需要找出没有对应交易的访问。
 >
-> 子查询列出所有出现在 $Transactions$ 中的 $visit\_id$，外层保留不在该集合中的访问，再按顾客计数。
+> 子查询列出所有出现在 $\textit{Transactions}$ 中的 $\textit{visit\_id}$，外层保留不在该集合中的访问，再按顾客计数。
 
 <!-- thinking:end -->
 
@@ -140,7 +140,7 @@ GROUP BY 1;
 
 > **思考**
 >
-> 子查询的 $NOT\ IN$ 在部分引擎上对空值不友好，且语义是反包含。左连接 $Visits$ 与 $Transactions$ 后，未匹配行的 $amount$ 为 $NULL$，过滤这些行再分组，得到同一统计且更易与其它列一起扩展。
+> 子查询的 $\textit{NOT IN}$ 在部分引擎上对空值不友好，且语义是反包含。左连接 $\textit{Visits}$ 与 $\textit{Transactions}$ 后，未匹配行的 $\textit{amount}$ 为 $\textit{NULL}$，过滤这些行再分组，得到同一统计且更易与其它列一起扩展。
 
 <!-- thinking:end -->
 

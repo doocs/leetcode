@@ -96,24 +96,24 @@ tags:
 
 > **Thinking**
 >
-> The grid is at most $8 \times 8$; students cannot sit side by side or diagonally in front. Choosing a subset of all seats is $2^{mn}$, but one row has only $2^n$ masks. Encode empty seats, try masks that fit the empties and have no adjacent bits, then clear diagonally attacked seats on the next row. Memoized $dfs(\textit{seat},i)$ stores the best headcount.
+> The grid is at most $8 \times 8$; students cannot sit side by side or diagonally in front. Choosing a subset of all seats is $2^{mn}$, but one row has only $2^n$ masks. Encode empty seats, try masks that fit the empties and have no adjacent bits, then clear diagonally attacked seats on the next row. Memoized $\textit{dfs}(\textit{seat},i)$ stores the best headcount.
 
 <!-- thinking:end -->
 
 We notice that each seat has two states: selectable and non-selectable. Therefore, we can use a binary number to represent the seat state of each row, where $1$ represents selectable, and $0$ represents non-selectable. For example, for the first row in Example 1, we can represent it as $010010$. Therefore, we convert the initial seats into a one-dimensional array $ss$, where $ss[i]$ represents the seat state of the $i$th row.
 
-Next, we design a function $dfs(seat, i)$, which represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $seat$.
+Next, we design a function $\textit{dfs}(\textit{seat}, i)$, which represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $\textit{seat}$.
 
-We can enumerate all the seat selection states $mask$ of the $i$th row, and judge whether $mask$ meets the following conditions:
+We can enumerate all the seat selection states $\textit{mask}$ of the $i$th row, and judge whether $\textit{mask}$ meets the following conditions:
 
-- The state $mask$ cannot select seats outside of $seat$;
-- The state $mask$ cannot select adjacent seats.
+- The state $\textit{mask}$ cannot select seats outside of $\textit{seat}$;
+- The state $\textit{mask}$ cannot select adjacent seats.
 
-If the conditions are met, we calculate the number of seats selected in the current row $cnt$. If it is the last row, update the return value of the function, that is, $ans = \max(ans, cnt)$. Otherwise, we continue to recursively solve the maximum number of the next row. The seat state of the next row is $nxt = ss[i + 1]$, and we need to exclude the left and right sides of the selected seats in the current row. Then we recursively solve the maximum number of the next row, that is, $ans = \max(ans, cnt + dfs(nxt, i + 1))$.
+If the conditions are met, we calculate the number of seats selected in the current row $\textit{cnt}$. If it is the last row, update the return value of the function, that is, $\textit{ans} = \max(\textit{ans}, \textit{cnt})$. Otherwise, we continue to recursively solve the maximum number of the next row. The seat state of the next row is $\textit{nxt} = ss[i + 1]$, and we need to exclude the left and right sides of the selected seats in the current row. Then we recursively solve the maximum number of the next row, that is, $\textit{ans} = \max(\textit{ans}, \textit{cnt} + \textit{dfs}(\textit{nxt}, i + 1))$.
 
-Finally, we return $ans$ as the return value of the function.
+Finally, we return $\textit{ans}$ as the return value of the function.
 
-To avoid repeated calculations, we can use memoization search to save the return value of the function $dfs(seat, i)$ in a two-dimensional array $f$, where $f[seat][i]$ represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $seat$.
+To avoid repeated calculations, we can use memoization search to save the return value of the function $\textit{dfs}(\textit{seat}, i)$ in a two-dimensional array $f$, where $f[\textit{seat}][i]$ represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $\textit{seat}$.
 
 The time complexity is $O(4^n nm)$, and the space complexity is $O(2^n m)$, where $m$ and $n$ are the number of rows and columns of the seats, respectively.
 

@@ -80,15 +80,15 @@ tags:
 
 <!-- thinking:end -->
 
-我们递归遍历整棵树，对于当前遍历到的节点 $root$：
+我们递归遍历整棵树，对于当前遍历到的节点 $\textit{root}$：
 
-如果 $root$ 为空，那么返回空；否则，我们将 $limit$ 减去当前节点的值，即 $limit = limit - root.val$，然后继续执行下述步骤。
+如果 $\textit{root}$ 为空，那么返回空；否则，我们将 $\textit{limit}$ 减去当前节点的值，即 $\textit{limit} = \textit{limit} - \textit{root}.\textit{val}$，然后继续执行下述步骤。
 
-如果 $root$ 为叶子节点（即 $root$ 的左右子节点都为空），说明我们已经走完了一条从根节点到叶子节点的路径。如果此时 $limit \gt 0$，说明该路径上所有节点的值的和小于 $limit$，我们返回空节点，表示删除；否则，说明该路径上所有节点的值的和大于等于 $limit$，我们返回 $root$。
+如果 $\textit{root}$ 为叶子节点（即 $\textit{root}$ 的左右子节点都为空），说明我们已经走完了一条从根节点到叶子节点的路径。如果此时 $\textit{limit} \gt 0$，说明该路径上所有节点的值的和小于 $\textit{limit}$，我们返回空节点，表示删除；否则，说明该路径上所有节点的值的和大于等于 $\textit{limit}$，我们返回 $\textit{root}$。
 
-如果 $root$ 不是叶子节点，那么我们递归调用函数 $sufficientSubset$，对 $root$ 的左右子节点分别进行处理，并将返回值分别赋值给 $root$ 的左右子节点。
+如果 $\textit{root}$ 不是叶子节点，那么我们递归调用函数 $\textit{sufficientSubset}$，对 $\textit{root}$ 的左右子节点分别进行处理，并将返回值分别赋值给 $\textit{root}$ 的左右子节点。
 
-如果 $root$ 的左右子节点在经过递归调用后变成了空节点，那么说明 $root$ 的左右子树中所有从根节点到叶子节点的路径上所有节点的值的和都小于 $limit$，因此我们返回空节点，表示删除 $root$；否则，说明 $root$ 的左右子树中存在从根节点到叶子节点上所有节点值的和大于等于 $limit$ 的路径，因此我们返回 $root$。
+如果 $\textit{root}$ 的左右子节点在经过递归调用后变成了空节点，那么说明 $\textit{root}$ 的左右子树中所有从根节点到叶子节点的路径上所有节点的值的和都小于 $\textit{limit}$，因此我们返回空节点，表示删除 $\textit{root}$；否则，说明 $\textit{root}$ 的左右子树中存在从根节点到叶子节点上所有节点值的和大于等于 $\textit{limit}$ 的路径，因此我们返回 $\textit{root}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 

@@ -75,7 +75,7 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 > **Thinking**
 >
-> With $n \le 100$, find the least $i$ such that $i \bmod 10 = nums[i]$, or $-1$.
+> With $n \le 100$, find the least $i$ such that $i \bmod 10 = \textit{nums}[i]$, or $-1$.
 >
 > A single left-to-right scan is enough.
 

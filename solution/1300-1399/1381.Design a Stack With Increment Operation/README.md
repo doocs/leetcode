@@ -82,13 +82,13 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 
 <!-- thinking:end -->
 
-我们可以用一个数组 $stk$ 来模拟栈，用一个整数 $i$ 表示下一个入栈的元素位置。另外，我们还需要一个数组 $add$ 来记录每个位置上的增量累加值。
+我们可以用一个数组 $\textit{stk}$ 来模拟栈，用一个整数 $i$ 表示下一个入栈的元素位置。另外，我们还需要一个数组 $\textit{add}$ 来记录每个位置上的增量累加值。
 
-调用 $push(x)$ 时，如果 $i \lt maxSize$，我们将 $x$ 放入 $stk[i]$ 中，并将 $i$ 加一。
+调用 $\textit{push}(x)$ 时，如果 $i \lt \textit{maxSize}$，我们将 $x$ 放入 $\textit{stk}[i]$ 中，并将 $i$ 加一。
 
-调用 $pop()$ 时，如果 $i \leq 0$，说明栈为空，返回 $-1$。否则我们将 $i$ 减一，答案为 $stk[i] + add[i]$，然后我们将 $add[i - 1]$ 加上 $add[i]$，并将 $add[i]$ 清零。最后返回答案。
+调用 $\textit{pop}()$ 时，如果 $i \leq 0$，说明栈为空，返回 $-1$。否则我们将 $i$ 减一，答案为 $\textit{stk}[i] + \textit{add}[i]$，然后我们将 $\textit{add}[i - 1]$ 加上 $\textit{add}[i]$，并将 $\textit{add}[i]$ 清零。最后返回答案。
 
-调用 $increment(k, val)$ 时，如果 $i \gt 0$，我们将 $add[\min(i, k) - 1]$ 加上 $val$。
+调用 $\textit{increment}(k, \textit{val})$ 时，如果 $i \gt 0$，我们将 $\textit{add}[\min(i, k) - 1]$ 加上 $\textit{val}$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是栈的最大容量。
 

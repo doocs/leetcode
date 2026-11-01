@@ -67,17 +67,17 @@ tags:
 
 > **Thinking**
 >
-> A zero-sum stretch is two equal prefix sums. Deleting one stretch and rescanning can walk the list many times. A first pass stores the last node of each prefix sum; a second pass sets $cur.next$ to that last node's successor, dropping the middle in one go. A dummy covers a zero-sum prefix at the head.
+> A zero-sum stretch is two equal prefix sums. Deleting one stretch and rescanning can walk the list many times. A first pass stores the last node of each prefix sum; a second pass sets $\textit{cur}.\textit{next}$ to that last node's successor, dropping the middle in one go. A dummy covers a zero-sum prefix at the head.
 
 <!-- thinking:end -->
 
 If two prefix sums of the linked list are equal, it means that the sum of the continuous node sequence between the two prefix sums is $0$, so we can remove this part of the continuous nodes.
 
-We first traverse the linked list and use a hash table $last$ to record the prefix sum and the corresponding linked list node. For the same prefix sum $s$, the later node overwrites the previous node.
+We first traverse the linked list and use a hash table $\textit{last}$ to record the prefix sum and the corresponding linked list node. For the same prefix sum $s$, the later node overwrites the previous node.
 
-Next, we traverse the linked list again. If the current node $cur$ has a prefix sum $s$ that appears in $last$, it means that the sum of all nodes between $cur$ and $last[s]$ is $0$, so we directly modify the pointer of $cur$ to $last[s].next$, which removes this part of the continuous nodes with a sum of $0$. We continue to traverse and delete all continuous nodes with a sum of $0$.
+Next, we traverse the linked list again. If the current node $\textit{cur}$ has a prefix sum $s$ that appears in $\textit{last}$, it means that the sum of all nodes between $\textit{cur}$ and $\textit{last}[s]$ is $0$, so we directly modify the pointer of $\textit{cur}$ to $\textit{last}[s].\textit{next}$, which removes this part of the continuous nodes with a sum of $0$. We continue to traverse and delete all continuous nodes with a sum of $0$.
 
-Finally, we return the head node of the linked list $dummy.next$.
+Finally, we return the head node of the linked list $\textit{dummy}.\textit{next}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 

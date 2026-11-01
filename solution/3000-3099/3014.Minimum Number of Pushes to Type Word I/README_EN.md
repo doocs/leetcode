@@ -94,9 +94,9 @@ It can be shown that no other mapping can provide a lower cost.
 
 <!-- thinking:end -->
 
-We notice that all the letters in the string $word$ are different. Therefore, we can greedily distribute the letters evenly across the $8$ keys to minimize the number of key presses.
+We notice that all the letters in the string $\textit{word}$ are different. Therefore, we can greedily distribute the letters evenly across the $8$ keys to minimize the number of key presses.
 
-The time complexity is $O(n / 8)$, and the space complexity is $O(1)$, where $n$ is the length of the string $word$.
+The time complexity is $O(n / 8)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

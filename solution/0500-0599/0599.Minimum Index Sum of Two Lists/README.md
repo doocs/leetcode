@@ -84,9 +84,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\textit{d}$ 记录 $\textit{list2}$ 中的字符串和它们的下标，用一个变量 $\textit{mi}$ 记录最小的下标和。
+我们用一个哈希表 $d$ 记录 $\textit{list2}$ 中的字符串和它们的下标，用一个变量 $mi$ 记录最小的下标和。
 
-然后遍历 $\textit{list1}$，对于每个字符串 $\textit{s}$，如果 $\textit{s}$ 在 $\textit{list2}$ 中出现，那么我们计算 $\textit{s}$ 在 $\textit{list1}$ 中的下标 $\textit{i}$ 和在 $\textit{list2}$ 中的下标 $\textit{j}$，如果 $\textit{i} + \textit{j} < \textit{mi}$，我们就更新答案数组 $\textit{ans}$ 为 $\textit{s}$，并且更新 $\textit{mi}$ 为 $\textit{i} + \textit{j}$；如果 $\textit{i} + \textit{j} = \textit{mi}$，我们就将 $\textit{s}$ 加入答案数组 $\textit{ans}$。
+然后遍历 $\textit{list1}$，对于每个字符串 $s$，如果 $s$ 在 $\textit{list2}$ 中出现，那么我们计算 $s$ 在 $\textit{list1}$ 中的下标 $i$ 和在 $\textit{list2}$ 中的下标 $j$，如果 $i + j < mi$，我们就更新答案数组 $\textit{ans}$ 为 $s$，并且更新 $mi$ 为 $i + j$；如果 $i + j = mi$，我们就将 $s$ 加入答案数组 $\textit{ans}$。
 
 遍历结束后，返回答案数组 $\textit{ans}$ 即可。
 

@@ -78,12 +78,12 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root)$，该函数返回以 $root$ 为根节点的子树的所有节点值之和。函数 $dfs(root)$ 的执行过程如下：
+我们设计一个函数 $\textit{dfs}(\textit{root})$，该函数返回以 $\textit{root}$ 为根节点的子树的所有节点值之和。函数 $\textit{dfs}(\textit{root})$ 的执行过程如下：
 
-- 如果 $root$ 为空，返回 $0$；
-- 否则，我们递归地计算 $root$ 的左子树和右子树的节点值之和，记为 $l$ 和 $r$；如果 $l + r = root.val$，说明以 $root$ 为根节点的子树满足条件，我们将答案加 $1$；最后，返回 $root.val + l + r$。
+- 如果 $\textit{root}$ 为空，返回 $0$；
+- 否则，我们递归地计算 $\textit{root}$ 的左子树和右子树的节点值之和，记为 $l$ 和 $r$；如果 $l + r = \textit{root}.\textit{val}$，说明以 $\textit{root}$ 为根节点的子树满足条件，我们将答案加 $1$；最后，返回 $\textit{root}.\textit{val} + l + r$。
 
-然后我们调用函数 $dfs(root)$，返回答案即可。
+然后我们调用函数 $\textit{dfs}(\textit{root})$，返回答案即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

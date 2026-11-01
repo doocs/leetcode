@@ -72,7 +72,7 @@ trie.search(&quot;app&quot;);     // return True
 >
 > Scanning every inserted word for each prefix query repeats work on shared prefixes. Letters are lowercase, so a $26$-way tree can layer characters.
 >
-> Insertion walks (and creates) nodes and marks $isEnd$ at the last one. Prefix search follows the same path; full-word search also checks the end flag.
+> Insertion walks (and creates) nodes and marks $\textit{isEnd}$ at the last one. Prefix search follows the same path; full-word search also checks the end flag.
 
 <!-- thinking:end -->
 

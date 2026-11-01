@@ -55,11 +55,11 @@ tags:
 
 We can use dynamic programming to preprocess whether any substring in the string is a palindrome, i.e., $f[i][j]$ indicates whether the substring $s[i..j]$ is a palindrome.
 
-Next, we design a function $dfs(i)$, which represents starting from the $i$-th character of the string and partitioning it into several palindromic substrings, with the current partition scheme being $t$.
+Next, we design a function $\textit{dfs}(i)$, which represents starting from the $i$-th character of the string and partitioning it into several palindromic substrings, with the current partition scheme being $t$.
 
 If $i = |s|$, it means the partitioning is complete, and we add $t$ to the answer array and then return.
 
-Otherwise, we can start from $i$ and enumerate the end position $j$ from small to large. If $s[i..j]$ is a palindrome, we add $s[i..j]$ to $t$, then continue to recursively call $dfs(j+1)$. When backtracking, we need to pop $s[i..j]$.
+Otherwise, we can start from $i$ and enumerate the end position $j$ from small to large. If $s[i..j]$ is a palindrome, we add $s[i..j]$ to $t$, then continue to recursively call $\textit{dfs}(j+1)$. When backtracking, we need to pop $s[i..j]$.
 
 The time complexity is $O(n 2^n)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string.
 

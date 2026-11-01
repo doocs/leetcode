@@ -62,13 +62,13 @@ Thus, 101 is not a majority element because 2 &gt; 4/2 is false.
 
 > **Thinking**
 >
-> In a sorted array the count of $target$ is the gap between its left and right bounds. Two binary searches find the first $\ge target$ and the first $>target$; the gap exceeds $n/2$ iff $target$ is a majority. A linear count is unnecessary for large $n$.
+> In a sorted array the count of $\textit{target}$ is the gap between its left and right bounds. Two binary searches find the first $\ge \textit{target}$ and the first $>\textit{target}$; the gap exceeds $n/2$ iff $\textit{target}$ is a majority. A linear count is unnecessary for large $n$.
 
 <!-- thinking:end -->
 
-We notice that the elements in the array $nums$ are non-decreasing, that is, the elements in the array $nums$ are monotonically increasing. Therefore, we can use the method of binary search to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. If $right - left > \frac{n}{2}$, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
+We notice that the elements in the array $\textit{nums}$ are non-decreasing, that is, the elements in the array $\textit{nums}$ are monotonically increasing. Therefore, we can use the method of binary search to find the index $\textit{left}$ of the first element in the array $\textit{nums}$ that is greater than or equal to $\textit{target}$, and the index $\textit{right}$ of the first element in the array $\textit{nums}$ that is greater than $\textit{target}$. If $\textit{right} - \textit{left} > \frac{n}{2}$, it means that the number of occurrences of the element $\textit{target}$ in the array $\textit{nums}$ exceeds half of the length of the array, so return $\textit{true}$, otherwise return $\textit{false}$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -165,13 +165,13 @@ function isMajorityElement(nums: number[], target: number): boolean {
 
 > **Thinking**
 >
-> Method 1 runs two binary searches. If $target$ occurs more than half the time, the index $left+\lfloor n/2\rfloor$ still holds $target$. One `bisect_left` plus that probe drops the second search.
+> Method 1 runs two binary searches. If $\textit{target}$ occurs more than half the time, the index $\textit{left}+\lfloor n/2\rfloor$ still holds $\textit{target}$. One `bisect_left` plus that probe drops the second search.
 
 <!-- thinking:end -->
 
-In Solution 1, we used binary search twice to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. However, we can use binary search once to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and then judge whether $nums[left + \frac{n}{2}]$ is equal to $target$. If they are equal, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
+In Solution 1, we used binary search twice to find the index $\textit{left}$ of the first element in the array $\textit{nums}$ that is greater than or equal to $\textit{target}$, and the index $\textit{right}$ of the first element in the array $\textit{nums}$ that is greater than $\textit{target}$. However, we can use binary search once to find the index $\textit{left}$ of the first element in the array $\textit{nums}$ that is greater than or equal to $\textit{target}$, and then judge whether $\textit{nums}[\textit{left} + \frac{n}{2}]$ is equal to $\textit{target}$. If they are equal, it means that the number of occurrences of the element $\textit{target}$ in the array $\textit{nums}$ exceeds half of the length of the array, so return $\textit{true}$, otherwise return $\textit{false}$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

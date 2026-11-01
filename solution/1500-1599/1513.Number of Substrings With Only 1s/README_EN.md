@@ -69,7 +69,7 @@ tags:
 >
 > Count substrings that contain only ones. $n\le 10^5$, so we cannot list all $O(n^2)$ substrings. Runs of ones separated by zeros are independent.
 >
-> A run of length $k$ contributes $k(k+1)/2$ substrings, which is the same as maintaining the current run length $cur$: each extra $1$ increments $cur$ and adds $cur$ to the answer; a $0$ resets it. No explicit segmentation is required.
+> A run of length $k$ contributes $k(k+1)/2$ substrings, which is the same as maintaining the current run length $\textit{cur}$: each extra $1$ increments $\textit{cur}$ and adds $\textit{cur}$ to the answer; a $0$ resets it. No explicit segmentation is required.
 
 <!-- thinking:end -->
 

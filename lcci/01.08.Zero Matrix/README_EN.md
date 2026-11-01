@@ -93,7 +93,7 @@ difficulty: Medium
 >
 > Rows and columns to clear must be recorded completely before any write.
 >
-> Arrays $rows$ and $cols$ are filled on the first pass and applied on the second. Two linear scans and $O(m+n)$ extra space avoid read/write confusion.
+> Arrays $\textit{rows}$ and $\textit{cols}$ are filled on the first pass and applied on the second. Two linear scans and $O(m+n)$ extra space avoid read/write confusion.
 
 <!-- thinking:end -->
 
@@ -365,13 +365,13 @@ class Solution {
 >
 > The extra arrays in Solution 1 can be replaced by the matrix’s first row and first column as markers.
 >
-> Those two lines are both markers and data, so $i0$ and $j0$ remember whether they originally contained a zero. Other cells still take two passes: write marks, then apply them, then finish the first row and column from $i0$ and $j0$. Extra space drops to $O(1)$.
+> Those two lines are both markers and data, so $\textit{i0}$ and $\textit{j0}$ remember whether they originally contained a zero. Other cells still take two passes: write marks, then apply them, then finish the first row and column from $\textit{i0}$ and $\textit{j0}$. Extra space drops to $O(1)$.
 
 <!-- thinking:end -->
 
 In Solution 1, we used additional arrays to mark the rows and columns to be zeroed. In fact, we can directly use the first row and first column of the matrix for marking, without needing to allocate additional array space.
 
-Since the first row and first column are used for marking, their values may change due to the marking. Therefore, we need additional variables $i0$ and $j0$ to mark whether the first row and first column need to be zeroed.
+Since the first row and first column are used for marking, their values may change due to the marking. Therefore, we need additional variables $\textit{i0}$ and $\textit{j0}$ to mark whether the first row and first column need to be zeroed.
 
 The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

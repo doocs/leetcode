@@ -73,7 +73,7 @@ tags:
 
 > **Thinking**
 >
-> From $i$ we may jump into $(i,i+k]$, adding the landing value, and want the best score at the end. Naive $f[i]=nums[i]+\max_{i-k \le j < i} f[j]$ is $O(nk)$ for $n=10^5$.
+> From $i$ we may jump into $(i,i+k]$, adding the landing value, and want the best score at the end. Naive $f[i]=\textit{nums}[i]+\max_{i-k \le j < i} f[j]$ is $O(nk)$ for $n=10^5$.
 >
 > A decreasing deque of indices holds the window maximum: $f[q[0]]$ is the best predecessor; the back drops worse $f$ values and the front drops indices that left the window.
 
@@ -84,10 +84,10 @@ We define $f[i]$ as the maximum score when reaching index $i$. The value of $f[i
 The state transition equation is:
 
 $$
-f[i] = \max_{j \in [i - k, i - 1]} f[j] + nums[i]
+f[i] = \max_{j \in [i - k, i - 1]} f[j] + \textit{nums}[i]
 $$
 
-We can use a monotonic queue to optimize the state transition equation. Specifically, we maintain a monotonically decreasing queue, which stores the index $j$, and the $f[j]$ values corresponding to the indices in the queue are monotonically decreasing. When performing state transition, we only need to take out the index $j$ at the front of the queue to get the maximum value of $f[j]$, and then update the value of $f[i]$ to $f[j] + nums[i]$.
+We can use a monotonic queue to optimize the state transition equation. Specifically, we maintain a monotonically decreasing queue, which stores the index $j$, and the $f[j]$ values corresponding to the indices in the queue are monotonically decreasing. When performing state transition, we only need to take out the index $j$ at the front of the queue to get the maximum value of $f[j]$, and then update the value of $f[i]$ to $f[j] + \textit{nums}[i]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

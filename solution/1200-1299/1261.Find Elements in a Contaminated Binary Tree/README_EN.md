@@ -110,9 +110,9 @@ findElements.find(5); // return True
 
 > **Thinking**
 >
-> After contamination every value is $-1$, but children still obey $left=2x+1$ and $right=2x+2$ with root $0$. $find$ may run $10^4$ times, so we should not recompute a root-to-node path each query.
+> After contamination every value is $-1$, but children still obey $\textit{left}=2x+1$ and $\textit{right}=2x+2$ with root $0$. $\textit{find}$ may run $10^4$ times, so we should not recompute a root-to-node path each query.
 >
-> Construction DFS restores every value into a hash set; $find$ is a set lookup. One traversal buys constant-time queries.
+> Construction DFS restores every value into a hash set; $\textit{find}$ is a set lookup. One traversal buys constant-time queries.
 
 <!-- thinking:end -->
 

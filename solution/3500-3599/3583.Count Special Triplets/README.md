@@ -123,7 +123,7 @@ tags:
 
 > **思考**
 >
-> 特殊三元组满足 $nums[i]=nums[k]=2\cdot nums[j]$。枚举两端为 $O(n^2)$；改为枚举中间 $j$，左右 $2x$ 的出现次数之积即贡献。
+> 特殊三元组满足 $\textit{nums}[i]=\textit{nums}[k]=2\cdot \textit{nums}[j]$。枚举两端为 $O(n^2)$；改为枚举中间 $j$，左右 $2x$ 的出现次数之积即贡献。
 >
 > 先把全体计入 $\textit{right}$，从左扫 $x$：先从右侧减去当前，累加 $\textit{left}[2x]\cdot\textit{right}[2x]$，再把 $x$ 加入左侧。模 $10^9+7$。
 

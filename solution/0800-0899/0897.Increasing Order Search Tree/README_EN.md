@@ -62,11 +62,11 @@ tags:
 
 <!-- thinking:end -->
 
-We define a virtual node $dummy$, initially the right child of $dummy$ points to the root node $root$, and a pointer $prev$ points to $dummy$.
+We define a virtual node $\textit{dummy}$, initially the right child of $\textit{dummy}$ points to the root node $\textit{root}$, and a pointer $\textit{prev}$ points to $\textit{dummy}$.
 
-We perform an in-order traversal on the binary search tree. During the traversal, each time we visit a node, we point the right child of $prev$ to it, then set the left child of the current node to null, and assign the current node to $prev$ for the next traversal.
+We perform an in-order traversal on the binary search tree. During the traversal, each time we visit a node, we point the right child of $\textit{prev}$ to it, then set the left child of the current node to null, and assign the current node to $\textit{prev}$ for the next traversal.
 
-After the traversal ends, the original binary search tree is modified into a singly linked list with only right child nodes. We then return the right child of the virtual node $dummy$.
+After the traversal ends, the original binary search tree is modified into a singly linked list with only right child nodes. We then return the right child of the virtual node $\textit{dummy}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 

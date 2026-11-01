@@ -91,11 +91,11 @@ Return true because Alice wins.
 
 > **Thinking**
 >
-> A Fibonacci tree is built from $order(n-2)$ and $order(n-1)$; the node count grows exponentially, so materializing the tree is impossible. With $n \le 100$ we only need a first-player win test.
+> A Fibonacci tree is built from $\textit{order}(n-2)$ and $\textit{order}(n-1)$; the node count grows exponentially, so materializing the tree is impossible. With $n \le 100$ we only need a first-player win test.
 >
 > Removing a node and its subtree is a subtraction game on independent subtrees. The Grundy numbers of the two children decide whether the root is an $N$-position.
 >
-> Recur on $order(n)$: empty and singleton trees are losing; for $n \ge 2$ the xor (or an equivalent parity rule) of the children yields the winner. The code tabs are empty, so the write-up follows this game-theoretic reduction.
+> Recur on $\textit{order}(n)$: empty and singleton trees are losing; for $n \ge 2$ the xor (or an equivalent parity rule) of the children yields the winner. The code tabs are empty, so the write-up follows this game-theoretic reduction.
 
 <!-- thinking:end -->
 

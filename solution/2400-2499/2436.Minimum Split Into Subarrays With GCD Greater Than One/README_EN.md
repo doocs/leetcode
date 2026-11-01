@@ -80,13 +80,13 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 >
 > Each piece needs GCD greater than $1$, and we want as few pieces as possible, so extend a piece until the GCD would become $1$.
 >
-> Keep the running GCD $g$. When $gcd(g,x)=1$, start a new piece at $x$. Cutting later cannot help: adding more elements only shrinks the GCD.
+> Keep the running GCD $g$. When $\gcd(g,x)=1$, start a new piece at $x$. Cutting later cannot help: adding more elements only shrinks the GCD.
 
 <!-- thinking:end -->
 
 For each element in the array, if its greatest common divisor (gcd) with the previous element is $1$, then it needs to be the first element of a new subarray. Otherwise, it can be placed in the same subarray with the previous elements.
 
-Therefore, we first initialize a variable $g$, representing the gcd of the current subarray. Initially, $g=0$ and the answer variable $ans=1$.
+Therefore, we first initialize a variable $g$, representing the gcd of the current subarray. Initially, $g=0$ and the answer variable $\textit{ans}=1$.
 
 Next, we traverse the array from front to back, maintaining the gcd $g$ of the current subarray. If the gcd of the current element $x$ and $g$ is $1$, then we need to make the current element the first element of a new subarray. Therefore, the answer increases by $1$, and $g$ is updated to $x$. Otherwise, the current element can be placed in the same subarray with the previous elements. Continue to traverse the array until the traversal ends.
 

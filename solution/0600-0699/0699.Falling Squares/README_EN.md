@@ -81,7 +81,7 @@ Note that square 2 only brushes the right side of square 1, which does not count
 
 According to the problem description, we need to maintain a set of intervals that support modification and query operations. In this case, we can use a segment tree to solve the problem.
 
-A segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(width)$, where $width$ is the length of the interval. To update the value of an element, we only need to update $\log(width)$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.
+A segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(\textit{width})$, where $\textit{width}$ is the length of the interval. To update the value of an element, we only need to update $\log(\textit{width})$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.
 
 - Each node of the segment tree represents an interval;
 - The segment tree has a unique root node representing the entire statistical range, such as $[1, n]$;
@@ -91,7 +91,7 @@ A segment tree divides the entire interval into multiple non-contiguous sub-inte
 For this problem, the information maintained by the segment tree nodes includes:
 
 1. The maximum height $v$ of the blocks in the interval
-2. Lazy propagation marker $add$
+2. Lazy propagation marker $\textit{add}$
 
 Additionally, since the range of the number line is very large, up to $10^8$, we use dynamic node creation.
 

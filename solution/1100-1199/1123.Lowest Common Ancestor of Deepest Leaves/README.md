@@ -90,12 +90,12 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root)$，它将返回一个二元组 $(l, d)$，其中 $l$ 是节点 $root$ 的最深公共祖先，而 $d$ 是节点 $root$ 的深度。函数 $dfs(root)$ 的执行逻辑如下：
+我们设计一个函数 $\textit{dfs}(\textit{root})$，它将返回一个二元组 $(l, d)$，其中 $l$ 是节点 $\textit{root}$ 的最深公共祖先，而 $d$ 是节点 $\textit{root}$ 的深度。函数 $\textit{dfs}(\textit{root})$ 的执行逻辑如下：
 
-- 如果 $root$ 为空，则返回二元组 $(None, 0)$；
-- 否则，我们递归调用 $dfs(root.left)$ 和 $dfs(root.right)$，得到二元组 $(l, d_1)$ 和 $(r, d_2)$。如果 $d_1 \gt d_2$，则 $root$ 的最深公共祖先节点为 $l$，深度为 $d_1 + 1$；如果 $d_1 \lt d_2$，则 $root$ 的最深公共祖先节点为 $r$，深度为 $d_2 + 1$；如果 $d_1 = d_2$，则 $root$ 的最深公共祖先节点为 $root$，深度为 $d_1 + 1$。
+- 如果 $\textit{root}$ 为空，则返回二元组 $(\textit{None}, 0)$；
+- 否则，我们递归调用 $\textit{dfs}(\textit{root}.\textit{left})$ 和 $\textit{dfs}(\textit{root}.\textit{right})$，得到二元组 $(l, d_1)$ 和 $(r, d_2)$。如果 $d_1 \gt d_2$，则 $\textit{root}$ 的最深公共祖先节点为 $l$，深度为 $d_1 + 1$；如果 $d_1 \lt d_2$，则 $\textit{root}$ 的最深公共祖先节点为 $r$，深度为 $d_2 + 1$；如果 $d_1 = d_2$，则 $\textit{root}$ 的最深公共祖先节点为 $\textit{root}$，深度为 $d_1 + 1$。
 
-我们在主函数中调用 $dfs(root)$，并返回其返回值的第一个元素，即可得到最深公共祖先节点。
+我们在主函数中调用 $\textit{dfs}(\textit{root})$，并返回其返回值的第一个元素，即可得到最深公共祖先节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

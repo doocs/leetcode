@@ -128,21 +128,21 @@ tags:
 >
 > 曼哈顿距离在平面上由最终的主导象限决定。把目标象限固定为四种对角方向之一后，朝该象限的步直接加一，其它步优先用改写次数变成加一，用尽则减一。
 >
-> 对 $\textit{SE}/\textit{SW}/\textit{NE}/\textit{NW}$ 各跑一遍贪心，取过程中 $\textit{mx}$ 的最大值。
+> 对 $\textit{SE}/\textit{SW}/\textit{NE}/\textit{NW}$ 各跑一遍贪心，取过程中 $mx$ 的最大值。
 
 <!-- thinking:end -->
 
 我们可以枚举四种情况，分别为 $\textit{SE}$, $\textit{SW}$, $\textit{NE}$, $\textit{NW}$，然后计算每种情况下的最大曼哈顿距离。
 
-我们定义一个函数 $\text{calc}(a, b)$，用于计算最终生效方向为 $\textit{a}$ 和 $\textit{b}$ 时的最大曼哈顿距离。
+我们定义一个函数 $\textit{calc}(a, b)$，用于计算最终生效方向为 $a$ 和 $b$ 时的最大曼哈顿距离。
 
-我们定义变量 $\textit{mx}$ 用于记录当前的曼哈顿距离，定义 $\textit{cnt}$ 用于记录已经修改的次数，答案 $\textit{ans}$ 初始化为 $0$。
+我们定义变量 $mx$ 用于记录当前的曼哈顿距离，定义 $\textit{cnt}$ 用于记录已经修改的次数，答案 $\textit{ans}$ 初始化为 $0$。
 
-遍历字符串 $\textit{s}$，如果当前字符为 $\textit{a}$ 或 $\textit{b}$，则 $\textit{mx}$ 加 $1$，否则如果 $\textit{cnt} < k$，则 $\textit{mx}$ 加 $1$，而 $\textit{cnt}$ 加 $1$，否则 $\textit{mx}$ 减 $1$。然后更新 $\textit{ans} = \max(\textit{ans}, \textit{mx})$。
+遍历字符串 $s$，如果当前字符为 $a$ 或 $b$，则 $mx$ 加 $1$，否则如果 $\textit{cnt} < k$，则 $mx$ 加 $1$，而 $\textit{cnt}$ 加 $1$，否则 $mx$ 减 $1$。然后更新 $\textit{ans} = \max(\textit{ans}, mx)$。
 
 最后返回四种情况下的最大值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{s}$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 

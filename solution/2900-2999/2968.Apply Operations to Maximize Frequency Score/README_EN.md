@@ -84,31 +84,31 @@ It can be shown that we cannot achieve a better score.
 
 <!-- thinking:end -->
 
-The problem asks for the maximum frequency of the mode we can get after performing at most $k$ operations. If we sort the array $nums$ in ascending order, it would be best to turn a continuous segment of numbers into the same number, which can reduce the number of operations and increase the frequency of the mode.
+The problem asks for the maximum frequency of the mode we can get after performing at most $k$ operations. If we sort the array $\textit{nums}$ in ascending order, it would be best to turn a continuous segment of numbers into the same number, which can reduce the number of operations and increase the frequency of the mode.
 
-Therefore, we might as well sort the array $nums$ first.
+Therefore, we might as well sort the array $\textit{nums}$ first.
 
 Next, we analyze that if a frequency $x$ is feasible, then for any $y \le x$, the frequency $y$ is also feasible, which shows monotonicity. Therefore, we can use binary search to find the maximum feasible frequency.
 
-We binary search the frequency, define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$, where $n$ is the length of the array. In each binary search process, we take the middle value $mid = \lfloor \frac{l + r + 1}{2} \rfloor$, and then determine whether there exists a continuous subarray of length $mid$ in $nums$, such that all elements in this subarray become the median of this subarray, and the number of operations does not exceed $k$. If it exists, then we update the left boundary $l$ to $mid$, otherwise we update the right boundary $r$ to $mid - 1$.
+We binary search the frequency, define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$, where $n$ is the length of the array. In each binary search process, we take the middle value $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$, and then determine whether there exists a continuous subarray of length $\textit{mid}$ in $\textit{nums}$, such that all elements in this subarray become the median of this subarray, and the number of operations does not exceed $k$. If it exists, then we update the left boundary $l$ to $\textit{mid}$, otherwise we update the right boundary $r$ to $\textit{mid} - 1$.
 
-To determine whether such a subarray exists, we can use prefix sum. We first define two pointers $i$ and $j$, initially $i = 0$, $j = i + mid$. Then all elements from $nums[i]$ to $nums[j - 1]$ are changed to $nums[(i + j) / 2]$, and the number of operations required is $left + right$, where:
+To determine whether such a subarray exists, we can use prefix sum. We first define two pointers $i$ and $j$, initially $i = 0$, $j = i + \textit{mid}$. Then all elements from $\textit{nums}[i]$ to $\textit{nums}[j - 1]$ are changed to $\textit{nums}[(i + j) / 2]$, and the number of operations required is $\textit{left} + \textit{right}$, where:
 
 $$
 \begin{aligned}
-\textit{left} &= \sum_{k = i}^{(i + j) / 2 - 1} (nums[(i + j) / 2] - nums[k]) \\
-&= ((i + j) / 2 - i) \times nums[(i + j) / 2] - \sum_{k = i}^{(i + j) / 2 - 1} nums[k]
+\textit{left} &= \sum_{k = i}^{(i + j) / 2 - 1} (\textit{nums}[(i + j) / 2] - \textit{nums}[k]) \\
+&= ((i + j) / 2 - i) \times \textit{nums}[(i + j) / 2] - \sum_{k = i}^{(i + j) / 2 - 1} \textit{nums}[k]
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\textit{right} &= \sum_{k = (i + j) / 2 + 1}^{j} (nums[k] - nums[(i + j) / 2]) \\
-&= \sum_{k = (i + j) / 2 + 1}^{j} nums[k] - (j - (i + j) / 2) \times nums[(i + j) / 2]
+\textit{right} &= \sum_{k = (i + j) / 2 + 1}^{j} (\textit{nums}[k] - \textit{nums}[(i + j) / 2]) \\
+&= \sum_{k = (i + j) / 2 + 1}^{j} \textit{nums}[k] - (j - (i + j) / 2) \times \textit{nums}[(i + j) / 2]
 \end{aligned}
 $$
 
-We can use the prefix sum array $s$ to calculate $\sum_{k = i}^{j} nums[k]$, so as to calculate $left$ and $right$ in $O(1)$ time.
+We can use the prefix sum array $s$ to calculate $\sum_{k = i}^{j} \textit{nums}[k]$, so as to calculate $\textit{left}$ and $\textit{right}$ in $O(1)$ time.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

@@ -70,7 +70,7 @@ The maximum working time is 11.</pre>
 >
 > Abandon a branch once the current max load is already no better than the recorded answer. Assigning longer jobs first triggers that prune sooner.
 >
-> Sort $jobs$ descending and DFS into each worker, then undo. If a worker is still empty, skip later empty workers to cut symmetric assignments.
+> Sort $\textit{jobs}$ descending and DFS into each worker, then undo. If a worker is still empty, skip later empty workers to cut symmetric assignments.
 
 <!-- thinking:end -->
 

@@ -74,7 +74,7 @@ Now sum of nums1 = 4. It can be shown that these operations are optimal, so we r
 
 > **Thinking**
 >
-> Operating on the same index more than once only the last time matters, so at most $n$ operations occur. The $j$-th operation on index $i$ reduces the sum by $nums_1[i]+nums_2[i]\cdot j$; to maximize the reduction, larger $nums_2$ should be operated later. After sorting by $nums_2$, $f[i][j]$ is the best reduction using the first $i$ values with $j$ operations, and we take the smallest $j$ whose remaining sum is at most $x$.
+> Operating on the same index more than once only the last time matters, so at most $n$ operations occur. The $j$-th operation on index $i$ reduces the sum by $\textit{nums}_1[i]+\textit{nums}_2[i]\cdot j$; to maximize the reduction, larger $\textit{nums}_2$ should be operated later. After sorting by $\textit{nums}_2$, $f[i][j]$ is the best reduction using the first $i$ values with $j$ operations, and we take the smallest $j$ whose remaining sum is at most $x$.
 
 <!-- thinking:end -->
 
@@ -84,19 +84,19 @@ Let's assume that we have performed $j$ operations, and the indices of the numbe
 
 $$
 \begin{aligned}
-& d_1 = nums_1[i_1] + nums_2[i_1] \times 1 \\
-& d_2 = nums_1[i_2] + nums_2[i_2] \times 2 \\
+& d_1 = \textit{nums}_1[i_1] + \textit{nums}_2[i_1] \times 1 \\
+& d_2 = \textit{nums}_1[i_2] + \textit{nums}_2[i_2] \times 2 \\
 & \cdots \\
-& d_j = nums_1[i_j] + nums_2[i_j] \times j
+& d_j = \textit{nums}_1[i_j] + \textit{nums}_2[i_j] \times j
 \end{aligned}
 $$
 
-From a greedy perspective, in order to maximize the reduction of the sum of array elements, we should let the larger elements in $nums_2$ be operated on as late as possible. Therefore, we can sort $nums_1$ and $nums_2$ in ascending order of the element values in $nums_2$.
+From a greedy perspective, in order to maximize the reduction of the sum of array elements, we should let the larger elements in $\textit{nums}_2$ be operated on as late as possible. Therefore, we can sort $\textit{nums}_1$ and $\textit{nums}_2$ in ascending order of the element values in $\textit{nums}_2$.
 
-Next, we consider the implementation of dynamic programming. We use $f[i][j]$ to represent the maximum value that can reduce the sum of array elements for the first $i$ elements of the array $nums_1$ with $j$ operations. We can get the following state transition equation:
+Next, we consider the implementation of dynamic programming. We use $f[i][j]$ to represent the maximum value that can reduce the sum of array elements for the first $i$ elements of the array $\textit{nums}_1$ with $j$ operations. We can get the following state transition equation:
 
 $$
-f[i][j] = \max \{f[i-1][j], f[i-1][j-1] + nums_1[i] + nums_2[i] \times j\}
+f[i][j] = \max \{f[i-1][j], f[i-1][j-1] + \textit{nums}_1[i] + \textit{nums}_2[i] \times j\}
 $$
 
 Finally, we enumerate $j$ and find the smallest $j$ that satisfies $s_1 + s_2 \times j - f[n][j] \le x$.

@@ -79,7 +79,7 @@ Of these, [4,5,2,3] is the largest.</pre>
 >
 > Among subarrays of length $k$, the lexicographically largest is decided by its first element, since all values are distinct.
 >
-> Valid starts lie in $[0,n-k]$. Take the index $i$ of the maximum in that range; the answer is $nums[i..i+k)$. One scan suffices.
+> Valid starts lie in $[0,n-k]$. Take the index $i$ of the maximum in that range; the answer is $\textit{nums}[i..i+k)$. One scan suffices.
 
 <!-- thinking:end -->
 

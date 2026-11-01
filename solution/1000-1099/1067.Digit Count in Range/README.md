@@ -72,22 +72,22 @@ tags:
 对于区间 $[l,..r]$ 问题，我们一般会将其转化为 $[1,..r]$ 然后再减去 $[1,..l - 1]$ 的问题，即：
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 这里我们用记忆化搜索来实现数位 DP。从起点向下搜索，到最底层得到方案数，一层层向上返回答案并累加，最后从搜索起点得到最终的答案。
 
 基本步骤如下：
 
-1. 将数字 $n$ 转为 int 数组 $a$，其中 $a[1]$ 为最低位，而 $a[len]$ 为最高位；
-1. 根据题目信息，设计函数 $dfs()$，对于本题，我们定义 $dfs(pos, cnt, lead, limit)$，答案为 $dfs(len, 0, true, true)$。
+1. 将数字 $n$ 转为 int 数组 $a$，其中 $a[1]$ 为最低位，而 $a[\textit{len}]$ 为最高位；
+1. 根据题目信息，设计函数 $\textit{dfs}()$，对于本题，我们定义 $\textit{dfs}(\textit{pos}, \textit{cnt}, \textit{lead}, \textit{limit})$，答案为 $\textit{dfs}(\textit{len}, 0, \textit{true}, \textit{true})$。
 
 其中：
 
 - `pos` 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此，`pos` 的初始值为 `len`；
 - `cnt` 表示当前数字中包含 $d$ 的个数；
 - `lead` 表示当前数字是否有前导零，如果有前导零，则 `lead` 为 `true`，否则为 `false`，初始化为 `true`；
-- `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1,..9]$，否则，只能选择 $[0,..a[pos]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
+- `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1,..9]$，否则，只能选择 $[0,..a[\textit{pos}]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
 
 关于函数的实现细节，可以参考下面的代码。
 

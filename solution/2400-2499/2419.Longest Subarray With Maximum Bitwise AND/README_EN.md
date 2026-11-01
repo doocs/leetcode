@@ -74,9 +74,9 @@ The longest subarray with that value is [4], so we return 1.
 
 > **Thinking**
 >
-> Bitwise AND never increases a value, so the maximum AND of any subarray is the global maximum $\textit{mx}$. A subarray AND equals $\textit{mx}$ iff every element is $\textit{mx}$.
+> Bitwise AND never increases a value, so the maximum AND of any subarray is the global maximum $mx$. A subarray AND equals $mx$ iff every element is $mx$.
 >
-> The task is the longest run of $\textit{mx}$. Find the maximum, then scan once for its longest streak.
+> The task is the longest run of $mx$. Find the maximum, then scan once for its longest streak.
 
 <!-- thinking:end -->
 
@@ -84,7 +84,7 @@ Since the bitwise AND operation does not increase the number, the maximum value 
 
 The problem can be converted to finding the maximum number of consecutive occurrences of the maximum value in the array.
 
-First, traverse the array $\textit{nums}$ to find the maximum value $\textit{mx}$, then traverse the array again to find the maximum number of consecutive occurrences of the maximum value. Finally, return this count.
+First, traverse the array $\textit{nums}$ to find the maximum value $mx$, then traverse the array again to find the maximum number of consecutive occurrences of the maximum value. Finally, return this count.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 

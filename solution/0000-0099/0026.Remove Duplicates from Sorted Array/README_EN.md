@@ -92,9 +92,9 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 We use a variable $k$ to record the current length of the processed array. Initially, $k=0$ represents an empty array.
 
-Then we traverse the array from left to right. For each element $x$ we encounter, if $k=0$ or $x \neq nums[k-1]$, we place $x$ in the position of $nums[k]$, and then increment $k$ by $1$. Otherwise, $x$ is the same as $nums[k-1]$, so we skip this element. Continue to traverse until the entire array is traversed.
+Then we traverse the array from left to right. For each element $x$ we encounter, if $k=0$ or $x \neq \textit{nums}[k-1]$, we place $x$ in the position of $\textit{nums}[k]$, and then increment $k$ by $1$. Otherwise, $x$ is the same as $\textit{nums}[k-1]$, so we skip this element. Continue to traverse until the entire array is traversed.
 
-In this way, when the traversal ends, the first $k$ elements in $nums$ are the answer we are looking for, and $k$ is the length of the answer.
+In this way, when the traversal ends, the first $k$ elements in $\textit{nums}$ are the answer we are looking for, and $k$ is the length of the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

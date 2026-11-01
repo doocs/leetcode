@@ -103,7 +103,7 @@ tags:
 
 We can enumerate all subarrays and maintain a counter $\textit{cnt}$ to record the number of times $\textit{target}$ appears in the subarray, then determine whether $\textit{target}$ is the majority element of that subarray.
 
-Specifically, we enumerate the starting position $i$ of the subarray in the range $[0, n-1]$, then enumerate the ending position $j$ in the range $[i, n-1]$. For each subarray $nums[i..j]$, we update the counter $\textit{cnt}$. If $\textit{cnt} \times 2 > j - i + 1$, it means $\textit{target}$ is the majority element of this subarray, and we increment the answer by $1$.
+Specifically, we enumerate the starting position $i$ of the subarray in the range $[0, n-1]$, then enumerate the ending position $j$ in the range $[i, n-1]$. For each subarray $\textit{nums}[i..j]$, we update the counter $\textit{cnt}$. If $\textit{cnt} \times 2 > j - i + 1$, it means $\textit{target}$ is the majority element of this subarray, and we increment the answer by $1$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

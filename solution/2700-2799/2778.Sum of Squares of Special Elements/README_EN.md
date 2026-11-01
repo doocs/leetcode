@@ -65,7 +65,7 @@ Hence, the sum of the squares of all special elements of nums is nums[1] * nums[
 >
 > A special element is one whose $1$-based index divides $n$; we want the sum of their squares. Collecting the indices first is unnecessary.
 >
-> Enumerate $i=1..n$ and add $nums[i-1]^2$ whenever $n\bmod i=0$.
+> Enumerate $i=1..n$ and add $\textit{nums}[i-1]^2$ whenever $n\bmod i=0$.
 
 <!-- thinking:end -->
 

@@ -212,17 +212,17 @@ class Solution {
 
 <!-- thinking:end -->
 
-我们设 $Tib(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$，其中 $T_n$, $T_{n - 1}$ 和 $T_{n - 2}$ 分别表示第 $n$ 个、第 $n - 1$ 个和第 $n - 2$ 个泰波那契数。
+我们设 $\textit{Tib}(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$，其中 $T_n$, $T_{n - 1}$ 和 $T_{n - 2}$ 分别表示第 $n$ 个、第 $n - 1$ 个和第 $n - 2$ 个泰波那契数。
 
-我们希望根据 $Tib(n-1) = \begin{bmatrix} T_{n - 1} & T_{n - 2} & T_{n - 3} \end{bmatrix}$ 推出 $Tib(n)$。也即是说，我们需要一个矩阵 $base$，使得 $Tib(n - 1) \times base = Tib(n)$，即：
+我们希望根据 $\textit{Tib}(n-1) = \begin{bmatrix} T_{n - 1} & T_{n - 2} & T_{n - 3} \end{bmatrix}$ 推出 $\textit{Tib}(n)$。也即是说，我们需要一个矩阵 $\textit{base}$，使得 $\textit{Tib}(n - 1) \times \textit{base} = \textit{Tib}(n)$，即：
 
 $$
 \begin{bmatrix}
 T_{n - 1} & T_{n - 2} & T_{n - 3}
-\end{bmatrix} \times base = \begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}
+\end{bmatrix} \times \textit{base} = \begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}
 $$
 
-由于 $T_n = T_{n - 1} + T_{n - 2} + T_{n - 3}$，所以矩阵 $base$ 为：
+由于 $T_n = T_{n - 1} + T_{n - 2} + T_{n - 3}$，所以矩阵 $\textit{base}$ 为：
 
 $$
 \begin{bmatrix}
@@ -232,7 +232,7 @@ $$
 \end{bmatrix}
 $$
 
-我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$，那么 $T_n$ 等于 $res$ 乘以 $base^{n - 3}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
+我们定义初始矩阵 $\textit{res} = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$，那么 $T_n$ 等于 $\textit{res}$ 乘以 $\textit{base}^{n - 3}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 

@@ -64,7 +64,7 @@ tags:
 >
 > The $k$ pairs of smallest sums from two sorted arrays. Sorting all pairs is $O(mn \log(mn))$. For fixed $i$, increasing $j$ increases the sum, so a heap pops the current minimum and only advances $j$.
 >
-> Push $(nums1[i]+nums2[0], i, 0)$ for $i<k$. Each pop, if $j+1$ exists, pushes the next column of the same $i$. At most $k$ pops.
+> Push $(\textit{nums1}[i]+\textit{nums2}[0], i, 0)$ for $i<k$. Each pop, if $j+1$ exists, pushes the next column of the same $i$. At most $k$ pops.
 
 <!-- thinking:end -->
 

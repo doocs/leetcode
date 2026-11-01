@@ -130,13 +130,13 @@ tags:
 
 转移时枚举满足 $j \leq i - k$ 的前驱下标 $j$：
 
-- 状态 $f[i][0]$（谷）：由 $f[j][1]$ 转移，需要 $\text{nums}[j] > \text{nums}[i]$，即查询值域 $(\text{nums}[i],\ +\infty)$ 上 $f[\cdot][1]$ 的最大值：
+- 状态 $f[i][0]$（谷）：由 $f[j][1]$ 转移，需要 $\textit{nums}[j] > \textit{nums}[i]$，即查询值域 $(\textit{nums}[i],\ +\infty)$ 上 $f[\cdot][1]$ 的最大值：
 
-$$f[i][0] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text{nums}[j] > \text{nums}[i]}} f[j][1]\right)$$
+$$f[i][0] = \textit{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \textit{nums}[j] > \textit{nums}[i]}} f[j][1]\right)$$
 
-- 状态 $f[i][1]$（峰）：由 $f[j][0]$ 转移，需要 $\text{nums}[j] < \text{nums}[i]$，即查询值域 $[1,\ \text{nums}[i]-1]$ 上 $f[\cdot][0]$ 的最大值：
+- 状态 $f[i][1]$（峰）：由 $f[j][0]$ 转移，需要 $\textit{nums}[j] < \textit{nums}[i]$，即查询值域 $[1,\ \textit{nums}[i]-1]$ 上 $f[\cdot][0]$ 的最大值：
 
-$$f[i][1] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text{nums}[j] < \text{nums}[i]}} f[j][0]\right)$$
+$$f[i][1] = \textit{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \textit{nums}[j] < \textit{nums}[i]}} f[j][0]\right)$$
 
 最终答案为 $\max_{0 \leq i < n}\max(f[i][0],\ f[i][1])$。
 
@@ -144,8 +144,8 @@ $$f[i][1] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text
 
 上述转移涉及动态的值域前缀/后缀最大值查询，可以用两棵**树状数组**维护：
 
-- 树状数组 $\text{bit}_0$：以值为下标，维护 $f[\cdot][0]$ 的前缀最大值，用于查询 $\text{nums}[j] < \text{nums}[i]$ 的情况。
-- 树状数组 $\text{bit}_1$：以 $m + 1 - \textit{rank}$（ $m$ 为不同值个数）为倒置下标，维护 $f[\cdot][1]$ 的前缀最大值，等价于值域上的后缀最大值，用于查询 $\text{nums}[j] > \text{nums}[i]$ 的情况。
+- 树状数组 $\textit{bit}_0$：以值为下标，维护 $f[\cdot][0]$ 的前缀最大值，用于查询 $\textit{nums}[j] < \textit{nums}[i]$ 的情况。
+- 树状数组 $\textit{bit}_1$：以 $m + 1 - \textit{rank}$（ $m$ 为不同值个数）为倒置下标，维护 $f[\cdot][1]$ 的前缀最大值，等价于值域上的后缀最大值，用于查询 $\textit{nums}[j] > \textit{nums}[i]$ 的情况。
 
 为了保证只有 $j \leq i - k$ 的下标才能参与转移，在处理第 $i$ 个元素时，先将第 $i - k$ 个元素的状态加入树状数组，再查询。
 

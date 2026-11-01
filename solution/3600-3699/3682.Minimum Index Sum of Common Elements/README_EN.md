@@ -99,9 +99,9 @@ tags:
 
 <!-- thinking:end -->
 
-We initialize a variable $\textit{ans}$ as infinity, representing the current minimum index sum, and use a hash map $\textit{d}$ to store the first occurrence index of each element in array $\textit{nums2}$.
+We initialize a variable $\textit{ans}$ as infinity, representing the current minimum index sum, and use a hash map $d$ to store the first occurrence index of each element in array $\textit{nums2}$.
 
-Then we iterate through array $\textit{nums1}$. For each element $\textit{nums1}[i]$, if it exists in $\textit{d}$, we calculate the index sum $i + \textit{d}[\textit{nums1}[i]]$ and update $\textit{ans}$.
+Then we iterate through array $\textit{nums1}$. For each element $\textit{nums1}[i]$, if it exists in $d$, we calculate the index sum $i + d[\textit{nums1}[i]]$ and update $\textit{ans}$.
 
 Finally, if $\textit{ans}$ is still infinity, it means no common element was found, so we return -1; otherwise, we return $\textit{ans}$.
 

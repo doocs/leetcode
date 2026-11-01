@@ -84,13 +84,13 @@ It can be shown that the maximum length achievable is 1.
 
 We notice that if there exists a special substring of length $x$ that appears at least three times, then a special substring of length $x-1$ must also exist. This exhibits a monotonicity, so we can use binary search to find the longest special substring.
 
-We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n$, where $n$ is the length of the string. In each binary search, we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If a special substring of length $mid$ exists, we update the left boundary to $mid$. Otherwise, we update the right boundary to $mid - 1$. During the binary search, we use a sliding window to count the number of special substrings.
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n$, where $n$ is the length of the string. In each binary search, we take $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$. If a special substring of length $\textit{mid}$ exists, we update the left boundary to $\textit{mid}$. Otherwise, we update the right boundary to $\textit{mid} - 1$. During the binary search, we use a sliding window to count the number of special substrings.
 
-Specifically, we design a function $check(x)$ to indicate whether a special substring of length $x$ that appears at least three times exists.
+Specifically, we design a function $\textit{check}(x)$ to indicate whether a special substring of length $x$ that appears at least three times exists.
 
-In the function $check(x)$, we define a hash table or an array of length $26$ named $cnt$, where $cnt[i]$ represents the count of special substrings of length $x$ composed of the $i$-th lowercase letter. We traverse the string $s$. If the current character is $s[i]$, we move the pointer $j$ to the right until $s[j] \neq s[i]$. At this point, $s[i \cdots j-1]$ is a special substring of length $x$. We increase $cnt[s[i]]$ by $\max(0, j - i - x + 1)$, and then update the pointer $i$ to $j$.
+In the function $\textit{check}(x)$, we define a hash table or an array of length $26$ named $\textit{cnt}$, where $\textit{cnt}[i]$ represents the count of special substrings of length $x$ composed of the $i$-th lowercase letter. We traverse the string $s$. If the current character is $s[i]$, we move the pointer $j$ to the right until $s[j] \neq s[i]$. At this point, $s[i \cdots j-1]$ is a special substring of length $x$. We increase $\textit{cnt}[s[i]]$ by $\max(0, j - i - x + 1)$, and then update the pointer $i$ to $j$.
 
-After the traversal, we go through the array $cnt$. If there exists $cnt[i] \geq 3$, it means a special substring of length $x$ that appears at least three times exists, so we return $true$. Otherwise, we return $false$.
+After the traversal, we go through the array $\textit{cnt}$. If there exists $\textit{cnt}[i] \geq 3$, it means a special substring of length $x$ that appears at least three times exists, so we return $\textit{true}$. Otherwise, we return $\textit{false}$.
 
 The time complexity is $O((n + |\Sigma|) \log n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 

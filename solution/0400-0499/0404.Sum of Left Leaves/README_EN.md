@@ -66,7 +66,7 @@ tags:
 
 First, we check if `root` is null. If it is, we return $0$.
 
-Otherwise, we recursively call the `sumOfLeftLeaves` function to calculate the sum of all left leaves in `root`'s right subtree, and assign the result to the answer variable $ans$. Then we check if `root`'s left child exists. If it does, we check if it is a leaf node. If it is a leaf node, we add its value to the answer variable $ans$. Otherwise, we recursively call the `sumOfLeftLeaves` function to calculate the sum of all left leaves in `root`'s left subtree, and add the result to the answer variable $ans$.
+Otherwise, we recursively call the `sumOfLeftLeaves` function to calculate the sum of all left leaves in `root`'s right subtree, and assign the result to the answer variable $\textit{ans}$. Then we check if `root`'s left child exists. If it does, we check if it is a leaf node. If it is a leaf node, we add its value to the answer variable $\textit{ans}$. Otherwise, we recursively call the `sumOfLeftLeaves` function to calculate the sum of all left leaves in `root`'s left subtree, and add the result to the answer variable $\textit{ans}$.
 
 Finally, we return the answer.
 
@@ -321,9 +321,9 @@ We can also convert the recursion in Solution 1 to iteration, using a stack to s
 
 Similar to Solution 1, we first check if `root` is null. If it is, we return $0$.
 
-Otherwise, we initialize the answer variable $ans$ to $0$, and then initialize a stack $stk$ and add `root` to the stack.
+Otherwise, we initialize the answer variable $\textit{ans}$ to $0$, and then initialize a stack $\textit{stk}$ and add `root` to the stack.
 
-While the stack is not empty, we pop the top element `root` from the stack. If `root`'s left child exists, we check if it is a leaf node. If it is a leaf node, we add its value to the answer variable $ans$. Otherwise, we add its left child to the stack. Then we check if `root`'s right child exists. If it does, we add it to the stack.
+While the stack is not empty, we pop the top element `root` from the stack. If `root`'s left child exists, we check if it is a leaf node. If it is a leaf node, we add its value to the answer variable $\textit{ans}$. Otherwise, we add its left child to the stack. Then we check if `root`'s right child exists. If it does, we add it to the stack.
 
 Finally, we return the answer.
 

@@ -88,7 +88,7 @@ There are no other solutions that removes 7 beans or fewer.
 
 <!-- thinking:end -->
 
-We can sort all the beans in the bags in ascending order, and then enumerate the number of beans $beans[i]$ in each bag as the final number of beans in the bag. The total remaining number of beans is $beans[i] \times (n - i)$, so the number of beans that need to be taken out is $s - beans[i] \times (n - i)$, where $s$ is the total number of beans in all bags. We need to find the minimum number of beans that need to be taken out among all schemes.
+We can sort all the beans in the bags in ascending order, and then enumerate the number of beans $\textit{beans}[i]$ in each bag as the final number of beans in the bag. The total remaining number of beans is $\textit{beans}[i] \times (n - i)$, so the number of beans that need to be taken out is $s - \textit{beans}[i] \times (n - i)$, where $s$ is the total number of beans in all bags. We need to find the minimum number of beans that need to be taken out among all schemes.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of bags.
 

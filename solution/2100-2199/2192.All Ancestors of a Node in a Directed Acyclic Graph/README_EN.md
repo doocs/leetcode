@@ -92,7 +92,7 @@ The above diagram represents the input graph.
 
 <!-- thinking:end -->
 
-First, we construct the adjacency list $g$ based on the two-dimensional array $edges$, where $g[i]$ represents all successor nodes of node $i$.
+First, we construct the adjacency list $g$ based on the two-dimensional array $\textit{edges}$, where $g[i]$ represents all successor nodes of node $i$.
 
 Then, we enumerate node $i$ as the ancestor node from small to large, use BFS to search all successor nodes of node $i$, and add node $i$ to the ancestor list of these successor nodes.
 

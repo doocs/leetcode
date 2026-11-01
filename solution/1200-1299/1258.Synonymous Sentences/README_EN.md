@@ -75,7 +75,7 @@ We can notice that the synonyms in the problem are transitive, i.e., if `a` and 
 
 Next, we split the string `text` into a word array `sentence` by spaces. For each word `sentence[i]`, if it is a synonym, we replace it with all the words in the connected component, otherwise, we do not replace it. In this way, we can get all the sentences. This can be implemented by DFS search.
 
-We design a function $dfs(i)$, which represents starting from the $i$th word of `sentence`, replacing it with all the words in the connected component, and then recursively processing the following words.
+We design a function $\textit{dfs}(i)$, which represents starting from the $i$th word of `sentence`, replacing it with all the words in the connected component, and then recursively processing the following words.
 
 If $i$ is greater than or equal to the length of `sentence`, it means that we have processed all the words, and at this time, we add the current sentence to the answer array. Otherwise, if `sentence[i]` is not a synonym, we do not replace it, directly add it to the current sentence, and then recursively process the following words. Otherwise, we replace `sentence[i]` with all the words in the connected component, and also recursively process the following words.
 

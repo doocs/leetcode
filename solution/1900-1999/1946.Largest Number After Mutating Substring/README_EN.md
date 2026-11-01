@@ -92,11 +92,11 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 
 According to the problem description, we can start from the highest digit of the string and greedily perform continuous replacement operations until we encounter a digit smaller than the current digit.
 
-First, we convert the string $\textit{num}$ into a character array $\textit{s}$ and use a variable $\textit{changed}$ to record whether a change has already occurred, initially $\textit{changed} = \text{false}$.
+First, we convert the string $\textit{num}$ into a character array $s$ and use a variable $\textit{changed}$ to record whether a change has already occurred, initially $\textit{changed} = \textit{false}$.
 
-Then we traverse the character array $\textit{s}$. For each character $\textit{c}$, we convert it to a number $\textit{d} = \text{change}[\text{int}(\textit{c})]$. If a change has already occurred and $\textit{d} < \textit{c}$, it means we cannot continue changing, so we exit the loop immediately. Otherwise, if $\textit{d} > \textit{c}$, it means we can replace $\textit{c}$ with $\textit{d}$. At this point, we set $\textit{changed} = \text{true}$ and replace $\textit{s}[i]$ with $\textit{d}$.
+Then we traverse the character array $s$. For each character $c$, we convert it to a number $d = \textit{change}[\textit{int}(c)]$. If a change has already occurred and $d < c$, it means we cannot continue changing, so we exit the loop immediately. Otherwise, if $d > c$, it means we can replace $c$ with $d$. At this point, we set $\textit{changed} = \textit{true}$ and replace $s[i]$ with $d$.
 
-Finally, we convert the character array $\textit{s}$ back to a string and return it.
+Finally, we convert the character array $s$ back to a string and return it.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{num}$.
 

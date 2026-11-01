@@ -81,9 +81,9 @@ We cannot obtain a lexicographically smaller array by applying any more operatio
 
 > **Thinking**
 >
-> Values differing by at most $limit$ may be swapped, and transitivity yields connected components. After sorting, a run whose adjacent gaps are $\le limit$ is a component; different runs cannot mix.
+> Values differing by at most $\textit{limit}$ may be swapped, and transitivity yields connected components. After sorting, a run whose adjacent gaps are $\le \textit{limit}$ is a component; different runs cannot mix.
 >
-> Values inside a component may be reassigned to that component’s original indices. Sort $(value,index)$ pairs, cut runs, sort the indices, and write values back in increasing order. $n \le 10^5$.
+> Values inside a component may be reassigned to that component’s original indices. Sort $(\textit{value},\textit{index})$ pairs, cut runs, sort the indices, and write values back in increasing order. $n \le 10^5$.
 
 <!-- thinking:end -->
 

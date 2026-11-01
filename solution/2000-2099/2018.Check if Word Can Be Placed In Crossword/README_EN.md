@@ -80,7 +80,7 @@ tags:
 
 > **Thinking**
 >
-> With $mn \le 2 \times 10^5$, the word must occupy a `#`-bounded slot, forward or backward. Trying four directions from each cell is linear in the grid size times $|word|$.
+> With $mn \le 2 \times 10^5$, the word must occupy a `#`-bounded slot, forward or backward. Trying four directions from each cell is linear in the grid size times $|\textit{word}|$.
 >
 > A start must sit on a border or beside `#`. `check` also requires the cell past the word to be off-board or `#`, and letters to match or be spaces.
 >
@@ -97,9 +97,9 @@ The following conditions must be met for this position to be used as a starting 
 3. If the word `word` is to be placed from top to bottom, then this position must be the upper boundary, or the cell `board[i - 1][j]` above this position is `'#'`.
 4. If the word `word` is to be placed from bottom to top, then this position must be the lower boundary, or the cell `board[i + 1][j]` below this position is `'#'`.
 
-Under the above conditions, we can start from this position and judge whether the word `word` can be placed. We design a function $check(i, j, a, b)$, which represents whether it is legal to place the word `word` from the position $(i, j)$ in the direction $(a, b)$. If it is legal, return `true`, otherwise return `false`.
+Under the above conditions, we can start from this position and judge whether the word `word` can be placed. We design a function $\textit{check}(i, j, a, b)$, which represents whether it is legal to place the word `word` from the position $(i, j)$ in the direction $(a, b)$. If it is legal, return `true`, otherwise return `false`.
 
-The implementation of the function $check(i, j, a, b)$ is as follows:
+The implementation of the function $\textit{check}(i, j, a, b)$ is as follows:
 
 We first get the other boundary position $(x, y)$ in the current direction, i.e., $(x, y) = (i + a \times k, j + b \times k)$, where $k$ is the length of the word `word`. If $(x, y)$ is in the matrix and the cell at $(x, y)$ is not `'#'`, it means that the other boundary position in the current direction is not `'#'`, so the word `word` cannot be placed, and `false` is returned.
 

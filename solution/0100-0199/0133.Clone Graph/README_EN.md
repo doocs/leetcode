@@ -99,16 +99,16 @@ class Node {
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{g}$ to record the correspondence between each node in the original graph and its copy, and then perform depth-first search.
+We use a hash table $g$ to record the correspondence between each node in the original graph and its copy, and then perform depth-first search.
 
-We define the function $\text{dfs}(node)$, which returns the copy of the $\textit{node}$. The process of $\text{dfs}(node)$ is as follows:
+We define the function $\textit{dfs}(\textit{node})$, which returns the copy of the $\textit{node}$. The process of $\textit{dfs}(\textit{node})$ is as follows:
 
-- If $\textit{node}$ is $\text{null}$, then the return value of $\text{dfs}(node)$ is $\text{null}$.
-- If $\textit{node}$ is in $\textit{g}$, then the return value of $\text{dfs}(node)$ is $\textit{g}[node]$.
-- Otherwise, we create a new node $\textit{cloned}$ and set the value of $\textit{g}[node]$ to $\textit{cloned}$. Then, we traverse all the neighbor nodes $\textit{nxt}$ of $\textit{node}$ and add $\text{dfs}(nxt)$ to the neighbor list of $\textit{cloned}$.
+- If $\textit{node}$ is $\textit{null}$, then the return value of $\textit{dfs}(\textit{node})$ is $\textit{null}$.
+- If $\textit{node}$ is in $g$, then the return value of $\textit{dfs}(\textit{node})$ is $g[\textit{node}]$.
+- Otherwise, we create a new node $\textit{cloned}$ and set the value of $g[\textit{node}]$ to $\textit{cloned}$. Then, we traverse all the neighbor nodes $\textit{nxt}$ of $\textit{node}$ and add $\textit{dfs}(\textit{nxt})$ to the neighbor list of $\textit{cloned}$.
 - Finally, return $\textit{cloned}$.
 
-In the main function, we return $\text{dfs}(node)$.
+In the main function, we return $\textit{dfs}(\textit{node})$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

@@ -75,11 +75,11 @@ tags:
 
 > **Thinking**
 >
-> The score sums $|perm[i]-nums[perm[i+1]]|$ around the cycle and the permutation must be lexicographically smallest. $n\le 14$ makes $14!$ impossible.
+> The score sums $|\textit{perm}[i]-\textit{nums}[\textit{perm}[i+1]]|$ around the cycle and the permutation must be lexicographically smallest. $n\le 14$ makes $14!$ impossible.
 >
-> A rotation leaves the score unchanged, so the first value can be fixed as $0$. The rest is DP on the used subset $mask$ and the previous value $pre$.
+> A rotation leaves the score unchanged, so the first value can be fixed as $0$. The rest is DP on the used subset $\textit{mask}$ and the previous value $\textit{pre}$.
 >
-> Memoize $dfs(mask,pre)$ over unused $cur$, adding $|pre-nums[cur]|$, and close the cycle to $0$. Reconstruct the lexicographically smallest path from the same optima.
+> Memoize $\textit{dfs}(\textit{mask},\textit{pre})$ over unused $\textit{cur}$, adding $|\textit{pre}-\textit{nums}[\textit{cur}]|$, and close the cycle to $0$. Reconstruct the lexicographically smallest path from the same optima.
 
 <!-- thinking:end -->
 
@@ -94,7 +94,7 @@ The calculation process of the function $\textit{dfs}(\textit{mask}, \textit{pre
 - If the number of $1$s in the binary representation of $\textit{mask}$ is $n$, that is, $\textit{mask} = 2^n - 1$, it means that all numbers have been selected, then return $|\textit{pre} - \textit{nums}[0]|$;
 - Otherwise, we enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, then we can add the number $\textit{cur}$ to the permutation. At this time, the score of the permutation is $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$. We need to take the minimum score among all $\textit{cur}$.
 
-Finally, we use a function $\textit{g}(\textit{mask}, \textit{pre})$ to construct the permutation that gets the minimum score. We first add the number $\textit{pre}$ to the permutation, and then enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, and it satisfies that the value of $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ is equal to $\textit{dfs}(\textit{mask}, \textit{pre})$, then we can add the number $\textit{cur}$ to the permutation.
+Finally, we use a function $g(\textit{mask}, \textit{pre})$ to construct the permutation that gets the minimum score. We first add the number $\textit{pre}$ to the permutation, and then enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, and it satisfies that the value of $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ is equal to $\textit{dfs}(\textit{mask}, \textit{pre})$, then we can add the number $\textit{cur}$ to the permutation.
 
 The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n 2^n)$, where $n$ is the length of the array $\textit{nums}$.
 

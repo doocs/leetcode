@@ -106,17 +106,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以先初始化一个 $m$ 行 $n$ 列的答案矩阵 $ans$。
+我们可以先初始化一个 $m$ 行 $n$ 列的答案矩阵 $\textit{ans}$。
 
-接下来，遍历矩阵的每一个位置 $(i, j)$，将该位置的元素设为 $x = min(rowSum[i], colSum[j])$，并将 $rowSum[i]$ 和 $colSum[j]$ 分别减去 $x$。遍历完所有的位置后，我们就可以得到一个满足题目要求的矩阵 $ans$。
+接下来，遍历矩阵的每一个位置 $(i, j)$，将该位置的元素设为 $x = \min(\textit{rowSum}[i], \textit{colSum}[j])$，并将 $\textit{rowSum}[i]$ 和 $\textit{colSum}[j]$ 分别减去 $x$。遍历完所有的位置后，我们就可以得到一个满足题目要求的矩阵 $\textit{ans}$。
 
 以上策略的正确性说明如下：
 
-根据题目的要求，我们知道 $rowSum$ 和 $colSum$ 的和是相等的，那么 $rowSum[0]$ 一定小于等于 $\sum_{j = 0}^{n - 1} colSum[j]$。所以，在经过 $n$ 次操作后，一定能够使得 $rowSum[0]$ 为 $0$，并且保证对任意 $j \in [0, n - 1]$，都有 $colSum[j] \geq 0$。
+根据题目的要求，我们知道 $\textit{rowSum}$ 和 $\textit{colSum}$ 的和是相等的，那么 $\textit{rowSum}[0]$ 一定小于等于 $\sum_{j = 0}^{n - 1} \textit{colSum}[j]$。所以，在经过 $n$ 次操作后，一定能够使得 $\textit{rowSum}[0]$ 为 $0$，并且保证对任意 $j \in [0, n - 1]$，都有 $\textit{colSum}[j] \geq 0$。
 
-因此，我们把原问题缩小为一个 $m-1$ 行和 $n$ 列的子问题，继续进行上述的操作，直到 $rowSum$ 和 $colSum$ 中的所有元素都为 $0$，就可以得到一个满足题目要求的矩阵 $ans$。
+因此，我们把原问题缩小为一个 $m-1$ 行和 $n$ 列的子问题，继续进行上述的操作，直到 $\textit{rowSum}$ 和 $\textit{colSum}$ 中的所有元素都为 $0$，就可以得到一个满足题目要求的矩阵 $\textit{ans}$。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为 $rowSum$ 和 $colSum$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为 $\textit{rowSum}$ 和 $\textit{colSum}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ We define two arrays `decr` and `incr`, which represent the longest non-increasi
 
 We traverse the array, updating the `decr` and `incr` arrays.
 
-Then we sequentially traverse the index $i$ (where $k\le i \lt n - k$), if $decr[i] \geq k$ and $incr[i] \geq k$, then $i$ is a good index.
+Then we sequentially traverse the index $i$ (where $k\le i \lt n - k$), if $\textit{decr}[i] \geq k$ and $\textit{incr}[i] \geq k$, then $i$ is a good index.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

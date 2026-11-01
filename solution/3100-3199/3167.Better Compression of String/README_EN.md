@@ -88,7 +88,7 @@ tags:
 >
 > Only $26$ letters appear, so counts can be accumulated and then emitted in key order. Two pointers parse each number.
 >
-> Index $i$ sits on a letter, $j$ consumes digits into $cnt$, and the answer joins sorted $k+v$ pairs.
+> Index $i$ sits on a letter, $j$ consumes digits into $\textit{cnt}$, and the answer joins sorted $k+v$ pairs.
 
 <!-- thinking:end -->
 

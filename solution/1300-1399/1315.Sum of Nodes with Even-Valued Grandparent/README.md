@@ -64,12 +64,12 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root, x)$，表示以 $root$ 为根节点，并且 $root$ 的父节点的值为 $x$ 的子树中，满足条件的节点的值之和。那么答案就是 $dfs(root, 1)$。
+我们设计一个函数 $\textit{dfs}(\textit{root}, x)$，表示以 $\textit{root}$ 为根节点，并且 $\textit{root}$ 的父节点的值为 $x$ 的子树中，满足条件的节点的值之和。那么答案就是 $\textit{dfs}(\textit{root}, 1)$。
 
-函数 $dfs(root, x)$ 的执行过程如下：
+函数 $\textit{dfs}(\textit{root}, x)$ 的执行过程如下：
 
-- 如果 $root$ 为空，返回 $0$。
-- 否则，我们递归计算 $root$ 的左子树和右子树的答案，即 $dfs(root.left, root.val)$ 和 $dfs(root.right, root.val)$，累加到答案中。如果 $x$ 为偶数，此时我们判断 $root$ 的左孩子和右孩子是否存在，如果存在，我们将它们的值累加到答案中。
+- 如果 $\textit{root}$ 为空，返回 $0$。
+- 否则，我们递归计算 $\textit{root}$ 的左子树和右子树的答案，即 $\textit{dfs}(\textit{root}.\textit{left}, \textit{root}.\textit{val})$ 和 $\textit{dfs}(\textit{root}.\textit{right}, \textit{root}.\textit{val})$，累加到答案中。如果 $x$ 为偶数，此时我们判断 $\textit{root}$ 的左孩子和右孩子是否存在，如果存在，我们将它们的值累加到答案中。
 - 最后返回答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。

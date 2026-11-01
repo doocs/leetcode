@@ -63,9 +63,9 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
+We define a function $\textit{check}(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
 
-We initialize the answer string $ans$ as an empty string. Then, we iterate through each string $t$ in the array $dictionary$. If $t$ is a subsequence of $s$, and the length of $t$ is greater than the length of $ans$, or the length of $t$ is equal to the length of $ans$ but $t$ is lexicographically smaller than $ans$, then we update $ans$ to $t$.
+We initialize the answer string $\textit{ans}$ as an empty string. Then, we iterate through each string $t$ in the array $\textit{dictionary}$. If $t$ is a subsequence of $s$, and the length of $t$ is greater than the length of $\textit{ans}$, or the length of $t$ is equal to the length of $\textit{ans}$ but $t$ is lexicographically smaller than $\textit{ans}$, then we update $\textit{ans}$ to $t$.
 
 The time complexity is $O(d(m + n))$, and the space complexity is $O(1)$, where $d$ is the length of the string list, and $m$ and $n$ are the lengths of string $s$ and the average length of strings in the list, respectively.
 

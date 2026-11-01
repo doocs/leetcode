@@ -58,11 +58,11 @@ tags:
 
 The given array $\textit{nums}$ is sorted, and we need to find the element that appears only once in $O(\log n)$ time. Therefore, we consider using binary search to solve this problem.
 
-We define the left boundary of the binary search as $\textit{l} = 0$ and the right boundary as $\textit{r} = n - 1$, where $n$ is the length of the array.
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n - 1$, where $n$ is the length of the array.
 
 In each step, we take the middle position $\textit{mid} = (l + r) / 2$. If the index $\textit{mid}$ is even, we should compare $\textit{nums}[\textit{mid}]$ with $\textit{nums}[\textit{mid} + 1]$. If the index $\textit{mid}$ is odd, we should compare $\textit{nums}[\textit{mid}]$ with $\textit{nums}[\textit{mid} - 1]$. Therefore, we can uniformly compare $\textit{nums}[\textit{mid}]$ with $\textit{nums}[\textit{mid} \oplus 1]$, where $\oplus$ denotes the XOR operation.
 
-If $\textit{nums}[\textit{mid}] \neq \textit{nums}[\textit{mid} \oplus 1]$, then the answer is in $[\textit{l}, \textit{mid}]$, so we set $\textit{r} = \textit{mid}$. If $\textit{nums}[\textit{mid}] = \textit{nums}[\textit{mid} \oplus 1]$, then the answer is in $[\textit{mid} + 1, \textit{r}]$, so we set $\textit{l} = \textit{mid} + 1$. We continue the binary search until $\textit{l} = \textit{r}$, at which point $\textit{nums}[\textit{l}]$ is the element that appears only once.
+If $\textit{nums}[\textit{mid}] \neq \textit{nums}[\textit{mid} \oplus 1]$, then the answer is in $[l, \textit{mid}]$, so we set $r = \textit{mid}$. If $\textit{nums}[\textit{mid}] = \textit{nums}[\textit{mid} \oplus 1]$, then the answer is in $[\textit{mid} + 1, r]$, so we set $l = \textit{mid} + 1$. We continue the binary search until $l = r$, at which point $\textit{nums}[l]$ is the element that appears only once.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 

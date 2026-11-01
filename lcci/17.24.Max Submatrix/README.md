@@ -51,7 +51,7 @@ difficulty: 困难
 >
 > 固定上下行后，各列压缩成一维，问题化为 Kadane 最大子段和，并可同时记下左右端。
 >
-> 列前缀和 $s$ 使一段行的列和为 $O(1)$。对每对 $(i_1,i_2)$ 跑 Kadane，用 $start$ 记录段首，刷新全局 $mx$ 与 $[i_1,start,i_2,j]$。
+> 列前缀和 $s$ 使一段行的列和为 $O(1)$。对每对 $(i_1,i_2)$ 跑 Kadane，用 $\textit{start}$ 记录段首，刷新全局 $mx$ 与 $[i_1,\textit{start},i_2,j]$。
 
 <!-- thinking:end -->
 

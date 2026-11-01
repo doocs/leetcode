@@ -81,25 +81,25 @@ So the total number of operations for the second query is 2 + 4 + 1 + 3 = 10.
 
 > **Thinking**
 >
-> Each query turns every element into the same target $x$, one increment or decrement per operation. Scanning $nums$ per query is $O(nq)$ and fails for $n,q \le 10^5$.
+> Each query turns every element into the same target $x$, one increment or decrement per operation. Scanning $\textit{nums}$ per query is $O(nq)$ and fails for $n,q \le 10^5$.
 >
-> Elements do not interact: the cost is $\sum |nums_i-x|$. After sorting, $x$ splits the array into values below and above $x$, and both absolute deviations follow from a prefix sum in $O(1)$.
+> Elements do not interact: the cost is $\sum |\textit{nums}_i-x|$. After sorting, $x$ splits the array into values below and above $x$, and both absolute deviations follow from a prefix sum in $O(1)$.
 >
 > We therefore sort, build the prefix sums, and for each $x$ binary-search the split index to accumulate the raise and lower costs.
 
 <!-- thinking:end -->
 
-First, we sort the array $nums$ and calculate the prefix sum array $s$ with a length of $n+1$, where $s[i]$ represents the sum of the first $i$ elements in the array $nums$.
+First, we sort the array $\textit{nums}$ and calculate the prefix sum array $s$ with a length of $n+1$, where $s[i]$ represents the sum of the first $i$ elements in the array $\textit{nums}$.
 
-Then, we traverse each query $queries[i]$, we need to reduce all elements greater than $queries[i]$ to $queries[i]$, and increase all elements less than $queries[i]$ to $queries[i]$.
+Then, we traverse each query $\textit{queries}[i]$, we need to reduce all elements greater than $\textit{queries}[i]$ to $\textit{queries}[i]$, and increase all elements less than $\textit{queries}[i]$ to $\textit{queries}[i]$.
 
-We can use binary search to find the index $i$ of the first element in the array $nums$ that is greater than $queries[i]$. There are $n-i$ elements that need to be reduced to $queries[i]$, and the sum of these elements is $s[n]-s[i]$. These elements need to be reduced by $n-i$ $queries[i]$, so the total number of operations to reduce these elements to $queries[i]$ is $s[n]-s[i]-(n-i)\times queries[i]$.
+We can use binary search to find the index $i$ of the first element in the array $\textit{nums}$ that is greater than $\textit{queries}[i]$. There are $n-i$ elements that need to be reduced to $\textit{queries}[i]$, and the sum of these elements is $s[n]-s[i]$. These elements need to be reduced by $n-i$ $\textit{queries}[i]$, so the total number of operations to reduce these elements to $\textit{queries}[i]$ is $s[n]-s[i]-(n-i)\times \textit{queries}[i]$.
 
-Similarly, we can find the index $i$ of the first element in the array $nums$ that is greater than or equal to $queries[i]$. There are $i$ elements that need to be increased to $queries[i]$, and the sum of these elements is $s[i]$. Therefore, the total number of operations to increase these elements to $queries[i]$ is $queries[i]\times i-s[i]$.
+Similarly, we can find the index $i$ of the first element in the array $\textit{nums}$ that is greater than or equal to $\textit{queries}[i]$. There are $i$ elements that need to be increased to $\textit{queries}[i]$, and the sum of these elements is $s[i]$. Therefore, the total number of operations to increase these elements to $\textit{queries}[i]$ is $\textit{queries}[i]\times i-s[i]$.
 
-Finally, add these two total operation counts together to get the minimum number of operations to change all elements in the array $nums$ to $queries[i]$, that is, $ans[i]=s[n]-s[i]-(n-i)\times queries[i]+queries[i]\times i-s[i]$.
+Finally, add these two total operation counts together to get the minimum number of operations to change all elements in the array $\textit{nums}$ to $\textit{queries}[i]$, that is, $\textit{ans}[i]=s[n]-s[i]-(n-i)\times \textit{queries}[i]+\textit{queries}[i]\times i-s[i]$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

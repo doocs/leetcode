@@ -90,7 +90,7 @@ difficulty: 中等
 
 维护 `bestIdx` 与 `bestCnt`，当 `cnt > bestCnt` 时更新。最终若 `bestCnt == 0`（没有任何新营地），返回 `-1`；否则返回 `bestIdx`。
 
-时间复杂度 $O(\sum |expeditions[i]|)$，空间复杂度 $O(\sum |expeditions[i]|)$。其中 $|expeditions[i]|$ 为第 $i$ 次探险记录的字符串长度。
+时间复杂度 $O(\sum |\textit{expeditions}[i]|)$，空间复杂度 $O(\sum |\textit{expeditions}[i]|)$。其中 $|\textit{expeditions}[i]|$ 为第 $i$ 次探险记录的字符串长度。
 
 <!-- tabs:start -->
 

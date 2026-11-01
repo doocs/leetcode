@@ -80,7 +80,7 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 
 我们可以使用有序集合来存储日程安排，有序集合可以在 $O(\log n)$ 的时间内完成插入、删除、查找操作。有序集合中的元素，按照日程安排的 $\textit{endTime}$ 从小到大排序。
 
-调用 $\text{book}(start, end)$ 方法时，我们在有序集合中查找第一个结束时间大于 $\textit{start}$ 的日程安排，如果存在并且其开始时间小于 $\textit{end}$，则说明存在重复预订，返回 $\text{false}$；否则，将 $\textit{end}$ 作为键，将 $\textit{start}$ 作为值插入有序集合中，返回 $\text{true}$。
+调用 $\textit{book}(\textit{start}, \textit{end})$ 方法时，我们在有序集合中查找第一个结束时间大于 $\textit{start}$ 的日程安排，如果存在并且其开始时间小于 $\textit{end}$，则说明存在重复预订，返回 $\textit{false}$；否则，将 $\textit{end}$ 作为键，将 $\textit{start}$ 作为值插入有序集合中，返回 $\textit{true}$。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为日程安排的数量。
 

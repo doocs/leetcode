@@ -88,12 +88,12 @@ tags:
 
 First, we split the sentence into words by spaces, and then check each word to determine if it is a valid word.
 
-For each word, we can use a boolean variable $\textit{st}$ to record whether a hyphen has already appeared, and then traverse each character in the word, judging according to the rules described in the problem.
+For each word, we can use a boolean variable $st$ to record whether a hyphen has already appeared, and then traverse each character in the word, judging according to the rules described in the problem.
 
 For each character $s[i]$, we have the following cases:
 
-- If $s[i]$ is a digit, then $s$ is not a valid word, and we return $\text{false}$ directly;
-- If $s[i]$ is a punctuation mark ('!', '.', ','), and $i < \text{len}(s) - 1$, then $s$ is not a valid word, and we return $\text{false}$ directly;
+- If $s[i]$ is a digit, then $s$ is not a valid word, and we return $\textit{false}$ directly;
+- If $s[i]$ is a punctuation mark ('!', '.', ','), and $i < \textit{len}(s) - 1$, then $s$ is not a valid word, and we return $\textit{false}$ directly;
 - If $s[i]$ is a hyphen, then we need to check if the following conditions are met:
     - The hyphen can only appear once;
     - The hyphen cannot appear at the beginning or end of the word;

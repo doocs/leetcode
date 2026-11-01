@@ -80,13 +80,13 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, we only need to find the maximum length of adjacent increasing subarrays $\textit{mx}$. If $\textit{mx} \ge k$, then there exist two adjacent strictly increasing subarrays of length $k$.
+According to the problem description, we only need to find the maximum length of adjacent increasing subarrays $mx$. If $mx \ge k$, then there exist two adjacent strictly increasing subarrays of length $k$.
 
-We can use a single pass to calculate $\textit{mx}$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $\textit{mx}$ represents the maximum length of adjacent increasing subarrays.
+We can use a single pass to calculate $mx$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $mx$ represents the maximum length of adjacent increasing subarrays.
 
-Whenever we encounter a non-increasing position, we update $\textit{mx}$, assign $\textit{cur}$ to $\textit{pre}$, and reset $\textit{cur}$ to $0$. The update formula for $\textit{mx}$ is $\textit{mx} = \max(\textit{mx}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$, meaning the adjacent increasing subarrays come from either half the length of the current increasing subarray, or the smaller value between the previous increasing subarray and the current increasing subarray.
+Whenever we encounter a non-increasing position, we update $mx$, assign $\textit{cur}$ to $\textit{pre}$, and reset $\textit{cur}$ to $0$. The update formula for $mx$ is $mx = \max(mx, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$, meaning the adjacent increasing subarrays come from either half the length of the current increasing subarray, or the smaller value between the previous increasing subarray and the current increasing subarray.
 
-Finally, we just need to check whether $\textit{mx}$ is greater than or equal to $k$.
+Finally, we just need to check whether $mx$ is greater than or equal to $k$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

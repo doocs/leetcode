@@ -65,7 +65,7 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 >
 > Collecting every ancestor at each node repeats paths and is heavy for $n\le 5000$. Only the minimum and maximum on the path matter.
 >
-> DFS carries $(\textit{mi},\textit{mx})$ downward, updates the answer with $|\textit{val}-\textit{mi}|$ and $|\textit{val}-\textit{mx}|$, then includes the current value in the range.
+> DFS carries $(mi,mx)$ downward, updates the answer with $|\textit{val}-mi|$ and $|\textit{val}-mx|$, then includes the current value in the range.
 >
 > One traversal of the tree is enough.
 
@@ -73,15 +73,15 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 
 For each node, to find the maximum difference with its ancestor nodes, we only need to find the difference between the maximum and minimum values of the ancestor nodes. The maximum difference among all nodes and their ancestor nodes is the answer.
 
-Therefore, we design a function $dfs(root, mi, mx)$, where the current node being searched is $root$, the maximum value of its ancestor nodes is $mx$, and the minimum value is $mi$. The function updates the maximum difference $ans$.
+Therefore, we design a function $\textit{dfs}(\textit{root}, mi, mx)$, where the current node being searched is $\textit{root}$, the maximum value of its ancestor nodes is $mx$, and the minimum value is $mi$. The function updates the maximum difference $\textit{ans}$.
 
-The logic of the function $dfs(root, mi, mx)$ is as follows:
+The logic of the function $\textit{dfs}(\textit{root}, mi, mx)$ is as follows:
 
-- If $root$ is null, return directly.
-- Otherwise, we update $ans = max(ans, |mi - root.val|, |mx - root.val|)$.
-- Then update $mi = min(mi, root.val)$, $mx = max(mx, root.val)$, and recursively search the left and right subtrees.
+- If $\textit{root}$ is null, return directly.
+- Otherwise, we update $\textit{ans} = \max(\textit{ans}, |mi - \textit{root}.\textit{val}|, |mx - \textit{root}.\textit{val}|)$.
+- Then update $mi = \min(mi, \textit{root}.\textit{val})$, $mx = \max(mx, \textit{root}.\textit{val})$, and recursively search the left and right subtrees.
 
-In the main function, we call $dfs(root, root.val, root.val)$, and finally return $ans$.
+In the main function, we call $\textit{dfs}(\textit{root}, \textit{root}.\textit{val}, \textit{root}.\textit{val})$, and finally return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

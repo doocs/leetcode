@@ -85,20 +85,20 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 
 > **Thinking**
 >
-> Jump from index $0$ to the end, each step requiring an absolute difference at most $target$, and maximize the number of jumps. $n\le 1000$; a shortest-path formulation would minimize jumps instead.
+> Jump from index $0$ to the end, each step requiring an absolute difference at most $\textit{target}$, and maximize the number of jumps. $n\le 1000$; a shortest-path formulation would minimize jumps instead.
 >
-> $dfs(i)$ is the most jumps from $i$: take $1+dfs(j)$ over legal $j>i$, $0$ at the end, and $-\infty$ when no jump exists. If the memoized value is negative, return $-1$.
+> $\textit{dfs}(i)$ is the most jumps from $i$: take $1+\textit{dfs}(j)$ over legal $j>i$, $0$ at the end, and $-\infty$ when no jump exists. If the memoized value is negative, return $-1$.
 
 <!-- thinking:end -->
 
-For each position $i$, we consider to jump to position $j$ which satisfies $|nums[i] - nums[j]| \leq target$. Then we can jump from $i$ to $j$, and continue to jump from $j$ to the end.
+For each position $i$, we consider to jump to position $j$ which satisfies $|\textit{nums}[i] - \textit{nums}[j]| \leq \textit{target}$. Then we can jump from $i$ to $j$, and continue to jump from $j$ to the end.
 
-Therefore, we design a function $dfs(i)$, which represents the maximum number of jumps needed to jump to the end index starting from position $i$. Then the answer is $dfs(0)$.
+Therefore, we design a function $\textit{dfs}(i)$, which represents the maximum number of jumps needed to jump to the end index starting from position $i$. Then the answer is $\textit{dfs}(0)$.
 
-The calculation process of function $dfs(i)$ is as follows:
+The calculation process of function $\textit{dfs}(i)$ is as follows:
 
 - If $i = n - 1$, then we have reached the end index and no jumps are required, so return $0$;
-- Otherwise, we need to enumerate the positions $j$ that can be jumped from position $i$, and calculate the maximum number of jumps needed to jump to the end index starting from $j$, then $dfs(i)$ is equal to the maximum value of all $dfs(j)$ plus $1$. If there is no position $j$ that can be jumped from $i$, then $dfs(i) = -\infty$.
+- Otherwise, we need to enumerate the positions $j$ that can be jumped from position $i$, and calculate the maximum number of jumps needed to jump to the end index starting from $j$, then $\textit{dfs}(i)$ is equal to the maximum value of all $\textit{dfs}(j)$ plus $1$. If there is no position $j$ that can be jumped from $i$, then $\textit{dfs}(i) = -\infty$.
 
 To avoid duplicate calculations, we can use memoization.
 
@@ -300,11 +300,11 @@ impl Solution {
 
 > **Thinking**
 >
-> Enumerating every jump sequence is exponential. The array length reaches $1000$, and a legal step to the next index is always tried first, so the search has depth $n$. The most jumps from index $i$ depend only on later indexes. Let $f[i]$ be that number, with $f[n-1]=0$, and scan landing indexes from the right, updating with $1+f[j]$ when the absolute difference is at most $target$. A still-negative $f[0]$ means the end is unreachable, so the answer is $-1$.
+> Enumerating every jump sequence is exponential. The array length reaches $1000$, and a legal step to the next index is always tried first, so the search has depth $n$. The most jumps from index $i$ depend only on later indexes. Let $f[i]$ be that number, with $f[n-1]=0$, and scan landing indexes from the right, updating with $1+f[j]$ when the absolute difference is at most $\textit{target}$. A still-negative $f[0]$ means the end is unreachable, so the answer is $-1$.
 
 <!-- thinking:end -->
 
-Let $f[i]$ be the maximum number of jumps from index $i$ to the end. Set $f[n-1]=0$ and every earlier entry to $-\infty$. For $i$ from $n-2$ down to $0$, enumerate a landing index $j$ ($i < j < n$). If $|nums[i]-nums[j]| \leq target$, update $f[i]$ with $1+f[j]$. If $f[0]$ is still negative, the end cannot be reached and the answer is $-1$; otherwise the answer is $f[0]$.
+Let $f[i]$ be the maximum number of jumps from index $i$ to the end. Set $f[n-1]=0$ and every earlier entry to $-\infty$. For $i$ from $n-2$ down to $0$, enumerate a landing index $j$ ($i < j < n$). If $|\textit{nums}[i]-\textit{nums}[j]| \leq \textit{target}$, update $f[i]$ with $1+f[j]$. If $f[0]$ is still negative, the end cannot be reached and the answer is $-1$; otherwise the answer is $f[0]$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of array.
 

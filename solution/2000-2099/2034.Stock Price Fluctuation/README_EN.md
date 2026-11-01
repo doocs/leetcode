@@ -90,9 +90,9 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 >
 > We must correct past timestamps and query current, max, and min prices in $10^5$ operations. A hash map alone cannot get extrema; a sorted set alone cannot overwrite by time.
 >
-> Map $d$ stores time$\to$price; ordered multiset $ls$ stores live prices. On update, remove the old price if the time exists, insert the new one, and track the latest time $last$.
+> Map $d$ stores time$\to$price; ordered multiset $ls$ stores live prices. On update, remove the old price if the time exists, insert the new one, and track the latest time $\textit{last}$.
 >
-> Current is $d[last]$; extrema are the ends of $ls$.
+> Current is $d[\textit{last}]$; extrema are the ends of $ls$.
 
 <!-- thinking:end -->
 

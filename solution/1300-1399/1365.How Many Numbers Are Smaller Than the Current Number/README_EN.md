@@ -72,15 +72,15 @@ For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
 
 > **Thinking**
 >
-> Count how many values are strictly smaller than each $x$. A double loop works for $n \le 500$, yet after sorting, that count is $x$'s insertion index. Copy and sort, then $\mathrm{bisect\_left}$ for each $x$ yields the number of smaller elements.
+> Count how many values are strictly smaller than each $x$. A double loop works for $n \le 500$, yet after sorting, that count is $x$'s insertion index. Copy and sort, then $\textit{bisect\_left}$ for each $x$ yields the number of smaller elements.
 
 <!-- thinking:end -->
 
-We can make a copy of the array $nums$, denoted as $arr$, and then sort $arr$ in ascending order.
+We can make a copy of the array $\textit{nums}$, denoted as $\textit{arr}$, and then sort $\textit{arr}$ in ascending order.
 
-Next, for each element $x$ in $nums$, we can use binary search to find the index $j$ of the first element that is greater than or equal to $x$. Then $j$ is the number of elements that are smaller than $x$. We can store $j$ in the answer array.
+Next, for each element $x$ in $\textit{nums}$, we can use binary search to find the index $j$ of the first element that is greater than or equal to $x$. Then $j$ is the number of elements that are smaller than $x$. We can store $j$ in the answer array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -192,9 +192,9 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 
 <!-- thinking:end -->
 
-We notice that the range of elements in the array $nums$ is $[0, 100]$. Therefore, we can use the counting sort method to first count the number of each element in the array $nums$. Then we calculate the prefix sum of the counting array. Finally, we traverse the array $nums$. For each element $x$, we directly add the value of the element at index $x$ in the counting array to the answer array.
+We notice that the range of elements in the array $\textit{nums}$ is $[0, 100]$. Therefore, we can use the counting sort method to first count the number of each element in the array $\textit{nums}$. Then we calculate the prefix sum of the counting array. Finally, we traverse the array $\textit{nums}$. For each element $x$, we directly add the value of the element at index $x$ in the counting array to the answer array.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length and the maximum value of the array $nums$, respectively.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length and the maximum value of the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

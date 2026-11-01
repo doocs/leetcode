@@ -89,7 +89,7 @@ We start from row $x$ and flip a total of $\lfloor \frac{k}{2} \rfloor$ rows.
 
 For each row $i$, we need to swap it with the corresponding row $i_2$, where $i_2 = x + k - 1 - (i - x)$.
 
-During the swap, we need to traverse $j \in [y, y + k)$ and swap $\text{grid}[i][j]$ with $\text{grid}[i_2][j]$.
+During the swap, we need to traverse $j \in [y, y + k)$ and swap $\textit{grid}[i][j]$ with $\textit{grid}[i_2][j]$.
 
 Finally, return the updated matrix.
 

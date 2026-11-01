@@ -196,9 +196,9 @@ impl Solution {
 
 <!-- thinking:end -->
 
-Assuming $\text{01}$ appears alternately, we can convert all trailing bits to $\text{1}$ through misaligned XOR. Adding $\text{1}$ gives us a power of $2$, which is a number $n$ (where $n$ has only one bit that is $\text{1}$). Then, using $\text{n} \& (\text{n} + 1)$ can eliminate the last $\text{1}$ bit.
+Assuming $01$ appears alternately, we can convert all trailing bits to $1$ through misaligned XOR. Adding $1$ gives us a power of $2$, which is a number $n$ (where $n$ has only one bit that is $1$). Then, using $n \& (n + 1)$ can eliminate the last $1$ bit.
 
-At this point, check if it equals $\text{0}$. If so, the assumption holds, and it is an alternating $\text{01}$ sequence.
+At this point, check if it equals $0$. If so, the assumption holds, and it is an alternating $01$ sequence.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

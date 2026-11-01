@@ -71,9 +71,9 @@ It is impossible to make s using a prefix of arr.</pre>
 
 <!-- thinking:end -->
 
-We traverse the array $words$, using a variable $t$ to record the currently concatenated string. If the length of $t$ is greater than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$; if the length of $t$ is equal to the length of $s$, we return whether $t$ is equal to $s$.
+We traverse the array $\textit{words}$, using a variable $t$ to record the currently concatenated string. If the length of $t$ is greater than the length of $s$, it means that $s$ is not a prefix string of $\textit{words}$, so we return $\textit{false}$; if the length of $t$ is equal to the length of $s$, we return whether $t$ is equal to $s$.
 
-At the end of the traversal, if the length of $t$ is less than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$.
+At the end of the traversal, if the length of $t$ is less than the length of $s$, it means that $s$ is not a prefix string of $\textit{words}$, so we return $\textit{false}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 

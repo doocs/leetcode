@@ -115,7 +115,7 @@ func arrangeCoins(n int) int {
 
 > **Thinking**
 >
-> Solution 1 uses a square root; huge $n$ can lose integer precision. Binary-search the row count with the integer test $mid(mid+1)/2\le n$, rounding the mid upward when feasible.
+> Solution 1 uses a square root; huge $n$ can lose integer precision. Binary-search the row count with the integer test $\textit{mid}(\textit{mid}+1)/2\le n$, rounding the mid upward when feasible.
 
 <!-- thinking:end -->
 

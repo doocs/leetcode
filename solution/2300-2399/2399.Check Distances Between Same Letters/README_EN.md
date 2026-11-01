@@ -74,7 +74,7 @@ Because distance[0] = 1, s is not a well-spaced string.
 
 > **Thinking**
 >
-> Each letter appears twice; the gap must match $distance$. $|s| \le 52$, so storing the previous index is enough.
+> Each letter appears twice; the gap must match $\textit{distance}$. $|s| \le 52$, so storing the previous index is enough.
 >
 > Record the first index; on the second occurrence compare the gap and fail on a mismatch. Letters that never appear need no check.
 

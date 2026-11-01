@@ -71,9 +71,9 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 
 > **Thinking**
 >
-> Each flip changes one bit of $start$ so that it becomes $goal$. The integers have only about $30$ bits, but the bits are independent: only positions where $start$ and $goal$ differ need to flip.
+> Each flip changes one bit of $\textit{start}$ so that it becomes $\textit{goal}$. The integers have only about $30$ bits, but the bits are independent: only positions where $\textit{start}$ and $\textit{goal}$ differ need to flip.
 >
-> $start \oplus goal$ has a $1$ exactly on those bits; the pop-count is the minimum number of flips.
+> $\textit{start} \oplus \textit{goal}$ has a $1$ exactly on those bits; the pop-count is the minimum number of flips.
 
 <!-- thinking:end -->
 

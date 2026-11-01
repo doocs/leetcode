@@ -92,19 +92,19 @@ tags:
 >
 > 好节点的所有子树大小相等。 $n\le 10^5$，对每个点重新算子树为平方。一次 DFS 即可在回溯时比较各子树大小并累加自身是否好。
 >
-> $\textit{dfs}(a,\textit{fa})$ 返回子树点数；若所有孩子返回值相同则 $a$ 为好节点。无根树任取 $0$ 为根。线性时间。
+> $\textit{dfs}(a,fa)$ 返回子树点数；若所有孩子返回值相同则 $a$ 为好节点。无根树任取 $0$ 为根。线性时间。
 
 <!-- thinking:end -->
 
-我们先根据题目给定的边 $\textit{edges}$ 构建出树的邻接表 $\textit{g}$，其中 $\textit{g}[a]$ 表示节点 $a$ 的所有邻居节点。
+我们先根据题目给定的边 $\textit{edges}$ 构建出树的邻接表 $g$，其中 $g[a]$ 表示节点 $a$ 的所有邻居节点。
 
-然后，我们设计一个函数 $\textit{dfs}(a, \textit{fa})$，表示计算以节点 $a$ 为根的子树中的节点数，并累计好节点的数量。其中 $\textit{fa}$ 表示节点 $a$ 的父节点。
+然后，我们设计一个函数 $\textit{dfs}(a, fa)$，表示计算以节点 $a$ 为根的子树中的节点数，并累计好节点的数量。其中 $fa$ 表示节点 $a$ 的父节点。
 
-函数 $\textit{dfs}(a, \textit{fa})$ 的执行过程如下：
+函数 $\textit{dfs}(a, fa)$ 的执行过程如下：
 
-1. 初始化变量 $\textit{pre} = -1$, $\textit{cnt} = 1$, $\textit{ok} = 1$，分别表示节点 $a$ 的某个子树的节点数、节点 $a$ 的所有子树的节点数、以及节点 $a$ 是否为好节点。
-2. 遍历节点 $a$ 的所有邻居节点 $b$，如果 $b$ 不等于 $\textit{fa}$，则递归调用 $\textit{dfs}(b, a)$，返回值为 $\textit{cur}$，并累加到 $\textit{cnt}$ 中。如果 $\textit{pre} < 0$，则将 $\textit{cur}$ 赋值给 $\textit{pre}$；否则，如果 $\textit{pre}$ 不等于 $\textit{cur}$，说明节点 $a$ 的不同子树的节点数不同，将 $\textit{ok}$ 置为 $0$。
-3. 最后，累加 $\textit{ok}$ 到答案中，并返回 $\textit{cnt}$。
+1. 初始化变量 $\textit{pre} = -1$, $\textit{cnt} = 1$, $ok = 1$，分别表示节点 $a$ 的某个子树的节点数、节点 $a$ 的所有子树的节点数、以及节点 $a$ 是否为好节点。
+2. 遍历节点 $a$ 的所有邻居节点 $b$，如果 $b$ 不等于 $fa$，则递归调用 $\textit{dfs}(b, a)$，返回值为 $\textit{cur}$，并累加到 $\textit{cnt}$ 中。如果 $\textit{pre} < 0$，则将 $\textit{cur}$ 赋值给 $\textit{pre}$；否则，如果 $\textit{pre}$ 不等于 $\textit{cur}$，说明节点 $a$ 的不同子树的节点数不同，将 $ok$ 置为 $0$。
+3. 最后，累加 $ok$ 到答案中，并返回 $\textit{cnt}$。
 
 在主函数中，我们调用 $\textit{dfs}(0, -1)$，最后返回答案。
 
@@ -301,9 +301,9 @@ function countGoodNodes(edges: number[][]): number {
 
 <!-- thinking:end -->
 
-我们先根据题目给定的边 $\textit{edges}$ 构建出树的邻接表 $\textit{g}$，其中 $\textit{g}[a]$ 表示节点 $a$ 的所有邻居节点。
+我们先根据题目给定的边 $\textit{edges}$ 构建出树的邻接表 $g$，其中 $g[a]$ 表示节点 $a$ 的所有邻居节点。
 
-用显式栈从节点 $0$ 做后序遍历。进入一个节点时，先压入该节点的离开标记，再压入它的子节点，这样子节点会先处理完。离开时，各孩子的子树大小已经写好。初始化 $\textit{pre} = -1$、 $\textit{cnt} = 1$、 $\textit{ok} = 1$。对每个孩子，把子树大小累加进 $\textit{cnt}$；若与 $\textit{pre}$ 不同，则把 $\textit{ok}$ 置为 $0$。然后把 $\textit{ok}$ 累加进答案，并把 $\textit{cnt}$ 记为当前节点的子树大小。
+用显式栈从节点 $0$ 做后序遍历。进入一个节点时，先压入该节点的离开标记，再压入它的子节点，这样子节点会先处理完。离开时，各孩子的子树大小已经写好。初始化 $\textit{pre} = -1$、 $\textit{cnt} = 1$、 $ok = 1$。对每个孩子，把子树大小累加进 $\textit{cnt}$；若与 $\textit{pre}$ 不同，则把 $ok$ 置为 $0$。然后把 $ok$ 累加进答案，并把 $\textit{cnt}$ 记为当前节点的子树大小。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示节点的数量。
 

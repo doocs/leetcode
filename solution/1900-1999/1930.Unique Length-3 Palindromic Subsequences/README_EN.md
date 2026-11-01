@@ -84,7 +84,7 @@ tags:
 
 > **Thinking**
 >
-> A length-$3$ palindromic subsequence has the form $c\_c$. Enumerating triples is impossible for $n\le 10^5$.
+> A length-$3$ palindromic subsequence has the form $\textit{c\_c}$. Enumerating triples is impossible for $n\le 10^5$.
 >
 > There are only $26$ letters, so we enumerate the two ends. For a fixed $c$, the number of distinct characters strictly between its first and last occurrence is the number of distinct palindromes with those ends.
 >

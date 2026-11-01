@@ -66,7 +66,7 @@ tags:
 
 > **Thinking**
 >
-> A subarray may drop at most one element. Kadane from each end yields the best segment ending or starting at an index; with no deletion the answer is their maximum. Deleting $arr[i]$ adds the best left ending at $i-1$ to the best right starting at $i+1$. After filling $left$ and $right$, enumerate interior deletion points.
+> A subarray may drop at most one element. Kadane from each end yields the best segment ending or starting at an index; with no deletion the answer is their maximum. Deleting $\textit{arr}[i]$ adds the best left ending at $i-1$ to the best right starting at $i+1$. After filling $\textit{left}$ and $\textit{right}$, enumerate interior deletion points.
 
 <!-- thinking:end -->
 

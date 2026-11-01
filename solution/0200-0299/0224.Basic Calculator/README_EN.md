@@ -71,21 +71,21 @@ tags:
 >
 > Plus, minus, and parentheses prevent a single left-to-right sum. A parenthesized fragment is its own accumulation, so the outer total and sign must be saved on entry.
 >
-> A stack stores $ans$ and $sign$ at $($ and resets them; at $)$ we pop and add the inner result times the outer sign. Digits join $ans$ with the current sign.
+> A stack stores $\textit{ans}$ and $\textit{sign}$ at $($ and resets them; at $)$ we pop and add the inner result times the outer sign. Digits join $\textit{ans}$ with the current sign.
 
 <!-- thinking:end -->
 
-We use a stack $stk$ to save the current calculation result and operator, a variable $sign$ to save the current sign, and a variable $ans$ to save the final calculation result.
+We use a stack $\textit{stk}$ to save the current calculation result and operator, a variable $\textit{sign}$ to save the current sign, and a variable $\textit{ans}$ to save the final calculation result.
 
 Next, we traverse each character of the string $s$:
 
-- If the current character is a number, we use a loop to read the following consecutive numbers, and then add or subtract it to $ans$ according to the current sign.
-- If the current character is `'+'`, we change the variable $sign$ to positive.
-- If the current character is `'-'`, we change the variable $sign$ to negative.
-- If the current character is `'('`, we push the current $ans$ and $sign$ into the stack, and reset them to empty and 1, and start to calculate the new $ans$ and $sign$.
-- If the current character is `')'`, we pop the top two elements of the stack, one is the operator, and the other is the number calculated before the bracket. We multiply the current number by the operator, and add the previous number to get the new $ans$.
+- If the current character is a number, we use a loop to read the following consecutive numbers, and then add or subtract it to $\textit{ans}$ according to the current sign.
+- If the current character is `'+'`, we change the variable $\textit{sign}$ to positive.
+- If the current character is `'-'`, we change the variable $\textit{sign}$ to negative.
+- If the current character is `'('`, we push the current $\textit{ans}$ and $\textit{sign}$ into the stack, and reset them to empty and 1, and start to calculate the new $\textit{ans}$ and $\textit{sign}$.
+- If the current character is `')'`, we pop the top two elements of the stack, one is the operator, and the other is the number calculated before the bracket. We multiply the current number by the operator, and add the previous number to get the new $\textit{ans}$.
 
-After traversing the string $s$, we return $ans$.
+After traversing the string $s$, we return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 

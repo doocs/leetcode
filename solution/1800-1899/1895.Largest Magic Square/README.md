@@ -71,7 +71,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $\text{rowsum}[i][j]$ 表示矩阵第 $i$ 行前 $j$ 列的元素和，定义 $\text{colsum}[i][j]$ 表示矩阵第 $j$ 列前 $i$ 行的元素和。则对于任意子矩阵 $(x_1, y_1)$ 到 $(x_2, y_2)$，其第 $i$ 行的和可以表示为 $\text{rowsum}[i+1][y_2+1] - \text{rowsum}[i+1][y_1]$，其第 $j$ 列的和可以表示为 $\text{colsum}[x_2+1][j+1] - \text{colsum}[x_1][j+1]$。
+我们定义 $\textit{rowsum}[i][j]$ 表示矩阵第 $i$ 行前 $j$ 列的元素和，定义 $\textit{colsum}[i][j]$ 表示矩阵第 $j$ 列前 $i$ 行的元素和。则对于任意子矩阵 $(x_1, y_1)$ 到 $(x_2, y_2)$，其第 $i$ 行的和可以表示为 $\textit{rowsum}[i+1][y_2+1] - \textit{rowsum}[i+1][y_1]$，其第 $j$ 列的和可以表示为 $\textit{colsum}[x_2+1][j+1] - \textit{colsum}[x_1][j+1]$。
 
 我们枚举所有可能的子矩阵，并检查其是否为幻方。对于每个子矩阵，我们计算其每一行、每一列以及两条对角线的和，判断它们是否相等即可。
 

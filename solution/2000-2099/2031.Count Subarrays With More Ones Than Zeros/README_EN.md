@@ -88,11 +88,11 @@ The problem requires us to count the number of subarrays where the count of $1$ 
 
 To calculate the sum of elements in a subarray, we can use the prefix sum. To count the number of subarrays where the sum of elements is greater than $0$, we can use a binary indexed tree to maintain the occurrence count of each prefix sum. Initially, the occurrence count of the prefix sum $0$ is $1$.
 
-Next, we traverse the array $nums$, use variable $s$ to record the current prefix sum, and use variable $ans$ to record the answer. For each position $i$, we update the prefix sum $s$, then query the occurrence count of the prefix sum in the range $[0, s)$ in the binary indexed tree, add it to $ans$, and then update the occurrence count of $s$ in the binary indexed tree.
+Next, we traverse the array $\textit{nums}$, use variable $s$ to record the current prefix sum, and use variable $\textit{ans}$ to record the answer. For each position $i$, we update the prefix sum $s$, then query the occurrence count of the prefix sum in the range $[0, s)$ in the binary indexed tree, add it to $\textit{ans}$, and then update the occurrence count of $s$ in the binary indexed tree.
 
-Finally, return $ans$.
+Finally, return $\textit{ans}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

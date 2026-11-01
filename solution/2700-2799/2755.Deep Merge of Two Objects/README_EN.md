@@ -84,9 +84,9 @@ obj2[&quot;b&quot;][&quot;c&quot;] has key &quot;e&quot; that obj1 doesn&#39;t h
 
 > **Thinking**
 >
-> Deep-merge two values: recurse when both are objects or both are arrays; on a type clash or a scalar, keep $obj2$. A shallow merge would leave nested objects untouched.
+> Deep-merge two values: recurse when both are objects or both are arrays; on a type clash or a scalar, keep $\textit{obj2}$. A shallow merge would leave nested objects untouched.
 >
-> If either side is not an object, or one is an array and the other is not, return $obj2$. Otherwise walk the keys of $obj2$ and recurse into $obj1$.
+> If either side is not an object, or one is an array and the other is not, return $\textit{obj2}$. Otherwise walk the keys of $\textit{obj2}$ and recurse into $\textit{obj1}$.
 
 <!-- thinking:end -->
 

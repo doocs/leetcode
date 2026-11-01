@@ -78,7 +78,7 @@ Same with other integers chosen by the first player, the second player will alwa
 >
 > Players draw without replacement from $1..n$ and the first to reach the target wins. $n\le 20$, so the state is the used set; a raw game tree repeats positions.
 >
-> If the total is too small, nobody can win. Otherwise $dfs(\textit{mask},s)$ tries each unused $i$: a win if $s+i$ already meets the target or the opponent loses afterwards. Memoize on $\textit{mask}$.
+> If the total is too small, nobody can win. Otherwise $\textit{dfs}(\textit{mask},s)$ tries each unused $i$: a win if $s+i$ already meets the target or the opponent loses afterwards. Memoize on $\textit{mask}$.
 >
 > A bit mask packs the set; at most $2^{n}$ subproblems. The total check skips a hopeless search.
 

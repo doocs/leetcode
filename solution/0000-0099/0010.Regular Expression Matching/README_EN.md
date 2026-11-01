@@ -82,13 +82,13 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$, which indicates whether the $i$-th character of $s$ matches the $j$-th character of $p$. The answer is $dfs(0, 0)$.
+We design a function $\textit{dfs}(i, j)$, which indicates whether the $i$-th character of $s$ matches the $j$-th character of $p$. The answer is $\textit{dfs}(0, 0)$.
 
-The calculation process of the function $dfs(i, j)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 
 - If $j$ has reached the end of $p$, then if $i$ has also reached the end of $s$, the match is successful, otherwise, the match fails.
-- If the next character of $j$ is `'*'`, we can choose to match $0$ $s[i]$ characters, which is $dfs(i, j + 2)$. If $i \lt m$ and $s[i]$ matches $p[j]$, we can choose to match $1$ $s[i]$ character, which is $dfs(i + 1, j)$.
-- If the next character of $j$ is not `'*'`, then if $i \lt m$ and $s[i]$ matches $p[j]$, it is $dfs(i + 1, j + 1)$. Otherwise, the match fails.
+- If the next character of $j$ is `'*'`, we can choose to match $0$ $s[i]$ characters, which is $\textit{dfs}(i, j + 2)$. If $i \lt m$ and $s[i]$ matches $p[j]$, we can choose to match $1$ $s[i]$ character, which is $\textit{dfs}(i + 1, j)$.
+- If the next character of $j$ is not `'*'`, then if $i \lt m$ and $s[i]$ matches $p[j]$, it is $\textit{dfs}(i + 1, j + 1)$. Otherwise, the match fails.
 
 During the process, we can use memoization search to avoid repeated calculations.
 
@@ -442,7 +442,7 @@ class Solution {
 
 We can convert the memoization search in Solution 1 into dynamic programming.
 
-Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ match the first $j$ characters of string $p$. The answer is $f[m][n]$. Initialize $f[0][0] = true$, indicating that the empty string and the empty regular expression match.
+Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ match the first $j$ characters of string $p$. The answer is $f[m][n]$. Initialize $f[0][0] = \textit{true}$, indicating that the empty string and the empty regular expression match.
 
 Similar to Solution 1, we can discuss different cases.
 

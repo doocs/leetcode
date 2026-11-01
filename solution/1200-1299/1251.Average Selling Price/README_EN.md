@@ -103,9 +103,9 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 
 > **Thinking**
 >
-> Average price is $\sum price\times units / \sum units$, and prices have date ranges. A left join of $Prices$ to $UnitsSold$ keeps purchases whose date lies in $[start,end]$ for that product, including products with no sales.
+> Average price is $\sum \textit{price}\times \textit{units} / \sum \textit{units}$, and prices have date ranges. A left join of $\textit{Prices}$ to $\textit{UnitsSold}$ keeps purchases whose date lies in $[\textit{start},\textit{end}]$ for that product, including products with no sales.
 >
-> Grouping by product, $IFNULL$ turns a null weighted mean into $0$. The join enforces the date window; the group computes the weighted average.
+> Grouping by product, $\textit{IFNULL}$ turns a null weighted mean into $0$. The join enforces the date window; the group computes the weighted average.
 
 <!-- thinking:end -->
 

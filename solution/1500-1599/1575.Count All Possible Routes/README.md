@@ -87,24 +87,24 @@ tags:
 
 > **思考**
 >
-> 从 $start$ 出发、油量不超过 $fuel$，统计到达 $finish$ 的路径数，中途可停留。城市数与油量都不大，但路径可反复经过同一城，不能按简单路径枚举。
+> 从 $\textit{start}$ 出发、油量不超过 $\textit{fuel}$，统计到达 $\textit{finish}$ 的路径数，中途可停留。城市数与油量都不大，但路径可反复经过同一城，不能按简单路径枚举。
 >
-> 状态只需当前城市 $i$ 与剩余油量 $k$。若 $k$ 已不够直达终点则无解；否则当前若已在终点先计入一条「到此为止」的路径，再枚举下一城 $j$ 并递归 $k-|locations[i]-locations[j]|$。记忆化后状态数为 $O(n fuel)$。
+> 状态只需当前城市 $i$ 与剩余油量 $k$。若 $k$ 已不够直达终点则无解；否则当前若已在终点先计入一条「到此为止」的路径，再枚举下一城 $j$ 并递归 $k-|\textit{locations}[i]-\textit{locations}[j]|$。记忆化后状态数为 $O(n \textit{fuel})$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i, k)$，表示从城市 $i$ 出发，剩余汽油量为 $k$ 时，到达目的地 $finish$ 的路径数。那么答案就是 $dfs(start, fuel)$。
+我们设计一个函数 $\textit{dfs}(i, k)$，表示从城市 $i$ 出发，剩余汽油量为 $k$ 时，到达目的地 $\textit{finish}$ 的路径数。那么答案就是 $\textit{dfs}(\textit{start}, \textit{fuel})$。
 
-函数 $dfs(i, k)$ 的计算过程如下：
+函数 $\textit{dfs}(i, k)$ 的计算过程如下：
 
-- 如果 $k \lt |locations[i] - locations[finish]|$，那么返回 $0$。
-- 如果 $i = finish$，那么答案路径数初始时为 $1$，否则为 $0$。
-- 然后，我们遍历所有城市 $j$，如果 $j \ne i$，那么我们可以从城市 $i$ 移动到城市 $j$，此时剩余汽油量为 $k - |locations[i] - locations[j]|$，那么我们可以将答案路径数加上 $dfs(j, k - |locations[i] - locations[j]|)$。
+- 如果 $k \lt |\textit{locations}[i] - \textit{locations}[\textit{finish}]|$，那么返回 $0$。
+- 如果 $i = \textit{finish}$，那么答案路径数初始时为 $1$，否则为 $0$。
+- 然后，我们遍历所有城市 $j$，如果 $j \ne i$，那么我们可以从城市 $i$ 移动到城市 $j$，此时剩余汽油量为 $k - |\textit{locations}[i] - \textit{locations}[j]|$，那么我们可以将答案路径数加上 $\textit{dfs}(j, k - |\textit{locations}[i] - \textit{locations}[j]|)$。
 - 最后，我们返回答案路径数。
 
 为了避免重复计算，我们可以使用记忆化搜索。
 
-时间复杂度 $O(n^2m)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别是数组 $locations$ 和 $fuel$ 的大小。
+时间复杂度 $O(n^2m)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别是数组 $\textit{locations}$ 和 $\textit{fuel}$ 的大小。
 
 <!-- tabs:start -->
 
@@ -283,13 +283,13 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 我们也可以将方法一的记忆化搜索转换为动态规划。
 
-我们定义 $f[i][k]$ 表示从城市 $i$ 出发，剩余汽油量为 $k$ 时，到达目的地 $finish$ 的路径数。那么答案就是 $f[start][fuel]$。初始时 $f[finish][k]=1$，其余均为 $0$。
+我们定义 $f[i][k]$ 表示从城市 $i$ 出发，剩余汽油量为 $k$ 时，到达目的地 $\textit{finish}$ 的路径数。那么答案就是 $f[\textit{start}][\textit{fuel}]$。初始时 $f[\textit{finish}][k]=1$，其余均为 $0$。
 
-接下来，我们从小到大枚举剩余汽油量 $k$，然后枚举所有的城市 $i$，对于每个城市 $i$，我们枚举所有的城市 $j$，如果 $j \ne i$，并且 $|locations[i] - locations[j]| \le k$，那么我们可以从城市 $i$ 移动到城市 $j$，此时剩余汽油量为 $k - |locations[i] - locations[j]|$，那么我们可以将答案路径数加上 $f[j][k - |locations[i] - locations[j]|]$。
+接下来，我们从小到大枚举剩余汽油量 $k$，然后枚举所有的城市 $i$，对于每个城市 $i$，我们枚举所有的城市 $j$，如果 $j \ne i$，并且 $|\textit{locations}[i] - \textit{locations}[j]| \le k$，那么我们可以从城市 $i$ 移动到城市 $j$，此时剩余汽油量为 $k - |\textit{locations}[i] - \textit{locations}[j]|$，那么我们可以将答案路径数加上 $f[j][k - |\textit{locations}[i] - \textit{locations}[j]|]$。
 
-最后，我们返回答案路径数 $f[start][fuel]$ 即可。
+最后，我们返回答案路径数 $f[\textit{start}][\textit{fuel}]$ 即可。
 
-时间复杂度 $O(n^2m)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别是数组 $locations$ 和 $fuel$ 的大小。
+时间复杂度 $O(n^2m)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别是数组 $\textit{locations}$ 和 $\textit{fuel}$ 的大小。
 
 <!-- tabs:start -->
 

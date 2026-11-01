@@ -54,7 +54,7 @@ k = 3
 >
 > $k$ planks, each short or long. Recursing over $2^k$ assignments overcounts; there are at most $k+1$ distinct sums.
 >
-> $i$ long planks give $i\cdot longer+(k-i)\cdot shorter$. $k=0$ is empty; equal lengths collapse to one value.
+> $i$ long planks give $i\cdot \textit{longer}+(k-i)\cdot \textit{shorter}$. $k=0$ is empty; equal lengths collapse to one value.
 >
 > When the lengths differ, $i=0\ldots k$ is strictly increasing, so the loop needs no deduplication.
 
@@ -62,9 +62,9 @@ k = 3
 
 If $k=0$, there is no solution, and we can directly return an empty list.
 
-If $shorter=longer$, we can only use a board with length $longer \times k$, so we directly return a list with length $longer \times k$.
+If $\textit{shorter}=\textit{longer}$, we can only use a board with length $\textit{longer} \times k$, so we directly return a list with length $\textit{longer} \times k$.
 
-Otherwise, we can use a board with length $shorter \times (k-i) + longer \times i$, where $0 \leq i \leq k$. We enumerate $i$ in the range $[0, k]$, and calculate the corresponding length. For different values of $i$, we will not get the same length, because if $0 \leq i \lt j \leq k$, then the difference in length is $(i - j) \times (longer - shorter) \lt 0$. Therefore, for different values of $i$, we will get different lengths.
+Otherwise, we can use a board with length $\textit{shorter} \times (k-i) + \textit{longer} \times i$, where $0 \leq i \leq k$. We enumerate $i$ in the range $[0, k]$, and calculate the corresponding length. For different values of $i$, we will not get the same length, because if $0 \leq i \lt j \leq k$, then the difference in length is $(i - j) \times (\textit{longer} - \textit{shorter}) \lt 0$. Therefore, for different values of $i$, we will get different lengths.
 
 The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the number of boards.
 

@@ -81,7 +81,7 @@ It can be shown that it is the maximum number of moves that can be made.</pre>
 
 We define a queue $q$, and initially add all the row coordinates of the first column to the queue.
 
-Next, we start from the first column and traverse column by column. For each column, we take out all the row coordinates in the queue one by one. For each row coordinate $i$, we get all possible row coordinates $k$ of the next column, and satisfy $grid[i][j] < grid[k][j + 1]$, and add these row coordinates to a new set $t$. If $t$ is empty, it means that we cannot continue to move, so we return the current column number. Otherwise, we assign $t$ to $q$ and continue to traverse the next column.
+Next, we start from the first column and traverse column by column. For each column, we take out all the row coordinates in the queue one by one. For each row coordinate $i$, we get all possible row coordinates $k$ of the next column, and satisfy $\textit{grid}[i][j] < \textit{grid}[k][j + 1]$, and add these row coordinates to a new set $t$. If $t$ is empty, it means that we cannot continue to move, so we return the current column number. Otherwise, we assign $t$ to $q$ and continue to traverse the next column.
 
 Finally, if we have traversed all the columns, it means that we can move to the last column, so we return $n - 1$.
 

@@ -64,23 +64,23 @@ tags:
 >
 > 连续意味着只有在两端字符相等时，长度才能由「去掉末元后的公共后缀」加一得到，否则这段后缀长度为 $0$。
 >
-> 令 $f[i][j]$ 为以 $nums1[i-1]$、 $nums2[j-1]$ 结尾的公共后缀长，相等则 $f[i-1][j-1]+1$，否则为 $0$。遍历取全局最大。时间 $O(mn)$。
+> 令 $f[i][j]$ 为以 $\textit{nums1}[i-1]$、 $\textit{nums2}[j-1]$ 结尾的公共后缀长，相等则 $f[i-1][j-1]+1$，否则为 $0$。遍历取全局最大。时间 $O(mn)$。
 
 <!-- thinking:end -->
 
-我们定义 $f[i][j]$ 表示以 $nums1[i - 1]$ 和 $nums2[j - 1]$ 结尾的最长公共子数组的长度，那么我们可以得到状态转移方程：
+我们定义 $f[i][j]$ 表示以 $\textit{nums1}[i - 1]$ 和 $\textit{nums2}[j - 1]$ 结尾的最长公共子数组的长度，那么我们可以得到状态转移方程：
 
 $$
 f[i][j]=
 \begin{cases}
-0, & nums1[i - 1] \neq nums2[j - 1] \\
-f[i - 1][j - 1] + 1, & nums1[i - 1] = nums2[j - 1]
+0, & \textit{nums1}[i - 1] \neq \textit{nums2}[j - 1] \\
+f[i - 1][j - 1] + 1, & \textit{nums1}[i - 1] = \textit{nums2}[j - 1]
 \end{cases}
 $$
 
 最终的答案即为所有 $f[i][j]$ 中的最大值。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 
 <!-- tabs:start -->
 

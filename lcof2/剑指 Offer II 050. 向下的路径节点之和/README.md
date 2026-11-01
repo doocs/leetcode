@@ -65,18 +65,18 @@ comments: true
 
 <!-- thinking:end -->
 
-我们可以运用前缀和的思想，对二叉树进行递归遍历，同时用哈希表 $cnt$ 统计从根节点到当前节点的路径上各个前缀和出现的次数。
+我们可以运用前缀和的思想，对二叉树进行递归遍历，同时用哈希表 $\textit{cnt}$ 统计从根节点到当前节点的路径上各个前缀和出现的次数。
 
-我们设计一个递归函数 $dfs(node, s)$，表示当前遍历到的节点为 $node$，从根节点到当前节点的路径上的前缀和为 $s$。函数的返回值是统计以 $node$ 节点及其子树节点作为路径终点且路径和为 $targetSum$ 的路径数目。那么答案就是 $dfs(root, 0)$。
+我们设计一个递归函数 $\textit{dfs}(\textit{node}, s)$，表示当前遍历到的节点为 $\textit{node}$，从根节点到当前节点的路径上的前缀和为 $s$。函数的返回值是统计以 $\textit{node}$ 节点及其子树节点作为路径终点且路径和为 $\textit{targetSum}$ 的路径数目。那么答案就是 $\textit{dfs}(\textit{root}, 0)$。
 
-函数 $dfs(node, s)$ 的递归过程如下：
+函数 $\textit{dfs}(\textit{node}, s)$ 的递归过程如下：
 
-- 如果当前节点 $node$ 为空，则返回 $0$。
+- 如果当前节点 $\textit{node}$ 为空，则返回 $0$。
 - 计算从根节点到当前节点的路径上的前缀和 $s$。
-- 用 $cnt[s - targetSum]$ 表示以当前节点为路径终点且路径和为 $targetSum$ 的路径数目，其中 $cnt[s - targetSum]$ 即为 $cnt$ 中前缀和为 $s - targetSum$ 的个数。
-- 将前缀和 $s$ 的计数值加 $1$，即 $cnt[s] = cnt[s] + 1$。
-- 递归地遍历当前节点的左右子节点，即调用函数 $dfs(node.left, s)$ 和 $dfs(node.right, s)$，并将它们的返回值相加。
-- 在返回值计算完成以后，需要将当前节点的前缀和 $s$ 的计数值减 $1$，即执行 $cnt[s] = cnt[s] - 1$。
+- 用 $\textit{cnt}[s - \textit{targetSum}]$ 表示以当前节点为路径终点且路径和为 $\textit{targetSum}$ 的路径数目，其中 $\textit{cnt}[s - \textit{targetSum}]$ 即为 $\textit{cnt}$ 中前缀和为 $s - \textit{targetSum}$ 的个数。
+- 将前缀和 $s$ 的计数值加 $1$，即 $\textit{cnt}[s] = \textit{cnt}[s] + 1$。
+- 递归地遍历当前节点的左右子节点，即调用函数 $\textit{dfs}(\textit{node}.\textit{left}, s)$ 和 $\textit{dfs}(\textit{node}.\textit{right}, s)$，并将它们的返回值相加。
+- 在返回值计算完成以后，需要将当前节点的前缀和 $s$ 的计数值减 $1$，即执行 $\textit{cnt}[s] = \textit{cnt}[s] - 1$。
 - 最后返回答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。

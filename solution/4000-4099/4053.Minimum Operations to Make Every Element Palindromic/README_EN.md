@@ -110,8 +110,8 @@ An operation increments or decrements an element by $2$, so its parity is invari
 
 During preprocessing, enumerate prefixes $i = 1, 2, \ldots, 10^5$ and let $s$ be the decimal representation of $i$:
 
-- Even-length palindrome: $s + \mathrm{reverse}(s)$
-- Odd-length palindrome: $s + \mathrm{reverse}(s[:-1])$
+- Even-length palindrome: $s + \textit{reverse}(s)$
+- Odd-length palindrome: $s + \textit{reverse}(s[:-1])$
 
 Store them in two lists by parity and sort each list. This range covers all palindromes with up to about $12$ digits, which is enough for values up to $10^9$.
 

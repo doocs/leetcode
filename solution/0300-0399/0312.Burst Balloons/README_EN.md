@@ -62,7 +62,7 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 >
 > The burst order changes neighbors, so searching by burst sequence revisits the same open intervals. Padding $1$ at both ends fixes the multipliers on the boundary.
 >
-> If $k$ is the last balloon burst in the open interval $(i,j)$, the two sides do not interact and we add $arr[i]\cdot arr[k]\cdot arr[j]$. Let $f[i][j]$ be the best score of clearing $(i,j)$; fill by increasing width ($i$ decreasing, $j$ increasing). The answer is $f[0][n+1]$.
+> If $k$ is the last balloon burst in the open interval $(i,j)$, the two sides do not interact and we add $\textit{arr}[i]\cdot \textit{arr}[k]\cdot \textit{arr}[j]$. Let $f[i][j]$ be the best score of clearing $(i,j)$; fill by increasing width ($i$ decreasing, $j$ increasing). The answer is $f[0][n+1]$.
 
 <!-- thinking:end -->
 
@@ -73,7 +73,7 @@ Then, we define $f[i][j]$ as the maximum number of coins we can get by bursting 
 For $f[i][j]$, we enumerate all positions $k$ in the interval $[i, j]$. Suppose $k$ is the last balloon to burst, then we can get the following state transition equation:
 
 $$
-f[i][j] = \max(f[i][j], f[i][k] + f[k][j] + arr[i] \times arr[k] \times arr[j])
+f[i][j] = \max(f[i][j], f[i][k] + f[k][j] + \textit{arr}[i] \times \textit{arr}[k] \times \textit{arr}[j])
 $$
 
 In implementation, since the state transition equation of $f[i][j]$ involves $f[i][k]$ and $f[k][j]$, where $i < k < j$, we need to traverse $i$ from large to small and $j$ from small to large. This ensures that when calculating $f[i][j]$, $f[i][k]$ and $f[k][j]$ have already been calculated.

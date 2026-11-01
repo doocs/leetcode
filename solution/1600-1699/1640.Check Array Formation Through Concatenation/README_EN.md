@@ -71,9 +71,9 @@ tags:
 
 > **Thinking**
 >
-> Each piece is ordered and values are unique, so we walk $arr$ and match the piece that starts with the current value. $n \le 100$ allows a linear search for that piece.
+> Each piece is ordered and values are unique, so we walk $\textit{arr}$ and match the piece that starts with the current value. $n \le 100$ allows a linear search for that piece.
 >
-> Pointer $i$ scans $arr$ and looks up the piece whose first element is $arr[i]$; a failed match means we cannot form the array.
+> Pointer $i$ scans $\textit{arr}$ and looks up the piece whose first element is $\textit{arr}[i]$; a failed match means we cannot form the array.
 
 <!-- thinking:end -->
 
@@ -264,7 +264,7 @@ var canFormArray = function (arr, pieces) {
 >
 > Solution 1 scans every piece at each step. Values are unique, so a map from the first element to the piece makes lookup $O(1)$.
 >
-> Store $d[p[0]]=p$ and compare $arr[i:i+|p|]$ with $p$.
+> Store $d[p[0]]=p$ and compare $\textit{arr}[i:i+|p|]$ with $p$.
 
 <!-- thinking:end -->
 

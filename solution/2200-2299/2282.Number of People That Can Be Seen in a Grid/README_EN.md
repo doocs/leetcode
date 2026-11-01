@@ -89,15 +89,15 @@ We observe that for the $i$-th person, the people he can see must have heights t
 
 Therefore, for each row, we can use a monotonic stack to find the number of people each person can see.
 
-Specifically, we can traverse the array in reverse order, using a stack $stk$ that is monotonically increasing from top to bottom to record the heights of the people we have traversed.
+Specifically, we can traverse the array in reverse order, using a stack $\textit{stk}$ that is monotonically increasing from top to bottom to record the heights of the people we have traversed.
 
-For the $i$-th person, if the stack is not empty and the top element of the stack is less than $heights[i]$, we increment the number of people the $i$-th person can see, and then pop the top element of the stack, repeating this until the stack is empty or the top element of the stack is greater than or equal to $heights[i]$. If the stack is not empty at this point, it means the top element of the stack is greater than or equal to $heights[i]$, so we increment the number of people the $i$-th person can see by 1. Next, if the stack is not empty and the top element of the stack is equal to $heights[i]$, we pop the top element of the stack. Finally, we push $heights[i]$ onto the stack and continue to the next person.
+For the $i$-th person, if the stack is not empty and the top element of the stack is less than $\textit{heights}[i]$, we increment the number of people the $i$-th person can see, and then pop the top element of the stack, repeating this until the stack is empty or the top element of the stack is greater than or equal to $\textit{heights}[i]$. If the stack is not empty at this point, it means the top element of the stack is greater than or equal to $\textit{heights}[i]$, so we increment the number of people the $i$-th person can see by 1. Next, if the stack is not empty and the top element of the stack is equal to $\textit{heights}[i]$, we pop the top element of the stack. Finally, we push $\textit{heights}[i]$ onto the stack and continue to the next person.
 
 After processing this way, we can get the number of people each person can see for each row.
 
 Similarly, we can process each column to get the number of people each person can see for each column. Finally, we add the answers for each row and each column to get the final answer.
 
-The time complexity is $O(mn)$, and the space complexity is $O(\max(m, n))$, where $m$ and $n$ are the number of rows and columns of the array $heights$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(\max(m, n))$, where $m$ and $n$ are the number of rows and columns of the array $\textit{heights}$, respectively.
 
 Similar problems:
 

@@ -63,21 +63,21 @@ tags:
 >
 > Trying jumps of $k-1,k,k+1$ from every stone revisits the same (stone, last jump). With $n\le 1100$ the pair $(i,k)$ has at most $O(n^2)$ states.
 >
-> Map positions to indices, memoize $dfs(i,k)$, and expand only onto stones that exist. The hash table makes the landing test $O(1)$.
+> Map positions to indices, memoize $\textit{dfs}(i,k)$, and expand only onto stones that exist. The hash table makes the landing test $O(1)$.
 
 <!-- thinking:end -->
 
-We use a hash table $pos$ to record the index of each stone. Next, we design a function $dfs(i, k)$, which means that the frog jumps from the $i$-th stone and the last jump distance is $k$. If the frog can reach the end, the function returns `true`, otherwise it returns `false`.
+We use a hash table $\textit{pos}$ to record the index of each stone. Next, we design a function $\textit{dfs}(i, k)$, which means that the frog jumps from the $i$-th stone and the last jump distance is $k$. If the frog can reach the end, the function returns `true`, otherwise it returns `false`.
 
-The calculation process of function $dfs(i, k)$ is as follows:
+The calculation process of function $\textit{dfs}(i, k)$ is as follows:
 
 If $i$ is the index of the last stone, the frog has reached the end, and return `true`;
 
-Otherwise, we need to enumerate the frog's next jump distance $j$, where $j \in [k-1, k, k+1]$. If $j$ is a positive integer and the hash table $pos$ exists the position $stones[i] + j$, then the frog can choose to jump $j$ units on the $i$-th stone, if $dfs(pos[stones[i] + j], j)$ returns `true`, the frog can successfully jump to the end from the $i$-th stone, and we can return `true`.
+Otherwise, we need to enumerate the frog's next jump distance $j$, where $j \in [k-1, k, k+1]$. If $j$ is a positive integer and the hash table $\textit{pos}$ exists the position $\textit{stones}[i] + j$, then the frog can choose to jump $j$ units on the $i$-th stone, if $\textit{dfs}(\textit{pos}[\textit{stones}[i] + j], j)$ returns `true`, the frog can successfully jump to the end from the $i$-th stone, and we can return `true`.
 
 The enumeration is over, indicating that the frog cannot choose the appropriate jump distance on the $i$-th stone to jump to the end, so we return `false`.
 
-In order to prevent repeated calculations in the function $dfs(i, k)$, we can use memoization, record the result of $dfs(i, k)$ in an array $f$, and assign $f[i][k]$ each time the function $dfs(i, k)$ returns result, and return $f[i][k]$ directly when encountering $dfs(i, k)$ next time.
+In order to prevent repeated calculations in the function $\textit{dfs}(i, k)$, we can use memoization, record the result of $\textit{dfs}(i, k)$ in an array $f$, and assign $f[i][k]$ each time the function $\textit{dfs}(i, k)$ returns result, and return $f[i][k]$ directly when encountering $\textit{dfs}(i, k)$ next time.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
@@ -313,7 +313,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We define $f[i][k]$ to be true if and only if it is possible to reach stone $i$ with last jump of size $k$. Initially $f[0][0] = true$, and all other elements of $f$ are false.
+We define $f[i][k]$ to be true if and only if it is possible to reach stone $i$ with last jump of size $k$. Initially $f[0][0] = \textit{true}$, and all other elements of $f$ are false.
 
 We can determine the value of $f[i][k]$ for all $i$ and $k$ using a double loop. For each possible jump size $k$, we look at the stones we could have jumped from: $i-k$, $i-k+1$, $i-k+2$. If any of these stones exist and if we can reach them with a last jump of size $k-1$, $k$, or $k+1$, then we can reach stone $i$ with a last jump of size $k$.
 

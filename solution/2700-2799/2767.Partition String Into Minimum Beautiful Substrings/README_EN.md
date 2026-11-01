@@ -85,23 +85,23 @@ It can be shown that 3 is the minimum number of beautiful substrings that s can 
 >
 > Split a binary string into as few pieces as possible, each without a leading zero and equal to a power of $5$. Enumeration is feasible for $n\le 15$, but prefixes with a leading zero should be rejected at once.
 >
-> Precompute powers of $5$ that fit the length. $dfs(i)$ is the fewest pieces from index $i$: $s[i]=0$ is illegal; otherwise grow the integer and try $1+dfs(j+1)$ when it is a power of $5$. If the memoized value stays infinite, return $-1$.
+> Precompute powers of $5$ that fit the length. $\textit{dfs}(i)$ is the fewest pieces from index $i$: $s[i]=0$ is illegal; otherwise grow the integer and try $1+\textit{dfs}(j+1)$ when it is a power of $5$. If the memoized value stays infinite, return $-1$.
 
 <!-- thinking:end -->
 
 Since the problem requires us to judge whether a string is the binary representation of a power of $5$, we might as well first preprocess all the powers of $5$ and record them in a hash table $ss$.
 
-Next, we design a function $dfs(i)$, which indicates the minimum number of cuts from the $i$-th character of the string $s$ to the end of the string. Then the answer is $dfs(0)$.
+Next, we design a function $\textit{dfs}(i)$, which indicates the minimum number of cuts from the $i$-th character of the string $s$ to the end of the string. Then the answer is $\textit{dfs}(0)$.
 
-The calculation method of function $dfs(i)$ is as follows:
+The calculation method of function $\textit{dfs}(i)$ is as follows:
 
 - If $i \geq n$, it means that all the characters have been processed, and the answer is $0$;
 - If $s[i] = 0$, it means that the current string contains leading $0$, which does not conform to the definition of a beautiful string, so the answer is infinite;
-- Otherwise, we enumerate the end position $j$ of the substring from $i$, and use $x$ to represent the decimal value of the substring $s[i..j]$. If $x$ is in the hash table $ss$, then we can take $s[i..j]$ as a beautiful substring, and the answer is $1 + dfs(j + 1)$. We need to enumerate all possible $j$ and take the minimum value of all answers.
+- Otherwise, we enumerate the end position $j$ of the substring from $i$, and use $x$ to represent the decimal value of the substring $s[i..j]$. If $x$ is in the hash table $ss$, then we can take $s[i..j]$ as a beautiful substring, and the answer is $1 + \textit{dfs}(j + 1)$. We need to enumerate all possible $j$ and take the minimum value of all answers.
 
 In order to avoid repeated calculation, we can use the method of memory search.
 
-In the main function, we first preprocess all the powers of $5$, and then call $dfs(0)$. If the return value is infinite, it means that the string $s$ cannot be divided into beautiful substrings, and the answer returns $-1$, otherwise, return the value of $dfs(0)$.
+In the main function, we first preprocess all the powers of $5$, and then call $\textit{dfs}(0)$. If the return value is infinite, it means that the string $s$ cannot be divided into beautiful substrings, and the answer returns $-1$, otherwise, return the value of $\textit{dfs}(0)$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 

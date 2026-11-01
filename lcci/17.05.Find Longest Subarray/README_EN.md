@@ -63,7 +63,7 @@ difficulty: Medium
 >
 > Letters as $+1$ and digits as $-1$ turn the task into the longest zero-sum subarray, i.e. the farthest pair of equal prefix sums.
 >
-> $vis$ stores the first index of each prefix, including $0\mapsto -1$. A repeat of $s$ yields a zero-sum $(j,i]$; keep the first index so the span is longest.
+> $\textit{vis}$ stores the first index of each prefix, including $0\mapsto -1$. A repeat of $s$ yields a zero-sum $(j,i]$; keep the first index so the span is longest.
 
 <!-- thinking:end -->
 

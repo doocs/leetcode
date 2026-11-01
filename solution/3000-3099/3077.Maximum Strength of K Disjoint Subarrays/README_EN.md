@@ -101,7 +101,7 @@ tags:
 
 <!-- thinking:end -->
 
-For the $i$th number $nums[i - 1]$, if it is selected and is in the $j$th subarray, then its contribution to the answer is $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$. We denote $(-1)^{j+1}$ as $sign$, so its contribution to the answer is $sign \times nums[i - 1] \times (k - j + 1)$.
+For the $i$th number $\textit{nums}[i - 1]$, if it is selected and is in the $j$th subarray, then its contribution to the answer is $\textit{nums}[i - 1] \times (k - j + 1) \times (-1)^{j+1}$. We denote $(-1)^{j+1}$ as $\textit{sign}$, so its contribution to the answer is $\textit{sign} \times \textit{nums}[i - 1] \times (k - j + 1)$.
 
 We define $f[i][j][0]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is not selected. We define $f[i][j][1]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is selected. Initially, $f[0][0][0] = 0$, and the rest of the values are $-\infty$.
 
@@ -109,11 +109,11 @@ When $i > 0$, we consider how $f[i][j]$ transitions.
 
 If the $i$th number is not selected, then the $i-1$th number can either be selected or not selected, so $f[i][j][0] = \max(f[i-1][j][0], f[i-1][j][1])$.
 
-If the $i$th number is selected, if the $i-1$th number and the $i$th number are in the same subarray, then $f[i][j][1] = \max(f[i][j][1], f[i-1][j][1] + sign \times nums[i-1] \times (k - j + 1))$, otherwise $f[i][j][1] = \max(f[i][j][1], \max(f[i-1][j-1][0], f[i-1][j-1][1]) + sign \times nums[i-1] \times (k - j + 1))$.
+If the $i$th number is selected, if the $i-1$th number and the $i$th number are in the same subarray, then $f[i][j][1] = \max(f[i][j][1], f[i-1][j][1] + \textit{sign} \times \textit{nums}[i-1] \times (k - j + 1))$, otherwise $f[i][j][1] = \max(f[i][j][1], \max(f[i-1][j-1][0], f[i-1][j-1][1]) + \textit{sign} \times \textit{nums}[i-1] \times (k - j + 1))$.
 
 The final answer is $\max(f[n][k][0], f[n][k][1])$.
 
-The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

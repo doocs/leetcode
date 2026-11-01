@@ -46,7 +46,7 @@ difficulty: 简单
 
 <!-- thinking:end -->
 
-创建虚拟头节点 $dummy$，遍历链表，将每个节点依次插入 $dummy$ 的下一个节点。遍历结束，返回 $dummy.next$。
+创建虚拟头节点 $\textit{dummy}$，遍历链表，将每个节点依次插入 $\textit{dummy}$ 的下一个节点。遍历结束，返回 $\textit{dummy}.\textit{next}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
@@ -311,7 +311,7 @@ class Solution {
 
 <!-- thinking:end -->
 
-递归反转链表的第二个节点到尾部的所有节点，然后 $head$ 插在反转后的链表的尾部。
+递归反转链表的第二个节点到尾部的所有节点，然后 $\textit{head}$ 插在反转后的链表的尾部。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 

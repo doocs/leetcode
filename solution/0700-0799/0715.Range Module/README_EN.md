@@ -73,18 +73,18 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 >
 > These are range assign / range query operations. A segment tree handles them in logarithmic time; the universe is too large to allocate fully, so we create nodes on demand and push lazy assign marks.
 >
-> Each node stores whether its segment is fully covered. A fully contained update writes the mark; a query returns $\textit{v}$ on a covered node, otherwise pushes down and ands the two children. Each call is $O(\log n)$.
+> Each node stores whether its segment is fully covered. A fully contained update writes the mark; a query returns $v$ on a covered node, otherwise pushes down and ands the two children. Each call is $O(\log n)$.
 
 <!-- thinking:end -->
 
 According to the problem description, we need to maintain a set of intervals, supporting operations of interval addition, deletion, and query. For the addition and deletion of intervals, we can use a segment tree to maintain the set of intervals.
 
-The segment tree divides the entire interval into multiple non-continuous sub-intervals, the number of which does not exceed $\log(width)$. To update the value of an element, only $\log(width)$ intervals need to be updated, and these intervals are all included in a large interval containing the element. When modifying the interval, we need to use **lazy propagation** to ensure efficiency.
+The segment tree divides the entire interval into multiple non-continuous sub-intervals, the number of which does not exceed $\log(\textit{width})$. To update the value of an element, only $\log(\textit{width})$ intervals need to be updated, and these intervals are all included in a large interval containing the element. When modifying the interval, we need to use **lazy propagation** to ensure efficiency.
 
 - Each node of the segment tree represents an interval;
 - The segment tree has a unique root node, representing the entire statistical range, such as $[1,N]$;
 - Each leaf node of the segment tree represents an elementary interval of length $1$, $[x,x]$;
-- For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid=⌊(l+r)/2⌋$ (rounded down).
+- For each internal node $[l,r]$, its left child is $[l,\textit{mid}]$, and the right child is $[\textit{mid}+1,r]$, where $\textit{mid}=⌊(l+r)/2⌋$ (rounded down).
 
 Due to the large data range of the problem, we can implement it with a dynamically allocated segment tree. A dynamically allocated segment tree means that we only allocate nodes when needed, instead of allocating all nodes at the beginning. This can save space, but it requires **lazy propagation** to maintain interval modification.
 

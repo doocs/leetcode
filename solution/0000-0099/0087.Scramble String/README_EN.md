@@ -87,18 +87,18 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 >
 > The bottleneck is overlapping subproblems. The state is only “can $s_1[i:i+k]$ scramble into $s_2[j:j+k]$.”
 >
-> A scramble only chooses to swap or not after a cut. Enumerate cut length $h$: either the two pieces line up, or they cross. Cache $dfs(i, j, k)$: $O(n^3)$ states, $O(n)$ cuts each, $O(n^4)$ total.
+> A scramble only chooses to swap or not after a cut. Enumerate cut length $h$: either the two pieces line up, or they cross. Cache $\textit{dfs}(i, j, k)$: $O(n^3)$ states, $O(n)$ cuts each, $O(n^4)$ total.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, k)$, which means whether the substring starting from $i$ with length $k$ in $s_1$ can be converted into the substring starting from $j$ with length $k$ in $s_2$. If it can be converted, return `true`, otherwise return `false`. The answer is $dfs(0, 0, n)$, where $n$ is the length of the string.
+We design a function $\textit{dfs}(i, j, k)$, which means whether the substring starting from $i$ with length $k$ in $s_1$ can be converted into the substring starting from $j$ with length $k$ in $s_2$. If it can be converted, return `true`, otherwise return `false`. The answer is $\textit{dfs}(0, 0, n)$, where $n$ is the length of the string.
 
-The calculation method of function $dfs(i, j, k)$ is as follows:
+The calculation method of function $\textit{dfs}(i, j, k)$ is as follows:
 
 - If $k=1$, then we only need to judge whether $s_1[i]$ and $s_2[j]$ are equal. If they are equal, return `true`, otherwise return `false`;
-- If $k \gt 1$, we enumerate the length of the split part $h$, then there are two cases: if the two substrings of the split are not swapped, then it is $dfs(i, j, h) \land dfs(i+h, j+h, k-h)$; if the two substrings of the split are swapped, then it is $dfs(i, j+k-h, h) \land dfs(i+h, j, k-h)$. If one of the two cases is true, then $dfs(i, j, k)$ is true, return `true`, otherwise return `false`.
+- If $k \gt 1$, we enumerate the length of the split part $h$, then there are two cases: if the two substrings of the split are not swapped, then it is $\textit{dfs}(i, j, h) \land \textit{dfs}(i+h, j+h, k-h)$; if the two substrings of the split are swapped, then it is $\textit{dfs}(i, j+k-h, h) \land \textit{dfs}(i+h, j, k-h)$. If one of the two cases is true, then $\textit{dfs}(i, j, k)$ is true, return `true`, otherwise return `false`.
 
-Finally, we return $dfs(0, 0, n)$.
+Finally, we return $\textit{dfs}(0, 0, n)$.
 
 In order to avoid repeated calculation, we can use memory search.
 
@@ -307,13 +307,13 @@ public class Solution {
 >
 > Solution 1 is already $O(n^4)$, but recursion pays a call stack and cache constants. At $n = 30$ both hurt.
 >
-> What it lacks is the same transition written bottom-up. $f[i][j][k]$ is the table form of $dfs(i, j, k)$: fill length $1$ first, then increasing $k$. Same asymptotics, more stable constants.
+> What it lacks is the same transition written bottom-up. $f[i][j][k]$ is the table form of $\textit{dfs}(i, j, k)$: fill length $1$ first, then increasing $k$. Same asymptotics, more stable constants.
 
 <!-- thinking:end -->
 
 We define $f[i][j][k]$ as whether the substring of length $k$ starting from $i$ of string $s_1$ can be transformed into the substring of length $k$ starting from $j$ of string $s_2$. Then the answer is $f[0][0][n]$, where $n$ is the length of the string.
 
-For substring of length $1$, if $s_1[i] = s_2[j]$, then $f[i][j][1] = true$, otherwise $f[i][j][1] = false$.
+For substring of length $1$, if $s_1[i] = s_2[j]$, then $f[i][j][1] = \textit{true}$, otherwise $f[i][j][1] = \textit{false}$.
 
 Next, we enumerate the length $k$ of the substring from small to large, and enumerate $i$ from $0$, and enumerate $j$ from $0$. If $f[i][j][h] \land f[i + h][j + h][k - h]$ or $f[i][j + k - h][h] \land f[i + h][j][k - h]$ is true, then $f[i][j][k]$ is also true.
 

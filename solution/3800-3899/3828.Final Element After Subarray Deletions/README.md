@@ -93,13 +93,13 @@ tags:
 >
 > 中间任一元素，只要不是最后剩下的，Bob 总能在后续轮次把它删掉。因此中间值无法被 Alice 保住。
 >
-> 双方最优下答案恰为 $\max(nums[0],nums[n-1])$。
+> 双方最优下答案恰为 $\max(\textit{nums}[0],\textit{nums}[n-1])$。
 
 <!-- thinking:end -->
 
-由于 Alice 先手，Alice 可以选择移除除第一个元素和最后一个元素之外的所有元素，那么答案至少为 $\max(nums[0], nums[n - 1])$。
+由于 Alice 先手，Alice 可以选择移除除第一个元素和最后一个元素之外的所有元素，那么答案至少为 $\max(\textit{nums}[0], \textit{nums}[n - 1])$。
 
-而对于 $n = 1,2,..n-2$ 的情况，即便 Alice 想要保留这中间的某个元素，Bob 也可以选择移除它，因此答案至多为 $\max(nums[0], nums[n - 1])$。
+而对于 $n = 1,2,..n-2$ 的情况，即便 Alice 想要保留这中间的某个元素，Bob 也可以选择移除它，因此答案至多为 $\max(\textit{nums}[0], \textit{nums}[n - 1])$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

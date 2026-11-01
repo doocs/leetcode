@@ -94,7 +94,7 @@ Orders table:
 
 > **Thinking**
 >
-> Customers with no orders are those whose $\textit{id}$ is outside the $\textit{customerId}$ set. $\textit{NOT IN}$ is that set difference. Watch the empty-list semantics of $\textit{NOT IN}$ on some engines.
+> Customers with no orders are those whose $id$ is outside the $\textit{customerId}$ set. $\textit{NOT IN}$ is that set difference. Watch the empty-list semantics of $\textit{NOT IN}$ on some engines.
 
 <!-- thinking:end -->
 

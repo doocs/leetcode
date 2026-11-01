@@ -231,7 +231,7 @@ function hasCycle(head: ListNode | null): boolean {
 
 <!-- thinking:end -->
 
-我们定义快慢指针 $fast$ 和 $slow$，初始时均指向 $head$。
+我们定义快慢指针 $\textit{fast}$ 和 $\textit{slow}$，初始时均指向 $\textit{head}$。
 
 快指针每次走两步，慢指针每次走一步，不断循环。当快慢指针相遇时，说明链表存在环。如果循环结束依然没有相遇，说明链表不存在环。
 

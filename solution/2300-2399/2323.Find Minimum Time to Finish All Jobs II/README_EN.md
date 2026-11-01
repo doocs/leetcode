@@ -72,7 +72,7 @@ It can be proven that 3 days is the minimum number of days needed.
 
 > **Thinking**
 >
-> Each worker takes exactly one job; the time is the max of $\lceil jobs_i / workers_j \rceil$. Counts are equal, so only the matching matters.
+> Each worker takes exactly one job; the time is the max of $\lceil \textit{jobs}_i / \textit{workers}_j \rceil$. Counts are equal, so only the matching matters.
 >
 > Pairing a heavy job with a slow worker raises the maximum. Sort both arrays and match by index so stronger workers take heavier jobs, then take the max of the ceilings.
 

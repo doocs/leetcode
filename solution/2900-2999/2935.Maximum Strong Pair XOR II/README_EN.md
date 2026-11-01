@@ -83,15 +83,15 @@ The maximum XOR possible from these pairs is 500 XOR 520 = 1020 since the only o
 >
 > This matches method 2 of part I, with $n \le 5 \times 10^4$ and values below $2^{20}$. Pair enumeration is impossible. For $x \le y$ a strong pair is $y \le 2x$; sort and keep that window with two pointers.
 >
-> A 0-1 trie walks the opposite bit to maximize XOR and uses $cnt$ to delete the left end. Twenty-one bits give $O(n \log A)$.
+> A 0-1 trie walks the opposite bit to maximize XOR and uses $\textit{cnt}$ to delete the left end. Twenty-one bits give $O(n \log A)$.
 
 <!-- thinking:end -->
 
 Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
 
-Therefore, we sort the array $nums$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.
+Therefore, we sort the array $\textit{nums}$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M = 2^{20}$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$. In this problem, $M = 2^{20}$.
 
 <!-- tabs:start -->
 

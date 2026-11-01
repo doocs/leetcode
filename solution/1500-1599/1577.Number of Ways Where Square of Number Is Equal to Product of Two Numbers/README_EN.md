@@ -76,7 +76,7 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 
 > **Thinking**
 >
-> Count triples with $nums1[i]^2=nums2[j]\cdot nums2[k]$ and the symmetric case. Lengths are typically about $100$, so a triple loop would pass, yet the same product is requested many times.
+> Count triples with $\textit{nums1}[i]^2=\textit{nums2}[j]\cdot \textit{nums2}[k]$ and the symmetric case. Lengths are typically about $100$, so a triple loop would pass, yet the same product is requested many times.
 >
 > Hash every unordered pair-product on one side, then query $x^2$ for each $x$ on the other side. Swap the two roles and add the counts.
 
@@ -244,7 +244,7 @@ function cal(cnt: Map<number, number>, nums: number[]): number {
 
 We use a hash table $\textit{cnt1}$ to count the occurrences of each number in $\textit{nums1}$, and a hash table $\textit{cnt2}$ to count the occurrences of each number in $\textit{nums2}$.
 
-Next, we enumerate each number $x$ in the array $\textit{nums1}$, and then enumerate each pair $(y, v1)$ in $\textit{cnt2}$, where $y$ is the key of $\textit{cnt2}$ and $v1$ is the value of $\textit{cnt2}$. We calculate $z = x^2 / y$. If $y \times z = x^2$, and if $y = z$, it means $y$ and $z$ are the same number, then the number of ways to choose two numbers from $v1$ is $v1 \times (v1 - 1) = v1 \times (v2 - 1)$. If $y \neq z$, then the number of ways to choose two numbers from $v1$ is $v1 \times v2$. Finally, we sum all the ways and divide by $2$. The division by $2$ is because we count the number of ways for the pair $(j, k)$, but $(j, k)$ and $(k, j)$ are the same way.
+Next, we enumerate each number $x$ in the array $\textit{nums1}$, and then enumerate each pair $(y, \textit{v1})$ in $\textit{cnt2}$, where $y$ is the key of $\textit{cnt2}$ and $\textit{v1}$ is the value of $\textit{cnt2}$. We calculate $z = x^2 / y$. If $y \times z = x^2$, and if $y = z$, it means $y$ and $z$ are the same number, then the number of ways to choose two numbers from $\textit{v1}$ is $\textit{v1} \times (\textit{v1} - 1) = \textit{v1} \times (\textit{v2} - 1)$. If $y \neq z$, then the number of ways to choose two numbers from $\textit{v1}$ is $\textit{v1} \times \textit{v2}$. Finally, we sum all the ways and divide by $2$. The division by $2$ is because we count the number of ways for the pair $(j, k)$, but $(j, k)$ and $(k, j)$ are the same way.
 
 The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 

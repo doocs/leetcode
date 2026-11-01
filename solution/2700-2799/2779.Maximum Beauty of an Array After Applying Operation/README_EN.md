@@ -85,13 +85,13 @@ The beauty of the array nums is 4 (whole array).
 
 <!-- thinking:end -->
 
-We notice that for each operation, all elements within the interval $[nums[i]-k, nums[i]+k]$ will increase by $1$. Therefore, we can use a difference array to record the contributions of these operations to the beauty value.
+We notice that for each operation, all elements within the interval $[\textit{nums}[i]-k, \textit{nums}[i]+k]$ will increase by $1$. Therefore, we can use a difference array to record the contributions of these operations to the beauty value.
 
-In the problem, $nums[i]-k$ might be negative. We add $k$ to all elements to ensure the results are non-negative. Thus, we can create a difference array $d$ with a length of $\max(nums) + k \times 2 + 2$.
+In the problem, $\textit{nums}[i]-k$ might be negative. We add $k$ to all elements to ensure the results are non-negative. Thus, we can create a difference array $d$ with a length of $\max(\textit{nums}) + k \times 2 + 2$.
 
-Next, we iterate through the array $nums$. For the current element $x$ being iterated, we increase $d[x]$ by $1$ and decrease $d[x+k\times2+1]$ by $1$. In this way, we can calculate the prefix sum for each position using the $d$ array, which represents the beauty value for each position. The maximum beauty value can then be found.
+Next, we iterate through the array $\textit{nums}$. For the current element $x$ being iterated, we increase $d[x]$ by $1$ and decrease $d[x+k\times2+1]$ by $1$. In this way, we can calculate the prefix sum for each position using the $d$ array, which represents the beauty value for each position. The maximum beauty value can then be found.
 
-The time complexity is $O(M + 2k + n)$, and the space complexity is $O(M + 2k)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(M + 2k + n)$, and the space complexity is $O(M + 2k)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

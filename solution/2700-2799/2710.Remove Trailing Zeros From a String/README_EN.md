@@ -59,7 +59,7 @@ tags:
 >
 > Only trailing zeros of the decimal representation should be removed; zeros in the middle or at the front stay. A left-to-right scan cannot tell which zeros are trailing until the end is known.
 >
-> Stripping consecutive zeros from the right is exactly $rstrip$.
+> Stripping consecutive zeros from the right is exactly $\textit{rstrip}$.
 
 <!-- thinking:end -->
 

@@ -154,7 +154,7 @@ tags:
 >
 > 仅用 $\textit{GROUP BY}$ 加 $\textit{MAX}$ 无法在并列时同时带出 $\textit{driver\_id}$。
 >
-> 因此对聚合结果按评分降序、里程降序、事故升序做 $\textit{RANK}$，筛 $\textit{rk}=1$，再按燃料类型排序输出。
+> 因此对聚合结果按评分降序、里程降序、事故升序做 $\textit{RANK}$，筛 $rk=1$，再按燃料类型排序输出。
 
 <!-- thinking:end -->
 

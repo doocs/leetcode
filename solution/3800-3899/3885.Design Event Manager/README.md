@@ -106,13 +106,13 @@ eventManager.pollHighest(); // 没有剩余事件，返回 -1</div>
 
 <!-- thinking:end -->
 
-我们定义一个有序集合 $\textit{sl}$ 来存储所有活跃事件的优先级和 id 的元组 $(-\textit{priority}, \textit{eventId})$，定义一个哈希表 $\textit{d}$ 来存储每个事件的优先级。
+我们定义一个有序集合 $sl$ 来存储所有活跃事件的优先级和 id 的元组 $(-\textit{priority}, \textit{eventId})$，定义一个哈希表 $d$ 来存储每个事件的优先级。
 
-初始时，我们遍历给定的事件列表，将所有事件的优先级和 id 的元组加入有序集合 $\textit{sl}$ 中，并将每个事件的优先级存储在哈希表 $\textit{d}$ 中。
+初始时，我们遍历给定的事件列表，将所有事件的优先级和 id 的元组加入有序集合 $sl$ 中，并将每个事件的优先级存储在哈希表 $d$ 中。
 
-对于 $\textit{updatePriority}(eventId, newPriority)$ 操作，我们首先从哈希表 $\textit{d}$ 中获取事件的旧优先级，然后从有序集合 $\textit{sl}$ 中移除旧优先级和事件 id 的元组，接着将新优先级和事件 id 的元组加入有序集合 $\textit{sl}$ 中，并更新哈希表 $\textit{d}$ 中事件的优先级。
+对于 $\textit{updatePriority}(\textit{eventId}, \textit{newPriority})$ 操作，我们首先从哈希表 $d$ 中获取事件的旧优先级，然后从有序集合 $sl$ 中移除旧优先级和事件 id 的元组，接着将新优先级和事件 id 的元组加入有序集合 $sl$ 中，并更新哈希表 $d$ 中事件的优先级。
 
-对于 $\textit{pollHighest}()$ 操作，我们首先检查有序集合 $\textit{sl}$ 是否为空。如果为空，返回 -1。否则，我们从有序集合 $\textit{sl}$ 中获取优先级最高的事件（即第一个元素），移除该事件的元组，并从哈希表 $\textit{d}$ 中删除该事件的优先级信息，最后返回该事件的 id。
+对于 $\textit{pollHighest}()$ 操作，我们首先检查有序集合 $sl$ 是否为空。如果为空，返回 -1。否则，我们从有序集合 $sl$ 中获取优先级最高的事件（即第一个元素），移除该事件的元组，并从哈希表 $d$ 中删除该事件的优先级信息，最后返回该事件的 id。
 
 时间复杂度方面，初始化操作需要 $O(n \log n)$ 的时间，其中 $n$ 是初始事件的数量。每次调用 $\textit{updatePriority}$ 和 $\textit{pollHighest}$ 操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$，其中 $n$ 是活跃事件的数量。
 

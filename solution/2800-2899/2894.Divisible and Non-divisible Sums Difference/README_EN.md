@@ -81,7 +81,7 @@ We return 0 - 15 = -15 as the answer.
 
 > **Thinking**
 >
-> $n$ is small enough to scan $[1,n]$: subtract a multiple of $m$ and add every other integer, which is exactly $num_1-num_2$.
+> $n$ is small enough to scan $[1,n]$: subtract a multiple of $m$ and add every other integer, which is exactly $\textit{num}_1-\textit{num}_2$.
 
 <!-- thinking:end -->
 

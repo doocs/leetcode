@@ -70,26 +70,26 @@ tags:
 
 > **Thinking**
 >
-> $pref[i]$ is the XOR of $arr[0..i]$. Then $pref[i]\oplus pref[i-1]=arr[i]$ with $pref[-1]=0$, so the original array is the adjacent-prefix XOR. One linear pass at $n\le 10^5$.
+> $\textit{pref}[i]$ is the XOR of $\textit{arr}[0..i]$. Then $\textit{pref}[i]\oplus \textit{pref}[i-1]=\textit{arr}[i]$ with $\textit{pref}[-1]=0$, so the original array is the adjacent-prefix XOR. One linear pass at $n\le 10^5$.
 
 <!-- thinking:end -->
 
 According to the problem statement, we have equation one:
 
 $$
-pref[i]=arr[0] \oplus arr[1] \oplus \cdots \oplus arr[i]
+\textit{pref}[i]=\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[i]
 $$
 
 So, we also have equation two:
 
 $$
-pref[i-1]=arr[0] \oplus arr[1] \oplus \cdots \oplus arr[i-1]
+\textit{pref}[i-1]=\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[i-1]
 $$
 
 We perform a bitwise XOR operation on equations one and two, and get:
 
 $$
-pref[i] \oplus pref[i-1]=arr[i]
+\textit{pref}[i] \oplus \textit{pref}[i-1]=\textit{arr}[i]
 $$
 
 That is, each item in the answer array is obtained by performing a bitwise XOR operation on the adjacent two items in the prefix XOR array.

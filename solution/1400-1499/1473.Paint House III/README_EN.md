@@ -89,9 +89,9 @@ Cost of paint the first and last house (10 + 1) = 11.
 
 > **Thinking**
 >
-> Paint $m$ houses into exactly $target$ neighborhoods, paying only for unpainted houses. The state is house $i$, color $j$, and neighborhood count $k$.
+> Paint $m$ houses into exactly $\textit{target}$ neighborhoods, paying only for unpainted houses. The state is house $i$, color $j$, and neighborhood count $k$.
 >
-> A pre-painted house is free and fixed; otherwise try each color and add $cost$. Same color keeps $k$, a new color increments it. The answer is the min over colors at $f[m-1][\cdot][target]$, or $-1$.
+> A pre-painted house is free and fixed; otherwise try each color and add $\textit{cost}$. Same color keeps $k$, a new color increments it. The answer is the min over colors at $f[m-1][\cdot][\textit{target}]$, or $-1$.
 
 <!-- thinking:end -->
 

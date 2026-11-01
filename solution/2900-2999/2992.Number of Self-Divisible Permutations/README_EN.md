@@ -83,23 +83,23 @@ It can be shown that the other 3 permutations are not self-divisible. Hence the 
 
 > **Thinking**
 >
-> A permutation must satisfy $\gcd(i, perm_i)=1$. $n$ is tiny, so a bit mask records used values. $dfs(mask)$ fills position $bit\_count+1$ with an unused $j$ coprime to that position.
+> A permutation must satisfy $\gcd(i, \textit{perm}_i)=1$. $n$ is tiny, so a bit mask records used values. $\textit{dfs}(\textit{mask})$ fills position $\textit{bit\_count}+1$ with an unused $j$ coprime to that position.
 >
 > $2^n$ states times $n$ choices fit.
 
 <!-- thinking:end -->
 
-We can use a binary number $mask$ to represent the current permutation state, where the $i$-th bit is $1$ indicates that the number $i$ has been used, and $0$ indicates that the number $i$ has not been used yet.
+We can use a binary number $\textit{mask}$ to represent the current permutation state, where the $i$-th bit is $1$ indicates that the number $i$ has been used, and $0$ indicates that the number $i$ has not been used yet.
 
-Then, we design a function $dfs(mask)$, which represents the number of permutations that can be constructed from the current permutation state $mask$ and meet the requirements of the problem. The answer is $dfs(0)$.
+Then, we design a function $\textit{dfs}(\textit{mask})$, which represents the number of permutations that can be constructed from the current permutation state $\textit{mask}$ and meet the requirements of the problem. The answer is $\textit{dfs}(0)$.
 
-We can use the method of memoization search to calculate the value of $dfs(mask)$.
+We can use the method of memoization search to calculate the value of $\textit{dfs}(\textit{mask})$.
 
-In the process of calculating $dfs(mask)$, we use $i$ to indicate which number is to be added to the permutation. If $i \gt n$, it means that the permutation has been constructed, and we can return $1$.
+In the process of calculating $\textit{dfs}(\textit{mask})$, we use $i$ to indicate which number is to be added to the permutation. If $i \gt n$, it means that the permutation has been constructed, and we can return $1$.
 
-Otherwise, we enumerate the numbers $j$ that have not been used in the current permutation. If $i$ and $j$ meet the requirements of the problem, then we can add $j$ to the permutation. At this time, the state becomes $mask \mid 2^j$, where $|$ represents bitwise OR operation. Since $j$ has been used, we need to recursively calculate the value of $dfs(mask \mid 2^j)$ and add it to $dfs(mask)$.
+Otherwise, we enumerate the numbers $j$ that have not been used in the current permutation. If $i$ and $j$ meet the requirements of the problem, then we can add $j$ to the permutation. At this time, the state becomes $\textit{mask} \mid 2^j$, where $|$ represents bitwise OR operation. Since $j$ has been used, we need to recursively calculate the value of $\textit{dfs}(\textit{mask} \mid 2^j)$ and add it to $\textit{dfs}(\textit{mask})$.
 
-Finally, we can get the value of $dfs(0)$, which is the answer.
+Finally, we can get the value of $\textit{dfs}(0)$, which is the answer.
 
 The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of the permutation.
 
@@ -280,15 +280,15 @@ function bitCount(i: number): number {
 
 > **Thinking**
 >
-> Method 1 recurses on the used set. Equivalently $f[mask]$ counts ways to reach that set, transitioning by adding one unused $j$ coprime to its position. Start from $f[0]=1$ and read $f[2^n-1]$.
+> Method 1 recurses on the used set. Equivalently $f[\textit{mask}]$ counts ways to reach that set, transitioning by adding one unused $j$ coprime to its position. Start from $f[0]=1$ and read $f[2^n-1]$.
 >
 > Only the evaluation order changes; the recursion disappears.
 
 <!-- thinking:end -->
 
-We can rewrite the memoization search in Solution 1 into the form of dynamic programming, define $f[mask]$ to represent the number of permutations that the current permutation state is $mask$ and meet the requirements of the problem. Initially, $f[0]=1$, and the rest are $0$.
+We can rewrite the memoization search in Solution 1 into the form of dynamic programming, define $f[\textit{mask}]$ to represent the number of permutations that the current permutation state is $\textit{mask}$ and meet the requirements of the problem. Initially, $f[0]=1$, and the rest are $0$.
 
-We enumerate $mask$ in the range of $[0, 2^n)$, for each $mask$, we use $i$ to represent which number is the last one to join the permutation, then we enumerate the last number $j$ added to the current permutation. If $i$ and $j$ meet the requirements of the problem, then the state $f[mask]$ can be transferred from the state $f[mask \oplus 2^(j-1)]$, where $\oplus$ represents bitwise XOR operation. We add all the values of the transferred state $f[mask \oplus 2^(j-1)]$ to $f[mask]$, which is the value of $f[mask]$.
+We enumerate $\textit{mask}$ in the range of $[0, 2^n)$, for each $\textit{mask}$, we use $i$ to represent which number is the last one to join the permutation, then we enumerate the last number $j$ added to the current permutation. If $i$ and $j$ meet the requirements of the problem, then the state $f[\textit{mask}]$ can be transferred from the state $f[\textit{mask} \oplus 2^(j-1)]$, where $\oplus$ represents bitwise XOR operation. We add all the values of the transferred state $f[\textit{mask} \oplus 2^(j-1)]$ to $f[\textit{mask}]$, which is the value of $f[\textit{mask}]$.
 
 Finally, we can get the value of $f[2^n - 1]$, which is the answer.
 

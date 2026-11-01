@@ -63,9 +63,9 @@ difficulty: Easy
 
 <!-- thinking:end -->
 
-First, if the lengths of strings $s1$ and $s2$ are not equal, they are definitely not rotation strings of each other.
+First, if the lengths of strings $\textit{s1}$ and $\textit{s2}$ are not equal, they are definitely not rotation strings of each other.
 
-Second, if the lengths of strings $s1$ and $s2$ are equal, then by concatenating two $s1$ together, the resulting string $s1 + s1$ will definitely include all rotation cases of $s1$. At this point, we just need to check whether $s2$ is a substring of $s1 + s1$.
+Second, if the lengths of strings $\textit{s1}$ and $\textit{s2}$ are equal, then by concatenating two $\textit{s1}$ together, the resulting string $\textit{s1} + \textit{s1}$ will definitely include all rotation cases of $\textit{s1}$. At this point, we just need to check whether $\textit{s2}$ is a substring of $\textit{s1} + \textit{s1}$.
 
 ```bash
 # True
@@ -80,7 +80,7 @@ s2 = "bab"
 s1 + s1 = "abaaba"
 ```
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s1$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $\textit{s1}$.
 
 <!-- tabs:start -->
 

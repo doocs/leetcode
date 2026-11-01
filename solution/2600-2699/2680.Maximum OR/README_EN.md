@@ -66,17 +66,17 @@ tags:
 >
 > We may left-shift numbers a total of $k$ times to maximize the bitwise OR. Spreading shifts splits high bits; giving all $k$ shifts to one value is optimal.
 >
-> When $nums[i]$ is the boosted value, the rest is its prefix OR and suffix OR. A precomputed $suf$ lets one scan try every index.
+> When $\textit{nums}[i]$ is the boosted value, the rest is its prefix OR and suffix OR. A precomputed $\textit{suf}$ lets one scan try every index.
 
 <!-- thinking:end -->
 
 We notice that in order to maximize the answer, we should apply $k$ times of bitwise OR to the same number.
 
-First, we preprocess the suffix OR value array $suf$ of the array $nums$, where $suf[i]$ represents the bitwise OR value of $nums[i], nums[i + 1], \cdots, nums[n - 1]$.
+First, we preprocess the suffix OR value array $\textit{suf}$ of the array $\textit{nums}$, where $\textit{suf}[i]$ represents the bitwise OR value of $\textit{nums}[i], \textit{nums}[i + 1], \cdots, \textit{nums}[n - 1]$.
 
-Next, we traverse the array $nums$ from left to right, and maintain the current prefix OR value $pre$. For the current position $i$, we perform $k$ times of bitwise left shift on $nums[i]$, i.e., $nums[i] \times 2^k$, and perform bitwise OR operation with $pre$ to obtain the intermediate result. Then, we perform bitwise OR operation with $suf[i + 1]$ to obtain the maximum OR value with $nums[i]$ as the last number. By enumerating all possible positions $i$, we can obtain the final answer.
+Next, we traverse the array $\textit{nums}$ from left to right, and maintain the current prefix OR value $\textit{pre}$. For the current position $i$, we perform $k$ times of bitwise left shift on $\textit{nums}[i]$, i.e., $\textit{nums}[i] \times 2^k$, and perform bitwise OR operation with $\textit{pre}$ to obtain the intermediate result. Then, we perform bitwise OR operation with $\textit{suf}[i + 1]$ to obtain the maximum OR value with $\textit{nums}[i]$ as the last number. By enumerating all possible positions $i$, we can obtain the final answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -66,17 +66,17 @@ tags:
 
 > **Thinking**
 >
-> Count how many digits of $num$ divide $num$. There are at most ten digits, so enumerating them is enough.
+> Count how many digits of $\textit{num}$ divide $\textit{num}$. There are at most ten digits, so enumerating them is enough.
 >
-> Repeatedly take $val = num \bmod 10$ and test $num \bmod val = 0$. The input contains no zero, so division by zero does not arise.
+> Repeatedly take $\textit{val} = \textit{num} \bmod 10$ and test $\textit{num} \bmod \textit{val} = 0$. The input contains no zero, so division by zero does not arise.
 
 <!-- thinking:end -->
 
-We directly enumerate each digit $val$ of the integer $num$, and if $val$ can divide $num$, we add one to the answer.
+We directly enumerate each digit $\textit{val}$ of the integer $\textit{num}$, and if $\textit{val}$ can divide $\textit{num}$, we add one to the answer.
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(\log num)$, and the space complexity is $O(1)$.
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -198,7 +198,7 @@ int countDigits(int num) {
 
 > **Thinking**
 >
-> Solution 1 extracts digits arithmetically. Converting $num$ to a decimal string and testing each character yields the same check; only the way digits are obtained changes.
+> Solution 1 extracts digits arithmetically. Converting $\textit{num}$ to a decimal string and testing each character yields the same check; only the way digits are obtained changes.
 
 <!-- thinking:end -->
 

@@ -83,7 +83,7 @@ tags:
 
 遍历数组，更新 `decr` 和 `incr` 数组。
 
-然后顺序遍历下标 $i$（其中 $k\le i \lt n - k$），若 $decr[i] \geq k$ 并且 $incr[i] \geq k$，则 $i$ 为好下标。
+然后顺序遍历下标 $i$（其中 $k\le i \lt n - k$），若 $\textit{decr}[i] \geq k$ 并且 $\textit{incr}[i] \geq k$，则 $i$ 为好下标。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 

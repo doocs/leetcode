@@ -65,13 +65,13 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 
 > **Thinking**
 >
-> Order by the number of one-bits, then by the integer itself. The key $(x.\mathrm{bit\_count}(), x)$ encodes both levels in one comparison.
+> Order by the number of one-bits, then by the integer itself. The key $(x.\textit{bit\_count}(), x)$ encodes both levels in one comparison.
 
 <!-- thinking:end -->
 
-We sort the array $arr$ according to the requirements of the problem, that is, sort in ascending order according to the number of $1$s in the binary representation. If there are multiple numbers with the same number of $1$s in the binary representation, they must be sorted in ascending order by numerical value.
+We sort the array $\textit{arr}$ according to the requirements of the problem, that is, sort in ascending order according to the number of $1$s in the binary representation. If there are multiple numbers with the same number of $1$s in the binary representation, they must be sorted in ascending order by numerical value.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

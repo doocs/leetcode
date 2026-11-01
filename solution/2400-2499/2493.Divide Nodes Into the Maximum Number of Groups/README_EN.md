@@ -89,9 +89,9 @@ Given that the graph provided by the problem may be disconnected, we need to pro
 
 We can enumerate each node as the node of the first group, then use BFS to traverse the entire connected component, and use an array $d$ to record the maximum number of groups in each connected component. In the code implementation, we use the smallest node in the connected component as the root node of this connected component.
 
-During the BFS process, we use a queue $q$ to store the nodes currently traversed, use an array $dist$ to record the distance from each node to the starting node, use a variable $mx$ to record the maximum depth of the current connected component, and use a variable $root$ to record the root node of the current connected component.
+During the BFS process, we use a queue $q$ to store the nodes currently traversed, use an array $\textit{dist}$ to record the distance from each node to the starting node, use a variable $mx$ to record the maximum depth of the current connected component, and use a variable $\textit{root}$ to record the root node of the current connected component.
 
-During the traversal, if we find that the $dist[b]$ of a certain node $b$ is $0$, it means that $b$ has not been traversed yet. We set the distance of $b$ to $dist[a] + 1$, update $mx$, and add $b$ to the queue $q$. If the distance of $b$ has been updated, we check whether the distance between $b$ and $a$ is $1$. If not, it means that the problem requirements cannot be met, so we directly return $-1$.
+During the traversal, if we find that the $\textit{dist}[b]$ of a certain node $b$ is $0$, it means that $b$ has not been traversed yet. We set the distance of $b$ to $\textit{dist}[a] + 1$, update $mx$, and add $b$ to the queue $q$. If the distance of $b$ has been updated, we check whether the distance between $b$ and $a$ is $1$. If not, it means that the problem requirements cannot be met, so we directly return $-1$.
 
 The time complexity is $O(n(n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges respectively.
 

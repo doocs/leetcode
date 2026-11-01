@@ -74,7 +74,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can first sort the array $\textit{numbers}$ based on the length of strings. Then, we iterate through each string $\textit{s}$ in the array and check if there is any previous string $\textit{t}$ that is a prefix of $\textit{s}$. If such a string exists, it means there is a string that is a prefix of another string, so we return $\textit{false}$. If we have checked all strings and haven't found any prefix relationships, we return $\textit{true}$.
+We can first sort the array $\textit{numbers}$ based on the length of strings. Then, we iterate through each string $s$ in the array and check if there is any previous string $t$ that is a prefix of $s$. If such a string exists, it means there is a string that is a prefix of another string, so we return $\textit{false}$. If we have checked all strings and haven't found any prefix relationships, we return $\textit{true}$.
 
 The time complexity is $O(n^2m + n \log n)$, and the space complexity is $O(m + \log n)$, where $n$ is the length of the array $\textit{numbers}$, and $m$ is the average length of strings in the array $\textit{numbers}$.
 

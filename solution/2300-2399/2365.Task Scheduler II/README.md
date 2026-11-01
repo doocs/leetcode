@@ -89,19 +89,19 @@ tags:
 
 > **思考**
 >
-> 相同任务之间至少间隔 $space$ 天，任务必须按给定顺序完成。 $n \le 10^5$，不能真的插入空闲日模拟日历。
+> 相同任务之间至少间隔 $\textit{space}$ 天，任务必须按给定顺序完成。 $n \le 10^5$，不能真的插入空闲日模拟日历。
 >
-> 哈希表记下每种任务下一次允许执行的日期。当前日加一后与该日期取最大，再把下次允许日写成 $ans+space+1$。
+> 哈希表记下每种任务下一次允许执行的日期。当前日加一后与该日期取最大，再把下次允许日写成 $\textit{ans}+\textit{space}+1$。
 
 <!-- thinking:end -->
 
-我们可以用哈希表 $day$ 记录每个任务下一次可以被执行的时间，初始时 $day$ 中的所有值都为 $0$，用变量 $ans$ 记录当前时间。
+我们可以用哈希表 $\textit{day}$ 记录每个任务下一次可以被执行的时间，初始时 $\textit{day}$ 中的所有值都为 $0$，用变量 $\textit{ans}$ 记录当前时间。
 
-遍历数组 $tasks$，对于每个任务 $task$，当前时间 $ans$ 加一，表示从上一次执行任务到现在已经过去了一天，如果此时 $day[task] \gt ans$，说明任务 $task$ 需要在第 $day[task]$ 天才能被执行，因此我们更新当前时间 $ans = \max(ans, day[task])$。然后更新 $day[task]$ 的值为 $ans + space + 1$，表示任务 $task$ 下一次可以被执行的时间为 $ans + space + 1$。
+遍历数组 $\textit{tasks}$，对于每个任务 $\textit{task}$，当前时间 $\textit{ans}$ 加一，表示从上一次执行任务到现在已经过去了一天，如果此时 $\textit{day}[\textit{task}] \gt \textit{ans}$，说明任务 $\textit{task}$ 需要在第 $\textit{day}[\textit{task}]$ 天才能被执行，因此我们更新当前时间 $\textit{ans} = \max(\textit{ans}, \textit{day}[\textit{task}])$。然后更新 $\textit{day}[\textit{task}]$ 的值为 $\textit{ans} + \textit{space} + 1$，表示任务 $\textit{task}$ 下一次可以被执行的时间为 $\textit{ans} + \textit{space} + 1$。
 
-遍历结束后，将 $ans$ 返回即可。
+遍历结束后，将 $\textit{ans}$ 返回即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $tasks$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{tasks}$ 的长度。
 
 <!-- tabs:start -->
 

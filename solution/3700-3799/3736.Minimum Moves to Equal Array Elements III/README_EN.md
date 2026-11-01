@@ -84,13 +84,13 @@ tags:
 
 > **Thinking**
 >
-> Each move increases one element by $1$, so the common final value cannot be below the current maximum. The target is therefore the maximum, and the total number of increments is $\textit{mx}\cdot n-s$.
+> Each move increases one element by $1$, so the common final value cannot be below the current maximum. The target is therefore the maximum, and the total number of increments is $mx\cdot n-s$.
 
 <!-- thinking:end -->
 
 This problem requires making all elements in the array equal, with each operation only able to increase a single element by 1. To minimize the number of operations, we should make all elements equal to the maximum value in the array.
 
-Therefore, we can first calculate the maximum value $\textit{mx}$ and the sum of array elements $\textit{s}$. The number of operations required to make all elements equal to $\textit{mx}$ is $\textit{mx} \times n - \textit{s}$, where $n$ is the length of the array.
+Therefore, we can first calculate the maximum value $mx$ and the sum of array elements $s$. The number of operations required to make all elements equal to $mx$ is $mx \times n - s$, where $n$ is the length of the array.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

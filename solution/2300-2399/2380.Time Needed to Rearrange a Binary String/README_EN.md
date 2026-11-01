@@ -77,7 +77,7 @@ so we return 0.
 >
 > Each second every $01$ becomes $10$ at once. $n \le 1000$ and at most $n$ rounds, so repeated replacement passes.
 >
-> Loop $replace(01,10)$ until none remain; the iteration count is the answer.
+> Loop $\textit{replace}(01,10)$ until none remain; the iteration count is the answer.
 
 <!-- thinking:end -->
 

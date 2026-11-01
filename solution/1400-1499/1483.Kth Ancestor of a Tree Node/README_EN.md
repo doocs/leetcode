@@ -81,7 +81,7 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 
 <!-- thinking:end -->
 
-The problem asks us to find the $k$-th ancestor node of a node $node$. If we solve it by brute force, we need to traverse upwards from $node$ for $k$ times, which has a time complexity of $O(k)$ and will obviously exceed the time limit.
+The problem asks us to find the $k$-th ancestor node of a node $\textit{node}$. If we solve it by brute force, we need to traverse upwards from $\textit{node}$ for $k$ times, which has a time complexity of $O(k)$ and will obviously exceed the time limit.
 
 We can use dynamic programming combined with the idea of binary lifting to handle this.
 
@@ -93,7 +93,7 @@ $$
 
 That is, to find the $2^j$-th ancestor node of node $i$, we can first find the $2^{j-1}$-th ancestor node of node $i$, and then find the $2^{j-1}$-th ancestor node of this node. Therefore, we need to find the ancestor node of each node at a distance of $2^j$, until we reach the maximum height of the tree.
 
-For each query later, we can decompose $k$ into its binary representation, and then according to the positions of $1$ in the binary, we accumulate the queries upwards, and finally get the $k$-th ancestor node of node $node$.
+For each query later, we can decompose $k$ into its binary representation, and then according to the positions of $1$ in the binary, we accumulate the queries upwards, and finally get the $k$-th ancestor node of node $\textit{node}$.
 
 In terms of time complexity, the initialization is $O(n \log n)$, and the query is $O(\log n)$. The space complexity is $O(n \log n)$, where $n$ is the number of nodes in the tree.
 

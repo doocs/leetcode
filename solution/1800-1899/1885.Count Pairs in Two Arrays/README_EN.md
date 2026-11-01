@@ -65,7 +65,7 @@ tags:
 
 > **Thinking**
 >
-> Count pairs $i<j$ with $nums1[i]+nums1[j]>nums2[i]+nums2[j]$. This is $a[i]+a[j]>0$ for $a=nums1-nums2$. A nested loop is $O(n^2)$ and too slow for $n\le 10^5$.
+> Count pairs $i<j$ with $\textit{nums1}[i]+\textit{nums1}[j]>\textit{nums2}[i]+\textit{nums2}[j]$. This is $a[i]+a[j]>0$ for $a=\textit{nums1}-\textit{nums2}$. A nested loop is $O(n^2)$ and too slow for $n\le 10^5$.
 >
 > Sort $a$ and move $r$ from the right: advance $l$ until $a[l]+a[r]>0$, then all indices in $[l,r)$ pair with $r$. Each pointer travels once.
 

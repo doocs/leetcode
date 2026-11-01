@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-双重循环，枚举所有的下标对，求出 $(nums[i]-1) \times (nums[j]-1)$ 的最大值。其中 $i \neq j$。
+双重循环，枚举所有的下标对，求出 $(\textit{nums}[i]-1) \times (\textit{nums}[j]-1)$ 的最大值。其中 $i \neq j$。
 
 时间复杂度 $O(n^2)$。
 
@@ -242,7 +242,7 @@ int maxProduct(int* nums, int numsSize) {
 
 <!-- thinking:end -->
 
-对 $nums$ 进行排序，取最后两个元素，计算乘积 $(nums[n-1]-1) \times (nums[n-2]-1)$ 即可。
+对 $\textit{nums}$ 进行排序，取最后两个元素，计算乘积 $(\textit{nums}[n-1]-1) \times (\textit{nums}[n-2]-1)$ 即可。
 
 时间复杂度 $O(n \log n)$。
 
@@ -325,7 +325,7 @@ function maxProduct(nums: number[]): number {
 
 <!-- thinking:end -->
 
-遍历 $nums$，维护最大值 $a$ 和次大值 $b$。遍历结束，返回 $(a-1) \times (b-1)$。
+遍历 $\textit{nums}$，维护最大值 $a$ 和次大值 $b$。遍历结束，返回 $(a-1) \times (b-1)$。
 
 <!-- tabs:start -->
 

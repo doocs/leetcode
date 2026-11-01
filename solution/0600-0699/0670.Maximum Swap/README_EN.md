@@ -68,7 +68,7 @@ Next, we traverse $d$ from left to right. If $s[i] < s[d[i]]$, we swap them and 
 
 Finally, we convert the string $s$ back into a number, which is the answer.
 
-The time complexity is $O(\log M)$, and the space complexity is $O(\log M)$, where $M$ is the range of the number $num$.
+The time complexity is $O(\log M)$, and the space complexity is $O(\log M)$, where $M$ is the range of the number $\textit{num}$.
 
 <!-- tabs:start -->
 

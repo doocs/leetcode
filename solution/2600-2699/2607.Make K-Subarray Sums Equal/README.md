@@ -80,7 +80,7 @@ tags:
 
 > **思考**
 >
-> 相邻长度为 $k$ 的子数组和相等，化简后得到 $arr_i=arr_{i+k}$。数组又是环状的，故间隔 $k$ 与间隔 $n$ 的完全剩余系必须取同一值。
+> 相邻长度为 $k$ 的子数组和相等，化简后得到 $\textit{arr}_i=\textit{arr}_{i+k}$。数组又是环状的，故间隔 $k$ 与间隔 $n$ 的完全剩余系必须取同一值。
 >
 > 由裴蜀定理，这些下标按 $\gcd(n,k)$ 分成若干独立链。链内元素须改成同一个数，操作次数为到某目标的绝对差之和，中位数使其最小。
 >
@@ -91,30 +91,30 @@ tags:
 题目要求每个长度为 $k$ 的子数组的元素总和相等，那么有以下等式成立：
 
 $$
-arr_i + arr_{i + 1} + \cdots + arr_{i + k - 1} = arr_{i + 1} + arr_{i + 2} + \cdots + arr_{i + k}
+\textit{arr}_i + \textit{arr}_{i + 1} + \cdots + \textit{arr}_{i + k - 1} = \textit{arr}_{i + 1} + \textit{arr}_{i + 2} + \cdots + \textit{arr}_{i + k}
 $$
 
 化简得：
 
 $$
-arr_i = arr_{i + k}
+\textit{arr}_i = \textit{arr}_{i + k}
 $$
 
-也即是说，数组 $arr$ 有一个大小为 $k$ 的循环节，而由于数组 $arr$ 是一个循环数组，那么数组 $arr$ 也有一个长度为 $n$ 的循环节。换句话说，数组 $arr$ 上间隔为 $k$，以及间隔为 $n$ 的元素均相等。即有：
+也即是说，数组 $\textit{arr}$ 有一个大小为 $k$ 的循环节，而由于数组 $\textit{arr}$ 是一个循环数组，那么数组 $\textit{arr}$ 也有一个长度为 $n$ 的循环节。换句话说，数组 $\textit{arr}$ 上间隔为 $k$，以及间隔为 $n$ 的元素均相等。即有：
 
 $$
-arr_i = arr_{i + k \times x + n \times y}
+\textit{arr}_i = \textit{arr}_{i + k \times x + n \times y}
 $$
 
-根据裴蜀定理，有 $a \times x + b \times y = gcd(a, b)$，因此，有：
+根据裴蜀定理，有 $a \times x + b \times y = \gcd(a, b)$，因此，有：
 
 $$
-arr_i = arr_{i + k \times x + n \times y} = arr_{i + gcd(k, n)}
+\textit{arr}_i = \textit{arr}_{i + k \times x + n \times y} = \textit{arr}_{i + \gcd(k, n)}
 $$
 
-因此，数组 $arr$ 上的元素可以分为 $gcd(k, n)$ 组，每组的元素间隔为 $gcd(k, n)$，且每一组中的所有元素均相等。对于每一组，我们可以将其元素按照大小排序，然后取中位数，即可将该组中的所有元素变为中位数。对于所有组，我们将其中位数之差的绝对值求和，即为答案。
+因此，数组 $\textit{arr}$ 上的元素可以分为 $\gcd(k, n)$ 组，每组的元素间隔为 $\gcd(k, n)$，且每一组中的所有元素均相等。对于每一组，我们可以将其元素按照大小排序，然后取中位数，即可将该组中的所有元素变为中位数。对于所有组，我们将其中位数之差的绝对值求和，即为答案。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

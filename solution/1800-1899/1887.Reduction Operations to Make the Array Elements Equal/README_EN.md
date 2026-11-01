@@ -82,7 +82,7 @@ tags:
 >
 > Each operation replaces a current maximum by the next strictly smaller value. Simulating one maximum at a time is slow.
 >
-> After sorting, every newly seen larger value adds one more step that all later elements must take. $cnt$ counts those steps; each element adds the current $cnt$.
+> After sorting, every newly seen larger value adds one more step that all later elements must take. $\textit{cnt}$ counts those steps; each element adds the current $\textit{cnt}$.
 
 <!-- thinking:end -->
 

@@ -83,7 +83,7 @@ tags:
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m = right - left + 1$。
+时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m = \textit{right} - \textit{left} + 1$。
 
 <!-- tabs:start -->
 

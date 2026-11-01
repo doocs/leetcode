@@ -72,19 +72,19 @@ So the minimum time needed to complete 1 trip is 2.
 >
 > Trips finished by time $t$ equal $\sum \lfloor t/\textit{time}_i\rfloor$, which is monotone in $t$. We want the least $t$ that reaches $\textit{totalTrips}$. The upper bound $\min(\textit{time})\times\textit{totalTrips}$ is too large to scan.
 >
-> Binary search that monotone function on $[0,\textit{mx})$; $\texttt{bisect\_left}$ returns the first feasible time.
+> Binary search that monotone function on $[0,mx)$; $\texttt{bisect\_left}$ returns the first feasible time.
 >
 > Each probe sums $n$ floors.
 
 <!-- thinking:end -->
 
-We notice that if we can complete at least $totalTrips$ trips in $t$ time, then we can also complete at least $totalTrips$ trips in $t' > t$ time. Therefore, we can use the method of binary search to find the smallest $t$.
+We notice that if we can complete at least $\textit{totalTrips}$ trips in $t$ time, then we can also complete at least $\textit{totalTrips}$ trips in $t' > t$ time. Therefore, we can use the method of binary search to find the smallest $t$.
 
-We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \min(time) \times totalTrips$. For each binary search, we calculate the middle value $\textit{mid} = \frac{l + r}{2}$, and then calculate the number of trips that can be completed in $\textit{mid}$ time. If this number is greater than or equal to $totalTrips$, then we reduce the right boundary to $\textit{mid}$, otherwise we increase the left boundary to $\textit{mid} + 1$.
+We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \min(\textit{time}) \times \textit{totalTrips}$. For each binary search, we calculate the middle value $\textit{mid} = \frac{l + r}{2}$, and then calculate the number of trips that can be completed in $\textit{mid}$ time. If this number is greater than or equal to $\textit{totalTrips}$, then we reduce the right boundary to $\textit{mid}$, otherwise we increase the left boundary to $\textit{mid} + 1$.
 
 Finally, return the left boundary.
 
-The time complexity is $O(n \log(mk))$, and the space complexity is $O(1)$, where $n$ and $k$ are the length of the array $time$ and $totalTrips$ respectively, and $m$ is the minimum value in the array $time$.
+The time complexity is $O(n \log(mk))$, and the space complexity is $O(1)$, where $n$ and $k$ are the length of the array $\textit{time}$ and $\textit{totalTrips}$ respectively, and $m$ is the minimum value in the array $\textit{time}$.
 
 <!-- tabs:start -->
 

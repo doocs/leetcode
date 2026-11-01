@@ -75,19 +75,19 @@ The class teacher selects all the students to form the group.
 
 > **Thinking**
 >
-> A group of size $k$ exists only if every selected student has $nums[i]<k$ and every unselected one has $nums[i]>k$; a value equal to $k$ forbids that $k$. After sorting, the selected students are a prefix, so we test each $k\in[0,n]$ at the cut.
+> A group of size $k$ exists only if every selected student has $\textit{nums}[i]<k$ and every unselected one has $\textit{nums}[i]>k$; a value equal to $k$ forbids that $k$. After sorting, the selected students are a prefix, so we test each $k\in[0,n]$ at the cut.
 
 <!-- thinking:end -->
 
 Assume that $k$ students are selected, then the following conditions hold:
 
-- If $nums[i] = k$, then there is no grouping method;
-- If $nums[i] > k$, then student $i$ is not selected;
-- If $nums[i] < k$, then student $i$ is selected.
+- If $\textit{nums}[i] = k$, then there is no grouping method;
+- If $\textit{nums}[i] > k$, then student $i$ is not selected;
+- If $\textit{nums}[i] < k$, then student $i$ is selected.
 
-Therefore, the selected students must be the first $k$ elements in the sorted $nums$ array.
+Therefore, the selected students must be the first $k$ elements in the sorted $\textit{nums}$ array.
 
-We enumerate $k$ in the range $[0,..n]$. For the current number of selected students $i$, we can get the maximum student number in the group $i-1$, which is $nums[i-1]$. If $i > 0$ and $nums[i-1] \ge i$, then there is no grouping method; if $i < n$ and $nums[i] \le i$, then there is no grouping method. Otherwise, there is a grouping method, and the answer is increased by one.
+We enumerate $k$ in the range $[0,..n]$. For the current number of selected students $i$, we can get the maximum student number in the group $i-1$, which is $\textit{nums}[i-1]$. If $i > 0$ and $\textit{nums}[i-1] \ge i$, then there is no grouping method; if $i < n$ and $\textit{nums}[i] \le i$, then there is no grouping method. Otherwise, there is a grouping method, and the answer is increased by one.
 
 After the enumeration ends, return the answer.
 

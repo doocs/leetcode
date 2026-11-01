@@ -192,7 +192,7 @@ function maxStrength(nums: number[]): number {
 First, we can sort the array. Based on the characteristics of the array, we can draw the following conclusions:
 
 - If there is only one element in the array, then the maximum strength value is this element.
-- If there are two or more elements in the array, and $nums[1] = nums[n - 1] = 0$, then the maximum strength value is $0$.
+- If there are two or more elements in the array, and $\textit{nums}[1] = \textit{nums}[n - 1] = 0$, then the maximum strength value is $0$.
 - Otherwise, we traverse the array from small to large. If the current element is less than $0$ and the next element is also less than $0$, then we multiply these two elements and accumulate the product into the answer. Otherwise, if the current element is less than or equal to $0$, we skip it directly. If the current element is greater than $0$, we multiply this element into the answer. Finally, we return the answer.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.

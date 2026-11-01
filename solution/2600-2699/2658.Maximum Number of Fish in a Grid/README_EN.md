@@ -86,11 +86,11 @@ tags:
 
 According to the problem description, we only need to find the number of fish in each connected water area and then take the maximum value. Therefore, we can use the depth-first search method to solve this problem.
 
-We define a function $dfs(i, j)$, which indicates the maximum number of fish that can be caught starting from the cell in the $i$-th row and the $j$-th column. The execution logic of the function $dfs(i, j)$ is as follows:
+We define a function $\textit{dfs}(i, j)$, which indicates the maximum number of fish that can be caught starting from the cell in the $i$-th row and the $j$-th column. The execution logic of the function $\textit{dfs}(i, j)$ is as follows:
 
-We use a variable $cnt$ to record the number of fish in the current cell, and then set the number of fish in the current cell to $0$, indicating that it has been fished. Then we traverse the four directions of the current cell, if the cell $(x, y)$ in a certain direction is in the grid and is a water cell, then we recursively call the $dfs(x, y)$ function and add the return value to $cnt$. Finally, return $cnt$.
+We use a variable $\textit{cnt}$ to record the number of fish in the current cell, and then set the number of fish in the current cell to $0$, indicating that it has been fished. Then we traverse the four directions of the current cell, if the cell $(x, y)$ in a certain direction is in the grid and is a water cell, then we recursively call the $\textit{dfs}(x, y)$ function and add the return value to $\textit{cnt}$. Finally, return $\textit{cnt}$.
 
-In the main function, we traverse all the cells $(i, j)$. If the current cell is a water cell, we call the $dfs(i, j)$ function, take the maximum value of the return value as the answer, and return it.
+In the main function, we traverse all the cells $(i, j)$. If the current cell is a water cell, we call the $\textit{dfs}(i, j)$ function, take the maximum value of the return value as the answer, and return it.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid graph respectively.
 

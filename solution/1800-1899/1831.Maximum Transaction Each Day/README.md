@@ -84,9 +84,9 @@ Transactions table:
 
 > **思考**
 >
-> 要找出每一天金额最大的交易，并列时全部保留。列 $day$ 是日期时间，同一日历日会有不同时刻，不同月份又会共用日号。
+> 要找出每一天金额最大的交易，并列时全部保留。列 $\textit{day}$ 是日期时间，同一日历日会有不同时刻，不同月份又会共用日号。
 >
-> 分区键必须是日历日期 $DATE(day)$。按 $amount$ 降序做 $\textit{RANK}$，保留排名为 $1$ 的行，再按 $transaction\_id$ 排序。
+> 分区键必须是日历日期 $\textit{DATE}(\textit{day})$。按 $\textit{amount}$ 降序做 $\textit{RANK}$，保留排名为 $1$ 的行，再按 $\textit{transaction\_id}$ 排序。
 
 <!-- thinking:end -->
 

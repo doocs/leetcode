@@ -61,7 +61,7 @@ tags:
 >
 > Walk the grid in an east-south-west-north spiral from a given start. Step lengths are $1,1,2,2,3,3,\ldots$. The grid is at most $100\times 100$, so simulation is enough.
 >
-> Advance by the current direction and length, recording in-bound cells. After east and south the length grows by one, and again after west and north. Stop when $rows\cdot cols$ cells are collected.
+> Advance by the current direction and length, recording in-bound cells. After east and south the length grows by one, and again after west and north. Stop when $\textit{rows}\cdot \textit{cols}$ cells are collected.
 
 <!-- thinking:end -->
 

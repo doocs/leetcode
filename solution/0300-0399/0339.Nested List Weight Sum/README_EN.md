@@ -68,7 +68,7 @@ tags:
 >
 > Each integer is multiplied by its depth and summed. The nesting is an $N$-ary tree with depth starting at $1$. One walk suffices.
 >
-> DFS: an integer adds $value\times depth$; a list recurses on children at $depth+1$. The top level starts at depth $1$.
+> DFS: an integer adds $\textit{value}\times \textit{depth}$; a list recurses on children at $\textit{depth}+1$. The top level starts at depth $1$.
 
 <!-- thinking:end -->
 

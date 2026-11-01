@@ -82,11 +82,11 @@ tags:
 
 This problem can be transformed into finding the longest increasing subsequence and the longest decreasing subsequence.
 
-We define $left[i]$ as the length of the longest increasing subsequence ending with $nums[i]$, and define $right[i]$ as the length of the longest decreasing subsequence starting with $nums[i]$.
+We define $\textit{left}[i]$ as the length of the longest increasing subsequence ending with $\textit{nums}[i]$, and define $\textit{right}[i]$ as the length of the longest decreasing subsequence starting with $\textit{nums}[i]$.
 
-Then the final answer is $n - \max(left[i] + right[i] - 1)$, where $1 \leq i \leq n$, and $left[i] \gt 1$ and $right[i] \gt 1$.
+Then the final answer is $n - \max(\textit{left}[i] + \textit{right}[i] - 1)$, where $1 \leq i \leq n$, and $\textit{left}[i] \gt 1$ and $\textit{right}[i] \gt 1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

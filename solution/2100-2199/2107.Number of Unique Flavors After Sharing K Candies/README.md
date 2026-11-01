@@ -86,11 +86,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以维护一个大小为 $k$ 的滑动窗口，窗口外的糖果为自己的，窗口内的 $k$ 个糖果分给妹妹和妈妈。我们可以用哈希表 $cnt$ 记录窗口外的糖果口味以及对应的数量。
+我们可以维护一个大小为 $k$ 的滑动窗口，窗口外的糖果为自己的，窗口内的 $k$ 个糖果分给妹妹和妈妈。我们可以用哈希表 $\textit{cnt}$ 记录窗口外的糖果口味以及对应的数量。
 
-初始时，哈希表 $cnt$ 中存储的是 $candies[k]$ 到 $candies[n-1]$ 的糖果口味以及对应的数量。此时糖果口味的种类数为哈希表 $cnt$ 的大小，即 $ans = cnt.size()$。
+初始时，哈希表 $\textit{cnt}$ 中存储的是 $\textit{candies}[k]$ 到 $\textit{candies}[n-1]$ 的糖果口味以及对应的数量。此时糖果口味的种类数为哈希表 $\textit{cnt}$ 的大小，即 $\textit{ans} = \textit{cnt}.\textit{size}()$。
 
-接下来，我们遍历 $[k,..n-1]$ 范围内的糖果，将当前糖果 $candies[i]$ 加入窗口内，同时将窗口左侧的糖果 $candies[i-k]$ 移出窗口外。然后我们更新哈希表 $cnt$，并且更新糖果口味的种类数 $ans$ 为 $max(ans, cnt.size())$。
+接下来，我们遍历 $[k,..n-1]$ 范围内的糖果，将当前糖果 $\textit{candies}[i]$ 加入窗口内，同时将窗口左侧的糖果 $\textit{candies}[i-k]$ 移出窗口外。然后我们更新哈希表 $\textit{cnt}$，并且更新糖果口味的种类数 $\textit{ans}$ 为 $\max(\textit{ans}, \textit{cnt}.\textit{size}())$。
 
 遍历完所有糖果后，我们即可得到最多可保留的独特口味的糖果。
 

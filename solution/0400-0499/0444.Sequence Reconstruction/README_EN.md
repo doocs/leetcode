@@ -92,11 +92,11 @@ Since nums is the only shortest supersequence, we return true.
 
 > **Thinking**
 >
-> We must decide whether $nums$ is the unique shortest supersequence of the given sequences. Several topological orders would mean several supersequences.
+> We must decide whether $\textit{nums}$ is the unique shortest supersequence of the given sequences. Several topological orders would mean several supersequences.
 >
 > Turn consecutive pairs in each $\textit{seq}$ into directed edges and record indegrees. The queue may hold only one zero-indegree node at a time—two candidates mean the order is not unique.
 >
-> An empty queue at the end means every node was forced. We need not compare against $nums$ position-wise: if a unique order exists, it has to be $nums$.
+> An empty queue at the end means every node was forced. We need not compare against $\textit{nums}$ position-wise: if a unique order exists, it has to be $\textit{nums}$.
 
 <!-- thinking:end -->
 

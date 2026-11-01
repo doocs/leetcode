@@ -121,7 +121,7 @@ tags:
 
 > **Thinking**
 >
-> A special triple has $nums[i]=nums[k]=2\cdot nums[j]$. Enumerating the two ends is quadratic. Fix the middle $j$ and multiply the counts of $2x$ on each side.
+> A special triple has $\textit{nums}[i]=\textit{nums}[k]=2\cdot \textit{nums}[j]$. Enumerating the two ends is quadratic. Fix the middle $j$ and multiply the counts of $2x$ on each side.
 >
 > Load every value into $\textit{right}$. Scan $x$ from the left: decrement it on the right, add $\textit{left}[2x]\cdot\textit{right}[2x]$, then increment it on the left. Reduce modulo $10^9+7$.
 

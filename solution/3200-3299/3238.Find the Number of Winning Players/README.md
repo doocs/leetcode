@@ -102,13 +102,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以用一个二维数组 $\textit{cnt}$ 记录每个玩家获得的每种颜色球的数量，用一个哈希表 $\textit{s}$ 记录胜利玩家的编号。
+我们可以用一个二维数组 $\textit{cnt}$ 记录每个玩家获得的每种颜色球的数量，用一个哈希表 $s$ 记录胜利玩家的编号。
 
-遍历 $\textit{pick}$ 数组，对于每个元素 $[x, y]$，我们将 $\textit{cnt}[x][y]$ 加一，如果 $\textit{cnt}[x][y]$ 大于 $x$，则将 $x$ 加入哈希表 $\textit{s}$。
+遍历 $\textit{pick}$ 数组，对于每个元素 $[x, y]$，我们将 $\textit{cnt}[x][y]$ 加一，如果 $\textit{cnt}[x][y]$ 大于 $x$，则将 $x$ 加入哈希表 $s$。
 
-最后返回哈希表 $\textit{s}$ 的大小即可。
+最后返回哈希表 $s$ 的大小即可。
 
-时间复杂度 $O(m + nM)$，空间复杂度 $O(nM)$。其中 $m$ 为 $\textit{pick}$ 数组的长度，而 $n$ 和 $M$ 分别为玩家数目和颜色数目。
+时间复杂度 $O(m + n \times M)$，空间复杂度 $O(n \times M)$。其中 $m$ 为 $\textit{pick}$ 数组的长度，而 $n$ 和 $M$ 分别为玩家数目和颜色数目。
 
 <!-- tabs:start -->
 

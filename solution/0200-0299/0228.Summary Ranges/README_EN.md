@@ -76,13 +76,13 @@ tags:
 >
 > The array is sorted and unique, so a range is a maximal run of neighbors that differ by $1$. One scan can cut the runs.
 >
-> Pointers $i,j$ mark a segment until $nums[j+1]\neq nums[j]+1$, then format a singleton or $a{\to}b$.
+> Pointers $i,j$ mark a segment until $\textit{nums}[j+1]\neq \textit{nums}[j]+1$, then format a singleton or $a{\to}b$.
 
 <!-- thinking:end -->
 
 We can use two pointers $i$ and $j$ to find the left and right endpoints of each interval.
 
-Traverse the array, when $j + 1 < n$ and $nums[j + 1] = nums[j] + 1$, move $j$ to the right, otherwise the interval $[i, j]$ has been found, add it to the answer, then move $i$ to the position of $j + 1$, and continue to find the next interval.
+Traverse the array, when $j + 1 < n$ and $\textit{nums}[j + 1] = \textit{nums}[j] + 1$, move $j$ to the right, otherwise the interval $[i, j]$ has been found, add it to the answer, then move $i$ to the position of $j + 1$, and continue to find the next interval.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

@@ -98,7 +98,7 @@ The distance between the two robots is abs(-2 - 3) = 5.
 
 <!-- thinking:end -->
 
-After two robots collide, they will immediately change direction, which is equivalent to the two robots continuing to move in their original direction. Therefore, we traverse the array $nums$, and according to the instructions in the string $s$, we add or subtract $d$ from the position of each robot, and then sort the array $nums$.
+After two robots collide, they will immediately change direction, which is equivalent to the two robots continuing to move in their original direction. Therefore, we traverse the array $\textit{nums}$, and according to the instructions in the string $s$, we add or subtract $d$ from the position of each robot, and then sort the array $\textit{nums}$.
 
 Next, we enumerate the position of each robot from small to large, and calculate the sum of the distances between the current robot and all robots in front, which is the answer.
 

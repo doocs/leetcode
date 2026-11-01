@@ -77,21 +77,21 @@ prices[5] - prices[4] = 8 - 7 = 1。
 
 > **思考**
 >
-> 线性股票要求 $prices[i]-i$ 为常数。按 $prices[i]-i$ 分组并累加组内价格，最大组和即为最高线性得分。
+> 线性股票要求 $\textit{prices}[i]-i$ 为常数。按 $\textit{prices}[i]-i$ 分组并累加组内价格，最大组和即为最高线性得分。
 
 <!-- thinking:end -->
 
 我们可以将式子进行变换，得到：
 
 $$
-prices[i] - i = prices[j] - j
+\textit{prices}[i] - i = \textit{prices}[j] - j
 $$
 
-题目实际上求的是相同的 $prices[i] - i$ 下，所有 $prices[i]$ 的和的最大值和。
+题目实际上求的是相同的 $\textit{prices}[i] - i$ 下，所有 $\textit{prices}[i]$ 的和的最大值和。
 
-因此，我们可以用一个哈希表 $cnt$ 来存储 $prices[i] - i$ 下，所有 $prices[i]$ 的和，最后取哈希表中的最大值即可。
+因此，我们可以用一个哈希表 $\textit{cnt}$ 来存储 $\textit{prices}[i] - i$ 下，所有 $\textit{prices}[i]$ 的和，最后取哈希表中的最大值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{prices}$ 的长度。
 
 <!-- tabs:start -->
 

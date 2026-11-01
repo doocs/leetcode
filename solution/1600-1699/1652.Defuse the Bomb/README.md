@@ -87,20 +87,20 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个长度为 $n$ 的答案数组 $ans$，初始时所有元素都为 $0$。根据题意，若 $k$ 为 $0$，直接返回 $ans$。
+我们定义一个长度为 $n$ 的答案数组 $\textit{ans}$，初始时所有元素都为 $0$。根据题意，若 $k$ 为 $0$，直接返回 $\textit{ans}$。
 
 否则，遍历每个位置 $i$：
 
 若 $k$ 为正数，那么 $i$ 位置的值为 $i$ 位置后 $k$ 个位置的值之和，即：
 
 $$
-ans[i] = \sum_{j=i+1}^{i+k} code[j \bmod n]
+\textit{ans}[i] = \sum_{j=i+1}^{i+k} \textit{code}[j \bmod n]
 $$
 
 若 $k$ 为负数，那么 $i$ 位置的值为 $i$ 位置前 $|k|$ 个位置的值之和，即：
 
 $$
-ans[i] = \sum_{j=i+k}^{i-1} code[(j+n) \bmod n]
+\textit{ans}[i] = \sum_{j=i+k}^{i-1} \textit{code}[(j+n) \bmod n]
 $$
 
 时间复杂度 $O(n|k|)$，空间复杂度 $O(1)$。
@@ -250,9 +250,9 @@ function decrypt(code: number[], k: number): number[] {
 
 我们将 `code` 数组复制一份（可以不用执行复制操作，直接通过循环遍历取模实现），得到两倍长度的数组，对其求前缀和，得到长度为 $2 \times n + 1$ 的前缀和数组 $s$。
 
-若 $k$ 为正数，那么 $i$ 位置的值为 $i$ 位置后 $k$ 个位置的值之和，即 $ans[i] = s[i + k + 1] - s[i + 1]$。
+若 $k$ 为正数，那么 $i$ 位置的值为 $i$ 位置后 $k$ 个位置的值之和，即 $\textit{ans}[i] = s[i + k + 1] - s[i + 1]$。
 
-若 $k$ 为负数，那么 $i$ 位置的值为 $i$ 位置前 $|k|$ 个位置的值之和，即 $ans[i] = s[i + n] - s[i + k + n]$。
+若 $k$ 为负数，那么 $i$ 位置的值为 $i$ 位置前 $|k|$ 个位置的值之和，即 $\textit{ans}[i] = s[i + n] - s[i + k + n]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `code` 数组的长度。
 

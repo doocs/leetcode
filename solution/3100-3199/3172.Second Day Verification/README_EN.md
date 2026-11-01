@@ -114,9 +114,9 @@ Each row of this table contains the text ID, email ID, signup action, and action
 >
 > Users who verified on the day after signup are required. Emails and texts live in two tables.
 >
-> Inner-join on $email\_id$ with $DATEDIFF=1$ and `signup_action='Verified'` applies every constraint at once.
+> Inner-join on $\textit{email\_id}$ with $\textit{DATEDIFF}=1$ and `signup_action='Verified'` applies every constraint at once.
 >
-> Select $user\_id$ in ascending order. No grouping is needed.
+> Select $\textit{user\_id}$ in ascending order. No grouping is needed.
 
 <!-- thinking:end -->
 

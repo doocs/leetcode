@@ -74,7 +74,7 @@ tags:
 
 > **Thinking**
 >
-> A homogenous substring lies inside a run of equal characters. A run of length $cnt$ contributes $cnt(cnt+1)/2$. $n\le 10^5$, so scan by runs.
+> A homogenous substring lies inside a run of equal characters. A run of length $\textit{cnt}$ contributes $\textit{cnt}(\textit{cnt}+1)/2$. $n\le 10^5$, so scan by runs.
 >
 > Two pointers bound each run, add the triangular number, and reduce modulo $10^9+7$.
 

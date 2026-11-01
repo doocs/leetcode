@@ -79,13 +79,13 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 
 <!-- thinking:end -->
 
-First, use a hash map $d$ to record the list of indices for each element in the array $nums$, that is, $d[x]$ represents the list of all indices in $nums$ where the value is $x$.
+First, use a hash map $d$ to record the list of indices for each element in the array $\textit{nums}$, that is, $d[x]$ represents the list of all indices in $\textit{nums}$ where the value is $x$.
 
-For each list of indices $idx$ in the hash map $d$, we can calculate the value of $arr[i]$ for each index $i$ in $idx$. For the first index $idx[0]$, the sum of distances to all indices on the right is $right = \sum_{i=0}^{m-1} - idx[0] \times m$. Then, we iterate through $idx$, and for each iteration, compute $ans[idx[i]] = left + right$, then update $left$ and $right$ as follows: $left = left + (idx[i+1] - idx[i]) \times (i+1)$, and $right = right - (idx[i+1] - idx[i]) \times (m-i-1)$.
+For each list of indices $\textit{idx}$ in the hash map $d$, we can calculate the value of $\textit{arr}[i]$ for each index $i$ in $\textit{idx}$. For the first index $\textit{idx}[0]$, the sum of distances to all indices on the right is $\textit{right} = \sum_{i=0}^{m-1} - \textit{idx}[0] \times m$. Then, we iterate through $\textit{idx}$, and for each iteration, compute $\textit{ans}[\textit{idx}[i]] = \textit{left} + \textit{right}$, then update $\textit{left}$ and $\textit{right}$ as follows: $\textit{left} = \textit{left} + (\textit{idx}[i+1] - \textit{idx}[i]) \times (i+1)$, and $\textit{right} = \textit{right} - (\textit{idx}[i+1] - \textit{idx}[i]) \times (m-i-1)$.
 
-After the iteration, we obtain the array $arr$ corresponding to each element in $nums$, which is stored in $ans$.
+After the iteration, we obtain the array $\textit{arr}$ corresponding to each element in $\textit{nums}$, which is stored in $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

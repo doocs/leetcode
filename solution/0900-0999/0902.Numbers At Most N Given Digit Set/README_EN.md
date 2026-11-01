@@ -88,7 +88,7 @@ This problem essentially asks for the number of positive integers that can be ge
 For the range $[l, .., r]$ problem, we generally convert it to the problem of $[1, .., r]$ and then subtract the result of $[1, .., l - 1]$, i.e.,
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value for the range $[1, .., r]$.
@@ -109,11 +109,11 @@ The function executes as follows:
 
 If $i$ is greater than or equal to $m$, it means we have processed all digits. If $\textit{lead}$ is true, it means the current number is a leading zero, and we should return $0$. Otherwise, we should return $1$.
 
-Otherwise, we calculate the upper bound $\textit{up}$. If $\textit{limit}$ is true, then $\textit{up}$ is the digit corresponding to $s[i]$. Otherwise, $\textit{up}$ is $9$.
+Otherwise, we calculate the upper bound $up$. If $\textit{limit}$ is true, then $up$ is the digit corresponding to $s[i]$. Otherwise, $up$ is $9$.
 
-Then, we enumerate the current digit $j$ in the range $[0, \textit{up}]$. If $j$ is $0$ and $\textit{lead}$ is true, we recursively calculate $\textit{dfs}(i + 1, \text{true}, \textit{limit} \wedge j = \textit{up})$. Otherwise, if $j$ is in $\textit{digits}$, we recursively calculate $\textit{dfs}(i + 1, \text{false}, \textit{limit} \wedge j = \textit{up})$. We accumulate all the results as the answer.
+Then, we enumerate the current digit $j$ in the range $[0, up]$. If $j$ is $0$ and $\textit{lead}$ is true, we recursively calculate $\textit{dfs}(i + 1, \textit{true}, \textit{limit} \wedge j = up)$. Otherwise, if $j$ is in $\textit{digits}$, we recursively calculate $\textit{dfs}(i + 1, \textit{false}, \textit{limit} \wedge j = up)$. We accumulate all the results as the answer.
 
-Finally, we return $\textit{dfs}(0, \text{true}, \text{true})$.
+Finally, we return $\textit{dfs}(0, \textit{true}, \textit{true})$.
 
 The time complexity is $O(D \log n)$, and the space complexity is $O(\log n)$, where $D = 10$.
 

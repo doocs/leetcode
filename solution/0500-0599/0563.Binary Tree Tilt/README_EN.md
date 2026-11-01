@@ -83,9 +83,9 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 
 <!-- thinking:end -->
 
-We design a function $\text{dfs}$ to calculate the sum of nodes in the subtree rooted at the current node. In the $\text{dfs}$ function, we first check if the current node is null. If it is, we return 0. Then we recursively call the $\text{dfs}$ function to calculate the sum of nodes in the left subtree $l$ and the sum of nodes in the right subtree $r$. Next, we calculate the tilt of the current node, which is $|l - r|$, and add it to the answer. Finally, we return the sum of nodes of the current node, which is $l + r + \textit{root.val}$.
+We design a function $\textit{dfs}$ to calculate the sum of nodes in the subtree rooted at the current node. In the $\textit{dfs}$ function, we first check if the current node is null. If it is, we return 0. Then we recursively call the $\textit{dfs}$ function to calculate the sum of nodes in the left subtree $l$ and the sum of nodes in the right subtree $r$. Next, we calculate the tilt of the current node, which is $|l - r|$, and add it to the answer. Finally, we return the sum of nodes of the current node, which is $l + r + \textit{root}.\textit{val}$.
 
-In the main function, we initialize the answer to 0, then call the $\text{dfs}$ function to calculate the tilt of the entire tree and return the answer.
+In the main function, we initialize the answer to 0, then call the $\textit{dfs}$ function to calculate the tilt of the entire tree and return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

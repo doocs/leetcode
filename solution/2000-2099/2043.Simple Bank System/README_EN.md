@@ -83,7 +83,7 @@ bank.withdraw(10, 50);   // return false, it is invalid because account 10 does 
 
 > **Thinking**
 >
-> There are many accounts, yet each call touches one or two balances. Store them in an array; account numbers are $1$-based so we index $account-1$.
+> There are many accounts, yet each call touches one or two balances. Store them in an array; account numbers are $1$-based so we index $\textit{account}-1$.
 >
 > Transfer and withdraw check bounds and funds; deposit only checks the id. Every operation is $O(1)$.
 

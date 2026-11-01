@@ -85,11 +85,11 @@ There are 3 unique flavors, so return 3.
 
 <!-- thinking:end -->
 
-We can maintain a sliding window of size $k$, where the candies outside the window are for ourselves, and the $k$ candies inside the window are shared with our sister and mother. We can use a hash table $cnt$ to record the flavors of the candies outside the window and their corresponding quantities.
+We can maintain a sliding window of size $k$, where the candies outside the window are for ourselves, and the $k$ candies inside the window are shared with our sister and mother. We can use a hash table $\textit{cnt}$ to record the flavors of the candies outside the window and their corresponding quantities.
 
-Initially, the hash table $cnt$ stores the flavors of the candies from $candies[k]$ to $candies[n-1]$ and their corresponding quantities. At this time, the number of candy flavors is the size of the hash table $cnt$, that is, $ans = cnt.size()$.
+Initially, the hash table $\textit{cnt}$ stores the flavors of the candies from $\textit{candies}[k]$ to $\textit{candies}[n-1]$ and their corresponding quantities. At this time, the number of candy flavors is the size of the hash table $\textit{cnt}$, that is, $\textit{ans} = \textit{cnt}.\textit{size}()$.
 
-Next, we traverse the candies in the range $[k,..n-1]$, add the current candy $candies[i]$ to the window, and move the candy $candies[i-k]$ on the left side of the window out of the window. Then we update the hash table $cnt$, and update the number of candy flavors $ans$ to $max(ans, cnt.size())$.
+Next, we traverse the candies in the range $[k,..n-1]$, add the current candy $\textit{candies}[i]$ to the window, and move the candy $\textit{candies}[i-k]$ on the left side of the window out of the window. Then we update the hash table $\textit{cnt}$, and update the number of candy flavors $\textit{ans}$ to $\max(\textit{ans}, \textit{cnt}.\textit{size}())$.
 
 After traversing all the candies, we can get the maximum number of unique flavors of candies that can be retained.
 

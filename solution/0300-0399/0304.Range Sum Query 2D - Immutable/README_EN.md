@@ -84,7 +84,7 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper left part of the $i$th row and $j$th column, where indices $i$ and $j$ both start from $0$. We can get the following prefix sum formula:
 
 $$
-s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]
+s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + \textit{nums}[i][j]
 $$
 
 Then, the sum of the elements of the rectangle with $(x_1, y_1)$ and $(x_2, y_2)$ as the upper left corner and lower right corner respectively is:

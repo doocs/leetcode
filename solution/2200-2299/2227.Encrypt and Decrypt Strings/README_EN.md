@@ -102,9 +102,9 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{mp}$ to record the encryption result of each character, and another hash table $\textit{cnt}$ to record the number of occurrences of each encryption result.
+We use a hash table $mp$ to record the encryption result of each character, and another hash table $\textit{cnt}$ to record the number of occurrences of each encryption result.
 
-In the constructor, we traverse $\textit{keys}$ and $\textit{values}$, storing each character and its corresponding encryption result in $\textit{mp}$. Then, we traverse $\textit{dictionary}$ to count the occurrences of each encryption result. The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{keys}$ and $\textit{dictionary}$, respectively.
+In the constructor, we traverse $\textit{keys}$ and $\textit{values}$, storing each character and its corresponding encryption result in $mp$. Then, we traverse $\textit{dictionary}$ to count the occurrences of each encryption result. The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{keys}$ and $\textit{dictionary}$, respectively.
 
 In the encryption function, we traverse each character of the input string $\textit{word1}$, look up its encryption result, and concatenate them. If a character does not have a corresponding encryption result, it means encryption is not possible, and we return an empty string. The time complexity is $O(k)$, where $k$ is the length of $\textit{word1}$.
 

@@ -83,7 +83,7 @@ Other original arrays could be [4,3,1] or [3,1,4].
 
 We notice that if the array `changed` is a double array, then the smallest element in the array `changed` must also be an element in the original array. Therefore, we can first sort the array `changed`, and then start from the first element to traverse the array `changed` in ascending order.
 
-We use a hash table or array $cnt$ to count the occurrence of each element in the array `changed`. For each element $x$ in the array `changed`, we first check whether $x$ exists in $cnt$. If it does not exist, we skip this element. Otherwise, we subtract one from $cnt[x]$, and check whether $x \times 2$ exists in $cnt$. If it does not exist, we return an empty array directly. Otherwise, we subtract one from $cnt[x \times 2]$, and add $x$ to the answer array.
+We use a hash table or array $\textit{cnt}$ to count the occurrence of each element in the array `changed`. For each element $x$ in the array `changed`, we first check whether $x$ exists in $\textit{cnt}$. If it does not exist, we skip this element. Otherwise, we subtract one from $\textit{cnt}[x]$, and check whether $x \times 2$ exists in $\textit{cnt}$. If it does not exist, we return an empty array directly. Otherwise, we subtract one from $\textit{cnt}[x \times 2]$, and add $x$ to the answer array.
 
 After the traversal, we return the answer array.
 

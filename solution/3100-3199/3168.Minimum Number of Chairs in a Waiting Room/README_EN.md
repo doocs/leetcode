@@ -211,9 +211,9 @@ tags:
 >
 > `E` arrives and `L` leaves; chairs are bought only when none are free and never discarded. The peak occupancy is the answer.
 >
-> A free chair is reused immediately: an arrival takes one if available, otherwise $cnt$ grows; a leaving increments free chairs.
+> A free chair is reused immediately: an arrival takes one if available, otherwise $\textit{cnt}$ grows; a leaving increments free chairs.
 >
-> Track $cnt$ and $left$ across $s$. The final $cnt$ is the minimum number of chairs.
+> Track $\textit{cnt}$ and $\textit{left}$ across $s$. The final $\textit{cnt}$ is the minimum number of chairs.
 
 <!-- thinking:end -->
 

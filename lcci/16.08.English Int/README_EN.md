@@ -51,4 +51,6 @@ difficulty: Hard
 
 No solution yet. Contributions welcome.
 
+<!-- solution:end -->
+
 <!-- problem:end -->

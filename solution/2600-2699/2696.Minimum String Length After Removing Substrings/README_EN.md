@@ -74,7 +74,7 @@ It can be shown that it is the minimum length that we can obtain.</pre>
 
 <!-- thinking:end -->
 
-We traverse the string $s$. For the current character $c$ we are traversing, if the stack is not empty and the top element of the stack $top$ can form $AB$ or $CD$ with $c$, then we pop the top element of the stack, otherwise we push $c$ into the stack.
+We traverse the string $s$. For the current character $c$ we are traversing, if the stack is not empty and the top element of the stack $\textit{top}$ can form $\textit{AB}$ or $\textit{CD}$ with $c$, then we pop the top element of the stack, otherwise we push $c$ into the stack.
 
 The number of remaining elements in the stack is the length of the final string.
 

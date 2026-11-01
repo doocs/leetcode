@@ -91,13 +91,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we check if the lengths of $\textit{sentence1}$ and $\textit{sentence2}$ are equal. If they are not equal, return $\text{false}$.
+First, we check if the lengths of $\textit{sentence1}$ and $\textit{sentence2}$ are equal. If they are not equal, return $\textit{false}$.
 
-Then we use a hash table $\textit{s}$ to store all similar word pairs. For each word pair $[x, y]$ in $\textit{similarPairs}$, we add $x$ and $y$ to the hash table $\textit{s}$.
+Then we use a hash table $s$ to store all similar word pairs. For each word pair $[x, y]$ in $\textit{similarPairs}$, we add $x$ and $y$ to the hash table $s$.
 
-Next, we traverse $\textit{sentence1}$ and $\textit{sentence2}$. For each position $i$, if $\textit{sentence1}[i]$ is not equal to $\textit{sentence2}[i]$, and $(\textit{sentence1}[i], \textit{sentence2}[i])$ and $(\textit{sentence2}[i], \textit{sentence1}[i])$ are not in the hash table $\textit{s}$, then return $\text{false}$.
+Next, we traverse $\textit{sentence1}$ and $\textit{sentence2}$. For each position $i$, if $\textit{sentence1}[i]$ is not equal to $\textit{sentence2}[i]$, and $(\textit{sentence1}[i], \textit{sentence2}[i])$ and $(\textit{sentence2}[i], \textit{sentence1}[i])$ are not in the hash table $s$, then return $\textit{false}$.
 
-If the traversal ends without returning $\text{false}$, it means $\textit{sentence1}$ and $\textit{sentence2}$ are similar, so return $\text{true}$.
+If the traversal ends without returning $\textit{false}$, it means $\textit{sentence1}$ and $\textit{sentence2}$ are similar, so return $\textit{true}$.
 
 The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the problem.
 

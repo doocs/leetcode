@@ -86,11 +86,11 @@ Orders table:
 >
 > 区间按分钟的取值划分， $1$ 到 $6$ 为区间 $1$， $7$ 到 $12$ 为区间 $2$。六行窗口默认分钟从 $1$ 起连续，并且每一段的右端落在 $6$ 的倍数上。一旦出现空缺，或这一段并不以 $6$ 的倍数结束，窗口就会漏掉区间，或把相邻区间加在一起。
 >
-> $\lfloor (minute+5)/6 \rfloor$ 把每个分钟送进所属区间。按这个值分组并对 `order_count` 求和，得到该区间的订单总数，再按区间号升序输出。
+> $\lfloor (\textit{minute}+5)/6 \rfloor$ 把每个分钟送进所属区间。按这个值分组并对 `order_count` 求和，得到该区间的订单总数，再按区间号升序输出。
 
 <!-- thinking:end -->
 
-按 $\lfloor (minute + 5) / 6 \rfloor$ 把每分钟划入对应区间，再对区间内的 `order_count` 求和，并按区间号升序输出。
+按 $\lfloor (\textit{minute} + 5) / 6 \rfloor$ 把每分钟划入对应区间，再对区间内的 `order_count` 求和，并按区间号升序输出。
 
 <!-- tabs:start -->
 
@@ -118,7 +118,7 @@ ORDER BY 1;
 
 > **思考**
 >
-> 窗口函数仍要扫描前缀。`minute` 连续时可用 $\lfloor(minute+5)/6\rfloor$ 直接分组，组内 `SUM` 即为该区间订单数，写法更短。
+> 窗口函数仍要扫描前缀。`minute` 连续时可用 $\lfloor(\textit{minute}+5)/6\rfloor$ 直接分组，组内 `SUM` 即为该区间订单数，写法更短。
 
 <!-- thinking:end -->
 

@@ -71,9 +71,9 @@ There is no way to delete elements from nums to allow this.</pre>
 
 > **Thinking**
 >
-> After deletions the remaining minimum must divide every entry of $numsDivide$, hence it is a divisor of $x=\gcd(numsDivide)$. $n$ can be $10^5$.
+> After deletions the remaining minimum must divide every entry of $\textit{numsDivide}$, hence it is a divisor of $x=\gcd(\textit{numsDivide})$. $n$ can be $10^5$.
 >
-> Compute $x$, sort $nums$, and return the index of the first divisor of $x$. If none exists, the answer is $-1$.
+> Compute $x$, sort $\textit{nums}$, and return the index of the first divisor of $x$. If none exists, the answer is $-1$.
 
 <!-- thinking:end -->
 

@@ -88,7 +88,7 @@ tags:
 
 > **Thinking**
 >
-> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$, and zeros are width or height minus ones. With $mn\le 10^5$, count ones per row and column, then fill every cell.
+> $\textit{diff}[i][j]=\textit{onesRow}_i+\textit{onesCol}_j-\textit{zerosRow}_i-\textit{zerosCol}_j$, and zeros are width or height minus ones. With $mn\le 10^5$, count ones per row and column, then fill every cell.
 
 <!-- thinking:end -->
 

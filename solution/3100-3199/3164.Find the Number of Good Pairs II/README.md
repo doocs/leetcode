@@ -76,13 +76,13 @@ tags:
 >
 > $x$ 能配 $y$ 当且仅当 $(x/k)$ 是 $y$ 的倍数（且 $k$ 整除 $x$）。按商计数后，枚举 $y$ 的倍数即可。
 >
-> 先把 $nums1$ 中 $k$ 的倍数收成 $cnt1$，再对 $cnt2$ 的每个 $x$ 以步长 $x$ 扫到 $mx$，累加 $cnt1[y]\cdot v$。空 $cnt1$ 直接返回 $0$。
+> 先把 $\textit{nums1}$ 中 $k$ 的倍数收成 $\textit{cnt1}$，再对 $\textit{cnt2}$ 的每个 $x$ 以步长 $x$ 扫到 $mx$，累加 $\textit{cnt1}[y]\cdot v$。空 $\textit{cnt1}$ 直接返回 $0$。
 
 <!-- thinking:end -->
 
 我们用一个哈希表 $\textit{cnt1}$ 记录数组 $\textit{nums1}$ 中每个数除以 $k$ 的商的出现次数，用一个哈希表 $\textit{cnt2}$ 记录数组 $\textit{nums2}$ 中每个数的出现次数。
 
-接下来，我们枚举数组 $\textit{nums2}$ 中的每个数 $x$，对于每个数 $x$，我们枚举 $x$ 的倍数 $y$，其中 $y$ 的范围是 $[x, \textit{mx}]$，其中 $\textit{mx}$ 是 $\textit{cnt1}$ 中的最大键值，然后我们统计 $\textit{cnt1}[y]$ 的和，记为 $s$，最后我们将 $s \times v$ 累加到答案中，其中 $v$ 是 $\textit{cnt2}[x]$。
+接下来，我们枚举数组 $\textit{nums2}$ 中的每个数 $x$，对于每个数 $x$，我们枚举 $x$ 的倍数 $y$，其中 $y$ 的范围是 $[x, mx]$，其中 $mx$ 是 $\textit{cnt1}$ 中的最大键值，然后我们统计 $\textit{cnt1}[y]$ 的和，记为 $s$，最后我们将 $s \times v$ 累加到答案中，其中 $v$ 是 $\textit{cnt2}[x]$。
 
 时间复杂度 $O(n + m + (M / k) \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 是数组 $\textit{nums1}$ 中的最大值。
 

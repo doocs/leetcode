@@ -83,7 +83,7 @@ Problems 7, 10, 11, and 13 are low-quality problems because their like percentag
 
 > **Thinking**
 >
-> Quality is $likes/(likes+dislikes)$; we want ids strictly below $0.6$, sorted. No join or grouping is required.
+> Quality is $\textit{likes}/(\textit{likes}+\textit{dislikes})$; we want ids strictly below $0.6$, sorted. No join or grouping is required.
 >
 > A single `WHERE` encodes the ratio and `ORDER BY problem_id` fixes the order.
 

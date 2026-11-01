@@ -173,16 +173,16 @@ tags:
 >
 > A half-trip has $n-1$ steps. The quotient of $k$ by $n-1$ is even on the way right and odd on the way left.
 >
-> Write $k,mod=divmod(k,n-1)$ and return $n-mod-1$ on an odd quotient, otherwise $mod$.
+> Write $k,\textit{mod}=\textit{divmod}(k,n-1)$ and return $n-\textit{mod}-1$ on an odd quotient, otherwise $\textit{mod}$.
 
 <!-- thinking:end -->
 
-We notice that there are $n - 1$ passes in each round. Therefore, we can take $k$ modulo $n - 1$ to get the number of passes $mod$ in the current round. Then we divide $k$ by $n - 1$ to get the current round number $k$.
+We notice that there are $n - 1$ passes in each round. Therefore, we can take $k$ modulo $n - 1$ to get the number of passes $\textit{mod}$ in the current round. Then we divide $k$ by $n - 1$ to get the current round number $k$.
 
 Next, we judge the current round number $k$:
 
-- If $k$ is odd, then the current passing direction is from the end of the queue to the head, so it will be passed to the person with the number $n - mod - 1$.
-- If $k$ is even, then the current passing direction is from the head of the queue to the end, so it will be passed to the person with the number $mod$.
+- If $k$ is odd, then the current passing direction is from the end of the queue to the head, so it will be passed to the person with the number $n - \textit{mod} - 1$.
+- If $k$ is even, then the current passing direction is from the head of the queue to the end, so it will be passed to the person with the number $\textit{mod}$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

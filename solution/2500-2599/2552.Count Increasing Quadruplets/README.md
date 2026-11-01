@@ -71,18 +71,18 @@ tags:
 
 > **思考**
 >
-> 统计满足 $i<j<k<l$ 且 $nums[i]<nums[k]<nums[j]<nums[l]$ 的四元组。四重循环在 $n\le 4000$ 时不可行；枚举 $(j,k)$ 后两侧计数仍可能到 $O(n^3)$。
+> 统计满足 $i<j<k<l$ 且 $\textit{nums}[i]<\textit{nums}[k]<\textit{nums}[j]<\textit{nums}[l]$ 的四元组。四重循环在 $n\le 4000$ 时不可行；枚举 $(j,k)$ 后两侧计数仍可能到 $O(n^3)$。
 >
-> 固定 $j$ 从右往左扫 $k$ 时，大于 $nums[j]$ 的后缀个数可以递减维护，得到 $f[j][k]$；对称地固定 $k$ 从右往左扫 $j$，得到左侧小于 $nums[k]$ 的 $g[j][k]$。仅当 $nums[j]>nums[k]$ 时二者相乘计入答案，总时间 $O(n^2)$。
+> 固定 $j$ 从右往左扫 $k$ 时，大于 $\textit{nums}[j]$ 的后缀个数可以递减维护，得到 $f[j][k]$；对称地固定 $k$ 从右往左扫 $j$，得到左侧小于 $\textit{nums}[k]$ 的 $g[j][k]$。仅当 $\textit{nums}[j]>\textit{nums}[k]$ 时二者相乘计入答案，总时间 $O(n^2)$。
 
 <!-- thinking:end -->
 
 我们可以枚举四元组中的 $j$ 和 $k$，那么问题转化为，对于当前的 $j$ 和 $k$：
 
-- 统计有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$；
-- 统计有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
+- 统计有多少个 $l$ 满足 $l \gt k$ 且 $\textit{nums}[l] \gt \textit{nums}[j]$；
+- 统计有多少个 $i$ 满足 $i \lt j$ 且 $\textit{nums}[i] \lt \textit{nums}[k]$。
 
-我们可以使用两个二维数组 $f$ 和 $g$ 分别记录这两个信息。其中 $f[j][k]$ 表示有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$，而 $g[j][k]$ 表示有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
+我们可以使用两个二维数组 $f$ 和 $g$ 分别记录这两个信息。其中 $f[j][k]$ 表示有多少个 $l$ 满足 $l \gt k$ 且 $\textit{nums}[l] \gt \textit{nums}[j]$，而 $g[j][k]$ 表示有多少个 $i$ 满足 $i \lt j$ 且 $\textit{nums}[i] \lt \textit{nums}[k]$。
 
 那么答案就是所有的 $f[j][k] \times g[j][k]$ 的和。
 

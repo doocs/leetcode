@@ -89,15 +89,15 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 
 The problem is equivalent to dividing the array $\textit{nums}$ into $k + 1$ segments. The wasted space for each segment is the maximum value of that segment multiplied by the length of the segment minus the sum of the elements in that segment. By summing the wasted space of each segment, we get the total wasted space. By adding 1 to $k$, we are effectively dividing the array into $k$ segments.
 
-Therefore, we define an array $\textit{g}[i][j]$ to represent the wasted space for the segment $\textit{nums}[i..j]$, which is the maximum value of $\textit{nums}[i..j]$ multiplied by the length of $\textit{nums}[i..j]$ minus the sum of the elements in $\textit{nums}[i..j]$. We iterate over $i$ in the range $[0, n)$ and $j$ in the range $[i, n)$, using a variable $s$ to maintain the sum of the elements in $\textit{nums}[i..j]$ and a variable $\textit{mx}$ to maintain the maximum value of $\textit{nums}[i..j]$. Then we can get:
+Therefore, we define an array $g[i][j]$ to represent the wasted space for the segment $\textit{nums}[i..j]$, which is the maximum value of $\textit{nums}[i..j]$ multiplied by the length of $\textit{nums}[i..j]$ minus the sum of the elements in $\textit{nums}[i..j]$. We iterate over $i$ in the range $[0, n)$ and $j$ in the range $[i, n)$, using a variable $s$ to maintain the sum of the elements in $\textit{nums}[i..j]$ and a variable $mx$ to maintain the maximum value of $\textit{nums}[i..j]$. Then we can get:
 
-$$ \textit{g}[i][j] = \textit{mx} \times (j - i + 1) - s $$
+$$ g[i][j] = mx \times (j - i + 1) - s $$
 
-Next, we define $\textit{f}[i][j]$ to represent the minimum wasted space for dividing the first $i$ elements into $j$ segments. We initialize $\textit{f}[0][0] = 0$ and the other positions to infinity. We iterate over $i$ in the range $[1, n]$ and $j$ in the range $[1, k]$, then we iterate over the last element $h$ of the previous $j - 1$ segments. Then we have:
+Next, we define $f[i][j]$ to represent the minimum wasted space for dividing the first $i$ elements into $j$ segments. We initialize $f[0][0] = 0$ and the other positions to infinity. We iterate over $i$ in the range $[1, n]$ and $j$ in the range $[1, k]$, then we iterate over the last element $h$ of the previous $j - 1$ segments. Then we have:
 
-$$ \textit{f}[i][j] = \min(\textit{f}[i][j], \textit{f}[h][j - 1] + \textit{g}[h][i - 1]) $$
+$$ f[i][j] = \min(f[i][j], f[h][j - 1] + g[h][i - 1]) $$
 
-The final answer is $\textit{f}[n][k]$.
+The final answer is $f[n][k]$.
 
 The time complexity is $O(n^2k)$, and the space complexity is $O(n(n + k))$, where $n$ is the length of the array $\textit{nums}$.
 

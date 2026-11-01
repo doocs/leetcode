@@ -78,9 +78,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符能否拆分成 $wordDict$ 中的单词，初始时 $f[0]=true$，其余为 $false$。答案为 $f[n]$。
+我们定义 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符能否拆分成 $\textit{wordDict}$ 中的单词，初始时 $f[0]=\textit{true}$，其余为 $\textit{false}$。答案为 $f[n]$。
 
-考虑 $f[i]$，如果存在 $j \in [0, i)$ 使得 $f[j] \land s[j:i] \in wordDict$，则 $f[i]=true$。为了优化效率，我们可以使用哈希表存储 $wordDict$ 中的单词，这样可以快速判断 $s[j:i]$ 是否在 $wordDict$ 中。
+考虑 $f[i]$，如果存在 $j \in [0, i)$ 使得 $f[j] \land s[j:i] \in \textit{wordDict}$，则 $f[i]=\textit{true}$。为了优化效率，我们可以使用哈希表存储 $\textit{wordDict}$ 中的单词，这样可以快速判断 $s[j:i]$ 是否在 $\textit{wordDict}$ 中。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
@@ -244,11 +244,11 @@ public class Solution {
 
 <!-- thinking:end -->
 
-我们先将 $wordDict$ 中的单词存入前缀树中，然后使用动态规划求解。
+我们先将 $\textit{wordDict}$ 中的单词存入前缀树中，然后使用动态规划求解。
 
-我们定义 $f[i]$ 表示从字符串 $s$ 的第 $i$ 个字符开始往后拆分，能否拆分成 $wordDict$ 中的单词，初始时 $f[n]=true$，其余为 $false$。答案为 $f[0]$。
+我们定义 $f[i]$ 表示从字符串 $s$ 的第 $i$ 个字符开始往后拆分，能否拆分成 $\textit{wordDict}$ 中的单词，初始时 $f[n]=\textit{true}$，其余为 $\textit{false}$。答案为 $f[0]$。
 
-接下来，我们从大到小枚举 $i$，对于每个 $i$，我们从 $i$ 开始往后拆分，如果 $s[i:j]$ 在前缀树中，且 $f[j+1]=true$，则 $f[i]=true$。
+接下来，我们从大到小枚举 $i$，对于每个 $i$，我们从 $i$ 开始往后拆分，如果 $s[i:j]$ 在前缀树中，且 $f[j+1]=\textit{true}$，则 $f[i]=\textit{true}$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 

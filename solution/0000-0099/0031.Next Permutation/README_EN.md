@@ -80,13 +80,13 @@ tags:
 >
 > We do not need the full set, only the next sequence in lexicographic order: strictly larger, changing as far right as possible, and by the smallest amount.
 >
-> The longest non-increasing suffix is already the largest arrangement of that tail; the element just before it, $nums[i]$, is the pivot we must raise. The smallest larger replacement sits at the right end of that suffix. After the swap, reverse the suffix so it becomes increasing. If the whole array is non-increasing, no larger permutation exists and we reverse everything.
+> The longest non-increasing suffix is already the largest arrangement of that tail; the element just before it, $\textit{nums}[i]$, is the pivot we must raise. The smallest larger replacement sits at the right end of that suffix. After the swap, reverse the suffix so it becomes increasing. If the whole array is non-increasing, no larger permutation exists and we reverse everything.
 
 <!-- thinking:end -->
 
-We first traverse the array from back to front and find the first position $i$ where $nums[i] \lt nums[i + 1]$.
+We first traverse the array from back to front and find the first position $i$ where $\textit{nums}[i] \lt \textit{nums}[i + 1]$.
 
-Then traverse the array from back to front again and find the first position $j$ where $nums[j] \gt nums[i]$. Swap $nums[i]$ and $nums[j]$, and then reverse the elements from $nums[i + 1]$ to $nums[n - 1]$, the next permutation can be obtained.
+Then traverse the array from back to front again and find the first position $j$ where $\textit{nums}[j] \gt \textit{nums}[i]$. Swap $\textit{nums}[i]$ and $\textit{nums}[j]$, and then reverse the elements from $\textit{nums}[i + 1]$ to $\textit{nums}[n - 1]$, the next permutation can be obtained.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

@@ -80,15 +80,15 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 >
 > Find an index whose left sum equals its right sum. Recomputing both sides at every $i$ is $O(n^2)$ for $n\le 10^4$.
 >
-> The two sides plus $nums[i]$ make the total $S$, so $2\cdot\textit{left}+nums[i]=S$. One left-to-right pass suffices.
+> The two sides plus $\textit{nums}[i]$ make the total $S$, so $2\cdot\textit{left}+\textit{nums}[i]=S$. One left-to-right pass suffices.
 >
 > Start $\textit{right}$ at the total, subtract $x$ before comparing with $\textit{left}$, then add $x$ to the left. Extra space $O(1)$.
 
 <!-- thinking:end -->
 
-We define a variable $left$ to represent the sum of elements to the left of index $i$ in the array $\textit{nums}$, and a variable $right$ to represent the sum of elements to the right of index $i$ in the array $\textit{nums}$. Initially, $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$.
+We define a variable $\textit{left}$ to represent the sum of elements to the left of index $i$ in the array $\textit{nums}$, and a variable $\textit{right}$ to represent the sum of elements to the right of index $i$ in the array $\textit{nums}$. Initially, $\textit{left} = 0$, $\textit{right} = \sum_{i = 0}^{n - 1} \textit{nums}[i]$.
 
-We traverse the array $\textit{nums}$. For the current number $x$ being traversed, we update $right = right - x$. At this point, if $left = right$, it indicates that the current index $i$ is the middle position, and we can return it directly. Otherwise, we update $left = left + x$ and continue to traverse the next number.
+We traverse the array $\textit{nums}$. For the current number $x$ being traversed, we update $\textit{right} = \textit{right} - x$. At this point, if $\textit{left} = \textit{right}$, it indicates that the current index $i$ is the middle position, and we can return it directly. Otherwise, we update $\textit{left} = \textit{left} + x$ and continue to traverse the next number.
 
 If the middle position is not found by the end of the traversal, return $-1$.
 

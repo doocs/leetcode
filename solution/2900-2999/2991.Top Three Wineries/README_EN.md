@@ -92,9 +92,9 @@ Output table is ordered by country in ascending order.
 
 > **Thinking**
 >
-> Each country needs its top three wineries by total points, ordered by points then name, with placeholders when fewer than three exist. Sum per country and winery, then $RANK$.
+> Each country needs its top three wineries by total points, ordered by points then name, with placeholders when fewer than three exist. Sum per country and winery, then $\textit{RANK}$.
 >
-> Three left joins line up $rk=1,2,3$; $IFNULL$ fills the gaps. Sort by country.
+> Three left joins line up $rk=1,2,3$; $\textit{IFNULL}$ fills the gaps. Sort by country.
 
 <!-- thinking:end -->
 

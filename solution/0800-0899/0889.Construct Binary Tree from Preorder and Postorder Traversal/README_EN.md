@@ -77,17 +77,17 @@ Next, we need to determine the range of the left and right subtrees of the binar
 
 If the binary tree has a left subtree, then the root node of the left subtree must be the second node of the pre-order traversal; if the binary tree does not have a left subtree, then the second node of the pre-order traversal must be the root node of the right subtree. Since the results of post-order traversal in these two cases are the same, we can take the second node of the pre-order traversal as the root node of the left subtree, and then find its position in the post-order traversal, so as to determine the range of the left subtree.
 
-Specifically, we design a recursive function $dfs(a, b, c, d)$, where $[a, b]$ represents the range of pre-order traversal, and $[c, d]$ represents the range of post-order traversal. The function of this function is to construct the root node of the binary tree based on the pre-order traversal $[a, b]$ and the post-order traversal $[c, d]$. The answer is $dfs(0, n - 1, 0, n - 1)$, where $n$ is the length of the pre-order traversal.
+Specifically, we design a recursive function $\textit{dfs}(a, b, c, d)$, where $[a, b]$ represents the range of pre-order traversal, and $[c, d]$ represents the range of post-order traversal. The function of this function is to construct the root node of the binary tree based on the pre-order traversal $[a, b]$ and the post-order traversal $[c, d]$. The answer is $\textit{dfs}(0, n - 1, 0, n - 1)$, where $n$ is the length of the pre-order traversal.
 
-The execution steps of the function $dfs(a, b, c, d)$ are as follows:
+The execution steps of the function $\textit{dfs}(a, b, c, d)$ are as follows:
 
 1. If $a > b$, the range is empty, return a null node directly.
-1. Otherwise, we construct a new node $root$, its value is the value of the first node in the pre-order traversal, which is $preorder[a]$.
-1. If $a$ equals $b$, it means that $root$ has neither a left subtree nor a right subtree, return $root$ directly.
-1. Otherwise, the value of the root node of the left subtree is $preorder[a + 1]$, we find the position of $preorder[a + 1]$ in the post-order traversal, denoted as $i$. The number of nodes in the left subtree $m = i - c + 1$, from this we know that the range of the left subtree in the pre-order traversal is $[a + 1, a + m]$, the range in the post-order traversal is $[c, i]$, the range of the right subtree in the pre-order traversal is $[a + m + 1, b]$, and the range in the post-order traversal is $[i + 1, d - 1]$.
-1. Knowing the range of the left and right subtrees, we can recursively rebuild the left and right subtrees, and then make the root nodes of the left and right subtrees as the left and right child nodes of $root$ respectively. Finally return $root$.
+1. Otherwise, we construct a new node $\textit{root}$, its value is the value of the first node in the pre-order traversal, which is $\textit{preorder}[a]$.
+1. If $a$ equals $b$, it means that $\textit{root}$ has neither a left subtree nor a right subtree, return $\textit{root}$ directly.
+1. Otherwise, the value of the root node of the left subtree is $\textit{preorder}[a + 1]$, we find the position of $\textit{preorder}[a + 1]$ in the post-order traversal, denoted as $i$. The number of nodes in the left subtree $m = i - c + 1$, from this we know that the range of the left subtree in the pre-order traversal is $[a + 1, a + m]$, the range in the post-order traversal is $[c, i]$, the range of the right subtree in the pre-order traversal is $[a + m + 1, b]$, and the range in the post-order traversal is $[i + 1, d - 1]$.
+1. Knowing the range of the left and right subtrees, we can recursively rebuild the left and right subtrees, and then make the root nodes of the left and right subtrees as the left and right child nodes of $\textit{root}$ respectively. Finally return $\textit{root}$.
 
-In the function $dfs(a, b, c, d)$, we need to use a hash table $pos$, which stores the position of each node in the post-order traversal. At the beginning of the function, we can calculate this hash table first, so that we can find the position of any node in the post-order traversal in $O(1)$ time.
+In the function $\textit{dfs}(a, b, c, d)$, we need to use a hash table $\textit{pos}$, which stores the position of each node in the post-order traversal. At the beginning of the function, we can calculate this hash table first, so that we can find the position of any node in the post-order traversal in $O(1)$ time.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -304,14 +304,14 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
 
 <!-- thinking:end -->
 
-We can design a recursive function $dfs(i, j, n)$, where $i$ and $j$ represent the starting points of the pre-order and post-order traversals, respectively, and $n$ represents the number of nodes. This function constructs the root node of the binary tree based on the pre-order traversal $[i, i + n - 1]$ and post-order traversal $[j, j + n - 1]$. The answer is $dfs(0, 0, n)$, where $n$ is the length of the pre-order traversal.
+We can design a recursive function $\textit{dfs}(i, j, n)$, where $i$ and $j$ represent the starting points of the pre-order and post-order traversals, respectively, and $n$ represents the number of nodes. This function constructs the root node of the binary tree based on the pre-order traversal $[i, i + n - 1]$ and post-order traversal $[j, j + n - 1]$. The answer is $\textit{dfs}(0, 0, n)$, where $n$ is the length of the pre-order traversal.
 
-The execution steps of the function $dfs(i, j, n)$ are as follows:
+The execution steps of the function $\textit{dfs}(i, j, n)$ are as follows:
 
 1. If $n = 0$, the range is empty, so return a null node directly.
-2. Otherwise, we construct a new node $root$, whose value is the value of the first node in the pre-order traversal, which is $preorder[i]$.
-3. If $n = 1$, it means that $root$ has neither a left subtree nor a right subtree, so return $root$ directly.
-4. Otherwise, the value of the root node of the left subtree is $preorder[i + 1]$. We find the position of $preorder[i + 1]$ in the post-order traversal, denoted as $k$. Then the number of nodes in the left subtree is $m = k - j + 1$, and the number of nodes in the right subtree is $n - m - 1$. We recursively rebuild the left and right subtrees, and then make the root nodes of the left and right subtrees the left and right child nodes of $root$, respectively. Finally, return $root$.
+2. Otherwise, we construct a new node $\textit{root}$, whose value is the value of the first node in the pre-order traversal, which is $\textit{preorder}[i]$.
+3. If $n = 1$, it means that $\textit{root}$ has neither a left subtree nor a right subtree, so return $\textit{root}$ directly.
+4. Otherwise, the value of the root node of the left subtree is $\textit{preorder}[i + 1]$. We find the position of $\textit{preorder}[i + 1]$ in the post-order traversal, denoted as $k$. Then the number of nodes in the left subtree is $m = k - j + 1$, and the number of nodes in the right subtree is $n - m - 1$. We recursively rebuild the left and right subtrees, and then make the root nodes of the left and right subtrees the left and right child nodes of $\textit{root}$, respectively. Finally, return $\textit{root}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

@@ -306,7 +306,7 @@ The order of preorder traversal is: root, left, right. If we change the order of
 
 Therefore, the idea of using a stack to implement non-recursive traversal is as follows:
 
-1. Define a stack $stk$, and first push the root node into the stack.
+1. Define a stack $\textit{stk}$, and first push the root node into the stack.
 2. If the stack is not empty, pop a node from the stack each time.
 3. Process the node.
 4. First push the left child of the node into the stack, then push the right child of the node into the stack (if there are child nodes).
@@ -511,9 +511,9 @@ Morris traversal does not require a stack, and its space complexity is $O(1)$. T
 
 Traverse the binary tree nodes,
 
-1. If the right subtree of the current node `root` is empty, add the current node value to the result list $ans$, and update the current node to `root.left`.
+1. If the right subtree of the current node `root` is empty, add the current node value to the result list $\textit{ans}$, and update the current node to `root.left`.
 1. If the right subtree of the current node `root` is not empty, find the leftmost node `next` of the right subtree (which is the successor of the `root` node in inorder traversal):
-    - If the left subtree of the successor node `next` is empty, add the current node value to the result list $ans$, then point the left subtree of the successor node to the current node `root`, and update the current node to `root.right`.
+    - If the left subtree of the successor node `next` is empty, add the current node value to the result list $\textit{ans}$, then point the left subtree of the successor node to the current node `root`, and update the current node to `root.right`.
     - If the left subtree of the successor node `next` is not empty, point the left subtree of the successor node to null (i.e., disconnect `next` and `root`), and update the current node to `root.left`.
 1. Repeat the above steps until the binary tree node is null, and the traversal ends.
 1. Finally, return the reverse of the result list.

@@ -315,7 +315,7 @@ function maximizeSumOfWeights(edges: number[][], k: number): number {
 >
 > The best score of a subtree depends on whether the parent edge already uses one slot. With that slot free the node may keep up to $k$ edges to its children; with the slot taken it may keep only $k - 1$. Add each child at the score that does not use its own parent edge, then keep a child edge only when the gain $w + b - a$ is positive, and only the largest of those gains.
 >
-> An explicit stack of $(node, parent, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store the two scores. The root has no parent edge, so the answer is the larger of its two values.
+> An explicit stack of $(\textit{node}, \textit{parent}, \textit{state})$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store the two scores. The root has no parent edge, so the answer is the larger of its two values.
 
 <!-- thinking:end -->
 

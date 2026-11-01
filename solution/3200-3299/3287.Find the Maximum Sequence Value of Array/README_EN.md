@@ -89,17 +89,17 @@ Consider the transition equation for $f[i][j][x]$. For the $i$-th element (start
 
 $$
 f[i + 1][j][x] = f[i + 1][j][x] \lor f[i][j][x] \\
-f[i + 1][j + 1][x \lor \text{nums}[i]] = f[i + 1][j + 1][x \lor \text{nums}[i]] \lor f[i][j][x]
+f[i + 1][j + 1][x \lor \textit{nums}[i]] = f[i + 1][j + 1][x \lor \textit{nums}[i]] \lor f[i][j][x]
 $$
 
 For the transition equation of $g[i][j][y]$, similarly for the $i$-th element (starting from $n - 1$), we can choose to take it or not, so we have:
 
 $$
 g[i - 1][j][y] = g[i - 1][j][y] \lor g[i][j][y] \\
-g[i - 1][j + 1][y \lor \text{nums}[i - 1]] = g[i - 1][j + 1][y \lor \text{nums}[i - 1]] \lor g[i][j][y]
+g[i - 1][j + 1][y \lor \textit{nums}[i - 1]] = g[i - 1][j + 1][y \lor \textit{nums}[i - 1]] \lor g[i][j][y]
 $$
 
-Finally, we enumerate $i$ in the range $[k, n - k]$. For each $i$, we enumerate $x$ and $y$, where $0 \leq x, y < 2^7$. If both $f[i][k][x]$ and $g[i][k][y]$ are true, we update the answer $\text{ans} = \max(\text{ans}, x \oplus y)$.
+Finally, we enumerate $i$ in the range $[k, n - k]$. For each $i$, we enumerate $x$ and $y$, where $0 \leq x, y < 2^7$. If both $f[i][k][x]$ and $g[i][k][y]$ are true, we update the answer $\textit{ans} = \max(\textit{ans}, x \oplus y)$.
 
 The time complexity is $O(nmk)$, and the space complexity is $O(nmk)$, where $n$ is the length of the array, and $m = 2^7$.
 

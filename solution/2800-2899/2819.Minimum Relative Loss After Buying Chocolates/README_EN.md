@@ -90,23 +90,23 @@ It can be shown that these are the minimum possible relative losses.
 
 > **Thinking**
 >
-> Each query buys $m$ chocolates at threshold $k$. Relative loss is the price itself when $price\le k$, and $2k-price$ when $price>k$. An optimal mix takes some cheapest bars and some most expensive ones. After sorting and prefix sums, a binary search finds the split for every query.
+> Each query buys $m$ chocolates at threshold $k$. Relative loss is the price itself when $\textit{price}\le k$, and $2k-\textit{price}$ when $\textit{price}>k$. An optimal mix takes some cheapest bars and some most expensive ones. After sorting and prefix sums, a binary search finds the split for every query.
 
 <!-- thinking:end -->
 
 Based on the problem description, we know:
 
-If $prices[i] \leq k$, then Bob needs to pay $prices[i]$, and Alice doesn't need to pay. Therefore, Bob's relative loss is $prices[i]$. In this case, Bob should choose the chocolate with a lower price to minimize the relative loss.
+If $\textit{prices}[i] \leq k$, then Bob needs to pay $\textit{prices}[i]$, and Alice doesn't need to pay. Therefore, Bob's relative loss is $\textit{prices}[i]$. In this case, Bob should choose the chocolate with a lower price to minimize the relative loss.
 
-If $prices[i] > k$, then Bob needs to pay $k$, and Alice needs to pay $prices[i] - k$. Therefore, Bob's relative loss is $k - (prices[i] - k) = 2k - prices[i]$. In this case, Bob should choose the chocolate with a higher price to minimize the relative loss.
+If $\textit{prices}[i] > k$, then Bob needs to pay $k$, and Alice needs to pay $\textit{prices}[i] - k$. Therefore, Bob's relative loss is $k - (\textit{prices}[i] - k) = 2k - \textit{prices}[i]$. In this case, Bob should choose the chocolate with a higher price to minimize the relative loss.
 
-Therefore, we first sort the price array $prices$, and then preprocess the prefix sum array $s$, where $s[i]$ represents the sum of the prices of the first $i$ chocolates.
+Therefore, we first sort the price array $\textit{prices}$, and then preprocess the prefix sum array $s$, where $s[i]$ represents the sum of the prices of the first $i$ chocolates.
 
 Next, for each query $[k, m]$, we first use binary search to find the index $r$ of the first chocolate with a price greater than $k$. Then, we use binary search again to find the number of chocolates $l$ that should be chosen on the left, so the number of chocolates that should be chosen on the right is $m - l$. At this point, Bob's relative loss is $s[l] + 2k(m - l) - (s[n] - s[n - (m - l)])$.
 
-In the second binary search process mentioned above, we need to judge whether $prices[mid] < 2k - prices[n - (m - mid)]$, where $right$ represents the number of chocolates that should be chosen on the right. If this inequality holds, it means that choosing the chocolate at position $mid$ has a lower relative loss, so we update $l = mid + 1$. Otherwise, it means that the chocolate at position $mid$ has a higher relative loss, so we update $r = mid$.
+In the second binary search process mentioned above, we need to judge whether $\textit{prices}[\textit{mid}] < 2k - \textit{prices}[n - (m - \textit{mid})]$, where $\textit{right}$ represents the number of chocolates that should be chosen on the right. If this inequality holds, it means that choosing the chocolate at position $\textit{mid}$ has a lower relative loss, so we update $l = \textit{mid} + 1$. Otherwise, it means that the chocolate at position $\textit{mid}$ has a higher relative loss, so we update $r = \textit{mid}$.
 
-The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $prices$ and $queries$, respectively.
+The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $\textit{prices}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

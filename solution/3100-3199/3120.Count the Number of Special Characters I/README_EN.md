@@ -83,15 +83,15 @@ tags:
 >
 > Membership of each character is enough, and a set built in one pass answers all $26$ pairs.
 >
-> Insert $word$ into a set, then count letters whose lower and upper forms both occur.
+> Insert $\textit{word}$ into a set, then count letters whose lower and upper forms both occur.
 
 <!-- thinking:end -->
 
-We use a hash table or array $s$ to record the characters that appear in the string $word$. Then we traverse the 26 letters. If both the lowercase and uppercase letters appear in $s$, the count of special characters is incremented by one.
+We use a hash table or array $s$ to record the characters that appear in the string $\textit{word}$. Then we traverse the 26 letters. If both the lowercase and uppercase letters appear in $s$, the count of special characters is incremented by one.
 
 Finally, return the count of special characters.
 
-The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $word$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{word}$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
 
 <!-- tabs:start -->
 

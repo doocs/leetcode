@@ -76,20 +76,20 @@ It can be shown that 1 is the minimum number of operations required to get a spe
 
 > **Thinking**
 >
-> A special number is $0$ modulo $25$, and any digits may be deleted. $dfs(i,k)$ is the fewest deletions from index $i$ with current remainder $k$: delete the digit and keep $k$, or keep it and move to $(k\cdot 10+d)\bmod 25$.
+> A special number is $0$ modulo $25$, and any digits may be deleted. $\textit{dfs}(i,k)$ is the fewest deletions from index $i$ with current remainder $k$: delete the digit and keep $k$, or keep it and move to $(k\cdot 10+d)\bmod 25$.
 
 <!-- thinking:end -->
 
-We notice that an integer $x$ can be divisible by $25$, i.e., $x \bmod 25 = 0$. Therefore, we can design a function $dfs(i, k)$, which represents the minimum number of digits to be deleted to make the number a special number, starting from the $i$th digit of the string $num$, and the current number modulo $25$ is $k$. The answer is $dfs(0, 0)$.
+We notice that an integer $x$ can be divisible by $25$, i.e., $x \bmod 25 = 0$. Therefore, we can design a function $\textit{dfs}(i, k)$, which represents the minimum number of digits to be deleted to make the number a special number, starting from the $i$th digit of the string $\textit{num}$, and the current number modulo $25$ is $k$. The answer is $\textit{dfs}(0, 0)$.
 
-The execution logic of the function $dfs(i, k)$ is as follows:
+The execution logic of the function $\textit{dfs}(i, k)$ is as follows:
 
-- If $i = n$, i.e., all digits of the string $num$ have been processed, then if $k = 0$, the current number can be divisible by $25$, return $0$, otherwise return $n$;
-- Otherwise, the $i$th digit can be deleted, in this case one digit needs to be deleted, i.e., $dfs(i + 1, k) + 1$; if the $i$th digit is not deleted, then the value of $k$ becomes $(k \times 10 + \textit{num}[i]) \bmod 25$, i.e., $dfs(i + 1, (k \times 10 + \textit{num}[i]) \bmod 25)$. Take the minimum of these two.
+- If $i = n$, i.e., all digits of the string $\textit{num}$ have been processed, then if $k = 0$, the current number can be divisible by $25$, return $0$, otherwise return $n$;
+- Otherwise, the $i$th digit can be deleted, in this case one digit needs to be deleted, i.e., $\textit{dfs}(i + 1, k) + 1$; if the $i$th digit is not deleted, then the value of $k$ becomes $(k \times 10 + \textit{num}[i]) \bmod 25$, i.e., $\textit{dfs}(i + 1, (k \times 10 + \textit{num}[i]) \bmod 25)$. Take the minimum of these two.
 
 To prevent repeated calculations, we can use memoization to optimize the time complexity.
 
-The time complexity is $O(25n)$, and the space complexity is $O(25n)$, where $n$ is the length of the string $num$.
+The time complexity is $O(25n)$, and the space complexity is $O(25n)$, where $n$ is the length of the string $\textit{num}$.
 
 <!-- tabs:start -->
 

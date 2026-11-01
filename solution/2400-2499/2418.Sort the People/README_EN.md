@@ -67,15 +67,15 @@ tags:
 
 > **Thinking**
 >
-> With $n\le 10^3$, sort names by descending height. Heights are unique, so the key is total. Sort indices by $heights$ descending, then emit $names[i]$.
+> With $n\le 10^3$, sort names by descending height. Heights are unique, so the key is total. Sort indices by $\textit{heights}$ descending, then emit $\textit{names}[i]$.
 
 <!-- thinking:end -->
 
-According to the problem description, we can create an index array $idx$ of length $n$, where $idx[i]=i$. Then we sort each index in $idx$ in descending order according to the corresponding height in $heights$. Finally, we traverse each index $i$ in the sorted $idx$ and add $names[i]$ to the answer array.
+According to the problem description, we can create an index array $\textit{idx}$ of length $n$, where $\textit{idx}[i]=i$. Then we sort each index in $\textit{idx}$ in descending order according to the corresponding height in $\textit{heights}$. Finally, we traverse each index $i$ in the sorted $\textit{idx}$ and add $\textit{names}[i]$ to the answer array.
 
-We can also create an array $arr$ of length $n$, where each element is a tuple $(heights[i], i)$. Then we sort $arr$ in descending order by height. Finally, we traverse each element $(heights[i], i)$ in the sorted $arr$ and add $names[i]$ to the answer array.
+We can also create an array $\textit{arr}$ of length $n$, where each element is a tuple $(\textit{heights}[i], i)$. Then we sort $\textit{arr}$ in descending order by height. Finally, we traverse each element $(\textit{heights}[i], i)$ in the sorted $\textit{arr}$ and add $\textit{names}[i]$ to the answer array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays $names$ and $heights$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays $\textit{names}$ and $\textit{heights}$.
 
 <!-- tabs:start -->
 

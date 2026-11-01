@@ -63,7 +63,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们直接计算列车实际到站的时间，即为 $arrivalTime + delayedTime$，但是由于时间采用 24 小时制，所以我们需要对结果取模，即 $(arrivalTime + delayedTime) \bmod 24$。
+我们直接计算列车实际到站的时间，即为 $\textit{arrivalTime} + \textit{delayedTime}$，但是由于时间采用 24 小时制，所以我们需要对结果取模，即 $(\textit{arrivalTime} + \textit{delayedTime}) \bmod 24$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

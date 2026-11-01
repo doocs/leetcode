@@ -78,9 +78,9 @@ When $i=0$, we have $a = 0$ and $b = 1$.
 
 When $i \gt 0$, we first save the previous values of $a$ and $b$ in $x$ and $y$, and then discuss the following cases:
 
-If $nums1[i - 1] \ge nums1[i]$ or $nums2[i - 1] \ge nums2[i]$, to make both sequences strictly increasing, the relative positions of the elements at indices $i-1$ and $i$ must change. That is, if the previous position was swapped, then the current position should not be swapped, so $a = y$; if the previous position was not swapped, then the current position must be swapped, so $b = x + 1$.
+If $\textit{nums1}[i - 1] \ge \textit{nums1}[i]$ or $\textit{nums2}[i - 1] \ge \textit{nums2}[i]$, to make both sequences strictly increasing, the relative positions of the elements at indices $i-1$ and $i$ must change. That is, if the previous position was swapped, then the current position should not be swapped, so $a = y$; if the previous position was not swapped, then the current position must be swapped, so $b = x + 1$.
 
-Otherwise, the relative positions of the elements at indices $i-1$ and $i$ do not need to change, so $b = y + 1$. Additionally, if $nums1[i - 1] \lt nums2[i]$ and $nums2[i - 1] \lt nums1[i]$, the relative positions of the elements at indices $i-1$ and $i$ can change, so $a$ and $b$ can take the smaller values, thus $a = \min(a, y)$ and $b = \min(b, x + 1)$.
+Otherwise, the relative positions of the elements at indices $i-1$ and $i$ do not need to change, so $b = y + 1$. Additionally, if $\textit{nums1}[i - 1] \lt \textit{nums2}[i]$ and $\textit{nums2}[i - 1] \lt \textit{nums1}[i]$, the relative positions of the elements at indices $i-1$ and $i$ can change, so $a$ and $b$ can take the smaller values, thus $a = \min(a, y)$ and $b = \min(b, x + 1)$.
 
 Finally, return the smaller value between $a$ and $b$.
 

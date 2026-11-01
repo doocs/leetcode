@@ -74,29 +74,29 @@ We earn 9 + 5 + 6 = 20 dollars in total.</pre>
 
 > **Thinking**
 >
-> After sorting rides by start, ride $i$ only combines with later rides whose start is $\ge end_i$. Subsets are infeasible for $m \le 3 \times 10^4$; the state is the best profit from index $i$.
+> After sorting rides by start, ride $i$ only combines with later rides whose start is $\ge \textit{end}_i$. Subsets are infeasible for $m \le 3 \times 10^4$; the state is the best profit from index $i$.
 >
-> Skip goes to $i+1$; take binary-searches the first start $\ge end_i$ as $j$ and adds distance, tip, and $dfs(j)$.
+> Skip goes to $i+1$; take binary-searches the first start $\ge \textit{end}_i$ as $j$ and adds distance, tip, and $\textit{dfs}(j)$.
 >
 > Memoization evaluates each $i$ once in $O(m \log m)$.
 
 <!-- thinking:end -->
 
-First, we sort $rides$ in ascending order by $start$. Then we design a function $dfs(i)$, which represents the maximum tip that can be obtained from accepting orders starting from the $i$-th passenger. The answer is $dfs(0)$.
+First, we sort $\textit{rides}$ in ascending order by $\textit{start}$. Then we design a function $\textit{dfs}(i)$, which represents the maximum tip that can be obtained from accepting orders starting from the $i$-th passenger. The answer is $\textit{dfs}(0)$.
 
-The calculation process of the function $dfs(i)$ is as follows:
+The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
-For the $i$-th passenger, we can choose to accept or not to accept the order. If we don't accept the order, the maximum tip that can be obtained is $dfs(i + 1)$. If we accept the order, we can use binary search to find the first passenger encountered after the drop-off point of the $i$-th passenger, denoted as $j$. The maximum tip that can be obtained is $dfs(j) + end_i - start_i + tip_i$. Take the larger of the two. That is:
+For the $i$-th passenger, we can choose to accept or not to accept the order. If we don't accept the order, the maximum tip that can be obtained is $\textit{dfs}(i + 1)$. If we accept the order, we can use binary search to find the first passenger encountered after the drop-off point of the $i$-th passenger, denoted as $j$. The maximum tip that can be obtained is $\textit{dfs}(j) + \textit{end}_i - \textit{start}_i + \textit{tip}_i$. Take the larger of the two. That is:
 
 $$
-dfs(i) = \max(dfs(i + 1), dfs(j) + end_i - start_i + tip_i)
+\textit{dfs}(i) = \max(\textit{dfs}(i + 1), \textit{dfs}(j) + \textit{end}_i - \textit{start}_i + \textit{tip}_i)
 $$
 
-Where $j$ is the smallest index that satisfies $start_j \ge end_i$, which can be obtained by binary search.
+Where $j$ is the smallest index that satisfies $\textit{start}_j \ge \textit{end}_i$, which can be obtained by binary search.
 
 In this process, we can use memoization search to save the answer of each state to avoid repeated calculations.
 
-The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $rides$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $\textit{rides}$.
 
 <!-- tabs:start -->
 
@@ -259,23 +259,23 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 >
 > Solution 1 sorts by start and fills one suffix table. Sorting by end instead lets $f[i]$ be the best profit among the first $i$ rides, with no aftereffect.
 >
-> Skip is $f[i-1]$; take binary-searches the last end $\le start_i$.
+> Skip is $f[i-1]$; take binary-searches the last end $\le \textit{start}_i$.
 
 <!-- thinking:end -->
 
 Solution 1 sorts by start and fills a suffix table. Here we sort by end and define a prefix table.
 
-First, sort $rides$, this time we sort by $end$ in ascending order. Then define $f[i]$, which represents the maximum tip that can be obtained from the first $i$ passengers. Initially, $f[0] = 0$, and the answer is $f[m]$.
+First, sort $\textit{rides}$, this time we sort by $\textit{end}$ in ascending order. Then define $f[i]$, which represents the maximum tip that can be obtained from the first $i$ passengers. Initially, $f[0] = 0$, and the answer is $f[m]$.
 
-For the $i$-th passenger, we can choose to accept or not to accept the order. If we don't accept the order, the maximum tip that can be obtained is $f[i-1]$. If we accept the order, we can use binary search to find the last passenger whose drop-off point is not greater than $start_i$ before the $i$-th passenger gets on the car, denoted as $j$. The maximum tip that can be obtained is $f[j] + end_i - start_i + tip_i$. Take the larger of the two. That is:
+For the $i$-th passenger, we can choose to accept or not to accept the order. If we don't accept the order, the maximum tip that can be obtained is $f[i-1]$. If we accept the order, we can use binary search to find the last passenger whose drop-off point is not greater than $\textit{start}_i$ before the $i$-th passenger gets on the car, denoted as $j$. The maximum tip that can be obtained is $f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i$. Take the larger of the two. That is:
 
 $$
-f[i] = \max(f[i - 1], f[j] + end_i - start_i + tip_i)
+f[i] = \max(f[i - 1], f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i)
 $$
 
-Where $j$ is the largest index that satisfies $end_j \le start_i$, which can be obtained by binary search.
+Where $j$ is the largest index that satisfies $\textit{end}_j \le \textit{start}_i$, which can be obtained by binary search.
 
-The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $rides$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $\textit{rides}$.
 
 Similar problems:
 
@@ -407,25 +407,25 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 > **Thinking**
 >
-> After sorting rides by start, ride $i$ only combines with later rides whose start is $\ge end_i$. Subsets are infeasible for $m \le 3 \times 10^4$; the state is the best profit from index $i$.
+> After sorting rides by start, ride $i$ only combines with later rides whose start is $\ge \textit{end}_i$. Subsets are infeasible for $m \le 3 \times 10^4$; the state is the best profit from index $i$.
 >
-> Skip depends on $i+1$ and take depends on the first later start $\ge end_i$. A search of that recurrence still calls $i+1$ before it returns, so the chain has length $m$ and overflows the stack.
+> Skip depends on $i+1$ and take depends on the first later start $\ge \textit{end}_i$. A search of that recurrence still calls $i+1$ before it returns, so the chain has length $m$ and overflows the stack.
 >
 > Later indices are known if we walk from the end. Let $f[i]$ be that profit, with $f[m] = 0$, and binary-search $j$ while filling $i$ from $m-1$ down to $0$.
 
 <!-- thinking:end -->
 
-First, we sort $rides$ in ascending order by $start$. Let $f[i]$ be the maximum earnings from the $i$-th passenger onward. The answer is $f[0]$, and $f[m] = 0$.
+First, we sort $\textit{rides}$ in ascending order by $\textit{start}$. Let $f[i]$ be the maximum earnings from the $i$-th passenger onward. The answer is $f[0]$, and $f[m] = 0$.
 
-We fill $f$ from $i = m - 1$ down to $0$. For the $i$-th passenger we can skip the order, which keeps $f[i + 1]$, or accept it. Binary search finds the first passenger $j$ whose start is at least $end_i$. Accepting earns $f[j] + end_i - start_i + tip_i$. Take the larger of the two:
+We fill $f$ from $i = m - 1$ down to $0$. For the $i$-th passenger we can skip the order, which keeps $f[i + 1]$, or accept it. Binary search finds the first passenger $j$ whose start is at least $\textit{end}_i$. Accepting earns $f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i$. Take the larger of the two:
 
 $$
-f[i] = \max(f[i + 1], f[j] + end_i - start_i + tip_i)
+f[i] = \max(f[i + 1], f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i)
 $$
 
-Where $j$ is the smallest index that satisfies $start_j \ge end_i$. Because $j > i$, $f[j]$ is already filled.
+Where $j$ is the smallest index that satisfies $\textit{start}_j \ge \textit{end}_i$. Because $j > i$, $f[j]$ is already filled.
 
-The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $rides$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $\textit{rides}$.
 
 <!-- tabs:start -->
 

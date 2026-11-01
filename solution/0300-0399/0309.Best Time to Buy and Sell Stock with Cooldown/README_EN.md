@@ -68,19 +68,19 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$, which represents the maximum profit that can be obtained starting from the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. The answer is $dfs(0, 0)$.
+We design a function $\textit{dfs}(i, j)$, which represents the maximum profit that can be obtained starting from the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. The answer is $\textit{dfs}(0, 0)$.
 
-The execution logic of the function $dfs(i, j)$ is as follows:
+The execution logic of the function $\textit{dfs}(i, j)$ is as follows:
 
 If $i \geq n$, it means that there are no more stocks to trade, so return $0$;
 
-Otherwise, we can choose not to trade, then $dfs(i, j) = dfs(i + 1, j)$. We can also trade stocks. If $j > 0$, it means that we currently hold a stock and can sell it, then $dfs(i, j) = prices[i] + dfs(i + 2, 0)$. If $j = 0$, it means that we currently do not hold a stock and can buy, then $dfs(i, j) = -prices[i] + dfs(i + 1, 1)$. Take the maximum value as the return value of the function $dfs(i, j)$.
+Otherwise, we can choose not to trade, then $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$. We can also trade stocks. If $j > 0$, it means that we currently hold a stock and can sell it, then $\textit{dfs}(i, j) = \textit{prices}[i] + \textit{dfs}(i + 2, 0)$. If $j = 0$, it means that we currently do not hold a stock and can buy, then $\textit{dfs}(i, j) = -\textit{prices}[i] + \textit{dfs}(i + 1, 1)$. Take the maximum value as the return value of the function $\textit{dfs}(i, j)$.
 
-The answer is $dfs(0, 0)$.
+The answer is $\textit{dfs}(0, 0)$.
 
-To avoid repeated calculations, we use the method of memoization search, and use an array $f$ to record the return value of $dfs(i, j)$. If $f[i][j]$ is not $-1$, it means that it has been calculated, and we can directly return $f[i][j]$.
+To avoid repeated calculations, we use the method of memoization search, and use an array $f$ to record the return value of $\textit{dfs}(i, j)$. If $f[i][j]$ is not $-1$, it means that it has been calculated, and we can directly return $f[i][j]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -238,11 +238,11 @@ function maxProfit(prices: number[]): number {
 
 We can also use dynamic programming to solve this problem.
 
-We define $f[i][j]$ to represent the maximum profit that can be obtained on the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. Initially, $f[0][0] = 0$, $f[0][1] = -prices[0]$.
+We define $f[i][j]$ to represent the maximum profit that can be obtained on the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. Initially, $f[0][0] = 0$, $f[0][1] = -\textit{prices}[0]$.
 
-When $i \geq 1$, if we currently do not hold a stock, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + prices[i]$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i])$. If we currently hold a stock, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 2][0] - prices[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 2][0] - prices[i])$. The final answer is $f[n - 1][0]$.
+When $i \geq 1$, if we currently do not hold a stock, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + \textit{prices}[i]$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + \textit{prices}[i])$. If we currently hold a stock, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 2][0] - \textit{prices}[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 2][0] - \textit{prices}[i])$. The final answer is $f[n - 1][0]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -442,21 +442,21 @@ function maxProfit(prices: number[]): number {
 
 Let $f[i][j]$ be the maximum profit starting from day $i$ in state $j$. The values of $j$ are $0$ and $1$, meaning we do not hold a stock and we hold a stock. The answer is $f[0][0]$. Days past the end contribute $0$, so $f[n][j] = f[n + 1][j] = 0$.
 
-Fill $i$ from $n - 1$ down to $0$. Doing nothing keeps $f[i + 1][j]$. If $j > 0$, we hold a stock and may sell it, earning $prices[i] + f[i + 2][0]$. The extra day is the cooldown. If $j = 0$, we may buy, earning $-prices[i] + f[i + 1][1]$. Take the larger value:
+Fill $i$ from $n - 1$ down to $0$. Doing nothing keeps $f[i + 1][j]$. If $j > 0$, we hold a stock and may sell it, earning $\textit{prices}[i] + f[i + 2][0]$. The extra day is the cooldown. If $j = 0$, we may buy, earning $-\textit{prices}[i] + f[i + 1][1]$. Take the larger value:
 
 $$
-f[i][j] = \max(f[i + 1][j],\ prices[i] + f[i + 2][0])
+f[i][j] = \max(f[i + 1][j],\ \textit{prices}[i] + f[i + 2][0])
 $$
 
 when $j > 0$, and
 
 $$
-f[i][j] = \max(f[i + 1][j],\ -prices[i] + f[i + 1][1])
+f[i][j] = \max(f[i + 1][j],\ -\textit{prices}[i] + f[i + 1][1])
 $$
 
 when $j = 0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

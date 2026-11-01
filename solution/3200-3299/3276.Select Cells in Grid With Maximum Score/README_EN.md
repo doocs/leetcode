@@ -89,15 +89,15 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ to represent the maximum score when selecting numbers from $[1,..i]$ and the state of the rows corresponding to the selected numbers is $j$. Initially, $f[i][j] = 0$, and the answer is $f[\textit{mx}][2^m - 1]$, where $\textit{mx}$ represents the maximum value in the matrix, and $m$ represents the number of rows in the matrix.
+We define $f[i][j]$ to represent the maximum score when selecting numbers from $[1,..i]$ and the state of the rows corresponding to the selected numbers is $j$. Initially, $f[i][j] = 0$, and the answer is $f[mx][2^m - 1]$, where $mx$ represents the maximum value in the matrix, and $m$ represents the number of rows in the matrix.
 
 First, we preprocess the matrix using a hash table $g$ to record the set of rows corresponding to each number. Then, we can use state compression dynamic programming to solve the problem.
 
 For the state $f[i][j]$, we can choose not to select the number $i$, in which case $f[i][j] = f[i-1][j]$. Alternatively, we can choose the number $i$. In this case, we need to enumerate each row $k$ in the set $g[i]$ corresponding to the number $i$. If the $k$-th bit of $j$ is $1$, it means we can select the number $i$. Thus, $f[i][j] = \max(f[i][j], f[i-1][j \oplus 2^k] + i)$.
 
-Finally, we return $f[\textit{mx}][2^m - 1]$.
+Finally, we return $f[mx][2^m - 1]$.
 
-The time complexity is $O(m 2^m \textit{mx})$, and the space complexity is $O(\textit{mx} 2^m)$, where $m$ is the number of rows in the matrix, and $\textit{mx}$ is the maximum value in the matrix.
+The time complexity is $O(m 2^m mx)$, and the space complexity is $O(mx 2^m)$, where $m$ is the number of rows in the matrix, and $mx$ is the maximum value in the matrix.
 
 <!-- tabs:start -->
 

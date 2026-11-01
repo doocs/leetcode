@@ -57,9 +57,9 @@ date.nextDay(); // "2014-06-21"
 
 > **思考**
 >
-> 给 $Date$ 增加返回次日 $YYYY\text{-}MM\text{-}DD$ 的方法。手写闰年与月份天数容易出错，标准库已处理进位。
+> 给 $\textit{Date}$ 增加返回次日 $\textit{YYYY}\text{-}\textit{MM}\text{-}\textit{DD}$ 的方法。手写闰年与月份天数容易出错，标准库已处理进位。
 >
-> 复制当前时间戳后 $setDate(getDate()+1)$，再取 ISO 字符串的日期部分，避免改动原对象。
+> 复制当前时间戳后 $\textit{setDate}(\textit{getDate}()+1)$，再取 ISO 字符串的日期部分，避免改动原对象。
 
 <!-- thinking:end -->
 

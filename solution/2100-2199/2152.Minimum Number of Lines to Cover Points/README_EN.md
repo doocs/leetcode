@@ -74,7 +74,7 @@ tags:
 >
 > $\textit{state}$ is the set of covered points. From an uncovered $i$, pair it with $j$, include every other colinear point, and recurse. A leftover singleton uses a line by itself.
 >
-> Memoized $dfs(\textit{state})$ adds one line per transition; colinearity is a cross-product test.
+> Memoized $\textit{dfs}(\textit{state})$ adds one line per transition; colinearity is a cross-product test.
 
 <!-- thinking:end -->
 

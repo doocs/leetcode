@@ -71,13 +71,13 @@ tags:
 
 <!-- thinking:end -->
 
-The problem requires us to find two strings without common letters, so that their length product is maximized. We can represent each string with a binary number $mask[i]$, where each bit of this binary number indicates whether the string contains a certain letter. If two strings do not have common letters, then the bitwise AND result of the two binary numbers corresponding to these strings is $0$, that is, $mask[i] \& mask[j] = 0$.
+The problem requires us to find two strings without common letters, so that their length product is maximized. We can represent each string with a binary number $\textit{mask}[i]$, where each bit of this binary number indicates whether the string contains a certain letter. If two strings do not have common letters, then the bitwise AND result of the two binary numbers corresponding to these strings is $0$, that is, $\textit{mask}[i] \& \textit{mask}[j] = 0$.
 
-We traverse each string. For the current string $words[i]$ we are traversing, we first calculate the corresponding binary number $mask[i]$, and then traverse all strings $words[j]$ where $j \in [0, i)$. We check whether $mask[i] \& mask[j] = 0$ holds. If it holds, we update the answer to $\max(ans, |words[i]| \times |words[j]|)$.
+We traverse each string. For the current string $\textit{words}[i]$ we are traversing, we first calculate the corresponding binary number $\textit{mask}[i]$, and then traverse all strings $\textit{words}[j]$ where $j \in [0, i)$. We check whether $\textit{mask}[i] \& \textit{mask}[j] = 0$ holds. If it holds, we update the answer to $\max(\textit{ans}, |\textit{words}[i]| \times |\textit{words}[j]|)$.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$, where $n$ is the length of the string array $words$, and $L$ is the sum of the lengths of all strings in the string array.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$, where $n$ is the length of the string array $\textit{words}$, and $L$ is the sum of the lengths of all strings in the string array.
 
 <!-- tabs:start -->
 

@@ -64,12 +64,12 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $dfs(root, x)$, which represents the sum of the values of the nodes that meet the conditions in the subtree with $root$ as the root node and $x$ as the value of the parent node of $root$. The answer is $dfs(root, 1)$.
+We design a function $\textit{dfs}(\textit{root}, x)$, which represents the sum of the values of the nodes that meet the conditions in the subtree with $\textit{root}$ as the root node and $x$ as the value of the parent node of $\textit{root}$. The answer is $\textit{dfs}(\textit{root}, 1)$.
 
-The execution process of the function $dfs(root, x)$ is as follows:
+The execution process of the function $\textit{dfs}(\textit{root}, x)$ is as follows:
 
-- If $root$ is null, return $0$.
-- Otherwise, we recursively calculate the answers of the left and right subtrees of $root$, that is, $dfs(root.left, root.val)$ and $dfs(root.right, root.val)$, and add them to the answer. If $x$ is even, we check whether the left and right children of $root$ exist. If they exist, we add their values to the answer.
+- If $\textit{root}$ is null, return $0$.
+- Otherwise, we recursively calculate the answers of the left and right subtrees of $\textit{root}$, that is, $\textit{dfs}(\textit{root}.\textit{left}, \textit{root}.\textit{val})$ and $\textit{dfs}(\textit{root}.\textit{right}, \textit{root}.\textit{val})$, and add them to the answer. If $x$ is even, we check whether the left and right children of $\textit{root}$ exist. If they exist, we add their values to the answer.
 - Finally, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.

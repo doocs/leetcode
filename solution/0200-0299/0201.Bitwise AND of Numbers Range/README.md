@@ -60,15 +60,15 @@ tags:
 
 > **思考**
 >
-> 将 $[left,right]$ 中每个整数依次做按位与，在 $right-left$ 接近 $2^{31}$ 时不可行。连续整数的按位与等于它们的公共二进制前缀：更低的位会在某个数上被清零。
+> 将 $[\textit{left},\textit{right}]$ 中每个整数依次做按位与，在 $\textit{right}-\textit{left}$ 接近 $2^{31}$ 时不可行。连续整数的按位与等于它们的公共二进制前缀：更低的位会在某个数上被清零。
 >
-> 为此当 $left < right$ 时，反复将 $right$ 的最低位 $1$ 清掉（即 $right \mathrel{\&}= right-1$），直到 $right \le left$。此时 $right$ 即为该公共前缀。
+> 为此当 $\textit{left} < \textit{right}$ 时，反复将 $\textit{right}$ 的最低位 $1$ 清掉（即 $\textit{right} \mathrel{\&}= \textit{right}-1$），直到 $\textit{right} \le \textit{left}$。此时 $\textit{right}$ 即为该公共前缀。
 
 <!-- thinking:end -->
 
 题目可以转换为求数字的公共二进制前缀。
 
-当 $left \lt right$ 时，我们循环将 $right$ 的最后一个二进制位 $1$ 变成 $0$，直到 $left = right$，此时 $right$ 即为数字的公共二进制前缀，返回 $right$ 即可。
+当 $\textit{left} \lt \textit{right}$ 时，我们循环将 $\textit{right}$ 的最后一个二进制位 $1$ 变成 $0$，直到 $\textit{left} = \textit{right}$，此时 $\textit{right}$ 即为数字的公共二进制前缀，返回 $\textit{right}$ 即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 

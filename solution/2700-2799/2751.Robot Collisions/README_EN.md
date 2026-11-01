@@ -96,8 +96,8 @@ tags:
 
 We first sort the robots by position in ascending order, storing the sorted robot indices in an array $\textit{idx}$. We then use a stack to simulate the collision process:
 
-1. Traverse the robot indices $i$ in $\textit{idx}$ from left to right. If $directions[i]$ is moving right, push $i$ onto the stack.
-2. If $directions[i]$ is moving left, it collides with the right-moving robot at the top of the stack, until the stack is empty or the current robot is removed.
+1. Traverse the robot indices $i$ in $\textit{idx}$ from left to right. If $\textit{directions}[i]$ is moving right, push $i$ onto the stack.
+2. If $\textit{directions}[i]$ is moving left, it collides with the right-moving robot at the top of the stack, until the stack is empty or the current robot is removed.
     - If the top robot's health is greater than the current robot's, the current robot is removed and the top robot's health decreases by 1.
     - If the top robot's health is less than the current robot's, the top robot is removed, the current robot's health decreases by 1, and the current robot continues to collide with the new top robot.
     - If both have equal health, both are removed.

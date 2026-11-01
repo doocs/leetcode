@@ -97,7 +97,7 @@ Each row of this table contains the state name and the city name within that sta
 >
 > SQL uses `GROUP_CONCAT(... ORDER BY city)`; pandas `groupby`s and `join`s a `sorted` city series.
 >
-> Name the columns $state$ and $cities$, one row per state.
+> Name the columns $\textit{state}$ and $\textit{cities}$, one row per state.
 
 <!-- thinking:end -->
 

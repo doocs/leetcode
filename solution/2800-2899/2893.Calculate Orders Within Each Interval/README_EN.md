@@ -86,7 +86,7 @@ Returning table orderd by interval_no in ascending order.</pre>
 >
 > Minutes $1$ through $6$ are interval $1$ and minutes $7$ through $12$ are interval $2$, so the interval number comes from the minute value itself. A six-row window assumes every minute from $1$ onward is present and that each block ends on a multiple of $6$; a gap, or a block that does not, drops an interval or mixes two of them.
 >
-> $\lfloor (minute+5)/6 \rfloor$ sends each minute into its interval. Group on that value, sum `order_count`, and sort by the interval number.
+> $\lfloor (\textit{minute}+5)/6 \rfloor$ sends each minute into its interval. Group on that value, sum `order_count`, and sort by the interval number.
 
 <!-- thinking:end -->
 
@@ -116,7 +116,7 @@ ORDER BY 1;
 
 > **Thinking**
 >
-> The window still walks a prefix. When minutes are consecutive, $\lfloor(minute+5)/6\rfloor$ groups rows directly and `SUM` inside each group is the interval total.
+> The window still walks a prefix. When minutes are consecutive, $\lfloor(\textit{minute}+5)/6\rfloor$ groups rows directly and `SUM` inside each group is the interval total.
 
 <!-- thinking:end -->
 

@@ -323,11 +323,11 @@ Since the 6 characters in $\textit{directions}$ determine the path, we can prepr
 
 Next, we use digit dynamic programming (digit DP) to count the number of integers in the range $[l, r]$ that satisfy the condition. We convert $r$ and $l - 1$ to 16-digit strings $s$, then use a recursive function to count the number of valid integers in $[0, r]$, and subtract the count in $[0, l - 1]$ to get the answer for $[l, r]$.
 
-We define a recursive function $\textit{dfs}(pos, last, lim)$, where $pos$ is the current digit position, $last$ is the digit of the previous key cell, and $lim$ indicates whether the current digit is restricted by $s$ (i.e., whether the current prefix matches $s$ so far).
+We define a recursive function $\textit{dfs}(\textit{pos}, \textit{last}, \textit{lim})$, where $\textit{pos}$ is the current digit position, $\textit{last}$ is the digit of the previous key cell, and $\textit{lim}$ indicates whether the current digit is restricted by $s$ (i.e., whether the current prefix matches $s$ so far).
 
-In the recursive function, we first check if all positions have been processed; if so, return 1. Otherwise, we determine the range of digits to try at the current position: if $\textit{key}[pos]$ is true, the digit must be at least $last$; otherwise, it can start from 0. The upper bound is $s[pos]$ if $lim$ is true, or 9 otherwise.
+In the recursive function, we first check if all positions have been processed; if so, return 1. Otherwise, we determine the range of digits to try at the current position: if $\textit{key}[\textit{pos}]$ is true, the digit must be at least $\textit{last}$; otherwise, it can start from 0. The upper bound is $s[\textit{pos}]$ if $\textit{lim}$ is true, or 9 otherwise.
 
-We enumerate all possible digits for the current position, updating $last$ to the current digit if this is a key cell, or keeping it unchanged otherwise. We also update $lim$: if the current digit equals the upper bound, $lim$ remains true; otherwise, it becomes false. We sum the results of all branches and return the total.
+We enumerate all possible digits for the current position, updating $\textit{last}$ to the current digit if this is a key cell, or keeping it unchanged otherwise. We also update $\textit{lim}$: if the current digit equals the upper bound, $\textit{lim}$ remains true; otherwise, it becomes false. We sum the results of all branches and return the total.
 
 The time complexity is $O(D^2 \log r)$, and the space complexity is $O(D \log r)$, where $D = 10$ is the range of digits and $\log r$ is the number of digits in $r$.
 

@@ -98,7 +98,7 @@ tags:
 
 > **Thinking**
 >
-> Count nondecreasing arrays with $0 \le arr[i] \le 5000$ whose digit sums equal $\textit{digitSum}[i]$. $n \le 1000$ and digit sums $\le 50$.
+> Count nondecreasing arrays with $0 \le \textit{arr}[i] \le 5000$ whose digit sums equal $\textit{digitSum}[i]$. $n \le 1000$ and digit sums $\le 50$.
 >
 > Monotonicity reduces the task to choosing a value at each index no smaller than the previous. Each digit sum has finitely many candidates.
 >

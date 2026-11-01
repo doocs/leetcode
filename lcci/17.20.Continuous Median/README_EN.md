@@ -62,7 +62,7 @@ findMedian() -&gt; 2
 >
 > The median is the max of the lower half and the min of the upper half — two heaps.
 >
-> A max-heap $maxq$ (negated) holds the lower half; a min-heap $minq$ the upper. Insert into the max-heap, pop into the min-heap, and rebalance when sizes differ by more than one. Even counts average the two tops.
+> A max-heap $\textit{maxq}$ (negated) holds the lower half; a min-heap $\textit{minq}$ the upper. Insert into the max-heap, pop into the min-heap, and rebalance when sizes differ by more than one. Even counts average the two tops.
 
 <!-- thinking:end -->
 

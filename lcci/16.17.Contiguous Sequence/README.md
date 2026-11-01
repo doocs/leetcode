@@ -46,13 +46,13 @@ difficulty: 简单
 
 <!-- thinking:end -->
 
-我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的连续子数组的最大和，那么状态转移方程为：
+我们定义 $f[i]$ 表示以 $\textit{nums}[i]$ 结尾的连续子数组的最大和，那么状态转移方程为：
 
 $$
-f[i] = \max(f[i-1], 0) + nums[i]
+f[i] = \max(f[i-1], 0) + \textit{nums}[i]
 $$
 
-其中 $f[0] = nums[0]$。
+其中 $f[0] = \textit{nums}[0]$。
 
 答案为 $\max\limits_{i=0}^{n-1}f[i]$。
 

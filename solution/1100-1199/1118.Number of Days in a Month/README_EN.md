@@ -50,7 +50,7 @@ tags:
 
 > **Thinking**
 >
-> Month lengths are fixed except February. The usual leap-year rule ($\div 4$ but not $\div 100$, or $\div 400$) sets February to $29$ or $28$; a table lookup then returns $days[month]$ without enumerating the month.
+> Month lengths are fixed except February. The usual leap-year rule ($\div 4$ but not $\div 100$, or $\div 400$) sets February to $29$ or $28$; a table lookup then returns $\textit{days}[\textit{month}]$ without enumerating the month.
 
 <!-- thinking:end -->
 
@@ -58,7 +58,7 @@ We can first determine whether the given year is a leap year. If the year can be
 
 February has $29$ days in a leap year and $28$ days in a common year.
 
-We can use an array $days$ to store the number of days in each month of the current year, where $days[0]=0$, $days[i]$ represents the number of days in the $i$th month of the current year. Then the answer is $days[month]$.
+We can use an array $\textit{days}$ to store the number of days in each month of the current year, where $\textit{days}[0]=0$, $\textit{days}[i]$ represents the number of days in the $i$th month of the current year. Then the answer is $\textit{days}[\textit{month}]$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

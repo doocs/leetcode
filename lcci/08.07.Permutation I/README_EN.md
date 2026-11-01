@@ -56,9 +56,9 @@ difficulty: Medium
 >
 > All permutations of a string with distinct characters are required. The $n!$ size matches the output lower bound.
 >
-> Fill positions left to right from unused characters, tracked by $vis$.
+> Fill positions left to right from unused characters, tracked by $\textit{vis}$.
 >
-> $dfs(i)$ writes an unused index of $S$ into $t[i]$ and records a string at $i=n$. Unmarking on the way back emits each permutation once.
+> $\textit{dfs}(i)$ writes an unused index of $S$ into $t[i]$ and records a string at $i=n$. Unmarking on the way back emits each permutation once.
 
 <!-- thinking:end -->
 

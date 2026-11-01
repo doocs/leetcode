@@ -123,7 +123,7 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 
 > **思考**
 >
-> 进站、出站、查询两站平均耗时，均需 $O(1)$。用 $\textit{id}$ 映射到进站时刻与站名；出站时把耗时累加到 $(\textit{start},\textit{end})$ 对应的（总时间，次数）。查询即相除。
+> 进站、出站、查询两站平均耗时，均需 $O(1)$。用 $id$ 映射到进站时刻与站名；出站时把耗时累加到 $(\textit{start},\textit{end})$ 对应的（总时间，次数）。查询即相除。
 
 <!-- thinking:end -->
 
@@ -136,7 +136,7 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 
 当乘客出站时，我们从 `ts` 中取出乘客的进站时间和进站站点 `(t0, station)`，然后计算乘客的行程时间 $t - t_0$，并将乘客的行程时间和行程次数存入 `d` 中。
 
-当我们要求某个乘客的平均行程时间时，我们从 `d` 中取出乘客的行程时间和行程次数 `(totalTime, count)`，然后计算平均行程时间 $totalTime / count$ 即可。
+当我们要求某个乘客的平均行程时间时，我们从 `d` 中取出乘客的行程时间和行程次数 `(totalTime, count)`，然后计算平均行程时间 $\textit{totalTime} / \textit{count}$ 即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为乘客的数量。
 

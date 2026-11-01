@@ -82,15 +82,15 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 
 <!-- thinking:end -->
 
-According to the problem description, for each puzzle $p$ in the puzzle array $puzzles$, we need to count how many words $w$ contain the first letter of the puzzle $p$, and every letter in $w$ can be found in $p$.
+According to the problem description, for each puzzle $p$ in the puzzle array $\textit{puzzles}$, we need to count how many words $w$ contain the first letter of the puzzle $p$, and every letter in $w$ can be found in $p$.
 
-Since each repeated letter in a word only needs to be counted once, we can use the method of binary state compression to convert each word $w$ into a binary number $mask$, where the $i$th bit of $mask$ is $1$ if and only if the letter $i$ appears in the word $w$. We use a hash table $cnt$ to count the number of times each compressed state of all words appears.
+Since each repeated letter in a word only needs to be counted once, we can use the method of binary state compression to convert each word $w$ into a binary number $\textit{mask}$, where the $i$th bit of $\textit{mask}$ is $1$ if and only if the letter $i$ appears in the word $w$. We use a hash table $\textit{cnt}$ to count the number of times each compressed state of all words appears.
 
-Next, we traverse the puzzle array $puzzles$. For each puzzle $p$, we note that its length is fixed at $7$, so we only need to enumerate the subsets of $p$. If the subset contains the first letter of $p$, then we look up its corresponding value in the hash table and add it to the current puzzle's answer.
+Next, we traverse the puzzle array $\textit{puzzles}$. For each puzzle $p$, we note that its length is fixed at $7$, so we only need to enumerate the subsets of $p$. If the subset contains the first letter of $p$, then we look up its corresponding value in the hash table and add it to the current puzzle's answer.
 
-After the traversal, we can get the number of puzzle solutions corresponding to each puzzle in the puzzle array $puzzles$, and return it.
+After the traversal, we can get the number of puzzle solutions corresponding to each puzzle in the puzzle array $\textit{puzzles}$, and return it.
 
-The time complexity is $O(m|w| + n 2^{|p|})$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $words$ and $puzzles$ respectively, and $|w|$ and $|p|$ are the maximum length of the words in the array $words$ and the length of the puzzles in the array $puzzles$, respectively.
+The time complexity is $O(m|w| + n 2^{|p|})$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $\textit{words}$ and $\textit{puzzles}$ respectively, and $|w|$ and $|p|$ are the maximum length of the words in the array $\textit{words}$ and the length of the puzzles in the array $\textit{puzzles}$, respectively.
 
 <!-- tabs:start -->
 

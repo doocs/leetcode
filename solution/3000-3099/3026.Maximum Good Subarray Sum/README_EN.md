@@ -79,11 +79,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $p$ to record the sum $s$ of the prefix array $nums[0..i-1]$ for $nums[i]$. If there are multiple identical $nums[i]$, we only keep the smallest $s$. Initially, we set $p[nums[0]]$ to $0$. In addition, we use a variable $s$ to record the current prefix sum, initially $s = 0$. Initialize the answer $ans$ to $-\infty$.
+We use a hash table $p$ to record the sum $s$ of the prefix array $\textit{nums}[0..i-1]$ for $\textit{nums}[i]$. If there are multiple identical $\textit{nums}[i]$, we only keep the smallest $s$. Initially, we set $p[\textit{nums}[0]]$ to $0$. In addition, we use a variable $s$ to record the current prefix sum, initially $s = 0$. Initialize the answer $\textit{ans}$ to $-\infty$.
 
-Next, we enumerate $nums[i]$, and maintain a variable $s$ to represent the sum of $nums[0..i]$. If $nums[i] - k$ is in $p$, then we have found a good subarray, and update the answer to $ans = \max(ans, s - p[nums[i] - k])$. Similarly, if $nums[i] + k$ is in $p$, then we have also found a good subarray, and update the answer to $ans = \max(ans, s - p[nums[i] + k])$. Then, if $i + 1 \lt n$ and $nums[i + 1]$ is not in $p$, or $p[nums[i + 1]] \gt s$, we set $p[nums[i + 1]]$ to $s$.
+Next, we enumerate $\textit{nums}[i]$, and maintain a variable $s$ to represent the sum of $\textit{nums}[0..i]$. If $\textit{nums}[i] - k$ is in $p$, then we have found a good subarray, and update the answer to $\textit{ans} = \max(\textit{ans}, s - p[\textit{nums}[i] - k])$. Similarly, if $\textit{nums}[i] + k$ is in $p$, then we have also found a good subarray, and update the answer to $\textit{ans} = \max(\textit{ans}, s - p[\textit{nums}[i] + k])$. Then, if $i + 1 \lt n$ and $\textit{nums}[i + 1]$ is not in $p$, or $p[\textit{nums}[i + 1]] \gt s$, we set $p[\textit{nums}[i + 1]]$ to $s$.
 
-Finally, if $ans = -\infty$, then we return $0$, otherwise return $ans$.
+Finally, if $\textit{ans} = -\infty$, then we return $0$, otherwise return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

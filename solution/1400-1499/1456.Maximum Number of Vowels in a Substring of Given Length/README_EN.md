@@ -72,9 +72,9 @@ tags:
 
 <!-- thinking:end -->
 
-First, we count the number of vowels in the first $k$ characters, denoted as $cnt$, and initialize the answer $ans$ as $cnt$.
+First, we count the number of vowels in the first $k$ characters, denoted as $\textit{cnt}$, and initialize the answer $\textit{ans}$ as $\textit{cnt}$.
 
-Then we start traversing the string from $k$. For each iteration, we add the current character to the window. If the current character is a vowel, we increment $cnt$. We remove the first character from the window. If the removed character is a vowel, we decrement $cnt$. Then, we update the answer $ans = \max(ans, cnt)$.
+Then we start traversing the string from $k$. For each iteration, we add the current character to the window. If the current character is a vowel, we increment $\textit{cnt}$. We remove the first character from the window. If the removed character is a vowel, we decrement $\textit{cnt}$. Then, we update the answer $\textit{ans} = \max(\textit{ans}, \textit{cnt})$.
 
 After the traversal, we return the answer.
 

@@ -82,9 +82,9 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 
 In the initialization function, we first use the adjacency matrix $g$ to store the edge weights of the graph, where $g_{ij}$ represents the edge weight from node $i$ to node $j$. If there is no edge between $i$ and $j$, the value of $g_{ij}$ is $\infty$.
 
-In the `addEdge` function, we update the value of $g_{ij}$ to $edge[2]$.
+In the `addEdge` function, we update the value of $g_{ij}$ to $\textit{edge}[2]$.
 
-In the `shortestPath` function, we use Dijsktra's algorithm to find the shortest path from node $node1$ to node $node2$. Here, $dist[i]$ represents the shortest path from node $node1$ to node $i$, and $vis[i]$ indicates whether node $i$ has been visited. We initialize $dist[node1]$ to $0$, and the rest of $dist[i]$ are all $\infty$. Then we iterate $n$ times, each time finding the current unvisited node $t$ such that $dist[t]$ is the smallest. Then we mark node $t$ as visited, and then update the value of $dist[i]$ to $min(dist[i], dist[t] + g_{ti})$. Finally, we return $dist[node2]$. If $dist[node2]$ is $\infty$, it means that there is no path from node $node1$ to node $node2$, so we return $-1$.
+In the `shortestPath` function, we use Dijsktra's algorithm to find the shortest path from node $\textit{node1}$ to node $\textit{node2}$. Here, $\textit{dist}[i]$ represents the shortest path from node $\textit{node1}$ to node $i$, and $\textit{vis}[i]$ indicates whether node $i$ has been visited. We initialize $\textit{dist}[\textit{node1}]$ to $0$, and the rest of $\textit{dist}[i]$ are all $\infty$. Then we iterate $n$ times, each time finding the current unvisited node $t$ such that $\textit{dist}[t]$ is the smallest. Then we mark node $t$ as visited, and then update the value of $\textit{dist}[i]$ to $\min(\textit{dist}[i], \textit{dist}[t] + g_{ti})$. Finally, we return $\textit{dist}[\textit{node2}]$. If $\textit{dist}[\textit{node2}]$ is $\infty$, it means that there is no path from node $\textit{node1}$ to node $\textit{node2}$, so we return $-1$.
 
 The time complexity is $O(n^2q)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes, and $q$ is the number of calls to the `shortestPath` function.
 

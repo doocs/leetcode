@@ -86,15 +86,15 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 
 > **Thinking**
 >
-> Split every string on a given separator and drop empty pieces. A handwritten scan is equivalent to $split$ plus a nonempty filter.
+> Split every string on a given separator and drop empty pieces. A handwritten scan is equivalent to $\textit{split}$ plus a nonempty filter.
 >
-> For each word, $split$ on the separator and keep nonempty fragments.
+> For each word, $\textit{split}$ on the separator and keep nonempty fragments.
 
 <!-- thinking:end -->
 
-We traverse the string array $words$. For each string $w$, we use `separator` as the delimiter to split it. If the split string is not empty, we add it to the answer array.
+We traverse the string array $\textit{words}$. For each string $w$, we use `separator` as the delimiter to split it. If the split string is not empty, we add it to the answer array.
 
-The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the length of the string array $words$, and $m$ is the maximum length of the strings in the array $words$.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the length of the string array $\textit{words}$, and $m$ is the maximum length of the strings in the array $\textit{words}$.
 
 <!-- tabs:start -->
 

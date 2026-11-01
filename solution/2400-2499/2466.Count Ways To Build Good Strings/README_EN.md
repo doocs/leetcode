@@ -70,20 +70,20 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 
 > **Thinking**
 >
-> Each step appends $zero$ zeros or $one$ ones; a string is good if its length lies in $[low,high]$. With $high\le 10^5$, $dfs(i)$ is the number of ways after length $i$: count $1$ if $i$ is already in range, then add $dfs(i+zero)$ and $dfs(i+one)$.
+> Each step appends $\textit{zero}$ zeros or $\textit{one}$ ones; a string is good if its length lies in $[\textit{low},\textit{high}]$. With $\textit{high}\le 10^5$, $\textit{dfs}(i)$ is the number of ways after length $i$: count $1$ if $i$ is already in range, then add $\textit{dfs}(i+\textit{zero})$ and $\textit{dfs}(i+\textit{one})$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$ to represent the number of good strings constructed starting from the $i$-th position. The answer is $dfs(0)$.
+We design a function $\textit{dfs}(i)$ to represent the number of good strings constructed starting from the $i$-th position. The answer is $\textit{dfs}(0)$.
 
-The computation process of the function $dfs(i)$ is as follows:
+The computation process of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i > high$, return $0$;
-- If $low \leq i \leq high$, increment the answer by $1$, then after $i$, we can add either `zero` number of $0$s or `one` number of $1$s. Therefore, the answer is incremented by $dfs(i + zero) + dfs(i + one)$.
+- If $i > \textit{high}$, return $0$;
+- If $\textit{low} \leq i \leq \textit{high}$, increment the answer by $1$, then after $i$, we can add either `zero` number of $0$s or `one` number of $1$s. Therefore, the answer is incremented by $\textit{dfs}(i + \textit{zero}) + \textit{dfs}(i + \textit{one})$.
 
 During the process, we need to take the modulus of the answer, and we can use memoization search to reduce redundant computations.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = high$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = \textit{high}$.
 
 <!-- tabs:start -->
 
@@ -211,7 +211,7 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 > **Thinking**
 >
-> Method 1 fills a suffix table from length $high$. The same strings can be counted by the ways to reach each length: $f[0]=1$, add $f[i-zero]$ and $f[i-one]$, then sum $f$ on $[low,high]$.
+> Method 1 fills a suffix table from length $\textit{high}$. The same strings can be counted by the ways to reach each length: $f[0]=1$, add $f[i-\textit{zero}]$ and $f[i-\textit{one}]$, then sum $f$ on $[\textit{low},\textit{high}]$.
 >
 > Fill left to right. Time stays $O(n)$.
 
@@ -278,19 +278,19 @@ function countGoodStrings(low, high, zero, one) {
 
 > **Thinking**
 >
-> Each step appends $zero$ zeros or $one$ ones, and a string is good when its length lies in $[low,high]$. $high \le 10^5$, so a decision tree over appends repeats many lengths.
+> Each step appends $\textit{zero}$ zeros or $\textit{one}$ ones, and a string is good when its length lies in $[\textit{low},\textit{high}]$. $\textit{high} \le 10^5$, so a decision tree over appends repeats many lengths.
 >
-> The shorter step is taken first. Both steps are at least $1$, so that call always moves to a larger length, and the chain can have length $high$ and overflow the stack.
+> The shorter step is taken first. Both steps are at least $1$, so that call always moves to a larger length, and the chain can have length $\textit{high}$ and overflow the stack.
 >
-> Longer lengths are known if we walk downward. Let $f[i]$ be the number of good strings when the length is already $i$: count $1$ inside the range, then add $f[i+zero]$ and $f[i+one]$, treating anything past $high$ as $0$.
+> Longer lengths are known if we walk downward. Let $f[i]$ be the number of good strings when the length is already $i$: count $1$ inside the range, then add $f[i+\textit{zero}]$ and $f[i+\textit{one}]$, treating anything past $\textit{high}$ as $0$.
 
 <!-- thinking:end -->
 
-Let $f[i]$ be the number of good strings that can be built when the current length is already $i$. The answer is $f[0]$. Lengths past $high$ contribute $0$.
+Let $f[i]$ be the number of good strings that can be built when the current length is already $i$. The answer is $f[0]$. Lengths past $\textit{high}$ contribute $0$.
 
-Fill $i$ from $high$ down to $0$. If $low \le i \le high$, the current string is already good, so start from $1$. Then add $f[i + zero]$ and $f[i + one]$; an index past $high$ contributes $0$. Reduce each value modulo $10^9 + 7$.
+Fill $i$ from $\textit{high}$ down to $0$. If $\textit{low} \le i \le \textit{high}$, the current string is already good, so start from $1$. Then add $f[i + \textit{zero}]$ and $f[i + \textit{one}]$; an index past $\textit{high}$ contributes $0$. Reduce each value modulo $10^9 + 7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = high$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = \textit{high}$.
 
 <!-- tabs:start -->
 

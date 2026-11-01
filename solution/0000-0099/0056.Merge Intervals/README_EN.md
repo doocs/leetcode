@@ -69,7 +69,7 @@ tags:
 >
 > The waste is locating overlaps in unsorted input. After sorting by left endpoint, an interval can overlap only the interval we have not closed yet—later starts are larger, so they cannot skip over the middle and overlap again.
 >
-> So we sort, then scan once, keeping $\textit{st}, \textit{ed}$ as the interval under merge.
+> So we sort, then scan once, keeping $st, ed$ as the interval under merge.
 
 <!-- thinking:end -->
 
@@ -310,7 +310,7 @@ class Solution {
 
 > **Thinking**
 >
-> Solution 1 is already $O(n \log n)$ and correct. It still keeps a separate $\textit{st}, \textit{ed}$, writes only when the interval closes, and appends once more at the end.
+> Solution 1 is already $O(n \log n)$ and correct. It still keeps a separate $st, ed$, writes only when the interval closes, and appends once more at the end.
 >
 > What it lacks is storing the current interval in the answer: put the first interval into $\textit{ans}$ immediately, then either extend $\textit{ans}[-1]$'s right end or append. Fewer variables, no final flush.
 

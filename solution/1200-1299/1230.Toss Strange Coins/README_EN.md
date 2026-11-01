@@ -54,13 +54,13 @@ tags:
 
 > **Thinking**
 >
-> Coins have distinct heads probabilities; we want exactly $target$ heads. $n \le 1000$ rules out subset enumeration. The probability of $j$ heads among the first $i$ coins depends only on the first $i-1$: tails keeps $j$, heads comes from $j-1$.
+> Coins have distinct heads probabilities; we want exactly $\textit{target}$ heads. $n \le 1000$ rules out subset enumeration. The probability of $j$ heads among the first $i$ coins depends only on the first $i-1$: tails keeps $j$, heads comes from $j-1$.
 >
-> Let $f[i][j]$ be that probability, with $f[0][0]=1$. Filling in coin order yields $f[n][target]$. The table unrolls the convolution of independent trials.
+> Let $f[i][j]$ be that probability, with $f[0][0]=1$. Filling in coin order yields $f[n][\textit{target}]$. The table unrolls the convolution of independent trials.
 
 <!-- thinking:end -->
 
-Let $f[i][j]$ represent the probability of having $j$ coins facing up in the first $i$ coins, and initially $f[0][0]=1$. The answer is $f[n][target]$.
+Let $f[i][j]$ represent the probability of having $j$ coins facing up in the first $i$ coins, and initially $f[0][0]=1$. The answer is $f[n][\textit{target}]$.
 
 Consider $f[i][j]$, where $i \geq 1$. If the current coin is facing down, then $f[i][j] = (1 - p) \times f[i - 1][j]$; If the current coin is facing up and $j \gt 0$, then $f[i][j] = p \times f[i - 1][j - 1]$. Therefore, the state transition equation is:
 
@@ -73,7 +73,7 @@ $$
 
 where $p$ represents the probability of the $i$-th coin facing up.
 
-The time complexity is $O(n target)$, and the space complexity is $O(n target)$, where $n$ is the number of coins.
+The time complexity is $O(n \textit{target})$, and the space complexity is $O(n \textit{target})$, where $n$ is the number of coins.
 
 <!-- tabs:start -->
 
@@ -190,11 +190,11 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 > **Thinking**
 >
-> In Solution 1, row $i$ reads only the previous row. A one-dimensional array updated from large $j$ to small avoids overwriting $f[j-1]$ still needed for the heads transition. Space becomes $O(target)$; the recurrence is unchanged.
+> In Solution 1, row $i$ reads only the previous row. A one-dimensional array updated from large $j$ to small avoids overwriting $f[j-1]$ still needed for the heads transition. Space becomes $O(\textit{target})$; the recurrence is unchanged.
 
 <!-- thinking:end -->
 
-$f[i][j]$ depends only on the previous row. Update $j$ from large to small so the space complexity becomes $O(target)$.
+$f[i][j]$ depends only on the previous row. Update $j$ from large to small so the space complexity becomes $O(\textit{target})$.
 
 <!-- tabs:start -->
 

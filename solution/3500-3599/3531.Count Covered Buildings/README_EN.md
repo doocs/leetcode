@@ -123,9 +123,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can group the buildings by their x-coordinates and y-coordinates, storing them in hash tables $\text{g1}$ and $\text{g2}$, respectively. Here, $\text{g1[x]}$ represents all y-coordinates for buildings with x-coordinate $x$, and $\text{g2[y]}$ represents all x-coordinates for buildings with y-coordinate $y$. Then, we sort these lists.
+We can group the buildings by their x-coordinates and y-coordinates, storing them in hash tables $\textit{g1}$ and $\textit{g2}$, respectively. Here, $\textit{g1}[x]$ represents all y-coordinates for buildings with x-coordinate $x$, and $\textit{g2}[y]$ represents all x-coordinates for buildings with y-coordinate $y$. Then, we sort these lists.
 
-Next, we iterate through all buildings. For the current building $(x, y)$, we retrieve the corresponding y-coordinate list $l_1$ from $\text{g1}$ and the x-coordinate list $l_2$ from $\text{g2}$. We check the conditions to determine whether the building is covered. A building is covered if $l_2[0] < x < l_2[-1]$ and $l_1[0] < y < l_1[-1]$. If so, we increment the answer by one.
+Next, we iterate through all buildings. For the current building $(x, y)$, we retrieve the corresponding y-coordinate list $l_1$ from $\textit{g1}$ and the x-coordinate list $l_2$ from $\textit{g2}$. We check the conditions to determine whether the building is covered. A building is covered if $l_2[0] < x < l_2[-1]$ and $l_1[0] < y < l_1[-1]$. If so, we increment the answer by one.
 
 After finishing the iteration, we return the final answer.
 

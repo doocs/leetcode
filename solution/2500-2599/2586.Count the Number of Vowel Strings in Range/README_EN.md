@@ -81,7 +81,7 @@ We just need to traverse the string in the interval $[left,.. right]$, and check
 
 After the traversal, return the answer.
 
-The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m = right - left + 1$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m = \textit{right} - \textit{left} + 1$.
 
 <!-- tabs:start -->
 

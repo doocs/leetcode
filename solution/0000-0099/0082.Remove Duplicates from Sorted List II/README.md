@@ -62,15 +62,15 @@ tags:
 >
 > 用哈希表统计频次，再重建一条只含出现一次的节点，可以得到答案， $n \le 300$ 时间也足够。这样做没有利用「已排序、重复必然相邻」，还需要 $O(n)$ 额外空间。
 >
-> 同一值在链表中挤成一段，扫到一段就能决定整段去留。头节点也可能被删除，因此引入哑节点；整段都删时前驱不能跟着前进。为此让 $pre$ 停在上一段保留节点， $cur$ 滑过当前值段：若 $pre.next$ 仍是 $cur$，说明这段只有一个，前驱前进；否则整段丢弃。
+> 同一值在链表中挤成一段，扫到一段就能决定整段去留。头节点也可能被删除，因此引入哑节点；整段都删时前驱不能跟着前进。为此让 $\textit{pre}$ 停在上一段保留节点， $\textit{cur}$ 滑过当前值段：若 $\textit{pre}.\textit{next}$ 仍是 $\textit{cur}$，说明这段只有一个，前驱前进；否则整段丢弃。
 
 <!-- thinking:end -->
 
-我们先创建一个虚拟头节点 $dummy$，令 $dummy.next = head$，然后创建指针 $pre$ 指向 $dummy$，指针 $cur$ 指向 $head$，开始遍历链表。
+我们先创建一个虚拟头节点 $\textit{dummy}$，令 $\textit{dummy}.\textit{next} = \textit{head}$，然后创建指针 $\textit{pre}$ 指向 $\textit{dummy}$，指针 $\textit{cur}$ 指向 $\textit{head}$，开始遍历链表。
 
-当 $cur$ 指向的节点值与 $cur.next$ 指向的节点值相同时，我们就让 $cur$ 不断向后移动，直到 $cur$ 指向的节点值与 $cur.next$ 指向的节点值不相同时，停止移动。此时，我们判断 $pre.next$ 是否等于 $cur$，如果相等，说明 $pre$ 与 $cur$ 之间没有重复节点，我们就让 $pre$ 移动到 $cur$ 的位置；否则，说明 $pre$ 与 $cur$ 之间有重复节点，我们就让 $pre.next$ 指向 $cur.next$。然后让 $cur$ 继续向后移动。继续上述操作，直到 $cur$ 为空，遍历结束。
+当 $\textit{cur}$ 指向的节点值与 $\textit{cur}.\textit{next}$ 指向的节点值相同时，我们就让 $\textit{cur}$ 不断向后移动，直到 $\textit{cur}$ 指向的节点值与 $\textit{cur}.\textit{next}$ 指向的节点值不相同时，停止移动。此时，我们判断 $\textit{pre}.\textit{next}$ 是否等于 $\textit{cur}$，如果相等，说明 $\textit{pre}$ 与 $\textit{cur}$ 之间没有重复节点，我们就让 $\textit{pre}$ 移动到 $\textit{cur}$ 的位置；否则，说明 $\textit{pre}$ 与 $\textit{cur}$ 之间有重复节点，我们就让 $\textit{pre}.\textit{next}$ 指向 $\textit{cur}.\textit{next}$。然后让 $\textit{cur}$ 继续向后移动。继续上述操作，直到 $\textit{cur}$ 为空，遍历结束。
 
-最后，返回 $dummy.next$ 即可。
+最后，返回 $\textit{dummy}.\textit{next}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 

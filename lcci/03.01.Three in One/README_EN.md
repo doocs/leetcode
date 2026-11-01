@@ -67,13 +67,13 @@ difficulty: Easy
 >
 > Three fixed-capacity stacks must share one store. Three separate arrays work, but the problem wants one contiguous buffer.
 >
-> Partition the buffer into three equal slabs and keep a size per stack. Index $cap \times stackNum + size$ is the next free slot.
+> Partition the buffer into three equal slabs and keep a size per stack. Index $\textit{cap} \times \textit{stackNum} + \textit{size}$ is the next free slot.
 >
-> The array has length $3cap+3$; the last three cells store the sizes. Each operation touches one size and one slot in $O(1)$. A full stack rejects `push`; an empty stack returns $-1$.
+> The array has length $3\textit{cap}+3$; the last three cells store the sizes. Each operation touches one size and one slot in $O(1)$. A full stack rejects `push`; an empty stack returns $-1$.
 
 <!-- thinking:end -->
 
-We use a variable $cap$ to represent the size of each stack, and use an array $stk$ of length $3 \times \textit{cap} + 3$ to simulate three stacks. The first $3 \times \textit{cap}$ elements of the array are used to store the elements of the stack, and the last three elements are used to store the number of elements in each stack.
+We use a variable $\textit{cap}$ to represent the size of each stack, and use an array $\textit{stk}$ of length $3 \times \textit{cap} + 3$ to simulate three stacks. The first $3 \times \textit{cap}$ elements of the array are used to store the elements of the stack, and the last three elements are used to store the number of elements in each stack.
 
 For the `push` operation, we first check whether the stack is full. If it is not full, we push the element into the stack and update the number of elements in the stack.
 
@@ -81,7 +81,7 @@ For the `pop` operation, we first check whether the stack is empty. If it is not
 
 For the `peek` operation, we first check whether the stack is empty. If it is not empty, we return the top element of the stack.
 
-For the `isEmpty` operation, we directly check whether the stack is empty. For stack $i$, we only need to check whether $stk[\textit{cap} \times 3 + i]$ is $0$.
+For the `isEmpty` operation, we directly check whether the stack is empty. For stack $i$, we only need to check whether $\textit{stk}[\textit{cap} \times 3 + i]$ is $0$.
 
 In terms of time complexity, the time complexity of each operation is $O(1)$. The space complexity is $O(\textit{cap})$, where $\textit{cap}$ is the size of the stack.
 

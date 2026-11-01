@@ -71,23 +71,23 @@ tags:
 
 > **Thinking**
 >
-> From every cell, walk length-$|word|$ paths and compare. At most $36$ cells and $|word| \le 15$, unpruned search explodes. Match while walking, abort on mismatch, and never reuse a cell.
+> From every cell, walk length-$|\textit{word}|$ paths and compare. At most $36$ cells and $|\textit{word}| \le 15$, unpruned search explodes. Match while walking, abort on mismatch, and never reuse a cell.
 >
-> Enumerate starts; $dfs(i,j,k)$ means $(i,j)$ should match $word[k]$. On match, write `'0'` to block re-entry, try four neighbors at $k+1$, then restore. Letters are never `'0'`, so no extra vis. Any successful start is enough.
+> Enumerate starts; $\textit{dfs}(i,j,k)$ means $(i,j)$ should match $\textit{word}[k]$. On match, write `'0'` to block re-entry, try four neighbors at $k+1$, then restore. Letters are never `'0'`, so no extra vis. Any successful start is enough.
 
 <!-- thinking:end -->
 
 We can enumerate each position $(i, j)$ in the grid as the starting point of the search, and then start a depth-first search from the starting point. If we can search to the end of the word, it means the word exists, otherwise, it means the word does not exist.
 
-Therefore, we design a function $dfs(i, j, k)$, which represents whether we can successfully search from the $(i, j)$ position of the grid, starting from the $k$th character of the word. The execution steps of the function $dfs(i, j, k)$ are as follows:
+Therefore, we design a function $\textit{dfs}(i, j, k)$, which represents whether we can successfully search from the $(i, j)$ position of the grid, starting from the $k$th character of the word. The execution steps of the function $\textit{dfs}(i, j, k)$ are as follows:
 
-- If $k = |word|-1$, it means that we have searched to the last character of the word. At this time, we only need to judge whether the character at the $(i, j)$ position of the grid is equal to $word[k]$. If they are equal, it means the word exists, otherwise, it means the word does not exist. Whether the word exists or not, there is no need to continue to search, so return the result directly.
-- Otherwise, if the $word[k]$ character is not equal to the character at the $(i, j)$ position of the grid, it means that the search failed this time, so return `false` directly.
+- If $k = |\textit{word}|-1$, it means that we have searched to the last character of the word. At this time, we only need to judge whether the character at the $(i, j)$ position of the grid is equal to $\textit{word}[k]$. If they are equal, it means the word exists, otherwise, it means the word does not exist. Whether the word exists or not, there is no need to continue to search, so return the result directly.
+- Otherwise, if the $\textit{word}[k]$ character is not equal to the character at the $(i, j)$ position of the grid, it means that the search failed this time, so return `false` directly.
 - Otherwise, we temporarily store the character at the $(i, j)$ position of the grid in $c$, and then modify the character at this position to a special character `'0'`, indicating that the character at this position has been used to prevent it from being reused in subsequent searches. Then we start from the up, down, left, and right directions of the $(i, j)$ position to search for the $k+1$th character in the grid. If any direction is successful, it means the search is successful, otherwise, it means the search failed. At this time, we need to restore the character at the $(i, j)$ position of the grid, that is, put $c$ back to the $(i, j)$ position (backtracking).
 
-In the main function, we enumerate each position $(i, j)$ in the grid as the starting point. If calling $dfs(i, j, 0)$ returns `true`, it means the word exists, otherwise, it means the word does not exist, so return `false`.
+In the main function, we enumerate each position $(i, j)$ in the grid as the starting point. If calling $\textit{dfs}(i, j, 0)$ returns `true`, it means the word exists, otherwise, it means the word does not exist, so return `false`.
 
-The time complexity is $O(mn 3^k)$, and the space complexity is $O(\min(mn, k))$, where $m$ and $n$ are the number of rows and columns of the grid, respectively; and $k$ is the length of the string $word$.
+The time complexity is $O(mn 3^k)$, and the space complexity is $O(\min(mn, k))$, where $m$ and $n$ are the number of rows and columns of the grid, respectively; and $k$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

@@ -63,11 +63,11 @@ difficulty: Easy
 
 First, we check whether the lengths of the two strings are equal. If they are not equal, we directly return `false`.
 
-Then, we use an array or hash table to count the occurrence of each character in string $s1$.
+Then, we use an array or hash table to count the occurrence of each character in string $\textit{s1}$.
 
-Next, we traverse the other string $s2$. For each character we encounter, we decrement its corresponding count. If the count after decrementing is less than $0$, it means that the occurrence of characters in the two strings is different, so we directly return `false`.
+Next, we traverse the other string $\textit{s2}$. For each character we encounter, we decrement its corresponding count. If the count after decrementing is less than $0$, it means that the occurrence of characters in the two strings is different, so we directly return `false`.
 
-Finally, after traversing string $s2$, we return `true`.
+Finally, after traversing string $\textit{s2}$, we return `true`.
 
 Note: In this problem, all test case strings only contain lowercase letters, so we can directly create an array of length $26$ for counting.
 

@@ -102,7 +102,7 @@ tags:
 
 According to the problem description, we can treat elements equal to $\textit{target}$ in the array as $1$, and elements not equal to $\textit{target}$ as $-1$. This way, $\textit{target}$ being the majority element of a subarray is equivalent to the number of $1$s in the subarray being strictly greater than the number of $-1$s, i.e., the sum of the subarray is strictly greater than $0$.
 
-We can enumerate subarrays ending at each position. Let the prefix sum at the current position be $\textit{s}$. Then the number of subarrays ending at this position with a sum greater than $0$ is equivalent to the count of prefix sums that are less than $\textit{s}$. We can use a Binary Indexed Tree to maintain the occurrence count of prefix sums, allowing us to efficiently calculate the answer. The range of prefix sums is $[-n, n]$. We can shift all prefix sums right by $n+1$ units to transform the range to $[1, 2n+1]$.
+We can enumerate subarrays ending at each position. Let the prefix sum at the current position be $s$. Then the number of subarrays ending at this position with a sum greater than $0$ is equivalent to the count of prefix sums that are less than $s$. We can use a Binary Indexed Tree to maintain the occurrence count of prefix sums, allowing us to efficiently calculate the answer. The range of prefix sums is $[-n, n]$. We can shift all prefix sums right by $n+1$ units to transform the range to $[1, 2n+1]$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

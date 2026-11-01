@@ -76,11 +76,11 @@ tags:
 
 > **Thinking**
 >
-> The rule matches part I with a larger domain, so a Boolean array in $O(nM)$ fails.
+> The rule matches part I with a larger domain, so a Boolean array in $O(n \times M)$ fails.
 >
 > The update remains “shift the low $v$ bits by $v$ and OR them back”, which a bitset performs a word at a time.
 >
-> After unique sort, start from $f=1$, apply $f\mathrel{|}=(f\&((1\ll v)-1))\ll v$, and return $f.bit\_length()-1$.
+> After unique sort, start from $f=1$, apply $f\mathrel{|}=(f\&((1\ll v)-1))\ll v$, and return $f.\textit{bit\_length}()-1$.
 
 <!-- thinking:end -->
 
@@ -102,7 +102,7 @@ Observing the state transition equation $f[j] = f[j] \vee f[j - v]$, this is equ
 
 Thus, the answer is the position of the highest bit in $f$.
 
-The time complexity is $O(nM / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
+The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
 
 <!-- tabs:start -->
 

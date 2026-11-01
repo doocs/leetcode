@@ -110,7 +110,7 @@ tags:
 在上述两种情况中，我们需要选择转移值最小的那个，即有：
 
 $$
-f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + cost[i - 1][k]
+f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + \textit{cost}[i - 1][k]
 $$
 
 最后，我们返回 $f[m][2^n - 1]$ 即可。

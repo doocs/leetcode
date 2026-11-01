@@ -65,7 +65,7 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 >
 > The degree is the maximum frequency. A shortest subarray with the same degree must cover the first and last occurrence of some mode.
 >
-> Count frequencies and record endpoints. For values that attain the degree, take the minimum $right-left+1$.
+> Count frequencies and record endpoints. For values that attain the degree, take the minimum $\textit{right}-\textit{left}+1$.
 
 <!-- thinking:end -->
 

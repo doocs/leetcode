@@ -66,13 +66,13 @@ tags:
 >
 > 每行有序，求整个矩阵的中位数。不必展开排序。中位数是第 $\lceil mn/2 \rceil$ 小的值，值域已知时可对值二分。
 >
-> 判定 $x$ 时，对每行 $bisect$ 统计 $\le x$ 的个数。个数达到目标则中位数不大于 $x$。外层再对值域二分。
+> 判定 $x$ 时，对每行 $\textit{bisect}$ 统计 $\le x$ 的个数。个数达到目标则中位数不大于 $x$。外层再对值域二分。
 
 <!-- thinking:end -->
 
-中位数实际上是排序后第 $target = \left \lceil \frac{m\times n}{2} \right \rceil$ 个数。
+中位数实际上是排序后第 $\textit{target} = \left \lceil \frac{m\times n}{2} \right \rceil$ 个数。
 
-我们二分枚举矩阵的元素 $x$，统计网格中大于该元素的个数 $cnt$，如果 $cnt \ge target$，说明中位数在 $x$ 的左侧（包含 $x$），否则在右侧。
+我们二分枚举矩阵的元素 $x$，统计网格中大于该元素的个数 $\textit{cnt}$，如果 $\textit{cnt} \ge \textit{target}$，说明中位数在 $x$ 的左侧（包含 $x$），否则在右侧。
 
 时间复杂度 $O(m \log n \log M)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为网格的行数和列数，而 $M$ 为网格中的最大元素。
 

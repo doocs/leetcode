@@ -108,7 +108,7 @@ Consider $f[i][j]$ where $i \geq 1$. We enumerate each point $k$ in the second g
 In both cases, we take the minimum transition value:
 
 $$
-f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + cost[i - 1][k]
+f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + \textit{cost}[i - 1][k]
 $$
 
 Finally, we return $f[m][2^n - 1]$.

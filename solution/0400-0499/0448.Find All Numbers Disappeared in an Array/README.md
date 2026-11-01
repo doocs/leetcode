@@ -176,7 +176,7 @@ function findDisappearedNumbers(nums: number[]): number[] {
 
 <!-- thinking:end -->
 
-我们可以遍历数组 $nums$，将 $|nums[i]|-1$ 位置的数字标记为负数，表示数组 $nums[i]$ 出现过。最后遍历数组 $nums$，若 $nums[i]$ 为正数，则说明数组中缺失 $i+1$，将其添加到结果列表中。
+我们可以遍历数组 $\textit{nums}$，将 $|\textit{nums}[i]|-1$ 位置的数字标记为负数，表示数组 $\textit{nums}[i]$ 出现过。最后遍历数组 $\textit{nums}$，若 $\textit{nums}[i]$ 为正数，则说明数组中缺失 $i+1$，将其添加到结果列表中。
 
 遍历结束后，返回结果列表即可。
 

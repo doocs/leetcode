@@ -73,11 +73,11 @@ tags:
 
 <!-- thinking:end -->
 
-First, we check if the $numerator$ is $0$. If it is, we return `"0"` directly.
+First, we check if the $\textit{numerator}$ is $0$. If it is, we return `"0"` directly.
 
-Next, we check if the $numerator$ and $denominator$ have different signs. If they do, the result is negative, and we set the first character of the result to `"-"`.
+Next, we check if the $\textit{numerator}$ and $\textit{denominator}$ have different signs. If they do, the result is negative, and we set the first character of the result to `"-"`.
 
-Then we take the absolute values of the $numerator$ and $denominator$, denoted as $a$ and $b$. Since the range of the numerator and denominator is $[-2^{31}, 2^{31} - 1]$, taking the absolute value directly may cause overflow, so we convert both $a$ and $b$ to long integers.
+Then we take the absolute values of the $\textit{numerator}$ and $\textit{denominator}$, denoted as $a$ and $b$. Since the range of the numerator and denominator is $[-2^{31}, 2^{31} - 1]$, taking the absolute value directly may cause overflow, so we convert both $a$ and $b$ to long integers.
 
 Next, we calculate the integer part, which is the integer part of $a$ divided by $b$, convert it to a string, and add it to the result. Then we take the remainder of $a$ divided by $b$, denoted as $a$.
 

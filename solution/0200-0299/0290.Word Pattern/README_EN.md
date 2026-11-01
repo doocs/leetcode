@@ -90,13 +90,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we split the string $s$ into a word array $ws$ with spaces. If the length of $pattern$ and $ws$ is not equal, return `false` directly. Otherwise, we use two hash tables $d_1$ and $d_2$ to record the correspondence between each character and word in $pattern$ and $ws$.
+First, we split the string $s$ into a word array $ws$ with spaces. If the length of $\textit{pattern}$ and $ws$ is not equal, return `false` directly. Otherwise, we use two hash tables $d_1$ and $d_2$ to record the correspondence between each character and word in $\textit{pattern}$ and $ws$.
 
-Then, we traverse $pattern$ and $ws$. For each character $a$ and word $b$, if there is a mapping for $a$ in $d_1$, and the mapped word is not $b$, or there is a mapping for $b$ in $d_2$, and the mapped character is not $a$, return `false`. Otherwise, we add the mapping of $a$ and $b$ to $d_1$ and $d_2$ respectively.
+Then, we traverse $\textit{pattern}$ and $ws$. For each character $a$ and word $b$, if there is a mapping for $a$ in $d_1$, and the mapped word is not $b$, or there is a mapping for $b$ in $d_2$, and the mapped character is not $a$, return `false`. Otherwise, we add the mapping of $a$ and $b$ to $d_1$ and $d_2$ respectively.
 
 After the traversal, return `true`.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of $pattern$ and string $s$.
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of $\textit{pattern}$ and string $s$.
 
 <!-- tabs:start -->
 

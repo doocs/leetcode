@@ -88,7 +88,7 @@ end<sub>1</sub> = 1 == 1 = start<sub>2</sub>
 
 > **Thinking**
 >
-> Pairs must chain, i.e. an Eulerian path in the directed graph of edges $start \to end$. Hierholzer runs in linear time for $m \le 10^5$. Start at a vertex with out-degree one higher than in-degree, else anywhere.
+> Pairs must chain, i.e. an Eulerian path in the directed graph of edges $\textit{start} \to \textit{end}$. Hierholzer runs in linear time for $m \le 10^5$. Start at a vertex with out-degree one higher than in-degree, else anywhere.
 >
 > Push edges in postorder and reverse to obtain the arrangement. The code tabs are empty; the reasoning is the Eulerian-path construction.
 

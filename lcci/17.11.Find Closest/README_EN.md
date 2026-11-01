@@ -51,9 +51,9 @@ difficulty: Medium
 
 We use two pointers $i$ and $j$ to record the most recent occurrences of the two words $\textit{word1}$ and $\textit{word2}$, respectively. Initially, $i = \infty$ and $j = -\infty$.
 
-Next, we traverse the entire text file. For each word $w$, if $w$ equals $\textit{word1}$, we update $i = k$, where $k$ is the index of the current word; if $w$ equals $\textit{word2}$, we update $j = k$. Then we update the answer $ans = \min(ans, |i - j|)$.
+Next, we traverse the entire text file. For each word $w$, if $w$ equals $\textit{word1}$, we update $i = k$, where $k$ is the index of the current word; if $w$ equals $\textit{word2}$, we update $j = k$. Then we update the answer $\textit{ans} = \min(\textit{ans}, |i - j|)$.
 
-After the traversal, we return the answer $ans$.
+After the traversal, we return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of words in the text file.
 
@@ -222,9 +222,9 @@ We can use a hash table $d$ to record the positions of each word. Then, for each
 
 We traverse the entire text file. For each word $w$, we add the index of $w$ to $d[w]$.
 
-Next, we find the positions where $\textit{word1}$ and $\textit{word2}$ appear in the text file, represented by $idx1$ and $idx2$ respectively. Then we use two pointers $i$ and $j$ to point to $idx1$ and $idx2$ respectively, with initial values $i = 0$, $j = 0$.
+Next, we find the positions where $\textit{word1}$ and $\textit{word2}$ appear in the text file, represented by $\textit{idx1}$ and $\textit{idx2}$ respectively. Then we use two pointers $i$ and $j$ to point to $\textit{idx1}$ and $\textit{idx2}$ respectively, with initial values $i = 0$, $j = 0$.
 
-Next, we traverse $idx1$ and $idx2$. Each time we update the answer $ans = \min(ans, |idx1[i] - idx2[j]|)$, then we move the smaller pointer of $i$ and $j$ one step backward.
+Next, we traverse $\textit{idx1}$ and $\textit{idx2}$. Each time we update the answer $\textit{ans} = \min(\textit{ans}, |\textit{idx1}[i] - \textit{idx2}[j]|)$, then we move the smaller pointer of $i$ and $j$ one step backward.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of words in the text file.
 

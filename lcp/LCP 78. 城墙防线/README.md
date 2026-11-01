@@ -69,13 +69,13 @@ difficulty: 中等
 
 我们注意到，如果一个膨胀值 $x$ 满足条件，那么所有小于 $x$ 的值也都满足条件，这存在着单调性。因此我们可以使用二分查找的方法，找到最大的满足条件的膨胀值。
 
-我们定义二分查找的左边界 $left=0$, $right=rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]$，其中 $rampart[i][0]$ 表示第 $i$ 段城墙的左端点， $rampart[i][1]$ 表示第 $i$ 段城墙的右端点。
+我们定义二分查找的左边界 $\textit{left}=0$, $\textit{right}=\textit{rampart}[1][0]-\textit{rampart}[0][1]+\textit{rampart}[2][0]-\textit{rampart}[1][1]$，其中 $\textit{rampart}[i][0]$ 表示第 $i$ 段城墙的左端点， $\textit{rampart}[i][1]$ 表示第 $i$ 段城墙的右端点。
 
-接下来，我们开始进行二分查找。每一次，我们求出当前的中间值 $mid$，并判断其是否满足条件。如果满足条件，那么我们就将左边界 $left$ 更新为 $mid$，否则将右边界 $right$ 更新为 $mid-1$。在二分查找结束后，我们返回左边界 $left$ 即可。
+接下来，我们开始进行二分查找。每一次，我们求出当前的中间值 $\textit{mid}$，并判断其是否满足条件。如果满足条件，那么我们就将左边界 $\textit{left}$ 更新为 $\textit{mid}$，否则将右边界 $\textit{right}$ 更新为 $\textit{mid}-1$。在二分查找结束后，我们返回左边界 $\textit{left}$ 即可。
 
 那么问题的关键在于如何判断一个值 $w$ 是否满足条件。显然，我们可以用贪心的策略，每次先尽可能往左膨胀，如果还有剩余的膨胀值，再往右膨胀，如果在向右膨胀的过程中，发生了重叠，那么说明当前的膨胀值 $w$ 不满足条件，直接返回 `false` 即可。否则，遍历结束，返回 `true`。
 
-时间复杂度 $O(n \log M)$，空间复杂度 $O(1)$。其中 $n$ 和 $M$ 分别是数组 $rampart$ 的长度和二分查找的右边界，本题中右边界最大为 $range=rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]$。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(1)$。其中 $n$ 和 $M$ 分别是数组 $\textit{rampart}$ 的长度和二分查找的右边界，本题中右边界最大为 $\textit{range}=\textit{rampart}[1][0]-\textit{rampart}[0][1]+\textit{rampart}[2][0]-\textit{rampart}[1][1]$。
 
 <!-- tabs:start -->
 

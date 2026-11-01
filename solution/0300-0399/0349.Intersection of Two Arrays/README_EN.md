@@ -63,11 +63,11 @@ tags:
 
 <!-- thinking:end -->
 
-First, we use a hash table or an array $s$ of length $1001$ to record the elements that appear in the array $nums1$. Then, we iterate through each element in the array $nums2$. If an element $x$ is in $s$, we add $x$ to the answer and remove $x$ from $s$.
+First, we use a hash table or an array $s$ of length $1001$ to record the elements that appear in the array $\textit{nums1}$. Then, we iterate through each element in the array $\textit{nums2}$. If an element $x$ is in $s$, we add $x$ to the answer and remove $x$ from $s$.
 
 After the iteration is finished, we return the answer array.
 
-The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$, respectively.
+The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

@@ -93,7 +93,7 @@ It can be shown that there are only 6 valid paths.
 
 <!-- thinking:end -->
 
-We can preprocess to get all the prime numbers in $[1, n]$, where $prime[i]$ indicates whether $i$ is a prime number.
+We can preprocess to get all the prime numbers in $[1, n]$, where $\textit{prime}[i]$ indicates whether $i$ is a prime number.
 
 Next, we build a graph $g$ based on the two-dimensional integer array, where $g[i]$ represents all the neighbor nodes of node $i$. If both nodes of an edge are not prime numbers, we merge these two nodes into the same connected component.
 

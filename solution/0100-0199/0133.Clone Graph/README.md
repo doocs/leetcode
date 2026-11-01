@@ -103,16 +103,16 @@ class Node {
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\textit{g}$ 记录原图中的每个节点和它的拷贝节点之间的对应关系，然后进行深度优先搜索。
+我们用一个哈希表 $g$ 记录原图中的每个节点和它的拷贝节点之间的对应关系，然后进行深度优先搜索。
 
-我们定义函数 $\text{dfs}(node)$，它的功能是返回 $\textit{node}$ 节点的拷贝节点。 $\text{dfs}(node)$ 的过程如下：
+我们定义函数 $\textit{dfs}(\textit{node})$，它的功能是返回 $\textit{node}$ 节点的拷贝节点。 $\textit{dfs}(\textit{node})$ 的过程如下：
 
-- 如果 $\textit{node}$ 是 $\text{null}$，那么 $\text{dfs}(node)$ 的返回值是 $\text{null}$。
-- 如果 $\textit{node}$ 在 $\textit{g}$ 中，那么 $\text{dfs}(node)$ 的返回值是 $\textit{g}[node]$。
-- 否则我们创建一个新的节点 $\textit{cloned}$，并将 $\textit{g}[node]$ 的值设为 $\textit{cloned}$，然后遍历 $\textit{node}$ 的所有邻居节点 $\textit{nxt}$，并将 $\textit{cloned}$ 的邻居节点列表中加入 $\text{dfs}(nxt)$。
+- 如果 $\textit{node}$ 是 $\textit{null}$，那么 $\textit{dfs}(\textit{node})$ 的返回值是 $\textit{null}$。
+- 如果 $\textit{node}$ 在 $g$ 中，那么 $\textit{dfs}(\textit{node})$ 的返回值是 $g[\textit{node}]$。
+- 否则我们创建一个新的节点 $\textit{cloned}$，并将 $g[\textit{node}]$ 的值设为 $\textit{cloned}$，然后遍历 $\textit{node}$ 的所有邻居节点 $\textit{nxt}$，并将 $\textit{cloned}$ 的邻居节点列表中加入 $\textit{dfs}(\textit{nxt})$。
 - 最后返回 $\textit{cloned}$。
 
-在主函数中，我们返回 $\text{dfs}(node)$。
+在主函数中，我们返回 $\textit{dfs}(\textit{node})$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 

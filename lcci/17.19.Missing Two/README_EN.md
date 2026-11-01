@@ -55,7 +55,7 @@ difficulty: Hard
 >
 > XOR of everything is $a\oplus b$. `lowbit` splits them into different groups (that bit is $1$ in one and $0$ in the other); XOR inside a group isolates each.
 >
-> Compute $xor$, then XOR values with $diff=xor\&(-xor)$ set to get $a$, and $b=xor\oplus a$. Linear time, constant space.
+> Compute $\textit{xor}$, then XOR values with $\textit{diff}=\textit{xor}\&(-\textit{xor})$ set to get $a$, and $b=\textit{xor}\oplus a$. Linear time, constant space.
 
 <!-- thinking:end -->
 

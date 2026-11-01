@@ -88,18 +88,18 @@ But the second continuation byte does not start with 10, so it is invalid.
 
 <!-- thinking:end -->
 
-We use a variable $cnt$ to record the current number of bytes that need to be filled starting with $10$, initially $cnt = 0$.
+We use a variable $\textit{cnt}$ to record the current number of bytes that need to be filled starting with $10$, initially $\textit{cnt} = 0$.
 
 For each integer $v$ in the array:
 
-- If $cnt > 0$, then check if $v$ starts with $10$. If not, return `false`, otherwise decrement $cnt$.
-- If the highest bit of $v$ is $0$, then $cnt = 0$.
-- If the highest two bits of $v$ are $110$, then $cnt = 1$.
-- If the highest three bits of $v$ are $1110$, then $cnt = 2$.
-- If the highest four bits of $v$ are $11110$, then $cnt = 3$.
+- If $\textit{cnt} > 0$, then check if $v$ starts with $10$. If not, return `false`, otherwise decrement $\textit{cnt}$.
+- If the highest bit of $v$ is $0$, then $\textit{cnt} = 0$.
+- If the highest two bits of $v$ are $110$, then $\textit{cnt} = 1$.
+- If the highest three bits of $v$ are $1110$, then $\textit{cnt} = 2$.
+- If the highest four bits of $v$ are $11110$, then $\textit{cnt} = 3$.
 - Otherwise, return `false`.
 
-Finally, if $cnt = 0$, return `true`, otherwise return `false`.
+Finally, if $\textit{cnt} = 0$, return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `data`.
 

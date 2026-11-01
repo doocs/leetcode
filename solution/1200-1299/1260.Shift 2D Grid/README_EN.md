@@ -85,7 +85,7 @@ tags:
 
 According to the problem description, if we flatten the 2D array into a 1D array, then each shift operation is to move the elements in the array one position to the right, with the last element moving to the first position of the array.
 
-Therefore, we can flatten the 2D array into a 1D array, then calculate the final position $idx = (x, y)$ of each element, and update the answer array `ans[x][y] = grid[i][j]`.
+Therefore, we can flatten the 2D array into a 1D array, then calculate the final position $\textit{idx} = (x, y)$ of each element, and update the answer array `ans[x][y] = grid[i][j]`.
 
 The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the `grid` array, respectively. We need to traverse the `grid` array once to calculate the final position of each element.
 

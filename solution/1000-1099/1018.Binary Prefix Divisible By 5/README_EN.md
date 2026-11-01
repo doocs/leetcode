@@ -73,7 +73,7 @@ Only the first number is divisible by 5, so answer[0] is true.
 
 <!-- thinking:end -->
 
-We use a variable $x$ to represent the current binary prefix, then traverse the array $nums$. For each element $v$, we left shift $x$ by one bit, then add $v$, and take the result modulo $5$. If the result equals $0$, it means the current binary prefix is divisible by $5$, and we add $\textit{true}$ to the answer array; otherwise, we add $\textit{false}$ to the answer array.
+We use a variable $x$ to represent the current binary prefix, then traverse the array $\textit{nums}$. For each element $v$, we left shift $x$ by one bit, then add $v$, and take the result modulo $5$. If the result equals $0$, it means the current binary prefix is divisible by $5$, and we add $\textit{true}$ to the answer array; otherwise, we add $\textit{false}$ to the answer array.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 

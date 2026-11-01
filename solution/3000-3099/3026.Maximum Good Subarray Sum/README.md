@@ -81,11 +81,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $p$ 记录 $nums[i]$ 的前缀数组 $nums[0..i-1]$ 的和 $s$，如果有多个相同的 $nums[i]$，我们只保留最小的 $s$。初始时，我们将 $p[nums[0]]$ 设为 $0$。另外，我们用一个变量 $s$ 记录当前的前缀和，初始时 $s = 0$。初始化答案 $ans$ 为 $-\infty$。
+我们用一个哈希表 $p$ 记录 $\textit{nums}[i]$ 的前缀数组 $\textit{nums}[0..i-1]$ 的和 $s$，如果有多个相同的 $\textit{nums}[i]$，我们只保留最小的 $s$。初始时，我们将 $p[\textit{nums}[0]]$ 设为 $0$。另外，我们用一个变量 $s$ 记录当前的前缀和，初始时 $s = 0$。初始化答案 $\textit{ans}$ 为 $-\infty$。
 
-接下来，我们枚举 $nums[i]$，并且维护一个变量 $s$ 表示 $nums[0..i]$ 的和。如果 $nums[i] - k$ 在 $p$ 中，那么我们就找到了一个好子数组，将答案更新为 $ans = \max(ans, s - p[nums[i] - k])$。同理，如果 $nums[i] + k$ 在 $p$ 中，那么我们也找到了一个好子数组，将答案更新为 $ans = \max(ans, s - p[nums[i] + k])$。然后，如果 $i + 1 \lt n$ 并且 $nums[i + 1]$ 不在 $p$ 中，或者 $p[nums[i + 1]] \gt s$，我们就将 $p[nums[i + 1]]$ 设为 $s$。
+接下来，我们枚举 $\textit{nums}[i]$，并且维护一个变量 $s$ 表示 $\textit{nums}[0..i]$ 的和。如果 $\textit{nums}[i] - k$ 在 $p$ 中，那么我们就找到了一个好子数组，将答案更新为 $\textit{ans} = \max(\textit{ans}, s - p[\textit{nums}[i] - k])$。同理，如果 $\textit{nums}[i] + k$ 在 $p$ 中，那么我们也找到了一个好子数组，将答案更新为 $\textit{ans} = \max(\textit{ans}, s - p[\textit{nums}[i] + k])$。然后，如果 $i + 1 \lt n$ 并且 $\textit{nums}[i + 1]$ 不在 $p$ 中，或者 $p[\textit{nums}[i + 1]] \gt s$，我们就将 $p[\textit{nums}[i + 1]]$ 设为 $s$。
 
-最后，如果 $ans = -\infty$，那么我们返回 $0$，否则返回 $ans$。
+最后，如果 $\textit{ans} = -\infty$，那么我们返回 $0$，否则返回 $\textit{ans}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 

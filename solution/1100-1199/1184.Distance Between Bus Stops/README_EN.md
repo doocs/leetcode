@@ -79,7 +79,7 @@ tags:
 
 > **Thinking**
 >
-> Stops form a cycle, so only the clockwise and counterclockwise arcs matter. Sum the circle to $s$, walk one way from $start$ to $destination$ for $t$, and take $\min(t,s-t)$. No graph is required.
+> Stops form a cycle, so only the clockwise and counterclockwise arcs matter. Sum the circle to $s$, walk one way from $\textit{start}$ to $\textit{destination}$ for $t$, and take $\min(t,s-t)$. No graph is required.
 
 <!-- thinking:end -->
 

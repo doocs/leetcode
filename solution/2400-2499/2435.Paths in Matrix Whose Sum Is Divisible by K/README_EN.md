@@ -76,7 +76,7 @@ The second path highlighted in blue has a sum of 5 + 3 + 0 + 5 + 2 = 15 which is
 >
 > Moves are only right or down. The grid has $mn\le 5\times 10^4$ and $k\le 50$. We need the number of paths whose sum is $0$ modulo $k$, so the remainder is part of the state.
 >
-> Let $f[i][j][r]$ be ways to reach $(i,j)$ with sum $r\bmod K$, coming from the cell above or to the left with remainder $r-grid[i][j]$. Seed the start with $1$.
+> Let $f[i][j][r]$ be ways to reach $(i,j)$ with sum $r\bmod K$, coming from the cell above or to the left with remainder $r-\textit{grid}[i][j]$. Seed the start with $1$.
 
 <!-- thinking:end -->
 
@@ -94,7 +94,7 @@ To avoid issues with negative modulo operations, we can replace $(k - \textit{gr
 
 The answer is $f[m - 1][n - 1][0]$.
 
-The time complexity is $O(mnK)$, and the space complexity is $O(mnK)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively, and $K$ is the integer $k$ from the problem.
+The time complexity is $O(mn \times K)$, and the space complexity is $O(mn \times K)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively, and $K$ is the integer $k$ from the problem.
 
 <!-- tabs:start -->
 

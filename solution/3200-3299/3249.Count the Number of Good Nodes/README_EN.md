@@ -88,19 +88,19 @@ tags:
 >
 > A node is good when all of its subtrees have equal size. $n\le 10^5$ forbids recomputing subtrees at every node. One DFS can compare child sizes on the way back and count the node itself.
 >
-> $\textit{dfs}(a,\textit{fa})$ returns the subtree size; $a$ is good if every child returns the same value. Root an unrooted tree at $0$. The time is linear.
+> $\textit{dfs}(a,fa)$ returns the subtree size; $a$ is good if every child returns the same value. Root an unrooted tree at $0$. The time is linear.
 
 <!-- thinking:end -->
 
-First, we construct the adjacency list $\textit{g}$ of the tree based on the given edges $\textit{edges}$, where $\textit{g}[a]$ represents all the neighboring nodes of node $a$.
+First, we construct the adjacency list $g$ of the tree based on the given edges $\textit{edges}$, where $g[a]$ represents all the neighboring nodes of node $a$.
 
-Next, we design a function $\textit{dfs}(a, \textit{fa})$ to calculate the number of nodes in the subtree rooted at node $a$ and to accumulate the count of good nodes. Here, $\textit{fa}$ represents the parent node of node $a$.
+Next, we design a function $\textit{dfs}(a, fa)$ to calculate the number of nodes in the subtree rooted at node $a$ and to accumulate the count of good nodes. Here, $fa$ represents the parent node of node $a$.
 
-The execution process of the function $\textit{dfs}(a, \textit{fa})$ is as follows:
+The execution process of the function $\textit{dfs}(a, fa)$ is as follows:
 
-1. Initialize variables $\textit{pre} = -1$, $\textit{cnt} = 1$, $\textit{ok} = 1$, representing the number of nodes in a subtree of node $a$, the total number of nodes in all subtrees of node $a$, and whether node $a$ is a good node, respectively.
-2. Traverse all neighboring nodes $b$ of node $a$. If $b$ is not equal to $\textit{fa}$, recursively call $\textit{dfs}(b, a)$, with the return value being $\textit{cur}$, and add $\textit{cur}$ to $\textit{cnt}$. If $\textit{pre} < 0$, assign $\textit{cur}$ to $\textit{pre}$; otherwise, if $\textit{pre}$ is not equal to $\textit{cur}$, it means the number of nodes in different subtrees of node $a$ is different, and set $\textit{ok}$ to $0$.
-3. Finally, add $\textit{ok}$ to the answer and return $\textit{cnt}$.
+1. Initialize variables $\textit{pre} = -1$, $\textit{cnt} = 1$, $ok = 1$, representing the number of nodes in a subtree of node $a$, the total number of nodes in all subtrees of node $a$, and whether node $a$ is a good node, respectively.
+2. Traverse all neighboring nodes $b$ of node $a$. If $b$ is not equal to $fa$, recursively call $\textit{dfs}(b, a)$, with the return value being $\textit{cur}$, and add $\textit{cur}$ to $\textit{cnt}$. If $\textit{pre} < 0$, assign $\textit{cur}$ to $\textit{pre}$; otherwise, if $\textit{pre}$ is not equal to $\textit{cur}$, it means the number of nodes in different subtrees of node $a$ is different, and set $ok$ to $0$.
+3. Finally, add $ok$ to the answer and return $\textit{cnt}$.
 
 In the main function, we call $\textit{dfs}(0, -1)$ and return the final answer.
 
@@ -297,9 +297,9 @@ function countGoodNodes(edges: number[][]): number {
 
 <!-- thinking:end -->
 
-First, we construct the adjacency list $\textit{g}$ of the tree based on the given edges $\textit{edges}$, where $\textit{g}[a]$ represents all the neighboring nodes of node $a$.
+First, we construct the adjacency list $g$ of the tree based on the given edges $\textit{edges}$, where $g[a]$ represents all the neighboring nodes of node $a$.
 
-An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $\textit{pre} = -1$, $\textit{cnt} = 1$, and $\textit{ok} = 1$. For each child, add its subtree size to $\textit{cnt}$. If that size differs from $\textit{pre}$, set $\textit{ok}$ to $0$. Then add $\textit{ok}$ to the answer and store $\textit{cnt}$ as the current node's subtree size.
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $\textit{pre} = -1$, $\textit{cnt} = 1$, and $ok = 1$. For each child, add its subtree size to $\textit{cnt}$. If that size differs from $\textit{pre}$, set $ok$ to $0$. Then add $ok$ to the answer and store $\textit{cnt}$ as the current node's subtree size.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the number of nodes.
 

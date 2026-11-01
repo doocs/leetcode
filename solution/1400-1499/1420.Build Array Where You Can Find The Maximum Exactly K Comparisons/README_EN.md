@@ -224,9 +224,9 @@ func numOfArrays(n int, m int, k int) int {
 
 <!-- thinking:end -->
 
-Let $dp[c][j]$ count arrays of the current length with search cost $c$ and maximum $j$. When we append a value, it either does not raise the maximum (with $j$ choices) or raises a smaller maximum to $j$. For each new length, maintain $prefix = \sum_{x=1}^{j-1} dp_{\mathrm{prev}}[c-1][x]$ while increasing $j$. Then
+Let $dp[c][j]$ count arrays of the current length with search cost $c$ and maximum $j$. When we append a value, it either does not raise the maximum (with $j$ choices) or raises a smaller maximum to $j$. For each new length, maintain $\textit{prefix} = \sum_{x=1}^{j-1} dp_{\textit{prev}}[c-1][x]$ while increasing $j$. Then
 
-$$dp_{\mathrm{next}}[c][j] = j \cdot dp_{\mathrm{prev}}[c][j] + prefix \pmod{10^9+7}.$$
+$$dp_{\textit{next}}[c][j] = j \cdot dp_{\textit{prev}}[c][j] + \textit{prefix} \pmod{10^9+7}.$$
 
 Initialize $dp[1][j]=1$ for arrays of length $1$. The answer is the sum of $dp[k][j]$ for $1 \le j \le m$. The time complexity is $O(nkm)$, reduced from $O(nkm^2)$ in Solution 1. Keeping only the previous and next lengths uses $O(km)$ space instead of $O(nkm)$.
 

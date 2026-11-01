@@ -111,11 +111,11 @@ tags:
 
 <!-- thinking:end -->
 
-We denote the length of the array as $n$. If $n$ is not divisible by $k$, then we cannot partition the array into groups where each group contains $k$ elements, so we directly return $\text{false}$.
+We denote the length of the array as $n$. If $n$ is not divisible by $k$, then we cannot partition the array into groups where each group contains $k$ elements, so we directly return $\textit{false}$.
 
-Next, we calculate the size of each group $m = n / k$ and count the occurrence of each element in the array. If the occurrence count of any element exceeds $m$, then it cannot be distributed to any group, so we directly return $\text{false}$.
+Next, we calculate the size of each group $m = n / k$ and count the occurrence of each element in the array. If the occurrence count of any element exceeds $m$, then it cannot be distributed to any group, so we directly return $\textit{false}$.
 
-Finally, if the occurrence count of all elements does not exceed $m$, then we can partition the array into groups where each group contains $k$ elements, and we return $\text{true}$.
+Finally, if the occurrence count of all elements does not exceed $m$, then we can partition the array into groups where each group contains $k$ elements, and we return $\textit{true}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(M)$, where $n$ is the length of the array, and $M$ is the maximum value of elements in the array.
 

@@ -91,7 +91,7 @@ tags:
 >
 > The bottleneck is rescanning the same row, column, and box. We only need to remember whether digit $v$ has already appeared in that unit.
 >
-> One pass is enough: three boolean tables $row[i][v]$, $col[j][v]$, and $sub[k][v]$, with box index $k = \lfloor i/3 \rfloor \times 3 + \lfloor j/3 \rfloor$. A second hit of the same digit returns false immediately.
+> One pass is enough: three boolean tables $\textit{row}[i][v]$, $\textit{col}[j][v]$, and $\textit{sub}[k][v]$, with box index $k = \lfloor i/3 \rfloor \times 3 + \lfloor j/3 \rfloor$. A second hit of the same digit returns false immediately.
 
 <!-- thinking:end -->
 

@@ -67,15 +67,15 @@ tags:
 
 > **思考**
 >
-> $n \le 10^3$，按身高降序排列姓名即可。身高互不相同，排序关键字唯一。为保持姓名与身高对应，对下标按 $heights$ 降序排序，再按下标取姓名。
+> $n \le 10^3$，按身高降序排列姓名即可。身高互不相同，排序关键字唯一。为保持姓名与身高对应，对下标按 $\textit{heights}$ 降序排序，再按下标取姓名。
 
 <!-- thinking:end -->
 
-根据题目描述，我们可以创建一个长度为 $n$ 的下标数组 $idx$，其中 $idx[i]=i$。然后我们对 $idx$ 中的每个下标按照 $heights$ 中对应的身高降序排序，最后遍历排序后的 $idx$ 中的每个下标 $i$，将 $names[i]$ 加入答案数组即可。
+根据题目描述，我们可以创建一个长度为 $n$ 的下标数组 $\textit{idx}$，其中 $\textit{idx}[i]=i$。然后我们对 $\textit{idx}$ 中的每个下标按照 $\textit{heights}$ 中对应的身高降序排序，最后遍历排序后的 $\textit{idx}$ 中的每个下标 $i$，将 $\textit{names}[i]$ 加入答案数组即可。
 
-我们也可以创建一个长度为 $n$ 的数组 $arr$，数组中每个元素是一个二元组 $(heights[i], i)$，然后我们对 $arr$ 按照身高降序排序。最后遍历排序后的 $arr$ 中的每个元素 $(heights[i], i)$，将 $names[i]$ 加入答案数组即可。
+我们也可以创建一个长度为 $n$ 的数组 $\textit{arr}$，数组中每个元素是一个二元组 $(\textit{heights}[i], i)$，然后我们对 $\textit{arr}$ 按照身高降序排序。最后遍历排序后的 $\textit{arr}$ 中的每个元素 $(\textit{heights}[i], i)$，将 $\textit{names}[i]$ 加入答案数组即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $names$ 和 $heights$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{names}$ 和 $\textit{heights}$ 的长度。
 
 <!-- tabs:start -->
 

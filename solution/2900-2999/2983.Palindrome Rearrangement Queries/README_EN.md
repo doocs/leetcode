@@ -113,7 +113,7 @@ Now, s is a palindrome. So, answer[0] = true.</pre>
 >
 > Each query may rearrange one segment in the left half and one in the right half, asking whether $s$ can become a palindrome. With $10^5$ queries this must be offline. Reverse the right half into $t$; the question is whether the two rearrangeable ranges can make $s$ and $t$ identical.
 >
-> Prefix letter counts compare multisets on those ranges; a prefix mismatch array $diff$ checks that frozen positions already match. Cases (containment, disjoint, overlap) subtract the overlap and compare the remainders.
+> Prefix letter counts compare multisets on those ranges; a prefix mismatch array $\textit{diff}$ checks that frozen positions already match. Cases (containment, disjoint, overlap) subtract the overlap and compare the remainders.
 
 <!-- thinking:end -->
 
@@ -121,9 +121,9 @@ Let's denote the length of string $s$ as $n$, then half of the length is $m = \f
 
 We preprocess the following information:
 
-1. The prefix sum array $pre_1$ of string $s$, where $pre_1[i][j]$ represents the quantity of character $j$ in the first $i$ characters of string $s$;
-2. The prefix sum array $pre_2$ of string $t$, where $pre_2[i][j]$ represents the quantity of character $j$ in the first $i$ characters of string $t$;
-3. The difference array $diff$ of strings $s$ and $t$, where $diff[i]$ represents the quantity of different characters in the first $i$ characters of strings $s$ and $t$.
+1. The prefix sum array $\textit{pre}_1$ of string $s$, where $\textit{pre}_1[i][j]$ represents the quantity of character $j$ in the first $i$ characters of string $s$;
+2. The prefix sum array $\textit{pre}_2$ of string $t$, where $\textit{pre}_2[i][j]$ represents the quantity of character $j$ in the first $i$ characters of string $t$;
+3. The difference array $\textit{diff}$ of strings $s$ and $t$, where $\textit{diff}[i]$ represents the quantity of different characters in the first $i$ characters of strings $s$ and $t$.
 
 For each query $[a_i, b_i, c_i, d_i]$, let's assume $a_i \le c_i$, then we need to discuss the following cases:
 
@@ -134,7 +134,7 @@ For each query $[a_i, b_i, c_i, d_i]$, let's assume $a_i \le c_i$, then we need 
 
 Based on the above analysis, we iterate through each query $[a_i, b_i, c_i, d_i]$, and determine whether it satisfies the above conditions.
 
-The time complexity is $O((n + q)|\Sigma|)$, and the space complexity is $O(n|\Sigma|)$, where $n$ and $q$ are the lengths of string $s$ and the query array $queries$ respectively; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O((n + q)|\Sigma|)$, and the space complexity is $O(n|\Sigma|)$, where $n$ and $q$ are the lengths of string $s$ and the query array $\textit{queries}$ respectively; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

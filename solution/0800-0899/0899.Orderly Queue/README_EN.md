@@ -71,7 +71,7 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 
 If $k = 1$, we can only move the first character of the string to the end of the string each time, resulting in $|s|$ different states. We return the string with the smallest lexicographic order.
 
-If $k > 1$, for a string like $abc[xy]def$, we can move $a$, $b$, and $c$ to the end in order, resulting in $[xy]defabc$. Then we move $y$ and $x$ to the end, resulting in $defabc[yx]$. Finally, we move $d$, $e$, and $f$ to the end, resulting in $abc[yx]def$. This way, we have swapped $y$ and $x$.
+If $k > 1$, for a string like $\textit{abc}[xy]\textit{def}$, we can move $a$, $b$, and $c$ to the end in order, resulting in $[xy]\textit{defabc}$. Then we move $y$ and $x$ to the end, resulting in $\textit{defabc}[yx]$. Finally, we move $d$, $e$, and $f$ to the end, resulting in $\textit{abc}[yx]\textit{def}$. This way, we have swapped $y$ and $x$.
 
 Therefore, as long as $k > 1$, we can swap any two adjacent characters in the string, eventually obtaining a string sorted in ascending order.
 

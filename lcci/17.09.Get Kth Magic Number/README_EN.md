@@ -35,7 +35,7 @@ difficulty: Medium
 >
 > The $k$-th number whose prime factors lie in $\{3,5,7\}$. Multiplying from $1$ repeats values; a set plus a sort is heavier than needed.
 >
-> A min-heap pops the smallest, multiplies by $3,5,7$, and $vis$ blocks duplicate pushes.
+> A min-heap pops the smallest, multiplies by $3,5,7$, and $\textit{vis}$ blocks duplicate pushes.
 >
 > After $k-1$ pops the heap top is the $k$-th number. Each value expands at most three times, $O(k \log k)$.
 

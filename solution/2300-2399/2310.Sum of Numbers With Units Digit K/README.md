@@ -85,9 +85,9 @@ tags:
 
 > **思考**
 >
-> 每个加数形如 $10x+k$，故 $n$ 个数之和的个位由 $n\times k$ 决定。 $num \le 3000$，枚举个数 $n$ 并检验 $num-n\times k$ 是否为 $10$ 的非负倍数即可。
+> 每个加数形如 $10x+k$，故 $n$ 个数之和的个位由 $n\times k$ 决定。 $\textit{num} \le 3000$，枚举个数 $n$ 并检验 $\textit{num}-n\times k$ 是否为 $10$ 的非负倍数即可。
 >
-> 从小到大尝试 $n$，第一个满足条件者即为最少个数；若直至 $num$ 仍不成立则无解。
+> 从小到大尝试 $n$，第一个满足条件者即为最少个数；若直至 $\textit{num}$ 仍不成立则无解。
 
 <!-- thinking:end -->
 
@@ -192,7 +192,7 @@ function minimumNumbers(num: number, k: number): number {
 
 > **思考**
 >
-> 方法一最多枚举 $num$ 次。个位以 $10$ 为周期，因此只需检查 $n \le 10$ 是否使 $n\times k$ 与 $num$ 同余且不超过 $num$，常数更小。
+> 方法一最多枚举 $\textit{num}$ 次。个位以 $10$ 为周期，因此只需检查 $n \le 10$ 是否使 $n\times k$ 与 $\textit{num}$ 同余且不超过 $\textit{num}$，常数更小。
 
 <!-- thinking:end -->
 

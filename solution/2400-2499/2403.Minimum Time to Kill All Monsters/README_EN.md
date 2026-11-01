@@ -95,7 +95,7 @@ It can be proven that 6 is the minimum number of days needed.
 >
 > There are $n!$ kill orders; $n\le 17$ forbids listing them. Daily damage equals one plus the number already slain, so the optimum on a live set is a function of that set alone.
 >
-> Let $\textit{mask}$ be the live monsters and $dfs(\textit{mask})$ the minimum days to clear it. Gain is determined by how many are already dead. Try each set bit as the next kill and memoize: $2^n$ states, $O(n)$ transitions.
+> Let $\textit{mask}$ be the live monsters and $\textit{dfs}(\textit{mask})$ the minimum days to clear it. Gain is determined by how many are already dead. Try each set bit as the next kill and memoize: $2^n$ states, $O(n)$ transitions.
 
 <!-- thinking:end -->
 

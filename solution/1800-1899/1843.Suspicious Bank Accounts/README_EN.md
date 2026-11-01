@@ -118,7 +118,7 @@ We can see that the income exceeded the max income in May and July, but not in J
 >
 > An account is suspicious if two consecutive months both have creditor totals above its income cap. We must aggregate by account and month, then test adjacency.
 >
-> Window-sum creditor amounts by account and month, mark those exceeding $max\_income$, and self-join rows one month apart that are both marked.
+> Window-sum creditor amounts by account and month, mark those exceeding $\textit{max\_income}$, and self-join rows one month apart that are both marked.
 
 <!-- thinking:end -->
 
@@ -159,7 +159,7 @@ ORDER BY s1.tx;
 
 > **Thinking**
 >
-> Solution 1 marks months with a window and joins on a one-month gap. We can also $\textit{GROUP BY}$ account and $\textit{YYYYMM}$, keep overflowing months with $\textit{HAVING}$, and test whether $(account\_id,\textit{next month})$ still sits in that set.
+> Solution 1 marks months with a window and joins on a one-month gap. We can also $\textit{GROUP BY}$ account and $\textit{YYYYMM}$, keep overflowing months with $\textit{HAVING}$, and test whether $(\textit{account\_id},\textit{next month})$ still sits in that set.
 
 <!-- thinking:end -->
 

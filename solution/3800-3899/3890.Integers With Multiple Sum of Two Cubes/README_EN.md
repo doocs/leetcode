@@ -95,7 +95,7 @@ tags:
 
 We observe that when $a$ or $b$ is greater than $1000$, the expression $a^3 + b^3 > 10^9$. Therefore, we only need to enumerate $1 \leq a \leq b \leq 1000$ and count the occurrences of each integer $x = a^3 + b^3$. Finally, we filter out the integers that appear more than once and sort them in ascending order to obtain all good integers.
 
-We preprocess all good integers and store them in an array $\textit{GOOD}$. For each query, we use binary search to find the index $idx$ of the first integer in $\textit{GOOD}$ that is greater than $n$, then return the first $idx$ integers in $\textit{GOOD}$.
+We preprocess all good integers and store them in an array $\textit{GOOD}$. For each query, we use binary search to find the index $\textit{idx}$ of the first integer in $\textit{GOOD}$ that is greater than $n$, then return the first $\textit{idx}$ integers in $\textit{GOOD}$.
 
 The time complexity is $O(m^2 + k \log k)$, and the space complexity is $O(k)$, where $m = 1000$ is the enumeration range and $k$ is the number of good integers.
 

@@ -106,29 +106,29 @@ tags:
 >
 > Maximizing a minimum is a binary search. Unfolding the boundary to a circle of length $4\cdot\textit{side}$ turns distances into one-dimensional gaps.
 >
-> For a candidate $\textit{lo}$ we try each start and greedily jump $k-1$ times by binary search, keeping the last point at most $\textit{start}+4\textit{side}-\textit{lo}$ so the cycle closes. Feasibility raises $\textit{lo}$.
+> For a candidate $lo$ we try each start and greedily jump $k-1$ times by binary search, keeping the last point at most $\textit{start}+4\textit{side}-lo$ so the cycle closes. Feasibility raises $lo$.
 
 <!-- thinking:end -->
 
 Since the problem asks to maximize the minimum distance, we can use binary search on the answer to find the optimal solution.
 
-First, to simplify the logic, we map the 2D coordinates $(x, y)$ on the square's boundary to a 1D axis $[0, 4 \times \text{side})$. The mapping rules are as follows:
+First, to simplify the logic, we map the 2D coordinates $(x, y)$ on the square's boundary to a 1D axis $[0, 4 \times \textit{side})$. The mapping rules are as follows:
 
 - If $x = 0$, the mapped value is $y$;
-- If $y = \text{side}$, the mapped value is $\text{side} + x$;
-- If $x = \text{side}$, the mapped value is $3 \times \text{side} - y$;
-- Otherwise, the mapped value is $4 \times \text{side} - x$.
+- If $y = \textit{side}$, the mapped value is $\textit{side} + x$;
+- If $x = \textit{side}$, the mapped value is $3 \times \textit{side} - y$;
+- Otherwise, the mapped value is $4 \times \textit{side} - x$.
 
 After mapping, sort all the points to obtain the array $\textit{nums}$. Since the points are selected on the perimeter of the square, this is essentially a circular (ring) problem.
 
-During the binary search, for a given minimum distance $\textit{lo}$, we use a $\textit{check}$ function to verify its feasibility:
+During the binary search, for a given minimum distance $lo$, we use a $\textit{check}$ function to verify its feasibility:
 
 - Iterate through each point in $\textit{nums}$ as the starting point $\textit{start}$.
-- The endpoint for selecting points is $\textit{end} = \textit{start} + 4 \times \text{side} - \textit{lo}$, ensuring that the wrap-around distance from the last selected point back to $\textit{start}$ is at least $\textit{lo}$.
-- Then, greedily perform $k-1$ jumps, each time using binary search to quickly locate the next point that is at least $\textit{lo}$ away from the current position.
-- If it is possible to select $k$ points within the $\textit{end}$ limit, then the distance $\textit{lo}$ is feasible.
+- The endpoint for selecting points is $\textit{end} = \textit{start} + 4 \times \textit{side} - lo$, ensuring that the wrap-around distance from the last selected point back to $\textit{start}$ is at least $lo$.
+- Then, greedily perform $k-1$ jumps, each time using binary search to quickly locate the next point that is at least $lo$ away from the current position.
+- If it is possible to select $k$ points within the $\textit{end}$ limit, then the distance $lo$ is feasible.
 
-The time complexity is $O(n^2 \log(\text{side}) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{points}$ array.
+The time complexity is $O(n^2 \log(\textit{side}) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{points}$ array.
 
 <!-- tabs:start -->
 

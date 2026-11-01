@@ -95,11 +95,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table $\textit{d}$ to store the index list of each unmarked character, where the key is the character and the value is the list of indices.
+We can use a hash table $d$ to store the index list of each unmarked character, where the key is the character and the value is the list of indices.
 
-We traverse the string $\textit{s}$, and for each character $\textit{x}$, we find its mirror character $\textit{y}$. If $\textit{d}$ contains $\textit{y}$, we take out the index list $\textit{ls}$ corresponding to $\textit{y}$, take out the last element $\textit{j}$ from $\textit{ls}$, and remove $\textit{j}$ from $\textit{ls}$. If $\textit{ls}$ becomes empty, we remove $\textit{y}$ from $\textit{d}$. At this point, we have found a pair of indices $(\textit{j}, \textit{i})$ that meet the condition, and we add $\textit{i} - \textit{j}$ to the answer. Otherwise, we add $\textit{x}$ to $\textit{d}$.
+We traverse the string $s$, and for each character $x$, we find its mirror character $y$. If $d$ contains $y$, we take out the index list $ls$ corresponding to $y$, take out the last element $j$ from $ls$, and remove $j$ from $ls$. If $ls$ becomes empty, we remove $y$ from $d$. At this point, we have found a pair of indices $(j, i)$ that meet the condition, and we add $i - j$ to the answer. Otherwise, we add $x$ to $d$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

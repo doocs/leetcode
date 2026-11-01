@@ -77,7 +77,7 @@ tags:
 
 > **思考**
 >
-> 边长为 $2x$ 的正方形内苹果数为 $2x(x+1)(2x+1)$，周长为 $8x$。 $neededApples$ 很大，但 $x$ 只需立方根量级。
+> 边长为 $2x$ 的正方形内苹果数为 $2x(x+1)(2x+1)$，周长为 $8x$。 $\textit{neededApples}$ 很大，但 $x$ 只需立方根量级。
 >
 > 自 $x=1$ 递增直到公式达到需求，返回 $8x$。
 
@@ -103,9 +103,9 @@ $$
 \end{aligned}
 $$
 
-所以，我们只需要枚举 $n$，直到找到第一个满足 $2n(n+1)(2n+1) \geq neededApples$ 的 $n$ 即可。
+所以，我们只需要枚举 $n$，直到找到第一个满足 $2n(n+1)(2n+1) \geq \textit{neededApples}$ 的 $n$ 即可。
 
-时间复杂度 $O(m^{\frac{1}{3}})$，空间复杂度 $O(1)$。其中 $m$ 为 $neededApples$ 的值。
+时间复杂度 $O(m^{\frac{1}{3}})$，空间复杂度 $O(1)$。其中 $m$ 为 $\textit{neededApples}$ 的值。
 
 <!-- tabs:start -->
 

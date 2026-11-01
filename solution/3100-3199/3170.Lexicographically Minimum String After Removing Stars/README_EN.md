@@ -81,15 +81,15 @@ tags:
 >
 > Bucket indices by letter. On a star, scan `a`..`z` and pop the last index of the first nonempty bucket — the rightmost copy of the smallest letter.
 >
-> Mark deletions in $rem$ and join unmarked characters in order. Each star inspects at most $26$ buckets.
+> Mark deletions in $\textit{rem}$ and join unmarked characters in order. Each star inspects at most $26$ buckets.
 
 <!-- thinking:end -->
 
-We define an array $g$ to record the index list of each character, and a boolean array $rem$ of length $n$ to record whether each character needs to be deleted.
+We define an array $g$ to record the index list of each character, and a boolean array $\textit{rem}$ of length $n$ to record whether each character needs to be deleted.
 
 We traverse the string $s$:
 
-If the current character is an asterisk, we need to delete it, so we mark $rem[i]$ as deleted. At the same time, we need to delete the character with the smallest lexicographical order and the largest index at this time. We traverse the 26 lowercase letters in ascending order. If $g[a]$ is not empty, we delete the last index in $g[a]$ and set the corresponding index in $rem$ as deleted.
+If the current character is an asterisk, we need to delete it, so we mark $\textit{rem}[i]$ as deleted. At the same time, we need to delete the character with the smallest lexicographical order and the largest index at this time. We traverse the 26 lowercase letters in ascending order. If $g[a]$ is not empty, we delete the last index in $g[a]$ and set the corresponding index in $\textit{rem}$ as deleted.
 
 If the current character is not an asterisk, we add the index of the current character to $g$.
 

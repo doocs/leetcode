@@ -70,13 +70,13 @@ tags:
 
 <!-- thinking:end -->
 
-The problem requires finding the next larger node for each node in the linked list, that is, finding the first node to the right of each node in the linked list that is larger than it. We first traverse the linked list and store the values in the linked list in an array $nums$. For each element in the array $nums$, we just need to find the first element to its right that is larger than it. The problem of finding the next larger element can be solved using a monotonic stack.
+The problem requires finding the next larger node for each node in the linked list, that is, finding the first node to the right of each node in the linked list that is larger than it. We first traverse the linked list and store the values in the linked list in an array $\textit{nums}$. For each element in the array $\textit{nums}$, we just need to find the first element to its right that is larger than it. The problem of finding the next larger element can be solved using a monotonic stack.
 
-We traverse the array $nums$ from back to front, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. During the traversal, if the top element of the stack is less than or equal to the current element, we loop to pop the top element of the stack until the top element of the stack is larger than the current element or the stack is empty.
+We traverse the array $\textit{nums}$ from back to front, maintaining a stack $\textit{stk}$ that is monotonically decreasing from the bottom to the top. During the traversal, if the top element of the stack is less than or equal to the current element, we loop to pop the top element of the stack until the top element of the stack is larger than the current element or the stack is empty.
 
-If the stack is empty at this time, it means that the current element does not have a next larger element, otherwise, the next larger element of the current element is the top element of the stack, and we update the answer array $ans$. Then we push the current element into the stack and continue the traversal.
+If the stack is empty at this time, it means that the current element does not have a next larger element, otherwise, the next larger element of the current element is the top element of the stack, and we update the answer array $\textit{ans}$. Then we push the current element into the stack and continue the traversal.
 
-After the traversal is over, we return the answer array $ans$.
+After the traversal is over, we return the answer array $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 

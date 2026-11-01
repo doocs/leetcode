@@ -66,9 +66,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个整型变量 $\textit{s}$ 记录数组 $\textit{nums}$ 中所有偶数的和，初始时 $\textit{s}$ 为数组 $\textit{nums}$ 中所有偶数的和。
+我们用一个整型变量 $s$ 记录数组 $\textit{nums}$ 中所有偶数的和，初始时 $s$ 为数组 $\textit{nums}$ 中所有偶数的和。
 
-对于每次查询 $(v, i)$，我们首先判断 $\textit{nums}[i]$ 是否为偶数，若 $\textit{nums}[i]$ 为偶数，则将 $\textit{s}$ 减去 $\textit{nums}[i]$；然后将 $\textit{nums}[i]$ 加上 $v$；若 $\textit{nums}[i]$ 为偶数，则将 $\textit{s}$ 加上 $\textit{nums}[i]$，然后将 $\textit{s}$ 加入答案数组。
+对于每次查询 $(v, i)$，我们首先判断 $\textit{nums}[i]$ 是否为偶数，若 $\textit{nums}[i]$ 为偶数，则将 $s$ 减去 $\textit{nums}[i]$；然后将 $\textit{nums}[i]$ 加上 $v$；若 $\textit{nums}[i]$ 为偶数，则将 $s$ 加上 $\textit{nums}[i]$，然后将 $s$ 加入答案数组。
 
 时间复杂度 $O(n + m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 

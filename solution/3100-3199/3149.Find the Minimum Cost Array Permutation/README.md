@@ -77,11 +77,11 @@ tags:
 
 > **思考**
 >
-> 排列分数是相邻项 $|perm[i]-nums[perm[i+1]]|$ 再加闭合项，且要字典序最小。 $n\le 14$，全排列为 $14!$ 不可行。
+> 排列分数是相邻项 $|\textit{perm}[i]-\textit{nums}[\textit{perm}[i+1]]|$ 再加闭合项，且要字典序最小。 $n\le 14$，全排列为 $14!$ 不可行。
 >
-> 循环移位不改变分数，字典序最小迫使首位为 $0$。其余位置用子集 $mask$ 与上一个值 $pre$ 即可 DP。
+> 循环移位不改变分数，字典序最小迫使首位为 $0$。其余位置用子集 $\textit{mask}$ 与上一个值 $\textit{pre}$ 即可 DP。
 >
-> 记忆化 $dfs(mask,pre)$ 枚举未使用的 $cur$，加上 $|pre-nums[cur]|$。填满后补上回到 $0$ 的边。再用同一最优值回溯构造字典序最小序列。
+> 记忆化 $\textit{dfs}(\textit{mask},\textit{pre})$ 枚举未使用的 $\textit{cur}$，加上 $|\textit{pre}-\textit{nums}[\textit{cur}]|$。填满后补上回到 $0$ 的边。再用同一最优值回溯构造字典序最小序列。
 
 <!-- thinking:end -->
 
@@ -96,7 +96,7 @@ tags:
 - 如果 $\textit{mask}$ 的二进制表示中 $1$ 的个数为 $n$，即 $\textit{mask} = 2^n - 1$，表示所有数字都已经被选取，此时返回 $|\textit{pre} - \textit{nums}[0]|$；
 - 否则，我们枚举下一个选取的数字 $\textit{cur}$，如果数字 $\textit{cur}$ 还未被选取，那么我们可以将数字 $\textit{cur}$ 加入到排列中，此时排列的分数为 $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$，我们需要取所有 $\textit{cur}$ 中分数的最小值。
 
-最后，我们利用一个函数 $\textit{g}(\textit{mask}, \textit{pre})$ 来构造得到最小分数的排列。我们首先将数字 $\textit{pre}$ 加入到排列中，然后枚举下一个选取的数字 $\textit{cur}$，如果数字 $\textit{cur}$ 还未被选取，且满足 $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ 的值等于 $\textit{dfs}(\textit{mask}, \textit{pre})$，那么我们就可以将数字 $\textit{cur}$ 加入到排列中。
+最后，我们利用一个函数 $g(\textit{mask}, \textit{pre})$ 来构造得到最小分数的排列。我们首先将数字 $\textit{pre}$ 加入到排列中，然后枚举下一个选取的数字 $\textit{cur}$，如果数字 $\textit{cur}$ 还未被选取，且满足 $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ 的值等于 $\textit{dfs}(\textit{mask}, \textit{pre})$，那么我们就可以将数字 $\textit{cur}$ 加入到排列中。
 
 时间复杂度 $O(n^2 2^n)$，空间复杂度 $O(n 2^n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 

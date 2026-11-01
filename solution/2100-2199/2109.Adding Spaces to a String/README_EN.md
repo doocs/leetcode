@@ -91,7 +91,7 @@ We are also able to place spaces before the first character of the string.
 
 We can use two pointers $i$ and $j$ to point to the beginning of the string $s$ and the array $\textit{spaces}$, respectively. Then, we iterate through the string $s$ from the beginning to the end. When $i$ equals $\textit{spaces}[j]$, we add a space to the result string, and then increment $j$ by $1$. Next, we add $s[i]$ to the result string, and then increment $i$ by $1$. We continue this process until we have iterated through the entire string $s$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the string $s$ and the array $spaces$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the string $s$ and the array $\textit{spaces}$, respectively.
 
 <!-- tabs:start -->
 

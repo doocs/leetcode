@@ -74,15 +74,15 @@ tags:
 >
 > After sorting, the gap between any two values is at least the sum of adjacent gaps between them, so the global minimum absolute difference occurs only between neighbors.
 >
-> We therefore sort $arr$, scan adjacent differences for the minimum $mi$, then collect every adjacent pair whose difference equals $mi$. Sorting shrinks the candidate set; the two linear passes compute the extremum and gather the answer.
+> We therefore sort $\textit{arr}$, scan adjacent differences for the minimum $mi$, then collect every adjacent pair whose difference equals $mi$. Sorting shrinks the candidate set; the two linear passes compute the extremum and gather the answer.
 
 <!-- thinking:end -->
 
-According to the problem description, we need to find the minimum absolute difference between any two elements in the array $arr$. Therefore, we can first sort the array $arr$, then traverse the adjacent elements to get the minimum absolute difference $mi$.
+According to the problem description, we need to find the minimum absolute difference between any two elements in the array $\textit{arr}$. Therefore, we can first sort the array $\textit{arr}$, then traverse the adjacent elements to get the minimum absolute difference $mi$.
 
 Finally, we traverse the adjacent elements again to find all pairs of elements where the minimum absolute difference equals $mi$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

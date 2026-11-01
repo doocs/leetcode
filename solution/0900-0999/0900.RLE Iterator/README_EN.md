@@ -83,7 +83,7 @@ but the second term did not exist. Since the last term exhausted does not exist,
 
 We define two pointers $i$ and $j$, where pointer $i$ points to the current run-length encoding being read, and pointer $j$ points to which character in the current run-length encoding is being read. Initially, $i = 0$, $j = 0$.
 
-Each time we call `next(n)`, we judge whether the remaining number of characters in the current run-length encoding $encoding[i] - j$ is less than $n$. If it is, we subtract $n$ by $encoding[i] - j$, add $2$ to $i$, and set $j$ to $0$, then continue to judge the next run-length encoding. If it is not, we add $n$ to $j$ and return $encoding[i + 1]$.
+Each time we call `next(n)`, we judge whether the remaining number of characters in the current run-length encoding $\textit{encoding}[i] - j$ is less than $n$. If it is, we subtract $n$ by $\textit{encoding}[i] - j$, add $2$ to $i$, and set $j$ to $0$, then continue to judge the next run-length encoding. If it is not, we add $n$ to $j$ and return $\textit{encoding}[i + 1]$.
 
 If $i$ exceeds the length of the run-length encoding and there is still no return value, it means that there are no remaining elements to be exhausted, and we return $-1$.
 

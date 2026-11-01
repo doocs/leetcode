@@ -67,7 +67,7 @@ tags:
 >
 > A full scan is $O(mn)$. $m,n \le 100$ would pass, but the problem asks for $O(\log(mn))$.
 >
-> Two dimensions hide a single binary search. Each row increases, and the last of row $i$ is less than the first of row $i+1$, so concatenating rows is a sorted array of length $mn$. Logical index $mid$ maps to $matrix[\lfloor mid/n\rfloor][mid \bmod n]$, so we binary-search $[0,mn-1]$ without materializing the flatten.
+> Two dimensions hide a single binary search. Each row increases, and the last of row $i$ is less than the first of row $i+1$, so concatenating rows is a sorted array of length $mn$. Logical index $\textit{mid}$ maps to $\textit{matrix}[\lfloor \textit{mid}/n\rfloor][\textit{mid} \bmod n]$, so we binary-search $[0,mn-1]$ without materializing the flatten.
 
 <!-- thinking:end -->
 
@@ -245,17 +245,17 @@ var searchMatrix = function (matrix, target) {
 
 > **Thinking**
 >
-> Method 1 flattens the matrix and binary-searches, which is $O(\log(mn))$, but it maps $mid$ to coordinates and needs the last of one row to be less than the first of the next. Without that index map, row/column monotonicity lets a corner walk drop a whole row or column per comparison. The code is simpler; the cost is $O(m+n)$ time.
+> Method 1 flattens the matrix and binary-searches, which is $O(\log(mn))$, but it maps $\textit{mid}$ to coordinates and needs the last of one row to be less than the first of the next. Without that index map, row/column monotonicity lets a corner walk drop a whole row or column per comparison. The code is simpler; the cost is $O(m+n)$ time.
 
 <!-- thinking:end -->
 
-Here, we start searching from the bottom left corner and move towards the top right direction. We compare the current element $matrix[i][j]$ with $target$:
+Here, we start searching from the bottom left corner and move towards the top right direction. We compare the current element $\textit{matrix}[i][j]$ with $\textit{target}$:
 
-- If $matrix[i][j] = target$, we have found the target value and return `true`.
-- If $matrix[i][j] > target$, all elements to the right of the current position in this row are greater than target, so we should move the pointer $i$ upwards, i.e., $i = i - 1$.
-- If $matrix[i][j] < target$, all elements above the current position in this column are less than target, so we should move the pointer $j$ to the right, i.e., $j = j + 1$.
+- If $\textit{matrix}[i][j] = \textit{target}$, we have found the target value and return `true`.
+- If $\textit{matrix}[i][j] > \textit{target}$, all elements to the right of the current position in this row are greater than target, so we should move the pointer $i$ upwards, i.e., $i = i - 1$.
+- If $\textit{matrix}[i][j] < \textit{target}$, all elements above the current position in this column are less than target, so we should move the pointer $j$ to the right, i.e., $j = j + 1$.
 
-If we still can't find $target$ after the search, return `false`.
+If we still can't find $\textit{target}$ after the search, return `false`.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

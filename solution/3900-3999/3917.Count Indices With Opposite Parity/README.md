@@ -90,11 +90,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先统计数组 $\textit{nums}$ 中偶数和奇数的数量，分别记为 $cnt[0]$ 和 $cnt[1]$。
+我们首先统计数组 $\textit{nums}$ 中偶数和奇数的数量，分别记为 $\textit{cnt}[0]$ 和 $\textit{cnt}[1]$。
 
-然后，我们从左到右遍历数组 $\textit{nums}$，对于下标 $i$，我们先将 $cnt[\textit{nums}[i] \bmod 2]$ 减 1，然后将 $cnt[\textit{nums}[i] \bmod 2 \oplus 1]$ 的值赋给 $ans[i]$。
+然后，我们从左到右遍历数组 $\textit{nums}$，对于下标 $i$，我们先将 $\textit{cnt}[\textit{nums}[i] \bmod 2]$ 减 1，然后将 $\textit{cnt}[\textit{nums}[i] \bmod 2 \oplus 1]$ 的值赋给 $\textit{ans}[i]$。
 
-遍历结束后，返回答案数组 $ans$ 即可。
+遍历结束后，返回答案数组 $\textit{ans}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 

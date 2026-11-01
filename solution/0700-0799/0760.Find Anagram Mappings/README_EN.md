@@ -60,13 +60,13 @@ tags:
 
 > **Thinking**
 >
-> The arrays are anagrams; we need one index in $nums2$ for each value of $nums1$. $n\le 100$, but a map is linear.
+> The arrays are anagrams; we need one index in $\textit{nums2}$ for each value of $\textit{nums1}$. $n\le 100$, but a map is linear.
 >
-> Record $nums2$ indices (later duplicates overwrite), then look up each $nums1[i]$. Any valid mapping is accepted.
+> Record $\textit{nums2}$ indices (later duplicates overwrite), then look up each $\textit{nums1}[i]$. Any valid mapping is accepted.
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{d}$ to store each element of the array $\textit{nums2}$ and its corresponding index. Then we iterate through the array $\textit{nums1}$, and for each element $\textit{nums1}[i]$, we retrieve its corresponding index from the hash table $\textit{d}$ and store it in the result array.
+We use a hash table $d$ to store each element of the array $\textit{nums2}$ and its corresponding index. Then we iterate through the array $\textit{nums1}$, and for each element $\textit{nums1}[i]$, we retrieve its corresponding index from the hash table $d$ and store it in the result array.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

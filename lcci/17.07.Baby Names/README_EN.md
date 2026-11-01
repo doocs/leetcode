@@ -45,11 +45,11 @@ difficulty: Medium
 >
 > Build an undirected graph and a frequency map, then search each unseen component.
 >
-> $dfs$ returns the smallest name and the summed frequency. After parsing `Name(freq)` and `(a,b)`, run it once per unseen name in $s$.
+> $\textit{dfs}$ returns the smallest name and the summed frequency. After parsing `Name(freq)` and `(a,b)`, run it once per unseen name in $s$.
 
 <!-- thinking:end -->
 
-For each pair of synonyms, we establish bidirectional edges between the two names and store them in the adjacency list $g$. Then, we traverse all names, store them in the set $s$, and store their frequencies in the hash table $cnt$.
+For each pair of synonyms, we establish bidirectional edges between the two names and store them in the adjacency list $g$. Then, we traverse all names, store them in the set $s$, and store their frequencies in the hash table $\textit{cnt}$.
 
 Next, we traverse each name in the set $s$. If the name has not been visited, we perform a depth-first search to find all names in the connected component where the name is located. We use the name with the smallest lexicographic order as the real name, and the sum of their frequencies is the frequency of the real name. Then, we store this name and its frequency in the answer array.
 

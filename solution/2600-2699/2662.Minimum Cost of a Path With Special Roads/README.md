@@ -114,13 +114,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以发现，对于访问到的每个坐标点 $(x, y)$，假设从起点到 $(x, y)$ 的最小代价为 $d$。如果选择直接移动到 $(targetX, targetY)$，那么总代价就是 $d + |x - targetX| + |y - targetY|$。如果选择经过某条特殊路径 $(x_1, y_1) \rightarrow (x_2, y_2)$，那么我们需要可以花费 $|x - x_1| + |y - y_1| + cost$ 的代价，从 $(x, y)$ 移动到 $(x_2, y_2)$。
+我们可以发现，对于访问到的每个坐标点 $(x, y)$，假设从起点到 $(x, y)$ 的最小代价为 $d$。如果选择直接移动到 $(\textit{targetX}, \textit{targetY})$，那么总代价就是 $d + |x - \textit{targetX}| + |y - \textit{targetY}|$。如果选择经过某条特殊路径 $(x_1, y_1) \rightarrow (x_2, y_2)$，那么我们需要可以花费 $|x - x_1| + |y - y_1| + \textit{cost}$ 的代价，从 $(x, y)$ 移动到 $(x_2, y_2)$。
 
 因此，我们可以使用 Dijkstra 算法求出从起点到所有点的最小代价，然后从中选择最小的那个。
 
-我们定义一个优先队列 $q$，队列中的每一个元素是一个三元组 $(d, x, y)$，表示从起点到 $(x, y)$ 的最小代价为 $d$。初始时，我们将 $(0, startX, startY)$ 加入队列中。
+我们定义一个优先队列 $q$，队列中的每一个元素是一个三元组 $(d, x, y)$，表示从起点到 $(x, y)$ 的最小代价为 $d$。初始时，我们将 $(0, \textit{startX}, \textit{startY})$ 加入队列中。
 
-在每一步中，我们取出队首元素 $(d, x, y)$，此时我们可以更新答案，即 $ans = \min(ans, d + dist(x, y, targetX, targetY))$。然后我们枚举所有的特殊路径 $(x_1, y_1) \rightarrow (x_2, y_2)$，将 $(d + dist(x, y, x_1, y_1) + cost, x_2, y_2)$ 加入队列中。
+在每一步中，我们取出队首元素 $(d, x, y)$，此时我们可以更新答案，即 $\textit{ans} = \min(\textit{ans}, d + \textit{dist}(x, y, \textit{targetX}, \textit{targetY}))$。然后我们枚举所有的特殊路径 $(x_1, y_1) \rightarrow (x_2, y_2)$，将 $(d + \textit{dist}(x, y, x_1, y_1) + \textit{cost}, x_2, y_2)$ 加入队列中。
 
 最后当队列为空时，我们就可以得到答案。
 

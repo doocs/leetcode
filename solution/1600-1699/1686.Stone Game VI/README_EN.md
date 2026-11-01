@@ -100,9 +100,9 @@ Bob wins.
 
 <!-- thinking:end -->
 
-The optimal strategy for picking stones is to maximize one's own score while making the opponent lose as much as possible. Therefore, we create an array $vals$, where $vals[i] = (aliceValues[i] + bobValues[i], i)$ represents the total value and index of the $i$-th stone. Then we sort $vals$ in descending order by total value.
+The optimal strategy for picking stones is to maximize one's own score while making the opponent lose as much as possible. Therefore, we create an array $\textit{vals}$, where $\textit{vals}[i] = (\textit{aliceValues}[i] + \textit{bobValues}[i], i)$ represents the total value and index of the $i$-th stone. Then we sort $\textit{vals}$ in descending order by total value.
 
-Next, we let Alice and Bob pick stones alternately according to the order of $vals$. Alice picks the stones at even positions in $vals$, and Bob picks the stones at odd positions in $vals$. Finally, we compare the scores of Alice and Bob and return the corresponding result.
+Next, we let Alice and Bob pick stones alternately according to the order of $\textit{vals}$. Alice picks the stones at even positions in $\textit{vals}$, and Bob picks the stones at odd positions in $\textit{vals}$. Finally, we compare the scores of Alice and Bob and return the corresponding result.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays `aliceValues` and `bobValues`.
 

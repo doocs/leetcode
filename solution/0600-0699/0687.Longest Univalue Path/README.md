@@ -70,17 +70,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $\textit{dfs}(root)$，表示以 $\textit{root}$ 节点作为路径的其中一个端点，向下延伸的最长同值路径长度。
+我们设计一个函数 $\textit{dfs}(\textit{root})$，表示以 $\textit{root}$ 节点作为路径的其中一个端点，向下延伸的最长同值路径长度。
 
-在 $\textit{dfs}(root)$ 中，我们首先递归调用 $\textit{dfs}(root.\textit{left})$ 和 $\textit{dfs}(root.\textit{right})$，得到两个返回值 $\textit{l}$ 和 $\textit{r}$。这两个返回值分别代表了以 $\textit{root}$ 节点的左孩子和右孩子为路径的其中一个端点，向下延伸的最长同值路径长度。
+在 $\textit{dfs}(\textit{root})$ 中，我们首先递归调用 $\textit{dfs}(\textit{root}.\textit{left})$ 和 $\textit{dfs}(\textit{root}.\textit{right})$，得到两个返回值 $l$ 和 $r$。这两个返回值分别代表了以 $\textit{root}$ 节点的左孩子和右孩子为路径的其中一个端点，向下延伸的最长同值路径长度。
 
-如果 $\textit{root}$ 存在左孩子且 $\textit{root}.\textit{val} = \textit{root}.\textit{left}.\textit{val}$，那么在 $\textit{root}$ 的左孩子为路径的其中一个端点，向下延伸的最长同值路径长度应为 $\textit{l} + 1$；否则，这个长度为 $0$。如果 $\textit{root}$ 存在右孩子且 $\textit{root}.\textit{val} = \textit{root}.\textit{right}.\textit{val}$，那么在 $\textit{root}$ 的右孩子为路径的其中一个端点，向下延伸的最长同值路径长度应为 $\textit{r} + 1$；否则，这个长度为 $0$。
+如果 $\textit{root}$ 存在左孩子且 $\textit{root}.\textit{val} = \textit{root}.\textit{left}.\textit{val}$，那么在 $\textit{root}$ 的左孩子为路径的其中一个端点，向下延伸的最长同值路径长度应为 $l + 1$；否则，这个长度为 $0$。如果 $\textit{root}$ 存在右孩子且 $\textit{root}.\textit{val} = \textit{root}.\textit{right}.\textit{val}$，那么在 $\textit{root}$ 的右孩子为路径的其中一个端点，向下延伸的最长同值路径长度应为 $r + 1$；否则，这个长度为 $0$。
 
-在递归调用完左右孩子之后，我们更新答案为 $\max(\textit{ans}, \textit{l} + \textit{r})$，即以 $\textit{root}$ 为端点的路径经过 $\textit{root}$ 的最长同值路径长度。
+在递归调用完左右孩子之后，我们更新答案为 $\max(\textit{ans}, l + r)$，即以 $\textit{root}$ 为端点的路径经过 $\textit{root}$ 的最长同值路径长度。
 
-最后， $\textit{dfs}(root)$ 函数返回以 $\textit{root}$ 为端点的向下延伸的最长同值路径长度，即 $\max(\textit{l}, \textit{r})$。
+最后， $\textit{dfs}(\textit{root})$ 函数返回以 $\textit{root}$ 为端点的向下延伸的最长同值路径长度，即 $\max(l, r)$。
 
-在主函数中，我们调用 $\textit{dfs}(root)$，即可得到答案。
+在主函数中，我们调用 $\textit{dfs}(\textit{root})$，即可得到答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 

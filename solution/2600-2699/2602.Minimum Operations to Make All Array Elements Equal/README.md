@@ -81,25 +81,25 @@ tags:
 
 > **思考**
 >
-> 每次查询要把全体元素改成同一个目标 $x$，一次操作增减 $1$。若对每个查询线性扫一遍 $nums$， $n,q \le 10^5$，总时间 $O(nq)$ 不可接受。
+> 每次查询要把全体元素改成同一个目标 $x$，一次操作增减 $1$。若对每个查询线性扫一遍 $\textit{nums}$， $n,q \le 10^5$，总时间 $O(nq)$ 不可接受。
 >
-> 元素之间互不影响，操作次数等于 $\sum |nums_i-x|$。排序后， $x$ 将数组分成小于 $x$ 与大于 $x$ 两段，两段的绝对偏差均可由前缀和在 $O(1)$ 内算出。
+> 元素之间互不影响，操作次数等于 $\sum |\textit{nums}_i-x|$。排序后， $x$ 将数组分成小于 $x$ 与大于 $x$ 两段，两段的绝对偏差均可由前缀和在 $O(1)$ 内算出。
 >
 > 因此先排序并做前缀和，再对每个 $x$ 二分出分界下标，分别累计抬升与压低的代价。
 
 <!-- thinking:end -->
 
-我们先将数组 $nums$ 进行排序，并计算出长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 中前 $i$ 个元素的和。
+我们先将数组 $\textit{nums}$ 进行排序，并计算出长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $\textit{nums}$ 中前 $i$ 个元素的和。
 
-接下来，遍历每个查询 $queries[i]$，我们需要将所有大于 $queries[i]$ 的元素减小到 $queries[i]$，将所有小于 $queries[i]$ 的元素增大到 $queries[i]$。
+接下来，遍历每个查询 $\textit{queries}[i]$，我们需要将所有大于 $\textit{queries}[i]$ 的元素减小到 $\textit{queries}[i]$，将所有小于 $\textit{queries}[i]$ 的元素增大到 $\textit{queries}[i]$。
 
-我们可以通过二分查找找到数组 $nums$ 中第一个大于 $queries[i]$ 的元素的下标 $i$，则有 $n-i$ 个元素需要减小到 $queries[i]$，这些元素的和为 $s[n]-s[i]$，这些元素的和需要减去 $n-i$ 个 $queries[i]$，因此，这些元素减小到 $queries[i]$ 的总操作次数为 $s[n]-s[i]-(n-i)\times queries[i]$。
+我们可以通过二分查找找到数组 $\textit{nums}$ 中第一个大于 $\textit{queries}[i]$ 的元素的下标 $i$，则有 $n-i$ 个元素需要减小到 $\textit{queries}[i]$，这些元素的和为 $s[n]-s[i]$，这些元素的和需要减去 $n-i$ 个 $\textit{queries}[i]$，因此，这些元素减小到 $\textit{queries}[i]$ 的总操作次数为 $s[n]-s[i]-(n-i)\times \textit{queries}[i]$。
 
-同理，我们可以找到数组 $nums$ 中第一个大于等于 $queries[i]$ 的元素的下标 $i$，则有 $i$ 个元素需要增大到 $queries[i]$，这些元素的和为 $s[i]$，因此，这些元素增大到 $queries[i]$ 的总操作次数为 $queries[i]\times i-s[i]$。
+同理，我们可以找到数组 $\textit{nums}$ 中第一个大于等于 $\textit{queries}[i]$ 的元素的下标 $i$，则有 $i$ 个元素需要增大到 $\textit{queries}[i]$，这些元素的和为 $s[i]$，因此，这些元素增大到 $\textit{queries}[i]$ 的总操作次数为 $\textit{queries}[i]\times i-s[i]$。
 
-最后，将这两个总操作次数相加，即为将数组 $nums$ 中所有元素变成 $queries[i]$ 的最少操作次数，即 $ans[i]=s[n]-s[i]-(n-i)\times queries[i]+queries[i]\times i-s[i]$。
+最后，将这两个总操作次数相加，即为将数组 $\textit{nums}$ 中所有元素变成 $\textit{queries}[i]$ 的最少操作次数，即 $\textit{ans}[i]=s[n]-s[i]-(n-i)\times \textit{queries}[i]+\textit{queries}[i]\times i-s[i]$。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

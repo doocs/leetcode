@@ -77,13 +77,13 @@ tags:
 >
 > 因此可以对距离二分，判定「有多少对数对距离 $\le d$」。数组排序后，对每个右端点 $b$，左端最小合法值是 $b-d$，用二分找到下界即可在 $O(n \log n)$ 内数完。
 >
-> 在 $[0, nums[-1]-nums[0]]$ 上二分最小的 $d$ 使得计数 $\ge k$，即为第 $k$ 小距离。
+> 在 $[0, \textit{nums}[-1]-\textit{nums}[0]]$ 上二分最小的 $d$ 使得计数 $\ge k$，即为第 $k$ 小距离。
 
 <!-- thinking:end -->
 
-先对 $nums$ 数组进行排序，然后在 $[0, nums[n-1]-nums[0]]$ 范围内二分枚举数对距离 $dist$，若 $nums$ 中数对距离小于等于 $dist$ 的数量 $cnt$ 大于等于 $k$，则尝试缩小 $dist$，否则尝试扩大 $dist$。
+先对 $\textit{nums}$ 数组进行排序，然后在 $[0, \textit{nums}[n-1]-\textit{nums}[0]]$ 范围内二分枚举数对距离 $\textit{dist}$，若 $\textit{nums}$ 中数对距离小于等于 $\textit{dist}$ 的数量 $\textit{cnt}$ 大于等于 $k$，则尝试缩小 $\textit{dist}$，否则尝试扩大 $\textit{dist}$。
 
-时间复杂度 $O(n \log n \log m)$。其中 $n$ 表示 $nums$ 的长度， $m$ 表示 $nums$ 中两个数的最大差值。
+时间复杂度 $O(n \log n \log m)$。其中 $n$ 表示 $\textit{nums}$ 的长度， $m$ 表示 $\textit{nums}$ 中两个数的最大差值。
 
 <!-- tabs:start -->
 

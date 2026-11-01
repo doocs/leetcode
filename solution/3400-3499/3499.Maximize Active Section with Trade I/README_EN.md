@@ -121,17 +121,17 @@ tags:
 >
 > Non-adjacent $0$-runs cannot be merged by a single trade, so only neighboring $0$-pairs matter.
 >
-> Two pointers cut runs: $1$-runs add to the base answer; neighboring $0$-runs update $\textit{mx}$ by $\textit{pre}+\textit{cur}$. The answer is the number of $1$s plus $\textit{mx}$.
+> Two pointers cut runs: $1$-runs add to the base answer; neighboring $0$-runs update $mx$ by $\textit{pre}+\textit{cur}$. The answer is the number of $1$s plus $mx$.
 
 <!-- thinking:end -->
 
-The problem is essentially equivalent to finding the number of `'1'` characters in the string $\textit{s}$, plus the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments.
+The problem is essentially equivalent to finding the number of `'1'` characters in the string $s$, plus the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments.
 
-Thus, we can use two pointers to traverse the string $\textit{s}$. Use a variable $\textit{mx}$ to record the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments. We also need a variable $\textit{pre}$ to record the number of `'0'` characters in the previous consecutive `'0'` segment.
+Thus, we can use two pointers to traverse the string $s$. Use a variable $mx$ to record the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments. We also need a variable $\textit{pre}$ to record the number of `'0'` characters in the previous consecutive `'0'` segment.
 
-Each time, we count the number of consecutive identical characters $\textit{cnt}$. If the current character is `'1'`, add $\textit{cnt}$ to the answer. If the current character is `'0'`, update $\textit{mx}$ as $\textit{mx} = \max(\textit{mx}, \textit{pre} + \textit{cnt})$, and update $\textit{pre}$ to $\textit{cnt}$. Finally, add $\textit{mx}$ to the answer.
+Each time, we count the number of consecutive identical characters $\textit{cnt}$. If the current character is `'1'`, add $\textit{cnt}$ to the answer. If the current character is `'0'`, update $mx$ as $mx = \max(mx, \textit{pre} + \textit{cnt})$, and update $\textit{pre}$ to $\textit{cnt}$. Finally, add $mx$ to the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

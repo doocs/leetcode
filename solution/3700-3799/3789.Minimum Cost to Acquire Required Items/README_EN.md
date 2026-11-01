@@ -91,7 +91,7 @@ Any other valid combination would cost more, so the minimum total cost is 22.</p
 
 > **Thinking**
 >
-> Each demand can be filled by a single-type item or by a bundle, and the needs are too large to simulate unit by unit. Only three policies matter: buy only singles, buy only bundles, or buy $\min(need1,need2)$ bundles and finish with singles. We take the cheapest of the three.
+> Each demand can be filled by a single-type item or by a bundle, and the needs are too large to simulate unit by unit. Only three policies matter: buy only singles, buy only bundles, or buy $\min(\textit{need1},\textit{need2})$ bundles and finish with singles. We take the cheapest of the three.
 
 <!-- thinking:end -->
 
@@ -99,7 +99,7 @@ We can divide the purchasing strategy into three cases:
 
 1. Only buy Type 1 and Type 2 items. The total cost is $a = \textit{need1} \times \textit{cost1} + \textit{need2} \times \textit{cost2}$.
 2. Only buy Type 3 items. The total cost is $b = \textit{costBoth} \times \max(\textit{need1}, \textit{need2})$.
-3. Buy some Type 3 items, and purchase Type 1 and Type 2 items separately for the remaining needs. Let $\textit{mn} = \min(\textit{need1}, \textit{need2})$, then the total cost is $c = \textit{costBoth} \times \textit{mn} + (\textit{need1} - \textit{mn}) \times \textit{cost1} + (\textit{need2} - \textit{mn}) \times \textit{cost2}$.
+3. Buy some Type 3 items, and purchase Type 1 and Type 2 items separately for the remaining needs. Let $mn = \min(\textit{need1}, \textit{need2})$, then the total cost is $c = \textit{costBoth} \times mn + (\textit{need1} - mn) \times \textit{cost1} + (\textit{need2} - mn) \times \textit{cost2}$.
 
 Finally, we return the minimum value among the three cases, $\min(a, b, c)$.
 

@@ -77,13 +77,13 @@ Next, we discuss the following cases:
 3. Reverse the subarray, and the subarray "includes" the last element.
 4. Reverse the subarray, and the subarray "does not include" the first and last elements.
 
-Let $s$ be the array value when the subarray is not reversed, then $s = \sum_{i=0}^{n-2} |a_i - a_{i+1}|$. We can initialize the answer $ans$ to $s$.
+Let $s$ be the array value when the subarray is not reversed, then $s = \sum_{i=0}^{n-2} |a_i - a_{i+1}|$. We can initialize the answer $\textit{ans}$ to $s$.
 
-If we reverse the subarray and the subarray includes the first element, we can enumerate the last element $a_i$ of the reversed subarray, where $0 \leq i < n-1$. In this case, $ans = \max(ans, s + |a_0 - a_{i+1}| - |a_i - a_{i+1}|)$.
+If we reverse the subarray and the subarray includes the first element, we can enumerate the last element $a_i$ of the reversed subarray, where $0 \leq i < n-1$. In this case, $\textit{ans} = \max(\textit{ans}, s + |a_0 - a_{i+1}| - |a_i - a_{i+1}|)$.
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/1-drawio.png" /></p>
 
-Similarly, if we reverse the subarray and the subarray includes the last element, we can enumerate the first element $a_{i+1}$ of the reversed subarray, where $0 \leq i < n-1$. In this case, $ans = \max(ans, s + |a_{n-1} - a_i| - |a_i - a_{i+1}|)$.
+Similarly, if we reverse the subarray and the subarray includes the last element, we can enumerate the first element $a_{i+1}$ of the reversed subarray, where $0 \leq i < n-1$. In this case, $\textit{ans} = \max(\textit{ans}, s + |a_{n-1} - a_i| - |a_i - a_{i+1}|)$.
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/2-drawio.png" /></p>
 
@@ -103,11 +103,11 @@ $$
 \left | x_1 - x_2 \right |  + \left | y_1 - y_2 \right | - \left | x_1 - y_1 \right | - \left | x_2 - y_2 \right |  = \max \begin{cases} (x_1 + y_1) - \left |x_1 - y_1 \right | - \left ( (x_2 + y_2) + \left |x_2 - y_2 \right | \right ) \\ (x_1 - y_1) - \left |x_1 - y_1 \right | - \left ( (x_2 - y_2) + \left |x_2 - y_2 \right | \right ) \\ (-x_1 + y_1) - \left |x_1 - y_1 \right | - \left ( (-x_2 + y_2) + \left |x_2 - y_2 \right | \right ) \\ (-x_1 - y_1) - \left |x_1 - y_1 \right | - \left ( (-x_2 - y_2) + \left |x_2 - y_2 \right | \right ) \end{cases}
 $$
 
-Therefore, we only need to find the maximum value $mx$ of $k_1 \times x + k_2 \times y$, where $k_1, k_2 \in \{-1, 1\}$, and the corresponding minimum value $mi$ of $|x - y|$. Then the maximum change in the array value is $mx - mi$. The answer is $ans = \max(ans, s + \max(0, mx - mi))$.
+Therefore, we only need to find the maximum value $mx$ of $k_1 \times x + k_2 \times y$, where $k_1, k_2 \in \{-1, 1\}$, and the corresponding minimum value $mi$ of $|x - y|$. Then the maximum change in the array value is $mx - mi$. The answer is $\textit{ans} = \max(\textit{ans}, s + \max(0, mx - mi))$.
 
-In the code implementation, we define an array of length 5, $dirs=[1, -1, -1, 1, 1]$. Each time we take two adjacent elements of the array as the values of $k_1$ and $k_2$, which can cover all cases of $k_1, k_2 \in \{-1, 1\}$.
+In the code implementation, we define an array of length 5, $\textit{dirs}=[1, -1, -1, 1, 1]$. Each time we take two adjacent elements of the array as the values of $k_1$ and $k_2$, which can cover all cases of $k_1, k_2 \in \{-1, 1\}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

@@ -119,7 +119,7 @@ tags:
 
 每次取出距离最小的 $(d, u, \textit{cur})$。若 $u = n - 1$，非负边权下这就是到达终点的最优解，返回 $d$。若 $d > \textit{dist}[u][\textit{cur}]$，该状态已经过期，跳过。
 
-否则枚举 $u$ 的出边 $(v, w)$。下一连续长度为：标签不同时 $\textit{nxt} = 1$，相同时 $\textit{nxt} = \textit{cur} + 1$。新距离 $\textit{nd} = d + w$。仅当 $\textit{nxt} \le k$ 且 $\textit{nd} < \textit{dist}[v][\textit{nxt}]$ 时更新 $\textit{dist}$ 并入堆。
+否则枚举 $u$ 的出边 $(v, w)$。下一连续长度为：标签不同时 $\textit{nxt} = 1$，相同时 $\textit{nxt} = \textit{cur} + 1$。新距离 $nd = d + w$。仅当 $\textit{nxt} \le k$ 且 $nd < \textit{dist}[v][\textit{nxt}]$ 时更新 $\textit{dist}$ 并入堆。
 
 堆空仍未到达终点则返回 $-1$。
 

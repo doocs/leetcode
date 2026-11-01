@@ -98,7 +98,7 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 > **思考**
 >
-> 质量是 $rating/position$ 的均值，劣质占比是 $rating < 3$ 的比例。二者都是按查询名聚合的标量，直接 $GROUP\ BY\ query\_name$，用 $AVG$ 分别计算比值与布尔均值，再 $ROUND$ 到两位。空查询名按题意排除。
+> 质量是 $\textit{rating}/\textit{position}$ 的均值，劣质占比是 $\textit{rating} < 3$ 的比例。二者都是按查询名聚合的标量，直接 $\textit{GROUP BY}\ \textit{query\_name}$，用 $\textit{AVG}$ 分别计算比值与布尔均值，再 $\textit{ROUND}$ 到两位。空查询名按题意排除。
 
 <!-- thinking:end -->
 
@@ -131,7 +131,7 @@ GROUP BY 1;
 
 > **思考**
 >
-> 部分环境下布尔参与 $AVG$ 的语义不直观。方法二用 $CAST$ 保证除法为小数，并用 $CASE$ 对劣质行计数再除以总行数，结果与方法一相同，表达更易移植。
+> 部分环境下布尔参与 $\textit{AVG}$ 的语义不直观。方法二用 $\textit{CAST}$ 保证除法为小数，并用 $\textit{CASE}$ 对劣质行计数再除以总行数，结果与方法一相同，表达更易移植。
 
 <!-- thinking:end -->
 

@@ -184,13 +184,13 @@ bool checkIfPangram(char* sentence) {
 
 > **Thinking**
 >
-> Solution 1 stores a hash set. With only $26$ letters, bit $i$ of an integer $mask$ can mark letter $i$. The sentence is a pangram iff $mask=2^{26}-1$, using constant extra space.
+> Solution 1 stores a hash set. With only $26$ letters, bit $i$ of an integer $\textit{mask}$ can mark letter $i$. The sentence is a pangram iff $\textit{mask}=2^{26}-1$, using constant extra space.
 
 <!-- thinking:end -->
 
-We can also use an integer $mask$ to record the letters that have appeared, where the $i$-th bit of $mask$ indicates whether the $i$-th letter has appeared.
+We can also use an integer $\textit{mask}$ to record the letters that have appeared, where the $i$-th bit of $\textit{mask}$ indicates whether the $i$-th letter has appeared.
 
-Finally, check whether there are $26$ $1$s in the binary representation of $mask$, that is, check whether $mask$ is equal to $2^{26} - 1$. If so, return `true`, otherwise return `false`.
+Finally, check whether there are $26$ $1$s in the binary representation of $\textit{mask}$, that is, check whether $\textit{mask}$ is equal to $2^{26} - 1$. If so, return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `sentence`.
 

@@ -91,7 +91,7 @@ tags:
 
 A node is dominant if its value equals the maximum value in the subtree rooted at it. Therefore, for each node, we only need the maximum values of its left and right subtrees, then compare them with the node itself.
 
-Perform a bottom-up DFS: return $-\infty$ for a null node (implemented with the language's minimum integer value), and for the current node compute $\textit{mx} = \max(\textit{leftMax}, \textit{rightMax}, \textit{node.val})$. If $\textit{mx} = \textit{node.val}$, the node is dominant and the answer is incremented by one. Finally return $\textit{mx}$ for the parent node.
+Perform a bottom-up DFS: return $-\infty$ for a null node (implemented with the language's minimum integer value), and for the current node compute $mx = \max(\textit{leftMax}, \textit{rightMax}, \textit{node}.\textit{val})$. If $mx = \textit{node}.\textit{val}$, the node is dominant and the answer is incremented by one. Finally return $mx$ for the parent node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

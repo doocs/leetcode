@@ -67,9 +67,9 @@ tags:
 
 > **思考**
 >
-> 用 $list2$ 替换 $list1$ 下标 $[a,b]$ 那一段。找到 $a$ 的前驱与 $b$ 结点，把前驱接到 $list2$ 头，再把 $list2$ 尾接到 $b$ 的后继。
+> 用 $\textit{list2}$ 替换 $\textit{list1}$ 下标 $[a,b]$ 那一段。找到 $a$ 的前驱与 $b$ 结点，把前驱接到 $\textit{list2}$ 头，再把 $\textit{list2}$ 尾接到 $b$ 的后继。
 >
-> 两指针各走相应步数，再扫到 $list2$ 末尾完成链接，最后断开 $b$ 的 $\textit{next}$。
+> 两指针各走相应步数，再扫到 $\textit{list2}$ 末尾完成链接，最后断开 $b$ 的 $\textit{next}$。
 
 <!-- thinking:end -->
 

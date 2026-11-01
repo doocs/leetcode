@@ -83,7 +83,7 @@ The total score is 50 + 15 - 9 + 4 + 42 = 102.
 
 > **Thinking**
 >
-> Each step multiplies one end of $nums$ by $\textit{multipliers}[k]$. After $m$ moves only the two ends change, so a state is how many were taken from the left and from the right.
+> Each step multiplies one end of $\textit{nums}$ by $\textit{multipliers}[k]$. After $m$ moves only the two ends change, so a state is how many were taken from the left and from the right.
 >
 > Memoize $f(i,j,k)$ with left index $i$, right index $j$, and multiplier $k$. Recur on taking left or right; stop at $k=m$. There are $O(m^2)$ states.
 

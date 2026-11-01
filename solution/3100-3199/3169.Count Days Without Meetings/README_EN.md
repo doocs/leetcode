@@ -83,11 +83,11 @@ tags:
 
 > **Thinking**
 >
-> Count days in $[1,days]$ that no meeting covers. Marking each day fails when $days$ is huge and meetings overlap.
+> Count days in $[1,\textit{days}]$ that no meeting covers. Marking each day fails when $\textit{days}$ is huge and meetings overlap.
 >
-> Sort by start and merge, so gaps between the running right end $last$ and the next start are free.
+> Sort by start and merge, so gaps between the running right end $\textit{last}$ and the next start are free.
 >
-> When $last<st$ add $st-last-1$, then $last=\max(last,ed)$. After the last meeting add $days-last$.
+> When $\textit{last}<st$ add $st-\textit{last}-1$, then $\textit{last}=\max(\textit{last},ed)$. After the last meeting add $\textit{days}-\textit{last}$.
 
 <!-- thinking:end -->
 

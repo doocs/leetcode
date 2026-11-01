@@ -112,33 +112,33 @@ All of the coins combined produce: 2, 4, 5, 6, 8, 10, <u><strong>12</strong></u>
 >
 > The number of valid amounts at most $x$ is monotone in $x$, so binary search the smallest $x$ whose count is at least $k$. The count is inclusion-exclusion over least common multiples of coin subsets.
 >
-> There are at most $15$ coins, so every subset can be enumerated and $\lfloor x/\mathrm{lcm}\rfloor$ accumulated with the proper sign. Searching up to about $10^{11}$ yields the $k$-th amount.
+> There are at most $15$ coins, so every subset can be enumerated and $\lfloor x/\textit{lcm}\rfloor$ accumulated with the proper sign. Searching up to about $10^{11}$ yields the $k$-th amount.
 
 <!-- thinking:end -->
 
 We can transform the problem into: find the smallest positive integer $x$ such that the number of numbers less than or equal to $x$ and satisfying the condition is exactly $k$. If $x$ satisfies the condition, then for any $x' > x$, $x'$ also satisfies the condition. This shows monotonicity, so we can use binary search to find the smallest $x$ that satisfies the condition.
 
-We define a function `check(x)` to determine whether the number of numbers less than or equal to $x$ and satisfying the condition is greater than or equal to $k$. We need to calculate how many numbers can be obtained from the array $coins$.
+We define a function `check(x)` to determine whether the number of numbers less than or equal to $x$ and satisfying the condition is greater than or equal to $k$. We need to calculate how many numbers can be obtained from the array $\textit{coins}$.
 
-Suppose $coins = [a, b]$, according to the inclusion-exclusion principle, the number of numbers less than or equal to $x$ and satisfying the condition is:
-
-$$
-\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor - \left\lfloor \frac{x}{lcm(a, b)} \right\rfloor
-$$
-
-If $coins = [a, b, c]$, the number of numbers less than or equal to $x$ and satisfying the condition is:
+Suppose $\textit{coins} = [a, b]$, according to the inclusion-exclusion principle, the number of numbers less than or equal to $x$ and satisfying the condition is:
 
 $$
-\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor + \left\lfloor \frac{x}{c} \right\rfloor - \left\lfloor \frac{x}{lcm(a, b)} \right\rfloor - \left\lfloor \frac{x}{lcm(a, c)} \right\rfloor - \left\lfloor \frac{x}{lcm(b, c)} \right\rfloor + \left\lfloor \frac{x}{lcm(a, b, c)} \right\rfloor
+\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(a, b)} \right\rfloor
+$$
+
+If $\textit{coins} = [a, b, c]$, the number of numbers less than or equal to $x$ and satisfying the condition is:
+
+$$
+\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor + \left\lfloor \frac{x}{c} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(a, b)} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(a, c)} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(b, c)} \right\rfloor + \left\lfloor \frac{x}{\textit{lcm}(a, b, c)} \right\rfloor
 $$
 
 As you can see, we need to add all cases with an odd number of elements and subtract all cases with an even number of elements.
 
-Since $n \leq 15$, we can use binary enumeration to enumerate all subsets and calculate the number of numbers that satisfy the condition, denoted as $cnt$. If $cnt \geq k$, then we need to find the smallest $x$ such that `check(x)` is true.
+Since $n \leq 15$, we can use binary enumeration to enumerate all subsets and calculate the number of numbers that satisfy the condition, denoted as $\textit{cnt}$. If $\textit{cnt} \geq k$, then we need to find the smallest $x$ such that `check(x)` is true.
 
-At the start of the binary search, we define the left boundary $l=1$ and the right boundary $r={10}^{11}$. Then we continuously substitute the middle value $mid$ into the `check` function. If `check(mid)` is true, then we update the right boundary $r$ to $mid$, otherwise we update the left boundary $l$ to $mid+1$. Finally, we return $l$.
+At the start of the binary search, we define the left boundary $l=1$ and the right boundary $r={10}^{11}$. Then we continuously substitute the middle value $\textit{mid}$ into the `check` function. If `check(mid)` is true, then we update the right boundary $r$ to $\textit{mid}$, otherwise we update the left boundary $l$ to $\textit{mid}+1$. Finally, we return $l$.
 
-The time complexity is $O(n 2^n \log (kM))$, where $n$ is the length of the array $coins$, and $M$ is the maximum value in the array.
+The time complexity is $O(n 2^n \log (k \times M))$, where $n$ is the length of the array $\textit{coins}$, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

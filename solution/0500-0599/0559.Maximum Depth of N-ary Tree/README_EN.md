@@ -68,7 +68,7 @@ tags:
 
 <!-- thinking:end -->
 
-First, we check if $\textit{root}$ is null. If it is, we return 0. Otherwise, we initialize a variable $\textit{mx}$ to record the maximum depth of the child nodes, then traverse all the child nodes of $\textit{root}$, recursively call the $\text{maxDepth}$ function, and update the value of $\textit{mx}$. Finally, we return $\textit{mx} + 1$.
+First, we check if $\textit{root}$ is null. If it is, we return 0. Otherwise, we initialize a variable $mx$ to record the maximum depth of the child nodes, then traverse all the child nodes of $\textit{root}$, recursively call the $\textit{maxDepth}$ function, and update the value of $mx$. Finally, we return $mx + 1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

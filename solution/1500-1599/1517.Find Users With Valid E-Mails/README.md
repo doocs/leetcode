@@ -91,7 +91,7 @@ Users 表:
 >
 > 有效邮箱必须以前缀字母开头，中间仅含字母、数字、下划线、点号或减号，并以 $\texttt{@leetcode.com}$ 结尾。逐行手写判断分支多且易漏边界，而规则本身正是正则语言。
 >
-> 用正则 $\texttt{^[A-Za-z][A-Za-z0-9_.-]*@leetcode\\.com$}$ 匹配整串即可。SQL 中再辅以区分大小写的后缀检查，避免域名大小写不符；Pandas 路径则对 $mail$ 列做同样的整串匹配。
+> 用正则 $\texttt{^[A-Za-z][A-Za-z0-9_.-]*@leetcode\\.com$}$ 匹配整串即可。\textit{SQL} 中再辅以区分大小写的后缀检查，避免域名大小写不符；\textit{Pandas} 路径则对 $mail$ 列做同样的整串匹配。
 
 <!-- thinking:end -->
 

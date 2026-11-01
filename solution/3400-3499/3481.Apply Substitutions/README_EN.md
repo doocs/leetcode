@@ -89,26 +89,26 @@ tags:
 
 > **Thinking**
 >
-> Placeholders $\%key\%$ expand to mapped values that may themselves contain placeholders. There is no cycle and at most $10$ keys, so recursion is enough.
+> Placeholders $\%\textit{key}\%$ expand to mapped values that may themselves contain placeholders. There is no cycle and at most $10$ keys, so recursion is enough.
 >
 > A single-level replace would leave nested percent signs. We build a hash map, then find the next pair of $\%$.
 >
-> $\textit{dfs}$ fully expands $d[key]$ first, concatenates the left side, and continues on the right. Every placeholder is defined.
+> $\textit{dfs}$ fully expands $d[\textit{key}]$ first, concatenates the left side, and continues on the right. Every placeholder is defined.
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{d}$ to store the substitution mapping, and then define a function $\textit{dfs}$ to recursively replace the placeholders in the string.
+We use a hash table $d$ to store the substitution mapping, and then define a function $\textit{dfs}$ to recursively replace the placeholders in the string.
 
 The execution logic of the function $\textit{dfs}$ is as follows:
 
-1. Find the starting position $i$ of the first placeholder in the string $\textit{s}$. If not found, return $\textit{s}$;
-2. Find the ending position $j$ of the first placeholder in the string $\textit{s}$. If not found, return $\textit{s}$;
-3. Extract the key of the placeholder, and then recursively replace the value of the placeholder $d[key]$;
+1. Find the starting position $i$ of the first placeholder in the string $s$. If not found, return $s$;
+2. Find the ending position $j$ of the first placeholder in the string $s$. If not found, return $s$;
+3. Extract the key of the placeholder, and then recursively replace the value of the placeholder $d[\textit{key}]$;
 4. Return the replaced string.
 
 In the main function, we call the $\textit{dfs}$ function, pass in the text string $\textit{text}$, and return the result.
 
-The time complexity is $O(m + nL)$, and the space complexity is $O(m + nL)$, where $m$ is the length of the substitution mapping, and $n$ and $L$ are the length of the text string and the average length of the placeholders, respectively.
+The time complexity is $O(m + n \times L)$, and the space complexity is $O(m + n \times L)$, where $m$ is the length of the substitution mapping, and $n$ and $L$ are the length of the text string and the average length of the placeholders, respectively.
 
 <!-- tabs:start -->
 

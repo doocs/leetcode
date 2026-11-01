@@ -111,11 +111,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can group the requests by user and store them in a hash table $g$, where $g[u]$ is the list of request times for user $u$. For each user, we need to remove some requests from the request time list so that within any interval of length $window$, the number of remaining requests does not exceed $k$.
+We can group the requests by user and store them in a hash table $g$, where $g[u]$ is the list of request times for user $u$. For each user, we need to remove some requests from the request time list so that within any interval of length $\textit{window}$, the number of remaining requests does not exceed $k$.
 
 We initialize the answer $\textit{ans}$ to the total number of requests.
 
-For the request time list $g[u]$ of user $u$, we first sort it. Then, we use a deque $kept$ to maintain the currently kept request times. We iterate through each request time $t$ in the request time list. For each request time, we need to remove all request times from $kept$ whose difference from $t$ is greater than $window$. Then, if the number of remaining requests in $kept$ is less than $k$, we add $t$ to $kept$; otherwise, we need to remove $t$ and decrement the answer by 1.
+For the request time list $g[u]$ of user $u$, we first sort it. Then, we use a deque $\textit{kept}$ to maintain the currently kept request times. We iterate through each request time $t$ in the request time list. For each request time, we need to remove all request times from $\textit{kept}$ whose difference from $t$ is greater than $\textit{window}$. Then, if the number of remaining requests in $\textit{kept}$ is less than $k$, we add $t$ to $\textit{kept}$; otherwise, we need to remove $t$ and decrement the answer by 1.
 
 Finally, return the answer $\textit{ans}$.
 

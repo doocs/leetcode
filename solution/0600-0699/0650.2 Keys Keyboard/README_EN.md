@@ -65,7 +65,7 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 >
 > Start from one `A` and reach $n$ by copy and paste. The search tree of sequences is wide.
 >
-> If the last step pastes a block of length $n/j$ into $j$ copies, $dfs(n)=\min(dfs(n/j)+j)$. Memoize over factors; $n=1$ costs $0$.
+> If the last step pastes a block of length $n/j$ into $j$ copies, $\textit{dfs}(n)=\min(\textit{dfs}(n/j)+j)$. Memoize over factors; $n=1$ costs $0$.
 
 <!-- thinking:end -->
 

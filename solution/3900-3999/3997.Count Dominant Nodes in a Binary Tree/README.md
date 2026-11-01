@@ -98,7 +98,7 @@ tags:
 
 支配节点的定义是：该节点的值等于以其为根的子树中所有节点值的最大值。因此，对每个节点，只需知道其左右子树的最大值，再与自身比较即可判断。
 
-自底向上进行 DFS：对空节点返回 $-\infty$（实现中可用语言对应的最小整型值），对当前节点计算 $\textit{mx} = \max(\textit{leftMax}, \textit{rightMax}, \textit{node.val})$。若 $\textit{mx} = \textit{node.val}$，则该节点为支配节点，答案加一。最后返回 $\textit{mx}$ 供父节点使用。
+自底向上进行 DFS：对空节点返回 $-\infty$（实现中可用语言对应的最小整型值），对当前节点计算 $mx = \max(\textit{leftMax}, \textit{rightMax}, \textit{node}.\textit{val})$。若 $mx = \textit{node}.\textit{val}$，则该节点为支配节点，答案加一。最后返回 $mx$ 供父节点使用。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数量。
 

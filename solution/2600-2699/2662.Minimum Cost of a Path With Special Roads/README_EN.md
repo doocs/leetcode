@@ -112,13 +112,13 @@ tags:
 
 <!-- thinking:end -->
 
-We can find that for each coordinate $(x, y)$ we visit, suppose the minimum cost from the start point to $(x, y)$ is $d$. If we choose to move directly to $(targetX, targetY)$, then the total cost is $d + |x - targetX| + |y - targetY|$. If we choose to go through a special path $(x_1, y_1) \rightarrow (x_2, y_2)$, then we need to spend $|x - x_1| + |y - y_1| + cost$ to move from $(x, y)$ to $(x_2, y_2)$.
+We can find that for each coordinate $(x, y)$ we visit, suppose the minimum cost from the start point to $(x, y)$ is $d$. If we choose to move directly to $(\textit{targetX}, \textit{targetY})$, then the total cost is $d + |x - \textit{targetX}| + |y - \textit{targetY}|$. If we choose to go through a special path $(x_1, y_1) \rightarrow (x_2, y_2)$, then we need to spend $|x - x_1| + |y - y_1| + \textit{cost}$ to move from $(x, y)$ to $(x_2, y_2)$.
 
 Therefore, we can use Dijkstra algorithm to find the minimum cost from the start point to all points, and then choose the smallest one from them.
 
-We define a priority queue $q$, each element in the queue is a triple $(d, x, y)$, which means that the minimum cost from the start point to $(x, y)$ is $d$. Initially, we add $(0, startX, startY)$ to the queue.
+We define a priority queue $q$, each element in the queue is a triple $(d, x, y)$, which means that the minimum cost from the start point to $(x, y)$ is $d$. Initially, we add $(0, \textit{startX}, \textit{startY})$ to the queue.
 
-In each step, we take out the first element $(d, x, y)$ in the queue, at this time we can update the answer, that is $ans = \min(ans, d + dist(x, y, targetX, targetY))$. Then we enumerate all special paths $(x_1, y_1) \rightarrow (x_2, y_2)$ and add $(d + dist(x, y, x_1, y_1) + cost, x_2, y_2)$ to the queue.
+In each step, we take out the first element $(d, x, y)$ in the queue, at this time we can update the answer, that is $\textit{ans} = \min(\textit{ans}, d + \textit{dist}(x, y, \textit{targetX}, \textit{targetY}))$. Then we enumerate all special paths $(x_1, y_1) \rightarrow (x_2, y_2)$ and add $(d + \textit{dist}(x, y, x_1, y_1) + \textit{cost}, x_2, y_2)$ to the queue.
 
 Finally, when the queue is empty, we can get the answer.
 

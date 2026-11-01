@@ -73,19 +73,19 @@ tags:
 
 > **Thinking**
 >
-> $nums1$ is a subset of $nums2$; we want each value's next greater element in $nums2$. Scanning rightward from every $nums1$ value is $O(nm)$.
+> $\textit{nums1}$ is a subset of $\textit{nums2}$; we want each value's next greater element in $\textit{nums2}$. Scanning rightward from every $\textit{nums1}$ value is $O(nm)$.
 >
-> Walk $nums2$ right to left with a decreasing stack: after popping smaller tops, the new top is the next greater value, stored in a map. Then look up $nums1$.
+> Walk $\textit{nums2}$ right to left with a decreasing stack: after popping smaller tops, the new top is the next greater value, stored in a map. Then look up $\textit{nums1}$.
 >
-> Each value enters and leaves the stack once. Building the map on $nums2$ first avoids scanning it once per query.
+> Each value enters and leaves the stack once. Building the map on $\textit{nums2}$ first avoids scanning it once per query.
 
 <!-- thinking:end -->
 
-We can traverse the array $\textit{nums2}$ from right to left, maintaining a stack $\textit{stk}$ that is monotonically increasing from top to bottom. We use a hash table $\textit{d}$ to record the next greater element for each element.
+We can traverse the array $\textit{nums2}$ from right to left, maintaining a stack $\textit{stk}$ that is monotonically increasing from top to bottom. We use a hash table $d$ to record the next greater element for each element.
 
 When we encounter an element $x$, if the stack is not empty and the top element of the stack is less than $x$, we keep popping the top elements until the stack is empty or the top element is greater than or equal to $x$. At this point, if the stack is not empty, the top element of the stack is the next greater element for $x$. Otherwise, $x$ has no next greater element.
 
-Finally, we traverse the array $\textit{nums1}$ and use the hash table $\textit{d}$ to get the answer.
+Finally, we traverse the array $\textit{nums1}$ and use the hash table $d$ to get the answer.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 

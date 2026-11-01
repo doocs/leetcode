@@ -63,7 +63,7 @@ tags:
 
 > **Thinking**
 >
-> We need $nums[0]<nums[1]>nums[2]<\cdots$ and may reorder in place.
+> We need $\textit{nums}[0]<\textit{nums}[1]>\textit{nums}[2]<\cdots$ and may reorder in place.
 >
 > Sort, then fill even indices from the median downward and odd indices from the end downward. Reversed halves keep equal values from sitting next to each other.
 

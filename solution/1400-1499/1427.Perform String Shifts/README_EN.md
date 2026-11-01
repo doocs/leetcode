@@ -77,9 +77,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can denote the length of the string $s$ as $n$. Next, we traverse the array $shift$, accumulate to get the final offset $x$, then take $x$ modulo $n$, the final result is to move the first $n - x$ characters of $s$ to the end.
+We can denote the length of the string $s$ as $n$. Next, we traverse the array $\textit{shift}$, accumulate to get the final offset $x$, then take $x$ modulo $n$, the final result is to move the first $n - x$ characters of $s$ to the end.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the string $s$ and the array $shift$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the string $s$ and the array $\textit{shift}$ respectively.
 
 <!-- tabs:start -->
 

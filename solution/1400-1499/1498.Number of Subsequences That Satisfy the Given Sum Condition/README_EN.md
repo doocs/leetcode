@@ -76,9 +76,9 @@ Number of valid subsequences (63 - 2 = 61).
 
 > **Thinking**
 >
-> A subsequence is judged only by its min and max, so sorting does not change those pairs. $n\le 10^5$. Fix the minimum $nums[i]$, binary-search the largest legal $nums[j]$, and multiply by $2^{j-i}$ for free choices in between.
+> A subsequence is judged only by its min and max, so sorting does not change those pairs. $n\le 10^5$. Fix the minimum $\textit{nums}[i]$, binary-search the largest legal $\textit{nums}[j]$, and multiply by $2^{j-i}$ for free choices in between.
 >
-> Precompute powers of two. Once $2\cdot nums[i]>target$, larger minima are impossible.
+> Precompute powers of two. Once $2\cdot \textit{nums}[i]>\textit{target}$, larger minima are impossible.
 
 <!-- thinking:end -->
 

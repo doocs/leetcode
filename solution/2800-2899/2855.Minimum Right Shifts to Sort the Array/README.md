@@ -75,9 +75,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们先用一个指针 $i$ 从左到右遍历数组 $nums$，找出一段连续的递增序列，直到 $i$ 到达数组末尾或者 $nums[i - 1] \gt nums[i]$。接下来我们用另一个指针 $k$ 从 $i + 1$ 开始遍历数组 $nums$，找出一段连续的递增序列，直到 $k$ 到达数组末尾或者 $nums[k - 1] \gt nums[k]$ 且 $nums[k] \gt nums[0]$。如果 $k$ 到达数组末尾，说明数组已经是递增的，返回 $n - i$；否则返回 $-1$。
+我们先用一个指针 $i$ 从左到右遍历数组 $\textit{nums}$，找出一段连续的递增序列，直到 $i$ 到达数组末尾或者 $\textit{nums}[i - 1] \gt \textit{nums}[i]$。接下来我们用另一个指针 $k$ 从 $i + 1$ 开始遍历数组 $\textit{nums}$，找出一段连续的递增序列，直到 $k$ 到达数组末尾或者 $\textit{nums}[k - 1] \gt \textit{nums}[k]$ 且 $\textit{nums}[k] \gt \textit{nums}[0]$。如果 $k$ 到达数组末尾，说明数组已经是递增的，返回 $n - i$；否则返回 $-1$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

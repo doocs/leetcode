@@ -73,13 +73,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。
+我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\textit{false}$。
 
 接下来，我们用一个哈希表 $\textit{cnt}$ 统计数组 $\textit{hand}$ 中每个数字出现的次数，然后对数组 $\textit{hand}$ 进行排序。
 
-然后，我们遍历排序后的数组 $\textit{hand}$，对于每个数字 $x$，如果 $\textit{cnt}[x]$ 不为 $0$，我们枚举 $x$ 到 $x+\textit{groupSize}-1$ 的每个数字 $y$，如果 $\textit{cnt}[y]$ 为 $0$，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。否则，我们将 $\textit{cnt}[y]$ 减 $1$。
+然后，我们遍历排序后的数组 $\textit{hand}$，对于每个数字 $x$，如果 $\textit{cnt}[x]$ 不为 $0$，我们枚举 $x$ 到 $x+\textit{groupSize}-1$ 的每个数字 $y$，如果 $\textit{cnt}[y]$ 为 $0$，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\textit{false}$。否则，我们将 $\textit{cnt}[y]$ 减 $1$。
 
-遍历结束后，说明可以将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，返回 $\text{true}$。
+遍历结束后，说明可以将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，返回 $\textit{true}$。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{hand}$ 的长度。
 
@@ -230,11 +230,11 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 
 <!-- thinking:end -->
 
-与方法一类似，我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。
+与方法一类似，我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\textit{false}$。
 
-接下来，我们用一个有序集合 $\textit{sd}$ 统计数组 $\textit{hand}$ 中每个数字出现的次数。
+接下来，我们用一个有序集合 $sd$ 统计数组 $\textit{hand}$ 中每个数字出现的次数。
 
-然后，我们循环取出有序集合中的最小值 $x$，然后枚举 $x$ 到 $x+\textit{groupSize}-1$ 的每个数字 $y$，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，返回 $\text{false}$。如果可以将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，则遍历结束后返回 $\text{true}$。
+然后，我们循环取出有序集合中的最小值 $x$，然后枚举 $x$ 到 $x+\textit{groupSize}-1$ 的每个数字 $y$，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，返回 $\textit{false}$。如果可以将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，则遍历结束后返回 $\textit{true}$。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{hand}$ 的长度。
 

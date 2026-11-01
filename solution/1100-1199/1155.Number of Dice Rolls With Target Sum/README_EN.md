@@ -68,7 +68,7 @@ There are 6 ways to get a sum of 7: 1+6, 2+5, 3+4, 4+3, 5+2, 6+1.
 
 > **Thinking**
 >
-> Naively assigning $n$ $k$-faced dice to sum to $target$ is $k^n$. Let $f[i][j]$ be the ways for $i$ dice to sum to $j$; face $h$ on the last die comes from $f[i-1][j-h]$. One way uses zero dice to make $0$. Reduce modulo $10^9+7$.
+> Naively assigning $n$ $k$-faced dice to sum to $\textit{target}$ is $k^n$. Let $f[i][j]$ be the ways for $i$ dice to sum to $j$; face $h$ on the last die comes from $f[i-1][j-h]$. One way uses zero dice to make $0$. Reduce modulo $10^9+7$.
 
 <!-- thinking:end -->
 
@@ -80,9 +80,9 @@ $$
 
 where $h$ represents the number of points on the $i$-th die.
 
-Initially, we have $f[0][0] = 1$, and the final answer is $f[n][target]$.
+Initially, we have $f[0][0] = 1$, and the final answer is $f[n][\textit{target}]$.
 
-The time complexity is $O(nk target)$, and the space complexity is $O(n target)$.
+The time complexity is $O(nk \textit{target})$, and the space complexity is $O(n \textit{target})$.
 
 <!-- tabs:start -->
 
@@ -219,11 +219,11 @@ impl Solution {
 
 > **Thinking**
 >
-> Row $i$ of method 1 depends only on row $i-1$. Two rolling arrays cut space from $O(n target)$ to $O(target)$ with the same transition.
+> Row $i$ of method 1 depends only on row $i-1$. Two rolling arrays cut space from $O(n \textit{target})$ to $O(\textit{target})$ with the same transition.
 
 <!-- thinking:end -->
 
-$f[i][j]$ depends only on the previous row, so two arrays $f$ and $g$ of length $target+1$ are enough. The space complexity becomes $O(target)$.
+$f[i][j]$ depends only on the previous row, so two arrays $f$ and $g$ of length $\textit{target}+1$ are enough. The space complexity becomes $O(\textit{target})$.
 
 <!-- tabs:start -->
 

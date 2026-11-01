@@ -67,11 +67,11 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 
 The problem requires us to find the next greater element for each element. Therefore, we can traverse the array from back to front, which effectively turns the problem into finding the previous greater element. Additionally, since the array is circular, we can traverse the array twice.
 
-Specifically, we start traversing the array from index $n \times 2 - 1$, where $n$ is the length of the array. Then, we let $j = i \bmod n$, where $\bmod$ represents the modulo operation. If the stack is not empty and the top element of the stack is less than or equal to $nums[j]$, then we continuously pop the top element of the stack until the stack is empty or the top element of the stack is greater than $nums[j]$. At this point, the top element of the stack is the previous greater element for $nums[j]$, and we assign it to $ans[j]$. Finally, we push $nums[j]$ onto the stack. We continue to the next element.
+Specifically, we start traversing the array from index $n \times 2 - 1$, where $n$ is the length of the array. Then, we let $j = i \bmod n$, where $\bmod$ represents the modulo operation. If the stack is not empty and the top element of the stack is less than or equal to $\textit{nums}[j]$, then we continuously pop the top element of the stack until the stack is empty or the top element of the stack is greater than $\textit{nums}[j]$. At this point, the top element of the stack is the previous greater element for $\textit{nums}[j]$, and we assign it to $\textit{ans}[j]$. Finally, we push $\textit{nums}[j]$ onto the stack. We continue to the next element.
 
-After the traversal is complete, we can obtain the array $ans$, which represents the next greater element for each element in the array $nums$.
+After the traversal is complete, we can obtain the array $\textit{ans}$, which represents the next greater element for each element in the array $\textit{nums}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

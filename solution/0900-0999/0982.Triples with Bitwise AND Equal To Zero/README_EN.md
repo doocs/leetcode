@@ -80,13 +80,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we enumerate any two numbers $x$ and $y$, and use a hash table or array $cnt$ to count the occurrences of their bitwise AND result $x \& y$.
+First, we enumerate any two numbers $x$ and $y$, and use a hash table or array $\textit{cnt}$ to count the occurrences of their bitwise AND result $x \& y$.
 
-Then, we enumerate the bitwise AND result $xy$, and enumerate $z$. If $xy \& z = 0$, then we add the value of $cnt[xy]$ to the answer.
+Then, we enumerate the bitwise AND result $xy$, and enumerate $z$. If $xy \& z = 0$, then we add the value of $\textit{cnt}[xy]$ to the answer.
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2 + nM)$, and the space complexity is $O(M)$, where $n$ is the length of the array $nums$; and $M$ is the maximum value in the array $nums$, with $M \leq 2^{16}$ in this problem.
+The time complexity is $O(n^2 + n \times M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{nums}$; and $M$ is the maximum value in the array $\textit{nums}$, with $M \leq 2^{16}$ in this problem.
 
 <!-- tabs:start -->
 

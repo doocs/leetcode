@@ -82,9 +82,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{s}$ to record all the numbers in the array $\textit{nums}$.
+We use a hash table $s$ to record all the numbers in the array $\textit{nums}$.
 
-Next, starting from $\textit{original}$, if $\textit{original}$ is in $\textit{s}$, we multiply $\textit{original}$ by $2$ until $\textit{original}$ is not in $\textit{s}$ anymore, then return $\textit{original}$.
+Next, starting from $\textit{original}$, if $\textit{original}$ is in $s$, we multiply $\textit{original}$ by $2$ until $\textit{original}$ is not in $s$ anymore, then return $\textit{original}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

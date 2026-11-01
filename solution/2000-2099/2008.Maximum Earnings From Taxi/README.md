@@ -74,29 +74,29 @@ tags:
 
 > **思考**
 >
-> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge end_i$」的后续乘客相容。 $m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
+> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge \textit{end}_i$」的后续乘客相容。 $m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
 >
-> 不接则转移到 $i+1$，接则二分找到第一个 $start \ge end_i$ 的下标 $j$，收益为路程加小费再加 $dfs(j)$。
+> 不接则转移到 $i+1$，接则二分找到第一个 $\textit{start} \ge \textit{end}_i$ 的下标 $j$，收益为路程加小费再加 $\textit{dfs}(j)$。
 >
 > 记忆化后每个 $i$ 计算一次，总时间 $O(m \log m)$。
 
 <!-- thinking:end -->
 
-我们先将 $rides$ 按照 $start$ 从小到大排序，然后设计一个函数 $dfs(i)$，表示从第 $i$ 个乘客开始接单，最多能获得的小费。答案即为 $dfs(0)$。
+我们先将 $\textit{rides}$ 按照 $\textit{start}$ 从小到大排序，然后设计一个函数 $\textit{dfs}(i)$，表示从第 $i$ 个乘客开始接单，最多能获得的小费。答案即为 $\textit{dfs}(0)$。
 
-函数 $dfs(i)$ 的计算过程如下：
+函数 $\textit{dfs}(i)$ 的计算过程如下：
 
-对于第 $i$ 个乘客，我们可以选择接单，也可以选择不接单。如果不接单，那么最多能获得的小费为 $dfs(i + 1)$；如果接单，那么我们可以通过二分查找，找到在第 $i$ 个乘客下车地点之后遇到的第一个乘客，记为 $j$，那么最多能获得的小费为 $dfs(j) + end_i - start_i + tip_i$。取两者的较大值即可。即：
+对于第 $i$ 个乘客，我们可以选择接单，也可以选择不接单。如果不接单，那么最多能获得的小费为 $\textit{dfs}(i + 1)$；如果接单，那么我们可以通过二分查找，找到在第 $i$ 个乘客下车地点之后遇到的第一个乘客，记为 $j$，那么最多能获得的小费为 $\textit{dfs}(j) + \textit{end}_i - \textit{start}_i + \textit{tip}_i$。取两者的较大值即可。即：
 
 $$
-dfs(i) = \max(dfs(i + 1), dfs(j) + end_i - start_i + tip_i)
+\textit{dfs}(i) = \max(\textit{dfs}(i + 1), \textit{dfs}(j) + \textit{end}_i - \textit{start}_i + \textit{tip}_i)
 $$
 
-其中 $j$ 是满足 $start_j \ge end_i$ 的最小的下标，可以通过二分查找得到。
+其中 $j$ 是满足 $\textit{start}_j \ge \textit{end}_i$ 的最小的下标，可以通过二分查找得到。
 
 此过程中，我们可以使用记忆化搜索，将每个状态的答案保存下来，避免重复计算。
 
-时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $rides$ 的长度。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $\textit{rides}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -259,23 +259,23 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 >
 > 方法一按起点排序，并从末尾填一张后缀表。这里改按终点排序， $f[i]$ 表示考虑前 $i$ 单的最大收益，转移无后效。
 >
-> 不接为 $f[i-1]$；接则二分最后一个终点 $\le start_i$ 的位置 $j$。
+> 不接为 $f[i-1]$；接则二分最后一个终点 $\le \textit{start}_i$ 的位置 $j$。
 
 <!-- thinking:end -->
 
 方法一按起点排序并从末尾填表。这里改按终点排序，定义前缀表。
 
-先将 $rides$ 排序，这次我们按照 $end$ 从小到大排序。然后定义 $f[i]$，表示前 $i$ 个乘客中，最多能获得的小费。初始时 $f[0] = 0$，答案为 $f[m]$。
+先将 $\textit{rides}$ 排序，这次我们按照 $\textit{end}$ 从小到大排序。然后定义 $f[i]$，表示前 $i$ 个乘客中，最多能获得的小费。初始时 $f[0] = 0$，答案为 $f[m]$。
 
-对于第 $i$ 个乘客，我们可以选择接单，也可以选择不接单。如果不接单，那么最多能获得的小费为 $f[i-1]$；如果接单，我们可以通过二分查找，找到在第 $i$ 个乘客上车地点之前，最后一个下车地点不大于 $start_i$ 的乘客，记为 $j$，那么最多能获得的小费为 $f[j] + end_i - start_i + tip_i$。取两者的较大值即可。即：
+对于第 $i$ 个乘客，我们可以选择接单，也可以选择不接单。如果不接单，那么最多能获得的小费为 $f[i-1]$；如果接单，我们可以通过二分查找，找到在第 $i$ 个乘客上车地点之前，最后一个下车地点不大于 $\textit{start}_i$ 的乘客，记为 $j$，那么最多能获得的小费为 $f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i$。取两者的较大值即可。即：
 
 $$
-f[i] = \max(f[i - 1], f[j] + end_i - start_i + tip_i)
+f[i] = \max(f[i - 1], f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i)
 $$
 
-其中 $j$ 是满足 $end_j \le start_i$ 的最大的下标，可以通过二分查找得到。
+其中 $j$ 是满足 $\textit{end}_j \le \textit{start}_i$ 的最大的下标，可以通过二分查找得到。
 
-时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $rides$ 的长度。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $\textit{rides}$ 的长度。
 
 相似题目：
 
@@ -407,25 +407,25 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 > **思考**
 >
-> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge end_i$」的后续乘客相容。 $m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
+> 乘客按起点排序后，第 $i$ 单只与「起点 $\ge \textit{end}_i$」的后续乘客相容。 $m \le 3 \times 10^4$，枚举子集不可行；状态只需「从第 $i$ 单开始的最大收益」。
 >
-> 不接依赖 $i+1$，接则依赖第一个起点 $\ge end_i$ 的下标。按这个递推搜索时仍会先调用 $i+1$ 再返回，调用链长度为 $m$，栈会溢出。
+> 不接依赖 $i+1$，接则依赖第一个起点 $\ge \textit{end}_i$ 的下标。按这个递推搜索时仍会先调用 $i+1$ 再返回，调用链长度为 $m$，栈会溢出。
 >
 > 从末尾往前走时，更靠后的下标已经就绪。令 $f[i]$ 为该收益， $f[m] = 0$，填表时对 $j$ 做二分，从 $i = m-1$ 填到 $0$。
 
 <!-- thinking:end -->
 
-我们先将 $rides$ 按照 $start$ 从小到大排序。令 $f[i]$ 表示从第 $i$ 个乘客开始接单最多能获得的收益，答案为 $f[0]$，且 $f[m] = 0$。
+我们先将 $\textit{rides}$ 按照 $\textit{start}$ 从小到大排序。令 $f[i]$ 表示从第 $i$ 个乘客开始接单最多能获得的收益，答案为 $f[0]$，且 $f[m] = 0$。
 
-我们从 $i = m - 1$ 填到 $0$。对于第 $i$ 个乘客，不接单则收益为 $f[i + 1]$；接单时通过二分查找找到下车地点之后遇到的第一个乘客 $j$，收益为 $f[j] + end_i - start_i + tip_i$。取两者的较大值：
+我们从 $i = m - 1$ 填到 $0$。对于第 $i$ 个乘客，不接单则收益为 $f[i + 1]$；接单时通过二分查找找到下车地点之后遇到的第一个乘客 $j$，收益为 $f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i$。取两者的较大值：
 
 $$
-f[i] = \max(f[i + 1], f[j] + end_i - start_i + tip_i)
+f[i] = \max(f[i + 1], f[j] + \textit{end}_i - \textit{start}_i + \textit{tip}_i)
 $$
 
-其中 $j$ 是满足 $start_j \ge end_i$ 的最小下标。因为 $j > i$， $f[j]$ 已经算过。
+其中 $j$ 是满足 $\textit{start}_j \ge \textit{end}_i$ 的最小下标。因为 $j > i$， $f[j]$ 已经算过。
 
-时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $rides$ 的长度。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为 $\textit{rides}$ 的长度。
 
 <!-- tabs:start -->
 

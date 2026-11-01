@@ -70,13 +70,13 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 <!-- thinking:end -->
 
-We define a variable $ans$ to record the count of squares with the current maximum side length, and another variable $mx$ to record the current maximum side length.
+We define a variable $\textit{ans}$ to record the count of squares with the current maximum side length, and another variable $mx$ to record the current maximum side length.
 
-We traverse the array $rectangles$. For each rectangle $[l, w]$, we take $x = \min(l, w)$. If $mx < x$, it means we have found a larger side length, so we update $mx$ to $x$ and update $ans$ to $1$. If $mx = x$, it means we have found a side length equal to the current maximum side length, so we increase $ans$ by $1$.
+We traverse the array $\textit{rectangles}$. For each rectangle $[l, w]$, we take $x = \min(l, w)$. If $mx < x$, it means we have found a larger side length, so we update $mx$ to $x$ and update $\textit{ans}$ to $1$. If $mx = x$, it means we have found a side length equal to the current maximum side length, so we increase $\textit{ans}$ by $1$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $rectangles$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{rectangles}$.
 
 <!-- tabs:start -->
 

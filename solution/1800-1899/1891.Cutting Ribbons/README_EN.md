@@ -89,15 +89,15 @@ Now you have 4 ribbons of length 4.
 >
 > Ribbons may only be cut shorter; we want the maximum equal length that yields at least $k$ pieces. Longer pieces give fewer of them.
 >
-> Binary-search the length in $[0,\max ribbons]$ and test whether $\sum \lfloor x/mid\rfloor \ge k$. Feasible lengths can grow; otherwise shrink.
+> Binary-search the length in $[0,\max \textit{ribbons}]$ and test whether $\sum \lfloor x/\textit{mid}\rfloor \ge k$. Feasible lengths can grow; otherwise shrink.
 
 <!-- thinking:end -->
 
 We observe that if we can obtain $k$ ropes of length $x$, then we can also obtain $k$ ropes of length $x-1$. This implies that there is a monotonicity property, and we can use binary search to find the maximum length $x$ such that we can obtain $k$ ropes of length $x$.
 
-We define the left boundary of the binary search as $left=0$, the right boundary as $right=\max(ribbons)$, and the middle value as $mid=(left+right+1)/2$. We then calculate the number of ropes we can obtain with length $mid$, denoted as $cnt$. If $cnt \geq k$, it means we can obtain $k$ ropes of length $mid$, so we update $left$ to $mid$. Otherwise, we update $right$ to $mid-1$.
+We define the left boundary of the binary search as $\textit{left}=0$, the right boundary as $\textit{right}=\max(\textit{ribbons})$, and the middle value as $\textit{mid}=(\textit{left}+\textit{right}+1)/2$. We then calculate the number of ropes we can obtain with length $\textit{mid}$, denoted as $\textit{cnt}$. If $\textit{cnt} \geq k$, it means we can obtain $k$ ropes of length $\textit{mid}$, so we update $\textit{left}$ to $\textit{mid}$. Otherwise, we update $\textit{right}$ to $\textit{mid}-1$.
 
-Finally, we return $left$ as the maximum length of the ropes we can obtain.
+Finally, we return $\textit{left}$ as the maximum length of the ropes we can obtain.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively.
 

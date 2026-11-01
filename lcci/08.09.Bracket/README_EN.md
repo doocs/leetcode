@@ -53,7 +53,7 @@ difficulty: Medium
 >
 > A valid prefix never has more rights than lefts, and neither count exceeds $n$.
 >
-> $dfs(l,r,t)$ prunes when $l<r$ or a count exceeds $n$, and records at $l=r=n$. Trying `'('` then `')'` emits only legal strings.
+> $\textit{dfs}(l,r,t)$ prunes when $l<r$ or a count exceeds $n$, and records at $l=r=n$. Trying `'('` then `')'` emits only legal strings.
 
 <!-- thinking:end -->
 

@@ -68,7 +68,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个变量 $\textit{d}$ 来记录当前最小的距离，初始时 $\textit{d}=\infty$。然后我们遍历数组，对于每个元素 $x$，我们计算 $y=|x|$，如果 $y \lt d$ 或者 $y=d$ 且 $x \gt \textit{ans}$，我们就更新答案 $\textit{ans}=x$ 和 $\textit{d}=y$。
+我们定义一个变量 $d$ 来记录当前最小的距离，初始时 $d=\infty$。然后我们遍历数组，对于每个元素 $x$，我们计算 $y=|x|$，如果 $y \lt d$ 或者 $y=d$ 且 $x \gt \textit{ans}$，我们就更新答案 $\textit{ans}=x$ 和 $d=y$。
 
 遍历结束后返回答案即可。
 

@@ -76,9 +76,9 @@ It can be shown that all integers from 1 to 20 are obtainable from the resulting
 
 > **Thinking**
 >
-> We must form every value in $[1,target]$ with the given coins plus extras. If $[0,s-1]$ is already covered, a new $x \le s$ extends the range to $s+x-1$; if the next coin is larger, we must insert $s$ and double the range. This is the standard covering greedy.
+> We must form every value in $[1,\textit{target}]$ with the given coins plus extras. If $[0,s-1]$ is already covered, a new $x \le s$ extends the range to $s+x-1$; if the next coin is larger, we must insert $s$ and double the range. This is the standard covering greedy.
 >
-> Sort the coins and advance a pointer. While $s \le target$, either absorb the next coin or set $s \leftarrow 2s$ and increment the answer.
+> Sort the coins and advance a pointer. While $s \le \textit{target}$, either absorb the next coin or set $s \leftarrow 2s$ and increment the answer.
 
 <!-- thinking:end -->
 
@@ -89,7 +89,7 @@ Next, we discuss in two cases:
 - If $x \le s$, then we can merge the two intervals above to get all amounts in $[0, s+x-1]$.
 - If $x \gt s$, then we need to add a coin with a face value of $s$, so that we can construct all amounts in $[0, 2s-1]$. Then we consider the size relationship between $x$ and $s$ and continue to analyze.
 
-Therefore, we sort the array $coins$ in ascending order, and then traverse the coins in the array from small to large. For each coin $x$, we discuss in the above two cases until $s > target$.
+Therefore, we sort the array $\textit{coins}$ in ascending order, and then traverse the coins in the array from small to large. For each coin $x$, we discuss in the above two cases until $s > \textit{target}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 

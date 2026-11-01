@@ -83,9 +83,9 @@ In the `enqueue` operation, assuming the animal number is $i$ and the animal typ
 
 In the `dequeueAny` operation, we check whether $q[0]$ is empty, or $q[1]$ is not empty and $q[1][0] < q[0][0]$. If so, we call `dequeueDog`, otherwise we call `dequeueCat`.
 
-In the `dequeueDog` operation, if $q[1]$ is empty, we return $[-1, -1]$, otherwise we return $[q[1].pop(), 1]$.
+In the `dequeueDog` operation, if $q[1]$ is empty, we return $[-1, -1]$, otherwise we return $[q[1].\textit{pop}(), 1]$.
 
-In the `dequeueCat` operation, if $q[0]$ is empty, we return $[-1, -1]$, otherwise we return $[q[0].pop(), 0]$.
+In the `dequeueCat` operation, if $q[0]$ is empty, we return $[-1, -1]$, otherwise we return $[q[0].\textit{pop}(), 0]$.
 
 The time complexity of the above operations is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of animals in the animal shelter.
 

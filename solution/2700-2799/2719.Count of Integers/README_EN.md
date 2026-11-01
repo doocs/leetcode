@@ -67,19 +67,19 @@ tags:
 
 > **Thinking**
 >
-> Count integers in $[num1,num2]$ whose digit sums lie in $[min\_sum,max\_sum]$. The interval can be as long as $10^{22}$, so enumeration is impossible.
+> Count integers in $[\textit{num1},\textit{num2}]$ whose digit sums lie in $[\textit{min\_sum},\textit{max\_sum}]$. The interval can be as long as $10^{22}$, so enumeration is impossible.
 >
-> Subtract the answer for $[0,num1-1]$ from $[0,num2]$. A digit DP walks from the high end with state $(pos,s,limit)$ — position, digit sum, and whether we are against the upper bound. At the end we test the sum interval and reduce modulo $10^9+7$.
+> Subtract the answer for $[0,\textit{num1}-1]$ from $[0,\textit{num2}]$. A digit DP walks from the high end with state $(\textit{pos},s,\textit{limit})$ — position, digit sum, and whether we are against the upper bound. At the end we test the sum interval and reduce modulo $10^9+7$.
 
 <!-- thinking:end -->
 
-The problem is actually asking for the number of integers in the range $[num1,..num2]$ whose digit sum is in the range $[min\_sum,..max\_sum]$. For this kind of range $[l,..r]$ problem, we can consider transforming it into finding the answers for $[1,..r]$ and $[1,..l-1]$, and then subtracting the latter from the former.
+The problem is actually asking for the number of integers in the range $[\textit{num1},..\textit{num2}]$ whose digit sum is in the range $[\textit{min\_sum},..\textit{max\_sum}]$. For this kind of range $[l,..r]$ problem, we can consider transforming it into finding the answers for $[1,..r]$ and $[1,..l-1]$, and then subtracting the latter from the former.
 
-For the answer to $[1,..r]$, we can use digit DP to solve it. We design a function $dfs(pos, s, limit)$, which represents the number of schemes when we are currently processing the $pos$th digit, the digit sum is $s$, and whether the current number has an upper limit $limit$. Here, $pos$ is enumerated from high to low.
+For the answer to $[1,..r]$, we can use digit DP to solve it. We design a function $\textit{dfs}(\textit{pos}, s, \textit{limit})$, which represents the number of schemes when we are currently processing the $\textit{pos}$th digit, the digit sum is $s$, and whether the current number has an upper limit $\textit{limit}$. Here, $\textit{pos}$ is enumerated from high to low.
 
-For $dfs(pos, s, limit)$, we can enumerate the value of the current digit $i$, and then recursively calculate $dfs(pos+1, s+i, limit \bigcap i==up)$, where $up$ represents the upper limit of the current digit. If $limit$ is true, then $up$ is the upper limit of the current digit, otherwise $up$ is $9$. If $pos$ is greater than or equal to the length of $num$, then we can judge whether $s$ is in the range $[min\_sum,..max\_sum]$. If it is, return $1$, otherwise return $0$.
+For $\textit{dfs}(\textit{pos}, s, \textit{limit})$, we can enumerate the value of the current digit $i$, and then recursively calculate $\textit{dfs}(\textit{pos}+1, s+i, \textit{limit} \bigcap i==up)$, where $up$ represents the upper limit of the current digit. If $\textit{limit}$ is true, then $up$ is the upper limit of the current digit, otherwise $up$ is $9$. If $\textit{pos}$ is greater than or equal to the length of $\textit{num}$, then we can judge whether $s$ is in the range $[\textit{min\_sum},..\textit{max\_sum}]$. If it is, return $1$, otherwise return $0$.
 
-The time complexity is $O(10nmax\_sum)$, and the space complexity is $O(nmax\_sum)$, where $n$ represents the length of $num$.
+The time complexity is $O(10\textit{nmax\_sum})$, and the space complexity is $O(\textit{nmax\_sum})$, where $n$ represents the length of $\textit{num}$.
 
 Similar problems:
 

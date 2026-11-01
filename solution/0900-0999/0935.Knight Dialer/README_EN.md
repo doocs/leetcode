@@ -327,7 +327,7 @@ $$
 \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 1 & 1 \cdots 1 \end{bmatrix}$, and multiply it by the matrix $\textit{base}$ raised to the power of $n - 1$ to obtain $T(n)$. Finally, we sum all elements in $T(n)$ and take the result modulo $10^9 + 7$ to get the answer. The matrix $\textit{base}^{n - 1}$ can be computed using matrix exponentiation, which has a time complexity of $O(\log n)$.
+We define the initial matrix $\textit{res} = \begin{bmatrix} 1 & 1 & 1 \cdots 1 \end{bmatrix}$, and multiply it by the matrix $\textit{base}$ raised to the power of $n - 1$ to obtain $T(n)$. Finally, we sum all elements in $T(n)$ and take the result modulo $10^9 + 7$ to get the answer. The matrix $\textit{base}^{n - 1}$ can be computed using matrix exponentiation, which has a time complexity of $O(\log n)$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(|\Sigma|^2)$, where $\Sigma$ is the set of digits, and in this problem $|\Sigma| = 10$.
 

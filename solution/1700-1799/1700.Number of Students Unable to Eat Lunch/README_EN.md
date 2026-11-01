@@ -84,15 +84,15 @@ Hence all students are able to eat.
 >
 > Sandwich order is fixed while students can be reordered. Once the top type has no remaining takers, every later sandwich is stuck as well. It therefore suffices to count the two preferences and consume the counts in sandwich order.
 >
-> When $cnt[v]=0$, all leftover students prefer the other type, namely $cnt[v\oplus 1]$. A linear scan yields the number who cannot eat.
+> When $\textit{cnt}[v]=0$, all leftover students prefer the other type, namely $\textit{cnt}[v\oplus 1]$. A linear scan yields the number who cannot eat.
 
 <!-- thinking:end -->
 
 We observe that the positions of the students can be adjusted, but the positions of the sandwiches cannot be adjusted. That is to say, if the sandwich in front is not taken, then all the sandwiches behind cannot be taken.
 
-Therefore, we first use a counter $cnt$ to count the types of sandwiches that students like and their corresponding quantities.
+Therefore, we first use a counter $\textit{cnt}$ to count the types of sandwiches that students like and their corresponding quantities.
 
-Then we traverse the sandwiches. If we cannot find a student who likes this sandwich in $cnt$, it means that the sandwiches behind cannot be taken, and we return the current number of remaining students.
+Then we traverse the sandwiches. If we cannot find a student who likes this sandwich in $\textit{cnt}$, it means that the sandwiches behind cannot be taken, and we return the current number of remaining students.
 
 If the traversal is over, it means that all students have sandwiches to eat, and we return $0$.
 

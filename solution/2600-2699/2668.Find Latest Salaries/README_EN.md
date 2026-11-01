@@ -90,7 +90,7 @@ Each row contains employees details and their yearly salaries, however, some of 
 
 > **Thinking**
 >
-> An employee may have several salary rows; we keep the highest pay and order by $emp\_id$. `GROUP BY emp_id` with `MAX(salary)` works because the other fields are unique per employee.
+> An employee may have several salary rows; we keep the highest pay and order by $\textit{emp\_id}$. `GROUP BY emp_id` with `MAX(salary)` works because the other fields are unique per employee.
 
 <!-- thinking:end -->
 

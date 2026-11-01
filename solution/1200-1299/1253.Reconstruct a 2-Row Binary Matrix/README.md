@@ -77,24 +77,24 @@ tags:
 
 > **思考**
 >
-> 两行矩阵的列和给定，且两行 $1$ 的个数分别为 $upper$、 $lower$。 $n \le 10^5$，回溯不可行。列为 $2$ 时两行都只能填 $1$；为 $0$ 时都填 $0$；为 $1$ 时必须把仅剩的 $1$ 给当前余额更多的那一行，否则稍后可能不够用。
+> 两行矩阵的列和给定，且两行 $1$ 的个数分别为 $\textit{upper}$、 $\textit{lower}$。 $n \le 10^5$，回溯不可行。列为 $2$ 时两行都只能填 $1$；为 $0$ 时都填 $0$；为 $1$ 时必须把仅剩的 $1$ 给当前余额更多的那一行，否则稍后可能不够用。
 >
 > 从左到右按此规则填写，余额变负或结束时两行余额未用尽则无解。贪心把 $1$ 留给更紧的行，局部选择不增加全局冲突。
 
 <!-- thinking:end -->
 
-我们先创建一个答案数组 $ans$，其中 $ans[0]$ 和 $ans[1]$ 分别表示矩阵的第一行和第二行。
+我们先创建一个答案数组 $\textit{ans}$，其中 $\textit{ans}[0]$ 和 $\textit{ans}[1]$ 分别表示矩阵的第一行和第二行。
 
-接下来，从左到右遍历数组 $colsum$，对于当前遍历到的元素 $colsum[j]$，我们有以下几种情况：
+接下来，从左到右遍历数组 $\textit{colsum}$，对于当前遍历到的元素 $\textit{colsum}[j]$，我们有以下几种情况：
 
-- 如果 $colsum[j] = 2$，那么我们将 $ans[0][j]$ 和 $ans[1][j]$ 都置为 $1$。此时 $upper$ 和 $lower$ 都减去 $1$。
-- 如果 $colsum[j] = 1$，那么我们将 $ans[0][j]$ 或 $ans[1][j]$ 置为 $1$。如果 $upper \gt lower$，那么我们优先将 $ans[0][j]$ 置为 $1$，否则我们优先将 $ans[1][j]$ 置为 $1$。此时 $upper$ 或 $lower$ 减去 $1$。
-- 如果 $colsum[j] = 0$，那么我们将 $ans[0][j]$ 和 $ans[1][j]$ 都置为 $0$。
-- 如果 $upper \lt 0$ 或 $lower \lt 0$，那么说明无法构造出满足要求的矩阵，我们返回一个空数组。
+- 如果 $\textit{colsum}[j] = 2$，那么我们将 $\textit{ans}[0][j]$ 和 $\textit{ans}[1][j]$ 都置为 $1$。此时 $\textit{upper}$ 和 $\textit{lower}$ 都减去 $1$。
+- 如果 $\textit{colsum}[j] = 1$，那么我们将 $\textit{ans}[0][j]$ 或 $\textit{ans}[1][j]$ 置为 $1$。如果 $\textit{upper} \gt \textit{lower}$，那么我们优先将 $\textit{ans}[0][j]$ 置为 $1$，否则我们优先将 $\textit{ans}[1][j]$ 置为 $1$。此时 $\textit{upper}$ 或 $\textit{lower}$ 减去 $1$。
+- 如果 $\textit{colsum}[j] = 0$，那么我们将 $\textit{ans}[0][j]$ 和 $\textit{ans}[1][j]$ 都置为 $0$。
+- 如果 $\textit{upper} \lt 0$ 或 $\textit{lower} \lt 0$，那么说明无法构造出满足要求的矩阵，我们返回一个空数组。
 
-遍历结束，如果 $upper$ 和 $lower$ 都为 $0$，那么我们返回 $ans$，否则我们返回一个空数组。
+遍历结束，如果 $\textit{upper}$ 和 $\textit{lower}$ 都为 $0$，那么我们返回 $\textit{ans}$，否则我们返回一个空数组。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $colsum$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{colsum}$ 的长度。
 
 <!-- tabs:start -->
 

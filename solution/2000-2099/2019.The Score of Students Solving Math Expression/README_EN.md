@@ -103,11 +103,11 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 >
 > $f[i][j]$ is the set of values of digits $i..j$; split at $k$ and apply the operator, dropping results $>1000$.
 >
-> Count $answers$: $5$ if exact, else $2$ if the value lies in $f[0][m-1]$.
+> Count $\textit{answers}$: $5$ if exact, else $2$ if the value lies in $f[0][m-1]$.
 
 <!-- thinking:end -->
 
-First, we design a function $cal(s)$ to calculate the result of a valid mathematical expression that only contains single-digit numbers. The correct answer is $x = cal(s)$.
+First, we design a function $\textit{cal}(s)$ to calculate the result of a valid mathematical expression that only contains single-digit numbers. The correct answer is $x = \textit{cal}(s)$.
 
 Let the length of the string $s$ be $n$, then the number of digits in $s$ is $m = \frac{n+1}{2}$.
 
@@ -126,7 +126,7 @@ Where $\otimes$ represents the operator, i.e., $s[k \times 2 + 1]$.
 
 The possible values of the results of all digit operations in the string $s$ are $f[0][m-1]$.
 
-Finally, we count the answer. We use an array $cnt$ to count the number of times each answer appears in the answer array $answers$. If the answer is equal to $x$, then this student gets $5$ points, otherwise if the answer is in $f[0][m-1]$, then this student gets $2$ points. Traverse $cnt$ to count the answer.
+Finally, we count the answer. We use an array $\textit{cnt}$ to count the number of times each answer appears in the answer array $\textit{answers}$. If the answer is equal to $x$, then this student gets $5$ points, otherwise if the answer is in $f[0][m-1]$, then this student gets $2$ points. Traverse $\textit{cnt}$ to count the answer.
 
 The time complexity is $O(n^3M^2)$, and the space complexity is $O(n^2M^2)$, where $M$ is the maximum possible value of the answer, and $n$ is the number of digits in the length of the string $s$.
 

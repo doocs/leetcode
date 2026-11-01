@@ -91,13 +91,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先判断 $\textit{sentence1}$ 和 $\textit{sentence2}$ 的长度是否相等，如果不相等则返回 $\text{false}$。
+我们首先判断 $\textit{sentence1}$ 和 $\textit{sentence2}$ 的长度是否相等，如果不相等则返回 $\textit{false}$。
 
-然后我们使用一个哈希表 $\textit{s}$ 来存储所有相似的单词对，对于 $\textit{similarPairs}$ 中的每一个单词对 $[x, y]$，我们将 $x$ 和 $y$ 加入到哈希表 $\textit{s}$ 中。
+然后我们使用一个哈希表 $s$ 来存储所有相似的单词对，对于 $\textit{similarPairs}$ 中的每一个单词对 $[x, y]$，我们将 $x$ 和 $y$ 加入到哈希表 $s$ 中。
 
-接下来我们遍历 $\textit{sentence1}$ 和 $\textit{sentence2}$，对于每一个位置 $i$，如果 $\textit{sentence1}[i]$ 不等于 $\textit{sentence2}[i]$，并且 $(\textit{sentence1}[i], \textit{sentence2}[i])$ 和 $(\textit{sentence2}[i], \textit{sentence1}[i])$ 都不在哈希表 $\textit{s}$ 中，那么返回 $\text{false}$。
+接下来我们遍历 $\textit{sentence1}$ 和 $\textit{sentence2}$，对于每一个位置 $i$，如果 $\textit{sentence1}[i]$ 不等于 $\textit{sentence2}[i]$，并且 $(\textit{sentence1}[i], \textit{sentence2}[i])$ 和 $(\textit{sentence2}[i], \textit{sentence1}[i])$ 都不在哈希表 $s$ 中，那么返回 $\textit{false}$。
 
-如果遍历结束后都没有返回 $\text{false}$，说明 $\textit{sentence1}$ 和 $\textit{sentence2}$ 是相似的，返回 $\text{true}$。
+如果遍历结束后都没有返回 $\textit{false}$，说明 $\textit{sentence1}$ 和 $\textit{sentence2}$ 是相似的，返回 $\textit{true}$。
 
 时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为题目中所有字符串的长度之和。
 

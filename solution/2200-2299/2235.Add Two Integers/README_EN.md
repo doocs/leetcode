@@ -135,7 +135,7 @@ int sum(int num1, int num2) {
 >
 > Solution 1 uses the addition operator. Without it we simulate grade-school addition on bits: xor is the sum without carry, and the carry is the bitwise and shifted left, repeated until the carry vanishes.
 >
-> Python integers are unbounded, so we mask to $32$ bits with $0\texttt{xFFFFFFFF}$. A set sign bit is converted back to a negative Python int via two's complement.
+> Python integers are unbounded, so we mask to $32$ bits with `0xFFFFFFFF`. A set sign bit is converted back to a negative Python int via two's complement.
 
 <!-- thinking:end -->
 

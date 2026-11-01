@@ -71,7 +71,7 @@ tags:
 >
 > 对每个节点向上收集全部祖先再求最大差， $n\le 5000$ 时路径重复、时间偏大。路径上真正用到的只有祖先的最小值与最大值。
 >
-> 下行时把当前路径的 $\textit{mi},\textit{mx}$ 传给子节点，在每个节点用 $|\textit{val}-\textit{mi}|$ 与 $|\textit{val}-\textit{mx}|$ 更新全局答案，再把本节点纳入区间后继续。
+> 下行时把当前路径的 $mi,mx$ 传给子节点，在每个节点用 $|\textit{val}-mi|$ 与 $|\textit{val}-mx|$ 更新全局答案，再把本节点纳入区间后继续。
 >
 > 一次 DFS 遍历整棵树即可。
 
@@ -79,15 +79,15 @@ tags:
 
 对于每个节点，求其与祖先节点的最大差值，我们只需要求出该节点与祖先节点最大值和最小值的差值。取所有节点与祖先节点差值的最大值即可。
 
-因此，我们设计一个函数 $dfs(root, mi, mx)$，表示当前搜索到的节点为 $root$，其祖先节点的最大值为 $mx$，最小值为 $mi$，函数内更新最大差值 $ans$。
+因此，我们设计一个函数 $\textit{dfs}(\textit{root}, mi, mx)$，表示当前搜索到的节点为 $\textit{root}$，其祖先节点的最大值为 $mx$，最小值为 $mi$，函数内更新最大差值 $\textit{ans}$。
 
-函数 $dfs(root, mi, mx)$ 的逻辑如下：
+函数 $\textit{dfs}(\textit{root}, mi, mx)$ 的逻辑如下：
 
-- 若 $root$ 为空，直接返回。
-- 否则，我们更新 $ans = max(ans, |mi - root.val|, |mx - root.val|)$。
-- 然后更新 $mi = min(mi, root.val)$, $mx = max(mx, root.val)$，并且递归搜索左右子树。
+- 若 $\textit{root}$ 为空，直接返回。
+- 否则，我们更新 $\textit{ans} = \max(\textit{ans}, |mi - \textit{root}.\textit{val}|, |mx - \textit{root}.\textit{val}|)$。
+- 然后更新 $mi = \min(mi, \textit{root}.\textit{val})$, $mx = \max(mx, \textit{root}.\textit{val})$，并且递归搜索左右子树。
 
-在主函数中，我们调用 $dfs(root, root.val, root.val)$，最后返回 $ans$ 即可。
+在主函数中，我们调用 $\textit{dfs}(\textit{root}, \textit{root}.\textit{val}, \textit{root}.\textit{val})$，最后返回 $\textit{ans}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 

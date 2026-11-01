@@ -69,7 +69,7 @@ Users table:
 
 > **Thinking**
 >
-> Names must have a capital first letter and lowercase remainder. Concatenate $\texttt{UPPER}(\texttt{LEFT}(name,1))$ with $\texttt{LOWER}(\texttt{SUBSTRING}(name,2))$, then order by $\texttt{user\_id}$.
+> Names must have a capital first letter and lowercase remainder. Concatenate $\texttt{UPPER}(\texttt{LEFT}(\textit{name},1))$ with $\texttt{LOWER}(\texttt{SUBSTRING}(\textit{name},2))$, then order by $\texttt{user\_id}$.
 
 <!-- thinking:end -->
 
@@ -99,7 +99,7 @@ ORDER BY
 
 > **Thinking**
 >
-> Solution 1's $\texttt{SUBSTRING}(name,2)$ omits the length and runs to the end. MySQL counts the third argument in characters, so $\texttt{CHAR\_LENGTH}(name)$ supplies that count and the slice from the second character is the same suffix.
+> Solution 1's $\texttt{SUBSTRING}(\textit{name},2)$ omits the length and runs to the end. MySQL counts the third argument in characters, so $\texttt{CHAR\_LENGTH}(\textit{name})$ supplies that count and the slice from the second character is the same suffix.
 
 <!-- thinking:end -->
 

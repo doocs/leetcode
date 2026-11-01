@@ -90,9 +90,9 @@ tags:
 
 <!-- thinking:end -->
 
-We store each character in the input string in a hash set $\textit{st}$, so we can quickly ensure each distinct character is counted only once.
+We store each character in the input string in a hash set $st$, so we can quickly ensure each distinct character is counted only once.
 
-Then, we iterate through each character in $\textit{st}$ and compute the password strength according to the rules:
+Then, we iterate through each character in $st$ and compute the password strength according to the rules:
 
 - If the character is a lowercase letter ('a' to 'z'), add 1 point.
 - If the character is an uppercase letter ('A' to 'Z'), add 2 points.

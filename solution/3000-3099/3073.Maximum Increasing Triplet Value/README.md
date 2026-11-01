@@ -67,19 +67,19 @@ tags:
 
 > **思考**
 >
-> 求 $i<j<k$ 且 $nums[i]<nums[j]<nums[k]$ 时 $nums[i]-nums[j]+nums[k]$ 的最大。 $n \le 10^5$。
+> 求 $i<j<k$ 且 $\textit{nums}[i]<\textit{nums}[j]<\textit{nums}[k]$ 时 $\textit{nums}[i]-\textit{nums}[j]+\textit{nums}[k]$ 的最大。 $n \le 10^5$。
 >
-> 固定 $j$ 后， $k$ 应取右侧最大值（且须大于 $nums[j]$）， $i$ 应取左侧小于 $nums[j]$ 的最大值。
+> 固定 $j$ 后， $k$ 应取右侧最大值（且须大于 $\textit{nums}[j]$）， $i$ 应取左侧小于 $\textit{nums}[j]$ 的最大值。
 >
-> 预计算后缀最大，左侧用有序集合动态插入，二分出小于 $nums[j]$ 的最大元。
+> 预计算后缀最大，左侧用有序集合动态插入，二分出小于 $\textit{nums}[j]$ 的最大元。
 
 <!-- thinking:end -->
 
-我们不妨考虑枚举 $nums[j]$，那么我们需要在 $j$ 的左侧找到一个最大的 $nums[i]$，使得 $nums[i] < nums[j]$，并且在 $j$ 的右侧找到一个最大的 $nums[k]$，使得 $nums[k] > nums[j]$。
+我们不妨考虑枚举 $\textit{nums}[j]$，那么我们需要在 $j$ 的左侧找到一个最大的 $\textit{nums}[i]$，使得 $\textit{nums}[i] < \textit{nums}[j]$，并且在 $j$ 的右侧找到一个最大的 $\textit{nums}[k]$，使得 $\textit{nums}[k] > \textit{nums}[j]$。
 
-因此，我们可以预处理出数组 $right$，其中 $right[i]$ 表示 $nums[i]$ 右侧的最大值。然后我们可以使用有序集合来维护 $nums[j]$ 左侧的值，这样我们就可以在 $O(\log n)$ 的时间内找到最大的小于 $nums[j]$ 的 $nums[i]$。
+因此，我们可以预处理出数组 $\textit{right}$，其中 $\textit{right}[i]$ 表示 $\textit{nums}[i]$ 右侧的最大值。然后我们可以使用有序集合来维护 $\textit{nums}[j]$ 左侧的值，这样我们就可以在 $O(\log n)$ 的时间内找到最大的小于 $\textit{nums}[j]$ 的 $\textit{nums}[i]$。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

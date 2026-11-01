@@ -83,7 +83,7 @@ We first use the fast and slow pointers to judge whether the linked list has a r
 
 If there is no ring, the fast pointer will reach the tail of the linked list first, and return `null` directly.
 
-If there is a ring, we then define an answer pointer $ans$ to point to the head of the linked list, and then let $ans$ and the slow pointer move forward together, moving one step at a time, until $ans$ and the slow pointer meet, and the meeting node is the ring entrance node.
+If there is a ring, we then define an answer pointer $\textit{ans}$ to point to the head of the linked list, and then let $\textit{ans}$ and the slow pointer move forward together, moving one step at a time, until $\textit{ans}$ and the slow pointer meet, and the meeting node is the ring entrance node.
 
 Why can this find the entrance node of the ring?
 
@@ -93,7 +93,7 @@ Let's assume that the distance from the head node of the linked list to the entr
 
 Because the speed of the fast pointer is twice that of the slow pointer, it is $2 \times (x + y) = x + y + k \times (y + z)$, which can be deduced that $x + y = k \times (y + z)$, that is $x = (k - 1) \times (y + z) + z$.
 
-That is to say, if we define an answer pointer $ans$ to point to the head of the linked list, and the $ans$ and the slow pointer move forward together, they will definitely meet at the ring entrance.
+That is to say, if we define an answer pointer $\textit{ans}$ to point to the head of the linked list, and the $\textit{ans}$ and the slow pointer move forward together, they will definitely meet at the ring entrance.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the linked list.
 

@@ -126,7 +126,7 @@ tags:
 
 We can first enumerate horizontal partition lines, compute the element sum of each resulting part, and use hash maps to record the occurrence count of elements in each part.
 
-For each partition line, we need to determine whether the sums of the two parts are equal, or whether removing one cell can make them equal. If the sums are equal, we directly return $\text{true}$. If the sums are not equal, we compute their difference $\textit{diff}$. If $\textit{diff}$ exists in the hash map of the larger part and satisfies the connectivity condition after removing that cell, we also return $\text{true}$.
+For each partition line, we need to determine whether the sums of the two parts are equal, or whether removing one cell can make them equal. If the sums are equal, we directly return $\textit{true}$. If the sums are not equal, we compute their difference $\textit{diff}$. If $\textit{diff}$ exists in the hash map of the larger part and satisfies the connectivity condition after removing that cell, we also return $\textit{true}$.
 
 The connectivity condition can be checked using the following criteria:
 

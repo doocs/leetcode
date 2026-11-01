@@ -75,7 +75,7 @@ answer = [7,1,3,9].
 
 Split each number in the array into digits, then put the split numbers into the answer array in order.
 
-The time complexity is $O(n \log_{10} M)$, and the space complexity is $O(n \log_{10} M)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(n \log_{10} M)$, and the space complexity is $O(n \log_{10} M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

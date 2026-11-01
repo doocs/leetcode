@@ -88,22 +88,22 @@ tags:
 
 > **Thinking**
 >
-> The definition matches part I, but $zero$ and $one$ are larger, so backtracking is impossible. Stability still depends only on remaining counts and the next bit.
+> The definition matches part I, but $\textit{zero}$ and $\textit{one}$ are larger, so backtracking is impossible. Stability still depends only on remaining counts and the next bit.
 >
-> Overflow is again subtracted as the branch that writes $limit+1$ equal bits. The state space stays $O(zero one)$.
+> Overflow is again subtracted as the branch that writes $\textit{limit}+1$ equal bits. The state space stays $O(\textit{zero} \textit{one})$.
 >
-> Reuse memoized $dfs(i,j,k)$, reduce modulo $10^9+7$, and clear the cache before returning.
+> Reuse memoized $\textit{dfs}(i,j,k)$, reduce modulo $10^9+7$, and clear the cache before returning.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, k)$ to represent the number of stable binary arrays that satisfy the problem conditions when there are $i$ $0$s and $j$ $1$s left, and the next number to be filled is $k$. The answer is $dfs(zero, one, 0) + dfs(zero, one, 1)$.
+We design a function $\textit{dfs}(i, j, k)$ to represent the number of stable binary arrays that satisfy the problem conditions when there are $i$ $0$s and $j$ $1$s left, and the next number to be filled is $k$. The answer is $\textit{dfs}(\textit{zero}, \textit{one}, 0) + \textit{dfs}(\textit{zero}, \textit{one}, 1)$.
 
-The calculation process of the function $dfs(i, j, k)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
 
 - If $i < 0$ or $j < 0$, return $0$.
 - If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.
 - If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.
-- If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
+- If $k = 0$, we consider the case where the previous number is $0$, $\textit{dfs}(i - 1, j, 0)$, and the case where the previous number is $1$, $\textit{dfs}(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
 
 <!-- tabs:start -->
 
@@ -329,13 +329,13 @@ impl Solution {
 >
 > Fill $f[i][j][k]$ iteratively in increasing $i$ and $j$, with the same base cases as part I.
 >
-> Apply the modulus in the recurrence and return $f[zero][one][0]+f[zero][one][1]$ without a call stack.
+> Apply the modulus in the recurrence and return $f[\textit{zero}][\textit{one}][0]+f[\textit{zero}][\textit{one}][1]$ without a call stack.
 
 <!-- thinking:end -->
 
 We can also convert the memoization search of Solution 1 into dynamic programming.
 
-We define $f[i][j][k]$ as the number of stable binary arrays using $i$ $0$s and $j$ $1$s, and the last number is $k$. So the answer is $f[zero][one][0] + f[zero][one][1]$.
+We define $f[i][j][k]$ as the number of stable binary arrays using $i$ $0$s and $j$ $1$s, and the last number is $k$. So the answer is $f[\textit{zero}][\textit{one}][0] + f[\textit{zero}][\textit{one}][1]$.
 
 Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\textit{limit}, \textit{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\textit{limit}, \textit{one})$.
 
@@ -344,7 +344,7 @@ The state transition equation is as follows:
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
 
-The time complexity is $O(zero one)$, and the space complexity is $O(zero one)$.
+The time complexity is $O(\textit{zero} \textit{one})$, and the space complexity is $O(\textit{zero} \textit{one})$.
 
 <!-- tabs:start -->
 

@@ -74,9 +74,9 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, for each $\textit{queries[i]}$, we need to find a subsequence such that the sum of its elements does not exceed $\textit{queries[i]}$ and the length of the subsequence is maximized. Obviously, we should choose the smallest possible elements to maximize the length of the subsequence.
+According to the problem description, for each $\textit{queries}[i]$, we need to find a subsequence such that the sum of its elements does not exceed $\textit{queries}[i]$ and the length of the subsequence is maximized. Obviously, we should choose the smallest possible elements to maximize the length of the subsequence.
 
-Therefore, we can first sort the array $\textit{nums}$ in ascending order, and then for each $\textit{queries[i]}$, we can use binary search to find the smallest index $j$ such that $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$. At this point, $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
+Therefore, we can first sort the array $\textit{nums}$ in ascending order, and then for each $\textit{queries}[i]$, we can use binary search to find the smallest index $j$ such that $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries}[i]$. At this point, $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
 
 The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$ or $O(\log n)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 
@@ -232,17 +232,17 @@ public class Solution {
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we can first sort the array $nums$ in ascending order.
+Similar to Solution 1, we can first sort the array $\textit{nums}$ in ascending order.
 
-Next, we define an index array $idx$ of the same length as $queries$, where $idx[i] = i$. Then, we sort the array $idx$ in ascending order based on the values in $queries$. This way, we can process the elements in $queries$ in ascending order.
+Next, we define an index array $\textit{idx}$ of the same length as $\textit{queries}$, where $\textit{idx}[i] = i$. Then, we sort the array $\textit{idx}$ in ascending order based on the values in $\textit{queries}$. This way, we can process the elements in $\textit{queries}$ in ascending order.
 
 We use a variable $s$ to record the sum of the currently selected elements and a variable $j$ to record the number of currently selected elements. Initially, $s = j = 0$.
 
-We traverse the index array $idx$, and for each index $i$ in it, we iteratively add elements from the array $nums$ to the current subsequence until $s + nums[j] \gt queries[i]$. At this point, $j$ is the length of the subsequence that meets the condition. We set the value of $ans[i]$ to $j$ and then continue to process the next index.
+We traverse the index array $\textit{idx}$, and for each index $i$ in it, we iteratively add elements from the array $\textit{nums}$ to the current subsequence until $s + \textit{nums}[j] \gt \textit{queries}[i]$. At this point, $j$ is the length of the subsequence that meets the condition. We set the value of $\textit{ans}[i]$ to $j$ and then continue to process the next index.
 
-After traversing the index array $idx$, we obtain the answer array $ans$, where $ans[i]$ is the length of the subsequence that satisfies $queries[i]$.
+After traversing the index array $\textit{idx}$, we obtain the answer array $\textit{ans}$, where $\textit{ans}[i]$ is the length of the subsequence that satisfies $\textit{queries}[i]$.
 
-The time complexity is $O(n \log n + m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the arrays $nums$ and $queries$, respectively.
+The time complexity is $O(n \log n + m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

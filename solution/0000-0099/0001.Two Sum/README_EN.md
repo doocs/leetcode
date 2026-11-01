@@ -70,17 +70,17 @@ tags:
 
 > **Thinking**
 >
-> The first idea is a nested loop: pick $x$, then scan for $target-x$. Correct, but $O(n^2)$. $n \le 10^4$ might pass, yet the follow-up asks for faster.
+> The first idea is a nested loop: pick $x$, then scan for $\textit{target}-x$. Correct, but $O(n^2)$. $n \le 10^4$ might pass, yet the follow-up asks for faster.
 >
-> The bottleneck is repeatedly searching for the complement among numbers already seen. A hash table makes that lookup expected $O(1)$. Walk once, storing value $\to$ index: when we see $x$, ask whether $target-x$ already appeared; if yes, return the two indices; if not, store $x$.
+> The bottleneck is repeatedly searching for the complement among numbers already seen. A hash table makes that lookup expected $O(1)$. Walk once, storing value $\to$ index: when we see $x$, ask whether $\textit{target}-x$ already appeared; if yes, return the two indices; if not, store $x$.
 >
-> Look up before inserting. Insert-then-lookup would reuse the same index on $[3,3]$, $target=6$. Lookup-first guarantees the match is an earlier index.
+> Look up before inserting. Insert-then-lookup would reuse the same index on $[3,3]$, $\textit{target}=6$. Lookup-first guarantees the match is an earlier index.
 
 <!-- thinking:end -->
 
-We can use a hash table $\textit{d}$ to store each element and its corresponding index.
+We can use a hash table $d$ to store each element and its corresponding index.
 
-Traverse the array $\textit{nums}$, for the current element $\textit{nums}[i]$, we first check if $\textit{target} - \textit{nums}[i]$ is in the hash table $\textit{d}$. If it is in $\textit{d}$, it means the $\textit{target}$ value has been found, and we return the indices of $\textit{target} - \textit{nums}[i]$ and $i$.
+Traverse the array $\textit{nums}$, for the current element $\textit{nums}[i]$, we first check if $\textit{target} - \textit{nums}[i]$ is in the hash table $d$. If it is in $d$, it means the $\textit{target}$ value has been found, and we return the indices of $\textit{target} - \textit{nums}[i]$ and $i$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

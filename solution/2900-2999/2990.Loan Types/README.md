@@ -80,7 +80,7 @@ Loans table:
 
 > **思考**
 >
-> 用户须同时持有 Refinance 与 Mortgage。按 $user_id$ 分组后，用 $SUM(loan_type='Refinance')$ 与对应的 Mortgage 条件判断是否都为正。
+> 用户须同时持有 Refinance 与 Mortgage。按 $\textit{user}_id$ 分组后，用 $\textit{SUM}(\textit{loan}_\textit{type}='\textit{Refinance}')$ 与对应的 Mortgage 条件判断是否都为正。
 >
 > 比两次存在性子查询或自连接更短，最后按用户排序。
 

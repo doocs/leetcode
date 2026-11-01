@@ -84,11 +84,11 @@ spreadsheet.getValue("=A1+B2"); // 返回 15 (0+15)</div>
 >
 > 未赋值的引用视为 $0$，重置即删除键。
 >
-> $\textit{getValue}$ 去掉等号后按 $+$ 拆开：数字段直接转换，引用段用 $\textit{d.get}(\textit{cell},0)$。
+> $\textit{getValue}$ 去掉等号后按 $+$ 拆开：数字段直接转换，引用段用 $d.\textit{get}(\textit{cell},0)$。
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\textit{d}$ 来记录所有单元格的值，其中键为单元格引用，值为单元格的值。
+我们用一个哈希表 $d$ 来记录所有单元格的值，其中键为单元格引用，值为单元格的值。
 
 调用 `setCell` 方法时，我们将单元格引用和值存入哈希表中。
 

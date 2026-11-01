@@ -102,19 +102,19 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 >
 > 要按菜系查询评分最高、字典序最小的食物，并支持改分。调用达 $2 \times 10^4$，每次线性扫描过慢。
 >
-> 每个菜系用有序集合存 $(-rating, food)$，另用哈希表记下食物的当前评分与菜系。改分时删除旧二元组、插入新二元组；查询取集合首元的食物名。
+> 每个菜系用有序集合存 $(-\textit{rating}, \textit{food})$，另用哈希表记下食物的当前评分与菜系。改分时删除旧二元组、插入新二元组；查询取集合首元的食物名。
 
 <!-- thinking:end -->
 
-我们可以使用哈希表 $\textit{d}$ 来存储每种烹饪方式下的食物，其中键是烹饪方式，值是一个有序集合，有序集合的每个元素是一个二元组 $(\textit{rating}, \textit{food})$，按照评分从高到低排序，如果评分相同，则按照食物名字的字典序从小到大排序。
+我们可以使用哈希表 $d$ 来存储每种烹饪方式下的食物，其中键是烹饪方式，值是一个有序集合，有序集合的每个元素是一个二元组 $(\textit{rating}, \textit{food})$，按照评分从高到低排序，如果评分相同，则按照食物名字的字典序从小到大排序。
 
-我们还可以使用哈希表 $\textit{g}$ 来存储每种食物的评分和烹饪方式。即 $\textit{g}[\textit{food}] = (\textit{rating}, \textit{cuisine})$。
+我们还可以使用哈希表 $g$ 来存储每种食物的评分和烹饪方式。即 $g[\textit{food}] = (\textit{rating}, \textit{cuisine})$。
 
-在构造函数中，我们遍历 $\textit{foods}$、 $\textit{cuisines}$ 和 $\textit{ratings}$，将每种食物的评分和烹饪方式存储到 $\textit{d}$ 和 $\textit{g}$ 中。
+在构造函数中，我们遍历 $\textit{foods}$、 $\textit{cuisines}$ 和 $\textit{ratings}$，将每种食物的评分和烹饪方式存储到 $d$ 和 $g$ 中。
 
-在 $\textit{changeRating}$ 函数中，我们首先获取食物 $\textit{food}$ 的原评分 $\textit{oldRating}$ 和烹饪方式 $\textit{cuisine}$，然后更新 $\textit{g}[\textit{food}]$ 的评分为 $\textit{newRating}$，并从 $\textit{d}[\textit{cuisine}]$ 中删除 $(\textit{oldRating}, \textit{food})$，并将 $(\textit{newRating}, \textit{food})$ 添加到 $\textit{d}[\textit{cuisine}]$ 中。
+在 $\textit{changeRating}$ 函数中，我们首先获取食物 $\textit{food}$ 的原评分 $\textit{oldRating}$ 和烹饪方式 $\textit{cuisine}$，然后更新 $g[\textit{food}]$ 的评分为 $\textit{newRating}$，并从 $d[\textit{cuisine}]$ 中删除 $(\textit{oldRating}, \textit{food})$，并将 $(\textit{newRating}, \textit{food})$ 添加到 $d[\textit{cuisine}]$ 中。
 
-在 $\textit{highestRated}$ 函数中，我们直接返回 $\textit{d}[\textit{cuisine}]$ 的第一个元素的食物名字即可。
+在 $\textit{highestRated}$ 函数中，我们直接返回 $d[\textit{cuisine}]$ 的第一个元素的食物名字即可。
 
 时间复杂度方面，构造函数的时间复杂度为 $O(n \log n)$，其中 $n$ 是食物的数量。其余操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$。
 

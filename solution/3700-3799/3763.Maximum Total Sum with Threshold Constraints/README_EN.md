@@ -106,7 +106,7 @@ tags:
 
 > **Thinking**
 >
-> At step $t$ we may pick an unused index whose threshold is at most $t$, and we want the largest $nums[i]$. Sorting indices by threshold, we insert newly unlocked values into an ordered set as $t$ grows and always take the current maximum; an empty set ends the process.
+> At step $t$ we may pick an unused index whose threshold is at most $t$, and we want the largest $\textit{nums}[i]$. Sorting indices by threshold, we insert newly unlocked values into an ordered set as $t$ grows and always take the current maximum; an empty set ends the process.
 
 <!-- thinking:end -->
 

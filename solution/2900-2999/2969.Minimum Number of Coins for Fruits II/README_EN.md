@@ -80,25 +80,25 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 
 > **Thinking**
 >
-> The recurrence matches “Fruits I”: $f[i]=prices[i-1]+\min_{i+1 \le j \le 2i+1} f[j]$, but $n$ is $10^5$, so a double loop fails. The window’s right end shrinks as $i$ decreases, and a monotonic queue extracts the minimum in amortized $O(1)$.
+> The recurrence matches “Fruits I”: $f[i]=\textit{prices}[i-1]+\min_{i+1 \le j \le 2i+1} f[j]$, but $n$ is $10^5$, so a double loop fails. The window’s right end shrinks as $i$ decreases, and a monotonic queue extracts the minimum in amortized $O(1)$.
 >
-> Going backwards, drop indices beyond $2i+1$, add the head into $prices[i-1]$, and keep the queue increasing by cost. After the in-place roll, $prices[0]$ is the answer.
+> Going backwards, drop indices beyond $2i+1$, add the head into $\textit{prices}[i-1]$, and keep the queue increasing by cost. After the in-place roll, $\textit{prices}[0]$ is the answer.
 
 <!-- thinking:end -->
 
 We define $f[i]$ as the minimum number of coins needed to buy all fruits starting from the $i$th fruit. So the answer is $f[1]$.
 
-The state transition equation is $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + prices[i - 1]$.
+The state transition equation is $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + \textit{prices}[i - 1]$.
 
-In implementation, we calculate from back to front, and we can directly perform state transition on the array $prices$, which can save space.
+In implementation, we calculate from back to front, and we can directly perform state transition on the array $\textit{prices}$, which can save space.
 
 The time complexity of the above method is $O(n^2)$. Since the scale of $n$ in this problem reaches $10^5$, it will time out.
 
 We observe the state transition equation and find that for each $i$, we need to find the minimum value of $f[i + 1], f[i + 2], \cdots, f[2i + 1]$, and as $i$ decreases, the range of these values is also decreasing. This is actually finding the minimum value of a monotonically narrowing sliding window, and we can use a monotonic queue to optimize.
 
-We calculate from back to front, maintain a monotonically increasing queue $q$, and the queue stores the index. If the head element of $q$ is greater than $i \times 2 + 1$, it means that the elements after $i$ will not be used, so we dequeue the head element. If $i$ is not greater than $(n - 1) / 2$, then we can add $prices[q[0] - 1]$ to $prices[i - 1]$, and then add $i$ to the tail of the queue. If the price of the fruit corresponding to the tail element of $q$ is greater than or equal to $prices[i - 1]$, then we dequeue the tail element until the price of the fruit corresponding to the tail element is less than $prices[i - 1]$ or the queue is empty, and then add $i$ to the tail of the queue.
+We calculate from back to front, maintain a monotonically increasing queue $q$, and the queue stores the index. If the head element of $q$ is greater than $i \times 2 + 1$, it means that the elements after $i$ will not be used, so we dequeue the head element. If $i$ is not greater than $(n - 1) / 2$, then we can add $\textit{prices}[q[0] - 1]$ to $\textit{prices}[i - 1]$, and then add $i$ to the tail of the queue. If the price of the fruit corresponding to the tail element of $q$ is greater than or equal to $\textit{prices}[i - 1]$, then we dequeue the tail element until the price of the fruit corresponding to the tail element is less than $\textit{prices}[i - 1]$ or the queue is empty, and then add $i$ to the tail of the queue.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

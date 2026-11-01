@@ -83,7 +83,7 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 
 > **Thinking**
 >
-> Trying all permutations of each swap is infeasible when both $n$ and $|pairs|$ reach $10^5$.
+> Trying all permutations of each swap is infeasible when both $n$ and $|\textit{pairs}|$ reach $10^5$.
 >
 > Swaps are transitive: indices form connected components, and characters inside a component may be rearranged freely. The lexicographically smallest string fills each component's indices with its characters in increasing order.
 >

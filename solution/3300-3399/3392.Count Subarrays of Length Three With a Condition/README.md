@@ -70,7 +70,7 @@ tags:
 >
 > 长度为 $3$ 的子数组满足两翼之和的两倍等于中间。 $n \le 100$，枚举中间下标即可。
 >
-> 对每个 $i \in [1,n-2]$ 判断 $(nums[i-1]+nums[i+1])\times 2 = nums[i]$，计数为真的个数。
+> 对每个 $i \in [1,n-2]$ 判断 $(\textit{nums}[i-1]+\textit{nums}[i+1])\times 2 = \textit{nums}[i]$，计数为真的个数。
 
 <!-- thinking:end -->
 

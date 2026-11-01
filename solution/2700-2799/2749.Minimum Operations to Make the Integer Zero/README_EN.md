@@ -68,9 +68,9 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 
 > **Thinking**
 >
-> Each step subtracts $2^i+num2$ from $num1$; we want the fewest steps that reach $0$. The exponent range is large, so searching the sequence of $i$ is impossible.
+> Each step subtracts $2^i+\textit{num2}$ from $\textit{num1}$; we want the fewest steps that reach $0$. The exponent range is large, so searching the sequence of $i$ is impossible.
 >
-> After exactly $k$ operations, $x=num1-k\cdot num2$ must be a sum of $k$ powers of two, i.e. $x\ge k$ and the popcount of $x$ is at most $k$. Increase $k$ from $1$ and stop once $x$ becomes negative.
+> After exactly $k$ operations, $x=\textit{num1}-k\cdot \textit{num2}$ must be a sum of $k$ powers of two, i.e. $x\ge k$ and the popcount of $x$ is at most $k$. Increase $k$ from $1$ and stop once $x$ becomes negative.
 
 <!-- thinking:end -->
 

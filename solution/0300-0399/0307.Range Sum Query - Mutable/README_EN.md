@@ -78,7 +78,7 @@ numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
 >
 > Unlike problem 303, a point update must stay cheap together with range sums. Rebuilding a prefix array after every write, or scanning on each query, cannot keep both operations logarithmic.
 >
-> A Fenwick tree stores prefix sums via lowbit: $update$ walks $x+=x\&-x$, $query$ walks $x-=x\&-x$. A range is the difference of two prefixes; an update reads the old value and writes the delta. The constructor inserts each index once.
+> A Fenwick tree stores prefix sums via lowbit: $\textit{update}$ walks $x+=x\&-x$, $\textit{query}$ walks $x-=x\&-x$. A range is the difference of two prefixes; an update reads the old value and writes the delta. The constructor inserts each index once.
 
 <!-- thinking:end -->
 
@@ -429,7 +429,7 @@ public class NumArray {
 >
 > A Fenwick tree is tailored to prefix sums and is less natural for arbitrary segment aggregates. A segment tree splits $[l,r]$ at the midpoint; each internal node stores its interval sum, and a point update touches only the $O(\log n)$ nodes on the root-to-leaf path.
 >
-> A query decomposes $[left,right]$ into $O(\log n)$ node intervals. The asymptotics match Method 1; the explicit children make later extensions (e.g. range extrema) straightforward.
+> A query decomposes $[\textit{left},\textit{right}]$ into $O(\log n)$ node intervals. The asymptotics match Method 1; the explicit children make later extensions (e.g. range extrema) straightforward.
 
 <!-- thinking:end -->
 

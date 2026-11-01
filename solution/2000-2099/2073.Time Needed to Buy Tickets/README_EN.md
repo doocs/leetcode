@@ -87,7 +87,7 @@ tags:
 
 > **Thinking**
 >
-> Naively simulating the queue costs $O(\sum tickets)$. When person $k$ finishes, everyone ahead bought at most $tickets[k]$ tickets and everyone behind at most $tickets[k]-1$.
+> Naively simulating the queue costs $O(\sum \textit{tickets})$. When person $k$ finishes, everyone ahead bought at most $\textit{tickets}[k]$ tickets and everyone behind at most $\textit{tickets}[k]-1$.
 >
 > Sum $\min$ of that cap and each person's demand in one pass.
 

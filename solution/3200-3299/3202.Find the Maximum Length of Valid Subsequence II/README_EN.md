@@ -81,7 +81,7 @@ Based on the problem description, we know that for a subsequence $a_1, a_2, a_3,
 
 We can solve this problem using dynamic programming. Define the state $f[x][y]$ as the length of the longest valid subsequence where the last element modulo $k$ equals $x$, and the second to last element modulo $k$ equals $y$. Initially, $f[x][y] = 0$.
 
-Iterate through the array $nums$, and for each number $x$, we get $x = x \bmod k$. Then, we can enumerate the sequences where two consecutive numbers modulo $j$ yield the same result, where $j \in [0, k)$. Thus, the previous number modulo $k$ would be $y = (j - x + k) \bmod k$. At this point, $f[x][y] = f[y][x] + 1$.
+Iterate through the array $\textit{nums}$, and for each number $x$, we get $x = x \bmod k$. Then, we can enumerate the sequences where two consecutive numbers modulo $j$ yield the same result, where $j \in [0, k)$. Thus, the previous number modulo $k$ would be $y = (j - x + k) \bmod k$. At this point, $f[x][y] = f[y][x] + 1$.
 
 The answer is the maximum value among all $f[x][y]$.
 

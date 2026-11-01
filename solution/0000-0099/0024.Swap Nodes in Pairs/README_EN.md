@@ -89,7 +89,7 @@ We can implement swapping two nodes in the linked list through recursion.
 
 The termination condition of recursion is that there are no nodes in the linked list, or there is only one node in the linked list. At this time, swapping cannot be performed, so we directly return this node.
 
-Otherwise, we recursively swap the linked list $head.next.next$, and let the swapped head node be $t$. Then we let $p$ be the next node of $head$, and let $p$ point to $head$, and $head$ point to $t$, finally return $p$.
+Otherwise, we recursively swap the linked list $head.next.next$, and let the swapped head node be $t$. Then we let $p$ be the next node of $\textit{head}$, and let $p$ point to $\textit{head}$, and $\textit{head}$ point to $t$, finally return $p$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
@@ -353,15 +353,15 @@ end
 >
 > Solution 1 is correct, but recursion depth tracks the number of pairs, so extra space is $O(n)$. The same three pointer writes inside a pair can run in a loop.
 >
-> A dummy pins the list head. Pointers $pre$ and $cur$ rewrite the two nodes after $pre$, then advance by one pair.
+> A dummy pins the list head. Pointers $\textit{pre}$ and $\textit{cur}$ rewrite the two nodes after $\textit{pre}$, then advance by one pair.
 >
 > Time stays $O(n)$; extra space drops to $O(1)$.
 
 <!-- thinking:end -->
 
-We set a dummy head node $dummy$, initially pointing to $head$, and then set two pointers $pre$ and $cur$, initially $pre$ points to $dummy$, and $cur$ points to $head$.
+We set a dummy head node $\textit{dummy}$, initially pointing to $\textit{head}$, and then set two pointers $\textit{pre}$ and $\textit{cur}$, initially $\textit{pre}$ points to $\textit{dummy}$, and $\textit{cur}$ points to $\textit{head}$.
 
-Next, we traverse the linked list. Each time we need to swap the two nodes after $pre$, so we first judge whether $cur$ and $cur.next$ are empty. If they are not empty, we perform the swap, otherwise we terminate the loop.
+Next, we traverse the linked list. Each time we need to swap the two nodes after $\textit{pre}$, so we first judge whether $\textit{cur}$ and $\textit{cur}.\textit{next}$ are empty. If they are not empty, we perform the swap, otherwise we terminate the loop.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 

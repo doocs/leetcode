@@ -80,25 +80,25 @@ tags:
 
 > **思考**
 >
-> 子串中 $0$、 $1$ 个数之比等于 $num1:num2$，即 $n_1\cdot num1-n_0\cdot num2$ 在左右端相同。前缀该线性式相等的下标对即可。
+> 子串中 $0$、 $1$ 个数之比等于 $\textit{num1}:\textit{num2}$，即 $n_1\cdot \textit{num1}-n_0\cdot \textit{num2}$ 在左右端相同。前缀该线性式相等的下标对即可。
 >
 > 哈希统计该式的出现次数，初值 $(0,1)$ 表示空前缀。扫到每个位置先累加再更新计数。
 
 <!-- thinking:end -->
 
-我们用 $one[i]$ 表示字符串 $s[0,..i]$ 中 $1$ 的个数，用 $zero[i]$ 表示字符串 $s[0,..i]$ 中 $0$ 的个数。子串符合条件，需要满足
+我们用 $\textit{one}[i]$ 表示字符串 $s[0,..i]$ 中 $1$ 的个数，用 $\textit{zero}[i]$ 表示字符串 $s[0,..i]$ 中 $0$ 的个数。子串符合条件，需要满足
 
 $$
-\frac{zero[j] - zero[i]}{one[j] - one[i]} = \frac{num1}{num2}
+\frac{\textit{zero}[j] - \textit{zero}[i]}{\textit{one}[j] - \textit{one}[i]} = \frac{\textit{num1}}{\textit{num2}}
 $$
 
 其中 $i < j$。我们可以将上式转化为
 
 $$
-one[j] \times num1 - zero[j] \times num2 = one[i] \times num1 - zero[i] \times num2
+\textit{one}[j] \times \textit{num1} - \textit{zero}[j] \times \textit{num2} = \textit{one}[i] \times \textit{num1} - \textit{zero}[i] \times \textit{num2}
 $$
 
-遍历到下标 $j$ 时，我们只需要统计有多少个下标 $i$ 满足上式即可。因此，我们可以用哈希表记录 $one[i] \times num1 - zero[i] \times num2$ 出现的次数，遍历到下标 $j$ 时，只需要统计 $one[j] \times num1 - zero[j] \times num2$ 出现的次数即可。
+遍历到下标 $j$ 时，我们只需要统计有多少个下标 $i$ 满足上式即可。因此，我们可以用哈希表记录 $\textit{one}[i] \times \textit{num1} - \textit{zero}[i] \times \textit{num2}$ 出现的次数，遍历到下标 $j$ 时，只需要统计 $\textit{one}[j] \times \textit{num1} - \textit{zero}[j] \times \textit{num2}$ 出现的次数即可。
 
 哈希表初始时只有一个键值对 $(0, 1)$。
 

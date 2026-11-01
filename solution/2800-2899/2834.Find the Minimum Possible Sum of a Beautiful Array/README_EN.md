@@ -83,17 +83,17 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 
 > **Thinking**
 >
-> A beautiful array forbids any pair summing to $target$ and should have minimal sum. Greedy selection from $1$ may take every integer up to $\lfloor target/2\rfloor$; if more values are needed, continue from $target$. Both segments are arithmetic, so closed forms suffice.
+> A beautiful array forbids any pair summing to $\textit{target}$ and should have minimal sum. Greedy selection from $1$ may take every integer up to $\lfloor \textit{target}/2\rfloor$; if more values are needed, continue from $\textit{target}$. Both segments are arithmetic, so closed forms suffice.
 
 <!-- thinking:end -->
 
-We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ each time and excluding $target - x$.
+We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ each time and excluding $\textit{target} - x$.
 
-Let's denote $m = \left\lfloor \frac{target}{2} \right\rfloor$.
+Let's denote $m = \left\lfloor \frac{\textit{target}}{2} \right\rfloor$.
 
 If $x <= m$, then the numbers we can choose are $1, 2, \cdots, n$, so the sum of the array is $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$.
 
-If $x > m$, then the numbers we can choose are $1, 2, \cdots, m$, a total of $m$ numbers, and $n - m$ numbers starting from $target$, so the sum of the array is $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(target + target + n - m - 1)(n-m)}{2} \right\rfloor$.
+If $x > m$, then the numbers we can choose are $1, 2, \cdots, m$, a total of $m$ numbers, and $n - m$ numbers starting from $\textit{target}$, so the sum of the array is $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(\textit{target} + \textit{target} + n - m - 1)(n-m)}{2} \right\rfloor$.
 
 Note that we need to take the modulus of $10^9 + 7$ for the result.
 

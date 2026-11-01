@@ -87,9 +87,9 @@ There is only one average to be calculated after removing 1 and 100, so we retur
 
 <!-- thinking:end -->
 
-The problem requires us to find the minimum and maximum values in the array $nums$ each time, delete them, and then calculate the average of the two deleted numbers. Therefore, we can first sort the array $nums$, then take the first and last elements of the array each time, calculate their sum, use a hash table or array $cnt$ to record the number of times each sum appears, and finally count the number of different sums.
+The problem requires us to find the minimum and maximum values in the array $\textit{nums}$ each time, delete them, and then calculate the average of the two deleted numbers. Therefore, we can first sort the array $\textit{nums}$, then take the first and last elements of the array each time, calculate their sum, use a hash table or array $\textit{cnt}$ to record the number of times each sum appears, and finally count the number of different sums.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

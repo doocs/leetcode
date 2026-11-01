@@ -111,7 +111,7 @@ tags:
 >
 > Floor indices reach $10^9$, but there are only $m\le 16$ requests, which is exactly the size of a subset TSP. Arrival times are lower bounds: arriving early forces a wait.
 >
-> $f[S][j]$ is the earliest time to have processed set $S$ and ended on request $j$. From the empty set the cost is $\max(|\textit{start}-\textit{floor}_j|,\textit{arrival}_j)$; otherwise we enumerate the previous request $j_0$ and take $\max(f[S\setminus\{j\}][j_0]+\text{distance},\textit{arrival}_j)$.
+> $f[S][j]$ is the earliest time to have processed set $S$ and ended on request $j$. From the empty set the cost is $\max(|\textit{start}-\textit{floor}_j|,\textit{arrival}_j)$; otherwise we enumerate the previous request $j_0$ and take $\max(f[S\setminus\{j\}][j_0]+\textit{distance},\textit{arrival}_j)$.
 >
 > The minimum over the last index on the full set is the time to finish every request.
 

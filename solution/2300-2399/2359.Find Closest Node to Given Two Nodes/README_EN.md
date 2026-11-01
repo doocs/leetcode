@@ -76,7 +76,7 @@ The maximum of those two distances is 2. It can be proven that we cannot get a n
 
 <!-- thinking:end -->
 
-We can first use BFS to calculate the distance from $node1$ and $node2$ to every node, denoted as $d_1$ and $d_2$ respectively. Then, enumerate all common nodes $i$, and for each, compute $\max(d_1[i], d_2[i])$. The answer is the node with the minimal such value.
+We can first use BFS to calculate the distance from $\textit{node1}$ and $\textit{node2}$ to every node, denoted as $d_1$ and $d_2$ respectively. Then, enumerate all common nodes $i$, and for each, compute $\max(d_1[i], d_2[i])$. The answer is the node with the minimal such value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

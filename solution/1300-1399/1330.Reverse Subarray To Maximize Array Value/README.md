@@ -79,13 +79,13 @@ tags:
 1. 翻转子数组，且子数组“包含”最后一个元素
 1. 翻转子数组，且子数组“不包含”第一个元素和最后一个元素
 
-我们记不翻转子数组时的数组值为 $s$，此时有 $s = \sum_{i=0}^{n-2} |a_i - a_{i+1}|$。我们可以将答案 $ans$ 初始化为 $s$。
+我们记不翻转子数组时的数组值为 $s$，此时有 $s = \sum_{i=0}^{n-2} |a_i - a_{i+1}|$。我们可以将答案 $\textit{ans}$ 初始化为 $s$。
 
-如果翻转子数组，且子数组包含第一个元素，我们可以枚举翻转的子数组的最后一个元素 $a_i$，其中 $0 \leq i \lt n-1$，此时有 $ans = \max(ans, s + |a_0 - a_{i+1}| - |a_i - a_{i+1}|)$。
+如果翻转子数组，且子数组包含第一个元素，我们可以枚举翻转的子数组的最后一个元素 $a_i$，其中 $0 \leq i \lt n-1$，此时有 $\textit{ans} = \max(\textit{ans}, s + |a_0 - a_{i+1}| - |a_i - a_{i+1}|)$。
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/1-drawio.png" /></p>
 
-同理，如果翻转子数组，且子数组包含最后一个元素，我们可以枚举翻转的子数组的第一个元素 $a_{i+1}$，其中 $0 \leq i \lt n-1$，此时有 $ans = \max(ans, s + |a_{n-1} - a_i| - |a_i - a_{i+1}|)$。
+同理，如果翻转子数组，且子数组包含最后一个元素，我们可以枚举翻转的子数组的第一个元素 $a_{i+1}$，其中 $0 \leq i \lt n-1$，此时有 $\textit{ans} = \max(\textit{ans}, s + |a_{n-1} - a_i| - |a_i - a_{i+1}|)$。
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/2-drawio.png" /></p>
 
@@ -105,11 +105,11 @@ $$
 \left | x_1 - x_2 \right |  + \left | y_1 - y_2 \right | - \left | x_1 - y_1 \right | - \left | x_2 - y_2 \right |  = \max \begin{cases} (x_1 + y_1) - \left |x_1 - y_1 \right | - \left ( (x_2 + y_2) + \left |x_2 - y_2 \right | \right ) \\ (x_1 - y_1) - \left |x_1 - y_1 \right | - \left ( (x_2 - y_2) + \left |x_2 - y_2 \right | \right ) \\ (-x_1 + y_1) - \left |x_1 - y_1 \right | - \left ( (-x_2 + y_2) + \left |x_2 - y_2 \right | \right ) \\ (-x_1 - y_1) - \left |x_1 - y_1 \right | - \left ( (-x_2 - y_2) + \left |x_2 - y_2 \right | \right ) \end{cases}
 $$
 
-因此，我们只要求出 $k_1 \times x + k_2 \times y$ 的最大值 $mx$，其中 $k_1, k_2 \in \{-1, 1\}$，以及对应的 $|x - y|$ 的最小值 $mi$，那么数组值变化量的最大值为 $mx - mi$。答案为 $ans = \max(ans, s + \max(0, mx - mi))$。
+因此，我们只要求出 $k_1 \times x + k_2 \times y$ 的最大值 $mx$，其中 $k_1, k_2 \in \{-1, 1\}$，以及对应的 $|x - y|$ 的最小值 $mi$，那么数组值变化量的最大值为 $mx - mi$。答案为 $\textit{ans} = \max(\textit{ans}, s + \max(0, mx - mi))$。
 
-在代码实现上，我们定义了一个长度为 $5$ 的数组 $dirs=[1, -1, -1, 1, 1]$，每次取数组相邻两个元素作为 $k_1, k_2$ 的值，这样可以覆盖 $k_1, k_2 \in \{-1, 1\}$ 的所有情况。
+在代码实现上，我们定义了一个长度为 $5$ 的数组 $\textit{dirs}=[1, -1, -1, 1, 1]$，每次取数组相邻两个元素作为 $k_1, k_2$ 的值，这样可以覆盖 $k_1, k_2 \in \{-1, 1\}$ 的所有情况。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 相似题目：
 

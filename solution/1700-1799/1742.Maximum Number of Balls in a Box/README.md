@@ -81,7 +81,7 @@ tags:
 >
 > 盒子编号为各位数字之和。编号不超过 $10^5$，数位和小于 $50$，可开定长计数数组。
 >
-> 枚举 $[\textit{lowLimit},\textit{highLimit}]$，累加数位后 $cnt[y]++$，答案为 $cnt$ 的最大值。
+> 枚举 $[\textit{lowLimit},\textit{highLimit}]$，累加数位后 $\textit{cnt}[y]++$，答案为 $\textit{cnt}$ 的最大值。
 
 <!-- thinking:end -->
 

@@ -101,7 +101,7 @@ tags:
 >
 > Odd rows shift right by $k$ and even rows left by $k$; the matrix must stay unchanged. $k$ may be reduced modulo the width, but comparing the cell that would land on $(i,j)$ avoids rotating.
 >
-> On odd rows inspect $mat[i][(j+k)\bmod n]$, on even rows $mat[i][(j-k+n)\bmod n]$. One mismatch rejects. The matrix is at most $25 \times 25$.
+> On odd rows inspect $\textit{mat}[i][(j+k)\bmod n]$, on even rows $\textit{mat}[i][(j-k+n)\bmod n]$. One mismatch rejects. The matrix is at most $25 \times 25$.
 
 <!-- thinking:end -->
 
@@ -111,7 +111,7 @@ For odd-indexed rows, we shift elements to the right by $k$ positions, so elemen
 
 For even-indexed rows, we shift elements to the left by $k$ positions, so element $(i, j)$ moves to position $(i, (j - k + n) \bmod n)$ after the cyclic shift.
 
-If at any point during the traversal we find that an element's position after the cyclic shift differs from the original, we return $\text{false}$. If all elements remain the same after the full traversal, we return $\text{true}$.
+If at any point during the traversal we find that an element's position after the cyclic shift differs from the original, we return $\textit{false}$. If all elements remain the same after the full traversal, we return $\textit{true}$.
 
 The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

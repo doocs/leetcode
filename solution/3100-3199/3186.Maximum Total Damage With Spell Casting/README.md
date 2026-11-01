@@ -84,7 +84,7 @@ tags:
 >
 > 排序后决策变为：跳过当前值的全部副本，或收下它们并跳到第一个大于 $x+2$ 的位置。下一位置可用二分预计算。
 >
-> 记忆化 $dfs(i)=\max(dfs(i+cnt[x]),\,x\cdot cnt[x]+dfs(nxt[i]))$。每个互异伤害只展开一次。
+> 记忆化 $\textit{dfs}(i)=\max(\textit{dfs}(i+\textit{cnt}[x]),\,x\cdot \textit{cnt}[x]+\textit{dfs}(\textit{nxt}[i]))$。每个互异伤害只展开一次。
 
 <!-- thinking:end -->
 
@@ -94,7 +94,7 @@ tags:
 
 在 $\textit{dfs}$ 函数中，我们可以选择跳过当前伤害值，那么我们可以跳过当前伤害值的所有相同伤害值，直接跳到 $i + \textit{cnt}[x]$，可以获得的伤害值为 $\textit{dfs}(i + \textit{cnt}[x])$；或者我们可以选择使用当前伤害值，那么我们可以使用当前伤害值的所有相同伤害值，然后跳到下一个伤害值的索引，可以获得的伤害值为 $x \times \textit{cnt}[x] + \textit{dfs}(\textit{nxt}[i])$，其中 $\textit{nxt}[i]$ 表示第一个大于 $x + 2$ 的伤害值的索引。我们取这两种情况的最大值作为函数的返回值。
 
-为了避免重复计算，我们可以使用记忆化搜索，将已经计算过的结果保存在数组 $\textit{f}$ 中，这样在计算 $\textit{dfs}(i)$ 时，如果 $\textit{f}[i]$ 不为 $0$，则直接返回 $\textit{f}[i]$。
+为了避免重复计算，我们可以使用记忆化搜索，将已经计算过的结果保存在数组 $f$ 中，这样在计算 $\textit{dfs}(i)$ 时，如果 $f[i]$ 不为 $0$，则直接返回 $f[i]$。
 
 答案即为 $\textit{dfs}(0)$。
 

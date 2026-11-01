@@ -68,9 +68,9 @@ tags:
 
 > **Thinking**
 >
-> The array is sorted and distinct, so the number of missing values before index $i$ is $nums[i]-nums[0]-i$. A linear walk finds the $k$-th missing, but the follow-up asks for logarithmic time.
+> The array is sorted and distinct, so the number of missing values before index $i$ is $\textit{nums}[i]-\textit{nums}[0]-i$. A linear walk finds the $k$-th missing, but the follow-up asks for logarithmic time.
 >
-> $\textit{missing}(i)$ is increasing. If $k$ exceeds the missing count at the end, the answer lies past the array; otherwise we bisect the least $i$ with $\textit{missing}(i)\ge k$ and add the leftover gap to $nums[i-1]$.
+> $\textit{missing}(i)$ is increasing. If $k$ exceeds the missing count at the end, the answer lies past the array; otherwise we bisect the least $i$ with $\textit{missing}(i)\ge k$ and add the leftover gap to $\textit{nums}[i-1]$.
 >
 > The search range is $[0,n-1]$.
 

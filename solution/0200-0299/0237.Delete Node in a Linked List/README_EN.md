@@ -77,7 +77,7 @@ tags:
 
 > **Thinking**
 >
-> We are given only the node to delete, so the predecessor’s $next$ cannot be rewritten. Copy the successor’s value into the current node and skip the successor, which is equivalent to deleting it.
+> We are given only the node to delete, so the predecessor’s $\textit{next}$ cannot be rewritten. Copy the successor’s value into the current node and skip the successor, which is equivalent to deleting it.
 
 <!-- thinking:end -->
 

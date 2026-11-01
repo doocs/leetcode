@@ -77,17 +77,17 @@ tags:
 
 > **Thinking**
 >
-> The judge trusts nobody and is trusted by the other $n-1$ people. That is the unique node with out-degree $0$ and in-degree $n-1$. Two count arrays record trusts and trusted-by; after one pass over $trust$, scan every label.
+> The judge trusts nobody and is trusted by the other $n-1$ people. That is the unique node with out-degree $0$ and in-degree $n-1$. Two count arrays record trusts and trusted-by; after one pass over $\textit{trust}$, scan every label.
 
 <!-- thinking:end -->
 
-We create two arrays $cnt1$ and $cnt2$ of length $n + 1$, representing the number of people each person trusts and the number of people who trust each person, respectively.
+We create two arrays $\textit{cnt1}$ and $\textit{cnt2}$ of length $n + 1$, representing the number of people each person trusts and the number of people who trust each person, respectively.
 
-Next, we traverse the array $trust$, for each item $[a_i, b_i]$, we increment $cnt1[a_i]$ and $cnt2[b_i]$ by $1$.
+Next, we traverse the array $\textit{trust}$, for each item $[a_i, b_i]$, we increment $\textit{cnt1}[a_i]$ and $\textit{cnt2}[b_i]$ by $1$.
 
-Finally, we enumerate each person $i$ in the range $[1,..n]$. If $cnt1[i] = 0$ and $cnt2[i] = n - 1$, it means that $i$ is the town judge, and we return $i$. Otherwise, if no such person is found after the traversal, we return $-1$.
+Finally, we enumerate each person $i$ in the range $[1,..n]$. If $\textit{cnt1}[i] = 0$ and $\textit{cnt2}[i] = n - 1$, it means that $i$ is the town judge, and we return $i$. Otherwise, if no such person is found after the traversal, we return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $trust$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{trust}$.
 
 <!-- tabs:start -->
 

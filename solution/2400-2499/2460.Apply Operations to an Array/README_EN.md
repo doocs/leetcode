@@ -86,13 +86,13 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 
 We can directly simulate according to the problem description.
 
-First, we traverse the array $nums$. For any two adjacent elements $nums[i]$ and $nums[i+1]$, if $nums[i] = nums[i+1]$, then we double the value of $nums[i]$ and change the value of $nums[i+1]$ to $0$.
+First, we traverse the array $\textit{nums}$. For any two adjacent elements $\textit{nums}[i]$ and $\textit{nums}[i+1]$, if $\textit{nums}[i] = \textit{nums}[i+1]$, then we double the value of $\textit{nums}[i]$ and change the value of $\textit{nums}[i+1]$ to $0$.
 
-Then, we create an answer array $ans$ of length $n$, and put all non-zero elements of $nums$ into $ans$ in order.
+Then, we create an answer array $\textit{ans}$ of length $n$, and put all non-zero elements of $\textit{nums}$ into $\textit{ans}$ in order.
 
-Finally, we return the answer array $ans$.
+Finally, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

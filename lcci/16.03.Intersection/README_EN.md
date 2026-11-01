@@ -65,4 +65,6 @@ line2 = {1, 0}, {2, 1}
 
 No solution yet. Contributions welcome.
 
+<!-- solution:end -->
+
 <!-- problem:end -->

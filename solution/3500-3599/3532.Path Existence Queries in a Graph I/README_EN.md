@@ -103,7 +103,7 @@ tags:
 
 According to the problem description, the node indices within the same connected component must be consecutive. Therefore, we can use an array $g$ to record the connected component index for each node and a variable $\textit{cnt}$ to track the current connected component index. As we iterate through the $\textit{nums}$ array, if the difference between the current node and the previous node is greater than $\textit{maxDiff}$, it indicates that the current node and the previous node are not in the same connected component. In this case, we increment $\textit{cnt}$. Then, we assign the current node's connected component index to $\textit{cnt}$.
 
-Finally, for each query $(u, v)$, we only need to check whether $g[u]$ and $g[v]$ are equal. If they are equal, it means $u$ and $v$ are in the same connected component, and the answer for the $i$-th query is $\text{true}$. Otherwise, the answer is $\text{false}$.
+Finally, for each query $(u, v)$, we only need to check whether $g[u]$ and $g[v]$ are equal. If they are equal, it means $u$ and $v$ are in the same connected component, and the answer for the $i$-th query is $\textit{true}$. Otherwise, the answer is $\textit{false}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{nums}$ array.
 

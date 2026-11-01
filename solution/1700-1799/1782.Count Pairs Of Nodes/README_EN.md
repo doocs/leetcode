@@ -89,9 +89,9 @@ The answers for each of the queries are as follows:
 
 From the problem, we know that the number of edges connected to the point pair $(a, b)$ is equal to the "number of edges connected to $a$" plus the "number of edges connected to $b$", minus the number of edges connected to both $a$ and $b$.
 
-Therefore, we can first use the array $cnt$ to count the number of edges connected to each point, and use the hash table $g$ to count the number of each point pair.
+Therefore, we can first use the array $\textit{cnt}$ to count the number of edges connected to each point, and use the hash table $g$ to count the number of each point pair.
 
-Then, for each query $q$, we can enumerate $a$. For each $a$, we can find the first $b$ that satisfies $cnt[a] + cnt[b] > q$ through binary search, add the number to the current query answer, and then subtract some duplicate edges.
+Then, for each query $q$, we can enumerate $a$. For each $a$, we can find the first $b$ that satisfies $\textit{cnt}[a] + \textit{cnt}[b] > q$ through binary search, add the number to the current query answer, and then subtract some duplicate edges.
 
 The time complexity is $O(q(n \log n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of points and edges respectively, and $q$ is the number of queries.
 

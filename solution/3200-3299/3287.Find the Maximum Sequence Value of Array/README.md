@@ -91,17 +91,17 @@ tags:
 
 $$
 f[i + 1][j][x] = f[i + 1][j][x] \lor f[i][j][x] \\
-f[i + 1][j + 1][x \lor \text{nums}[i]] = f[i + 1][j + 1][x \lor \text{nums}[i]] \lor f[i][j][x]
+f[i + 1][j + 1][x \lor \textit{nums}[i]] = f[i + 1][j + 1][x \lor \textit{nums}[i]] \lor f[i][j][x]
 $$
 
 对于 $g[i][j][y]$ 的转移方程，同样对于第 $i$ 个元素（从 $n - 1$ 开始），我们可以选择不取，也可以选择取，因此有：
 
 $$
 g[i - 1][j][y] = g[i - 1][j][y] \lor g[i][j][y] \\
-g[i - 1][j + 1][y \lor \text{nums}[i - 1]] = g[i - 1][j + 1][y \lor \text{nums}[i - 1]] \lor g[i][j][y]
+g[i - 1][j + 1][y \lor \textit{nums}[i - 1]] = g[i - 1][j + 1][y \lor \textit{nums}[i - 1]] \lor g[i][j][y]
 $$
 
-最后，我们在 $[k, n - k]$ 的范围内枚举 $i$，对于每一个 $i$，我们枚举 $x$ 和 $y$，其中 $0 \leq x, y < 2^7$，如果 $f[i][k][x]$ 和 $g[i][k][y]$ 均为真，那么我们更新答案 $\text{ans} = \max(\text{ans}, x \oplus y)$。
+最后，我们在 $[k, n - k]$ 的范围内枚举 $i$，对于每一个 $i$，我们枚举 $x$ 和 $y$，其中 $0 \leq x, y < 2^7$，如果 $f[i][k][x]$ 和 $g[i][k][y]$ 均为真，那么我们更新答案 $\textit{ans} = \max(\textit{ans}, x \oplus y)$。
 
 时间复杂度 $O(nmk)$，空间复杂度 $O(nmk)$。其中 $n$ 为数组长度，而 $m = 2^7$。
 

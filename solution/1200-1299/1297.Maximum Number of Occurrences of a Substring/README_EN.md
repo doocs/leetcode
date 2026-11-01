@@ -66,9 +66,9 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 > **Thinking**
 >
-> Among substrings that obey the letter-count and length bounds, we want the maximum frequency. If a longer legal string occurs $t$ times, each of its $minSize$ prefixes occurs at least $t$ times, so we only count windows of length $minSize$ with at most $maxLetters$ distinct letters.
+> Among substrings that obey the letter-count and length bounds, we want the maximum frequency. If a longer legal string occurs $t$ times, each of its $\textit{minSize}$ prefixes occurs at least $t$ times, so we only count windows of length $\textit{minSize}$ with at most $\textit{maxLetters}$ distinct letters.
 >
-> $n \le 10^5$ and $minSize \le 26$: enumerate those windows, test the alphabet with a set, and take the maximum hash-map count.
+> $n \le 10^5$ and $\textit{minSize} \le 26$: enumerate those windows, test the alphabet with a set, and take the maximum hash-map count.
 
 <!-- thinking:end -->
 
@@ -225,7 +225,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 keys on raw strings and builds each window in $O(minSize)$. A sliding window maintains the distinct-letter count, and a string hash turns the window into an $O(1)$ integer key, for linear time.
+> Solution 1 keys on raw strings and builds each window in $O(\textit{minSize})$. A sliding window maintains the distinct-letter count, and a string hash turns the window into an $O(1)$ integer key, for linear time.
 
 <!-- thinking:end -->
 

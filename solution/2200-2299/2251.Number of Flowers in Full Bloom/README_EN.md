@@ -280,7 +280,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can use a difference array to maintain the number of flowers at each time point. Next, we sort $people$ by their arrival times in ascending order. When each person arrives, we perform a prefix sum operation on the difference array to get the answer.
+We can use a difference array to maintain the number of flowers at each time point. Next, we sort $\textit{people}$ by their arrival times in ascending order. When each person arrives, we perform a prefix sum operation on the difference array to get the answer.
 
 The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $\textit{flowers}$ and $\textit{people}$, respectively.
 

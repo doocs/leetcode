@@ -112,11 +112,11 @@ tags:
 >
 > 有效分割要求各块异或在 $\textit{target1}$ 与 $\textit{target2}$ 之间交替且以 $\textit{target1}$ 开头。 $n \le 10^5$，枚举分割点不可行。
 >
-> 前缀异或 $pre$ 下，一块 $[l,r]$ 的异或为 $pre_r \oplus pre_{l-1}$。交替条件因此化为对历史前缀的计数。
+> 前缀异或 $\textit{pre}$ 下，一块 $[l,r]$ 的异或为 $\textit{pre}_r \oplus \textit{pre}_{l-1}$。交替条件因此化为对历史前缀的计数。
 >
 > 用 $\textit{cnt1}[x]$、 $\textit{cnt2}[x]$ 分别记录以 $\textit{target1}$、 $\textit{target2}$ 结尾且当前前缀异或为 $x$ 的方案数。空前缀记入 $\textit{cnt2}[0]=1$。
 >
-> 每读入一个数更新 $pre$，由对侧计数推出本段合法接法，再写回本侧。线性扫描即可得到以当前为结尾的方案数。
+> 每读入一个数更新 $\textit{pre}$，由对侧计数推出本段合法接法，再写回本侧。线性扫描即可得到以当前为结尾的方案数。
 
 <!-- thinking:end -->
 

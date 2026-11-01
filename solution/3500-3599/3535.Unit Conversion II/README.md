@@ -91,15 +91,15 @@ tags:
 >
 > 转换树与上一题相同，已能求出 $1$ 个单位 $0$ 对应的 $\textit{res}[i]$。查询是任意两点之比，而非相对 $0$。
 >
-> $\textit{unitA}$ 到 $\textit{unitB}$ 等于 $\textit{res}[B] \cdot \textit{res}[A]^{-1}$。模数为素数，用费马小定理 $a^{MOD-2}$ 求逆。
+> $\textit{unitA}$ 到 $\textit{unitB}$ 等于 $\textit{res}[B] \cdot \textit{res}[A]^{-1}$。模数为素数，用费马小定理 $a^{\textit{MOD}-2}$ 求逆。
 
 <!-- thinking:end -->
 
 由题意可知，转换关系构成一棵以 $0$ 为根的有向树。从根节点 $0$ 出发 DFS，维护 `res[i]` 表示 $1$ 个单位 $0$ 等于多少个单位 $i$。
 
-对于查询 $(unitA, unitB)$，答案为 $\frac{res[unitB]}{res[unitA]}$，对 $10^9 + 7$ 取模即 `res[unitB] * res[unitA]^(MOD - 2) % MOD`，其中 `MOD - 2` 利用费马小定理求模逆。
+对于查询 $(\textit{unitA}, \textit{unitB})$，答案为 $\frac{\textit{res}[\textit{unitB}]}{\textit{res}[\textit{unitA}]}$，对 $10^9 + 7$ 取模即 `res[unitB] * res[unitA]^(MOD - 2) % MOD`，其中 `MOD - 2` 利用费马小定理求模逆。
 
-时间复杂度 $O(n + q \log MOD)$，空间复杂度 $O(n)$。其中 $n$ 为单位种类数，而 $q$ 为查询次数。
+时间复杂度 $O(n + q \log \textit{MOD})$，空间复杂度 $O(n)$。其中 $n$ 为单位种类数，而 $q$ 为查询次数。
 
 <!-- tabs:start -->
 
@@ -370,15 +370,15 @@ impl Solution {
 >
 > 因此用显式栈保存 $(单位, 累计因子)$。弹出时写下 $\textit{res}[i]$，后继压入时乘边权并对 $10^9 + 7$ 取模。
 >
-> 查询是任意两点之比，而不是相对 $0$。 $\textit{unitA}$ 到 $\textit{unitB}$ 等于 $\textit{res}[B] \cdot \textit{res}[A]^{-1}$。模数为素数，用费马小定理 $a^{MOD-2}$ 求逆。
+> 查询是任意两点之比，而不是相对 $0$。 $\textit{unitA}$ 到 $\textit{unitB}$ 等于 $\textit{res}[B] \cdot \textit{res}[A]^{-1}$。模数为素数，用费马小定理 $a^{\textit{MOD}-2}$ 求逆。
 
 <!-- thinking:end -->
 
 由题意可知，转换关系构成一棵以 $0$ 为根的有向树。用显式栈从根出发，栈帧是 $(单位, 累计因子)$，初始为 $(0, 1)$。弹出时把累计因子写入 `res[i]`，表示 $1$ 个单位 $0$ 等于多少个单位 $i$；每个后继再乘上边权、对 $10^9 + 7$ 取模后压栈。
 
-对于查询 $(unitA, unitB)$，答案为 $\frac{res[unitB]}{res[unitA]}$，对 $10^9 + 7$ 取模即 `res[unitB] * res[unitA]^(MOD - 2) % MOD`，其中 `MOD - 2` 利用费马小定理求模逆。
+对于查询 $(\textit{unitA}, \textit{unitB})$，答案为 $\frac{\textit{res}[\textit{unitB}]}{\textit{res}[\textit{unitA}]}$，对 $10^9 + 7$ 取模即 `res[unitB] * res[unitA]^(MOD - 2) % MOD`，其中 `MOD - 2` 利用费马小定理求模逆。
 
-时间复杂度 $O(n + q \log MOD)$，空间复杂度 $O(n)$。其中 $n$ 为单位种类数，而 $q$ 为查询次数。
+时间复杂度 $O(n + q \log \textit{MOD})$，空间复杂度 $O(n)$。其中 $n$ 为单位种类数，而 $q$ 为查询次数。
 
 <!-- tabs:start -->
 

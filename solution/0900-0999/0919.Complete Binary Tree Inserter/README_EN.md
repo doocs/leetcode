@@ -74,11 +74,11 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 
 <!-- thinking:end -->
 
-We can use an array $tree$ to store all nodes of the complete binary tree. During initialization, we use a queue $q$ to perform level-order traversal of the given tree and store all nodes into the array $tree$.
+We can use an array $\textit{tree}$ to store all nodes of the complete binary tree. During initialization, we use a queue $q$ to perform level-order traversal of the given tree and store all nodes into the array $\textit{tree}$.
 
-When inserting a node, we can find the parent node $p$ of the new node through the array $tree$. Then we create a new node $node$, insert it into the array $tree$, and make $node$ as the left child or right child of $p$. Finally, we return the value of $p$.
+When inserting a node, we can find the parent node $p$ of the new node through the array $\textit{tree}$. Then we create a new node $\textit{node}$, insert it into the array $\textit{tree}$, and make $\textit{node}$ as the left child or right child of $p$. Finally, we return the value of $p$.
 
-When getting the root node, we directly return the first element of the array $tree$.
+When getting the root node, we directly return the first element of the array $\textit{tree}$.
 
 In terms of time complexity, it takes $O(n)$ time for initialization, and the time complexity for inserting a node and getting the root node are both $O(1)$. The space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

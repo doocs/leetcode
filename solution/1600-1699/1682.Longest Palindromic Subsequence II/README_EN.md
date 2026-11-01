@@ -68,17 +68,17 @@ tags:
 >
 > A good palindromic subsequence has length at least $2$ and consecutive paired letters must differ. Ordinary LPS only needs the interval ends; here we also remember the last paired character.
 >
-> $dfs(i,j,x)$ covers $[i,j]$ after a pair $x$. Equal ends different from $x$ form a new pair; otherwise shrink one side. Memoization is $O(n^2\lvert \Sigma \rvert)$.
+> $\textit{dfs}(i,j,x)$ covers $[i,j]$ after a pair $x$. Equal ends different from $x$ form a new pair; otherwise shrink one side. Memoization is $O(n^2\lvert \Sigma \rvert)$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, x)$ to represent the length of the longest "good" palindrome subsequence ending with character $x$ in the index range $[i, j]$ of string $s$. The answer is $dfs(0, n - 1, 26)$.
+We design a function $\textit{dfs}(i, j, x)$ to represent the length of the longest "good" palindrome subsequence ending with character $x$ in the index range $[i, j]$ of string $s$. The answer is $\textit{dfs}(0, n - 1, 26)$.
 
-The calculation process of the function $dfs(i, j, x)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j, x)$ is as follows:
 
-- If $i >= j$, then $dfs(i, j, x) = 0$;
-- If $s[i] = s[j]$ and $s[i] \neq x$, then $dfs(i, j, x) = dfs(i + 1, j - 1, s[i]) + 2$;
-- If $s[i] \neq s[j]$, then $dfs(i, j, x) = max(dfs(i + 1, j, x), dfs(i, j - 1, x))$.
+- If $i >= j$, then $\textit{dfs}(i, j, x) = 0$;
+- If $s[i] = s[j]$ and $s[i] \neq x$, then $\textit{dfs}(i, j, x) = \textit{dfs}(i + 1, j - 1, s[i]) + 2$;
+- If $s[i] \neq s[j]$, then $\textit{dfs}(i, j, x) = \max(\textit{dfs}(i + 1, j, x), \textit{dfs}(i, j - 1, x))$.
 
 During the process, we can use memorization search to avoid repeated calculations.
 

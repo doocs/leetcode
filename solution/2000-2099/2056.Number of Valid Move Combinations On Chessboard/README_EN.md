@@ -104,11 +104,11 @@ The problem has at most $4$ pieces, and each piece can move in up to $8$ directi
 
 We enumerate each piece in order. For each piece, we can choose not to move or move according to the rules. We use an array $\textit{dist}[i]$ to record the movement of the $i$-th piece, where $\textit{dist}[i][x][y]$ represents the time when the $i$-th piece passes through the coordinate $(x, y)$. We use an array $\textit{end}[i]$ to record the endpoint coordinates and time of the $i$-th piece. During the search, we need to determine whether the current piece can stop moving and whether it can continue moving in the current direction.
 
-We define a method $\text{checkStop}(i, x, y, t)$ to determine whether the $i$-th piece can stop at coordinate $(x, y)$ at time $t$. If for all previous pieces $j$, $\textit{dist}[j][x][y] < t$, then the $i$-th piece can stop moving.
+We define a method $\textit{checkStop}(i, x, y, t)$ to determine whether the $i$-th piece can stop at coordinate $(x, y)$ at time $t$. If for all previous pieces $j$, $\textit{dist}[j][x][y] < t$, then the $i$-th piece can stop moving.
 
-Additionally, we define a method $\text{checkPass}(i, x, y, t)$ to determine whether the $i$-th piece can pass through coordinate $(x, y)$ at time $t$. If any other piece $j$ also passes through coordinate $(x, y)$ at time $t$, or if any other piece $j$ stops at $(x, y)$ and the time does not exceed $t$, then the $i$-th piece cannot pass through coordinate $(x, y)$ at time $t$.
+Additionally, we define a method $\textit{checkPass}(i, x, y, t)$ to determine whether the $i$-th piece can pass through coordinate $(x, y)$ at time $t$. If any other piece $j$ also passes through coordinate $(x, y)$ at time $t$, or if any other piece $j$ stops at $(x, y)$ and the time does not exceed $t$, then the $i$-th piece cannot pass through coordinate $(x, y)$ at time $t$.
 
-The time complexity is $O((nM)^n)$, and the space complexity is $O(nM)$, where $n$ is the number of pieces, and $M$ is the movement range of each piece.
+The time complexity is $O((n \times M)^n)$, and the space complexity is $O(n \times M)$, where $n$ is the number of pieces, and $M$ is the movement range of each piece.
 
 <!-- tabs:start -->
 

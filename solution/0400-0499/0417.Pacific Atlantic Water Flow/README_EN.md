@@ -90,11 +90,11 @@ Note that there are other possible paths for these cells to flow to the Pacific 
 
 We can start from the boundaries of the Pacific and Atlantic oceans and perform breadth-first search (BFS) respectively to find all cells that can flow to the Pacific and Atlantic oceans. Finally, we take the intersection of the two results, which represents cells that can flow to both the Pacific and Atlantic oceans.
 
-Specifically, we define a queue $q_1$ to store all cells adjacent to the Pacific ocean, and define a boolean matrix $vis_1$ to record which cells can flow to the Pacific ocean. Similarly, we define queue $q_2$ and boolean matrix $vis_2$ to handle the Atlantic ocean. Initially, we add all cells adjacent to the Pacific ocean to queue $q_1$ and mark them as visited in $vis_1$. Similarly, we add all cells adjacent to the Atlantic ocean to queue $q_2$ and mark them as visited in $vis_2$.
+Specifically, we define a queue $q_1$ to store all cells adjacent to the Pacific ocean, and define a boolean matrix $\textit{vis}_1$ to record which cells can flow to the Pacific ocean. Similarly, we define queue $q_2$ and boolean matrix $\textit{vis}_2$ to handle the Atlantic ocean. Initially, we add all cells adjacent to the Pacific ocean to queue $q_1$ and mark them as visited in $\textit{vis}_1$. Similarly, we add all cells adjacent to the Atlantic ocean to queue $q_2$ and mark them as visited in $\textit{vis}_2$.
 
 Then, we perform BFS on $q_1$ and $q_2$ respectively. In each BFS, we dequeue a cell $(x, y)$ from the queue and check its four adjacent cells $(nx, ny)$. If an adjacent cell is within the matrix bounds, has not been visited, and its height is not less than the current cell's height (i.e., water can flow to that cell), we add it to the queue and mark it as visited.
 
-Finally, we traverse the entire matrix to find cells that are marked as visited in both $vis_1$ and $vis_2$. These cells are our answer.
+Finally, we traverse the entire matrix to find cells that are marked as visited in both $\textit{vis}_1$ and $\textit{vis}_2$. These cells are our answer.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 

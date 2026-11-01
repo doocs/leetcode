@@ -83,7 +83,7 @@ If we want to swap the smallest number in $a$, we need to find the largest numbe
 
 However, there is another swapping scheme. We can use a smallest number $mi$ as a transition element, first swap the number in $a$ with $mi$, and then swap $mi$ with the number in $b$. In this way, the cost of swapping is $2 \times mi$.
 
-In the code implementation, we can directly merge arrays $a$ and $b$ into an array $nums$, and then sort the array $nums$. Next, we enumerate the first half of the numbers, calculate the minimum cost each time, and add it to the answer.
+In the code implementation, we can directly merge arrays $a$ and $b$ into an array $\textit{nums}$, and then sort the array $\textit{nums}$. Next, we enumerate the first half of the numbers, calculate the minimum cost each time, and add it to the answer.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

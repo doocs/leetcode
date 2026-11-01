@@ -70,7 +70,7 @@ tags:
 >
 > Count unordered pairs whose sum lies in $[\textit{lower},\textit{upper}]$. A double loop fails at $n\le 10^5$.
 >
-> Only values matter, so sorting is safe. For a fixed $x=nums[i]$ the partner must lie in $[\textit{lower}-x,\textit{upper}-x]$; the gap between two lower bounds is the count, starting at $i+1$ to avoid double-counting.
+> Only values matter, so sorting is safe. For a fixed $x=\textit{nums}[i]$ the partner must lie in $[\textit{lower}-x,\textit{upper}-x]$; the gap between two lower bounds is the count, starting at $i+1$ to avoid double-counting.
 
 <!-- thinking:end -->
 

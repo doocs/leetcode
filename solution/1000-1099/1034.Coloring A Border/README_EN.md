@@ -67,7 +67,7 @@ tags:
 
 > **Thinking**
 >
-> Find the connected component of $(row,col)$ and test which cells lie on its border. $m,n\le 50$ allows one search. A border cell either sits on the grid edge or has a differently colored neighbor.
+> Find the connected component of $(\textit{row},\textit{col})$ and test which cells lie on its border. $m,n\le 50$ allows one search. A border cell either sits on the grid edge or has a differently colored neighbor.
 >
 > DFS walks the component. For each cell, an out-of-range or differently colored neighbor means it is a border and is painted $\textit{color}$. A visited grid avoids re-entry.
 >

@@ -261,7 +261,7 @@ $$
 \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix} \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 0 \end{bmatrix}$, then $F_n$ is equal to the second element of the first row of the result matrix obtained by multiplying $res$ with $\textit{base}^{n}$. We can solve this using matrix exponentiation.
+We define the initial matrix $\textit{res} = \begin{bmatrix} 1 & 0 \end{bmatrix}$, then $F_n$ is equal to the second element of the first row of the result matrix obtained by multiplying $\textit{res}$ with $\textit{base}^{n}$. We can solve this using matrix exponentiation.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

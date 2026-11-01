@@ -91,7 +91,7 @@ tags:
 
 > **思考**
 >
-> 每次把一个字母改成另一个，有代价，求 $source$ 到 $target$ 的最小总价。字母仅 $26$ 个，改写可串联，故需任意字母对的最短路。Floyd 在 $26^3$ 内求出 $g[x][y]$。
+> 每次把一个字母改成另一个，有代价，求 $\textit{source}$ 到 $\textit{target}$ 的最小总价。字母仅 $26$ 个，改写可串联，故需任意字母对的最短路。Floyd 在 $26^3$ 内求出 $g[x][y]$。
 >
 > 逐位累加；若某对不可达则整体无解。重边取最小代价。串长 $10^5$，预处理与扫描分离。
 
@@ -99,13 +99,13 @@ tags:
 
 根据题目描述，我们可以将每个字母看作一个节点，每对字母的转换成本看作一条有向边。那么我们先初始化一个 $26 \times 26$ 的二维数组 $g$，其中 $g[i][j]$ 表示字母 $i$ 转换成字母 $j$ 的最小成本。初始时 $g[i][j] = \infty$，如果 $i = j$，那么 $g[i][j] = 0$。
 
-然后我们遍历数组 $original$, $changed$ 和 $cost$，对于每个下标 $i$，我们将 $original[i]$ 转换成 $changed[i]$ 的成本 $cost[i]$ 更新到 $g[original[i]][changed[i]]$ 中，取最小值。
+然后我们遍历数组 $\textit{original}$, $\textit{changed}$ 和 $\textit{cost}$，对于每个下标 $i$，我们将 $\textit{original}[i]$ 转换成 $\textit{changed}[i]$ 的成本 $\textit{cost}[i]$ 更新到 $g[\textit{original}[i]][\textit{changed}[i]]$ 中，取最小值。
 
-接下来，我们使用 Floyd 算法计算出 $g$ 中任意两个节点之间的最小成本。最后，我们遍历字符串 $source$ 和 $target$，如果 $source[i] \neq target[i]$，并且 $g[source[i]][target[i]] \geq \infty$，那么说明无法完成转换，返回 $-1$。否则，我们将 $g[source[i]][target[i]]$ 累加到答案中。
+接下来，我们使用 Floyd 算法计算出 $g$ 中任意两个节点之间的最小成本。最后，我们遍历字符串 $\textit{source}$ 和 $\textit{target}$，如果 $\textit{source}[i] \neq \textit{target}[i]$，并且 $g[\textit{source}[i]][\textit{target}[i]] \geq \infty$，那么说明无法完成转换，返回 $-1$。否则，我们将 $g[\textit{source}[i]][\textit{target}[i]]$ 累加到答案中。
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(m + n + |\Sigma|^3)$，空间复杂度 $O(|\Sigma|^2)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度；而 $|\Sigma|$ 是字母表的大小，即 $|\Sigma| = 26$。
+时间复杂度 $O(m + n + |\Sigma|^3)$，空间复杂度 $O(|\Sigma|^2)$。其中 $m$ 和 $n$ 分别是数组 $\textit{original}$ 和 $\textit{source}$ 的长度；而 $|\Sigma|$ 是字母表的大小，即 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 

@@ -98,13 +98,13 @@ matrix3D.largestMatrix(); // Returns 3. All indices from 0 to 3 tie with the sam
 
 <!-- thinking:end -->
 
-We use a three-dimensional array $\textit{g}$ to represent the matrix, where $\textit{g}[x][y][z]$ represents the value at coordinate $(x, y, z)$ in the matrix. We use an array $\textit{cnt}$ of length $n$ to record the number of 1s in each layer. We use an ordered set $\textit{sl}$ to maintain the number of 1s and the layer number for each layer. The elements in $\textit{sl}$ are $(\textit{cnt}[x], x)$, so $\textit{sl}$ can be sorted in descending order by the number of 1s, and in descending order by layer number if the number of 1s is the same.
+We use a three-dimensional array $g$ to represent the matrix, where $g[x][y][z]$ represents the value at coordinate $(x, y, z)$ in the matrix. We use an array $\textit{cnt}$ of length $n$ to record the number of 1s in each layer. We use an ordered set $sl$ to maintain the number of 1s and the layer number for each layer. The elements in $sl$ are $(\textit{cnt}[x], x)$, so $sl$ can be sorted in descending order by the number of 1s, and in descending order by layer number if the number of 1s is the same.
 
-When calling the `setCell` method, we first check if $(x, y, z)$ has already been set to 1. If it has, we return directly. Otherwise, we set $\textit{g}[x][y][z]$ to 1, remove $(\textit{cnt}[x], x)$ from $\textit{sl}$, increment $\textit{cnt}[x]$ by 1, and add $(\textit{cnt}[x], x)$ to $\textit{sl}$.
+When calling the `setCell` method, we first check if $(x, y, z)$ has already been set to 1. If it has, we return directly. Otherwise, we set $g[x][y][z]$ to 1, remove $(\textit{cnt}[x], x)$ from $sl$, increment $\textit{cnt}[x]$ by 1, and add $(\textit{cnt}[x], x)$ to $sl$.
 
-When calling the `unsetCell` method, we first check if $(x, y, z)$ has already been set to 0. If it has, we return directly. Otherwise, we set $\textit{g}[x][y][z]$ to 0, remove $(\textit{cnt}[x], x)$ from $\textit{sl}$, decrement $\textit{cnt}[x]$ by 1, and if $\textit{cnt}[x]$ is greater than 0, add $(\textit{cnt}[x], x)$ to $\textit{sl}$.
+When calling the `unsetCell` method, we first check if $(x, y, z)$ has already been set to 0. If it has, we return directly. Otherwise, we set $g[x][y][z]$ to 0, remove $(\textit{cnt}[x], x)$ from $sl$, decrement $\textit{cnt}[x]$ by 1, and if $\textit{cnt}[x]$ is greater than 0, add $(\textit{cnt}[x], x)$ to $sl$.
 
-When calling the `largestMatrix` method, we return the second value of the first element in $\textit{sl}$. If $\textit{sl}$ is empty, we return $n - 1$.
+When calling the `largestMatrix` method, we return the second value of the first element in $sl$. If $sl$ is empty, we return $n - 1$.
 
 In terms of time complexity, the `setCell` and `unsetCell` methods both have a time complexity of $O(\log n)$, and the `largestMatrix` method has a time complexity of $O(1)$. The space complexity is $O(n^3)$.
 

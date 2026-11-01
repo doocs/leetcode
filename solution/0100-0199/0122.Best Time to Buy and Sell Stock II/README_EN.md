@@ -202,18 +202,18 @@ public class Solution {
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ as the maximum profit after trading on the $i$th day, where $j$ indicates whether we currently hold the stock. When holding the stock, $j=0$, and when not holding the stock, $j=1$. The initial state is $f[0][0]=-prices[0]$, and all other states are $0$.
+We define $f[i][j]$ as the maximum profit after trading on the $i$th day, where $j$ indicates whether we currently hold the stock. When holding the stock, $j=0$, and when not holding the stock, $j=1$. The initial state is $f[0][0]=-\textit{prices}[0]$, and all other states are $0$.
 
-If we currently hold the stock, it may be that we held the stock the day before and do nothing today, i.e., $f[i][0]=f[i-1][0]$. Or it may be that we did not hold the stock the day before and bought the stock today, i.e., $f[i][0]=f[i-1][1]-prices[i]$.
+If we currently hold the stock, it may be that we held the stock the day before and do nothing today, i.e., $f[i][0]=f[i-1][0]$. Or it may be that we did not hold the stock the day before and bought the stock today, i.e., $f[i][0]=f[i-1][1]-\textit{prices}[i]$.
 
-If we currently do not hold the stock, it may be that we did not hold the stock the day before and do nothing today, i.e., $f[i][1]=f[i-1][1]$. Or it may be that we held the stock the day before and sold the stock today, i.e., $f[i][1]=f[i-1][0]+prices[i]$.
+If we currently do not hold the stock, it may be that we did not hold the stock the day before and do nothing today, i.e., $f[i][1]=f[i-1][1]$. Or it may be that we held the stock the day before and sold the stock today, i.e., $f[i][1]=f[i-1][0]+\textit{prices}[i]$.
 
 Therefore, we can write the state transition equation as:
 
 $$
 \begin{cases}
-f[i][0]=\max(f[i-1][0],f[i-1][1]-prices[i])\\
-f[i][1]=\max(f[i-1][1],f[i-1][0]+prices[i])
+f[i][0]=\max(f[i-1][0],f[i-1][1]-\textit{prices}[i])\\
+f[i][1]=\max(f[i-1][1],f[i-1][0]+\textit{prices}[i])
 \end{cases}
 $$
 

@@ -166,9 +166,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use two sorted sets, $l$ and $r$, to maintain the current array $nums$. All elements in $l$ are less than or equal to those in $r$, and the number of elements in $r$ is equal to $k_i$.
+We use two sorted sets, $l$ and $r$, to maintain the current array $\textit{nums}$. All elements in $l$ are less than or equal to those in $r$, and the number of elements in $r$ is equal to $k_i$.
 
-For each query, we insert $val_i$ into $r$, then move the smallest element in $r$ to $l$ until the size of $r$ becomes $k_i$. At this point, the smallest element in $r$ is the $k_i$-th largest element in the current $nums$. We then use fast exponentiation to update $p$ as $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
+For each query, we insert $\textit{val}_i$ into $r$, then move the smallest element in $r$ to $l$ until the size of $r$ becomes $k_i$. At this point, the smallest element in $r$ is the $k_i$-th largest element in the current $\textit{nums}$. We then use fast exponentiation to update $p$ as $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
 
 The time complexity is $O((n + m) \log (n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{nums}$ and $\textit{queries}$, respectively.
 
@@ -489,7 +489,7 @@ func powerUpdate(nums []int, p int, queries [][]int) []int {
 
 <!-- thinking:end -->
 
-We use a sorted list $\textit{sl}$ to maintain the current array $nums$. For each query, we insert $val_i$ into $\textit{sl}$, then find the $k_i$-th largest element $x$ in $\textit{sl}$. Using fast exponentiation, we update $p$ to $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
+We use a sorted list $sl$ to maintain the current array $\textit{nums}$. For each query, we insert $\textit{val}_i$ into $sl$, then find the $k_i$-th largest element $x$ in $sl$. Using fast exponentiation, we update $p$ to $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
 
 The time complexity is $O((n + m) \log (n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{nums}$ and $\textit{queries}$, respectively.
 

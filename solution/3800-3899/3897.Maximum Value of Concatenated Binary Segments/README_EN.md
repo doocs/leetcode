@@ -98,7 +98,7 @@ tags:
 >
 > Each piece is some $1$s followed by $0$s. We may reorder pieces to maximize the concatenated binary integer. Total length $\le 2 \times 10^5$.
 >
-> Binary comparison is lexicographic. The order of $A$ and $B$ is the better of $AB$ and $BA$.
+> Binary comparison is lexicographic. The order of $A$ and $B$ is the better of $\textit{AB}$ and $\textit{BA}$.
 >
 > All-$1$ pieces come first (more $1$s earlier); mixed pieces sort by $1$s descending then $0$s ascending; all-$0$ pieces go last.
 >
@@ -110,7 +110,7 @@ Let the binary string corresponding to the $i$-th segment be $1^{x_i}0^{y_i}$, w
 
 The problem allows us to rearrange these segments arbitrarily, and the goal is to maximize the integer value represented by the final concatenated binary string. Since comparing binary strings by value is essentially equivalent to comparing them lexicographically, we want as many `1`s as possible to appear earlier.
 
-Consider the relative order of two segments $A = 1^a0^b$ and $B = 1^c0^d$. If we concatenate them as $AB$ or $BA$, we should clearly choose the one with the larger lexicographical order.
+Consider the relative order of two segments $A = 1^\textit{a0}^b$ and $B = 1^\textit{c0}^d$. If we concatenate them as $\textit{AB}$ or $\textit{BA}$, we should clearly choose the one with the larger lexicographical order.
 
 Based on this rule, we can derive the following sorting strategy:
 

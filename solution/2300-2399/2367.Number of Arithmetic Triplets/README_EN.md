@@ -73,15 +73,15 @@ tags:
 
 > **Thinking**
 >
-> Count triples with common difference $diff$ in a strictly increasing array. $n \le 200$ allows a triple loop.
+> Count triples with common difference $\textit{diff}$ in a strictly increasing array. $n \le 200$ allows a triple loop.
 >
-> Enumerate three indices and test both gaps against $diff$.
+> Enumerate three indices and test both gaps against $\textit{diff}$.
 
 <!-- thinking:end -->
 
-We notice that the length of the array $nums$ is no more than $200$. Therefore, we can directly enumerate $i$, $j$, $k$, and check whether they meet the conditions. If they do, we increment the count of the triplet.
+We notice that the length of the array $\textit{nums}$ is no more than $200$. Therefore, we can directly enumerate $i$, $j$, $k$, and check whether they meet the conditions. If they do, we increment the count of the triplet.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -185,15 +185,15 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 > **Thinking**
 >
-> Method 1 is cubic. Values and length are tiny, so a set plus queries for $x+diff$ and $x+2diff$ is linear.
+> Method 1 is cubic. Values and length are tiny, so a set plus queries for $x+\textit{diff}$ and $x+2\textit{diff}$ is linear.
 
 <!-- thinking:end -->
 
-We can first store the elements of $nums$ in a hash table or array $vis$. Then, for each element $x$ in $nums$, we check if $x+diff$ and $x+diff+diff$ are also in $vis$. If they are, we increment the count of the triplet.
+We can first store the elements of $\textit{nums}$ in a hash table or array $\textit{vis}$. Then, for each element $x$ in $\textit{nums}$, we check if $x+\textit{diff}$ and $x+\textit{diff}+\textit{diff}$ are also in $\textit{vis}$. If they are, we increment the count of the triplet.
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

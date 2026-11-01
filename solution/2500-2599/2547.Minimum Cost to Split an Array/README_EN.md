@@ -109,15 +109,15 @@ The cost of the split is 10. It can be shown that this is the minimum possible c
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents the minimum cost of splitting from index $i$. So the answer is $dfs(0)$.
+We design a function $\textit{dfs}(i)$, which represents the minimum cost of splitting from index $i$. So the answer is $\textit{dfs}(0)$.
 
-The calculation process of the function $dfs(i)$ is as follows:
+The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
 If $i \ge n$, it means that the splitting has reached the end of the array, and $0$ is returned at this time.
-Otherwise, we enumerate the end $j$ of the subarray. During the process, we use an array or hash table cnt to count the number of times each number appears in the subarray, and use a variable one to count the number of numbers in the subarray that appear once. So the importance of the subarray is $k + j - i + 1 - one$, and the cost of splitting is $k + j - i + 1 - one + dfs(j + 1)$. We enumerate all $j$ and take the minimum value as the return value of $dfs(i)$.
-During the process, we can use memoization search, that is, use an array $f$ to memorize the return value of the function $dfs(i)$ to avoid repeated calculations.
+Otherwise, we enumerate the end $j$ of the subarray. During the process, we use an array or hash table cnt to count the number of times each number appears in the subarray, and use a variable one to count the number of numbers in the subarray that appear once. So the importance of the subarray is $k + j - i + 1 - \textit{one}$, and the cost of splitting is $k + j - i + 1 - \textit{one} + \textit{dfs}(j + 1)$. We enumerate all $j$ and take the minimum value as the return value of $\textit{dfs}(i)$.
+During the process, we can use memoization search, that is, use an array $f$ to memorize the return value of the function $\textit{dfs}(i)$ to avoid repeated calculations.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -303,9 +303,9 @@ function minCost(nums: number[], k: number): number {
 
 <!-- thinking:end -->
 
-Let $f[i]$ be the minimum cost of splitting from index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, enumerate the right end $j$ of the current piece. An array $\textit{cnt}$ counts occurrences in $nums[i..j]$, and $\textit{one}$ counts values that occur once. The importance of this piece is $k + j - i + 1 - \textit{one}$, and $f[i]$ is the minimum of that importance plus $f[j+1]$. The answer is $f[0]$.
+Let $f[i]$ be the minimum cost of splitting from index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, enumerate the right end $j$ of the current piece. An array $\textit{cnt}$ counts occurrences in $\textit{nums}[i..j]$, and $\textit{one}$ counts values that occur once. The importance of this piece is $k + j - i + 1 - \textit{one}$, and $f[i]$ is the minimum of that importance plus $f[j+1]$. The answer is $f[0]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

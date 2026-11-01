@@ -85,13 +85,13 @@ Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which
 
 > **Thinking**
 >
-> Each step adds, subtracts, or xors a value from $nums$. Intermediate values that we keep expanding live in $[0,1000]$, so at most $1001$ states; unweighted shortest path is BFS.
+> Each step adds, subtracts, or xors a value from $\textit{nums}$. Intermediate values that we keep expanding live in $[0,1000]$, so at most $1001$ states; unweighted shortest path is BFS.
 >
-> Pop $x$, apply three ops per number; return on $goal$, otherwise enqueue unseen values in range.
+> Pop $x$, apply three ops per number; return on $\textit{goal}$, otherwise enqueue unseen values in range.
 
 <!-- thinking:end -->
 
-BFS from $start$, applying add, subtract, and xor with each number until $goal$ is reached.
+BFS from $\textit{start}$, applying add, subtract, and xor with each number until $\textit{goal}$ is reached.
 
 <!-- tabs:start -->
 
@@ -274,7 +274,7 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 > **Thinking**
 >
-> Solution 1 stores the step on each queue node. Level-order BFS increments $ans$ once per layer and keeps queue entries smaller.
+> Solution 1 stores the step on each queue node. Level-order BFS increments $\textit{ans}$ once per layer and keeps queue entries smaller.
 >
 > `next` lists successors; if the queue drains, return $-1$.
 
@@ -436,13 +436,13 @@ func minimumOperations(nums []int, start int, goal int) int {
 
 > **Thinking**
 >
-> One-sided BFS grows quickly. Searching from both $start$ and $goal$ meets in the middle; always expand the smaller frontier and add the two distances.
+> One-sided BFS grows quickly. Searching from both $\textit{start}$ and $\textit{goal}$ meets in the middle; always expand the smaller frontier and add the two distances.
 >
-> Intermediates stay in $[0,1000]$; $goal$ may lie outside, so the first expansion from that side can still hit.
+> Intermediates stay in $[0,1000]$; $\textit{goal}$ may lie outside, so the first expansion from that side can still hit.
 
 <!-- thinking:end -->
 
-Search from both $start$ and $goal$ until the two sides meet.
+Search from both $\textit{start}$ and $\textit{goal}$ until the two sides meet.
 
 <!-- tabs:start -->
 

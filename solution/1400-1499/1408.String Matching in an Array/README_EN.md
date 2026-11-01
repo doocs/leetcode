@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-We directly enumerate all strings $words[i]$, and check whether it is a substring of other strings. If it is, we add it to the answer.
+We directly enumerate all strings $\textit{words}[i]$, and check whether it is a substring of other strings. If it is, we add it to the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ is the length of the string array.
 

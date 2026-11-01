@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-假设当前连续的三个顶点分别为 $p_1, p_2, p_3$，我们可以计算向量 $\overrightarrow{p_1p_2}$ 和 $\overrightarrow{p_1p_3}$ 的叉积，记为 $cur$。如果 $cur$ 的方向与之前的 $pre$ 方向不一致，说明多边形不是凸多边形 🔒。否则，我们更新 $pre = cur$，继续遍历下一个顶点。
+假设当前连续的三个顶点分别为 $p_1, p_2, p_3$，我们可以计算向量 $\overrightarrow{p_1p_2}$ 和 $\overrightarrow{p_1p_3}$ 的叉积，记为 $\textit{cur}$。如果 $\textit{cur}$ 的方向与之前的 $\textit{pre}$ 方向不一致，说明多边形不是凸多边形 🔒。否则，我们更新 $\textit{pre} = \textit{cur}$，继续遍历下一个顶点。
 
 遍历结束，如果没有发现不一致的情况，说明多边形是凸多边形 🔒。
 

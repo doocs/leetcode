@@ -70,9 +70,9 @@ tags:
 
 > **Thinking**
 >
-> Count leaf pairs whose distance is at most $distance$. Pairwise LCA queries cost roughly (number of leaves)$^2$ times height, which is heavy on a chain. A good pair lies entirely in one subtree or straddles the current root.
+> Count leaf pairs whose distance is at most $\textit{distance}$. Pairwise LCA queries cost roughly (number of leaves)$^2$ times height, which is heavy on a chain. A good pair lies entirely in one subtree or straddles the current root.
 >
-> Split the answer into the left subtree, the right subtree, and pairs that cross the root. The crossing term only needs, on each side, a histogram of leaf distances to this root; buckets whose distances sum to at most the limit contribute a product. $distance\le 10$, so the histograms stay tiny.
+> Split the answer into the left subtree, the right subtree, and pairs that cross the root. The crossing term only needs, on each side, a histogram of leaf distances to this root; buckets whose distances sum to at most the limit contribute a product. $\textit{distance}\le 10$, so the histograms stay tiny.
 
 <!-- thinking:end -->
 

@@ -63,7 +63,7 @@ tags:
 
 > **Thinking**
 >
-> A component is a maximal run of $nums$ values on the list. $n\le 10^4$, so a set lookup plus one walk is enough; no graph is required.
+> A component is a maximal run of $\textit{nums}$ values on the list. $n\le 10^4$, so a set lookup plus one walk is enough; no graph is required.
 >
 > Skip nodes outside the set. Each time a run inside the set begins, count one component and advance past the whole run.
 

@@ -72,9 +72,9 @@ tags:
 
 > **Thinking**
 >
-> Decide whether an object or array has no enumerable keys. $Object.keys$ plus a length check is correct but materializes every key.
+> Decide whether an object or array has no enumerable keys. $\textit{Object}.\textit{keys}$ plus a length check is correct but materializes every key.
 >
-> A $for\cdots in$ loop returns $false$ at the first enumerable key and $true$ otherwise. For JSON objects and arrays that is exactly emptiness.
+> A $\textit{for}\cdots in$ loop returns $\textit{false}$ at the first enumerable key and $\textit{true}$ otherwise. For JSON objects and arrays that is exactly emptiness.
 
 <!-- thinking:end -->
 
@@ -118,7 +118,7 @@ var isEmpty = function (obj) {
 
 > **Thinking**
 >
-> Solution 1 relies on a short-circuiting walk. Comparing $Object.keys(obj).length$ with $0$ states the same test more directly, at the cost of collecting the keys first.
+> Solution 1 relies on a short-circuiting walk. Comparing $\textit{Object}.\textit{keys}(\textit{obj}).\textit{length}$ with $0$ states the same test more directly, at the cost of collecting the keys first.
 
 <!-- thinking:end -->
 

@@ -93,9 +93,9 @@ tags:
 
 We can convert the array $\textit{nums1}$ into an array $\textit{arr}$, where each element is a tuple $(x, i)$, representing the value $x$ at index $i$ in $\textit{nums1}$. Then, we sort the array $\textit{arr}$ in ascending order by $x$.
 
-We use a min-heap $\textit{pq}$ to maintain the elements from the array $\textit{nums2}$. Initially, $\textit{pq}$ is empty. We use a variable $\textit{s}$ to record the sum of the elements in $\textit{pq}$. Additionally, we use a pointer $j$ to maintain the current position in the array $\textit{arr}$ that needs to be added to $\textit{pq}$.
+We use a min-heap $pq$ to maintain the elements from the array $\textit{nums2}$. Initially, $pq$ is empty. We use a variable $s$ to record the sum of the elements in $pq$. Additionally, we use a pointer $j$ to maintain the current position in the array $\textit{arr}$ that needs to be added to $pq$.
 
-We traverse the array $\textit{arr}$. For the $h$-th element $(x, i)$, we add all elements $\textit{nums2}[\textit{arr}[j][1]]$ to $\textit{pq}$ that satisfy $j < h$ and $\textit{arr}[j][0] < x$, and add these elements to $\textit{s}$. If the size of $\textit{pq}$ exceeds $k$, we pop the smallest element from $\textit{pq}$ and subtract it from $\textit{s}$. Then, we update the value of $\textit{ans}[i]$ to $\textit{s}$.
+We traverse the array $\textit{arr}$. For the $h$-th element $(x, i)$, we add all elements $\textit{nums2}[\textit{arr}[j][1]]$ to $pq$ that satisfy $j < h$ and $\textit{arr}[j][0] < x$, and add these elements to $s$. If the size of $pq$ exceeds $k$, we pop the smallest element from $pq$ and subtract it from $s$. Then, we update the value of $\textit{ans}[i]$ to $s$.
 
 After traversing, we return the answer array $\textit{ans}$.
 

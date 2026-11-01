@@ -77,17 +77,17 @@ tags:
 
 > **Thinking**
 >
-> Split the digits of $num$ into two integers whose sum is minimized. High places should be small, so the cheapest digits should fill those places on both numbers in turn.
+> Split the digits of $\textit{num}$ into two integers whose sum is minimized. High places should be small, so the cheapest digits should fill those places on both numbers in turn.
 >
 > After counting digits $0$– $9$, append them in increasing order alternately to the two numbers, keeping their lengths close and their leading digits small.
 
 <!-- thinking:end -->
 
-First, we use a hash table or array $cnt$ to count the occurrences of each digit in $num$, and use a variable $n$ to record the number of digits in $num$.
+First, we use a hash table or array $\textit{cnt}$ to count the occurrences of each digit in $\textit{num}$, and use a variable $n$ to record the number of digits in $\textit{num}$.
 
-Next, we enumerate all the digits $i$ in $nums$, and alternately allocate the digits in $cnt$ to $num1$ and $num2$ in ascending order, recording them in an array $ans$ of length $2$. Finally, we return the sum of the two numbers in $ans$.
+Next, we enumerate all the digits $i$ in $\textit{nums}$, and alternately allocate the digits in $\textit{cnt}$ to $\textit{num1}$ and $\textit{num2}$ in ascending order, recording them in an array $\textit{ans}$ of length $2$. Finally, we return the sum of the two numbers in $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the number of digits in $num$; and $C$ is the number of different digits in $num$, in this problem, $C \leq 10$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the number of digits in $\textit{num}$; and $C$ is the number of different digits in $\textit{num}$, in this problem, $C \leq 10$.
 
 <!-- tabs:start -->
 
@@ -251,9 +251,9 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can convert $num$ to a string or character array, then sort it, and then alternately allocate the digits in the sorted array to $num1$ and $num2$ in ascending order. Finally, we return the sum of $num1$ and $num2$.
+We can convert $\textit{num}$ to a string or character array, then sort it, and then alternately allocate the digits in the sorted array to $\textit{num1}$ and $\textit{num2}$ in ascending order. Finally, we return the sum of $\textit{num1}$ and $\textit{num2}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of digits in $num$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of digits in $\textit{num}$.
 
 <!-- tabs:start -->
 

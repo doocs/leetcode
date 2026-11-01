@@ -102,9 +102,9 @@ Chargebacks table:
 >
 > The monthly report must count approved transactions in their own month and chargebacks in the chargeback month. Those dates live in different columns, so grouping the original table alone is awkward.
 >
-> Rewriting each chargeback as a transaction-shaped row (state chargeback, date = chargeback date) and unioning it with the original rows puts every event on the same $(month, country)$ grain.
+> Rewriting each chargeback as a transaction-shaped row (state chargeback, date = chargeback date) and unioning it with the original rows puts every event on the same $(\textit{month}, \textit{country})$ grain.
 >
-> We $UNION$ the event table, aggregate approved and chargeback counts and amounts by month and country, and drop groups that are zero on both sides.
+> We $\textit{UNION}$ the event table, aggregate approved and chargeback counts and amounts by month and country, and drop groups that are zero on both sides.
 
 <!-- thinking:end -->
 

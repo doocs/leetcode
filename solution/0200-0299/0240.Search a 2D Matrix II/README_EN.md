@@ -65,13 +65,13 @@ tags:
 
 > **Thinking**
 >
-> Each row (and column) is sorted, so we can binary-search $target$ in every row. That is $O(m \log n)$ with no extra memory.
+> Each row (and column) is sorted, so we can binary-search $\textit{target}$ in every row. That is $O(m \log n)$ with no extra memory.
 
 <!-- thinking:end -->
 
-Since all elements in each row are sorted in ascending order, for each row, we can use binary search to find the first element greater than or equal to $\textit{target}$, and then check if that element is equal to $\textit{target}$. If it is equal to $\textit{target}$, it means the target value is found, and we return $\text{true}$. If it is not equal to $\textit{target}$, it means all elements in this row are less than $\textit{target}$, and we should continue searching the next row.
+Since all elements in each row are sorted in ascending order, for each row, we can use binary search to find the first element greater than or equal to $\textit{target}$, and then check if that element is equal to $\textit{target}$. If it is equal to $\textit{target}$, it means the target value is found, and we return $\textit{true}$. If it is not equal to $\textit{target}$, it means all elements in this row are less than $\textit{target}$, and we should continue searching the next row.
 
-If all rows have been searched and the target value is not found, it means the target value does not exist, and we return $\text{false}$.
+If all rows have been searched and the target value is not found, it means the target value does not exist, and we return $\textit{false}$.
 
 The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
@@ -236,11 +236,11 @@ public class Solution {
 
 We start the search from the bottom-left or top-right corner and move towards the top-right or bottom-left direction. Compare the current element $\textit{matrix}[i][j]$ with $\textit{target}$:
 
-- If $\textit{matrix}[i][j] = \textit{target}$, it means the target value is found, and we return $\text{true}$.
+- If $\textit{matrix}[i][j] = \textit{target}$, it means the target value is found, and we return $\textit{true}$.
 - If $\textit{matrix}[i][j] > \textit{target}$, it means all elements in this column from the current position upwards are greater than $\textit{target}$, so we move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
 - If $\textit{matrix}[i][j] < \textit{target}$, it means all elements in this row from the current position to the right are less than $\textit{target}$, so we move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
 
-If the search ends and the $\textit{target}$ is not found, return $\text{false}$.
+If the search ends and the $\textit{target}$ is not found, return $\textit{false}$.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

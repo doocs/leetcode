@@ -85,7 +85,7 @@ comments: true
 
 最后我们返回栈中的元素即为答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $asteroids$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{asteroids}$ 的长度。
 
 <!-- tabs:start -->
 

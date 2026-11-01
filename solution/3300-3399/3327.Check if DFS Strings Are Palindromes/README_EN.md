@@ -378,7 +378,7 @@ func findAnswer(parent []int, s string) (ans []bool) {
 >
 > A node's character is appended only when the node is left, so its interval covers exactly the descendants written first. Children have to be processed in the adjacency-list order, or the endpoints will not match the recursive traversal.
 >
-> An explicit stack of $(node, state)$ runs that postorder. On entry we push the exit marker and then the children in reverse, so they still pop from left to right, and on exit we record $[l, r]$. Hashes of the string and of its reverse compare the first half of $[l, r]$ with the matching half of the reverse in $O(1)$.
+> An explicit stack of $(\textit{node}, \textit{state})$ runs that postorder. On entry we push the exit marker and then the children in reverse, so they still pop from left to right, and on exit we record $[l, r]$. Hashes of the string and of its reverse compare the first half of $[l, r]$ with the matching half of the reverse in $O(1)$.
 
 <!-- thinking:end -->
 

@@ -153,7 +153,7 @@ Each row includes a trip&#39;s ID, the vehicle used, the distance covered (in mi
 >
 > A plain $\textit{GROUP BY}$ with $\textit{MAX}$ cannot return every tied $\textit{driver\_id}$.
 >
-> We therefore rank the aggregates by rating descending, distance descending, and accidents ascending, keep $\textit{rk}=1$, and order by fuel type.
+> We therefore rank the aggregates by rating descending, distance descending, and accidents ascending, keep $rk=1$, and order by fuel type.
 
 <!-- thinking:end -->
 

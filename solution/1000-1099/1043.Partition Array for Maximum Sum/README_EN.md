@@ -68,7 +68,7 @@ tags:
 >
 > The number of partitions is exponential; $n\le 500$ and $k\le n$ forbid listing them. The last piece has length at most $k$ and contributes its maximum times that length; the prefix is the same problem on a smaller array.
 >
-> $f[i]$ is the best sum of the first $i$ elements. Walking $j$ left from $i$ keeps the piece maximum $\textit{mx}$ and tries $f[j-1]+\textit{mx}\cdot(i-j+1)$.
+> $f[i]$ is the best sum of the first $i$ elements. Walking $j$ left from $i$ keeps the piece maximum $mx$ and tries $f[j-1]+mx\cdot(i-j+1)$.
 >
 > Filling $i$ increasingly yields $f[n]$.
 
@@ -78,7 +78,7 @@ We define $f[i]$ to represent the maximum element sum of the first $i$ elements 
 
 We consider how to calculate $f[i]$, where $i \geq 1$.
 
-For $f[i]$, its last element is $arr[i-1]$. Since the maximum length of each subarray is $k$, and we need to find the maximum value in the subarray, we can enumerate the first element $arr[j - 1]$ of the last subarray from right to left, where $\max(0, i - k) \lt j \leq i$, and maintain a variable $mx$ during the process to represent the maximum value in the subarray. The state transition equation is:
+For $f[i]$, its last element is $\textit{arr}[i-1]$. Since the maximum length of each subarray is $k$, and we need to find the maximum value in the subarray, we can enumerate the first element $\textit{arr}[j - 1]$ of the last subarray from right to left, where $\max(0, i - k) \lt j \leq i$, and maintain a variable $mx$ during the process to represent the maximum value in the subarray. The state transition equation is:
 
 $$
 f[i] = \max\{f[i], f[j - 1] + mx \times (i - j + 1)\}
@@ -86,7 +86,7 @@ $$
 
 The final answer is $f[n]$.
 
-The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

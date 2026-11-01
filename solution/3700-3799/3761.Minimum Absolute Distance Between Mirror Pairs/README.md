@@ -101,7 +101,7 @@ tags:
 
 > **思考**
 >
-> 镜像对要求 $\mathrm{reverse}(nums[i])=nums[j]$。最近的 $j$ 一定来自该反转值最近一次出现的位置，从左到右扫描并用哈希表记下 $\mathrm{reverse}(x)$ 的最后下标即可。
+> 镜像对要求 $\textit{reverse}(\textit{nums}[i])=\textit{nums}[j]$。最近的 $j$ 一定来自该反转值最近一次出现的位置，从左到右扫描并用哈希表记下 $\textit{reverse}(x)$ 的最后下标即可。
 
 <!-- thinking:end -->
 
@@ -109,7 +109,7 @@ tags:
 
 我们首先初始化答案 $\textit{ans} = n + 1$，其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
-接下来，遍历数组 $\textit{nums}$，对于每个下标 $i$ 和对应的数字 $x = \textit{nums}[i]$，如果 $\textit{pos}$ 中存在键 $x$，则说明存在一个下标 $j$ 满足 $\textit{nums}[j]$ 反转后等于 $x$，此时我们更新答案为 $\min(\textit{ans}, i - \textit{pos}[x])$。然后，我们将 $\textit{pos}[\text{reverse}(x)]$ 更新为 $i$。继续这个过程直到遍历完整个数组。
+接下来，遍历数组 $\textit{nums}$，对于每个下标 $i$ 和对应的数字 $x = \textit{nums}[i]$，如果 $\textit{pos}$ 中存在键 $x$，则说明存在一个下标 $j$ 满足 $\textit{nums}[j]$ 反转后等于 $x$，此时我们更新答案为 $\min(\textit{ans}, i - \textit{pos}[x])$。然后，我们将 $\textit{pos}[\textit{reverse}(x)]$ 更新为 $i$。继续这个过程直到遍历完整个数组。
 
 最后，如果答案 $\textit{ans}$ 仍然等于 $n + 1$，则说明不存在镜像对，我们返回 $-1$；否则，返回答案 $\textit{ans}$。
 

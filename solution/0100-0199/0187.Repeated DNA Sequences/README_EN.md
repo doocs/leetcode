@@ -64,7 +64,7 @@ tags:
 
 <!-- thinking:end -->
 
-We define a hash table $cnt$ to store the occurrence count of all substrings of length $10$.
+We define a hash table $\textit{cnt}$ to store the occurrence count of all substrings of length $10$.
 
 We iterate through all substrings of length $10$ in the string $s$. For the current substring $t$, we update its count in the hash table. If the count of $t$ is $2$, we add it to the answer.
 

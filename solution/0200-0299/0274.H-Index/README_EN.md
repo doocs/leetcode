@@ -59,11 +59,11 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 > **Thinking**
 >
-> The $h$-index is the largest $h$ such that at least $h$ papers have $\ge h$ citations. After sorting descending, $citations[h-1]\ge h$ is the test; search $h$ from large to small.
+> The $h$-index is the largest $h$ such that at least $h$ papers have $\ge h$ citations. After sorting descending, $\textit{citations}[h-1]\ge h$ is the test; search $h$ from large to small.
 
 <!-- thinking:end -->
 
-We can sort the array `citations` in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $citations[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
+We can sort the array `citations` in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $\textit{citations}[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `citations`.
 
@@ -182,9 +182,9 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number of papers with the reference count of $i$. We traverse the array `citations` and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $cnt$ for each paper. In this way, we have counted the number of papers for each reference count.
+We can use an array $\textit{cnt}$ of length $n+1$, where $\textit{cnt}[i]$ represents the number of papers with the reference count of $i$. We traverse the array `citations` and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $\textit{cnt}$ for each paper. In this way, we have counted the number of papers for each reference count.
 
-Then we enumerate the value $h$ from large to small, and add the element value of $cnt$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.
+Then we enumerate the value $h$ from large to small, and add the element value of $\textit{cnt}$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `citations`.
 
@@ -296,13 +296,13 @@ function hIndex(citations: number[]): number {
 
 > **Thinking**
 >
-> The predicate “at least $h$ papers have $\ge h$ citations” is monotone, so we binary-search the largest feasible $h$ by counting values $\ge mid$.
+> The predicate “at least $h$ papers have $\ge h$ citations” is monotone, so we binary-search the largest feasible $h$ by counting values $\ge \textit{mid}$.
 
 <!-- thinking:end -->
 
 We notice that if there is a $h$ value that satisfies at least $h$ papers are cited at least $h$ times, then for any $h'<h$, at least $h'$ papers are cited at least $h'$ times. Therefore, we can use the binary search method to find the largest $h$ such that at least $h$ papers are cited at least $h$ times.
 
-We define the left boundary of binary search $l=0$ and the right boundary $r=n$. Each time we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$, where $\lfloor x \rfloor$ represents floor $x$. Then we count the number of elements in array `citations` that are greater than or equal to $mid$, and denote it as $s$. If $s \geq mid$, it means that at least $mid$ papers are cited at least $mid$ times. In this case, we change the left boundary $l$ to $mid$. Otherwise, we change the right boundary $r$ to $mid-1$. When the left boundary $l$ is equal to the right boundary $r$, we find the largest $h$ value, which is $l$ or $r$.
+We define the left boundary of binary search $l=0$ and the right boundary $r=n$. Each time we take $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$, where $\lfloor x \rfloor$ represents floor $x$. Then we count the number of elements in array `citations` that are greater than or equal to $\textit{mid}$, and denote it as $s$. If $s \geq \textit{mid}$, it means that at least $\textit{mid}$ papers are cited at least $\textit{mid}$ times. In this case, we change the left boundary $l$ to $\textit{mid}$. Otherwise, we change the right boundary $r$ to $\textit{mid}-1$. When the left boundary $l$ is equal to the right boundary $r$, we find the largest $h$ value, which is $l$ or $r$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of array `citations`.
 

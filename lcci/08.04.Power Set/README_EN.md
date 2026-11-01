@@ -61,13 +61,13 @@ difficulty: Medium
 >
 > The power set has size $2^n$ and must be enumerated. Choosing independently to take or skip each element covers every subset.
 >
-> $dfs(u,t)$ first skips $nums[u]$, then takes it and pops on the way back. A copy of $t$ is stored at $u=n$.
+> $\textit{dfs}(u,t)$ first skips $\textit{nums}[u]$, then takes it and pops on the way back. A copy of $t$ is stored at $u=n$.
 >
 > Skip-then-take matches growing from the empty set; the pop keeps one shared buffer clean across branches.
 
 <!-- thinking:end -->
 
-We design a recursive function $dfs(u, t)$, where $u$ is the index of the current element being enumerated, and $t$ is the current subset.
+We design a recursive function $\textit{dfs}(u, t)$, where $u$ is the index of the current element being enumerated, and $t$ is the current subset.
 
 For the current element with index $u$, we can choose to add it to the subset $t$, or we can choose not to add it to the subset $t$. Recursively making these two choices will yield all subsets.
 
@@ -266,7 +266,7 @@ class Solution {
 >
 > Recursion is correct but carries a call stack and backtracking boilerplate.
 >
-> Each subset is a mask in $[0,2^n)$; bit $i$ includes $nums[i]$. The same family can be built iteratively.
+> Each subset is a mask in $[0,2^n)$; bit $i$ includes $\textit{nums}[i]$. The same family can be built iteratively.
 
 <!-- thinking:end -->
 

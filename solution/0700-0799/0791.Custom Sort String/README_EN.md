@@ -70,7 +70,7 @@ tags:
 
 > **Thinking**
 >
-> Reorder $s$ by the relative order in $order$. Sorting by the index in $order$ does that.
+> Reorder $s$ by the relative order in $\textit{order}$. Sorting by the index in $\textit{order}$ does that.
 >
 > Missing letters get key $0$ and gather at the front, which is allowed.
 
@@ -179,7 +179,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Sorting is $n\log n$. Count $s$, emit each $order$ character that many times, then append the rest. Linear.
+> Sorting is $n\log n$. Count $s$, emit each $\textit{order}$ character that many times, then append the rest. Linear.
 
 <!-- thinking:end -->
 

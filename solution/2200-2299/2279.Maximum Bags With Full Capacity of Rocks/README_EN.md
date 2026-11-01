@@ -77,7 +77,7 @@ Note that we did not use all of the additional rocks.
 >
 > Extra rocks should fill as many bags as possible. Gaps are independent and $n \le 5\times 10^4$, so smaller gaps should be filled first.
 >
-> Sort $capacity[i]-rocks[i]$ and subtract from $\textit{additionalRocks}$ in increasing order; stop when the next gap does not fit.
+> Sort $\textit{capacity}[i]-\textit{rocks}[i]$ and subtract from $\textit{additionalRocks}$ in increasing order; stop when the next gap does not fit.
 
 <!-- thinking:end -->
 

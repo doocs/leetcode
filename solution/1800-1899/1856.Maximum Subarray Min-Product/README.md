@@ -88,13 +88,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以枚举每个元素 $nums[i]$ 作为子数组的最小值，找出子数组的左右边界 $left[i]$ 和 $right[i]$。其中 $left[i]$ 表示 $i$ 左侧第一个严格小于 $nums[i]$ 的位置，而 $right[i]$ 表示 $i$ 右侧第一个小于等于 $nums[i]$ 的位置。
+我们可以枚举每个元素 $\textit{nums}[i]$ 作为子数组的最小值，找出子数组的左右边界 $\textit{left}[i]$ 和 $\textit{right}[i]$。其中 $\textit{left}[i]$ 表示 $i$ 左侧第一个严格小于 $\textit{nums}[i]$ 的位置，而 $\textit{right}[i]$ 表示 $i$ 右侧第一个小于等于 $\textit{nums}[i]$ 的位置。
 
-为了方便地算出子数组的和，我们可以预处理出前缀和数组 $s$，其中 $s[i]$ 表示 $nums$ 前 $i$ 个元素的和。
+为了方便地算出子数组的和，我们可以预处理出前缀和数组 $s$，其中 $s[i]$ 表示 $\textit{nums}$ 前 $i$ 个元素的和。
 
-那么以 $nums[i]$ 作为子数组最小值的最小乘积为 $nums[i] \times (s[right[i]] - s[left[i] + 1])$。我们可以枚举每个元素 $nums[i]$，求出以 $nums[i]$ 作为子数组最小值的最小乘积，然后取最大值即可。
+那么以 $\textit{nums}[i]$ 作为子数组最小值的最小乘积为 $\textit{nums}[i] \times (s[\textit{right}[i]] - s[\textit{left}[i] + 1])$。我们可以枚举每个元素 $\textit{nums}[i]$，求出以 $\textit{nums}[i]$ 作为子数组最小值的最小乘积，然后取最大值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -55,17 +55,17 @@ tags:
 
 > **Thinking**
 >
-> A perfect number equals the sum of its proper divisors. Scanning $1$ through $num-1$ is too slow for $num \le 10^8$.
+> A perfect number equals the sum of its proper divisors. Scanning $1$ through $\textit{num}-1$ is too slow for $\textit{num} \le 10^8$.
 >
-> Divisors come in pairs: if $i$ divides $num$, so does $num/i$, so the loop can stop at $\sqrt{num}$. The number $1$ has proper-divisor sum $0$ and is excluded. Compare the accumulated sum with $num$.
+> Divisors come in pairs: if $i$ divides $\textit{num}$, so does $\textit{num}/i$, so the loop can stop at $\sqrt{\textit{num}}$. The number $1$ has proper-divisor sum $0$ and is excluded. Compare the accumulated sum with $\textit{num}$.
 
 <!-- thinking:end -->
 
-First, we check if $\textit{num}$ is 1. If it is, then $\textit{num}$ is not a perfect number, and we return $\text{false}$.
+First, we check if $\textit{num}$ is 1. If it is, then $\textit{num}$ is not a perfect number, and we return $\textit{false}$.
 
-Next, we enumerate all positive divisors of $\textit{num}$ starting from 2. If $\textit{num}$ is divisible by a positive divisor $i$, we add $i$ to the sum $\textit{s}$. If the quotient of $\textit{num}$ divided by $i$ is not equal to $i$, we also add the quotient to the sum $\textit{s}$.
+Next, we enumerate all positive divisors of $\textit{num}$ starting from 2. If $\textit{num}$ is divisible by a positive divisor $i$, we add $i$ to the sum $s$. If the quotient of $\textit{num}$ divided by $i$ is not equal to $i$, we also add the quotient to the sum $s$.
 
-Finally, we check if $\textit{s}$ is equal to $\textit{num}$.
+Finally, we check if $s$ is equal to $\textit{num}$.
 
 The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the value of $\textit{num}$.
 

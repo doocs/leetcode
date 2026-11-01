@@ -77,19 +77,19 @@ It can be proven that there is no subarray with sum equal to target = 3.
 
 > **Thinking**
 >
-> The array repeats forever, so $target$ is some number of full cycles plus a shortest leftover (or a shortest wrap that complements a cycle). Strip as many full sums as possible, then on one prefix-sum pass a hash map finds the shortest segment equal to the remainder or to $s$ minus the remainder. A prefix of values up to $10^5$ can exceed $2^{31}-1$, so the map key is a 64-bit integer. A 32-bit key matches sums $2^{32}$ apart and reports a subarray that is not there.
+> The array repeats forever, so $\textit{target}$ is some number of full cycles plus a shortest leftover (or a shortest wrap that complements a cycle). Strip as many full sums as possible, then on one prefix-sum pass a hash map finds the shortest segment equal to the remainder or to $s$ minus the remainder. A prefix of values up to $10^5$ can exceed $2^{31}-1$, so the map key is a 64-bit integer. A 32-bit key matches sums $2^{32}$ apart and reports a subarray that is not there.
 
 <!-- thinking:end -->
 
-First, we calculate the sum of all elements in the array $nums$, denoted as $s$.
+First, we calculate the sum of all elements in the array $\textit{nums}$, denoted as $s$.
 
-If $target \gt s$, we can reduce $target$ to the range $[0, s)$ by subtracting $\lfloor \frac{target}{s} \rfloor \times s$ from it. Then, the length of the subarray is $a = \lfloor \frac{target}{s} \rfloor \times n$, where $n$ is the length of the array $nums$.
+If $\textit{target} \gt s$, we can reduce $\textit{target}$ to the range $[0, s)$ by subtracting $\lfloor \frac{\textit{target}}{s} \rfloor \times s$ from it. Then, the length of the subarray is $a = \lfloor \frac{\textit{target}}{s} \rfloor \times n$, where $n$ is the length of the array $\textit{nums}$.
 
-Next, we need to find the shortest subarray in $nums$ whose sum equals $target$, or the shortest subarray whose prefix sum plus suffix sum equals $s - target$. We can use prefix sum and a hash table to find such subarrays.
+Next, we need to find the shortest subarray in $\textit{nums}$ whose sum equals $\textit{target}$, or the shortest subarray whose prefix sum plus suffix sum equals $s - \textit{target}$. We can use prefix sum and a hash table to find such subarrays.
 
 If we find such a subarray, the final answer is $a + b$. Otherwise, the answer is $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

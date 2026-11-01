@@ -77,7 +77,7 @@ merging them into one sorted linked list:
 
 > **Thinking**
 >
-> The first idea is pairwise merge: merge list $1$ with $2$, then fold in $3$, and so on. With $N \le 10^4$ nodes and $k \le 10^4$ lists, the worst case is $O(Nk)$ and can time out. Dumping every node into an array and sorting also works, but ignores that each list is already sorted.
+> The first idea is pairwise merge: merge list $1$ with $2$, then fold in $3$, and so on. With $N \le 10^4$ nodes and $k \le 10^4$ lists, the worst case is $O(N \times k)$ and can time out. Dumping every node into an array and sorting also works, but ignores that each list is already sorted.
 >
 > The bottleneck is finding the smallest among $k$ heads at every step. A linear scan is $O(k)$ per node and does not fit.
 >

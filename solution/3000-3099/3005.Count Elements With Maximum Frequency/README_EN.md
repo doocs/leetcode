@@ -66,17 +66,17 @@ So the number of elements in the array with maximum frequency is 5.
 >
 > $n \le 100$, so counting frequencies and summing is enough. The required quantity is the sum of those maximum frequencies, not the number of distinct values that attain them.
 >
-> After the counts are known we take $\textit{mx}$ and add every count equal to $\textit{mx}$.
+> After the counts are known we take $mx$ and add every count equal to $mx$.
 >
 > One counting pass and one scan of the values suffice.
 
 <!-- thinking:end -->
 
-We can use a hash table or array $cnt$ to record the occurrence of each element.
+We can use a hash table or array $\textit{cnt}$ to record the occurrence of each element.
 
-Then we traverse $cnt$ to find the element with the most occurrences, and let its occurrence be $mx$. We sum up the occurrences of elements that appear $mx$ times, which is the answer.
+Then we traverse $\textit{cnt}$ to find the element with the most occurrences, and let its occurrence be $mx$. We sum up the occurrences of elements that appear $mx$ times, which is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

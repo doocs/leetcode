@@ -74,9 +74,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table or array $\textit{cnt}$ to count the occurrences of each character in the string. Then, we use a max heap $\textit{pq}$ to store each character and its count. Each element in the heap is a tuple $(v, c)$, where $v$ is the count and $c$ is the character.
+We use a hash table or array $\textit{cnt}$ to count the occurrences of each character in the string. Then, we use a max heap $pq$ to store each character and its count. Each element in the heap is a tuple $(v, c)$, where $v$ is the count and $c$ is the character.
 
-When rearranging the string, we repeatedly pop the top element $(v, c)$ from the heap, add character $c$ to the result string, and push $(v-1, c)$ into a queue $\textit{q}$. When the length of the queue $\textit{q}$ reaches $k$ or more, we pop the front element; if its $v$ is greater than $0$, we push it back into the heap. Repeat this process until the heap is empty.
+When rearranging the string, we repeatedly pop the top element $(v, c)$ from the heap, add character $c$ to the result string, and push $(v-1, c)$ into a queue $q$. When the length of the queue $q$ reaches $k$ or more, we pop the front element; if its $v$ is greater than $0$, we push it back into the heap. Repeat this process until the heap is empty.
 
 Finally, we check whether the length of the result string equals the original string. If so, we return the result string; otherwise, we return an empty string.
 

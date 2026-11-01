@@ -61,7 +61,7 @@ tags:
 >
 > Multiplication and division bind tighter than addition, and there are no parentheses, so we cannot add every number immediately. Treat $+$ and $-$ as signed terms on a stack, and fold $*$ and $/$ into the top.
 >
-> $sign$ remembers the previous operator; after a number is complete we push or update the top, then sum the stack.
+> $\textit{sign}$ remembers the previous operator; after a number is complete we push or update the top, then sum the stack.
 
 <!-- thinking:end -->
 

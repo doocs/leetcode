@@ -103,7 +103,7 @@ It can be proven, that there are only 2 possible sets of closing branches.
 
 > **Thinking**
 >
-> After closing a subset of branches, remaining pairwise shortest paths must be at most $maxDistance$. $n \le 10$ yields $2^n$ masks. For each mask run Floyd on the surviving edges and test distances inside the subset.
+> After closing a subset of branches, remaining pairwise shortest paths must be at most $\textit{maxDistance}$. $n \le 10$ yields $2^n$ masks. For each mask run Floyd on the surviving edges and test distances inside the subset.
 >
 > Parallel edges keep the lighter one. The empty set and singletons are valid (diagonals are set to $0$).
 

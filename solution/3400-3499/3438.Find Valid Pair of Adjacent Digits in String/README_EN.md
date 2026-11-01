@@ -89,17 +89,17 @@ tags:
 >
 > Counting while scanning would miss occurrences to the right of the pair.
 >
-> We fill a length-$10$ frequency array first, then return the leftmost adjacent pair with $x\neq y$, $cnt[x]=x$ and $cnt[y]=y$.
+> We fill a length-$10$ frequency array first, then return the leftmost adjacent pair with $x\neq y$, $\textit{cnt}[x]=x$ and $\textit{cnt}[y]=y$.
 
 <!-- thinking:end -->
 
-We can use an array $\textit{cnt}$ of length $10$ to record the occurrences of each digit in the string $\textit{s}$.
+We can use an array $\textit{cnt}$ of length $10$ to record the occurrences of each digit in the string $s$.
 
-Then, we traverse the adjacent digit pairs in the string $\textit{s}$. If the two digits are not equal and the occurrences of these two digits are equal to the digits themselves, we have found a valid pair of adjacent digits and return it.
+Then, we traverse the adjacent digit pairs in the string $s$. If the two digits are not equal and the occurrences of these two digits are equal to the digits themselves, we have found a valid pair of adjacent digits and return it.
 
 After traversing, if no valid pair of adjacent digits is found, we return an empty string.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set of the string $\textit{s}$. In this problem, $\Sigma = \{1, 2, \ldots, 9\}$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set of the string $s$. In this problem, $\Sigma = \{1, 2, \ldots, 9\}$.
 
 <!-- tabs:start -->
 

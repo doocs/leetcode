@@ -70,7 +70,7 @@ tags:
 >
 > The complementary residue is unchanged; a map or a length-$24$ array works.
 >
-> Scan left to right, add $cnt[(24-x\bmod 24)\bmod 24]$, then increment $cnt[x\bmod 24]$.
+> Scan left to right, add $\textit{cnt}[(24-x\bmod 24)\bmod 24]$, then increment $\textit{cnt}[x\bmod 24]$.
 
 <!-- thinking:end -->
 

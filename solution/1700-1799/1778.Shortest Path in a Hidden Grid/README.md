@@ -119,7 +119,7 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 
 <!-- thinking:end -->
 
-我们不妨假设机器人从坐标 $(0, 0)$ 出发，那么我们可以通过 DFS，找到所有可达的坐标，记录在哈希表 $vis$ 中。另外，我们还需要记录终点的坐标 $target$。
+我们不妨假设机器人从坐标 $(0, 0)$ 出发，那么我们可以通过 DFS，找到所有可达的坐标，记录在哈希表 $\textit{vis}$ 中。另外，我们还需要记录终点的坐标 $\textit{target}$。
 
 如果找不到终点，那么直接返回 $-1$。否则，我们可以通过 BFS，求出最短路。
 

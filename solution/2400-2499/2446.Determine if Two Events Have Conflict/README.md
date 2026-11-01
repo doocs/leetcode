@@ -81,11 +81,11 @@ tags:
 
 > **思考**
 >
-> 时间格式 $\texttt{HH:MM}$ 可直接按字符串比较。两区间无交当且仅当其一完全在另一之左，即 $event1[0]>event2[1]$ 或 $event1[1]<event2[0]$。取反即为冲突。
+> 时间格式 $\texttt{HH:MM}$ 可直接按字符串比较。两区间无交当且仅当其一完全在另一之左，即 $\textit{event1}[0]>\textit{event2}[1]$ 或 $\textit{event1}[1]<\textit{event2}[0]$。取反即为冲突。
 
 <!-- thinking:end -->
 
-如果 $event1$ 的开始时间大于 $event2$ 的结束时间，或者 $event1$ 的结束时间小于 $event2$ 的开始时间，那么两个事件不会有冲突。否则，两个事件存在冲突。
+如果 $\textit{event1}$ 的开始时间大于 $\textit{event2}$ 的结束时间，或者 $\textit{event1}$ 的结束时间小于 $\textit{event2}$ 的开始时间，那么两个事件不会有冲突。否则，两个事件存在冲突。
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/images/event.png" />
 

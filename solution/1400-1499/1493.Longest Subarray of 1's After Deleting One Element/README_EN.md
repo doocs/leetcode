@@ -74,11 +74,11 @@ tags:
 
 We can enumerate each position $i$ to be deleted, then calculate the number of consecutive 1s on the left and right, and finally take the maximum value.
 
-Specifically, we use two arrays $left$ and $right$ of length $n+1$, where $left[i]$ represents the number of consecutive 1s ending with $nums[i-1]$, and $right[i]$ represents the number of consecutive 1s starting with $nums[i]$.
+Specifically, we use two arrays $\textit{left}$ and $\textit{right}$ of length $n+1$, where $\textit{left}[i]$ represents the number of consecutive 1s ending with $\textit{nums}[i-1]$, and $\textit{right}[i]$ represents the number of consecutive 1s starting with $\textit{nums}[i]$.
 
-The final answer is $\max_{0 \leq i < n} \{left[i] + right[i+1]\}$.
+The final answer is $\max_{0 \leq i < n} \{\textit{left}[i] + \textit{right}[i+1]\}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -252,11 +252,11 @@ impl Solution {
 
 The problem is actually asking us to find the longest subarray that contains at most one $0$. The remaining length after deleting one element from this subarray is the answer.
 
-Therefore, we can use two pointers $j$ and $i$ to point to the left and right boundaries of the subarray, initially $j = 0$, $i = 0$. In addition, we use a variable $cnt$ to record the number of $0$s in the subarray.
+Therefore, we can use two pointers $j$ and $i$ to point to the left and right boundaries of the subarray, initially $j = 0$, $i = 0$. In addition, we use a variable $\textit{cnt}$ to record the number of $0$s in the subarray.
 
-Next, we move the right pointer $i$. If $nums[i] = 0$, then $cnt$ is incremented by $1$. When $cnt > 1$, we need to move the left pointer $j$ until $cnt \leq 1$. Then, we update the answer, i.e., $ans = \max(ans, i - j)$. Continue to move the right pointer $i$ until $i$ reaches the end of the array.
+Next, we move the right pointer $i$. If $\textit{nums}[i] = 0$, then $\textit{cnt}$ is incremented by $1$. When $\textit{cnt} > 1$, we need to move the left pointer $j$ until $\textit{cnt} \leq 1$. Then, we update the answer, i.e., $\textit{ans} = \max(\textit{ans}, i - j)$. Continue to move the right pointer $i$ until $i$ reaches the end of the array.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -385,11 +385,11 @@ impl Solution {
 
 <!-- thinking:end -->
 
-In Solution 2, we move the left pointer in a loop until $cnt \leq 1$. Since the problem asks for the longest subarray, it means we don't need to reduce the length of the subarray. Therefore, if $\textit{cnt} \gt 1$, we only move the left pointer once, and the right pointer continues to move to the right. This ensures that the length of the subarray does not decrease.
+In Solution 2, we move the left pointer in a loop until $\textit{cnt} \leq 1$. Since the problem asks for the longest subarray, it means we don't need to reduce the length of the subarray. Therefore, if $\textit{cnt} \gt 1$, we only move the left pointer once, and the right pointer continues to move to the right. This ensures that the length of the subarray does not decrease.
 
 Finally, the answer we return is $n - l - 1$, where $l$ is the position of the left pointer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

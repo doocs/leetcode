@@ -98,7 +98,7 @@ tags:
 >
 > No automaton is required. A non-alphanumeric character fails immediately; letters are classified by a vowel set.
 >
-> Reject short strings, then track $has\_vowel$ and $has\_consonant$. Both flags must be true at the end.
+> Reject short strings, then track $\textit{has\_vowel}$ and $\textit{has\_consonant}$. Both flags must be true at the end.
 
 <!-- thinking:end -->
 

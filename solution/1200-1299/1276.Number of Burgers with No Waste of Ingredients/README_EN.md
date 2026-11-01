@@ -79,8 +79,8 @@ We set the number of Jumbo Burgers as $x$ and the number of Small Burgers as $y$
 
 $$
 \begin{aligned}
-4x + 2y &= tomatoSlices \\
-x + y &= cheeseSlices
+4x + 2y &= \textit{tomatoSlices} \\
+x + y &= \textit{cheeseSlices}
 \end{aligned}
 $$
 
@@ -88,8 +88,8 @@ Transforming the above two equations, we can get:
 
 $$
 \begin{aligned}
-y = (4 \times cheeseSlices - tomatoSlices) / 2 \\
-x = cheeseSlices - y
+y = (4 \times \textit{cheeseSlices} - \textit{tomatoSlices}) / 2 \\
+x = \textit{cheeseSlices} - y
 \end{aligned}
 $$
 

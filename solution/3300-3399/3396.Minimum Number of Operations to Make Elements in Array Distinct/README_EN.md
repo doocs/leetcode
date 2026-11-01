@@ -101,7 +101,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can traverse the array $\textit{nums}$ in reverse order and use a hash table $\textit{s}$ to record the elements that have already been traversed. When we encounter an element $\textit{nums}[i]$, if $\textit{nums}[i]$ is already in the hash table $\textit{s}$, it means we need to remove all elements from $\textit{nums}[0..i]$. The number of operations required is $\left\lfloor \frac{i}{3} \right\rfloor + 1$. Otherwise, we add $\textit{nums}[i]$ to the hash table $\textit{s}$ and continue to the next element.
+We can traverse the array $\textit{nums}$ in reverse order and use a hash table $s$ to record the elements that have already been traversed. When we encounter an element $\textit{nums}[i]$, if $\textit{nums}[i]$ is already in the hash table $s$, it means we need to remove all elements from $\textit{nums}[0..i]$. The number of operations required is $\left\lfloor \frac{i}{3} \right\rfloor + 1$. Otherwise, we add $\textit{nums}[i]$ to the hash table $s$ and continue to the next element.
 
 After traversing, if no duplicate elements are found, the elements in the array are already distinct, and no operations are needed, so the answer is $0$.
 

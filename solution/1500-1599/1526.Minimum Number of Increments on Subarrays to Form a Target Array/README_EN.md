@@ -79,21 +79,21 @@ tags:
 
 > **Thinking**
 >
-> Each operation increments a contiguous range; we must turn zeros into $target$. Both $n$ and $target[i]$ can be $10^5$, so building the array layer by layer is impossible.
+> Each operation increments a contiguous range; we must turn zeros into $\textit{target}$. Both $n$ and $\textit{target}[i]$ can be $10^5$, so building the array layer by layer is impossible.
 >
-> An increment covering $[i,j]$ contributes to the prefix $target[0..i]$ only when $target[i]$ exceeds its left neighbor. Hence $f[i]=f[i-1]+\max(0,target[i]-target[i-1])$ with $f[0]=target[0]$. The recurrence depends on the previous value alone, so a scan of adjacent rises is enough.
+> An increment covering $[i,j]$ contributes to the prefix $\textit{target}[0..i]$ only when $\textit{target}[i]$ exceeds its left neighbor. Hence $f[i]=f[i-1]+\max(0,\textit{target}[i]-\textit{target}[i-1])$ with $f[0]=\textit{target}[0]$. The recurrence depends on the previous value alone, so a scan of adjacent rises is enough.
 
 <!-- thinking:end -->
 
-We define $f[i]$ as the minimum number of operations required to obtain $target[0,..i]$, initially setting $f[0] = target[0]$.
+We define $f[i]$ as the minimum number of operations required to obtain $\textit{target}[0,..i]$, initially setting $f[0] = \textit{target}[0]$.
 
-For $target[i]$, if $target[i] \leq target[i-1]$, then $f[i] = f[i-1]$; otherwise, $f[i] = f[i-1] + target[i] - target[i-1]$.
+For $\textit{target}[i]$, if $\textit{target}[i] \leq \textit{target}[i-1]$, then $f[i] = f[i-1]$; otherwise, $f[i] = f[i-1] + \textit{target}[i] - \textit{target}[i-1]$.
 
 The final answer is $f[n-1]$.
 
 We notice that $f[i]$ only depends on $f[i-1]$, so we can maintain the operation count using just one variable.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $target$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{target}$.
 
 Similar problems:
 

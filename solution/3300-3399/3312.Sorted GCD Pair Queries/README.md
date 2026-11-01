@@ -112,7 +112,7 @@ tags:
 
 我们可以预处理得到数组 $\textit{nums}$ 中的所有数对的最大公约数的出现次数，记录在数组 $\textit{cntG}$ 中。然后，我们计算数组 $\textit{cntG}$ 的前缀和。最后，对于每个查询，我们可以通过二分查找在数组 $\textit{cntG}$ 中找到第一个大于 $\textit{queries}[i]$ 的元素的下标，即为答案。
 
-我们用 $\textit{mx}$ 表示数组 $\textit{nums}$ 中的最大值，用 $\textit{cnt}$ 记录数组 $\textit{nums}$ 中每个数的出现次数。我们用 $\textit{cntG}[i]$ 表示数组 $\textit{nums}$ 中最大公约数等于 $i$ 的数对个数。为了计算 $\textit{cntG}[i]$，我们可以按照以下步骤进行：
+我们用 $mx$ 表示数组 $\textit{nums}$ 中的最大值，用 $\textit{cnt}$ 记录数组 $\textit{nums}$ 中每个数的出现次数。我们用 $\textit{cntG}[i]$ 表示数组 $\textit{nums}$ 中最大公约数等于 $i$ 的数对个数。为了计算 $\textit{cntG}[i]$，我们可以按照以下步骤进行：
 
 1. 计算数组 $\textit{nums}$ 中 $i$ 的倍数的出现次数 $v$，那么从这些元素中任选两个元素组成的数对一定满足最大公约数是 $i$ 的倍数，即 $\textit{cntG}[i]$ 需要增加 $v \times (v - 1) / 2$；
 1. 我们需要排除最大公约数是 $i$ 的倍数且大于 $i$ 的数对，因此，对于 $i$ 的倍数 $j$，我们需要减去 $\textit{cntG}[j]$。

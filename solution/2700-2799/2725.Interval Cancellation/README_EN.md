@@ -129,9 +129,9 @@ Cancelled at 180ms
 
 > **Thinking**
 >
-> Call $fn$ immediately, then every $t$ milliseconds, and allow cancel at any time. Chaining $setTimeout$ would require clearing the next tick by hand.
+> Call $fn$ immediately, then every $t$ milliseconds, and allow cancel at any time. Chaining $\textit{setTimeout}$ would require clearing the next tick by hand.
 >
-> Invoke once synchronously, then $setInterval$ the same call. The returned function $clearInterval$s that handle and stops further firings.
+> Invoke once synchronously, then $\textit{setInterval}$ the same call. The returned function $\textit{clearInterval}$s that handle and stops further firings.
 
 <!-- thinking:end -->
 

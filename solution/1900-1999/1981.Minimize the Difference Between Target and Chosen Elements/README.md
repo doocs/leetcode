@@ -103,16 +103,16 @@ tags:
 设 $f[i][j]$ 表示前 $i$ 行是否能选出元素和为 $j$，则有状态转移方程：
 
 $$
-f[i][j] = \begin{cases} 1 & \textit{如果存在 } x \in row[i] \textit{ 使得 } f[i - 1][j - x] = 1 \\ 0 & \textit{否则} \end{cases}
+f[i][j] = \begin{cases} 1 & \textit{如果存在 } x \in \textit{row}[i] \textit{ 使得 } f[i - 1][j - x] = 1 \\ 0 & \textit{否则} \end{cases}
 $$
 
-其中 $row[i]$ 表示第 $i$ 行的元素集合。
+其中 $\textit{row}[i]$ 表示第 $i$ 行的元素集合。
 
 由于 $f[i][j]$ 只与 $f[i - 1][j]$ 有关，因此我们可以使用滚动数组优化空间复杂度。
 
 最后，遍历 $f$ 数组，找出最小的绝对差即可。
 
-时间复杂度 $O(m^2nC)$，空间复杂度 $O(mC)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数；而 $C$ 为矩阵元素的最大值。
+时间复杂度 $O(m^2n \times C)$，空间复杂度 $O(m \times C)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数；而 $C$ 为矩阵元素的最大值。
 
 <!-- tabs:start -->
 

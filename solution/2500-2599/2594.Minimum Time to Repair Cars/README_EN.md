@@ -73,7 +73,7 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 
 > **Thinking**
 >
-> Mechanic $i$ repairs $x$ cars in $r_i x^2$ minutes; they work in parallel. Assignments are many and the time horizon is $r\cdot cars^2$.
+> Mechanic $i$ repairs $x$ cars in $r_i x^2$ minutes; they work in parallel. Assignments are many and the time horizon is $r\cdot \textit{cars}^2$.
 >
 > More time only repairs more cars, so binary-search $t$. At time $t$ mechanic $r$ finishes $\lfloor\sqrt{t/r}\rfloor$ cars; feasibility is their sum versus $\textit{cars}$. $\textit{bisect\_left}$ returns the minimal $t$.
 
@@ -81,7 +81,7 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 
 We notice that the longer the repair time, the more cars are repaired. Therefore, we can use the repair time as the target of binary search, and binary search for the minimum repair time.
 
-We define the left and right boundaries of the binary search as $left=0$, $right=ranks[0] \times cars \times cars$. Next, we binary search for the repair time $mid$, and the number of cars each mechanic can repair is $\lfloor \sqrt{\frac{mid}{r}} \rfloor$, where $\lfloor x \rfloor$ represents rounding down. If the number of cars repaired is greater than or equal to $cars$, it means that the repair time $mid$ is feasible, we reduce the right boundary to $mid$, otherwise we increase the left boundary to $mid+1$.
+We define the left and right boundaries of the binary search as $\textit{left}=0$, $\textit{right}=\textit{ranks}[0] \times \textit{cars} \times \textit{cars}$. Next, we binary search for the repair time $\textit{mid}$, and the number of cars each mechanic can repair is $\lfloor \sqrt{\frac{\textit{mid}}{r}} \rfloor$, where $\lfloor x \rfloor$ represents rounding down. If the number of cars repaired is greater than or equal to $\textit{cars}$, it means that the repair time $\textit{mid}$ is feasible, we reduce the right boundary to $\textit{mid}$, otherwise we increase the left boundary to $\textit{mid}+1$.
 
 Finally, we return the left boundary.
 

@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-We first construct a graph $g$ based on $pid$ and $ppid$, where $g[i]$ represents all child processes of process $i$. Then, starting from the process $kill$, we perform depth-first search to obtain all killed processes.
+We first construct a graph $g$ based on $\textit{pid}$ and $\textit{ppid}$, where $g[i]$ represents all child processes of process $i$. Then, starting from the process $\textit{kill}$, we perform depth-first search to obtain all killed processes.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of processes.
 
@@ -237,7 +237,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-Build a graph $g$ from $pid$ and $ppid$, where $g[i]$ is the list of child processes of process $i$. Start at process $kill$ and walk with an explicit stack. When process $i$ is popped, append it to the answer and push its children in reverse order, so the earlier child is popped next. Every descendant is collected once. The problem accepts the ids in any order.
+Build a graph $g$ from $\textit{pid}$ and $\textit{ppid}$, where $g[i]$ is the list of child processes of process $i$. Start at process $\textit{kill}$ and walk with an explicit stack. When process $i$ is popped, append it to the answer and push its children in reverse order, so the earlier child is popped next. Every descendant is collected once. The problem accepts the ids in any order.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of processes.
 

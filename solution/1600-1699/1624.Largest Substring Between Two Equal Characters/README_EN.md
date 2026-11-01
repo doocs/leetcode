@@ -76,7 +76,7 @@ tags:
 
 Since $s$ contains only lowercase English letters, we can use an array $d$ of length $26$ to store the first index of each character, initially filled with $-1$.
 
-Traverse $s$. For the character $c$ at index $i$, let $j$ be the offset of $c$ from `a`. If $d[j] = -1$, this is the first time we see $c$, so set $d[j] = i$; otherwise update the answer with $i - d[j] - 1$, i.e. $ans = \max(ans, i - d[j] - 1)$.
+Traverse $s$. For the character $c$ at index $i$, let $j$ be the offset of $c$ from `a`. If $d[j] = -1$, this is the first time we see $c$, so set $d[j] = i$; otherwise update the answer with $i - d[j] - 1$, i.e. $\textit{ans} = \max(\textit{ans}, i - d[j] - 1)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of $s$ and $C = 26$ is the size of the alphabet.
 

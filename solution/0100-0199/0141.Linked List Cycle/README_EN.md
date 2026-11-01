@@ -222,7 +222,7 @@ function hasCycle(head: ListNode | null): boolean {
 
 <!-- thinking:end -->
 
-We define two pointers, $fast$ and $slow$, both initially pointing to $head$.
+We define two pointers, $\textit{fast}$ and $\textit{slow}$, both initially pointing to $\textit{head}$.
 
 The fast pointer moves two steps at a time, and the slow pointer moves one step at a time, in a continuous loop. When the fast and slow pointers meet, it indicates that there is a cycle in the linked list. If the loop ends without the pointers meeting, it indicates that there is no cycle in the linked list.
 

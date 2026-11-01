@@ -59,7 +59,7 @@ difficulty: 中等
 >
 > 子结构可从 $A$ 的任一结点对齐 $B$ 的根，枚举对齐点后还须核对形态。两树规模乘积可接受。
 >
-> 先写 $dfs$ 判断从当前结点是否完全覆盖 $B$；外层在 $A$ 上递归，对每个结点尝试对齐。 $B$ 为空约定不构成子结构。
+> 先写 $\textit{dfs}$ 判断从当前结点是否完全覆盖 $B$；外层在 $A$ 上递归，对每个结点尝试对齐。 $B$ 为空约定不构成子结构。
 
 <!-- thinking:end -->
 
@@ -69,7 +69,7 @@ difficulty: 中等
 
 1. 如果树 B 为空，则树 B 是树 A 的子结构，返回 `true`；
 2. 如果树 A 为空，或者树 A 的根节点的值不等于树 B 的根节点的值，则树 B 不是树 A 的子结构，返回 `false`；
-3. 判断树 A 的左子树是否包含树 B 的左子树，即调用 $\textit{dfs}(A.left, B.left)$，并且判断树 A 的右子树是否包含树 B 的右子树，即调用 $\textit{dfs}(A.right, B.right)$。如果其中有一个函数返回 `false`，则树 B 不是树 A 的子结构，返回 `false`；否则，返回 `true`。
+3. 判断树 A 的左子树是否包含树 B 的左子树，即调用 $\textit{dfs}(A.\textit{left}, B.\textit{left})$，并且判断树 A 的右子树是否包含树 B 的右子树，即调用 $\textit{dfs}(A.\textit{right}, B.\textit{right})$。如果其中有一个函数返回 `false`，则树 B 不是树 A 的子结构，返回 `false`；否则，返回 `true`。
 
 在函数 `isSubStructure` 中，我们首先判断树 A 和树 B 是否为空，如果其中有一个为空，则树 B 不是树 A 的子结构，返回 `false`。然后，我们调用 $\textit{dfs}(A, B)$，判断树 A 是否包含树 B。如果是，则返回 `true`；否则，递归判断树 A 的左子树是否包含树 B，以及树 A 的右子树是否包含树 B。如果其中有一个返回 `true`，则树 B 是树 A 的子结构，返回 `true`；否则，返回 `false`。
 

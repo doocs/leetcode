@@ -88,16 +88,16 @@ tags:
 
 <!-- thinking:end -->
 
-First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $size$ of length $n$, where $size[a]$ represents the number of nodes in the subtree with node $a$ as the root.
+First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $\textit{size}$ of length $n$, where $\textit{size}[a]$ represents the number of nodes in the subtree with node $a$ as the root.
 
-Next, we design a function $dfs(a, fa)$, which will return whether the subtree with node $a$ as the root meets the requirements of the problem. The execution process of the function $dfs(a, fa)$ is as follows:
+Next, we design a function $\textit{dfs}(a, fa)$, which will return whether the subtree with node $a$ as the root meets the requirements of the problem. The execution process of the function $\textit{dfs}(a, fa)$ is as follows:
 
-- First, we use a variable $ok$ to record whether the subtree with node $a$ as the root meets the requirements of the problem, and initially $ok$ is $true$.
-- Then, we traverse all adjacent nodes $b$ of node $a$. If $b$ is not the parent node $fa$ of $a$, then we recursively call $dfs(b, a)$, save the return value into the variable $t$, and update $ok$ to the value of $ok$ and $colors[a] = colors[b] \land t$, where $\land$ represents logical AND operation. Then, we update $size[a] = size[a] + size[b]$.
-- After that, we judge the value of $ok$. If $ok$ is $true$, then we update the answer $ans = \max(ans, size[a])$.
+- First, we use a variable $ok$ to record whether the subtree with node $a$ as the root meets the requirements of the problem, and initially $ok$ is $\textit{true}$.
+- Then, we traverse all adjacent nodes $b$ of node $a$. If $b$ is not the parent node $fa$ of $a$, then we recursively call $\textit{dfs}(b, a)$, save the return value into the variable $t$, and update $ok$ to the value of $ok$ and $\textit{colors}[a] = \textit{colors}[b] \land t$, where $\land$ represents logical AND operation. Then, we update $\textit{size}[a] = \textit{size}[a] + \textit{size}[b]$.
+- After that, we judge the value of $ok$. If $ok$ is $\textit{true}$, then we update the answer $\textit{ans} = \max(\textit{ans}, \textit{size}[a])$.
 - Finally, we return the value of $ok$.
 
-We call $dfs(0, -1)$, where $0$ represents the root node number, and $-1$ represents that the root node has no parent node. The final answer is $ans$.
+We call $\textit{dfs}(0, -1)$, where $0$ represents the root node number, and $-1$ represents that the root node has no parent node. The final answer is $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -292,9 +292,9 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 
 <!-- thinking:end -->
 
-First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $size$ of length $n$, where $size[a]$ represents the number of nodes in the subtree with node $a$ as the root.
+First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $\textit{size}$ of length $n$, where $\textit{size}[a]$ represents the number of nodes in the subtree with node $a$ as the root.
 
-An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. Every node's $size$ starts at $1$. On exit, $ok$ records whether the subtree is monochromatic and starts true. For each child $b$, $ok$ becomes the conjunction of its current value, $colors[a] = colors[b]$, and the child's own monochromatic flag, and $size[b]$ is added to $size[a]$. If $ok$ is still true, $size[a]$ updates the answer.
+An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. Every node's $\textit{size}$ starts at $1$. On exit, $ok$ records whether the subtree is monochromatic and starts true. For each child $b$, $ok$ becomes the conjunction of its current value, $\textit{colors}[a] = \textit{colors}[b]$, and the child's own monochromatic flag, and $\textit{size}[b]$ is added to $\textit{size}[a]$. If $ok$ is still true, $\textit{size}[a]$ updates the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

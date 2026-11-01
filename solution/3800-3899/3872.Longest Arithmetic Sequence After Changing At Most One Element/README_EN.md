@@ -83,11 +83,11 @@ tags:
 >
 > Precompute arithmetic lengths $f,g$ ending or starting at $i$, then try each change in those three ways.
 >
-> Joining both sides requires $nums[i+1]-nums[i-1]$ even, and extra length is added only when that difference matches the neighboring runs.
+> Joining both sides requires $\textit{nums}[i+1]-\textit{nums}[i-1]$ even, and extra length is added only when that difference matches the neighboring runs.
 
 <!-- thinking:end -->
 
-We first compute the differences between adjacent elements of the array, stored as array $d$, where $d[i] = nums[i] - nums[i - 1]$.
+We first compute the differences between adjacent elements of the array, stored as array $d$, where $d[i] = \textit{nums}[i] - \textit{nums}[i - 1]$.
 
 Next, we define two arrays $f$ and $g$, where $f[i]$ represents the length of the longest arithmetic subarray ending at the $i$-th element, and $g[i]$ represents the length of the longest arithmetic subarray starting at the $i$-th element. Initially, $f[0] = 1$, $g[n - 1] = 1$, and all other elements are initialized to $2$.
 
@@ -99,13 +99,13 @@ We can compute the values of $f$ and $g$ in a single pass:
 Then we initialize the answer to $3$, since we can always form an arithmetic subarray of length $3$ by replacing one element. We then enumerate each element and try to replace it with a suitable value to form a longer arithmetic subarray:
 
 - For each element $i$, we can directly use $f[i]$ or $g[i]$ to update the answer.
-- If $i > 0$, we can replace $nums[i]$ with $nums[i - 1] + d[i - 1]$ to extend the arithmetic subarray ending at $i - 1$, updating the answer to $f[i - 1] + 1$.
-- If $i + 1 < n$, we can replace $nums[i]$ with $nums[i + 1] - d[i + 1]$ to extend the arithmetic subarray starting at $i + 1$, updating the answer to $g[i + 1] + 1$.
-- If $0 < i < n - 1$, we can replace $nums[i]$ with $nums[i - 1] + \frac{nums[i + 1] - nums[i - 1]}{2}$ to try to bridge $f[i - 1]$ and $g[i + 1]$. If this value is an integer and matches both $d[i - 1]$ and $d[i + 1]$, we update the answer to $3 + (f[i - 1] - 1) + (g[i + 1] - 1)$.
+- If $i > 0$, we can replace $\textit{nums}[i]$ with $\textit{nums}[i - 1] + d[i - 1]$ to extend the arithmetic subarray ending at $i - 1$, updating the answer to $f[i - 1] + 1$.
+- If $i + 1 < n$, we can replace $\textit{nums}[i]$ with $\textit{nums}[i + 1] - d[i + 1]$ to extend the arithmetic subarray starting at $i + 1$, updating the answer to $g[i + 1] + 1$.
+- If $0 < i < n - 1$, we can replace $\textit{nums}[i]$ with $\textit{nums}[i - 1] + \frac{\textit{nums}[i + 1] - \textit{nums}[i - 1]}{2}$ to try to bridge $f[i - 1]$ and $g[i + 1]$. If this value is an integer and matches both $d[i - 1]$ and $d[i + 1]$, we update the answer to $3 + (f[i - 1] - 1) + (g[i + 1] - 1)$.
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

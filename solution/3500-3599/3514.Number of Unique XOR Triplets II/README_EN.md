@@ -90,9 +90,9 @@ With indices satisfying $i \le j \le k$, the same index may be chosen more than 
 
 Let $M = \max(\textit{nums})$. The XOR of any two non-negative integers at most $M$ is less than $2M$, so a boolean array of length $2M$ can be used for marking.
 
-First enumerate all pairs $(a, b)$ and mark $a \oplus b$ in array $\textit{st}$. Then enumerate every appeared pairwise XOR value $\textit{ab}$ and each third element $c$, and mark $\textit{ab} \oplus c$ in array $s$. Finally count the number of non-zero entries in $s$.
+First enumerate all pairs $(a, b)$ and mark $a \oplus b$ in array $st$. Then enumerate every appeared pairwise XOR value $ab$ and each third element $c$, and mark $ab \oplus c$ in array $s$. Finally count the number of non-zero entries in $s$.
 
-The time complexity is $O(n^2 + Mn)$, and the space complexity is $O(M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
+The time complexity is $O(n^2 + M \times n)$, and the space complexity is $O(M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

@@ -65,13 +65,13 @@ tags:
 >
 > 一个元素要同时存在严格更小与严格更大者，当且仅当它不是全局最小或最大。统计不等于两端极值的个数即可。
 >
-> 先求 $\textit{mi}$、 $\textit{mx}$，再数满足 $\textit{mi}<x<\textit{mx}$ 的元素。
+> 先求 $mi$、 $mx$，再数满足 $mi<x<mx$ 的元素。
 >
 > 两遍线性扫描，常数空间。
 
 <!-- thinking:end -->
 
-根据题目描述，我们可以先求出数组 $\textit{nums}$ 的最小值 $\textit{mi}$ 和最大值 $\textit{mx}$，然后遍历数组 $\textit{nums}$，统计满足 $\textit{mi} < x < \textit{mx}$ 的元素个数即可。
+根据题目描述，我们可以先求出数组 $\textit{nums}$ 的最小值 $mi$ 和最大值 $mx$，然后遍历数组 $\textit{nums}$，统计满足 $mi < x < mx$ 的元素个数即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 

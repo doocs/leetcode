@@ -104,13 +104,13 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 
 <!-- thinking:end -->
 
-We store all sunny days in the $sunny$ array or a sorted set, and use the hash table $rainy$ to record the last rainy day for each lake. We initialize the answer array $ans$ with each element set to $-1$.
+We store all sunny days in the $\textit{sunny}$ array or a sorted set, and use the hash table $\textit{rainy}$ to record the last rainy day for each lake. We initialize the answer array $\textit{ans}$ with each element set to $-1$.
 
-Next, we traverse the $rains$ array. For each rainy day $i$, if $rainy[rains[i]]$ exists, it means that the lake has rained before, so we need to find the first date in the $sunny$ array that is greater than $rainy[rains[i]]$, and replace it with the rainy day. Otherwise, it means that the flood cannot be prevented, and we return an empty array. For each non-rainy day $i$, we store $i$ in the $sunny$ array and set $ans[i]$ to $1$.
+Next, we traverse the $\textit{rains}$ array. For each rainy day $i$, if $\textit{rainy}[\textit{rains}[i]]$ exists, it means that the lake has rained before, so we need to find the first date in the $\textit{sunny}$ array that is greater than $\textit{rainy}[\textit{rains}[i]]$, and replace it with the rainy day. Otherwise, it means that the flood cannot be prevented, and we return an empty array. For each non-rainy day $i$, we store $i$ in the $\textit{sunny}$ array and set $\textit{ans}[i]$ to $1$.
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $rains$ array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{rains}$ array.
 
 <!-- tabs:start -->
 

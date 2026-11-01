@@ -84,9 +84,9 @@ Placeholder &quot;_&quot; is replaced with 5 and 20 is added at the end of args.
 
 > **Thinking**
 >
-> Partial application should fill $\_$ placeholders from later arguments in order and append leftovers. Ordinary $bind$ cannot express placeholders.
+> Partial application should fill $\_$ placeholders from later arguments in order and append leftovers. Ordinary $\textit{bind}$ cannot express placeholders.
 >
-> The returned function walks the preset array, replaces each $\_$ with the next rest argument, $push$es any unused rest arguments, and $apply$s the original function.
+> The returned function walks the preset array, replaces each $\_$ with the next rest argument, $\textit{push}$es any unused rest arguments, and $\textit{apply}$s the original function.
 
 <!-- thinking:end -->
 

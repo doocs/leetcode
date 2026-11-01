@@ -211,7 +211,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
+We can also use the idea of counting sort, create an array $\textit{cnt}$ of length $1001$, where $\textit{cnt}[b]$ represents the number of boxes with $b$ units.
 
 Then starting from the box with the maximum number of units, choose up to `truckSize` boxes, and accumulate the number of units.
 

@@ -69,7 +69,7 @@ tags:
 
 > **Thinking**
 >
-> We want the largest $k$ such that $word$ repeated $k$ times is a substring of $sequence$. Lengths are at most $100$, so try $k$ from $n/\lvert word \rvert$ downward; the first $word*k$ that occurs is the answer.
+> We want the largest $k$ such that $\textit{word}$ repeated $k$ times is a substring of $\textit{sequence}$. Lengths are at most $100$, so try $k$ from $n/\lvert \textit{word} \rvert$ downward; the first $\textit{word}*k$ that occurs is the answer.
 
 <!-- thinking:end -->
 

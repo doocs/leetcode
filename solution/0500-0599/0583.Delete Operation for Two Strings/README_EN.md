@@ -57,7 +57,7 @@ tags:
 
 > **Thinking**
 >
-> Only deletions are allowed, so the minimum steps equal $|s|+|t|-2\cdot\mathrm{LCS}$. We can also write the deletion recurrence directly.
+> Only deletions are allowed, so the minimum steps equal $|s|+|t|-2\cdot\textit{LCS}$. We can also write the deletion recurrence directly.
 >
 > $f[i][j]$ is the fewest deletions to make the two prefixes equal. Matching letters copy $f[i-1][j-1]$; otherwise delete one side and add one. The border is the length of the other prefix. $f[m][n]$ is the answer.
 

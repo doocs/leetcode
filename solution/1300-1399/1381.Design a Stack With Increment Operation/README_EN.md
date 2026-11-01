@@ -80,13 +80,13 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 
 <!-- thinking:end -->
 
-We can use an array $stk$ to simulate the stack, and an integer $i$ to represent the position of the next element to be pushed into the stack. In addition, we need another array $add$ to record the cumulative increment value at each position.
+We can use an array $\textit{stk}$ to simulate the stack, and an integer $i$ to represent the position of the next element to be pushed into the stack. In addition, we need another array $\textit{add}$ to record the cumulative increment value at each position.
 
-When calling $push(x)$, if $i < maxSize$, we put $x$ into $stk[i]$ and increment $i$ by one.
+When calling $\textit{push}(x)$, if $i < \textit{maxSize}$, we put $x$ into $\textit{stk}[i]$ and increment $i$ by one.
 
-When calling $pop()$, if $i \leq 0$, it means the stack is empty, so we return $-1$. Otherwise, we decrement $i$ by one, and the answer is $stk[i] + add[i]$. Then we add $add[i]$ to $add[i - 1]$, and set $add[i]$ to zero. Finally, we return the answer.
+When calling $\textit{pop}()$, if $i \leq 0$, it means the stack is empty, so we return $-1$. Otherwise, we decrement $i$ by one, and the answer is $\textit{stk}[i] + \textit{add}[i]$. Then we add $\textit{add}[i]$ to $\textit{add}[i - 1]$, and set $\textit{add}[i]$ to zero. Finally, we return the answer.
 
-When calling $increment(k, val)$, if $i > 0$, we add $val$ to $add[\min(i, k) - 1]$.
+When calling $\textit{increment}(k, \textit{val})$, if $i > 0$, we add $\textit{val}$ to $\textit{add}[\min(i, k) - 1]$.
 
 The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the maximum capacity of the stack.
 

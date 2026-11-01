@@ -75,11 +75,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each character in the string $\textit{s}$. Then, we traverse the string $\textit{t}$. For each character, we decrement its count in $\textit{cnt}$. If the decremented value is less than $0$, it means that this character appears more times in the string $\textit{t}$ than in the string $\textit{s}$. In this case, we need to replace this character and increment the answer by one.
+We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each character in the string $s$. Then, we traverse the string $t$. For each character, we decrement its count in $\textit{cnt}$. If the decremented value is less than $0$, it means that this character appears more times in the string $t$ than in the string $s$. In this case, we need to replace this character and increment the answer by one.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of the strings $\textit{s}$ and $\textit{t}$, respectively, and $|\Sigma|$ is the size of the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of the strings $s$ and $t$, respectively, and $|\Sigma|$ is the size of the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

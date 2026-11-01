@@ -130,7 +130,7 @@ Marwan 只有 1 笔订单。
 >
 > 为每位顾客列出最近三笔订单，并带上姓名。按人排序后手写取前三行容易在并列日期上出错，窗口函数可在分组内编号。
 >
-> 先把 $Orders$ 与 $Customers$ 按 $customer\_id$ 连接，再按顾客分区、按 $order\_date$ 降序赋 $ROW\_NUMBER$。保留序号不超过 $3$ 的行，最后按姓名、编号与日期输出。
+> 先把 $\textit{Orders}$ 与 $\textit{Customers}$ 按 $\textit{customer\_id}$ 连接，再按顾客分区、按 $\textit{order\_date}$ 降序赋 $\textit{ROW\_NUMBER}$。保留序号不超过 $3$ 的行，最后按姓名、编号与日期输出。
 
 <!-- thinking:end -->
 

@@ -79,9 +79,9 @@ The lexicographically smallest subsequence among them is &quot;eet&quot;.
 
 > **Thinking**
 >
-> With $n \le 5 \times 10^4$, enumerating $k$-length subsequences is impossible. A monotone stack yields the lexicographically smallest subsequence, but we must keep length $k$ and at least $repetition$ copies of $letter$.
+> With $n \le 5 \times 10^4$, enumerating $k$-length subsequences is impossible. A monotone stack yields the lexicographically smallest subsequence, but we must keep length $k$ and at least $\textit{repetition}$ copies of $\textit{letter}$.
 >
-> A pop is legal only if leftover characters can still fill $k$ slots and the chosen plus remaining $letter$s still meet $repetition$. Track suffix letter counts and the stack count.
+> A pop is legal only if leftover characters can still fill $k$ slots and the chosen plus remaining $\textit{letter}$s still meet $\textit{repetition}$. Track suffix letter counts and the stack count.
 >
 > Scan left to right, then read the first $k$ stack characters. The code tabs are empty; the reasoning follows this constrained stack.
 

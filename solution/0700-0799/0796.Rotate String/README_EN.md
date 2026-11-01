@@ -69,7 +69,7 @@ tags:
 
 > **Thinking**
 >
-> Is $goal$ a rotation of $s$? Unequal lengths fail; otherwise $goal$ is a substring of $s+s$.
+> Is $\textit{goal}$ a rotation of $s$? Unequal lengths fail; otherwise $\textit{goal}$ is a substring of $s+s$.
 
 <!-- thinking:end -->
 

@@ -103,9 +103,9 @@ $$
 
 so the new multiply is $m_1 m_2$ and the new add is $a_1 m_2 + a_2$.
 
-Hence, multiplying a range by $m$ multiplies the node’s `v`, `mul`, and `add` by $m$; adding $inc$ increases `v` by $\textit{length} \times inc$ and `add` by $inc$. Pushing down applies the same “multiply then add” rule to both children. In the code, add and multiply are one operation: add-only is “multiply by $1$ then add $inc$”, and multiply-only is “multiply by $m$ then add $0$”.
+Hence, multiplying a range by $m$ multiplies the node’s `v`, `mul`, and `add` by $m$; adding $\textit{inc}$ increases `v` by $\textit{length} \times \textit{inc}$ and `add` by $\textit{inc}$. Pushing down applies the same “multiply then add” rule to both children. In the code, add and multiply are one operation: add-only is “multiply by $1$ then add $\textit{inc}$”, and multiply-only is “multiply by $m$ then add $0$”.
 
-Indices are $1$-based and the length is at most $10^5$, so we create nodes over $[1,10^5]$ on demand. `append` increments $n$ and adds $val$ at position $n$; `addAll` and `multAll` update $[1,n]$; `getIndex` queries position $idx+1$. All arithmetic is modulo $10^9+7$.
+Indices are $1$-based and the length is at most $10^5$, so we create nodes over $[1,10^5]$ on demand. `append` increments $n$ and adds $\textit{val}$ at position $n$; `addAll` and `multAll` update $[1,n]$; `getIndex` queries position $\textit{idx}+1$. All arithmetic is modulo $10^9+7$.
 
 The time complexity is $O(m \log n)$, and the space complexity is $O(m \log n)$, where $m$ is the number of operations and $n \le 10^5$ is the length bound.
 
@@ -681,13 +681,13 @@ $$
 The operations then become:
 
 - `append(val)`: this new number has not gone through the current $a$ and $b$, so we store an $x$ with $a \times x + b = \textit{val}$, i.e. $x = (\textit{val} - b) \times a^{-1}$;
-- `addAll(inc)`: every true value increases by $inc$, so we add $inc$ to $b$;
+- `addAll(inc)`: every true value increases by $\textit{inc}$, so we add $\textit{inc}$ to $b$;
 - `multAll(m)`: every true value is multiplied by $m$, so both $a$ and $b$ are multiplied by $m$;
-- `getIndex(idx)`: return $-1$ if the index is out of range, otherwise $a \times \textit{nums}[idx] + b$.
+- `getIndex(idx)`: return $-1$ if the index is out of range, otherwise $a \times \textit{nums}[\textit{idx}] + b$.
 
-Here $a^{-1}$ is the modular inverse of $a$ modulo $10^9+7$. The modulus is prime, so Fermat’s little theorem gives $a^{-1} \equiv a^{MOD-2} \pmod{MOD}$.
+Here $a^{-1}$ is the modular inverse of $a$ modulo $10^9+7$. The modulus is prime, so Fermat’s little theorem gives $a^{-1} \equiv a^{\textit{MOD}-2} \pmod{\textit{MOD}}$.
 
-All operations except the inverse in `append` run in $O(1)$ time; the inverse is $O(\log MOD)$. The space complexity is $O(n)$.
+All operations except the inverse in `append` run in $O(1)$ time; the inverse is $O(\log \textit{MOD})$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

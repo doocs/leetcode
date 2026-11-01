@@ -93,7 +93,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root1, root2)$，它会在树 $root1$ 和 $root2$ 中同时进行 DFS 遍历，当遍历到某个节点时，如果这个节点恰好为 $target$，那么我们就返回 $root2$ 中对应的节点。否则，我们递归地在 $root1$ 和 $root2$ 的左右子树中寻找 $target$，并返回找到的结果中不为空的那一个。
+我们设计一个函数 $\textit{dfs}(\textit{root1}, \textit{root2})$，它会在树 $\textit{root1}$ 和 $\textit{root2}$ 中同时进行 DFS 遍历，当遍历到某个节点时，如果这个节点恰好为 $\textit{target}$，那么我们就返回 $\textit{root2}$ 中对应的节点。否则，我们递归地在 $\textit{root1}$ 和 $\textit{root2}$ 的左右子树中寻找 $\textit{target}$，并返回找到的结果中不为空的那一个。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数量。
 

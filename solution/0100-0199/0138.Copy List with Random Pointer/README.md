@@ -92,7 +92,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以定义一个虚拟头节点 $\textit{dummy}$，用一个指针 $\textit{tail}$ 指向虚拟头节点，然后遍历链表，将链表中的每个节点都复制一份，并将每个节点及其复制节点的对应关系存储在哈希表 $\textit{d}$ 中，同时连接好复制节点的 $\textit{next}$ 指针。
+我们可以定义一个虚拟头节点 $\textit{dummy}$，用一个指针 $\textit{tail}$ 指向虚拟头节点，然后遍历链表，将链表中的每个节点都复制一份，并将每个节点及其复制节点的对应关系存储在哈希表 $d$ 中，同时连接好复制节点的 $\textit{next}$ 指针。
 
 接下来再遍历链表，根据哈希表中存储的对应关系，将复制节点的 $\textit{random}$ 指针连接好。
 
@@ -360,7 +360,7 @@ public class Solution {
 
 > **思考**
 >
-> 方法一的哈希表是 $O(n)$ 空间。把每个副本插在原节点后面，原节点与副本在链上相邻， $\textit{random}$ 的对应关系变为 $\textit{cur.random.next}$。拆链后得到复制链表，不再需要哈希表。
+> 方法一的哈希表是 $O(n)$ 空间。把每个副本插在原节点后面，原节点与副本在链上相邻， $\textit{random}$ 的对应关系变为 $\textit{cur}.\textit{random}.\textit{next}$。拆链后得到复制链表，不再需要哈希表。
 
 <!-- thinking:end -->
 

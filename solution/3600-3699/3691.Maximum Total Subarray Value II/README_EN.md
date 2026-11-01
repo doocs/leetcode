@@ -105,8 +105,8 @@ This implies that for each fixed left endpoint $l$, we have a monotonically incr
 
 Since the last element of each sequence (i.e., when $r = n - 1$) is the maximum value of that sequence, we can utilize a **max-heap (priority queue)** to filter them efficiently:
 
-1. **Initialization**: Push the last element of each sequence (where $r = n - 1$) along with its coordinates, represented as $(val, l, n - 1)$, into the max-heap.
-2. **Iterative Greedy Choice**: Repeat the operation $k$ times. In each iteration, pop the top element $(val, l, r)$ from the heap and accumulate $val$ into the total answer. If $r > l$, it indicates that there are still smaller, next-largest values remaining in this sequence. We then compute the value of the previous element in the same sequence, $(l, r - 1)$, and push it back into the heap.
+1. **Initialization**: Push the last element of each sequence (where $r = n - 1$) along with its coordinates, represented as $(\textit{val}, l, n - 1)$, into the max-heap.
+2. **Iterative Greedy Choice**: Repeat the operation $k$ times. In each iteration, pop the top element $(\textit{val}, l, r)$ from the heap and accumulate $\textit{val}$ into the total answer. If $r > l$, it indicates that there are still smaller, next-largest values remaining in this sequence. We then compute the value of the previous element in the same sequence, $(l, r - 1)$, and push it back into the heap.
 3. **Range Minimum/Maximum Query Optimization**: To query both the maximum and minimum values of any subarray $[l, r]$ in $O(1)$ time, we can precompute a **Sparse Table (ST)**.
 
 The time complexity is $O(n \log n + k \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$.

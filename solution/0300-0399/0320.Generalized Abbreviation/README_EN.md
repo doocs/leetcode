@@ -70,23 +70,23 @@ tags:
 >
 > Each letter is kept or folded into a run of omitted counts. $n\le 15$, so every scheme is enumerable.
 >
-> $dfs(i)$ handles the suffix: keep $word[i]$ and recurse, or collapse $[i,j)$ into a number and append $word[j]$ (if any) plus the rest. The empty suffix returns $[""]$ as the join base.
+> $\textit{dfs}(i)$ handles the suffix: keep $\textit{word}[i]$ and recurse, or collapse $[i,j)$ into a number and append $\textit{word}[j]$ (if any) plus the rest. The empty suffix returns $[""]$ as the join base.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which returns all possible abbreviations for the string $word[i:]$.
+We design a function $\textit{dfs}(i)$, which returns all possible abbreviations for the string $\textit{word}[i:]$.
 
-The execution logic of the function $dfs(i)$ is as follows:
+The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
-If $i \geq n$, it means that the string $word$ has been processed, and we directly return a list composed of an empty string.
+If $i \geq n$, it means that the string $\textit{word}$ has been processed, and we directly return a list composed of an empty string.
 
-Otherwise, we can choose to keep $word[i]$, and then add $word[i]$ to the front of each string in the list returned by $dfs(i + 1)$, and add the obtained result to the answer.
+Otherwise, we can choose to keep $\textit{word}[i]$, and then add $\textit{word}[i]$ to the front of each string in the list returned by $\textit{dfs}(i + 1)$, and add the obtained result to the answer.
 
-We can also choose to delete $word[i]$ and some characters after it. Suppose we delete $word[i..j)$, then the $j$ th character is not deleted, and then add $j - i$ to the front of each string in the list returned by $dfs(j + 1)$, and add the obtained result to the answer.
+We can also choose to delete $\textit{word}[i]$ and some characters after it. Suppose we delete $\textit{word}[i..j)$, then the $j$ th character is not deleted, and then add $j - i$ to the front of each string in the list returned by $\textit{dfs}(j + 1)$, and add the obtained result to the answer.
 
-Finally, we call $dfs(0)$ in the main function.
+Finally, we call $\textit{dfs}(0)$ in the main function.
 
-The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $word$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 
@@ -237,9 +237,9 @@ function generateAbbreviations(word: string): string[] {
 
 <!-- thinking:end -->
 
-Since the length of the string $word$ does not exceed $15$, we can use the method of binary enumeration to enumerate all abbreviations. We use a binary number $i$ of length $n$ to represent an abbreviation, where $0$ represents keeping the corresponding character, and $1$ represents deleting the corresponding character. We enumerate all $i$ in the range of $[0, 2^n)$, convert it into the corresponding abbreviation, and add it to the answer list.
+Since the length of the string $\textit{word}$ does not exceed $15$, we can use the method of binary enumeration to enumerate all abbreviations. We use a binary number $i$ of length $n$ to represent an abbreviation, where $0$ represents keeping the corresponding character, and $1$ represents deleting the corresponding character. We enumerate all $i$ in the range of $[0, 2^n)$, convert it into the corresponding abbreviation, and add it to the answer list.
 
-The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $word$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

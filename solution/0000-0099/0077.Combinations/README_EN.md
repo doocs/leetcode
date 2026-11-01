@@ -59,23 +59,23 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 >
 > The first idea is all $2^n$ subsets of $\{1,\ldots,n\}$, keep those of length $k$. $n \le 20$ might pass, but most subsets have the wrong size.
 >
-> Order does not matter; each number is in or out, and we can stop a path once its length is $k$. So $dfs(i)$ handles $i$: push, recurse $i+1$, pop, then skip. Enumerating the next $j$ among leftovers is the other tree; both yield the same combinations. The code below is the first form.
+> Order does not matter; each number is in or out, and we can stop a path once its length is $k$. So $\textit{dfs}(i)$ handles $i$: push, recurse $i+1$, pop, then skip. Enumerating the next $j$ among leftovers is the other tree; both yield the same combinations. The code below is the first form.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents starting the search from number $i$, with the current search path as $t$, and the answer as $ans$.
+We design a function $\textit{dfs}(i)$, which represents starting the search from number $i$, with the current search path as $t$, and the answer as $\textit{ans}$.
 
-The execution logic of the function $dfs(i)$ is as follows:
+The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
 - If the length of the current search path $t$ equals $k$, then add the current search path to the answer and return.
 - If $i \gt n$, it means the search has ended, return.
-- Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue the search, i.e., execute $dfs(i + 1)$, and then remove the number $i$ from the search path $t$; or we do not add the number $i$ to the search path $t$, and directly execute $dfs(i + 1)$.
+- Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue the search, i.e., execute $\textit{dfs}(i + 1)$, and then remove the number $i$ from the search path $t$; or we do not add the number $i$ to the search path $t$, and directly execute $\textit{dfs}(i + 1)$.
 
-The above method is actually enumerating whether to select the current number or not, and then recursively searching the next number. We can also enumerate the next number $j$ to be selected, where $i \leq j \leq n$. If the next number to be selected is $j$, then we add the number $j$ to the search path $t$, and then continue the search, i.e., execute $dfs(j + 1)$, and then remove the number $j$ from the search path $t$.
+The above method is actually enumerating whether to select the current number or not, and then recursively searching the next number. We can also enumerate the next number $j$ to be selected, where $i \leq j \leq n$. If the next number to be selected is $j$, then we add the number $j$ to the search path $t$, and then continue the search, i.e., execute $\textit{dfs}(j + 1)$, and then remove the number $j$ from the search path $t$.
 
-In the main function, we start the search from number $1$, i.e., execute $dfs(1)$.
+In the main function, we start the search from number $1$, i.e., execute $\textit{dfs}(1)$.
 
-The time complexity is $O(kC_n^k)$, and the space complexity is $O(k)$, where $C_n^k$ represents the combination number.
+The time complexity is $O(k \times C_n^k)$, and the space complexity is $O(k)$, where $C_n^k$ represents the combination number.
 
 Similar problems:
 

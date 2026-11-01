@@ -68,7 +68,7 @@ tags:
 
 <!-- thinking:end -->
 
-We directly traverse the array. For the current element $nums[i]$, we add it with the prefix sum $nums[i-1]$ to get the prefix sum $nums[i]$ of the current element.
+We directly traverse the array. For the current element $\textit{nums}[i]$, we add it with the prefix sum $\textit{nums}[i-1]$ to get the prefix sum $\textit{nums}[i]$ of the current element.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

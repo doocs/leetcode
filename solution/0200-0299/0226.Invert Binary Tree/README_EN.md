@@ -68,7 +68,7 @@ tags:
 
 <!-- thinking:end -->
 
-First, we check if $\textit{root}$ is null. If it is, we return $\text{null}$. Then, we recursively invert the left and right subtrees, set the inverted right subtree as the new left subtree, and set the inverted left subtree as the new right subtree. Finally, we return $\textit{root}$.
+First, we check if $\textit{root}$ is null. If it is, we return $\textit{null}$. Then, we recursively invert the left and right subtrees, set the inverted right subtree as the new left subtree, and set the inverted left subtree as the new right subtree. Finally, we return $\textit{root}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

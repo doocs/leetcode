@@ -88,13 +88,13 @@ The height of the tree is 2 (The path 1 -&gt; 3 -&gt; 2).
 >
 > Each query deletes a non-root subtree; $n\le 10^5$ and $q\le 10^4$ forbid recomputing the height. After removing $x$, the height is the longest root-to-leaf path that avoids $x$, i.e. the better of sibling-side depths and forks higher up.
 >
-> A first DFS stores subtree heights $d$. A second DFS carries $\textit{rest}$, the height if the current node is deleted: going left, $\textit{rest}$ competes with $\textit{depth}$ plus the right height (and symmetrically). Store the value in $\textit{res}[val]$.
+> A first DFS stores subtree heights $d$. A second DFS carries $\textit{rest}$, the height if the current node is deleted: going left, $\textit{rest}$ competes with $\textit{depth}$ plus the right height (and symmetrically). Store the value in $\textit{res}[\textit{val}]$.
 
 <!-- thinking:end -->
 
 First, we perform a DFS traversal to determine the depth of each node, which we store in a hash table $d$, where $d[x]$ represents the depth of node $x$.
 
-Then we design a function $dfs(root, depth, rest)$, where:
+Then we design a function $\textit{dfs}(\textit{root}, \textit{depth}, \textit{rest})$, where:
 
 - `root` represents the current node;
 - `depth` represents the depth of the current node;
@@ -106,9 +106,9 @@ If the node is null, return directly. Otherwise, we increment `depth` by $1$, an
 
 Next, we recursively traverse the left and right subtrees.
 
-Before recursing into the left subtree, we calculate the depth from the root node to the deepest node in the current node's right subtree, i.e., $depth+d[root.right]$, and then compare it with `rest`, taking the larger value as the `rest` for the left subtree.
+Before recursing into the left subtree, we calculate the depth from the root node to the deepest node in the current node's right subtree, i.e., $\textit{depth}+d[\textit{root}.\textit{right}]$, and then compare it with `rest`, taking the larger value as the `rest` for the left subtree.
 
-Before recursing into the right subtree, we calculate the depth from the root node to the deepest node in the current node's left subtree, i.e., $depth+d[root.left]$, and then compare it with `rest`, taking the larger value as the `rest` for the right subtree.
+Before recursing into the right subtree, we calculate the depth from the root node to the deepest node in the current node's left subtree, i.e., $\textit{depth}+d[\textit{root}.\textit{left}]$, and then compare it with `rest`, taking the larger value as the `rest` for the right subtree.
 
 Finally, we return the result values corresponding to each query node.
 
@@ -300,7 +300,7 @@ func treeQueries(root *TreeNode, queries []int) (ans []int) {
 
 > **Thinking**
 >
-> Method 1 fills every deletion height with two DFS passes. One DFS can record each node's deepest descendant per level and sort the level. For query $q$, if it owns the level maximum, use the second maximum; otherwise keep the first. A singleton level falls back to $level-1$.
+> Method 1 fills every deletion height with two DFS passes. One DFS can record each node's deepest descendant per level and sort the level. For query $q$, if it owns the level maximum, use the second maximum; otherwise keep the first. A singleton level falls back to $\textit{level}-1$.
 
 <!-- thinking:end -->
 

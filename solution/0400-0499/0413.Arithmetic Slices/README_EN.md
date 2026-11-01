@@ -71,13 +71,13 @@ tags:
 
 <!-- thinking:end -->
 
-We use $d$ to represent the current difference between two adjacent elements, and $cnt$ to represent the length of the current arithmetic sequence. Initially, $d = 3000$, $cnt = 2$.
+We use $d$ to represent the current difference between two adjacent elements, and $\textit{cnt}$ to represent the length of the current arithmetic sequence. Initially, $d = 3000$, $\textit{cnt} = 2$.
 
-We iterate through the array `nums`. For two adjacent elements $a$ and $b$, if $b - a = d$, it means that the current element $b$ also belongs to the current arithmetic sequence, and we increment $cnt$ by 1. Otherwise, it means that the current element $b$ does not belong to the current arithmetic sequence, and we update $d = b - a$, and $cnt = 2$. If $cnt \ge 3$, it means that the length of the current arithmetic sequence is at least 3, and the number of arithmetic sequences is $cnt - 2$, which we add to the answer.
+We iterate through the array `nums`. For two adjacent elements $a$ and $b$, if $b - a = d$, it means that the current element $b$ also belongs to the current arithmetic sequence, and we increment $\textit{cnt}$ by 1. Otherwise, it means that the current element $b$ does not belong to the current arithmetic sequence, and we update $d = b - a$, and $\textit{cnt} = 2$. If $\textit{cnt} \ge 3$, it means that the length of the current arithmetic sequence is at least 3, and the number of arithmetic sequences is $\textit{cnt} - 2$, which we add to the answer.
 
 After the iteration, we can get the answer.
 
-In the code implementation, we can also initialize $cnt$ to $0$, and when resetting $cnt$, we directly set $cnt$ to $0$. When adding to the answer, we directly add $cnt$.
+In the code implementation, we can also initialize $\textit{cnt}$ to $0$, and when resetting $\textit{cnt}$, we directly set $\textit{cnt}$ to $0$. When adding to the answer, we directly add $\textit{cnt}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
 

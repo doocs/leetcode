@@ -245,7 +245,7 @@ function treeDiameter(edges: number[][]): number {
 
 > **Thinking**
 >
-> The diameter is the number of edges on a longest simple path. With $n \le 10^4$, trying every pair of endpoints is too slow. The farthest vertex from any start is an endpoint of some diameter, and a second walk from that endpoint yields the length. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. Each search therefore stores $(node, parent, distance)$ on a stack: a larger distance on pop records the current node, then the other neighbors are pushed at distance one greater. The first search from $0$ finds endpoint $a$, and the farthest distance from $a$ is the diameter.
+> The diameter is the number of edges on a longest simple path. With $n \le 10^4$, trying every pair of endpoints is too slow. The farthest vertex from any start is an endpoint of some diameter, and a second walk from that endpoint yields the length. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. Each search therefore stores $(\textit{node}, \textit{parent}, \textit{distance})$ on a stack: a larger distance on pop records the current node, then the other neighbors are pushed at distance one greater. The first search from $0$ finds endpoint $a$, and the farthest distance from $a$ is the diameter.
 
 <!-- thinking:end -->
 

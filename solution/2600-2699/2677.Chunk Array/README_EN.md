@@ -74,7 +74,7 @@ tags:
 
 > **Thinking**
 >
-> The array is split into runs of length $size$, the last run possibly shorter. Stepping by $size$ and `slice` lets the method clip the tail, so the last chunk needs no special case.
+> The array is split into runs of length $\textit{size}$, the last run possibly shorter. Stepping by $\textit{size}$ and `slice` lets the method clip the tail, so the last chunk needs no special case.
 
 <!-- thinking:end -->
 

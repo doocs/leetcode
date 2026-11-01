@@ -83,7 +83,7 @@ We return the array [2,1].
 >
 > Each operation replaces $x$ in the array by a fresh $y$; there are $10^5$ operations. Linear search for $x$ is too slow. Values are unique, so a hash map from value to index is enough.
 >
-> On $[x,y]$ write $y$ at $nums[d[x]]$ and set $d[y]$ to that index. The old key $d[x]$ can stay; it will not be queried again.
+> On $[x,y]$ write $y$ at $\textit{nums}[d[x]]$ and set $d[y]$ to that index. The old key $d[x]$ can stay; it will not be queried again.
 
 <!-- thinking:end -->
 

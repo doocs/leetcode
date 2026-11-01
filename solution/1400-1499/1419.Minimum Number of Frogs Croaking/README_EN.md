@@ -81,14 +81,14 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 
 We note that if the string `croakOfFrogs` is composed of several valid `"croak"` characters mixed together, its length must be a multiple of $5$. Therefore, if the length of the string is not a multiple of $5$, we can directly return $-1$.
 
-Next, we map the letters `'c'`, `'r'`, `'o'`, `'a'`, `'k'` to indices $0$ to $4$, respectively, and use an array $cnt$ of length $5$ to record the number of occurrences of each letter in the string `croakOfFrogs`, where $cnt[i]$ represents the number of occurrences of the letter at index $i$. Additionally, we define an integer variable $x$ to represent the number of frogs that have not completed their croak, and the minimum number of frogs needed $ans$ is the maximum value of $x$.
+Next, we map the letters `'c'`, `'r'`, `'o'`, `'a'`, `'k'` to indices $0$ to $4$, respectively, and use an array $\textit{cnt}$ of length $5$ to record the number of occurrences of each letter in the string `croakOfFrogs`, where $\textit{cnt}[i]$ represents the number of occurrences of the letter at index $i$. Additionally, we define an integer variable $x$ to represent the number of frogs that have not completed their croak, and the minimum number of frogs needed $\textit{ans}$ is the maximum value of $x$.
 
-We traverse each letter $c$ in the string `croakOfFrogs`, find the index $i$ corresponding to $c$, and then increment $cnt[i]$ by $1$. Next, depending on the value of $i$, we perform the following operations:
+We traverse each letter $c$ in the string `croakOfFrogs`, find the index $i$ corresponding to $c$, and then increment $\textit{cnt}[i]$ by $1$. Next, depending on the value of $i$, we perform the following operations:
 
-- If $i=0$, then a new frog starts croaking, so we increment $x$ by $1$, and then update $ans = \max(ans, x)$;
-- Otherwise, if $cnt[i-1]=0$, it means that there is no frog that can make the sound $c$, and the croak cannot be completed, so we return $-1$. Otherwise, we decrement $cnt[i-1]$ by $1$. If $i=4$, it means that a frog has completed a croak, so we decrement $x$ by $1$.
+- If $i=0$, then a new frog starts croaking, so we increment $x$ by $1$, and then update $\textit{ans} = \max(\textit{ans}, x)$;
+- Otherwise, if $\textit{cnt}[i-1]=0$, it means that there is no frog that can make the sound $c$, and the croak cannot be completed, so we return $-1$. Otherwise, we decrement $\textit{cnt}[i-1]$ by $1$. If $i=4$, it means that a frog has completed a croak, so we decrement $x$ by $1$.
 
-After traversing, if $x=0$, it means that all frogs have completed their croaks, and we return $ans$. Otherwise, we return $-1$.
+After traversing, if $x=0$, it means that all frogs have completed their croaks, and we return $\textit{ans}$. Otherwise, we return $-1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string `croakOfFrogs`, and $C$ is the size of the character set, in this problem $C=26$.
 

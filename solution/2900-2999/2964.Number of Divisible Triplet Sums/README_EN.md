@@ -64,15 +64,15 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 
 > **Thinking**
 >
-> Count triples $i<j<k$ whose sum is divisible by $d$. A cubic loop is slow for mid-sized $n$. Enumerate the last two indices and query a map for the complementary $nums[i] \bmod d$ already seen.
+> Count triples $i<j<k$ whose sum is divisible by $d$. A cubic loop is slow for mid-sized $n$. Enumerate the last two indices and query a map for the complementary $\textit{nums}[i] \bmod d$ already seen.
 >
-> Add to the answer before inserting $nums[j] \bmod d$, so $i<j<k$ is preserved.
+> Add to the answer before inserting $\textit{nums}[j] \bmod d$, so $i<j<k$ is preserved.
 
 <!-- thinking:end -->
 
-We can use a hash table $cnt$ to record the occurrence times of $nums[i] \bmod d$, then enumerate $j$ and $k$, calculate the value of $nums[i] \bmod d$ that makes the equation $(nums[i] + nums[j] + nums[k]) \bmod d = 0$ hold, which is $(d - (nums[j] + nums[k]) \bmod d) \bmod d$, and accumulate its occurrence times to the answer. Then we increase the occurrence times of $nums[j] \bmod d$ by one. Continue to enumerate $j$ and $k$ until $j$ reaches the end of the array.
+We can use a hash table $\textit{cnt}$ to record the occurrence times of $\textit{nums}[i] \bmod d$, then enumerate $j$ and $k$, calculate the value of $\textit{nums}[i] \bmod d$ that makes the equation $(\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k]) \bmod d = 0$ hold, which is $(d - (\textit{nums}[j] + \textit{nums}[k]) \bmod d) \bmod d$, and accumulate its occurrence times to the answer. Then we increase the occurrence times of $\textit{nums}[j] \bmod d$ by one. Continue to enumerate $j$ and $k$ until $j$ reaches the end of the array.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -98,7 +98,7 @@ tags:
 >
 > 无需自动机或多次遍历。非字母数字立即失败；字母再按元音集合分类。
 >
-> 先判长度，再维护 $has\_vowel$ 与 $has\_consonant$，结束时二者均为真则合法。
+> 先判长度，再维护 $\textit{has\_vowel}$ 与 $\textit{has\_consonant}$，结束时二者均为真则合法。
 
 <!-- thinking:end -->
 

@@ -88,7 +88,7 @@ n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
 >
 > 最多 $k$ 次中转即最多 $k+1$ 条边。每轮用上一轮的距离备份松弛，避免同一轮内走多条边。
 >
-> $k+1$ 轮后 $dist[dst]$ 若仍为无穷则无解。
+> $k+1$ 轮后 $\textit{dist}[\textit{dst}]$ 若仍为无穷则无解。
 
 <!-- thinking:end -->
 
@@ -193,9 +193,9 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 
 > **思考**
 >
-> Bellman-Ford 枚举全部边。从 $src$ 出发、还剩 $k$ 条边时的最小花费也可记忆化搜索：到达 $dst$ 为 $0$，边用尽为无穷。
+> Bellman-Ford 枚举全部边。从 $\textit{src}$ 出发、还剩 $k$ 条边时的最小花费也可记忆化搜索：到达 $\textit{dst}$ 为 $0$，边用尽为无穷。
 >
-> $dfs(u,k)$ 枚举出边。边数仍是 $k+1$（含出发）。状态 $O(nk)$。
+> $\textit{dfs}(u,k)$ 枚举出边。边数仍是 $k+1$（含出发）。状态 $O(nk)$。
 
 <!-- thinking:end -->
 

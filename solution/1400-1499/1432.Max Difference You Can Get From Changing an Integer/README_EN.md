@@ -72,7 +72,7 @@ We have now a = 9 and b = 1 and max difference = 8
 
 > **Thinking**
 >
-> $num\le 10^8$, so there are few digits. One replacement rewrites every occurrence of a digit; the maximum difference is max-value minus min-value after one replacement each.
+> $\textit{num}\le 10^8$, so there are few digits. One replacement rewrites every occurrence of a digit; the maximum difference is max-value minus min-value after one replacement each.
 >
 > For the maximum, replace the first non-$9$ digit with $9$ everywhere. For the minimum, replace the leading digit with $1$ if it is not already $1$; otherwise replace a later digit that is not $0$ or $1$ with $0$, avoiding a leading zero.
 

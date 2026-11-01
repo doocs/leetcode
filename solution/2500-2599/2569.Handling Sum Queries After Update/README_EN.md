@@ -71,9 +71,9 @@ tags:
 
 > **Thinking**
 >
-> Three operations: flip a range of $nums1$; add $p\times\sum nums1$ to every element of $nums2$; report $\sum nums2$. $n,q\le 10^5$ forbids walking a range on every flip.
+> Three operations: flip a range of $\textit{nums1}$; add $p\times\sum \textit{nums1}$ to every element of $\textit{nums2}$; report $\sum \textit{nums2}$. $n,q\le 10^5$ forbids walking a range on every flip.
 >
-> $\sum nums2$ is a single running total; only the range sum of $nums1$ matters for the second operation. A segment tree stores how many ones sit in each interval, with a lazy flip that replaces a sum $s$ by $\textit{length}-s$. The third operation just records the current total.
+> $\sum \textit{nums2}$ is a single running total; only the range sum of $\textit{nums1}$ matters for the second operation. A segment tree stores how many ones sit in each interval, with a lazy flip that replaces a sum $s$ by $\textit{length}-s$. The third operation just records the current total.
 
 <!-- thinking:end -->
 
@@ -81,7 +81,7 @@ According to the problem description:
 
 - Operation $1$ is to reverse all numbers in the index range $[l,..r]$ of array `nums1`, that is, change $0$ to $1$ and $1$ to $0$.
 - Operation $3$ is to sum all numbers in array `nums2`.
-- Operation $2$ is to add the sum of all numbers in array `nums2` with $p$ times the sum of all numbers in array `nums1`, that is, $sum(nums2) = sum(nums2) + p * sum(nums1)$.
+- Operation $2$ is to add the sum of all numbers in array `nums2` with $p$ times the sum of all numbers in array `nums1`, that is, $\textit{sum}(\textit{nums2}) = \textit{sum}(\textit{nums2}) + p * \textit{sum}(\textit{nums1})$.
 
 Therefore, we actually only need to maintain the segment sum of array `nums1`, which can be implemented through a segment tree.
 
@@ -104,7 +104,7 @@ First, calculate the sum of all numbers in array `nums2`, denoted as $s$.
 
 When executing operation $1$, we only need to call `modify(1, l + 1, r + 1)`.
 
-When executing operation $2$, we update $s = s + p \times query(1, 1, n)$.
+When executing operation $2$, we update $s = s + p \times \textit{query}(1, 1, n)$.
 
 When executing operation $3$, we just need to add $s$ to the answer array.
 

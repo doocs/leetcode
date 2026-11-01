@@ -86,11 +86,11 @@ tags:
 
 <!-- thinking:end -->
 
-数组 $\textit{nums}$ 中按位或的最大值 $\textit{mx}$ 可以通过对数组中所有元素按位或得到。
+数组 $\textit{nums}$ 中按位或的最大值 $mx$ 可以通过对数组中所有元素按位或得到。
 
-然后我们可以使用深度优先搜索来枚举所有子集，统计按位或等于 $\textit{mx}$ 的子集个数。我们设计一个函数 $\text{dfs(i, t)}$，表示从下标 $\textit{i}$ 开始，当前按位或的值为 $\textit{t}$ 的子集个数。初始时 $\textit{i} = 0$, $\textit{t} = 0$。
+然后我们可以使用深度优先搜索来枚举所有子集，统计按位或等于 $mx$ 的子集个数。我们设计一个函数 $\textit{dfs}(i, t)$，表示从下标 $i$ 开始，当前按位或的值为 $t$ 的子集个数。初始时 $i = 0$, $t = 0$。
 
-在函数 $\text{dfs(i, t)}$ 中，如果 $\textit{i}$ 等于数组长度，说明已经枚举完所有元素，此时如果 $\textit{t}$ 等于 $\textit{mx}$，则答案加一。否则，我们可以选择不包含当前元素 $\textit{nums[i]}$，或者包含当前元素 $\textit{nums[i]}$，因此我们可以递归调用 $\text{dfs(i + 1, t)}$ 和 $\text{dfs(i + 1, t | nums[i])}$。
+在函数 $\textit{dfs}(i, t)$ 中，如果 $i$ 等于数组长度，说明已经枚举完所有元素，此时如果 $t$ 等于 $mx$，则答案加一。否则，我们可以选择不包含当前元素 $\textit{nums}[i]$，或者包含当前元素 $\textit{nums}[i]$，因此我们可以递归调用 $\textit{dfs}(i + 1, t)$ 和 $\textit{dfs}(i + 1, t | \textit{nums}[i])$。
 
 最后返回答案即可。
 
@@ -265,9 +265,9 @@ impl Solution {
 
 <!-- thinking:end -->
 
-我们可以使用二进制枚举来统计所有子集的按位或结果。对于长度为 $n$ 的数组 $\textit{nums}$，我们可以使用一个整数 $\textit{mask}$ 来表示一个子集，其中 $\textit{mask}$ 的第 $i$ 位为 1 表示包含元素 $\textit{nums[i]}$，为 0 则表示不包含。
+我们可以使用二进制枚举来统计所有子集的按位或结果。对于长度为 $n$ 的数组 $\textit{nums}$，我们可以使用一个整数 $\textit{mask}$ 来表示一个子集，其中 $\textit{mask}$ 的第 $i$ 位为 1 表示包含元素 $\textit{nums}[i]$，为 0 则表示不包含。
 
-我们可以遍历所有可能的 $\textit{mask}$，从 $0$ 到 $2^n - 1$。对于每个 $\textit{mask}$，我们可以计算出对应子集的按位或结果，并更新最大值 $\textit{mx}$ 和答案 $\textit{ans}$。
+我们可以遍历所有可能的 $\textit{mask}$，从 $0$ 到 $2^n - 1$。对于每个 $\textit{mask}$，我们可以计算出对应子集的按位或结果，并更新最大值 $mx$ 和答案 $\textit{ans}$。
 
 时间复杂度 $O(2^n n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 

@@ -58,9 +58,9 @@ tags:
 
 > **Thinking**
 >
-> AND-ing every integer in $[left,right]$ is impossible when the span approaches $2^{31}$. The bitwise AND of a contiguous range is their common binary prefix: lower bits are cleared by some number in the range.
+> AND-ing every integer in $[\textit{left},\textit{right}]$ is impossible when the span approaches $2^{31}$. The bitwise AND of a contiguous range is their common binary prefix: lower bits are cleared by some number in the range.
 >
-> While $left < right$, clear the lowest set bit of $right$ ($right \mathrel{\&}= right-1$) until $right \le left$. The remaining $right$ is that common prefix.
+> While $\textit{left} < \textit{right}$, clear the lowest set bit of $\textit{right}$ ($\textit{right} \mathrel{\&}= \textit{right}-1$) until $\textit{right} \le \textit{left}$. The remaining $\textit{right}$ is that common prefix.
 
 <!-- thinking:end -->
 

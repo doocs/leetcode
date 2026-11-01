@@ -68,7 +68,7 @@ tags:
 >
 > A subsequence must keep relative order and increase strictly. Enumerating all subsequences explodes with $n$; $n \le 2500$ still allows an $O(n^2)$ transfer by ending index.
 >
-> The LIS ending at $nums[i]$ depends only on smaller values to its left. Define $f[i]$ as that length, and for each $j < i$ with $nums[j] < nums[i]$ take $\max(f[j]+1)$. A singleton has length $1$, and the answer is $\max f$.
+> The LIS ending at $\textit{nums}[i]$ depends only on smaller values to its left. Define $f[i]$ as that length, and for each $j < i$ with $\textit{nums}[j] < \textit{nums}[i]$ take $\max(f[j]+1)$. A singleton has length $1$, and the answer is $\max f$.
 
 <!-- thinking:end -->
 

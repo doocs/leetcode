@@ -58,7 +58,7 @@ difficulty: Easy
 >
 > All even bits and all odd bits can be gathered with masks and shifted as two blocks.
 >
-> AND with $0x55555555$ and shift left; AND with $0xAAAAAAAA$ and shift right; OR the two halves. A few operations, no loop.
+> AND with `0x55555555` and shift left; AND with `0xAAAAAAAA` and shift right; OR the two halves. A few operations, no loop.
 
 <!-- thinking:end -->
 

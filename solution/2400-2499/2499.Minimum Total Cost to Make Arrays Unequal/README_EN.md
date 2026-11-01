@@ -88,7 +88,7 @@ Hence, we return -1.
 >
 > Positions where the two arrays already match must be swapped away; their indices are paid first. If one value occupies more than half of those positions, they cannot pair among themselves and extra swaps with other indices are required.
 >
-> Count equal positions. If the leading frequency $v$ has $2v>same$, $2v-same$ extras must go outside. Then take $a\ne b$ positions that avoid that leading value. Leftover extras mean impossible.
+> Count equal positions. If the leading frequency $v$ has $2v>\textit{same}$, $2v-\textit{same}$ extras must go outside. Then take $a\ne b$ positions that avoid that leading value. Leftover extras mean impossible.
 
 <!-- thinking:end -->
 

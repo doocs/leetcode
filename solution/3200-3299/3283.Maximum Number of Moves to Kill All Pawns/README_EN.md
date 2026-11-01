@@ -113,19 +113,19 @@ tags:
 >
 > A knight eats at most $15$ pawns, Alice maximizing total steps and Bob minimizing. The board is $50\times 50$; BFS from each pawn gives knight distances. The $15!$ orders need a subset game.
 >
-> $\textit{dfs}(last,state,k)$: $last$ is the last eaten pawn (initially the knight), $state$ the remaining set, $k$ whose turn. Alice maxes, Bob mins, using $dist[last][x][y]$. Memoized states are $O(n 2^n)$.
+> $\textit{dfs}(\textit{last},\textit{state},k)$: $\textit{last}$ is the last eaten pawn (initially the knight), $\textit{state}$ the remaining set, $k$ whose turn. Alice maxes, Bob mins, using $\textit{dist}[\textit{last}][x][y]$. Memoized states are $O(n 2^n)$.
 
 <!-- thinking:end -->
 
 First, we preprocess the shortest distance for each pawn to any position on the chessboard and record it in the array $\textit{dist}$, where $\textit{dist}[i][x][y]$ represents the shortest distance for the $i$-th pawn to the position $(x, y)$.
 
-Next, we design a function $\text{dfs}(\textit{last}, \textit{state}, \textit{k})$, where $\textit{last}$ represents the number of the last pawn eaten, $\textit{state}$ represents the current state of the remaining pawns, and $\textit{k}$ represents whether it is Alice's or Bob's turn. The function returns the maximum number of moves for the current turn. The answer is $\text{dfs}(n, 2^n-1, 1)$. Here, initially, the number of the last pawn eaten is $n$, which is also the position of the knight.
+Next, we design a function $\textit{dfs}(\textit{last}, \textit{state}, k)$, where $\textit{last}$ represents the number of the last pawn eaten, $\textit{state}$ represents the current state of the remaining pawns, and $k$ represents whether it is Alice's or Bob's turn. The function returns the maximum number of moves for the current turn. The answer is $\textit{dfs}(n, 2^n-1, 1)$. Here, initially, the number of the last pawn eaten is $n$, which is also the position of the knight.
 
-The specific implementation of the function $\text{dfs}$ is as follows:
+The specific implementation of the function $\textit{dfs}$ is as follows:
 
 - If $\textit{state} = 0$, it means there are no pawns left, return $0$;
-- If $\textit{k} = 1$, it means it is Alice's turn. We need to find a pawn such that the number of moves after eating this pawn is maximized, i.e., $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$;
-- If $\textit{k} = 0$, it means it is Bob's turn. We need to find a pawn such that the number of moves after eating this pawn is minimized, i.e., $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$.
+- If $k = 1$, it means it is Alice's turn. We need to find a pawn such that the number of moves after eating this pawn is maximized, i.e., $\textit{dfs}(i, \textit{state} \oplus 2^i, k \oplus 1) + \textit{dist}[\textit{last}][x][y]$;
+- If $k = 0$, it means it is Bob's turn. We need to find a pawn such that the number of moves after eating this pawn is minimized, i.e., $\textit{dfs}(i, \textit{state} \oplus 2^i, k \oplus 1) + \textit{dist}[\textit{last}][x][y]$.
 
 To avoid repeated calculations, we use memoization, i.e., using a hash table to record the states that have already been calculated.
 

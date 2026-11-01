@@ -154,7 +154,7 @@ We preprocess three prefix arrays:
 - `cntN0[i]` is the count of non-zero digits in the first $i$ characters;
 - `p[i]` is the number formed by concatenating all non-zero digits in the first $i$ characters, modulo $10^9 + 7$.
 
-For a query $[l, r]$, the number of non-zero digits in the substring is $n_0 = cntN0[r + 1] - cntN0[l]$, and the digit sum is $sd = sumD[r + 1] - sumD[l]$. Since $p[r + 1] = p[l] \cdot 10^{n_0} + x$, we have $x = p[r + 1] - p[l] \cdot 10^{n_0}$, and the answer is $x \cdot sd$.
+For a query $[l, r]$, the number of non-zero digits in the substring is $n_0 = \textit{cntN0}[r + 1] - \textit{cntN0}[l]$, and the digit sum is $sd = \textit{sumD}[r + 1] - \textit{sumD}[l]$. Since $p[r + 1] = p[l] \cdot 10^{n_0} + x$, we have $x = p[r + 1] - p[l] \cdot 10^{n_0}$, and the answer is $x \cdot sd$.
 
 We precompute powers of $10$ and answer each query in $O(1)$.
 

@@ -71,9 +71,9 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 
 > **Thinking**
 >
-> $x$ must have the same popcount as $num2$ and minimize $x\oplus num1$, so $x$ should reuse $num1$'s high $1$-bits. At most $31$ bits, greedy by position works.
+> $x$ must have the same popcount as $\textit{num2}$ and minimize $x\oplus \textit{num1}$, so $x$ should reuse $\textit{num1}$'s high $1$-bits. At most $31$ bits, greedy by position works.
 >
-> First take $num1$'s $1$-bits from high to low; if slots remain, fill $num1$'s $0$-bits from low to high so the XOR does not grow in high bits.
+> First take $\textit{num1}$'s $1$-bits from high to low; if slots remain, fill $\textit{num1}$'s $0$-bits from low to high so the XOR does not grow in high bits.
 
 <!-- thinking:end -->
 

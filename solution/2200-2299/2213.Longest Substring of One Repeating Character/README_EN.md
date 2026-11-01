@@ -77,7 +77,7 @@ Thus, we return [2,3].
 >
 > After each single-character update we must report the longest run of the same letter. Both $|s|$ and the query count are $10^5$, so rescan or rebuild runs every time is too slow. An update only changes nearby runs; we need to merge left and right information in logarithmic time.
 >
-> Each segment-tree node stores the longest prefix run $lmx$, suffix run $rmx$, and interior run $mx$. When the characters at the middle seam match, a new run can cross the midpoint, and a fully uniform child can extend the parent's prefix or suffix.
+> Each segment-tree node stores the longest prefix run $\textit{lmx}$, suffix run $\textit{rmx}$, and interior run $mx$. When the characters at the middle seam match, a new run can cross the midpoint, and a fully uniform child can extend the parent's prefix or suffix.
 >
 > An update writes the leaf and $\textit{pushup}$ along the path; the answer is the root's $mx$. Each operation is $O(\log n)$.
 
@@ -88,12 +88,12 @@ The segment tree divides the entire interval into multiple non-continuous sub-in
 - Each node of the segment tree represents an interval;
 - The segment tree has a unique root node, which represents the entire statistical range, such as $[1, n]$;
 - Each leaf node of the segment tree represents an elementary interval of length $1$, $[x, x]$;
-- For each internal node $[l, r]$, its left child is $[l, mid]$, and the right child is $[mid + 1, r]$, where $mid = \frac{l + r}{2}$;
+- For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$, and the right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \frac{l + r}{2}$;
 
 For this problem, the information maintained by the segment tree node includes:
 
-1. The number of longest consecutive characters in the prefix, $lmx$;
-2. The number of longest consecutive characters in the suffix, $rmx$;
+1. The number of longest consecutive characters in the prefix, $\textit{lmx}$;
+2. The number of longest consecutive characters in the suffix, $\textit{rmx}$;
 3. The number of longest consecutive characters in the interval, $mx$.
 4. The left endpoint $l$ and the right endpoint $r$ of the interval.
 

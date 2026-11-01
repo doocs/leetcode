@@ -83,9 +83,9 @@ Note that the expressCost is paid again to transfer back to the express route.
 
 > **Thinking**
 >
-> Two lines run in parallel; the first express ride pays $expressCost$. $n \le 10^5$ needs a linear recurrence. The cost at stop $i$ depends only on the line used at $i-1$.
+> Two lines run in parallel; the first express ride pays $\textit{expressCost}$. $n \le 10^5$ needs a linear recurrence. The cost at stop $i$ depends only on the line used at $i-1$.
 >
-> Let $f[i]$ and $g[i]$ be the min costs of arriving on regular or express. Regular adds $a_i$ from either line; express adds $b_i$ from express, or $expressCost+b_i$ from regular. The answer at $i$ is the min of the two.
+> Let $f[i]$ and $g[i]$ be the min costs of arriving on regular or express. Regular adds $a_i$ from either line; express adds $b_i$ from express, or $\textit{expressCost}+b_i$ from regular. The answer at $i$ is the min of the two.
 
 <!-- thinking:end -->
 
@@ -104,14 +104,14 @@ where $a_i$ represents the cost of taking the regular route from station $i-1$ t
 If we arrive at station $i$ by the express route, we can either switch from the regular route at station $i-1$ to the express route or continue on the express route from station $i-1$. Therefore, we can get the state transition equation:
 
 $$
-g[i]=\min\{f[i-1]+expressCost+b_i, g[i-1]+b_i\}
+g[i]=\min\{f[i-1]+\textit{expressCost}+b_i, g[i-1]+b_i\}
 $$
 
 where $b_i$ represents the cost of taking the express route from station $i-1$ to station $i$.
 
-We denote the answer array as $cost$, where $cost[i]$ represents the minimum cost from station $0$ to station $i$. Since we can reach station $i$ from any route, we have $cost[i]=\min\{f[i], g[i]\}$.
+We denote the answer array as $\textit{cost}$, where $\textit{cost}[i]$ represents the minimum cost from station $0$ to station $i$. Since we can reach station $i$ from any route, we have $\textit{cost}[i]=\min\{f[i], g[i]\}$.
 
-Finally, we return $cost$.
+Finally, we return $\textit{cost}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of stations.
 

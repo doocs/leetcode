@@ -71,7 +71,7 @@ tags:
 >
 > Scanning every cell against its four neighbors finds a peak in $O(mn)$, but the required bound is $O(n \log m)$ or $O(m \log n)$.
 >
-> Let $mat[i][j]$ be the maximum of row $i$. Comparing it with $mat[i+1][j]$ tells which half must contain a peak: a drop keeps the upper half, a rise keeps the lower half. If that half had no peak, the row-max at the border would contradict the sentinel $-1$ outside the matrix.
+> Let $\textit{mat}[i][j]$ be the maximum of row $i$. Comparing it with $\textit{mat}[i+1][j]$ tells which half must contain a peak: a drop keeps the upper half, a rise keeps the lower half. If that half had no peak, the row-max at the border would contradict the sentinel $-1$ outside the matrix.
 >
 > We therefore binary-search the row index, each time taking the max column $j$ of the mid row and shrinking by that vertical comparison, for $O(n \log m)$ time.
 
@@ -83,19 +83,19 @@ The problem asks us to find a peak, and the time complexity should be $O(m \log 
 
 We consider the maximum value of the $i$-th row, and denote its index as $j$.
 
-If $mat[i][j] > mat[i + 1][j]$, then there must be a peak in the rows $[0,..i]$. We only need to find the maximum value in these rows. Similarly, if $mat[i][j] < mat[i + 1][j]$, then there must be a peak in the rows $[i + 1,..m - 1]$. We only need to find the maximum value in these rows.
+If $\textit{mat}[i][j] > \textit{mat}[i + 1][j]$, then there must be a peak in the rows $[0,..i]$. We only need to find the maximum value in these rows. Similarly, if $\textit{mat}[i][j] < \textit{mat}[i + 1][j]$, then there must be a peak in the rows $[i + 1,..m - 1]$. We only need to find the maximum value in these rows.
 
 Why is the above method correct? We can prove it by contradiction.
 
-If $mat[i][j] > mat[i + 1][j]$, suppose there is no peak in the rows $[0,..i]$. Then $mat[i][j]$ is not a peak. Since $mat[i][j]$ is the maximum value of the $i$-th row, and $mat[i][j] > mat[i + 1][j]$, then $mat[i][j] < mat[i - 1][j]$. We continue to consider from the $(i - 1)$-th row upwards, and the maximum value of each row is less than the maximum value of the previous row. When we traverse to $i = 0$, since all elements in the matrix are positive integers, and the values of the cells around the matrix are $-1$. Therefore, at the 0-th row, its maximum value is greater than all its adjacent elements, so the maximum value of the 0-th row is a peak, which contradicts the assumption. Therefore, there must be a peak in the rows $[0,..i]$.
+If $\textit{mat}[i][j] > \textit{mat}[i + 1][j]$, suppose there is no peak in the rows $[0,..i]$. Then $\textit{mat}[i][j]$ is not a peak. Since $\textit{mat}[i][j]$ is the maximum value of the $i$-th row, and $\textit{mat}[i][j] > \textit{mat}[i + 1][j]$, then $\textit{mat}[i][j] < \textit{mat}[i - 1][j]$. We continue to consider from the $(i - 1)$-th row upwards, and the maximum value of each row is less than the maximum value of the previous row. When we traverse to $i = 0$, since all elements in the matrix are positive integers, and the values of the cells around the matrix are $-1$. Therefore, at the 0-th row, its maximum value is greater than all its adjacent elements, so the maximum value of the 0-th row is a peak, which contradicts the assumption. Therefore, there must be a peak in the rows $[0,..i]$.
 
-For the case where $mat[i][j] < mat[i + 1][j]$, we can prove in a similar way that there must be a peak in the rows $[i + 1,..m - 1]$.
+For the case where $\textit{mat}[i][j] < \textit{mat}[i + 1][j]$, we can prove in a similar way that there must be a peak in the rows $[i + 1,..m - 1]$.
 
 Therefore, we can use binary search to find the peak.
 
-We perform binary search on the rows of the matrix, initially with the search boundaries $l = 0$, $r = m - 1$. Each time, we find the middle row $mid$ and find the index $j$ of the maximum value of this row. If $mat[mid][j] > mat[mid + 1][j]$, then we search for the peak in the rows $[0,..mid]$, i.e., update $r = mid$. Otherwise, we search for the peak in the rows $[mid + 1,..m - 1]$, i.e., update $l = mid + 1$. When $l = r$, we find the position $[l, j_l]$ of the peak, where $j_l$ is the index of the maximum value of the $l$-th row.
+We perform binary search on the rows of the matrix, initially with the search boundaries $l = 0$, $r = m - 1$. Each time, we find the middle row $\textit{mid}$ and find the index $j$ of the maximum value of this row. If $\textit{mat}[\textit{mid}][j] > \textit{mat}[\textit{mid} + 1][j]$, then we search for the peak in the rows $[0,..\textit{mid}]$, i.e., update $r = \textit{mid}$. Otherwise, we search for the peak in the rows $[\textit{mid} + 1,..m - 1]$, i.e., update $l = \textit{mid} + 1$. When $l = r$, we find the position $[l, j_l]$ of the peak, where $j_l$ is the index of the maximum value of the $l$-th row.
 
-The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The time complexity of binary search is $O(\log m)$, and each time we perform binary search, we need to traverse all elements of the $mid$-th row, with a time complexity of $O(n)$.
+The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The time complexity of binary search is $O(\log m)$, and each time we perform binary search, we need to traverse all elements of the $\textit{mid}$-th row, with a time complexity of $O(n)$.
 
 <!-- tabs:start -->
 

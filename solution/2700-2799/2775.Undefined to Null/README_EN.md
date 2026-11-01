@@ -56,9 +56,9 @@ tags:
 
 > **Thinking**
 >
-> Replace $undefined$ with $null$ in an object or array, including nested values. $JSON$ drops $undefined$ keys, so a serialize/parse round trip would lose them.
+> Replace $\textit{undefined}$ with $\textit{null}$ in an object or array, including nested values. $\textit{JSON}$ drops $\textit{undefined}$ keys, so a serialize/parse round trip would lose them.
 >
-> Walk every key: recurse when the value is still an object, then write $null$ into any slot that remains $undefined$. Array indices are visited by the same $for\cdots in$ loop.
+> Walk every key: recurse when the value is still an object, then write $\textit{null}$ into any slot that remains $\textit{undefined}$. Array indices are visited by the same $\textit{for}\cdots in$ loop.
 
 <!-- thinking:end -->
 

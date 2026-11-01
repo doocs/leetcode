@@ -81,16 +81,16 @@ In total, you spent $17 and covered all the days of your travel.
 
 > **Thinking**
 >
-> Each travel day must be covered by a $1$-, $7$-, or $30$-day pass at minimum cost. After buying a pass on trip $i$, the next uncovered trip is found by binary search. $dfs(i)$ takes the best of the three options. There are at most $365$ trips, so memoization is enough.
+> Each travel day must be covered by a $1$-, $7$-, or $30$-day pass at minimum cost. After buying a pass on trip $i$, the next uncovered trip is found by binary search. $\textit{dfs}(i)$ takes the best of the three options. There are at most $365$ trips, so memoization is enough.
 
 <!-- thinking:end -->
 
-We define a function $\textit{dfs(i)}$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\textit{dfs(0)}$.
+We define a function $\textit{dfs}(i)$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\textit{dfs}(0)$.
 
-The execution process of the function $\textit{dfs(i)}$ is as follows:
+The execution process of the function $\textit{dfs}(i)$ is as follows:
 
 - If $i \geq n$, it means all trips have ended, return $0$;
-- Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\textit{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.
+- Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\textit{dfs}(j)$, and finally return the minimum cost among these three purchasing methods.
 
 To avoid repeated calculations, we use memoization search to save the results that have already been calculated.
 

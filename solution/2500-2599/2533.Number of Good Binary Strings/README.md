@@ -88,13 +88,13 @@ tags:
 $$
 f[i] = \begin{cases}
 1 & i = 0 \\
-f[i - oneGroup] + f[i - zeroGroup] & i \geq 1
+f[i - \textit{oneGroup}] + f[i - \textit{zeroGroup}] & i \geq 1
 \end{cases}
 $$
 
-最终答案为 $f[minLength] + f[minLength + 1] + \cdots + f[maxLength]$。
+最终答案为 $f[\textit{minLength}] + f[\textit{minLength} + 1] + \cdots + f[\textit{maxLength}]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n=maxLength$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n=\textit{maxLength}$。
 
 <!-- tabs:start -->
 

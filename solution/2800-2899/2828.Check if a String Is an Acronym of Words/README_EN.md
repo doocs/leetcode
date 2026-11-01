@@ -78,9 +78,9 @@ Hence, s = &quot;ngguoy&quot; is the acronym.
 
 <!-- thinking:end -->
 
-We can iterate over each string in the array $words$, concatenate their first letters to form a new string $t$, and then check if $t$ is equal to $s$.
+We can iterate over each string in the array $\textit{words}$, concatenate their first letters to form a new string $t$, and then check if $t$ is equal to $s$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $words$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{words}$.
 
 <!-- tabs:start -->
 
@@ -167,17 +167,17 @@ impl Solution {
 
 > **Thinking**
 >
-> Method 1 builds an extra string of length $n$. Comparing lengths first and then checking $words[i][0]$ against $s[i]$ avoids that allocation.
+> Method 1 builds an extra string of length $n$. Comparing lengths first and then checking $\textit{words}[i][0]$ against $s[i]$ avoids that allocation.
 
 <!-- thinking:end -->
 
-First, we check if the number of strings in $words$ is equal to the length of $s$. If not, $s$ is definitely not an acronym of the first letters of $words$, and we directly return $false$.
+First, we check if the number of strings in $\textit{words}$ is equal to the length of $s$. If not, $s$ is definitely not an acronym of the first letters of $\textit{words}$, and we directly return $\textit{false}$.
 
-Then, we iterate over each character in $s$, checking if it is equal to the first letter of the corresponding string in $words$. If not, $s$ is definitely not an acronym of the first letters of $words$, and we directly return $false$.
+Then, we iterate over each character in $s$, checking if it is equal to the first letter of the corresponding string in $\textit{words}$. If not, $s$ is definitely not an acronym of the first letters of $\textit{words}$, and we directly return $\textit{false}$.
 
-After the iteration, if we haven't returned $false$, then $s$ is an acronym of the first letters of $words$, and we return $true$.
+After the iteration, if we haven't returned $\textit{false}$, then $s$ is an acronym of the first letters of $\textit{words}$, and we return $\textit{true}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $words$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{words}$.
 
 <!-- tabs:start -->
 

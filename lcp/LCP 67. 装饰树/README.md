@@ -57,20 +57,20 @@ difficulty: 中等
 >
 > 节点数 $10^5$，只需在每个原有的父子边之间插入值为 $-1$ 的灯饰节点。结构改动是局部的，后序处理可避免破坏尚未访问的子树。
 >
-> 先递归得到左右子树，再若左孩子存在则令 $root.left$ 指向新节点 $(-1,l)$，右孩子同理指向 $(-1,\textit{None},r)$。
+> 先递归得到左右子树，再若左孩子存在则令 $\textit{root}.\textit{left}$ 指向新节点 $(-1,l)$，右孩子同理指向 $(-1,\textit{None},r)$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root)$，表示将灯饰插入以 $root$ 为根节点的树中，返回插入灯饰后的树的根节点。那么答案就是 $dfs(root)$。
+我们设计一个函数 $\textit{dfs}(\textit{root})$，表示将灯饰插入以 $\textit{root}$ 为根节点的树中，返回插入灯饰后的树的根节点。那么答案就是 $\textit{dfs}(\textit{root})$。
 
-函数 $dfs(root)$ 的逻辑如下：
+函数 $\textit{dfs}(\textit{root})$ 的逻辑如下：
 
-- 若 $root$ 为空，则返回空；
-- 否则，递归地对 $root$ 的左右子树分别调用 $dfs$ 函数，得到插入灯饰后的左右子树的根节点 $l$ 和 $r$；
-- 若 $l$ 不为空，则我们创建一个新节点 $TreeNode(-1, l, null)$，并将其作为 $root$ 的左子节点；
-- 若 $r$ 不为空，则我们创建一个新节点 $TreeNode(-1, null, r)$，并将其作为 $root$ 的右子节点；
+- 若 $\textit{root}$ 为空，则返回空；
+- 否则，递归地对 $\textit{root}$ 的左右子树分别调用 $\textit{dfs}$ 函数，得到插入灯饰后的左右子树的根节点 $l$ 和 $r$；
+- 若 $l$ 不为空，则我们创建一个新节点 $\textit{TreeNode}(-1, l, \textit{null})$，并将其作为 $\textit{root}$ 的左子节点；
+- 若 $r$ 不为空，则我们创建一个新节点 $\textit{TreeNode}(-1, \textit{null}, r)$，并将其作为 $\textit{root}$ 的右子节点；
 
-最后，返回 $root$。
+最后，返回 $\textit{root}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 

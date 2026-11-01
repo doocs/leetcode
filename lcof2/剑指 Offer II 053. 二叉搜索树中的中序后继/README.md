@@ -75,7 +75,7 @@ comments: true
 1. 中序后继的节点值大于 $p$ 的节点值
 2. 中序后继是所有大于 $p$ 的节点中值最小的节点
 
-因此，对于当前节点 $root$，如果 $root.val \gt p.val$，则 $root$ 可能是 $p$ 的中序后继节点，将 $root$ 记为 $ans$，然后搜索左子树，即 $root = root.left$；如果 $root.val \leq p.val$，则 $root$ 不能是 $p$ 的中序后继节点，搜索右子树，即 $root = root.right$。
+因此，对于当前节点 $\textit{root}$，如果 $\textit{root}.\textit{val} \gt p.\textit{val}$，则 $\textit{root}$ 可能是 $p$ 的中序后继节点，将 $\textit{root}$ 记为 $\textit{ans}$，然后搜索左子树，即 $\textit{root} = \textit{root}.\textit{left}$；如果 $\textit{root}.\textit{val} \leq p.\textit{val}$，则 $\textit{root}$ 不能是 $p$ 的中序后继节点，搜索右子树，即 $\textit{root} = \textit{root}.\textit{right}$。
 
 时间复杂度 $O(h)$，空间复杂度 $O(1)$。其中 $h$ 为二叉搜索树的高度。
 

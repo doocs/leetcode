@@ -87,7 +87,7 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 >
 > At most $k$ stops means $k+1$ edges. Each round relaxes from a copy of the previous distances so one round is one edge.
 >
-> After $k+1$ rounds, infinite $dist[dst]$ means unreachable.
+> After $k+1$ rounds, infinite $\textit{dist}[\textit{dst}]$ means unreachable.
 
 <!-- thinking:end -->
 
@@ -192,7 +192,7 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 
 > **Thinking**
 >
-> Bellman-Ford scans every edge. Memoized $dfs(u,k)$ is the min cost from $u$ with $k$ edges left: $0$ at $dst$, inf when $k$ runs out.
+> Bellman-Ford scans every edge. Memoized $\textit{dfs}(u,k)$ is the min cost from $u$ with $k$ edges left: $0$ at $\textit{dst}$, inf when $k$ runs out.
 >
 > The initial call uses $k+1$ edges. $O(nk)$ states.
 

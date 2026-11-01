@@ -82,13 +82,13 @@ The fourth number in the sorted array is 7.
 
 <!-- thinking:end -->
 
-First, we define a function $\textit{f}(x)$, which represents the number of steps required to transform the number $x$ into $1$, i.e., the power value of the number $x$.
+First, we define a function $f(x)$, which represents the number of steps required to transform the number $x$ into $1$, i.e., the power value of the number $x$.
 
-Then, we sort all the numbers in the interval $[\textit{lo}, \textit{hi}]$ in ascending order based on their power values. If the power values are the same, we sort them in ascending order based on the numbers themselves.
+Then, we sort all the numbers in the interval $[lo, hi]$ in ascending order based on their power values. If the power values are the same, we sort them in ascending order based on the numbers themselves.
 
 Finally, we return the $k$-th number in the sorted list.
 
-The time complexity is $O(nM \log n)$, and the space complexity is $O(n)$, where $n$ is the number of numbers in the interval $[\textit{lo}, \textit{hi}]$, and $M$ is the maximum value of $f(x)$, which is at most $178$ in this problem.
+The time complexity is $O(n \times M \log n)$, and the space complexity is $O(n)$, where $n$ is the number of numbers in the interval $[lo, hi]$, and $M$ is the maximum value of $f(x)$, which is at most $178$ in this problem.
 
 <!-- tabs:start -->
 

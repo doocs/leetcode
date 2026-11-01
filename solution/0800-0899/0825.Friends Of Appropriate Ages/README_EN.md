@@ -88,9 +88,9 @@ tags:
 
 We can use an array $\textit{cnt}$ of length $121$ to record the number of people of each age.
 
-Next, we enumerate all possible age pairs $(\textit{ax}, \textit{ay})$. If $\textit{ax}$ and $\textit{ay}$ satisfy the conditions given in the problem, these age pairs $(\textit{ax}, \textit{ay})$ can send friend requests to each other.
+Next, we enumerate all possible age pairs $(ax, ay)$. If $ax$ and $ay$ satisfy the conditions given in the problem, these age pairs $(ax, ay)$ can send friend requests to each other.
 
-If $\textit{ax} = \textit{ay}$, meaning the ages are the same, then the number of friend requests between $\textit{ax}$ and $\textit{ay}$ is $\textit{cnt}[\textit{ax}] \times (\textit{cnt}[\textit{ax}] - 1)$. Otherwise, if the ages are different, the number of friend requests between $\textit{ax}$ and $\textit{ay}$ is $\textit{cnt}[\textit{ax}] \times \textit{cnt}[\textit{ay}]$. We accumulate these friend request counts into the answer.
+If $ax = ay$, meaning the ages are the same, then the number of friend requests between $ax$ and $ay$ is $\textit{cnt}[ax] \times (\textit{cnt}[ax] - 1)$. Otherwise, if the ages are different, the number of friend requests between $ax$ and $ay$ is $\textit{cnt}[ax] \times \textit{cnt}[ay]$. We accumulate these friend request counts into the answer.
 
 The time complexity is $O(n + m^2)$, where $n$ is the length of the array $\textit{ages}$, and $m$ is the maximum age, which is $121$ in this problem.
 

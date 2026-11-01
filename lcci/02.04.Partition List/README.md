@@ -61,19 +61,19 @@ difficulty: 中等
 >
 > 相对次序只要求「小的一段」与「不小于的一段」各自保持原先后，因此可拆成两条链再拼接。
 >
-> 用 $left$、 $right$ 两条带虚拟头的链分别尾插，遍历结束后令 $p1.next = right.next$ 并断开 $p2.next$，返回 $left.next$。节点只改指针，空间 $O(1)$。
+> 用 $\textit{left}$、 $\textit{right}$ 两条带虚拟头的链分别尾插，遍历结束后令 $\textit{p1}.\textit{next} = \textit{right}.\textit{next}$ 并断开 $\textit{p2}.\textit{next}$，返回 $\textit{left}.\textit{next}$。节点只改指针，空间 $O(1)$。
 
 <!-- thinking:end -->
 
-我们创建两个链表 $left$ 和 $right$，分别用于存储小于 $x$ 的节点和大于等于 $x$ 的节点。
+我们创建两个链表 $\textit{left}$ 和 $\textit{right}$，分别用于存储小于 $x$ 的节点和大于等于 $x$ 的节点。
 
-然后我们用两个指针 $p1$ 和 $p2$ 分别指向 $left$ 和 $right$ 的最后一个节点，初始时 $p1$ 和 $p2$ 都指向一个虚拟头节点。
+然后我们用两个指针 $\textit{p1}$ 和 $\textit{p2}$ 分别指向 $\textit{left}$ 和 $\textit{right}$ 的最后一个节点，初始时 $\textit{p1}$ 和 $\textit{p2}$ 都指向一个虚拟头节点。
 
-接下来我们遍历链表 $head$，如果当前节点的值小于 $x$，我们就将当前节点添加到 $left$ 链表的末尾，即 $p1.next = head$，然后令 $p1 = p1.next$；否则我们就将当前节点添加到 $right$ 链表的末尾，即 $p2.next = head$，然后令 $p2 = p2.next$。
+接下来我们遍历链表 $\textit{head}$，如果当前节点的值小于 $x$，我们就将当前节点添加到 $\textit{left}$ 链表的末尾，即 $\textit{p1}.\textit{next} = \textit{head}$，然后令 $\textit{p1} = \textit{p1}.\textit{next}$；否则我们就将当前节点添加到 $\textit{right}$ 链表的末尾，即 $\textit{p2}.\textit{next} = \textit{head}$，然后令 $\textit{p2} = \textit{p2}.\textit{next}$。
 
-遍历结束后，我们将 $left$ 链表的尾节点指向 $right$ 链表的第一个有效节点，即 $p1.next = right.next$，然后将 $right$ 链表的尾节点指向空节点，即 $p2.next = null$。
+遍历结束后，我们将 $\textit{left}$ 链表的尾节点指向 $\textit{right}$ 链表的第一个有效节点，即 $\textit{p1}.\textit{next} = \textit{right}.\textit{next}$，然后将 $\textit{right}$ 链表的尾节点指向空节点，即 $\textit{p2}.\textit{next} = \textit{null}$。
 
-最后我们返回 $left$ 链表的第一个有效节点。
+最后我们返回 $\textit{left}$ 链表的第一个有效节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是链表的长度。
 

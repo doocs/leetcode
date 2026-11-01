@@ -31,18 +31,18 @@ difficulty: 简单
 >
 > 高度信息在后序时已经齐备，可在求高的同时回报「已不平衡」。
 >
-> $dfs$ 返回高度，或用 $-1$ 表示失衡；左右任一侧为 $-1$ 或 $|l-r|>1$ 则向上传递 $-1$。主函数只需看返回值是否非负，整树只走一遍。
+> $\textit{dfs}$ 返回高度，或用 $-1$ 表示失衡；左右任一侧为 $-1$ 或 $|l-r|>1$ 则向上传递 $-1$。主函数只需看返回值是否非负，整树只走一遍。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root)$，它的作用是返回以 $root$ 为根节点的树的高度，如果以 $root$ 为根节点的树是平衡树，则返回树的高度，否则返回 $-1$。
+我们设计一个函数 $\textit{dfs}(\textit{root})$，它的作用是返回以 $\textit{root}$ 为根节点的树的高度，如果以 $\textit{root}$ 为根节点的树是平衡树，则返回树的高度，否则返回 $-1$。
 
-函数 $dfs(root)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{root})$ 的执行逻辑如下：
 
-- 如果 $root$ 为空，则返回 $0$；
-- 否则，我们递归调用 $dfs(root.left)$ 和 $dfs(root.right)$，并判断 $dfs(root.left)$ 和 $dfs(root.right)$ 的返回值是否为 $-1$，如果不为 $-1$，则判断 $abs(dfs(root.left) - dfs(root.right)) \leq 1$ 是否成立，如果成立，则返回 $max(dfs(root.left), dfs(root.right)) + 1$，否则返回 $-1$。
+- 如果 $\textit{root}$ 为空，则返回 $0$；
+- 否则，我们递归调用 $\textit{dfs}(\textit{root}.\textit{left})$ 和 $\textit{dfs}(\textit{root}.\textit{right})$，并判断 $\textit{dfs}(\textit{root}.\textit{left})$ 和 $\textit{dfs}(\textit{root}.\textit{right})$ 的返回值是否为 $-1$，如果不为 $-1$，则判断 $\textit{abs}(\textit{dfs}(\textit{root}.\textit{left}) - \textit{dfs}(\textit{root}.\textit{right})) \leq 1$ 是否成立，如果成立，则返回 $\max(\textit{dfs}(\textit{root}.\textit{left}), \textit{dfs}(\textit{root}.\textit{right})) + 1$，否则返回 $-1$。
 
-在主函数中，我们只需要调用 $dfs(root)$，并判断其返回值是否为 $-1$，如果不为 $-1$，则返回 `true`，否则返回 `false`。
+在主函数中，我们只需要调用 $\textit{dfs}(\textit{root})$，并判断其返回值是否为 $-1$，如果不为 $-1$，则返回 `true`，否则返回 `false`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 

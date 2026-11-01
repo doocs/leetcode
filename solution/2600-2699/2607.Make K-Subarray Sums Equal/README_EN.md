@@ -80,7 +80,7 @@ The array after the operations is [5,5,5,5]
 
 > **Thinking**
 >
-> Equal sums of adjacent windows of length $k$ simplify to $arr_i=arr_{i+k}$. The array is circular, so residues spaced by $k$ and by $n$ must share one value.
+> Equal sums of adjacent windows of length $k$ simplify to $\textit{arr}_i=\textit{arr}_{i+k}$. The array is circular, so residues spaced by $k$ and by $n$ must share one value.
 >
 > Bézout's identity splits the indices into $\gcd(n,k)$ independent chains. Elements on a chain must become one number; the $L_1$ cost is minimized at the median.
 >

@@ -89,7 +89,7 @@ Israel comes before Egypt because it has more bronze medals.
 >
 > The table is ordered by gold, silver, bronze descending, then country ascending. No extra aggregates are required.
 >
-> $ORDER\ BY$ columns $2,3,4$ descending and column $1$ ascending prints the whole table.
+> $\textit{ORDER BY}$ columns $2,3,4$ descending and column $1$ ascending prints the whole table.
 
 <!-- thinking:end -->
 

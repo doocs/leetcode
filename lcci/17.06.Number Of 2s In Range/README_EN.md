@@ -44,7 +44,7 @@ difficulty: Medium
 >
 > Digit DP stores remaining positions, how many twos so far, and whether the prefix is tight, so memoization depends only on those.
 >
-> Split $n$ into $a[1..l]$; $dfs(pos,cnt,limit)$ enumerates $0\ldots up$ from the high end. A tight $limit$ caps the digit at $a[pos]$. The answer is $dfs(l,0,True)$.
+> Split $n$ into $a[1..l]$; $\textit{dfs}(\textit{pos},\textit{cnt},\textit{limit})$ enumerates $0\ldots up$ from the high end. A tight $\textit{limit}$ caps the digit at $a[\textit{pos}]$. The answer is $\textit{dfs}(l,0,\textit{True})$.
 
 <!-- thinking:end -->
 
@@ -53,7 +53,7 @@ This problem is essentially about finding the number of occurrences of the digit
 For the interval $[l,..r]$, we usually transform it into $[1,..r]$ and then subtract $[1,..l - 1]$, i.e.,
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value in the interval $[1,..r]$.
@@ -62,14 +62,14 @@ Here, we use memoization to implement Digit DP. We start from the top and search
 
 The basic steps are as follows:
 
-1. Convert the number $n$ into an int array $a$, where $a[1]$ is the least significant digit, and $a[len]$ is the most significant digit.
-2. Design the function $dfs()$ based on the problem information. For this problem, we define $dfs(pos, cnt, limit)$, and the answer is $dfs(len, 0, true)$.
+1. Convert the number $n$ into an int array $a$, where $a[1]$ is the least significant digit, and $a[\textit{len}]$ is the most significant digit.
+2. Design the function $\textit{dfs}()$ based on the problem information. For this problem, we define $\textit{dfs}(\textit{pos}, \textit{cnt}, \textit{limit})$, and the answer is $\textit{dfs}(\textit{len}, 0, \textit{true})$.
 
 Where:
 
 - `pos` represents the number of digits, starting from the least significant digit or the first digit, usually depending on the digit construction property of the problem. For this problem, we choose to start from the most significant digit, so the initial value of `pos` is `len`.
 - `cnt` represents the number of $2$s in the current number.
-- `limit` represents the restriction on the digits that can be filled. If there is no restriction, you can choose $[0,1,..9]$, otherwise, you can only choose $[0,..a[pos]]$. If `limit` is `true` and the maximum value has been reached, then the next `limit` is also `true`. If `limit` is `true` but the maximum value has not been reached, or if `limit` is `false`, then the next `limit` is `false`.
+- `limit` represents the restriction on the digits that can be filled. If there is no restriction, you can choose $[0,1,..9]$, otherwise, you can only choose $[0,..a[\textit{pos}]]$. If `limit` is `true` and the maximum value has been reached, then the next `limit` is also `true`. If `limit` is `true` but the maximum value has not been reached, or if `limit` is `false`, then the next `limit` is `false`.
 
 For details on the implementation of the function, please refer to the code below.
 

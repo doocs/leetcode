@@ -91,9 +91,9 @@ tags:
 
 > **Thinking**
 >
-> Each second all living enemies deal damage, then Bob hits one enemy for $power$. $n\le 10^5$ forbids searching kill orders. Enemy $i$ dies in $t_i=\lceil health_i/power\rceil$ hits; total damage is each $damage_j$ times the seconds that enemy stays alive.
+> Each second all living enemies deal damage, then Bob hits one enemy for $\textit{power}$. $n\le 10^5$ forbids searching kill orders. Enemy $i$ dies in $t_i=\lceil \textit{health}_i/\textit{power}\rceil$ hits; total damage is each $\textit{damage}_j$ times the seconds that enemy stays alive.
 >
-> Swapping adjacent $i,j$ compares $damage_i\cdot t_j$ with $damage_j\cdot t_i$ and tells who should die first. Sort by $damage/t$ descending, then prefix the remaining damage rate. There is no implementation in the tree yet; the reasoning is this comparator sort.
+> Swapping adjacent $i,j$ compares $\textit{damage}_i\cdot t_j$ with $\textit{damage}_j\cdot t_i$ and tells who should die first. Sort by $\textit{damage}/t$ descending, then prefix the remaining damage rate. There is no implementation in the tree yet; the reasoning is this comparator sort.
 
 <!-- thinking:end -->
 

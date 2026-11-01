@@ -59,7 +59,7 @@ tags:
 
 > **Thinking**
 >
-> Find the widest $i<j$ with $nums[i]\le nums[j]$. All pairs are quadratic. Useful left ends form a strictly decreasing sequence from the start; a later larger value is never a better left. A monotonic stack stores those candidates, then $j$ walks from the right and pops every stack top that forms a ramp, keeping the maximum width.
+> Find the widest $i<j$ with $\textit{nums}[i]\le \textit{nums}[j]$. All pairs are quadratic. Useful left ends form a strictly decreasing sequence from the start; a later larger value is never a better left. A monotonic stack stores those candidates, then $j$ walks from the right and pops every stack top that forms a ramp, keeping the maximum width.
 
 <!-- thinking:end -->
 
@@ -67,7 +67,7 @@ According to the problem, we can find that the subsequence formed by all possibl
 
 Suppose there exist $i_1<i_2$ and $\textit{nums}[i_1]\leq\textit{nums}[i_2]$, then actually $\textit{nums}[i_2]$ cannot be a candidate value, because $\textit{nums}[i_1]$ is more to the left and would be a better value. Therefore, the subsequence formed by $\textit{nums}[i]$ must be monotonically decreasing, and $i$ must start from 0.
 
-We use a monotonically decreasing stack $\textit{stk}$ (from bottom to top) to store all possible $\textit{nums}[i]$. Then we traverse $j$ starting from the right boundary. If we encounter $\textit{nums}[\textit{stk.top()}]\leq\textit{nums}[j]$, it means a ramp is formed at this point. We cyclically pop the top elements from the stack and update $\textit{ans}$.
+We use a monotonically decreasing stack $\textit{stk}$ (from bottom to top) to store all possible $\textit{nums}[i]$. Then we traverse $j$ starting from the right boundary. If we encounter $\textit{nums}[\textit{stk}.\textit{top}()]\leq\textit{nums}[j]$, it means a ramp is formed at this point. We cyclically pop the top elements from the stack and update $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of $\textit{nums}$.
 

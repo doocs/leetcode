@@ -90,9 +90,9 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, the minimum cost for each position $i$ is the minimum cost from $0$ to $i$. We can use a variable $\textit{mi}$ to record the minimum cost from $0$ to $i$.
+According to the problem description, the minimum cost for each position $i$ is the minimum cost from $0$ to $i$. We can use a variable $mi$ to record the minimum cost from $0$ to $i$.
 
-Starting from $0$, we iterate through each position $i$, updating $\textit{mi}$ as $\text{min}(\textit{mi}, \text{cost}[i])$ at each step, and assign $\textit{mi}$ to the $i$-th position of the answer array.
+Starting from $0$, we iterate through each position $i$, updating $mi$ as $\textit{min}(mi, \textit{cost}[i])$ at each step, and assign $mi$ to the $i$-th position of the answer array.
 
 Finally, return the answer array.
 

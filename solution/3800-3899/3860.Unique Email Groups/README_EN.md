@@ -238,14 +238,14 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash set $\textit{st}$ to store the normalized result of each email address. For each email address, we normalize it according to the problem requirements:
+We can use a hash set $st$ to store the normalized result of each email address. For each email address, we normalize it according to the problem requirements:
 
 - Split the email address into a local name and a domain name.
 - For the local name, remove all dots `.`, and if a plus sign `+` exists, remove the plus sign and everything after it. Then convert the local name to lowercase.
 - For the domain name, convert it to lowercase.
-- Concatenate the normalized local name, the @ separator, and the normalized domain name to obtain the normalized email address, and add it to the hash set $\textit{st}$.
+- Concatenate the normalized local name, the @ separator, and the normalized domain name to obtain the normalized email address, and add it to the hash set $st$.
 
-Finally, the number of elements in the hash set $\textit{st}$ is the number of unique email groups.
+Finally, the number of elements in the hash set $st$ is the number of unique email groups.
 
 The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the number of email addresses and the average length of each email address, respectively.
 

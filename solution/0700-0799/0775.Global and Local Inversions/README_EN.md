@@ -76,7 +76,7 @@ tags:
 >
 > Decide whether global inversions equal adjacent ones. $n\le 10^5$. Equivalently, there is no inversion of distance greater than $1$.
 >
-> No $i\le j-2$ with $nums[i]>nums[j]$. Track the prefix max of $nums[0..i-2]$ and fail if it exceeds $nums[i]$.
+> No $i\le j-2$ with $\textit{nums}[i]>\textit{nums}[j]$. Track the prefix max of $\textit{nums}[0..i-2]$ and fail if it exceeds $\textit{nums}[i]$.
 
 <!-- thinking:end -->
 

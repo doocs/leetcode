@@ -117,7 +117,7 @@ $$
 \textit{key}=(x\ll 30)\mid y.
 $$
 
-Since $x,y\le 10^9$, the key fits in a $64$-bit integer. $\textit{cnt}[\textit{key}]$ is how often that pair occurs in adjacent positions. Over every candidate operation, the number of newly equal adjacent pairs is the maximum of these counts, $\textit{mx}$. Skipping the operation leaves $\textit{mx}=0$. The answer is $\textit{ans}+\textit{mx}$.
+Since $x,y\le 10^9$, the key fits in a $64$-bit integer. $\textit{cnt}[\textit{key}]$ is how often that pair occurs in adjacent positions. Over every candidate operation, the number of newly equal adjacent pairs is the maximum of these counts, $mx$. Skipping the operation leaves $mx=0$. The answer is $\textit{ans}+mx$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$.
 

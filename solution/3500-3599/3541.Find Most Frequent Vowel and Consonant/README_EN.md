@@ -93,9 +93,9 @@ The <strong>frequency</strong> of a letter <code>x</code> is the number of times
 
 We first use a hash table or an array of length $26$, $\textit{cnt}$, to count the frequency of each letter. Then, we iterate through this table to find the most frequent vowel and consonant, and return the sum of their frequencies.
 
-We can use a variable $\textit{a}$ to record the maximum frequency of vowels and another variable $\textit{b}$ to record the maximum frequency of consonants. During the iteration, if the current letter is a vowel, we update $\textit{a}$; otherwise, we update $\textit{b}$.
+We can use a variable $a$ to record the maximum frequency of vowels and another variable $b$ to record the maximum frequency of consonants. During the iteration, if the current letter is a vowel, we update $a$; otherwise, we update $b$.
 
-Finally, we return $\textit{a} + \textit{b}$.
+Finally, we return $a + b$.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the alphabet, which is $26$ in this case.
 

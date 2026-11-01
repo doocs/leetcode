@@ -89,7 +89,7 @@ tags:
 
 根据题目描述，题目最多产生 $n / 2$ 组标记，其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
-为了将下标尽可能多地标记，我们可以将数组 $\textit{nums}$ 排序，接下来，我们遍历右半部分的每个元素 $\textit{nums}[j]$，用一个指针 $\textit{i}$ 指向左半部分的最小元素，如果 $\textit{nums}[i] \times 2 \leq \textit{nums}[j]$，则可以标记下标 $\textit{i}$ 和 $\textit{j}$，我们将 $\textit{i}$ 向右移动一个位置。继续遍历右半部分的元素，直到到达数组的末尾。此时，我们可以标记的下标数目为 $\textit{i} \times 2$。
+为了将下标尽可能多地标记，我们可以将数组 $\textit{nums}$ 排序，接下来，我们遍历右半部分的每个元素 $\textit{nums}[j]$，用一个指针 $i$ 指向左半部分的最小元素，如果 $\textit{nums}[i] \times 2 \leq \textit{nums}[j]$，则可以标记下标 $i$ 和 $j$，我们将 $i$ 向右移动一个位置。继续遍历右半部分的元素，直到到达数组的末尾。此时，我们可以标记的下标数目为 $i \times 2$。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 

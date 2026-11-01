@@ -42,17 +42,17 @@ k = 3
 >
 > $k$ 块板，各为短或长，求所有可能总长。递归枚举 $2^k$ 种选法，而不同总长至多 $k+1$ 种。
 >
-> 用了 $i$ 块长板则总长 $i\cdot longer+(k-i)\cdot shorter$。 $k=0$ 无方案；两长度相等则只有一种。
+> 用了 $i$ 块长板则总长 $i\cdot \textit{longer}+(k-i)\cdot \textit{shorter}$。 $k=0$ 无方案；两长度相等则只有一种。
 >
-> 当 $longer\ne shorter$ 时， $i$ 从 $0$ 到 $k$ 严格递增，直接枚举即可，不必去重。
+> 当 $\textit{longer}\ne \textit{shorter}$ 时， $i$ 从 $0$ 到 $k$ 严格递增，直接枚举即可，不必去重。
 
 <!-- thinking:end -->
 
 如果 $k=0$，则不存在任何一种方案，我们可以直接返回空列表。
 
-如果 $shorter=longer$，则我们只能使用长度为 $longer \times k$ 的木板，因此我们直接返回长度为 $longer \times k$ 的列表。
+如果 $\textit{shorter}=\textit{longer}$，则我们只能使用长度为 $\textit{longer} \times k$ 的木板，因此我们直接返回长度为 $\textit{longer} \times k$ 的列表。
 
-否则，我们可以使用长度为 $shorter \times (k-i) + longer \times i$ 的木板，其中 $0 \leq i \leq k$。我们在 $[0, k]$ 的范围内枚举 $i$，并计算对应的长度即可。对于不同的 $i$，我们不会得到相同的长度，这是因为，假如有 $0 \leq i \lt j \leq k$，那么两者长度差为 $shorter \times (k-i) + longer \times i - shorter \times (k-j) - longer \times j$，整理得到长度差 $(i - j) \times (longer - shorter) \lt 0$。因此，对于不同的 $i$，我们会得到不同的长度。
+否则，我们可以使用长度为 $\textit{shorter} \times (k-i) + \textit{longer} \times i$ 的木板，其中 $0 \leq i \leq k$。我们在 $[0, k]$ 的范围内枚举 $i$，并计算对应的长度即可。对于不同的 $i$，我们不会得到相同的长度，这是因为，假如有 $0 \leq i \lt j \leq k$，那么两者长度差为 $\textit{shorter} \times (k-i) + \textit{longer} \times i - \textit{shorter} \times (k-j) - \textit{longer} \times j$，整理得到长度差 $(i - j) \times (\textit{longer} - \textit{shorter}) \lt 0$。因此，对于不同的 $i$，我们会得到不同的长度。
 
 时间复杂度 $O(k)$，空间复杂度 $O(1)$。其中 $k$ 为木板数量。
 

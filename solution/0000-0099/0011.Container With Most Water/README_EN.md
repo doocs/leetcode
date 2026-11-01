@@ -62,7 +62,7 @@ tags:
 
 > **Thinking**
 >
-> The first idea is to try every pair $(i,j)$ and take $\min(height[i],height[j])\times(j-i)$. Correct, but $O(n^2)$. $n \le 10^5$ will time out.
+> The first idea is to try every pair $(i,j)$ and take $\min(\textit{height}[i],\textit{height}[j])\times(j-i)$. Correct, but $O(n^2)$. $n \le 10^5$ will time out.
 >
 > The bottleneck is treating every pair independently and ignoring that height is fixed by the shorter line. Start from the widest interval $[0,n-1]$: moving the taller end inward shrinks the width while the height is still capped by the shorter line, so the area cannot improve. We must drop the shorter line and look for a taller one.
 >
@@ -74,7 +74,7 @@ We use two pointers $l$ and $r$ to point to the left and right ends of the array
 
 Next, we use a variable $\textit{ans}$ to record the maximum capacity of the container, initially set to $0$.
 
-Then, we start a loop. In each iteration, we calculate the current capacity of the container, i.e., $\textit{min}(height[l], height[r]) \times (r - l)$, and compare it with $\textit{ans}$, assigning the larger value to $\textit{ans}$. Then, we compare the values of $height[l]$ and $height[r]$. If $\textit{height}[l] < \textit{height}[r]$, moving the $r$ pointer will not improve the result because the height of the container is determined by the shorter vertical line, so we move the $l$ pointer. Otherwise, we move the $r$ pointer.
+Then, we start a loop. In each iteration, we calculate the current capacity of the container, i.e., $\textit{min}(\textit{height}[l], \textit{height}[r]) \times (r - l)$, and compare it with $\textit{ans}$, assigning the larger value to $\textit{ans}$. Then, we compare the values of $\textit{height}[l]$ and $\textit{height}[r]$. If $\textit{height}[l] < \textit{height}[r]$, moving the $r$ pointer will not improve the result because the height of the container is determined by the shorter vertical line, so we move the $l$ pointer. Otherwise, we move the $r$ pointer.
 
 After the iteration, we return $\textit{ans}$.
 

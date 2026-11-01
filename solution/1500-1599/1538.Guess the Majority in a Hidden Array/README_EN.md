@@ -91,7 +91,7 @@ Index 2, 4, 6, 7 is also a correct answer.
 >
 > The hidden array is bits; a query on four distinct indices returns a code for how many zeros versus ones they contain. We must return an index of the majority value with a tight query budget, so we cannot read the array.
 >
-> Let $x=query(0,1,2,3)$. For each $i\ge 4$, $query(0,1,2,i)=x$ means $i$ matches index $3$; otherwise it does not. Three further queries compare $0,1,2$ with $3$. The larger class is the majority; a tie returns $-1$. Besides index $3$, a dissenting index is remembered in $k$ for the answer.
+> Let $x=\textit{query}(0,1,2,3)$. For each $i\ge 4$, $\textit{query}(0,1,2,i)=x$ means $i$ matches index $3$; otherwise it does not. Three further queries compare $0,1,2$ with $3$. The larger class is the majority; a tie returns $-1$. Besides index $3$, a dissenting index is remembered in $k$ for the answer.
 
 <!-- thinking:end -->
 

@@ -84,11 +84,11 @@ class Node {
 >
 > Nodes have parent pointers, so we need not search from the root. Every node on $p$'s path to the root is an ancestor of $p$; the first node of $q$'s path that lies in that set is the LCA.
 >
-> A set $vis$ stores $p$'s path; then walk $q$ toward the root. Extra space is linear in the depth.
+> A set $\textit{vis}$ stores $p$'s path; then walk $q$ toward the root. Extra space is linear in the depth.
 
 <!-- thinking:end -->
 
-We use a hash table $vis$ to record all nodes on the path from node $p$ to the root node. Then we start from node $q$ and traverse towards the root node. If we encounter a node that exists in the hash table $vis$, then this node is the nearest common ancestor of $p$ and $q$, and we can return it directly.
+We use a hash table $\textit{vis}$ to record all nodes on the path from node $p$ to the root node. Then we start from node $q$ and traverse towards the root node. If we encounter a node that exists in the hash table $\textit{vis}$, then this node is the nearest common ancestor of $p$ and $q$, and we can return it directly.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

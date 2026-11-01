@@ -70,7 +70,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先判断 $\textit{root}$ 是否为空，若为空则返回 0。否则我们初始化一个变量 $\textit{mx}$ 用来记录子节点的最大深度，然后遍历 $\textit{root}$ 的所有子节点，递归调用 $\text{maxDepth}$ 函数，更新 $\textit{mx}$ 的值。最后返回 $\textit{mx} + 1$ 即可。
+我们首先判断 $\textit{root}$ 是否为空，若为空则返回 0。否则我们初始化一个变量 $mx$ 用来记录子节点的最大深度，然后遍历 $\textit{root}$ 的所有子节点，递归调用 $\textit{maxDepth}$ 函数，更新 $mx$ 的值。最后返回 $mx + 1$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点的数量。
 

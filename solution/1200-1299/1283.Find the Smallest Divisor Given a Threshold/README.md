@@ -73,17 +73,17 @@ tags:
 
 > **思考**
 >
-> 除数越大，向上取整之和越小，存在单调性。 $n \le 5\times 10^4$，枚举除数不可行。在 $[1,\max nums]$ 上二分最小 $v$，使 $\sum \lceil nums_i/v \rceil \le threshold$。判定一遍线性扫描。
+> 除数越大，向上取整之和越小，存在单调性。 $n \le 5\times 10^4$，枚举除数不可行。在 $[1,\max \textit{nums}]$ 上二分最小 $v$，使 $\sum \lceil \textit{nums}_i/v \rceil \le \textit{threshold}$。判定一遍线性扫描。
 
 <!-- thinking:end -->
 
-我们注意到，对于一个数字 $v$，如果将 $nums$ 中的每个数字都除以 $v$ 的结果之和小于等于 $threshold$，那么所有大于 $v$ 的值都满足条件。这存在着单调性，因此我们可以使用二分查找的方法找到最小的满足条件的 $v$。
+我们注意到，对于一个数字 $v$，如果将 $\textit{nums}$ 中的每个数字都除以 $v$ 的结果之和小于等于 $\textit{threshold}$，那么所有大于 $v$ 的值都满足条件。这存在着单调性，因此我们可以使用二分查找的方法找到最小的满足条件的 $v$。
 
-我们定义二分查找的左边界 $l=1$, $r=\max(nums)$，每次取 $mid=(l+r)/2$，计算 $nums$ 中每个数字除以 $mid$ 的结果之和 $s$，如果 $s$ 小于等于 $threshold$，那么说明 $mid$ 满足条件，我们将 $r$ 更新为 $mid$，否则将 $l$ 更新为 $mid+1$。
+我们定义二分查找的左边界 $l=1$, $r=\max(\textit{nums})$，每次取 $\textit{mid}=(l+r)/2$，计算 $\textit{nums}$ 中每个数字除以 $\textit{mid}$ 的结果之和 $s$，如果 $s$ 小于等于 $\textit{threshold}$，那么说明 $\textit{mid}$ 满足条件，我们将 $r$ 更新为 $\textit{mid}$，否则将 $l$ 更新为 $\textit{mid}+1$。
 
 最后返回 $l$ 即可。
 
-时间复杂度 $O(n \log M)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 

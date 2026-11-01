@@ -99,11 +99,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\textit{s}$ 来记录数组 $\textit{nums}$ 中出现过的元素。
+我们用一个哈希表 $s$ 来记录数组 $\textit{nums}$ 中出现过的元素。
 
 然后，我们计算数组 $\textit{nums}$ 的平均值 $\textit{avg}$，并将答案 $\textit{ans}$ 初始化为 $\max(1, \lfloor \textit{avg} \rfloor + 1)$。
 
-如果 $\textit{ans}$ 在 $\textit{s}$ 中出现过，那么我们将 $\textit{ans}$ 加一，直到 $\textit{ans}$ 不在 $\textit{s}$ 中出现过为止。
+如果 $\textit{ans}$ 在 $s$ 中出现过，那么我们将 $\textit{ans}$ 加一，直到 $\textit{ans}$ 不在 $s$ 中出现过为止。
 
 最后，返回 $\textit{ans}$ 即可。
 

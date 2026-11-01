@@ -101,11 +101,11 @@ tags:
 
 <!-- thinking:end -->
 
-We first convert each attribute array into a hash table and store them in a hash table array $\textit{ss}$. We define a graph $\textit{g}$, where $\textit{g}[i]$ stores the indices of attribute arrays that are connected to $\textit{properties}[i]$.
+We first convert each attribute array into a hash table and store them in a hash table array $ss$. We define a graph $g$, where $g[i]$ stores the indices of attribute arrays that are connected to $\textit{properties}[i]$.
 
-Then, we iterate through all attribute hash tables. For each pair of attribute hash tables $(i, j)$ where $j < i$, we check whether the number of common elements between them is at least $k$. If so, we add an edge from $i$ to $j$ in the graph $\textit{g}$, as well as an edge from $j$ to $i$.
+Then, we iterate through all attribute hash tables. For each pair of attribute hash tables $(i, j)$ where $j < i$, we check whether the number of common elements between them is at least $k$. If so, we add an edge from $i$ to $j$ in the graph $g$, as well as an edge from $j$ to $i$.
 
-Finally, we use Depth-First Search (DFS) to compute the number of connected components in the graph $\textit{g}$.
+Finally, we use Depth-First Search (DFS) to compute the number of connected components in the graph $g$.
 
 The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ is the length of the attribute arrays and $m$ is the number of elements in an attribute array.
 

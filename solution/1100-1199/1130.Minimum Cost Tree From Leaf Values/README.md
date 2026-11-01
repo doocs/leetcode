@@ -74,40 +74,40 @@ tags:
 >
 > 中序叶序列固定，树形由切分位置决定。枚举所有切分的递归若不记忆会重复计算同一区间。
 >
-> $dfs(i,j)$ 返回区间 $[i,j]$ 的最小非叶代价与叶最大值；枚举切点 $k$，左右代价加上两侧叶最大值之积。区间数 $O(n^2)$、切点 $O(n)$，记忆化后为 $O(n^3)$。
+> $\textit{dfs}(i,j)$ 返回区间 $[i,j]$ 的最小非叶代价与叶最大值；枚举切点 $k$，左右代价加上两侧叶最大值之积。区间数 $O(n^2)$、切点 $O(n)$，记忆化后为 $O(n^3)$。
 
 <!-- thinking:end -->
 
-根据题目描述，数组 $arr$ 中的值与树的中序遍历中每个叶节点的值一一对应，我们可以将数组划分为左右两个非空子数组，分别对应树的左右子树，递归地求解每个子树的所有非叶节点的值的最小可能总和。
+根据题目描述，数组 $\textit{arr}$ 中的值与树的中序遍历中每个叶节点的值一一对应，我们可以将数组划分为左右两个非空子数组，分别对应树的左右子树，递归地求解每个子树的所有非叶节点的值的最小可能总和。
 
-我们设计一个函数 $dfs(i, j)$，表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，那么答案就是 $dfs(0, n - 1)$，其中 $n$ 为数组 $arr$ 的长度。
+我们设计一个函数 $\textit{dfs}(i, j)$，表示数组 $\textit{arr}$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，那么答案就是 $\textit{dfs}(0, n - 1)$，其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
-函数 $dfs(i, j)$ 的计算过程如下：
+函数 $\textit{dfs}(i, j)$ 的计算过程如下：
 
-- 如果 $i = j$，说明数组 $arr[i..j]$ 中只有一个元素，没有非叶节点，因此 $dfs(i, j) = 0$。
-- 否则，我们枚举 $k \in [i, j - 1]$，将数组 $arr$ 划分为两个子数组 $arr[i \cdots k]$ 和 $arr[k + 1 \cdots j]$，对于每个 $k$，我们递归计算 $dfs(i, k)$ 和 $dfs(k + 1, j)$，其中 $dfs(i, k)$ 表示数组 $arr$ 中下标范围 $[i, k]$ 内的所有非叶节点的值的最小可能总和，而 $dfs(k + 1, j)$ 表示数组 $arr$ 中下标范围 $[k + 1, j]$ 内的所有非叶节点的值的最小可能总和，那么 $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$。
+- 如果 $i = j$，说明数组 $\textit{arr}[i..j]$ 中只有一个元素，没有非叶节点，因此 $\textit{dfs}(i, j) = 0$。
+- 否则，我们枚举 $k \in [i, j - 1]$，将数组 $\textit{arr}$ 划分为两个子数组 $\textit{arr}[i \cdots k]$ 和 $\textit{arr}[k + 1 \cdots j]$，对于每个 $k$，我们递归计算 $\textit{dfs}(i, k)$ 和 $\textit{dfs}(k + 1, j)$，其中 $\textit{dfs}(i, k)$ 表示数组 $\textit{arr}$ 中下标范围 $[i, k]$ 内的所有非叶节点的值的最小可能总和，而 $\textit{dfs}(k + 1, j)$ 表示数组 $\textit{arr}$ 中下标范围 $[k + 1, j]$ 内的所有非叶节点的值的最小可能总和，那么 $\textit{dfs}(i, j) = \min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + \max_{i \leq t \leq k} \{\textit{arr}[t]\} \max_{k < t \leq j} \{\textit{arr}[t]\}\}$。
 
 综上所述，我们可以得到：
 
 $$
-dfs(i, j) = \begin{cases}
+\textit{dfs}(i, j) = \begin{cases}
 0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}, & \textit{if } i < j
+\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + \max_{i \leq t \leq k} \{\textit{arr}[t]\} \max_{k < t \leq j} \{\textit{arr}[t]\}\}, & \textit{if } i < j
 \end{cases}
 $$
 
-上述递归过程中，我们可以使用记忆化搜索的方法，避免重复计算。另外，我们还可以使用数组 $g$ 记录数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么 $dfs(i, j)$ 的计算过程可以优化为：
+上述递归过程中，我们可以使用记忆化搜索的方法，避免重复计算。另外，我们还可以使用数组 $g$ 记录数组 $\textit{arr}$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么 $\textit{dfs}(i, j)$ 的计算过程可以优化为：
 
 $$
-dfs(i, j) = \begin{cases}
+\textit{dfs}(i, j) = \begin{cases}
 0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
+\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
 \end{cases}
 $$
 
-最后，我们返回 $dfs(0, n - 1)$ 即可。
+最后，我们返回 $\textit{dfs}(0, n - 1)$ 即可。
 
-时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -284,7 +284,7 @@ function mctFromLeafValues(arr: number[]): number {
 
 我们可以将方法一中的记忆化搜索改为动态规划的方式进行求解。
 
-定义 $f[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，而 $g[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么状态转移方程为：
+定义 $f[i][j]$ 表示数组 $\textit{arr}$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，而 $g[i][j]$ 表示数组 $\textit{arr}$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么状态转移方程为：
 
 $$
 f[i][j] = \begin{cases}
@@ -295,7 +295,7 @@ $$
 
 最后，我们返回 $f[0][n - 1]$ 即可。
 
-时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

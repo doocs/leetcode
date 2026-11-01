@@ -89,7 +89,7 @@ tags:
 
 > **Thinking**
 >
-> The list is immutable: only $getNext$ and $printValue$, length at most $1000$. Reverse order means we must visit the successor before printing the current node. Recursing and printing after the call emits tail-to-head; the stack holds the prefix.
+> The list is immutable: only $\textit{getNext}$ and $\textit{printValue}$, length at most $1000$. Reverse order means we must visit the successor before printing the current node. Recursing and printing after the call emits tail-to-head; the stack holds the prefix.
 
 <!-- thinking:end -->
 

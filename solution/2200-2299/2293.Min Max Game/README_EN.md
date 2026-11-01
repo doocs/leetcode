@@ -76,7 +76,7 @@ Third: nums = [1]
 >
 > Each round replaces adjacent pairs by $\min$ or $\max$ according to the pair index, until one value remains. The length is a power of two and at most $1024$, so simulation is enough.
 >
-> Write the next round into the first half of the same array: $n$ halves each time, and the $i$-th new value comes from $nums[2i]$ and $nums[2i+1]$. The survivor is $nums[0]$.
+> Write the next round into the first half of the same array: $n$ halves each time, and the $i$-th new value comes from $\textit{nums}[2i]$ and $\textit{nums}[2i+1]$. The survivor is $\textit{nums}[0]$.
 
 <!-- thinking:end -->
 

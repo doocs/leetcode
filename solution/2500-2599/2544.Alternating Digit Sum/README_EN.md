@@ -85,7 +85,7 @@ tags:
 
 We can directly simulate the process as described in the problem.
 
-We define an initial symbol $sign=1$. Starting from the most significant digit, we take out one digit $x$ each time, multiply it by $sign$, add the result to the answer, then negate $sign$, and continue to process the next digit until all digits are processed.
+We define an initial symbol $\textit{sign}=1$. Starting from the most significant digit, we take out one digit $x$ each time, multiply it by $\textit{sign}$, add the result to the answer, then negate $\textit{sign}$, and continue to process the next digit until all digits are processed.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
 

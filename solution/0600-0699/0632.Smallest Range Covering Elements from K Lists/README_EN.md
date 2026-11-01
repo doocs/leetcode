@@ -68,7 +68,7 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 >
 > We need one element from each of $k$ sorted lists so the covering range is shortest. Index combinations do not scale.
 >
-> Flatten $(value, group)$ pairs and sort. The task is the shortest window that covers all $k$ groups; expand the right end and shrink the left while a counter still sees $k$ groups.
+> Flatten $(\textit{value}, \textit{group})$ pairs and sort. The task is the shortest window that covers all $k$ groups; expand the right end and shrink the left while a counter still sees $k$ groups.
 
 <!-- thinking:end -->
 

@@ -83,9 +83,9 @@ tags:
 
 <!-- thinking:end -->
 
-First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i+1$ elements of the array $nums$.
+First, we preprocess the prefix sum array $s$ of the array $\textit{nums}$, where $s[i]$ represents the sum of the first $i+1$ elements of the array $\textit{nums}$.
 
-Since all elements of the array $nums$ are non-negative integers, the prefix sum array $s$ is a monotonically increasing array.
+Since all elements of the array $\textit{nums}$ are non-negative integers, the prefix sum array $s$ is a monotonically increasing array.
 
 We enumerate the index $i$ that the `left` subarray can reach in the range $[0,..n-2)$, and then use the monotonically increasing characteristic of the prefix sum array to find the reasonable range of the `mid` subarray split by binary search, denoted as $[j, k)$, and accumulate the number of schemes $k-j$.
 
@@ -93,7 +93,7 @@ In the binary search details, the subarray split must satisfy $s[j] \geq s[i]$ a
 
 Finally, return the number of schemes modulo $10^9+7$.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

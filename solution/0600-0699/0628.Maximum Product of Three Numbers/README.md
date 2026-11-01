@@ -69,7 +69,7 @@ tags:
 >
 > 三个数乘积的最大者，可能来自三个最大正数，也可能来自两个绝对值很大的负数再乘最大正数。 $n\le 10^4$，排序后分类即可。
 >
-> 排序后比较 $nums[-1]\times nums[-2]\times nums[-3]$ 与 $nums[-1]\times nums[0]\times nums[1]$，覆盖全正、全负与正负并存。
+> 排序后比较 $\textit{nums}[-1]\times \textit{nums}[-2]\times \textit{nums}[-3]$ 与 $\textit{nums}[-1]\times \textit{nums}[0]\times \textit{nums}[1]$，覆盖全正、全负与正负并存。
 
 <!-- thinking:end -->
 

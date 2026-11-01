@@ -84,7 +84,7 @@ Note that the rows in the output are the same as in the input.
 >
 > A null drink should become the last non-null, in table order. A session variable remembers that value while scanning.
 >
-> On a non-null, assign $@cur$; on a null, keep $@cur$. Project that as the new column.
+> On a non-null, assign $@\textit{cur}$; on a null, keep $@\textit{cur}$. Project that as the new column.
 
 <!-- thinking:end -->
 
@@ -115,7 +115,7 @@ FROM CoffeeShop;
 
 > **Thinking**
 >
-> Session variables are less portable. $ROW\_NUMBER$ freezes order; a running sum of non-null flags forms groups; $MAX(drink)$ inside each group is its only non-null value.
+> Session variables are less portable. $\textit{ROW\_NUMBER}$ freezes order; a running sum of non-null flags forms groups; $\textit{MAX}(\textit{drink})$ inside each group is its only non-null value.
 
 <!-- thinking:end -->
 

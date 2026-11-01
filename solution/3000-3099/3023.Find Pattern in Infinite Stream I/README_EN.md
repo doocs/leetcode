@@ -85,11 +85,11 @@ tags:
 
 <!-- thinking:end -->
 
-We notice that the length of the array $pattern$ does not exceed $100$, therefore, we can use two $64$-bit integers $a$ and $b$ to represent the binary numbers of the left and right halves of $pattern$.
+We notice that the length of the array $\textit{pattern}$ does not exceed $100$, therefore, we can use two $64$-bit integers $a$ and $b$ to represent the binary numbers of the left and right halves of $\textit{pattern}$.
 
-Next, we traverse the data stream, also maintaining two $64$-bit integers $x$ and $y$ to represent the binary numbers of the current window of the length of $pattern$. If the current length reaches the window length, we compare whether $a$ and $x$ are equal, and whether $b$ and $y$ are equal. If they are, we return the index of the current data stream.
+Next, we traverse the data stream, also maintaining two $64$-bit integers $x$ and $y$ to represent the binary numbers of the current window of the length of $\textit{pattern}$. If the current length reaches the window length, we compare whether $a$ and $x$ are equal, and whether $b$ and $y$ are equal. If they are, we return the index of the current data stream.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the number of elements in the data stream and $pattern$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the number of elements in the data stream and $\textit{pattern}$ respectively.
 
 <!-- tabs:start -->
 

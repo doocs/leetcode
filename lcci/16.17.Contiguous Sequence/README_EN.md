@@ -59,13 +59,13 @@ difficulty: Easy
 
 <!-- thinking:end -->
 
-We define $f[i]$ as the maximum sum of a continuous subarray that ends with $nums[i]$. The state transition equation is:
+We define $f[i]$ as the maximum sum of a continuous subarray that ends with $\textit{nums}[i]$. The state transition equation is:
 
 $$
-f[i] = \max(f[i-1], 0) + nums[i]
+f[i] = \max(f[i-1], 0) + \textit{nums}[i]
 $$
 
-where $f[0] = nums[0]$.
+where $f[0] = \textit{nums}[0]$.
 
 The answer is $\max\limits_{i=0}^{n-1}f[i]$.
 

@@ -76,12 +76,12 @@ tags:
 
 <!-- thinking:end -->
 
-Since the value of each row and column depends on the last modification, we can traverse all queries in reverse order and use hash tables $row$ and $col$ to record which rows and columns have been modified.
+Since the value of each row and column depends on the last modification, we can traverse all queries in reverse order and use hash tables $\textit{row}$ and $\textit{col}$ to record which rows and columns have been modified.
 
 For each query $(t, i, v)$:
 
-- If $t = 0$, we check whether the $i$th row has been modified. If not, we add $v \times (n - |col|)$ to the answer, where $|col|$ represents the size of $col$, and then add $i$ to $row$.
-- If $t = 1$, we check whether the $i$th column has been modified. If not, we add $v \times (n - |row|)$ to the answer, where $|row|$ represents the size of $row$, and then add $i$ to $col$.
+- If $t = 0$, we check whether the $i$th row has been modified. If not, we add $v \times (n - |\textit{col}|)$ to the answer, where $|\textit{col}|$ represents the size of $\textit{col}$, and then add $i$ to $\textit{row}$.
+- If $t = 1$, we check whether the $i$th column has been modified. If not, we add $v \times (n - |\textit{row}|)$ to the answer, where $|\textit{row}|$ represents the size of $\textit{row}$, and then add $i$ to $\textit{col}$.
 
 Finally, return the answer.
 

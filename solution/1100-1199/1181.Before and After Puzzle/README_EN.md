@@ -89,7 +89,7 @@ tags:
 
 First, we traverse the `phrases` list, storing the first and last words of each phrase in the array $ps$, where $ps[i][0]$ and $ps[i][1]$ represent the first and last words of the $i$th phrase, respectively.
 
-Next, we enumerate all $(i, j)$, where $i, j \in [0, n)$ and $i \neq j$. If $ps[i][1] = ps[j][0]$, then we can concatenate the $i$th phrase and the $j$th phrase to get a new phrase $phrases[i] + phrases[j][len(ps[j][0]):]$, and add the new phrase to the hash table $s$.
+Next, we enumerate all $(i, j)$, where $i, j \in [0, n)$ and $i \neq j$. If $ps[i][1] = ps[j][0]$, then we can concatenate the $i$th phrase and the $j$th phrase to get a new phrase $\textit{phrases}[i] + \textit{phrases}[j][\textit{len}(ps[j][0]):]$, and add the new phrase to the hash table $s$.
 
 Finally, we convert the hash table $s$ into an array and sort it to get the answer.
 

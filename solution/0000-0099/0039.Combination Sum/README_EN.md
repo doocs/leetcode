@@ -70,23 +70,23 @@ These are the only two combinations.
 
 > **Thinking**
 >
-> The first idea is to use each number any number of times and collect every sequence that sums to $target$. With $n \le 30$ and $target \le 40$, an unpruned search wastes paths that already exceed the target, and different orders of the same multiset would be counted twice.
+> The first idea is to use each number any number of times and collect every sequence that sums to $\textit{target}$. With $n \le 30$ and $\textit{target} \le 40$, an unpruned search wastes paths that already exceed the target, and different orders of the same multiset would be counted twice.
 >
 > A combination ignores order, so each multiset should appear once. Sort first, and only take candidates from the current index rightward.
 >
-> After sorting, if the remainder $s$ is already smaller than $candidates[i]$, everything after is larger and the branch dies. $dfs(i,s)$ enumerates $j$ from $i$, and the recursive call stays at $j$ so the same value may be reused.
+> After sorting, if the remainder $s$ is already smaller than $\textit{candidates}[i]$, everything after is larger and the branch dies. $\textit{dfs}(i,s)$ enumerates $j$ from $i$, and the recursive call stays at $j$ so the same value may be reused.
 
 <!-- thinking:end -->
 
 We can first sort the array to facilitate pruning.
 
-Next, we design a function $dfs(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $ans$.
+Next, we design a function $\textit{dfs}(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $\textit{ans}$.
 
-In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $s \lt candidates[i]$, it means that the elements of the current index and the following indices are all greater than the remaining target value $s$, and the path is invalid, so we return directly. Otherwise, we start the search from index $i$, and the search index range is $j \in [i, n)$, where $n$ is the length of the array $candidates$. During the search, we add the element of the current index to the search path $t$, recursively call the function $dfs(j, s - candidates[j])$, and after the recursion ends, we remove the element of the current index from the search path $t$.
+In the function $\textit{dfs}(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $\textit{ans}$, and then return. If $s \lt \textit{candidates}[i]$, it means that the elements of the current index and the following indices are all greater than the remaining target value $s$, and the path is invalid, so we return directly. Otherwise, we start the search from index $i$, and the search index range is $j \in [i, n)$, where $n$ is the length of the array $\textit{candidates}$. During the search, we add the element of the current index to the search path $t$, recursively call the function $\textit{dfs}(j, s - \textit{candidates}[j])$, and after the recursion ends, we remove the element of the current index from the search path $t$.
 
-In the main function, we just need to call the function $dfs(0, target)$ to get the answer.
+In the main function, we just need to call the function $\textit{dfs}(0, \textit{target})$ to get the answer.
 
-The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{candidates}$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 Similar problems:
 
@@ -308,9 +308,9 @@ public class Solution {
 
 <!-- thinking:end -->
 
-We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.
+We can also change the implementation logic of the function $\textit{dfs}(i, s)$ to another form. In the function $\textit{dfs}(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $\textit{ans}$, and then return. If $i \geq n$ or $s \lt \textit{candidates}[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $\textit{dfs}(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $\textit{dfs}(i, s - \textit{candidates}[i])$.
 
-The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{candidates}$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 <!-- tabs:start -->
 

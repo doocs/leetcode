@@ -110,15 +110,15 @@ tags:
 
 <!-- thinking:end -->
 
-The problem requires us to find all subsequences $\textit{S}$ in the given array $\textit{nums}$, and then calculate the number of ways for each subsequence $\textit{T}$ such that the sum of $\textit{T}$ equals $\textit{k}$.
+The problem requires us to find all subsequences $S$ in the given array $\textit{nums}$, and then calculate the number of ways for each subsequence $T$ such that the sum of $T$ equals $k$.
 
 We define $f[i][j]$ to represent the number of ways to form subsequences with the first $i$ numbers such that the sum of each subsequence equals $j$. Initially, $f[0][0] = 1$, and all other positions are $0$.
 
 For the $i$-th number $x$, there are three cases:
 
-1. Not in the subsequence $\textit{S}$, in which case $f[i][j] = f[i-1][j]$;
-2. In the subsequence $\textit{S}$, but not in the subsequence $\textit{T}$, in which case $f[i][j] = f[i-1][j]$;
-3. In the subsequence $\textit{S}$, and in the subsequence $\textit{T}$, in which case $f[i][j] = f[i-1][j-x]$.
+1. Not in the subsequence $S$, in which case $f[i][j] = f[i-1][j]$;
+2. In the subsequence $S$, but not in the subsequence $T$, in which case $f[i][j] = f[i-1][j]$;
+3. In the subsequence $S$, and in the subsequence $T$, in which case $f[i][j] = f[i-1][j-x]$.
 
 In summary, the state transition equation is:
 

@@ -78,19 +78,19 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $f[i][j]$ 表示 $text1$ 的前 $i$ 个字符和 $text2$ 的前 $j$ 个字符的最长公共子序列的长度。那么答案为 $f[m][n]$，其中 $m$ 和 $n$ 分别为 $text1$ 和 $text2$ 的长度。
+我们定义 $f[i][j]$ 表示 $\textit{text1}$ 的前 $i$ 个字符和 $\textit{text2}$ 的前 $j$ 个字符的最长公共子序列的长度。那么答案为 $f[m][n]$，其中 $m$ 和 $n$ 分别为 $\textit{text1}$ 和 $\textit{text2}$ 的长度。
 
-如果 $text1$ 的第 $i$ 个字符和 $text2$ 的第 $j$ 个字符相同，则 $f[i][j] = f[i - 1][j - 1] + 1$；如果 $text1$ 的第 $i$ 个字符和 $text2$ 的第 $j$ 个字符不同，则 $f[i][j] = max(f[i - 1][j], f[i][j - 1])$。即状态转移方程为：
+如果 $\textit{text1}$ 的第 $i$ 个字符和 $\textit{text2}$ 的第 $j$ 个字符相同，则 $f[i][j] = f[i - 1][j - 1] + 1$；如果 $\textit{text1}$ 的第 $i$ 个字符和 $\textit{text2}$ 的第 $j$ 个字符不同，则 $f[i][j] = \max(f[i - 1][j], f[i][j - 1])$。即状态转移方程为：
 
 $$
 f[i][j] =
 \begin{cases}
-f[i - 1][j - 1] + 1, & text1[i - 1] = text2[j - 1] \\
-\max(f[i - 1][j], f[i][j - 1]), & text1[i - 1] \neq text2[j - 1]
+f[i - 1][j - 1] + 1, & \textit{text1}[i - 1] = \textit{text2}[j - 1] \\
+\max(f[i - 1][j], f[i][j - 1]), & \textit{text1}[i - 1] \neq \textit{text2}[j - 1]
 \end{cases}
 $$
 
-时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为 $text1$ 和 $text2$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为 $\textit{text1}$ 和 $\textit{text2}$ 的长度。
 
 <!-- tabs:start -->
 

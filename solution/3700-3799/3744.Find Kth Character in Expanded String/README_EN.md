@@ -81,7 +81,7 @@ tags:
 
 <!-- thinking:end -->
 
-We first split the string $\textit{s}$ into multiple words by spaces. For each word $\textit{w}$, we can calculate the length it occupies in the expanded string $\textit{t}$ as $m=\frac{(1+|\textit{w}|)\cdot |\textit{w}|}{2}$.
+We first split the string $s$ into multiple words by spaces. For each word $w$, we can calculate the length it occupies in the expanded string $t$ as $m=\frac{(1+|w|)\cdot |w|}{2}$.
 
 If $k = m$, it means the $k$-th character is a space, and we can directly return a space.
 
@@ -90,11 +90,11 @@ If $k > m$, it means the $k$-th character is not in the expanded part of the cur
 Otherwise, the $k$-th character is in the expanded part of the current word. We can find the $k$-th character by simulating the expansion process:
 
 - Initialize a variable $\textit{cur} = 0$ to represent the number of characters that have been expanded so far.
-- Iterate through each character $\textit{w}[i]$ of the word $\textit{w}$:
+- Iterate through each character $w[i]$ of the word $w$:
     - Increase $\textit{cur}$ by $i + 1$.
-    - If $k < \textit{cur}$, it means the $k$-th character is $\textit{w}[i]$, and we return this character.
+    - If $k < \textit{cur}$, it means the $k$-th character is $w[i]$, and we return this character.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -69,19 +69,19 @@ tags:
 
 > **思考**
 >
-> 统计 $[num1,num2]$ 中数位和落在 $[min\_sum,max\_sum]$ 的个数。区间长度可达 $10^{22}$ 量级，枚举整数不可行。
+> 统计 $[\textit{num1},\textit{num2}]$ 中数位和落在 $[\textit{min\_sum},\textit{max\_sum}]$ 的个数。区间长度可达 $10^{22}$ 量级，枚举整数不可行。
 >
-> 转化为 $[0,num2]$ 与 $[0,num1-1]$ 的差。数位 DP 按高位到低位填写，状态为 $(pos,s,limit)$：已放位数、当前数位和、是否贴上界。末位时判断 $s$ 是否落在给定闭区间，记忆化后对 $10^9+7$ 取模。
+> 转化为 $[0,\textit{num2}]$ 与 $[0,\textit{num1}-1]$ 的差。数位 DP 按高位到低位填写，状态为 $(\textit{pos},s,\textit{limit})$：已放位数、当前数位和、是否贴上界。末位时判断 $s$ 是否落在给定闭区间，记忆化后对 $10^9+7$ 取模。
 
 <!-- thinking:end -->
 
-题目实际上求的是区间 $[num1,..num2]$ 中，数位和在 $[min\_sum,..max\_sum]$ 的数的个数。对于这种区间 $[l,..r]$ 的问题，我们可以考虑转化为求 $[1,..r]$ 和 $[1,..l-1]$ 的答案，然后相减即可。
+题目实际上求的是区间 $[\textit{num1},..\textit{num2}]$ 中，数位和在 $[\textit{min\_sum},..\textit{max\_sum}]$ 的数的个数。对于这种区间 $[l,..r]$ 的问题，我们可以考虑转化为求 $[1,..r]$ 和 $[1,..l-1]$ 的答案，然后相减即可。
 
-对于 $[1,..r]$ 的答案，我们可以使用数位 DP 来求解。我们设计一个函数 $dfs(pos, s, limit)$ 表示当前处理到第 $pos$ 位，数位和为 $s$，当前数是否有上界限制 $limit$ 的方案数。其中 $pos$ 从高到低枚举。
+对于 $[1,..r]$ 的答案，我们可以使用数位 DP 来求解。我们设计一个函数 $\textit{dfs}(\textit{pos}, s, \textit{limit})$ 表示当前处理到第 $\textit{pos}$ 位，数位和为 $s$，当前数是否有上界限制 $\textit{limit}$ 的方案数。其中 $\textit{pos}$ 从高到低枚举。
 
-对于 $dfs(pos, s, limit)$，我们可以枚举当前数位 $i$ 的值，然后递归计算 $dfs(pos+1, s+i, limit \bigcap i==up)$，其中 $up$ 表示当前数位的上界。如果 $limit$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。如果 $pos$ 大于等于 $num$ 的长度，那么我们就可以判断 $s$ 是否在 $[min\_sum,..max\_sum]$ 的范围内，如果在就返回 $1$，否则返回 $0$。
+对于 $\textit{dfs}(\textit{pos}, s, \textit{limit})$，我们可以枚举当前数位 $i$ 的值，然后递归计算 $\textit{dfs}(\textit{pos}+1, s+i, \textit{limit} \bigcap i==up)$，其中 $up$ 表示当前数位的上界。如果 $\textit{limit}$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。如果 $\textit{pos}$ 大于等于 $\textit{num}$ 的长度，那么我们就可以判断 $s$ 是否在 $[\textit{min\_sum},..\textit{max\_sum}]$ 的范围内，如果在就返回 $1$，否则返回 $0$。
 
-时间复杂度 $O(10nmax\_sum)$，空间复杂度 $O(nmax\_sum)$。其中 $n$ 表示 $num$ 的长度。
+时间复杂度 $O(10\textit{nmax\_sum})$，空间复杂度 $O(\textit{nmax\_sum})$。其中 $n$ 表示 $\textit{num}$ 的长度。
 
 相似题目：
 

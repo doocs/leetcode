@@ -378,7 +378,7 @@ public class Solution {
 
 The space complexity of Solution 1 is relatively high because it requires a queue to store the nodes of each level. We can implement it with constant space.
 
-We define two pointers $prev$ and $next$, which point to the previous node and the first node of the next level, respectively. When traversing the nodes of the current level, we string the nodes of the next level together and find the first node of the next level. After the current level is traversed, we assign the first node $next$ of the next level to $node$ and continue to traverse.
+We define two pointers $\textit{prev}$ and $\textit{next}$, which point to the previous node and the first node of the next level, respectively. When traversing the nodes of the current level, we string the nodes of the next level together and find the first node of the next level. After the current level is traversed, we assign the first node $\textit{next}$ of the next level to $\textit{node}$ and continue to traverse.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the binary tree.
 

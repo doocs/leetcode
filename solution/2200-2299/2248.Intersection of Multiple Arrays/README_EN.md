@@ -63,7 +63,7 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 >
 > We need values that appear in every subarray, in increasing order. Values inside a subarray are unique and lie in $[1,1000]$. Repeated set intersections would work but allocate needlessly.
 >
-> A count array of length $1001$ increments $cnt[x]$ once per subarray. Those $x$ whose count equals the number of subarrays form the intersection and are already ordered by index.
+> A count array of length $1001$ increments $\textit{cnt}[x]$ once per subarray. Those $x$ whose count equals the number of subarrays form the intersection and are already ordered by index.
 
 <!-- thinking:end -->
 
@@ -205,7 +205,7 @@ class Solution {
 
 > **Thinking**
 >
-> Solution 1 waits until the end to collect answers. We can append $x$ as soon as $cnt[x]$ reaches the number of subarrays, then sort once. The domain is small, so both versions have the same order.
+> Solution 1 waits until the end to collect answers. We can append $x$ as soon as $\textit{cnt}[x]$ reaches the number of subarrays, then sort once. The domain is small, so both versions have the same order.
 
 <!-- thinking:end -->
 

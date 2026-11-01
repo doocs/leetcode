@@ -91,7 +91,7 @@ tags:
 >
 > Targets are nodes of the same color as $i$, plus the larger color class of the second tree. A tree is bipartite, so two colorings yield both class sizes.
 >
-> The answer at $i$ is $\textit{cnt1}[c1[i]]$ plus the larger class of the second tree.
+> The answer at $i$ is $\textit{cnt1}[\textit{c1}[i]]$ plus the larger class of the second tree.
 
 <!-- thinking:end -->
 
@@ -442,7 +442,7 @@ public class Solution {
 >
 > Targets are nodes of the same color as $i$, plus the larger color class of the second tree. A tree is bipartite, so two explicit-stack colorings yield both class sizes.
 >
-> The answer at $i$ is $\textit{cnt1}[c1[i]]$ plus the larger class of the second tree.
+> The answer at $i$ is $\textit{cnt1}[\textit{c1}[i]]$ plus the larger class of the second tree.
 
 <!-- thinking:end -->
 

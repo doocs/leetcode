@@ -72,22 +72,22 @@ The score difference is 18 - 12 = 6.
 
 > **Thinking**
 >
-> Each turn removes one end and scores the sum of what remains. The first-player minus second-player gap on an interval is a memoized game: $dfs(i,j)$ is the current player's advantage.
+> Each turn removes one end and scores the sum of what remains. The first-player minus second-player gap on an interval is a memoized game: $\textit{dfs}(i,j)$ is the current player's advantage.
 >
-> Prefix sums $s$ give the score after dropping the left or right end; take the larger of $s[j+1]-s[i+1]-dfs(i+1,j)$ and $s[j]-s[i]-dfs(i,j-1)$.
+> Prefix sums $s$ give the score after dropping the left or right end; take the larger of $s[j+1]-s[i+1]-\textit{dfs}(i+1,j)$ and $s[j]-s[i]-\textit{dfs}(i,j-1)$.
 
 <!-- thinking:end -->
 
 First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the total sum of the first $i$ stones.
 
-Next, we design a function $dfs(i, j)$, which represents the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. The answer is $dfs(0, n - 1)$.
+Next, we design a function $\textit{dfs}(i, j)$, which represents the score difference between the first and second players when the remaining stones are $\textit{stones}[i], \textit{stones}[i + 1], \dots, \textit{stones}[j]$. The answer is $\textit{dfs}(0, n - 1)$.
 
-The calculation process of the function $dfs(i, j)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 
 - If $i > j$, it means there are no stones currently, so return $0$;
-- Otherwise, the first player has two choices, which are to remove $stones[i]$ or $stones[j]$, and then calculate the score difference, i.e., $a = s[j + 1] - s[i + 1] - dfs(i + 1, j)$ and $b = s[j] - s[i] - dfs(i, j - 1)$. We take the larger of the two as the return value of $dfs(i, j)$.
+- Otherwise, the first player has two choices, which are to remove $\textit{stones}[i]$ or $\textit{stones}[j]$, and then calculate the score difference, i.e., $a = s[j + 1] - s[i + 1] - \textit{dfs}(i + 1, j)$ and $b = s[j] - s[i] - \textit{dfs}(i, j - 1)$. We take the larger of the two as the return value of $\textit{dfs}(i, j)$.
 
-During the process, we use memorization search, i.e., use an array $f$ to record the return value of the function $dfs(i, j)$, to avoid repeated calculations.
+During the process, we use memorization search, i.e., use an array $f$ to record the return value of the function $\textit{dfs}(i, j)$, to avoid repeated calculations.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
@@ -240,7 +240,7 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- thinking:end -->
 
-Solution 1 already fills this transition with decreasing $i$ and increasing $j$. Define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. Therefore, the answer is $f[0][n - 1]$.
+Solution 1 already fills this transition with decreasing $i$ and increasing $j$. Define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $\textit{stones}[i], \textit{stones}[i + 1], \dots, \textit{stones}[j]$. Therefore, the answer is $f[0][n - 1]$.
 
 The state transition equation is as follows:
 
@@ -376,7 +376,7 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- thinking:end -->
 
-Precompute the prefix sums $s$, where $s[i]$ is the sum of the first $i$ stones. Let $f[i][j]$ be the score difference between the current player and the opponent on $stones[i], stones[i + 1], \dots, stones[j]$. A single stone has difference $0$. For $i$ from $n-2$ down to $0$, and for each $i$ with $j$ from $i+1$ to $n-1$, the shorter states $f[i+1][j]$ and $f[i][j-1]$ are already known. Removing the left stone scores $s[j+1]-s[i+1]-f[i+1][j]$, and removing the right stone scores $s[j]-s[i]-f[i][j-1]$. $f[i][j]$ is the larger of the two. The answer is $f[0][n-1]$.
+Precompute the prefix sums $s$, where $s[i]$ is the sum of the first $i$ stones. Let $f[i][j]$ be the score difference between the current player and the opponent on $\textit{stones}[i], \textit{stones}[i + 1], \dots, \textit{stones}[j]$. A single stone has difference $0$. For $i$ from $n-2$ down to $0$, and for each $i$ with $j$ from $i+1$ to $n-1$, the shorter states $f[i+1][j]$ and $f[i][j-1]$ are already known. Removing the left stone scores $s[j+1]-s[i+1]-f[i+1][j]$, and removing the right stone scores $s[j]-s[i]-f[i][j-1]$. $f[i][j]$ is the larger of the two. The answer is $f[0][n-1]$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 

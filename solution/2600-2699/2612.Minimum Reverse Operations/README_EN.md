@@ -104,7 +104,7 @@ tags:
 >
 > Shifting the window changes the image of $i$ by $2$, so odd and even indices separate. The image range collapses to $[mi,mx]$ from the boundary formulae.
 >
-> Two ordered sets hold unvisited odd and even indices (minus $banned$ and the start). BFS takes the slice inside $[mi,mx]$ and deletes those keys immediately so no index is enqueued twice.
+> Two ordered sets hold unvisited odd and even indices (minus $\textit{banned}$ and the start). BFS takes the slice inside $[mi,mx]$ and deletes those keys immediately so no index is enqueued twice.
 
 <!-- thinking:end -->
 
@@ -119,10 +119,10 @@ Therefore, for a specific index $i$, all its flipped indices form an arithmetic 
 Next, we consider the range of values ​​of the index $i$ after flipping $j$.
 
 - If the boundary is not considered, the range of values ​​of $j$ is $[i - k + 1, i + k - 1]$.
-- If the subarray is on the left, then $[l, r] = [0, k - 1]$, so the flipped index $j$ of $i$ is $0 + k - 1 - i$, that is, $j = k - i - 1$, so the left boundary $mi = max(i - k + 1, k - i - 1)$.
-- If the subarray is on the right, then $[l, r] = [n - k, n - 1]$, so the flipped index $j= n - k + n - 1 - i$ is $j = n \times 2 - k - i - 1$, so the right boundary of $j$ is $mx = min(i + k - 1, n \times 2 - k - i - 1)$.
+- If the subarray is on the left, then $[l, r] = [0, k - 1]$, so the flipped index $j$ of $i$ is $0 + k - 1 - i$, that is, $j = k - i - 1$, so the left boundary $mi = \max(i - k + 1, k - i - 1)$.
+- If the subarray is on the right, then $[l, r] = [n - k, n - 1]$, so the flipped index $j= n - k + n - 1 - i$ is $j = n \times 2 - k - i - 1$, so the right boundary of $j$ is $mx = \min(i + k - 1, n \times 2 - k - i - 1)$.
 
-We use two ordered sets to store all the odd indices and even indices to be searched, here we need to exclude the indices in the array $banned$ and the index $p$.
+We use two ordered sets to store all the odd indices and even indices to be searched, here we need to exclude the indices in the array $\textit{banned}$ and the index $p$.
 
 Then we use BFS to search, each time searching all the flipped indices $j$ of the current index $i$, that is, $j = mi, mi + 2, mi + 4, \dots, mx$, updating the answer of index $j$ and adding index $j$ to the search queue, and removing index $j$ from the corresponding ordered set.
 

@@ -83,7 +83,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们直接枚举 $0 \leq i \leq n$ 中的每个数，对于每个数 $i$，我们用库函数或者 $lowbit$ 运算得到 $i$ 中二进制位 $1$ 的个数。
+我们直接枚举 $0 \leq i \leq n$ 中的每个数，对于每个数 $i$，我们用库函数或者 $\textit{lowbit}$ 运算得到 $i$ 中二进制位 $1$ 的个数。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。
 
@@ -171,13 +171,13 @@ function bitCount(n: number): number {
 
 > **思考**
 >
-> 方法一对每个数独立计数。 $i$ 去掉最低位 $1$ 后为 $i\&(i-1)$，其答案已知，故 $ans[i]=ans[i\&(i-1)]+1$。自小到大填表，总时间 $O(n)$。
+> 方法一对每个数独立计数。 $i$ 去掉最低位 $1$ 后为 $i\&(i-1)$，其答案已知，故 $\textit{ans}[i]=\textit{ans}[i\&(i-1)]+1$。自小到大填表，总时间 $O(n)$。
 
 <!-- thinking:end -->
 
-我们定义一个长度为 $n+1$ 的答案数组 $ans$，初始时 $ans[0]=0$。
+我们定义一个长度为 $n+1$ 的答案数组 $\textit{ans}$，初始时 $\textit{ans}[0]=0$。
 
-对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \textit{ and } (i-1)] + 1$。其中 $i \textit{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \textit{ and } (i-1) < i$，且 $ans[i \textit{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。
+对于 $1 \leq i \leq n$，我们有 $\textit{ans}[i] = \textit{ans}[i \textit{ and } (i-1)] + 1$。其中 $i \textit{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \textit{ and } (i-1) < i$，且 $\textit{ans}[i \textit{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $\textit{ans}[i]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 

@@ -70,7 +70,7 @@ onceFn(4, 6, 8); // undefined, fn was not called
 >
 > The wrapper must run the original function only once. Without a flag, every call would enter it again.
 >
-> A closed-over $called$ flips after the first invocation; later calls return `undefined`.
+> A closed-over $\textit{called}$ flips after the first invocation; later calls return `undefined`.
 
 <!-- thinking:end -->
 

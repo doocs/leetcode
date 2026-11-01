@@ -85,7 +85,7 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 >
 > For every node we need how many nodes in its subtree share its label. $n\le 10^5$, so a fresh walk from each node is quadratic. There are only $26$ labels, which a single DFS can count globally.
 >
-> Before entering $i$, remember the current frequency of $labels[i]$; after leaving, read it again. The difference is the count inside that subtree. Storing the entry snapshot in $ans[i]$ (subtract first, add later) avoids an extra array; extra memory is just the alphabet.
+> Before entering $i$, remember the current frequency of $\textit{labels}[i]$; after leaving, read it again. The difference is the count inside that subtree. Storing the entry snapshot in $\textit{ans}[i]$ (subtract first, add later) avoids an extra array; extra memory is just the alphabet.
 
 <!-- thinking:end -->
 
@@ -255,7 +255,7 @@ function countSubTrees(n: number, edges: number[][], labels: string): number[] {
 >
 > There are only $26$ labels. The increase in a label's count between entering a node and leaving it is exactly the count inside that subtree.
 >
-> An explicit stack walks the tree in postorder. On entry, subtract the current count from $ans[i]$, increment the count, then push the exit marker and the children. On exit, add the new count back to $ans[i]$. The difference is the number of matching labels in the subtree.
+> An explicit stack walks the tree in postorder. On entry, subtract the current count from $\textit{ans}[i]$, increment the count, then push the exit marker and the children. On exit, add the new count back to $\textit{ans}[i]$. The difference is the number of matching labels in the subtree.
 
 <!-- thinking:end -->
 

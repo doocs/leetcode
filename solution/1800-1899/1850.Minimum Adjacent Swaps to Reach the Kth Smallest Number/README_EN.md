@@ -101,27 +101,27 @@ tags:
 
 We can call the `next_permutation` function $k$ times to get the $k$th smallest permutation $s$.
 
-Next, we just need to calculate how many swaps are needed for $num$ to become $s$.
+Next, we just need to calculate how many swaps are needed for $\textit{num}$ to become $s$.
 
-Let's first consider a simple situation where all the digits in $num$ are different. In this case, we can directly map the digit characters in $num$ to indices. For example, if $num$ is `"54893"` and $s$ is `"98345"`. We map each digit in $num$ to an index, that is:
+Let's first consider a simple situation where all the digits in $\textit{num}$ are different. In this case, we can directly map the digit characters in $\textit{num}$ to indices. For example, if $\textit{num}$ is `"54893"` and $s$ is `"98345"`. We map each digit in $\textit{num}$ to an index, that is:
 
 $$
 \begin{aligned}
-num[0] &= 5 &\rightarrow& \quad 0 \\
-num[1] &= 4 &\rightarrow& \quad 1 \\
-num[2] &= 8 &\rightarrow& \quad 2 \\
-num[3] &= 9 &\rightarrow& \quad 3 \\
-num[4] &= 3 &\rightarrow& \quad 4 \\
+\textit{num}[0] &= 5 &\rightarrow& \quad 0 \\
+\textit{num}[1] &= 4 &\rightarrow& \quad 1 \\
+\textit{num}[2] &= 8 &\rightarrow& \quad 2 \\
+\textit{num}[3] &= 9 &\rightarrow& \quad 3 \\
+\textit{num}[4] &= 3 &\rightarrow& \quad 4 \\
 \end{aligned}
 $$
 
-Then, mapping each digit in $s$ to an index results in `"32410"`. In this way, the number of swaps needed to change $num$ to $s$ is equal to the number of inversion pairs in the index array after $s$ is mapped.
+Then, mapping each digit in $s$ to an index results in `"32410"`. In this way, the number of swaps needed to change $\textit{num}$ to $s$ is equal to the number of inversion pairs in the index array after $s$ is mapped.
 
-If there are identical digits in $num$, we can use an array $d$ to record the indices where each digit appears, where $d[i]$ represents the list of indices where the digit $i$ appears. To minimize the number of swaps, when mapping $s$ to an index array, we only need to greedily select the index of the corresponding digit in $d$ in order.
+If there are identical digits in $\textit{num}$, we can use an array $d$ to record the indices where each digit appears, where $d[i]$ represents the list of indices where the digit $i$ appears. To minimize the number of swaps, when mapping $s$ to an index array, we only need to greedily select the index of the corresponding digit in $d$ in order.
 
 Finally, we can directly use a double loop to calculate the number of inversion pairs, or we can optimize it with a Binary Indexed Tree.
 
-The time complexity is $O(n(k + n))$, and the space complexity is $O(n)$, where $n$ is the length of $num$.
+The time complexity is $O(n(k + n))$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{num}$.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ setTimeout(() =&gt; {
 
 > **Thinking**
 >
-> The wait before the $count$-th firing is $delay+period\cdot count$, so a constant-period `setInterval` does not apply. Recursively schedule `setTimeout` with that delay, store the handle in a map keyed by an identifier, and let `customClearInterval` cancel the pending timeout.
+> The wait before the $\textit{count}$-th firing is $\textit{delay}+\textit{period}\cdot \textit{count}$, so a constant-period `setInterval` does not apply. Recursively schedule `setTimeout` with that delay, store the handle in a map keyed by an identifier, and let `customClearInterval` cancel the pending timeout.
 
 <!-- thinking:end -->
 

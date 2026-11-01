@@ -90,9 +90,9 @@ tags:
 
 According to the problem description, for a subarray's length to be divisible by $k$, it is equivalent to requiring that for subarray $\textit{nums}[i+1 \ldots j]$, we have $i \bmod k = j \bmod k$.
 
-We can enumerate the right endpoint $j$ of the subarray and use an array $\textit{f}$ of length $k$ to record the minimum prefix sum for each modulo $k$. Initially, $\textit{f}[k-1] = 0$, indicating that the prefix sum at index $-1$ is $0$.
+We can enumerate the right endpoint $j$ of the subarray and use an array $f$ of length $k$ to record the minimum prefix sum for each modulo $k$. Initially, $f[k-1] = 0$, indicating that the prefix sum at index $-1$ is $0$.
 
-Then for the current right endpoint $j$ with prefix sum $s$, we can calculate the maximum sum of subarrays ending at $j$ with length divisible by $k$ as $s - \textit{f}[j \bmod k]$, and update the answer accordingly. At the same time, we need to update $\textit{f}[j \bmod k]$ to be the minimum of the current prefix sum $s$ and $\textit{f}[j \bmod k]$.
+Then for the current right endpoint $j$ with prefix sum $s$, we can calculate the maximum sum of subarrays ending at $j$ with length divisible by $k$ as $s - f[j \bmod k]$, and update the answer accordingly. At the same time, we need to update $f[j \bmod k]$ to be the minimum of the current prefix sum $s$ and $f[j \bmod k]$.
 
 After the enumeration is complete, return the answer.
 

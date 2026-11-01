@@ -79,7 +79,7 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 
 We first use an array or hash table $\textit{cnt}$ to count the frequency of each element in the array $\textit{nums}$.
 
-Then we iterate through $\textit{cnt}$. For each element $x$, we add it to the 0th row, 1st row, 2nd row, ..., and $(cnt[x]-1)$th row of the answer list.
+Then we iterate through $\textit{cnt}$. For each element $x$, we add it to the 0th row, 1st row, 2nd row, ..., and $(\textit{cnt}[x]-1)$th row of the answer list.
 
 Finally, we return the answer list.
 

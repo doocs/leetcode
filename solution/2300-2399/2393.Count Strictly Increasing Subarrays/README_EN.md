@@ -66,7 +66,7 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 >
 > Count contiguous strictly increasing subarrays. Grouped by the right end, the count is the current run length; left ends need not be enumerated.
 >
-> Keep the increasing length $cnt$ ending here: grow it when the value rises, else reset to $1$, and add $cnt$ to the answer.
+> Keep the increasing length $\textit{cnt}$ ending here: grow it when the value rises, else reset to $1$, and add $\textit{cnt}$ to the answer.
 
 <!-- thinking:end -->
 

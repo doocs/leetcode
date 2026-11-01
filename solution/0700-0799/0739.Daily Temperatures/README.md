@@ -72,7 +72,7 @@ tags:
 
 本题需要我们找出每个元素右边第一个比它大的元素的位置，这是一个典型的单调栈应用场景。
 
-我们从右往左遍历数组 $\textit{temperatures}$，维护一个从栈顶到栈底温度单调递增的栈 $\textit{stk}$，栈中存储的是数组元素的下标。对于每个元素 $\textit{temperatures}[i]$，我们不断将其与栈顶元素进行比较，如果栈顶元素对应的温度小于等于 $\textit{temperatures}[i]$，那么循环将栈顶元素弹出，直到栈为空或者栈顶元素对应的温度大于 $\textit{temperatures}[i]$。此时，栈顶元素就是右边第一个比 $\textit{temperatures}[i]$ 大的元素，距离为 $\textit{stk.top()} - i$，我们更新答案数组。然后将 $\textit{temperatures}[i]$ 入栈，继续遍历。
+我们从右往左遍历数组 $\textit{temperatures}$，维护一个从栈顶到栈底温度单调递增的栈 $\textit{stk}$，栈中存储的是数组元素的下标。对于每个元素 $\textit{temperatures}[i]$，我们不断将其与栈顶元素进行比较，如果栈顶元素对应的温度小于等于 $\textit{temperatures}[i]$，那么循环将栈顶元素弹出，直到栈为空或者栈顶元素对应的温度大于 $\textit{temperatures}[i]$。此时，栈顶元素就是右边第一个比 $\textit{temperatures}[i]$ 大的元素，距离为 $\textit{stk}.\textit{top}() - i$，我们更新答案数组。然后将 $\textit{temperatures}[i]$ 入栈，继续遍历。
 
 遍历结束后，返回答案数组即可。
 

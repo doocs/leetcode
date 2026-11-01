@@ -117,7 +117,7 @@ Luis did not received any transfer, credit = $800
 >
 > Report each user's final credit and whether the limit was breached. Credits change via outgoing transfers, incoming transfers, and the opening balance; three separate updates easily drop users with no transactions.
 >
-> Record payments as negative amounts, receipts as positive ones, and $UNION\ ALL$ them with each user's opening credit. Grouping by user yields the closing balance, and users without activity keep their initial row. The sign of the sum tells whether the limit was breached.
+> Record payments as negative amounts, receipts as positive ones, and $\textit{UNION ALL}$ them with each user's opening credit. Grouping by user yields the closing balance, and users without activity keep their initial row. The sign of the sum tells whether the limit was breached.
 
 <!-- thinking:end -->
 

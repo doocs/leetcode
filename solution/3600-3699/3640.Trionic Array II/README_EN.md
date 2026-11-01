@@ -100,7 +100,7 @@ tags:
 
 We can traverse the array to find all possible maximal trionic subarrays, calculate their sums, and update the maximum value.
 
-We define a pointer $i$, initially $i = 0$, representing the current position pointing to the first element of the array. We move $i$ to the right until we find the first element that does not satisfy strict increase, i.e., $nums[i-1] \geq nums[i]$. If at this point $i = l + 1$, it means this segment has only one element and cannot form an increasing sequence, so we continue to the next iteration.
+We define a pointer $i$, initially $i = 0$, representing the current position pointing to the first element of the array. We move $i$ to the right until we find the first element that does not satisfy strict increase, i.e., $\textit{nums}[i-1] \geq \textit{nums}[i]$. If at this point $i = l + 1$, it means this segment has only one element and cannot form an increasing sequence, so we continue to the next iteration.
 
 Next, we define pointer $p$, representing the end position of the current increasing segment. Then we find the second strictly decreasing part. If this segment has only one element, or reaches the end of the array, or encounters equal elements, we continue to the next iteration.
 

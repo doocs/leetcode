@@ -81,9 +81,9 @@ tags:
 
 > **Thinking**
 >
-> The score is $\gcd \times \operatorname{lcm}$ of the whole array or of the array after deleting one element. With $n \le 100$ we could recompute each deletion, but prefix/suffix aggregates answer each candidate in $O(1)$.
+> The score is $\gcd \times \textit{lcm}$ of the whole array or of the array after deleting one element. With $n \le 100$ we could recompute each deletion, but prefix/suffix aggregates answer each candidate in $O(1)$.
 >
-> Build suffix $\gcd$ and $\operatorname{lcm}$, then scan a prefix: deleting $i$ merges $\textit{pre}$ with $\textit{suf}[i+1]$.
+> Build suffix $\gcd$ and $\textit{lcm}$, then scan a prefix: deleting $i$ merges $\textit{pre}$ with $\textit{suf}[i+1]$.
 >
 > We also compare the no-deletion score $\textit{suf}[0]$ and keep the largest product.
 

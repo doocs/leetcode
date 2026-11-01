@@ -79,7 +79,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们先计算出船上可以装载的最大重量，即 $n \times n \times w$，然后取其与 $\text{maxWeight}$ 的最小值，再除以 $w$ 即可。
+我们先计算出船上可以装载的最大重量，即 $n \times n \times w$，然后取其与 $\textit{maxWeight}$ 的最小值，再除以 $w$ 即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

@@ -80,7 +80,7 @@ Product 1 is available in store1 with price 70 and store3 with price 80. The pro
 >
 > Three store-price columns should become long rows $(\textit{product},\textit{store},\textit{price})$. Null prices mean the store does not carry the item.
 >
-> Select the nonempty rows for each store, label the store name, and $\mathrm{UNION}$ them.
+> Select the nonempty rows for each store, label the store name, and $\textit{UNION}$ them.
 
 <!-- thinking:end -->
 

@@ -82,9 +82,9 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 
 We can use BFS to determine whether we can reach the index with a value of $0$.
 
-Define a queue $q$ to store the currently reachable indices. Initially, enqueue the $start$ index.
+Define a queue $q$ to store the currently reachable indices. Initially, enqueue the $\textit{start}$ index.
 
-When the queue is not empty, take out the front index $i$ of the queue. If $arr[i] = 0$, return `true`. Otherwise, mark the index $i$ as visited. If $i + arr[i]$ and $i - arr[i]$ are within the array range and have not been visited, enqueue them and continue searching.
+When the queue is not empty, take out the front index $i$ of the queue. If $\textit{arr}[i] = 0$, return `true`. Otherwise, mark the index $i$ as visited. If $i + \textit{arr}[i]$ and $i - \textit{arr}[i]$ are within the array range and have not been visited, enqueue them and continue searching.
 
 Finally, if the queue is empty, it means that we cannot reach the index with a value of $0$, so return `false`.
 

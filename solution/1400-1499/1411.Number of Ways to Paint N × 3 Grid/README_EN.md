@@ -69,7 +69,7 @@ We classify all possible states for each row. According to the principle of symm
 - When the state is $010$ type: The possible states for the next row are: $101$, $102$, $121$, $201$, $202$. These $5$ states can be summarized as $3$ $010$ types and $2$ $012$ types.
 - When the state is $012$ type: The possible states for the next row are: $101$, $120$, $121$, $201$. These $4$ states can be summarized as $2$ $010$ types and $2$ $012$ types.
 
-In summary, we can get: $newf0 = 3 \times f0 + 2 \times f1$, $newf1 = 2 \times f0 + 2 \times f1$.
+In summary, we can get: $\textit{newf0} = 3 \times \textit{f0} + 2 \times \textit{f1}$, $\textit{newf1} = 2 \times \textit{f0} + 2 \times \textit{f1}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of rows in the grid.
 

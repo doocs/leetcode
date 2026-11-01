@@ -81,15 +81,15 @@ We can make at most one copy of &quot;aaaaa&quot;, so we return 1.
 
 > **Thinking**
 >
-> We copy $target$ from letters of $s$ as many times as possible. $|s|\le 100$; the limit is the letter whose supply-to-demand ratio is smallest.
+> We copy $\textit{target}$ from letters of $s$ as many times as possible. $|s|\le 100$; the limit is the letter whose supply-to-demand ratio is smallest.
 >
-> Count both strings and take $\min \lfloor cnt_1[c]/cnt_2[c] \rfloor$ over letters of $target$.
+> Count both strings and take $\min \lfloor \textit{cnt}_1[c]/\textit{cnt}_2[c] \rfloor$ over letters of $\textit{target}$.
 
 <!-- thinking:end -->
 
-We count the occurrences of each character in the strings $\textit{s}$ and $\textit{target}$, denoted as $\textit{cnt1}$ and $\textit{cnt2}$. For each character in $\textit{target}$, we calculate the number of times it appears in $\textit{cnt1}$ divided by the number of times it appears in $\textit{cnt2}$, and take the minimum value.
+We count the occurrences of each character in the strings $s$ and $\textit{target}$, denoted as $\textit{cnt1}$ and $\textit{cnt2}$. For each character in $\textit{target}$, we calculate the number of times it appears in $\textit{cnt1}$ divided by the number of times it appears in $\textit{cnt2}$, and take the minimum value.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(|\Sigma|)$, where $n$ and $m$ are the lengths of the strings $\textit{s}$ and $\textit{target}$, respectively. And $|\Sigma|$ is the size of the character set, which is 26 in this problem.
+The time complexity is $O(n + m)$, and the space complexity is $O(|\Sigma|)$, where $n$ and $m$ are the lengths of the strings $s$ and $\textit{target}$, respectively. And $|\Sigma|$ is the size of the character set, which is 26 in this problem.
 
 <!-- tabs:start -->
 

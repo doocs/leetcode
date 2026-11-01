@@ -65,13 +65,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义两个变量 $f$ 和 $g$，其中 $f$ 表示以 $nums[i]$ 结尾的乘积最大子数组的乘积，而 $g$ 表示以 $nums[i]$ 结尾的乘积最小子数组的乘积。初始时 $f$ 和 $g$ 都等于 $nums[0]$。答案为所有 $f$ 中的最大值。
+我们定义两个变量 $f$ 和 $g$，其中 $f$ 表示以 $\textit{nums}[i]$ 结尾的乘积最大子数组的乘积，而 $g$ 表示以 $\textit{nums}[i]$ 结尾的乘积最小子数组的乘积。初始时 $f$ 和 $g$ 都等于 $\textit{nums}[0]$。答案为所有 $f$ 中的最大值。
 
-从 $i=1$ 开始，我们可以考虑将第 $i$ 个数 $nums[i]$ 添加到前面的乘积最大或者乘积最小的子数组乘积的后面，或者单独作为一个子数组乘积（即此时子数组长度只有 $1$）。我们将此前的乘积最大值记为 $ff$，乘积最小值记为 $gg$，那么 $f = \max(f, ff \times nums[i], gg \times nums[i])$，而 $g = \min(g, ff \times nums[i], gg \times nums[i])$。接下来，我们更新答案 $ans = \max(ans, f)$，然后继续计算下一个位置。
+从 $i=1$ 开始，我们可以考虑将第 $i$ 个数 $\textit{nums}[i]$ 添加到前面的乘积最大或者乘积最小的子数组乘积的后面，或者单独作为一个子数组乘积（即此时子数组长度只有 $1$）。我们将此前的乘积最大值记为 $ff$，乘积最小值记为 $gg$，那么 $f = \max(f, ff \times \textit{nums}[i], gg \times \textit{nums}[i])$，而 $g = \min(g, ff \times \textit{nums}[i], gg \times \textit{nums}[i])$。接下来，我们更新答案 $\textit{ans} = \max(\textit{ans}, f)$，然后继续计算下一个位置。
 
-最后的答案即为 $ans$。
+最后的答案即为 $\textit{ans}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。我们只需要遍历数组一次即可求得答案。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。我们只需要遍历数组一次即可求得答案。
 
 <!-- tabs:start -->
 

@@ -87,9 +87,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $pos$ 记录所有有石块的位置，初始时 $pos$ 中包含 $nums$ 中的所有元素。然后我们遍历 $moveFrom$ 和 $moveTo$，每次将 $moveFrom[i]$ 从 $pos$ 中移除，再将 $moveTo[i]$ 添加到 $pos$ 中。最后我们将 $pos$ 中的元素排序后返回即可。
+我们用一个哈希表 $\textit{pos}$ 记录所有有石块的位置，初始时 $\textit{pos}$ 中包含 $\textit{nums}$ 中的所有元素。然后我们遍历 $\textit{moveFrom}$ 和 $\textit{moveTo}$，每次将 $\textit{moveFrom}[i]$ 从 $\textit{pos}$ 中移除，再将 $\textit{moveTo}[i]$ 添加到 $\textit{pos}$ 中。最后我们将 $\textit{pos}$ 中的元素排序后返回即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

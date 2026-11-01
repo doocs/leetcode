@@ -65,20 +65,20 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $f[i]$ 表示以 $nums[i]$ 结尾，且没有进行替换的最大子数组和，另外定义 $g[i]$ 表示以 $nums[i]$ 结尾，且进行了替换的最大子数组和。那么有如下状态转移方程：
+我们定义 $f[i]$ 表示以 $\textit{nums}[i]$ 结尾，且没有进行替换的最大子数组和，另外定义 $g[i]$ 表示以 $\textit{nums}[i]$ 结尾，且进行了替换的最大子数组和。那么有如下状态转移方程：
 
 $$
 \begin{aligned}
-f[i] &= \max(f[i - 1], 0) + nums[i] \\
-g[i] &= \max(\max(f[i - 1], 0) + nums[i] \times nums[i], g[i - 1] + nums[i])
+f[i] &= \max(f[i - 1], 0) + \textit{nums}[i] \\
+g[i] &= \max(\max(f[i - 1], 0) + \textit{nums}[i] \times \textit{nums}[i], g[i - 1] + \textit{nums}[i])
 \end{aligned}
 $$
 
-最终答案即为所有 $max(f[i], g[i])$ 的最大值。
+最终答案即为所有 $\max(f[i], g[i])$ 的最大值。
 
 由于 $f[i]$ 只与 $f[i - 1]$ 有关，因此我们可以只用两个变量来维护 $f[i]$ 和 $g[i]$ 的值，从而将空间复杂度降低到 $O(1)$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

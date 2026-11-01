@@ -83,11 +83,11 @@ The substring of length 1 that starts and ends with the same letter is: &quot;a&
 
 We can use a hash table or an array $\textit{cnt}$ of length $26$ to record the occurrences of each character.
 
-Traverse the string $\textit{s}$. For each character $\textit{c}$, increment the value of $\textit{cnt}[c]$ by $1$, and then add the value of $\textit{cnt}[c]$ to the answer.
+Traverse the string $s$. For each character $c$, increment the value of $\textit{cnt}[c]$ by $1$, and then add the value of $\textit{cnt}[c]$ to the answer.
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma|=26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

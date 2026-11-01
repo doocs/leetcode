@@ -182,7 +182,7 @@ tags:
 
 > **Thinking**
 >
-> Starting from $1$, each $nums[i]$ may multiply, divide, or leave the value, and the final rational must equal $k$. The array is short, but intermediate fractions grow.
+> Starting from $1$, each $\textit{nums}[i]$ may multiply, divide, or leave the value, and the final rational must equal $k$. The array is short, but intermediate fractions grow.
 >
 > A state is the index together with the reduced fraction $(p,q)$. The ternary tree needs memoization.
 >
@@ -192,13 +192,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $\text{dfs}(i, p, q)$ that represents the number of different choice sequences when processing at index $i$ with the current rational value being $\frac{p}{q}$. Initially, $\text{dfs}(0, 1, 1)$ represents starting from the initial value of $1$.
+We define a function $\textit{dfs}(i, p, q)$ that represents the number of different choice sequences when processing at index $i$ with the current rational value being $\frac{p}{q}$. Initially, $\textit{dfs}(0, 1, 1)$ represents starting from the initial value of $1$.
 
 For each index $i$, we have three choices:
 
-1. Keep it unchanged, i.e., $\text{dfs}(i + 1, p, q)$.
-2. Multiply by $nums[i]$, i.e., $\text{dfs}(i + 1, p \cdot nums[i], q)$.
-3. Divide by $nums[i]$, i.e., $\text{dfs}(i + 1, p, q \cdot nums[i])$.
+1. Keep it unchanged, i.e., $\textit{dfs}(i + 1, p, q)$.
+2. Multiply by $\textit{nums}[i]$, i.e., $\textit{dfs}(i + 1, p \cdot \textit{nums}[i], q)$.
+3. Divide by $\textit{nums}[i]$, i.e., $\textit{dfs}(i + 1, p, q \cdot \textit{nums}[i])$.
 
 To avoid excessively large numbers, we simplify the numerator and denominator after each multiplication or division. Finally, when $i$ equals $n$, if $\frac{p}{q}$ exactly equals $k$, we return $1$; otherwise, we return $0$.
 

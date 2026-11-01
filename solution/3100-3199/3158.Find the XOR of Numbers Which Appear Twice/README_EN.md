@@ -189,7 +189,7 @@ function duplicateNumbersXOR(nums: number[]): number {
 >
 > A 64-bit mask records whether a value has been seen; the second sighting XORs it into the answer.
 >
-> If bit $x$ of $mask$ is set, XOR $x$ into $ans$; otherwise set the bit. Extra arrays disappear.
+> If bit $x$ of $\textit{mask}$ is set, XOR $x$ into $\textit{ans}$; otherwise set the bit. Extra arrays disappear.
 
 <!-- thinking:end -->
 

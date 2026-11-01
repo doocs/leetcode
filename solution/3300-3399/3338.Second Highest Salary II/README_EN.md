@@ -122,7 +122,7 @@ Each row of this table contains information about an employee including their ID
 >
 > Each department needs every employee with the second-highest salary. Ties should share a rank, so we use a dense rank rather than a row number.
 >
-> Rank $\textit{salary}$ descending within $\textit{dept}$, keep $\textit{rk}=2$, and sort by $\textit{emp\_id}$.
+> Rank $\textit{salary}$ descending within $\textit{dept}$, keep $rk=2$, and sort by $\textit{emp\_id}$.
 >
 > Every employee tied for second in a department then appears in the result.
 

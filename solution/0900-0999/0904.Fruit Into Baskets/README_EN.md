@@ -82,9 +82,9 @@ If we had started at the first tree, we would only pick from trees [1,2].
 
 <!-- thinking:end -->
 
-We use a hash table $cnt$ to maintain the types and corresponding quantities of fruits in the current window, and use two pointers $j$ and $i$ to maintain the left and right boundaries of the window.
+We use a hash table $\textit{cnt}$ to maintain the types and corresponding quantities of fruits in the current window, and use two pointers $j$ and $i$ to maintain the left and right boundaries of the window.
 
-We traverse the $\textit{fruits}$ array, add the current fruit $x$ to the window, i.e., $cnt[x]++$, then judge whether the types of fruits in the current window exceed $2$. If it exceeds $2$, we need to move the left boundary $j$ of the window to the right until the types of fruits in the window do not exceed $2$. Then we update the answer, i.e., $ans = \max(ans, i - j + 1)$.
+We traverse the $\textit{fruits}$ array, add the current fruit $x$ to the window, i.e., $\textit{cnt}[x]++$, then judge whether the types of fruits in the current window exceed $2$. If it exceeds $2$, we need to move the left boundary $j$ of the window to the right until the types of fruits in the window do not exceed $2$. Then we update the answer, i.e., $\textit{ans} = \max(\textit{ans}, i - j + 1)$.
 
 After the traversal ends, we can get the final answer.
 

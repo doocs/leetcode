@@ -78,7 +78,7 @@ myCalendar.book(20, 30); // return True, The event can be booked, as the first e
 
 We can use an ordered set to store the schedule. An ordered set can perform insert, delete, and search operations in $O(\log n)$ time. The elements in the ordered set are sorted by the $\textit{endTime}$ of the schedule in ascending order.
 
-When calling the $\text{book}(start, end)$ method, we search for the first schedule in the ordered set with an end time greater than $\textit{start}$. If it exists and its start time is less than $\textit{end}$, it means there is a double booking, and we return $\text{false}$. Otherwise, we insert $\textit{end}$ as the key and $\textit{start}$ as the value into the ordered set and return $\text{true}$.
+When calling the $\textit{book}(\textit{start}, \textit{end})$ method, we search for the first schedule in the ordered set with an end time greater than $\textit{start}$. If it exists and its start time is less than $\textit{end}$, it means there is a double booking, and we return $\textit{false}$. Otherwise, we insert $\textit{end}$ as the key and $\textit{start}$ as the value into the ordered set and return $\textit{true}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of schedules.
 

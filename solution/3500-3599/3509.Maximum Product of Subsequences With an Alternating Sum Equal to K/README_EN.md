@@ -133,7 +133,7 @@ tags:
 
 > **Thinking**
 >
-> There are $2^n$ subsequences and $n \le 150$. Alternating sum and product must be tracked together; $k$ is wide, but $\textit{limit} \le 5000$ and $nums[i] \le 12$, so products above $\textit{limit}$ can be discarded.
+> There are $2^n$ subsequences and $n \le 150$. Alternating sum and product must be tracked together; $k$ is wide, but $\textit{limit} \le 5000$ and $\textit{nums}[i] \le 12$, so products above $\textit{limit}$ can be discarded.
 >
 > DP over the index, the parity of the chosen length, the running alternating sum, and the capped product. A zero in $\textit{nums}$ needs a separate zero-product case.
 

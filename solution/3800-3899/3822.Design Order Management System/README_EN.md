@@ -86,21 +86,21 @@ orderManagementSystem.getOrdersAtPrice(&quot;buy&quot;, 1); // There are no acti
 >
 > The query key is $(\textit{orderType},\textit{price})$, while each id must map back to that pair.
 >
-> Store id $\to (\textit{type},\textit{price})$ in $\textit{orders}$ and the reverse lists in $\textit{t}$. Add writes both; modify removes from the old list and appends to the new one.
+> Store id $\to (\textit{type},\textit{price})$ in $\textit{orders}$ and the reverse lists in $t$. Add writes both; modify removes from the old list and appends to the new one.
 >
 > List removal is linear, which is acceptable for $n \le 2000$. A query returns the list as is.
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{orders}$ to store the type and price information of each order, where the key is the order ID and the value is a tuple $(\textit{orderType}, \textit{price})$. Additionally, we use another hash table $\textit{t}$ to store the list of order IDs corresponding to each $(\textit{orderType}, \textit{price})$, where the key is a tuple $(\textit{orderType}, \textit{price})$ and the value is the list of order IDs.
+We use a hash table $\textit{orders}$ to store the type and price information of each order, where the key is the order ID and the value is a tuple $(\textit{orderType}, \textit{price})$. Additionally, we use another hash table $t$ to store the list of order IDs corresponding to each $(\textit{orderType}, \textit{price})$, where the key is a tuple $(\textit{orderType}, \textit{price})$ and the value is the list of order IDs.
 
-When calling $\texttt{addOrder}$, we add the order information to $\textit{orders}$ and append the order ID to the corresponding list in $\textit{t}$.
+When calling $\texttt{addOrder}$, we add the order information to $\textit{orders}$ and append the order ID to the corresponding list in $t$.
 
-When calling $\texttt{modifyOrder}$, we first retrieve the order type and old price from $\textit{orders}$, then update the order's price information. Next, we remove the order ID from the corresponding list in $\textit{t}$ and add it to the list corresponding to the new price.
+When calling $\texttt{modifyOrder}$, we first retrieve the order type and old price from $\textit{orders}$, then update the order's price information. Next, we remove the order ID from the corresponding list in $t$ and add it to the list corresponding to the new price.
 
-When calling $\texttt{cancelOrder}$, we retrieve the order type and price information from $\textit{orders}$, then remove the order ID from the corresponding list in $\textit{t}$ and delete the order from $\textit{orders}$.
+When calling $\texttt{cancelOrder}$, we retrieve the order type and price information from $\textit{orders}$, then remove the order ID from the corresponding list in $t$ and delete the order from $\textit{orders}$.
 
-When calling $\texttt{getOrdersAtPrice}$, we directly return the list of order IDs corresponding to the query in $\textit{t}$.
+When calling $\texttt{getOrdersAtPrice}$, we directly return the list of order IDs corresponding to the query in $t$.
 
 In the above operations, the time complexity for adding and retrieving the order ID list is $O(1)$, while the time complexity for removing an order ID from the list is $O(n)$, where $n$ is the length of the corresponding list. Since the total number of orders in the problem does not exceed $2000$, this method is efficient enough in practice. The space complexity is $O(m)$, where $m$ is the total number of orders.
 

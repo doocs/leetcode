@@ -75,23 +75,23 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i, j)$，表示从第 $i$ 根钢筋开始，且当前高度差为 $j$ 时，两边的最大共同高度。那么答案就是 $dfs(0, 0)$。
+我们设计一个函数 $\textit{dfs}(i, j)$，表示从第 $i$ 根钢筋开始，且当前高度差为 $j$ 时，两边的最大共同高度。那么答案就是 $\textit{dfs}(0, 0)$。
 
-函数 $dfs(i, j)$ 的计算过程如下：
+函数 $\textit{dfs}(i, j)$ 的计算过程如下：
 
 如果 $i=n$，此时判断 $j$ 是否为 $0$，如果是则返回 $0$，否则返回 $-\infty$。
 
 如果 $i \lt n$，此时有三种情况：
 
-1. 不选择第 $i$ 根钢筋，此时 $dfs(i, j) = dfs(i+1, j)$；
-1. 选择第 $i$ 根钢筋，并且放置在原本高度较高的一边，那么 $dfs(i, j) = dfs(i+1, j+rods[i])$；
-1. 选择第 $i$ 根钢筋，并且放置在高度较低的一边，此时共同高度增加了 $\min(j, rods[i])$，那么 $dfs(i, j) = dfs(i+1, |rods[i]-j|) + \min(j, rods[i])$。
+1. 不选择第 $i$ 根钢筋，此时 $\textit{dfs}(i, j) = \textit{dfs}(i+1, j)$；
+1. 选择第 $i$ 根钢筋，并且放置在原本高度较高的一边，那么 $\textit{dfs}(i, j) = \textit{dfs}(i+1, j+\textit{rods}[i])$；
+1. 选择第 $i$ 根钢筋，并且放置在高度较低的一边，此时共同高度增加了 $\min(j, \textit{rods}[i])$，那么 $\textit{dfs}(i, j) = \textit{dfs}(i+1, |\textit{rods}[i]-j|) + \min(j, \textit{rods}[i])$。
 
-我们取这三种情况下的最大值，即可得到 $dfs(i, j)$ 的值。
+我们取这三种情况下的最大值，即可得到 $\textit{dfs}(i, j)$ 的值。
 
-为了避免重复计算，我们使用一个二维数组 $f$ 来记录已经计算过的 $dfs(i, j)$ 的值，调用 $dfs(i, j)$ 时，如果 $f[i][j]$ 已经被计算过，则直接返回 $f[i][j]$。否则，我们计算 $dfs(i, j)$ 的值，并将其存入 $f[i][j]$。
+为了避免重复计算，我们使用一个二维数组 $f$ 来记录已经计算过的 $\textit{dfs}(i, j)$ 的值，调用 $\textit{dfs}(i, j)$ 时，如果 $f[i][j]$ 已经被计算过，则直接返回 $f[i][j]$。否则，我们计算 $\textit{dfs}(i, j)$ 的值，并将其存入 $f[i][j]$。
 
-时间复杂度 $O(nS)$，空间复杂度 $O(nS)$。其中 $n$ 和 $S$ 分别为 $rods$ 的长度和 $rods$ 中所有元素的和。
+时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $n$ 和 $S$ 分别为 $\textit{rods}$ 的长度和 $\textit{rods}$ 中所有元素的和。
 
 <!-- tabs:start -->
 
@@ -251,12 +251,12 @@ function tallestBillboard(rods: number[]): number {
 
 <!-- thinking:end -->
 
-我们定义 $f[i][j]$ 表示前 $i$ 根钢筋，两边高度差为 $j$ 时的最大共同高度。初始时 $f[0][0]=0$，其余 $f[i][j]=-\infty$。我们求出所有 $rods[i]$ 的和，记为 $s$，那么 $j$ 的取值范围为 $[0,..s]$。
+我们定义 $f[i][j]$ 表示前 $i$ 根钢筋，两边高度差为 $j$ 时的最大共同高度。初始时 $f[0][0]=0$，其余 $f[i][j]=-\infty$。我们求出所有 $\textit{rods}[i]$ 的和，记为 $s$，那么 $j$ 的取值范围为 $[0,..s]$。
 
 对于第 $i$ 根钢筋，我们可以不选择它，此时 $f[i][j]=f[i-1][j]$；也可以选择它，此时有三种情况：
 
-1. 放置在原本高度较高的一边，即满足 $j \geq rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][j-rods[i-1]])$；
-1. 放置在原本高度较低的一遍，如果满足 $j + rods[i-1] \leq s$，此时 $f[i][j] = max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1])$；如果满足 $j \lt rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j)$。
+1. 放置在原本高度较高的一边，即满足 $j \geq \textit{rods}[i-1]$，此时 $f[i][j] = \max(f[i][j], f[i-1][j-\textit{rods}[i-1]])$；
+1. 放置在原本高度较低的一遍，如果满足 $j + \textit{rods}[i-1] \leq s$，此时 $f[i][j] = \max(f[i][j], f[i-1][j+\textit{rods}[i-1]] + \textit{rods}[i-1])$；如果满足 $j \lt \textit{rods}[i-1]$，此时 $f[i][j] = \max(f[i][j], f[i-1][\textit{rods}[i-1]-j] + \textit{rods}[i-1]-j)$。
 
 综上，我们可以得到状态转移方程：
 
@@ -271,7 +271,7 @@ $$
 
 最终答案即为 $f[n][0]$。
 
-时间复杂度 $O(nS)$，空间复杂度 $O(nS)$。其中 $n$ 和 $S$ 分别为 $rods$ 的长度和 $rods$ 中所有元素的和。
+时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $n$ 和 $S$ 分别为 $\textit{rods}$ 的长度和 $\textit{rods}$ 中所有元素的和。
 
 <!-- tabs:start -->
 

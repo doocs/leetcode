@@ -163,13 +163,13 @@ source: Weekly Contest 525 Q3
 >
 > The $m$-th new value must occur exactly $m$ times. Counts only increase, so once a value exceeds its order, every longer subarray from this left endpoint still contains that extra occurrence.
 >
-> $\textit{ok}$ counts how many values have reached exactly their own order. When it equals the number of distinct values, the frequencies in first-occurrence order are $1,2,\ldots,k$. Each left endpoint therefore keeps two hash maps and expands to the right, stopping at the first excess.
+> $ok$ counts how many values have reached exactly their own order. When it equals the number of distinct values, the frequencies in first-occurrence order are $1,2,\ldots,k$. Each left endpoint therefore keeps two hash maps and expands to the right, stopping at the first excess.
 
 <!-- thinking:end -->
 
-Enumerate the left endpoint $i$. The hash map $\textit{orders}$ stores the first-occurrence rank of each value in $\textit{nums}[i..j]$, numbered from $1$. The hash map $\textit{cnt}$ stores the occurrence counts. $\textit{ok}$ is the number of values whose count is exactly equal to their rank.
+Enumerate the left endpoint $i$. The hash map $\textit{orders}$ stores the first-occurrence rank of each value in $\textit{nums}[i..j]$, numbered from $1$. The hash map $\textit{cnt}$ stores the occurrence counts. $ok$ is the number of values whose count is exactly equal to their rank.
 
-Move the right endpoint $j$ from $i$ toward the right. If $\textit{nums}[j]$ is new, its rank is one more than the current number of distinct values; then increment its count. When a count exceeds its rank, every longer subarray from this left endpoint still contains that extra occurrence, so the scan stops. When a count becomes equal to its rank, increment $\textit{ok}$. When $\textit{ok}$ equals the number of distinct values, those frequencies in first-occurrence order are exactly $1,2,\ldots,k$, and the answer increases by one.
+Move the right endpoint $j$ from $i$ toward the right. If $\textit{nums}[j]$ is new, its rank is one more than the current number of distinct values; then increment its count. When a count exceeds its rank, every longer subarray from this left endpoint still contains that extra occurrence, so the scan stops. When a count becomes equal to its rank, increment $ok$. When $ok$ equals the number of distinct values, those frequencies in first-occurrence order are exactly $1,2,\ldots,k$, and the answer increases by one.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

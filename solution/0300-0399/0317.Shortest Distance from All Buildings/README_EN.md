@@ -81,7 +81,7 @@ So return 7.
 >
 > Find an empty cell minimizing the sum of distances to every building, without crossing buildings or obstacles. BFS from every empty cell repeats work when buildings are few and empties are many.
 >
-> BFS from each building instead, adding the distance into $dist$ and incrementing $cnt$. Among empties with $cnt$ equal to the building total, take the smallest $dist$; if none is reached by every building, return $-1$.
+> BFS from each building instead, adding the distance into $\textit{dist}$ and incrementing $\textit{cnt}$. Among empties with $\textit{cnt}$ equal to the building total, take the smallest $\textit{dist}$; if none is reached by every building, return $-1$.
 
 <!-- thinking:end -->
 

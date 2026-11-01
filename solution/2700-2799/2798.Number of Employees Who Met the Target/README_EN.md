@@ -69,17 +69,17 @@ There are 0 employees who met the target.
 
 > **Thinking**
 >
-> Count employees whose hours are at least $target$. One linear scan is enough; no sort or extra structure is required.
+> Count employees whose hours are at least $\textit{target}$. One linear scan is enough; no sort or extra structure is required.
 >
-> Sum the predicate $x\ge target$ over $hours$.
+> Sum the predicate $x\ge \textit{target}$ over $\textit{hours}$.
 
 <!-- thinking:end -->
 
-We can iterate through the array $hours$. For each employee, if their working hours $x$ is greater than or equal to $target$, then we increment the counter $ans$ by one.
+We can iterate through the array $\textit{hours}$. For each employee, if their working hours $x$ is greater than or equal to $\textit{target}$, then we increment the counter $\textit{ans}$ by one.
 
 After the iteration, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $hours$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{hours}$.
 
 <!-- tabs:start -->
 

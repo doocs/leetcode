@@ -94,7 +94,7 @@ Output table is ordered by state in ascending order, fraud score in descending o
 >
 > $\texttt{RANK}$ partitioned by state and ordered by score descending marks every top score as rank $1$.
 >
-> Keep $\textit{rk}=1$ and sort by state, score, and policy id.
+> Keep $rk=1$ and sort by state, score, and policy id.
 
 <!-- thinking:end -->
 

@@ -61,20 +61,20 @@ tags:
 >
 > Incrementing $n-1$ elements is the same as decrementing the one left out, until everything equals the minimum. Simulating the increments rewrites the whole array.
 >
-> The number of decrements is $\sum nums - n\cdot\min(nums)$.
+> The number of decrements is $\sum \textit{nums} - n\cdot\min(\textit{nums})$.
 >
 > One pass for the min and the sum is enough; the operations need not be applied.
 
 <!-- thinking:end -->
 
-Let the minimum value of the array $\textit{nums}$ be $\textit{mi}$, the sum of the array be $\textit{s}$, and the length of the array be $\textit{n}$.
+Let the minimum value of the array $\textit{nums}$ be $mi$, the sum of the array be $s$, and the length of the array be $n$.
 
-Assume the minimum number of operations is $\textit{k}$, and the final value of all elements in the array is $\textit{x}$. Then we have:
+Assume the minimum number of operations is $k$, and the final value of all elements in the array is $x$. Then we have:
 
 $$
 \begin{aligned}
-\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times \textit{x} \\
-\textit{x} &= \textit{mi} + \textit{k} \\
+s + (n - 1) \times k &= n \times x \\
+x &= mi + k \\
 \end{aligned}
 $$
 
@@ -82,15 +82,15 @@ Substituting the second equation into the first equation, we get:
 
 $$
 \begin{aligned}
-\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times (\textit{mi} + \textit{k}) \\
-\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times \textit{mi} + \textit{n} \times \textit{k} \\
-\textit{k} &= \textit{s} - \textit{n} \times \textit{mi} \\
+s + (n - 1) \times k &= n \times (mi + k) \\
+s + (n - 1) \times k &= n \times mi + n \times k \\
+k &= s - n \times mi \\
 \end{aligned}
 $$
 
-Therefore, the minimum number of operations is $\textit{s} - \textit{n} \times \textit{mi}$.
+Therefore, the minimum number of operations is $s - n \times mi$.
 
-$|\textit{nums}[i]|$ reaches $10^9$ and $n$ reaches $10^5$, so both $\textit{s}$ and $n \times \textit{mi}$ may fall outside a 32-bit integer. The problem guarantees that their difference still fits, so the sum is computed with a 64-bit integer.
+$|\textit{nums}[i]|$ reaches $10^9$ and $n$ reaches $10^5$, so both $s$ and $n \times mi$ may fall outside a 32-bit integer. The problem guarantees that their difference still fits, so the sum is computed with a 64-bit integer.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

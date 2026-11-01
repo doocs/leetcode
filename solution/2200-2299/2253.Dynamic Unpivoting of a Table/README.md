@@ -89,7 +89,7 @@ Products 表:
 
 > **思考**
 >
-> 与上一题相反：商店是列，需要拆成 $(\textit{product\_id}, \textit{store}, \textit{price})$ 行，且价格为空的列丢掉。列名同样事先未知，只能从 $\textit{information\_schema.columns}$ 读取。
+> 与上一题相反：商店是列，需要拆成 $(\textit{product\_id}, \textit{store}, \textit{price})$ 行，且价格为空的列丢掉。列名同样事先未知，只能从 $\textit{information\_schema}.\textit{columns}$ 读取。
 >
 > 对每个非 $\textit{product\_id}$ 列生成一段 $\textit{SELECT product\_id}, '列名' \textit{store}, 列名 \textit{price FROM Products WHERE} 列名 $\textit{IS NOT NULL}$，再用 $\textit{UNION}$ 拼起来动态执行。
 

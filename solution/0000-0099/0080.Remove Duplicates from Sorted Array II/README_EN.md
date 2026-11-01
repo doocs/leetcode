@@ -84,15 +84,15 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 >
 > Copy into a new array, at most two of each value: correct, but the problem wants in-place $O(1)$ extra space. $n \le 3\times 10^4$, so one pass.
 >
-> Sorted runs are contiguous; problem 26 keeps one copy, here we keep two. Let $k$ be the length of the kept prefix: $x$ may be written iff fewer than two are kept, or it differs from the second-to-last kept value — otherwise it would be a third copy. Write at $nums[k]$, bump $k$, return $k$.
+> Sorted runs are contiguous; problem 26 keeps one copy, here we keep two. Let $k$ be the length of the kept prefix: $x$ may be written iff fewer than two are kept, or it differs from the second-to-last kept value — otherwise it would be a third copy. Write at $\textit{nums}[k]$, bump $k$, return $k$.
 
 <!-- thinking:end -->
 
 We use a variable $k$ to record the current length of the array that has been processed. Initially, $k=0$, representing an empty array.
 
-Then we traverse the array from left to right. For each element $x$ we traverse, if $k < 2$ or $x \neq nums[k-2]$, we put $x$ in the position of $nums[k]$, and then increment $k$ by $1$. Otherwise, $x$ is the same as $nums[k-2]$, we directly skip this element. Continue to traverse until the entire array is traversed.
+Then we traverse the array from left to right. For each element $x$ we traverse, if $k < 2$ or $x \neq \textit{nums}[k-2]$, we put $x$ in the position of $\textit{nums}[k]$, and then increment $k$ by $1$. Otherwise, $x$ is the same as $\textit{nums}[k-2]$, we directly skip this element. Continue to traverse until the entire array is traversed.
 
-In this way, when the traversal ends, the first $k$ elements in $nums$ are the answer we want, and $k$ is the length of the answer.
+In this way, when the traversal ends, the first $k$ elements in $\textit{nums}$ are the answer we want, and $k$ is the length of the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

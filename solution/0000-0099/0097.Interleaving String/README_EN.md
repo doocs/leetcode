@@ -88,15 +88,15 @@ Since s3 can be obtained by interleaving s1 and s2, we return true.
 
 Let's denote the length of string $s_1$ as $m$ and the length of string $s_2$ as $n$. If $m + n \neq |s_3|$, then $s_3$ is definitely not an interleaving string of $s_1$ and $s_2$, so we return `false`.
 
-Next, we design a function $dfs(i, j)$, which represents whether the remaining part of $s_3$ can be interleaved from the $i$th character of $s_1$ and the $j$th character of $s_2$. The answer is $dfs(0, 0)$.
+Next, we design a function $\textit{dfs}(i, j)$, which represents whether the remaining part of $s_3$ can be interleaved from the $i$th character of $s_1$ and the $j$th character of $s_2$. The answer is $\textit{dfs}(0, 0)$.
 
-The calculation process of function $dfs(i, j)$ is as follows:
+The calculation process of function $\textit{dfs}(i, j)$ is as follows:
 
 If $i \geq m$ and $j \geq n$, it means that both $s_1$ and $s_2$ have been traversed, so we return `true`.
 
-If $i < m$ and $s_1[i] = s_3[i + j]$, it means that the character $s_1[i]$ is part of $s_3[i + j]$. Therefore, we recursively call $dfs(i + 1, j)$ to check whether the next character of $s_1$ can match the current character of $s_2$. If it can match, we return `true`.
+If $i < m$ and $s_1[i] = s_3[i + j]$, it means that the character $s_1[i]$ is part of $s_3[i + j]$. Therefore, we recursively call $\textit{dfs}(i + 1, j)$ to check whether the next character of $s_1$ can match the current character of $s_2$. If it can match, we return `true`.
 
-Similarly, if $j < n$ and $s_2[j] = s_3[i + j]$, it means that the character $s_2[j]$ is part of $s_3[i + j]$. Therefore, we recursively call $dfs(i, j + 1)$ to check whether the next character of $s_2$ can match the current character of $s_1$. If it can match, we return `true`.
+Similarly, if $j < n$ and $s_2[j] = s_3[i + j]$, it means that the character $s_2[j]$ is part of $s_3[i + j]$. Therefore, we recursively call $\textit{dfs}(i, j + 1)$ to check whether the next character of $s_2$ can match the current character of $s_1$. If it can match, we return `true`.
 
 Otherwise, we return `false`.
 

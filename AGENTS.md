@@ -114,6 +114,18 @@ Follow this in every Markdown prose region that contains math, including algorit
 - Keep the closing `$` flush with the formula. A space before the closer drops the formula.
 - Do not insert this space inside fenced code, inline code, or `<pre>` blocks, and do not rewrite a currency amount that uses a single `$`.
 
+Use one notation for symbols in solution prose (Thinking blocks and the algorithm write-up), outside fenced code:
+
+- Put formulas in `$...$` or `$$...$$`. Do not put a formula in a fence or in inline code.
+- A single-letter symbol stays plain math: `$n$`, `$i$`, `$f[i][j]$`, `$O(n\log n)$`.
+- Two lowercase letters stay plain math. That spelling is also a product (`$O(mn)$`, `$ab$`, `$dp$`).
+- A longer code identifier is `\textit`, including inside a larger formula: `$\textit{nums}[i]$`, `$\textit{dfs}(i)$`, `$s_{\textit{left}}$`. A digit, underscore, or capital letter makes a short token an identifier too: `$\textit{s1}$`, `$\textit{is\_end}$`, `$\textit{COUNT}$`. A capital letter does not glue single-letter factors into one name: write `$O(C \times n)$`, `$O(C \times nm)$`, `$O(mn \times K)$`, and `$O(X \times Y \times n)$`, not `$O(\textit{Cn})$` or `$O(\textit{Cnm})$`. Two capitals that are separate sizes inside big-O are a product as well: `$O(V \times E)$`, `$O(C \times M)$`. A numeral stays one identifier: `$\textit{CM}=900$`. Several uppercase words in one formula stay one italic phrase: `$\textit{NOT IN}$`, `$\textit{UNION ALL}$`, `$\textit{GROUP BY}$`.
+- A hexadecimal or binary mask is inline code, not a split formula: `` `0xFFFFFFFF` ``, `` `0b1111` ``. Inside a larger formula, keep the whole literal in `\texttt`.
+- Words that are not identifiers stay `\text`: `$\text{真实值}$`, `$\text{Gold Medal}$`, `$\text{'S'}$`.
+- Keep a TeX control word separate from the next letter: `$u\times v$`, not `$u\timesv$`.
+- Operator names stay commands: `\log`, `\ln`, and `\min` / `\max` / `\gcd` when they are called or subscripted. Do not write code identifiers with `\text`, `\mathrm`, or `\operatorname`.
+- Inline code is for a concrete code token (a call, a literal, a keyword cited as syntax), not for a symbol that also appears in a formula. Fenced blocks are for code, traces, and diagrams.
+
 ## Thinking section (how we arrive at the answer)
 
 Optional in `README.md` / `README_EN.md`. When present, teach the path to the solution, not only the finished algorithm.

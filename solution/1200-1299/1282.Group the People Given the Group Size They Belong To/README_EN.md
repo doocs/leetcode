@@ -68,15 +68,15 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 
 > **Thinking**
 >
-> People sharing a group size must fill complete groups of that size. $n \le 500$: bucket indices by $groupSize$, then slice each bucket into contiguous chunks of that length. A solution is guaranteed, so the slices are the groups.
+> People sharing a group size must fill complete groups of that size. $n \le 500$: bucket indices by $\textit{groupSize}$, then slice each bucket into contiguous chunks of that length. A solution is guaranteed, so the slices are the groups.
 
 <!-- thinking:end -->
 
-We use a hash table $g$ to store which people are in each group size $groupSize$. Then we partition each group size into $k$ equal parts, with each part containing $groupSize$ people.
+We use a hash table $g$ to store which people are in each group size $\textit{groupSize}$. Then we partition each group size into $k$ equal parts, with each part containing $\textit{groupSize}$ people.
 
 Since the range of $n$ in the problem is small, we can also directly create an array of size $n+1$ to store the data, which is more efficient.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $groupSizes$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{groupSizes}$.
 
 <!-- tabs:start -->
 

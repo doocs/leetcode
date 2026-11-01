@@ -87,15 +87,15 @@ tags:
 >
 > 每次要选 $k<2^{\textit{maximumBit}}$ 使当前前缀异或与 $k$ 的异或最大，再删掉末尾元素。若对每个查询重新扫描数组，时间为 $O(n^2)$。 $n\le 10^5$，无法通过。
 >
-> 先求出全数组异或 $xs$。从后往前删除时， $k$ 应在 $maximumBit$ 位内尽量把 $xs$ 的 $0$ 翻成 $1$。按位检查 $xs$ 即可构造 $k$，再用 $xs\oplus x$ 回退末尾。
+> 先求出全数组异或 $xs$。从后往前删除时， $k$ 应在 $\textit{maximumBit}$ 位内尽量把 $xs$ 的 $0$ 翻成 $1$。按位检查 $xs$ 即可构造 $k$，再用 $xs\oplus x$ 回退末尾。
 
 <!-- thinking:end -->
 
-我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$。
+我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$。
 
-接下来，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，我们需要找到一个数 $k$，使得 $xs \oplus k$ 的值尽可能大，并且 $k \lt 2^{maximumBit}$。
+接下来，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，我们需要找到一个数 $k$，使得 $xs \oplus k$ 的值尽可能大，并且 $k \lt 2^{\textit{maximumBit}}$。
 
-也即是说，我们从 $xs$ 的第 $maximumBit - 1$ 位开始，往低位枚举，如果 $xs$ 的某一位为 $0$，那么我们就将 $k$ 的对应位设置为 $1$，否则我们就将 $k$ 的对应位设置为 $0$。这样，最终得到的 $k$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
+也即是说，我们从 $xs$ 的第 $\textit{maximumBit} - 1$ 位开始，往低位枚举，如果 $xs$ 的某一位为 $0$，那么我们就将 $k$ 的对应位设置为 $1$，否则我们就将 $k$ 的对应位设置为 $0$。这样，最终得到的 $k$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
 
 时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `maximumBit` 的值。
 
@@ -290,13 +290,13 @@ public class Solution {
 
 > **思考**
 >
-> 方法一按位构造 $k$，内层循环依赖 $maximumBit$。注意到目标是让 $xs\oplus k$ 在低 $maximumBit$ 位全为 $1$，故 $k=xs\oplus(2^{\textit{maximumBit}}-1)$。一次异或即可，总时间降为线性。
+> 方法一按位构造 $k$，内层循环依赖 $\textit{maximumBit}$。注意到目标是让 $xs\oplus k$ 在低 $\textit{maximumBit}$ 位全为 $1$，故 $k=xs\oplus(2^{\textit{maximumBit}}-1)$。一次异或即可，总时间降为线性。
 
 <!-- thinking:end -->
 
-与方法一类似，我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$。
+与方法一类似，我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$。
 
-接下来，我们算出 $2^{maximumBit} - 1$，即 $2^{maximumBit}$ 减去 $1$，记为 $mask$。然后，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，那么 $k=xs \oplus mask$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
+接下来，我们算出 $2^{\textit{maximumBit}} - 1$，即 $2^{\textit{maximumBit}}$ 减去 $1$，记为 $\textit{mask}$。然后，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，那么 $k=xs \oplus \textit{mask}$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
 

@@ -64,17 +64,17 @@ tags:
 
 > **Thinking**
 >
-> The first idea is to scan left to right until the first index $\ge target$. Correct, and $n \le 10^4$ would pass, but the array is strictly increasing, so a linear scan wastes the order.
+> The first idea is to scan left to right until the first index $\ge \textit{target}$. Correct, and $n \le 10^4$ would pass, but the array is strictly increasing, so a linear scan wastes the order.
 >
-> The insertion point is exactly the first index not smaller than $target$ — a standard lower bound.
+> The insertion point is exactly the first index not smaller than $\textit{target}$ — a standard lower bound.
 >
-> Keep a half-open interval $[l,r)$: if $nums[mid] \ge target$ the answer lies in the left half (including $mid$), otherwise it lies to the right of $mid$. When $l=r$, $l$ is the insertion index.
+> Keep a half-open interval $[l,r)$: if $\textit{nums}[\textit{mid}] \ge \textit{target}$ the answer lies in the left half (including $\textit{mid}$), otherwise it lies to the right of $\textit{mid}$. When $l=r$, $l$ is the insertion index.
 
 <!-- thinking:end -->
 
-Since the array $nums$ is already sorted, we can use the binary search method to find the insertion position of the target value $target$.
+Since the array $\textit{nums}$ is already sorted, we can use the binary search method to find the insertion position of the target value $\textit{target}$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -251,7 +251,7 @@ class Solution {
 
 We can also directly use the built-in function for binary search.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

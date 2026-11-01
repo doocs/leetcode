@@ -102,7 +102,7 @@ Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 >
 > 四项大满贯冠军存在宽表里，要按球员统计冠军次数。先把四列竖成一列再与球员表连接。
 >
-> $\mathrm{UNION\ ALL}$ 四次选出冠军 $\textit{player\_id}$，等值连接 $\textit{Players}$ 后按人 $\mathrm{COUNT}$。
+> $\textit{UNION ALL}$ 四次选出冠军 $\textit{player\_id}$，等值连接 $\textit{Players}$ 后按人 $\textit{COUNT}$。
 
 <!-- thinking:end -->
 
@@ -146,7 +146,7 @@ GROUP BY 1;
 
 > **思考**
 >
-> 也可以不拆行：球员与赛事表交叉连接，用四个 $\mathrm{CASE}$ 对号入座后求和，再 $\mathrm{HAVING}$ 滤掉零冠。避免中间表，语义是按人扫四列。
+> 也可以不拆行：球员与赛事表交叉连接，用四个 $\textit{CASE}$ 对号入座后求和，再 $\textit{HAVING}$ 滤掉零冠。避免中间表，语义是按人扫四列。
 
 <!-- thinking:end -->
 

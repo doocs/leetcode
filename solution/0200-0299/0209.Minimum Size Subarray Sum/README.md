@@ -82,13 +82,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们先预处理出数组 $nums$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 前 $i$ 项元素之和。由于数组 $nums$ 中的元素都是正整数，因此数组 $s$ 也是单调递增的。另外，我们初始化答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。
+我们先预处理出数组 $\textit{nums}$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $\textit{nums}$ 前 $i$ 项元素之和。由于数组 $\textit{nums}$ 中的元素都是正整数，因此数组 $s$ 也是单调递增的。另外，我们初始化答案 $\textit{ans} = n + 1$，其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
-接下来，我们遍历前缀和数组 $s$，对于其中的每个元素 $s[i]$，我们可以通过二分查找的方法找到满足 $s[j] \geq s[i] + target$ 的最小下标 $j$，如果 $j \leq n$，则说明存在满足条件的子数组，我们可以更新答案，即 $ans = min(ans, j - i)$。
+接下来，我们遍历前缀和数组 $s$，对于其中的每个元素 $s[i]$，我们可以通过二分查找的方法找到满足 $s[j] \geq s[i] + \textit{target}$ 的最小下标 $j$，如果 $j \leq n$，则说明存在满足条件的子数组，我们可以更新答案，即 $\textit{ans} = \min(\textit{ans}, j - i)$。
 
-最后，如果 $ans \leq n$，则说明存在满足条件的子数组，返回 $ans$，否则返回 $0$。
+最后，如果 $\textit{ans} \leq n$，则说明存在满足条件的子数组，返回 $\textit{ans}$，否则返回 $0$。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -287,9 +287,9 @@ public class Solution {
 
 我们注意到，数组 $\textit{nums}$ 中的元素均为正整数，我们可以考虑使用双指针来维护一个滑动窗口。
 
-具体地，我们定义两个指针 $\textit{l}$ 和 $\textit{r}$ 分别表示滑动窗口的左边界和右边界，用一个变量 $\textit{s}$ 代表滑动窗口中的元素和。
+具体地，我们定义两个指针 $l$ 和 $r$ 分别表示滑动窗口的左边界和右边界，用一个变量 $s$ 代表滑动窗口中的元素和。
 
-在每一步操作中，我们移动右指针 $\textit{r}$，使得滑动窗口中加入一个元素，如果此时 $\textit{s} \ge \textit{target}$，我们就更新最小长度 $\textit{ans} = \min(\textit{ans}, \textit{r} - \textit{l} + 1$，并将左指针 $\textit{l}$ 循环向右移动，直至有 $\textit{s} < \textit{target}$。
+在每一步操作中，我们移动右指针 $r$，使得滑动窗口中加入一个元素，如果此时 $s \ge \textit{target}$，我们就更新最小长度 $\textit{ans} = \min(\textit{ans}, r - l + 1$，并将左指针 $l$ 循环向右移动，直至有 $s < \textit{target}$。
 
 最后，如果最小长度 $\textit{ans}$ 仍为初始值，我们就返回 $0$，否则返回 $\textit{ans}$。
 

@@ -122,9 +122,9 @@ Items table:
 
 > **思考**
 >
-> 要统计每位卖家卖出的、品牌异于其偏好的不同商品数，再取出该数目的最大值对应的卖家。三次等值连接把订单、用户与商品对齐，用 $item_brand \neq favorite_brand$ 过滤后按 $seller_id$ 分组。
+> 要统计每位卖家卖出的、品牌异于其偏好的不同商品数，再取出该数目的最大值对应的卖家。三次等值连接把订单、用户与商品对齐，用 $\textit{item}_\textit{brand} \neq \textit{favorite}_\textit{brand}$ 过滤后按 $\textit{seller}_id$ 分组。
 >
-> $COUNT(DISTINCT item_id)$ 得到 $num_items$。外层再与子查询 $MAX(num_items)$ 比较，避免在同一层聚合中既求最大又筛行。最后按卖家编号排序。
+> $\textit{COUNT}(\textit{DISTINCT} \textit{item}_id)$ 得到 $\textit{num}_\textit{items}$。外层再与子查询 $\textit{MAX}(\textit{num}_\textit{items})$ 比较，避免在同一层聚合中既求最大又筛行。最后按卖家编号排序。
 
 <!-- thinking:end -->
 

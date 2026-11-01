@@ -95,11 +95,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a priority queue (min-heap) $\textit{pq}$ to maintain the largest $k$ elements.
+We can use a priority queue (min-heap) $pq$ to maintain the largest $k$ elements.
 
-Traverse each row, sort the elements in each row, and then take the largest $\textit{limit}$ elements from each row and add them to $\textit{pq}$. If the size of $\textit{pq}$ exceeds $k$, pop the top element of the heap.
+Traverse each row, sort the elements in each row, and then take the largest $\textit{limit}$ elements from each row and add them to $pq$. If the size of $pq$ exceeds $k$, pop the top element of the heap.
 
-Finally, sum the elements in $\textit{pq}$.
+Finally, sum the elements in $pq$.
 
 The time complexity is $O(nm(\log m + \log k))$, and the space complexity is $O(k)$, where $n$ and $m$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
 

@@ -82,13 +82,13 @@ tags:
 >
 > Scanning the road list for every pair multiplies the adjacency test by the number of roads.
 >
-> While the edges are inserted, a degree array $\textit{cnt}$ and a $0/1$ matrix $\textit{g}$ record both quantities. For each $a \lt b$ the rank is $\textit{cnt}[a] + \textit{cnt}[b] - \textit{g}[a][b]$, and the double loop keeps the maximum.
+> While the edges are inserted, a degree array $\textit{cnt}$ and a $0/1$ matrix $g$ record both quantities. For each $a \lt b$ the rank is $\textit{cnt}[a] + \textit{cnt}[b] - g[a][b]$, and the double loop keeps the maximum.
 
 <!-- thinking:end -->
 
-We can use a one-dimensional array $\textit{cnt}$ to record the degree of each city and a two-dimensional array $\textit{g}$ to record whether there is a road between each pair of cities. If there is a road between city $a$ and city $b$, then $\textit{g}[a][b] = \textit{g}[b][a] = 1$; otherwise, $\textit{g}[a][b] = \textit{g}[b][a] = 0$.
+We can use a one-dimensional array $\textit{cnt}$ to record the degree of each city and a two-dimensional array $g$ to record whether there is a road between each pair of cities. If there is a road between city $a$ and city $b$, then $g[a][b] = g[b][a] = 1$; otherwise, $g[a][b] = g[b][a] = 0$.
 
-Next, we enumerate each pair of cities $(a, b)$, where $a \lt b$, and calculate their network rank, which is $\textit{cnt}[a] + \textit{cnt}[b] - \textit{g}[a][b]$. The maximum value among these is the answer.
+Next, we enumerate each pair of cities $(a, b)$, where $a \lt b$, and calculate their network rank, which is $\textit{cnt}[a] + \textit{cnt}[b] - g[a][b]$. The maximum value among these is the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of cities.
 

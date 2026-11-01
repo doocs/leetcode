@@ -66,9 +66,9 @@ Thus, one possible nums3 array is [2,5,1,6].
 
 > **Thinking**
 >
-> The Cartesian XOR has $mn$ terms; $m,n\le 10^5$ forbids enumeration. A value XOR-ed an even number of times vanishes, so $nums1[i]$ survives iff $n$ is odd.
+> The Cartesian XOR has $mn$ terms; $m,n\le 10^5$ forbids enumeration. A value XOR-ed an even number of times vanishes, so $\textit{nums1}[i]$ survives iff $n$ is odd.
 >
-> If $n$ is odd, XOR all of $nums1$ into the answer; if $m$ is odd, XOR all of $nums2$. The combination is the XOR of every pairing.
+> If $n$ is odd, XOR all of $\textit{nums1}$ into the answer; if $m$ is odd, XOR all of $\textit{nums2}$. The combination is the XOR of every pairing.
 
 <!-- thinking:end -->
 

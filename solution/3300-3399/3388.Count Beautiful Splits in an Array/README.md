@@ -93,11 +93,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以预处理 $\text{LCP}[i][j]$ 表示 $\textit{nums}[i:]$ 和 $\textit{nums}[j:]$ 的最长公共前缀长度。初始时 $\text{LCP}[i][j] = 0$。
+我们可以预处理 $\textit{LCP}[i][j]$ 表示 $\textit{nums}[i:]$ 和 $\textit{nums}[j:]$ 的最长公共前缀长度。初始时 $\textit{LCP}[i][j] = 0$。
 
-接下来，我们倒序枚举 $i$ 和 $j$，对于每一对 $i$ 和 $j$，如果 $\textit{nums}[i] = \textit{nums}[j]$，那么我们可以得到 $\text{LCP}[i][j] = \text{LCP}[i + 1][j + 1] + 1$。
+接下来，我们倒序枚举 $i$ 和 $j$，对于每一对 $i$ 和 $j$，如果 $\textit{nums}[i] = \textit{nums}[j]$，那么我们可以得到 $\textit{LCP}[i][j] = \textit{LCP}[i + 1][j + 1] + 1$。
 
-最后，我们枚举第一个子数组的结尾位置 $i$（不包括位置 $i$），以及第二个子数组的结尾位置 $j$（不包括位置 $j$），那么第一个子数组的长度为 $i$，第二个子数组的长度为 $j - i$，第三个子数组的长度为 $n - j$。如果 $i \leq j - i$ 且 $\text{LCP}[0][i] \geq i$，或者 $j - i \leq n - j$ 且 $\text{LCP}[i][j] \geq j - i$，那么这个分割是美丽的，答案加一。
+最后，我们枚举第一个子数组的结尾位置 $i$（不包括位置 $i$），以及第二个子数组的结尾位置 $j$（不包括位置 $j$），那么第一个子数组的长度为 $i$，第二个子数组的长度为 $j - i$，第三个子数组的长度为 $n - j$。如果 $i \leq j - i$ 且 $\textit{LCP}[0][i] \geq i$，或者 $j - i \leq n - j$ 且 $\textit{LCP}[i][j] \geq j - i$，那么这个分割是美丽的，答案加一。
 
 枚举结束后，答案即为美丽的分割数目。
 

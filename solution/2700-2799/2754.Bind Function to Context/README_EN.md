@@ -98,9 +98,9 @@ boundFunc(); // &quot;My name is Kathy&quot;
 
 > **Thinking**
 >
-> Implement $bind$: the returned function should invoke the original with a given $this$. A thin wrapper that relies on its own $this$ would not lock the context.
+> Implement $\textit{bind}$: the returned function should invoke the original with a given $\textit{this}$. A thin wrapper that relies on its own $\textit{this}$ would not lock the context.
 >
-> Install an arrow function on the prototype that $this.call$s $obj$ with the forwarded arguments, so the bound object stays $obj$.
+> Install an arrow function on the prototype that $\textit{this}.\textit{call}$s $\textit{obj}$ with the forwarded arguments, so the bound object stays $\textit{obj}$.
 
 <!-- thinking:end -->
 

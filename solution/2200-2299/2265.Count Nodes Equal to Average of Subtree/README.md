@@ -72,7 +72,7 @@ tags:
 >
 > 统计子树平均值（向下取整）等于自身值的节点。 $n \le 10^3$，对每个节点再扫一遍子树会重复。一次后序遍历即可带回子树和与节点数。
 >
-> $\textit{dfs}$ 返回 $(s, n)$，当前节点的平均为 $\lfloor s/n \rfloor$，与 $\textit{root.val}$ 比较后累加答案。空树返回 $(0,0)$。
+> $\textit{dfs}$ 返回 $(s, n)$，当前节点的平均为 $\lfloor s/n \rfloor$，与 $\textit{root}.\textit{val}$ 比较后累加答案。空树返回 $(0,0)$。
 
 <!-- thinking:end -->
 
@@ -81,8 +81,8 @@ tags:
 函数 $\textit{dfs}$ 的执行过程如下：
 
 - 如果当前节点为空，返回 $(0, 0)$。
-- 否则，我们递归计算左右子树的和以及节点个数，分别记为 $(\textit{ls}, \textit{ln})$ 和 $(\textit{rs}, \textit{rn})$。那么，以当前节点为根的子树的和 $\textit{s}$ 和节点个数 $\textit{n}$ 分别为 $\textit{ls} + \textit{rs} + \textit{root.val}$ 和 $\textit{ln} + \textit{rn} + 1$。如果 $\textit{s} / \textit{n} = \textit{root.val}$，则说明当前节点满足题目要求，我们将答案 $\textit{ans}$ 自增 $1$。
-- 最后，函数 $\textit{dfs}$ 返回 $\textit{s}$ 和 $\textit{n}$。
+- 否则，我们递归计算左右子树的和以及节点个数，分别记为 $(ls, \ln)$ 和 $(rs, rn)$。那么，以当前节点为根的子树的和 $s$ 和节点个数 $n$ 分别为 $ls + rs + \textit{root}.\textit{val}$ 和 $\ln + rn + 1$。如果 $s / n = \textit{root}.\textit{val}$，则说明当前节点满足题目要求，我们将答案 $\textit{ans}$ 自增 $1$。
+- 最后，函数 $\textit{dfs}$ 返回 $s$ 和 $n$。
 
 我们初始化答案 $\textit{ans}$ 为 $0$，然后调用 $\textit{dfs}$ 函数，最后返回答案 $\textit{ans}$。
 

@@ -83,7 +83,7 @@ tags:
 
 每次从队列中取出一个节点，如果该节点的值为 $x$ 或 $y$，则记录该节点的父节点和深度。如果该节点的左右子节点不为空，则将左右子节点和该节点放入队列中。
 
-当队列中所有节点都处理完毕后，如果 $x$ 和 $y$ 的深度相同且父节点不同，则返回 $true$，否则返回 $false$。
+当队列中所有节点都处理完毕后，如果 $x$ 和 $y$ 的深度相同且父节点不同，则返回 $\textit{true}$，否则返回 $\textit{false}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
@@ -307,11 +307,11 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root, parent, depth)$，表示从根节点 $root$ 出发，其父节点为 $parent$，深度为 $depth$，进行深度优先搜索。
+我们设计一个函数 $\textit{dfs}(\textit{root}, \textit{parent}, \textit{depth})$，表示从根节点 $\textit{root}$ 出发，其父节点为 $\textit{parent}$，深度为 $\textit{depth}$，进行深度优先搜索。
 
-在函数中，我们首先判断当前节点是否为空，如果为空，则直接返回。如果当前节点的值为 $x$ 或 $y$，则记录该节点的父节点和深度。然后对当前节点的左右子节点分别调用函数 $dfs$，其中父节点为当前节点，深度为当前深度加 $1$。即 $dfs(root.left, root, depth + 1)$ 和 $dfs(root.right, root, depth + 1)$。
+在函数中，我们首先判断当前节点是否为空，如果为空，则直接返回。如果当前节点的值为 $x$ 或 $y$，则记录该节点的父节点和深度。然后对当前节点的左右子节点分别调用函数 $\textit{dfs}$，其中父节点为当前节点，深度为当前深度加 $1$。即 $\textit{dfs}(\textit{root}.\textit{left}, \textit{root}, \textit{depth} + 1)$ 和 $\textit{dfs}(\textit{root}.\textit{right}, \textit{root}, \textit{depth} + 1)$。
 
-当整棵二叉树遍历完毕后，如果 $x$ 和 $y$ 的深度相同且父节点不同，则返回 $true$，否则返回 $false$。
+当整棵二叉树遍历完毕后，如果 $x$ 和 $y$ 的深度相同且父节点不同，则返回 $\textit{true}$，否则返回 $\textit{false}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

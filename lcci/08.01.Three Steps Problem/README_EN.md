@@ -224,15 +224,15 @@ class Solution {
 
 We set $F(n)$ to represent a $1 \times 3$ matrix $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$, where $F_{n - 1}$, $F_{n - 2}$ and $F_{n - 3}$ respectively represent the number of ways to reach the $n - 1$-th, $n - 2$-th and $n - 3$-th steps.
 
-We hope to derive $F(n)$ based on $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$. That is to say, we need a matrix $base$, so that $F(n - 1) \times base = F(n)$, i.e.:
+We hope to derive $F(n)$ based on $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$. That is to say, we need a matrix $\textit{base}$, so that $F(n - 1) \times \textit{base} = F(n)$, i.e.:
 
 $$
 \begin{bmatrix}
 F_{n - 2} & F_{n - 3} & F_{n - 4}
-\end{bmatrix} \times base = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
+\end{bmatrix} \times \textit{base} = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
 $$
 
-Since $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$, the matrix $base$ is:
+Since $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$, the matrix $\textit{base}$ is:
 
 $$
 \begin{bmatrix}
@@ -242,7 +242,7 @@ $$
 \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$, then $F_n$ equals the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 4}$. It can be solved using matrix quick power.
+We define the initial matrix $\textit{res} = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$, then $F_n$ equals the sum of all elements in the result matrix of $\textit{res}$ multiplied by $\textit{base}^{n - 4}$. It can be solved using matrix quick power.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

@@ -85,13 +85,13 @@ It can be proven that 4788 is the highest score one can obtain.
 
 > **Thinking**
 >
-> A subarray's prime score is that of its leftmost maximum-score element. Monotonic stacks give the span where $nums[i]$ is that maximum, contributing $(i-l)\times(r-i)$ operations. With at most $k$ operations, we raise the largest values to those powers first until $k$ is exhausted.
+> A subarray's prime score is that of its leftmost maximum-score element. Monotonic stacks give the span where $\textit{nums}[i]$ is that maximum, contributing $(i-l)\times(r-i)$ operations. With at most $k$ operations, we raise the largest values to those powers first until $k$ is exhausted.
 
 <!-- thinking:end -->
 
-It is not difficult to see that the number of subarrays with the highest prime score of an element $nums[i]$ is $cnt = (i - l) \times (r - i)$, where $l$ is the leftmost index such that $primeScore(nums[l]) \ge primeScore(nums[i])$, and $r$ is the rightmost index such that $primeScore(nums[r]) \ge primeScore(nums[i])$.
+It is not difficult to see that the number of subarrays with the highest prime score of an element $\textit{nums}[i]$ is $\textit{cnt} = (i - l) \times (r - i)$, where $l$ is the leftmost index such that $\textit{primeScore}(\textit{nums}[l]) \ge \textit{primeScore}(\textit{nums}[i])$, and $r$ is the rightmost index such that $\textit{primeScore}(\textit{nums}[r]) \ge \textit{primeScore}(\textit{nums}[i])$.
 
-Since we are allowed to operate at most $k$ times, we can greedily enumerate $nums[i]$ from large to small, and compute the $cnt$ of each element. If $cnt \le k$, then the contribution of $nums[i]$ to the answer is $nums[i]^{cnt}$, and we update $k = k - cnt$. If $cnt \gt k$, then the contribution of $nums[i]$ to the answer is $nums[i]^{k}$, and we break out the loop.
+Since we are allowed to operate at most $k$ times, we can greedily enumerate $\textit{nums}[i]$ from large to small, and compute the $\textit{cnt}$ of each element. If $\textit{cnt} \le k$, then the contribution of $\textit{nums}[i]$ to the answer is $\textit{nums}[i]^{\textit{cnt}}$, and we update $k = k - \textit{cnt}$. If $\textit{cnt} \gt k$, then the contribution of $\textit{nums}[i]$ to the answer is $\textit{nums}[i]^{k}$, and we break out the loop.
 
 Return the answer after the loop. Note that the power is large, so we need to use fast power.
 

@@ -80,9 +80,9 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 
 <!-- thinking:end -->
 
-我们用一个哈希表或数组 $\textit{cnt}$ 记录每个 $\textit{target}$ 出现的次数，用一个变量 $\textit{mx}$ 维护 $\textit{target}$ 出现的最大次数，初始时 $\textit{mx} = 0$。
+我们用一个哈希表或数组 $\textit{cnt}$ 记录每个 $\textit{target}$ 出现的次数，用一个变量 $mx$ 维护 $\textit{target}$ 出现的最大次数，初始时 $mx = 0$。
 
-遍历数组 $\textit{nums}$，如果 $\textit{nums}[i] = \textit{key}$，则 $\textit{nums}[i + 1]$ 出现的次数 $\textit{cnt}[\textit{nums}[i + 1]]$ 加一，如果此时 $\textit{mx} \lt \textit{cnt}[\textit{nums}[i + 1]]$，则更新 $\textit{mx} = \textit{cnt}[\textit{nums}[i + 1]]$，并更新答案 $\textit{ans} = \textit{nums}[i + 1]$。
+遍历数组 $\textit{nums}$，如果 $\textit{nums}[i] = \textit{key}$，则 $\textit{nums}[i + 1]$ 出现的次数 $\textit{cnt}[\textit{nums}[i + 1]]$ 加一，如果此时 $mx \lt \textit{cnt}[\textit{nums}[i + 1]]$，则更新 $mx = \textit{cnt}[\textit{nums}[i + 1]]$，并更新答案 $\textit{ans} = \textit{nums}[i + 1]$。
 
 遍历结束后，返回答案 $\textit{ans}$。
 

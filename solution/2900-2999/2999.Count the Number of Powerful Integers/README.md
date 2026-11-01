@@ -79,9 +79,9 @@ tags:
 
 > **思考**
 >
-> 统计 $[start,finish]$ 中、每位 $\le limit$ 且以 $s$ 为后缀的个数。区间计数化为 $f(finish)-f(start-1)$。数位 DP 按位填写，高位受 $limit$ 与上界紧约束，低 $|s|$ 位必须匹配 $s$（紧约束时还须 $s \le$ 上界剩余）。
+> 统计 $[\textit{start},\textit{finish}]$ 中、每位 $\le \textit{limit}$ 且以 $s$ 为后缀的个数。区间计数化为 $f(\textit{finish})-f(\textit{start}-1)$。数位 DP 按位填写，高位受 $\textit{limit}$ 与上界紧约束，低 $|s|$ 位必须匹配 $s$（紧约束时还须 $s \le$ 上界剩余）。
 >
-> $t$ 比 $s$ 短则方案为 $0$。记忆化 $(pos,lim)$ 即可，上界长度不超过 $16$。
+> $t$ 比 $s$ 短则方案为 $0$。记忆化 $(\textit{pos},\textit{lim})$ 即可，上界长度不超过 $16$。
 
 <!-- thinking:end -->
 
@@ -90,7 +90,7 @@ tags:
 对于区间 $[l,..r]$ 问题，我们一般会将其转化为 $[1,..r]$ 然后再减去 $[1,..l - 1]$ 的问题，即：
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 对于本题而言，我们求出 $[1, \textit{finish}]$ 中满足条件的数的个数，然后减去 $[1, \textit{start} - 1]$ 中满足条件的数的个数，即可得到答案。
@@ -101,9 +101,9 @@ $$
 
 1. 先将 $\textit{start}$ 和 $\textit{finish}$ 转化为字符串，方便后续的数位 DP。
 2. 设计一个函数 $\textit{dfs}(\textit{pos}, \textit{lim})$，表示从第 $\textit{pos}$ 位开始搜索，当前的限制条件为 $\textit{lim}$。
-3. 如果最大的数字位数小于 $\textit{s}$ 的长度，返回 0。
-4. 如果当前剩余的数字位数等于 $\textit{s}$ 的长度，判断当前的数字是否满足条件，返回 1 或 0。
-5. 否则，我们计算当前位的上限 $\textit{up} = \min(\textit{lim} ? \textit{t}[\textit{pos}] : 9, \textit{limit})$。然后遍历当前位的数字 $i$，从 0 到 $\textit{up}$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == \textit{t}[\textit{pos}])$，将结果累加到答案中。
+3. 如果最大的数字位数小于 $s$ 的长度，返回 0。
+4. 如果当前剩余的数字位数等于 $s$ 的长度，判断当前的数字是否满足条件，返回 1 或 0。
+5. 否则，我们计算当前位的上限 $up = \min(\textit{lim} ? t[\textit{pos}] : 9, \textit{limit})$。然后遍历当前位的数字 $i$，从 0 到 $up$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == t[\textit{pos}])$，将结果累加到答案中。
 6. 如果当前的 $\textit{lim}$ 为 false，则将当前的答案存入缓存中，避免重复计算。
 7. 最后返回答案。
 

@@ -68,13 +68,13 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 > **思考**
 >
-> 数据流上固定窗口的平均值。每次重算窗口和为 $O(size)$。维护和即可 $O(1)$ 更新。
+> 数据流上固定窗口的平均值。每次重算窗口和为 $O(\textit{size})$。维护和即可 $O(1)$ 更新。
 >
-> 循环数组记下窗口，下标 $cnt\bmod size$ 覆盖最旧值：和先减旧加新。平均值为 $s/\min(cnt,size)$。
+> 循环数组记下窗口，下标 $\textit{cnt}\bmod \textit{size}$ 覆盖最旧值：和先减旧加新。平均值为 $s/\min(\textit{cnt},\textit{size})$。
 
 <!-- thinking:end -->
 
-我们定义一个变量 $\textit{s}$，用于计算当前最后 $\textit{size}$ 个元素的和，用一个变量 $\textit{cnt}$ 记录当前元素的总数。另外，我们用一个长度为 $\textit{size}$ 的数组 $\textit{data}$ 记录每个位置的元素对应的值。
+我们定义一个变量 $s$，用于计算当前最后 $\textit{size}$ 个元素的和，用一个变量 $\textit{cnt}$ 记录当前元素的总数。另外，我们用一个长度为 $\textit{size}$ 的数组 $\textit{data}$ 记录每个位置的元素对应的值。
 
 调用 $\textit{next}$ 函数时，我们先计算出 $\textit{val}$ 要存放的下标 $i$，然后我们更新元素和 $s$，并且将下标 $i$ 处的值设置为 $\textit{val}$，同时将元素的个数加一。最后，我们返回 $\frac{s}{\min(\textit{cnt}, \textit{size})}$ 的值即可。
 
@@ -237,9 +237,9 @@ class MovingAverage {
 
 <!-- thinking:end -->
 
-我们可以使用一个队列 $\textit{q}$ 来存储最后 $\textit{size}$ 个元素，同时用一个变量 $\textit{s}$ 来记录这 $\textit{size}$ 个元素的和。
+我们可以使用一个队列 $q$ 来存储最后 $\textit{size}$ 个元素，同时用一个变量 $s$ 来记录这 $\textit{size}$ 个元素的和。
 
-在调用 $\textit{next}$ 函数时，我们首先判断队列 $\textit{q}$ 的长度是否等于 $\textit{size}$，如果等于 $\textit{size}$，则将队列 $\textit{q}$ 的头部元素出队，并且更新 $\textit{s}$ 的值。然后将 $\textit{val}$ 入队，并且更新 $\textit{s}$ 的值。最后返回 $\frac{s}{\text{len}(q)}$ 的值即可。
+在调用 $\textit{next}$ 函数时，我们首先判断队列 $q$ 的长度是否等于 $\textit{size}$，如果等于 $\textit{size}$，则将队列 $q$ 的头部元素出队，并且更新 $s$ 的值。然后将 $\textit{val}$ 入队，并且更新 $s$ 的值。最后返回 $\frac{s}{\textit{len}(q)}$ 的值即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是题目给定的整数 $\textit{size}$。
 

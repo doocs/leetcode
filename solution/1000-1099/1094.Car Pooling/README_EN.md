@@ -77,7 +77,7 @@ The maximum occupancy is 5, which never exceeds capacity = 5.
 
 > **Thinking**
 >
-> Each trip adds passengers on $[from,to)$. We need the load never to exceed capacity. Locations are at most $1000$, so a difference array is enough.
+> Each trip adds passengers on $[\textit{from},to)$. We need the load never to exceed capacity. Locations are at most $1000$, so a difference array is enough.
 >
 > Add at the start, subtract at the end, then prefix-sum and test every position against $\textit{capacity}$.
 >

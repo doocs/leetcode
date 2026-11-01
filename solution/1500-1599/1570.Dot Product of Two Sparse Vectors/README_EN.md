@@ -81,7 +81,7 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 >
 > A sparse dot product only needs indices that are nonzero in both vectors. Multiplying full length-$n$ arrays wastes work on zeros, and $n\le 10^5$.
 >
-> The constructor stores only nonzero entries as index $\to$ value. The product walks the smaller map and $get$s the other side. When nonzeros are few, this is much faster than a dense loop.
+> The constructor stores only nonzero entries as index $\to$ value. The product walks the smaller map and $\textit{get}$s the other side. When nonzeros are few, this is much faster than a dense loop.
 
 <!-- thinking:end -->
 

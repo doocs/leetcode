@@ -175,7 +175,7 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 > **思考**
 >
-> 去重后用 $\textit{DENSE_RANK}$ 按薪水降序编号，筛出名为 $2$ 的那一行。并列最高不会占掉第二名，语义与「第 $k$ 高」一致，便于推广。
+> 去重后用 $\textit{DENSE}_\textit{RANK}$ 按薪水降序编号，筛出名为 $2$ 的那一行。并列最高不会占掉第二名，语义与「第 $k$ 高」一致，便于推广。
 
 <!-- thinking:end -->
 

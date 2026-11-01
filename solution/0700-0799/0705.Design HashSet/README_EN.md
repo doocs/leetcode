@@ -258,7 +258,7 @@ class MyHashSet {
 
 <!-- thinking:end -->
 
-We can also create an array of size $SIZE=1000$, where each position in the array is a linked list.
+We can also create an array of size $\textit{SIZE}=1000$, where each position in the array is a linked list.
 
 <!-- tabs:start -->
 

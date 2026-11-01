@@ -51,9 +51,9 @@ difficulty: Easy
 >
 > Convert a BST into a right-only increasing list. An inorder array plus a second pass uses linear extra space.
 >
-> Inorder is already the list order: on visit, attach the node to $prev.right$ and clear the left child.
+> Inorder is already the list order: on visit, attach the node to $\textit{prev}.\textit{right}$ and clear the left child.
 >
-> A dummy heads the list and $prev$ tracks the tail. Recurse left/right and return `dummy.right`.
+> A dummy heads the list and $\textit{prev}$ tracks the tail. Recurse left/right and return `dummy.right`.
 
 <!-- thinking:end -->
 

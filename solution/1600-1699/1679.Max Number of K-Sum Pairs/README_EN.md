@@ -71,7 +71,7 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 
 <!-- thinking:end -->
 
-We sort $nums$. Then $l$ and $r$ point to the first and last elements of $nums$ respectively, and we compare the sum $s$ of the two integers with $k$.
+We sort $\textit{nums}$. Then $l$ and $r$ point to the first and last elements of $\textit{nums}$ respectively, and we compare the sum $s$ of the two integers with $k$.
 
 - If $s = k$, it means that we have found two integers whose sum is $k$. We increment the answer and then move $l$ and $r$ towards the middle;
 - If $s > k$, then we move the $r$ pointer to the left;
@@ -80,7 +80,7 @@ We sort $nums$. Then $l$ and $r$ point to the first and last elements of $nums$ 
 
 After the loop ends, we return the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -237,13 +237,13 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We use a hash table $cnt$ to record the current remaining integers and their occurrence counts.
+We use a hash table $\textit{cnt}$ to record the current remaining integers and their occurrence counts.
 
-We iterate over $nums$. For the current integer $x$, we check if $k - x$ is in $cnt$. If it exists, it means that we have found two integers whose sum is $k$. We increment the answer and then decrement the occurrence count of $k - x$; otherwise, we increment the occurrence count of $x$.
+We iterate over $\textit{nums}$. For the current integer $x$, we check if $k - x$ is in $\textit{cnt}$. If it exists, it means that we have found two integers whose sum is $k$. We increment the answer and then decrement the occurrence count of $k - x$; otherwise, we increment the occurrence count of $x$.
 
 After the iteration ends, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ To maximize the sum of scores, we need to select the element with the maximum va
 
 At each step, we take out the element with the maximum value $v$ from the priority queue, add $v$ to the answer, and replace $v$ with $\lceil \frac{v}{3} \rceil$, and then add it to the priority queue. After repeating this process $k$ times, we return the answer.
 
-The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$ or $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$ or $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

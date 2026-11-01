@@ -73,11 +73,11 @@ tags:
 
 > **Thinking**
 >
-> The straightforward approach is to enumerate every subarray that sums to $target$ and pair them while checking overlap. With $n \le 10^5$, the number of subarrays is quadratic, so this does not fit.
+> The straightforward approach is to enumerate every subarray that sums to $\textit{target}$ and pair them while checking overlap. With $n \le 10^5$, the number of subarrays is quadratic, so this does not fit.
 >
 > Once the right segment is fixed, the left one must lie entirely in the prefix before it, and only the shortest valid subarray in that prefix matters. We therefore need a running answer to "the shortest valid segment in the prefix so far".
 >
-> All values are positive, so prefix sums are strictly increasing and unique. A hash map from prefix sum to index then finds, in constant time, the unique segment $[j+1,i]$ that ends at the current position and sums to $target$.
+> All values are positive, so prefix sums are strictly increasing and unique. A hash map from prefix sum to index then finds, in constant time, the unique segment $[j+1,i]$ that ends at the current position and sums to $\textit{target}$.
 >
 > We scan left to right while maintaining $f[i]$, the shortest such subarray among the first $i$ elements. When $[j+1,i]$ appears, add $f[j]$ to the current length to update the answer, then set $f[i]=\min(f[i-1], i-j)$. The left piece always comes from before the current segment, so the two never overlap.
 
@@ -85,11 +85,11 @@ tags:
 
 We use a hash table $d$ to record the index of each prefix sum, initially $d[0]=0$.
 
-Define $f[i]$ as the minimum length of a subarray with sum equal to $target$ among the first $i$ elements. Initially, $f[0]=\infty$ and $ans=\infty$. Indices are $1$-based.
+Define $f[i]$ as the minimum length of a subarray with sum equal to $\textit{target}$ among the first $i$ elements. Initially, $f[0]=\infty$ and $\textit{ans}=\infty$. Indices are $1$-based.
 
-Iterate through $\textit{arr}$. For the current position $i$, first set $f[i]=f[i-1]$ and accumulate the prefix sum $s$. If $s-\textit{target}$ exists in the hash table, let $j=d[s-\textit{target}]$. Then the interval $[j+1,i]$ sums to $target$ and has length $i-j$. Update $f[i]=\min(f[i], i-j)$, and update the answer with the best length on the left: $ans=\min(ans, f[j]+i-j)$. Then store $d[s]=i$.
+Iterate through $\textit{arr}$. For the current position $i$, first set $f[i]=f[i-1]$ and accumulate the prefix sum $s$. If $s-\textit{target}$ exists in the hash table, let $j=d[s-\textit{target}]$. Then the interval $[j+1,i]$ sums to $\textit{target}$ and has length $i-j$. Update $f[i]=\min(f[i], i-j)$, and update the answer with the best length on the left: $\textit{ans}=\min(\textit{ans}, f[j]+i-j)$. Then store $d[s]=i$.
 
-Finally, if $ans$ is greater than the array length, return $-1$; otherwise, return $ans$.
+Finally, if $\textit{ans}$ is greater than the array length, return $-1$; otherwise, return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{arr}$.
 

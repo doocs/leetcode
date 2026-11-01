@@ -72,11 +72,11 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $dfs(i)$, which represents the list of IP addresses that can be formed starting from the $i$th position of string $s$.
+We define a function $\textit{dfs}(i)$, which represents the list of IP addresses that can be formed starting from the $i$th position of string $s$.
 
-The execution steps of function $dfs(i)$ are as follows:
+The execution steps of function $\textit{dfs}(i)$ are as follows:
 
-If $i$ is greater than or equal to the length of string $s$, it means that we have completed the splicing of four segments of the IP address. At this point, we need to check whether it meets the requirements of the four segments of the IP address. If it does, add the current $IP$ to the answer.
+If $i$ is greater than or equal to the length of string $s$, it means that we have completed the splicing of four segments of the IP address. At this point, we need to check whether it meets the requirements of the four segments of the IP address. If it does, add the current $\textit{IP}$ to the answer.
 
 If $i$ is less than the length of string $s$, it means that we still need to splice a segment of the IP address. At this point, we need to determine the value of this segment of the IP address. If the value is greater than $255$, or the current position $i$ is $0$ and the value of several positions after $i$ is greater than $0$, it means that it does not meet the requirements, so we return directly. Otherwise, add it to the IP address list, and continue to search for the next segment of the IP address.
 

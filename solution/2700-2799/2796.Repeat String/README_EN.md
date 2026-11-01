@@ -67,9 +67,9 @@ tags:
 
 > **Thinking**
 >
-> Add a method that repeats the string $times$ times. Looping concatenation allocates intermediate strings.
+> Add a method that repeats the string $\textit{times}$ times. Looping concatenation allocates intermediate strings.
 >
-> Fill an array with $times$ copies of $this$ and $join$ them in one allocation.
+> Fill an array with $\textit{times}$ copies of $\textit{this}$ and $\textit{join}$ them in one allocation.
 
 <!-- thinking:end -->
 

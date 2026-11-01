@@ -104,17 +104,17 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 >
 > `hasFrequency` asks whether any value has a given count; scanning every counter fails for $q \le 10^5$.
 >
-> $cnt$ stores each number's frequency and $freq$ stores how many numbers have that frequency. Updates decrement the old bucket and increment the new one; a query is $freq[f]>0$.
+> $\textit{cnt}$ stores each number's frequency and $\textit{freq}$ stores how many numbers have that frequency. Updates decrement the old bucket and increment the new one; a query is $\textit{freq}[f]>0$.
 
 <!-- thinking:end -->
 
-We define two hash tables, where $cnt$ is used to record the occurrence count of each number, and $freq$ is used to record the count of numbers with each frequency.
+We define two hash tables, where $\textit{cnt}$ is used to record the occurrence count of each number, and $\textit{freq}$ is used to record the count of numbers with each frequency.
 
-For the `add` operation, we directly decrement the value corresponding to $cnt[number]$ in the hash table $freq$, then increment $cnt[number]$, and finally increment the value corresponding to $cnt[number]$ in $freq$.
+For the `add` operation, we directly decrement the value corresponding to $\textit{cnt}[\textit{number}]$ in the hash table $\textit{freq}$, then increment $\textit{cnt}[\textit{number}]$, and finally increment the value corresponding to $\textit{cnt}[\textit{number}]$ in $\textit{freq}$.
 
-For the `deleteOne` operation, we first check if $cnt[number]$ is greater than zero. If it is, we decrement the value corresponding to $cnt[number]$ in the hash table $freq$, then decrement $cnt[number]$, and finally increment the value corresponding to $cnt[number]$ in $freq$.
+For the `deleteOne` operation, we first check if $\textit{cnt}[\textit{number}]$ is greater than zero. If it is, we decrement the value corresponding to $\textit{cnt}[\textit{number}]$ in the hash table $\textit{freq}$, then decrement $\textit{cnt}[\textit{number}]$, and finally increment the value corresponding to $\textit{cnt}[\textit{number}]$ in $\textit{freq}$.
 
-For the `hasFrequency` operation, we directly return whether $freq[frequency]$ is greater than zero.
+For the `hasFrequency` operation, we directly return whether $\textit{freq}[\textit{frequency}]$ is greater than zero.
 
 In terms of time complexity, since we use hash tables, the time complexity of each operation is $O(1)$. The space complexity is $O(n)$, where $n$ is the number of distinct numbers.
 

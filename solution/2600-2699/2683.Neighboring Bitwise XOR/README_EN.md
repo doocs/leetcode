@@ -86,7 +86,7 @@ derived[1] = original[1] &oplus; original[0] = 1
 
 > **Thinking**
 >
-> $derived[i]=a[i]\oplus a[i+1]$ may or may not come from some $a$. Reconstructing from $a[0]$ would pass for $n \le 10^5$, yet every $a_i$ appears twice in the XOR of $derived$, so $\bigoplus derived=0$ is necessary and sufficient.
+> $\textit{derived}[i]=a[i]\oplus a[i+1]$ may or may not come from some $a$. Reconstructing from $a[0]$ would pass for $n \le 10^5$, yet every $a_i$ appears twice in the XOR of $\textit{derived}$, so $\bigoplus \textit{derived}=0$ is necessary and sufficient.
 >
 > One XOR fold decides it.
 

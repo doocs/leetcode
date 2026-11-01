@@ -315,13 +315,13 @@ function assignEdgeWeights(edges: number[][]): number {
 >
 > With $n \le 10^5$, recursing from the root into each child reaches depth $n$ on a chain and overflows the call stack. That depth is only the number of edges from the root, so sibling order does not change the maximum.
 >
-> An explicit stack of $(node, parent, depth)$ therefore starts at node $1$ with depth $0$. Popping a frame updates the maximum depth, and every neighbor other than the parent is pushed with the depth increased by one. A fast power then evaluates $2^{d-1}$.
+> An explicit stack of $(\textit{node}, \textit{parent}, \textit{depth})$ therefore starts at node $1$ with depth $0$. Popping a frame updates the maximum depth, and every neighbor other than the parent is pushed with the depth increased by one. A fast power then evaluates $2^{d-1}$.
 
 <!-- thinking:end -->
 
 First, we build an adjacency list $g$ from the edges, where $g[u]$ contains all neighbors of node $u$.
 
-An explicit stack then computes the depth $d$ of the tree. Each frame is $(node, parent, depth)$, starting from node $1$ at depth $0$. Popping a frame updates $d$ with the current depth, and every neighbor other than the parent is pushed with the depth increased by one. The answer is the number of ways to choose an odd number of elements from $d$. According to a well-known combinatorial identity, that number is $2^{d-1}$. Therefore, we can compute the answer using fast exponentiation.
+An explicit stack then computes the depth $d$ of the tree. Each frame is $(\textit{node}, \textit{parent}, \textit{depth})$, starting from node $1$ at depth $0$. Popping a frame updates $d$ with the current depth, and every neighbor other than the parent is pushed with the depth increased by one. The answer is the number of ways to choose an odd number of elements from $d$. According to a well-known combinatorial identity, that number is $2^{d-1}$. Therefore, we can compute the answer using fast exponentiation.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

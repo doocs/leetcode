@@ -69,19 +69,19 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 >
 > Faces are only $1$ through $6$, so trying each candidate against both rows is linear in $n\le 2\times 10^4$. Most candidates fail because some column has neither tile equal to them.
 >
-> If a common value exists, it must be $tops[0]$ or $bottoms[0]$; otherwise the first column cannot become that value.
+> If a common value exists, it must be $\textit{tops}[0]$ or $\textit{bottoms}[0]$; otherwise the first column cannot become that value.
 >
 > We evaluate $f(x)$ on those two candidates: if any column lacks $x$ it is impossible; otherwise the rotation count is $n$ minus the larger of the two row frequencies. The answer is the better of the two.
 
 <!-- thinking:end -->
 
-According to the problem description, we know that in order to make all values in $tops$ or all values in $bottoms$ the same, the value must be one of $tops[0]$ or $bottoms[0]$.
+According to the problem description, we know that in order to make all values in $\textit{tops}$ or all values in $\textit{bottoms}$ the same, the value must be one of $\textit{tops}[0]$ or $\textit{bottoms}[0]$.
 
 Therefore, we design a function $f(x)$ to represent the minimum number of rotations required to make all values equal to $x$. Then the answer is $\min\{f(\textit{tops}[0]), f(\textit{bottoms}[0])\}$.
 
 The calculation method of function $f(x)$ is as follows:
 
-We use two variables $cnt1$ and $cnt2$ to count the number of occurrences of $x$ in $tops$ and $bottoms$, respectively. We subtract the maximum value of $cnt1$ and $cnt2$ from $n$, which is the minimum number of rotations required to make all values equal to $x$. Note that if there are no values equal to $x$ in $tops$ and $bottoms$, the value of $f(x)$ is a very large number, which we represent as $n+1$.
+We use two variables $\textit{cnt1}$ and $\textit{cnt2}$ to count the number of occurrences of $x$ in $\textit{tops}$ and $\textit{bottoms}$, respectively. We subtract the maximum value of $\textit{cnt1}$ and $\textit{cnt2}$ from $n$, which is the minimum number of rotations required to make all values equal to $x$. Note that if there are no values equal to $x$ in $\textit{tops}$ and $\textit{bottoms}$, the value of $f(x)$ is a very large number, which we represent as $n+1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

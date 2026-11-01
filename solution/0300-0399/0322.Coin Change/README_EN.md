@@ -69,7 +69,7 @@ tags:
 
 > **Thinking**
 >
-> Each coin may be used any number of times; we want the fewest coins summing to $amount$. This is unbounded knapsack. A raw DFS repeats sub-amounts.
+> Each coin may be used any number of times; we want the fewest coins summing to $\textit{amount}$. This is unbounded knapsack. A raw DFS repeats sub-amounts.
 >
 > Let $f[i][j]$ be the fewest coins using the first $i$ types to make $j$. Skip type $i$ via $f[i-1][j]$; if $j\ge x$, take $f[i][j-x]+1$. $f[0][0]=0$, the rest are $\infty$; return $-1$ if impossible.
 
@@ -286,7 +286,7 @@ var coinChange = function (coins, amount) {
 
 > **Thinking**
 >
-> Method 1 only reads $f[i-1][j]$ and $f[i][j-x]$. Collapse to one array and iterate amounts upward so $f[j-x]$ already includes the current coin. Space becomes $O(amount)$ with the same recurrence.
+> Method 1 only reads $f[i-1][j]$ and $f[i][j-x]$. Collapse to one array and iterate amounts upward so $f[j-x]$ already includes the current coin. Space becomes $O(\textit{amount})$ with the same recurrence.
 
 <!-- thinking:end -->
 

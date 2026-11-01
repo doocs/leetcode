@@ -72,9 +72,9 @@ tags:
 
 > **Thinking**
 >
-> Pick an integer in each $[start_i,start_i+d]$ to maximize the minimum gap between consecutive picks. $n\le 10^5$ forbids enumerating values. After sorting, the gap is monotone: if $x$ works, every smaller gap works.
+> Pick an integer in each $[\textit{start}_i,\textit{start}_i+d]$ to maximize the minimum gap between consecutive picks. $n\le 10^5$ forbids enumerating values. After sorting, the gap is monotone: if $x$ works, every smaller gap works.
 >
-> Binary-search $x$ and sweep left to right, taking the earliest point at least $last+x$ inside each interval. The largest feasible $x$ is the answer.
+> Binary-search $x$ and sweep left to right, taking the earliest point at least $\textit{last}+x$ inside each interval. The largest feasible $x$ is the answer.
 
 <!-- thinking:end -->
 
@@ -82,13 +82,13 @@ We can first sort the $\textit{start}$ array. Then, we consider selecting intege
 
 If a difference $x$ satisfies the condition, then any $x' < x$ will also satisfy the condition. Therefore, we can use binary search to find the largest difference that satisfies the condition.
 
-We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \textit{start}[-1] + d - \textit{start}[0]$. Each time, we take the middle value $mid = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ and check whether it satisfies the condition.
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \textit{start}[-1] + d - \textit{start}[0]$. Each time, we take the middle value $\textit{mid} = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ and check whether it satisfies the condition.
 
-We define a function $\text{check}(mi)$ to determine whether the condition is satisfied, implemented as follows:
+We define a function $\textit{check}(mi)$ to determine whether the condition is satisfied, implemented as follows:
 
 - We define a variable $\textit{last} = -\infty$, representing the last selected integer.
-- We traverse the $\textit{start}$ array. If $\textit{last} + \textit{mi} > \textit{st} + d$, it means we cannot select the integer $\textit{st}$, and we return $\text{false}$. Otherwise, we update $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$.
-- If we traverse the entire $\textit{start}$ array and all conditions are satisfied, we return $\text{true}$.
+- We traverse the $\textit{start}$ array. If $\textit{last} + mi > st + d$, it means we cannot select the integer $st$, and we return $\textit{false}$. Otherwise, we update $\textit{last} = \max(st, \textit{last} + mi)$.
+- If we traverse the entire $\textit{start}$ array and all conditions are satisfied, we return $\textit{true}$.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length and the maximum value of the $\textit{start}$ array, respectively.
 

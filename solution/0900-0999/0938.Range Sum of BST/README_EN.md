@@ -59,18 +59,18 @@ tags:
 
 > **Thinking**
 >
-> Sum BST nodes whose values lie in $[low,high]$. A full traversal works, but the search-tree order prunes: skip the left subtree when the current value is already $\le low$, and skip the right when it is already $\ge high$. Recurse and add nodes that fall inside the interval.
+> Sum BST nodes whose values lie in $[\textit{low},\textit{high}]$. A full traversal works, but the search-tree order prunes: skip the left subtree when the current value is already $\le \textit{low}$, and skip the right when it is already $\ge \textit{high}$. Recurse and add nodes that fall inside the interval.
 
 <!-- thinking:end -->
 
-We design a function $dfs(root)$, which represents the sum of the values of all nodes in the subtree with $root$ as the root, and the values are within the range $[low, high]$. The answer is $dfs(root)$.
+We design a function $\textit{dfs}(\textit{root})$, which represents the sum of the values of all nodes in the subtree with $\textit{root}$ as the root, and the values are within the range $[\textit{low}, \textit{high}]$. The answer is $\textit{dfs}(\textit{root})$.
 
-The execution logic of the function $dfs(root)$ is as follows:
+The execution logic of the function $\textit{dfs}(\textit{root})$ is as follows:
 
-- If $root$ is null, return $0$.
-- If the value $x$ of $root$ is within the range $[low, high]$, then the initial answer of the function $dfs(root)$ is $x$, otherwise it is $0$.
-- If $x > low$, it means that there may be nodes in the left subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.left)$ and add the result to the answer.
-- If $x < high$, it means that there may be nodes in the right subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.right)$ and add the result to the answer.
+- If $\textit{root}$ is null, return $0$.
+- If the value $x$ of $\textit{root}$ is within the range $[\textit{low}, \textit{high}]$, then the initial answer of the function $\textit{dfs}(\textit{root})$ is $x$, otherwise it is $0$.
+- If $x > \textit{low}$, it means that there may be nodes in the left subtree of $\textit{root}$ with values within the range $[\textit{low}, \textit{high}]$, so we need to recursively call $\textit{dfs}(\textit{root}.\textit{left})$ and add the result to the answer.
+- If $x < \textit{high}$, it means that there may be nodes in the right subtree of $\textit{root}$ with values within the range $[\textit{low}, \textit{high}]$, so we need to recursively call $\textit{dfs}(\textit{root}.\textit{right})$ and add the result to the answer.
 - Finally, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.

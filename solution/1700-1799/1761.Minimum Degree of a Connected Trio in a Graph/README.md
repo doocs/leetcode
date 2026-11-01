@@ -78,9 +78,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们先将所有边存入邻接矩阵 $\textit{g}$ 中，再将每个节点的度数存入数组 $\textit{deg}$ 中。初始化答案 $\textit{ans}=+\infty$。
+我们先将所有边存入邻接矩阵 $g$ 中，再将每个节点的度数存入数组 $\textit{deg}$ 中。初始化答案 $\textit{ans}=+\infty$。
 
-然后枚举所有的三元组 $(i, j, k)$，其中 $i \lt j \lt k$，如果 $\textit{g}[i][j] = \textit{g}[j][k] = \textit{g}[i][k] = 1$，则说明这三个节点构成了一个连通三元组，此时更新答案为 $\textit{ans} = \min(\textit{ans}, \textit{deg}[i] + \textit{deg}[j] + \textit{deg}[k] - 6)$。
+然后枚举所有的三元组 $(i, j, k)$，其中 $i \lt j \lt k$，如果 $g[i][j] = g[j][k] = g[i][k] = 1$，则说明这三个节点构成了一个连通三元组，此时更新答案为 $\textit{ans} = \min(\textit{ans}, \textit{deg}[i] + \textit{deg}[j] + \textit{deg}[k] - 6)$。
 
 枚举完所有的三元组后，如果答案仍然为 $+\infty$，说明图中不存在连通三元组，返回 $-1$，否则返回答案。
 

@@ -87,17 +87,17 @@ tags:
 >
 > 两人要走到某一栋 $j \ge \max(a,b)$ 且严格高于较矮者（若较矮者就在右侧且已更矮，则可直接在右侧会面）。在线对每个询问扫右侧不可行， $q$ 与 $n$ 均为 $5 \times 10^4$。
 >
-> 将询问按右端点从大到小处理，指针 $j$ 把 $r$ 右侧的楼插入树状数组：下标为离散化后的「高度后缀」，值是最小下标。查询「高度大于 $heights[l]$ 的最小下标」即为会面楼。
+> 将询问按右端点从大到小处理，指针 $j$ 把 $r$ 右侧的楼插入树状数组：下标为离散化后的「高度后缀」，值是最小下标。查询「高度大于 $\textit{heights}[l]$ 的最小下标」即为会面楼。
 
 <!-- thinking:end -->
 
-我们不妨记 $queries[i] = [l_i, r_i]$，其中 $l_i \le r_i$。如果 $l_i = r_i$ 或者 $heights[l_i] \lt heights[r_i]$，那么答案就是 $r_i$。否则，我们需要在所有满足 $j \gt r_i$，且 $heights[j] \gt heights[l_i]$ 的 $j$ 中找到最小的 $j$。
+我们不妨记 $\textit{queries}[i] = [l_i, r_i]$，其中 $l_i \le r_i$。如果 $l_i = r_i$ 或者 $\textit{heights}[l_i] \lt \textit{heights}[r_i]$，那么答案就是 $r_i$。否则，我们需要在所有满足 $j \gt r_i$，且 $\textit{heights}[j] \gt \textit{heights}[l_i]$ 的 $j$ 中找到最小的 $j$。
 
-我们可以将 $queries$ 按照 $r_i$ 从大到小排序，用一个指针 $j$ 指向当前遍历到的 $heights$ 的下标。
+我们可以将 $\textit{queries}$ 按照 $r_i$ 从大到小排序，用一个指针 $j$ 指向当前遍历到的 $\textit{heights}$ 的下标。
 
-接下来，我们遍历每个查询 $queries[i] = (l, r)$，对于当前查询，如果 $j \gt r$，那么我们循环将 $heights[j]$ 插入树状数组中。树状数组维护的是后缀高度（离散化后的高度）的下标的最小值。然后，我们判断是否满足 $l = r$ 或者 $heights[l] \lt heights[r]$，如果满足，那么当前查询的答案就是 $r$，否则，我们在树状数组中查询 $heights[l]$ 的下标的最小值，即为当前查询的答案。
+接下来，我们遍历每个查询 $\textit{queries}[i] = (l, r)$，对于当前查询，如果 $j \gt r$，那么我们循环将 $\textit{heights}[j]$ 插入树状数组中。树状数组维护的是后缀高度（离散化后的高度）的下标的最小值。然后，我们判断是否满足 $l = r$ 或者 $\textit{heights}[l] \lt \textit{heights}[r]$，如果满足，那么当前查询的答案就是 $r$，否则，我们在树状数组中查询 $\textit{heights}[l]$ 的下标的最小值，即为当前查询的答案。
 
-时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为 $heights$ 和 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为 $\textit{heights}$ 和 $\textit{queries}$ 的长度。
 
 相似题目：
 

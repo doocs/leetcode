@@ -93,7 +93,7 @@ The profit was never positive, so return -1.
 >
 > Each turn boards at most four people and pays a running cost; we want the first turn that attains the maximum profit. Customers arrive in batches of length up to $10^5$, so we must simulate every turn and cannot skip the waiting line.
 >
-> Keep the waiting count and the running profit: each turn adds new arrivals, boards $\min(4,wait)$ people, and updates profit. A strictly larger profit records the turn index. Stop when both the queue and the remaining batches are empty. If profit never goes positive, return $-1$.
+> Keep the waiting count and the running profit: each turn adds new arrivals, boards $\min(4,\textit{wait})$ people, and updates profit. A strictly larger profit records the turn index. Stop when both the queue and the remaining batches are empty. If profit never goes positive, return $-1$.
 
 <!-- thinking:end -->
 

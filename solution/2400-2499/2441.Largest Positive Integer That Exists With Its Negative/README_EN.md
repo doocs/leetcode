@@ -74,11 +74,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table $s$ to record all elements that appear in the array, and a variable $ans$ to record the maximum positive integer that satisfies the problem requirements, initially $ans = -1$.
+We can use a hash table $s$ to record all elements that appear in the array, and a variable $\textit{ans}$ to record the maximum positive integer that satisfies the problem requirements, initially $\textit{ans} = -1$.
 
-Next, we traverse each element $x$ in the hash table $s$. If $-x$ exists in $s$, then we update $ans = \max(ans, x)$.
+Next, we traverse each element $x$ in the hash table $s$. If $-x$ exists in $s$, then we update $\textit{ans} = \max(\textit{ans}, x)$.
 
-After the traversal ends, return $ans$.
+After the traversal ends, return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

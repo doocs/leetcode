@@ -129,7 +129,7 @@ We know nothing about the average weather_state in Spain in November so we do no
 
 > **Thinking**
 >
-> We want each country's November $2019$ average temperature as Cold/Warm/Hot. Join weather to countries, filter that month, $AVG$ by country, and bin with $CASE$.
+> We want each country's November $2019$ average temperature as Cold/Warm/Hot. Join weather to countries, filter that month, $\textit{AVG}$ by country, and bin with $\textit{CASE}$.
 
 <!-- thinking:end -->
 

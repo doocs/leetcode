@@ -68,7 +68,7 @@ tags:
 >
 > The intersection must keep multiplicities, the min of the two counts. Unlike 349, we cannot unique the values.
 >
-> Count $nums1$, then scan $nums2$: while a remainder exists, emit it and decrement. The length is the sum of those minima.
+> Count $\textit{nums1}$, then scan $\textit{nums2}$: while a remainder exists, emit it and decrement. The length is the sum of those minima.
 
 <!-- thinking:end -->
 

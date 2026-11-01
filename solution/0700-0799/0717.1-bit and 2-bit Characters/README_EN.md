@@ -76,7 +76,7 @@ We can directly traverse the first $n-1$ elements of the array $\textit{bits}$, 
 - If the current element is $0$, skip $1$ element (representing a one-bit character);
 - If the current element is $1$, skip $2$ elements (representing a two-bit character).
 
-When the traversal ends, if the current index equals $n-1$, it means the last character is a one-bit character, and we return $\text{true}$; otherwise, return $\text{false}$.
+When the traversal ends, if the current index equals $n-1$, it means the last character is a one-bit character, and we return $\textit{true}$; otherwise, return $\textit{false}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{bits}$.
 

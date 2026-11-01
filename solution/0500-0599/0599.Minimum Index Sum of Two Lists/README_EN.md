@@ -84,9 +84,9 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{d}$ to record the strings in $\textit{list2}$ and their indices, and a variable $\textit{mi}$ to record the minimum index sum.
+We use a hash table $d$ to record the strings in $\textit{list2}$ and their indices, and a variable $mi$ to record the minimum index sum.
 
-Then, we traverse $\textit{list1}$. For each string $\textit{s}$, if $\textit{s}$ appears in $\textit{list2}$, we calculate the index $\textit{i}$ of $\textit{s}$ in $\textit{list1}$ and the index $\textit{j}$ in $\textit{list2}$. If $\textit{i} + \textit{j} < \textit{mi}$, we update the answer array $\textit{ans}$ to $\textit{s}$ and update $\textit{mi}$ to $\textit{i} + \textit{j}$. If $\textit{i} + \textit{j} = \textit{mi}$, we add $\textit{s}$ to the answer array $\textit{ans}$.
+Then, we traverse $\textit{list1}$. For each string $s$, if $s$ appears in $\textit{list2}$, we calculate the index $i$ of $s$ in $\textit{list1}$ and the index $j$ in $\textit{list2}$. If $i + j < mi$, we update the answer array $\textit{ans}$ to $s$ and update $mi$ to $i + j$. If $i + j = mi$, we add $s$ to the answer array $\textit{ans}$.
 
 After traversing, return the answer array $\textit{ans}$.
 

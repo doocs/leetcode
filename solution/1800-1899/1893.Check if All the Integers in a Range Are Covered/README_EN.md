@@ -66,9 +66,9 @@ tags:
 
 > **Thinking**
 >
-> Decide whether every integer in $[left,right]$ lies in some given interval. The domain is at most $50$, so a difference array suffices.
+> Decide whether every integer in $[\textit{left},\textit{right}]$ lies in some given interval. The domain is at most $50$, so a difference array suffices.
 >
-> Add $1$ at each left endpoint and $-1$ just after the right. The prefix sum is the coverage at that point; a zero inside $[left,right]$ means the range is not fully covered.
+> Add $1$ at each left endpoint and $-1$ just after the right. The prefix sum is the coverage at that point; a zero inside $[\textit{left},\textit{right}]$ means the range is not fully covered.
 
 <!-- thinking:end -->
 
@@ -76,9 +76,9 @@ We can use the idea of a difference array to create a difference array $\textit{
 
 Next, we iterate through the array $\textit{ranges}$. For each interval $[l, r]$, we increment $\textit{diff}[l]$ by $1$ and decrement $\textit{diff}[r + 1]$ by $1$.
 
-Then, we iterate through the difference array $\textit{diff}$, maintaining a prefix sum $s$. For each position $i$, we increment $s$ by $\textit{diff}[i]$. If $s \le 0$ and $left \le i \le right$, it indicates that an integer $i$ within the interval $[left, right]$ is not covered, and we return $\textit{false}$.
+Then, we iterate through the difference array $\textit{diff}$, maintaining a prefix sum $s$. For each position $i$, we increment $s$ by $\textit{diff}[i]$. If $s \le 0$ and $\textit{left} \le i \le \textit{right}$, it indicates that an integer $i$ within the interval $[\textit{left}, \textit{right}]$ is not covered, and we return $\textit{false}$.
 
-If we finish iterating through the difference array $\textit{diff}$ without returning $\textit{false}$, it means that every integer within the interval $[left, right]$ is covered by at least one interval in $\textit{ranges}$, and we return $\textit{true}$.
+If we finish iterating through the difference array $\textit{diff}$ without returning $\textit{false}$, it means that every integer within the interval $[\textit{left}, \textit{right}]$ is covered by at least one interval in $\textit{ranges}$, and we return $\textit{true}$.
 
 The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{ranges}$, and $M$ is the maximum value of the interval, which in this case is $M \le 50$.
 

@@ -65,7 +65,7 @@ tags:
 >
 > Find the longest Fibonacci subsequence of a strictly increasing array. $n\le 1000$, so jumping from every pair works but repeats work for the same ending pair.
 >
-> $f[i][j]$ is the longest sequence ending at $arr[j],arr[i]$. If $arr[i]-arr[j]$ occurs before $j$, we extend that pair. Only lengths at least $3$ update the answer.
+> $f[i][j]$ is the longest sequence ending at $\textit{arr}[j],\textit{arr}[i]$. If $\textit{arr}[i]-\textit{arr}[j]$ occurs before $j$, we extend that pair. Only lengths at least $3$ update the answer.
 
 <!-- thinking:end -->
 

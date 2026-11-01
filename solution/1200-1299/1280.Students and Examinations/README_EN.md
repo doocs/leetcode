@@ -141,7 +141,7 @@ John attended the Math exam 1 time, the Physics exam 1 time, and the Programming
 
 > **Thinking**
 >
-> We count exams per student per subject, including zeros. A Cartesian product of students and subjects left-joins exam rows and groups by student and subject. The left join keeps combinations with no exam; $COUNT$ turns a null join into zero.
+> We count exams per student per subject, including zeros. A Cartesian product of students and subjects left-joins exam rows and groups by student and subject. The left join keeps combinations with no exam; $\textit{COUNT}$ turns a null join into zero.
 
 <!-- thinking:end -->
 

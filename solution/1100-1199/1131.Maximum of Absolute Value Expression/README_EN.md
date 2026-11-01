@@ -65,7 +65,7 @@ tags:
 
 <!-- thinking:end -->
 
-Let's denote $x_i = arr1[i]$, $y_i = arr2[i]$. Since the size relationship between $i$ and $j$ does not affect the value of the expression, we can assume $i \ge j$. Then the expression can be transformed into:
+Let's denote $x_i = \textit{arr1}[i]$, $y_i = \textit{arr2}[i]$. Since the size relationship between $i$ and $j$ does not affect the value of the expression, we can assume $i \ge j$. Then the expression can be transformed into:
 
 $$
 | x_i - x_j | + | y_i - y_j | + i - j = \max \begin{cases} (x_i + y_i) - (x_j + y_j) \\ (x_i - y_i) - (x_j - y_j) \\ (-x_i + y_i) - (-x_j + y_j) \\ (-x_i - y_i) - (-x_j - y_j) \end{cases} + i - j\\

@@ -92,7 +92,7 @@ It can be shown that there exists no other beautiful configuration with a sum of
 
 > **Thinking**
 >
-> $n$ is larger, so a linear expansion from every peak is too slow. The same monotonic-stack DP as the optimized towers problem computes left and right beauties; adding them at $i$ and subtracting $maxHeights[i]$ once yields the answer.
+> $n$ is larger, so a linear expansion from every peak is too slow. The same monotonic-stack DP as the optimized towers problem computes left and right beauties; adding them at $i$ and subtracting $\textit{maxHeights}[i]$ once yields the answer.
 
 <!-- thinking:end -->
 
@@ -101,16 +101,16 @@ We define $f[i]$ to represent the height sum of the beautiful tower scheme with 
 $$
 f[i]=
 \begin{cases}
-f[i-1]+heights[i],&\textit{if } heights[i]\geq heights[i-1]\\
-heights[i]\times(i-j)+f[j],&\textit{if } heights[i]<heights[i-1]
+f[i-1]+\textit{heights}[i],&\textit{if } \textit{heights}[i]\geq \textit{heights}[i-1]\\
+\textit{heights}[i]\times(i-j)+f[j],&\textit{if } \textit{heights}[i]<\textit{heights}[i-1]
 \end{cases}
 $$
 
-Where $j$ is the index of the first tower to the left of the last tower with a height less than or equal to $heights[i]$. We can use a monotonic stack to maintain this index.
+Where $j$ is the index of the first tower to the left of the last tower with a height less than or equal to $\textit{heights}[i]$. We can use a monotonic stack to maintain this index.
 
-We can use a similar method to find $g[i]$, which represents the height sum of the beautiful tower scheme from right to left with the $i$th tower as the tallest tower. The final answer is the maximum value of $f[i]+g[i]-heights[i]$.
+We can use a similar method to find $g[i]$, which represents the height sum of the beautiful tower scheme from right to left with the $i$th tower as the tallest tower. The final answer is the maximum value of $f[i]+g[i]-\textit{heights}[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $maxHeights$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{maxHeights}$.
 
 <!-- tabs:start -->
 

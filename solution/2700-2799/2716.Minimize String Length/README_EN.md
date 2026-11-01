@@ -111,7 +111,7 @@ tags:
 
 The problem can actually be transformed into finding the number of distinct characters in the string. Therefore, we only need to count the number of distinct characters in the string.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set. In this case, it's lowercase English letters, so $|\Sigma|=26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set. In this case, it's lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

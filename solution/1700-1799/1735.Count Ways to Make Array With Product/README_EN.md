@@ -82,7 +82,7 @@ If the box cannot be empty, the number of schemes is $C_{x-1}^{n-1}$. This is us
 
 If the box can be empty, we can add $n$ virtual balls, and then use the partition method, i.e., there are a total of $x+n$ balls, and we insert $n-1$ partitions at $x+n-1$ positions, thereby dividing the actual $x$ balls into $n$ groups and allowing the box to be empty. Therefore, the number of schemes is $C_{x+n-1}^{n-1}$.
 
-Therefore, for each query $queries[i]$, we can first perform prime factorization on $k$ to get the exponents $x_1, x_2, \cdots, x_m$, then calculate $C_{x_1+n-1}^{n-1}, C_{x_2+n-1}^{n-1}, \cdots, C_{x_m+n-1}^{n-1}$, and finally multiply all the scheme numbers.
+Therefore, for each query $\textit{queries}[i]$, we can first perform prime factorization on $k$ to get the exponents $x_1, x_2, \cdots, x_m$, then calculate $C_{x_1+n-1}^{n-1}, C_{x_2+n-1}^{n-1}, \cdots, C_{x_m+n-1}^{n-1}$, and finally multiply all the scheme numbers.
 
 So, the problem is transformed into how to quickly calculate $C_m^n$. According to the formula $C_m^n = \frac{m!}{n!(m-n)!}$, we can pre-process $m!$, and then use the inverse element to quickly calculate $C_m^n$.
 

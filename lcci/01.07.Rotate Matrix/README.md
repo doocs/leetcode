@@ -75,9 +75,9 @@ difficulty: 中等
 
 <!-- thinking:end -->
 
-根据题目要求，我们实际上需要将 $\text{matrix}[i][j]$ 旋转至 $\text{matrix}[j][n - i - 1]$。
+根据题目要求，我们实际上需要将 $\textit{matrix}[i][j]$ 旋转至 $\textit{matrix}[j][n - i - 1]$。
 
-我们可以先对矩阵进行上下翻转，即 $\text{matrix}[i][j]$ 和 $\text{matrix}[n - i - 1][j]$ 进行交换，然后再对矩阵进行主对角线翻转，即 $\text{matrix}[i][j]$ 和 $\text{matrix}[j][i]$ 进行交换。这样就能将 $\text{matrix}[i][j]$ 旋转至 $\text{matrix}[j][n - i - 1]$ 了。
+我们可以先对矩阵进行上下翻转，即 $\textit{matrix}[i][j]$ 和 $\textit{matrix}[n - i - 1][j]$ 进行交换，然后再对矩阵进行主对角线翻转，即 $\textit{matrix}[i][j]$ 和 $\textit{matrix}[j][i]$ 进行交换。这样就能将 $\textit{matrix}[i][j]$ 旋转至 $\textit{matrix}[j][n - i - 1]$ 了。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 是矩阵的边长。
 

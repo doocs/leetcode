@@ -97,7 +97,7 @@ First, we need to determine whether the $i$th character can be the last characte
 If the $i$th character cannot be the last character of the $j$th section, then $f[i][j]=0$. Otherwise, we have:
 
 $$
-f[i][j]=\sum_{t=0}^{i-minLength}f[t][j-1]
+f[i][j]=\sum_{t=0}^{i-\textit{minLength}}f[t][j-1]
 $$
 
 That is to say, we need to enumerate which character is the end of the previous section. Here we use the prefix sum array $g[i][j] = \sum_{t=0}^{i}f[t][j]$ to optimize the time complexity of enumeration.
@@ -105,7 +105,7 @@ That is to say, we need to enumerate which character is the end of the previous 
 Then we have:
 
 $$
-f[i][j]=g[i-minLength][j-1]
+f[i][j]=g[i-\textit{minLength}][j-1]
 $$
 
 The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the length of the string $s$ and the number of sections to be divided, respectively.

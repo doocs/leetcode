@@ -75,7 +75,7 @@ Then the 1<sup>st</sup> smallest distance pair is (1,1), and its distance is 0.
 >
 > Binary-search $d$ and count pairs with distance $\le d$. After sorting, each right value $b$ has a leftmost partner $b-d$; a lower-bound search counts them in $O(n \log n)$.
 >
-> The smallest $d$ whose count is at least $k$ is the answer, searched in $[0, nums[-1]-nums[0]]$.
+> The smallest $d$ whose count is at least $k$ is the answer, searched in $[0, \textit{nums}[-1]-\textit{nums}[0]]$.
 
 <!-- thinking:end -->
 

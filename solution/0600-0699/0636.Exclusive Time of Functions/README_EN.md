@@ -94,15 +94,15 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 >
 > Functions nest and we need exclusive time. Stepping the timeline second-by-second is impossible for large timestamps.
 >
-> A stack matches the nesting: on `start`, credit the top with $[pre, cur)$; on `end`, credit $[pre, cur]$ and set $pre=cur+1$. One pass over the logs.
+> A stack matches the nesting: on `start`, credit the top with $[\textit{pre}, \textit{cur})$; on `end`, credit $[\textit{pre}, \textit{cur}]$ and set $\textit{pre}=\textit{cur}+1$. One pass over the logs.
 
 <!-- thinking:end -->
 
 We define a stack $\textit{stk}$ to store the identifiers of the currently executing functions. We also define an array $\textit{ans}$ to store the exclusive time of each function, initially setting the exclusive time of each function to $0$. We use a variable $\textit{pre}$ to record the previous timestamp.
 
-We traverse the log array. For each log entry, we first split it by colons to get the function identifier $\textit{i}$, the operation type $\textit{op}$, and the timestamp $\textit{t}$.
+We traverse the log array. For each log entry, we first split it by colons to get the function identifier $i$, the operation type $op$, and the timestamp $t$.
 
-If $\textit{op}$ is $\text{start}$, it means function $\textit{i}$ starts executing. We need to check if the stack is empty. If it is not empty, we add $\textit{cur} - \textit{pre}$ to the exclusive time of the function at the top of the stack, then push $\textit{i}$ onto the stack and update $\textit{pre}$ to $\textit{cur}$. If $\textit{op}$ is $\text{end}$, it means function $\textit{i}$ finishes executing. We add $\textit{cur} - \textit{pre} + 1$ to the exclusive time of the function at the top of the stack, then pop the top element from the stack and update $\textit{pre}$ to $\textit{cur} + 1$.
+If $op$ is $\textit{start}$, it means function $i$ starts executing. We need to check if the stack is empty. If it is not empty, we add $\textit{cur} - \textit{pre}$ to the exclusive time of the function at the top of the stack, then push $i$ onto the stack and update $\textit{pre}$ to $\textit{cur}$. If $op$ is $\textit{end}$, it means function $i$ finishes executing. We add $\textit{cur} - \textit{pre} + 1$ to the exclusive time of the function at the top of the stack, then pop the top element from the stack and update $\textit{pre}$ to $\textit{cur} + 1$.
 
 Finally, we return the array $\textit{ans}$.
 

@@ -98,7 +98,7 @@ tags:
 >
 > Building the full zigzag and then taking even positions needs an extra array. A toggling flag can decide inclusion while we walk.
 >
-> We scan row by row, reverse odd rows in place, and append a cell only when $\textit{ok}$ is true, flipping $\textit{ok}$ after each cell. The flag carries across rows, so no global index is required.
+> We scan row by row, reverse odd rows in place, and append a cell only when $ok$ is true, flipping $ok$ after each cell. The flag carries across rows, so no global index is required.
 
 <!-- thinking:end -->
 

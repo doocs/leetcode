@@ -81,7 +81,7 @@ tags:
 长度为 $n$ 的好数字，偶数下标一共有 $\lceil \frac{n}{2} \rceil = \lfloor \frac{n + 1}{2} \rfloor$ 位，偶数下标可以填入 $5$ 种数字（ $0, 2, 4, 6, 8$）；奇数下标一共有 $\lfloor \frac{n}{2} \rfloor$ 位，奇数下标可以填入 $4$ 种数字（ $2, 3, 5, 7$）。因此长度为 $n$ 的好数字的个数为：
 
 $$
-ans = 5^{\lceil \frac{n}{2} \rceil} \times 4^{\lfloor \frac{n}{2} \rfloor}
+\textit{ans} = 5^{\lceil \frac{n}{2} \rceil} \times 4^{\lfloor \frac{n}{2} \rfloor}
 $$
 
 我们可以使用快速幂来计算 $5^{\lceil \frac{n}{2} \rceil}$ 和 $4^{\lfloor \frac{n}{2} \rfloor}$，时间复杂度为 $O(\log n)$，空间复杂度为 $O(1)$。

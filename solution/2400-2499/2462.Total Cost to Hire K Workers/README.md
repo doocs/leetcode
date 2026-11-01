@@ -90,17 +90,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先判断 $candidates \times 2$ 是否大于等于 $n$，如果是，我们直接返回前 $k$ 个最小的工人的代价之和。
+我们首先判断 $\textit{candidates} \times 2$ 是否大于等于 $n$，如果是，我们直接返回前 $k$ 个最小的工人的代价之和。
 
-否则，我们使用一个小根堆 $pq$ 来维护前 $candidates$ 个工人和后 $candidates$ 个工人的代价。
+否则，我们使用一个小根堆 $pq$ 来维护前 $\textit{candidates}$ 个工人和后 $\textit{candidates}$ 个工人的代价。
 
-我们首先将前 $candidates$ 个工人的代价以及对应的下标加入小根堆 $pq$ 中，然后将后 $candidates$ 个工人的代价以及对应的下标加入小根堆 $pq$ 中。用两个指针 $l$ 和 $r$ 分别指向前后待选工人的下标，初始时 $l = candidates$, $r = n - candidates - 1$。
+我们首先将前 $\textit{candidates}$ 个工人的代价以及对应的下标加入小根堆 $pq$ 中，然后将后 $\textit{candidates}$ 个工人的代价以及对应的下标加入小根堆 $pq$ 中。用两个指针 $l$ 和 $r$ 分别指向前后待选工人的下标，初始时 $l = \textit{candidates}$, $r = n - \textit{candidates} - 1$。
 
 然后我们进行 $k$ 次循环，每次从小根堆 $pq$ 中取出代价最小的工人，将其代价加入答案，如果 $l > r$，说明前后待选工人已经全部被选完，直接跳过。否则，如果当前工人的下标小于 $l$，说明是前面的工人，我们将第 $l$ 个工人的代价以及下标加入小根堆 $pq$ 中，然后 $l$ 加一；否则，我们将第 $r$ 个工人的代价以及下标加入小根堆 $pq$ 中，然后 $r$ 减一。
 
 循环结束后，返回答案即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $costs$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{costs}$ 的长度。
 
 <!-- tabs:start -->
 
