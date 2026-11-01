@@ -539,17 +539,13 @@ def _build_md_table(rows: List[List[str]], header: str) -> Tuple[str, List[List[
 
 def generate_readme(result) -> List[str]:
     written: List[str] = []
-    table_cn, _ = _build_md_table(
-        [item["md_table_row_cn"] for item in result],
-        "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |",
+    sub_folders = sorted(
+        {item["sub_folder"] for item in result if item.get("sub_folder")}
     )
-    table_en, _ = _build_md_table(
-        [item["md_table_row_en"] for item in result],
-        "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |",
-    )
-    if write_text("./README.md", readme_cn.format(table_cn)):
+    links = "\n".join(f"- [{sf}](/solution/{sf})" for sf in sub_folders)
+    if write_text("./README.md", readme_cn.format(links) + "\n"):
         written.append(os.path.abspath("./README.md"))
-    if write_text("./README_EN.md", readme_en.format(table_en)):
+    if write_text("./README_EN.md", readme_en.format(links) + "\n"):
         written.append(os.path.abspath("./README_EN.md"))
     return written
 
