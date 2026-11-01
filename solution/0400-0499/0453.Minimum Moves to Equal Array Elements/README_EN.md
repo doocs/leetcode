@@ -90,6 +90,8 @@ $$
 
 Therefore, the minimum number of operations is $\textit{s} - \textit{n} \times \textit{mi}$.
 
+$|\textit{nums}[i]|$ reaches $10^9$ and $n$ reaches $10^5$, so both $\textit{s}$ and $n \times \textit{mi}$ may fall outside a 32-bit integer. The problem guarantees that their difference still fits, so the sum is computed with a 64-bit integer.
+
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
@@ -107,7 +109,13 @@ class Solution:
 ```java
 class Solution {
     public int minMoves(int[] nums) {
-        return Arrays.stream(nums).sum() - Arrays.stream(nums).min().getAsInt() * nums.length;
+        long s = 0;
+        int mi = nums[0];
+        for (int x : nums) {
+            s += x;
+            mi = Math.min(mi, x);
+        }
+        return (int) (s - (long) mi * nums.length);
     }
 }
 ```
@@ -118,13 +126,14 @@ class Solution {
 class Solution {
 public:
     int minMoves(vector<int>& nums) {
-        int s = 0;
-        int mi = 1 << 30;
+        long long s = 0;
+        int mi = nums[0];
+        int n = nums.size();
         for (int x : nums) {
             s += x;
             mi = min(mi, x);
         }
-        return s - mi * nums.size();
+        return (int) (s - 1LL * mi * n);
     }
 };
 ```
