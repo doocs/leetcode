@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2343
+source: Weekly Contest 525 Q4
 ---
 
 <!-- problem:start -->

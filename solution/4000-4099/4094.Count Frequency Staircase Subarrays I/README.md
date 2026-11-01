@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1750
+source: 第 525 场周赛 Q3
 ---
 
 <!-- problem:start -->

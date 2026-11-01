@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1750
+source: Weekly Contest 525 Q3
 ---
 
 <!-- problem:start -->

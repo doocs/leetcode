@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1451
+source: Weekly Contest 525 Q2
 ---
 
 <!-- problem:start -->
