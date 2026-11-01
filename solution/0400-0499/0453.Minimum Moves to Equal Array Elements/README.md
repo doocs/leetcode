@@ -91,6 +91,8 @@ $$
 
 因此，最小操作次数为 $\textit{s} - \textit{n} \times \textit{mi}$。
 
+$|\textit{nums}[i]|$ 可达 $10^9$，且 $n$ 可达 $10^5$，所以 $\textit{s}$ 与 $n \times \textit{mi}$ 都可能超出 32 位整数范围，题目则保证二者之差仍在 32 位整数内。求和时使用 64 位整数。
+
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
@@ -108,7 +110,13 @@ class Solution:
 ```java
 class Solution {
     public int minMoves(int[] nums) {
-        return Arrays.stream(nums).sum() - Arrays.stream(nums).min().getAsInt() * nums.length;
+        long s = 0;
+        int mi = nums[0];
+        for (int x : nums) {
+            s += x;
+            mi = Math.min(mi, x);
+        }
+        return (int) (s - (long) mi * nums.length);
     }
 }
 ```
@@ -119,13 +127,14 @@ class Solution {
 class Solution {
 public:
     int minMoves(vector<int>& nums) {
-        int s = 0;
-        int mi = 1 << 30;
+        long long s = 0;
+        int mi = nums[0];
+        int n = nums.size();
         for (int x : nums) {
             s += x;
             mi = min(mi, x);
         }
-        return s - mi * nums.size();
+        return (int) (s - 1LL * mi * n);
     }
 };
 ```
