@@ -10,7 +10,6 @@ WITH
         FROM Employee
     )
 SELECT d.name AS Department, t.name AS Employee, salary AS Salary
-FROM
-    T AS t
-    JOIN Department AS d ON t.departmentId = d.id
+FROM T AS t
+JOIN Department AS d ON t.departmentId = d.id
 WHERE rk <= 3;

@@ -5,9 +5,8 @@ WITH
             account_id,
             DATE_FORMAT(day, '%Y%m') AS yearmonth,
             transaction_id AS tx
-        FROM
-            Transactions
-            JOIN Accounts USING (account_id)
+        FROM Transactions
+        JOIN Accounts USING (account_id)
         WHERE type = 'Creditor'
         GROUP BY account_id, yearmonth
         HAVING SUM(amount) > AVG(max_income)

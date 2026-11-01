@@ -155,21 +155,19 @@ WITH
         FROM Servers
     )
 SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, start_time, stop_time)) / 86400) AS total_uptime_days
-FROM
-    (
-        SELECT
-            s.status_time AS start_time,
-            MIN(t.status_time) AS stop_time
-        FROM
-            T AS s
-            JOIN T AS t
-                ON s.server_id = t.server_id
-                AND t.session_status = 'stop'
-                AND t.depth = s.depth - 1
-                AND t.status_time > s.status_time
-        WHERE s.session_status = 'start'
-        GROUP BY s.server_id, s.status_time
-    ) AS p;
+FROM (
+    SELECT
+        s.status_time AS start_time,
+        MIN(t.status_time) AS stop_time
+    FROM T AS s
+    JOIN T AS t
+        ON s.server_id = t.server_id
+        AND t.session_status = 'stop'
+        AND t.depth = s.depth - 1
+        AND t.status_time > s.status_time
+    WHERE s.session_status = 'start'
+    GROUP BY s.server_id, s.status_time
+) AS p;
 ```
 
 <!-- tabs:end -->

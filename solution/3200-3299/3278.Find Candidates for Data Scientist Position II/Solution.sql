@@ -11,9 +11,8 @@ WITH
                     ELSE 0
                 END
             ) + 100 AS score
-        FROM
-            Candidates
-            JOIN Projects USING (skill)
+        FROM Candidates
+        JOIN Projects USING (skill)
         GROUP BY 1, 2
     ),
     T AS (
@@ -30,9 +29,8 @@ WITH
                 PARTITION BY project_id
                 ORDER BY score DESC, candidate_id
             ) rk
-        FROM
-            S
-            JOIN T USING (project_id)
+        FROM S
+        JOIN T USING (project_id)
         WHERE matched_skills = required_skills
     )
 SELECT project_id, candidate_id, score

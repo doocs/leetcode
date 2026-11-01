@@ -126,9 +126,8 @@ Queries 表:
 ```sql
 # Write your MySQL query statement below
 SELECT q.*, IFNULL(npv, 0) AS npv
-FROM
-    Queries AS q
-    LEFT JOIN NPV AS n USING (id, year);
+FROM Queries AS q
+LEFT JOIN NPV AS n USING (id, year);
 ```
 
 <!-- tabs:end -->

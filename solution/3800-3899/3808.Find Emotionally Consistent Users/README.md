@@ -172,9 +172,8 @@ WITH
         HAVING 5 * MAX(cnt) >= 3 * SUM(cnt) AND SUM(cnt) >= 5
     )
 SELECT user_id, reaction dominant_reaction, reaction_ratio
-FROM
-    s
-    JOIN t USING (user_id)
+FROM s
+JOIN t USING (user_id)
 WHERE cnt = mx_cnt
 ORDER BY 3 DESC, 1;
 ```

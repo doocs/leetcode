@@ -2,9 +2,8 @@
 WITH
     S AS (
         SELECT *
-        FROM
-            Salary
-            JOIN Employee USING (employee_id)
+        FROM Salary
+        JOIN Employee USING (employee_id)
     ),
     T AS (
         SELECT

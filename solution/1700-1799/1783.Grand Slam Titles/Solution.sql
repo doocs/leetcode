@@ -14,7 +14,6 @@ WITH
         FROM Championships
     )
 SELECT player_id, player_name, COUNT(1) AS grand_slams_count
-FROM
-    T
-    JOIN Players USING (player_id)
+FROM T
+JOIN Players USING (player_id)
 GROUP BY 1;

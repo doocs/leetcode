@@ -127,10 +127,10 @@ WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email)
 # Write your MySQL query statement below
 DELETE FROM Person
 WHERE
-    id NOT IN (
-        SELECT id
-        FROM
-            (
+    id NOT IN
+        (
+            SELECT id
+            FROM (
                 SELECT
                     id,
                     ROW_NUMBER() OVER (
@@ -139,8 +139,8 @@ WHERE
                     ) AS rk
                 FROM Person
             ) AS p
-        WHERE rk = 1
-    );
+            WHERE rk = 1
+        );
 ```
 
 <!-- tabs:end -->

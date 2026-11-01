@@ -166,10 +166,9 @@ SELECT
         WHEN 100 * COUNT(charged_amount) / COUNT(v.visit_id) >= 50 THEN 'Gold'
         ELSE 'Silver'
     END AS category
-FROM
-    Members AS m
-    LEFT JOIN Visits AS v ON m.member_id = v.member_id
-    LEFT JOIN Purchases AS p ON v.visit_id = p.visit_id
+FROM Members AS m
+LEFT JOIN Visits AS v ON m.member_id = v.member_id
+LEFT JOIN Purchases AS p ON v.visit_id = p.visit_id
 GROUP BY member_id;
 ```
 

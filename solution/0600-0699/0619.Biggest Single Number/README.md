@@ -123,13 +123,12 @@ MyNumbers table:
 ```sql
 # Write your MySQL query statement below
 SELECT MAX(num) AS num
-FROM
-    (
-        SELECT num
-        FROM MyNumbers
-        GROUP BY 1
-        HAVING COUNT(1) = 1
-    ) AS t;
+FROM (
+    SELECT num
+    FROM MyNumbers
+    GROUP BY 1
+    HAVING COUNT(1) = 1
+) AS t;
 ```
 
 <!-- tabs:end -->
@@ -156,11 +155,10 @@ FROM
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    CASE
-        WHEN COUNT(1) = 1 THEN num
-        ELSE NULL
-    END AS num
+SELECT CASE
+    WHEN COUNT(1) = 1 THEN num
+    ELSE NULL
+END AS num
 FROM MyNumbers
 GROUP BY num
 ORDER BY 1 DESC

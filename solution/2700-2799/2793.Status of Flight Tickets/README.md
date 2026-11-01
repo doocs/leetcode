@@ -132,9 +132,8 @@ SELECT
         'Confirmed',
         'Waitlist'
     ) AS Status
-FROM
-    Passengers
-    JOIN Flights USING (flight_id)
+FROM Passengers
+JOIN Flights USING (flight_id)
 ORDER BY passenger_id;
 ```
 

@@ -8,8 +8,7 @@ FROM
 WHERE
     Employee.DepartmentId = Department.Id
     AND (
-        SELECT
-            COUNT(DISTINCT e2.Salary)
+        SELECT COUNT(DISTINCT e2.Salary)
         FROM Employee AS e2
         WHERE e2.Salary > Employee.Salary AND Employee.DepartmentId = e2.DepartmentId
     ) < 3;

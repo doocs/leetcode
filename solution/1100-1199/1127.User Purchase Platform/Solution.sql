@@ -20,7 +20,6 @@ SELECT
     p.*,
     IFNULL(SUM(amount), 0) AS total_amount,
     COUNT(t.user_id) AS total_users
-FROM
-    P AS p
-    LEFT JOIN T AS t USING (spend_date, platform)
+FROM P AS p
+LEFT JOIN T AS t USING (spend_date, platform)
 GROUP BY 1, 2;

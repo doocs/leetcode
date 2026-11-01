@@ -11,9 +11,8 @@ WITH
         FROM Sessions
     )
 SELECT user_id, COUNT(1) AS sessions_count
-FROM
-    T AS t
-    JOIN Sessions AS s USING (user_id)
+FROM T AS t
+JOIN Sessions AS s USING (user_id)
 WHERE rk = 1 AND t.session_type = 'Viewer' AND s.session_type = 'Streamer'
 GROUP BY 1
 ORDER BY 2 DESC, 1 DESC;

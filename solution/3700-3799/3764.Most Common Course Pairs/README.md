@@ -152,9 +152,8 @@ WITH
                 PARTITION BY user_id
                 ORDER BY completion_date
             ) second_course
-        FROM
-            top_students
-            JOIN course_completions USING (user_id)
+        FROM top_students
+        JOIN course_completions USING (user_id)
     )
 SELECT
     *,

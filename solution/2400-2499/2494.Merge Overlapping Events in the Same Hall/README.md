@@ -111,10 +111,11 @@ WITH
         SELECT
             *,
             IF(
-                start_day <= LAG(cur_max_end_day) OVER (
-                    PARTITION BY hall_id
-                    ORDER BY start_day
-                ),
+                start_day <=
+                    LAG(cur_max_end_day) OVER (
+                        PARTITION BY hall_id
+                        ORDER BY start_day
+                    ),
                 0,
                 1
             ) AS start

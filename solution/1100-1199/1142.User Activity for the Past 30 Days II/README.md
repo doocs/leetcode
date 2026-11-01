@@ -95,8 +95,7 @@ Activity 表：
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT
-            COUNT(DISTINCT session_id) AS sessions
+        SELECT COUNT(DISTINCT session_id) AS sessions
         FROM Activity
         WHERE activity_date <= '2019-07-27' AND DATEDIFF('2019-07-27', activity_date) < 30
         GROUP BY user_id
@@ -126,11 +125,10 @@ FROM T;
 #### MySQL
 
 ```sql
-SELECT
-    IFNULL(
-        ROUND(COUNT(DISTINCT session_id) / COUNT(DISTINCT user_id), 2),
-        0
-    ) AS average_sessions_per_user
+SELECT IFNULL(
+    ROUND(COUNT(DISTINCT session_id) / COUNT(DISTINCT user_id), 2),
+    0
+) AS average_sessions_per_user
 FROM Activity
 WHERE DATEDIFF('2019-07-27', activity_date) < 30;
 ```

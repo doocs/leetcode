@@ -15,8 +15,7 @@ UNION ALL
 SELECT
     'not_prime',
     IFNULL(COUNT(1) * FLOOR(IF(s = 0, 500000, 500000 % s) / SUM(square_footage)), 0)
-FROM
-    Inventory
-    JOIN T
+FROM Inventory
+JOIN T
 WHERE item_type = 'not_prime'
 ORDER BY item_count DESC, item_type DESC;

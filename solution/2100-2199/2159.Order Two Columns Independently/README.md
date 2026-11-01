@@ -104,9 +104,8 @@ WITH
         FROM Data
     )
 SELECT first_col, second_col
-FROM
-    S
-    JOIN T USING (rk);
+FROM S
+JOIN T USING (rk);
 ```
 
 <!-- tabs:end -->

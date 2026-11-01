@@ -117,9 +117,8 @@ WITH
         FROM S
     )
 SELECT e.*, t.team_id
-FROM
-    Employees AS e
-    JOIN T AS t ON e.salary = t.salary
+FROM Employees AS e
+JOIN T AS t ON e.salary = t.salary
 ORDER BY 4, 1;
 ```
 

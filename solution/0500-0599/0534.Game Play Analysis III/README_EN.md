@@ -155,7 +155,7 @@ GROUP BY 1, 2;
 
 > **Thinking**
 >
-> Solution 2 writes the same predicate with a comma join. `CROSS JOIN ... ON` only moves the filter into the join clause.
+> Solution 2 writes the same predicate with a comma join. `JOIN ... ON` only moves the filter into the join clause.
 >
 > The choice is stylistic; the grouped sums match Solution 2.
 
@@ -171,9 +171,8 @@ SELECT
     t1.player_id,
     t1.event_date,
     SUM(t2.games_played) AS games_played_so_far
-FROM
-    Activity AS t1
-    CROSS JOIN Activity AS t2 ON t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
+FROM Activity AS t1
+JOIN Activity AS t2 ON t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
 GROUP BY 1, 2;
 ```
 

@@ -19,6 +19,5 @@ WITH
         GROUP BY 1
     )
 SELECT category, IFNULL(accounts_count, 0) AS accounts_count
-FROM
-    S
-    LEFT JOIN T USING (category);
+FROM S
+LEFT JOIN T USING (category);

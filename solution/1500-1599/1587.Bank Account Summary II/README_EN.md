@@ -122,9 +122,8 @@ We can use an equi-join to join the `Users` table and the `Transactions` table o
 SELECT
     name,
     SUM(amount) AS balance
-FROM
-    Users
-    JOIN Transactions USING (account)
+FROM Users
+JOIN Transactions USING (account)
 GROUP BY account
 HAVING balance > 10000;
 ```

@@ -186,9 +186,8 @@ WITH
             employee_name,
             department,
             count(1) AS meeting_heavy_weeks
-        FROM
-            week_meeting_hours
-            JOIN employees USING (employee_id)
+        FROM week_meeting_hours
+        JOIN employees USING (employee_id)
         WHERE hours >= 20
         GROUP BY 1
     )
