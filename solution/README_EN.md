@@ -4,8 +4,6 @@
 
 ## Solutions
 
-Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
-
 - [0000-0099](/solution/0000-0099)
 - [0100-0199](/solution/0100-0199)
 - [0200-0299](/solution/0200-0299)

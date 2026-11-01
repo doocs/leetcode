@@ -4,10 +4,6 @@
 
 ## 题解
 
-列表所有题解均由 [开源社区 Doocs](https://github.com/doocs) 贡献者提供，正在完善中，欢迎贡献你的题解！
-
-快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd> + <kbd>F</kbd>（或者 <kbd>Command</kbd> + <kbd>F</kbd>）。
-
 - [0000-0099](/solution/0000-0099)
 - [0100-0199](/solution/0100-0199)
 - [0200-0299](/solution/0200-0299)
