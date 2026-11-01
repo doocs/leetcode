@@ -89,7 +89,7 @@ In January 2021 we have two orders from 2 different customers, but only one of t
 >
 > Per month, count orders with invoice above $20$ and distinct customers. Grouping the raw date would split a month into days.
 >
-> Filter $invoice>20$, format the date as year-month, and aggregate: $COUNT$ of orders and $COUNT(DISTINCT\ customer\_id)$. The Pandas path uses $to\_period$ and $nunique$ for the same grouping.
+> Filter $\textit{invoice}>20$, format the date as year-month, and aggregate: $\textit{COUNT}$ of orders and $\textit{COUNT}(\textit{DISTINCT}\ \textit{customer\_id})$. The Pandas path uses $\textit{to\_period}$ and $\textit{nunique}$ for the same grouping.
 
 <!-- thinking:end -->
 

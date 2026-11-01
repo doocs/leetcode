@@ -75,9 +75,9 @@ The XOR sum is (1 XOR 5) + (0 XOR 4) + (3 XOR 3) = 4 + 4 + 0 = 8.
 
 > **Thinking**
 >
-> We permute $nums2$ to minimize $\sum nums1[i]\oplus nums2[\pi(i)]$. $n\le 14$ makes $n!$ tight; subset DP fits.
+> We permute $\textit{nums2}$ to minimize $\sum \textit{nums1}[i]\oplus \textit{nums2}[\pi(i)]$. $n\le 14$ makes $n!$ tight; subset DP fits.
 >
-> $f[i][j]$ is the minimum XOR-sum after pairing the first $i$ values of $nums1$ using the index set $j$ of $nums2$. Try each bit $k$ in $j$ as the partner of $nums1[i-1]$.
+> $f[i][j]$ is the minimum XOR-sum after pairing the first $i$ values of $\textit{nums1}$ using the index set $j$ of $\textit{nums2}$. Try each bit $k$ in $j$ as the partner of $\textit{nums1}[i-1]$.
 
 <!-- thinking:end -->
 
@@ -209,7 +209,7 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 > **Thinking**
 >
-> Many masks in Solution 1 have the wrong popcount. Drop the $i$ dimension, update one $nums1$ value at a time, and iterate $j$ downward so transitions read the previous round. The asymptotic bound stays $O(n^2 2^n)$ with a better constant.
+> Many masks in Solution 1 have the wrong popcount. Drop the $i$ dimension, update one $\textit{nums1}$ value at a time, and iterate $j$ downward so transitions read the previous round. The asymptotic bound stays $O(n^2 2^n)$ with a better constant.
 
 <!-- thinking:end -->
 
@@ -333,7 +333,7 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 > **Thinking**
 >
-> Enumerate the mask $i$ itself: let $k=\mathrm{popcount}(i)-1$ be the $nums1$ index being placed, and try each bit of $i$ as the chosen $nums2[j]$. Each state is filled once in $O(n 2^n)$ time and $O(2^n)$ space.
+> Enumerate the mask $i$ itself: let $k=\textit{popcount}(i)-1$ be the $\textit{nums1}$ index being placed, and try each bit of $i$ as the chosen $\textit{nums2}[j]$. Each state is filled once in $O(n 2^n)$ time and $O(2^n)$ space.
 
 <!-- thinking:end -->
 

@@ -68,17 +68,17 @@ Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
 
 > **Thinking**
 >
-> Besides having exactly $target$ `B`s in the row and column, every row that has a `B` in that column must be identical. Rescanning rows per column repeats work.
+> Besides having exactly $\textit{target}$ `B`s in the row and column, every row that has a `B` in that column must be identical. Rescanning rows per column repeats work.
 >
-> Count black cells per row and collect row indices per column. For a column, take one template row: if the column's row-count equals that template's $target$ and every listed row equals the template, add $target$. Whole-row equality avoids a cell-wise rewrite.
+> Count black cells per row and collect row indices per column. For a column, take one template row: if the column's row-count equals that template's $\textit{target}$ and every listed row equals the template, add $\textit{target}$. Whole-row equality avoids a cell-wise rewrite.
 
 <!-- thinking:end -->
 
 The second condition in the problem is equivalent to requiring that for each column containing black pixels, these rows are exactly the same.
 
-Therefore, we can use an adjacency list $g$ to store all the rows containing black pixels in each column, i.e., $g[j]$ represents the set of all rows containing black pixels in the $j$-th column. In addition, we use an array $rows$ to store the number of black pixels in each row.
+Therefore, we can use an adjacency list $g$ to store all the rows containing black pixels in each column, i.e., $g[j]$ represents the set of all rows containing black pixels in the $j$-th column. In addition, we use an array $\textit{rows}$ to store the number of black pixels in each row.
 
-Next, we traverse each column. For each column, we find the first row $i_1$ containing black pixels. If the number of black pixels in this row is not equal to $target$, then this column cannot contain lonely pixels, and we skip it directly. Otherwise, we check whether all the rows containing black pixels in this column are exactly the same as the $i_1$-th row. If so, all the black pixels in this column are lonely pixels, and we add $target$ to the answer.
+Next, we traverse each column. For each column, we find the first row $i_1$ containing black pixels. If the number of black pixels in this row is not equal to $\textit{target}$, then this column cannot contain lonely pixels, and we skip it directly. Otherwise, we check whether all the rows containing black pixels in this column are exactly the same as the $i_1$-th row. If so, all the black pixels in this column are lonely pixels, and we add $\textit{target}$ to the answer.
 
 After the traversal, we return the answer.
 

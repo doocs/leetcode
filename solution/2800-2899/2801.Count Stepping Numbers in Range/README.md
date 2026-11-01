@@ -65,28 +65,28 @@ tags:
 
 > **思考**
 >
-> $low$ 与 $high$ 以数字串给出，直接枚举区间内每个整数并检查相邻数位之差是否为 $1$，在位数很大时不可行。区间计数可改为 $F(high)-F(low-1)$。步进数只约束相邻数位，与具体数值无关，适合数位 DP。按位置 $pos$、前一位 $pre$、前导零 $lead$ 与上界 $limit$ 记忆化：前导零不参与相邻比较，非前导零仅当尚无前一位或 $|i-pre|=1$ 时转移。
+> $\textit{low}$ 与 $\textit{high}$ 以数字串给出，直接枚举区间内每个整数并检查相邻数位之差是否为 $1$，在位数很大时不可行。区间计数可改为 $F(\textit{high})-F(\textit{low}-1)$。步进数只约束相邻数位，与具体数值无关，适合数位 DP。按位置 $\textit{pos}$、前一位 $\textit{pre}$、前导零 $\textit{lead}$ 与上界 $\textit{limit}$ 记忆化：前导零不参与相邻比较，非前导零仅当尚无前一位或 $|i-\textit{pre}|=1$ 时转移。
 
 <!-- thinking:end -->
 
-我们注意到，题目求的是区间 $[low, high]$ 内的步进数的个数，对于这种区间 $[l,..r]$ 的问题，我们通常可以考虑转化为求 $[1, r]$ 和 $[1, l-1]$ 的答案，然后相减即可。另外，题目中只涉及到不同数位之间的关系，而不涉及具体的数值，因此我们可以考虑使用数位 DP 来解决。
+我们注意到，题目求的是区间 $[\textit{low}, \textit{high}]$ 内的步进数的个数，对于这种区间 $[l,..r]$ 的问题，我们通常可以考虑转化为求 $[1, r]$ 和 $[1, l-1]$ 的答案，然后相减即可。另外，题目中只涉及到不同数位之间的关系，而不涉及具体的数值，因此我们可以考虑使用数位 DP 来解决。
 
-我们设计一个函数 $dfs(pos, pre, lead, limit)$，表示当前处理到第 $pos$ 位，前一位数字是 $pre$，当前数字是否只包含前导零 $lead$，当前数字是否达到上界 $limit$ 的方案数。其中，而 $pos$ 的范围是 $[0, len(num))$。
+我们设计一个函数 $\textit{dfs}(\textit{pos}, \textit{pre}, \textit{lead}, \textit{limit})$，表示当前处理到第 $\textit{pos}$ 位，前一位数字是 $\textit{pre}$，当前数字是否只包含前导零 $\textit{lead}$，当前数字是否达到上界 $\textit{limit}$ 的方案数。其中，而 $\textit{pos}$ 的范围是 $[0, \textit{len}(\textit{num}))$。
 
-函数 $dfs(pos, pre, lead, limit)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{pos}, \textit{pre}, \textit{lead}, \textit{limit})$ 的执行逻辑如下：
 
-如果 $pos$ 超出了 $num$ 的长度，说明我们已经处理完了所有数位，如果此时 $lead$ 为真，说明当前数字只包含前导零，不是一个合法的数字，我们可以返回 $0$ 表示方案数为 $0$；否则我们返回 $1$ 表示方案数为 $1$。
+如果 $\textit{pos}$ 超出了 $\textit{num}$ 的长度，说明我们已经处理完了所有数位，如果此时 $\textit{lead}$ 为真，说明当前数字只包含前导零，不是一个合法的数字，我们可以返回 $0$ 表示方案数为 $0$；否则我们返回 $1$ 表示方案数为 $1$。
 
 否则，我们计算得到当前数位的上界 $up$，然后在 $[0,..up]$ 范围内枚举当前数位的数字 $i$：
 
-- 如果 $i=0$ 且 $lead$ 为真，说明当前数字只包含前导零，我们递归计算 $dfs(pos+1,pre, true, limit\ and\ i=up)$ 的值并累加到答案中；
-- 否则，如果 $pre$ 为 $-1$，或者 $i$ 和 $pre$ 之间的差的绝对值为 $1$，说明当前数字是一个合法的步进数，我们递归计算 $dfs(pos+1,i, false, limit\ and\ i=up)$ 的值并累加到答案中。
+- 如果 $i=0$ 且 $\textit{lead}$ 为真，说明当前数字只包含前导零，我们递归计算 $\textit{dfs}(\textit{pos}+1,\textit{pre}, \textit{true}, \textit{limit}\ \textit{and}\ i=up)$ 的值并累加到答案中；
+- 否则，如果 $\textit{pre}$ 为 $-1$，或者 $i$ 和 $\textit{pre}$ 之间的差的绝对值为 $1$，说明当前数字是一个合法的步进数，我们递归计算 $\textit{dfs}(\textit{pos}+1,i, \textit{false}, \textit{limit}\ \textit{and}\ i=up)$ 的值并累加到答案中。
 
 最终我们返回答案。
 
-在主函数中，我们分别计算 $[1, high]$ 和 $[1, low-1]$ 的答案 $a$ 和 $b$，最终答案为 $a-b$。注意答案的取模运算。
+在主函数中，我们分别计算 $[1, \textit{high}]$ 和 $[1, \textit{low}-1]$ 的答案 $a$ 和 $b$，最终答案为 $a-b$。注意答案的取模运算。
 
-时间复杂度 $O(|\Sigma|^2 \log M)$，空间复杂度 $O(|\Sigma| \log M)$。其中 $M$ 表示 $high$ 数字的大小，而 $|\Sigma|$ 表示数字集合。
+时间复杂度 $O(|\Sigma|^2 \log M)$，空间复杂度 $O(|\Sigma| \log M)$。其中 $M$ 表示 $\textit{high}$ 数字的大小，而 $|\Sigma|$ 表示数字集合。
 
 相似题目：
 

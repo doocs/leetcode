@@ -108,7 +108,7 @@ tags:
 >
 > Precompute, for both directions, the longest alternating length ending at $i$ and starting at $i$.
 >
-> Take the no-deletion maximum, then try each deletion and add the matching prefix and suffix only when $nums[i-1]$ and $nums[i+1]$ still alternate.
+> Take the no-deletion maximum, then try each deletion and add the matching prefix and suffix only when $\textit{nums}[i-1]$ and $\textit{nums}[i+1]$ still alternate.
 
 <!-- thinking:end -->
 

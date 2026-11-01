@@ -256,9 +256,9 @@ func numOfArrays(n int, m int, k int) int {
 
 <!-- thinking:end -->
 
-设 $dp[c][j]$ 表示当前长度、查找代价为 $c$、最大值为 $j$ 的数组个数。追加一个数时，要么最大值不变，有 $j$ 种选择；要么从较小的最大值增大到 $j$。在递增枚举 $j$ 时维护 $prefix = \sum_{x=1}^{j-1} dp_{\mathrm{prev}}[c-1][x]$，于是
+设 $dp[c][j]$ 表示当前长度、查找代价为 $c$、最大值为 $j$ 的数组个数。追加一个数时，要么最大值不变，有 $j$ 种选择；要么从较小的最大值增大到 $j$。在递增枚举 $j$ 时维护 $\textit{prefix} = \sum_{x=1}^{j-1} dp_{\textit{prev}}[c-1][x]$，于是
 
-$$dp_{\mathrm{next}}[c][j] = j \cdot dp_{\mathrm{prev}}[c][j] + prefix \pmod{10^9+7}.$$
+$$dp_{\textit{next}}[c][j] = j \cdot dp_{\textit{prev}}[c][j] + \textit{prefix} \pmod{10^9+7}.$$
 
 长度为 $1$ 时，初始化 $dp[1][j]=1$。答案为所有 $1 \le j \le m$ 的 $dp[k][j]$ 之和。时间复杂度为 $O(nkm)$，比方法一的 $O(nkm^2)$ 少一层枚举；只保留前后两层，空间复杂度从 $O(nkm)$ 降为 $O(km)$。
 

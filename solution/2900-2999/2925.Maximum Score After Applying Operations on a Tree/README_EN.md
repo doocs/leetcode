@@ -85,7 +85,7 @@ It can be shown that 40 is the maximum score obtainable by performing any number
 >
 > Every root-to-leaf path must keep at least one unselected node; the rest may add to the score. Enumerating select/skip at each vertex while enforcing every path explodes. Tree DP localizes the constraint: skip the root and take whole subtrees, or take the root and leave each subtree still valid.
 >
-> $dfs$ returns the subtree sum and the best valid selection. A leaf can only leave itself unselected, so the second value is $0$. An internal node takes $\max(values[i]+b, a)$. The answer is the second value at the root.
+> $\textit{dfs}$ returns the subtree sum and the best valid selection. A leaf can only leave itself unselected, so the second value is $0$. An internal node takes $\max(\textit{values}[i]+b, a)$. The answer is the second value at the root.
 
 <!-- thinking:end -->
 
@@ -93,13 +93,13 @@ The problem is actually asking us to select some nodes from all nodes of the tre
 
 We can use the method of tree DP to solve this problem.
 
-We design a function $dfs(i, fa)$, where $i$ represents the current node with node $i$ as the root of the subtree, and $fa$ represents the parent node of $i$. The function returns an array of length $2$, where $[0]$ represents the sum of the values of all nodes in the subtree, and $[1]$ represents the maximum value of the subtree satisfying that there is one node not selected on each path.
+We design a function $\textit{dfs}(i, fa)$, where $i$ represents the current node with node $i$ as the root of the subtree, and $fa$ represents the parent node of $i$. The function returns an array of length $2$, where $[0]$ represents the sum of the values of all nodes in the subtree, and $[1]$ represents the maximum value of the subtree satisfying that there is one node not selected on each path.
 
 The value of $[0]$ can be obtained directly by DFS accumulating the values of each node, while the value of $[1]$ needs to consider two situations, namely whether node $i$ is selected. If it is selected, then each subtree of node $i$ must satisfy that there is one node not selected on each path; if it is not selected, then all nodes of each subtree of node $i$ can be selected. We take the maximum of these two situations.
 
 It should be noted that the value of $[1]$ of the leaf node is $0$, because the leaf node has no subtree, so there is no need to consider the situation where there is one node not selected on each path.
 
-The answer is $dfs(0, -1)[1]$.
+The answer is $\textit{dfs}(0, -1)[1]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -280,15 +280,15 @@ function maximumScoreAfterOperations(edges: number[][], values: number[]): numbe
 
 > **Thinking**
 >
-> Every root-to-leaf path must keep at least one unselected node; the remaining values may add to the score. Enumerating select or skip at each vertex while enforcing every path grows with the number of paths and does not fit $n \le 2 \times 10^4$. Once the choice is localized to a subtree, skipping the current node takes each child subtree whole, and taking it requires every child subtree to stay valid; both choices depend only on the subtree sum and the valid score, so child order does not matter. Filling that pair by recursion along a chain uses a call depth equal to the node count and overflows Python's recursion limit. The stack therefore stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ writes the pair after the children are ready. A leaf stores second value $0$, an internal node takes $\max(values[i]+b, a)$, and the answer is the second value at the root.
+> Every root-to-leaf path must keep at least one unselected node; the remaining values may add to the score. Enumerating select or skip at each vertex while enforcing every path grows with the number of paths and does not fit $n \le 2 \times 10^4$. Once the choice is localized to a subtree, skipping the current node takes each child subtree whole, and taking it requires every child subtree to stay valid; both choices depend only on the subtree sum and the valid score, so child order does not matter. Filling that pair by recursion along a chain uses a call depth equal to the node count and overflows Python's recursion limit. The stack therefore stores $(\textit{node}, \textit{parent}, \textit{state})$: state $0$ pushes the exit marker and then the children, and state $1$ writes the pair after the children are ready. A leaf stores second value $0$, an internal node takes $\max(\textit{values}[i]+b, a)$, and the answer is the second value at the root.
 
 <!-- thinking:end -->
 
 The problem asks us to select some nodes so that the sum of their values is maximized, and every path from the root to a leaf keeps at least one node unselected.
 
-We record two quantities for each subtree with tree DP and fill them in postorder on an explicit stack. For node $i$, the first value is the sum of every node in the subtree, and the second value is the maximum score the subtree can obtain while satisfying the path constraint. A leaf has no child, so it can leave an unselected node only by skipping itself: the first value is $values[i]$ and the second value is $0$. An internal node has two choices. Skipping $i$ takes every node in each child subtree, scoring the sum of those subtree sums $a$. Taking $i$ requires each child subtree to stay valid on its own, scoring $values[i]$ plus the sum of the child scores $b$. We keep the larger of the two.
+We record two quantities for each subtree with tree DP and fill them in postorder on an explicit stack. For node $i$, the first value is the sum of every node in the subtree, and the second value is the maximum score the subtree can obtain while satisfying the path constraint. A leaf has no child, so it can leave an unselected node only by skipping itself: the first value is $\textit{values}[i]$ and the second value is $0$. An internal node has two choices. Skipping $i$ takes every node in each child subtree, scoring the sum of those subtree sums $a$. Taking $i$ requires each child subtree to stay valid on its own, scoring $\textit{values}[i]$ plus the sum of the child scores $b$. We keep the larger of the two.
 
-Each stack frame is $(i, fa, state)$. When $state = 0$, we push $(i, fa, 1)$ and then push every neighbor other than the parent with state $0$, so the children finish first. When $state = 1$, we read the finished child results and write node $i$ by the rule above. The order in which children are pushed does not change the answer.
+Each stack frame is $(i, fa, \textit{state})$. When $\textit{state} = 0$, we push $(i, fa, 1)$ and then push every neighbor other than the parent with state $0$, so the children finish first. When $\textit{state} = 1$, we read the finished child results and write node $i$ by the rule above. The order in which children are pushed does not change the answer.
 
 The answer is the second value at the root.
 

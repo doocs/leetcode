@@ -74,9 +74,9 @@ tags:
 
 > **思考**
 >
-> 每个区间 $[start_i,start_i+d]$ 选一个整数，最大化相邻所选值之差的最小值。 $n\le 10^5$，枚举选值不可行。排序后该最小差具有单调性：能达到 $x$ 则也能达到更小值。
+> 每个区间 $[\textit{start}_i,\textit{start}_i+d]$ 选一个整数，最大化相邻所选值之差的最小值。 $n\le 10^5$，枚举选值不可行。排序后该最小差具有单调性：能达到 $x$ 则也能达到更小值。
 >
-> 二分 $x$，从左贪心：在区间内选不小于 $last+x$ 的最小可行点，选不出则失败。左闭右开二分最大可行 $x$。
+> 二分 $x$，从左贪心：在区间内选不小于 $\textit{last}+x$ 的最小可行点，选不出则失败。左闭右开二分最大可行 $x$。
 
 <!-- thinking:end -->
 
@@ -84,13 +84,13 @@ tags:
 
 如果一个差值 $x$ 满足条件，那么对于任意 $x' \lt x$，也一定满足条件。因此我们可以使用二分查找的方法来找到最大的满足条件的差值。
 
-我们定义二分查找的左边界 $l = 0$，右边界 $r = \textit{start}[-1] + d - \textit{start}[0]$，然后我们每次取中间值 $mid = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$，然后判断是否满足条件。
+我们定义二分查找的左边界 $l = 0$，右边界 $r = \textit{start}[-1] + d - \textit{start}[0]$，然后我们每次取中间值 $\textit{mid} = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$，然后判断是否满足条件。
 
-我们定义一个函数 $\text{check}(mi)$ 来判断是否满足条件，具体实现如下：
+我们定义一个函数 $\textit{check}(mi)$ 来判断是否满足条件，具体实现如下：
 
 - 我们定义一个变量 $\textit{last} = -\infty$，表示上一个选择的整数。
-- 我们遍历 $\textit{start}$ 数组，如果 $\textit{last} + \textit{mi} > \textit{st} + d$，那么说明我们无法选择整数 $\textit{st}$，返回 $\text{false}$。否则，我们更新 $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$。
-- 如果遍历完整个 $\textit{start}$ 数组都满足条件，那么返回 $\text{true}$。
+- 我们遍历 $\textit{start}$ 数组，如果 $\textit{last} + mi > st + d$，那么说明我们无法选择整数 $st$，返回 $\textit{false}$。否则，我们更新 $\textit{last} = \max(st, \textit{last} + mi)$。
+- 如果遍历完整个 $\textit{start}$ 数组都满足条件，那么返回 $\textit{true}$。
 
 时间复杂度 $O(n \log M)$，空间复杂度 $O(1)$。其中 $n$ 和 $M$ 分别是 $\textit{start}$ 数组的长度和最大值。
 

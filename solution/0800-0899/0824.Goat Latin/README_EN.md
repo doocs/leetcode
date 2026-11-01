@@ -71,7 +71,7 @@ tags:
 
 > **Thinking**
 >
-> Each word is rewritten: a consonant-initial word moves its first letter to the end, then every word gets $\textit{ma}$ plus a run of $a$ whose length is the word index. The sentence is short, so split and transform.
+> Each word is rewritten: a consonant-initial word moves its first letter to the end, then every word gets $ma$ plus a run of $a$ whose length is the word index. The sentence is short, so split and transform.
 >
 > Vowel tests use the lowercase first letter. The $i$-th word (1-based) appends $i$ copies of $a$; join with spaces.
 

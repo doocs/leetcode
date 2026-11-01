@@ -90,29 +90,29 @@ nums[3] - nums[0] &gt;= 3 - 0 。
 
 > **思考**
 >
-> 平衡条件 $nums[i]-nums[j] \ge i-j$ 可改写为 $nums[i]-i \ge nums[j]-j$。于是在序列 $arr[t]=nums[t]-t$ 上选取非降下标，使对应 $nums$ 之和最大。朴素 $f[i]=nums[i]+\max_{j<i, arr[j]\le arr[i]} f[j]$（或只取 $nums[i]$）是 $O(n^2)$，而 $n \le 10^5$。
+> 平衡条件 $\textit{nums}[i]-\textit{nums}[j] \ge i-j$ 可改写为 $\textit{nums}[i]-i \ge \textit{nums}[j]-j$。于是在序列 $\textit{arr}[t]=\textit{nums}[t]-t$ 上选取非降下标，使对应 $\textit{nums}$ 之和最大。朴素 $f[i]=\textit{nums}[i]+\max_{j<i, \textit{arr}[j]\le \textit{arr}[i]} f[j]$（或只取 $\textit{nums}[i]$）是 $O(n^2)$，而 $n \le 10^5$。
 >
-> 对 $arr$ 离散化后，树状数组维护「 $arr$ 值不超过某阈值时的最大 $f$」。按原下标扫描，查询后再插入，全局再取一次前缀最大即得答案。
+> 对 $\textit{arr}$ 离散化后，树状数组维护「 $\textit{arr}$ 值不超过某阈值时的最大 $f$」。按原下标扫描，查询后再插入，全局再取一次前缀最大即得答案。
 
 <!-- thinking:end -->
 
-根据题目描述，我们可以将不等式 $nums[i] - nums[j] \ge i - j$ 转化为 $nums[i] - i \ge nums[j] - j$，因此，我们考虑定义一个新数组 $arr$，其中 $arr[i] = nums[i] - i$，那么平衡子序列满足对于任意 $j \lt i$，都有 $arr[j] \le arr[i]$。即题目转换为求在 $arr$ 中选出一个递增子序列，使得对应的 $nums$ 的和最大。
+根据题目描述，我们可以将不等式 $\textit{nums}[i] - \textit{nums}[j] \ge i - j$ 转化为 $\textit{nums}[i] - i \ge \textit{nums}[j] - j$，因此，我们考虑定义一个新数组 $\textit{arr}$，其中 $\textit{arr}[i] = \textit{nums}[i] - i$，那么平衡子序列满足对于任意 $j \lt i$，都有 $\textit{arr}[j] \le \textit{arr}[i]$。即题目转换为求在 $\textit{arr}$ 中选出一个递增子序列，使得对应的 $\textit{nums}$ 的和最大。
 
-假设 $i$ 是子序列中最后一个元素的下标，那么我们考虑子序列倒数第二个元素的下标 $j$，如果 $arr[j] \le arr[i]$，我们可以考虑是否要将 $j$ 加入到子序列中。
+假设 $i$ 是子序列中最后一个元素的下标，那么我们考虑子序列倒数第二个元素的下标 $j$，如果 $\textit{arr}[j] \le \textit{arr}[i]$，我们可以考虑是否要将 $j$ 加入到子序列中。
 
-因此，我们定义 $f[i]$ 表示子序列最后一个元素的下标为 $i$ 时，对应的 $nums$ 的最大和，那么答案为 $\max_{i=0}^{n-1} f[i]$。
+因此，我们定义 $f[i]$ 表示子序列最后一个元素的下标为 $i$ 时，对应的 $\textit{nums}$ 的最大和，那么答案为 $\max_{i=0}^{n-1} f[i]$。
 
 状态转移方程为：
 
 $$
-f[i] = \max(\max_{j=0}^{i-1} f[j], 0) + nums[i]
+f[i] = \max(\max_{j=0}^{i-1} f[j], 0) + \textit{nums}[i]
 $$
 
-其中 $j$ 满足 $arr[j] \le arr[i]$。
+其中 $j$ 满足 $\textit{arr}[j] \le \textit{arr}[i]$。
 
-我们可以使用树状数组来维护前缀的最大值，即对于每个 $arr[i]$，我们维护前缀 $arr[0..i]$ 中 $f[i]$ 的最大值。
+我们可以使用树状数组来维护前缀的最大值，即对于每个 $\textit{arr}[i]$，我们维护前缀 $\textit{arr}[0..i]$ 中 $f[i]$ 的最大值。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

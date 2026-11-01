@@ -79,7 +79,7 @@ tags:
 
 First, we compute the number of layers in the matrix, denoted by $p$, and then simulate the cyclic rotation layer by layer from the outside to the inside.
 
-For each layer, we traverse clockwise and append the elements on the top, right, bottom, and left edges to an array $nums$ in order. Let the length of $nums$ be $l$. Next, we take $k \bmod l$. Then, starting from index $k$ in the array, we write the elements back to the matrix along the top, right, bottom, and left edges in order.
+For each layer, we traverse clockwise and append the elements on the top, right, bottom, and left edges to an array $\textit{nums}$ in order. Let the length of $\textit{nums}$ be $l$. Next, we take $k \bmod l$. Then, starting from index $k$ in the array, we write the elements back to the matrix along the top, right, bottom, and left edges in order.
 
 The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

@@ -124,21 +124,21 @@ The <strong>Manhattan Distance</strong> between two cells <code>(x<sub>i</sub>, 
 >
 > The distance is governed by a dominant quadrant. After fixing one of the four diagonal targets, steps already toward it add one; other steps are rewritten while $k$ remains, then subtract.
 >
-> We run that greedy for $\textit{SE}/\textit{SW}/\textit{NE}/\textit{NW}$ and keep the best $\textit{mx}$ seen along the way.
+> We run that greedy for $\textit{SE}/\textit{SW}/\textit{NE}/\textit{NW}$ and keep the best $mx$ seen along the way.
 
 <!-- thinking:end -->
 
 We can enumerate four cases: $\textit{SE}$, $\textit{SW}$, $\textit{NE}$, and $\textit{NW}$, and then calculate the maximum Manhattan distance for each case.
 
-We define a function $\text{calc}(a, b)$ to calculate the maximum Manhattan distance when the effective directions are $\textit{a}$ and $\textit{b}$.
+We define a function $\textit{calc}(a, b)$ to calculate the maximum Manhattan distance when the effective directions are $a$ and $b$.
 
-We define a variable $\textit{mx}$ to record the current Manhattan distance, a variable $\textit{cnt}$ to record the number of changes made, and initialize the answer $\textit{ans}$ to $0$.
+We define a variable $mx$ to record the current Manhattan distance, a variable $\textit{cnt}$ to record the number of changes made, and initialize the answer $\textit{ans}$ to $0$.
 
-Traverse the string $\textit{s}$. If the current character is $\textit{a}$ or $\textit{b}$, increment $\textit{mx}$ by $1$. Otherwise, if $\textit{cnt} < k$, increment $\textit{mx}$ by $1$ and increment $\textit{cnt}$ by $1$. Otherwise, decrement $\textit{mx}$ by $1$. Then update $\textit{ans} = \max(\textit{ans}, \textit{mx})$.
+Traverse the string $s$. If the current character is $a$ or $b$, increment $mx$ by $1$. Otherwise, if $\textit{cnt} < k$, increment $mx$ by $1$ and increment $\textit{cnt}$ by $1$. Otherwise, decrement $mx$ by $1$. Then update $\textit{ans} = \max(\textit{ans}, mx)$.
 
 Finally, return the maximum value among the four cases.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

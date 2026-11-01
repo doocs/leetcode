@@ -72,15 +72,15 @@ tags:
 
 <!-- thinking:end -->
 
-We use a variable $t$ to record the current sum of the ascending subarray, and a variable $ans$ to record the maximum sum of the ascending subarray.
+We use a variable $t$ to record the current sum of the ascending subarray, and a variable $\textit{ans}$ to record the maximum sum of the ascending subarray.
 
-Traverse the array $nums$:
+Traverse the array $\textit{nums}$:
 
-If the current element is the first element of the array, or the current element is greater than the previous one, then add the current element to the sum of the current ascending subarray, i.e., $t = t + nums[i]$, and update the maximum sum of the ascending subarray $ans = \max(ans, t)$. Otherwise, the current element does not satisfy the condition of the ascending subarray, so reset the sum $t$ of the current ascending subarray to the current element, i.e., $t = nums[i]$.
+If the current element is the first element of the array, or the current element is greater than the previous one, then add the current element to the sum of the current ascending subarray, i.e., $t = t + \textit{nums}[i]$, and update the maximum sum of the ascending subarray $\textit{ans} = \max(\textit{ans}, t)$. Otherwise, the current element does not satisfy the condition of the ascending subarray, so reset the sum $t$ of the current ascending subarray to the current element, i.e., $t = \textit{nums}[i]$.
 
-After the traversal, return the maximum sum of the ascending subarray $ans$.
+After the traversal, return the maximum sum of the ascending subarray $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

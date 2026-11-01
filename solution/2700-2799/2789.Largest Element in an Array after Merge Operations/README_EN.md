@@ -72,15 +72,15 @@ There is only one element in the final array, which is 11.
 
 > **Thinking**
 >
-> Two adjacent values may merge into their sum only when $nums[i]\le nums[i+1]$; we want the largest value that can appear. Merging from the left spends small numbers too early and blocks later chains.
+> Two adjacent values may merge into their sum only when $\textit{nums}[i]\le \textit{nums}[i+1]$; we want the largest value that can appear. Merging from the left spends small numbers too early and blocks later chains.
 >
-> Scan right to left and, when $nums[i]\le nums[i+1]$, add the right value into $nums[i]$, folding in an already-maximized suffix. The maximum remaining entry is the answer.
+> Scan right to left and, when $\textit{nums}[i]\le \textit{nums}[i+1]$, add the right value into $\textit{nums}[i]$, folding in an already-maximized suffix. The maximum remaining entry is the answer.
 
 <!-- thinking:end -->
 
 According to the problem description, in order to maximize the maximum element in the merged array, we should merge the elements on the right first, making the elements on the right as large as possible, so as to perform as many merge operations as possible and finally get the maximum element.
 
-Therefore, we can traverse the array from right to left. For each position $i$, where $i \in [0, n - 2]$, if $nums[i] \leq nums[i + 1]$, we update $nums[i]$ to $nums[i] + nums[i + 1]$. Doing so is equivalent to merging $nums[i]$ and $nums[i + 1]$ and deleting $nums[i]$.
+Therefore, we can traverse the array from right to left. For each position $i$, where $i \in [0, n - 2]$, if $\textit{nums}[i] \leq \textit{nums}[i + 1]$, we update $\textit{nums}[i]$ to $\textit{nums}[i] + \textit{nums}[i + 1]$. Doing so is equivalent to merging $\textit{nums}[i]$ and $\textit{nums}[i + 1]$ and deleting $\textit{nums}[i]$.
 
 In the end, the maximum element in the array is the maximum element in the merged array.
 

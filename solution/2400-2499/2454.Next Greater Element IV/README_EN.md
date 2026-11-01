@@ -86,7 +86,7 @@ We return [-1,-1] since neither integer has any integer greater than it.
 >
 > The second greater is the second strictly larger value to the right. At $n\le 10^5$, processing from large to small means every index already stored is a larger value. The second index to the right of $i$ in a sorted set is the answer.
 >
-> Sort $(value,index)$ descending. For each index, bisect the ordered index set and read the element two positions later.
+> Sort $(\textit{value},\textit{index})$ descending. For each index, bisect the ordered index set and read the element two positions later.
 
 <!-- thinking:end -->
 
@@ -859,20 +859,20 @@ We maintain two decreasing monotonic stacks:
 
 Algorithm:
 
-As we iterate through the array `nums`, for current element $nums[k]$, have these steps:
+As we iterate through the array `nums`, for current element $\textit{nums}[k]$, have these steps:
 
-1. While `stackTwo` is not empty and its top element is less than $nums[k]$,
+1. While `stackTwo` is not empty and its top element is less than $\textit{nums}[k]$,
    these top elements have found their second next greater element.
-   Pop them and record $nums[k]$ as the answer for their respective indices.
+   Pop them and record $\textit{nums}[k]$ as the answer for their respective indices.
 
-2. While `stackOne` is not empty and its top element is less than $nums[k]$,
+2. While `stackOne` is not empty and its top element is less than $\textit{nums}[k]$,
    these top elements have found their first next greater element.
    Pop them to move them to a temporary list/vector called `transporter`.
 
 3. Pop all elements from the back of `transporter` and push them onto `stackTwo`.
    These elements will naturally maintain the decreasing order in `stackTwo`.
 
-4. Push current element $nums[k]$ into `stackOne` for future comparisons.
+4. Push current element $\textit{nums}[k]$ into `stackOne` for future comparisons.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`. Each element is pushed and popped across the two stacks at most $4$ times in total.
 

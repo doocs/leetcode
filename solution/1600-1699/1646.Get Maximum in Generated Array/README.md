@@ -92,11 +92,11 @@ tags:
 
 我们先判断 $n$ 的值，如果 $n < 2$，则直接返回 $n$。
 
-否则，我们创建一个长度为 $n + 1$ 的数组 $nums$，并初始化 $nums[0] = 0$ 以及 $nums[1] = 1$。
+否则，我们创建一个长度为 $n + 1$ 的数组 $\textit{nums}$，并初始化 $\textit{nums}[0] = 0$ 以及 $\textit{nums}[1] = 1$。
 
-然后从下标 $2$ 开始遍历，如果当前下标 $i$ 为偶数，则 $nums[i] = nums[i / 2]$，否则 $nums[i] = nums[i / 2] + nums[i / 2 + 1]$。
+然后从下标 $2$ 开始遍历，如果当前下标 $i$ 为偶数，则 $\textit{nums}[i] = \textit{nums}[i / 2]$，否则 $\textit{nums}[i] = \textit{nums}[i / 2] + \textit{nums}[i / 2 + 1]$。
 
-最后返回数组 $nums$ 中的最大值即可。
+最后返回数组 $\textit{nums}$ 中的最大值即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为给定的整数。
 

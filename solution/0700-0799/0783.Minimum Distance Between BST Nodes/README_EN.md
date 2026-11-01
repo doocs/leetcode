@@ -61,7 +61,7 @@ tags:
 >
 > Minimum difference between any two BST values. Inorder is sorted, so the minimum lies between consecutive inorder values.
 >
-> Walk inorder, keep $\textit{pre}$, and update $\textit{ans}$ by $\textit{root.val}-\textit{pre}$.
+> Walk inorder, keep $\textit{pre}$, and update $\textit{ans}$ by $\textit{root}.\textit{val}-\textit{pre}$.
 
 <!-- thinking:end -->
 

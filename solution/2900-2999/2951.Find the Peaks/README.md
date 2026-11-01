@@ -79,7 +79,7 @@ mountain[2] 也不可能是峰值，因为它不严格大于 mountain[3] 和 mou
 
 <!-- thinking:end -->
 
-我们直接遍历下标 $i \in [1, n-2]$，对于每个下标 $i$，如果满足 $mountain[i-1] < mountain[i]$ 并且 $mountain[i + 1] < mountain[i]$，那么 $mountain[i]$ 就是一个峰值，我们将下标 $i$ 加入答案数组中。
+我们直接遍历下标 $i \in [1, n-2]$，对于每个下标 $i$，如果满足 $\textit{mountain}[i-1] < \textit{mountain}[i]$ 并且 $\textit{mountain}[i + 1] < \textit{mountain}[i]$，那么 $\textit{mountain}[i]$ 就是一个峰值，我们将下标 $i$ 加入答案数组中。
 
 遍历结束后，返回答案数组即可。
 

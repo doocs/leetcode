@@ -115,7 +115,7 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 >
 > 求每个仓库存货的总体积。体积是商品长宽高与件数的乘积，件数在仓库表、尺寸在商品表，必须先对齐。
 >
-> 按 $product\_id$ 连接后，以仓库名为组，对 $width\times length\times height\times units$ 求和，即得各仓库体积。
+> 按 $\textit{product\_id}$ 连接后，以仓库名为组，对 $\textit{width}\times \textit{length}\times \textit{height}\times \textit{units}$ 求和，即得各仓库体积。
 
 <!-- thinking:end -->
 

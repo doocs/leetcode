@@ -221,15 +221,15 @@ class Solution {
 
 我们设 $F(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$，其中 $F_{n - 1}$, $F_{n - 2}$ 和 $F_{n - 3}$ 分别表示上第 $n - 1$ 阶、第 $n - 2$ 阶和第 $n - 3$ 阶台阶的方法数。
 
-我们希望根据 $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$ 推出 $F(n)$。也即是说，我们需要一个矩阵 $base$，使得 $F(n - 1) \times base = F(n)$，即：
+我们希望根据 $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$ 推出 $F(n)$。也即是说，我们需要一个矩阵 $\textit{base}$，使得 $F(n - 1) \times \textit{base} = F(n)$，即：
 
 $$
 \begin{bmatrix}
 F_{n - 2} & T_{n - 3} & T_{n - 4}
-\end{bmatrix} \times base = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
+\end{bmatrix} \times \textit{base} = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
 $$
 
-由于 $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$，所以矩阵 $base$ 为：
+由于 $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$，所以矩阵 $\textit{base}$ 为：
 
 $$
 \begin{bmatrix}
@@ -239,7 +239,7 @@ $$
 \end{bmatrix}
 $$
 
-我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$，那么 $F_n$ 等于 $res$ 乘以 $base^{n - 4}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
+我们定义初始矩阵 $\textit{res} = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$，那么 $F_n$ 等于 $\textit{res}$ 乘以 $\textit{base}^{n - 4}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 

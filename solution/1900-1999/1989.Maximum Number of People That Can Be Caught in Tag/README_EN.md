@@ -85,7 +85,7 @@ There are no people who are not &quot;it&quot; to catch.
 
 We can use two pointers $i$ and $j$ to point to the ghost and non-ghost people, initially $i=0$, $j=0$.
 
-Then we traverse the array from left to right. When we encounter a ghost, i.e., $team[i]=1$, if $j \lt n$ and $\textit{team}[j]=1$ or $i - j \gt \textit{dist}$, then move pointer $j$ to the right in a loop. This means we need to find the first non-ghost person such that the distance between $i$ and $j$ does not exceed $\textit{dist}$. If such a person is found, move pointer $j$ one step to the right, indicating that we have caught this person, and increment the answer by one. Continue traversing the array until the entire array is processed.
+Then we traverse the array from left to right. When we encounter a ghost, i.e., $\textit{team}[i]=1$, if $j \lt n$ and $\textit{team}[j]=1$ or $i - j \gt \textit{dist}$, then move pointer $j$ to the right in a loop. This means we need to find the first non-ghost person such that the distance between $i$ and $j$ does not exceed $\textit{dist}$. If such a person is found, move pointer $j$ one step to the right, indicating that we have caught this person, and increment the answer by one. Continue traversing the array until the entire array is processed.
 
 Finally, return the answer.
 

@@ -75,15 +75,15 @@ No two adjacent strings in words are anagrams of each other, so no operations ar
 >
 > We keep deleting a word that is an anagram of the previous one. There are few short words; a left-to-right pass that keeps a word only when it is not an anagram of the last kept word is enough, because earlier pairs stay valid.
 >
-> Start with $words[0]$ and append $t$ when $\textit{check}(s,t)$ says they differ. The helper compares counts and treats unequal lengths as non-anagrams.
+> Start with $\textit{words}[0]$ and append $t$ when $\textit{check}(s,t)$ says they differ. The helper compares counts and treats unequal lengths as non-anagrams.
 
 <!-- thinking:end -->
 
 We first add $\textit{words}[0]$ to the answer array, then traverse from $\textit{words}[1]$. If $\textit{words}[i - 1]$ and $\textit{words}[i]$ are not anagrams, we add $\textit{words}[i]$ to the answer array.
 
-The problem is converted to determining whether two strings are anagrams. We define a helper function $\textit{check}(s, t)$ to achieve this. If $s$ and $t$ are not anagrams, we return $\text{true}$; otherwise, we return $\text{false}$.
+The problem is converted to determining whether two strings are anagrams. We define a helper function $\textit{check}(s, t)$ to achieve this. If $s$ and $t$ are not anagrams, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-In the function $\textit{check}(s, t)$, we first check if the lengths of $s$ and $t$ are equal. If they are not, we return $\text{true}$. Otherwise, we use an array $\textit{cnt}$ of length $26$ to count the occurrences of each character in $s$, then traverse each character in $t$ and decrement $\textit{cnt}[c]$ by $1$. If $\textit{cnt}[c]$ is less than $0$, we return $\text{true}$. If we traverse all characters in $t$ without issues, it means $s$ and $t$ are anagrams, and we return $\text{false}$.
+In the function $\textit{check}(s, t)$, we first check if the lengths of $s$ and $t$ are equal. If they are not, we return $\textit{true}$. Otherwise, we use an array $\textit{cnt}$ of length $26$ to count the occurrences of each character in $s$, then traverse each character in $t$ and decrement $\textit{cnt}[c]$ by $1$. If $\textit{cnt}[c]$ is less than $0$, we return $\textit{true}$. If we traverse all characters in $t$ without issues, it means $s$ and $t$ are anagrams, and we return $\textit{false}$.
 
 The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$, where $L$ is the length of the array $\textit{words}$, and $\Sigma$ is the character set, which is lowercase English letters, so $|\Sigma| = 26$.
 

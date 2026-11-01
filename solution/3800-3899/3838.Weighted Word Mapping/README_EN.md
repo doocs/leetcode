@@ -103,7 +103,7 @@ tags:
 >
 > Words do not interact, so no global structure is required.
 >
-> Sum $weights[c-'a']$ for each word, reduce modulo $26$, and map to the letter $s\bmod 26$ steps back from $\texttt{z}$.
+> Sum $\textit{weights}[c-'a']$ for each word, reduce modulo $26$, and map to the letter $s\bmod 26$ steps back from $\texttt{z}$.
 >
 > Concatenate the mapped letters in input order.
 

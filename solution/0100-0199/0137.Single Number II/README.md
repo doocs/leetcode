@@ -403,7 +403,7 @@ impl Solution {
 
 > **思考**
 >
-> 不限制额外空间时，唯一数等于 $(3\sum_{\mathrm{unique}}-\sum_{\mathrm{all}})/2$。集合去重后做两次求和即可，思路直接，但空间是 $O(n)$。
+> 不限制额外空间时，唯一数等于 $(3\sum_{\textit{unique}}-\sum_{\textit{all}})/2$。集合去重后做两次求和即可，思路直接，但空间是 $O(n)$。
 
 <!-- thinking:end -->
 

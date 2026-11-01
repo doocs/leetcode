@@ -79,7 +79,7 @@ Product 1 price&#39;s are 70 for store1, 80 for store3 and, it&#39;s not sold in
 >
 > Rows are $(\textit{product},\textit{store},\textit{price})$; we need one row per product with three store columns, null if missing.
 >
-> Group by $\textit{product\_id}$ and conditionally sum each store into its column; $\mathrm{IF}$ yields $\mathrm{NULL}$ when the store does not match.
+> Group by $\textit{product\_id}$ and conditionally sum each store into its column; $\textit{IF}$ yields $\textit{NULL}$ when the store does not match.
 
 <!-- thinking:end -->
 

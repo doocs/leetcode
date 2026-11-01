@@ -111,21 +111,21 @@ statisticsTracker.getMode(); // return 5</div>
 >
 > We must enqueue, drop the oldest value, and query mean, median, and mode in $O(\log n)$ over $10^5$ operations.
 >
-> A queue keeps insertion order; $s$ is the sum for the mean; $\textit{sl}$ is a sorted list for the median; another sorted list ordered by $(-\textit{cnt},\textit{value})$ yields the mode.
+> A queue keeps insertion order; $s$ is the sum for the mean; $sl$ is a sorted list for the median; another sorted list ordered by $(-\textit{cnt},\textit{value})$ yields the mode.
 >
 > Frequency updates delete the old pair before inserting the new one so the mode set stays consistent.
 
 <!-- thinking:end -->
 
-We define a queue $\textit{q}$ to store the added numbers, a variable $\textit{s}$ to store the sum of all numbers, a hash table $\textit{cnt}$ to store the occurrence count of each number, an ordered set $\textit{sl}$ to store all numbers, and an ordered set $\textit{sl2}$ to store all numbers and their occurrence counts, sorted by occurrence count in descending order and by value in ascending order.
+We define a queue $q$ to store the added numbers, a variable $s$ to store the sum of all numbers, a hash table $\textit{cnt}$ to store the occurrence count of each number, an ordered set $sl$ to store all numbers, and an ordered set $\textit{sl2}$ to store all numbers and their occurrence counts, sorted by occurrence count in descending order and by value in ascending order.
 
-In the `addNumber` method, we add the number to the queue $\textit{q}$, add the number to the ordered set $\textit{sl}$, then remove the number and its occurrence count from the ordered set $\textit{sl2}$, update the occurrence count of the number, and finally add the number and its updated occurrence count to the ordered set $\textit{sl2}$, and update the sum of all numbers. The time complexity is $O(\log n)$.
+In the `addNumber` method, we add the number to the queue $q$, add the number to the ordered set $sl$, then remove the number and its occurrence count from the ordered set $\textit{sl2}$, update the occurrence count of the number, and finally add the number and its updated occurrence count to the ordered set $\textit{sl2}$, and update the sum of all numbers. The time complexity is $O(\log n)$.
 
-In the `removeFirstAddedNumber` method, we remove the earliest added number from the queue $\textit{q}$, remove the number from the ordered set $\textit{sl}$, then remove the number and its occurrence count from the ordered set $\textit{sl2}$, update the occurrence count of the number, and finally add the number and its updated occurrence count to the ordered set $\textit{sl2}$, and update the sum of all numbers. The time complexity is $O(\log n)$.
+In the `removeFirstAddedNumber` method, we remove the earliest added number from the queue $q$, remove the number from the ordered set $sl$, then remove the number and its occurrence count from the ordered set $\textit{sl2}$, update the occurrence count of the number, and finally add the number and its updated occurrence count to the ordered set $\textit{sl2}$, and update the sum of all numbers. The time complexity is $O(\log n)$.
 
 In the `getMean` method, we return the sum of all numbers divided by the number of numbers. The time complexity is $O(1)$.
 
-In the `getMedian` method, we return the $\textit{len}(\textit{q}) / 2$-th number in the ordered set $\textit{sl}$. The time complexity is $O(1)$ or $O(\log n)$.
+In the `getMedian` method, we return the $\textit{len}(q) / 2$-th number in the ordered set $sl$. The time complexity is $O(1)$ or $O(\log n)$.
 
 In the `getMode` method, we return the first number in the ordered set $\textit{sl2}$. The time complexity is $O(1)$.
 

@@ -57,7 +57,7 @@ difficulty: Hard
 >
 > Fix the top and bottom rows, compress columns to a 1D array, and run Kadane, keeping the left and right ends.
 >
-> Column prefix sums $s$ make a vertical slice $O(1)$. For each $(i_1,i_2)$ Kadane updates $mx$ and $[i_1,start,i_2,j]$.
+> Column prefix sums $s$ make a vertical slice $O(1)$. For each $(i_1,i_2)$ Kadane updates $mx$ and $[i_1,\textit{start},i_2,j]$.
 
 <!-- thinking:end -->
 

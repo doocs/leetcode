@@ -103,11 +103,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can first assign all tasks to technique 2, so the initial total score is $\sum_{i=0}^{n-1} technique2[i]$.
+We can first assign all tasks to technique 2, so the initial total score is $\sum_{i=0}^{n-1} \textit{technique2}[i]$.
 
-Then, we calculate the score increase for each task if it were completed using technique 1 instead, denoted as $\text{diff}[i] = technique1[i] - technique2[i]$. We sort this in descending order to obtain a sorted array of task indices $\text{idx}$.
+Then, we calculate the score increase for each task if it were completed using technique 1 instead, denoted as $\textit{diff}[i] = \textit{technique1}[i] - \textit{technique2}[i]$. We sort this in descending order to obtain a sorted array of task indices $\textit{idx}$.
 
-Next, we select the first $k$ tasks to be completed using technique 1 and add their score differences to the total score. For the remaining tasks, if a task can increase the score by using technique 1 (i.e., $\text{diff}[i] \geq 0$), we also choose to complete it using technique 1.
+Next, we select the first $k$ tasks to be completed using technique 1 and add their score differences to the total score. For the remaining tasks, if a task can increase the score by using technique 1 (i.e., $\textit{diff}[i] \geq 0$), we also choose to complete it using technique 1.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of tasks.
 

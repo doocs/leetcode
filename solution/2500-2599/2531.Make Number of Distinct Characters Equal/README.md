@@ -83,9 +83,9 @@ tags:
 
 然后我们分别统计 $\textit{word1}$ 和 $\textit{word2}$ 中不同字符的个数，分别记为 $x$ 和 $y$。
 
-接下来我们枚举 $\textit{word1}$ 中的每个字符 $c1$ 和 $\textit{word2}$ 中的每个字符 $c2$，如果 $c1 = c2$，那么我们只需要判断 $x$ 和 $y$ 是否相等；否则，我们需要判断 $x - (\textit{cnt1}[c1] = 1) + (\textit{cnt1}[c2] = 0)$ 和 $y - (\textit{cnt2}[c2] = 1) + (\textit{cnt2}[c1] = 0)$ 是否相等。如果相等，那么我们就找到了一种方案，返回 $\text{true}$。
+接下来我们枚举 $\textit{word1}$ 中的每个字符 $\textit{c1}$ 和 $\textit{word2}$ 中的每个字符 $\textit{c2}$，如果 $\textit{c1} = \textit{c2}$，那么我们只需要判断 $x$ 和 $y$ 是否相等；否则，我们需要判断 $x - (\textit{cnt1}[\textit{c1}] = 1) + (\textit{cnt1}[\textit{c2}] = 0)$ 和 $y - (\textit{cnt2}[\textit{c2}] = 1) + (\textit{cnt2}[\textit{c1}] = 0)$ 是否相等。如果相等，那么我们就找到了一种方案，返回 $\textit{true}$。
 
-如果我们枚举完所有的字符都没有找到合适的方案，那么我们就返回 $\text{false}$。
+如果我们枚举完所有的字符都没有找到合适的方案，那么我们就返回 $\textit{false}$。
 
 时间复杂度 $O(m + n + |\Sigma|^2)$。其中 $m$ 和 $n$ 分别是字符串 $\textit{word1}$ 和 $\textit{word2}$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为小写字母，所以 $|\Sigma| = 26$。
 

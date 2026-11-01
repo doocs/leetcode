@@ -369,7 +369,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Both the height pass and the fill pass can be BFS: level count gives $h$, then a queue of $(node,r,c)$ writes the matrix without recursion.
+> Both the height pass and the fill pass can be BFS: level count gives $h$, then a queue of $(\textit{node},r,c)$ writes the matrix without recursion.
 
 <!-- thinking:end -->
 

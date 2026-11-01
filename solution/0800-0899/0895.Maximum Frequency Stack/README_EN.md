@@ -79,17 +79,17 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 >
 > Pop the current most frequent value, breaking ties by recency. Up to $2\cdot 10^4$ operations, so scanning the stack is too slow. We need both frequency and a timestamp.
 >
-> A map stores frequencies; a heap stores $(-\textit{freq},-\textit{ts},val)$. After popping, decrement that value’s frequency. Stale heap entries are left behind and will not be chosen while a newer, higher frequency exists.
+> A map stores frequencies; a heap stores $(-\textit{freq},-ts,\textit{val})$. After popping, decrement that value’s frequency. Stale heap entries are left behind and will not be chosen while a newer, higher frequency exists.
 
 <!-- thinking:end -->
 
 According to the problem description, we need to design a data structure that supports popping out the element with the highest frequency. If multiple elements have the same frequency, the element closest to the top of the stack should be popped out.
 
-We can use a hash table $cnt$ to record the frequency of each element, and a priority queue (max heap) $q$ to maintain the frequency of elements and their corresponding timestamps.
+We can use a hash table $\textit{cnt}$ to record the frequency of each element, and a priority queue (max heap) $q$ to maintain the frequency of elements and their corresponding timestamps.
 
-When performing a push operation, we first increment the current timestamp, i.e., $ts \gets ts + 1$; then we increment the frequency of the element $val$, i.e., $cnt[val] \gets cnt[val] + 1$, and finally, we add the triplet $(cnt[val], ts, val)$ to the priority queue $q$. The time complexity of the push operation is $O(\log n)$.
+When performing a push operation, we first increment the current timestamp, i.e., $ts \gets ts + 1$; then we increment the frequency of the element $\textit{val}$, i.e., $\textit{cnt}[\textit{val}] \gets \textit{cnt}[\textit{val}] + 1$, and finally, we add the triplet $(\textit{cnt}[\textit{val}], ts, \textit{val})$ to the priority queue $q$. The time complexity of the push operation is $O(\log n)$.
 
-When performing a pop operation, we directly pop an element from the priority queue $q$. Since the elements in the priority queue $q$ are sorted in descending order of frequency, the popped element is definitely the one with the highest frequency. If multiple elements have the same frequency, the element closest to the top of the stack is popped out, i.e., the element with the largest timestamp is popped out. After popping, we decrement the frequency of the popped element, i.e., $cnt[val] \gets cnt[val] - 1$. The time complexity of the pop operation is $O(\log n)$.
+When performing a pop operation, we directly pop an element from the priority queue $q$. Since the elements in the priority queue $q$ are sorted in descending order of frequency, the popped element is definitely the one with the highest frequency. If multiple elements have the same frequency, the element closest to the top of the stack is popped out, i.e., the element with the largest timestamp is popped out. After popping, we decrement the frequency of the popped element, i.e., $\textit{cnt}[\textit{val}] \gets \textit{cnt}[\textit{val}] - 1$. The time complexity of the pop operation is $O(\log n)$.
 
 <!-- tabs:start -->
 
@@ -249,11 +249,11 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 In Solution 1, in order to pop out the required element, we maintained a priority queue and had to operate on it each time, which has a time complexity of $O(\log n)$. If we can find the required element in $O(1)$ time, then the time complexity of each operation of the entire data structure can be reduced to $O(1)$.
 
-In fact, we can use a variable $mx$ to record the current maximum frequency, a hash table $d$ to record the list of elements corresponding to each frequency, and as in Solution 1, a hash table $cnt$ to record the frequency of each element.
+In fact, we can use a variable $mx$ to record the current maximum frequency, a hash table $d$ to record the list of elements corresponding to each frequency, and as in Solution 1, a hash table $\textit{cnt}$ to record the frequency of each element.
 
-When performing a push operation, we increment the frequency of the element, i.e., $cnt[val] \gets cnt[val] + 1$, and then add the element $val$ to the corresponding frequency list in the hash table $d$, i.e., $d[cnt[val]].push(val)$. If the current element's frequency is greater than $mx$, then update $mx$, i.e., $mx \gets cnt[val]$. The time complexity of the push operation is $O(1)$.
+When performing a push operation, we increment the frequency of the element, i.e., $\textit{cnt}[\textit{val}] \gets \textit{cnt}[\textit{val}] + 1$, and then add the element $\textit{val}$ to the corresponding frequency list in the hash table $d$, i.e., $d[\textit{cnt}[\textit{val}]].\textit{push}(\textit{val})$. If the current element's frequency is greater than $mx$, then update $mx$, i.e., $mx \gets \textit{cnt}[\textit{val}]$. The time complexity of the push operation is $O(1)$.
 
-When performing a pop operation, we take the list of elements with frequency $mx$ from the hash table $d$, pop out the last element $val$ in the list, and then remove $val$ from the hash table $d$, i.e., $d[mx].pop()$. Finally, we decrement the frequency of $val$, i.e., $cnt[val] \gets cnt[val] - 1$. If the list $d[mx]$ is empty, it means that all elements with the current maximum frequency have been popped out, and we need to decrement $mx$, i.e., $mx \gets mx - 1$. The time complexity of the pop operation is $O(1)$.
+When performing a pop operation, we take the list of elements with frequency $mx$ from the hash table $d$, pop out the last element $\textit{val}$ in the list, and then remove $\textit{val}$ from the hash table $d$, i.e., $d[mx].\textit{pop}()$. Finally, we decrement the frequency of $\textit{val}$, i.e., $\textit{cnt}[\textit{val}] \gets \textit{cnt}[\textit{val}] - 1$. If the list $d[mx]$ is empty, it means that all elements with the current maximum frequency have been popped out, and we need to decrement $mx$, i.e., $mx \gets mx - 1$. The time complexity of the pop operation is $O(1)$.
 
 <!-- tabs:start -->
 

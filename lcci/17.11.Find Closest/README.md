@@ -42,15 +42,15 @@ difficulty: 中等
 >
 > 最近的一对一定涉及某次出现与对方上一次出现，故扫一遍维护两词最近下标即可。
 >
-> $i$、 $j$ 分别记录 $word1$、 $word2$ 的最近位置，每步更新 $|i-j|$。一词多次出现时只保留最近一次，已足够。
+> $i$、 $j$ 分别记录 $\textit{word1}$、 $\textit{word2}$ 的最近位置，每步更新 $|i-j|$。一词多次出现时只保留最近一次，已足够。
 
 <!-- thinking:end -->
 
 我们用两个指针 $i$ 和 $j$ 分别记录两个单词 $\textit{word1}$ 和 $\textit{word2}$ 最近出现的位置，初始时 $i = \infty$, $j = -\infty$。
 
-接下来我们遍历整个文本文件，对于每个单词 $w$，如果 $w$ 等于 $\textit{word1}$，我们更新 $i = k$，其中 $k$ 是当前单词的下标；如果 $w$ 等于 $\textit{word2}$，我们更新 $j = k$。然后我们更新答案 $ans = \min(ans, |i - j|)$。
+接下来我们遍历整个文本文件，对于每个单词 $w$，如果 $w$ 等于 $\textit{word1}$，我们更新 $i = k$，其中 $k$ 是当前单词的下标；如果 $w$ 等于 $\textit{word2}$，我们更新 $j = k$。然后我们更新答案 $\textit{ans} = \min(\textit{ans}, |i - j|)$。
 
-遍历结束后，我们返回答案 $ans$。
+遍历结束后，我们返回答案 $\textit{ans}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是文本文件中的单词数。
 
@@ -219,9 +219,9 @@ class Solution {
 
 我们遍历整个文本文件，对于每个单词 $w$，我们将 $w$ 的下标加入到 $d[w]$ 中。
 
-接下来我们找到 $\textit{word1}$ 和 $\textit{word2}$ 在文本文件中出现的位置，分别用 $idx1$ 和 $idx2$ 表示。然后我们用两个指针 $i$ 和 $j$ 分别指向 $idx1$ 和 $idx2$，初始时 $i = 0$, $j = 0$。
+接下来我们找到 $\textit{word1}$ 和 $\textit{word2}$ 在文本文件中出现的位置，分别用 $\textit{idx1}$ 和 $\textit{idx2}$ 表示。然后我们用两个指针 $i$ 和 $j$ 分别指向 $\textit{idx1}$ 和 $\textit{idx2}$，初始时 $i = 0$, $j = 0$。
 
-接下来我们遍历 $idx1$ 和 $idx2$，每次我们更新答案 $ans = \min(ans, |idx1[i] - idx2[j]|)$，然后我们将 $i$ 和 $j$ 中较小的那个指针向后移动一位。
+接下来我们遍历 $\textit{idx1}$ 和 $\textit{idx2}$，每次我们更新答案 $\textit{ans} = \min(\textit{ans}, |\textit{idx1}[i] - \textit{idx2}[j]|)$，然后我们将 $i$ 和 $j$ 中较小的那个指针向后移动一位。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是文本文件中的单词数。
 

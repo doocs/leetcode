@@ -75,22 +75,22 @@ tags:
 >
 > 每个犯罪可选或不可选，受人数与最低利润约束，方案数取模。犯罪与人数规模有限，状态可记「考虑到第 $i$ 项、已用 $j$ 人、已获利润（封顶到 $\textit{minProfit}$）」。
 >
-> 记忆化 $dfs(i,j,k)$：不选则前进，人数够则再加选中的一支。利润封顶是为了让达到门槛后的状态合并。边界在物品用尽时看 $k$ 是否已达门槛。
+> 记忆化 $\textit{dfs}(i,j,k)$：不选则前进，人数够则再加选中的一支。利润封顶是为了让达到门槛后的状态合并。边界在物品用尽时看 $k$ 是否已达门槛。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i, j, k)$，表示从第 $i$ 个工作开始，且当前已经选择了 $j$ 个员工，且当前产生的利润为 $k$，这种情况下的方案数。那么答案就是 $dfs(0, 0, 0)$。
+我们设计一个函数 $\textit{dfs}(i, j, k)$，表示从第 $i$ 个工作开始，且当前已经选择了 $j$ 个员工，且当前产生的利润为 $k$，这种情况下的方案数。那么答案就是 $\textit{dfs}(0, 0, 0)$。
 
-函数 $dfs(i, j, k)$ 的执行过程如下：
+函数 $\textit{dfs}(i, j, k)$ 的执行过程如下：
 
-- 如果 $i = n$，表示所有工作都已经考虑过了，如果 $k \geq minProfit$，则方案数为 $1$，否则方案数为 $0$；
-- 如果 $i \lt n$，我们可以选择不选择第 $i$ 个工作，此时方案数为 $dfs(i + 1, j, k)$；如果 $j + group[i] \leq n$，我们也可以选择第 $i$ 个工作，此时方案数为 $dfs(i + 1, j + group[i], \min(k + profit[i], minProfit))$。这里我们将利润上限限制在 $minProfit$，是因为利润超过 $minProfit$ 对我们的答案没有任何影响。
+- 如果 $i = n$，表示所有工作都已经考虑过了，如果 $k \geq \textit{minProfit}$，则方案数为 $1$，否则方案数为 $0$；
+- 如果 $i \lt n$，我们可以选择不选择第 $i$ 个工作，此时方案数为 $\textit{dfs}(i + 1, j, k)$；如果 $j + \textit{group}[i] \leq n$，我们也可以选择第 $i$ 个工作，此时方案数为 $\textit{dfs}(i + 1, j + \textit{group}[i], \min(k + \textit{profit}[i], \textit{minProfit}))$。这里我们将利润上限限制在 $\textit{minProfit}$，是因为利润超过 $\textit{minProfit}$ 对我们的答案没有任何影响。
 
-最后返回 $dfs(0, 0, 0)$ 即可。
+最后返回 $\textit{dfs}(0, 0, 0)$ 即可。
 
-为了避免重复计算，我们可以使用记忆化搜索的方法，用一个三维数组 $f$ 记录所有的 $dfs(i, j, k)$ 的结果。当我们计算出 $dfs(i, j, k)$ 的值后，我们将其存入 $f[i][j][k]$ 中。调用 $dfs(i, j, k)$ 时，如果 $f[i][j][k]$ 已经被计算过，我们直接返回 $f[i][j][k]$ 即可。
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个三维数组 $f$ 记录所有的 $\textit{dfs}(i, j, k)$ 的结果。当我们计算出 $\textit{dfs}(i, j, k)$ 的值后，我们将其存入 $f[i][j][k]$ 中。调用 $\textit{dfs}(i, j, k)$ 时，如果 $f[i][j][k]$ 已经被计算过，我们直接返回 $f[i][j][k]$ 即可。
 
-时间复杂度 $O(mn minProfit)$，空间复杂度 $O(mn minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
+时间复杂度 $O(mn \textit{minProfit})$，空间复杂度 $O(mn \textit{minProfit})$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $\textit{minProfit}$ 为至少产生的利润。
 
 <!-- tabs:start -->
 
@@ -238,13 +238,13 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 <!-- thinking:end -->
 
-我们定义 $f[i][j][k]$ 表示前 $i$ 个工作中，选择了不超过 $j$ 个员工，且至少产生 $k$ 的利润的方案数。初始时 $f[0][j][0] = 1$，表示不选择任何工作，且至少产生 $0$ 的利润的方案数为 $1$。答案即为 $f[m][n][minProfit]$。
+我们定义 $f[i][j][k]$ 表示前 $i$ 个工作中，选择了不超过 $j$ 个员工，且至少产生 $k$ 的利润的方案数。初始时 $f[0][j][0] = 1$，表示不选择任何工作，且至少产生 $0$ 的利润的方案数为 $1$。答案即为 $f[m][n][\textit{minProfit}]$。
 
-对于第 $i$ 个工作，我们可以选择参与或不参与。如果不参与，则 $f[i][j][k] = f[i - 1][j][k]$；如果参与，则 $f[i][j][k] = f[i - 1][j - group[i - 1]][max(0, k - profit[i - 1])]$。我们需要枚举 $j$ 和 $k$，并将所有的方案数相加。
+对于第 $i$ 个工作，我们可以选择参与或不参与。如果不参与，则 $f[i][j][k] = f[i - 1][j][k]$；如果参与，则 $f[i][j][k] = f[i - 1][j - \textit{group}[i - 1]][\max(0, k - \textit{profit}[i - 1])]$。我们需要枚举 $j$ 和 $k$，并将所有的方案数相加。
 
-最终的答案即为 $f[m][n][minProfit]$。
+最终的答案即为 $f[m][n][\textit{minProfit}]$。
 
-时间复杂度 $O(mn minProfit)$，空间复杂度 $O(mn minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
+时间复杂度 $O(mn \textit{minProfit})$，空间复杂度 $O(mn \textit{minProfit})$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $\textit{minProfit}$ 为至少产生的利润。
 
 <!-- tabs:start -->
 

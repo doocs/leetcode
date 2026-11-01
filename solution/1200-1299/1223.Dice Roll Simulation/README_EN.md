@@ -68,24 +68,24 @@ tags:
 
 > **Thinking**
 >
-> A face may repeat only $rollMax$ times in a row. $n$ reaches $5000$, so listing sequences is impossible. The count depends only on remaining rolls, the last face, and its current streak.
+> A face may repeat only $\textit{rollMax}$ times in a row. $n$ reaches $5000$, so listing sequences is impossible. The count depends only on remaining rolls, the last face, and its current streak.
 >
-> Memoized $dfs(i,j,x)$ starts at roll $i$ after face $j$ with streak $x$. The next face $k$ resets the streak if $k\ne j$, or may continue if the cap allows. The start state $(0,0,0)$ means no roll yet.
+> Memoized $\textit{dfs}(i,j,x)$ starts at roll $i$ after face $j$ with streak $x$. The next face $k$ resets the streak if $k\ne j$, or may continue if the cap allows. The start state $(0,0,0)$ means no roll yet.
 >
 > There are $O(90n)$ states and $6$ transitions; memoization shares subproblems.
 
 <!-- thinking:end -->
 
-We can design a function $dfs(i, j, x)$ to represent the number of schemes starting from the $i$-th dice roll, with the current dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. The range of $j$ is $[1, 6]$, and the range of $x$ is $[1, rollMax[j - 1]]$. The answer is $dfs(0, 0, 0)$.
+We can design a function $\textit{dfs}(i, j, x)$ to represent the number of schemes starting from the $i$-th dice roll, with the current dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. The range of $j$ is $[1, 6]$, and the range of $x$ is $[1, \textit{rollMax}[j - 1]]$. The answer is $\textit{dfs}(0, 0, 0)$.
 
-The calculation process of the function $dfs(i, j, x)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, j, x)$ is as follows:
 
 - If $i \ge n$, it means that $n$ dice have been rolled, return $1$.
-- Otherwise, we enumerate the number $k$ rolled next time. If $k \ne j$, we can directly roll $k$, and the number of consecutive times $j$ is rolled will be reset to $1$, so the number of schemes is $dfs(i + 1, k, 1)$. If $k = j$, we need to judge whether $x$ is less than $rollMax[j - 1]$. If it is less, we can continue to roll $j$, and the number of consecutive times $j$ is rolled will increase by $1$, so the number of schemes is $dfs(i + 1, j, x + 1)$. Finally, add all the scheme numbers to get the value of $dfs(i, j, x)$. Note that the answer may be very large, so we need to take the modulus of $10^9 + 7$.
+- Otherwise, we enumerate the number $k$ rolled next time. If $k \ne j$, we can directly roll $k$, and the number of consecutive times $j$ is rolled will be reset to $1$, so the number of schemes is $\textit{dfs}(i + 1, k, 1)$. If $k = j$, we need to judge whether $x$ is less than $\textit{rollMax}[j - 1]$. If it is less, we can continue to roll $j$, and the number of consecutive times $j$ is rolled will increase by $1$, so the number of schemes is $\textit{dfs}(i + 1, j, x + 1)$. Finally, add all the scheme numbers to get the value of $\textit{dfs}(i, j, x)$. Note that the answer may be very large, so we need to take the modulus of $10^9 + 7$.
 
 During the process, we can use memoization search to avoid repeated calculations.
 
-The time complexity is $O(nk^2M)$, and the space complexity is $O(nkM)$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
+The time complexity is $O(nk^2M)$, and the space complexity is $O(\textit{nkM})$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
 
 <!-- tabs:start -->
 
@@ -225,17 +225,17 @@ Solution 1 already fills this recurrence from the last roll. The counts below ar
 Define $f[i][j][x]$ as the number of schemes for the first $i$ dice rolls, with the $i$-th dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. Initially, $f[1][j][1] = 1$, where $1 \leq j \leq 6$. The answer is:
 
 $$
-\sum_{j=1}^6 \sum_{x=1}^{rollMax[j-1]} f[n][j][x]
+\sum_{j=1}^6 \sum_{x=1}^{\textit{rollMax}[j-1]} f[n][j][x]
 $$
 
 We enumerate the last dice roll as $j$, and the number of consecutive times $j$ is rolled as $x$. The current dice roll can be $1, 2, \cdots, 6$. If the current dice roll is $k$, there are two cases:
 
 - If $k \neq j$, we can directly roll $k$, and the number of consecutive times $j$ is rolled will be reset to $1$. Therefore, the number of schemes $f[i][k][1]$ will increase by $f[i-1][j][x]$.
-- If $k = j$, we need to judge whether $x+1$ is less than or equal to $rollMax[j-1]$. If it is less than or equal to, we can continue to roll $j$, and the number of consecutive times $j$ is rolled will increase by $1$. Therefore, the number of schemes $f[i][j][x+1]$ will increase by $f[i-1][j][x]$.
+- If $k = j$, we need to judge whether $x+1$ is less than or equal to $\textit{rollMax}[j-1]$. If it is less than or equal to, we can continue to roll $j$, and the number of consecutive times $j$ is rolled will increase by $1$. Therefore, the number of schemes $f[i][j][x+1]$ will increase by $f[i-1][j][x]$.
 
 The final answer is the sum of all $f[n][j][x]$.
 
-The time complexity is $O(nk^2M)$, and the space complexity is $O(nkM)$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
+The time complexity is $O(nk^2M)$, and the space complexity is $O(\textit{nkM})$, where $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
 
 <!-- tabs:start -->
 
@@ -376,7 +376,7 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 
 > **Thinking**
 >
-> A face may repeat only $rollMax$ times in a row. $n$ reaches $5000$, so listing sequences is impossible. The count depends only on the rolls still left, the previous face, and its current streak.
+> A face may repeat only $\textit{rollMax}$ times in a row. $n$ reaches $5000$, so listing sequences is impossible. The count depends only on the rolls still left, the previous face, and its current streak.
 >
 > Whether the next face changes or continues, it reads the next roll. The chain from roll $0$ to roll $n$ has length $n$. Python raises RecursionError at $n=2000$, and Java overflows at $n=5000$.
 >
@@ -389,11 +389,11 @@ Let $f[i][j][x]$ be the number of ways to finish the remaining rolls starting at
 Set $f[n][j][x] = 1$, which means all $n$ rolls are done. Fill $i$ from $n - 1$ down to $0$. Enumerate the next face $k$:
 
 - If $k \ne j$, face $k$ may be rolled and the streak resets to $1$, contributing $f[i + 1][k][1]$.
-- If $k = j$ and $x < rollMax[j - 1]$, face $j$ may continue and the streak becomes $x + 1$, contributing $f[i + 1][j][x + 1]$.
+- If $k = j$ and $x < \textit{rollMax}[j - 1]$, face $j$ may continue and the streak becomes $x + 1$, contributing $f[i + 1][j][x + 1]$.
 
 Add these contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j][x]$.
 
-The time complexity is $O(nk^2M)$, and the space complexity is $O(nkM)$, where $k$ is the number of faces, and $M$ is the maximum allowed streak.
+The time complexity is $O(nk^2M)$, and the space complexity is $O(\textit{nkM})$, where $k$ is the number of faces, and $M$ is the maximum allowed streak.
 
 <!-- tabs:start -->
 

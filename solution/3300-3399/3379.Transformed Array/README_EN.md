@@ -85,17 +85,17 @@ For each index <code>i</code> (where <code>0 &lt;= i &lt; nums.length</code>), p
 
 > **Thinking**
 >
-> From $i$ we walk $|nums[i]|$ steps in the sign of $nums[i]$ on a circle and write the landing value. With $n \le 100$ we just compute the index.
+> From $i$ we walk $|\textit{nums}[i]|$ steps in the sign of $\textit{nums}[i]$ on a circle and write the landing value. With $n \le 100$ we just compute the index.
 >
 > Negative steps need a careful modulo: $(i + x \bmod n + n) \bmod n$.
 >
-> The answer is built in a new array so unused $nums[i]$ are not overwritten.
+> The answer is built in a new array so unused $\textit{nums}[i]$ are not overwritten.
 
 <!-- thinking:end -->
 
-We create a result array $\textit{ans}$. For each index, we move right or left $|nums[i]|$ steps based on whether $nums[i]$ is positive or negative, calculate the landing index, and assign the value at that index to $\textit{ans}[i]$.
+We create a result array $\textit{ans}$. For each index, we move right or left $|\textit{nums}[i]|$ steps based on whether $\textit{nums}[i]$ is positive or negative, calculate the landing index, and assign the value at that index to $\textit{ans}[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

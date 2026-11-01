@@ -81,7 +81,7 @@ student_id 321 has the highest score of 230, while student_id 896 has the lowest
 
 > **Thinking**
 >
-> The spread is the range of the three-assignment totals. $MAX$ and $MIN$ of the same sum, subtracted, need one scan.
+> The spread is the range of the three-assignment totals. $\textit{MAX}$ and $\textit{MIN}$ of the same sum, subtracted, need one scan.
 >
 > No per-student group is required.
 

@@ -106,7 +106,7 @@ tags:
 >
 > Unlike the previous problem, adjacent words must also have equal length and Hamming distance exactly $1$, so alternating groups greedily need not be feasible. $n$ is a few hundred and words are short, so $O(n^2L)$ transitions are acceptable.
 >
-> Let $f[i]$ be the longest length ending at $i$ and $g[i]$ the predecessor. For $j < i$, update with $f[j]+1$ only when the groups differ and $check$ holds. Walk $g$ from an index that attains the global maximum $mx$ and reverse to recover one subsequence.
+> Let $f[i]$ be the longest length ending at $i$ and $g[i]$ the predecessor. For $j < i$, update with $f[j]+1$ only when the groups differ and $\textit{check}$ holds. Walk $g$ from an index that attains the global maximum $mx$ and reverse to recover one subsequence.
 
 <!-- thinking:end -->
 
@@ -114,7 +114,7 @@ We define $f[i]$ as the length of the longest adjacent non-equal subsequence end
 
 In addition, we define a variable $mx$ to represent the length of the longest adjacent non-equal subsequence.
 
-We traverse $i$ and $j \in [0, i)$, and if $groups[i] \neq groups[j]$, $f[i] \lt f[j] + 1$, and the Hamming distance between $words[i]$ and $words[j]$ is $1$, we update $f[i] = f[j] + 1$, $g[i] = j$, and update $mx = \max(mx, f[i])$.
+We traverse $i$ and $j \in [0, i)$, and if $\textit{groups}[i] \neq \textit{groups}[j]$, $f[i] \lt f[j] + 1$, and the Hamming distance between $\textit{words}[i]$ and $\textit{words}[j]$ is $1$, we update $f[i] = f[j] + 1$, $g[i] = j$, and update $mx = \max(mx, f[i])$.
 
 Finally, we find the index $i$ corresponding to the maximum value in the $f$ array, and then continuously search backwards from $i$ until we find $g[i] = -1$, which gives us the longest adjacent non-equal subsequence.
 

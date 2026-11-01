@@ -53,7 +53,7 @@ tags:
 >
 > Zeros must go to the end while nonzeros keep their order. Let $k$ be the next slot for a nonzero.
 >
-> Each nonzero is swapped with $nums[k]$ and $k$ advances, so the prefix of length $k$ is the original nonzero sequence.
+> Each nonzero is swapped with $\textit{nums}[k]$ and $k$ advances, so the prefix of length $k$ is the original nonzero sequence.
 
 <!-- thinking:end -->
 

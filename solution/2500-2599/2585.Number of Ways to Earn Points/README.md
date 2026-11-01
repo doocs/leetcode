@@ -94,19 +94,19 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $f[i][j]$ 表示前 $i$ 种类型的题目中，恰好得到 $j$ 分的方法数。初始时 $f[0][0] = 1$，其余 $f[i][j] = 0$。答案即为 $f[n][target]$。
+我们定义 $f[i][j]$ 表示前 $i$ 种类型的题目中，恰好得到 $j$ 分的方法数。初始时 $f[0][0] = 1$，其余 $f[i][j] = 0$。答案即为 $f[n][\textit{target}]$。
 
-我们可以枚举第 $i$ 种类型的题目，假设该类型题目的数量为 $count$，分数为 $marks$，那么我们可以得到如下状态转移方程：
+我们可以枚举第 $i$ 种类型的题目，假设该类型题目的数量为 $\textit{count}$，分数为 $\textit{marks}$，那么我们可以得到如下状态转移方程：
 
 $$
-f[i][j] = \sum_{k=0}^{count} f[i-1][j-k \times marks]
+f[i][j] = \sum_{k=0}^{\textit{count}} f[i-1][j-k \times \textit{marks}]
 $$
 
 其中 $k$ 表示第 $i$ 种类型的题目的数量。
 
-最终的答案即为 $f[n][target]$。注意答案可能很大，需要对 $10^9 + 7$ 取模。
+最终的答案即为 $f[n][\textit{target}]$。注意答案可能很大，需要对 $10^9 + 7$ 取模。
 
-时间复杂度 $O(n target count)$，空间复杂度 $O(n target)$。其中 $n$ 为题目类型的数量；而 $target$ 和 $count$ 分别为题目的目标分数和每种类型题目的数量。
+时间复杂度 $O(n \textit{target} \textit{count})$，空间复杂度 $O(n \textit{target})$。其中 $n$ 为题目类型的数量；而 $\textit{target}$ 和 $\textit{count}$ 分别为题目的目标分数和每种类型题目的数量。
 
 <!-- tabs:start -->
 

@@ -60,13 +60,13 @@ tags:
 
 > **思考**
 >
-> 判断 $num$ 是否完全平方。从 $1$ 扫到 $\sqrt{num}$ 为 $O(\sqrt n)$。在值域上对 $x^2$ 二分即可。
+> 判断 $\textit{num}$ 是否完全平方。从 $1$ 扫到 $\sqrt{\textit{num}}$ 为 $O(\sqrt n)$。在值域上对 $x^2$ 二分即可。
 >
-> 在 $[1,num]$ 中找最小的 $x$ 使 $x^2\ge num$，再检查是否相等。代码用 `bisect_left` 配 $x\mapsto x^2$。
+> 在 $[1,\textit{num}]$ 中找最小的 $x$ 使 $x^2\ge \textit{num}$，再检查是否相等。代码用 `bisect_left` 配 $x\mapsto x^2$。
 
 <!-- thinking:end -->
 
-我们可以使用二分查找来解决这个问题。定义二分查找的左边界 $l = 1$，右边界 $r = num$，然后在 $[l, r]$ 的范围内查找满足 $x^2 \geq num$ 的最小整数 $x$。最后，如果 $x^2 = num$，则说明 $num$ 是一个完全平方数。
+我们可以使用二分查找来解决这个问题。定义二分查找的左边界 $l = 1$，右边界 $r = \textit{num}$，然后在 $[l, r]$ 的范围内查找满足 $x^2 \geq \textit{num}$ 的最小整数 $x$。最后，如果 $x^2 = \textit{num}$，则说明 $\textit{num}$ 是一个完全平方数。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是给定的数字。
 
@@ -182,7 +182,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-由于 $1 + 3 + 5 + \cdots + (2n - 1) = n^2$，我们可以将 $num$ 逐渐减去 $1, 3, 5, \cdots$，如果最后 $num = 0$，则说明 $num$ 是一个完全平方数。
+由于 $1 + 3 + 5 + \cdots + (2n - 1) = n^2$，我们可以将 $\textit{num}$ 逐渐减去 $1, 3, 5, \cdots$，如果最后 $\textit{num} = 0$，则说明 $\textit{num}$ 是一个完全平方数。
 
 时间复杂度 $O(\sqrt n)$，空间复杂度 $O(1)$。
 

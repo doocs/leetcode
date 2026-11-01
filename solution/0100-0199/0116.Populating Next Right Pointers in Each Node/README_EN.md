@@ -316,7 +316,7 @@ function connect(root: Node | null): Node | null {
 
 Use recursion for preorder traversal, and each time you traverse to a node, connect its left and right child nodes in order.
 
-Specifically, we design a function $dfs(left, right)$, which points the $next$ pointer of the $left$ node to the $right$ node. In the function, we first check whether $left$ and $right$ are null. If both are not null, point $left.next$ to $right$, and then recursively call $dfs(left.left, left.right)$, $dfs(left.right, right.left)$, $dfs(right.left, right.right)$.
+Specifically, we design a function $\textit{dfs}(\textit{left}, \textit{right})$, which points the $\textit{next}$ pointer of the $\textit{left}$ node to the $\textit{right}$ node. In the function, we first check whether $\textit{left}$ and $\textit{right}$ are null. If both are not null, point $\textit{left}.\textit{next}$ to $\textit{right}$, and then recursively call $\textit{dfs}(\textit{left}.\textit{left}, \textit{left}.\textit{right})$, $\textit{dfs}(\textit{left}.\textit{right}, \textit{right}.\textit{left})$, $\textit{dfs}(\textit{right}.\textit{left}, \textit{right}.\textit{right})$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

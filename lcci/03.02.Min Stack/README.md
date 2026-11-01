@@ -31,7 +31,7 @@ difficulty: 简单
 >
 > 每个前缀的最小值在压入时即可确定，且随弹出回退到上一前缀的最小值。因此额外维护一条与数据栈同步的「当前最小」栈。
 >
-> `mins` 初始放入 $+\infty$，每次 `push` 写入 $\min(mins[-1], val)$，`pop` 两栈同弹。`getMin` 直接读 `mins` 栈顶，各操作均为 $O(1)$。
+> `mins` 初始放入 $+\infty$，每次 `push` 写入 $\min(\textit{mins}[-1], \textit{val})$，`pop` 两栈同弹。`getMin` 直接读 `mins` 栈顶，各操作均为 $O(1)$。
 
 <!-- thinking:end -->
 

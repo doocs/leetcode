@@ -84,23 +84,23 @@ tags:
 >
 > 凸多边形的三角剖分方案数是卡特兰数， $n\le 50$ 时不能枚举整棵剖分树。任意剖分都包含一条以边 $(i,j)$ 为底、第三点为 $k$ 的三角形，两侧是规模更小的子多边形。
 >
-> 子问题只依赖端点对 $(i,j)$，用记忆化 $\textit{dfs}(i,j)$ 枚举 $k\in(i,j)$，代价为两侧答案加上 $values[i]\cdot values[k]\cdot values[j]$。相邻顶点无法剖分，返回 $0$。
+> 子问题只依赖端点对 $(i,j)$，用记忆化 $\textit{dfs}(i,j)$ 枚举 $k\in(i,j)$，代价为两侧答案加上 $\textit{values}[i]\cdot \textit{values}[k]\cdot \textit{values}[j]$。相邻顶点无法剖分，返回 $0$。
 >
 > 入口为 $\textit{dfs}(0,n-1)$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $\text{dfs}(i, j)$，表示将多边形的顶点 $i$ 到 $j$ 进行三角剖分后的最低分数。那么答案就是 $\text{dfs}(0, n - 1)$。
+我们设计一个函数 $\textit{dfs}(i, j)$，表示将多边形的顶点 $i$ 到 $j$ 进行三角剖分后的最低分数。那么答案就是 $\textit{dfs}(0, n - 1)$。
 
-函数 $\text{dfs}(i, j)$ 的计算过程如下：
+函数 $\textit{dfs}(i, j)$ 的计算过程如下：
 
 如果 $i + 1 = j$，说明多边形只有两个顶点，无法进行三角剖分，返回 $0$；
 
-否则，我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $\text{dfs}(i, k)$ 和 $\text{dfs}(k, j)$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$。那么，此次三角剖分的最低分数为 $\text{dfs}(i, k) + \text{dfs}(k, j) + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$，我们取所有可能的最小值，即为 $\text{dfs}(i, j)$ 的值。
+否则，我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $\textit{dfs}(i, k)$ 和 $\textit{dfs}(k, j)$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $\textit{values}[i] \times \textit{values}[k] \times \textit{values}[j]$。那么，此次三角剖分的最低分数为 $\textit{dfs}(i, k) + \textit{dfs}(k, j) + \textit{values}[i] \times \textit{values}[k] \times \textit{values}[j]$，我们取所有可能的最小值，即为 $\textit{dfs}(i, j)$ 的值。
 
 为了避免重复计算，我们可以使用记忆化搜索，即使用哈希表或者数组来存储已经计算过的函数值。
 
-最后，我们返回 $\text{dfs}(0, n - 1)$ 即可。
+最后，我们返回 $\textit{dfs}(0, n - 1)$ 即可。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为多边形的顶点数。
 
@@ -252,7 +252,7 @@ function minScoreTriangulation(values: number[]): number {
 
 对于 $f[i][j]$（这里要求 $i + 1 \lt j$），我们先将 $f[i][j]$ 初始化为 $\infty$。
 
-我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $f[i][k]$ 和 $f[k][j]$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$。那么，此次三角剖分的最低分数为 $f[i][k] + f[k][j] + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$，我们取所有可能的最小值，即为 $f[i][j]$ 的值。
+我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $f[i][k]$ 和 $f[k][j]$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $\textit{values}[i] \times \textit{values}[k] \times \textit{values}[j]$。那么，此次三角剖分的最低分数为 $f[i][k] + f[k][j] + \textit{values}[i] \times \textit{values}[k] \times \textit{values}[j]$，我们取所有可能的最小值，即为 $f[i][j]$ 的值。
 
 综上，我们可以得到状态转移方程：
 
@@ -261,7 +261,7 @@ f[i][j]=
 \begin{cases}
 0, & i+1=j \\
 \infty, & i+1<j \\
-\min_{i<k<j} \{f[i][k]+f[k][j]+\text{values}[i] \times \text{values}[k] \times \text{values}[j]\}, & i+1<j
+\min_{i<k<j} \{f[i][k]+f[k][j]+\textit{values}[i] \times \textit{values}[k] \times \textit{values}[j]\}, & i+1<j
 \end{cases}
 $$
 

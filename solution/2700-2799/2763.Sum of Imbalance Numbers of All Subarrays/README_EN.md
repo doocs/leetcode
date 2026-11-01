@@ -82,21 +82,21 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
 >
 > The imbalance of a subarray is the number of adjacent gaps greater than $1$ after sorting unique values; we need the sum over all subarrays. Sorting each subarray is tight at $n\le 1000$ unless the gaps are maintained incrementally.
 >
-> Fix the left end and insert the right-end value into a sorted list. Compare it with its predecessor and successor to see whether new gaps of size greater than $1$ appear and whether an old gap is split. $cnt$ tracks the imbalance and is added to the answer.
+> Fix the left end and insert the right-end value into a sorted list. Compare it with its predecessor and successor to see whether new gaps of size greater than $1$ appear and whether an old gap is split. $\textit{cnt}$ tracks the imbalance and is added to the answer.
 
 <!-- thinking:end -->
 
-We can first enumerate the left endpoint $i$ of the subarray. For each $i$, we enumerate the right endpoint $j$ of the subarray from small to large, and maintain all the elements in the current subarray with an ordered list. We also use a variable $cnt$ to maintain the unbalanced number of the current subarray.
+We can first enumerate the left endpoint $i$ of the subarray. For each $i$, we enumerate the right endpoint $j$ of the subarray from small to large, and maintain all the elements in the current subarray with an ordered list. We also use a variable $\textit{cnt}$ to maintain the unbalanced number of the current subarray.
 
-For each number $nums[j]$, we find the first element $nums[k]$ in the ordered list that is greater than or equal to $nums[j]$, and the last element $nums[h]$ that is less than $nums[j]$:
+For each number $\textit{nums}[j]$, we find the first element $\textit{nums}[k]$ in the ordered list that is greater than or equal to $\textit{nums}[j]$, and the last element $\textit{nums}[h]$ that is less than $\textit{nums}[j]$:
 
-- If $nums[k]$ exists, and the difference between $nums[k]$ and $nums[j]$ is more than $1$, the unbalanced number increases by $1$;
-- If $nums[h]$ exists, and the difference between $nums[j]$ and $nums[h]$ is more than $1$, the unbalanced number increases by $1$;
-- If both $nums[k]$ and $nums[h]$ exist, then inserting the element $nums[j]$ between $nums[h]$ and $nums[k]$ will reduce the unbalanced number by $1$.
+- If $\textit{nums}[k]$ exists, and the difference between $\textit{nums}[k]$ and $\textit{nums}[j]$ is more than $1$, the unbalanced number increases by $1$;
+- If $\textit{nums}[h]$ exists, and the difference between $\textit{nums}[j]$ and $\textit{nums}[h]$ is more than $1$, the unbalanced number increases by $1$;
+- If both $\textit{nums}[k]$ and $\textit{nums}[h]$ exist, then inserting the element $\textit{nums}[j]$ between $\textit{nums}[h]$ and $\textit{nums}[k]$ will reduce the unbalanced number by $1$.
 
 Then, we add the unbalanced number of the current subarray to the answer, and continue the iteration until we finish iterating over all subarrays.
 
-The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

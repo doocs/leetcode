@@ -74,9 +74,9 @@ tags:
 
 > **思考**
 >
-> 判断对象或数组是否没有任何可枚举键。取 $Object.keys$ 再比长度可以得到答案，同时会先物化全部键。
+> 判断对象或数组是否没有任何可枚举键。取 $\textit{Object}.\textit{keys}$ 再比长度可以得到答案，同时会先物化全部键。
 >
-> 用 $for\cdots in$ 一旦碰到第一个自有或继承的可枚举键即返回 $false$，否则为空。对 JSON 解析得到的普通对象与数组，这一遍历即为是否为空。
+> 用 $\textit{for}\cdots in$ 一旦碰到第一个自有或继承的可枚举键即返回 $\textit{false}$，否则为空。对 JSON 解析得到的普通对象与数组，这一遍历即为是否为空。
 
 <!-- thinking:end -->
 
@@ -124,7 +124,7 @@ var isEmpty = function (obj) {
 
 > **思考**
 >
-> 方法一依赖遍历短路。直接比较 $Object.keys(obj).length$ 与 $0$，语义更直观，代价是先收集键名。
+> 方法一依赖遍历短路。直接比较 $\textit{Object}.\textit{keys}(\textit{obj}).\textit{length}$ 与 $0$，语义更直观，代价是先收集键名。
 
 <!-- thinking:end -->
 

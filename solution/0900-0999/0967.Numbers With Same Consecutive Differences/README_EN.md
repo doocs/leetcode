@@ -56,7 +56,7 @@ tags:
 
 > **Thinking**
 >
-> Build $n$-digit numbers whose adjacent digits differ by $k$. $n\le 9$, so DFS from a leading $1..9$ is enough. The next digit is $last\pm k$ inside $0..9$; when $k=0$ take only one branch to avoid duplicates. Collect a number once it has $n$ digits.
+> Build $n$-digit numbers whose adjacent digits differ by $k$. $n\le 9$, so DFS from a leading $1..9$ is enough. The next digit is $\textit{last}\pm k$ inside $0..9$; when $k=0$ take only one branch to avoid duplicates. Collect a number once it has $n$ digits.
 
 <!-- thinking:end -->
 

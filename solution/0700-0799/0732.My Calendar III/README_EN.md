@@ -79,17 +79,17 @@ myCalendarThree.book(25, 55); // return 3
 
 <!-- thinking:end -->
 
-A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\text{width})$. To update the value of an element, we only need to update $\log(\text{width})$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we use **lazy propagation** to ensure efficiency.
+A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\textit{width})$. To update the value of an element, we only need to update $\log(\textit{width})$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we use **lazy propagation** to ensure efficiency.
 
 - Each node of the segment tree represents an interval.
 - The segment tree has a unique root node representing the entire range, such as $[1, N]$.
 - Each leaf node of the segment tree represents a unit interval of length $1$, $[x, x]$.
-- For each internal node $[l, r]$, its left child is $[l, \text{mid}]$ and its right child is $[\text{mid} + 1, r]$, where $\text{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
+- For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$ and its right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
 
 For this problem, the segment tree nodes maintain the following information:
 
 1. The maximum number of times the interval has been booked, $v$.
-2. Lazy propagation marker, $\text{add}$.
+2. Lazy propagation marker, $\textit{add}$.
 
 Since the time range is $10^9$, which is very large, we use dynamic node creation.
 

@@ -313,7 +313,7 @@ var averageOfLevels = function (root) {
 
 > **Thinking**
 >
-> BFS needs a queue. DFS can accumulate $(sum, count)$ by depth and divide at the end, with the same result.
+> BFS needs a queue. DFS can accumulate $(\textit{sum}, \textit{count})$ by depth and divide at the end, with the same result.
 
 <!-- thinking:end -->
 

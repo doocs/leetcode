@@ -236,7 +236,7 @@ function maximumBeauty(items: number[][], queries: number[]): number[] {
 
 <!-- thinking:end -->
 
-We can sort the items by price, and then preprocess the maximum beauty value of the items that are less than or equal to each price, recorded in the array $mx$ or the original $items$ array.
+We can sort the items by price, and then preprocess the maximum beauty value of the items that are less than or equal to each price, recorded in the array $mx$ or the original $\textit{items}$ array.
 
 For each query, we can use binary search to find the index $j$ of the first item with a price greater than the query price, then $j - 1$ is the index of the item with the maximum beauty value and a price less than or equal to the query price, which is added to the answer.
 

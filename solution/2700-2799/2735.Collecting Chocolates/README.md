@@ -81,8 +81,8 @@ tags:
 
 对于第 $i$ 个巧克力：
 
-- 如果 $j = 0$，即没有进行操作，那么 $f[i][j] = nums[i]$；
-- 如果 $0 \lt j \leq n-1$，那么它的最小成本就是下标范围为 $[i,.. (i - j + n) \bmod n]$ 的最小成本，即 $f[i][j] = \min\{nums[i], nums[i - 1], \cdots, nums[(i - j + n) \bmod n]\}$，或者可以写成 $f[i][j] = \min\{f[i][j - 1], nums[(i - j + n) \bmod n]\}$。
+- 如果 $j = 0$，即没有进行操作，那么 $f[i][j] = \textit{nums}[i]$；
+- 如果 $0 \lt j \leq n-1$，那么它的最小成本就是下标范围为 $[i,.. (i - j + n) \bmod n]$ 的最小成本，即 $f[i][j] = \min\{\textit{nums}[i], \textit{nums}[i - 1], \cdots, \textit{nums}[(i - j + n) \bmod n]\}$，或者可以写成 $f[i][j] = \min\{f[i][j - 1], \textit{nums}[(i - j + n) \bmod n]\}$。
 - 如果 $j \ge n$，由于当 $j = n - 1$ 时，已经覆盖了所有最小成本，如果 $j$ 继续增大，那么最小成本不会再变化，但是操作次数的增加却会导致最终的成本增加，因此，我们不需要考虑 $j \ge n$ 的情况。
 
 综上，我们可以得到状态转移方程：
@@ -90,14 +90,14 @@ tags:
 $$
 f[i][j] =
 \begin{cases}
-nums[i] ,& j = 0 \\
-\min(f[i][j - 1], nums[(i - j + n) \bmod n]) ,& 0 \lt j \leq n - 1
+\textit{nums}[i] ,& j = 0 \\
+\min(f[i][j - 1], \textit{nums}[(i - j + n) \bmod n]) ,& 0 \lt j \leq n - 1
 \end{cases}
 $$
 
 最后，我们只需要枚举操作的次数 $j$，计算出每种操作次数下的最小成本，取最小值即可。即答案为 $\min\limits_{0 \leq j \leq n - 1} \sum\limits_{i = 0}^{n - 1} f[i][j] + x \times j$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

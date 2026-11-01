@@ -74,7 +74,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can use two arrays $rows$ and $cols$ to record the minimum value of each row and the maximum value of each column in the matrix. Then, we traverse each element in the matrix, checking whether this element is the minimum value of its row and the maximum value of its column. If it is, then this element is a lucky number, and we add it to the answer array.
+We can use two arrays $\textit{rows}$ and $\textit{cols}$ to record the minimum value of each row and the maximum value of each column in the matrix. Then, we traverse each element in the matrix, checking whether this element is the minimum value of its row and the maximum value of its column. If it is, then this element is a lucky number, and we add it to the answer array.
 
 After the traversal is finished, we return the answer array.
 

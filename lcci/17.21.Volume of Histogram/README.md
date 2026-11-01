@@ -40,11 +40,11 @@ difficulty: 困难
 >
 > 位置 $i$ 的水位是左右最高柱的较小者减去自身高度，左右最高可预处理。
 >
-> $left[i]$、 $right[i]$ 为两侧含自身的前缀/后缀最大值，再求和 $\min(l,r)-h$。两端无法蓄水，长度小于 $3$ 直接 $0$。
+> $\textit{left}[i]$、 $\textit{right}[i]$ 为两侧含自身的前缀/后缀最大值，再求和 $\min(l,r)-h$。两端无法蓄水，长度小于 $3$ 直接 $0$。
 
 <!-- thinking:end -->
 
-我们定义 $left[i]$ 表示下标 $i$ 位置及其左边的最高柱子的高度，定义 $right[i]$ 表示下标 $i$ 位置及其右边的最高柱子的高度。那么下标 $i$ 位置能接的雨水量为 $min(left[i], right[i]) - height[i]$。我们遍历数组，计算出 $left[i]$ 和 $right[i]$，最后答案为 $\sum_{i=0}^{n-1} min(left[i], right[i]) - height[i]$。
+我们定义 $\textit{left}[i]$ 表示下标 $i$ 位置及其左边的最高柱子的高度，定义 $\textit{right}[i]$ 表示下标 $i$ 位置及其右边的最高柱子的高度。那么下标 $i$ 位置能接的雨水量为 $\min(\textit{left}[i], \textit{right}[i]) - \textit{height}[i]$。我们遍历数组，计算出 $\textit{left}[i]$ 和 $\textit{right}[i]$，最后答案为 $\sum_{i=0}^{n-1} \min(\textit{left}[i], \textit{right}[i]) - \textit{height}[i]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 

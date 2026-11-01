@@ -80,7 +80,7 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 >
 > Each index may subtract a prime at most once, and the array must become strictly increasing. Greedy left-to-right may compress a value too far for later positions. Enumerating primes at every index is feasible for $n \le 1000$ and values at most $1000$, but the scan direction still matters.
 >
-> The rightmost value $nums[n-1]$ is freer when larger, so we process from right to left. When $nums[i] \ge nums[i+1]$, we must subtract a prime strictly larger than $nums[i]-nums[i+1]$ and smaller than $nums[i]$, taking the smallest such prime so the left side keeps as much room as possible.
+> The rightmost value $\textit{nums}[n-1]$ is freer when larger, so we process from right to left. When $\textit{nums}[i] \ge \textit{nums}[i+1]$, we must subtract a prime strictly larger than $\textit{nums}[i]-\textit{nums}[i+1]$ and smaller than $\textit{nums}[i]$, taking the smallest such prime so the left side keeps as much room as possible.
 >
 > We therefore sieve primes up to $1000$ into $p$ and binary-search the least prime above that lower bound. If none exists, the array cannot be made strictly increasing.
 
@@ -88,11 +88,11 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 
 We first preprocess all the primes within $1000$ and record them in the array $p$.
 
-For each element $nums[i]$ in the array $nums$, we need to find a prime $p[j]$ such that $p[j] \gt nums[i] - nums[i + 1]$ and $p[j]$ is as small as possible. If there is no such prime, it means that it cannot be strictly increased by subtraction operations, return `false`. If there is such a prime, we will subtract $p[j]$ from $nums[i]$ and continue to process the next element.
+For each element $\textit{nums}[i]$ in the array $\textit{nums}$, we need to find a prime $p[j]$ such that $p[j] \gt \textit{nums}[i] - \textit{nums}[i + 1]$ and $p[j]$ is as small as possible. If there is no such prime, it means that it cannot be strictly increased by subtraction operations, return `false`. If there is such a prime, we will subtract $p[j]$ from $\textit{nums}[i]$ and continue to process the next element.
 
-If all the elements in $nums$ are processed, it means that it can be strictly increased by subtraction operations, return `true`.
+If all the elements in $\textit{nums}$ are processed, it means that it can be strictly increased by subtraction operations, return `true`.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -290,7 +290,7 @@ function primeSubOperation(nums: number[]): boolean {
 
 > **Thinking**
 >
-> Solution 1 binary-searches the prime table each time. With values at most $1000$, we can index directly: let $p[x]$ be the least prime that is at least $x$. The lower bound $nums[i]-nums[i+1]$ then becomes a single array access, removing the search.
+> Solution 1 binary-searches the prime table each time. With values at most $1000$, we can index directly: let $p[x]$ be the least prime that is at least $x$. The lower bound $\textit{nums}[i]-\textit{nums}[i+1]$ then becomes a single array access, removing the search.
 >
 > The rest is unchanged: still right-to-left, still subtracting that smallest prime.
 

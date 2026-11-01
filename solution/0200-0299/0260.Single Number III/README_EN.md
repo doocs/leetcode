@@ -66,7 +66,7 @@ tags:
 >
 > All but two values appear twice, so the XOR of the array is the XOR $xs$ of those two. They differ, so $xs$ has a $1$ bit.
 >
-> Group by the $\mathrm{lowbit}$ of $xs$; the two targets land in different groups. XOR the group that has that bit to get $a$, then $b=xs\oplus a$.
+> Group by the $\textit{lowbit}$ of $xs$; the two targets land in different groups. XOR the group that has that bit to get $a$, then $b=xs\oplus a$.
 
 <!-- thinking:end -->
 

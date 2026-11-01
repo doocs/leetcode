@@ -75,9 +75,9 @@ tags:
 
 我们创建一个大小和 $\textit{mat}$ 一样的矩阵 $\textit{ans}$，并将所有的元素初始化为 $-1$。
 
-然后我们遍历 $\textit{mat}$，将所有的 $0$ 元素的坐标 $(i, j)$ 加入队列 $\textit{q}$，并将 $\textit{ans}[i][j]$ 设为 $0$。
+然后我们遍历 $\textit{mat}$，将所有的 $0$ 元素的坐标 $(i, j)$ 加入队列 $q$，并将 $\textit{ans}[i][j]$ 设为 $0$。
 
-接下来，我们使用广度优先搜索，从队列中取出一个元素 $(i, j)$，并遍历其四个方向，如果该方向的元素 $(x, y)$ 满足 $0 \leq x < m$, $0 \leq y < n$ 且 $\textit{ans}[x][y] = -1$，则将 $\textit{ans}[x][y]$ 设为 $\textit{ans}[i][j] + 1$，并将 $(x, y)$ 加入队列 $\textit{q}$。
+接下来，我们使用广度优先搜索，从队列中取出一个元素 $(i, j)$，并遍历其四个方向，如果该方向的元素 $(x, y)$ 满足 $0 \leq x < m$, $0 \leq y < n$ 且 $\textit{ans}[x][y] = -1$，则将 $\textit{ans}[x][y]$ 设为 $\textit{ans}[i][j] + 1$，并将 $(x, y)$ 加入队列 $q$。
 
 最后返回 $\textit{ans}$。
 

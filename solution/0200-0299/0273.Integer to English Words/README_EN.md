@@ -62,7 +62,7 @@ tags:
 >
 > English names group by thousands: Billion, Million, Thousand. Each block has at most three digits and is built from the teens table, the tens table, and Hundred.
 >
-> $0$ is Zero. From high to low, convert each nonempty block with $transfer$ and append the scale word.
+> $0$ is Zero. From high to low, convert each nonempty block with $\textit{transfer}$ and append the scale word.
 
 <!-- thinking:end -->
 

@@ -109,7 +109,7 @@ tags:
 >
 > Peaks cannot be adjacent. An odd-length array can take every odd index; an even-length array must skip one index in $[1,n-2]$.
 >
-> Raising $i$ above both neighbors costs $\max(0,\max(nums[i-1],nums[i+1])+1-nums[i])$. Memoized $\mathrm{dfs}(i,j)$ starts at $i$ with $j$ skips left.
+> Raising $i$ above both neighbors costs $\max(0,\max(\textit{nums}[i-1],\textit{nums}[i+1])+1-\textit{nums}[i])$. Memoized $\textit{dfs}(i,j)$ starts at $i$ with $j$ skips left.
 >
 > Raising jumps to $i+2$; a remaining skip may instead go to $i+1$ and spend it. The search starts at $1$ with $j$ opposite $n \bmod 2$.
 
@@ -117,16 +117,16 @@ tags:
 
 We observe that if the array length is odd, then increasing all elements at odd indices so that each is $1$ greater than both adjacent elements yields the maximum possible number of special indices. If the array length is even, then among indices in the range $[1, n - 2]$, we skip exactly one index, and for the remaining indices, increase every other element so that each is $1$ greater than both adjacent elements; this also yields the maximum possible number of special indices.
 
-Therefore, we design a function $\text{dfs}(i, j)$, which represents the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ remaining skips. For each index $i$, we can either increase it so that it is $1$ greater than both neighbors, or skip it. We use memoized search to avoid repeated computation.
+Therefore, we design a function $\textit{dfs}(i, j)$, which represents the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ remaining skips. For each index $i$, we can either increase it so that it is $1$ greater than both neighbors, or skip it. We use memoized search to avoid repeated computation.
 
-The implementation of $\text{dfs}(i, j)$ is as follows:
+The implementation of $\textit{dfs}(i, j)$ is as follows:
 
 - If $i \geq n - 1$, return $0$.
-- Compute the number of operations required to increase $nums[i]$ so that it is $1$ greater than both adjacent elements, denoted as $cost$.
-- Compute the total cost for choosing to increase $nums[i]$: $cost + \text{dfs}(i + 2, j)$.
-- If $j > 0$, compute the total cost for choosing to skip $nums[i]$: $\text{dfs}(i + 1, 0)$, and update $ans$ to the smaller of the two.
+- Compute the number of operations required to increase $\textit{nums}[i]$ so that it is $1$ greater than both adjacent elements, denoted as $\textit{cost}$.
+- Compute the total cost for choosing to increase $\textit{nums}[i]$: $\textit{cost} + \textit{dfs}(i + 2, j)$.
+- If $j > 0$, compute the total cost for choosing to skip $\textit{nums}[i]$: $\textit{dfs}(i + 1, 0)$, and update $\textit{ans}$ to the smaller of the two.
 
-Finally, return $\text{dfs}(1, (n \bmod 2) \oplus 1)$.
+Finally, return $\textit{dfs}(1, (n \bmod 2) \oplus 1)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
@@ -296,7 +296,7 @@ function minIncrease(nums: number[]): number {
 
 > **Thinking**
 >
-> A special index is a strict peak. We may only add $1$, first making as many peaks as possible and then minimizing the total added. $n$ can reach $10^5$, and every raise enters $\mathrm{dfs}(i+2, j)$ first, so that chain is about $n/2$ deep and exceeds the default recursion limit.
+> A special index is a strict peak. We may only add $1$, first making as many peaks as possible and then minimizing the total added. $n$ can reach $10^5$, and every raise enters $\textit{dfs}(i+2, j)$ first, so that chain is about $n/2$ deep and exceeds the default recursion limit.
 >
 > Peaks cannot be adjacent. An odd length can take every odd index; an even length must skip exactly one index in $[1, n-2]$. The cost at a position depends only on its two neighbors, and later choices do not change it.
 >
@@ -308,13 +308,13 @@ We observe that if the array length is odd, then increasing all elements at odd 
 
 Let $f[i][j]$ be the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ skips remaining. When $i \ge n - 1$, $f[i][j] = 0$.
 
-For $i$ from $n - 2$ down to $1$, first compute the cost of raising $nums[i]$ so that it is $1$ greater than both neighbors:
+For $i$ from $n - 2$ down to $1$, first compute the cost of raising $\textit{nums}[i]$ so that it is $1$ greater than both neighbors:
 
 $$
-cost = \max(0, \max(nums[i - 1], nums[i + 1]) + 1 - nums[i]).
+\textit{cost} = \max(0, \max(\textit{nums}[i - 1], \textit{nums}[i + 1]) + 1 - \textit{nums}[i]).
 $$
 
-Raising this index costs $cost + f[i + 2][j]$. If $j > 0$, we may instead take $f[i + 1][0]$, and keep the smaller of the two.
+Raising this index costs $\textit{cost} + f[i + 2][j]$. If $j > 0$, we may instead take $f[i + 1][0]$, and keep the smaller of the two.
 
 The answer is $f[1][(n \bmod 2) \oplus 1]$.
 

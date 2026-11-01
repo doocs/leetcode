@@ -75,7 +75,7 @@ Another correct solution is to remove the subarray [3,10,4].
 >
 > Delete one contiguous subarray so the rest is nondecreasing, and minimize the deletion. $n\le 10^5$ forbids trying every interval. What remains is a prefix plus a suffix whose join is still sorted.
 >
-> Find the longest nondecreasing prefix $[0,i]$ and suffix $[j,n)$. If they already cover the array the answer is $0$; otherwise we may drop the whole suffix or the whole prefix. For each prefix end $l$, binary-search the first suffix index $r$ with $arr[r]\ge arr[l]$, delete $(l,r)$, and keep the shortest.
+> Find the longest nondecreasing prefix $[0,i]$ and suffix $[j,n)$. If they already cover the array the answer is $0$; otherwise we may drop the whole suffix or the whole prefix. For each prefix end $l$, binary-search the first suffix index $r$ with $\textit{arr}[r]\ge \textit{arr}[l]$, delete $(l,r)$, and keep the shortest.
 
 <!-- thinking:end -->
 

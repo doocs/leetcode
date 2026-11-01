@@ -66,17 +66,17 @@ tags:
 >
 > 可向数组追加绝对值不超过 $\textit{limit}$ 的整数，使总和变为 $\textit{goal}$，追加个数尽量少。
 >
-> 差距 $d=|\sum nums-\textit{goal}|$ 每次最多缩小 $\textit{limit}$，最少次数为 $\lceil d/\textit{limit}\rceil$。
+> 差距 $d=|\sum \textit{nums}-\textit{goal}|$ 每次最多缩小 $\textit{limit}$，最少次数为 $\lceil d/\textit{limit}\rceil$。
 
 <!-- thinking:end -->
 
-我们先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
+我们先计算数组元素总和 $s$，然后计算 $s$ 与 $\textit{goal}$ 的差值 $d$。
 
-那么需要添加的元素数量为 $d$ 的绝对值除以 $limit$ 向上取整，即 $\lceil \frac{|d|}{limit} \rceil$。
+那么需要添加的元素数量为 $d$ 的绝对值除以 $\textit{limit}$ 向上取整，即 $\lceil \frac{|d|}{\textit{limit}} \rceil$。
 
 注意，本题中数组元素的数据范围为 $[-10^6, 10^6]$，元素个数最大为 $10^5$，总和 $s$ 以及差值 $d$ 可能会超过 $32$ 位整数的表示范围，因此需要使用 $64$ 位整数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -134,18 +134,18 @@ tags:
 >
 > The static count from the previous problem does not survive point updates and a forced prefix deletion. $k \le 5$, so a segment only needs its product modulo $k$ and the number of ways each remainder arises after dropping a suffix.
 >
-> Store that payload in a segment tree and define a merge. After each update, query the target remainder on $[start, n)$.
+> Store that payload in a segment tree and define a merge. After each update, query the target remainder on $[\textit{start}, n)$.
 
 <!-- thinking:end -->
 
-Each query first sets $nums[\textit{index}]$ to $\textit{value}$ (the update persists), then drops the prefix $nums[0..start-1]$. After that we may only drop a suffix, so the remainder is a non-empty prefix of $nums[start..n-1]$. The query therefore counts how many prefixes of $[start, n)$ have product congruent to $x$ modulo $k$.
+Each query first sets $\textit{nums}[\textit{index}]$ to $\textit{value}$ (the update persists), then drops the prefix $\textit{nums}[0..\textit{start}-1]$. After that we may only drop a suffix, so the remainder is a non-empty prefix of $\textit{nums}[\textit{start}..n-1]$. The query therefore counts how many prefixes of $[\textit{start}, n)$ have product congruent to $x$ modulo $k$.
 
 Since $k \le 5$, each segment-tree node stores:
 
 - $\textit{prod}$: the product of the whole segment modulo $k$
 - $\textit{cnt}[r]$: how many prefixes of this segment have product $r$ modulo $k$
 
-A leaf with $a = nums[i] \bmod k$ has $\textit{prod} = a$ and $\textit{cnt}[a] = 1$.
+A leaf with $a = \textit{nums}[i] \bmod k$ has $\textit{prod} = a$ and $\textit{cnt}[a] = 1$.
 
 Merging left and right children $L$ and $R$:
 
@@ -155,7 +155,7 @@ $$
 
 Prefixes lying entirely in $L$ copy $L.\textit{cnt}$. Prefixes that take all of $L$ and then a prefix of $R$ contribute $R.\textit{cnt}[r]$ to remainder $(L.\textit{prod} \times r) \bmod k$.
 
-After a point update, query $\textit{cnt}[x]$ on $[start+1, n]$ (1-indexed). Merges during a query must combine left then right.
+After a point update, query $\textit{cnt}[x]$ on $[\textit{start}+1, n]$ (1-indexed). Merges during a query must combine left then right.
 
 The time complexity is $O((n + q)k \log n)$, and the space complexity is $O(nk)$, where $n$ is the array length and $q$ is the number of queries.
 

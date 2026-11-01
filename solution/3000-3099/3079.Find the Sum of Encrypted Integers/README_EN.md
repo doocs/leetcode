@@ -71,7 +71,7 @@ tags:
 
 <!-- thinking:end -->
 
-We directly simulate the encryption process by defining a function $encrypt(x)$, which replaces each digit in an integer $x$ with the maximum digit in $x$. The implementation of the function is as follows:
+We directly simulate the encryption process by defining a function $\textit{encrypt}(x)$, which replaces each digit in an integer $x$ with the maximum digit in $x$. The implementation of the function is as follows:
 
 We can obtain each digit of $x$ by continuously taking the modulus and integer division of $x$ by $10$, and find the maximum digit, denoted as $mx$. During the loop, we can also use a variable $p$ to record the base number of $mx$, i.e., $p = 1, 11, 111, \cdots$. Finally, return $mx \times p$.
 

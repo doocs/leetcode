@@ -84,17 +84,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先预处理出字符串 $ring$ 中每个字符 $c$ 出现的位置列表，记录在数组 $pos[c]$ 中。不妨假设字符串 $key$ 和 $ring$ 的长度分别为 $m$ 和 $n$。
+我们首先预处理出字符串 $\textit{ring}$ 中每个字符 $c$ 出现的位置列表，记录在数组 $\textit{pos}[c]$ 中。不妨假设字符串 $\textit{key}$ 和 $\textit{ring}$ 的长度分别为 $m$ 和 $n$。
 
-然后我们定义 $f[i][j]$ 表示拼写完字符串 $key$ 的前 $i+1$ 个字符，且 $ring$ 的第 $j$ 个字符与 $12:00$ 方向对齐的最少步数。初始时 $f[i][j]=+\infty$。答案为 $\min_{0 \leq j < n} f[m - 1][j]$。
+然后我们定义 $f[i][j]$ 表示拼写完字符串 $\textit{key}$ 的前 $i+1$ 个字符，且 $\textit{ring}$ 的第 $j$ 个字符与 $12:00$ 方向对齐的最少步数。初始时 $f[i][j]=+\infty$。答案为 $\min_{0 \leq j < n} f[m - 1][j]$。
 
-我们可以先初始化 $f[0][j]$，其中 $j$ 是字符 $key[0]$ 在 $ring$ 中出现的位置。由于 $ring$ 的第 $j$ 个字符与 $12:00$ 方向对齐，因此我们只需要 $1$ 步即可拼写出 $key[0]$。此外，我们还需要 $min(j, n - j)$ 步将 $ring$ 旋转到 $12:00$ 方向。因此 $f[0][j]=min(j, n - j) + 1$。
+我们可以先初始化 $f[0][j]$，其中 $j$ 是字符 $\textit{key}[0]$ 在 $\textit{ring}$ 中出现的位置。由于 $\textit{ring}$ 的第 $j$ 个字符与 $12:00$ 方向对齐，因此我们只需要 $1$ 步即可拼写出 $\textit{key}[0]$。此外，我们还需要 $\min(j, n - j)$ 步将 $\textit{ring}$ 旋转到 $12:00$ 方向。因此 $f[0][j]=\min(j, n - j) + 1$。
 
-接下来，我们考虑当 $i \geq 1$ 时，状态如何转移。我们可以枚举 $key[i]$ 在 $ring$ 中的位置列表 $pos[key[i]]$，并枚举 $key[i-1]$ 在 $ring$ 中的位置列表 $pos[key[i-1]]$，然后更新 $f[i][j]$，即 $f[i][j]=\min_{k \in pos[key[i-1]]} f[i-1][k] + \min(\textit{abs}(j - k), n - \textit{abs}(j - k)) + 1$。
+接下来，我们考虑当 $i \geq 1$ 时，状态如何转移。我们可以枚举 $\textit{key}[i]$ 在 $\textit{ring}$ 中的位置列表 $\textit{pos}[\textit{key}[i]]$，并枚举 $\textit{key}[i-1]$ 在 $\textit{ring}$ 中的位置列表 $\textit{pos}[\textit{key}[i-1]]$，然后更新 $f[i][j]$，即 $f[i][j]=\min_{k \in \textit{pos}[\textit{key}[i-1]]} f[i-1][k] + \min(\textit{abs}(j - k), n - \textit{abs}(j - k)) + 1$。
 
 最后，我们返回 $\min_{0 \leq j \lt n} f[m - 1][j]$ 即可。
 
-时间复杂度 $O(mn^2)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是字符串 $key$ 和 $ring$ 的长度。
+时间复杂度 $O(mn^2)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是字符串 $\textit{key}$ 和 $\textit{ring}$ 的长度。
 
 <!-- tabs:start -->
 

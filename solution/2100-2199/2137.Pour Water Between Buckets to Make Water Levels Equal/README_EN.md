@@ -85,11 +85,11 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 
 We notice that if a water volume $x$ meets the condition, then all water volumes less than $x$ also meet the condition. Therefore, we can use binary search to find the maximum water volume that satisfies the condition.
 
-We define the left boundary of the binary search as $l=0$ and the right boundary as $r=\max(buckets)$. During each binary search iteration, we take the midpoint $mid$ of $l$ and $r$, and check if $mid$ meets the condition. If it does, we update $l$ to $mid$; otherwise, we update $r$ to $mid$. After the binary search concludes, the maximum water volume that satisfies the condition is $l$.
+We define the left boundary of the binary search as $l=0$ and the right boundary as $r=\max(\textit{buckets})$. During each binary search iteration, we take the midpoint $\textit{mid}$ of $l$ and $r$, and check if $\textit{mid}$ meets the condition. If it does, we update $l$ to $\textit{mid}$; otherwise, we update $r$ to $\textit{mid}$. After the binary search concludes, the maximum water volume that satisfies the condition is $l$.
 
 The key to the problem is to determine if a water volume $v$ meets the condition. We can iterate through all buckets, and for each bucket, if its water volume is greater than $v$, then we need to pour out $x-v$ water volume; if its water volume is less than $v$, then we need to pour in $(v-x)\times\frac{100}{100-\textit{loss}}$ water volume. If the total volume poured out is greater than or equal to the volume poured in, then $v$ meets the condition.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length and the maximum value of the array $buckets$, respectively. The time complexity of binary search is $O(\log M)$, and each binary search iteration requires traversing the array $buckets$, with a time complexity of $O(n)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length and the maximum value of the array $\textit{buckets}$, respectively. The time complexity of binary search is $O(\log M)$, and each binary search iteration requires traversing the array $\textit{buckets}$, with a time complexity of $O(n)$.
 
 <!-- tabs:start -->
 

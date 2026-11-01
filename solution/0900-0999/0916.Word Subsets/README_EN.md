@@ -76,7 +76,7 @@ tags:
 
 > **Thinking**
 >
-> $a$ must cover every word of $words2$. Checking each $b$ against each $a$ works, but the constraints merge: for every letter take the maximum demand over $words2$, then compare that single counter $\textit{cnt}$ with the count of $a$.
+> $a$ must cover every word of $\textit{words2}$. Checking each $b$ against each $a$ works, but the constraints merge: for every letter take the maximum demand over $\textit{words2}$, then compare that single counter $\textit{cnt}$ with the count of $a$.
 
 <!-- thinking:end -->
 

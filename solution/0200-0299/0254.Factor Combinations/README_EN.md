@@ -69,7 +69,7 @@ tags:
 >
 > Factorizations of $n$ with at least two factors should be generated in nondecreasing order to avoid permutations. Enumerate factors from the current minimum $i$ up to $\sqrt{n}$.
 >
-> $dfs(n,i)$ records the chosen factors plus leftover $n$, then tries each $j\ge i$ that divides $n$ and recurses on $n/j$.
+> $\textit{dfs}(n,i)$ records the chosen factors plus leftover $n$, then tries each $j\ge i$ that divides $n$ and recurses on $n/j$.
 
 <!-- thinking:end -->
 

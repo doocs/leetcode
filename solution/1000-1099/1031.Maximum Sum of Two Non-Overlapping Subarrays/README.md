@@ -82,13 +82,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们先预处理得到数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表示 $nums$ 中前 $i$ 个元素的和。
+我们先预处理得到数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表示 $\textit{nums}$ 中前 $i$ 个元素的和。
 
 接下来，我们分两种情况枚举：
 
-假设 $firstLen$ 个元素的子数组在 $secondLen$ 个元素的子数组的左边，那么我们可以枚举 $secondLen$ 个元素的子数组的左端点 $i$，用变量 $t$ 维护左边 $firstLen$ 个元素的子数组的最大和，那么答案就是 $t + s[i + secondLen] - s[i]$。枚举完所有的 $i$，就可以得到候选答案。
+假设 $\textit{firstLen}$ 个元素的子数组在 $\textit{secondLen}$ 个元素的子数组的左边，那么我们可以枚举 $\textit{secondLen}$ 个元素的子数组的左端点 $i$，用变量 $t$ 维护左边 $\textit{firstLen}$ 个元素的子数组的最大和，那么答案就是 $t + s[i + \textit{secondLen}] - s[i]$。枚举完所有的 $i$，就可以得到候选答案。
 
-假设 $secondLen$ 个元素的子数组在 $firstLen$ 个元素的子数组的左边，那么我们可以枚举 $firstLen$ 个元素的子数组的左端点 $i$，用变量 $t$ 维护左边 $secondLen$ 个元素的子数组的最大和，那么答案就是 $t + s[i + firstLen] - s[i]$。枚举完所有的 $i$，就可以得到候选答案。
+假设 $\textit{secondLen}$ 个元素的子数组在 $\textit{firstLen}$ 个元素的子数组的左边，那么我们可以枚举 $\textit{firstLen}$ 个元素的子数组的左端点 $i$，用变量 $t$ 维护左边 $\textit{secondLen}$ 个元素的子数组的最大和，那么答案就是 $t + s[i + \textit{firstLen}] - s[i]$。枚举完所有的 $i$，就可以得到候选答案。
 
 最后，我们取两种情况下的候选答案的最大值即可。
 

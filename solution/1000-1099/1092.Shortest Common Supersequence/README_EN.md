@@ -62,7 +62,7 @@ The answer provided is the shortest such string that satisfies these properties.
 
 > **Thinking**
 >
-> The SCS length is $|s_1|+|s_2|-\mathrm{LCS}$. $m,n\le 1000$: build the LCS table, then walk the transitions backward, inserting the characters that are not shared.
+> The SCS length is $|s_1|+|s_2|-\textit{LCS}$. $m,n\le 1000$: build the LCS table, then walk the transitions backward, inserting the characters that are not shared.
 >
 > $f[i][j]$ is the LCS of the two prefixes. From $(m,n)$, a move from above or the left emits the discarded character; an equal pair emits the common character and steps diagonally.
 >

@@ -119,19 +119,19 @@ tags:
 
 <!-- thinking:end -->
 
-根据题目描述，对于会议 $i$，我们记它左侧非空闲位置为 $l_i$，右侧非空闲位置为 $r_i$，记会议 $i$ 的时长为 $w_i = \text{endTime}[i] - \text{startTime}[i]$，则：
+根据题目描述，对于会议 $i$，我们记它左侧非空闲位置为 $l_i$，右侧非空闲位置为 $r_i$，记会议 $i$ 的时长为 $w_i = \textit{endTime}[i] - \textit{startTime}[i]$，则：
 
 $$
 l_i = \begin{cases}
 0 & i = 0 \\\\
-\text{endTime}[i - 1] & i \gt 0
+\textit{endTime}[i - 1] & i \gt 0
 \end{cases}
 $$
 
 $$
 r_i = \begin{cases}
-\text{eventTime} & i = n - 1 \\\\
-\text{startTime}[i + 1] & i \lt n - 1
+\textit{eventTime} & i = n - 1 \\\\
+\textit{startTime}[i + 1] & i \lt n - 1
 \end{cases}
 $$
 
@@ -141,19 +141,19 @@ $$
 r_i - l_i - w_i
 $$
 
-如果左侧存在最大的空闲时间 $\text{pre}_{i - 1}$，满足 $\text{pre}_{i - 1} \geq w_i$，则可以将会议 $i$ 向左移动到该位置，得到新的空闲时间：
+如果左侧存在最大的空闲时间 $\textit{pre}_{i - 1}$，满足 $\textit{pre}_{i - 1} \geq w_i$，则可以将会议 $i$ 向左移动到该位置，得到新的空闲时间：
 
 $$
 r_i - l_i
 $$
 
-同理，如果右侧存在最大的空闲时间 $\text{suf}_{i + 1}$，满足 $\text{suf}_{i + 1} \geq w_i$，则可以将会议 $i$ 向右移动到该位置，得到新的空闲时间：
+同理，如果右侧存在最大的空闲时间 $\textit{suf}_{i + 1}$，满足 $\textit{suf}_{i + 1} \geq w_i$，则可以将会议 $i$ 向右移动到该位置，得到新的空闲时间：
 
 $$
 r_i - l_i
 $$
 
-因此，我们首先预处理两个数组 $\text{pre}$ 和 $\text{suf}$，其中 $\text{pre}[i]$ 表示 $[0, i]$ 范围内的最大空闲时间， $\text{suf}[i]$ 表示 $[i, n - 1]$ 范围内的最大空闲时间。然后遍历每个会议 $i$，计算它移动后的最大空闲时间，取最大值即可。
+因此，我们首先预处理两个数组 $\textit{pre}$ 和 $\textit{suf}$，其中 $\textit{pre}[i]$ 表示 $[0, i]$ 范围内的最大空闲时间， $\textit{suf}[i]$ 表示 $[i, n - 1]$ 范围内的最大空闲时间。然后遍历每个会议 $i$，计算它移动后的最大空闲时间，取最大值即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为会议的数量。
 

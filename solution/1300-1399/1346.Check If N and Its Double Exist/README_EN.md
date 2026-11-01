@@ -66,17 +66,17 @@ tags:
 
 > **Thinking**
 >
-> Decide whether some $i \neq j$ satisfies $arr[i]=2\,arr[j]$. A double loop works for $n \le 500$, but one hash pass is enough: succeed if $2x$ or, when $x$ is even, $x/2$ was already seen; otherwise insert $x$. The set holds only earlier elements, so the indices differ.
+> Decide whether some $i \neq j$ satisfies $\textit{arr}[i]=2\,\textit{arr}[j]$. A double loop works for $n \le 500$, but one hash pass is enough: succeed if $2x$ or, when $x$ is even, $x/2$ was already seen; otherwise insert $x$. The set holds only earlier elements, so the indices differ.
 
 <!-- thinking:end -->
 
 We define a hash table $s$ to record the elements that have been visited.
 
-Traverse the array $arr$. For each element $x$, if either double of $x$ or half of $x$ is in the hash table $s$, then return `true`. Otherwise, add $x$ to the hash table $s$.
+Traverse the array $\textit{arr}$. For each element $x$, if either double of $x$ or half of $x$ is in the hash table $s$, then return `true`. Otherwise, add $x$ to the hash table $s$.
 
 If no element satisfying the condition is found after the traversal, return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

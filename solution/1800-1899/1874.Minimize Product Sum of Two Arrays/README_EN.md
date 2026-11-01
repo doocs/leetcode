@@ -63,9 +63,9 @@ tags:
 
 > **Thinking**
 >
-> We may reorder one array and want the minimum of $\sum nums1[i]\cdot nums2[i]$. For positive numbers, large values should pair with small ones.
+> We may reorder one array and want the minimum of $\sum \textit{nums1}[i]\cdot \textit{nums2}[i]$. For positive numbers, large values should pair with small ones.
 >
-> Sort $nums1$ ascending and $nums2$ descending, then sum the pairwise products.
+> Sort $\textit{nums1}$ ascending and $\textit{nums2}$ descending, then sum the pairwise products.
 
 <!-- thinking:end -->
 

@@ -90,11 +90,11 @@ tags:
 
 > **Thinking**
 >
-> A stable array never has more than $limit$ equal bits in a row. Backtracking over $zero$ zeros and $one$ ones explodes.
+> A stable array never has more than $\textit{limit}$ equal bits in a row. Backtracking over $\textit{zero}$ zeros and $\textit{one}$ ones explodes.
 >
-> Validity after a prefix depends only on remaining zeros and ones and on which bit is written next. Overflow is the case of writing $limit+1$ equal bits after the opposite bit.
+> Validity after a prefix depends only on remaining zeros and ones and on which bit is written next. Overflow is the case of writing $\textit{limit}+1$ equal bits after the opposite bit.
 >
-> Let $dfs(i,j,k)$ be the number of ways with $i$ zeros and $j$ ones left and next bit $k$. Add the same-color and other-color transitions and subtract the overflow term. Memoization yields $O(zero one)$ states.
+> Let $\textit{dfs}(i,j,k)$ be the number of ways with $i$ zeros and $j$ ones left and next bit $k$. Add the same-color and other-color transitions and subtract the overflow term. Memoization yields $O(\textit{zero} \textit{one})$ states.
 
 <!-- thinking:end -->
 
@@ -369,13 +369,13 @@ impl Solution {
 >
 > The same transition fills a table $f[i][j][k]$: $i$ zeros and $j$ ones used, last bit $k$.
 >
-> Base cases are monochrome strings no longer than $limit$. After iterating with a modulus, read $f[zero][one][0]+f[zero][one][1]$.
+> Base cases are monochrome strings no longer than $\textit{limit}$. After iterating with a modulus, read $f[\textit{zero}][\textit{one}][0]+f[\textit{zero}][\textit{one}][1]$.
 
 <!-- thinking:end -->
 
 We can also convert the memoized search in Solution 1 into dynamic programming.
 
-We define $f[i][j][k]$ as the number of stable binary arrays that use $i$ zeros and $j$ ones, with the last digit being $k$. Then the answer is $f[zero][one][0] + f[zero][one][1]$.
+We define $f[i][j][k]$ as the number of stable binary arrays that use $i$ zeros and $j$ ones, with the last digit being $k$. Then the answer is $f[\textit{zero}][\textit{one}][0] + f[\textit{zero}][\textit{one}][1]$.
 
 Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\textit{limit}, \textit{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\textit{limit}, \textit{one})$.
 

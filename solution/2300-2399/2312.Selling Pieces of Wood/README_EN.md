@@ -80,15 +80,15 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 >
 > A board may be cut horizontally or vertically many times, or sold whole. Searching cut sequences repeats the same dimensions. $m, n \le 200$, so there are $O(mn)$ distinct rectangles.
 >
-> A subproblem depends only on height and width: the best of selling whole versus splitting once and adding the two optima. Store given prices, then memoize $dfs(h,w)$, cutting only to half height or width to skip symmetric splits.
+> A subproblem depends only on height and width: the best of selling whole versus splitting once and adding the two optima. Store given prices, then memoize $\textit{dfs}(h,w)$, cutting only to half height or width to skip symmetric splits.
 
 <!-- thinking:end -->
 
 First, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$.
 
-Then, we design a function $dfs(h, w)$ to denote the maximum amount of money obtained by cutting a wood block with height $h$ and width $w$. The answer will be $dfs(m, n)$.
+Then, we design a function $\textit{dfs}(h, w)$ to denote the maximum amount of money obtained by cutting a wood block with height $h$ and width $w$. The answer will be $\textit{dfs}(m, n)$.
 
-The process of function $dfs(h, w)$ is as follows:
+The process of function $\textit{dfs}(h, w)$ is as follows:
 
 - If $(h, w)$ has been calculated before, return the answer directly.
 - Otherwise, initialize the answer as $d[h][w]$, then enumerate the cutting positions, calculate the maximum amount of money obtained by cutting the wood block into two pieces, and take the maximum value.
@@ -263,7 +263,7 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 We can transform the memoization search in Solution 1 into dynamic programming.
 
-Similar to Solution 1, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$. Initially, we iterate through the price array $prices$ and store the price $p$ of each wood block $(h, w, p)$ in $d[h][w]$, while the rest of the prices are set to $0$.
+Similar to Solution 1, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$. Initially, we iterate through the price array $\textit{prices}$ and store the price $p$ of each wood block $(h, w, p)$ in $d[h][w]$, while the rest of the prices are set to $0$.
 
 Then, we define another 2D array $f$, where $f[i][j]$ represents the maximum amount of money obtained by cutting a wood block with height $i$ and width $j$. The answer will be $f[m][n]$.
 

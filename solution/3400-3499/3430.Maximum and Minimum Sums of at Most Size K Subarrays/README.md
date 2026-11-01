@@ -187,7 +187,7 @@ tags:
 我们定义：
 
 $$
-MaxSum_i = \sum_{j = \max(0, i - k + 1)}^i \max(nums[j:i + 1])
+\textit{MaxSum}_i = \sum_{j = \max(0, i - k + 1)}^i \max(\textit{nums}[j:i + 1])
 $$
 
 表示所有以索引 $i$ 结尾的合法子数组，它们各自最大值的总和。
@@ -195,7 +195,7 @@ $$
 同理：
 
 $$
-MinSum_i = \sum_{j = \max(0, i - k + 1)}^i \min(nums[j:i + 1])
+\textit{MinSum}_i = \sum_{j = \max(0, i - k + 1)}^i \min(\textit{nums}[j:i + 1])
 $$
 
 表示所有以索引 $i$ 结尾的合法子数组，它们各自最小值的总和。
@@ -276,7 +276,7 @@ subarrays_max_sum
 产生：
 
 $$
-(nums[i] - prev\_num) \times prev\_shares
+(\textit{nums}[i] - \textit{prev\_num}) \times \textit{prev\_shares}
 $$
 
 的净增量。

@@ -55,9 +55,9 @@ date.nextDay(); // &quot;2014-06-21&quot;
 
 > **Thinking**
 >
-> Extend $Date$ with a method that returns the next calendar day as $YYYY\text{-}MM\text{-}DD$. Hand-rolled month lengths and leap years are easy to get wrong.
+> Extend $\textit{Date}$ with a method that returns the next calendar day as $\textit{YYYY}\text{-}\textit{MM}\text{-}\textit{DD}$. Hand-rolled month lengths and leap years are easy to get wrong.
 >
-> Copy the timestamp, $setDate(getDate()+1)$, and slice the ISO date so the original instance is left unchanged.
+> Copy the timestamp, $\textit{setDate}(\textit{getDate}()+1)$, and slice the ISO date so the original instance is left unchanged.
 
 <!-- thinking:end -->
 

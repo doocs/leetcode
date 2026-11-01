@@ -75,7 +75,7 @@ tags:
 
 > **Thinking**
 >
-> Two sum on a sorted array, 1-based indices, exactly one pair. A hash map uses $O(n)$ space. For each $numbers[i]$ binary-search $target-numbers[i]$ on the right. $n\le 3\times 10^4$, so $O(n \log n)$ time and $O(1)$ space.
+> Two sum on a sorted array, 1-based indices, exactly one pair. A hash map uses $O(n)$ space. For each $\textit{numbers}[i]$ binary-search $\textit{target}-\textit{numbers}[i]$ on the right. $n\le 3\times 10^4$, so $O(n \log n)$ time and $O(1)$ space.
 
 <!-- thinking:end -->
 
@@ -250,7 +250,7 @@ var twoSum = function (numbers, target) {
 
 <!-- thinking:end -->
 
-We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
+We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $\textit{numbers}[i] + \textit{numbers}[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `numbers`.
 

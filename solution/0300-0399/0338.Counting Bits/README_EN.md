@@ -160,7 +160,7 @@ function bitCount(n: number): number {
 
 > **Thinking**
 >
-> Method 1 counts each integer from scratch. Clearing the lowest set bit yields $i\&(i-1)$, whose answer is already known, so $ans[i]=ans[i\&(i-1)]+1$. Fill upward in $O(n)$.
+> Method 1 counts each integer from scratch. Clearing the lowest set bit yields $i\&(i-1)$, whose answer is already known, so $\textit{ans}[i]=\textit{ans}[i\&(i-1)]+1$. Fill upward in $O(n)$.
 
 <!-- thinking:end -->
 

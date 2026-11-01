@@ -84,9 +84,9 @@ It can be shown that 2 is the minimum possible size of a valid set.
 
 > **Thinking**
 >
-> Each addend is $10x+k$, so the units digit of a sum of $n$ such numbers is determined by $n\times k$. $num \le 3000$, so we enumerate $n$ and test whether $num-n\times k$ is a non-negative multiple of $10$.
+> Each addend is $10x+k$, so the units digit of a sum of $n$ such numbers is determined by $n\times k$. $\textit{num} \le 3000$, so we enumerate $n$ and test whether $\textit{num}-n\times k$ is a non-negative multiple of $10$.
 >
-> Try $n$ from small to large; the first success is minimal. If none works up to $num$, there is no solution.
+> Try $n$ from small to large; the first success is minimal. If none works up to $\textit{num}$, there is no solution.
 
 <!-- thinking:end -->
 
@@ -191,7 +191,7 @@ function minimumNumbers(num: number, k: number): number {
 
 > **Thinking**
 >
-> Method 1 may try up to $num$ values. Units digits repeat every $10$, so it suffices to test $n \le 10$ with $n\times k$ congruent to $num$ and at most $num$.
+> Method 1 may try up to $\textit{num}$ values. Units digits repeat every $10$, so it suffices to test $n \le 10$ with $n\times k$ congruent to $\textit{num}$ and at most $\textit{num}$.
 
 <!-- thinking:end -->
 

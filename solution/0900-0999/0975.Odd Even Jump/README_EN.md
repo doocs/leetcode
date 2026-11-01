@@ -97,7 +97,7 @@ number of jumps.
 
 > **Thinking**
 >
-> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. Counting starts that reach the end by simulating each path would repeat states. Walking right to left, an ordered map of seen values yields the next index $g[i][0/1]$ in $O(\log n)$. Reachability depends only on $(i,\text{parity})$, so memoized DFS suffices.
+> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. Counting starts that reach the end by simulating each path would repeat states. Walking right to left, an ordered map of seen values yields the next index $g[i][0/1]$ in $O(\log n)$. Reachability depends only on $(i,\textit{parity})$, so memoized DFS suffices.
 
 <!-- thinking:end -->
 
@@ -327,7 +327,7 @@ impl Solution {
 >
 > Walking from right to left, the ordered map holds only indexes farther to the right, so $g[i][0/1]$ is either a larger index or $-1$.
 >
-> Reachability depends only on $(i,\text{parity})$ and only on a position to the right. Let $f[i][k]$ mean a jump of parity $k$ from $i$ can reach the end. Both cells of $f[n-1]$ are true. $i$ runs from $n-2$ down to $0$, and a real successor copies the opposite parity at that successor. The answer counts the true cells $f[i][1]$.
+> Reachability depends only on $(i,\textit{parity})$ and only on a position to the right. Let $f[i][k]$ mean a jump of parity $k$ from $i$ can reach the end. Both cells of $f[n-1]$ are true. $i$ runs from $n-2$ down to $0$, and a real successor copies the opposite parity at that successor. The answer counts the true cells $f[i][1]$.
 
 <!-- thinking:end -->
 

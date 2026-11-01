@@ -79,7 +79,7 @@ The total sum is 4 + 6 + 6 + 4 = 20.
 >
 > A substring's appeal is its number of distinct letters; we want the sum over all substrings. $n \le 10^5$ forbids enumerating them. For suffixes that end at $i$, a new letter $c$ increases appeal of every substring that starts after the previous $c$.
 >
-> Store the last index $pos[c]$ (initially $-1$). At $i$, add $i-pos[c]$ into a running $t$, then add $t$ to the answer. $t$ is the total appeal of substrings ending here.
+> Store the last index $\textit{pos}[c]$ (initially $-1$). At $i$, add $i-\textit{pos}[c]$ into a running $t$, then add $t$ to the answer. $t$ is the total appeal of substrings ending here.
 
 <!-- thinking:end -->
 
@@ -90,9 +90,9 @@ When we reach $s[i]$, which is added to the end of the substring that ends with 
 If $s[i]$ has not appeared before, then the gravitational value of all substrings that end with $s[i-1]$ will increase by $1$, and there are a total of $i$ such substrings. Therefore, $t$ increases by $i$, plus the gravitational value of $s[i]$ itself, which is $1$. Therefore, $t$ increases by a total of $i+1$.
 
 If $s[i]$ has appeared before, let the last appearance position be $j$. Then we add $s[i]$ to the end of the substrings $s[0..i-1]$, $[1..i-1]$, $s[2..i-1]$, $\cdots$, $s[j..i-1]$. The gravitational value of these substrings will not change because $s[i]$ has already appeared in these substrings. The gravitational value of the substrings $s[j+1..i-1]$, $s[j+2..i-1]$, $\cdots$, $s[i-1]$ will increase by $1$, and there are a total of $i-j-1$ such substrings. Therefore, $t$ increases by $i-j-1$, plus the gravitational value of $s[i]$ itself, which is $1$. Therefore, $t$ increases by a total of $i-j$.
-Therefore, we can use an array $pos$ to record the last appearance position of each character. Initially, all positions are set to $-1$.
+Therefore, we can use an array $\textit{pos}$ to record the last appearance position of each character. Initially, all positions are set to $-1$.
 
-Next, we traverse the string, and each time we update the gravitational value sum $t$ of the substring that ends with the current character to $t = t + i - pos[c]$, where $c$ is the current character. We add $t$ to the answer. Then we update $pos[c]$ to the current position $i$. We continue to traverse until the end of the string.
+Next, we traverse the string, and each time we update the gravitational value sum $t$ of the substring that ends with the current character to $t = t + i - \textit{pos}[c]$, where $c$ is the current character. We add $t$ to the answer. Then we update $\textit{pos}[c]$ to the current position $i$. We continue to traverse until the end of the string.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 

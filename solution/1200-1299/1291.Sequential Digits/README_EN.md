@@ -48,7 +48,7 @@ tags:
 
 > **Thinking**
 >
-> Sequential digits are contiguous increasing digit runs; there are only the substrings of $123456789$. $low$ and $high$ reach $10^9$, so scanning values is wasteful. We enumerate start $i$ and end $j$, build $i\ldots j$, keep those in range, and sort.
+> Sequential digits are contiguous increasing digit runs; there are only the substrings of $123456789$. $\textit{low}$ and $\textit{high}$ reach $10^9$, so scanning values is wasteful. We enumerate start $i$ and end $j$, build $i\ldots j$, keep those in range, and sort.
 
 <!-- thinking:end -->
 

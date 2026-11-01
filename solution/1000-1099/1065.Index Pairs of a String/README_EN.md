@@ -64,7 +64,7 @@ tags:
 
 > **Thinking**
 >
-> Every substring of $text$ can be tested against the word list. Both sides are short, so a set of words plus all slices $[i,j]$ is enough.
+> Every substring of $\textit{text}$ can be tested against the word list. Both sides are short, so a set of words plus all slices $[i,j]$ is enough.
 >
 > The set answers in expected constant time, and enumerating indices already yields sorted pairs.
 

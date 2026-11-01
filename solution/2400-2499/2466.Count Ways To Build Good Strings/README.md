@@ -70,20 +70,20 @@ tags:
 
 > **思考**
 >
-> 每次追加 $zero$ 个 $0$ 或 $one$ 个 $1$，长度落在 $[low,high]$ 即好串。 $high \le 10^5$，令 $dfs(i)$ 为已拼出长度 $i$ 时的方案：若 $i$ 已在区间内先计 $1$，再分支 $i+zero$ 与 $i+one$。越界为 $0$。
+> 每次追加 $\textit{zero}$ 个 $0$ 或 $\textit{one}$ 个 $1$，长度落在 $[\textit{low},\textit{high}]$ 即好串。 $\textit{high} \le 10^5$，令 $\textit{dfs}(i)$ 为已拼出长度 $i$ 时的方案：若 $i$ 已在区间内先计 $1$，再分支 $i+\textit{zero}$ 与 $i+\textit{one}$。越界为 $0$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i)$ 表示从第 $i$ 位开始构造的好字符串的个数，答案即为 $dfs(0)$。
+我们设计一个函数 $\textit{dfs}(i)$ 表示从第 $i$ 位开始构造的好字符串的个数，答案即为 $\textit{dfs}(0)$。
 
-函数 $dfs(i)$ 的计算过程如下：
+函数 $\textit{dfs}(i)$ 的计算过程如下：
 
-- 如果 $i \gt high$，返回 $0$；
-- 如果 $ low \leq i \leq high$，答案累加 $1$，然后 $i$ 之后既可以添加 `zero` 个 $0$，也可以添加 `one` 个 $1$，因此答案累加上 $dfs(i + zero) + dfs(i + one)$。
+- 如果 $i \gt \textit{high}$，返回 $0$；
+- 如果 $ \textit{low} \leq i \leq \textit{high}$，答案累加 $1$，然后 $i$ 之后既可以添加 `zero` 个 $0$，也可以添加 `one` 个 $1$，因此答案累加上 $\textit{dfs}(i + \textit{zero}) + \textit{dfs}(i + \textit{one})$。
 
 过程中，我们需要对答案取模，并且可以使用记忆化搜索减少重复计算。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = high$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = \textit{high}$。
 
 <!-- tabs:start -->
 
@@ -211,7 +211,7 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 > **思考**
 >
-> 方法一从长度 $high$ 往回填后缀表， $f[i]$ 是当前长度已为 $i$ 时还能得到的好串数。同一批字符串也可以按恰好拼到长度 $i$ 来数： $f[0]=1$，由 $f[i-zero]$ 与 $f[i-one]$ 转入，再把 $[low,high]$ 上的 $f$ 求和。
+> 方法一从长度 $\textit{high}$ 往回填后缀表， $f[i]$ 是当前长度已为 $i$ 时还能得到的好串数。同一批字符串也可以按恰好拼到长度 $i$ 来数： $f[0]=1$，由 $f[i-\textit{zero}]$ 与 $f[i-\textit{one}]$ 转入，再把 $[\textit{low},\textit{high}]$ 上的 $f$ 求和。
 >
 > 自左向右填表，时间仍为 $O(n)$。
 
@@ -278,19 +278,19 @@ function countGoodStrings(low, high, zero, one) {
 
 > **思考**
 >
-> 每次追加 $zero$ 个 $0$ 或 $one$ 个 $1$，长度落在 $[low,high]$ 才是好串。 $high \le 10^5$，按追加顺序展开会重复大量长度。
+> 每次追加 $\textit{zero}$ 个 $0$ 或 $\textit{one}$ 个 $1$，长度落在 $[\textit{low},\textit{high}]$ 才是好串。 $\textit{high} \le 10^5$，按追加顺序展开会重复大量长度。
 >
-> 较短的那一档总是先递归。 $zero$ 与 $one$ 都不小于 $1$，这次调用一定走向更大的长度，最坏调用链长度为 $high$，栈会溢出。
+> 较短的那一档总是先递归。 $\textit{zero}$ 与 $\textit{one}$ 都不小于 $1$，这次调用一定走向更大的长度，最坏调用链长度为 $\textit{high}$，栈会溢出。
 >
-> 更长的长度在从 $high$ 往 $0$ 填时已经就绪。令 $f[i]$ 为当前长度已是 $i$ 时的好串数：区间内先计 $1$，再加上 $f[i+zero]$ 与 $f[i+one]$，越过 $high$ 的项视为 $0$。
+> 更长的长度在从 $\textit{high}$ 往 $0$ 填时已经就绪。令 $f[i]$ 为当前长度已是 $i$ 时的好串数：区间内先计 $1$，再加上 $f[i+\textit{zero}]$ 与 $f[i+\textit{one}]$，越过 $\textit{high}$ 的项视为 $0$。
 
 <!-- thinking:end -->
 
-令 $f[i]$ 表示当前长度已经是 $i$ 时，能够构造出的好字符串个数。答案为 $f[0]$。长度超过 $high$ 的贡献为 $0$。
+令 $f[i]$ 表示当前长度已经是 $i$ 时，能够构造出的好字符串个数。答案为 $f[0]$。长度超过 $\textit{high}$ 的贡献为 $0$。
 
-从 $i = high$ 填到 $0$。若 $low \le i \le high$，当前字符串本身就是好串，先计入 $1$。之后仍可追加 $zero$ 个 $0$ 或 $one$ 个 $1$，把 $f[i + zero]$ 与 $f[i + one]$ 加进来；下标超过 $high$ 时该项为 $0$。每一步都对 $10^9 + 7$ 取模。
+从 $i = \textit{high}$ 填到 $0$。若 $\textit{low} \le i \le \textit{high}$，当前字符串本身就是好串，先计入 $1$。之后仍可追加 $\textit{zero}$ 个 $0$ 或 $\textit{one}$ 个 $1$，把 $f[i + \textit{zero}]$ 与 $f[i + \textit{one}]$ 加进来；下标超过 $\textit{high}$ 时该项为 $0$。每一步都对 $10^9 + 7$ 取模。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = high$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = \textit{high}$。
 
 <!-- tabs:start -->
 

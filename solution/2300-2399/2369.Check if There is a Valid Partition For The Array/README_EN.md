@@ -70,19 +70,19 @@ This partition is valid, so we return true.
 >
 > A partition uses two equals, three equals, or three consecutive increases. $n \le 10^5$ makes naive recursion overlap. Validity from index $i$ depends only on the suffix.
 >
-> Memoize $dfs(i)$: try a legal block of length $2$ or $3$ and jump to its end. Past $n$ is success.
+> Memoize $\textit{dfs}(i)$: try a legal block of length $2$ or $3$ and jump to its end. Past $n$ is success.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents whether there is a valid partition starting from index $i$. So the answer is $dfs(0)$.
+We design a function $\textit{dfs}(i)$, which represents whether there is a valid partition starting from index $i$. So the answer is $\textit{dfs}(0)$.
 
-The execution process of the function $dfs(i)$ is as follows:
+The execution process of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i \ge n$, return $true$.
-- If the elements at index $i$ and $i+1$ are equal, we can choose to make $i$ and $i+1$ a subarray, and recursively call $dfs(i+2)$.
-- If the elements at index $i$, $i+1$ and $i+2$ are equal, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $dfs(i+3)$.
-- If the elements at index $i$, $i+1$ and $i+2$ increase by $1$ in turn, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $dfs(i+3)$.
-- If none of the above conditions are met, return $false$, otherwise return $true$.
+- If $i \ge n$, return $\textit{true}$.
+- If the elements at index $i$ and $i+1$ are equal, we can choose to make $i$ and $i+1$ a subarray, and recursively call $\textit{dfs}(i+2)$.
+- If the elements at index $i$, $i+1$ and $i+2$ are equal, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $\textit{dfs}(i+3)$.
+- If the elements at index $i$, $i+1$ and $i+2$ increase by $1$ in turn, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $\textit{dfs}(i+3)$.
+- If none of the above conditions are met, return $\textit{false}$, otherwise return $\textit{true}$.
 
 That is:
 
@@ -260,7 +260,7 @@ function validPartition(nums: number[]): boolean {
 
 Solution 1 already decides each suffix from the end. Here we decide each prefix instead, using the same three blocks.
 
-Let $f[i]$ represent whether there is a valid partition for the first $i$ elements of the array. Initially, $f[0] = true$, and the answer is $f[n]$.
+Let $f[i]$ represent whether there is a valid partition for the first $i$ elements of the array. Initially, $f[0] = \textit{true}$, and the answer is $f[n]$.
 
 The state transition equation is as follows:
 
@@ -388,7 +388,7 @@ function validPartition(nums: number[]): boolean {
 
 <!-- thinking:end -->
 
-Let $f[i]$ mean there is a valid partition of the suffix starting at index $i$. The answer is $f[0]$, and $f[n] = true$.
+Let $f[i]$ mean there is a valid partition of the suffix starting at index $i$. The answer is $f[0]$, and $f[n] = \textit{true}$.
 
 Fill $i$ from $n - 1$ down to $0$. Two equal neighbors can continue from $f[i + 2]$. Three equal values, or three values that increase by $1$, can continue from $f[i + 3]$. Take the or of those cases; if none applies, $f[i]$ is false:
 

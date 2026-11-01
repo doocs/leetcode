@@ -74,9 +74,9 @@ peekingIterator.hasNext(); // return False
 
 > **Thinking**
 >
-> The wrapped iterator’s $next$ consumes a value, but peek must not. One cached lookahead is enough.
+> The wrapped iterator’s $\textit{next}$ consumes a value, but peek must not. One cached lookahead is enough.
 >
-> $peek$ fills the cache from the inner $next$; $next$ returns the cache if present; $hasNext$ is true if the cache or the inner iterator still has an item.
+> $\textit{peek}$ fills the cache from the inner $\textit{next}$; $\textit{next}$ returns the cache if present; $\textit{hasNext}$ is true if the cache or the inner iterator still has an item.
 
 <!-- thinking:end -->
 

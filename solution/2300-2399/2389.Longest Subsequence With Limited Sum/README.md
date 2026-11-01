@@ -76,9 +76,9 @@ tags:
 
 <!-- thinking:end -->
 
-根据题目描述，对于每个 $\textit{queries[i]}$，我们需要找到一个子序列，使得该子序列的元素和不超过 $\textit{queries[i]}$，且该子序列的长度最大化。显然，我们应该选择尽可能小的元素，这样才能使得子序列的长度最大化。
+根据题目描述，对于每个 $\textit{queries}[i]$，我们需要找到一个子序列，使得该子序列的元素和不超过 $\textit{queries}[i]$，且该子序列的长度最大化。显然，我们应该选择尽可能小的元素，这样才能使得子序列的长度最大化。
 
-因此，我们可以先将数组 $\textit{nums}$ 进行升序排序，然后对于每个 $\textit{queries[i]}$，我们可以使用二分查找，找到最小的下标 $j$，使得 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$。此时 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ 就是满足条件的子序列的元素和，且该子序列的长度为 $j$。因此，我们可以将 $j$ 加入答案数组中。
+因此，我们可以先将数组 $\textit{nums}$ 进行升序排序，然后对于每个 $\textit{queries}[i]$，我们可以使用二分查找，找到最小的下标 $j$，使得 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries}[i]$。此时 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ 就是满足条件的子序列的元素和，且该子序列的长度为 $j$。因此，我们可以将 $j$ 加入答案数组中。
 
 时间复杂度 $O((n + m) \log n)$，空间复杂度 $O(n)$ 或 $O(\log n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
@@ -234,17 +234,17 @@ public class Solution {
 
 <!-- thinking:end -->
 
-与方法一类似，我们可以先对数组 $nums$ 进行升序排列。
+与方法一类似，我们可以先对数组 $\textit{nums}$ 进行升序排列。
 
-接下来，我们定义一个长度与 $queries$ 相同的下标数组 $idx$，其中 $idx[i]=i$，然后我们对数组 $idx$ 按照 $queries$ 中的元素值进行升序排序。这样，我们就可以按照 $queries$ 中的元素值从小到大的顺序进行处理。
+接下来，我们定义一个长度与 $\textit{queries}$ 相同的下标数组 $\textit{idx}$，其中 $\textit{idx}[i]=i$，然后我们对数组 $\textit{idx}$ 按照 $\textit{queries}$ 中的元素值进行升序排序。这样，我们就可以按照 $\textit{queries}$ 中的元素值从小到大的顺序进行处理。
 
 我们使用一个变量 $s$ 记录当前已经选择的元素的和，使用一个变量 $j$ 记录当前已经选择的元素的个数。初始时 $s = j = 0$。
 
-我们遍历下标数组 $idx$，对于其中的每个下标 $i$，我们循环地将数组 $nums$ 中的元素加入到当前的子序列中，直到 $s + nums[j] \gt queries[i]$，此时 $j$ 即为满足条件的子序列的长度，我们将 $ans[i]$ 的值设为 $j$，然后继续处理下一个下标。
+我们遍历下标数组 $\textit{idx}$，对于其中的每个下标 $i$，我们循环地将数组 $\textit{nums}$ 中的元素加入到当前的子序列中，直到 $s + \textit{nums}[j] \gt \textit{queries}[i]$，此时 $j$ 即为满足条件的子序列的长度，我们将 $\textit{ans}[i]$ 的值设为 $j$，然后继续处理下一个下标。
 
-遍历完下标数组 $idx$ 后，我们即可得到答案数组 $ans$，其中 $ans[i]$ 即为满足 $queries[i]$ 的子序列的长度。
+遍历完下标数组 $\textit{idx}$ 后，我们即可得到答案数组 $\textit{ans}$，其中 $\textit{ans}[i]$ 即为满足 $\textit{queries}[i]$ 的子序列的长度。
 
-时间复杂度 $O(n \log n + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $queries$ 的长度。
+时间复杂度 $O(n \log n + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

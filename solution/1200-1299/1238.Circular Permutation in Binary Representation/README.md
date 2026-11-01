@@ -69,7 +69,7 @@ tags:
 >
 > 相邻（含首尾）只差一位，这正是格雷码的定义。标准构造 $i\oplus(i\gg 1)$ 给出 $0\ldots 2^n-1$ 的一条格雷码回路。 $n \le 16$，枚举全部码字可行。
 >
-> 生成完整序列后找到 $start$ 的位置并旋转，使首项为 $start$ 且圆形相邻关系不变。
+> 生成完整序列后找到 $\textit{start}$ 的位置并旋转，使首项为 $\textit{start}$ 且圆形相邻关系不变。
 
 <!-- thinking:end -->
 
@@ -79,7 +79,7 @@ tags:
 
 假设某个二进制数表示为 $B_{n-1}B_{n-2}...B_2B_1B_0$，其格雷码表示为 $G_{n-1}G_{n-2}...G_2G_1G_0$。最高位保留，所以 $G_{n-1} = B_{n-1}$；而其它各位 $G_i = B_{i+1} \oplus B_{i}$，其中 $i=0,1,2..,n-2$。
 
-因此，对于一个整数 $x$，我们可以用函数 $gray(x)$ 得到其格雷码：
+因此，对于一个整数 $x$，我们可以用函数 $\textit{gray}(x)$ 得到其格雷码：
 
 ```java
 int gray(x) {
@@ -87,7 +87,7 @@ int gray(x) {
 }
 ```
 
-我们可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的格雷码数组，然后找到 $start$ 在格雷码数组中的位置，将格雷码数组从该位置开始截取，再将截取的部分拼接到格雷码数组的前面，就得到了题目要求的排列。
+我们可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的格雷码数组，然后找到 $\textit{start}$ 在格雷码数组中的位置，将格雷码数组从该位置开始截取，再将截取的部分拼接到格雷码数组的前面，就得到了题目要求的排列。
 
 时间复杂度 $O(2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为题目给定的整数。
 
@@ -188,13 +188,13 @@ function circularPermutation(n: number, start: number): number[] {
 
 > **思考**
 >
-> 方法一先生成再旋转。 $gray(i)\oplus start$ 仍相邻只差一位，且 $i=0$ 时恰为 $start$，故可直接按 $i$ 映射，省去查找与拼接。
+> 方法一先生成再旋转。 $\textit{gray}(i)\oplus \textit{start}$ 仍相邻只差一位，且 $i=0$ 时恰为 $\textit{start}$，故可直接按 $i$ 映射，省去查找与拼接。
 
 <!-- thinking:end -->
 
-由于 $gray(0) = 0$，那么 $gray(0) \oplus start = start$，而 $gray(i)$ 与 $gray(i-1)$ 只有一个二进制位不同，所以 $gray(i) \oplus start$ 与 $gray(i-1) \oplus start$ 也只有一个二进制位不同。
+由于 $\textit{gray}(0) = 0$，那么 $\textit{gray}(0) \oplus \textit{start} = \textit{start}$，而 $\textit{gray}(i)$ 与 $\textit{gray}(i-1)$ 只有一个二进制位不同，所以 $\textit{gray}(i) \oplus \textit{start}$ 与 $\textit{gray}(i-1) \oplus \textit{start}$ 也只有一个二进制位不同。
 
-因此，我们也可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的 $gray(i) \oplus start$，即可得到首项为 $start$ 的格雷码排列。
+因此，我们也可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的 $\textit{gray}(i) \oplus \textit{start}$，即可得到首项为 $\textit{start}$ 的格雷码排列。
 
 时间复杂度 $O(2^n)$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的整数。
 

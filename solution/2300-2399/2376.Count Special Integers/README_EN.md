@@ -68,7 +68,7 @@ Some of the integers that are not special are: 22, 114, and 131.</pre>
 >
 > Count integers in $[1,n]$ with distinct digits. $n \le 2 \times 10^9$ forbids enumeration. The predicate depends only on the digit set, so digit DP applies.
 >
-> Memoize $dfs(i,mask,lead,limit)$: $mask$ is used digits, leading zeros occupy nothing, and $limit$ keeps us $\le n$. A finished non-leading number contributes $1$.
+> Memoize $\textit{dfs}(i,\textit{mask},\textit{lead},\textit{limit})$: $\textit{mask}$ is used digits, leading zeros occupy nothing, and $\textit{limit}$ keeps us $\le n$. A finished non-leading number contributes $1$.
 
 <!-- thinking:end -->
 
@@ -77,7 +77,7 @@ This problem essentially asks for the number of numbers in the given range $[l, 
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[1, ..r]$ and then subtract the result of $[1, ..l - 1]$, i.e.:
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value for the range $[1, ..n]$.
@@ -105,7 +105,7 @@ Finally, if $\textit{limit}$ is false and $\textit{lead}$ is false, memoize the 
 
 Return the final answer.
 
-The time complexity is $O(mD 2^D)$, and the space complexity is $O(m 2^D)$, where $m$ is the length of the number $n$, and $D = 10$.
+The time complexity is $O(\textit{mD} 2^D)$, and the space complexity is $O(m 2^D)$, where $m$ is the length of the number $n$, and $D = 10$.
 
 Similar Problems:
 

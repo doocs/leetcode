@@ -73,11 +73,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can traverse the string $\textit{s}$ from left to right. For each pair of adjacent digits, if they have the same parity and the previous digit is greater than the next digit, then we swap these two digits to make the lexicographical order of the string $\textit{s}$ smaller, and then return the swapped string.
+We can traverse the string $s$ from left to right. For each pair of adjacent digits, if they have the same parity and the previous digit is greater than the next digit, then we swap these two digits to make the lexicographical order of the string $s$ smaller, and then return the swapped string.
 
-After the traversal, if no swappable pair of digits is found, it means the string $\textit{s}$ is already in its smallest lexicographical order, and we can return it directly.
+After the traversal, if no swappable pair of digits is found, it means the string $s$ is already in its smallest lexicographical order, and we can return it directly.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

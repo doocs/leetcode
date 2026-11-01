@@ -61,7 +61,7 @@ tags:
 
 > **Thinking**
 >
-> A vertical line that never cuts a brick's interior crosses $(\text{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
+> A vertical line that never cuts a brick's interior crosses $(\textit{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
 >
 > Prefix-sum each row except the last brick and count gap positions. The most frequent gap is crossed least often; the answer is rows minus that frequency. The wall's edges are excluded, or the line would cross zero bricks. A gap is a sum of widths up to $2^{31}-1$, so it can exceed $2^{31}-1$. Java and C++ keep that sum in a 64-bit integer; a 32-bit sum treats positions $2^{32}$ apart as one gap.
 

@@ -92,15 +92,15 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $f[i][j]$ 表示选取前 $i-1$ 行，并且第 $i-1$ 行选择第 $j$ 列的格子时的最大得分。初始时 $f[0][j] = points[0][j]$。
+我们定义 $f[i][j]$ 表示选取前 $i-1$ 行，并且第 $i-1$ 行选择第 $j$ 列的格子时的最大得分。初始时 $f[0][j] = \textit{points}[0][j]$。
 
 对于 $i > 0$ 的情况，对于 $f[i][j]$，我们考虑是从上一行的哪一列转移过来的，记上一行选择的列为 $k$，那么有：
 
 $$
 f[i][j]=
 \begin{cases}
-\max(f[i - 1][k] + k - j + points[i][j]), & 0 \le k < j \\
-\max(f[i - 1][k] - k + j + points[i][j]), & j < k < n
+\max(f[i - 1][k] + k - j + \textit{points}[i][j]), & 0 \le k < j \\
+\max(f[i - 1][k] - k + j + \textit{points}[i][j]), & j < k < n
 \end{cases}
 $$
 

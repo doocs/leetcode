@@ -87,7 +87,7 @@ tags:
 
 <!-- thinking:end -->
 
-遍历数组 `nums`，对于每个 $i$，枚举所有 $j$，如果 $i \neq j$ 且 $nums[i] + nums[j] = target$，则答案加一。
+遍历数组 `nums`，对于每个 $i$，枚举所有 $j$，如果 $i \neq j$ 且 $\textit{nums}[i] + \textit{nums}[j] = \textit{target}$，则答案加一。
 
 时间复杂度 $O(n^2m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。
 
@@ -168,7 +168,7 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 > **思考**
 >
-> 方法一每次拼接耗时与 $m$ 有关，在 $n$、 $m$ 同阶时偏慢。合法对必是 $target$ 的某个前缀加对应后缀。
+> 方法一每次拼接耗时与 $m$ 有关，在 $n$、 $m$ 同阶时偏慢。合法对必是 $\textit{target}$ 的某个前缀加对应后缀。
 >
 > 先统计每个串的出现次数，再枚举切分点。前后缀相同须用 $c(c-1)$，以免同一下标配对。
 

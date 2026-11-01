@@ -87,7 +87,7 @@ tags:
 
 > **思考**
 >
-> 平衡数至少两位且奇偶位数字和相等。区间计数用数位 DP： $calc(high)-calc(low-1)$，状态为位置、奇偶位差、是否贴上界；长度不足两位的在最后判 $diff=0$ 时再结合下界 $11$ 排除。
+> 平衡数至少两位且奇偶位数字和相等。区间计数用数位 DP： $\textit{calc}(\textit{high})-\textit{calc}(\textit{low}-1)$，状态为位置、奇偶位差、是否贴上界；长度不足两位的在最后判 $\textit{diff}=0$ 时再结合下界 $11$ 排除。
 
 <!-- thinking:end -->
 
@@ -98,11 +98,11 @@ tags:
 函数的执行逻辑如下：
 
 - 如果 $\textit{pos}$ 超过了数字的长度，说明已经处理完所有位数，如果 $\textit{diff} = 0$，则说明当前数字是平衡整数，返回 $1$，否则返回 $0$。
-- 计算当前位的上界 $\textit{up}$，如果受到限制，则为数字的当前位，否则为 $9$。
-- 遍历当前位可以取的所有数字 $i$，对于每个数字 $i$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if pos \% 2 == 0 else -1}), \textit{lim} \&\& i == \textit{up})$，累加结果。
+- 计算当前位的上界 $up$，如果受到限制，则为数字的当前位，否则为 $9$。
+- 遍历当前位可以取的所有数字 $i$，对于每个数字 $i$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if pos \% 2 == 0 else -1}), \textit{lim} \&\& i == up)$，累加结果。
 - 返回累加的结果。
 
-我们首先计算区间 $[1, \textit{low} - 1]$ 内的平衡整数数量 $\textit{a}$，然后计算区间 $[1, \textit{high}]$ 内的平衡整数数量 $\textit{b}$，最后返回 $\textit{b} - \textit{a}$。
+我们首先计算区间 $[1, \textit{low} - 1]$ 内的平衡整数数量 $a$，然后计算区间 $[1, \textit{high}]$ 内的平衡整数数量 $b$，最后返回 $b - a$。
 
 为了避免重复计算，我们使用缓存来存储已经计算过的状态。
 

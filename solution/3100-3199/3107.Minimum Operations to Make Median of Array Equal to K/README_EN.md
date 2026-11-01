@@ -87,18 +87,18 @@ tags:
 >
 > The middle element must become $k$. If it is larger than $k$, only values to its left that still exceed $k$ need to be lowered; if it is not larger, only values to its right that are still below $k$ need to be raised.
 >
-> Sort, take the middle index $m$, add $|nums[m]-k|$, then scan the appropriate side until every value already respects $k$. The total increment is the minimum number of operations.
+> Sort, take the middle index $m$, add $|\textit{nums}[m]-k|$, then scan the appropriate side until every value already respects $k$. The total increment is the minimum number of operations.
 
 <!-- thinking:end -->
 
-First, we sort the array $nums$ and find the position $m$ of the median. The initial number of operations we need is $|nums[m] - k|$.
+First, we sort the array $\textit{nums}$ and find the position $m$ of the median. The initial number of operations we need is $|\textit{nums}[m] - k|$.
 
 Next, we discuss in two cases:
 
-- If $nums[m] > k$, then all elements to the right of $m$ are greater than or equal to $k$. We only need to reduce the elements greater than $k$ on the left of $m$ to $k$.
-- If $nums[m] \le k$, then all elements to the left of $m$ are less than or equal to $k$. We only need to increase the elements less than $k$ on the right of $m$ to $k$.
+- If $\textit{nums}[m] > k$, then all elements to the right of $m$ are greater than or equal to $k$. We only need to reduce the elements greater than $k$ on the left of $m$ to $k$.
+- If $\textit{nums}[m] \le k$, then all elements to the left of $m$ are less than or equal to $k$. We only need to increase the elements less than $k$ on the right of $m$ to $k$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

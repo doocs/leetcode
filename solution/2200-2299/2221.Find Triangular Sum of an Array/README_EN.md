@@ -73,7 +73,7 @@ Since there is only one element in nums, the triangular sum is the value of that
 >
 > Each round replaces the array with adjacent sums modulo $10$ until one value remains. $n \le 10^3$, so $O(n^2)$ simulation is fine. A closed form is unnecessary.
 >
-> For remaining length $k = n-1,\ldots,1$, write $nums[i] = (nums[i]+nums[i+1]) \bmod 10$. The surviving $nums[0]$ is the triangular sum.
+> For remaining length $k = n-1,\ldots,1$, write $\textit{nums}[i] = (\textit{nums}[i]+\textit{nums}[i+1]) \bmod 10$. The surviving $\textit{nums}[0]$ is the triangular sum.
 
 <!-- thinking:end -->
 

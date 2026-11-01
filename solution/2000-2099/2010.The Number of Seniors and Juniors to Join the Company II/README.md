@@ -114,9 +114,9 @@ Candidates table:
 
 > **思考**
 >
-> 与 2004 题预算规则相同，但须输出被录取的 $employee\_id$ 而非人数。仍按工资升序用窗口前缀和判断「录取到此人时是否超支」。
+> 与 2004 题预算规则相同，但须输出被录取的 $\textit{employee\_id}$ 而非人数。仍按工资升序用窗口前缀和判断「录取到此人时是否超支」。
 >
-> Senior 先占用预算，Junior 的累计工资叠加上 Senior 已用额度。筛选 $cur \le 70000$ 的编号并 `UNION` 即可。
+> Senior 先占用预算，Junior 的累计工资叠加上 Senior 已用额度。筛选 $\textit{cur} \le 70000$ 的编号并 `UNION` 即可。
 
 <!-- thinking:end -->
 

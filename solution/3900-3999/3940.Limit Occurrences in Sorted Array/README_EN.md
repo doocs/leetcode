@@ -95,16 +95,16 @@ tags:
 
 <!-- thinking:end -->
 
-We define two pointers, $l$ and $r$, where $l$ is the write position and $r$ is the current read position. We also use a counter $cnt$ to record how many times the current value has appeared. Initially, both $l$ and $cnt$ are set to 1.
+We define two pointers, $l$ and $r$, where $l$ is the write position and $r$ is the current read position. We also use a counter $\textit{cnt}$ to record how many times the current value has appeared. Initially, both $l$ and $\textit{cnt}$ are set to 1.
 
 Then we traverse the array starting from $r = 1$:
 
-1. If $nums[r] \ne nums[r - 1]$, we meet a new value, so reset $cnt$ to 1.
-2. If $nums[r] = nums[r - 1]$, it is a duplicate, so increment $cnt$ by 1.
+1. If $\textit{nums}[r] \ne \textit{nums}[r - 1]$, we meet a new value, so reset $\textit{cnt}$ to 1.
+2. If $\textit{nums}[r] = \textit{nums}[r - 1]$, it is a duplicate, so increment $\textit{cnt}$ by 1.
 
-If $cnt \le k$, the occurrence limit is not exceeded, so we keep this element by writing $nums[r]$ to $nums[l]$, then move $l$ one step to the right.
+If $\textit{cnt} \le k$, the occurrence limit is not exceeded, so we keep this element by writing $\textit{nums}[r]$ to $\textit{nums}[l]$, then move $l$ one step to the right.
 
-Finally, return the first $l$ elements, i.e., $nums[:l]$.
+Finally, return the first $l$ elements, i.e., $\textit{nums}[:l]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

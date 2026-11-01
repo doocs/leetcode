@@ -85,7 +85,7 @@ We define $f[i][j]$ as the minimum difficulty to finish the first $i$ jobs withi
 For the $j$-th day, we can choose to finish jobs $[k,..i]$ on this day. Therefore, we have the following state transition equation:
 
 $$
-f[i][j] = \min_{k \in [1,i]} \{f[k-1][j-1] + \max_{k \leq t \leq i} \{jobDifficulty[t]\}\}
+f[i][j] = \min_{k \in [1,i]} \{f[k-1][j-1] + \max_{k \leq t \leq i} \{\textit{jobDifficulty}[t]\}\}
 $$
 
 The final answer is $f[n][d]$.

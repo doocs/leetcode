@@ -169,7 +169,7 @@ func countQuadruplets(nums []int) int {
 
 > **Thinking**
 >
-> The quartic constant is large. Fix $c$ from the right, count values of $d$ in a map, and query $nums[a]+nums[b]+nums[c]$ for $a,b<c$, which is $O(n^3)$.
+> The quartic constant is large. Fix $c$ from the right, count values of $d$ in a map, and query $\textit{nums}[a]+\textit{nums}[b]+\textit{nums}[c]$ for $a,b<c$, which is $O(n^3)$.
 
 <!-- thinking:end -->
 
@@ -263,11 +263,11 @@ func countQuadruplets(nums []int) int {
 
 > **Thinking**
 >
-> One more reduction: walk $b$ from the right, insert every $d-c$ with $c=b+1$ into a map, then query $nums[a]+nums[b]$ for $a<b$, in $O(n^2)$.
+> One more reduction: walk $b$ from the right, insert every $d-c$ with $c=b+1$ into a map, then query $\textit{nums}[a]+\textit{nums}[b]$ for $a<b$, in $O(n^2)$.
 
 <!-- thinking:end -->
 
-Enumerate $b$ while counting $nums[d]-nums[c]$.
+Enumerate $b$ while counting $\textit{nums}[d]-\textit{nums}[c]$.
 
 <!-- tabs:start -->
 

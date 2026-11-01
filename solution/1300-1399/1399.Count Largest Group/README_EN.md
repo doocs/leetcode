@@ -67,11 +67,11 @@ There are 4 groups with largest size.
 
 <!-- thinking:end -->
 
-We note that the number does not exceed $10^4$, so the sum of the digits also does not exceed $9 \times 4 = 36$. Therefore, we can use a hash table or an array of length $40$, denoted as $cnt$, to count the number of each sum of digits, and use a variable $mx$ to represent the maximum count of the sum of digits.
+We note that the number does not exceed $10^4$, so the sum of the digits also does not exceed $9 \times 4 = 36$. Therefore, we can use a hash table or an array of length $40$, denoted as $\textit{cnt}$, to count the number of each sum of digits, and use a variable $mx$ to represent the maximum count of the sum of digits.
 
-We enumerate each number in $[1,..n]$, calculate its sum of digits $s$, then increment $cnt[s]$ by $1$. If $mx < cnt[s]$, we update $mx = cnt[s]$ and set $ans$ to $1$. If $mx = cnt[s]$, we increment $ans$ by $1$.
+We enumerate each number in $[1,..n]$, calculate its sum of digits $s$, then increment $\textit{cnt}[s]$ by $1$. If $mx < \textit{cnt}[s]$, we update $mx = \textit{cnt}[s]$ and set $\textit{ans}$ to $1$. If $mx = \textit{cnt}[s]$, we increment $\textit{ans}$ by $1$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
 

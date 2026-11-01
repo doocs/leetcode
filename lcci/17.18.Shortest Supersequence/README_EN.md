@@ -55,11 +55,11 @@ small = [4]
 
 > **Thinking**
 >
-> The shortest subarray of $big$ that covers every value of $small$ (with multiplicity). Checking every pair of ends is quadratic.
+> The shortest subarray of $\textit{big}$ that covers every value of $\textit{small}$ (with multiplicity). Checking every pair of ends is quadratic.
 >
-> It is minimum-window coverage: grow the right end until $cnt=0$, then shrink the left.
+> It is minimum-window coverage: grow the right end until $\textit{cnt}=0$, then shrink the left.
 >
-> $need$ is $small$’s counts, $window$ the window’s. Growing decrements $cnt$ while still in demand; shrinking increments when coverage breaks. Store the best $[k,k+mi-1]$.
+> $\textit{need}$ is $\textit{small}$’s counts, $\textit{window}$ the window’s. Growing decrements $\textit{cnt}$ while still in demand; shrinking increments when coverage breaks. Store the best $[k,k+mi-1]$.
 
 <!-- thinking:end -->
 

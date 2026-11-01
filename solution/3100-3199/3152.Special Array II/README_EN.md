@@ -84,9 +84,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can define an array $d$ to record the leftmost special array position for each position, initially $d[i] = i$. Then we traverse the array $nums$ from left to right. If $nums[i]$ and $nums[i - 1]$ have different parities, then $d[i] = d[i - 1]$.
+We can define an array $d$ to record the leftmost special array position for each position, initially $d[i] = i$. Then we traverse the array $\textit{nums}$ from left to right. If $\textit{nums}[i]$ and $\textit{nums}[i - 1]$ have different parities, then $d[i] = d[i - 1]$.
 
-Finally, we traverse each query and check whether $d[to] <= from$ holds.
+Finally, we traverse each query and check whether $d[to] <= \textit{from}$ holds.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

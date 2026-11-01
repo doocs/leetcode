@@ -80,15 +80,15 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 
 > **Thinking**
 >
-> From $i$ we may jump at most $d$ away to a strictly shorter index with nothing taller in between; we want the longest visit from any start. $n \le 1000$ allows memoized $dfs(i)$: scan left and right until we leave the window or meet a bar that is not shorter, recurse, and add one. The answer is the maximum over starts.
+> From $i$ we may jump at most $d$ away to a strictly shorter index with nothing taller in between; we want the longest visit from any start. $n \le 1000$ allows memoized $\textit{dfs}(i)$: scan left and right until we leave the window or meet a bar that is not shorter, recurse, and add one. The answer is the maximum over starts.
 
 <!-- thinking:end -->
 
-We design a function $\text{dfs}(i)$ to represent the maximum number of indices that can be visited starting from index $i$. We enumerate all valid jump targets $j$ for $i$, where $i - d \leq j \leq i + d$ and $\text{arr}[i] > \text{arr}[j]$. For each valid $j$, we recursively compute $\text{dfs}(j)$ and take the maximum among them. The final answer is the maximum value of $\text{dfs}(i)$ over all indices $i$.
+We design a function $\textit{dfs}(i)$ to represent the maximum number of indices that can be visited starting from index $i$. We enumerate all valid jump targets $j$ for $i$, where $i - d \leq j \leq i + d$ and $\textit{arr}[i] > \textit{arr}[j]$. For each valid $j$, we recursively compute $\textit{dfs}(j)$ and take the maximum among them. The final answer is the maximum value of $\textit{dfs}(i)$ over all indices $i$.
 
-We can use memoized search to optimize this process, that is, use an array $f$ to record the value of $\text{dfs}$ for each index and avoid repeated computation.
+We can use memoized search to optimize this process, that is, use an array $f$ to record the value of $\textit{dfs}$ for each index and avoid repeated computation.
 
-The time complexity is $O(nd)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$.
+The time complexity is $O(nd)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -319,15 +319,15 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can pair each element $x$ in the array $\text{arr}$ with its index $i$ to form a tuple $(x, i)$, and sort these tuples in ascending order by $x$.
+We can pair each element $x$ in the array $\textit{arr}$ with its index $i$ to form a tuple $(x, i)$, and sort these tuples in ascending order by $x$.
 
 Next, define $f[i]$ to be the maximum number of indices that can be visited starting from index $i$. Initially, $f[i] = 1$, meaning each index can be visited alone as a single jump.
 
-We enumerate $i$ in the order of the tuples $(x, i)$, and enumerate all valid jump targets $j$ for $i$, namely $i - d \leq j \leq i + d$, with $\text{arr}[i] > \text{arr}[j]$. For each valid $j$, we can update $f[i]$, namely $f[i] = \max(f[i], 1 + f[j])$.
+We enumerate $i$ in the order of the tuples $(x, i)$, and enumerate all valid jump targets $j$ for $i$, namely $i - d \leq j \leq i + d$, with $\textit{arr}[i] > \textit{arr}[j]$. For each valid $j$, we can update $f[i]$, namely $f[i] = \max(f[i], 1 + f[j])$.
 
 The final answer is $\max_{0 \leq i < n} f[i]$.
 
-The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$.
+The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -528,11 +528,11 @@ impl Solution {
 
 We let $f[i]$ be the maximum number of indices that can be visited starting from index $i$, and set $f[i] = 1$ initially.
 
-Sort the indices in increasing order of $\text{arr}[i]$. When index $i$ is processed, scan left and right until the distance exceeds $d$ or a bar at least as tall as $\text{arr}[i]$ appears. For each legal index $j$ on that scan, update $f[i] = \max(f[i], 1 + f[j])$. Shorter bars have already been processed, so $f[j]$ is final.
+Sort the indices in increasing order of $\textit{arr}[i]$. When index $i$ is processed, scan left and right until the distance exceeds $d$ or a bar at least as tall as $\textit{arr}[i]$ appears. For each legal index $j$ on that scan, update $f[i] = \max(f[i], 1 + f[j])$. Shorter bars have already been processed, so $f[j]$ is final.
 
 The answer is the maximum value of $f[i]$.
 
-The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, where $n$ is the length of $\text{arr}$.
+The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{arr}$.
 
 <!-- tabs:start -->
 

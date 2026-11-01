@@ -82,7 +82,7 @@ difficulty: Medium
 >
 > Only black cells need storage, hence a set, plus running min/max coordinates for the final crop.
 >
-> White turns black and right; black turns white and left; then step along $dirs$. Paint `X` on black cells and the heading letter on the ant.
+> White turns black and right; black turns white and left; then step along $\textit{dirs}$. Paint `X` on black cells and the heading letter on the ant.
 
 <!-- thinking:end -->
 

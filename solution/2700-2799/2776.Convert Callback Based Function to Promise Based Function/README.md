@@ -101,9 +101,9 @@ fn 以回调函数作为第一个参数和 args 作为其余参数进行调用�
 
 > **思考**
 >
-> 把先接收 $next(data, error)$ 的回调函数改写成返回 Promise 的函数。直接调用原函数无法把成功与失败接到 $then/catch$。
+> 把先接收 $\textit{next}(\textit{data}, \textit{error})$ 的回调函数改写成返回 Promise 的函数。直接调用原函数无法把成功与失败接到 $\textit{then}/\textit{catch}$。
 >
-> 返回的异步函数构造 Promise，把 $resolve/reject$ 包进 $next$，再把其余参数传给原 $fn$。有 $error$ 则拒绝，否则兑现 $data$。
+> 返回的异步函数构造 Promise，把 $\textit{resolve}/\textit{reject}$ 包进 $\textit{next}$，再把其余参数传给原 $fn$。有 $\textit{error}$ 则拒绝，否则兑现 $\textit{data}$。
 
 <!-- thinking:end -->
 

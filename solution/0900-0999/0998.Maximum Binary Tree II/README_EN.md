@@ -83,13 +83,13 @@ tags:
 
 > **Thinking**
 >
-> Append $val$ to the array that built this maximum tree and rebuild. If $val$ exceeds the root it becomes the new root with the old tree on the left; otherwise $val$ can only sit on the right spine. Recurse down the right child.
+> Append $\textit{val}$ to the array that built this maximum tree and rebuild. If $\textit{val}$ exceeds the root it becomes the new root with the old tree on the left; otherwise $\textit{val}$ can only sit on the right spine. Recurse down the right child.
 
 <!-- thinking:end -->
 
-If $val$ is the maximum number, then make $val$ the new root node, and $root$ the left subtree of the new root node.
+If $\textit{val}$ is the maximum number, then make $\textit{val}$ the new root node, and $\textit{root}$ the left subtree of the new root node.
 
-If $val$ is not the maximum number, since $val$ is the last appended number, it must be on the right side of $root$. Therefore, we can insert $val$ as a new node into the right subtree of $root$.
+If $\textit{val}$ is not the maximum number, since $\textit{val}$ is the last appended number, it must be on the right side of $\textit{root}$. Therefore, we can insert $\textit{val}$ as a new node into the right subtree of $\textit{root}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
@@ -294,13 +294,13 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 
 > **Thinking**
 >
-> Recursion may follow the full height. Walk the right chain iteratively, stop at the first right child smaller than $val$, and hang the old right subtree on the new node's left, avoiding the call stack.
+> Recursion may follow the full height. Walk the right chain iteratively, stop at the first right child smaller than $\textit{val}$, and hang the old right subtree on the new node's left, avoiding the call stack.
 
 <!-- thinking:end -->
 
-Search the right subtree, find the node where $curr.val \gt val \gt curr.right.val$, then create a new node $node$, point $node.left$ to $curr.right$, and then point $curr.right$ to $node$.
+Search the right subtree, find the node where $\textit{curr}.\textit{val} \gt \textit{val} \gt \textit{curr}.\textit{right}.\textit{val}$, then create a new node $\textit{node}$, point $\textit{node}.\textit{left}$ to $\textit{curr}.\textit{right}$, and then point $\textit{curr}.\textit{right}$ to $\textit{node}$.
 
-Finally, return $root$.
+Finally, return $\textit{root}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the tree.
 

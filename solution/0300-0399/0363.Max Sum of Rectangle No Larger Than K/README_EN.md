@@ -71,7 +71,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can enumerate the upper and lower boundaries $i$ and $j$ of the rectangle, then calculate the sum of the elements in each column within this boundary, and record it in the array $nums$. The problem is transformed into how to find the maximum subarray sum not exceeding $k$ in the array $nums$.
+We can enumerate the upper and lower boundaries $i$ and $j$ of the rectangle, then calculate the sum of the elements in each column within this boundary, and record it in the array $\textit{nums}$. The problem is transformed into how to find the maximum subarray sum not exceeding $k$ in the array $\textit{nums}$.
 
 We can use an ordered set to quickly find the maximum value less than or equal to $x$, thereby obtaining a subarray with the maximum subarray sum not exceeding $k$.
 

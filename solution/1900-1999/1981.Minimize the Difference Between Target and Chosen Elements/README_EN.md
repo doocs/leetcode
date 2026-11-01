@@ -84,7 +84,7 @@ The absolute difference is 1.
 
 > **Thinking**
 >
-> Picking one value per row to minimize $|sum-\textit{target}|$ is exponential. Values and rows are at most $70$, so reachable sums fit in a rolling set.
+> Picking one value per row to minimize $|\textit{sum}-\textit{target}|$ is exponential. Values and rows are at most $70$, so reachable sums fit in a rolling set.
 >
 > Each new row replaces $f$ with $\{a+b\mid a\in f,\,b\in\textit{row}\}$. The closest value to $\textit{target}$ is the answer.
 >
@@ -98,13 +98,13 @@ $$
 f[i][j] = \begin{cases} 1 & \textit{if there exists } x \in row[i] \textit{ such that } f[i - 1][j - x] = 1 \\ 0 & \textit{otherwise} \end{cases}
 $$
 
-where $row[i]$ represents the set of elements in the $i$-th row.
+where $\textit{row}[i]$ represents the set of elements in the $i$-th row.
 
 Since $f[i][j]$ is only related to $f[i - 1][j]$, we can use a rolling array to optimize the space complexity.
 
 Finally, we traverse the $f$ array to find the smallest absolute difference.
 
-The time complexity is $O(m^2nC)$, and the space complexity is $O(mC)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively, and $C$ is the maximum value of the matrix elements.
+The time complexity is $O(m^2\textit{nC})$, and the space complexity is $O(\textit{mC})$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively, and $C$ is the maximum value of the matrix elements.
 
 <!-- tabs:start -->
 

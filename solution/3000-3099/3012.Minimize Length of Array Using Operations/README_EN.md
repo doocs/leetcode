@@ -98,19 +98,19 @@ It can be shown that 1 is the minimum achievable length.</pre>
 >
 > Each operation replaces two positives by a remainder and shortens the array. With $n \le 10^5$ we cannot simulate down to a few elements.
 >
-> A remainder is strictly smaller than the larger operand. If some value is not a multiple of the global minimum $\textit{mi}$, we can create a positive smaller than $\textit{mi}$ and then erase everything else, leaving length $1$.
+> A remainder is strictly smaller than the larger operand. If some value is not a multiple of the global minimum $mi$, we can create a positive smaller than $mi$ and then erase everything else, leaving length $1$.
 >
-> If every value is a multiple of $\textit{mi}$, no smaller positive appears. Only copies of $\textit{mi}$ remain, and pairing them leaves $\lceil \textit{cnt}/2 \rceil$ elements.
+> If every value is a multiple of $mi$, no smaller positive appears. Only copies of $mi$ remain, and pairing them leaves $\lceil \textit{cnt}/2 \rceil$ elements.
 
 <!-- thinking:end -->
 
-Let's denote the smallest element in the array $nums$ as $mi$.
+Let's denote the smallest element in the array $\textit{nums}$ as $mi$.
 
-If $mi$ appears only once, we can perform operations with $mi$ and the other elements in the array $nums$ to eliminate all other elements, leaving only $mi$. The answer is $1$.
+If $mi$ appears only once, we can perform operations with $mi$ and the other elements in the array $\textit{nums}$ to eliminate all other elements, leaving only $mi$. The answer is $1$.
 
-If $mi$ appears multiple times, we need to check whether all elements in the array $nums$ are multiples of $mi$. If not, there exists at least one element $x$ such that $0 < x \bmod mi < mi$. This means we can construct an element smaller than $mi$ through operations. This smaller element can eliminate all other elements through operations, leaving only this smaller element. The answer is $1$. If all elements are multiples of $mi$, we can first use $mi$ to eliminate all elements larger than $mi$. The remaining elements are all $mi$, with a count of $cnt$. Pair them up, and perform an operation for each pair. Finally, there will be $\lceil cnt / 2 \rceil$ elements left, so the answer is $\lceil cnt / 2 \rceil$.
+If $mi$ appears multiple times, we need to check whether all elements in the array $\textit{nums}$ are multiples of $mi$. If not, there exists at least one element $x$ such that $0 < x \bmod mi < mi$. This means we can construct an element smaller than $mi$ through operations. This smaller element can eliminate all other elements through operations, leaving only this smaller element. The answer is $1$. If all elements are multiples of $mi$, we can first use $mi$ to eliminate all elements larger than $mi$. The remaining elements are all $mi$, with a count of $\textit{cnt}$. Pair them up, and perform an operation for each pair. Finally, there will be $\lceil \textit{cnt} / 2 \rceil$ elements left, so the answer is $\lceil \textit{cnt} / 2 \rceil$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

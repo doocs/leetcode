@@ -64,19 +64,19 @@ tags:
 
 <!-- thinking:end -->
 
-Suppose $nums$ has $n$ elements. After sorting them into $nums_0 \le \cdots \le nums_{n-1}$, the maximum adjacent gap $maxGap$ satisfies
+Suppose $\textit{nums}$ has $n$ elements. After sorting them into $\textit{nums}_0 \le \cdots \le \textit{nums}_{n-1}$, the maximum adjacent gap $\textit{maxGap}$ satisfies
 
 $$
-nums_{n-1} - nums_0 = \sum_{i=1}^{n-1}(nums_i - nums_{i-1}) \le maxGap \times (n-1).
+\textit{nums}_{n-1} - \textit{nums}_0 = \sum_{i=1}^{n-1}(\textit{nums}_i - \textit{nums}_{i-1}) \le \textit{maxGap} \times (n-1).
 $$
 
-Hence $maxGap \ge \dfrac{nums_{n-1} - nums_0}{n-1}$.
+Hence $\textit{maxGap} \ge \dfrac{\textit{nums}_{n-1} - \textit{nums}_0}{n-1}$.
 
-Use that lower bound as the bucket width, and at least $1$ when every value is equal. Values that fall in the same bucket differ by less than $maxGap$, so a gap of size $maxGap$ always crosses two buckets. Each bucket keeps only its minimum and its maximum, initialized to $+\infty$ and $-\infty$ to mark an empty bucket.
+Use that lower bound as the bucket width, and at least $1$ when every value is equal. Values that fall in the same bucket differ by less than $\textit{maxGap}$, so a gap of size $\textit{maxGap}$ always crosses two buckets. Each bucket keeps only its minimum and its maximum, initialized to $+\infty$ and $-\infty$ to mark an empty bucket.
 
 Place every value $v$ into bucket $\lfloor(v - \min) / \textit{bucketSize}\rfloor$. Smaller indices then hold smaller values. Scan the buckets from left to right. The minimum of the current non-empty bucket and the maximum of the previous non-empty bucket are adjacent in sorted order; their difference updates the answer. There is no gap before the first non-empty bucket.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

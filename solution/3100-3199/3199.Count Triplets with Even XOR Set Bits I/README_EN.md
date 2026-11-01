@@ -73,7 +73,7 @@ Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, r
 >
 > The parity of the XOR popcount is the parity of the three individual popcounts, so each array collapses to two buckets.
 >
-> Count $bit\_count\bmod 2$ in $a,b,c$, then add $cnt1[i]cnt2[j]cnt3[k]$ over even $i+j+k$.
+> Count $\textit{bit\_count}\bmod 2$ in $a,b,c$, then add $\textit{cnt1}[i]\textit{cnt2}[j]\textit{cnt3}[k]$ over even $i+j+k$.
 
 <!-- thinking:end -->
 

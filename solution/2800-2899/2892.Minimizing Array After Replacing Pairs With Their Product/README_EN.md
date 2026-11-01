@@ -71,15 +71,15 @@ Hence, the answer is 4.</pre>
 
 <!-- thinking:end -->
 
-We use a variable $ans$ to record the current length of the array, and a variable $y$ to record the current product of the array. Initially, $ans = 1$ and $y = nums[0]$.
+We use a variable $\textit{ans}$ to record the current length of the array, and a variable $y$ to record the current product of the array. Initially, $\textit{ans} = 1$ and $y = \textit{nums}[0]$.
 
 We start traversing from the second element of the array. Let the current element be $x$:
 
 - If $x = 0$, then the product of the entire array is $0 \le k$, so the minimum length of the answer array is $1$, and we can return directly.
 - If $x \times y \le k$, then we can merge $x$ and $y$, that is, $y = x \times y$.
-- If $x \times y \gt k$, then we cannot merge $x$ and $y$, so we need to treat $x$ as a separate element, that is, $ans = ans + 1$, and $y = x$.
+- If $x \times y \gt k$, then we cannot merge $x$ and $y$, so we need to treat $x$ as a separate element, that is, $\textit{ans} = \textit{ans} + 1$, and $y = x$.
 
-The final answer is $ans$.
+The final answer is $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where n is the length of the array.
 

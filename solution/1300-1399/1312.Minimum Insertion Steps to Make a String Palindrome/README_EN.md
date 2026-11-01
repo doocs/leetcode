@@ -71,7 +71,7 @@ tags:
 >
 > We want the fewest insertions that make $s$ a palindrome. Enumerating insertion plans is hopeless for $n \le 500$. A subproblem is an interval: matching ends reduce to the open interval; otherwise we insert a copy of one end beside the other and take the cheaper side plus one.
 >
-> Intervals overlap, so the same $(i,j)$ is asked many times. Memoizing $dfs(i,j)$ evaluates each interval once, in $O(n^2)$.
+> Intervals overlap, so the same $(i,j)$ is asked many times. Memoizing $\textit{dfs}(i,j)$ evaluates each interval once, in $O(n^2)$.
 
 <!-- thinking:end -->
 

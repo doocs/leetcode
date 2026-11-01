@@ -77,7 +77,7 @@ It can be shown that the maximum profit you can make is 0.
 >
 > Each stock may be bought once: pay the present price, earn $\textit{future}-\textit{present}$, within a budget. $n$ and the budget are $10^3$, a $0$-$1$ knapsack whose item size is the present price and whose value is the profit (only if positive).
 >
-> $f[i][j]$ is the best profit from the first $i$ stocks with budget $j$. Skip copies the previous row; buying requires $j\ge present[i]$ and a higher future price.
+> $f[i][j]$ is the best profit from the first $i$ stocks with budget $j$. Skip copies the previous row; buying requires $j\ge \textit{present}[i]$ and a higher future price.
 
 <!-- thinking:end -->
 
@@ -203,7 +203,7 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 
 <!-- thinking:end -->
 
-We can observe that for each row, we only need the values from the previous row, so we can optimize the space complexity to $O(\text{budget})$.
+We can observe that for each row, we only need the values from the previous row, so we can optimize the space complexity to $O(\textit{budget})$.
 
 <!-- tabs:start -->
 

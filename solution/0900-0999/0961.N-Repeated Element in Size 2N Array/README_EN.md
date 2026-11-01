@@ -174,7 +174,7 @@ var repeatedNTimes = function (nums) {
 
 > **Thinking**
 >
-> The set uses linear space. The repeated value appears at distance at most $2$ in a circular reading, so compare each index $i\ge 2$ with the two before it; if none match, the answer is $nums[0]$.
+> The set uses linear space. The repeated value appears at distance at most $2$ in a circular reading, so compare each index $i\ge 2$ with the two before it; if none match, the answer is $\textit{nums}[0]$.
 
 <!-- thinking:end -->
 

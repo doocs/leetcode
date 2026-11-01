@@ -79,7 +79,7 @@ Data table:
 >
 > Window functions assign ranks in each column; a join on the rank lines up the independently ordered values.
 >
-> Number $\textit{first\_col}$ ascending and $\textit{second\_col}$ descending, then join on $\textit{rk}$.
+> Number $\textit{first\_col}$ ascending and $\textit{second\_col}$ descending, then join on $rk$.
 
 <!-- thinking:end -->
 

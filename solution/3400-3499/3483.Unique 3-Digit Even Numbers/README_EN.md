@@ -93,7 +93,7 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash set $\textit{s}$ to record all distinct three-digit even numbers, and then enumerate all possible three-digit even numbers to add them to the hash set.
+We use a hash set $s$ to record all distinct three-digit even numbers, and then enumerate all possible three-digit even numbers to add them to the hash set.
 
 Finally, we return the size of the hash set.
 

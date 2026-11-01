@@ -58,13 +58,13 @@ tags:
 
 > **Thinking**
 >
-> Is $num$ a perfect square? Scanning to $\sqrt{num}$ is $O(\sqrt n)$. Binary search on $x^2$ is enough.
+> Is $\textit{num}$ a perfect square? Scanning to $\sqrt{\textit{num}}$ is $O(\sqrt n)$. Binary search on $x^2$ is enough.
 >
-> Find the least $x$ in $[1,num]$ with $x^2\ge num$, then test equality. The code uses `bisect_left` with $x\mapsto x^2$.
+> Find the least $x$ in $[1,\textit{num}]$ with $x^2\ge \textit{num}$, then test equality. The code uses `bisect_left` with $x\mapsto x^2$.
 
 <!-- thinking:end -->
 
-We can use binary search to solve this problem. Define the left boundary $l = 1$ and the right boundary $r = num$ of the binary search, then find the smallest integer $x$ that satisfies $x^2 \geq num$ in the range $[l, r]$. Finally, if $x^2 = num$, then $num$ is a perfect square.
+We can use binary search to solve this problem. Define the left boundary $l = 1$ and the right boundary $r = \textit{num}$ of the binary search, then find the smallest integer $x$ that satisfies $x^2 \geq \textit{num}$ in the range $[l, r]$. Finally, if $x^2 = \textit{num}$, then $\textit{num}$ is a perfect square.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given number.
 
@@ -176,11 +176,11 @@ impl Solution {
 
 > **Thinking**
 >
-> Binary search needs the monotone squares. The odd sum $1+3+\cdots+(2n-1)=n^2$, so subtract increasing odds until $num$ hits $0$. Shorter code in $O(\sqrt n)$.
+> Binary search needs the monotone squares. The odd sum $1+3+\cdots+(2n-1)=n^2$, so subtract increasing odds until $\textit{num}$ hits $0$. Shorter code in $O(\sqrt n)$.
 
 <!-- thinking:end -->
 
-Since $1 + 3 + 5 + \cdots + (2n - 1) = n^2$, we can gradually subtract $1, 3, 5, \cdots$ from $num$. If $num$ finally equals $0$, then $num$ is a perfect square.
+Since $1 + 3 + 5 + \cdots + (2n - 1) = n^2$, we can gradually subtract $1, 3, 5, \cdots$ from $\textit{num}$. If $\textit{num}$ finally equals $0$, then $\textit{num}$ is a perfect square.
 
 The time complexity is $O(\sqrt n)$, and the space complexity is $O(1)$.
 

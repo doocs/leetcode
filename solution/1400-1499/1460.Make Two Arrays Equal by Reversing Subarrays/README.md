@@ -84,7 +84,7 @@ tags:
 
 因此，我们只需要对两个数组进行排序，然后判断排序后的数组是否相等即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $arr$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -219,7 +219,7 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 我们也可以只用一个数组 `cnt`，遍历数组 `target` 和 `arr`，对于 `target[i]`，我们将 `cnt[target[i]]` 加一，对于 `arr[i]`，我们将 `cnt[arr[i]]` 减一。最后判断数组 `cnt` 中的所有元素是否都为 $0$。
 
-时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $arr$ 的长度，而 $M$ 是数组元素的范围，本题中 $M = 1001$。
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{arr}$ 的长度，而 $M$ 是数组元素的范围，本题中 $M = 1001$。
 
 <!-- tabs:start -->
 

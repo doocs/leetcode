@@ -65,11 +65,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们记根节点的值为 $x$，然后设计一个函数 $\text{dfs}(\text{root})$，它表示当前节点的值是否等于 $x$，并且它的左右子树也是单值二叉树。
+我们记根节点的值为 $x$，然后设计一个函数 $\textit{dfs}(\textit{root})$，它表示当前节点的值是否等于 $x$，并且它的左右子树也是单值二叉树。
 
-在函数 $\text{dfs}(\text{root})$ 中，如果当前节点为空，那么返回 $\text{true}$，否则，如果当前节点的值等于 $x$，并且它的左右子树也是单值二叉树，那么返回 $\text{true}$，否则返回 $\text{false}$。
+在函数 $\textit{dfs}(\textit{root})$ 中，如果当前节点为空，那么返回 $\textit{true}$，否则，如果当前节点的值等于 $x$，并且它的左右子树也是单值二叉树，那么返回 $\textit{true}$，否则返回 $\textit{false}$。
 
-在主函数中，我们调用 $\text{dfs}(\text{root})$，并返回结果。
+在主函数中，我们调用 $\textit{dfs}(\textit{root})$，并返回结果。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中的节点数目。
 

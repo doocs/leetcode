@@ -77,19 +77,19 @@ tags:
 
 我们首先判断 $\textit{source}$ 和 $\textit{target}$ 是否相同，如果相同则直接返回 $0$。
 
-然后我们使用一个哈希表 $\textit{g}$ 来构建站点到公交线路的映射。对于每一条公交线路，我们遍历其经过的所有站点，将每个站点映射到该公交线路，即 $\textit{g}[\textit{stop}]$ 为经过站点 $\textit{stop}$ 的所有公交线路。
+然后我们使用一个哈希表 $g$ 来构建站点到公交线路的映射。对于每一条公交线路，我们遍历其经过的所有站点，将每个站点映射到该公交线路，即 $g[\textit{stop}]$ 为经过站点 $\textit{stop}$ 的所有公交线路。
 
 接着我们判断 $\textit{source}$ 和 $\textit{target}$ 是否在站点映射中，如果不在则返回 $-1$。
 
-我们使用一个队列 $\textit{q}$ 来进行广度优先搜索，队列中的每个元素为一个二元组 $(\textit{stop}, \textit{busCount})$，表示当前站点 $\textit{stop}$ 和到达当前站点所需的公交次数 $\textit{busCount}$。
+我们使用一个队列 $q$ 来进行广度优先搜索，队列中的每个元素为一个二元组 $(\textit{stop}, \textit{busCount})$，表示当前站点 $\textit{stop}$ 和到达当前站点所需的公交次数 $\textit{busCount}$。
 
-我们初始化一个集合 $\textit{visBus}$ 来记录已经访问过的公交线路，一个集合 $\textit{visStop}$ 来记录已经访问过的站点。然后我们将 $\textit{source}$ 加入到 $\textit{visStop}$ 中，并将 $(\textit{source}, 0)$ 加入到队列 $\textit{q}$ 中。
+我们初始化一个集合 $\textit{visBus}$ 来记录已经访问过的公交线路，一个集合 $\textit{visStop}$ 来记录已经访问过的站点。然后我们将 $\textit{source}$ 加入到 $\textit{visStop}$ 中，并将 $(\textit{source}, 0)$ 加入到队列 $q$ 中。
 
-接下来我们开始广度优先搜索，当队列 $\textit{q}$ 不为空时，我们取出队列的第一个元素，即当前站点 $\textit{stop}$ 和到达当前站点所需的公交次数 $\textit{busCount}$。
+接下来我们开始广度优先搜索，当队列 $q$ 不为空时，我们取出队列的第一个元素，即当前站点 $\textit{stop}$ 和到达当前站点所需的公交次数 $\textit{busCount}$。
 
 如果当前站点 $\textit{stop}$ 是目标站点 $\textit{target}$，我们返回到达目标站点所需的公交次数 $\textit{busCount}$。
 
-否则，我们遍历经过当前站点的所有公交线路，对于每一条公交线路，我们遍历该线路上的所有站点，如果某个站点 $\textit{nextStop}$ 没有被访问过，则将其加入到 $\textit{visStop}$ 中，并将 $(\textit{nextStop}, \textit{busCount} + 1)$ 加入到队列 $\textit{q}$ 中。
+否则，我们遍历经过当前站点的所有公交线路，对于每一条公交线路，我们遍历该线路上的所有站点，如果某个站点 $\textit{nextStop}$ 没有被访问过，则将其加入到 $\textit{visStop}$ 中，并将 $(\textit{nextStop}, \textit{busCount} + 1)$ 加入到队列 $q$ 中。
 
 最后，如果无法到达目标站点，则返回 $-1$。
 

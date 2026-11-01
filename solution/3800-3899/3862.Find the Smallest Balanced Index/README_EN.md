@@ -112,11 +112,11 @@ Therefore, no balanced index exists and the answer is -1.</div>
 
 <!-- thinking:end -->
 
-We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $nums[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $nums[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early. Java, C++, and Go store this product in a 64-bit signed integer. If the multiplication would overflow, the true product is already greater than the remaining left sum, so the scan stops as well.
+We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $\textit{nums}[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $\textit{nums}[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early. Java, C++, and Go store this product in a 64-bit signed integer. If the multiplication would overflow, the true product is already greater than the remaining left sum, so the scan stops as well.
 
 If no balanced index is found after the enumeration, we return -1.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -60,21 +60,21 @@ tags:
 >
 > We need the longest prefix from which deleting one element equalizes remaining frequencies. $n \le 10^5$, so we cannot recount every prefix.
 >
-> Keep value frequencies $cnt$, the frequency-of-frequencies $ccnt$, and the maximum frequency $mx$. A prefix works iff all frequencies are $1$; or they are only $mx$ and $mx-1$ with a unique value at $mx$; or all are $mx$ except one singleton.
+> Keep value frequencies $\textit{cnt}$, the frequency-of-frequencies $\textit{ccnt}$, and the maximum frequency $mx$. A prefix works iff all frequencies are $1$; or they are only $mx$ and $mx-1$ with a unique value at $mx$; or all are $mx$ except one singleton.
 >
-> We update both maps left to right and test the three shapes in $O(1)$ from $ccnt$ and $mx$, recording the largest valid index.
+> We update both maps left to right and test the three shapes in $O(1)$ from $\textit{ccnt}$ and $mx$, recording the largest valid index.
 
 <!-- thinking:end -->
 
-We use $cnt$ to record the number of times each element $v$ appears in $nums$, and $ccnt$ to record the number of times each count appears. The maximum number of times an element appears is represented by $mx$.
+We use $\textit{cnt}$ to record the number of times each element $v$ appears in $\textit{nums}$, and $\textit{ccnt}$ to record the number of times each count appears. The maximum number of times an element appears is represented by $mx$.
 
-While traversing $nums$:
+While traversing $\textit{nums}$:
 
 - If the maximum count $mx=1$, it means that each number in the current prefix appears $1$ time. If we delete any one of them, the remaining numbers will all have the same count.
 - If all numbers appear $mx$ and $mx-1$ times, and only one number appears $mx$ times, then we can delete one occurrence of the number that appears $mx$ times. The remaining numbers will all have a count of $mx-1$, which meets the condition.
 - If, except for one number, all other numbers appear $mx$ times, then we can delete the number that appears once. The remaining numbers will all have a count of $mx$, which meets the condition.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $nums$ array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{nums}$ array.
 
 <!-- tabs:start -->
 

@@ -64,13 +64,13 @@ difficulty: Medium
 
 <!-- thinking:end -->
 
-We can traverse each point $(i, j)$ in the integer matrix $land$. If the value of the point is $0$, we start a depth-first search from this point until we reach a point with a non-zero value. The number of points searched during this process is the size of the pond, which is added to the answer array.
+We can traverse each point $(i, j)$ in the integer matrix $\textit{land}$. If the value of the point is $0$, we start a depth-first search from this point until we reach a point with a non-zero value. The number of points searched during this process is the size of the pond, which is added to the answer array.
 
 > Note: To avoid duplicate searches, we set the value of the searched points to $1$.
 
 Finally, we sort the answer array to obtain the final answer.
 
-The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix $land$, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix $\textit{land}$, respectively.
 
 <!-- tabs:start -->
 

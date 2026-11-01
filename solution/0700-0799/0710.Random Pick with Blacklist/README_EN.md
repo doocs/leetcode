@@ -80,7 +80,7 @@ solution.pick(); // return 4
 >
 > There are exactly $k=n-|B|$ legal integers. If every banned index in $[0, k)$ is remapped onto a legal value in $[k, n)$, we only need to draw uniformly from $[0, k)$ and rewrite hits.
 >
-> Build a set of the blacklist, walk $i$ from $k$ while skipping banned numbers, and map each $b<k$ to the next free $i$. $\textit{pick}$ draws $x$ in $[0, k)$ and returns $d.get(x, x)$.
+> Build a set of the blacklist, walk $i$ from $k$ while skipping banned numbers, and map each $b<k$ to the next free $i$. $\textit{pick}$ draws $x$ in $[0, k)$ and returns $d.\textit{get}(x, x)$.
 
 <!-- thinking:end -->
 

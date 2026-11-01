@@ -92,15 +92,15 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 
 <!-- thinking:end -->
 
-We simulate operations $1$ and $2$, while maintaining a carry $\textit{carry}$ to indicate whether there is a current carry. Initially, $\textit{carry} = \text{false}$.
+We simulate operations $1$ and $2$, while maintaining a carry $\textit{carry}$ to indicate whether there is a current carry. Initially, $\textit{carry} = \textit{false}$.
 
 We traverse the string $s$ from the end toward the beginning:
 
-- If $\textit{carry}$ is $\text{true}$, the current bit $c$ needs to be incremented by $1$. If $c$ is $0$, it becomes $1$ after adding $1$, and $\textit{carry}$ becomes $\text{false}$; if $c$ is $1$, it becomes $0$ after adding $1$, and $\textit{carry}$ remains $\text{true}$.
-- If $c$ is $1$, we need to perform operation $1$, i.e., add $1$, and $\textit{carry}$ becomes $\text{true}$.
+- If $\textit{carry}$ is $\textit{true}$, the current bit $c$ needs to be incremented by $1$. If $c$ is $0$, it becomes $1$ after adding $1$, and $\textit{carry}$ becomes $\textit{false}$; if $c$ is $1$, it becomes $0$ after adding $1$, and $\textit{carry}$ remains $\textit{true}$.
+- If $c$ is $1$, we need to perform operation $1$, i.e., add $1$, and $\textit{carry}$ becomes $\textit{true}$.
 - At this point $c$ is $0$, so we need to perform operation $2$, i.e., divide by $2$.
 
-After the traversal, if $\textit{carry}$ is still $\text{true}$, we need to perform operation $1$ one more time.
+After the traversal, if $\textit{carry}$ is still $\textit{true}$, we need to perform operation $1$ one more time.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

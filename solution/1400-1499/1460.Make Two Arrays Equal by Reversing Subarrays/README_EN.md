@@ -82,7 +82,7 @@ If two arrays are equal after sorting, then they can be made equal by reversing 
 
 Therefore, we only need to sort the two arrays and then check if the sorted arrays are equal.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

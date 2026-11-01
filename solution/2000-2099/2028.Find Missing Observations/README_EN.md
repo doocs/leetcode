@@ -75,7 +75,7 @@ tags:
 
 > **Thinking**
 >
-> We miss $n$ dice in $[1,6]$ with overall mean $mean$. The missing sum $s$ is fixed, so we only test $s \in [n,6n]$. Construction beats search for $n,m \le 10^5$.
+> We miss $n$ dice in $[1,6]$ with overall mean $\textit{mean}$. The missing sum $s$ is fixed, so we only test $s \in [n,6n]$. Construction beats search for $n,m \le 10^5$.
 >
 > If feasible, spread $s$ evenly: every entry $s//n$, then add one to the first $s \bmod n$ positions, all still $\le 6$.
 

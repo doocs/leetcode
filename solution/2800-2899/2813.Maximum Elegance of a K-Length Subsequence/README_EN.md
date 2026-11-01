@@ -95,11 +95,11 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 
 <!-- thinking:end -->
 
-We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $tot$. Use a hash table $vis$ to record the categories of these $k$ items, use a stack $dup$ to record the profits of the repeated categories in order, and use a variable $ans$ to record the current maximum elegance.
+We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $\textit{tot}$. Use a hash table $\textit{vis}$ to record the categories of these $k$ items, use a stack $\textit{dup}$ to record the profits of the repeated categories in order, and use a variable $\textit{ans}$ to record the current maximum elegance.
 
-Next, we consider starting from the $k+1$ item. If its category is already in $vis$, it means that if we choose this category, the number of different categories will not increase, so we can skip this item directly. If there is no duplicate category before, we can also skip this item directly. Otherwise, we can consider replacing the top item of $dup$ stack (the item with the minimum profit in the duplicate category) with the current item, which can increase the total profit by $p - dup.pop()$ and increase the number of different categories by $1$, so we can update $tot$ and $ans$.
+Next, we consider starting from the $k+1$ item. If its category is already in $\textit{vis}$, it means that if we choose this category, the number of different categories will not increase, so we can skip this item directly. If there is no duplicate category before, we can also skip this item directly. Otherwise, we can consider replacing the top item of $\textit{dup}$ stack (the item with the minimum profit in the duplicate category) with the current item, which can increase the total profit by $p - \textit{dup}.\textit{pop}()$ and increase the number of different categories by $1$, so we can update $\textit{tot}$ and $\textit{ans}$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of items.
 

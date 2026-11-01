@@ -85,13 +85,13 @@ The total cost is 3 + 2 + 6 + 7 = 18</pre>
 
 Let's assume the robot's initial position is $(x_0, y_0)$ and the home position is $(x_1, y_1)$.
 
-If $x_0 < x_1$, the robot needs to move down, passing through rows $[x_0 + 1, x_1]$, with a total cost of $\sum_{i = x_0 + 1}^{x_1} rowCosts[i]$. If $x_0 > x_1$, the robot needs to move up, passing through rows $[x_1, x_0 - 1]$, with a total cost of $\sum_{i = x_1}^{x_0 - 1} rowCosts[i]$. If $x_0 = x_1$, the robot doesn't need to move vertically, and the total cost is $0$.
+If $x_0 < x_1$, the robot needs to move down, passing through rows $[x_0 + 1, x_1]$, with a total cost of $\sum_{i = x_0 + 1}^{x_1} \textit{rowCosts}[i]$. If $x_0 > x_1$, the robot needs to move up, passing through rows $[x_1, x_0 - 1]$, with a total cost of $\sum_{i = x_1}^{x_0 - 1} \textit{rowCosts}[i]$. If $x_0 = x_1$, the robot doesn't need to move vertically, and the total cost is $0$.
 
-Similarly, if $y_0 < y_1$, the robot needs to move right, passing through columns $[y_0 + 1, y_1]$, with a total cost of $\sum_{j = y_0 + 1}^{y_1} colCosts[j]$. If $y_0 > y_1$, the robot needs to move left, passing through columns $[y_1, y_0 - 1]$, with a total cost of $\sum_{j = y_1}^{y_0 - 1} colCosts[j]$. If $y_0 = y_1$, the robot doesn't need to move horizontally, and the total cost is $0$.
+Similarly, if $y_0 < y_1$, the robot needs to move right, passing through columns $[y_0 + 1, y_1]$, with a total cost of $\sum_{j = y_0 + 1}^{y_1} \textit{colCosts}[j]$. If $y_0 > y_1$, the robot needs to move left, passing through columns $[y_1, y_0 - 1]$, with a total cost of $\sum_{j = y_1}^{y_0 - 1} \textit{colCosts}[j]$. If $y_0 = y_1$, the robot doesn't need to move horizontally, and the total cost is $0$.
 
 The answer is the sum of the vertical movement cost and the horizontal movement cost.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $rowCosts$ and $colCosts$, respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $\textit{rowCosts}$ and $\textit{colCosts}$, respectively.
 
 <!-- tabs:start -->
 

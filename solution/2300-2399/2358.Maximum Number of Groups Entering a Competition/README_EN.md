@@ -72,7 +72,7 @@ It can be shown that it is not possible to form more than 3 groups.
 >
 > Group sizes and score sums must both strictly increase. $n \le 10^5$ rules out searching partitions. After sorting grades, sizes $1,2,\ldots,k$ automatically increase the sums.
 >
-> Only $\frac{k(k+1)}{2}\le n$ remains. Binary-search $k$ (via $bisect$ on $x^2+x$ versus $2n$) for the largest feasible count.
+> Only $\frac{k(k+1)}{2}\le n$ remains. Binary-search $k$ (via $\textit{bisect}$ on $x^2+x$ versus $2n$) for the largest feasible count.
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ Observing the conditions in the problem, the number of students in the $i$-th gr
 
 Therefore, we need to find the largest $k$ such that $\frac{(1 + k) \times k}{2} \leq n$, where $n$ is the total number of students. We can use binary search to solve this.
 
-We define the left boundary of binary search as $l = 1$ and the right boundary as $r = n$. Each time, the midpoint is $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If $(1 + mid) \times mid \gt 2 \times n$, it means $mid$ is too large, so we shrink the right boundary to $mid - 1$; otherwise, we increase the left boundary to $mid$.
+We define the left boundary of binary search as $l = 1$ and the right boundary as $r = n$. Each time, the midpoint is $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$. If $(1 + \textit{mid}) \times \textit{mid} \gt 2 \times n$, it means $\textit{mid}$ is too large, so we shrink the right boundary to $\textit{mid} - 1$; otherwise, we increase the left boundary to $\textit{mid}$.
 
 Finally, we return $l$ as the answer.
 

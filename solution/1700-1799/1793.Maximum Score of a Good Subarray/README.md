@@ -71,11 +71,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以枚举 $nums$ 中的每个元素 $nums[i]$ 作为子数组的最小值，利用单调栈找出其左边第一个小于 $nums[i]$ 的位置 $left[i]$ 和右边第一个小于等于 $nums[i]$ 的位置 $right[i]$，则以 $nums[i]$ 为最小值的子数组的分数为 $nums[i] \times (right[i] - left[i] - 1)$。
+我们可以枚举 $\textit{nums}$ 中的每个元素 $\textit{nums}[i]$ 作为子数组的最小值，利用单调栈找出其左边第一个小于 $\textit{nums}[i]$ 的位置 $\textit{left}[i]$ 和右边第一个小于等于 $\textit{nums}[i]$ 的位置 $\textit{right}[i]$，则以 $\textit{nums}[i]$ 为最小值的子数组的分数为 $\textit{nums}[i] \times (\textit{right}[i] - \textit{left}[i] - 1)$。
 
-需要注意的是，只有当左右边界 $left[i]$ 和 $right[i]$ 满足 $left[i]+1 \leq k \leq right[i]-1$ 时，答案才有可能更新。
+需要注意的是，只有当左右边界 $\textit{left}[i]$ 和 $\textit{right}[i]$ 满足 $\textit{left}[i]+1 \leq k \leq \textit{right}[i]-1$ 时，答案才有可能更新。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

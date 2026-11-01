@@ -72,9 +72,9 @@ tags:
 
 <!-- thinking:end -->
 
-First, we use DFS to find the node where player 1's colored point $x$ is located, denoted as $node$.
+First, we use DFS to find the node where player 1's colored point $x$ is located, denoted as $\textit{node}$.
 
-Next, we count the number of nodes in the left and right subtrees of $node$, denoted as $l$ and $r$ respectively, and the number of nodes in the direction of $node$'s parent node is $n - l - r - 1$. As long as $\max(l, r, n - l - r - 1) > \frac{n}{2}$, player 2 has a winning strategy.
+Next, we count the number of nodes in the left and right subtrees of $\textit{node}$, denoted as $l$ and $r$ respectively, and the number of nodes in the direction of $\textit{node}$'s parent node is $n - l - r - 1$. As long as $\max(l, r, n - l - r - 1) > \frac{n}{2}$, player 2 has a winning strategy.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the total number of nodes.
 

@@ -66,13 +66,13 @@ tags:
 
 > **Thinking**
 >
-> Report the ranges in $[\textit{lower},\textit{upper}]$ that $nums$ does not cover. The array is sorted, distinct, and of length at most $100$, so we simulate the gaps: before the first value, between neighbors, and after the last. A difference greater than $1$ is a missing range.
+> Report the ranges in $[\textit{lower},\textit{upper}]$ that $\textit{nums}$ does not cover. The array is sorted, distinct, and of length at most $100$, so we simulate the gaps: before the first value, between neighbors, and after the last. A difference greater than $1$ is a missing range.
 
 <!-- thinking:end -->
 
 We can simulate the problem directly according to the requirements.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

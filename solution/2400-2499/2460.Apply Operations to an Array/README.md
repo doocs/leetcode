@@ -88,13 +88,13 @@ tags:
 
 我们直接根据题意模拟即可。
 
-首先，我们遍历数组 $nums$，对于任意相邻的两个元素 $nums[i]$ 和 $nums[i+1]$，如果 $nums[i]=nums[i+1]$，那么我们将 $nums[i]$ 的值变为原来的 $2$ 倍，同时将 $nums[i+1]$ 的值变为 $0$。
+首先，我们遍历数组 $\textit{nums}$，对于任意相邻的两个元素 $\textit{nums}[i]$ 和 $\textit{nums}[i+1]$，如果 $\textit{nums}[i]=\textit{nums}[i+1]$，那么我们将 $\textit{nums}[i]$ 的值变为原来的 $2$ 倍，同时将 $\textit{nums}[i+1]$ 的值变为 $0$。
 
-然后，我们创建一个长度为 $n$ 的答案数组 $ans$，并将 $nums$ 中所有非零元素按顺序放入 $ans$ 中。
+然后，我们创建一个长度为 $n$ 的答案数组 $\textit{ans}$，并将 $\textit{nums}$ 中所有非零元素按顺序放入 $\textit{ans}$ 中。
 
-最后，返回答案数组 $ans$ 即可。
+最后，返回答案数组 $\textit{ans}$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

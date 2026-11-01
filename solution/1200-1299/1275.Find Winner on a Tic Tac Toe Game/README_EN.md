@@ -89,7 +89,7 @@ tags:
 
 Since all `moves` are valid, that is, there is no situation where a person continues to play after someone has won. Therefore, we only need to determine whether the last player to move can win.
 
-We use an array `cnt` of length $8$ to record the number of moves in rows, columns, and diagonals. Where $cnt[0, 1, 2]$ represent the number of moves in the $0, 1, 2$ rows respectively, and $cnt[3, 4, 5]$ represent the number of moves in the $0, 1, 2$ columns respectively. Additionally, $cnt[6]$ and $cnt[7]$ represent the number of moves on the two diagonals respectively. During the game, if a player makes $3$ moves in a row, column, or diagonal, that player wins.
+We use an array `cnt` of length $8$ to record the number of moves in rows, columns, and diagonals. Where $\textit{cnt}[0, 1, 2]$ represent the number of moves in the $0, 1, 2$ rows respectively, and $\textit{cnt}[3, 4, 5]$ represent the number of moves in the $0, 1, 2$ columns respectively. Additionally, $\textit{cnt}[6]$ and $\textit{cnt}[7]$ represent the number of moves on the two diagonals respectively. During the game, if a player makes $3$ moves in a row, column, or diagonal, that player wins.
 
 If the last player to move does not win, then we determine whether the board is full. If it is full, it is a draw; otherwise, the game is not over yet.
 

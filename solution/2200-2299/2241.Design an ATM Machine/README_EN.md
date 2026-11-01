@@ -93,7 +93,7 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 
 <!-- thinking:end -->
 
-We use an array $\textit{d}$ to record the denominations of the bills and an array $\textit{cnt}$ to record the number of bills for each denomination.
+We use an array $d$ to record the denominations of the bills and an array $\textit{cnt}$ to record the number of bills for each denomination.
 
 For the `deposit` operation, we simply add the number of bills to the corresponding denomination. The time complexity is $O(1)$.
 

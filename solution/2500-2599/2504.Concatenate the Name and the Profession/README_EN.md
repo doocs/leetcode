@@ -82,7 +82,7 @@ Person table:
 >
 > Each row should show the name followed by the first letter of the profession in parentheses, ordered by $\textit{person\_id}$ descending. Concatenating in application code works, but a single query is enough.
 >
-> $\operatorname{CONCAT}$ joins the name, parentheses, and $\operatorname{SUBSTRING}(\textit{profession},1,1)$; then order by $\textit{person\_id}$ descending.
+> $\textit{CONCAT}$ joins the name, parentheses, and $\textit{SUBSTRING}(\textit{profession},1,1)$; then order by $\textit{person\_id}$ descending.
 
 <!-- thinking:end -->
 

@@ -73,19 +73,19 @@ tags:
 
 > **Thinking**
 >
-> Replacements must come from $arr2$; we want the fewest of them. Trying every substitute at every index is too large. Let $f[i]$ be the fewest changes so the prefix is increasing and index $i$ is kept. Replacing the previous $k$ positions with the $k$ values in $arr2$ just below $arr[i]$ transitions from $f[i-k-1]+k$. Sorted unique $arr2$ supports binary search; sentinels make the last index never replaced.
+> Replacements must come from $\textit{arr2}$; we want the fewest of them. Trying every substitute at every index is too large. Let $f[i]$ be the fewest changes so the prefix is increasing and index $i$ is kept. Replacing the previous $k$ positions with the $k$ values in $\textit{arr2}$ just below $\textit{arr}[i]$ transitions from $f[i-k-1]+k$. Sorted unique $\textit{arr2}$ supports binary search; sentinels make the last index never replaced.
 
 <!-- thinking:end -->
 
-We define $f[i]$ as the minimum number of operations to convert $arr1[0,..,i]$ into a strictly increasing array, and $arr1[i]$ is not replaced. Therefore, we set two sentinels $-\infty$ and $\infty$ at the beginning and end of $arr1$. The last number is definitely not replaced, so $f[n-1]$ is the answer. We initialize $f[0]=0$, and the rest $f[i]=\infty$.
+We define $f[i]$ as the minimum number of operations to convert $\textit{arr1}[0,..,i]$ into a strictly increasing array, and $\textit{arr1}[i]$ is not replaced. Therefore, we set two sentinels $-\infty$ and $\infty$ at the beginning and end of $\textit{arr1}$. The last number is definitely not replaced, so $f[n-1]$ is the answer. We initialize $f[0]=0$, and the rest $f[i]=\infty$.
 
-Next, we sort the array $arr2$ and remove duplicates for easy binary search.
+Next, we sort the array $\textit{arr2}$ and remove duplicates for easy binary search.
 
-For $i=1,..,n-1$, we consider whether $arr1[i-1]$ is replaced. If $arr1[i-1] \lt arr1[i]$, then $f[i]$ can be transferred from $f[i-1]$, that is, $f[i] = f[i-1]$. Then, we consider the case where $arr[i-1]$ is replaced. Obviously, $arr[i-1]$ should be replaced with a number as large as possible and less than $arr[i]$. We perform a binary search in the array $arr2$ and find the first index $j$ that is greater than or equal to $arr[i]$. Then we enumerate the number of replacements in the range $k \in [1, min(i-1, j)]$. If $arr[i-k-1] \lt arr2[j-k]$, then $f[i]$ can be transferred from $f[i-k-1]$, that is, $f[i] = \min(f[i], f[i-k-1] + k)$.
+For $i=1,..,n-1$, we consider whether $\textit{arr1}[i-1]$ is replaced. If $\textit{arr1}[i-1] \lt \textit{arr1}[i]$, then $f[i]$ can be transferred from $f[i-1]$, that is, $f[i] = f[i-1]$. Then, we consider the case where $\textit{arr}[i-1]$ is replaced. Obviously, $\textit{arr}[i-1]$ should be replaced with a number as large as possible and less than $\textit{arr}[i]$. We perform a binary search in the array $\textit{arr2}$ and find the first index $j$ that is greater than or equal to $\textit{arr}[i]$. Then we enumerate the number of replacements in the range $k \in [1, \min(i-1, j)]$. If $\textit{arr}[i-k-1] \lt \textit{arr2}[j-k]$, then $f[i]$ can be transferred from $f[i-k-1]$, that is, $f[i] = \min(f[i], f[i-k-1] + k)$.
 
 Finally, if $f[n-1] \geq \infty$, it means that it cannot be converted into a strictly increasing array, return $-1$, otherwise return $f[n-1]$.
 
-The time complexity is $O(n(\log m + \min(m, n)))$, and the space complexity is $O(n)$, where $n$ is the length of $arr1$.
+The time complexity is $O(n(\log m + \min(m, n)))$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{arr1}$.
 
 <!-- tabs:start -->
 

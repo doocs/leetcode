@@ -86,17 +86,17 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 >
 > Trip nodes are priced, and adjacent nodes cannot both be halved. Searching the half-price set after listing paths is exponential; $n \le 50$ allows counting visits, then a tree DP decides the halves.
 >
-> DFS each trip into $cnt$. The DP returns (full price, half price) at a node: children may take either min if this node stays full, and must stay full if this node is halved. The root takes the better of the two.
+> DFS each trip into $\textit{cnt}$. The DP returns (full price, half price) at a node: children may take either min if this node stays full, and must stay full if this node is halved. The root takes the better of the two.
 
 <!-- thinking:end -->
 
-Count the nodes each trip passes and store the totals in $cnt$, where $cnt[i]$ is how many trips visit node $i$. The search $dfs(i, fa, k)$ walks from $i$ toward $k$. It increments every node on the path and rolls the count back when $k$ is not in that subtree. $fa$ is the parent of $i$.
+Count the nodes each trip passes and store the totals in $\textit{cnt}$, where $\textit{cnt}[i]$ is how many trips visit node $i$. The search $\textit{dfs}(i, fa, k)$ walks from $i$ toward $k$. It increments every node on the path and rolls the count back when $k$ is not in that subtree. $fa$ is the parent of $i$.
 
-A second search, $dfs2(i, fa)$, returns the minimum price of the subtree in two cases: node $i$ keeps its price, or node $i$ is halved. For node $i$ those costs start at $a = cnt[i] \times price[i]$ and $b = a / 2$.
+A second search, $\textit{dfs2}(i, fa)$, returns the minimum price of the subtree in two cases: node $i$ keeps its price, or node $i$ is halved. For node $i$ those costs start at $a = \textit{cnt}[i] \times \textit{price}[i]$ and $b = a / 2$.
 
-Each child $j$ likewise returns $(x, y) = dfs2(j, i)$. If $i$ stays at full price, $j$ may choose either option, so $a = a + \min(x, y)$. If $i$ is halved, $j$ must stay at full price, so $b = b + x$.
+Each child $j$ likewise returns $(x, y) = \textit{dfs2}(j, i)$. If $i$ stays at full price, $j$ may choose either option, so $a = a + \min(x, y)$. If $i$ is halved, $j$ must stay at full price, so $b = b + x$.
 
-$dfs2$ returns $(a, b)$. Calling $dfs2(0, -1)$ and taking the smaller component is the answer.
+$\textit{dfs2}$ returns $(a, b)$. Calling $\textit{dfs2}(0, -1)$ and taking the smaller component is the answer.
 
 The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ is the number of trips and $n$ is the number of nodes.
 

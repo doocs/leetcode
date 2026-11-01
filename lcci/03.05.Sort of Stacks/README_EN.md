@@ -67,21 +67,21 @@ difficulty: Medium
 >
 > The top must stay the current minimum. Sorting only on query does not fit the stack API; a second stack lets insertion restore order.
 >
-> To place $val$ at the right depth, every strictly smaller top (those that should sit above $val$) is popped aside, $val$ is pushed, then those values return.
+> To place $\textit{val}$ at the right depth, every strictly smaller top (those that should sit above $\textit{val}$) is popped aside, $\textit{val}$ is pushed, then those values return.
 >
-> Auxiliary stack $t$ holds the smaller elements so $stk$ remains nondecreasing from the top. `pop`/`peek`/`isEmpty` touch only the top.
+> Auxiliary stack $t$ holds the smaller elements so $\textit{stk}$ remains nondecreasing from the top. `pop`/`peek`/`isEmpty` touch only the top.
 
 <!-- thinking:end -->
 
-We define a stack $stk$ for storing elements.
+We define a stack $\textit{stk}$ for storing elements.
 
-In the `push` operation, we define an auxiliary stack $t$ for storing elements in $stk$ that are smaller than the current element. We pop all elements smaller than the current element from $stk$ and store them in $t$, then push the current element into $stk$, and finally pop all elements from $t$ and push them back into $stk$. The time complexity is $O(n)$.
+In the `push` operation, we define an auxiliary stack $t$ for storing elements in $\textit{stk}$ that are smaller than the current element. We pop all elements smaller than the current element from $\textit{stk}$ and store them in $t$, then push the current element into $\textit{stk}$, and finally pop all elements from $t$ and push them back into $\textit{stk}$. The time complexity is $O(n)$.
 
-In the `pop` operation, we just need to check if $stk$ is empty. If it's not, we pop the top element. The time complexity is $O(1)$.
+In the `pop` operation, we just need to check if $\textit{stk}$ is empty. If it's not, we pop the top element. The time complexity is $O(1)$.
 
-In the `peek` operation, we just need to check if $stk$ is empty. If it is, we return -1, otherwise, we return the top element. The time complexity is $O(1)$.
+In the `peek` operation, we just need to check if $\textit{stk}$ is empty. If it is, we return -1, otherwise, we return the top element. The time complexity is $O(1)$.
 
-In the `isEmpty` operation, we just need to check if $stk$ is empty. The time complexity is $O(1)$.
+In the `isEmpty` operation, we just need to check if $\textit{stk}$ is empty. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of elements in the stack.
 

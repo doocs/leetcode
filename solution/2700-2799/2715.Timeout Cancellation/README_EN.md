@@ -92,7 +92,7 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), w
 >
 > We must invoke $fn$ after $t$ milliseconds and allow a cancel before it fires. A polled flag would still let the timer expire.
 >
-> $setTimeout$ schedules the call; the returned cancel function $clearTimeout$s the same handle. A cancel after firing is a no-op, as required.
+> $\textit{setTimeout}$ schedules the call; the returned cancel function $\textit{clearTimeout}$s the same handle. A cancel after firing is a no-op, as required.
 
 <!-- thinking:end -->
 

@@ -93,9 +93,9 @@ n = 5: 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
 
 We can see that the first half of each row is exactly the same as the previous row, and the second half is the inversion of the previous row. Note that "inversion" here means changing $0$ to $1$ and $1$ to $0$.
 
-If $k$ is in the first half, then the $k$-th character is the same as the $k$-th character of the previous row, so we can directly recurse with $kthGrammar(n - 1, k)$.
+If $k$ is in the first half, then the $k$-th character is the same as the $k$-th character of the previous row, so we can directly recurse with $\textit{kthGrammar}(n - 1, k)$.
 
-If $k$ is in the second half, then the $k$-th character is the inversion of the $(k - 2^{n - 2})$-th character of the previous row, i.e., $kthGrammar(n - 1, k - 2^{n - 2}) \oplus 1$.
+If $k$ is in the second half, then the $k$-th character is the inversion of the $(k - 2^{n - 2})$-th character of the previous row, i.e., $\textit{kthGrammar}(n - 1, k - 2^{n - 2}) \oplus 1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$.
 

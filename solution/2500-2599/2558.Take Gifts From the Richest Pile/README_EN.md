@@ -82,11 +82,11 @@ So, the total gifts remaining are 4.
 
 <!-- thinking:end -->
 
-We can store the array $gifts$ in a max heap, and then loop $k$ times, each time taking out the top element of the heap, taking the square root of it, and putting the result back into the heap.
+We can store the array $\textit{gifts}$ in a max heap, and then loop $k$ times, each time taking out the top element of the heap, taking the square root of it, and putting the result back into the heap.
 
 Finally, we add up all the elements in the heap as the answer.
 
-The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $gifts$.
+The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{gifts}$.
 
 <!-- tabs:start -->
 

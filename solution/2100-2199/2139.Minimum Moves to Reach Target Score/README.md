@@ -93,17 +93,17 @@ tags:
 
 <!-- thinking:end -->
 
-我们不妨从最终的状态开始倒推，假设最终的状态为 $target$，那么我们可以得到 $target$ 的前一个状态为 $target - 1$ 或者 $target / 2$，这取决于 $target$ 的奇偶性以及 $maxDoubles$ 的值。
+我们不妨从最终的状态开始倒推，假设最终的状态为 $\textit{target}$，那么我们可以得到 $\textit{target}$ 的前一个状态为 $\textit{target} - 1$ 或者 $\textit{target} / 2$，这取决于 $\textit{target}$ 的奇偶性以及 $\textit{maxDoubles}$ 的值。
 
-如果 $target=1$，那么不需要任何操作，直接返回 $0$ 即可。
+如果 $\textit{target}=1$，那么不需要任何操作，直接返回 $0$ 即可。
 
-如果 $maxDoubles=0$，那么我们只能使用递增操作，因此我们需要 $target-1$ 次操作。
+如果 $\textit{maxDoubles}=0$，那么我们只能使用递增操作，因此我们需要 $\textit{target}-1$ 次操作。
 
-如果 $target$ 是偶数且 $maxDoubles>0$，那么我们可以使用加倍操作，因此我们需要 $1$ 次操作，然后递归求解 $target/2$ 和 $maxDoubles-1$。
+如果 $\textit{target}$ 是偶数且 $\textit{maxDoubles}>0$，那么我们可以使用加倍操作，因此我们需要 $1$ 次操作，然后递归求解 $\textit{target}/2$ 和 $\textit{maxDoubles}-1$。
 
-如果 $target$ 是奇数，那么我们只能使用递增操作，因此我们需要 $1$ 次操作，然后递归求解 $target-1$ 和 $maxDoubles$。
+如果 $\textit{target}$ 是奇数，那么我们只能使用递增操作，因此我们需要 $1$ 次操作，然后递归求解 $\textit{target}-1$ 和 $\textit{maxDoubles}$。
 
-时间复杂度 $O(\min(\log target, maxDoubles))$，空间复杂度 $O(\min(\log target, maxDoubles))$。
+时间复杂度 $O(\min(\log \textit{target}, \textit{maxDoubles}))$，空间复杂度 $O(\min(\log \textit{target}, \textit{maxDoubles}))$。
 
 我们也可以将上述过程改为迭代的方式，这样可以避免递归的空间开销。
 

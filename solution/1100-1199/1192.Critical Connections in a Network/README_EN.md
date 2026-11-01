@@ -65,7 +65,7 @@ tags:
 
 > **Thinking**
 >
-> A critical connection is a bridge. Testing each edge with union-find or BFS is too slow on a large edge set. Tarjan's DFS keeps discovery time $dfn$ and earliest ancestor $low$; a tree edge with $low[v]>dfn[u]$ is a bridge. Skip the parent in an undirected graph so the tree edge is not treated as a back edge.
+> A critical connection is a bridge. Testing each edge with union-find or BFS is too slow on a large edge set. Tarjan's DFS keeps discovery time $\textit{dfn}$ and earliest ancestor $\textit{low}$; a tree edge with $\textit{low}[v]>\textit{dfn}[u]$ is a bridge. Skip the parent in an undirected graph so the tree edge is not treated as a back edge.
 
 <!-- thinking:end -->
 

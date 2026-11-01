@@ -82,7 +82,7 @@ tags:
 >
 > 可选取值随当前分数 $x$ 单调：不大于 $x$ 的奖励永远作废。排序后二分出第一项大于 $x$ 的位置。
 >
-> 记忆化 $dfs(x)$ 枚举此后每个 $v$ 并转到 $x+v$。分数上界约为 $2\max(rewardValues)$，状态可接受。
+> 记忆化 $\textit{dfs}(x)$ 枚举此后每个 $v$ 并转到 $x+v$。分数上界约为 $2\max(\textit{rewardValues})$，状态可接受。
 
 <!-- thinking:end -->
 
@@ -249,7 +249,7 @@ function maxTotalReward(rewardValues: number[]): number {
 >
 > 选 $v$ 的前提是当前分数小于 $v$，故 $f[j]$ 由 $f[j-v]$ 在 $0\le j-v<v$ 时置真。
 >
-> 排序去重后一维滚动： $f[0]=\mathrm{True}$，对每个 $v$ 更新合法的 $j$。最大的可达 $j$ 即答案。
+> 排序去重后一维滚动： $f[0]=\textit{True}$，对每个 $v$ 更新合法的 $j$。最大的可达 $j$ 即答案。
 
 <!-- thinking:end -->
 
@@ -265,7 +265,7 @@ $$
 
 由于 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i - 1][j - v]$ 有关，我们可以优化掉第一维，只使用一个一维数组进行状态转移。
 
-时间复杂度 $O(nM)$，空间复杂度 $O(M)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。
+时间复杂度 $O(\textit{nM})$，空间复杂度 $O(M)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。
 
 <!-- tabs:start -->
 
@@ -404,7 +404,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 > **思考**
 >
-> 方法二的内层扫 $j$ 达到 $O(nM)$。转移 $f[j]\lor=f[j-v]$（限 $j-v<v$）正是「取 $f$ 的低 $v$ 位再左移 $v$ 位」。
+> 方法二的内层扫 $j$ 达到 $O(\textit{nM})$。转移 $f[j]\lor=f[j-v]$（限 $j-v<v$）正是「取 $f$ 的低 $v$ 位再左移 $v$ 位」。
 >
 > 用一个整数当位图， $f$ 的第 $i$ 位表示分数 $i$ 可达。
 >
@@ -418,7 +418,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 那么答案为 $f$ 的最高位的位置。
 
-时间复杂度 $O(nM / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
+时间复杂度 $O(\textit{nM} / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
 
 <!-- tabs:start -->
 

@@ -98,7 +98,7 @@ tags:
 >
 > SQL 用 `GROUP_CONCAT(... ORDER BY city)`；pandas 则 `groupby` 后对城市列 `sorted` 再 `join`。
 >
-> 输出列命名为 $state$ 与 $cities$。每个州一行。
+> 输出列命名为 $\textit{state}$ 与 $\textit{cities}$。每个州一行。
 
 <!-- thinking:end -->
 

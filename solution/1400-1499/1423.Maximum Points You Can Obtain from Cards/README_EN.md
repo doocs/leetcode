@@ -81,9 +81,9 @@ tags:
 
 We can use a sliding window of length $k$ to simulate this process.
 
-Initially, we place the window at the end of the array, i.e., the $k$ positions from index $n-k$ to index $n-1$. The sum of the points of the cards in the window is denoted as $s$, and the initial value of the answer $ans$ is also $s$.
+Initially, we place the window at the end of the array, i.e., the $k$ positions from index $n-k$ to index $n-1$. The sum of the points of the cards in the window is denoted as $s$, and the initial value of the answer $\textit{ans}$ is also $s$.
 
-Next, we consider the situation where we take $1, 2, ..., k$ cards from the beginning of the array in turn. Suppose the card taken is $cardPoints[i]$. Then we add it to $s$. Due to the length limit of the window is $k$, we need to subtract $cardPoints[n-k+i]$ from $s$. In this way, we can calculate the sum of the points of the $k$ cards taken and update the answer $ans$.
+Next, we consider the situation where we take $1, 2, ..., k$ cards from the beginning of the array in turn. Suppose the card taken is $\textit{cardPoints}[i]$. Then we add it to $s$. Due to the length limit of the window is $k$, we need to subtract $\textit{cardPoints}[n-k+i]$ from $s$. In this way, we can calculate the sum of the points of the $k$ cards taken and update the answer $\textit{ans}$.
 
 The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the integer given in the problem.
 

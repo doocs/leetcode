@@ -73,11 +73,11 @@ tags:
 
 我们注意到，题目中要求找到不重复的四元组，那么我们可以先对数组进行排序，这样就可以方便地跳过重复的元素。
 
-接下来，我们枚举四元组的前两个元素 $nums[i]$ 和 $nums[j]$，其中 $i \lt j$，在枚举的过程中，我们跳过重复的 $nums[i]$ 和 $nums[j]$。然后，我们用两个指针 $k$ 和 $l$ 分别指向 $nums[i]$ 和 $nums[j]$ 后面的两端，令 $x = nums[i] + nums[j] + nums[k] + nums[l]$，我们将 $x$ 与 $target$ 比较，进行如下操作：
+接下来，我们枚举四元组的前两个元素 $\textit{nums}[i]$ 和 $\textit{nums}[j]$，其中 $i \lt j$，在枚举的过程中，我们跳过重复的 $\textit{nums}[i]$ 和 $\textit{nums}[j]$。然后，我们用两个指针 $k$ 和 $l$ 分别指向 $\textit{nums}[i]$ 和 $\textit{nums}[j]$ 后面的两端，令 $x = \textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] + \textit{nums}[l]$，我们将 $x$ 与 $\textit{target}$ 比较，进行如下操作：
 
-- 如果 $x \lt target$，则更新 $k = k + 1$ 以得到更大的 $x$；
-- 如果 $x \gt target$，则更新 $l = l - 1$ 以得到更小的 $x$；
-- 否则，说明找到了一个四元组 $(nums[i], nums[j], nums[k], nums[l])$，将其加入答案，然后我们更新指针 $k$ 和 $l$，并跳过所有重复的元素，防止答案中包含重复的四元组，继续寻找下一个四元组。
+- 如果 $x \lt \textit{target}$，则更新 $k = k + 1$ 以得到更大的 $x$；
+- 如果 $x \gt \textit{target}$，则更新 $l = l - 1$ 以得到更小的 $x$；
+- 否则，说明找到了一个四元组 $(\textit{nums}[i], \textit{nums}[j], \textit{nums}[k], \textit{nums}[l])$，将其加入答案，然后我们更新指针 $k$ 和 $l$，并跳过所有重复的元素，防止答案中包含重复的四元组，继续寻找下一个四元组。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 

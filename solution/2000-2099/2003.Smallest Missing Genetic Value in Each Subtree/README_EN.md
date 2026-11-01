@@ -93,21 +93,21 @@ tags:
 >
 > Walking that path upward only enlarges the gene set (the parent adds sibling subtrees). Already marked genes need not be rescanned.
 >
-> DFS from $idx$ toward the root fills $has$; a monotone pointer $i$ finds the smallest missing value and writes $ans[idx]$.
+> DFS from $\textit{idx}$ toward the root fills $\textit{has}$; a monotone pointer $i$ finds the smallest missing value and writes $\textit{ans}[\textit{idx}]$.
 
 <!-- thinking:end -->
 
-We notice that each node has a unique gene value, so we only need to find the node $idx$ with gene value $1$, and all nodes except for those on the path from node $idx$ to the root node $0$ have an answer of $1$.
+We notice that each node has a unique gene value, so we only need to find the node $\textit{idx}$ with gene value $1$, and all nodes except for those on the path from node $\textit{idx}$ to the root node $0$ have an answer of $1$.
 
-Therefore, we initialize the answer array $ans$ to $[1,1,...,1]$, and our focus is on finding the answer for each node on the path from node $idx$ to the root node $0$.
+Therefore, we initialize the answer array $\textit{ans}$ to $[1,1,...,1]$, and our focus is on finding the answer for each node on the path from node $\textit{idx}$ to the root node $0$.
 
-We can start from node $idx$ and use depth-first search to mark the gene values that appear in the subtree rooted at $idx$, and record them in the array $has$. During the search process, we use an array $vis$ to mark the visited nodes to prevent repeated visits.
+We can start from node $\textit{idx}$ and use depth-first search to mark the gene values that appear in the subtree rooted at $\textit{idx}$, and record them in the array $\textit{has}$. During the search process, we use an array $\textit{vis}$ to mark the visited nodes to prevent repeated visits.
 
-Next, we start from $i=2$ and keep looking for the first gene value that has not appeared, which is the answer for node $idx$. Here, $i$ is strictly increasing, because the gene values are unique, so we can always find a gene value that has not appeared in $[1,..n+1]$.
+Next, we start from $i=2$ and keep looking for the first gene value that has not appeared, which is the answer for node $\textit{idx}$. Here, $i$ is strictly increasing, because the gene values are unique, so we can always find a gene value that has not appeared in $[1,..n+1]$.
 
-Then, we update the answer for node $idx$, i.e., $ans[idx]=i$, and update $idx$ to its parent node to continue the above process until $idx=-1$, which means we have reached the root node $0$.
+Then, we update the answer for node $\textit{idx}$, i.e., $\textit{ans}[\textit{idx}]=i$, and update $\textit{idx}$ to its parent node to continue the above process until $\textit{idx}=-1$, which means we have reached the root node $0$.
 
-Finally, we return the answer array $ans$.
+Finally, we return the answer array $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -418,21 +418,21 @@ impl Solution {
 >
 > Walking that path upward only enlarges the gene set (the parent adds sibling subtrees). Already marked genes need not be rescanned.
 >
-> An explicit stack marks the subtree from $idx$ toward the root and fills $has$. A monotone pointer $i$ finds the smallest missing value and writes $ans[idx]$.
+> An explicit stack marks the subtree from $\textit{idx}$ toward the root and fills $\textit{has}$. A monotone pointer $i$ finds the smallest missing value and writes $\textit{ans}[\textit{idx}]$.
 
 <!-- thinking:end -->
 
-We notice that each node has a unique gene value, so we only need to find the node $idx$ with gene value $1$, and all nodes except for those on the path from node $idx$ to the root node $0$ have an answer of $1$.
+We notice that each node has a unique gene value, so we only need to find the node $\textit{idx}$ with gene value $1$, and all nodes except for those on the path from node $\textit{idx}$ to the root node $0$ have an answer of $1$.
 
-Therefore, we initialize the answer array $ans$ to $[1,1,...,1]$, and our focus is on finding the answer for each node on the path from node $idx$ to the root node $0$.
+Therefore, we initialize the answer array $\textit{ans}$ to $[1,1,...,1]$, and our focus is on finding the answer for each node on the path from node $\textit{idx}$ to the root node $0$.
 
-We can start from node $idx$ and use an explicit stack to mark the gene values that appear in the subtree rooted at $idx$, and record them in the array $has$. During the walk, we use an array $vis$ to mark the visited nodes to prevent repeated visits.
+We can start from node $\textit{idx}$ and use an explicit stack to mark the gene values that appear in the subtree rooted at $\textit{idx}$, and record them in the array $\textit{has}$. During the walk, we use an array $\textit{vis}$ to mark the visited nodes to prevent repeated visits.
 
-Next, we start from $i=2$ and keep looking for the first gene value that has not appeared, which is the answer for node $idx$. Here, $i$ is strictly increasing, because the gene values are unique, so we can always find a gene value that has not appeared in $[1,..n+1]$.
+Next, we start from $i=2$ and keep looking for the first gene value that has not appeared, which is the answer for node $\textit{idx}$. Here, $i$ is strictly increasing, because the gene values are unique, so we can always find a gene value that has not appeared in $[1,..n+1]$.
 
-Then, we update the answer for node $idx$, i.e., $ans[idx]=i$, and update $idx$ to its parent node to continue the above process until $idx=-1$, which means we have reached the root node $0$.
+Then, we update the answer for node $\textit{idx}$, i.e., $\textit{ans}[\textit{idx}]=i$, and update $\textit{idx}$ to its parent node to continue the above process until $\textit{idx}=-1$, which means we have reached the root node $0$.
 
-Finally, we return the answer array $ans$.
+Finally, we return the answer array $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

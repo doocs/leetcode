@@ -72,13 +72,13 @@ The 5 good pairs are <code>(0, 0)</code>, <code>(1, 0)</code>, <code>(1, 1)</cod
 >
 > $x$ pairs with $y$ iff $k$ divides $x$ and $x/k$ is a multiple of $y$. After counting quotients, walk multiples of each $y$.
 >
-> Build $cnt1$ from $nums1$ values divisible by $k$. For each $x$ in $cnt2$ step from $x$ to $mx$ and add $cnt1[y]\cdot v$. An empty $cnt1$ yields $0$.
+> Build $\textit{cnt1}$ from $\textit{nums1}$ values divisible by $k$. For each $x$ in $\textit{cnt2}$ step from $x$ to $mx$ and add $\textit{cnt1}[y]\cdot v$. An empty $\textit{cnt1}$ yields $0$.
 
 <!-- thinking:end -->
 
 We use a hash table `cnt1` to record the occurrence times of each number divided by $k$ in array `nums1`, and a hash table `cnt2` to record the occurrence times of each number in array `nums2`.
 
-Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, \textit{mx}]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
+Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, mx]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
 
 The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays `nums1` and `nums2` respectively, and $M$ is the maximum value in array `nums1`.
 

@@ -90,7 +90,7 @@ So, answer[2] = 1.
 
 > **Thinking**
 >
-> For every root we want the fewest reversals that make the whole tree reachable. A first DFS from $0$ counts backward edges as $ans[0]$. Rerooting along an edge changes the answer by $\pm 1$, so a second DFS fills every root.
+> For every root we want the fewest reversals that make the whole tree reachable. A first DFS from $0$ counts backward edges as $\textit{ans}[0]$. Rerooting along an edge changes the answer by $\pm 1$, so a second DFS fills every root.
 
 <!-- thinking:end -->
 
@@ -289,9 +289,9 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 >
 > For every node as root we want the fewest reversals that make the whole tree reachable from that node. With $n \le 10^5$, searching once per root is $O(n^2)$, and recursing from $0$ to count backward edges is too deep: a chain makes the call depth $n$.
 >
-> Store a directed edge $x \to y$ as weight $1$ when walking from $x$ to $y$ and weight $-1$ when walking back. While the root is $0$, a negative weight on the step to a child means the edge points away from the child and must be reversed. Moving the root to child $j$ changes the answer to $ans[i] + k$: weight $1$ was already correct and now needs a reversal, weight $-1$ was a reversal and is no longer needed.
+> Store a directed edge $x \to y$ as weight $1$ when walking from $x$ to $y$ and weight $-1$ when walking back. While the root is $0$, a negative weight on the step to a child means the edge points away from the child and must be reversed. Moving the root to child $j$ changes the answer to $\textit{ans}[i] + k$: weight $1$ was already correct and now needs a reversal, weight $-1$ was a reversal and is no longer needed.
 >
-> Both walks use an explicit stack and go from a parent to its children. The first walk only adds the backward edges into $ans[0]$. The second writes each new root with that increment. A frame is $(node, parent)$, and a child is processed only after its parent's answer is known.
+> Both walks use an explicit stack and go from a parent to its children. The first walk only adds the backward edges into $\textit{ans}[0]$. The second writes each new root with that increment. A frame is $(\textit{node}, \textit{parent})$, and a child is processed only after its parent's answer is known.
 
 <!-- thinking:end -->
 

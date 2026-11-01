@@ -89,15 +89,15 @@ tags:
 >
 > The conversion tree is the same as before, so $\textit{res}[i]$ — how many units of $i$ equal one unit of $0$ — is already known. Queries ask for a ratio between two units.
 >
-> The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{MOD-2}$.
+> The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{\textit{MOD}-2}$.
 
 <!-- thinking:end -->
 
 The conversion relations form a directed tree rooted at $0$. Starting a DFS from node $0$, we maintain `res[i]` as the number of units of type $i$ that equal $1$ unit of type $0$.
 
-For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
+For a query $(\textit{unitA}, \textit{unitB})$, the answer is $\frac{\textit{res}[\textit{unitB}]}{\textit{res}[\textit{unitA}]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
 
-The time complexity is $O(n + q \log MOD)$, and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
+The time complexity is $O(n + q \log \textit{MOD})$, and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
 
 <!-- tabs:start -->
 
@@ -366,17 +366,17 @@ impl Solution {
 >
 > There are $n - 1$ conversions and a unique path from $0$, so the graph is a directed tree rooted at $0$. With $n \le 10^5$, recursing from the root and multiplying along the way reaches depth $n$ on a chain and overflows the call stack. Each unit's factor relative to $0$ depends only on that path.
 >
-> An explicit stack of $(unit, accumulated\ factor)$ therefore starts at $(0, 1)$. Popping a frame writes $\textit{res}[i]$, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+> An explicit stack of $(\textit{unit}, \textit{accumulated}\ \textit{factor})$ therefore starts at $(0, 1)$. Popping a frame writes $\textit{res}[i]$, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
 >
-> A query asks for a ratio between two units. The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{MOD-2}$.
+> A query asks for a ratio between two units. The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{\textit{MOD}-2}$.
 
 <!-- thinking:end -->
 
-The conversion relations form a directed tree rooted at $0$. An explicit stack walks from the root. Each frame is $(unit, accumulated\ factor)$, starting from $(0, 1)$. Popping a frame writes `res[i]`, the number of units of type $i$ that equal $1$ unit of type $0$. Each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+The conversion relations form a directed tree rooted at $0$. An explicit stack walks from the root. Each frame is $(\textit{unit}, \textit{accumulated}\ \textit{factor})$, starting from $(0, 1)$. Popping a frame writes `res[i]`, the number of units of type $i$ that equal $1$ unit of type $0$. Each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
 
-For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
+For a query $(\textit{unitA}, \textit{unitB})$, the answer is $\frac{\textit{res}[\textit{unitB}]}{\textit{res}[\textit{unitA}]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
 
-The time complexity is $O(n + q \log MOD)$, and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
+The time complexity is $O(n + q \log \textit{MOD})$, and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

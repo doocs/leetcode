@@ -82,7 +82,7 @@ tags:
 
 <!-- thinking:end -->
 
-We directly traverse the mountains starting from index $1$. If the height of the mountain to its left is greater than $threshold$, we add its index to the result array.
+We directly traverse the mountains starting from index $1$. If the height of the mountain to its left is greater than $\textit{threshold}$, we add its index to the result array.
 
 After the traversal, we return the result array.
 

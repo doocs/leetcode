@@ -77,7 +77,7 @@ You need at least 3 days to eat the 6 oranges.
 >
 > Each day we may eat one orange, or half / two-thirds when the count divides. $n$ reaches $2\times 10^9$, so a DP array over remainders does not fit, and decrementing one by one is hopeless.
 >
-> An optimum first eats $n\bmod 2$ or $n\bmod 3$ oranges so that a divide-by-two or divide-by-three is legal. Hence $dfs(n)=1+\min(n\bmod 2+dfs(\lfloor n/2\rfloor), n\bmod 3+dfs(\lfloor n/3\rfloor))$. Division shrinks $n$ quickly; memoization keeps about $O(\log^2 n)$ states.
+> An optimum first eats $n\bmod 2$ or $n\bmod 3$ oranges so that a divide-by-two or divide-by-three is legal. Hence $\textit{dfs}(n)=1+\min(n\bmod 2+\textit{dfs}(\lfloor n/2\rfloor), n\bmod 3+\textit{dfs}(\lfloor n/3\rfloor))$. Division shrinks $n$ quickly; memoization keeps about $O(\log^2 n)$ states.
 
 <!-- thinking:end -->
 
@@ -89,12 +89,12 @@ According to the problem description, for each $n$, we can choose one of three w
 
 Therefore, the problem is equivalent to finding the minimum number of days to reduce $n$ to $0$ through the above three ways.
 
-We design a function $dfs(n)$, which represents the minimum number of days to reduce $n$ to $0$. The execution process of the function $dfs(n)$ is as follows:
+We design a function $\textit{dfs}(n)$, which represents the minimum number of days to reduce $n$ to $0$. The execution process of the function $\textit{dfs}(n)$ is as follows:
 
 1. If $n < 2$, return $n$;
-2. Otherwise, we can first reduce $n$ to a multiple of $2$ by $n \bmod 2$ operations of $1$, and then perform operation $2$ to reduce $n$ to $n/2$; we can also first reduce $n$ to a multiple of $3$ by $n \bmod 3$ operations of $1$, and then perform operation $3$ to reduce $n$ to $n/3$. We choose the minimum of the above two ways, that is, $1 + \min(n \bmod 2 + dfs(n/2), n \bmod 3 + dfs(n/3))$.
+2. Otherwise, we can first reduce $n$ to a multiple of $2$ by $n \bmod 2$ operations of $1$, and then perform operation $2$ to reduce $n$ to $n/2$; we can also first reduce $n$ to a multiple of $3$ by $n \bmod 3$ operations of $1$, and then perform operation $3$ to reduce $n$ to $n/3$. We choose the minimum of the above two ways, that is, $1 + \min(n \bmod 2 + \textit{dfs}(n/2), n \bmod 3 + \textit{dfs}(n/3))$.
 
-To avoid repeated calculations, we use the method of memoization search and store the calculated values of $dfs(n)$ in a hash table.
+To avoid repeated calculations, we use the method of memoization search and store the calculated values of $\textit{dfs}(n)$ in a hash table.
 
 The time complexity is $O(\log^2 n)$, and the space complexity is $O(\log^2 n)$.
 

@@ -46,7 +46,7 @@ comments: true
 >
 > 求 $\lfloor\sqrt{x}\rfloor$。从 $1$ 累加到答案是 $O(\sqrt{x})$。
 >
-> 所求是满足 $mid\le x/mid$ 的最大整数。二分时用除法代替乘法，避免溢出；取上中位数以便在左闭右闭区间上收缩到该最大值。
+> 所求是满足 $\textit{mid}\le x/\textit{mid}$ 的最大整数。二分时用除法代替乘法，避免溢出；取上中位数以便在左闭右闭区间上收缩到该最大值。
 
 <!-- thinking:end -->
 

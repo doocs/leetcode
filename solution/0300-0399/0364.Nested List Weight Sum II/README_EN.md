@@ -66,9 +66,9 @@ tags:
 
 > **Thinking**
 >
-> Unlike 339, the weight is $maxDepth-depth+1$. Two passes (find depth, then sum) work. One DFS can accumulate the plain sum $s$ and the depth-weighted sum $ws$.
+> Unlike 339, the weight is $\textit{maxDepth}-\textit{depth}+1$. Two passes (find depth, then sum) work. One DFS can accumulate the plain sum $s$ and the depth-weighted sum $ws$.
 >
-> The target is $\sum a_i(maxDepth-d_i+1)=(maxDepth+1)s-ws$. The DFS updates $maxDepth$ and, on an integer, adds to both $s$ and $ws$.
+> The target is $\sum a_i(\textit{maxDepth}-d_i+1)=(\textit{maxDepth}+1)s-ws$. The DFS updates $\textit{maxDepth}$ and, on an integer, adds to both $s$ and $ws$.
 
 <!-- thinking:end -->
 
@@ -90,13 +90,13 @@ $$
 (\textit{maxDepth} + 1) \times s - ws
 $$
 
-Therefore, we design a function $dfs(x, d)$, which starts searching from $x$ with depth $d$. The execution process of $dfs(x, d)$ is as follows:
+Therefore, we design a function $\textit{dfs}(x, d)$, which starts searching from $x$ with depth $d$. The execution process of $\textit{dfs}(x, d)$ is as follows:
 
 - We first update $\textit{maxDepth} = \max(\textit{maxDepth}, d)$;
 - If $x$ is an integer, then we update $s = s + x$, $ws = ws + x \times d$;
-- Otherwise, we recursively traverse each element $y$ of $x$, and call $dfs(y, d + 1)$.
+- Otherwise, we recursively traverse each element $y$ of $x$, and call $\textit{dfs}(y, d + 1)$.
 
-We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\textit{maxDepth} + 1) \times s - ws$.
+We traverse the entire list, for each element $x$, we call $\textit{dfs}(x, 1)$, and finally return $(\textit{maxDepth} + 1) \times s - ws$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of integers.
 

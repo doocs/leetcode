@@ -114,14 +114,14 @@ tags:
 
 <!-- thinking:end -->
 
-We first convert the array $\text{edges}$ into an adjacency list representation of an undirected graph, where $g[u]$ represents all nodes adjacent to node $u$.
+We first convert the array $\textit{edges}$ into an adjacency list representation of an undirected graph, where $g[u]$ represents all nodes adjacent to node $u$.
 
 Next, we can use Breadth-First Search (BFS) to find the diameter endpoints of the tree. The specific steps are as follows:
 
 1. Starting from any node (e.g., node $0$), use BFS to find the farthest node $a$ from that node.
-2. Starting from node $a$, use BFS again to find the farthest node $b$ from node $a$, as well as the distance array $\text{dist1}$ from node $a$ to all other nodes.
-3. Starting from node $b$, use BFS to find the distance array $\text{dist2}$ from node $b$ to all other nodes.
-4. The diameter length of the tree is $\text{dist1}[b]$. For each node $i$, if $\text{dist1}[i]$ or $\text{dist2}[i]$ equals the diameter length, then node $i$ is a special node.
+2. Starting from node $a$, use BFS again to find the farthest node $b$ from node $a$, as well as the distance array $\textit{dist1}$ from node $a$ to all other nodes.
+3. Starting from node $b$, use BFS to find the distance array $\textit{dist2}$ from node $b$ to all other nodes.
+4. The diameter length of the tree is $\textit{dist1}[b]$. For each node $i$, if $\textit{dist1}[i]$ or $\textit{dist2}[i]$ equals the diameter length, then node $i$ is a special node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

@@ -73,9 +73,9 @@ counter.reset(); // 0
 
 > **Thinking**
 >
-> Increment, decrement, and reset must share one counter. Separate globals would collide; a closed-over $val$ keeps state per instance.
+> Increment, decrement, and reset must share one counter. Separate globals would collide; a closed-over $\textit{val}$ keeps state per instance.
 >
-> `increment`/`decrement` update $val$ and return it; `reset` writes the original $init$ back.
+> `increment`/`decrement` update $\textit{val}$ and return it; `reset` writes the original $\textit{init}$ back.
 
 <!-- thinking:end -->
 

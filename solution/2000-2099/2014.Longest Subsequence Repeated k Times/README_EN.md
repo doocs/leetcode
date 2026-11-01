@@ -90,11 +90,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can first count the occurrences of each character in the string, and then store the characters that appear at least $k$ times in a list $\textit{cs}$ in ascending order. Next, we can use BFS to enumerate all possible subsequences.
+We can first count the occurrences of each character in the string, and then store the characters that appear at least $k$ times in a list $cs$ in ascending order. Next, we can use BFS to enumerate all possible subsequences.
 
-We define a queue $\textit{q}$, initially putting the empty string into the queue. Then, we take out a string $\textit{cur}$ from the queue and try to append each character $c \in \textit{cs}$ to the end of $\textit{cur}$ to form a new string $\textit{nxt}$. If $\textit{nxt}$ is a subsequence that can be repeated $k$ times, we add it to the answer and put $\textit{nxt}$ back into the queue for further processing.
+We define a queue $q$, initially putting the empty string into the queue. Then, we take out a string $\textit{cur}$ from the queue and try to append each character $c \in cs$ to the end of $\textit{cur}$ to form a new string $\textit{nxt}$. If $\textit{nxt}$ is a subsequence that can be repeated $k$ times, we add it to the answer and put $\textit{nxt}$ back into the queue for further processing.
 
-We need an auxiliary function $\textit{check(t, k)}$ to determine whether the string $\textit{t}$ is a repeated $k$ times subsequence of string $s$. Specifically, we can use two pointers to traverse $s$ and $\textit{t}$. If we can find all characters of $\textit{t}$ in $s$ and repeat this process $k$ times, then return $\textit{true}$; otherwise, return $\textit{false}$.
+We need an auxiliary function $\textit{check}(t, k)$ to determine whether the string $t$ is a repeated $k$ times subsequence of string $s$. Specifically, we can use two pointers to traverse $s$ and $t$. If we can find all characters of $t$ in $s$ and repeat this process $k$ times, then return $\textit{true}$; otherwise, return $\textit{false}$.
 
 <!-- tabs:start -->
 

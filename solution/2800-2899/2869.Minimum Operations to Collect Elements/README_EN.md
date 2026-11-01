@@ -78,7 +78,7 @@ tags:
 
 We can traverse the array in reverse order. For each element encountered during the traversal that is less than or equal to $k$ and has not been added to the set yet, we add it to the set until the set contains elements from $1$ to $k$.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

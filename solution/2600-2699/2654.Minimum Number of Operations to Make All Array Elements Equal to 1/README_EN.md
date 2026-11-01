@@ -72,7 +72,7 @@ tags:
 
 > **Thinking**
 >
-> An operation overwrites a neighbor with their gcd. If a $1$ already exists, the remaining $n-cnt$ positions each need one overwrite. Otherwise a $1$ must be created first.
+> An operation overwrites a neighbor with their gcd. If a $1$ already exists, the remaining $n-\textit{cnt}$ positions each need one overwrite. Otherwise a $1$ must be created first.
 >
 > Gcds drop on longer intervals; the shortest interval whose gcd is $1$ costs $mi-1$ operations, then $n-1$ more spread that $1$.
 >
@@ -80,13 +80,13 @@ tags:
 
 <!-- thinking:end -->
 
-We first count the number of $1$s in the array $nums$ as $cnt$. If $cnt \gt 0$, then we only need $n - cnt$ operations to turn the entire array into $1$s.
+We first count the number of $1$s in the array $\textit{nums}$ as $\textit{cnt}$. If $\textit{cnt} \gt 0$, then we only need $n - \textit{cnt}$ operations to turn the entire array into $1$s.
 
 Otherwise, we need to first turn one element in the array into $1$, and then the minimum number of remaining operations is $n - 1$.
 
-Consider how to turn one element in the array into $1$ while minimizing the number of operations. In fact, we only need to find a minimum contiguous subarray interval $nums[i,..j]$ such that the greatest common divisor of all elements in the subarray is $1$, with the subarray length being $mi = \min(mi, j - i + 1)$. Finally, our total number of operations is $n - 1 + mi - 1$.
+Consider how to turn one element in the array into $1$ while minimizing the number of operations. In fact, we only need to find a minimum contiguous subarray interval $\textit{nums}[i,..j]$ such that the greatest common divisor of all elements in the subarray is $1$, with the subarray length being $mi = \min(mi, j - i + 1)$. Finally, our total number of operations is $n - 1 + mi - 1$.
 
-The time complexity is $O(n(n + \log M))$, and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+The time complexity is $O(n(n + \log M))$, and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

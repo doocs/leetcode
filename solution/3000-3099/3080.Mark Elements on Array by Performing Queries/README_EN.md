@@ -97,15 +97,15 @@ tags:
 
 <!-- thinking:end -->
 
-First, we calculate the sum $s$ of the array $nums$. We define an array $mark$ to indicate whether the elements in the array have been marked, initializing all elements as unmarked.
+First, we calculate the sum $s$ of the array $\textit{nums}$. We define an array $\textit{mark}$ to indicate whether the elements in the array have been marked, initializing all elements as unmarked.
 
-Then, we create an array $arr$, where each element is a tuple $(x, i)$, indicating that the $i$-th element in the array has a value of $x$. We sort the array $arr$ by the value of the elements. If the values are equal, we sort them in ascending order of the index.
+Then, we create an array $\textit{arr}$, where each element is a tuple $(x, i)$, indicating that the $i$-th element in the array has a value of $x$. We sort the array $\textit{arr}$ by the value of the elements. If the values are equal, we sort them in ascending order of the index.
 
-Next, we traverse the array $queries$. For each query $[index, k]$, we first check whether the element at index $index$ has been marked. If it has not been marked, we mark it and subtract the value of the element at index $index$ from $s$. Then, we traverse the array $arr$. For each element $(x, i)$, if element $i$ has not been marked, we mark it and subtract the value $x$ corresponding to element $i$ from $s$, until $k$ is $0$ or the array $arr$ is fully traversed. Then, we add $s$ to the answer array.
+Next, we traverse the array $\textit{queries}$. For each query $[\textit{index}, k]$, we first check whether the element at index $\textit{index}$ has been marked. If it has not been marked, we mark it and subtract the value of the element at index $\textit{index}$ from $s$. Then, we traverse the array $\textit{arr}$. For each element $(x, i)$, if element $i$ has not been marked, we mark it and subtract the value $x$ corresponding to element $i$ from $s$, until $k$ is $0$ or the array $\textit{arr}$ is fully traversed. Then, we add $s$ to the answer array.
 
 After traversing all the queries, we get the answer array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -69,33 +69,33 @@ tags:
 
 > **Thinking**
 >
-> Every window of length $k$ XORing to $0$ implies $nums[i]=nums[i+k]$: the answer is periodic with period $k$ and one period XORs to $0$. Values fit in $10$ bits, so DP by residue class.
+> Every window of length $k$ XORing to $0$ implies $\textit{nums}[i]=\textit{nums}[i+k]$: the answer is periodic with period $k$ and one period XORs to $0$. Values fit in $10$ bits, so DP by residue class.
 >
-> $f[j]$ is the fewest changes so that processed groups XOR to $j$. A group is rewritten to a fresh value (cost $=$ group size) or to an existing $v$ (saving $cnt[v]$). After $k$ groups take $f[0]$.
+> $f[j]$ is the fewest changes so that processed groups XOR to $j$. A group is rewritten to a fresh value (cost $=$ group size) or to an existing $v$ (saving $\textit{cnt}[v]$). After $k$ groups take $f[0]$.
 
 <!-- thinking:end -->
 
 Notice that after modifying the array `nums`, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:
 
 $$
-nums[i] \oplus nums[i+1] \oplus ... \oplus nums[i+k-1] = 0
+\textit{nums}[i] \oplus \textit{nums}[i+1] \oplus ... \oplus \textit{nums}[i+k-1] = 0
 $$
 
 and
 
 $$
-nums[i+1] \oplus nums[i+2] \oplus ... \oplus nums[i+k] = 0
+\textit{nums}[i+1] \oplus \textit{nums}[i+2] \oplus ... \oplus \textit{nums}[i+k] = 0
 $$
 
-Combining the two equations and the properties of XOR operation, we can get $nums[i] \oplus nums[i+k] = 0$, which means $nums[i]=nums[i+k]$. We find that the elements in the modified array `nums` are cyclic with a period of $k$. The numbers congruent modulo $k$ can only take a fixed value, and the XOR result of the first $k$ numbers must be $0$.
+Combining the two equations and the properties of XOR operation, we can get $\textit{nums}[i] \oplus \textit{nums}[i+k] = 0$, which means $\textit{nums}[i]=\textit{nums}[i+k]$. We find that the elements in the modified array `nums` are cyclic with a period of $k$. The numbers congruent modulo $k$ can only take a fixed value, and the XOR result of the first $k$ numbers must be $0$.
 
-First, we count each group $i$, the number of elements in each group is $size[i]$, and the number of elements with value $v$ in each group is $cnt[i][v]$.
+First, we count each group $i$, the number of elements in each group is $\textit{size}[i]$, and the number of elements with value $v$ in each group is $\textit{cnt}[i][v]$.
 
 Next, we can use dynamic programming to solve it. Let $f[i][j]$ represent the minimum number of modifications with the XOR sum of the first $i+1$ groups being $j$. Since the value of each group is only related to the value of the previous group, we can use a rolling array to optimize the space complexity.
 
 Redefine $f[j]$ to represent the minimum number of modifications with the XOR sum being $j$ when processing to the current group.
 
-When transitioning states, there are two choices: one is to modify all the numbers in the current group to the same value, then we can choose the one with the smallest previous cost, plus the number of elements $size[i]$ in this group, the cost is $\min{f[0..n]} + size[i]$; the second is to modify all the numbers in the current group to some value $j$ of the current group, enumerate $j$ and the element $v$ of the current group, then the previous cost is $f[j \oplus v]$, the cost is $f[j \oplus v] + size[i] - cnt[i][v]$. Take the minimum value.
+When transitioning states, there are two choices: one is to modify all the numbers in the current group to the same value, then we can choose the one with the smallest previous cost, plus the number of elements $\textit{size}[i]$ in this group, the cost is $\min{f[0..n]} + \textit{size}[i]$; the second is to modify all the numbers in the current group to some value $j$ of the current group, enumerate $j$ and the element $v$ of the current group, then the previous cost is $f[j \oplus v]$, the cost is $f[j \oplus v] + \textit{size}[i] - \textit{cnt}[i][v]$. Take the minimum value.
 
 The final answer is $f[0]$.
 

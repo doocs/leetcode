@@ -80,17 +80,17 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 
 > **Thinking**
 >
-> `visit` drops forward history; `back`/`forward` walk a timeline. $stk1$ holds the path to the current page, $stk2$ the forward pages. A visit pushes onto $stk1$ and clears $stk2$; back pops onto $stk2$, forward pops back.
+> `visit` drops forward history; `back`/`forward` walk a timeline. $\textit{stk1}$ holds the path to the current page, $\textit{stk2}$ the forward pages. A visit pushes onto $\textit{stk1}$ and clears $\textit{stk2}$; back pops onto $\textit{stk2}$, forward pops back.
 
 <!-- thinking:end -->
 
 We can use two stacks, $\textit{stk1}$ and $\textit{stk2}$, to store the back and forward pages, respectively. Initially, $\textit{stk1}$ contains the $\textit{homepage}$, and $\textit{stk2}$ is empty.
 
-When calling $\text{visit}(url)$, we add $\textit{url}$ to $\textit{stk1}$ and clear $\textit{stk2}$. The time complexity is $O(1)$.
+When calling $\textit{visit}(\textit{url})$, we add $\textit{url}$ to $\textit{stk1}$ and clear $\textit{stk2}$. The time complexity is $O(1)$.
 
-When calling $\text{back}(steps)$, we pop the top element from $\textit{stk1}$ and push it to $\textit{stk2}$. We repeat this operation $steps$ times until the length of $\textit{stk1}$ is $1$ or $steps$ is $0$. Finally, we return the top element of $\textit{stk1}$. The time complexity is $O(\textit{steps})$.
+When calling $\textit{back}(\textit{steps})$, we pop the top element from $\textit{stk1}$ and push it to $\textit{stk2}$. We repeat this operation $\textit{steps}$ times until the length of $\textit{stk1}$ is $1$ or $\textit{steps}$ is $0$. Finally, we return the top element of $\textit{stk1}$. The time complexity is $O(\textit{steps})$.
 
-When calling $\text{forward}(steps)$, we pop the top element from $\textit{stk2}$ and push it to $\textit{stk1}$. We repeat this operation $steps$ times until $\textit{stk2}$ is empty or $steps$ is $0$. Finally, we return the top element of $\textit{stk1}$. The time complexity is $O(\textit{steps})$.
+When calling $\textit{forward}(\textit{steps})$, we pop the top element from $\textit{stk2}$ and push it to $\textit{stk1}$. We repeat this operation $\textit{steps}$ times until $\textit{stk2}$ is empty or $\textit{steps}$ is $0$. Finally, we return the top element of $\textit{stk1}$. The time complexity is $O(\textit{steps})$.
 
 The space complexity is $O(n)$, where $n$ is the length of the browsing history.
 

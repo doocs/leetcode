@@ -79,7 +79,7 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 >
 > We change the number at an index and query the smallest index of a number. Up to $10^5$ operations rule out linear scans.
 >
-> Map $d$ stores the value at each index; a sorted set $g[number]$ stores its indices. A change removes the old index and inserts the new one; $find$ reads the first element of the set.
+> Map $d$ stores the value at each index; a sorted set $g[\textit{number}]$ stores its indices. A change removes the old index and inserts the new one; $\textit{find}$ reads the first element of the set.
 
 <!-- thinking:end -->
 

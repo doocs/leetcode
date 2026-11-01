@@ -100,9 +100,9 @@ We can group consecutive identical characters in the string $\textit{word}$. Sin
 
 If $k < 1$, it means that after selecting one character from each group, the requirement of length at least $k$ is already satisfied, so the answer is $a$.
 
-Otherwise, we need to calculate the value of $b$. We use a 2D array $\textit{f}$, where $\textit{f}[i][j]$ represents the number of ways to select $j$ characters from the first $i$ groups. Initially, $\textit{f}[0][0] = 1$, meaning there is $1$ way to select $0$ characters from $0$ groups. Then $b = \sum_{j=0}^{k-1} \text{f}[m][j]$, where $m$ is the length of $\textit{nums}$. The answer is $a - b$.
+Otherwise, we need to calculate the value of $b$. We use a 2D array $f$, where $f[i][j]$ represents the number of ways to select $j$ characters from the first $i$ groups. Initially, $f[0][0] = 1$, meaning there is $1$ way to select $0$ characters from $0$ groups. Then $b = \sum_{j=0}^{k-1} f[m][j]$, where $m$ is the length of $\textit{nums}$. The answer is $a - b$.
 
-Consider the transition equation for $\textit{f}[i][j]$. For the $i$-th group of characters, suppose its remaining length is $x$. For each $j$, we can enumerate the number of characters $l$ chosen from this group, where $l \in [0, \min(x, j)]$. Then, $\textit{f}[i][j]$ can be transferred from $\textit{f}[i-1][j-l]$. We can use prefix sums to optimize this transition.
+Consider the transition equation for $f[i][j]$. For the $i$-th group of characters, suppose its remaining length is $x$. For each $j$, we can enumerate the number of characters $l$ chosen from this group, where $l \in [0, \min(x, j)]$. Then, $f[i][j]$ can be transferred from $f[i-1][j-l]$. We can use prefix sums to optimize this transition.
 
 The time complexity is $O(n + k^2)$, and the space complexity is $O(k^2)$, where $n$ is the length of the string $\textit{word}$.
 

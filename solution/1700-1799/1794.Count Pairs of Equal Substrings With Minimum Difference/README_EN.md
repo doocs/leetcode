@@ -65,17 +65,17 @@ tags:
 
 > **Thinking**
 >
-> A valid quadruple needs equal substrings and minimal $j-a$. Equality collapses to a single character: the leftmost occurrence in $firstString$ paired with the rightmost same character in $secondString$.
+> A valid quadruple needs equal substrings and minimal $j-a$. Equality collapses to a single character: the leftmost occurrence in $\textit{firstString}$ paired with the rightmost same character in $\textit{secondString}$.
 >
-> Map each character of $secondString$ to its last index. Walk $firstString$ and update the global minimum of $i-\textit{last}[c]$ together with its multiplicity.
+> Map each character of $\textit{secondString}$ to its last index. Walk $\textit{firstString}$ and update the global minimum of $i-\textit{last}[c]$ together with its multiplicity.
 
 <!-- thinking:end -->
 
-The problem actually asks us to find a smallest index $i$ and a largest index $j$ such that $firstString[i]$ equals $secondString[j]$, and the value of $i - j$ is the smallest among all index pairs that meet the conditions.
+The problem actually asks us to find a smallest index $i$ and a largest index $j$ such that $\textit{firstString}[i]$ equals $\textit{secondString}[j]$, and the value of $i - j$ is the smallest among all index pairs that meet the conditions.
 
-Therefore, we first use a hash table $last$ to record the index of the last occurrence of each character in $secondString$. Then we traverse $firstString$. For each character $c$, if $c$ has appeared in $secondString$, we calculate $i - last[c]$. If the value of $i - last[c]$ is less than the current minimum value, we update the minimum value and set the answer to 1. If the value of $i - last[c]$ equals the current minimum value, we increment the answer by 1.
+Therefore, we first use a hash table $\textit{last}$ to record the index of the last occurrence of each character in $\textit{secondString}$. Then we traverse $\textit{firstString}$. For each character $c$, if $c$ has appeared in $\textit{secondString}$, we calculate $i - \textit{last}[c]$. If the value of $i - \textit{last}[c]$ is less than the current minimum value, we update the minimum value and set the answer to 1. If the value of $i - \textit{last}[c]$ equals the current minimum value, we increment the answer by 1.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(C)$, where $m$ and $n$ are the lengths of $firstString$ and $secondString$ respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(m + n)$, and the space complexity is $O(C)$, where $m$ and $n$ are the lengths of $\textit{firstString}$ and $\textit{secondString}$ respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

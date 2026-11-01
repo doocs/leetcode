@@ -72,20 +72,20 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i]$ to represent the maximum value of the subarray ending with $nums[i]$, and define $g[i]$ to represent the minimum value of the subarray ending with $nums[i]$. Then the state transition equation of $f[i]$ and $g[i]$ is as follows:
+We define $f[i]$ to represent the maximum value of the subarray ending with $\textit{nums}[i]$, and define $g[i]$ to represent the minimum value of the subarray ending with $\textit{nums}[i]$. Then the state transition equation of $f[i]$ and $g[i]$ is as follows:
 
 $$
 \begin{aligned}
-f[i] &= \max(f[i - 1], 0) + nums[i] \\
-g[i] &= \min(g[i - 1], 0) + nums[i]
+f[i] &= \max(f[i - 1], 0) + \textit{nums}[i] \\
+g[i] &= \min(g[i - 1], 0) + \textit{nums}[i]
 \end{aligned}
 $$
 
-The final answer is the maximum value of $max(f[i], |g[i]|)$.
+The final answer is the maximum value of $\max(f[i], |g[i]|)$.
 
 Since $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$, we can use two variables to replace the array, reducing the space complexity to $O(1)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

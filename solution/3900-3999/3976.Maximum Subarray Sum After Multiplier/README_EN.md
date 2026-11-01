@@ -98,7 +98,7 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ as the maximum subarray sum ending at $nums[i]$ with current state $j$. There are $4$ states for $j$:
+We define $f[i][j]$ as the maximum subarray sum ending at $\textit{nums}[i]$ with current state $j$. There are $4$ states for $j$:
 
 - State $0$: the current subarray has not undergone any operation yet;
 - State $1$: the current subarray is being multiplied by $k$;
@@ -107,12 +107,12 @@ We define $f[i][j]$ as the maximum subarray sum ending at $nums[i]$ with current
 
 Initially, $f[0][0] = 0$, and all other $f[i][j] = -\infty$.
 
-Next, we consider the state transitions. For the $i$-th number $nums[i]$, we can choose not to perform any operation, multiply by $k$, divide by $k$, or continue after the operation has been completed:
+Next, we consider the state transitions. For the $i$-th number $\textit{nums}[i]$, we can choose not to perform any operation, multiply by $k$, divide by $k$, or continue after the operation has been completed:
 
-- If we perform no operation, then $f[i][0] = \max(f[i-1][0], 0) + nums[i]$;
-- If we multiply by $k$, then $f[i][1] = \max(f[i-1][0], f[i-1][1], 0) + nums[i] \times k$;
-- If we divide by $k$, then $f[i][2] = \max(f[i-1][0], f[i-1][2], 0) + \operatorname{trunc}(nums[i]/k)$, where the quotient is rounded toward zero;
-- If the operation has been completed, then $f[i][3] = \max(f[i-1][1], f[i-1][2], f[i-1][3]) + nums[i]$.
+- If we perform no operation, then $f[i][0] = \max(f[i-1][0], 0) + \textit{nums}[i]$;
+- If we multiply by $k$, then $f[i][1] = \max(f[i-1][0], f[i-1][1], 0) + \textit{nums}[i] \times k$;
+- If we divide by $k$, then $f[i][2] = \max(f[i-1][0], f[i-1][2], 0) + \textit{trunc}(\textit{nums}[i]/k)$, where the quotient is rounded toward zero;
+- If the operation has been completed, then $f[i][3] = \max(f[i-1][1], f[i-1][2], f[i-1][3]) + \textit{nums}[i]$.
 
 We take the maximum among all states as the answer.
 

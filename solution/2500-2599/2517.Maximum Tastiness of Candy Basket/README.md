@@ -85,13 +85,13 @@ tags:
 
 我们注意到，如果一个甜蜜度为 $x$ 的礼盒是可行的，那么甜蜜度小于 $x$ 的礼盒也是可行的，这存在着单调性，因此我们可以使用二分查找的方法，找到最大的可行甜蜜度。
 
-我们首先将数组 $price$ 排序，然后定义二分查找的左边界 $l=0$, $r=price[n-1]-price[0]$。每一次，我们计算出当前的中间值 $mid = \lfloor \frac{l+r+1}{2} \rfloor$，以 $mid$ 作为甜蜜度，判断是否可行。若可行，那么我们将左边界 $l$ 更新为 $mid$，否则将右边界 $r$ 更新为 $mid-1$。最后返回 $l$ 即可。
+我们首先将数组 $\textit{price}$ 排序，然后定义二分查找的左边界 $l=0$, $r=\textit{price}[n-1]-\textit{price}[0]$。每一次，我们计算出当前的中间值 $\textit{mid} = \lfloor \frac{l+r+1}{2} \rfloor$，以 $\textit{mid}$ 作为甜蜜度，判断是否可行。若可行，那么我们将左边界 $l$ 更新为 $\textit{mid}$，否则将右边界 $r$ 更新为 $\textit{mid}-1$。最后返回 $l$ 即可。
 
-那么问题的关键转化为：判断一个甜蜜度是否可行，我们通过函数 $check(x)$ 来实现。函数 $check(x)$ 的执行逻辑如下：
+那么问题的关键转化为：判断一个甜蜜度是否可行，我们通过函数 $\textit{check}(x)$ 来实现。函数 $\textit{check}(x)$ 的执行逻辑如下：
 
-定义一个变量 $cnt$ 表示当前已经选取的糖果的数量，初始值为 $0$，定义一个变量 $pre$ 表示上一个选取的糖果的价格，初始值为 $-x$。然后我们遍历排好序的数组 $price$，对于每一个糖果的价格 $cur$，如果 $cur-pre \geq x$，那么我们就选取这个糖果，将 $pre$ 更新为 $cur$，并将 $cnt$ 加一。最后判断 $cnt$ 是否大于等于 $k$，如果是，那么返回 $true$，否则返回 $false$。
+定义一个变量 $\textit{cnt}$ 表示当前已经选取的糖果的数量，初始值为 $0$，定义一个变量 $\textit{pre}$ 表示上一个选取的糖果的价格，初始值为 $-x$。然后我们遍历排好序的数组 $\textit{price}$，对于每一个糖果的价格 $\textit{cur}$，如果 $\textit{cur}-\textit{pre} \geq x$，那么我们就选取这个糖果，将 $\textit{pre}$ 更新为 $\textit{cur}$，并将 $\textit{cnt}$ 加一。最后判断 $\textit{cnt}$ 是否大于等于 $k$，如果是，那么返回 $\textit{true}$，否则返回 $\textit{false}$。
 
-时间复杂度 $O(n(\log n + \log M))$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $price$ 的长度；而 $M$ 是数组 $price$ 中的最大值，本题中 $M \leq 10^9$。
+时间复杂度 $O(n(\log n + \log M))$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{price}$ 的长度；而 $M$ 是数组 $\textit{price}$ 中的最大值，本题中 $M \leq 10^9$。
 
 <!-- tabs:start -->
 

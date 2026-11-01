@@ -80,7 +80,7 @@ Note that (2, 0, 4) is not a valid triplet because 2 &gt; 0.
 
 We can directly enumerate all triples $(i, j, k)$ and count all the ones that meet the conditions.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -217,11 +217,11 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can also sort the array $nums$ first.
+We can also sort the array $\textit{nums}$ first.
 
-Then traverse $nums$, enumerate the middle element $nums[j]$, and use binary search to find the nearest index $i$ on the left side of $nums[j]$ such that $nums[i] < nums[j]$; find the nearest index $k$ on the right side of $nums[j]$ such that $nums[k] > nums[j]$. Then the number of triples with $nums[j]$ as the middle element and meeting the conditions is $(i + 1) \times (n - k)$, which is added to the answer.
+Then traverse $\textit{nums}$, enumerate the middle element $\textit{nums}[j]$, and use binary search to find the nearest index $i$ on the left side of $\textit{nums}[j]$ such that $\textit{nums}[i] < \textit{nums}[j]$; find the nearest index $k$ on the right side of $\textit{nums}[j]$ such that $\textit{nums}[k] > \textit{nums}[j]$. Then the number of triples with $\textit{nums}[j]$ as the middle element and meeting the conditions is $(i + 1) \times (n - k)$, which is added to the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -372,11 +372,11 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can also use a hash table $cnt$ to count the number of each element in the array $nums$.
+We can also use a hash table $\textit{cnt}$ to count the number of each element in the array $\textit{nums}$.
 
-Then traverse the hash table $cnt$, enumerate the number of middle elements $b$, and denote the number of elements on the left as $a$. Then the number of elements on the right is $c = n - a - b$. At this time, the number of triples that meet the conditions is $a \times b \times c$, which is added to the answer. Then update $a = a + b$ and continue to enumerate the number of middle elements $b$.
+Then traverse the hash table $\textit{cnt}$, enumerate the number of middle elements $b$, and denote the number of elements on the left as $a$. Then the number of elements on the right is $c = n - a - b$. At this time, the number of triples that meet the conditions is $a \times b \times c$, which is added to the answer. Then update $a = a + b$ and continue to enumerate the number of middle elements $b$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

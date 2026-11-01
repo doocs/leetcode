@@ -68,16 +68,16 @@ tags:
 >
 > 一棵子树是单值，当且仅当左右子树都是单值且根值与孩子相同。自底向上一次遍历即可计数。
 >
-> $dfs$ 返回该子树是否单值：左右皆真且两侧值（空则视作根值）等于根时，答案加一并返回真。
+> $\textit{dfs}$ 返回该子树是否单值：左右皆真且两侧值（空则视作根值）等于根时，答案加一并返回真。
 
 <!-- thinking:end -->
 
-我们设计一个递归函数 $dfs(root)$，该函数返回以 $root$ 为根的子树中所有节点的值是否相同。
+我们设计一个递归函数 $\textit{dfs}(\textit{root})$，该函数返回以 $\textit{root}$ 为根的子树中所有节点的值是否相同。
 
-函数 $dfs(root)$ 的递归过程如下：
+函数 $\textit{dfs}(\textit{root})$ 的递归过程如下：
 
-- 如果 $root$ 为空，则返回 `true`；
-- 否则，我们递归地计算 $root$ 的左右子树，记为 $l$ 和 $r$；如果 $l$ 为 `false` 或者 $r$ 为 `false`，则返回 `false`；如果 $root$ 的左子树不为空且 $root$ 的左子树的值不等于 $root$ 的值，或者 $root$ 的右子树不为空且 $root$ 的右子树的值不等于 $root$ 的值，则返回 `false`；否则，我们将答案加一，并返回 `true`。
+- 如果 $\textit{root}$ 为空，则返回 `true`；
+- 否则，我们递归地计算 $\textit{root}$ 的左右子树，记为 $l$ 和 $r$；如果 $l$ 为 `false` 或者 $r$ 为 `false`，则返回 `false`；如果 $\textit{root}$ 的左子树不为空且 $\textit{root}$ 的左子树的值不等于 $\textit{root}$ 的值，或者 $\textit{root}$ 的右子树不为空且 $\textit{root}$ 的右子树的值不等于 $\textit{root}$ 的值，则返回 `false`；否则，我们将答案加一，并返回 `true`。
 
 递归结束后，返回答案即可。
 

@@ -64,12 +64,12 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $\textit{dfs}(\textit{root1}, \textit{root2})$ to determine whether two binary trees are symmetric. The answer is $\textit{dfs}(\textit{root.left}, \textit{root.right})$.
+We design a function $\textit{dfs}(\textit{root1}, \textit{root2})$ to determine whether two binary trees are symmetric. The answer is $\textit{dfs}(\textit{root}.\textit{left}, \textit{root}.\textit{right})$.
 
 The logic of the function $\textit{dfs}(\textit{root1}, \textit{root2})$ is as follows:
 
 - If both $\textit{root1}$ and $\textit{root2}$ are null, the two binary trees are symmetric, and we return `true`;
-- If only one of $\textit{root1}$ and $\textit{root2}$ is null, or $\textit{root1.val} \neq \textit{root2.val}$, we return `false`;
+- If only one of $\textit{root1}$ and $\textit{root2}$ is null, or $\textit{root1}.\textit{val} \neq \textit{root2}.\textit{val}$, we return `false`;
 - Otherwise, we check whether the left subtree of $\textit{root1}$ is symmetric with the right subtree of $\textit{root2}$, and whether the right subtree of $\textit{root1}$ is symmetric with the left subtree of $\textit{root2}$, using recursion.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.

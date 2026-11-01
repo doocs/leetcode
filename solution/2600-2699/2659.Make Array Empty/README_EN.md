@@ -166,13 +166,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we use a hash table $pos$ to record the position of each element in array $nums$. Then, we sort array $nums$. The initial answer is the position of the minimum element in array $nums$ plus 1, which is $ans = pos[nums[0]] + 1$.
+First, we use a hash table $\textit{pos}$ to record the position of each element in array $\textit{nums}$. Then, we sort array $\textit{nums}$. The initial answer is the position of the minimum element in array $\textit{nums}$ plus 1, which is $\textit{ans} = \textit{pos}[\textit{nums}[0]] + 1$.
 
-Next, we traverse the sorted array $nums$, the indexes of the two adjacent elements $a$ and $b$ are $i = pos[a]$, $j = pos[b]$. The number of operations needed to move the second element $b$ to the first position of the array and delete it is equal to the interval between the two indexes, minus the number of indexes deleted between the two indexes, and add the number of operations to the answer. We can use a Fenwick tree or an ordered list to maintain the deleted indexes between two indexes, so that we can find the number of deleted indexes between two indexes in $O(\log n)$ time. Note that if $i \gt j$, then we need to increase $n - k$ operations, where $k$ is the current position.
+Next, we traverse the sorted array $\textit{nums}$, the indexes of the two adjacent elements $a$ and $b$ are $i = \textit{pos}[a]$, $j = \textit{pos}[b]$. The number of operations needed to move the second element $b$ to the first position of the array and delete it is equal to the interval between the two indexes, minus the number of indexes deleted between the two indexes, and add the number of operations to the answer. We can use a Fenwick tree or an ordered list to maintain the deleted indexes between two indexes, so that we can find the number of deleted indexes between two indexes in $O(\log n)$ time. Note that if $i \gt j$, then we need to increase $n - k$ operations, where $k$ is the current position.
 
-After the traversal is over, return the number of operations $ans$.
+After the traversal is over, return the number of operations $\textit{ans}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

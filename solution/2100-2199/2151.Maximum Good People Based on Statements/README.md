@@ -120,9 +120,9 @@ tags:
 
 <!-- thinking:end -->
 
-二进制枚举好人的状态 $mask$，由于“好人只说真话”，我们借此判断 $statements$ 与 $mask$ 是否存在矛盾，不存在则获取 $mask$ 中好人的数量 $cnt$。迭代获取最大的合法 $cnt$。
+二进制枚举好人的状态 $\textit{mask}$，由于“好人只说真话”，我们借此判断 $\textit{statements}$ 与 $\textit{mask}$ 是否存在矛盾，不存在则获取 $\textit{mask}$ 中好人的数量 $\textit{cnt}$。迭代获取最大的合法 $\textit{cnt}$。
 
-时间复杂度 $O(2^n n^2)$。其中 $n$ 表示 $statements$ 的长度。
+时间复杂度 $O(2^n n^2)$。其中 $n$ 表示 $\textit{statements}$ 的长度。
 
 <!-- tabs:start -->
 

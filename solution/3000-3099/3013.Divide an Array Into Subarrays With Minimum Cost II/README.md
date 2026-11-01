@@ -92,11 +92,11 @@ tags:
 
 题目需要我们将数组 $\textit{nums}$ 分割成 $k$ 个连续且不相交的子数组，并且第二个子数组的第一个元素与第 $k$ 个子数组的第一个元素的下标距离不超过 $\textit{dist}$，这等价于让我们从 $\textit{nums}$ 下标为 $1$ 的元素开始，找到一个窗口大小为 $\textit{dist}+1$ 的子数组，求其中前 $k-1$ 的最小元素之和。我们将 $k$ 减 $1$，这样我们只需要求出 $k$ 个最小元素之和，再加上 $\textit{nums}[0]$ 即可。
 
-我们可以使用两个有序集合 $\textit{l}$ 和 $\textit{r}$ 分别维护大小为 $\textit{dist} + 1$ 的窗口元素，其中 $\textit{l}$ 维护最小的 $k$ 个元素，而 $\textit{r}$ 维护窗口的剩余元素。我们维护一个变量 $\textit{s}$ 表示 $\textit{nums}[0]$ 与 $l$ 中元素之和。初始时，我们将前 $\textit{dist}+2$ 个元素之和累加到 $\textit{s}$ 中，并将下标为 $[1, \textit{dist} + 1]$ 的所有元素加入到 $\textit{l}$ 中。如果 $\textit{l}$ 的大小大于 $k$，我们循环将 $\textit{l}$ 中的最大元素移动到 $\textit{r}$ 中，直到 $\textit{l}$ 的大小等于 $k$，过程中更新 $\textit{s}$ 的值。
+我们可以使用两个有序集合 $l$ 和 $r$ 分别维护大小为 $\textit{dist} + 1$ 的窗口元素，其中 $l$ 维护最小的 $k$ 个元素，而 $r$ 维护窗口的剩余元素。我们维护一个变量 $s$ 表示 $\textit{nums}[0]$ 与 $l$ 中元素之和。初始时，我们将前 $\textit{dist}+2$ 个元素之和累加到 $s$ 中，并将下标为 $[1, \textit{dist} + 1]$ 的所有元素加入到 $l$ 中。如果 $l$ 的大小大于 $k$，我们循环将 $l$ 中的最大元素移动到 $r$ 中，直到 $l$ 的大小等于 $k$，过程中更新 $s$ 的值。
 
-那么此时初始答案 $\textit{ans} = \textit{s}$。
+那么此时初始答案 $\textit{ans} = s$。
 
-接下来我们从 $\textit{dist}+2$ 开始遍历 $\textit{nums}$，对于每一个元素 $\textit{nums}[i]$，我们需要将 $\textit{nums}[i-\textit{dist}-1]$ 从 $\textit{l}$ 或 $\textit{r}$ 中移除，然后将 $\textit{nums}[i]$ 加入到 $\textit{l}$ 或 $\textit{r}$ 中。如果 $\textit{nums}[i]$ 小于 $\textit{l}$ 中的最大元素，我们将 $\textit{nums}[i]$ 加入到 $\textit{l}$ 中，否则加入到 $\textit{r}$ 中。如果此时 $\textit{l}$ 的大小小于 $k$，我们将 $\textit{r}$ 中的最小元素移动到 $\textit{l}$ 中，直到 $\textit{l}$ 的大小等于 $k$。如果此时 $\textit{l}$ 的大小大于 $k$，我们将 $\textit{l}$ 中的最大元素移动到 $\textit{r}$ 中，直到 $\textit{l}$ 的大小等于 $k$。过程中更新 $\textit{s}$ 的值，并更新 $\textit{ans} = \min(\textit{ans}, \textit{s})$。
+接下来我们从 $\textit{dist}+2$ 开始遍历 $\textit{nums}$，对于每一个元素 $\textit{nums}[i]$，我们需要将 $\textit{nums}[i-\textit{dist}-1]$ 从 $l$ 或 $r$ 中移除，然后将 $\textit{nums}[i]$ 加入到 $l$ 或 $r$ 中。如果 $\textit{nums}[i]$ 小于 $l$ 中的最大元素，我们将 $\textit{nums}[i]$ 加入到 $l$ 中，否则加入到 $r$ 中。如果此时 $l$ 的大小小于 $k$，我们将 $r$ 中的最小元素移动到 $l$ 中，直到 $l$ 的大小等于 $k$。如果此时 $l$ 的大小大于 $k$，我们将 $l$ 中的最大元素移动到 $r$ 中，直到 $l$ 的大小等于 $k$。过程中更新 $s$ 的值，并更新 $\textit{ans} = \min(\textit{ans}, s)$。
 
 最终答案即为 $\textit{ans}$。
 

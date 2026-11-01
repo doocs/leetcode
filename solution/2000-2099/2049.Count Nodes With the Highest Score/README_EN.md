@@ -77,29 +77,29 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 
 > **Thinking**
 >
-> Removing a node scores the product of component sizes. With $n \le 10^5$ we need all scores in one walk. Subtree sizes appear on the DFS unwind; the complement is $n-cnt$.
+> Removing a node scores the product of component sizes. With $n \le 10^5$ we need all scores in one walk. Subtree sizes appear on the DFS unwind; the complement is $n-\textit{cnt}$.
 >
-> Build child lists and DFS from the root: multiply child sizes, then $n-cnt$ if nonzero. Track the maximum score and its multiplicity.
+> Build child lists and DFS from the root: multiply child sizes, then $n-\textit{cnt}$ if nonzero. Track the maximum score and its multiplicity.
 
 <!-- thinking:end -->
 
-First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
+First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $\textit{ans}$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
 
 Then, we design a function `dfs(i, fa)` to calculate the score of node $i$ and return the number of nodes in the subtree rooted at node $i$.
 
 The calculation process of the function `dfs(i, fa)` is as follows:
 
-We first initialize a variable $cnt = 1$, representing the number of nodes in the subtree rooted at node $i$; a variable $score = 1$, representing the initial score of node $i$.
+We first initialize a variable $\textit{cnt} = 1$, representing the number of nodes in the subtree rooted at node $i$; a variable $\textit{score} = 1$, representing the initial score of node $i$.
 
-Next, we traverse all child nodes $j$ of node $i$. If $j$ is not the parent node $fa$ of node $i$, then we recursively call `dfs(j, i)`, and multiply the return value into $score$, and add the return value to $cnt$.
+Next, we traverse all child nodes $j$ of node $i$. If $j$ is not the parent node $fa$ of node $i$, then we recursively call `dfs(j, i)`, and multiply the return value into $\textit{score}$, and add the return value to $\textit{cnt}$.
 
-After traversing the child nodes, if $n - cnt > 0$, then we multiply $n - cnt$ into $score$.
+After traversing the child nodes, if $n - \textit{cnt} > 0$, then we multiply $n - \textit{cnt}$ into $\textit{score}$.
 
-Then, we check whether $mx$ is less than $score$. If it is less, then we update $mx$ to $score$, and update $ans$ to $1$; if it is equal, then we update $ans$ to $ans + 1$.
+Then, we check whether $mx$ is less than $\textit{score}$. If it is less, then we update $mx$ to $\textit{score}$, and update $\textit{ans}$ to $1$; if it is equal, then we update $\textit{ans}$ to $\textit{ans} + 1$.
 
-Finally, we return $cnt$.
+Finally, we return $\textit{cnt}$.
 
-In the end, we call `dfs(0, -1)` and return $ans$.
+In the end, we call `dfs(0, -1)` and return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -358,13 +358,13 @@ public class Solution {
 >
 > The product needs every child's subtree size, and the component above the node has size $n$ minus that subtree.
 >
-> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, multiply the child subtree sizes, then multiply by $n-cnt$ when a component remains above, and track the maximum score and how many nodes reach it.
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, multiply the child subtree sizes, then multiply by $n-\textit{cnt}$ when a component remains above, and track the maximum score and how many nodes reach it.
 
 <!-- thinking:end -->
 
-First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
+First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $\textit{ans}$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
 
-An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $cnt = 1$ and $score = 1$. Multiply each child's subtree size into $score$ and add it to $cnt$. If $n - cnt > 0$, also multiply $n - cnt$ into $score$. If $score$ is greater than $mx$, set $mx$ to $score$ and $ans$ to $1$; if they are equal, add $1$ to $ans$. Store $cnt$ as the current node's subtree size.
+An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $\textit{cnt} = 1$ and $\textit{score} = 1$. Multiply each child's subtree size into $\textit{score}$ and add it to $\textit{cnt}$. If $n - \textit{cnt} > 0$, also multiply $n - \textit{cnt}$ into $\textit{score}$. If $\textit{score}$ is greater than $mx$, set $mx$ to $\textit{score}$ and $\textit{ans}$ to $1$; if they are equal, add $1$ to $\textit{ans}$. Store $\textit{cnt}$ as the current node's subtree size.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

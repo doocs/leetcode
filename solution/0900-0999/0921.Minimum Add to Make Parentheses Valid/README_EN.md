@@ -180,7 +180,7 @@ function minAddToMakeValid(s: string): number {
 
 > **Thinking**
 >
-> The stack only needs the count of unmatched left parentheses, not the characters. $cnt$ tracks those lefts, unmatched rights go into $ans$, and the leftover $cnt$ is added at the end, using constant extra space.
+> The stack only needs the count of unmatched left parentheses, not the characters. $\textit{cnt}$ tracks those lefts, unmatched rights go into $\textit{ans}$, and the leftover $\textit{cnt}$ is added at the end, using constant extra space.
 
 <!-- thinking:end -->
 
@@ -191,7 +191,7 @@ Define a variable `cnt` to represent the current number of left parentheses to b
 Iterate through each character $c$ in the string $s$:
 
 - If $c$ is a left parenthesis, increase the value of `cnt` by $1$;
-- If $c$ is a right parenthesis, at this point if $cnt > 0$, it means that there are left parentheses that can be matched, so decrease the value of `cnt` by $1$; otherwise, it means that the current right parenthesis cannot be matched, so increase the value of `ans` by $1$.
+- If $c$ is a right parenthesis, at this point if $\textit{cnt} > 0$, it means that there are left parentheses that can be matched, so decrease the value of `cnt` by $1$; otherwise, it means that the current right parenthesis cannot be matched, so increase the value of `ans` by $1$.
 
 After the iteration ends, add the value of `cnt` to `ans`, which is the answer.
 

@@ -101,7 +101,7 @@ So, the problem is transformed into how to find all the edges in the same connec
 
 We can use a union-find set to maintain the connected components.
 
-Specifically, we traverse each edge $(u, v, w)$ and merge $u$ and $v$. Then, we traverse each edge $(u, v, w)$ again, find the root node $root$ of the connected component where $u$ and $v$ are located, and use an array $g$ to record the result of the bitwise AND operation of the weights of all edges in each connected component.
+Specifically, we traverse each edge $(u, v, w)$ and merge $u$ and $v$. Then, we traverse each edge $(u, v, w)$ again, find the root node $\textit{root}$ of the connected component where $u$ and $v$ are located, and use an array $g$ to record the result of the bitwise AND operation of the weights of all edges in each connected component.
 
 Finally, for each query $(s, t)$, we first judge whether $s$ equals $t$. If they are equal, the answer is $0$. Otherwise, we judge whether $s$ and $t$ are in the same connected component. If they are in the same connected component, the answer is the $g$ value of the root node of the connected component of this query. Otherwise, the answer is $-1$.
 

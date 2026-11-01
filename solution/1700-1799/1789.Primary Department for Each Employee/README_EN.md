@@ -88,7 +88,7 @@ Employee table:
 >
 > If a primary flag is set, take that row; an employee in only one department is reported even when the flag is $N$. Union the two sets.
 >
-> Select rows with $\textit{primary\_flag}='Y'$, then $\mathrm{UNION}$ employees whose group count is $1$.
+> Select rows with $\textit{primary\_flag}='Y'$, then $\textit{UNION}$ employees whose group count is $1$.
 
 <!-- thinking:end -->
 

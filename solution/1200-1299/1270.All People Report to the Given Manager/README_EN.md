@@ -87,7 +87,7 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 
 > **Thinking**
 >
-> The hierarchy is at most three levels and the CEO is id $1$. Two self-joins walk $manager\_id$ to the manager's manager; if that is $1$ and the employee is not $1$, the employee reports to the CEO. The number of joins matches the depth bound.
+> The hierarchy is at most three levels and the CEO is id $1$. Two self-joins walk $\textit{manager\_id}$ to the manager's manager; if that is $1$ and the employee is not $1$, the employee reports to the CEO. The number of joins matches the depth bound.
 
 <!-- thinking:end -->
 

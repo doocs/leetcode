@@ -77,9 +77,9 @@ Files table:
 
 > **Thinking**
 >
-> Count standalone occurrences of $bull$ and $bear$. Tokenizing with a regular expression works, but there are only two target words and they must be space-delimited.
+> Count standalone occurrences of $\textit{bull}$ and $\textit{bear}$. Tokenizing with a regular expression works, but there are only two target words and they must be space-delimited.
 >
-> Count each word with $LIKE\ '\%\ word\ \%'$ and $UNION$ the two rows, so substrings inside other tokens are not counted.
+> Count each word with $\textit{LIKE}\ '\%\ \textit{word}\ \%'$ and $\textit{UNION}$ the two rows, so substrings inside other tokens are not counted.
 
 <!-- thinking:end -->
 

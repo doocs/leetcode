@@ -85,15 +85,15 @@ tags:
 >
 > The suffix average depends only on the suffix sum and its length.
 >
-> Walk right to left with a running suffix sum $\textit{suf}$, compare $nums[i]$ with $\textit{suf}/(n-i-1)$, then fold $nums[i]$ into the suffix.
+> Walk right to left with a running suffix sum $\textit{suf}$, compare $\textit{nums}[i]$ with $\textit{suf}/(n-i-1)$, then fold $\textit{nums}[i]$ into the suffix.
 >
 > One reverse pass decides every index.
 
 <!-- thinking:end -->
 
-We can traverse the array from back to front, maintaining a suffix sum $\text{suf}$, which represents the sum of all elements to the right of the current element. For each element, we check if it is greater than the average value of the elements to its right $\frac{\text{suf}}{n - i - 1}$. If so, we increment the answer by one. Finally, we return the answer.
+We can traverse the array from back to front, maintaining a suffix sum $\textit{suf}$, which represents the sum of all elements to the right of the current element. For each element, we check if it is greater than the average value of the elements to its right $\frac{\textit{suf}}{n - i - 1}$. If so, we increment the answer by one. Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

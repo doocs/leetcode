@@ -74,7 +74,7 @@ Logs table:
 
 > **Thinking**
 >
-> Find numbers that appear at least three times in a row. Self-join the log twice, requiring adjacent $\textit{id}$s to differ by $1$ and $\textit{num}$ to match. That pins a window of length $3$; then distinct the values.
+> Find numbers that appear at least three times in a row. Self-join the log twice, requiring adjacent $id$s to differ by $1$ and $\textit{num}$ to match. That pins a window of length $3$; then distinct the values.
 
 <!-- thinking:end -->
 
@@ -128,7 +128,7 @@ JOIN Logs AS l3 ON l2.id = l3.id - 1 AND l2.num = l3.num;
 
 <!-- thinking:end -->
 
-We can use the window functions `LAG` and `LEAD` to obtain the `num` of the previous row and the next row of the current row, and record them in the fields $a$ and $b$, respectively. Finally, we only need to filter out the rows where $a = num$ and $b = num$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
+We can use the window functions `LAG` and `LEAD` to obtain the `num` of the previous row and the next row of the current row, and record them in the fields $a$ and $b$, respectively. Finally, we only need to filter out the rows where $a = \textit{num}$ and $b = \textit{num}$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
 
 We can also group the numbers by using the `IF` function to determine whether the `num` of the current row is equal to the `num` of the previous row. If they are equal, we set it to $0$, otherwise we set it to $1$. Then, we use the window function `SUM` to calculate the prefix sum, which is the grouping identifier. Finally, we only need to group by the grouping identifier and filter out the numbers with a row count greater than or equal to $3$ in each group. Similarly, we need to use the `DISTINCT` keyword to remove duplicates from the results.
 

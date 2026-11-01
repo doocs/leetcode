@@ -89,7 +89,7 @@ tags:
 >
 > That maximum is $m$ minus the minimum distance to an array element. BFS on the hypercube, flipping one bit at a time from the array values, yields every mask's nearest neighbor in the array.
 >
-> Set $dist[x]=0$ for $x$ in $nums$ and expand. For a query $x$ the answer is $m-dist[x\oplus(2^m-1)]$, converting distance-to-complement into maximum distance.
+> Set $\textit{dist}[x]=0$ for $x$ in $\textit{nums}$ and expand. For a query $x$ the answer is $m-\textit{dist}[x\oplus(2^m-1)]$, converting distance-to-complement into maximum distance.
 
 <!-- thinking:end -->
 
@@ -100,8 +100,8 @@ We can use Breadth-First Search (BFS) to find the minimum Hamming distance from 
 The specific steps are as follows:
 
 1. Initialize an array $\textit{dist}$ with a length of $2^m$ to record the minimum Hamming distance from each complemented element to other elements. Initially, all are set to $-1$.
-2. Traverse the array $\textit{nums}$, set the complement of each element to $0$, and add it to the queue $\textit{q}$.
-3. Starting from $k = 1$, continuously traverse the queue $\textit{q}$. Each time, take out the elements in the queue, perform $m$ complement operations on them, add the complemented elements to the queue $\textit{t}$, and set the minimum Hamming distance to the original element to $k$.
+2. Traverse the array $\textit{nums}$, set the complement of each element to $0$, and add it to the queue $q$.
+3. Starting from $k = 1$, continuously traverse the queue $q$. Each time, take out the elements in the queue, perform $m$ complement operations on them, add the complemented elements to the queue $t$, and set the minimum Hamming distance to the original element to $k$.
 4. Repeat step 3 until the queue is empty.
 
 Finally, we traverse the array $\textit{nums}$, take the complement of each element as the index, and take out the corresponding minimum Hamming distance from the $\textit{dist}$ array. Then, $m$ minus this value is the maximum Hamming distance we are looking for.

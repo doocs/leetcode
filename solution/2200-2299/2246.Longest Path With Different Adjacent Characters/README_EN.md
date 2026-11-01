@@ -76,11 +76,11 @@ It can be proven that there is no longer path that satisfies the conditions.
 
 <!-- thinking:end -->
 
-First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
+First, we construct an adjacency list $g$ based on the array $\textit{parent}$, where $g[i]$ represents all child nodes of node $i$.
 
-Then we start DFS from the root node. For each node $i$, we traverse each child node $j$ in $g[i]$. If $s[i] \neq s[j]$, then we can start from node $i$, pass through node $j$, and reach a leaf node. The length of this path is $x = 1 + \textit{dfs}(j)$. We use $mx$ to record the longest path length starting from node $i$. At the same time, we update the answer $ans = \max(ans, mx + x)$ during the traversal process.
+Then we start DFS from the root node. For each node $i$, we traverse each child node $j$ in $g[i]$. If $s[i] \neq s[j]$, then we can start from node $i$, pass through node $j$, and reach a leaf node. The length of this path is $x = 1 + \textit{dfs}(j)$. We use $mx$ to record the longest path length starting from node $i$. At the same time, we update the answer $\textit{ans} = \max(\textit{ans}, mx + x)$ during the traversal process.
 
-Finally, we return $ans + 1$.
+Finally, we return $\textit{ans} + 1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -241,15 +241,15 @@ function longestPath(parent: number[], s: string): number {
 >
 > Such a path either stays inside one subtree or joins two downward chains at one vertex. When a node is left, each child's downward length is already known. The chain can be attached only when $s[i] \neq s[j]$, and its length is the child's length plus one. Join that chain with the best one already seen, then keep the longer of the two as this node's downward chain.
 >
-> An explicit stack of $(node, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer and the downward length. Adding one at the end counts the nodes on the path.
+> An explicit stack of $(\textit{node}, \textit{state})$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer and the downward length. Adding one at the end counts the nodes on the path.
 
 <!-- thinking:end -->
 
-First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
+First, we construct an adjacency list $g$ based on the array $\textit{parent}$, where $g[i]$ represents all child nodes of node $i$.
 
-An explicit stack walks from the root in postorder. When node $i$ is left, each child $j$ contributes $x$, one more than the longest chain downward from $j$. If $s[i] \neq s[j]$, update the answer with $ans = \max(ans, mx + x)$ and then set $mx = \max(mx, x)$. Here $mx$ is the longest downward chain from $i$ whose first step has a different character.
+An explicit stack walks from the root in postorder. When node $i$ is left, each child $j$ contributes $x$, one more than the longest chain downward from $j$. If $s[i] \neq s[j]$, update the answer with $\textit{ans} = \max(\textit{ans}, mx + x)$ and then set $mx = \max(mx, x)$. Here $mx$ is the longest downward chain from $i$ whose first step has a different character.
 
-Finally, we return $ans + 1$.
+Finally, we return $\textit{ans} + 1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

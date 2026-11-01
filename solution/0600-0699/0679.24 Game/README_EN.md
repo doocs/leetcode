@@ -85,13 +85,13 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $dfs(nums)$, where $nums$ represents the current number sequence. The function returns a boolean value indicating whether there exists a permutation that makes this number sequence equal to $24$.
+We design a function $\textit{dfs}(\textit{nums})$, where $\textit{nums}$ represents the current number sequence. The function returns a boolean value indicating whether there exists a permutation that makes this number sequence equal to $24$.
 
-If the length of $nums$ is $1$, we return $true$ only when this number is $24$, otherwise we return $false$.
+If the length of $\textit{nums}$ is $1$, we return $\textit{true}$ only when this number is $24$, otherwise we return $\textit{false}$.
 
-Otherwise, we can enumerate any two numbers $a$ and $b$ in $nums$ as the left and right operands, and enumerate the operator $op$ between $a$ and $b$. The result of $a\ op\ b$ can be used as an element of the new number sequence. We add it to the new number sequence and remove $a$ and $b$ from $nums$, then recursively call the $dfs$ function. If it returns $true$, it means we have found a permutation that makes this number sequence equal to $24$, and we return $true$.
+Otherwise, we can enumerate any two numbers $a$ and $b$ in $\textit{nums}$ as the left and right operands, and enumerate the operator $op$ between $a$ and $b$. The result of $a\ op\ b$ can be used as an element of the new number sequence. We add it to the new number sequence and remove $a$ and $b$ from $\textit{nums}$, then recursively call the $\textit{dfs}$ function. If it returns $\textit{true}$, it means we have found a permutation that makes this number sequence equal to $24$, and we return $\textit{true}$.
 
-If none of the enumerated cases return $true$, we return $false$.
+If none of the enumerated cases return $\textit{true}$, we return $\textit{false}$.
 
 <!-- tabs:start -->
 

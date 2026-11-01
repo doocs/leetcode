@@ -119,7 +119,7 @@ tags:
 
 > **Thinking**
 >
-> $s[i]=\texttt{T}$ forces $ans[i..i+m)=t$; $\texttt{F}$ forbids equality. The string has length $n+m-1$ and should be lexicographically smallest, so we start from all $\texttt{a}$.
+> $s[i]=\texttt{T}$ forces $\textit{ans}[i..i+m)=t$; $\texttt{F}$ forbids equality. The string has length $n+m-1$ and should be lexicographically smallest, so we start from all $\texttt{a}$.
 >
 > T-constraints may conflict and must be written first, marking $\textit{fixed}$. An F-constraint that still equals $t$ must flip one unfixed cell.
 >
@@ -127,15 +127,15 @@ tags:
 
 <!-- thinking:end -->
 
-Let $str1$ be $s$ and $str2$ be $t$.
+Let $\textit{str1}$ be $s$ and $\textit{str2}$ be $t$.
 
-We can use a string $ans$ of length $n + m - 1$ to store the generated string, where each character of $ans$ is initially set to $'a'$. We also need a boolean array $fixed$ of length $n + m - 1$ to record which positions in $ans$ have already been fixed.
+We can use a string $\textit{ans}$ of length $n + m - 1$ to store the generated string, where each character of $\textit{ans}$ is initially set to $'a'$. We also need a boolean array $\textit{fixed}$ of length $n + m - 1$ to record which positions in $\textit{ans}$ have already been fixed.
 
-First, we iterate through the string $s$. For each index $i$, if $s[i]$ is 'T', we need to set the substring of $ans$ starting at index $i$ with length $m$ to $t$. During this process, if we find that a position has already been fixed and the character does not match the corresponding character in $t$, it means it is impossible to generate a valid string, so we return an empty string immediately.
+First, we iterate through the string $s$. For each index $i$, if $s[i]$ is 'T', we need to set the substring of $\textit{ans}$ starting at index $i$ with length $m$ to $t$. During this process, if we find that a position has already been fixed and the character does not match the corresponding character in $t$, it means it is impossible to generate a valid string, so we return an empty string immediately.
 
-Next, we iterate through $s$ again. For each index $i$, if $s[i]$ is 'F', we need to check whether the substring of $ans$ starting at index $i$ with length $m$ is equal to $t$. If it is, we need to find a position in this substring and change its character to 'b' (since 'b' is lexicographically greater than 'a'), to ensure this substring is not equal to $t$. If we cannot find such a position, it means it is impossible to generate a valid string, so we return an empty string immediately.
+Next, we iterate through $s$ again. For each index $i$, if $s[i]$ is 'F', we need to check whether the substring of $\textit{ans}$ starting at index $i$ with length $m$ is equal to $t$. If it is, we need to find a position in this substring and change its character to 'b' (since 'b' is lexicographically greater than 'a'), to ensure this substring is not equal to $t$. If we cannot find such a position, it means it is impossible to generate a valid string, so we return an empty string immediately.
 
-Finally, we concatenate the characters in $ans$ into a string and return it.
+Finally, we concatenate the characters in $\textit{ans}$ into a string and return it.
 
 The time complexity is $O(nm)$, and the space complexity is $O(n + m)$.
 

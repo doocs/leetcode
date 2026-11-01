@@ -72,23 +72,23 @@ tags:
 
 > **思考**
 >
-> 数组重复 $k$ 次后的最大子段和，子段至多跨过整段重复。先在单份上做 Kadane 得 $mxSub$，并记录最大前缀、最小前缀（从而得最大后缀）。 $k=1$ 时即为 $mxSub$；否则还可取「前缀+后缀」，若总和为正还可再加中间 $k-2$ 个整段。 $k$ 可达 $10^5$，不能真正拼接。
+> 数组重复 $k$ 次后的最大子段和，子段至多跨过整段重复。先在单份上做 Kadane 得 $\textit{mxSub}$，并记录最大前缀、最小前缀（从而得最大后缀）。 $k=1$ 时即为 $\textit{mxSub}$；否则还可取「前缀+后缀」，若总和为正还可再加中间 $k-2$ 个整段。 $k$ 可达 $10^5$，不能真正拼接。
 
 <!-- thinking:end -->
 
-我们记数组 $arr$ 所有元素之和为 $s$，最大前缀和为 $mxPre$，最小前缀和为 $miPre$，最大子数组和为 $mxSub$。
+我们记数组 $\textit{arr}$ 所有元素之和为 $s$，最大前缀和为 $\textit{mxPre}$，最小前缀和为 $\textit{miPre}$，最大子数组和为 $\textit{mxSub}$。
 
-遍历数组 $arr$，对于每个元素 $x$，我们更新 $s = s + x$, $mxPre = \max(mxPre, s)$, $miPre = \min(miPre, s)$, $mxSub = \max(mxSub, s - miPre)$。
+遍历数组 $\textit{arr}$，对于每个元素 $x$，我们更新 $s = s + x$, $\textit{mxPre} = \max(\textit{mxPre}, s)$, $\textit{miPre} = \min(\textit{miPre}, s)$, $\textit{mxSub} = \max(\textit{mxSub}, s - \textit{miPre})$。
 
 接下来，我们考虑 $k$ 的取值情况：
 
-- 当 $k = 1$ 时，答案为 $mxSub$。
-- 当 $k \ge 2$ 时，如果最大子数组横跨两个 $arr$，那么答案为 $mxPre + mxSuf$，其中 $mxSuf = s - miPre$。
-- 当 $k \ge 2$ 且 $s > 0$ 时，如果最大子数组横跨三个 $arr$，那么答案为 $(k - 2) \times s + mxPre + mxSuf$。
+- 当 $k = 1$ 时，答案为 $\textit{mxSub}$。
+- 当 $k \ge 2$ 时，如果最大子数组横跨两个 $\textit{arr}$，那么答案为 $\textit{mxPre} + \textit{mxSuf}$，其中 $\textit{mxSuf} = s - \textit{miPre}$。
+- 当 $k \ge 2$ 且 $s > 0$ 时，如果最大子数组横跨三个 $\textit{arr}$，那么答案为 $(k - 2) \times s + \textit{mxPre} + \textit{mxSuf}$。
 
 最后，我们返回答案对 $10^9 + 7$ 取模的结果。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

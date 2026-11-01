@@ -67,15 +67,15 @@ tags:
 
 > **Thinking**
 >
-> Split $target$ into the fewest pieces, each a subsequence of $source$. $m,n\le 1000$ allows a two-pointer walk of $source$ per piece.
+> Split $\textit{target}$ into the fewest pieces, each a subsequence of $\textit{source}$. $m,n\le 1000$ allows a two-pointer walk of $\textit{source}$ per piece.
 >
-> From the current index $j$ of $target$, match as far as possible in $source$. If $j$ does not move, some character is missing. Otherwise count one piece and continue.
+> From the current index $j$ of $\textit{target}$, match as far as possible in $\textit{source}$. If $j$ does not move, some character is missing. Otherwise count one piece and continue.
 >
 > Stop when $j$ reaches $n$.
 
 <!-- thinking:end -->
 
-We can use the two pointers method, where pointer $j$ points to the target string `target`. Then we traverse the source string `source` with pointer $i$ pointing to the source string `source`. If $source[i] = target[j]$, then both $i$ and $j$ move one step forward, otherwise only pointer $i$ moves. When both pointers $i$ and $j$ reach the end of the string, if no equal character is found, return $-1$, otherwise the subsequence count increases by one, and then set pointer $i$ to $0$ and continue to traverse.
+We can use the two pointers method, where pointer $j$ points to the target string `target`. Then we traverse the source string `source` with pointer $i$ pointing to the source string `source`. If $\textit{source}[i] = \textit{target}[j]$, then both $i$ and $j$ move one step forward, otherwise only pointer $i$ moves. When both pointers $i$ and $j$ reach the end of the string, if no equal character is found, return $-1$, otherwise the subsequence count increases by one, and then set pointer $i$ to $0$ and continue to traverse.
 
 After the traversal ends, return the subsequence count.
 

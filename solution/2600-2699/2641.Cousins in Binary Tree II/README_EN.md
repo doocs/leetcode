@@ -77,11 +77,11 @@ tags:
 >
 > Each node becomes the sum of its level minus itself and its sibling. Rescanning a level per node is too slow for $n \le 10^5$. The level sum depends only on depth, so it can be computed once.
 >
-> The first DFS fills $s[depth]$; the second writes, at the parent, the child-level total minus the two siblings. The root has no cousins and becomes $0$.
+> The first DFS fills $s[\textit{depth}]$; the second writes, at the parent, the child-level total minus the two siblings. The root has no cousins and becomes $0$.
 
 <!-- thinking:end -->
 
-We create a list $s$ to record the sum of the node values at each level of the binary tree, where $s[depth]$ represents the sum of the node values at the $depth$-th level (the root node is at level $0$).
+We create a list $s$ to record the sum of the node values at each level of the binary tree, where $s[\textit{depth}]$ represents the sum of the node values at the $\textit{depth}$-th level (the root node is at level $0$).
 
 Next, we perform a DFS traversal to calculate the values in the array $s$. Then, we perform another DFS traversal to update the values of each node's children. The value of a child node is equal to the sum of the node values at its level minus the value of the child node and its sibling nodes.
 
@@ -356,7 +356,7 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 
 First, we update the root node's value to $0$, and use a queue $q$ to store all nodes at each level, initially enqueueing the root node.
 
-Then, we traverse the queue, calculate the sum $s$ of all child nodes' values at each level, then calculate the sum $sub$ of each child node and its sibling nodes' values, and then update each child node's value to $s - sub$.
+Then, we traverse the queue, calculate the sum $s$ of all child nodes' values at each level, then calculate the sum $\textit{sub}$ of each child node and its sibling nodes' values, and then update each child node's value to $s - \textit{sub}$.
 
 After the traversal ends, we return the root node.
 

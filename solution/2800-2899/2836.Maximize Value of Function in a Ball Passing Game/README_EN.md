@@ -152,7 +152,7 @@ We can use dynamic programming combined with binary lifting to handle this.
 
 We define $f[i][j]$ as the player ID that can be reached by passing the ball $2^j$ times starting from player $i$, and define $g[i][j]$ as the sum of the player IDs that can be reached by passing the ball $2^j$ times starting from player $i$ (excluding the last player).
 
-When $j=0$, the number of passes is $1$, so $f[i][0] = receiver[i]$, and $g[i][0] = i$.
+When $j=0$, the number of passes is $1$, so $f[i][0] = \textit{receiver}[i]$, and $g[i][0] = i$.
 
 When $j > 0$, the number of passes is $2^j$, which is equivalent to passing the ball $2^{j-1}$ times starting from player $i$, and then passing the ball $2^{j-1}$ times starting from player $f[i][j-1]$, so $f[i][j] = f[f[i][j-1]][j-1]$, and $g[i][j] = g[i][j-1] + g[f[i][j-1]][j-1]$.
 

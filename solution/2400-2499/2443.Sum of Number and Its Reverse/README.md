@@ -68,13 +68,13 @@ tags:
 
 > **思考**
 >
-> $num \le 10^5$，在 $[0,num]$ 上枚举 $k$ 并检查 $k+reverse(k)$ 是否等于 $num$。枚举量可接受，按字符串反转即可。
+> $\textit{num} \le 10^5$，在 $[0,\textit{num}]$ 上枚举 $k$ 并检查 $k+\textit{reverse}(k)$ 是否等于 $\textit{num}$。枚举量可接受，按字符串反转即可。
 
 <!-- thinking:end -->
 
-在 $[0,.., num]$ 范围内枚举 $k$，判断 $k + reverse(k)$ 是否等于 $num$ 即可。
+在 $[0,.., \textit{num}]$ 范围内枚举 $k$，判断 $k + \textit{reverse}(k)$ 是否等于 $\textit{num}$ 即可。
 
-时间复杂度 $O(n \log n)$。其中 $n$ 为 $num$ 的大小。
+时间复杂度 $O(n \log n)$。其中 $n$ 为 $\textit{num}$ 的大小。
 
 <!-- tabs:start -->
 

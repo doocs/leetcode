@@ -184,9 +184,9 @@ tags:
 
 The path score is defined as the minimum edge cost along the path. We seek the maximum score among all valid paths.
 
-For a candidate minimum edge weight $mid$, we only keep edges with cost at least $mid$, then check whether there exists a path from node $0$ to node $n - 1$ with total cost at most $k$. This reduces to running heap-optimized Dijkstra on the filtered graph.
+For a candidate minimum edge weight $\textit{mid}$, we only keep edges with cost at least $\textit{mid}$, then check whether there exists a path from node $0$ to node $n - 1$ with total cost at most $k$. This reduces to running heap-optimized Dijkstra on the filtered graph.
 
-As $mid$ increases, fewer edges remain and feasibility becomes harder to satisfy, so we can binary search on $mid$. We preprocess by removing edges incident to offline nodes, and set $l$ and $r$ to the minimum and maximum edge costs. If $check(l)$ is true, return $l$; otherwise return $-1$.
+As $\textit{mid}$ increases, fewer edges remain and feasibility becomes harder to satisfy, so we can binary search on $\textit{mid}$. We preprocess by removing edges incident to offline nodes, and set $l$ and $r$ to the minimum and maximum edge costs. If $\textit{check}(l)$ is true, return $l$; otherwise return $-1$.
 
 The time complexity is $O((n + m) \log n \log W)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the numbers of nodes and edges, and $W$ is the maximum edge cost.
 

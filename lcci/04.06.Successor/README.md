@@ -55,9 +55,9 @@ difficulty: 中等
 >
 > 中序后继是中序序列中 $p$ 的下一个。完整中序需要 $O(n)$ 时间与空间；题目是 BST，可利用有序性。
 >
-> 后继是所有大于 $p.val$ 的节点中最小的那个。从根下行时，若 $root.val > p.val$，则 $root$ 是候选，并转入左子树寻找更小的更大值；否则后继只可能在右子树。
+> 后继是所有大于 $p.\textit{val}$ 的节点中最小的那个。从根下行时，若 $\textit{root}.\textit{val} > p.\textit{val}$，则 $\textit{root}$ 是候选，并转入左子树寻找更小的更大值；否则后继只可能在右子树。
 >
-> 循环更新 $ans$ 并走左或右，高度时间内完成，无需父指针，也无需中序 Moris 线索。
+> 循环更新 $\textit{ans}$ 并走左或右，高度时间内完成，无需父指针，也无需中序 Moris 线索。
 
 <!-- thinking:end -->
 
@@ -68,7 +68,7 @@ difficulty: 中等
 1. 中序后继的节点值大于 $p$ 的节点值
 2. 中序后继是所有大于 $p$ 的节点中值最小的节点
 
-因此，对于当前节点 $root$，如果 $root.val \gt p.val$，则 $root$ 可能是 $p$ 的中序后继节点，将 $root$ 记为 $ans$，然后搜索左子树，即 $root = root.left$；如果 $root.val \leq p.val$，则 $root$ 不能是 $p$ 的中序后继节点，搜索右子树，即 $root = root.right$。
+因此，对于当前节点 $\textit{root}$，如果 $\textit{root}.\textit{val} \gt p.\textit{val}$，则 $\textit{root}$ 可能是 $p$ 的中序后继节点，将 $\textit{root}$ 记为 $\textit{ans}$，然后搜索左子树，即 $\textit{root} = \textit{root}.\textit{left}$；如果 $\textit{root}.\textit{val} \leq p.\textit{val}$，则 $\textit{root}$ 不能是 $p$ 的中序后继节点，搜索右子树，即 $\textit{root} = \textit{root}.\textit{right}$。
 
 时间复杂度 $O(h)$，空间复杂度 $O(1)$。其中 $h$ 为二叉搜索树的高度。
 

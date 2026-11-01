@@ -83,18 +83,18 @@ Total of cherries: 17 + 11 = 28.
 
 > **Thinking**
 >
-> Two robots move down a row together, each stepping left/stay/right. $rows,cols\le 70$. After synchronizing rows, the state is the row and the two columns.
+> Two robots move down a row together, each stepping left/stay/right. $\textit{rows},\textit{cols}\le 70$. After synchronizing rows, the state is the row and the two columns.
 >
 > $f[i][j_1][j_2]$ is the best score with both robots on row $i$. A shared cell is counted once. Transition from the nine neighboring column pairs. Take the max on the last row.
 
 <!-- thinking:end -->
 
-We define $f[i][j_1][j_2]$ as the maximum number of cherries that can be picked when the two robots are at positions $j_1$ and $j_2$ in the $i$-th row. Initially, $f[0][0][n-1] = grid[0][0] + grid[0][n-1]$, and the other values are $-1$. The answer is $\max_{0 \leq j_1, j_2 < n} f[m-1][j_1][j_2]$.
+We define $f[i][j_1][j_2]$ as the maximum number of cherries that can be picked when the two robots are at positions $j_1$ and $j_2$ in the $i$-th row. Initially, $f[0][0][n-1] = \textit{grid}[0][0] + \textit{grid}[0][n-1]$, and the other values are $-1$. The answer is $\max_{0 \leq j_1, j_2 < n} f[m-1][j_1][j_2]$.
 
-Consider $f[i][j_1][j_2]$. If $j_1 \neq j_2$, then the number of cherries that the robots can pick in the $i$-th row is $grid[i][j_1] + grid[i][j_2]$. If $j_1 = j_2$, then the number of cherries that the robots can pick in the $i$-th row is $grid[i][j_1]$. We can enumerate the previous state of the two robots $f[i-1][y1][y2]$, where $y_1, y_2$ are the positions of the two robots in the $(i-1)$-th row, then $y_1 \in \{j_1-1, j_1, j_1+1\}$ and $y_2 \in \{j_2-1, j_2, j_2+1\}$. The state transition equation is as follows:
+Consider $f[i][j_1][j_2]$. If $j_1 \neq j_2$, then the number of cherries that the robots can pick in the $i$-th row is $\textit{grid}[i][j_1] + \textit{grid}[i][j_2]$. If $j_1 = j_2$, then the number of cherries that the robots can pick in the $i$-th row is $\textit{grid}[i][j_1]$. We can enumerate the previous state of the two robots $f[i-1][\textit{y1}][\textit{y2}]$, where $y_1, y_2$ are the positions of the two robots in the $(i-1)$-th row, then $y_1 \in \{j_1-1, j_1, j_1+1\}$ and $y_2 \in \{j_2-1, j_2, j_2+1\}$. The state transition equation is as follows:
 
 $$
-f[i][j_1][j_2] = \max_{y_1 \in \{j_1-1, j_1, j_1+1\}, y_2 \in \{j_2-1, j_2, j_2+1\}} f[i-1][y_1][y_2] + \begin{cases} grid[i][j_1] + grid[i][j_2], & j_1 \neq j_2 \\ grid[i][j_1], & j_1 = j_2 \end{cases}
+f[i][j_1][j_2] = \max_{y_1 \in \{j_1-1, j_1, j_1+1\}, y_2 \in \{j_2-1, j_2, j_2+1\}} f[i-1][y_1][y_2] + \begin{cases} \textit{grid}[i][j_1] + \textit{grid}[i][j_2], & j_1 \neq j_2 \\ \textit{grid}[i][j_1], & j_1 = j_2 \end{cases}
 $$
 
 Where $f[i-1][y_1][y_2]$ is ignored when it is $-1$.

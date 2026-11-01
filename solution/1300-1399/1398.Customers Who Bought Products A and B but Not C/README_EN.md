@@ -100,7 +100,7 @@ Orders table:
 
 > **Thinking**
 >
-> Customers who bought $A$ and $B$ but never $C$. Left-join customers to orders, group by customer, and require $\mathrm{SUM}(\textit{product}=A)>0$, the same for $B$, and a zero sum for $C$.
+> Customers who bought $A$ and $B$ but never $C$. Left-join customers to orders, group by customer, and require $\textit{SUM}(\textit{product}=A)>0$, the same for $B$, and a zero sum for $C$.
 
 <!-- thinking:end -->
 

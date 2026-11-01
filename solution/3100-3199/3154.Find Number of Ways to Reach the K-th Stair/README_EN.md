@@ -118,11 +118,11 @@ tags:
 
 > **Thinking**
 >
-> One may step down once (not twice in a row) or jump up by $2^{jump}$ and increment $jump$. Unbounded search grows with the jump count.
+> One may step down once (not twice in a row) or jump up by $2^{\textit{jump}}$ and increment $\textit{jump}$. Unbounded search grows with the jump count.
 >
-> Positions beyond $k+1$ can never return. Jumps are $O(\log k)$, so the triple $(i,j,jump)$ is small, with $j$ recording a recent down step.
+> Positions beyond $k+1$ can never return. Jumps are $O(\log k)$, so the triple $(i,j,\textit{jump})$ is small, with $j$ recording a recent down step.
 >
-> Memoize $dfs(i,j,jump)$: count $1$ when $i=k$, optionally step down, and always try the next jump. Overshoot returns $0$.
+> Memoize $\textit{dfs}(i,j,\textit{jump})$: count $1$ when $i=k$, optionally step down, and always try the next jump. Overshoot returns $0$.
 
 <!-- thinking:end -->
 

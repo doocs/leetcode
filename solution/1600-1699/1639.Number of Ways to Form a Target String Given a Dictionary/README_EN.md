@@ -88,23 +88,23 @@ tags:
 >
 > Count letter $c$ in column $j$ as $\textit{cnt}[j][c]$. The state is “match $\textit{target}[i:]$ starting at column $j$”.
 >
-> Memoized $dfs(i,j)$ either skips column $j$ or uses it for $\textit{target}[i]$ multiplied by the count. Finish $i$ yields $1$; run out of columns yields $0$.
+> Memoized $\textit{dfs}(i,j)$ either skips column $j$ or uses it for $\textit{target}[i]$ multiplied by the count. Finish $i$ yields $1$; run out of columns yields $0$.
 
 <!-- thinking:end -->
 
-We noticed that the length of each string in the string array $words$ is the same, so let's remember $n$, then we can preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the string array $words$ The number of characters $c$ in the $j$-th position of.
+We noticed that the length of each string in the string array $\textit{words}$ is the same, so let's remember $n$, then we can preprocess a two-dimensional array $\textit{cnt}$, where $\textit{cnt}[j][c]$ represents the string array $\textit{words}$ The number of characters $c$ in the $j$-th position of.
 
-Next, we design a function $dfs(i, j)$, which represents the number of schemes that construct $target[i,..]$ and the currently selected character position from $words$ is $j$. Then the answer is $dfs(0, 0)$.
+Next, we design a function $\textit{dfs}(i, j)$, which represents the number of schemes that construct $\textit{target}[i,..]$ and the currently selected character position from $\textit{words}$ is $j$. Then the answer is $\textit{dfs}(0, 0)$.
 
-The calculation logic of function $dfs(i, j)$ is as follows:
+The calculation logic of function $\textit{dfs}(i, j)$ is as follows:
 
-- If $i \geq m$, it means that all characters in $target$ have been selected, then the number of schemes is $1$.
-- If $j \geq n$, it means that all characters in $words$ have been selected, then the number of schemes is $0$.
-- Otherwise, we can choose not to select the character in the $j$-th position of $words$, then the number of schemes is $dfs(i, j + 1)$; or we choose the character in the $j$-th position of $words$, then the number of schemes is $dfs(i + 1, j + 1) \times cnt[j][target[i] - 'a']$.
+- If $i \geq m$, it means that all characters in $\textit{target}$ have been selected, then the number of schemes is $1$.
+- If $j \geq n$, it means that all characters in $\textit{words}$ have been selected, then the number of schemes is $0$.
+- Otherwise, we can choose not to select the character in the $j$-th position of $\textit{words}$, then the number of schemes is $\textit{dfs}(i, j + 1)$; or we choose the character in the $j$-th position of $\textit{words}$, then the number of schemes is $\textit{dfs}(i + 1, j + 1) \times \textit{cnt}[j][\textit{target}[i] - 'a']$.
 
-Finally, we return $dfs(0, 0)$. Note that the answer is taken in modulo operation.
+Finally, we return $\textit{dfs}(0, 0)$. Note that the answer is taken in modulo operation.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of the string $\textit{target}$, and $n$ is the length of each string in the string array $\textit{words}$.
 
 <!-- tabs:start -->
 
@@ -294,15 +294,15 @@ function numWays(words: string[], target: string): number {
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we can first preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the number of characters $c$ in the $j$-th position of the string array $words$.
+Similar to Solution 1, we can first preprocess a two-dimensional array $\textit{cnt}$, where $\textit{cnt}[j][c]$ represents the number of characters $c$ in the $j$-th position of the string array $\textit{words}$.
 
-Next, we define $f[i][j]$ which represents the number of ways to construct the first $i$ characters of $target$, and currently select characters from the first $j$ characters of each word in $words$. Then the answer is $f[m][n]$. Initially $f[0][j] = 1$, where $0 \leq j \leq n$.
+Next, we define $f[i][j]$ which represents the number of ways to construct the first $i$ characters of $\textit{target}$, and currently select characters from the first $j$ characters of each word in $\textit{words}$. Then the answer is $f[m][n]$. Initially $f[0][j] = 1$, where $0 \leq j \leq n$.
 
-Consider $f[i][j]$, where $i \gt 0$, $j \gt 0$. We can choose not to select the character in the $j$-th position of $words$, in which case the number of ways is $f[i][j - 1]$; or we choose the character in the $j$-th position of $words$, in which case the number of ways is $f[i - 1][j - 1] \times cnt[j - 1][target[i - 1] - 'a']$. Finally, we add the number of ways in these two cases, which is the value of $f[i][j]$.
+Consider $f[i][j]$, where $i \gt 0$, $j \gt 0$. We can choose not to select the character in the $j$-th position of $\textit{words}$, in which case the number of ways is $f[i][j - 1]$; or we choose the character in the $j$-th position of $\textit{words}$, in which case the number of ways is $f[i - 1][j - 1] \times \textit{cnt}[j - 1][\textit{target}[i - 1] - 'a']$. Finally, we add the number of ways in these two cases, which is the value of $f[i][j]$.
 
 Finally, we return $f[m][n]$. Note the mod operation of the answer.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of the string $\textit{target}$, and $n$ is the length of each string in the string array $\textit{words}$.
 
 <!-- tabs:start -->
 
@@ -435,15 +435,15 @@ func numWays(words []string, target string) int {
 
 <!-- thinking:end -->
 
-Each string in $words$ has the same length $n$, so preprocess $cnt$, where $cnt[j][c]$ is the number of times character $c$ appears in column $j$.
+Each string in $\textit{words}$ has the same length $n$, so preprocess $\textit{cnt}$, where $\textit{cnt}[j][c]$ is the number of times character $c$ appears in column $j$.
 
-Let $f[i][j]$ be the number of ways to build $target[i,..]$ starting from column $j$. The answer is $f[0][0]$.
+Let $f[i][j]$ be the number of ways to build $\textit{target}[i,..]$ starting from column $j$. The answer is $f[0][0]$.
 
-When $i = m$, every character of $target$ has been chosen, so the value is $1$. When $j = n$ and $i < m$, the columns are exhausted before the target is finished, so the value is $0$. Set $f[m][j] = 1$ for $0 \leq j \leq n$, and leave every other cell at $0$.
+When $i = m$, every character of $\textit{target}$ has been chosen, so the value is $1$. When $j = n$ and $i < m$, the columns are exhausted before the target is finished, so the value is $0$. Set $f[m][j] = 1$ for $0 \leq j \leq n$, and leave every other cell at $0$.
 
-For the remaining states, let $i$ run from $m - 1$ down to $0$ and $j$ from $n - 1$ down to $0$. Skipping column $j$ contributes $f[i][j + 1]$. Taking it contributes $f[i + 1][j + 1] \times cnt[j][target[i] - 'a']$. Add the two contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j]$.
+For the remaining states, let $i$ run from $m - 1$ down to $0$ and $j$ from $n - 1$ down to $0$. Skipping column $j$ contributes $f[i][j + 1]$. Taking it contributes $f[i + 1][j + 1] \times \textit{cnt}[j][\textit{target}[i] - 'a']$. Add the two contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j]$.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of $target$, and $n$ is the length of each string in $words$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of $\textit{target}$, and $n$ is the length of each string in $\textit{words}$.
 
 <!-- tabs:start -->
 

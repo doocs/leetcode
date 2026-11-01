@@ -76,17 +76,17 @@ For the prefix [1, 1, 2, 4, 8, 16], the conversion array is [2, 2, 4, 8, 16, 32]
 
 > **Thinking**
 >
-> The prefix score is the prefix sum of a conversion where each term is $nums[i]$ plus the maximum up to $i$. Recomputing that maximum per prefix is quadratic for $n \le 10^5$.
+> The prefix score is the prefix sum of a conversion where each term is $\textit{nums}[i]$ plus the maximum up to $i$. Recomputing that maximum per prefix is quadratic for $n \le 10^5$.
 >
-> The running maximum $mx$ updates in one scan; adding the previous score yields $ans[i]$. Conversion and prefix summation happen together.
+> The running maximum $mx$ updates in one scan; adding the previous score yields $\textit{ans}[i]$. Conversion and prefix summation happen together.
 
 <!-- thinking:end -->
 
-We use a variable $mx$ to record the maximum value of the first $i$ elements in the array $nums$, and use an array $ans[i]$ to record the score of the first $i$ elements in the array $nums$.
+We use a variable $mx$ to record the maximum value of the first $i$ elements in the array $\textit{nums}$, and use an array $\textit{ans}[i]$ to record the score of the first $i$ elements in the array $\textit{nums}$.
 
-Next, we traverse the array $nums$. For each element $nums[i]$, we update $mx$, i.e., $mx = \max(mx, nums[i])$, and then update $ans[i]$. If $i = 0$, then $ans[i] = nums[i] + mx$, otherwise $ans[i] = nums[i] + mx + ans[i - 1]$.
+Next, we traverse the array $\textit{nums}$. For each element $\textit{nums}[i]$, we update $mx$, i.e., $mx = \max(mx, \textit{nums}[i])$, and then update $\textit{ans}[i]$. If $i = 0$, then $\textit{ans}[i] = \textit{nums}[i] + mx$, otherwise $\textit{ans}[i] = \textit{nums}[i] + mx + \textit{ans}[i - 1]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

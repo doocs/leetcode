@@ -47,25 +47,25 @@ difficulty: Medium
 
 > **Thinking**
 >
-> Search $target$ in a rotated sorted array that may contain duplicates. A linear scan finds the leftmost hit but ignores half-sorted structure.
+> Search $\textit{target}$ in a rotated sorted array that may contain duplicates. A linear scan finds the leftmost hit but ignores half-sorted structure.
 >
-> The midpoint splits off at least one sorted side; comparing $arr[mid]$ with $arr[r]$ tells which side is sorted and whether $target$ lies there.
+> The midpoint splits off at least one sorted side; comparing $\textit{arr}[\textit{mid}]$ with $\textit{arr}[r]$ tells which side is sorted and whether $\textit{target}$ lies there.
 >
-> Equal ends shrink $r$ first so the test is well-defined. After the loop, check $arr[l]$. Duplicates make the worst case nearly linear.
+> Equal ends shrink $r$ first so the test is well-defined. After the loop, check $\textit{arr}[l]$. Duplicates make the worst case nearly linear.
 
 <!-- thinking:end -->
 
 We define the left boundary of the binary search as $l=0$ and the right boundary as $r=n-1$, where $n$ is the length of the array.
 
-In each binary search process, we get the current midpoint $mid=(l+r)/2$.
+In each binary search process, we get the current midpoint $\textit{mid}=(l+r)/2$.
 
-- If $nums[mid] > nums[r]$, it means that $[l,mid]$ is ordered. If $nums[l] \leq target \leq nums[mid]$, it means that $target$ is in $[l,mid]$, otherwise $target$ is in $[mid+1,r]$.
-- If $nums[mid] < nums[r]$, it means that $[mid+1,r]$ is ordered. If $nums[mid] < target \leq nums[r]$, it means that $target$ is in $[mid+1,r]$, otherwise $target$ is in $[l,mid]$.
-- If $nums[mid] = nums[r]$, it means that the elements $nums[mid]$ and $nums[r]$ are equal. At this time, we cannot determine which interval $target$ is in, we can only decrease $r$ by $1$.
+- If $\textit{nums}[\textit{mid}] > \textit{nums}[r]$, it means that $[l,\textit{mid}]$ is ordered. If $\textit{nums}[l] \leq \textit{target} \leq \textit{nums}[\textit{mid}]$, it means that $\textit{target}$ is in $[l,\textit{mid}]$, otherwise $\textit{target}$ is in $[\textit{mid}+1,r]$.
+- If $\textit{nums}[\textit{mid}] < \textit{nums}[r]$, it means that $[\textit{mid}+1,r]$ is ordered. If $\textit{nums}[\textit{mid}] < \textit{target} \leq \textit{nums}[r]$, it means that $\textit{target}$ is in $[\textit{mid}+1,r]$, otherwise $\textit{target}$ is in $[l,\textit{mid}]$.
+- If $\textit{nums}[\textit{mid}] = \textit{nums}[r]$, it means that the elements $\textit{nums}[\textit{mid}]$ and $\textit{nums}[r]$ are equal. At this time, we cannot determine which interval $\textit{target}$ is in, we can only decrease $r$ by $1$.
 
-After the binary search ends, if $nums[l] = target$, it means that the target value $target$ exists in the array, otherwise it does not exist.
+After the binary search ends, if $\textit{nums}[l] = \textit{target}$, it means that the target value $\textit{target}$ exists in the array, otherwise it does not exist.
 
-Note that if initially $nums[l] = nums[r]$, we loop to decrease $r$ by $1$ until $nums[l] \neq nums[r]$.
+Note that if initially $\textit{nums}[l] = \textit{nums}[r]$, we loop to decrease $r$ by $1$ until $\textit{nums}[l] \neq \textit{nums}[r]$.
 
 The time complexity is approximately $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

@@ -96,11 +96,11 @@ We cannot obtain a smaller score than 0.
 
 <!-- thinking:end -->
 
-We denote the XOR sum of the tree as $s$, i.e., $s = \text{nums}[0] \oplus \text{nums}[1] \oplus \ldots \oplus \text{nums}[n-1]$.
+We denote the XOR sum of the tree as $s$, i.e., $s = \textit{nums}[0] \oplus \textit{nums}[1] \oplus \ldots \oplus \textit{nums}[n-1]$.
 
-Next, we enumerate each node $i$ in $[0..n)$ as the root of the tree, and treat the edge connecting the root node to some child node $j$ as the first edge to be removed. This gives us two connected components. We denote the XOR sum of the connected component containing root node $i$ as $s_1$, then we perform DFS on the connected component containing root node $i$ to calculate the XOR sum of each subtree, denoting each XOR sum calculated by DFS as $s_2$. The XOR sums of the three connected components are $s \oplus s_1$, $s_2$, and $s_1 \oplus s_2$. We need to calculate the maximum and minimum values of these three XOR sums, denoted as $\textit{mx}$ and $\textit{mn}$. For each enumerated case, the score is $\textit{mx} - \textit{mn}$. We find the minimum value among all cases as the answer.
+Next, we enumerate each node $i$ in $[0..n)$ as the root of the tree, and treat the edge connecting the root node to some child node $j$ as the first edge to be removed. This gives us two connected components. We denote the XOR sum of the connected component containing root node $i$ as $s_1$, then we perform DFS on the connected component containing root node $i$ to calculate the XOR sum of each subtree, denoting each XOR sum calculated by DFS as $s_2$. The XOR sums of the three connected components are $s \oplus s_1$, $s_2$, and $s_1 \oplus s_2$. We need to calculate the maximum and minimum values of these three XOR sums, denoted as $mx$ and $mn$. For each enumerated case, the score is $mx - mn$. We find the minimum value among all cases as the answer.
 
-The XOR sum of each subtree can be calculated through DFS. We define a function $\text{dfs}(i, fa)$, which represents starting DFS from node $i$, where $fa$ is the parent node of node $i$. The function returns the XOR sum of the subtree rooted at node $i$.
+The XOR sum of each subtree can be calculated through DFS. We define a function $\textit{dfs}(i, fa)$, which represents starting DFS from node $i$, where $fa$ is the parent node of node $i$. The function returns the XOR sum of the subtree rooted at node $i$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
@@ -480,15 +480,15 @@ public class Solution {
 
 > **Thinking**
 >
-> Deleting two edges yields three components, and the score is the range of their XOR sums. With $n \le 1000$, pairing every two edges and scanning the whole tree for each pair is heavier than necessary. The XOR $s$ of the whole tree is fixed, and after one edge is removed a component XOR is the subtree XOR under that orientation. Enumerate the first deleted edge to obtain the root-side XOR $s_1$, then treat each subtree XOR $s_2$ inside that component as the second cut. The three values are $s \oplus s_1$, $s_2$, and $s_1 \oplus s_2$. Recursing along a chain uses a call depth equal to the node count and overflows Python at $n = 1000$. The stack therefore stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ writes the subtree XOR after the children are ready. The first walk produces $s_1$, and the second walk updates the range for every subtree $s_2$.
+> Deleting two edges yields three components, and the score is the range of their XOR sums. With $n \le 1000$, pairing every two edges and scanning the whole tree for each pair is heavier than necessary. The XOR $s$ of the whole tree is fixed, and after one edge is removed a component XOR is the subtree XOR under that orientation. Enumerate the first deleted edge to obtain the root-side XOR $s_1$, then treat each subtree XOR $s_2$ inside that component as the second cut. The three values are $s \oplus s_1$, $s_2$, and $s_1 \oplus s_2$. Recursing along a chain uses a call depth equal to the node count and overflows Python at $n = 1000$. The stack therefore stores $(\textit{node}, \textit{parent}, \textit{state})$: state $0$ pushes the exit marker and then the children, and state $1$ writes the subtree XOR after the children are ready. The first walk produces $s_1$, and the second walk updates the range for every subtree $s_2$.
 
 <!-- thinking:end -->
 
-Denote the XOR sum of the tree by $s$, that is, $s = \text{nums}[0] \oplus \text{nums}[1] \oplus \ldots \oplus \text{nums}[n-1]$.
+Denote the XOR sum of the tree by $s$, that is, $s = \textit{nums}[0] \oplus \textit{nums}[1] \oplus \ldots \oplus \textit{nums}[n-1]$.
 
 Enumerate each node $i$ in $[0..n)$ and treat the edge between $i$ and a neighbor $j$ as the first deleted edge. This splits the tree into two components. Let $s_1$ be the XOR sum of the component that contains $i$, and let $s_2$ be the XOR sum of a subtree inside that component. The three component XOR sums are $s \oplus s_1$, $s_2$, and $s_1 \oplus s_2$. The score of this deletion is the difference between their maximum and minimum, and the answer is the minimum score over every deletion. Trying every node and every incident edge covers all unordered pairs of edges.
 
-Subtree XOR sums are filled in postorder on an explicit stack. Each frame is $(node, parent, state)$. State $0$ pushes the exit marker and then every neighbor other than the parent. State $1$ XORs the node value with each finished child subtree. The first walk returns only $s_1$, the XOR of the component that contains $i$ and does not cross $j$. The second walk, after each subtree XOR $s_2$ is known, updates the answer with the three values above. The order of the children does not change the range.
+Subtree XOR sums are filled in postorder on an explicit stack. Each frame is $(\textit{node}, \textit{parent}, \textit{state})$. State $0$ pushes the exit marker and then every neighbor other than the parent. State $1$ XORs the node value with each finished child subtree. The first walk returns only $s_1$, the XOR of the component that contains $i$ and does not cross $j$. The second walk, after each subtree XOR $s_2$ is known, updates the answer with the three values above. The order of the children does not change the range.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

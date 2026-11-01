@@ -80,12 +80,12 @@ No subsequence of nums with length 1 has an even sum.
 
 We notice that the problem involves selecting a subsequence, so we can consider sorting the array first.
 
-Next, we greedily select the largest $k$ numbers. If the sum of these numbers is even, we directly return this sum $ans$.
+Next, we greedily select the largest $k$ numbers. If the sum of these numbers is even, we directly return this sum $\textit{ans}$.
 
 Otherwise, we have two greedy strategies:
 
-1. Among the largest $k$ numbers, find the smallest even number $mi1$, and then among the remaining $n - k$ numbers, find the largest odd number $mx1$. Replace $mi1$ with $mx1$. If such a replacement exists, then the sum after replacement $ans - mi1 + mx1$ is guaranteed to be even;
-2. Among the largest $k$ numbers, find the smallest odd number $mi2$, and then among the remaining $n - k$ numbers, find the largest even number $mx2$. Replace $mi2$ with $mx2$. If such a replacement exists, then the sum after replacement $ans - mi2 + mx2$ is guaranteed to be even.
+1. Among the largest $k$ numbers, find the smallest even number $\textit{mi1}$, and then among the remaining $n - k$ numbers, find the largest odd number $\textit{mx1}$. Replace $\textit{mi1}$ with $\textit{mx1}$. If such a replacement exists, then the sum after replacement $\textit{ans} - \textit{mi1} + \textit{mx1}$ is guaranteed to be even;
+2. Among the largest $k$ numbers, find the smallest odd number $\textit{mi2}$, and then among the remaining $n - k$ numbers, find the largest even number $\textit{mx2}$. Replace $\textit{mi2}$ with $\textit{mx2}$. If such a replacement exists, then the sum after replacement $\textit{ans} - \textit{mi2} + \textit{mx2}$ is guaranteed to be even.
 
 We take the largest even sum as the answer. If no even sum exists, return $-1$.
 

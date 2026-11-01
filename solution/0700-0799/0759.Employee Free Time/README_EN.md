@@ -68,7 +68,7 @@ We discard any intervals that contain inf as they aren&#39;t finite.
 >
 > The times when someone is busy are the union of all intervals; gaps of that union are common free time.
 >
-> Sort by start, merge overlaps, and emit $[a.end, b.start)$ between consecutive merged intervals.
+> Sort by start, merge overlaps, and emit $[a.\textit{end}, b.\textit{start})$ between consecutive merged intervals.
 
 <!-- thinking:end -->
 

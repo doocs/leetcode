@@ -90,7 +90,7 @@ The comment with id 6 is a comment on a deleted post with id 7 so we ignored it.
 
 > **Thinking**
 >
-> A post is a submission with a null $parent\_id$; a comment points at some post's $sub\_id$. A self-join pairs each post with its children; a left join keeps posts with no comments. After $DISTINCT$, we count by post so a duplicate comment row is not counted twice.
+> A post is a submission with a null $\textit{parent\_id}$; a comment points at some post's $\textit{sub\_id}$. A self-join pairs each post with its children; a left join keeps posts with no comments. After $\textit{DISTINCT}$, we count by post so a duplicate comment row is not counted twice.
 
 <!-- thinking:end -->
 

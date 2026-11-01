@@ -68,9 +68,9 @@ tags:
 
 > **思考**
 >
-> 有序数组上求 $target$ 最后一次出现的下标。从右线性扫描可以得到答案，题目同时允许对数时间。
+> 有序数组上求 $\textit{target}$ 最后一次出现的下标。从右线性扫描可以得到答案，题目同时允许对数时间。
 >
-> 二分出第一个大于 $target$ 的位置，其前一位若等于 $target$ 即为右边界，否则不存在。
+> 二分出第一个大于 $\textit{target}$ 的位置，其前一位若等于 $\textit{target}$ 即为右边界，否则不存在。
 
 <!-- thinking:end -->
 
@@ -120,7 +120,7 @@ Array.prototype.upperBound = function (target: number) {
 
 > **思考**
 >
-> 二分换来对数时间，却多了边界判断。 $lastIndexOf$ 从右一次扫描即可，实现更短，最坏线性。
+> 二分换来对数时间，却多了边界判断。 $\textit{lastIndexOf}$ 从右一次扫描即可，实现更短，最坏线性。
 
 <!-- thinking:end -->
 

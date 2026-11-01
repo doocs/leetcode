@@ -71,18 +71,18 @@ There are no other quadruplets, so we return 2.
 
 > **Thinking**
 >
-> Count quadruples $i<j<k<l$ with $nums[i]<nums[k]<nums[j]<nums[l]$. A four-fold loop fails at $n\le 4000$, and naive side counts for each $(j,k)$ can still be cubic.
+> Count quadruples $i<j<k<l$ with $\textit{nums}[i]<\textit{nums}[k]<\textit{nums}[j]<\textit{nums}[l]$. A four-fold loop fails at $n\le 4000$, and naive side counts for each $(j,k)$ can still be cubic.
 >
-> Fix $j$ and sweep $k$ rightward while decrementing the number of later values $>nums[j]$, storing $f[j][k]$. Symmetrically sweep $j$ left of each $k$ for $g[j][k]$. Multiply the two only when $nums[j]>nums[k]$. The whole pass is $O(n^2)$.
+> Fix $j$ and sweep $k$ rightward while decrementing the number of later values $>\textit{nums}[j]$, storing $f[j][k]$. Symmetrically sweep $j$ left of each $k$ for $g[j][k]$. Multiply the two only when $\textit{nums}[j]>\textit{nums}[k]$. The whole pass is $O(n^2)$.
 
 <!-- thinking:end -->
 
 We can enumerate $j$ and $k$ in the quadruplet, then the problem is transformed into, for the current $j$ and $k$:
 
-- Count how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$;
-- Count how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
+- Count how many $l$ satisfy $l > k$ and $\textit{nums}[l] > \textit{nums}[j]$;
+- Count how many $i$ satisfy $i < j$ and $\textit{nums}[i] < \textit{nums}[k]$.
 
-We can use two two-dimensional arrays $f$ and $g$ to record these two pieces of information. Where $f[j][k]$ represents how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$, and $g[j][k]$ represents how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
+We can use two two-dimensional arrays $f$ and $g$ to record these two pieces of information. Where $f[j][k]$ represents how many $l$ satisfy $l > k$ and $\textit{nums}[l] > \textit{nums}[j]$, and $g[j][k]$ represents how many $i$ satisfy $i < j$ and $\textit{nums}[i] < \textit{nums}[k]$.
 
 Therefore, the answer is the sum of all $f[j][k] \times g[j][k]$.
 

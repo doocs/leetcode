@@ -70,26 +70,26 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 
 > **Thinking**
 >
-> We must maximize $nums[\textit{index}]$ subject to adjacent differences of at most $1$ and a sum cap $\textit{maxSum}$. Trying every candidate value and building the array costs $O(n)$ per check, and the value can be as large as $\textit{maxSum}$, which is too slow.
+> We must maximize $\textit{nums}[\textit{index}]$ subject to adjacent differences of at most $1$ and a sum cap $\textit{maxSum}$. Trying every candidate value and building the array costs $O(n)$ per check, and the value can be as large as $\textit{maxSum}$, which is too slow.
 >
-> Once $nums[\textit{index}]=x$ is fixed, the cheapest array decreases as $x-1,x-2,\ldots$ on both sides and stays at $1$ afterwards. That minimum sum grows with $x$, so we binary-search $x$ and test the closed-form sum against $\textit{maxSum}$. The helper $\textit{sum}(x,\textit{cnt})$ distinguishes whether $x$ is large enough to fill all $\textit{cnt}$ positions.
+> Once $\textit{nums}[\textit{index}]=x$ is fixed, the cheapest array decreases as $x-1,x-2,\ldots$ on both sides and stays at $1$ afterwards. That minimum sum grows with $x$, so we binary-search $x$ and test the closed-form sum against $\textit{maxSum}$. The helper $\textit{sum}(x,\textit{cnt})$ distinguishes whether $x$ is large enough to fill all $\textit{cnt}$ positions.
 
 <!-- thinking:end -->
 
-According to the problem description, if we determine the value of $nums[index]$ as $x$, we can find a minimum array sum. That is, the elements on the left side of $index$ in the array decrease from $x-1$ to $1$, and if there are remaining elements, the remaining elements are all $1$; similarly, the elements at $index$ and on the right side of the array decrease from $x$ to $1$, and if there are remaining elements, the remaining elements are all $1$.
+According to the problem description, if we determine the value of $\textit{nums}[\textit{index}]$ as $x$, we can find a minimum array sum. That is, the elements on the left side of $\textit{index}$ in the array decrease from $x-1$ to $1$, and if there are remaining elements, the remaining elements are all $1$; similarly, the elements at $\textit{index}$ and on the right side of the array decrease from $x$ to $1$, and if there are remaining elements, the remaining elements are all $1$.
 
-In this way, we can calculate the sum of the array. If the sum is less than or equal to $maxSum$, then the current $x$ is valid. As $x$ increases, the sum of the array will also increase, so we can use the binary search method to find the maximum $x$ that meets the conditions.
+In this way, we can calculate the sum of the array. If the sum is less than or equal to $\textit{maxSum}$, then the current $x$ is valid. As $x$ increases, the sum of the array will also increase, so we can use the binary search method to find the maximum $x$ that meets the conditions.
 
-To facilitate the calculation of the sum of the elements on the left and right sides of the array, we define a function $sum(x, cnt)$, which represents the sum of an array with $cnt$ elements and a maximum value of $x$. The function $sum(x, cnt)$ can be divided into two cases:
+To facilitate the calculation of the sum of the elements on the left and right sides of the array, we define a function $\textit{sum}(x, \textit{cnt})$, which represents the sum of an array with $\textit{cnt}$ elements and a maximum value of $x$. The function $\textit{sum}(x, \textit{cnt})$ can be divided into two cases:
 
-- If $x \geq cnt$, then the sum of the array is $\frac{(x + x - cnt + 1) \times cnt}{2}$
-- If $x \lt cnt$, then the sum of the array is $\frac{(x + 1) \times x}{2} + cnt - x$
+- If $x \geq \textit{cnt}$, then the sum of the array is $\frac{(x + x - \textit{cnt} + 1) \times \textit{cnt}}{2}$
+- If $x \lt \textit{cnt}$, then the sum of the array is $\frac{(x + 1) \times x}{2} + \textit{cnt} - x$
 
-Next, define the left boundary of the binary search as $left = 1$, the right boundary as $right = maxSum$, and then binary search for the value $mid$ of $nums[index]$. If $sum(mid - 1, index) + sum(mid, n - index) \leq maxSum$, then the current $mid$ is valid, we can update $left$ to $mid$, otherwise we update $right$ to $mid - 1$.
+Next, define the left boundary of the binary search as $\textit{left} = 1$, the right boundary as $\textit{right} = \textit{maxSum}$, and then binary search for the value $\textit{mid}$ of $\textit{nums}[\textit{index}]$. If $\textit{sum}(\textit{mid} - 1, \textit{index}) + \textit{sum}(\textit{mid}, n - \textit{index}) \leq \textit{maxSum}$, then the current $\textit{mid}$ is valid, we can update $\textit{left}$ to $\textit{mid}$, otherwise we update $\textit{right}$ to $\textit{mid} - 1$.
 
-Finally, return $left$ as the answer.
+Finally, return $\textit{left}$ as the answer.
 
-The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M=maxSum$.
+The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M=\textit{maxSum}$.
 
 <!-- tabs:start -->
 

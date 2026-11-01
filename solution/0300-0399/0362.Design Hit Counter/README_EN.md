@@ -78,7 +78,7 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 >
 > Count hits in the last $300$ seconds. Timestamps increase. A queue that drops stale hits works; a list plus binary search is shorter.
 >
-> `hit` appends; `getHits` bisects the first index $\ge timestamp-299$ and returns the suffix length.
+> `hit` appends; `getHits` bisects the first index $\ge \textit{timestamp}-299$ and returns the suffix length.
 
 <!-- thinking:end -->
 

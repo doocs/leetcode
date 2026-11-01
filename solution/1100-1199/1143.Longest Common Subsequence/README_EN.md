@@ -76,19 +76,19 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ as the length of the longest common subsequence of the first $i$ characters of $text1$ and the first $j$ characters of $text2$. Therefore, the answer is $f[m][n]$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
+We define $f[i][j]$ as the length of the longest common subsequence of the first $i$ characters of $\textit{text1}$ and the first $j$ characters of $\textit{text2}$. Therefore, the answer is $f[m][n]$, where $m$ and $n$ are the lengths of $\textit{text1}$ and $\textit{text2}$, respectively.
 
-If the $i$th character of $text1$ and the $j$th character of $text2$ are the same, then $f[i][j] = f[i - 1][j - 1] + 1$; if the $i$th character of $text1$ and the $j$th character of $text2$ are different, then $f[i][j] = max(f[i - 1][j], f[i][j - 1])$. The state transition equation is:
+If the $i$th character of $\textit{text1}$ and the $j$th character of $\textit{text2}$ are the same, then $f[i][j] = f[i - 1][j - 1] + 1$; if the $i$th character of $\textit{text1}$ and the $j$th character of $\textit{text2}$ are different, then $f[i][j] = \max(f[i - 1][j], f[i][j - 1])$. The state transition equation is:
 
 $$
 f[i][j] =
 \begin{cases}
-f[i - 1][j - 1] + 1, & \textit{if } text1[i - 1] = text2[j - 1] \\
-\max(f[i - 1][j], f[i][j - 1]), & \textit{if } text1[i - 1] \neq text2[j - 1]
+f[i - 1][j - 1] + 1, & \textit{if } \textit{text1}[i - 1] = \textit{text2}[j - 1] \\
+\max(f[i - 1][j], f[i][j - 1]), & \textit{if } \textit{text1}[i - 1] \neq \textit{text2}[j - 1]
 \end{cases}
 $$
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{text1}$ and $\textit{text2}$, respectively.
 
 <!-- tabs:start -->
 

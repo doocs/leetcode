@@ -80,7 +80,7 @@ tags:
 >
 > Add one for each letter in the first tree and subtract one in the second; all zeros means equivalence.
 >
-> DFS skips `+` nodes and updates a counter $cnt$ only at leaves.
+> DFS skips `+` nodes and updates a counter $\textit{cnt}$ only at leaves.
 
 <!-- thinking:end -->
 

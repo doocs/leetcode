@@ -80,7 +80,7 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 >
 > The sentence is at most $200$ characters. After splitting on spaces, check that numeric tokens strictly increase and ignore the rest.
 >
-> Keep the previous number $pre$; fail if the current value is $\le pre$.
+> Keep the previous number $\textit{pre}$; fail if the current value is $\le \textit{pre}$.
 
 <!-- thinking:end -->
 

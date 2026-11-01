@@ -78,11 +78,11 @@ tags:
 
 We can use a hash table or an array $s$ of length $26$ to record all the broken letter keys.
 
-Then, we traverse each word $w$ in the string $text$, and if any letter $c$ in $w$ appears in $s$, it means that the word cannot be typed, and we do not need to add one to the answer. Otherwise, we need to add one to the answer.
+Then, we traverse each word $w$ in the string $\textit{text}$, and if any letter $c$ in $w$ appears in $s$, it means that the word cannot be typed, and we do not need to add one to the answer. Otherwise, we need to add one to the answer.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $text$, and $|\Sigma|$ is the size of the alphabet. In this problem, $|\Sigma|=26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{text}$, and $|\Sigma|$ is the size of the alphabet. In this problem, $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

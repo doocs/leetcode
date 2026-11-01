@@ -61,7 +61,7 @@ tags:
 >
 > A full binary tree has $0$ or $2$ children per node, and $n\le 20$. Even $n$ is impossible; for odd $n$ we enumerate the left subtree’s size.
 >
-> Memoize $dfs(n)$: the root takes one node, the rest split between left and right. Every Cartesian pair of subtrees hangs under a new root. $n=1$ is a single node.
+> Memoize $\textit{dfs}(n)$: the root takes one node, the rest split between left and right. Every Cartesian pair of subtrees hangs under a new root. $n=1$ is a single node.
 
 <!-- thinking:end -->
 

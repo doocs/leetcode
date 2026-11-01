@@ -63,7 +63,7 @@ tags:
 
 > **Thinking**
 >
-> Entry $i$ is $nums[i]\lor nums[i+1]$ and does not depend on farther elements.
+> Entry $i$ is $\textit{nums}[i]\lor \textit{nums}[i+1]$ and does not depend on farther elements.
 >
 > Each adjacent pair can be evaluated independently.
 >

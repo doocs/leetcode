@@ -234,7 +234,7 @@ public class Solution {
 
 > **Thinking**
 >
-> Polynomial hashes may collide. Concatenating $s$ with its reverse and computing KMP $next$ makes the last $next$ value the longest palindromic prefix length.
+> Polynomial hashes may collide. Concatenating $s$ with its reverse and computing KMP $\textit{next}$ makes the last $\textit{next}$ value the longest palindromic prefix length.
 >
 > The same construction then runs in linear time without modular hashing.
 

@@ -86,21 +86,21 @@ There are four ways to partition the array.
 >
 > A valid cut has equal halves, i.e. a prefix equal to half the total. With $n \le 10^5$ and one optional replacement by $k$, rescanning prefixes per edit is too slow.
 >
-> Without edit, if the sum is even, count prefixes equal to the half-sum (excluding the end). Replacing $nums[i]$ by $k$ leaves left prefixes unchanged and shifts right ones by $d=k-nums[i]$, giving two target keys.
+> Without edit, if the sum is even, count prefixes equal to the half-sum (excluding the end). Replacing $\textit{nums}[i]$ by $k$ leaves left prefixes unchanged and shifts right ones by $d=k-\textit{nums}[i]$, giving two target keys.
 >
-> Maps $left$ and $right$ track those frequencies as the cut pointer moves, so the maximum is obtained in linear time.
+> Maps $\textit{left}$ and $\textit{right}$ track those frequencies as the cut pointer moves, so the maximum is obtained in linear time.
 
 <!-- thinking:end -->
 
-We can preprocess to get the prefix sum array $s$ corresponding to the array $nums$, where $s[i]$ represents the sum of the array $nums[0,...i-1]$. Therefore, the sum of all elements in the array is $s[n - 1]$.
+We can preprocess to get the prefix sum array $s$ corresponding to the array $\textit{nums}$, where $s[i]$ represents the sum of the array $\textit{nums}[0,...i-1]$. Therefore, the sum of all elements in the array is $s[n - 1]$.
 
-If we do not modify the array $nums$, the condition for the sums of the two subarrays to be equal is that $s[n - 1]$ must be even. If $s[n - 1]$ is even, then we calculate $ans = \frac{right[s[n - 1] / 2]}{2}$.
+If we do not modify the array $\textit{nums}$, the condition for the sums of the two subarrays to be equal is that $s[n - 1]$ must be even. If $s[n - 1]$ is even, then we calculate $\textit{ans} = \frac{\textit{right}[s[n - 1] / 2]}{2}$.
 
-If we modify the array $nums$, we can enumerate each modification position $i$, change $nums[i]$ to $k$, then the change in the total sum of the array is $d = k - nums[i]$. At this time, the sum of the left part of $i$ remains unchanged, so the legal split must satisfy $s[i] = s[n - 1] + d - s[i]$, that is, $s[i] = \frac{s[n - 1] + d}{2}$. Each prefix sum of the right part has increased by $d$, so the legal split must satisfy $s[i] + d = s[n - 1] + d - (s[i] + d)$, that is, $s[i] = \frac{s[n - 1] - d}{2}$. We use hash tables $left$ and $right$ to record the number of times each prefix sum appears in the left and right parts, respectively. Then we can calculate $ans = max(ans, left[\frac{s[n - 1] + d}{2}]) + right[\frac{s[n - 1] - d}{2}]$.
+If we modify the array $\textit{nums}$, we can enumerate each modification position $i$, change $\textit{nums}[i]$ to $k$, then the change in the total sum of the array is $d = k - \textit{nums}[i]$. At this time, the sum of the left part of $i$ remains unchanged, so the legal split must satisfy $s[i] = s[n - 1] + d - s[i]$, that is, $s[i] = \frac{s[n - 1] + d}{2}$. Each prefix sum of the right part has increased by $d$, so the legal split must satisfy $s[i] + d = s[n - 1] + d - (s[i] + d)$, that is, $s[i] = \frac{s[n - 1] - d}{2}$. We use hash tables $\textit{left}$ and $\textit{right}$ to record the number of times each prefix sum appears in the left and right parts, respectively. Then we can calculate $\textit{ans} = \max(\textit{ans}, \textit{left}[\frac{s[n - 1] + d}{2}]) + \textit{right}[\frac{s[n - 1] - d}{2}]$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

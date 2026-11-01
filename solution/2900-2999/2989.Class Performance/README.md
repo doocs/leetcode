@@ -82,7 +82,7 @@ student_id 321 拥有最高分为 230，而 student_id 896 拥有最低分为 11
 
 > **思考**
 >
-> 分数差是三项作业之和的极差。对表达式 $assignment1+assignment2+assignment3$ 同时取 $MAX$ 与 $MIN$ 再相减，一次表扫描即可。
+> 分数差是三项作业之和的极差。对表达式 $\textit{assignment1}+\textit{assignment2}+\textit{assignment3}$ 同时取 $\textit{MAX}$ 与 $\textit{MIN}$ 再相减，一次表扫描即可。
 >
 > 无需按学生分组。
 

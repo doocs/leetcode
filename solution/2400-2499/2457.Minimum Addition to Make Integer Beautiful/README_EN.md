@@ -70,22 +70,22 @@ tags:
 
 > **Thinking**
 >
-> With $n\le 10^{12}$, add the smallest $x$ so the digit sum is $\le target$. Carrying the lowest nonzero digit upward drops the digit sum by turning a suffix into zeros.
+> With $n\le 10^{12}$, add the smallest $x$ so the digit sum is $\le \textit{target}$. Carrying the lowest nonzero digit upward drops the digit sum by turning a suffix into zeros.
 >
 > While $n+x$ is still too large, find the ten-power $p$ of the lowest nonzero digit and set $x$ so that prefix plus one, times $p$, minus $n$. Repeat until the digit sum fits.
 
 <!-- thinking:end -->
 
-We define a function $f(x)$ to represent the sum of the digits of an integer $x$. The problem is to find the minimum non-negative integer $x$ such that $f(n + x) \leq target$.
+We define a function $f(x)$ to represent the sum of the digits of an integer $x$. The problem is to find the minimum non-negative integer $x$ such that $f(n + x) \leq \textit{target}$.
 
-If the sum of the digits of $y = n+x$ is greater than $target$, we can loop through the following operations to reduce the sum of the digits of $y$ to less than or equal to $target$:
+If the sum of the digits of $y = n+x$ is greater than $\textit{target}$, we can loop through the following operations to reduce the sum of the digits of $y$ to less than or equal to $\textit{target}$:
 
 - Find the lowest non-zero digit of $y$, reduce it to $0$, and add $1$ to the digit one place higher;
-- Update $x$ and continue the above operation until the sum of the digits of $n+x$ is less than or equal to $target$.
+- Update $x$ and continue the above operation until the sum of the digits of $n+x$ is less than or equal to $\textit{target}$.
 
 After the loop ends, return $x$.
 
-For example, if $n=467$ and $target=6$, the change process of $n$ is as follows:
+For example, if $n=467$ and $\textit{target}=6$, the change process of $n$ is as follows:
 
 $$
 \begin{aligned}

@@ -70,13 +70,13 @@ tags:
 
 <!-- thinking:end -->
 
-We first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$.
+We first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\textit{false}$.
 
 Next, we use a hash table $\textit{cnt}$ to count the occurrences of each number in the array $\textit{hand}$, and then we sort the array $\textit{hand}$.
 
-After that, we iterate over the sorted array $\textit{hand}$. For each number $x$, if $\textit{cnt}[x] \neq 0$, we enumerate every number $y$ from $x$ to $x + \textit{groupSize} - 1$. If $\textit{cnt}[y] = 0$, it means that we cannot partition the array into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$. Otherwise, we decrement $\textit{cnt}[y]$ by $1$.
+After that, we iterate over the sorted array $\textit{hand}$. For each number $x$, if $\textit{cnt}[x] \neq 0$, we enumerate every number $y$ from $x$ to $x + \textit{groupSize} - 1$. If $\textit{cnt}[y] = 0$, it means that we cannot partition the array into multiple subarrays of length $\textit{groupSize}$, so we return $\textit{false}$. Otherwise, we decrement $\textit{cnt}[y]$ by $1$.
 
-If the iteration completes successfully, it means that the array can be partitioned into multiple valid subarrays, so we return $\text{true}$.
+If the iteration completes successfully, it means that the array can be partitioned into multiple valid subarrays, so we return $\textit{true}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hand}$.
 
@@ -227,11 +227,11 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$.
+Similar to Solution 1, we first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\textit{false}$.
 
-Next, we use an ordered set $\textit{sd}$ to count the occurrences of each number in the array $\textit{hand}$.
+Next, we use an ordered set $sd$ to count the occurrences of each number in the array $\textit{hand}$.
 
-Then, we repeatedly take the smallest value $x$ from the ordered set and enumerate each number $y$ from $x$ to $x + \textit{groupSize} - 1$. If all these numbers appear at least once in the ordered set, we decrement their occurrence count by $1$. If any count reaches $0$, we remove that number from the ordered set. Otherwise, if we encounter a number that does not exist in the ordered set, it means that the array cannot be partitioned into valid subarrays, so we return $\text{false}$. If the iteration completes successfully, it means that the array can be partitioned into multiple valid subarrays, so we return $\text{true}$.
+Then, we repeatedly take the smallest value $x$ from the ordered set and enumerate each number $y$ from $x$ to $x + \textit{groupSize} - 1$. If all these numbers appear at least once in the ordered set, we decrement their occurrence count by $1$. If any count reaches $0$, we remove that number from the ordered set. Otherwise, if we encounter a number that does not exist in the ordered set, it means that the array cannot be partitioned into valid subarrays, so we return $\textit{false}$. If the iteration completes successfully, it means that the array can be partitioned into multiple valid subarrays, so we return $\textit{true}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hand}$.
 

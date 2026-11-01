@@ -92,27 +92,27 @@ tags:
 
 > **思考**
 >
-> 题意与 I 相同，但 $zero$、 $one$ 更大，朴素回溯不可行。稳定约束仍只与剩余个数及下一位有关。
+> 题意与 I 相同，但 $\textit{zero}$、 $\textit{one}$ 更大，朴素回溯不可行。稳定约束仍只与剩余个数及下一位有关。
 >
-> 超限项同样是减去「连续 $limit+1$ 个相同位」的那一支，状态量仍为 $O(zero one)$。
+> 超限项同样是减去「连续 $\textit{limit}+1$ 个相同位」的那一支，状态量仍为 $O(\textit{zero} \textit{one})$。
 >
-> 因此沿用 $dfs(i,j,k)$ 记忆化，答案对 $10^9+7$ 取模，并在返回前清空缓存以免占用额外空间。
+> 因此沿用 $\textit{dfs}(i,j,k)$ 记忆化，答案对 $10^9+7$ 取模，并在返回前清空缓存以免占用额外空间。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i, j, k)$ 表示还剩下 $i$ 个 $0$ 和 $j$ 个 $1$ 且接下来待填的数字是 $k$ 的情况下，满足题目条件的稳定二进制数组的个数。那么答案就是 $dfs(zero, one, 0) + dfs(zero, one, 1)$。
+我们设计一个函数 $\textit{dfs}(i, j, k)$ 表示还剩下 $i$ 个 $0$ 和 $j$ 个 $1$ 且接下来待填的数字是 $k$ 的情况下，满足题目条件的稳定二进制数组的个数。那么答案就是 $\textit{dfs}(\textit{zero}, \textit{one}, 0) + \textit{dfs}(\textit{zero}, \textit{one}, 1)$。
 
-函数 $dfs(i, j, k)$ 的计算过程如下：
+函数 $\textit{dfs}(i, j, k)$ 的计算过程如下：
 
 - 如果 $i \lt 0$ 或 $j \lt 0$，返回 $0$。
 - 如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
 - 如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
-- 如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \textit{limit} - 1, j, 1)$。
-- 如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \textit{limit} - 1, 0)$。
+- 如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $\textit{dfs}(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $\textit{dfs}(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $\textit{dfs}(i - \textit{limit} - 1, j, 1)$。
+- 如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $\textit{dfs}(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $\textit{dfs}(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $\textit{dfs}(i, j - \textit{limit} - 1, 0)$。
 
 为了避免重复计算，我们使用记忆化搜索的方法。
 
-时间复杂度 $O(zero one)$，空间复杂度 $O(zero one)$。
+时间复杂度 $O(\textit{zero} \textit{one})$，空间复杂度 $O(\textit{zero} \textit{one})$。
 
 <!-- tabs:start -->
 
@@ -338,13 +338,13 @@ impl Solution {
 >
 > 将同一转移改成迭代： $f[i][j][k]$ 按 $i$、 $j$ 升序填表，边界与 I 中方法二一致。
 >
-> 模运算写在递推里，最终返回 $f[zero][one][0]+f[zero][one][1]$，避免递归栈。
+> 模运算写在递推里，最终返回 $f[\textit{zero}][\textit{one}][0]+f[\textit{zero}][\textit{one}][1]$，避免递归栈。
 
 <!-- thinking:end -->
 
 我们也可以将方法一的记忆化搜索转换为动态规划。
 
-我们定义 $f[i][j][k]$ 表示使用 $i$ 个 $0$ 和 $j$ 个 $1$ 且最后一个数字是 $k$ 的稳定二进制数组的个数。那么答案就是 $f[zero][one][0] + f[zero][one][1]$。
+我们定义 $f[i][j][k]$ 表示使用 $i$ 个 $0$ 和 $j$ 个 $1$ 且最后一个数字是 $k$ 的稳定二进制数组的个数。那么答案就是 $f[\textit{zero}][\textit{one}][0] + f[\textit{zero}][\textit{one}][1]$。
 
 初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\textit{limit}, \textit{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\textit{limit}, \textit{one})$。
 
@@ -353,7 +353,7 @@ impl Solution {
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。
 
-时间复杂度 $O(zero one)$，空间复杂度 $O(zero one)$。
+时间复杂度 $O(\textit{zero} \textit{one})$，空间复杂度 $O(\textit{zero} \textit{one})$。
 
 <!-- tabs:start -->
 

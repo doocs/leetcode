@@ -82,7 +82,7 @@ tags:
 >
 > Two arrays must become strictly increasing with prescribed parities, minimizing the final maximum. $m,n\le 1000$ would allow guessing that maximum, but filling has optimal substructure.
 >
-> $f[i][j]$ is the smallest achievable maximum after $i$ values of $nums1$ and $j$ of $nums2$. The next write attaches to one array the least integer larger than the current maximum with the right parity. Boundaries follow one array; the interior takes the better of the two attachments.
+> $f[i][j]$ is the smallest achievable maximum after $i$ values of $\textit{nums1}$ and $j$ of $\textit{nums2}$. The next write attaches to one array the least integer larger than the current maximum with the right parity. Boundaries follow one array; the interior takes the better of the two attachments.
 
 <!-- thinking:end -->
 

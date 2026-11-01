@@ -77,13 +77,13 @@ Hence, answer[0] = 8, and so on.
 >
 > We need the sum of distances from every node. $n\le 3\cdot 10^4$, so a DFS from each root is quadratic. After rerooting, neighboring answers differ only by subtree size versus the rest of the tree.
 >
-> Root at $0$ to get $ans[0]$ and subtree sizes, then a second DFS pushes $t-\textit{size}[j]+n-\textit{size}[j]$ to each child. Two traversals fill every answer.
+> Root at $0$ to get $\textit{ans}[0]$ and subtree sizes, then a second DFS pushes $t-\textit{size}[j]+n-\textit{size}[j]$ to each child. Two traversals fill every answer.
 
 <!-- thinking:end -->
 
-First, we run a DFS to calculate the size of each node's subtree, recorded in the array $size$, and compute the sum of distances from node $0$ to all other nodes, recorded in $ans[0]$.
+First, we run a DFS to calculate the size of each node's subtree, recorded in the array $\textit{size}$, and compute the sum of distances from node $0$ to all other nodes, recorded in $\textit{ans}[0]$.
 
-Next, we run another DFS to enumerate the sum of distances from each node when it is considered as the root. Suppose the answer for the current node $i$ is $t$. When we move from node $i$ to node $j$, the sum of distances changes to $t - size[j] + n - size[j]$, meaning the sum of distances to node $j$ and its subtree nodes decreases by $size[j]$, while the sum of distances to other nodes increases by $n - size[j]$.
+Next, we run another DFS to enumerate the sum of distances from each node when it is considered as the root. Suppose the answer for the current node $i$ is $t$. When we move from node $i$ to node $j$, the sum of distances changes to $t - \textit{size}[j] + n - \textit{size}[j]$, meaning the sum of distances to node $j$ and its subtree nodes decreases by $\textit{size}[j]$, while the sum of distances to other nodes increases by $n - \textit{size}[j]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
@@ -298,13 +298,13 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
 
 > **Thinking**
 >
-> We need the sum of distances from every node. With $n\le 3\cdot 10^4$, a walk from each root is quadratic. After rerooting, neighboring answers differ only by subtree size versus the rest of the tree. Recursion along a chain uses a call depth equal to $n$ and overflows Python once the chain reaches length $1000$. Subtree sizes are known only after the children finish, so the first walk is a post-order stack: state $0$ adds the depth and pushes the children, and state $1$ totals $size$. The second answer depends only on the parent's answer and the finished sizes, so a pre-order stack passes $t-size[j]+n-size[j]$ to each child.
+> We need the sum of distances from every node. With $n\le 3\cdot 10^4$, a walk from each root is quadratic. After rerooting, neighboring answers differ only by subtree size versus the rest of the tree. Recursion along a chain uses a call depth equal to $n$ and overflows Python once the chain reaches length $1000$. Subtree sizes are known only after the children finish, so the first walk is a post-order stack: state $0$ adds the depth and pushes the children, and state $1$ totals $\textit{size}$. The second answer depends only on the parent's answer and the finished sizes, so a pre-order stack passes $t-\textit{size}[j]+n-\textit{size}[j]$ to each child.
 
 <!-- thinking:end -->
 
-Root the tree at $0$ and walk in post-order. The stack holds a node, its parent, a depth, and a state. In state $0$, add the depth to $ans[0]$, push the same node with state $1$, and push every child. In state $1$, every child size is already stored, and $size[i]$ is $1$ plus those sizes.
+Root the tree at $0$ and walk in post-order. The stack holds a node, its parent, a depth, and a state. In state $0$, add the depth to $\textit{ans}[0]$, push the same node with state $1$, and push every child. In state $1$, every child size is already stored, and $\textit{size}[i]$ is $1$ plus those sizes.
 
-Then reroot with an explicit stack. It starts with $(0,-1,ans[0])$. When node $i$ is popped, write the current sum $t$ into $ans[i]$. Moving from $i$ to a child $j$ decreases the distances inside $j$'s subtree by $size[j]$ and increases the distances to every other node by $n-size[j]$, so the pushed sum is $t-size[j]+n-size[j]$.
+Then reroot with an explicit stack. It starts with $(0,-1,\textit{ans}[0])$. When node $i$ is popped, write the current sum $t$ into $\textit{ans}[i]$. Moving from $i$ to a child $j$ decreases the distances inside $j$'s subtree by $\textit{size}[j]$ and increases the distances to every other node by $n-\textit{size}[j]$, so the pushed sum is $t-\textit{size}[j]+n-\textit{size}[j]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

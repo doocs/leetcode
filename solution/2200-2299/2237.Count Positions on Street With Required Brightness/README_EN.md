@@ -85,9 +85,9 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 
 To add a value $v$ to a continuous interval $[i, j]$ simultaneously, we can use a difference array.
 
-We define an array $\textit{d}$ of length $n + 1$. For each streetlight, we calculate its left boundary $i = \max(0, p - r)$ and right boundary $j = \min(n - 1, p + r)$, then add $1$ to $\textit{d}[i]$ and subtract $1$ from $\textit{d}[j + 1]$.
+We define an array $d$ of length $n + 1$. For each streetlight, we calculate its left boundary $i = \max(0, p - r)$ and right boundary $j = \min(n - 1, p + r)$, then add $1$ to $d[i]$ and subtract $1$ from $d[j + 1]$.
 
-Next, we perform a prefix sum operation on $\textit{d}$. For each position $i$, if the prefix sum of $\textit{d}[i]$ is greater than or equal to $\textit{requirement}[i]$, it means that the position meets the requirement, and we increment the answer by one.
+Next, we perform a prefix sum operation on $d$. For each position $i$, if the prefix sum of $d[i]$ is greater than or equal to $\textit{requirement}[i]$, it means that the position meets the requirement, and we increment the answer by one.
 
 Finally, return the answer.
 

@@ -102,9 +102,9 @@ Bob 会获胜。
 
 <!-- thinking:end -->
 
-选取石头的最优化的策略是，让自己得分最高，同时让对手失分最多。因此，我们创建一个数组 $vals$，其中 $vals[i] = (aliceValues[i] + bobValues[i], i)$，表示第 $i$ 个石头的总价值和编号。然后我们对 $vals$ 按照总价值降序排序。
+选取石头的最优化的策略是，让自己得分最高，同时让对手失分最多。因此，我们创建一个数组 $\textit{vals}$，其中 $\textit{vals}[i] = (\textit{aliceValues}[i] + \textit{bobValues}[i], i)$，表示第 $i$ 个石头的总价值和编号。然后我们对 $\textit{vals}$ 按照总价值降序排序。
 
-然后我们按照 $vals$ 的顺序，让 Alice 和 Bob 交替选取石头。Alice 选取 $vals$ 中的偶数位置的石头，Bob 选取 $vals$ 中的奇数位置的石头。最后比较 Alice 和 Bob 的得分，返回对应的结果。
+然后我们按照 $\textit{vals}$ 的顺序，让 Alice 和 Bob 交替选取石头。Alice 选取 $\textit{vals}$ 中的偶数位置的石头，Bob 选取 $\textit{vals}$ 中的奇数位置的石头。最后比较 Alice 和 Bob 的得分，返回对应的结果。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
 

@@ -138,9 +138,9 @@ tags:
 
 We first construct an adjacency list $g$ based on the edges given in the problem, where $g[u]$ stores all nodes adjacent to node $u$.
 
-Next, we define a function $\text{bfs}(i)$ to calculate the distances from node $i$ to all other nodes. We use a queue to implement Breadth-First Search (BFS) and maintain a distance array $\text{dist}$, where $\text{dist}[j]$ represents the distance from node $i$ to node $j$. Initially, $\text{dist}[i] = 0$, and the distances to all other nodes are set to infinity. During the BFS process, we continuously update the distance array until all reachable nodes have been traversed.
+Next, we define a function $\textit{bfs}(i)$ to calculate the distances from node $i$ to all other nodes. We use a queue to implement Breadth-First Search (BFS) and maintain a distance array $\textit{dist}$, where $\textit{dist}[j]$ represents the distance from node $i$ to node $j$. Initially, $\textit{dist}[i] = 0$, and the distances to all other nodes are set to infinity. During the BFS process, we continuously update the distance array until all reachable nodes have been traversed.
 
-We call $\text{bfs}(x)$, $\text{bfs}(y)$, and $\text{bfs}(z)$ to calculate the distances from nodes $x$, $y$, and $z$ to all other nodes, obtaining three distance arrays $d_1$, $d_2$, and $d_3$ respectively.
+We call $\textit{bfs}(x)$, $\textit{bfs}(y)$, and $\textit{bfs}(z)$ to calculate the distances from nodes $x$, $y$, and $z$ to all other nodes, obtaining three distance arrays $d_1$, $d_2$, and $d_3$ respectively.
 
 Finally, we iterate through all nodes $u$. For each node, we retrieve its distances to $x$, $y$, and $z$ as $a = d_1[u]$, $b = d_2[u]$, and $c = d_3[u]$. We sort these three distances and check if they satisfy the Pythagorean theorem condition: $a^2 + b^2 = c^2$. If the condition is met, we increment the answer count.
 

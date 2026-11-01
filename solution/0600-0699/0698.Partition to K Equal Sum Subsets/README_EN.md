@@ -61,7 +61,7 @@ tags:
 >
 > Partition into $k$ equal-sum subsets. If the total is not divisible by $k$, fail. $n\le 16$ allows DFS if we cut symmetric fillings.
 >
-> Target $s$, array $cur$ holds bucket sums. Place numbers largest-first: skip a bucket that would exceed $s$ or that matches the previous bucket. Success when every number is placed.
+> Target $s$, array $\textit{cur}$ holds bucket sums. Place numbers largest-first: skip a bucket that would exceed $s$ or that matches the previous bucket. Success when every number is placed.
 
 <!-- thinking:end -->
 
@@ -272,7 +272,7 @@ Our goal is to form $k$ subsets with a sum of $s$ from all elements. Let $t$ be 
 - If $t + \textit{nums}[i] \gt s$, it means the $i$-th element cannot be added to the current subset. Since we sort the array $\textit{nums}$ in ascending order, all elements from position $i$ onwards cannot be added to the current subset, and we directly return $\textit{false}$.
 - Otherwise, add the $i$-th element to the current subset, change the state to $\textit{state} | 2^i$, and continue searching for unpartitioned elements. Note that if $t + \textit{nums}[i] = s$, it means we can form a subset with a sum of $s$. The next step is to reset $t$ to zero (which can be achieved by $(t + \textit{nums}[i]) \bmod s$) and continue partitioning the next subset.
 
-To avoid repeated searches, we use an array $\textit{f}$ of length $2^n$ to record the search results for each state. The array $\textit{f}$ has three possible values:
+To avoid repeated searches, we use an array $f$ of length $2^n$ to record the search results for each state. The array $f$ has three possible values:
 
 - `0` indicates that the current state has not been searched yet;
 - `-1`: indicates that the current state cannot be partitioned into $k$ subsets;
@@ -497,15 +497,15 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 > **Thinking**
 >
-> Memoization is top-down. Bottom-up, $f[i]$ says whether mask $i$ is reachable and $cur[i]$ is the current bucket fill. Try unused $j$ to set $f[i|2^j]$ without recursion.
+> Memoization is top-down. Bottom-up, $f[i]$ says whether mask $i$ is reachable and $\textit{cur}[i]$ is the current bucket fill. Try unused $j$ to set $f[i|2^j]$ without recursion.
 
 <!-- thinking:end -->
 
 We can use dynamic programming to solve this problem.
 
-We define $f[i]$ to represent whether there exists $k$ subsets that meet the requirements when the current selected numbers' state is $i$. Initially, $f[0] = \text{true}$, and the answer is $f[2^n - 1]$, where $n$ is the length of the array $\textit{nums}$. Additionally, we define $cur[i]$ to represent the sum of the last subset when the current selected numbers' state is $i$.
+We define $f[i]$ to represent whether there exists $k$ subsets that meet the requirements when the current selected numbers' state is $i$. Initially, $f[0] = \textit{true}$, and the answer is $f[2^n - 1]$, where $n$ is the length of the array $\textit{nums}$. Additionally, we define $\textit{cur}[i]$ to represent the sum of the last subset when the current selected numbers' state is $i$.
 
-We enumerate the states $i$ in the range $[0, 2^n]$. For each state $i$, if $f[i]$ is $\text{false}$, we skip it. Otherwise, we enumerate any number $\textit{nums}[j]$ in the array $\textit{nums}$. If $cur[i] + \textit{nums}[j] > s$, we break the enumeration loop because the subsequent numbers are larger and cannot be placed in the current subset. Otherwise, if the $j$-th bit of the binary representation of $i$ is $0$, it means the current $\textit{nums}[j]$ has not been selected. We can place it in the current subset, change the state to $i | 2^j$, update $cur[i | 2^j] = (cur[i] + \textit{nums}[j]) \bmod s$, and set $f[i | 2^j] = \text{true}$.
+We enumerate the states $i$ in the range $[0, 2^n]$. For each state $i$, if $f[i]$ is $\textit{false}$, we skip it. Otherwise, we enumerate any number $\textit{nums}[j]$ in the array $\textit{nums}$. If $\textit{cur}[i] + \textit{nums}[j] > s$, we break the enumeration loop because the subsequent numbers are larger and cannot be placed in the current subset. Otherwise, if the $j$-th bit of the binary representation of $i$ is $0$, it means the current $\textit{nums}[j]$ has not been selected. We can place it in the current subset, change the state to $i | 2^j$, update $\textit{cur}[i | 2^j] = (\textit{cur}[i] + \textit{nums}[j]) \bmod s$, and set $f[i | 2^j] = \textit{true}$.
 
 Finally, we return $f[2^n - 1]$.
 

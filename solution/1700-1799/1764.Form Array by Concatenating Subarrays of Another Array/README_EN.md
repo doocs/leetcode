@@ -80,9 +80,9 @@ They share a common elements nums[4] (0-indexed).
 
 > **Thinking**
 >
-> We must match the groups in order as disjoint contiguous blocks of $nums$. Sizes are tiny, so a left-to-right greedy scan works: consume a group when it matches, otherwise shift the start by one.
+> We must match the groups in order as disjoint contiguous blocks of $\textit{nums}$. Sizes are tiny, so a left-to-right greedy scan works: consume a group when it matches, otherwise shift the start by one.
 >
-> Pointer $i$ is the current group and $j$ walks $nums$. On a slice match, advance $j$ by the group length and increment $i$; otherwise increment $j$. Success is $i$ reaching the group count.
+> Pointer $i$ is the current group and $j$ walks $\textit{nums}$. On a slice match, advance $j$ by the group length and increment $i$; otherwise increment $j$. Success is $i$ reaching the group count.
 
 <!-- thinking:end -->
 

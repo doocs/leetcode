@@ -77,11 +77,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use a variable $\textit{pre}$ to record the digit of the previous bit, initialized to $\textit{pre} = 0$, and another variable $\textit{vis}$ to record whether a pair of consecutive set bits has already been found, initialized to $\textit{vis} = \text{false}$.
+We use a variable $\textit{pre}$ to record the digit of the previous bit, initialized to $\textit{pre} = 0$, and another variable $\textit{vis}$ to record whether a pair of consecutive set bits has already been found, initialized to $\textit{vis} = \textit{false}$.
 
-Iterate through each binary bit of $n$, and denote the current binary bit as $\textit{cur}$. If $\textit{pre} = \textit{cur} = 1$, and if $\textit{vis} = \text{true}$ at this moment, it indicates that there are multiple pairs of consecutive set bits, so we directly return $\text{false}$. Otherwise, we set $\textit{vis}$ to $\text{true}$. Then, we update $\textit{pre} = \textit{cur}$ and continue to iterate through the next binary bit.
+Iterate through each binary bit of $n$, and denote the current binary bit as $\textit{cur}$. If $\textit{pre} = \textit{cur} = 1$, and if $\textit{vis} = \textit{true}$ at this moment, it indicates that there are multiple pairs of consecutive set bits, so we directly return $\textit{false}$. Otherwise, we set $\textit{vis}$ to $\textit{true}$. Then, we update $\textit{pre} = \textit{cur}$ and continue to iterate through the next binary bit.
 
-After the iteration ends, if $\textit{vis} = \text{true}$, return $\text{true}$; otherwise, return $\text{false}$.
+After the iteration ends, if $\textit{vis} = \textit{true}$, return $\textit{true}$; otherwise, return $\textit{false}$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

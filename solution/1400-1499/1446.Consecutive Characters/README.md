@@ -64,9 +64,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义一个变量 $\textit{t}$，表示当前连续字符的长度，初始时 $\textit{t}=1$。
+我们定义一个变量 $t$，表示当前连续字符的长度，初始时 $t=1$。
 
-接下来，我们从字符串 $s$ 的第二个字符开始遍历，如果当前字符与上一个字符相同，那么 $\textit{t} = \textit{t} + 1$，然后更新答案 $\textit{ans} = \max(\textit{ans}, \textit{t})$；否则 $\textit{t} = 1$。
+接下来，我们从字符串 $s$ 的第二个字符开始遍历，如果当前字符与上一个字符相同，那么 $t = t + 1$，然后更新答案 $\textit{ans} = \max(\textit{ans}, t)$；否则 $t = 1$。
 
 最后返回答案 $\textit{ans}$ 即可。
 

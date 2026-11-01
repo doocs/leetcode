@@ -74,7 +74,7 @@ tags:
 >
 > Each value becomes $+k$ or $-k$; $2^n$ assignments are impossible. After sorting, smaller numbers should take $+k$ and larger ones $-k$, so an optimal split is a prefix of $+k$ and a suffix of $-k$.
 >
-> For each cut $i$, the new minimum is $\min(nums[0]+k,\,nums[i]-k)$ and the new maximum is $\max(nums[i-1]+k,\,nums[-1]-k)$. Keep the smallest gap, including the original one.
+> For each cut $i$, the new minimum is $\min(\textit{nums}[0]+k,\,\textit{nums}[i]-k)$ and the new maximum is $\max(\textit{nums}[i-1]+k,\,\textit{nums}[-1]-k)$. Keep the smallest gap, including the original one.
 
 <!-- thinking:end -->
 

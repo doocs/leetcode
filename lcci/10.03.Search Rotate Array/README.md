@@ -39,25 +39,25 @@ difficulty: 中等
 
 > **思考**
 >
-> 旋转有序数组中查找 $target$，且可能有重复。线性扫描总能找到最左出现，但未利用半段有序。
+> 旋转有序数组中查找 $\textit{target}$，且可能有重复。线性扫描总能找到最左出现，但未利用半段有序。
 >
-> 中点将数组分成至少一段有序区间；比较 $arr[mid]$ 与 $arr[r]$ 可判断哪一段有序，再看 $target$ 落在哪一侧。
+> 中点将数组分成至少一段有序区间；比较 $\textit{arr}[\textit{mid}]$ 与 $\textit{arr}[r]$ 可判断哪一段有序，再看 $\textit{target}$ 落在哪一侧。
 >
-> 两端相等时先收缩 $r$，避免无法判定。相等则 $r$ 减一。结束后检查 $arr[l]$。重复使最坏接近线性，有序段上仍接近对数。
+> 两端相等时先收缩 $r$，避免无法判定。相等则 $r$ 减一。结束后检查 $\textit{arr}[l]$。重复使最坏接近线性，有序段上仍接近对数。
 
 <!-- thinking:end -->
 
 我们定义二分查找的左边界 $l=0$，右边界 $r=n-1$，其中 $n$ 为数组的长度。
 
-每次在二分查找的过程中，我们会得到当前的中点 $mid=(l+r)/2$。
+每次在二分查找的过程中，我们会得到当前的中点 $\textit{mid}=(l+r)/2$。
 
-- 如果 $nums[mid] \gt nums[r]$，说明 $[l,mid]$ 是有序的，此时如果 $nums[l] \le target \le nums[mid]$，说明 $target$ 位于 $[l,mid]$，否则 $target$ 位于 $[mid+1,r]$。
-- 如果 $nums[mid] \lt nums[r]$，说明 $[mid+1,r]$ 是有序的，此时如果 $nums[mid] \lt target \le nums[r]$，说明 $target$ 位于 $[mid+1,r]$，否则 $target$ 位于 $[l,mid]$。
-- 如果 $nums[mid] = nums[r]$，说明元素 $nums[mid]$ 和 $nums[r]$ 相等，此时无法判断 $target$ 位于哪个区间，我们只能将 $r$ 减少 $1$。
+- 如果 $\textit{nums}[\textit{mid}] \gt \textit{nums}[r]$，说明 $[l,\textit{mid}]$ 是有序的，此时如果 $\textit{nums}[l] \le \textit{target} \le \textit{nums}[\textit{mid}]$，说明 $\textit{target}$ 位于 $[l,\textit{mid}]$，否则 $\textit{target}$ 位于 $[\textit{mid}+1,r]$。
+- 如果 $\textit{nums}[\textit{mid}] \lt \textit{nums}[r]$，说明 $[\textit{mid}+1,r]$ 是有序的，此时如果 $\textit{nums}[\textit{mid}] \lt \textit{target} \le \textit{nums}[r]$，说明 $\textit{target}$ 位于 $[\textit{mid}+1,r]$，否则 $\textit{target}$ 位于 $[l,\textit{mid}]$。
+- 如果 $\textit{nums}[\textit{mid}] = \textit{nums}[r]$，说明元素 $\textit{nums}[\textit{mid}]$ 和 $\textit{nums}[r]$ 相等，此时无法判断 $\textit{target}$ 位于哪个区间，我们只能将 $r$ 减少 $1$。
 
-二分查找结束后，如果 $nums[l] = target$，则说明数组中存在目标值 $target$，否则说明不存在。
+二分查找结束后，如果 $\textit{nums}[l] = \textit{target}$，则说明数组中存在目标值 $\textit{target}$，否则说明不存在。
 
-注意，如果一开始 $nums[l] = nums[r]$，我们循环将 $r$ 减少 $1$，直到 $nums[l] \ne nums[r]$。
+注意，如果一开始 $\textit{nums}[l] = \textit{nums}[r]$，我们循环将 $r$ 减少 $1$，直到 $\textit{nums}[l] \ne \textit{nums}[r]$。
 
 时间复杂度近似 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 

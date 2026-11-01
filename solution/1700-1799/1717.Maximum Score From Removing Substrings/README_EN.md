@@ -79,11 +79,11 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 
 > **Thinking**
 >
-> Deleting $\textit{ab}$ scores $x$ and $\textit{ba}$ scores $y$; each deletion changes adjacency. Searching deletion orders is infeasible on long strings.
+> Deleting $ab$ scores $x$ and $ba$ scores $y$; each deletion changes adjacency. Searching deletion orders is infeasible on long strings.
 >
 > A run of only $a$ and $b$ always ends with a single letter; the number of operations is fixed by the two counts. Higher-scoring pairs should be taken first.
 >
-> Swap letters and scores when $x<y$. While scanning, match the high-score pair against a counter; at a separator or the end, settle the low-score pair with $\min(cnt_a,cnt_b)$.
+> Swap letters and scores when $x<y$. While scanning, match the high-score pair against a counter; at a separator or the end, settle the low-score pair with $\min(\textit{cnt}_a,\textit{cnt}_b)$.
 
 <!-- thinking:end -->
 

@@ -94,7 +94,7 @@ obj.input(&quot;#&quot;); // return []. The user finished the input, the sentenc
 >
 > Each typed character must yield the three hottest sentences with that prefix. Scanning every sentence on every keystroke is slow.
 >
-> A trie stores sentence and heat. After walking the current prefix, DFS the subtree, sort by $(-heat, lex)$, and keep three. `#` inserts the finished sentence back.
+> A trie stores sentence and heat. After walking the current prefix, DFS the subtree, sort by $(-\textit{heat}, \textit{lex})$, and keep three. `#` inserts the finished sentence back.
 
 <!-- thinking:end -->
 

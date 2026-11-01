@@ -71,13 +71,13 @@ tags:
 
 题目求解的是数组 `nums` 中所有子序列中最大值与最小值差值之和，注意到“子序列”，并且涉及到“最大值”与“最小值”，我们考虑先对数组 `nums` 进行排序。
 
-然后我们枚举数组 `nums` 中的每个元素 $nums[i]$，该元素左侧的元素个数为 $i$，右侧的元素个数为 $n-i-1$。
+然后我们枚举数组 `nums` 中的每个元素 $\textit{nums}[i]$，该元素左侧的元素个数为 $i$，右侧的元素个数为 $n-i-1$。
 
-如果我们将元素 $nums[i]$ 作为子序列的最大值，总共有多少个满足条件的子序列呢？显然，子序列的其他元素应该从左侧的 $i$ 个元素中选取，每个元素有两种选择，即选或不选，因此总共有 $2^i$ 个子序列。同理，如果我们将元素 $nums[i]$ 作为子序列的最小值，那么总共有 $2^{n-i-1}$ 个满足条件的子序列。因此 $nums[i]$ 对答案的贡献为：
+如果我们将元素 $\textit{nums}[i]$ 作为子序列的最大值，总共有多少个满足条件的子序列呢？显然，子序列的其他元素应该从左侧的 $i$ 个元素中选取，每个元素有两种选择，即选或不选，因此总共有 $2^i$ 个子序列。同理，如果我们将元素 $\textit{nums}[i]$ 作为子序列的最小值，那么总共有 $2^{n-i-1}$ 个满足条件的子序列。因此 $\textit{nums}[i]$ 对答案的贡献为：
 
 $$
 \begin{aligned}
-nums[i] \times (2^i - 2^{n-i-1})
+\textit{nums}[i] \times (2^i - 2^{n-i-1})
 \end{aligned}
 $$
 
@@ -85,7 +85,7 @@ $$
 
 $$
 \begin{aligned}
-\sum_{i=0}^{n-1} nums[i] \times (2^i - 2^{n-i-1})
+\sum_{i=0}^{n-1} \textit{nums}[i] \times (2^i - 2^{n-i-1})
 \end{aligned}
 $$
 
@@ -93,7 +93,7 @@ $$
 
 $$
 \begin{aligned}
-nums[0] \times (2^0 - 2^{n-1}) + nums[1] \times (2^1 - 2^{n-2}) + ... + nums[n-1] \times (2^{n-1} - 2^0)
+\textit{nums}[0] \times (2^0 - 2^{n-1}) + \textit{nums}[1] \times (2^1 - 2^{n-2}) + ... + \textit{nums}[n-1] \times (2^{n-1} - 2^0)
 \end{aligned}
 $$
 
@@ -101,7 +101,7 @@ $$
 
 $$
 \begin{aligned}
-(nums[0] - nums[n-1]) \times 2^0 + (nums[1] - nums[n-2]) \times 2^1 + ... + (nums[n-1] - nums[0]) \times 2^{n-1}
+(\textit{nums}[0] - \textit{nums}[n-1]) \times 2^0 + (\textit{nums}[1] - \textit{nums}[n-2]) \times 2^1 + ... + (\textit{nums}[n-1] - \textit{nums}[0]) \times 2^{n-1}
 \end{aligned}
 $$
 
@@ -109,7 +109,7 @@ $$
 
 $$
 \begin{aligned}
-\sum_{i=0}^{n-1} (nums[i] - nums[n-i-1]) \times 2^i
+\sum_{i=0}^{n-1} (\textit{nums}[i] - \textit{nums}[n-i-1]) \times 2^i
 \end{aligned}
 $$
 

@@ -75,7 +75,7 @@ tags:
 
 > **思考**
 >
-> 同一位置多次操作只有最后一次有效，故操作次数至多为 $n$。第 $j$ 次操作对位置 $i$ 的减量为 $nums_1[i]+nums_2[i]\cdot j$，为使总减量最大，应将较大的 $nums_2$ 尽量靠后操作。按 $nums_2$ 排序后， $f[i][j]$ 表示考虑前 $i$ 个数、操作 $j$ 次的最大减量，再找最小 $j$ 使剩余和不超过 $x$。
+> 同一位置多次操作只有最后一次有效，故操作次数至多为 $n$。第 $j$ 次操作对位置 $i$ 的减量为 $\textit{nums}_1[i]+\textit{nums}_2[i]\cdot j$，为使总减量最大，应将较大的 $\textit{nums}_2$ 尽量靠后操作。按 $\textit{nums}_2$ 排序后， $f[i][j]$ 表示考虑前 $i$ 个数、操作 $j$ 次的最大减量，再找最小 $j$ 使剩余和不超过 $x$。
 
 <!-- thinking:end -->
 
@@ -85,19 +85,19 @@ tags:
 
 $$
 \begin{aligned}
-& d_1 = nums_1[i_1] + nums_2[i_1] \times 1 \\
-& d_2 = nums_1[i_2] + nums_2[i_2] \times 2 \\
+& d_1 = \textit{nums}_1[i_1] + \textit{nums}_2[i_1] \times 1 \\
+& d_2 = \textit{nums}_1[i_2] + \textit{nums}_2[i_2] \times 2 \\
 & \cdots \\
-& d_j = nums_1[i_j] + nums_2[i_j] \times j
+& d_j = \textit{nums}_1[i_j] + \textit{nums}_2[i_j] \times j
 \end{aligned}
 $$
 
-从贪心的角度考虑，为了使得数组元素和的减少量最大，我们应当让 $nums_2$ 中的较大元素尽可能放在后面操作。因此，我们可以对 $nums_1$ 和 $nums_2$ 按照 $nums_2$ 的元素值从小到大进行排序。
+从贪心的角度考虑，为了使得数组元素和的减少量最大，我们应当让 $\textit{nums}_2$ 中的较大元素尽可能放在后面操作。因此，我们可以对 $\textit{nums}_1$ 和 $\textit{nums}_2$ 按照 $\textit{nums}_2$ 的元素值从小到大进行排序。
 
-接下来，我们考虑动态规划的实现。我们用 $f[i][j]$ 表示对于数组 $nums_1$ 的前 $i$ 个元素，进行 $j$ 次操作，所能减少的数组元素和的最大值。我们可以得到如下的状态转移方程：
+接下来，我们考虑动态规划的实现。我们用 $f[i][j]$ 表示对于数组 $\textit{nums}_1$ 的前 $i$ 个元素，进行 $j$ 次操作，所能减少的数组元素和的最大值。我们可以得到如下的状态转移方程：
 
 $$
-f[i][j] = \max \{f[i-1][j], f[i-1][j-1] + nums_1[i] + nums_2[i] \times j\}
+f[i][j] = \max \{f[i-1][j], f[i-1][j-1] + \textit{nums}_1[i] + \textit{nums}_2[i] \times j\}
 $$
 
 最后，我们枚举 $j$，找到最小的满足 $s_1 + s_2 \times j - f[n][j] \le x$ 的 $j$ 即可。

@@ -83,7 +83,7 @@ It can be shown that this is the minimum possible cost.
 
 > **Thinking**
 >
-> A letter may be rewritten into another at a given cost; we want the cheapest map from $source$ to $target$. There are $26$ letters and rewrites compose, so we need all-pairs shortest paths. Floyd finishes $g[x][y]$ in $26^3$.
+> A letter may be rewritten into another at a given cost; we want the cheapest map from $\textit{source}$ to $\textit{target}$. There are $26$ letters and rewrites compose, so we need all-pairs shortest paths. Floyd finishes $g[x][y]$ in $26^3$.
 >
 > Sum per position; an unreachable pair fails the instance. Parallel edges keep the lighter cost. The string length is $10^5$, so preprocessing is separate from the scan.
 
@@ -91,13 +91,13 @@ It can be shown that this is the minimum possible cost.
 
 According to the problem description, we can consider each letter as a node, and the conversion cost between each pair of letters as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting letter $i$ to letter $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$.
 
-Next, we traverse the arrays $original$, $changed$, and $cost$. For each index $i$, we update the cost $cost[i]$ of converting $original[i]$ to $changed[i]$ to $g[original[i]][changed[i]]$, taking the minimum value.
+Next, we traverse the arrays $\textit{original}$, $\textit{changed}$, and $\textit{cost}$. For each index $i$, we update the cost $\textit{cost}[i]$ of converting $\textit{original}[i]$ to $\textit{changed}[i]$ to $g[\textit{original}[i]][\textit{changed}[i]]$, taking the minimum value.
 
-Then, we use the Floyd algorithm to calculate the minimum cost between any two nodes in $g$. Finally, we traverse the strings $source$ and $target$. If $source[i] \neq target[i]$ and $g[source[i]][target[i]] \geq \infty$, it means that the conversion cannot be completed, so we return $-1$. Otherwise, we add $g[source[i]][target[i]]$ to the answer.
+Then, we use the Floyd algorithm to calculate the minimum cost between any two nodes in $g$. Finally, we traverse the strings $\textit{source}$ and $\textit{target}$. If $\textit{source}[i] \neq \textit{target}[i]$ and $g[\textit{source}[i]][\textit{target}[i]] \geq \infty$, it means that the conversion cannot be completed, so we return $-1$. Otherwise, we add $g[\textit{source}[i]][\textit{target}[i]]$ to the answer.
 
 After the traversal ends, we return the answer.
 
-The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$, where $m$ and $n$ are the lengths of the arrays $original$ and $source$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
+The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$, where $m$ and $n$ are the lengths of the arrays $\textit{original}$ and $\textit{source}$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

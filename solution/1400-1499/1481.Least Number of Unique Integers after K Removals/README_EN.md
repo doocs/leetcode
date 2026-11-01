@@ -67,13 +67,13 @@ tags:
 
 <!-- thinking:end -->
 
-We use the hash table $cnt$ to count the number of times each integer in the array $arr$ appears, and then sort the values in $cnt$ in ascending order, and record them in the array $nums$.
+We use the hash table $\textit{cnt}$ to count the number of times each integer in the array $\textit{arr}$ appears, and then sort the values in $\textit{cnt}$ in ascending order, and record them in the array $\textit{nums}$.
 
-Next, we traverse the array $nums$. For the current value that we traverse to $nums[i]$, we subtract $k$ by $nums[i]$. If $k \lt 0$, it means that we have removed $k$ elements, and the minimum number of different integers in the array is the length of $nums$ minus the index $i$ that we traverse to at the current time. Return directly.
+Next, we traverse the array $\textit{nums}$. For the current value that we traverse to $\textit{nums}[i]$, we subtract $k$ by $\textit{nums}[i]$. If $k \lt 0$, it means that we have removed $k$ elements, and the minimum number of different integers in the array is the length of $\textit{nums}$ minus the index $i$ that we traverse to at the current time. Return directly.
 
 If we traverse to the end, it means that we have removed all the elements, and the minimum number of different integers in the array is $0$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

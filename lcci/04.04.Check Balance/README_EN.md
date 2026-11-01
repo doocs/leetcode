@@ -75,18 +75,18 @@ return&nbsp;false.</pre>
 >
 > A post-order walk already knows both heights, so it can also report “already unbalanced”.
 >
-> $dfs$ returns a height, or $-1$ for imbalance; a $-1$ child or $|l-r|>1$ propagates $-1$. The root answer is whether that value is nonnegative, in one pass.
+> $\textit{dfs}$ returns a height, or $-1$ for imbalance; a $-1$ child or $|l-r|>1$ propagates $-1$. The root answer is whether that value is nonnegative, in one pass.
 
 <!-- thinking:end -->
 
-We design a function $dfs(root)$, which returns the height of the tree with $root$ as the root node. If the tree with $root$ as the root node is balanced, it returns the height of the tree, otherwise, it returns $-1$.
+We design a function $\textit{dfs}(\textit{root})$, which returns the height of the tree with $\textit{root}$ as the root node. If the tree with $\textit{root}$ as the root node is balanced, it returns the height of the tree, otherwise, it returns $-1$.
 
-The execution logic of the function $dfs(root)$ is as follows:
+The execution logic of the function $\textit{dfs}(\textit{root})$ is as follows:
 
-- If $root$ is null, then return $0$.
-- Otherwise, we recursively call $dfs(root.left)$ and $dfs(root.right)$, and check whether the return values of $dfs(root.left)$ and $dfs(root.right)$ are $-1$. If not, we check whether $abs(dfs(root.left) - dfs(root.right)) \leq 1$ holds. If it holds, then return $max(dfs(root.left), dfs(root.right)) + 1$, otherwise return $-1$.
+- If $\textit{root}$ is null, then return $0$.
+- Otherwise, we recursively call $\textit{dfs}(\textit{root}.\textit{left})$ and $\textit{dfs}(\textit{root}.\textit{right})$, and check whether the return values of $\textit{dfs}(\textit{root}.\textit{left})$ and $\textit{dfs}(\textit{root}.\textit{right})$ are $-1$. If not, we check whether $\textit{abs}(\textit{dfs}(\textit{root}.\textit{left}) - \textit{dfs}(\textit{root}.\textit{right})) \leq 1$ holds. If it holds, then return $\max(\textit{dfs}(\textit{root}.\textit{left}), \textit{dfs}(\textit{root}.\textit{right})) + 1$, otherwise return $-1$.
 
-In the main function, we only need to call $dfs(root)$, and check whether its return value is $-1$. If not, return `true`, otherwise return `false`.
+In the main function, we only need to call $\textit{dfs}(\textit{root})$, and check whether its return value is $-1$. If not, return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

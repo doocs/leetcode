@@ -68,7 +68,7 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 >
 > The diagonal length is determined by $l^2+w^2$, and the area is $l \times w$. A strictly larger squared sum uniquely owns the longest diagonal; equal sums compete on area.
 >
-> We therefore keep the best squared sum $\textit{mx}$ and its area $\textit{ans}$. When the squared sum grows we replace the area; when it ties we take the larger area.
+> We therefore keep the best squared sum $mx$ and its area $\textit{ans}$. When the squared sum grows we replace the area; when it ties we take the larger area.
 
 <!-- thinking:end -->
 

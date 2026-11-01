@@ -117,17 +117,17 @@ source: Biweekly Contest 181 Q2
 >
 > The array is already bitonic, so the peak is unique and we need not re-check the rise/fall shape. Finding the peak and summing both sides separately takes two scans; one scan can split the sums at the same time.
 >
-> Let $\textit{l}$ be the rising-part sum and $\textit{r}$ start as the total sum. While adjacent pairs still increase, fold the new value into $\textit{l}$ and drop the previous value from $\textit{r}$ (the peak stays on the right). Stop at the first descent.
+> Let $l$ be the rising-part sum and $r$ start as the total sum. While adjacent pairs still increase, fold the new value into $l$ and drop the previous value from $r$ (the peak stays on the right). Stop at the first descent.
 >
-> Comparing $\textit{l}$ and $\textit{r}$ then tells which side is larger.
+> Comparing $l$ and $r$ then tells which side is larger.
 
 <!-- thinking:end -->
 
-We use two variables, $\textit{l}$ and $\textit{r}$, to record the sums of the ascending and descending parts, respectively. Initially, $\textit{l}$ is set to the first element of the array, and $\textit{r}$ is set to the sum of all elements in the array.
+We use two variables, $l$ and $r$, to record the sums of the ascending and descending parts, respectively. Initially, $l$ is set to the first element of the array, and $r$ is set to the sum of all elements in the array.
 
-We iterate from the second element of the array until we find the peak element. During the iteration, we add the current element to $\textit{l}$ and subtract the previous element from $\textit{r}$.
+We iterate from the second element of the array until we find the peak element. During the iteration, we add the current element to $l$ and subtract the previous element from $r$.
 
-Finally, we compare the values of $\textit{l}$ and $\textit{r}$ and return the corresponding result.
+Finally, we compare the values of $l$ and $r$ and return the corresponding result.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

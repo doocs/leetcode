@@ -89,9 +89,9 @@ We traverse each query $(x, j)$ in ascending order and perform the following ope
 
 - If the pointer $i$ has not traversed all intervals, and the left endpoint of the current interval $[a, b]$ is less than or equal to $x$, then we add this interval to the priority queue and move the pointer $i$ one step forward. Repeat this process.
 - If the priority queue is not empty, and the right endpoint of the heap top element is less than $x$, then we pop the heap top element. Repeat this process.
-- At this point, if the priority queue is not empty, then the heap top element is the smallest interval containing $x$. We add its length $v$ to the answer array $ans$.
+- At this point, if the priority queue is not empty, then the heap top element is the smallest interval containing $x$. We add its length $v$ to the answer array $\textit{ans}$.
 
-After the above process is over, we return the answer array $ans$.
+After the above process is over, we return the answer array $\textit{ans}$.
 
 The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
 

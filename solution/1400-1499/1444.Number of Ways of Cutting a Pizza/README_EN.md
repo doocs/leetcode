@@ -75,28 +75,28 @@ tags:
 
 > **Thinking**
 >
-> Each cut is horizontal or vertical and the piece we give away must contain an apple. $rows,cols\le 50$, $k\le 10$, so the cutting tree recomputes the same leftover rectangle and remaining cuts.
+> Each cut is horizontal or vertical and the piece we give away must contain an apple. $\textit{rows},\textit{cols}\le 50$, $k\le 10$, so the cutting tree recomputes the same leftover rectangle and remaining cuts.
 >
-> A 2D prefix sum tests apples in $O(1)$. $dfs(i,j,k)$ is ways to cut the pizza with top-left $(i,j)$ another $k$ times: try legal cuts and recurse on the remaining piece. When $k=0$, count $1$ if any apple remains.
+> A 2D prefix sum tests apples in $O(1)$. $\textit{dfs}(i,j,k)$ is ways to cut the pizza with top-left $(i,j)$ another $k$ times: try legal cuts and recurse on the remaining piece. When $k=0$, count $1$ if any apple remains.
 
 <!-- thinking:end -->
 
 We can use a 2D prefix sum to quickly calculate the number of apples in each sub-rectangle. Define $s[i][j]$ to represent the number of apples in the sub-rectangle that includes the first $i$ rows and the first $j$ columns. Then $s[i][j]$ can be derived from the number of apples in the three sub-rectangles $s[i-1][j]$, $s[i][j-1]$, and $s[i-1][j-1]$. The specific calculation method is as follows:
 
 $$
-s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + (pizza[i-1][j-1] == 'A')
+s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + (\textit{pizza}[i-1][j-1] == 'A')
 $$
 
-Here, $pizza[i-1][j-1]$ represents the character at the $i$-th row and $j$-th column in the rectangle. If it is an apple, it is $1$; otherwise, it is $0$.
+Here, $\textit{pizza}[i-1][j-1]$ represents the character at the $i$-th row and $j$-th column in the rectangle. If it is an apple, it is $1$; otherwise, it is $0$.
 
-Next, we design a function $dfs(i, j, k)$, which represents the number of ways to cut the rectangle $(i, j, m-1, n-1)$ with $k$ cuts to get $k+1$ pieces of pizza. Here, $(i, j)$ and $(m-1, n-1)$ are the coordinates of the top-left and bottom-right corners of the rectangle, respectively. The calculation method of the function $dfs(i, j, k)$ is as follows:
+Next, we design a function $\textit{dfs}(i, j, k)$, which represents the number of ways to cut the rectangle $(i, j, m-1, n-1)$ with $k$ cuts to get $k+1$ pieces of pizza. Here, $(i, j)$ and $(m-1, n-1)$ are the coordinates of the top-left and bottom-right corners of the rectangle, respectively. The calculation method of the function $\textit{dfs}(i, j, k)$ is as follows:
 
 - If $k = 0$, it means no more cuts can be made. We need to check if there are any apples in the rectangle. If there are apples, return $1$; otherwise, return $0$.
-- If $k \gt 0$, we need to enumerate the position of the last cut. If the last cut is horizontal, we need to enumerate the cutting position $x$, where $i \lt x \lt m$. If $s[x][n] - s[i][n] - s[x][j] + s[i][j] \gt 0$, it means there are apples in the upper piece of pizza, and we add the value of $dfs(x, j, k-1)$ to the answer. If the last cut is vertical, we need to enumerate the cutting position $y$, where $j \lt y \lt n$. If $s[m][y] - s[i][y] - s[m][j] + s[i][j] \gt 0$, it means there are apples in the left piece of pizza, and we add the value of $dfs(i, y, k-1)$ to the answer.
+- If $k \gt 0$, we need to enumerate the position of the last cut. If the last cut is horizontal, we need to enumerate the cutting position $x$, where $i \lt x \lt m$. If $s[x][n] - s[i][n] - s[x][j] + s[i][j] \gt 0$, it means there are apples in the upper piece of pizza, and we add the value of $\textit{dfs}(x, j, k-1)$ to the answer. If the last cut is vertical, we need to enumerate the cutting position $y$, where $j \lt y \lt n$. If $s[m][y] - s[i][y] - s[m][j] + s[i][j] \gt 0$, it means there are apples in the left piece of pizza, and we add the value of $\textit{dfs}(i, y, k-1)$ to the answer.
 
-The final answer is the value of $dfs(0, 0, k-1)$.
+The final answer is the value of $\textit{dfs}(0, 0, k-1)$.
 
-To avoid repeated calculations, we can use memoized search. We use a 3D array $f$ to record the value of $dfs(i, j, k)$. When we need to calculate the value of $dfs(i, j, k)$, if $f[i][j][k]$ is not $-1$, it means we have already calculated it before, and we can directly return $f[i][j][k]$. Otherwise, we calculate the value of $dfs(i, j, k)$ according to the above method and save the result in $f[i][j][k]$.
+To avoid repeated calculations, we can use memoized search. We use a 3D array $f$ to record the value of $\textit{dfs}(i, j, k)$. When we need to calculate the value of $\textit{dfs}(i, j, k)$, if $f[i][j][k]$ is not $-1$, it means we have already calculated it before, and we can directly return $f[i][j][k]$. Otherwise, we calculate the value of $\textit{dfs}(i, j, k)$ according to the above method and save the result in $f[i][j][k]$.
 
 The time complexity is $O(mnk(m + n))$, and the space complexity is $O(mnk)$, where $m$ and $n$ are the number of rows and columns of the rectangle, respectively.
 

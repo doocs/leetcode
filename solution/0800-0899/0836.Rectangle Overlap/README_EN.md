@@ -93,16 +93,16 @@ tags:
 
 <!-- thinking:end -->
 
-Let the coordinates of rectangle $\text{rec1}$ be $(x_1, y_1, x_2, y_2)$, and the coordinates of rectangle $\text{rec2}$ be $(x_3, y_3, x_4, y_4)$.
+Let the coordinates of rectangle $\textit{rec1}$ be $(x_1, y_1, x_2, y_2)$, and the coordinates of rectangle $\textit{rec2}$ be $(x_3, y_3, x_4, y_4)$.
 
-The rectangles $\text{rec1}$ and $\text{rec2}$ do not overlap if any of the following conditions are met:
+The rectangles $\textit{rec1}$ and $\textit{rec2}$ do not overlap if any of the following conditions are met:
 
-- $y_3 \geq y_2$: $\text{rec2}$ is above $\text{rec1}$;
-- $y_4 \leq y_1$: $\text{rec2}$ is below $\text{rec1}$;
-- $x_3 \geq x_2$: $\text{rec2}$ is to the right of $\text{rec1}$;
-- $x_4 \leq x_1$: $\text{rec2}$ is to the left of $\text{rec1}$.
+- $y_3 \geq y_2$: $\textit{rec2}$ is above $\textit{rec1}$;
+- $y_4 \leq y_1$: $\textit{rec2}$ is below $\textit{rec1}$;
+- $x_3 \geq x_2$: $\textit{rec2}$ is to the right of $\textit{rec1}$;
+- $x_4 \leq x_1$: $\textit{rec2}$ is to the left of $\textit{rec1}$.
 
-If none of the above conditions are met, the rectangles $\text{rec1}$ and $\text{rec2}$ overlap.
+If none of the above conditions are met, the rectangles $\textit{rec1}$ and $\textit{rec2}$ overlap.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

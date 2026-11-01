@@ -89,11 +89,11 @@ Notice if you had arrived any later, then the 6<sup>th</sup> passenger would hav
 
 <!-- thinking:end -->
 
-First, we sort, and then use double pointers to simulate the process of passengers getting on the bus: traverse the bus $bus$, passengers follow the principle of "first come, first served".
+First, we sort, and then use double pointers to simulate the process of passengers getting on the bus: traverse the bus $\textit{bus}$, passengers follow the principle of "first come, first served".
 
 After the simulation ends, judge whether the last bus still has seats:
 
-- If there are seats, we can arrive at the bus station when the bus departs at $bus[|bus|-1]$; if there are people at this time, we can find the time when no one arrives by going forward.
+- If there are seats, we can arrive at the bus station when the bus departs at $\textit{bus}[|\textit{bus}|-1]$; if there are people at this time, we can find the time when no one arrives by going forward.
 - If there are no seats, we can find the last passenger who got on the bus, and find the time when no one arrives by going forward from him.
 
 The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(\log n + \log m)$, where $n$ and $m$ are the numbers of buses and passengers respectively.

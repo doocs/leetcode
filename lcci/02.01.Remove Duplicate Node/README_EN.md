@@ -62,15 +62,15 @@ difficulty: Easy
 >
 > “Has this value appeared?” is a lookup; a hash table makes it expected constant time.
 >
-> $vis$ stores kept values and a dummy $pre$ simplifies deletion: skip $pre.next$ when its value is already in the set, otherwise record it and advance. One pass removes duplicates.
+> $\textit{vis}$ stores kept values and a dummy $\textit{pre}$ simplifies deletion: skip $\textit{pre}.\textit{next}$ when its value is already in the set, otherwise record it and advance. One pass removes duplicates.
 
 <!-- thinking:end -->
 
-We create a hash table $vis$ to record the values of the nodes that have been visited.
+We create a hash table $\textit{vis}$ to record the values of the nodes that have been visited.
 
-Then we create a dummy node $pre$ such that $pre.next = head$.
+Then we create a dummy node $\textit{pre}$ such that $\textit{pre}.\textit{next} = \textit{head}$.
 
-Next, we traverse the linked list. If the value of the current node is already in the hash table, we delete the current node, i.e., $pre.next = pre.next.next$; otherwise, we add the value of the current node to the hash table and move $pre$ to the next node.
+Next, we traverse the linked list. If the value of the current node is already in the hash table, we delete the current node, i.e., $\textit{pre}.\textit{next} = \textit{pre}.\textit{next}.\textit{next}$; otherwise, we add the value of the current node to the hash table and move $\textit{pre}$ to the next node.
 
 After the traversal, we return the head of the linked list.
 

@@ -106,9 +106,9 @@ promise.then(res =&gt; {
 
 > **思考**
 >
-> 实现 $allSettled$：每个函数的成功或失败都要留下状态对象，且全部结束后才兑现，顺序与输入一致。 $Promise.all$ 会在首次拒绝时短路。
+> 实现 $\textit{allSettled}$：每个函数的成功或失败都要留下状态对象，且全部结束后才兑现，顺序与输入一致。 $\textit{Promise}.\textit{all}$ 会在首次拒绝时短路。
 >
-> 并行启动每个工厂，把 $fulfilled/rejected$ 结果写到对应下标；用计数器等到全部结算再 $resolve$ 结果数组。
+> 并行启动每个工厂，把 $\textit{fulfilled}/\textit{rejected}$ 结果写到对应下标；用计数器等到全部结算再 $\textit{resolve}$ 结果数组。
 
 <!-- thinking:end -->
 

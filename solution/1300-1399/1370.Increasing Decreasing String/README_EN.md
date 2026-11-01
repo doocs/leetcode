@@ -80,9 +80,9 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 
 <!-- thinking:end -->
 
-First, we use a hash table or an array $cnt$ of length $26$ to count the number of occurrences of each character in the string $s$.
+First, we use a hash table or an array $\textit{cnt}$ of length $26$ to count the number of occurrences of each character in the string $s$.
 
-Then, we enumerate the letters $[a,...,z]$. For the current enumerated letter $c$, if $cnt[c] > 0$, we append the letter $c$ to the end of the answer string and decrease $cnt[c]$ by one. We repeat this step until $cnt[c] = 0$. Then we enumerate the letters $[z,...,a]$ in reverse order and perform similar operations. If the length of the answer string equals the length of $s$, then we have completed all the concatenation operations.
+Then, we enumerate the letters $[a,...,z]$. For the current enumerated letter $c$, if $\textit{cnt}[c] > 0$, we append the letter $c$ to the end of the answer string and decrease $\textit{cnt}[c]$ by one. We repeat this step until $\textit{cnt}[c] = 0$. Then we enumerate the letters $[z,...,a]$ in reverse order and perform similar operations. If the length of the answer string equals the length of $s$, then we have completed all the concatenation operations.
 
 The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set. In this problem, the character set is all lowercase letters, so $|\Sigma| = 26$.
 

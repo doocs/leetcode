@@ -47,7 +47,7 @@ tags:
 >
 > Add without `+`/`-`. Bitwise: the sum without carry is XOR, the carry is AND shifted left. Repeat until the carry vanishes.
 >
-> Python ints are unbounded, so mask with $0xFFFFFFFF$ to $32$ bits. If the sign bit is set, convert two’s complement back to a negative.
+> Python ints are unbounded, so mask with $0\textit{xFFFFFFFF}$ to $32$ bits. If the sign bit is set, convert two’s complement back to a negative.
 
 <!-- thinking:end -->
 

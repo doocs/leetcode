@@ -135,7 +135,7 @@ Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
 >
 > We need customers who spent at least $100$ in both June and July of $2020$. Orders, prices, and names live in three tables, so they must be joined before we can aggregate spend per person.
 >
-> Equi-join $Orders$, $Product$, and $Customers$, keeping year $2020$. Group by customer and use conditional sums of $quantity\times price$ for June and for July; $HAVING$ retains those whose both months meet the threshold.
+> Equi-join $\textit{Orders}$, $\textit{Product}$, and $\textit{Customers}$, keeping year $2020$. Group by customer and use conditional sums of $\textit{quantity}\times \textit{price}$ for June and for July; $\textit{HAVING}$ retains those whose both months meet the threshold.
 
 <!-- thinking:end -->
 

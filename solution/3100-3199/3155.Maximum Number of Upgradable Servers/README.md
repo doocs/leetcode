@@ -77,15 +77,15 @@ tags:
 
 > **思考**
 >
-> 每个机房可卖掉部分服务器筹资再升级其余。对升级台数 $x$ 枚举到 $count[i]$ 亦可，但机房数多时不如直接求解。
+> 每个机房可卖掉部分服务器筹资再升级其余。对升级台数 $x$ 枚举到 $\textit{count}[i]$ 亦可，但机房数多时不如直接求解。
 >
-> 卖掉 $count-x$ 台加上现金，须付 $x\cdot upgrade$。整理得 $x\le(count\cdot sell+money)/(upgrade+sell)$，且 $x\le count$。
+> 卖掉 $\textit{count}-x$ 台加上现金，须付 $x\cdot \textit{upgrade}$。整理得 $x\le(\textit{count}\cdot \textit{sell}+\textit{money})/(\textit{upgrade}+\textit{sell})$，且 $x\le \textit{count}$。
 >
 > 对每个机房取该上界与台数的较小者。整数除法 naturally 向下取整。
 
 <!-- thinking:end -->
 
-对于每个数据中心，我们假设可以升级 $\textit{x}$ 台服务器，那么 $\textit{x} \times \textit{upgrade[i]} \leq \textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}$。即 $\textit{x} \leq \frac{\textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}}{\textit{upgrade[i]} + \textit{sell[i]}}$。又因为 $\textit{x} \leq \textit{count[i]}$，所以我们取两者的最小值即可。
+对于每个数据中心，我们假设可以升级 $x$ 台服务器，那么 $x \times \textit{upgrade}[i] \leq \textit{count}[i] \times \textit{sell}[i] + \textit{money}[i]$。即 $x \leq \frac{\textit{count}[i] \times \textit{sell}[i] + \textit{money}[i]}{\textit{upgrade}[i] + \textit{sell}[i]}$。又因为 $x \leq \textit{count}[i]$，所以我们取两者的最小值即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 

@@ -42,19 +42,19 @@ difficulty: 简单
 
 > **思考**
 >
-> 若直接对每个位置连乘其余元素，遇 $0$ 还须特判，且为平方级。 $ans[i]$ 等于左侧积乘右侧积，可分两次扫描。
+> 若直接对每个位置连乘其余元素，遇 $0$ 还须特判，且为平方级。 $\textit{ans}[i]$ 等于左侧积乘右侧积，可分两次扫描。
 >
-> 先从左累乘写入 $ans$，再从右累乘乘回去，避开使用除法。
+> 先从左累乘写入 $\textit{ans}$，再从右累乘乘回去，避开使用除法。
 
 <!-- thinking:end -->
 
-我们先创建一个长度为 $n$ 的答案数组 $ans$。
+我们先创建一个长度为 $n$ 的答案数组 $\textit{ans}$。
 
-接下来，我们从左到右遍历数组 $a$，过程中维护一个变量 $left$，表示当前元素左边所有元素的乘积，初始时 $left=1$。当遍历到 $a[i]$ 时，我们将 $left$ 赋值给 $ans[i]$，然后 $left$ 乘以 $a[i]$，即 $left \leftarrow left \times a[i]$。
+接下来，我们从左到右遍历数组 $a$，过程中维护一个变量 $\textit{left}$，表示当前元素左边所有元素的乘积，初始时 $\textit{left}=1$。当遍历到 $a[i]$ 时，我们将 $\textit{left}$ 赋值给 $\textit{ans}[i]$，然后 $\textit{left}$ 乘以 $a[i]$，即 $\textit{left} \leftarrow \textit{left} \times a[i]$。
 
-然后，我们从右到左遍历数组 $a$，过程中维护一个变量 $right$，表示当前元素右边所有元素的乘积，初始时 $right=1$。当遍历到 $a[i]$ 时，我们将 $ans[i]$ 乘上 $right$，然后 $right$ 乘以 $a[i]$，即 $right \leftarrow right \times a[i]$。
+然后，我们从右到左遍历数组 $a$，过程中维护一个变量 $\textit{right}$，表示当前元素右边所有元素的乘积，初始时 $\textit{right}=1$。当遍历到 $a[i]$ 时，我们将 $\textit{ans}[i]$ 乘上 $\textit{right}$，然后 $\textit{right}$ 乘以 $a[i]$，即 $\textit{right} \leftarrow \textit{right} \times a[i]$。
 
-最终，数组 $ans$ 即为所求的答案。
+最终，数组 $\textit{ans}$ 即为所求的答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $a$ 的长度。
 

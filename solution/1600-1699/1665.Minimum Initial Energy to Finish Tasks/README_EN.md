@@ -121,7 +121,7 @@ $$
 
 Where $\sum_{i=1}^{n} a_i$ is fixed. To minimize the initial energy level $E$, we need to minimize $m_n - a_n$, i.e., maximize $a_n-m_n$.
 
-Therefore, we can sort the tasks in ascending order of $a_i-m_i$. Then we traverse the tasks from front to back. For each task, if the current energy level $cur$ is less than $m_i$, we need to increase the energy level by $m_i - cur$ to make the current energy level exactly equal to $m_i$. Then we complete the task and update $cur = cur - a_i$. Continue traversing until all tasks are completed, and we can get the minimum initial energy level required.
+Therefore, we can sort the tasks in ascending order of $a_i-m_i$. Then we traverse the tasks from front to back. For each task, if the current energy level $\textit{cur}$ is less than $m_i$, we need to increase the energy level by $m_i - \textit{cur}$ to make the current energy level exactly equal to $m_i$. Then we complete the task and update $\textit{cur} = \textit{cur} - a_i$. Continue traversing until all tasks are completed, and we can get the minimum initial energy level required.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the number of tasks.
 

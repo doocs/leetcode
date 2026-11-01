@@ -136,8 +136,8 @@ Specifically, the implementation steps of function $\textit{dfs}(i, j, k)$ are a
 1. If the current coordinate $(i, j)$ is out of bounds or the remaining cost $k$ is less than $0$, return negative infinity to indicate that the endpoint cannot be reached.
 2. If the current coordinate is the starting point $(0, 0)$, return $0$, indicating that the endpoint has been reached (the problem guarantees the starting point has value $0$).
 3. Calculate the score contribution $\textit{res}$ of the current cell. If the current cell's value is not $0$, decrement the remaining cost $k$ by $1$.
-4. Recursively calculate the maximum scores achievable from the upper cell $(i-1, j)$ and the left cell $(i, j-1)$ when reaching the endpoint with remaining cost not exceeding $k$, denoted as $\textit{a}$ and $\textit{b}$ respectively.
-5. Add the current cell's score contribution $\textit{res}$ to $\max(\textit{a}, \textit{b})$ to get the maximum score achievable from the current cell, and return this value.
+4. Recursively calculate the maximum scores achievable from the upper cell $(i-1, j)$ and the left cell $(i, j-1)$ when reaching the endpoint with remaining cost not exceeding $k$, denoted as $a$ and $b$ respectively.
+5. Add the current cell's score contribution $\textit{res}$ to $\max(a, b)$ to get the maximum score achievable from the current cell, and return this value.
 
 Finally, we call $\textit{dfs}(m-1, n-1, k)$ to calculate the maximum score achievable when starting from the bottom-right corner and reaching the top-left corner with remaining cost not exceeding $k$. If the result is less than $0$, return $-1$ to indicate no valid path exists; otherwise, return the result.
 

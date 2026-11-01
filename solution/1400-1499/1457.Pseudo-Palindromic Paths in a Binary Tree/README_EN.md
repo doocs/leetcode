@@ -75,25 +75,25 @@ tags:
 >
 > A path is pseudo-palindromic iff at most one value occurs an odd number of times. Values are $1$– $9$ and $n\le 10^5$, so XOR a 10-bit mask along the path.
 >
-> At a leaf, count the path when $mask$ has at most one bit set. Recurse with the updated mask and sum both children.
+> At a leaf, count the path when $\textit{mask}$ has at most one bit set. Recurse with the updated mask and sum both children.
 
 <!-- thinking:end -->
 
 A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
 
-Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $mask$ to represent the occurrence status of the node values in the current path. The $i$th bit of $mask$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $mask \&(mask - 1) = 0$, where $\&$ represents the bitwise AND operation.
+Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $\textit{mask}$ to represent the occurrence status of the node values in the current path. The $i$th bit of $\textit{mask}$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $\textit{mask} \&(\textit{mask} - 1) = 0$, where $\&$ represents the bitwise AND operation.
 
-Based on the above analysis, we can use the depth-first search method to calculate the number of paths. We define a function $dfs(root, mask)$, which represents the number of pseudo-palindromic paths starting from the current $root$ node and with the current state $mask$. The answer is $dfs(root, 0)$.
+Based on the above analysis, we can use the depth-first search method to calculate the number of paths. We define a function $\textit{dfs}(\textit{root}, \textit{mask})$, which represents the number of pseudo-palindromic paths starting from the current $\textit{root}$ node and with the current state $\textit{mask}$. The answer is $\textit{dfs}(\textit{root}, 0)$.
 
-The execution logic of the function $dfs(root, mask)$ is as follows:
+The execution logic of the function $\textit{dfs}(\textit{root}, \textit{mask})$ is as follows:
 
-If $root$ is null, return $0$;
+If $\textit{root}$ is null, return $0$;
 
-Otherwise, let $mask = mask \oplus 2^{root.val}$, where $\oplus$ represents the bitwise XOR operation.
+Otherwise, let $\textit{mask} = \textit{mask} \oplus 2^{\textit{root}.\textit{val}}$, where $\oplus$ represents the bitwise XOR operation.
 
-If $root$ is a leaf node, return $1$ if $mask \&(mask - 1) = 0$, otherwise return $0$;
+If $\textit{root}$ is a leaf node, return $1$ if $\textit{mask} \&(\textit{mask} - 1) = 0$, otherwise return $0$;
 
-If $root$ is not a leaf node, return $dfs(root.left, mask) + dfs(root.right, mask)$.
+If $\textit{root}$ is not a leaf node, return $\textit{dfs}(\textit{root}.\textit{left}, \textit{mask}) + \textit{dfs}(\textit{root}.\textit{right}, \textit{mask})$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
@@ -314,7 +314,7 @@ impl Solution {
 >
 > Counting at the leaf and adding the two subtrees would finish the walk, but the search enters the left child first. A left chain can be $n$ nodes long, so recursion overflows before the leaf test. The mask depends only on the path from the root, so the two children do not depend on each other.
 >
-> An explicit stack stores each node with the mask from above. After a pop, the current value is XORed in. A leaf whose $mask \& (mask-1) = 0$ adds one path; otherwise the right child is pushed, then the left child, both with the updated mask.
+> An explicit stack stores each node with the mask from above. After a pop, the current value is XORed in. A leaf whose $\textit{mask} \& (\textit{mask}-1) = 0$ adds one path; otherwise the right child is pushed, then the left child, both with the updated mask.
 >
 > Each node is pushed once, and the leaf counts are the number of pseudo-palindromic paths.
 
@@ -322,9 +322,9 @@ impl Solution {
 
 A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
 
-Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $mask$ to represent the occurrence status of the node values in the current path. The $i$th bit of $mask$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $mask \& (mask - 1) = 0$, where $\&$ represents the bitwise AND operation.
+Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $\textit{mask}$ to represent the occurrence status of the node values in the current path. The $i$th bit of $\textit{mask}$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $\textit{mask} \& (\textit{mask} - 1) = 0$, where $\&$ represents the bitwise AND operation.
 
-An explicit stack walks from the root. Each entry is a node and the mask above it. After a pop, set $mask = mask \oplus 2^{\textit{val}}$. If the node is a leaf and $mask \& (mask - 1) = 0$, add one to the answer. Otherwise push the right child and then the left child, both with the updated mask, and skip a missing child. The left child is pushed last, so it is handled first.
+An explicit stack walks from the root. Each entry is a node and the mask above it. After a pop, set $\textit{mask} = \textit{mask} \oplus 2^{\textit{val}}$. If the node is a leaf and $\textit{mask} \& (\textit{mask} - 1) = 0$, add one to the answer. Otherwise push the right child and then the left child, both with the updated mask, and skip a missing child. The left child is pushed last, so it is handled first.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

@@ -318,7 +318,7 @@ var inorderTraversal = function (root) {
 
 非递归的思路如下：
 
-1. 定义一个栈 $stk$
+1. 定义一个栈 $\textit{stk}$
 2. 将树的左节点依次入栈
 3. 左节点为空时，弹出栈顶元素并处理
 4. 重复 2-3 的操作

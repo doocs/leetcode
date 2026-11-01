@@ -107,7 +107,7 @@ tags:
 
 > **Thinking**
 >
-> Deleting $words[i]$ drops the pairs $(i-1,i)$ and $(i,i+1)$ and may add $(i-1,i+1)$. The global maximum adjacent LCP can be stored in an ordered multiset.
+> Deleting $\textit{words}[i]$ drops the pairs $(i-1,i)$ and $(i,i+1)$ and may add $(i-1,i+1)$. The global maximum adjacent LCP can be stored in an ordered multiset.
 >
 > Precompute every adjacent LCP. For each $i$, remove the affected pairs, insert the bridge pair, read the maximum, then roll back. Skip out-of-range indices at the ends.
 

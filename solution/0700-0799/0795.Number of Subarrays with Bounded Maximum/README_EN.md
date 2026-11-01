@@ -57,7 +57,7 @@ tags:
 
 > **Thinking**
 >
-> Count subarrays whose maximum lies in $[left,right]$. $n\le 10^5$. That is (max $\le right$) minus (max $\le left-1$).
+> Count subarrays whose maximum lies in $[\textit{left},\textit{right}]$. $n\le 10^5$. That is (max $\le \textit{right}$) minus (max $\le \textit{left}-1$).
 >
 > $f(x)$ walks once: grow a valid suffix while $v\le x$ and add its length, else reset.
 
@@ -149,7 +149,7 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 
 > **Thinking**
 >
-> The difference of $f$ hides who the maximum is. A monotonic stack finds the nearest stricter left greater and non-stricter right greater; the span $(i-l)(r-i)$ counts if $nums[i]$ is in range.
+> The difference of $f$ hides who the maximum is. A monotonic stack finds the nearest stricter left greater and non-stricter right greater; the span $(i-l)(r-i)$ counts if $\textit{nums}[i]$ is in range.
 >
 > Asymmetric bounds assign a unique maximum when values tie.
 

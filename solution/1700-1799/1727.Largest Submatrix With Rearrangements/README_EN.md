@@ -83,11 +83,11 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 Since the matrix can be rearranged by columns, we can preprocess each column of the matrix first.
 
-For each element with value $1$, we update its value to the maximum number of consecutive $1$s above it (including itself), i.e., $\text{matrix}[i][j] = \text{matrix}[i-1][j] + 1$.
+For each element with value $1$, we update its value to the maximum number of consecutive $1$s above it (including itself), i.e., $\textit{matrix}[i][j] = \textit{matrix}[i-1][j] + 1$.
 
 Next, we sort each row of the updated matrix. Then we traverse each row and compute the maximum area of an all-$1$ submatrix with that row as the bottom edge. The detailed calculation is as follows:
 
-For a given row, let the $k$-th largest element be $\text{val}_k$, where $k \geq 1$. Then there are at least $k$ elements in that row no less than $\text{val}_k$, forming an all-$1$ submatrix with area $\text{val}_k \times k$. We iterate through the elements of the row from largest to smallest, take the maximum value of $\text{val}_k \times k$, and update the answer.
+For a given row, let the $k$-th largest element be $\textit{val}_k$, where $k \geq 1$. Then there are at least $k$ elements in that row no less than $\textit{val}_k$, forming an all-$1$ submatrix with area $\textit{val}_k \times k$. We iterate through the elements of the row from largest to smallest, take the maximum value of $\textit{val}_k \times k$, and update the answer.
 
 The time complexity is $O(mn \log n)$, and the space complexity is $O(\log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

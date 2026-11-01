@@ -58,7 +58,7 @@ tags:
 
 > **Thinking**
 >
-> The three arrays are sorted, length at most $1000$, and values lie in $[1,2000]$. Counting all three, a value with count $3$ is common; elements are unique inside each array, so one array cannot inflate the count. Emitting in $arr1$ order keeps the result sorted.
+> The three arrays are sorted, length at most $1000$, and values lie in $[1,2000]$. Counting all three, a value with count $3$ is common; elements are unique inside each array, so one array cannot inflate the count. Emitting in $\textit{arr1}$ order keeps the result sorted.
 
 <!-- thinking:end -->
 
@@ -183,7 +183,7 @@ class Solution {
 
 > **Thinking**
 >
-> Counting needs an array proportional to the value range. The arrays are already sorted, so we binary-search each $arr1$ value in $arr2$ and $arr3$. Extra space becomes constant; time becomes $O(n \log n)$.
+> Counting needs an array proportional to the value range. The arrays are already sorted, so we binary-search each $\textit{arr1}$ value in $\textit{arr2}$ and $\textit{arr3}$. Extra space becomes constant; time becomes $O(n \log n)$.
 
 <!-- thinking:end -->
 

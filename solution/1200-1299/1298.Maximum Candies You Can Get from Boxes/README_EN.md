@@ -86,7 +86,7 @@ The total number of candies will be 6.
 >
 > A box opens only if we hold it and it is open (or we have its key). Boxes and keys nest; $n \le 1000$ suggests BFS on currently openable boxes.
 >
-> $has$ is the set of boxes we own; $took$ avoids reprocessing. The queue holds open, not-yet-processed boxes: we use their keys to unlock closed boxes and add nested boxes to $has$. Initially open boxes enter the queue and add candy; each later opening adds candy once.
+> $\textit{has}$ is the set of boxes we own; $\textit{took}$ avoids reprocessing. The queue holds open, not-yet-processed boxes: we use their keys to unlock closed boxes and add nested boxes to $\textit{has}$. Initially open boxes enter the queue and add candy; each later opening adds candy once.
 
 <!-- thinking:end -->
 
@@ -96,12 +96,12 @@ We use BFS to simulate the entire exploration process.
 
 We use a queue $q$ to represent the currently accessible and **already opened** boxes; two sets, $\textit{has}$ and $\textit{took}$, are used to record **all boxes we own** and **boxes we have already processed**, to avoid duplicates.
 
-Initially, add all $\textit{initialBoxes}$ to $\textit{has}$. If an initial box is open, immediately add it to the queue $\textit{q}$ and accumulate its candies.
+Initially, add all $\textit{initialBoxes}$ to $\textit{has}$. If an initial box is open, immediately add it to the queue $q$ and accumulate its candies.
 
-Then perform BFS, taking boxes out of $\textit{q}$ one by one:
+Then perform BFS, taking boxes out of $q$ one by one:
 
-- Obtain the keys in the box $\textit{keys[box]}$ and add any boxes that can be unlocked to the queue;
-- Collect other boxes contained in the box $\textit{containedBoxes[box]}$. If a contained box is open and has not been processed, process it immediately;
+- Obtain the keys in the box $\textit{keys}[\textit{box}]$ and add any boxes that can be unlocked to the queue;
+- Collect other boxes contained in the box $\textit{containedBoxes}[\textit{box}]$. If a contained box is open and has not been processed, process it immediately;
 
 Each box is processed at most once, and candies are accumulated once. Finally, return the total number of candies $\textit{ans}$.
 

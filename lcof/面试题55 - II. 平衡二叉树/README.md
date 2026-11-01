@@ -72,16 +72,16 @@ difficulty: 简单
 
 <!-- thinking:end -->
 
-我们设计一个递归函数 $dfs(root)$，函数返回值为 $root$ 节点的深度，如果 $root$ 节点不平衡，返回值为 $-1$。
+我们设计一个递归函数 $\textit{dfs}(\textit{root})$，函数返回值为 $\textit{root}$ 节点的深度，如果 $\textit{root}$ 节点不平衡，返回值为 $-1$。
 
-函数 $dfs(root)$ 的递归过程如下：
+函数 $\textit{dfs}(\textit{root})$ 的递归过程如下：
 
-- 如果 $root$ 为空，返回 $0$。
+- 如果 $\textit{root}$ 为空，返回 $0$。
 - 递归计算左右子树的深度，记为 $l$ 和 $r$。
 - 如果 $l$ 或 $r$ 为 $-1$，或者 $l$ 和 $r$ 的差的绝对值大于 $1$，返回 $-1$。
-- 否则，返回 $max(l, r) + 1$。
+- 否则，返回 $\max(l, r) + 1$。
 
-如果 $dfs(root)$ 返回值不为 $-1$，则说明 $root$ 节点平衡，返回 `true`，否则返回 `false`。
+如果 $\textit{dfs}(\textit{root})$ 返回值不为 $-1$，则说明 $\textit{root}$ 节点平衡，返回 `true`，否则返回 `false`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 

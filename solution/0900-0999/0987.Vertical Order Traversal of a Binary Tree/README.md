@@ -86,13 +86,13 @@ tags:
 
 > **思考**
 >
-> 按列从左到右输出结点，同列先按行、再按值排序。DFS 记下 $(col,row,val)$，一次排序即可按题目规定的三关键字分组输出。
+> 按列从左到右输出结点，同列先按行、再按值排序。DFS 记下 $(\textit{col},\textit{row},\textit{val})$，一次排序即可按题目规定的三关键字分组输出。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root, i, j)$，其中 $i$ 和 $j$ 表示当前节点的行和列。我们可以通过深度优先搜索的方式，将节点的行和列信息记录下来，存储在一个数组或列表 $nodes$ 中，然后对 $nodes$ 按照列、行、值的顺序进行排序。
+我们设计一个函数 $\textit{dfs}(\textit{root}, i, j)$，其中 $i$ 和 $j$ 表示当前节点的行和列。我们可以通过深度优先搜索的方式，将节点的行和列信息记录下来，存储在一个数组或列表 $\textit{nodes}$ 中，然后对 $\textit{nodes}$ 按照列、行、值的顺序进行排序。
 
-接着，我们遍历 $nodes$，将相同列的节点值放到同一个列表中，最后返回这些列表。
+接着，我们遍历 $\textit{nodes}$，将相同列的节点值放到同一个列表中，最后返回这些列表。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
@@ -322,14 +322,14 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 
 > **思考**
 >
-> DFS 需事后按列、行、值全排序。BFS 已保证行序，只需按列装桶后对每列再按 $(row,val)$ 排序。用双端队列在两侧扩展新列，避免列号平移。
+> DFS 需事后按列、行、值全排序。BFS 已保证行序，只需按列装桶后对每列再按 $(\textit{row},\textit{val})$ 排序。用双端队列在两侧扩展新列，避免列号平移。
 
 <!-- thinking:end -->
 
-对于任意节点，若其坐标 $(row, col)$：
+对于任意节点，若其坐标 $(\textit{row}, \textit{col})$：
 
-- 左子节点坐标 $(row + 1, col - 1)$
-- 右子节点坐标 $(row + 1, col + 1)$
+- 左子节点坐标 $(\textit{row} + 1, \textit{col} - 1)$
+- 右子节点坐标 $(\textit{row} + 1, \textit{col} + 1)$
 
 因此在遍历二叉树时，需要同时记录每个节点所在的列信息。
 
@@ -350,7 +350,7 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 对于任意列号 `col`，其在 `columnsValues` 中对应的索引为：
 
 $$
-col - leftmostCol
+\textit{col} - \textit{leftmostCol}
 $$
 
 因此可以在 $O(1)$ 时间内定位对应列并插入节点值。

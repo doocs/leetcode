@@ -70,26 +70,26 @@ tags:
 
 > **思考**
 >
-> $pref[i]$ 是 $arr[0..i]$ 的异或前缀。异或满足 $pref[i]\oplus pref[i-1]=arr[i]$（令 $pref[-1]=0$），因此原数组由相邻前缀异或唯一确定。 $n \le 10^5$，线性一遍即可。
+> $\textit{pref}[i]$ 是 $\textit{arr}[0..i]$ 的异或前缀。异或满足 $\textit{pref}[i]\oplus \textit{pref}[i-1]=\textit{arr}[i]$（令 $\textit{pref}[-1]=0$），因此原数组由相邻前缀异或唯一确定。 $n \le 10^5$，线性一遍即可。
 
 <!-- thinking:end -->
 
 根据题意，我们有式子一：
 
 $$
-pref[i]=arr[0] \oplus arr[1] \oplus \cdots \oplus arr[i]
+\textit{pref}[i]=\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[i]
 $$
 
 所以，也就有式子二：
 
 $$
-pref[i-1]=arr[0] \oplus arr[1] \oplus \cdots \oplus arr[i-1]
+\textit{pref}[i-1]=\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[i-1]
 $$
 
 我们将式子一二进行异或运算，得到：
 
 $$
-pref[i] \oplus pref[i-1]=arr[i]
+\textit{pref}[i] \oplus \textit{pref}[i-1]=\textit{arr}[i]
 $$
 
 即答案数组的每一项都是前缀异或数组的相邻两项进行异或运算得到的。

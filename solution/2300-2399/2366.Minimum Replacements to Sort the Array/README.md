@@ -71,20 +71,20 @@ tags:
 >
 > 把一个数拆成若干正整数之和，目标是最终非递减，且拆分次数最少。 $n \le 10^5$，须从右往左确定上界。
 >
-> 右侧已确定的最大值 $mx$ 不应再被拆小。若 $nums[i] \le mx$ 则更新 $mx$；否则拆成 $k=\lceil nums[i]/mx \rceil$ 段，次数加 $k-1$，并把新的上界改成 $\lfloor nums[i]/k \rfloor$，以便左侧仍尽量大。
+> 右侧已确定的最大值 $mx$ 不应再被拆小。若 $\textit{nums}[i] \le mx$ 则更新 $mx$；否则拆成 $k=\lceil \textit{nums}[i]/mx \rceil$ 段，次数加 $k-1$，并把新的上界改成 $\lfloor \textit{nums}[i]/k \rfloor$，以便左侧仍尽量大。
 
 <!-- thinking:end -->
 
-我们观察发现，要使得数组 $nums$ 变成非递减有序，也即单调递增，那么数组后面的元素应该尽可能大，所以，将数组 $nums$ 的最后一个元素 $nums[n-1]$ 替换成多个更小的数是没有必要的。
+我们观察发现，要使得数组 $\textit{nums}$ 变成非递减有序，也即单调递增，那么数组后面的元素应该尽可能大，所以，将数组 $\textit{nums}$ 的最后一个元素 $\textit{nums}[n-1]$ 替换成多个更小的数是没有必要的。
 
-也即是说，我们可以从后往前遍历数组 $nums$，并且维护当前的最大值 $mx$，初始时 $mx = nums[n-1]$。
+也即是说，我们可以从后往前遍历数组 $\textit{nums}$，并且维护当前的最大值 $mx$，初始时 $mx = \textit{nums}[n-1]$。
 
-- 若当前遍历到的元素 $nums[i] \leq mx$，此时不需要将 $nums[i]$ 进行替换，我们直接更新 $mx = nums[i]$ 即可。
-- 否则，我们需要将 $nums[i]$ 替换成多个和为 $nums[i]$ 的数，这些数的最大值为 $mx$，总共替换成 $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$ 个数，所以需要进行 $k-1$ 次操作，累加到答案中。这 $k$ 个数中，最小的数为 $\left \lfloor \frac{nums[i]}{k} \right \rfloor$，因此，我们更新 $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$。
+- 若当前遍历到的元素 $\textit{nums}[i] \leq mx$，此时不需要将 $\textit{nums}[i]$ 进行替换，我们直接更新 $mx = \textit{nums}[i]$ 即可。
+- 否则，我们需要将 $\textit{nums}[i]$ 替换成多个和为 $\textit{nums}[i]$ 的数，这些数的最大值为 $mx$，总共替换成 $k=\left \lceil \frac{\textit{nums}[i]}{mx} \right \rceil$ 个数，所以需要进行 $k-1$ 次操作，累加到答案中。这 $k$ 个数中，最小的数为 $\left \lfloor \frac{\textit{nums}[i]}{k} \right \rfloor$，因此，我们更新 $mx = \left \lfloor \frac{\textit{nums}[i]}{k} \right \rfloor$。
 
 遍历结束，返回总的操作次数即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

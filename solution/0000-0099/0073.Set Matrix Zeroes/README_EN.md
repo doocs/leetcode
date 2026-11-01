@@ -299,13 +299,13 @@ public class Solution {
 
 > **Thinking**
 >
-> Method 1 still spends $O(m+n)$ on mark arrays. The follow-up wants $O(1)$ extra space, and the first row and first column can play the role of $\textit{row}$ and $\textit{col}$. Those strips are both data and marks, so we save with $i0$, $j0$ whether they themselves must be zeroed, update the interior, and only then clear the first row and column — otherwise the marks get overwritten too early.
+> Method 1 still spends $O(m+n)$ on mark arrays. The follow-up wants $O(1)$ extra space, and the first row and first column can play the role of $\textit{row}$ and $\textit{col}$. Those strips are both data and marks, so we save with $\textit{i0}$, $\textit{j0}$ whether they themselves must be zeroed, update the interior, and only then clear the first row and column — otherwise the marks get overwritten too early.
 
 <!-- thinking:end -->
 
 In the first method, we use an additional array to mark the rows and columns to be cleared. In fact, we can also use the first row and first column of the matrix to mark them, without creating an additional array.
 
-Since the first row and the first column are used to mark, their values ​​may change due to the mark, so we need additional variables $i0$, $j0$ to mark whether the first row and the first column need to be cleared.
+Since the first row and the first column are used to mark, their values ​​may change due to the mark, so we need additional variables $\textit{i0}$, $\textit{j0}$ to mark whether the first row and the first column need to be cleared.
 
 The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 

@@ -72,7 +72,7 @@ Explanation: The two patches can be [2, 4].
 >
 > Given a sorted array, insert as few positives as needed so every integer in $[1,n]$ is a subset sum. Searching every gap is too large.
 >
-> Suppose $[1,x)$ is already covered. If the next $nums[i]\le x$, merge it and extend to $[1,x+nums[i])$; otherwise insert $x$ itself and double the range. A smaller insert covers less, so filling the current gap is optimal. Stop when $x>n$.
+> Suppose $[1,x)$ is already covered. If the next $\textit{nums}[i]\le x$, merge it and extend to $[1,x+\textit{nums}[i])$; otherwise insert $x$ itself and double the range. A smaller insert covers less, so filling the current gap is optimal. Stop when $x>n$.
 
 <!-- thinking:end -->
 
@@ -87,13 +87,13 @@ We use a variable $x$ to record the current smallest positive integer that canno
 
 We perform the following operations in a loop:
 
-- If $i$ is within the range of the array and $nums[i] \le x$, it means that the current number can be covered, so we add the value of $nums[i]$ to $x$, and increment $i$ by $1$.
+- If $i$ is within the range of the array and $\textit{nums}[i] \le x$, it means that the current number can be covered, so we add the value of $\textit{nums}[i]$ to $x$, and increment $i$ by $1$.
 - Otherwise, it means that $x$ is not covered, so we need to supplement a number $x$ in the array, and then update $x$ to $2x$.
 - Repeat the above operations until the value of $x$ is greater than $n$.
 
 The final answer is the number of supplemented numbers.
 
-The time complexity is $O(m + \log n)$, and the space complexity is $O(1)$, where $m$ is the length of the array $nums$.
+The time complexity is $O(m + \log n)$, and the space complexity is $O(1)$, where $m$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

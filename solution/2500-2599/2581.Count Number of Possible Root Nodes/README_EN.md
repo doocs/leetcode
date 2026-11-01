@@ -105,17 +105,17 @@ Considering any node as root will give at least 1 correct guess.
 
 <!-- thinking:end -->
 
-First, we traverse the given edge set $edges$ and convert it to an adjacency list $g$ where $g[i]$ represents the adjacent nodes of node $i$. Use a hash map $gs$ to record the given guess set $guesses$.
+First, we traverse the given edge set $\textit{edges}$ and convert it to an adjacency list $g$ where $g[i]$ represents the adjacent nodes of node $i$. Use a hash map $gs$ to record the given guess set $\textit{guesses}$.
 
-Then, we start from node $0$ and perform a DFS to count the number of edges in $guesses$ among all the nodes that can be reached from node $0$. We use the variable $cnt$ to record this number.
+Then, we start from node $0$ and perform a DFS to count the number of edges in $\textit{guesses}$ among all the nodes that can be reached from node $0$. We use the variable $\textit{cnt}$ to record this number.
 
-Next, we start from node $0$ and perform a DFS to count the number of edges in $guesses$ in each tree with $0$ as the root. If the number is greater than or equal to $k$, it means that this node is a possible root node, and we add $1$ to the answer.
+Next, we start from node $0$ and perform a DFS to count the number of edges in $\textit{guesses}$ in each tree with $0$ as the root. If the number is greater than or equal to $k$, it means that this node is a possible root node, and we add $1$ to the answer.
 
-Therefore, the problem becomes to count the number of edges in $guesses$ in each tree with each node as the root. We already know that there are $cnt$ edges in $guesses$ among all the nodes that can be reached from node $0$. We can maintain this value by adding or subtracting the current edge in $guesses$ in DFS.
+Therefore, the problem becomes to count the number of edges in $\textit{guesses}$ in each tree with each node as the root. We already know that there are $\textit{cnt}$ edges in $\textit{guesses}$ among all the nodes that can be reached from node $0$. We can maintain this value by adding or subtracting the current edge in $\textit{guesses}$ in DFS.
 
-Assume that we are currently traversing node $i$ and $cnt$ represents the number of edges in $guesses$ with $i$ as the root node. Then, for each adjacent node $j$ of $i$, we need to calculate the number of edges in $guesses$ with $j$ as the root node. If $(i, j)$ is in $guesses$, then there is no edge $(i, j)$ in the tree with $j$ as the root node, so $cnt$ should decrease by $1$. If $(j, i)$ is in $guesses$, then there is an extra edge $(i, j)$ in the tree with $j$ as the root node, so $cnt$ should increase by $1$. That is, $f[j] = f[i] + (j, i) \in guesses - (i, j) \in guesses$. Where $f[i]$ represents the number of edges in $guesses$ with $i$ as the root node.
+Assume that we are currently traversing node $i$ and $\textit{cnt}$ represents the number of edges in $\textit{guesses}$ with $i$ as the root node. Then, for each adjacent node $j$ of $i$, we need to calculate the number of edges in $\textit{guesses}$ with $j$ as the root node. If $(i, j)$ is in $\textit{guesses}$, then there is no edge $(i, j)$ in the tree with $j$ as the root node, so $\textit{cnt}$ should decrease by $1$. If $(j, i)$ is in $\textit{guesses}$, then there is an extra edge $(i, j)$ in the tree with $j$ as the root node, so $\textit{cnt}$ should increase by $1$. That is, $f[j] = f[i] + (j, i) \in \textit{guesses} - (i, j) \in \textit{guesses}$. Where $f[i]$ represents the number of edges in $\textit{guesses}$ with $i$ as the root node.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{edges}$ and $\textit{guesses}$ respectively.
 
 <!-- tabs:start -->
 
@@ -380,15 +380,15 @@ function rootCount(edges: number[][], guesses: number[][], k: number): number {
 
 > **Thinking**
 >
-> The root is unknown, and each guess is a directed edge. A node is valid when at least $k$ guesses match after it becomes the root. With $n\le 10^5$, a separate walk from every root is quadratic, and recursion along a chain overflows Python once the chain reaches length $1000$. Moving the root across one edge changes only that edge: from parent $i$ to child $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child. The first stack therefore starts at $0$ and adds each guess whose direction matches the parent-child edge, producing $cnt$. The second stack stores the adjusted count in the frame. A popped node is counted when that value is at least $k$, and the child receives $cnt-(i,j)+(j,i)$.
+> The root is unknown, and each guess is a directed edge. A node is valid when at least $k$ guesses match after it becomes the root. With $n\le 10^5$, a separate walk from every root is quadratic, and recursion along a chain overflows Python once the chain reaches length $1000$. Moving the root across one edge changes only that edge: from parent $i$ to child $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child. The first stack therefore starts at $0$ and adds each guess whose direction matches the parent-child edge, producing $\textit{cnt}$. The second stack stores the adjusted count in the frame. A popped node is counted when that value is at least $k$, and the child receives $\textit{cnt}-(i,j)+(j,i)$.
 
 <!-- thinking:end -->
 
-Turn $edges$ into an adjacency list $g$, and store $guesses$ in a hash map $gs$. An explicit stack walks the tree from node $0$. When the walk moves to a child $j$, add the multiplicity of $(i,j)$ in $gs$ to $cnt$. After this walk, $cnt$ is the number of correct guesses with root $0$.
+Turn $\textit{edges}$ into an adjacency list $g$, and store $\textit{guesses}$ in a hash map $gs$. An explicit stack walks the tree from node $0$. When the walk moves to a child $j$, add the multiplicity of $(i,j)$ in $gs$ to $\textit{cnt}$. After this walk, $\textit{cnt}$ is the number of correct guesses with root $0$.
 
-The second stack reroots the tree. Each frame stores a node, its parent, and the number of correct guesses when that node is the root. It starts with $(0,-1,cnt)$. When node $i$ is popped, add $1$ to the answer if the stored count is at least $k$. For a neighbor $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child, so the count passed to $j$ is $c-gs[(i,j)]+gs[(j,i)]$.
+The second stack reroots the tree. Each frame stores a node, its parent, and the number of correct guesses when that node is the root. It starts with $(0,-1,\textit{cnt})$. When node $i$ is popped, add $1$ to the answer if the stored count is at least $k$. For a neighbor $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child, so the count passed to $j$ is $c-gs[(i,j)]+gs[(j,i)]$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{edges}$ and $\textit{guesses}$ respectively.
 
 <!-- tabs:start -->
 

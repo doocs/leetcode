@@ -71,9 +71,9 @@ Attend the third event on day 3.
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{g}$ to record the start and end times of each event. The key is the start time of the event, and the value is a list containing the end times of all events that start at that time. Two variables, $\textit{l}$ and $\textit{r}$, are used to record the minimum start time and the maximum end time among all events.
+We use a hash table $g$ to record the start and end times of each event. The key is the start time of the event, and the value is a list containing the end times of all events that start at that time. Two variables, $l$ and $r$, are used to record the minimum start time and the maximum end time among all events.
 
-For each time point $s$ from $\textit{l}$ to $\textit{r}$ in increasing order, we perform the following steps:
+For each time point $s$ from $l$ to $r$ in increasing order, we perform the following steps:
 
 1. Remove from the priority queue all events whose end time is less than the current time $s$.
 2. Add the end times of all events that start at the current time $s$ to the priority queue.

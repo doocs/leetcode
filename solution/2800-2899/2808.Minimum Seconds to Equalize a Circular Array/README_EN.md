@@ -88,7 +88,7 @@ We assume that all elements eventually become $x$, and $x$ must be an element in
 
 The number $x$ can expand one bit to the left and right every second. If there are multiple identical $x$, then the time required to expand the entire array depends on the maximum distance between two adjacent $x$.
 
-Therefore, we enumerate each element as the final $x$, calculate the maximum distance $t$ between two adjacent elements in each $x$, then the final answer is $\min\limits_{x \in nums} \left\lfloor \frac{t}{2} \right\rfloor$.
+Therefore, we enumerate each element as the final $x$, calculate the maximum distance $t$ between two adjacent elements in each $x$, then the final answer is $\min\limits_{x \in \textit{nums}} \left\lfloor \frac{t}{2} \right\rfloor$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

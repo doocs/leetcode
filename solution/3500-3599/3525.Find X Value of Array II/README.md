@@ -139,18 +139,18 @@ tags:
 >
 > 静态统计在单点修改与强制删除前缀后不再适用， $n$ 与询问次数都很大。 $k \le 5$，一段的有用信息是乘积模 $k$ 以及「从左端切掉后缀后各余数的方案数」。
 >
-> 将这些信息放进线段树结点并定义合并，即可在修改后查询 $[start, n)$ 上目标余数的方案数。
+> 将这些信息放进线段树结点并定义合并，即可在修改后查询 $[\textit{start}, n)$ 上目标余数的方案数。
 
 <!-- thinking:end -->
 
-每次询问先把 $nums[\textit{index}]$ 改成 $\textit{value}$（该修改对后续询问保留），再强制去掉前缀 $nums[0..start-1]$。之后只能再删后缀，剩余部分是 $nums[start..n-1]$ 的某个非空前缀。因此询问等价于：统计区间 $[start, n)$ 上有多少前缀的乘积模 $k$ 等于 $x$。
+每次询问先把 $\textit{nums}[\textit{index}]$ 改成 $\textit{value}$（该修改对后续询问保留），再强制去掉前缀 $\textit{nums}[0..\textit{start}-1]$。之后只能再删后缀，剩余部分是 $\textit{nums}[\textit{start}..n-1]$ 的某个非空前缀。因此询问等价于：统计区间 $[\textit{start}, n)$ 上有多少前缀的乘积模 $k$ 等于 $x$。
 
 $k \le 5$。线段树每个结点维护：
 
 - $\textit{prod}$：该区间全部元素之积模 $k$
 - $\textit{cnt}[r]$：该区间自身有多少前缀的乘积模 $k$ 为 $r$
 
-叶子： $a = nums[i] \bmod k$， $\textit{prod} = a$， $\textit{cnt}[a] = 1$。
+叶子： $a = \textit{nums}[i] \bmod k$， $\textit{prod} = a$， $\textit{cnt}[a] = 1$。
 
 合并左右儿子 $L$、 $R$：
 
@@ -160,7 +160,7 @@ $$
 
 完全落在左段的前缀直接累加 $L.\textit{cnt}$；跨过左段再取右段前缀的，余数为 $(L.\textit{prod} \times r) \bmod k$，个数为 $R.\textit{cnt}[r]$。
 
-单点修改后查询 $[start+1, n]$（下标从 $1$ 开始）的 $\textit{cnt}[x]$。查询合并必须先左后右。
+单点修改后查询 $[\textit{start}+1, n]$（下标从 $1$ 开始）的 $\textit{cnt}[x]$。查询合并必须先左后右。
 
 时间复杂度 $O((n + q)k \log n)$，空间复杂度 $O(nk)$。其中 $n$ 是数组长度， $q$ 是询问次数。
 

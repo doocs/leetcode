@@ -184,7 +184,7 @@ WHERE
 
 > **Thinking**
 >
-> Solution 1 rescans the department for every employee. $\textit{DENSE\_RANK}$ partitioned by department and ordered by salary descending, then $\textit{rk}\le 3$, is the top three bands including ties.
+> Solution 1 rescans the department for every employee. $\textit{DENSE\_RANK}$ partitioned by department and ordered by salary descending, then $rk\le 3$, is the top three bands including ties.
 
 <!-- thinking:end -->
 

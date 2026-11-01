@@ -65,9 +65,9 @@ tags:
 
 > **Thinking**
 >
-> Find the last index of $target$ in a sorted array. A right-to-left scan is correct, but a logarithmic bound is available.
+> Find the last index of $\textit{target}$ in a sorted array. A right-to-left scan is correct, but a logarithmic bound is available.
 >
-> Binary-search the first index greater than $target$; the previous index is the rightmost hit if it equals $target$, otherwise the value is absent.
+> Binary-search the first index greater than $\textit{target}$; the previous index is the rightmost hit if it equals $\textit{target}$, otherwise the value is absent.
 
 <!-- thinking:end -->
 
@@ -117,7 +117,7 @@ Array.prototype.upperBound = function (target: number) {
 
 > **Thinking**
 >
-> Binary search buys a logarithm at the cost of endpoint logic. $lastIndexOf$ scans once from the right and is shorter, though linear in the worst case.
+> Binary search buys a logarithm at the cost of endpoint logic. $\textit{lastIndexOf}$ scans once from the right and is shorter, though linear in the worst case.
 
 <!-- thinking:end -->
 

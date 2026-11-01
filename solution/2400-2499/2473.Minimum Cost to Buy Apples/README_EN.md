@@ -74,7 +74,7 @@ tags:
 
 > **Thinking**
 >
-> Apples may be bought in any city; travel is charged $(k+1)$ times the distance (the extra $k$ is the return). From each start, Dijkstra updates $\textit{appleCost}[u]+dist[u]\cdot(k+1)$ along the way.
+> Apples may be bought in any city; travel is charged $(k+1)$ times the distance (the extra $k$ is the return). From each start, Dijkstra updates $\textit{appleCost}[u]+\textit{dist}[u]\cdot(k+1)$ along the way.
 >
 > Heap Dijkstra is $O(m \log n)$ per source on a sparse graph.
 

@@ -68,7 +68,7 @@ tags:
 
 > **Thinking**
 >
-> The largest odd number as a substring must be a prefix of $num$ that ends on an odd digit. Converting every prefix to an integer is unnecessary and $n\le 10^5$ forbids heavy arithmetic.
+> The largest odd number as a substring must be a prefix of $\textit{num}$ that ends on an odd digit. Converting every prefix to an integer is unnecessary and $n\le 10^5$ forbids heavy arithmetic.
 >
 > A right-to-left scan finds the first odd digit; the prefix ending there is both odd and longest, hence largest.
 >
@@ -78,7 +78,7 @@ tags:
 
 We can traverse the string from the end to the beginning, find the first odd number, and then return the substring from the beginning to this odd number. If there is no odd number, return an empty string.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $num$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{num}$.
 
 <!-- tabs:start -->
 

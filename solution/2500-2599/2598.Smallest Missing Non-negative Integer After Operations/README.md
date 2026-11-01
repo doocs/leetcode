@@ -79,9 +79,9 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 
 > **思考**
 >
-> 每个数可加减任意次 $\textit{value}$，即可以变成与它同余的任意整数。求操作后能达到的最小 $mex$。
+> 每个数可加减任意次 $\textit{value}$，即可以变成与它同余的任意整数。求操作后能达到的最小 $\textit{mex}$。
 >
-> 同余类 $r$ 能提供 $r,r+\textit{value},r+2\textit{value},\ldots$。从 $0$ 起依次需要余数 $0,1,\ldots$，某余数用尽时该整数即为 $mex$。统计各余数个数后线性扫描即可。
+> 同余类 $r$ 能提供 $r,r+\textit{value},r+2\textit{value},\ldots$。从 $0$ 起依次需要余数 $0,1,\ldots$，某余数用尽时该整数即为 $\textit{mex}$。统计各余数个数后线性扫描即可。
 
 <!-- thinking:end -->
 

@@ -70,13 +70,13 @@ tags:
 >
 > A complete subarray contains every distinct value of the original array. Building a set for every pair of ends is acceptable at $n\le 1000$.
 >
-> Compute the global number of distinct values $cnt$, then for each left end grow a set rightward and count a complete subarray whenever the set size reaches $cnt$.
+> Compute the global number of distinct values $\textit{cnt}$, then for each left end grow a set rightward and count a complete subarray whenever the set size reaches $\textit{cnt}$.
 
 <!-- thinking:end -->
 
-First, we use a hash table to count the number of distinct elements in the array, denoted as $cnt$.
+First, we use a hash table to count the number of distinct elements in the array, denoted as $\textit{cnt}$.
 
-Next, we enumerate the left endpoint index $i$ of the subarray and maintain a set $s$ to store the elements in the subarray. Each time we move the right endpoint index $j$ to the right, we add $nums[j]$ to the set $s$ and check whether the size of the set $s$ equals $cnt$. If it equals $cnt$, it means the current subarray is a complete subarray, and we increment the answer by $1$.
+Next, we enumerate the left endpoint index $i$ of the subarray and maintain a set $s$ to store the elements in the subarray. Each time we move the right endpoint index $j$ to the right, we add $\textit{nums}[j]$ to the set $s$ and check whether the size of the set $s$ equals $\textit{cnt}$. If it equals $\textit{cnt}$, it means the current subarray is a complete subarray, and we increment the answer by $1$.
 
 After the enumeration ends, we return the answer.
 
@@ -237,11 +237,11 @@ impl Solution {
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we can use a hash table to count the number of distinct elements in the array, denoted as $cnt$.
+Similar to Solution 1, we can use a hash table to count the number of distinct elements in the array, denoted as $\textit{cnt}$.
 
 Next, we use two pointers to maintain a sliding window, where the right endpoint index is $j$ and the left endpoint index is $i$.
 
-Each time we fix the left endpoint index $i$, we move the right endpoint index $j$ to the right. When the number of distinct elements in the sliding window equals $cnt$, it means that all subarrays from the left endpoint index $i$ to the right endpoint index $j$ and beyond are complete subarrays. We then increment the answer by $n - j$, where $n$ is the length of the array. Afterward, we move the left endpoint index $i$ one step to the right and repeat the process.
+Each time we fix the left endpoint index $i$, we move the right endpoint index $j$ to the right. When the number of distinct elements in the sliding window equals $\textit{cnt}$, it means that all subarrays from the left endpoint index $i$ to the right endpoint index $j$ and beyond are complete subarrays. We then increment the answer by $n - j$, where $n$ is the length of the array. Afterward, we move the left endpoint index $i$ one step to the right and repeat the process.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

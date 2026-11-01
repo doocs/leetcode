@@ -74,7 +74,7 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 >
 > After each extra letter we want the three lexicographically smallest products with that prefix. There are $1000$ products: sort, then insert into a trie, each node keeping at most three indices in insertion order — the top three for that prefix.
 >
-> Walking $searchWord$ maps those index lists back to names. Sorting makes insertion order lexicographic; the trie locates prefixes.
+> Walking $\textit{searchWord}$ maps those index lists back to names. Sorting makes insertion order lexicographic; the trie locates prefixes.
 
 <!-- thinking:end -->
 

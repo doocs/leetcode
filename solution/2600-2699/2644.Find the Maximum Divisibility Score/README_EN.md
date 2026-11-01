@@ -96,20 +96,20 @@ tags:
 
 > **Thinking**
 >
-> The score is how many $nums$ are divisible by a candidate; ties take the smaller divisor. Both arrays have length $\le 1000$, so each divisor can scan $nums$.
+> The score is how many $\textit{nums}$ are divisible by a candidate; ties take the smaller divisor. Both arrays have length $\le 1000$, so each divisor can scan $\textit{nums}$.
 >
-> Keep the best count and its divisor; on a tie, replace it with the smaller $div$.
+> Keep the best count and its divisor; on a tie, replace it with the smaller $\textit{div}$.
 
 <!-- thinking:end -->
 
-We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
+We can enumerate each element $\textit{div}$ in $\textit{divisors}$, and calculate how many elements in $\textit{nums}$ can be divided by $\textit{div}$, denoted as $\textit{cnt}$.
 
-- If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
-- If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+- If $\textit{cnt}$ is greater than the current maximum divisibility score $mx$, then update $mx = \textit{cnt}$, and update $\textit{ans} = \textit{div}$.
+- If $\textit{cnt}$ equals $mx$ and $\textit{div}$ is less than $\textit{ans}$, then update $\textit{ans} = \textit{div}$.
 
-Finally, return $ans$.
+Finally, return $\textit{ans}$.
 
-The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $\textit{nums}$ and $\textit{divisors}$ respectively.
 
 <!-- tabs:start -->
 

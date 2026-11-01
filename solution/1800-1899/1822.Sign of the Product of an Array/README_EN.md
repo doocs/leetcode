@@ -77,7 +77,7 @@ tags:
 >
 > The sign of the product depends only on zeros and the number of negatives. Computing the full product can overflow.
 >
-> Keep a running sign $ans$, return $0$ on a zero, and flip $ans$ on a negative. The scan yields the sign without multiplying the values themselves.
+> Keep a running sign $\textit{ans}$, return $0$ on a zero, and flip $\textit{ans}$ on a negative. The scan yields the sign without multiplying the values themselves.
 
 <!-- thinking:end -->
 

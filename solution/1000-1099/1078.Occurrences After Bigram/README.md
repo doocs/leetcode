@@ -64,17 +64,17 @@ tags:
 >
 > 要找紧跟在给定二元词之后的第三个词。文本已由单空格分隔，先切成词数组再检查三元组即可，长度 $\le 1000$。
 >
-> 对每个 $i$ 看 $(words[i],words[i+1],words[i+2])$，前两个分别等于 $first,second$ 则收集第三个。
+> 对每个 $i$ 看 $(\textit{words}[i],\textit{words}[i+1],\textit{words}[i+2])$，前两个分别等于 $\textit{first},\textit{second}$ 则收集第三个。
 >
 > 一次线性扫描得到全部出现。
 
 <!-- thinking:end -->
 
-我们可以将字符串 $text$ 按照空格分割成字符串数组 $words$，然后遍历 $words$，如果 $words[i]$ 和 $words[i+1]$ 分别等于 $first$ 和 $second$，那么就将 $words[i+2]$ 添加到答案中。
+我们可以将字符串 $\textit{text}$ 按照空格分割成字符串数组 $\textit{words}$，然后遍历 $\textit{words}$，如果 $\textit{words}[i]$ 和 $\textit{words}[i+1]$ 分别等于 $\textit{first}$ 和 $\textit{second}$，那么就将 $\textit{words}[i+2]$ 添加到答案中。
 
 遍历结束后，返回答案列表。
 
-时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是 $text$ 的长度。
+时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是 $\textit{text}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -81,11 +81,11 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 
 <!-- thinking:end -->
 
-According to the problem requirements, we need to judge each query $queries[i]$, that is, to determine whether there is a path with edge weight less than or equal to $limit$ between the two points $a$ and $b$ of the current query.
+According to the problem requirements, we need to judge each query $\textit{queries}[i]$, that is, to determine whether there is a path with edge weight less than or equal to $\textit{limit}$ between the two points $a$ and $b$ of the current query.
 
-The connectivity of two points can be determined by a union-find set. Moreover, since the order of queries does not affect the result, we can sort all queries in ascending order by $limit$, and also sort all edges in ascending order by edge weight.
+The connectivity of two points can be determined by a union-find set. Moreover, since the order of queries does not affect the result, we can sort all queries in ascending order by $\textit{limit}$, and also sort all edges in ascending order by edge weight.
 
-Then for each query, we start from the edge with the smallest weight, add all edges with weights strictly less than $limit$ to the union-find set, and then use the query operation of the union-find set to determine whether the two points are connected.
+Then for each query, we start from the edge with the smallest weight, add all edges with weights strictly less than $\textit{limit}$ to the union-find set, and then use the query operation of the union-find set to determine whether the two points are connected.
 
 The time complexity is $O(m \log m + q \log q)$, where $m$ and $q$ are the number of edges and queries, respectively.
 

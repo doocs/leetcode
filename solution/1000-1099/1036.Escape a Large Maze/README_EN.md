@@ -73,7 +73,7 @@ We cannot move south or west because we cannot go outside of the grid.
 
 > **Thinking**
 >
-> A $10^6\times 10^6$ grid cannot be materialized. At most $200$ blocked cells enclose an area of at most $|blocked|^2/2$, so visiting more cells than that from a source means it is not trapped.
+> A $10^6\times 10^6$ grid cannot be materialized. At most $200$ blocked cells enclose an area of at most $|\textit{blocked}|^2/2$, so visiting more cells than that from a source means it is not trapped.
 >
 > DFS from the source and from the target: meeting the other point succeeds; exceeding the area bound means we escaped the enclosure. Both sides must escape (or meet).
 >
@@ -83,9 +83,9 @@ We cannot move south or west because we cannot go outside of the grid.
 
 The problem can be interpreted as determining whether it is possible to move from a source point to a target point in a $10^6 \times 10^6$ grid, given a small number of blocked points.
 
-Since the number of blocked points is small, the maximum area that can be blocked is no more than $|blocked|^2 / 2$. Therefore, we can perform a depth-first search (DFS) starting from both the source and the target points. The search continues until either the target point is reached or the number of visited points exceeds $|blocked|^2 / 2$. If either condition is satisfied, return $\textit{true}$. Otherwise, return $\textit{false}$.
+Since the number of blocked points is small, the maximum area that can be blocked is no more than $|\textit{blocked}|^2 / 2$. Therefore, we can perform a depth-first search (DFS) starting from both the source and the target points. The search continues until either the target point is reached or the number of visited points exceeds $|\textit{blocked}|^2 / 2$. If either condition is satisfied, return $\textit{true}$. Otherwise, return $\textit{false}$.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the size of the blocked region. In this problem, $m \leq |blocked|^2 / 2 = 200^2 / 2 = 20000$.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the size of the blocked region. In this problem, $m \leq |\textit{blocked}|^2 / 2 = 200^2 / 2 = 20000$.
 
 <!-- tabs:start -->
 

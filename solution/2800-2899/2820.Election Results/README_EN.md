@@ -80,7 +80,7 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 
 > **Thinking**
 >
-> Each voter's ballot is split equally among that voter's non-null candidates. A window `COUNT` yields weight $1/\mathrm{cnt}$, a grouped `SUM` totals each candidate, and `RANK` keeps every first-place name, ordered alphabetically.
+> Each voter's ballot is split equally among that voter's non-null candidates. A window `COUNT` yields weight $1/\textit{cnt}$, a grouped `SUM` totals each candidate, and `RANK` keeps every first-place name, ordered alphabetically.
 
 <!-- thinking:end -->
 

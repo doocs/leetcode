@@ -115,13 +115,13 @@ The boxes need to be transported in the order of the array. Each time, the truck
 
 Therefore, we can enumerate the index $j$ of the last box transported in the last trip. Then $f[i]$ can be transferred from $f[j]$. During the transfer, we need to consider the following issues:
 
-- When transferring from $f[j]$, the number of boxes on the truck cannot exceed $maxBoxes$
-- When transferring from $f[j]$, the total weight of the boxes on the truck cannot exceed $maxWeight$
+- When transferring from $f[j]$, the number of boxes on the truck cannot exceed $\textit{maxBoxes}$
+- When transferring from $f[j]$, the total weight of the boxes on the truck cannot exceed $\textit{maxWeight}$
 
 The state transition equation is:
 
 $$
-f[i] = \min_{j \in [i - maxBoxes, i - 1]} \left(f[j] + \sum_{k = j + 1}^i \textit{cost}(k)\right)
+f[i] = \min_{j \in [i - \textit{maxBoxes}, i - 1]} \left(f[j] + \sum_{k = j + 1}^i \textit{cost}(k)\right)
 $$
 
 Where $\sum_{k = j + 1}^i \textit{cost}(k)$ represents the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks in one trip. This part of the trip count can be quickly calculated using prefix sums.
@@ -267,7 +267,7 @@ $$
 f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
 $$
 
-In fact, we are looking for a $j$ in the window $[i-maxBoxes,..i-1]$ that minimizes the value of $f[j] - cs[j]$. To find the minimum value in a sliding window, a common method is to use a monotonic queue, which can get the minimum value that meets the condition in $O(1)$ time.
+In fact, we are looking for a $j$ in the window $[i-\textit{maxBoxes},..i-1]$ that minimizes the value of $f[j] - cs[j]$. To find the minimum value in a sliding window, a common method is to use a monotonic queue, which can get the minimum value that meets the condition in $O(1)$ time.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of boxes in the problem.
 

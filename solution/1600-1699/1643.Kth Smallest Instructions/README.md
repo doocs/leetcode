@@ -99,7 +99,7 @@ tags:
 
 <!-- thinking:end -->
 
-根据题目描述我们可以知道，最终的路径是由 $destination[0]$ 个 `'V'` 和 $destination[1]$ 个 `'H'` 组成的，且按字典序排列后的第 $k$ 条最小指令。
+根据题目描述我们可以知道，最终的路径是由 $\textit{destination}[0]$ 个 `'V'` 和 $\textit{destination}[1]$ 个 `'H'` 组成的，且按字典序排列后的第 $k$ 条最小指令。
 
 我们首先考虑字典序的最高位，即最左边的字符。如果高位字符是 `'V'`，那么所有以 `'H'` 开头的路径的字典序都比它小，而以 `'H'` 开头的路径总数为 $x = C_{v+h-1}^{h-1}$。
 
@@ -109,7 +109,7 @@ tags:
 
 问题可以转换为求解 $C_{n}^{k}$，我们可以通过公式 $C_{n}^{k} = C_{n-1}^{k-1} + C_{n-1}^{k}$ 递推求解。
 
-时间复杂度 $O((h + v)h)$，空间复杂度 $O((h + v)h)$。其中 $h$ 和 $v$ 分别为 $destination[1]$ 和 $destination[0]$。
+时间复杂度 $O((h + v)h)$，空间复杂度 $O((h + v)h)$。其中 $h$ 和 $v$ 分别为 $\textit{destination}[1]$ 和 $\textit{destination}[0]$。
 
 <!-- tabs:start -->
 

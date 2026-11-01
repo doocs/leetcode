@@ -91,7 +91,7 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 
 <!-- thinking:end -->
 
-我们可以使用一个长度为 $n + 1$ 的数组 $\textit{data}$ 来模拟这个流，其中 $\textit{data}[i]$ 表示 $\textit{id} = i$ 的值。同时，我们使用一个指针 $\textit{ptr}$ 来表示当前的位置。初始时 $\textit{ptr} = 1$。
+我们可以使用一个长度为 $n + 1$ 的数组 $\textit{data}$ 来模拟这个流，其中 $\textit{data}[i]$ 表示 $id = i$ 的值。同时，我们使用一个指针 $\textit{ptr}$ 来表示当前的位置。初始时 $\textit{ptr} = 1$。
 
 在插入一个新的 $(\textit{idKey}, \textit{value})$ 对时，我们将 $\textit{data}[\textit{idKey}]$ 更新为 $\textit{value}$。然后，我们从 $\textit{ptr}$ 开始，依次将 $\textit{data}[\textit{ptr}]$ 加入答案中，直到 $\textit{data}[\textit{ptr}]$ 为空。
 

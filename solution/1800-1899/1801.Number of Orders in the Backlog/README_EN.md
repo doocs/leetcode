@@ -92,7 +92,7 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 
 <!-- thinking:end -->
 
-We can use a priority queue (max-min heap) to maintain the current backlog of orders, where the max heap `buy` maintains the backlog of purchase orders, and the min heap `sell` maintains the backlog of sales orders. Each element in the heap is a tuple $(price, amount)$, indicating that the number of orders at price `price` is `amount`.
+We can use a priority queue (max-min heap) to maintain the current backlog of orders, where the max heap `buy` maintains the backlog of purchase orders, and the min heap `sell` maintains the backlog of sales orders. Each element in the heap is a tuple $(\textit{price}, \textit{amount})$, indicating that the number of orders at price `price` is `amount`.
 
 Next, we traverse the order array `orders`, and simulate according to the problem's requirements.
 

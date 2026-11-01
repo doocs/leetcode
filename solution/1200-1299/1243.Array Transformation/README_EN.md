@@ -74,7 +74,7 @@ No more operations can be done to this array.
 >
 > The rule looks only at neighbors, and the ends never change. Both $n$ and the values are at most $100$, so we may simulate until a fixpoint. A day's updates must read the old array, or a left cell would see a already-updated right neighbor.
 >
-> Each round copies a snapshot $t$, writes $arr$ from $t$'s adjacencies, and continues if anything changed. The simulation matches simultaneous updates.
+> Each round copies a snapshot $t$, writes $\textit{arr}$ from $t$'s adjacencies, and continues if anything changed. The simulation matches simultaneous updates.
 
 <!-- thinking:end -->
 

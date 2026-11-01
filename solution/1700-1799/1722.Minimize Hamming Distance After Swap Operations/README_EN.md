@@ -88,7 +88,7 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 
 We can consider each index as a node, and the element corresponding to each index as the value of the node. Then each element `[a_i, b_i]` in the given `allowedSwaps` represents an edge between index `a_i` and `b_i`. Therefore, we can use a union-find set to maintain these connected components.
 
-After obtaining each connected component, we use a two-dimensional hash table $cnt$ to count the number of occurrences of each element in each connected component. Finally, for each element in the array `target`, if its occurrence count in the corresponding connected component is greater than 0, we decrease its count by 1, otherwise, we increase the answer by 1.
+After obtaining each connected component, we use a two-dimensional hash table $\textit{cnt}$ to count the number of occurrences of each element in each connected component. Finally, for each element in the array `target`, if its occurrence count in the corresponding connected component is greater than 0, we decrease its count by 1, otherwise, we increase the answer by 1.
 
 The time complexity is $O(n \log n)$ or $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the length of the array, and $\alpha$ is the inverse Ackermann function.
 

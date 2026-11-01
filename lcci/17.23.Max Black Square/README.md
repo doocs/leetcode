@@ -55,31 +55,31 @@ difficulty: 中等
 >
 > 若已知每格向下、向右连续 $0$ 的长度，则边长 $k$ 只需检查四个角的两段是否 $\ge k$。
 >
-> 从右下预处理 $down$、 $right$；再从大到小枚举 $k$ 与左上角，第一次命中即最大，返回 $[i,j,k]$。
+> 从右下预处理 $\textit{down}$、 $\textit{right}$；再从大到小枚举 $k$ 与左上角，第一次命中即最大，返回 $[i,j,k]$。
 
 <!-- thinking:end -->
 
-我们可以预处理出每个位置 $(i, j)$ 向下和向右的连续 $0$ （黑色像素）的个数，记为 $down[i][j]$ 和 $right[i][j]$。递推公式如下：
+我们可以预处理出每个位置 $(i, j)$ 向下和向右的连续 $0$ （黑色像素）的个数，记为 $\textit{down}[i][j]$ 和 $\textit{right}[i][j]$。递推公式如下：
 
 $$
-down[i][j] = \begin{cases}
-down[i + 1][j] + 1, & matrix[i][j] = 0 \textit{ 且 } i + 1 < n \\
-1, & matrix[i][j] = 0 \textit{ 且 } i + 1 = n \\
-0, & matrix[i][j] = 1
+\textit{down}[i][j] = \begin{cases}
+\textit{down}[i + 1][j] + 1, & \textit{matrix}[i][j] = 0 \textit{ 且 } i + 1 < n \\
+1, & \textit{matrix}[i][j] = 0 \textit{ 且 } i + 1 = n \\
+0, & \textit{matrix}[i][j] = 1
 \end{cases}
 $$
 
 $$
-right[i][j] = \begin{cases}
-right[i][j + 1] + 1, & matrix[i][j] = 0 \textit{ 且 } j + 1 < n \\
-1, & matrix[i][j] = 0 \textit{ 且 } j + 1 = n \\
-0, & matrix[i][j] = 1
+\textit{right}[i][j] = \begin{cases}
+\textit{right}[i][j + 1] + 1, & \textit{matrix}[i][j] = 0 \textit{ 且 } j + 1 < n \\
+1, & \textit{matrix}[i][j] = 0 \textit{ 且 } j + 1 = n \\
+0, & \textit{matrix}[i][j] = 1
 \end{cases}
 $$
 
-需要注意的是，由于 $down[i][j]$ 依赖于 $down[i + 1][j]$，而 $right[i][j]$ 依赖于 $right[i][j + 1]$，所以，我们在预处理 $down[i][j]$ 和 $right[i][j]$ 时，是从大到小枚举 $i$ 和 $j$ 的。
+需要注意的是，由于 $\textit{down}[i][j]$ 依赖于 $\textit{down}[i + 1][j]$，而 $\textit{right}[i][j]$ 依赖于 $\textit{right}[i][j + 1]$，所以，我们在预处理 $\textit{down}[i][j]$ 和 $\textit{right}[i][j]$ 时，是从大到小枚举 $i$ 和 $j$ 的。
 
-接下来，我们从大到小枚举正方形的边长 $k$，从小到大枚举正方形的左上角位置 $(i, j)$，如果满足 $down[i][j] \ge k$ 且 $right[i][j] \ge k$ 且 $right[i + k - 1][j] \ge k$ 且 $down[i][j + k - 1] \ge k$，说明我们找到了一个边长最大为 $k$ 且左上角位置为 $(i, j)$ 的黑方阵，直接返回 $[i, j, k]$ 即可。
+接下来，我们从大到小枚举正方形的边长 $k$，从小到大枚举正方形的左上角位置 $(i, j)$，如果满足 $\textit{down}[i][j] \ge k$ 且 $\textit{right}[i][j] \ge k$ 且 $\textit{right}[i + k - 1][j] \ge k$ 且 $\textit{down}[i][j + k - 1] \ge k$，说明我们找到了一个边长最大为 $k$ 且左上角位置为 $(i, j)$ 的黑方阵，直接返回 $[i, j, k]$ 即可。
 
 如果枚举完所有的正方形都没有满足条件的，那么返回空数组。
 

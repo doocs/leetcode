@@ -73,20 +73,20 @@ Notice that book number 2 does not have to be on the first shelf.
 >
 > Each book may start a new shelf or share one with a prefix of earlier books; the partition count grows exponentially. With $n\le 1000$, an $O(n^2)$ DP fits.
 >
-> Let $f[i]$ be the minimum height for the first $i$ books. The last shelf ends at $books[i-1]$; extend it backward, accumulating width, and stop once it exceeds $shelfWidth$. The shelf height is the max book height on that shelf, added to $f[j-1]$. Scanning backward keeps width monotonic.
+> Let $f[i]$ be the minimum height for the first $i$ books. The last shelf ends at $\textit{books}[i-1]$; extend it backward, accumulating width, and stop once it exceeds $\textit{shelfWidth}$. The shelf height is the max book height on that shelf, added to $f[j-1]$. Scanning backward keeps width monotonic.
 
 <!-- thinking:end -->
 
 We define $f[i]$ as the minimum height for placing the first $i$ books, initially $f[0] = 0$, and the answer is $f[n]$.
 
-Consider $f[i]$, the last book is $books[i - 1]$, its thickness is $w$, and its height is $h$.
+Consider $f[i]$, the last book is $\textit{books}[i - 1]$, its thickness is $w$, and its height is $h$.
 
 - If this book is placed on a new layer alone, then $f[i] = f[i - 1] + h$;
-- If this book can be placed on the same layer with the last few books in front, we enumerate the first book $books[j-1]$ on the same layer from back to front, where $j \in [1, i - 1]$, accumulate the thickness of the book to $w$, if $w > shelfWidth$, it means that $books[j-1]$ can no longer be placed on the same layer with $books[i-1]$, stop enumeration; otherwise, we update the maximum height $h = \max(h, books[j-1][1])$ of the current layer, then $f[i] = \min(f[i], f[j - 1] + h)$.
+- If this book can be placed on the same layer with the last few books in front, we enumerate the first book $\textit{books}[j-1]$ on the same layer from back to front, where $j \in [1, i - 1]$, accumulate the thickness of the book to $w$, if $w > \textit{shelfWidth}$, it means that $\textit{books}[j-1]$ can no longer be placed on the same layer with $\textit{books}[i-1]$, stop enumeration; otherwise, we update the maximum height $h = \max(h, \textit{books}[j-1][1])$ of the current layer, then $f[i] = \min(f[i], f[j - 1] + h)$.
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $books$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{books}$.
 
 <!-- tabs:start -->
 

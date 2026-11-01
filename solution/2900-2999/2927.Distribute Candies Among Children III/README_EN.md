@@ -57,17 +57,17 @@ tags:
 
 > **Thinking**
 >
-> We need nonnegative $x+y+z=n$ with each variable at most $limit$. $n$ can be huge, so triple loops are impossible. Stars and bars give $C_{n+2}^{2}$ without the cap; inclusion-exclusion subtracts the cases with one variable at least $limit+1$ and adds back two simultaneous violations.
+> We need nonnegative $x+y+z=n$ with each variable at most $\textit{limit}$. $n$ can be huge, so triple loops are impossible. Stars and bars give $C_{n+2}^{2}$ without the cap; inclusion-exclusion subtracts the cases with one variable at least $\textit{limit}+1$ and adds back two simultaneous violations.
 >
-> If $n>3\cdot limit$ the count is $0$. The binomial arguments are guarded so they stay nonnegative. The formula is $O(1)$.
+> If $n>3\cdot \textit{limit}$ the count is $0$. The binomial arguments are guarded so they stay nonnegative. The formula is $O(1)$.
 
 <!-- thinking:end -->
 
-According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
+According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, \textit{limit}]$ candies.
 
 This is equivalent to placing $n$ balls into $3$ boxes. Since the boxes can be empty, we can add $3$ virtual balls, and then use the method of inserting partitions, i.e., there are a total of $n + 3$ balls, and we insert $2$ partitions among the $n + 3 - 1$ positions, thus dividing the actual $n$ balls into $3$ groups, and allowing the boxes to be empty. Therefore, the initial number of schemes is $C_{n + 2}^2$.
 
-We need to exclude the schemes where the number of balls in a box exceeds $limit$. Consider that there is a box where the number of balls exceeds $limit$, then the remaining balls (including virtual balls) have at most $n + 3 - (limit + 1) = n - limit + 2$, and the number of positions is $n - limit + 1$, so the number of schemes is $C_{n - limit + 1}^2$. Since there are $3$ boxes, the number of such schemes is $3 \times C_{n - limit + 1}^2$. In this way, we will exclude too many schemes where the number of balls in two boxes exceeds $limit$ at the same time, so we need to add the number of such schemes, i.e., $3 \times C_{n - 2 \times limit}^2$.
+We need to exclude the schemes where the number of balls in a box exceeds $\textit{limit}$. Consider that there is a box where the number of balls exceeds $\textit{limit}$, then the remaining balls (including virtual balls) have at most $n + 3 - (\textit{limit} + 1) = n - \textit{limit} + 2$, and the number of positions is $n - \textit{limit} + 1$, so the number of schemes is $C_{n - \textit{limit} + 1}^2$. Since there are $3$ boxes, the number of such schemes is $3 \times C_{n - \textit{limit} + 1}^2$. In this way, we will exclude too many schemes where the number of balls in two boxes exceeds $\textit{limit}$ at the same time, so we need to add the number of such schemes, i.e., $3 \times C_{n - 2 \times \textit{limit}}^2$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

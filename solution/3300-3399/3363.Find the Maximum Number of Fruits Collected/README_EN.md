@@ -113,7 +113,7 @@ We can use dynamic programming to calculate the number of fruits that the childr
 For the child starting from $(0, n - 1)$, the state transition equation is:
 
 $$
-f[i][j] = \max(f[i - 1][j], f[i - 1][j - 1], f[i - 1][j + 1]) + \text{fruits}[i][j]
+f[i][j] = \max(f[i - 1][j], f[i - 1][j - 1], f[i - 1][j + 1]) + \textit{fruits}[i][j]
 $$
 
 Note that $f[i - 1][j + 1]$ is only valid when $j + 1 < n$.
@@ -121,12 +121,12 @@ Note that $f[i - 1][j + 1]$ is only valid when $j + 1 < n$.
 For the child starting from $(n - 1, 0)$, the state transition equation is:
 
 $$
-f[i][j] = \max(f[i][j - 1], f[i - 1][j - 1], f[i + 1][j - 1]) + \text{fruits}[i][j]
+f[i][j] = \max(f[i][j - 1], f[i - 1][j - 1], f[i + 1][j - 1]) + \textit{fruits}[i][j]
 $$
 
 Similarly, $f[i + 1][j - 1]$ is only valid when $i + 1 < n$.
 
-Finally, the answer is $\sum_{i=0}^{n-1} \text{fruits}[i][i] + f[n-2][n-1] + f[n-1][n-2]$, which is the sum of fruits on the main diagonal plus the fruits that the two children can collect when reaching $(n - 2, n - 1)$ and $(n - 1, n - 2)$.
+Finally, the answer is $\sum_{i=0}^{n-1} \textit{fruits}[i][i] + f[n-2][n-1] + f[n-1][n-2]$, which is the sum of fruits on the main diagonal plus the fruits that the two children can collect when reaching $(n - 2, n - 1)$ and $(n - 1, n - 2)$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the room grid.
 

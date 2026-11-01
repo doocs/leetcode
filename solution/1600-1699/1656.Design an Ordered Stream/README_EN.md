@@ -86,7 +86,7 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 
 <!-- thinking:end -->
 
-We can use an array $\textit{data}$ of length $n + 1$ to simulate this stream, where $\textit{data}[i]$ represents the value of $\textit{id} = i$. At the same time, we use a pointer $\textit{ptr}$ to represent the current position. Initially, $\textit{ptr} = 1$.
+We can use an array $\textit{data}$ of length $n + 1$ to simulate this stream, where $\textit{data}[i]$ represents the value of $id = i$. At the same time, we use a pointer $\textit{ptr}$ to represent the current position. Initially, $\textit{ptr} = 1$.
 
 When inserting a new $(\textit{idKey}, \textit{value})$ pair, we update $\textit{data}[\textit{idKey}]$ to $\textit{value}$. Then, starting from $\textit{ptr}$, we sequentially add $\textit{data}[\textit{ptr}]$ to the answer until $\textit{data}[\textit{ptr}]$ is empty.
 

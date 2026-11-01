@@ -81,13 +81,13 @@ tags:
 
 > **Thinking**
 >
-> Forward stamping overwrites earlier marks, so it is hard to know when a stamp is legal. Work backward from $target$ toward question marks: a window can be “unstamped” once every still-visible letter matches the stamp.
+> Forward stamping overwrites earlier marks, so it is hard to know when a stamp is legal. Work backward from $\textit{target}$ toward question marks: a window can be “unstamped” once every still-visible letter matches the stamp.
 >
 > The in-degree of a window is the number of mismatched letters; each position points at the windows that still need it. Windows of degree $0$ enter a queue; unstamping them notifies neighbors. If every cell is covered, reverse the order to obtain a forward sequence.
 
 <!-- thinking:end -->
 
-If we operate on the sequence in a forward manner, it would be quite complicated because subsequent operations would overwrite previous ones. Therefore, we consider operating on the sequence in a reverse manner, i.e., starting from the target string $target$ and considering the process of turning $target$ into $?????$.
+If we operate on the sequence in a forward manner, it would be quite complicated because subsequent operations would overwrite previous ones. Therefore, we consider operating on the sequence in a reverse manner, i.e., starting from the target string $\textit{target}$ and considering the process of turning $\textit{target}$ into $?????$.
 
 Let's denote the length of the stamp as $m$ and the length of the target string as $n$. If we operate on the target string with the stamp, there are $n-m+1$ starting positions where the stamp can be placed. We can enumerate these $n-m+1$ starting positions and use a method similar to topological sorting to operate in reverse.
 
@@ -95,17 +95,17 @@ Firstly, we clarify that each starting position corresponds to a window of lengt
 
 Next, we define the following data structures or variables:
 
-- In-degree array $indeg$, where $indeg[i]$ represents how many characters in the $i$-th window are different from the characters in the stamp. Initially, $indeg[i]=m$. If $indeg[i]=0$, it means that all characters in the $i$-th window are the same as those in the stamp, and we can place the stamp in the $i$-th window.
-- Adjacency list $g$, where $g[i]$ represents the set of all windows with different characters from the stamp on the $i$-th position of the target string $target$.
+- In-degree array $\textit{indeg}$, where $\textit{indeg}[i]$ represents how many characters in the $i$-th window are different from the characters in the stamp. Initially, $\textit{indeg}[i]=m$. If $\textit{indeg}[i]=0$, it means that all characters in the $i$-th window are the same as those in the stamp, and we can place the stamp in the $i$-th window.
+- Adjacency list $g$, where $g[i]$ represents the set of all windows with different characters from the stamp on the $i$-th position of the target string $\textit{target}$.
 - Queue $q$, used to store the numbers of all windows with an in-degree of $0$.
-- Array $vis$, used to mark whether each position of the target string $target$ has been covered.
-- Array $ans$, used to store the answer.
+- Array $\textit{vis}$, used to mark whether each position of the target string $\textit{target}$ has been covered.
+- Array $\textit{ans}$, used to store the answer.
 
-Then, we perform topological sorting. In each step of the topological sorting, we take out the window number $i$ at the head of the queue, and put $i$ into the answer array $ans$. Then, we enumerate each position $j$ in the stamp. If the $j$-th position in the $i$-th window has not been covered, we cover it and reduce the in-degree of all windows in the $indeg$ array that are the same as the $j$-th position in the $i$-th window by $1$. If the in-degree of a window becomes $0$, we put it into the queue $q$ for processing next time.
+Then, we perform topological sorting. In each step of the topological sorting, we take out the window number $i$ at the head of the queue, and put $i$ into the answer array $\textit{ans}$. Then, we enumerate each position $j$ in the stamp. If the $j$-th position in the $i$-th window has not been covered, we cover it and reduce the in-degree of all windows in the $\textit{indeg}$ array that are the same as the $j$-th position in the $i$-th window by $1$. If the in-degree of a window becomes $0$, we put it into the queue $q$ for processing next time.
 
-After the topological sorting is over, if every position of the target string $target$ has been covered, then the answer array $ans$ stores the answer we are looking for. Otherwise, the target string $target$ cannot be covered, and we return an empty array.
+After the topological sorting is over, if every position of the target string $\textit{target}$ has been covered, then the answer array $\textit{ans}$ stores the answer we are looking for. Otherwise, the target string $\textit{target}$ cannot be covered, and we return an empty array.
 
-The time complexity is $O(n(n - m + 1))$, and the space complexity is $O(n(n - m + 1))$, where $n$ and $m$ are the lengths of the target string $target$ and the stamp, respectively.
+The time complexity is $O(n(n - m + 1))$, and the space complexity is $O(n(n - m + 1))$, where $n$ and $m$ are the lengths of the target string $\textit{target}$ and the stamp, respectively.
 
 <!-- tabs:start -->
 

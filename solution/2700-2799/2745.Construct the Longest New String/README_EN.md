@@ -66,9 +66,9 @@ That string has length 14, and we can show that it is impossible to construct a 
 
 > **Thinking**
 >
-> Concatenate $x$ copies of $AA$, $y$ of $BB$, and $z$ of $AB$ without $AAA$ or $BBB$, and maximize the length. Searching the order is heavy when the counts reach $50$.
+> Concatenate $x$ copies of $\textit{AA}$, $y$ of $\textit{BB}$, and $z$ of $\textit{AB}$ without $\textit{AAA}$ or $\textit{BBB}$, and maximize the length. Searching the order is heavy when the counts reach $50$.
 >
-> $AB$ is safe on both ends and can be placed freely; $AA$ and $BB$ must alternate. The larger of $x$ and $y$ can exceed the other by at most one. The three comparisons close into a constant-time formula.
+> $\textit{AB}$ is safe on both ends and can be placed freely; $\textit{AA}$ and $\textit{BB}$ must alternate. The larger of $x$ and $y$ can exceed the other by at most one. The three comparisons close into a constant-time formula.
 
 <!-- thinking:end -->
 

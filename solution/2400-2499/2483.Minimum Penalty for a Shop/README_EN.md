@@ -92,7 +92,7 @@ Closing the shop at 2<sup>nd</sup> or 4<sup>th</sup> hour gives a minimum penalt
 
 If the shop closes at hour $0$, then the cost is the number of character `'Y'` in $\textit{customers}$. We initialize the answer variable $\textit{ans}$ to $0$, and the cost variable $\textit{cost}$ to the number of character `'Y'` in $\textit{customers}$.
 
-Next, we enumerate the shop closing at hour $j$ ($1 \leq j \leq n$). If $\textit{customers}[j - 1]$ is `'N'`, it means no customer arrived during the open period, and the cost increases by $1$; otherwise, it means a customer arrived during the closed period, and the cost decreases by $1$. If the current cost $\textit{cost}$ is less than the minimum cost $\textit{mn}$, we update the answer variable $\textit{ans}$ to $j$, and update the minimum cost $\textit{mn}$ to the current cost $\textit{cost}$.
+Next, we enumerate the shop closing at hour $j$ ($1 \leq j \leq n$). If $\textit{customers}[j - 1]$ is `'N'`, it means no customer arrived during the open period, and the cost increases by $1$; otherwise, it means a customer arrived during the closed period, and the cost decreases by $1$. If the current cost $\textit{cost}$ is less than the minimum cost $mn$, we update the answer variable $\textit{ans}$ to $j$, and update the minimum cost $mn$ to the current cost $\textit{cost}$.
 
 After the traversal ends, we return the answer variable $\textit{ans}$.
 

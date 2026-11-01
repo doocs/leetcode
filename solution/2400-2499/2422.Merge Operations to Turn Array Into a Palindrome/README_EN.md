@@ -80,15 +80,15 @@ It can be shown that 2 is the minimum number of operations needed.
 
 <!-- thinking:end -->
 
-Define two pointers $i$ and $j$, pointing to the beginning and end of the array respectively, use variables $a$ and $b$ to represent the values of the first and last elements, and variable $ans$ to represent the number of operations.
+Define two pointers $i$ and $j$, pointing to the beginning and end of the array respectively, use variables $a$ and $b$ to represent the values of the first and last elements, and variable $\textit{ans}$ to represent the number of operations.
 
-If $a < b$, we move the pointer $i$ one step to the right, i.e., $i \leftarrow i + 1$, then add the value of the element pointed to by $i$ to $a$, i.e., $a \leftarrow a + nums[i]$, and increment the operation count by one, i.e., $ans \leftarrow ans + 1$.
+If $a < b$, we move the pointer $i$ one step to the right, i.e., $i \leftarrow i + 1$, then add the value of the element pointed to by $i$ to $a$, i.e., $a \leftarrow a + \textit{nums}[i]$, and increment the operation count by one, i.e., $\textit{ans} \leftarrow \textit{ans} + 1$.
 
-If $a > b$, we move the pointer $j$ one step to the left, i.e., $j \leftarrow j - 1$, then add the value of the element pointed to by $j$ to $b$, i.e., $b \leftarrow b + nums[j]$, and increment the operation count by one, i.e., $ans \leftarrow ans + 1$.
+If $a > b$, we move the pointer $j$ one step to the left, i.e., $j \leftarrow j - 1$, then add the value of the element pointed to by $j$ to $b$, i.e., $b \leftarrow b + \textit{nums}[j]$, and increment the operation count by one, i.e., $\textit{ans} \leftarrow \textit{ans} + 1$.
 
-Otherwise, it means $a = b$, at this time we move the pointer $i$ one step to the right, i.e., $i \leftarrow i + 1$, move the pointer $j$ one step to the left, i.e., $j \leftarrow j - 1$, and update the values of $a$ and $b$, i.e., $a \leftarrow nums[i]$ and $b \leftarrow nums[j]$.
+Otherwise, it means $a = b$, at this time we move the pointer $i$ one step to the right, i.e., $i \leftarrow i + 1$, move the pointer $j$ one step to the left, i.e., $j \leftarrow j - 1$, and update the values of $a$ and $b$, i.e., $a \leftarrow \textit{nums}[i]$ and $b \leftarrow \textit{nums}[j]$.
 
-Repeat the above process until $i \ge j$, return the operation count $ans$.
+Repeat the above process until $i \ge j$, return the operation count $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

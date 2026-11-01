@@ -168,7 +168,7 @@ func countQuadruplets(nums []int) int {
 
 > **思考**
 >
-> 四重循环常数偏大。从右固定 $c$，哈希统计其右侧 $d$ 的值，再枚举 $a,b$ 查询 $nums[a]+nums[b]+nums[c]$ 的出现次数，降为 $O(n^3)$。
+> 四重循环常数偏大。从右固定 $c$，哈希统计其右侧 $d$ 的值，再枚举 $a,b$ 查询 $\textit{nums}[a]+\textit{nums}[b]+\textit{nums}[c]$ 的出现次数，降为 $O(n^3)$。
 
 <!-- thinking:end -->
 
@@ -262,11 +262,11 @@ func countQuadruplets(nums []int) int {
 
 > **思考**
 >
-> 仍可再降一重：从右枚举 $b$，把所有 $d-c$（ $c=b+1$）计入哈希，再枚举 $a$ 查询 $nums[a]+nums[b]$，总时间 $O(n^2)$。
+> 仍可再降一重：从右枚举 $b$，把所有 $d-c$（ $c=b+1$）计入哈希，再枚举 $a$ 查询 $\textit{nums}[a]+\textit{nums}[b]$，总时间 $O(n^2)$。
 
 <!-- thinking:end -->
 
-枚举 $b$，维护 $nums[d]-nums[c]$ 的出现次数，将复杂度再降一维。
+枚举 $b$，维护 $\textit{nums}[d]-\textit{nums}[c]$ 的出现次数，将复杂度再降一维。
 
 <!-- tabs:start -->
 

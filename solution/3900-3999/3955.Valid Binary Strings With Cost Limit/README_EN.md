@@ -94,7 +94,7 @@ tags:
 >
 > $n\le 12$, so $2^n$ strings exist, but we also need no two adjacent ones and the sum of one-indices $\le k$. A positional DFS lists every valid string.
 >
-> A position may always take $0$; it takes $1$ only when the previous bit is not $1$ and $tot+i\le k$. At length $n$ the path is recorded.
+> A position may always take $0$; it takes $1$ only when the previous bit is not $1$ and $\textit{tot}+i\le k$. At length $n$ the path is recorded.
 >
 > The independent-set constraint keeps the search much smaller than $2^n$.
 
@@ -110,10 +110,10 @@ $$
 
 - No two `1`s can be adjacent to each other.
 
-Therefore, we design a recursive function $\text{dfs}(i, tot)$, where:
+Therefore, we design a recursive function $\textit{dfs}(i, \textit{tot})$, where:
 
 - $i$ represents the current position being processed in the string;
-- $tot$ represents the sum of the indices of all `1`s placed so far.
+- $\textit{tot}$ represents the sum of the indices of all `1`s placed so far.
 
 #### Recursive Logic
 
@@ -123,11 +123,11 @@ When $i \ge n$, it means a string of length $n$ has been fully constructed. At t
 
 **2. Choosing `0`**
 
-A `0` can always be placed at the current position. We recursively call $\text{dfs}(i + 1, tot)$. Since a `0` is placed, the total sum $tot$ remains unchanged.
+A `0` can always be placed at the current position. We recursively call $\textit{dfs}(i + 1, \textit{tot})$. Since a `0` is placed, the total sum $\textit{tot}$ remains unchanged.
 
 **3. Choosing `1`**
 
-A `1` can be placed at the current position only if both of the following conditions are met: the previous character does not exist (or is `0`), and $tot + i \le k$. In this case, we recursively call $\text{dfs}(i + 1, tot + i)$.
+A `1` can be placed at the current position only if both of the following conditions are met: the previous character does not exist (or is `0`), and $\textit{tot} + i \le k$. In this case, we recursively call $\textit{dfs}(i + 1, \textit{tot} + i)$.
 
 **4. Backtracking**
 

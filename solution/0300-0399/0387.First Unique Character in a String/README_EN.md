@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table or an array of length $26$ $\text{cnt}$ to store the frequency of each character. Then, we traverse each character $\text{s[i]}$ from the beginning. If $\text{cnt[s[i]]}$ is $1$, we return $i$.
+We use a hash table or an array of length $26$ $\textit{cnt}$ to store the frequency of each character. Then, we traverse each character $s[i]$ from the beginning. If $\textit{cnt}[s[i]]$ is $1$, we return $i$.
 
 If no such character is found after the traversal, we return $-1$.
 

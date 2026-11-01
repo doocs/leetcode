@@ -74,13 +74,13 @@ tags:
 
 <!-- thinking:end -->
 
-考虑**从大到小遍历**数组 $nums$ 中的每个元素 $v$，用并查集来维护以 $v$ 作为子数组最小值的连通块。
+考虑**从大到小遍历**数组 $\textit{nums}$ 中的每个元素 $v$，用并查集来维护以 $v$ 作为子数组最小值的连通块。
 
 遍历过程中：
 
-$v$ 在数组 $nums$ 中的下标为 $i$，若下标 $i-1$ 对应的元素遍历过，可以将 $i-1$ 与 $i$ 进行合并，同理，若下标 $i+1$ 对应的元素也遍历过了，将 $i$ 与 $i+1$ 合并。合并过程中更新连通块的大小。
+$v$ 在数组 $\textit{nums}$ 中的下标为 $i$，若下标 $i-1$ 对应的元素遍历过，可以将 $i-1$ 与 $i$ 进行合并，同理，若下标 $i+1$ 对应的元素也遍历过了，将 $i$ 与 $i+1$ 合并。合并过程中更新连通块的大小。
 
-$v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i)]$，若 $v>\frac{\textit{threshold}}{size[find(i)]}$，说明找到了满足条件的子数组，返回 $true$。
+$v$ 作为当前连通块的最小值，当前连通块的大小为 $\textit{size}[\textit{find}(i)]$，若 $v>\frac{\textit{threshold}}{\textit{size}[\textit{find}(i)]}$，说明找到了满足条件的子数组，返回 $\textit{true}$。
 
 否则遍历结束，返回 $-1$。
 
@@ -292,9 +292,9 @@ func validSubarraySize(nums []int, threshold int) int {
 
 <!-- thinking:end -->
 
-利用单调栈，得到以当前元素 $nums[i]$ 作为最小元素的左右边界 $left[i]$（左边第一个比 $nums[i]$ 小的元素的位置）, $right[i]$（右边第一个比 $nums[i]$ 小的元素的位置）。
+利用单调栈，得到以当前元素 $\textit{nums}[i]$ 作为最小元素的左右边界 $\textit{left}[i]$（左边第一个比 $\textit{nums}[i]$ 小的元素的位置）, $\textit{right}[i]$（右边第一个比 $\textit{nums}[i]$ 小的元素的位置）。
 
-那么对于当前元素 $nums[i]$，有 $k=right[i]-left[i]-1$，若 $nums[i]>\frac{\textit{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
+那么对于当前元素 $\textit{nums}[i]$，有 $k=\textit{right}[i]-\textit{left}[i]-1$，若 $\textit{nums}[i]>\frac{\textit{threshold}}{k}$，说明找到了满足条件的子数组，返回 $\textit{true}$。
 
 否则遍历结束，返回 $-1$。
 

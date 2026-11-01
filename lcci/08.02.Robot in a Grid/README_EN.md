@@ -57,7 +57,7 @@ difficulty: Medium
 >
 > Any feasible path is enough, so DFS tries down then right and backtracks on failure.
 >
-> On entry the cell is appended and marked as an obstacle to block re-entry; success keeps the path, failure pops. In-place marks replace a separate $vis$.
+> On entry the cell is appended and marked as an obstacle to block re-entry; success keeps the path, failure pops. In-place marks replace a separate $\textit{vis}$.
 
 <!-- thinking:end -->
 

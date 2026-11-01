@@ -109,9 +109,9 @@ tags:
 
 <!-- thinking:end -->
 
-由于编号为 $0$ 的计算机密码已经被解锁，那么对于其他计算机 $i$，如果存在 $\text{complexity}[i] \leq \text{complexity}[0]$，则无法解锁计算机 $i$，因此返回 $0$。否则，排列可以是任意的，一共有 $(n - 1)!$ 种排列方式。
+由于编号为 $0$ 的计算机密码已经被解锁，那么对于其他计算机 $i$，如果存在 $\textit{complexity}[i] \leq \textit{complexity}[0]$，则无法解锁计算机 $i$，因此返回 $0$。否则，排列可以是任意的，一共有 $(n - 1)!$ 种排列方式。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\text{complexity}$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{complexity}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -78,9 +78,9 @@ This problem is a typical block decomposition problem. For queries with a large 
 
 In this problem, we limit the step size of the large step size query to $\sqrt{n}$, which can ensure that the time complexity of each query is $O(\sqrt{n})$.
 
-We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix sum starting from position $j$ with a step size of $i$. Then for each query $[x, y]$, we can divide it into two cases:
+We define a two-dimensional array $\textit{suf}$, where $\textit{suf}[i][j]$ represents the suffix sum starting from position $j$ with a step size of $i$. Then for each query $[x, y]$, we can divide it into two cases:
 
-- If $y \le \sqrt{n}$, then we can directly query $suf[y][x]$;
+- If $y \le \sqrt{n}$, then we can directly query $\textit{suf}[y][x]$;
 - If $y > \sqrt{n}$, then we can directly brute force the solution.
 
 The time complexity is $O((n + m) \sqrt{n})$, and the space complexity is $O(n \sqrt{n})$, where $n$ is the length of the array, and $m$ is the number of queries.

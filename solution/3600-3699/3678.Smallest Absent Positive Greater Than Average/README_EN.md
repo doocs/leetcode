@@ -96,11 +96,11 @@ The <strong>average</strong> of an array is defined as the sum of all its elemen
 
 <!-- thinking:end -->
 
-We use a hash map $\textit{s}$ to record the elements that appear in the array $\textit{nums}$.
+We use a hash map $s$ to record the elements that appear in the array $\textit{nums}$.
 
 Then, we calculate the average value $\textit{avg}$ of the array $\textit{nums}$, and initialize the answer $\textit{ans}$ as $\max(1, \lfloor \textit{avg} \rfloor + 1)$.
 
-If $\textit{ans}$ appears in $\textit{s}$, we increment $\textit{ans}$ until it no longer appears in $\textit{s}$.
+If $\textit{ans}$ appears in $s$, we increment $\textit{ans}$ until it no longer appears in $s$.
 
 Finally, we return $\textit{ans}$.
 

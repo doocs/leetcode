@@ -80,7 +80,7 @@ We recursively traverse the binary tree:
 
 If the current node is null or equals to $p$ or $q$, then we return the current node;
 
-Otherwise, we recursively traverse the left and right subtrees, and record the returned results as $left$ and $right$. If both $left$ and $right$ are not null, it means that $p$ and $q$ are in the left and right subtrees respectively, so the current node is the nearest common ancestor; If only one of $left$ and $right$ is not null, we return the one that is not null.
+Otherwise, we recursively traverse the left and right subtrees, and record the returned results as $\textit{left}$ and $\textit{right}$. If both $\textit{left}$ and $\textit{right}$ are not null, it means that $p$ and $q$ are in the left and right subtrees respectively, so the current node is the nearest common ancestor; If only one of $\textit{left}$ and $\textit{right}$ is not null, we return the one that is not null.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

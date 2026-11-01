@@ -99,13 +99,13 @@ Therefore, the size of the longest subarray is 2.</p>
 
 > **Thinking**
 >
-> The max–min gap of a subarray does not decrease as the window grows. $n\le 10^5$ rules out all intervals. For each right end, move the left end until $\max-\min\le limit$.
+> The max–min gap of a subarray does not decrease as the window grows. $n\le 10^5$ rules out all intervals. For each right end, move the left end until $\max-\min\le \textit{limit}$.
 >
 > An ordered multiset exposes the current extrema; remove the leftmost value when the window is illegal. The longest valid window is the answer.
 
 <!-- thinking:end -->
 
-We can enumerate each position as the right endpoint of the subarray, and find the leftmost left endpoint corresponding to it, such that the difference between the maximum and minimum values in the interval does not exceed $limit$. During the process, we use an ordered set to maintain the maximum and minimum values within the window.
+We can enumerate each position as the right endpoint of the subarray, and find the leftmost left endpoint corresponding to it, such that the difference between the maximum and minimum values in the interval does not exceed $\textit{limit}$. During the process, we use an ordered set to maintain the maximum and minimum values within the window.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
 
@@ -841,7 +841,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 > **Thinking**
 >
-> Method 1 shrinks per right end. Length is monotone: if some window of length $mid$ is valid, shorter ones exist. Binary-search the length and test a candidate with two monotonic queues.
+> Method 1 shrinks per right end. Length is monotone: if some window of length $\textit{mid}$ is valid, shorter ones exist. Binary-search the length and test a candidate with two monotonic queues.
 >
 > The time is still $O(n \log n)$; the longest-window search becomes a decision problem.
 
@@ -849,9 +849,9 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 We notice that if a subarray of length $k$ satisfies the condition, then a subarray of length $k' < k$ also satisfies the condition. This shows a monotonicity, therefore, we can use binary search to find the longest subarray that satisfies the condition.
 
-We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each $mid = \frac{l + r + 1}{2}$, we check whether there exists a subarray of length $mid$ that satisfies the condition. If it exists, we update $l = mid$, otherwise we update $r = mid - 1$. The problem is transformed into whether there exists a subarray of length $mid$ in the array that satisfies the condition, which is actually to find the difference between the maximum and minimum values in the sliding window does not exceed $limit$. We can use two monotonic queues to maintain the maximum and minimum values in the window respectively.
+We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each $\textit{mid} = \frac{l + r + 1}{2}$, we check whether there exists a subarray of length $\textit{mid}$ that satisfies the condition. If it exists, we update $l = \textit{mid}$, otherwise we update $r = \textit{mid} - 1$. The problem is transformed into whether there exists a subarray of length $\textit{mid}$ in the array that satisfies the condition, which is actually to find the difference between the maximum and minimum values in the sliding window does not exceed $\textit{limit}$. We can use two monotonic queues to maintain the maximum and minimum values in the window respectively.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -1238,11 +1238,11 @@ We can use a deque to maintain the maximum and minimum values within the window.
 
 Each time we move the right boundary $r$ to the right, we check if the element corresponding to the tail index of the maximum value deque is less than the current element. If it is, we dequeue the tail element until the element corresponding to the tail of the maximum value deque is not less than the current element. Similarly, we check if the element corresponding to the tail index of the minimum value deque is greater than the current element. If it is, we dequeue the tail element until the element corresponding to the tail of the minimum value deque is not greater than the current element. Then, we enqueue the current element's index.
 
-If the difference between the elements at the front of the maximum value deque and the minimum value deque is greater than $limit$, then we move the left boundary $l$ to the right. If the element at the front of the maximum value deque is less than $l$, we dequeue the front element of the maximum value deque. Similarly, if the element at the front of the minimum value deque is less than $l$, we dequeue the front element of the minimum value deque.
+If the difference between the elements at the front of the maximum value deque and the minimum value deque is greater than $\textit{limit}$, then we move the left boundary $l$ to the right. If the element at the front of the maximum value deque is less than $l$, we dequeue the front element of the maximum value deque. Similarly, if the element at the front of the minimum value deque is less than $l$, we dequeue the front element of the minimum value deque.
 
 The answer is $n - l$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

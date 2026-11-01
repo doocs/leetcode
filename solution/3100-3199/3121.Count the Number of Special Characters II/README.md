@@ -85,7 +85,7 @@ tags:
 >
 > 每个字母只需比较「最后一次小写」与「第一次大写」的下标。一次遍历即可记下这两个位置。
 >
-> 为此维护 $first$ 与 $last$，再枚举 $26$ 对字母，当 $last[a]$ 存在、 $first[A]$ 存在且前者更左时计入答案。
+> 为此维护 $\textit{first}$ 与 $\textit{last}$，再枚举 $26$ 对字母，当 $\textit{last}[a]$ 存在、 $\textit{first}[A]$ 存在且前者更左时计入答案。
 
 <!-- thinking:end -->
 

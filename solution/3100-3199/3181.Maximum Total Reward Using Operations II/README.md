@@ -78,11 +78,11 @@ tags:
 
 > **思考**
 >
-> 规则与 I 相同而值域更大，布尔数组 DP 的 $O(nM)$ 不能通过。
+> 规则与 I 相同而值域更大，布尔数组 DP 的 $O(\textit{nM})$ 不能通过。
 >
 > 仍是「低 $v$ 位左移 $v$ 再或回 $f$」，位图一次处理一个字。
 >
-> 排序去重后 $f=1$，对每个 $v$ 做 $f\mathrel{|}=(f\&((1\ll v)-1))\ll v$，返回 $f.bit\_length()-1$。
+> 排序去重后 $f=1$，对每个 $v$ 做 $f\mathrel{|}=(f\&((1\ll v)-1))\ll v$，返回 $f.\textit{bit\_length}()-1$。
 
 <!-- thinking:end -->
 
@@ -104,7 +104,7 @@ $$
 
 那么答案为 $f$ 的最高位的位置。
 
-时间复杂度 $O(nM / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
+时间复杂度 $O(\textit{nM} / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
 
 <!-- tabs:start -->
 

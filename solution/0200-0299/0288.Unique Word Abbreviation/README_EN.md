@@ -89,11 +89,11 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 
 <!-- thinking:end -->
 
-According to the problem description, we define a function $abbr(s)$, which calculates the abbreviation of the word $s$. If the length of the word $s$ is less than $3$, then its abbreviation is itself; otherwise, its abbreviation is its first letter + (its length - 2) + its last letter.
+According to the problem description, we define a function $\textit{abbr}(s)$, which calculates the abbreviation of the word $s$. If the length of the word $s$ is less than $3$, then its abbreviation is itself; otherwise, its abbreviation is its first letter + (its length - 2) + its last letter.
 
-Next, we define a hash table $d$, where the key is the abbreviation of the word, and the value is a set, the elements of which are all words abbreviated as that key. We traverse the given word dictionary, and for each word $s$ in the dictionary, we calculate its abbreviation $abbr(s)$, and add $s$ to $d[abbr(s)]$.
+Next, we define a hash table $d$, where the key is the abbreviation of the word, and the value is a set, the elements of which are all words abbreviated as that key. We traverse the given word dictionary, and for each word $s$ in the dictionary, we calculate its abbreviation $\textit{abbr}(s)$, and add $s$ to $d[\textit{abbr}(s)]$.
 
-When judging whether the word $word$ meets the requirements of the problem, we calculate its abbreviation $abbr(word)$. If $abbr(word)$ is not in the hash table $d$, then $word$ meets the requirements of the problem; otherwise, we judge whether there is only one element in $d[abbr(word)]$. If there is only one element in $d[abbr(word)]$ and that element is $word$, then $word$ meets the requirements of the problem.
+When judging whether the word $\textit{word}$ meets the requirements of the problem, we calculate its abbreviation $\textit{abbr}(\textit{word})$. If $\textit{abbr}(\textit{word})$ is not in the hash table $d$, then $\textit{word}$ meets the requirements of the problem; otherwise, we judge whether there is only one element in $d[\textit{abbr}(\textit{word})]$. If there is only one element in $d[\textit{abbr}(\textit{word})]$ and that element is $\textit{word}$, then $\textit{word}$ meets the requirements of the problem.
 
 In terms of time complexity, the time complexity of initializing the hash table is $O(n)$, where $n$ is the length of the word dictionary; the time complexity of judging whether a word meets the requirements of the problem is $O(1)$. In terms of space complexity, the space complexity of the hash table is $O(n)$.
 

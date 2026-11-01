@@ -86,9 +86,9 @@ tags:
 
 > **Thinking**
 >
-> All but the last ride are rounded up; we want the smallest integer speed that finishes within $hour$. Larger speed only helps. If there are more trains than $\lceil hour\rceil$, even one hour per ride is too slow.
+> All but the last ride are rounded up; we want the smallest integer speed that finishes within $\textit{hour}$. Larger speed only helps. If there are more trains than $\lceil \textit{hour}\rceil$, even one hour per ride is too slow.
 >
-> Binary-search speed in $[1,10^7]$: sum $d/v$ (ceil except the last ride) and test against $hour$. Return $-1$ if no speed works.
+> Binary-search speed in $[1,10^7]$: sum $d/v$ (ceil except the last ride) and test against $\textit{hour}$. Return $-1$ if no speed works.
 
 <!-- thinking:end -->
 

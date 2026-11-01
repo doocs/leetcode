@@ -73,7 +73,7 @@ tags:
 >
 > At $10^5$ records, enumerating every triple per employee is heavier than needed. “Three uses in one hour” is equivalent, after sorting, to some three consecutive times spanning at most $60$ minutes.
 >
-> Group times by name, convert $\texttt{HH:MM}$ to minutes, sort, and test $\textit{ts}[i+2]-\textit{ts}[i] \le 60$.
+> Group times by name, convert $\texttt{HH:MM}$ to minutes, sort, and test $ts[i+2]-ts[i] \le 60$.
 >
 > A hash table $d$ stores each person's times; skip anyone with fewer than three stamps, then sort the alerted names lexicographically.
 

@@ -87,9 +87,9 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 
 > **Thinking**
 >
-> Except the last road, finishing off an integer hour forces a wait. We may skip some waits and want the fewest skips to finish by $hoursBefore$. Choosing a subset of roads is exponential.
+> Except the last road, finishing off an integer hour forces a wait. We may skip some waits and want the fewest skips to finish by $\textit{hoursBefore}$. Choosing a subset of roads is exponential.
 >
-> $f[i][j]$ is the earliest time after $i$ roads and $j$ skips: without a skip we ceil $f[i-1][j]+d_i/s$; with a skip we add the raw time. An $eps$ guards floating-point ceil. The smallest $j$ with $f[n][j]$ within the limit is the answer.
+> $f[i][j]$ is the earliest time after $i$ roads and $j$ skips: without a skip we ceil $f[i-1][j]+d_i/s$; with a skip we add the raw time. An $\textit{eps}$ guards floating-point ceil. The smallest $j$ with $f[n][j]$ within the limit is the answer.
 
 <!-- thinking:end -->
 
@@ -103,7 +103,7 @@ $$
 
 Where $\lceil x\rceil$ represents rounding $x$ up. It should be noted that since we need to ensure that exactly $j$ rest times are skipped, we must have $j\le i$; moreover, if $j=0$, no rest time can be skipped.
 
-Due to the possible precision error brought by floating-point operations and rounding up, we introduce a constant $eps = 10^{-8}$ to represent a very small positive real number. We subtract $eps$ before rounding the floating-point number, and finally, when comparing $f[n][j]$ and $hoursBefore$, we need to add $eps$.
+Due to the possible precision error brought by floating-point operations and rounding up, we introduce a constant $\textit{eps} = 10^{-8}$ to represent a very small positive real number. We subtract $\textit{eps}$ before rounding the floating-point number, and finally, when comparing $f[n][j]$ and $\textit{hoursBefore}$, we need to add $\textit{eps}$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of roads.
 

@@ -51,7 +51,7 @@ tags:
 
 > **思考**
 >
-> 有序数组中必有元素出现超过 $25\%$，即跨度至少 $\lfloor n/4 \rfloor$。若 $arr[i]=arr[i+\lfloor n/4 \rfloor]$，该值已覆盖足够长度。从左扫描第一次命中即可，利用有序把计数变成下标比较。
+> 有序数组中必有元素出现超过 $25\%$，即跨度至少 $\lfloor n/4 \rfloor$。若 $\textit{arr}[i]=\textit{arr}[i+\lfloor n/4 \rfloor]$，该值已覆盖足够长度。从左扫描第一次命中即可，利用有序把计数变成下标比较。
 
 <!-- thinking:end -->
 

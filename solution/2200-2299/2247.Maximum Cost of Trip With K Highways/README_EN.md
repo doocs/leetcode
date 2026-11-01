@@ -84,15 +84,15 @@ In addition, we can also find that the number of cities $n$ does not exceed $15$
 
 We use $f[i][j]$ to represent the maximum travel cost when the cities that have been passed are $i$ and the last city passed is $j$. Initially, $f[2^i][i]=0$, and the rest $f[i][j]=-\infty$.
 
-Consider how $f[i][j]$ transitions. For $f[i]$, we enumerate all cities $j$. If the $j$-th bit of $i$ is $1$, then we can reach city $j$ from other city $h$ through the road, at this time the value of $f[i][j]$ is the maximum value of $f[i][h]+cost(h, j)$, where $cost(h, j)$ represents the travel cost from city $h$ to city $j$. Therefore, we can get the state transition equation:
+Consider how $f[i][j]$ transitions. For $f[i]$, we enumerate all cities $j$. If the $j$-th bit of $i$ is $1$, then we can reach city $j$ from other city $h$ through the road, at this time the value of $f[i][j]$ is the maximum value of $f[i][h]+\textit{cost}(h, j)$, where $\textit{cost}(h, j)$ represents the travel cost from city $h$ to city $j$. Therefore, we can get the state transition equation:
 
 $$
-f[i][j]=\max_{h \in \textit{city}}\{f[i \backslash j][h]+cost(h, j)\}
+f[i][j]=\max_{h \in \textit{city}}\{f[i \backslash j][h]+\textit{cost}(h, j)\}
 $$
 
 where $i \backslash j$ represents changing the $j$-th bit of $i$ to $0$.
 
-After calculating $f[i][j]$, we judge whether the number of cities passed is $k+1$, that is, whether the number of $1$s in the binary representation of $i$ is $k+1$. If so, we update the answer as $ans = \max(ans, f[i][j])$.
+After calculating $f[i][j]$, we judge whether the number of cities passed is $k+1$, that is, whether the number of $1$s in the binary representation of $i$ is $k+1$. If so, we update the answer as $\textit{ans} = \max(\textit{ans}, f[i][j])$.
 
 The time complexity is $O(2^n n^2)$, and the space complexity is $O(2^n n)$, where $n$ represents the number of cities.
 

@@ -136,14 +136,14 @@ tags:
 
 我们根据题意模拟即可。
 
-我们定义一个长度为 $n$ 的布尔数组 $\textit{vis}$，用于记录每一条指令是否被执行过，初始时均为 $\text{false}$。
+我们定义一个长度为 $n$ 的布尔数组 $\textit{vis}$，用于记录每一条指令是否被执行过，初始时均为 $\textit{false}$。
 
 然后我们从下标 $i = 0$ 开始，循环执行以下操作：
 
-1. 将 $\textit{vis}[i]$ 置为 $\text{true}$；
+1. 将 $\textit{vis}[i]$ 置为 $\textit{true}$；
 2. 如果 $\textit{instructions}[i]$ 的第一个字符为 'a'，那么我们将答案增加 $\textit{value}[i]$，然后 $i$ 加 $1$；否则，我们将 $i$ 增加 $\textit{value}[i]$。
 
-循环，直至 $i \lt 0$ 或者 $i \ge n$，或者 $\textit{vis}[i]$ 为 $\text{true}$。
+循环，直至 $i \lt 0$ 或者 $i \ge n$，或者 $\textit{vis}[i]$ 为 $\textit{true}$。
 
 最后返回答案即可。
 

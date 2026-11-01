@@ -64,19 +64,19 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 
 > **Thinking**
 >
-> Greatness is how many positions satisfy $perm[i]>nums[i]$; $perm$ is a rearrangement of $nums$. The same multiset should pair larger values against as many smaller ones as possible.
+> Greatness is how many positions satisfy $\textit{perm}[i]>\textit{nums}[i]$; $\textit{perm}$ is a rearrangement of $\textit{nums}$. The same multiset should pair larger values against as many smaller ones as possible.
 >
-> After sorting, scan candidates $x$ from the left and pair $x$ with the next unmatched $nums[i]$ whenever $x$ is strictly larger. The number of successful pairs is the answer.
+> After sorting, scan candidates $x$ from the left and pair $x$ with the next unmatched $\textit{nums}[i]$ whenever $x$ is strictly larger. The number of successful pairs is the answer.
 
 <!-- thinking:end -->
 
-We can sort the array $nums$ first.
+We can sort the array $\textit{nums}$ first.
 
-Then we define a pointer $i$ pointing to the first element of the array $nums$. We traverse the array $nums$, and for each element $x$ we encounter, if $x$ is greater than $nums[i]$, then we move the pointer $i$ to the right.
+Then we define a pointer $i$ pointing to the first element of the array $\textit{nums}$. We traverse the array $\textit{nums}$, and for each element $x$ we encounter, if $x$ is greater than $\textit{nums}[i]$, then we move the pointer $i$ to the right.
 
 Finally, we return the value of the pointer $i$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

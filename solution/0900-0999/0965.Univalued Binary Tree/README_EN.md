@@ -61,11 +61,11 @@ tags:
 
 <!-- thinking:end -->
 
-We denote the value of the root node as $x$, and then design a function $\text{dfs}(\text{root})$, which indicates whether the current node's value is equal to $x$ and its left and right subtrees are also univalued binary trees.
+We denote the value of the root node as $x$, and then design a function $\textit{dfs}(\textit{root})$, which indicates whether the current node's value is equal to $x$ and its left and right subtrees are also univalued binary trees.
 
-In the function $\text{dfs}(\text{root})$, if the current node is null, return $\text{true}$; otherwise, if the current node's value is equal to $x$ and its left and right subtrees are also univalued binary trees, return $\text{true}$; otherwise, return $\text{false}$.
+In the function $\textit{dfs}(\textit{root})$, if the current node is null, return $\textit{true}$; otherwise, if the current node's value is equal to $x$ and its left and right subtrees are also univalued binary trees, return $\textit{true}$; otherwise, return $\textit{false}$.
 
-In the main function, we call $\text{dfs}(\text{root})$ and return the result.
+In the main function, we call $\textit{dfs}(\textit{root})$ and return the result.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

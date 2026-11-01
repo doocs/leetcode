@@ -67,7 +67,7 @@ We can enumerate all powers of 2 in the range $[1, 10^9]$ and check if their dig
 
 Define a function $f(x)$ that represents the digit composition of number $x$. We can convert the number $x$ into an array of length 10, or a string sorted by digit size.
 
-First, we calculate the digit composition of the given number $n$ as $\text{target} = f(n)$. Then, we enumerate $i$ starting from 1, shifting $i$ left by one bit each time (equivalent to multiplying by 2), until $i$ exceeds $10^9$. For each $i$, we calculate its digit composition and compare it with $\text{target}$. If they are the same, we return $\text{true}$; if the enumeration ends without finding the same digit composition, we return $\text{false}$.
+First, we calculate the digit composition of the given number $n$ as $\textit{target} = f(n)$. Then, we enumerate $i$ starting from 1, shifting $i$ left by one bit each time (equivalent to multiplying by 2), until $i$ exceeds $10^9$. For each $i$, we calculate its digit composition and compare it with $\textit{target}$. If they are the same, we return $\textit{true}$; if the enumeration ends without finding the same digit composition, we return $\textit{false}$.
 
 The time complexity is $O(\log^2 M)$, and the space complexity is $O(\log M)$, where $M$ is the upper limit of the input range ${10}^9$ for this problem.
 

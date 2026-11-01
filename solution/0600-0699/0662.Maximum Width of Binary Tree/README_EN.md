@@ -231,7 +231,7 @@ type pair struct {
 
 > **Thinking**
 >
-> BFS needs a queue. DFS records the first index seen at each depth and updates the width as $i - t[depth] + 1$ with the same numbering.
+> BFS needs a queue. DFS records the first index seen at each depth and updates the width as $i - t[\textit{depth}] + 1$ with the same numbering.
 
 <!-- thinking:end -->
 

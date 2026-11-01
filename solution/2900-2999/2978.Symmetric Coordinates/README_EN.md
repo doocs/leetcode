@@ -78,7 +78,7 @@ The output table is sorted by X and Y in ascending order.
 
 > **Thinking**
 >
-> A symmetric pair is $(x,y)$ together with $(y,x)$ from different rows. Duplicate coordinates need distinct row ids. $ROW_NUMBER$ supplies $id$; the self-join requires $p1.x=p2.y$, $p1.y=p2.x$, $p1.x \le p1.y$, and distinct ids so a point does not pair with itself and each pair is listed once.
+> A symmetric pair is $(x,y)$ together with $(y,x)$ from different rows. Duplicate coordinates need distinct row ids. $\textit{ROW}_\textit{NUMBER}$ supplies $id$; the self-join requires $\textit{p1}.x=\textit{p2}.y$, $\textit{p1}.y=\textit{p2}.x$, $\textit{p1}.x \le \textit{p1}.y$, and distinct ids so a point does not pair with itself and each pair is listed once.
 >
 > Distinct sorted coordinates are the result.
 

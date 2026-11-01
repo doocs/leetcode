@@ -78,9 +78,9 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 
 <!-- thinking:end -->
 
-First, we use a hash table or an array $cnt$ of length $26$ to count the frequency of each letter in the string `licensePlate`. Note that we convert all letters to lowercase for counting.
+First, we use a hash table or an array $\textit{cnt}$ of length $26$ to count the frequency of each letter in the string `licensePlate`. Note that we convert all letters to lowercase for counting.
 
-Then, we traverse each word $w$ in the array `words`. If the length of the word $w$ is longer than the length of the answer $ans$, we directly skip this word. Otherwise, we use another hash table or an array $t$ of length $26$ to count the frequency of each letter in the word $w$. If for any letter, the frequency of this letter in $t$ is less than the frequency of this letter in $cnt$, we can also directly skip this word. Otherwise, we have found a word that meets the conditions, and we update the answer $ans$ to the current word $w$.
+Then, we traverse each word $w$ in the array `words`. If the length of the word $w$ is longer than the length of the answer $\textit{ans}$, we directly skip this word. Otherwise, we use another hash table or an array $t$ of length $26$ to count the frequency of each letter in the word $w$. If for any letter, the frequency of this letter in $t$ is less than the frequency of this letter in $\textit{cnt}$, we can also directly skip this word. Otherwise, we have found a word that meets the conditions, and we update the answer $\textit{ans}$ to the current word $w$.
 
 The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the array `words`, and $\Sigma$ is the character set. In this case, the character set is all lowercase letters, so $|\Sigma| = 26$.
 

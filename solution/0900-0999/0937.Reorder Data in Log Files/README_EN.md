@@ -76,7 +76,7 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 
 > **Thinking**
 >
-> Letter-logs sort by content then identifier; digit-logs keep their relative order and come last. A stable key does this in one sort: letter-logs use $(0,\textit{content},\textit{id})$, digit-logs use $(1,)$.
+> Letter-logs sort by content then identifier; digit-logs keep their relative order and come last. A stable key does this in one sort: letter-logs use $(0,\textit{content},id)$, digit-logs use $(1,)$.
 
 <!-- thinking:end -->
 

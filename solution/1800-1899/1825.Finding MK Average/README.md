@@ -100,22 +100,22 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 我们可以维护以下数据结构或变量：
 
 - 一个长度为 $m$ 的队列 $q$，其中队首元素为最早加入的元素，队尾元素为最近加入的元素；
-- 三个有序集合，分别为 $lo$, $mid$, $hi$，其中 $lo$ 和 $hi$ 分别存储最小的 $k$ 个元素和最大的 $k$ 个元素，而 $mid$ 存储剩余的元素；
-- 一个变量 $s$，维护 $mid$ 中所有元素的和；
-- 部分编程语言（如 Java, Go）额外维护两个变量 $size1$ 和 $size3$，分别表示 $lo$ 和 $hi$ 中元素的个数。
+- 三个有序集合，分别为 $lo$, $\textit{mid}$, $hi$，其中 $lo$ 和 $hi$ 分别存储最小的 $k$ 个元素和最大的 $k$ 个元素，而 $\textit{mid}$ 存储剩余的元素；
+- 一个变量 $s$，维护 $\textit{mid}$ 中所有元素的和；
+- 部分编程语言（如 Java, Go）额外维护两个变量 $\textit{size1}$ 和 $\textit{size3}$，分别表示 $lo$ 和 $hi$ 中元素的个数。
 
-调用 $addElement(num)$ 函数时，顺序执行以下操作：
+调用 $\textit{addElement}(\textit{num})$ 函数时，顺序执行以下操作：
 
-1. 如果 $lo$ 为空，或者 $num \leq max(lo)$，则将 $num$ 加入 $lo$ 中；否则如果 $hi$ 为空，或者 $num \geq min(hi)$，则将 $num$ 加入 $hi$ 中；否则将 $num$ 加入 $mid$ 中，同时将 $num$ 的值加到 $s$ 中。
-1. 接下来将 $num$ 加入队列 $q$ 中，如果此时队列 $q$ 的长度大于 $m$，则将队首元素 $x$ 从队列 $q$ 中移除，接下来从 $lo$, $mid$ 或 $hi$ 中选择其中一个包含 $x$ 的集合，将 $x$ 从该集合中移除，如果该集合为 $mid$，则将 $s$ 减去 $x$ 的值。
-1. 如果 $lo$ 的长度大于 $k$，则循环将 $lo$ 中的最大值 $max(lo)$ 从 $lo$ 中移除，将 $max(lo)$ 加入 $mid$ 中，同时将 $s$ 加上 $max(lo)$ 的值。
-1. 如果 $hi$ 的长度大于 $k$，则循环将 $hi$ 中的最小值 $min(hi)$ 从 $hi$ 中移除，将 $min(hi)$ 加入 $mid$ 中，同时将 $s$ 加上 $min(hi)$ 的值。
-1. 如果 $lo$ 的长度小于 $k$，并且 $mid$ 不为空，则循环将 $mid$ 中的最小值 $min(mid)$ 从 $mid$ 中移除，将 $min(mid)$ 加入 $lo$ 中，同时将 $s$ 减去 $min(mid)$ 的值。
-1. 如果 $hi$ 的长度小于 $k$，并且 $mid$ 不为空，则循环将 $mid$ 中的最大值 $max(mid)$ 从 $mid$ 中移除，将 $max(mid)$ 加入 $hi$ 中，同时将 $s$ 减去 $max(mid)$ 的值。
+1. 如果 $lo$ 为空，或者 $\textit{num} \leq \max(lo)$，则将 $\textit{num}$ 加入 $lo$ 中；否则如果 $hi$ 为空，或者 $\textit{num} \geq \min(hi)$，则将 $\textit{num}$ 加入 $hi$ 中；否则将 $\textit{num}$ 加入 $\textit{mid}$ 中，同时将 $\textit{num}$ 的值加到 $s$ 中。
+1. 接下来将 $\textit{num}$ 加入队列 $q$ 中，如果此时队列 $q$ 的长度大于 $m$，则将队首元素 $x$ 从队列 $q$ 中移除，接下来从 $lo$, $\textit{mid}$ 或 $hi$ 中选择其中一个包含 $x$ 的集合，将 $x$ 从该集合中移除，如果该集合为 $\textit{mid}$，则将 $s$ 减去 $x$ 的值。
+1. 如果 $lo$ 的长度大于 $k$，则循环将 $lo$ 中的最大值 $\max(lo)$ 从 $lo$ 中移除，将 $\max(lo)$ 加入 $\textit{mid}$ 中，同时将 $s$ 加上 $\max(lo)$ 的值。
+1. 如果 $hi$ 的长度大于 $k$，则循环将 $hi$ 中的最小值 $\min(hi)$ 从 $hi$ 中移除，将 $\min(hi)$ 加入 $\textit{mid}$ 中，同时将 $s$ 加上 $\min(hi)$ 的值。
+1. 如果 $lo$ 的长度小于 $k$，并且 $\textit{mid}$ 不为空，则循环将 $\textit{mid}$ 中的最小值 $\min(\textit{mid})$ 从 $\textit{mid}$ 中移除，将 $\min(\textit{mid})$ 加入 $lo$ 中，同时将 $s$ 减去 $\min(\textit{mid})$ 的值。
+1. 如果 $hi$ 的长度小于 $k$，并且 $\textit{mid}$ 不为空，则循环将 $\textit{mid}$ 中的最大值 $\max(\textit{mid})$ 从 $\textit{mid}$ 中移除，将 $\max(\textit{mid})$ 加入 $hi$ 中，同时将 $s$ 减去 $\max(\textit{mid})$ 的值。
 
-调用 $calculateMKAverage()$ 函数时，如果 $q$ 的长度小于 $m$，则返回 $-1$，否则返回 $\frac{s}{m - 2k}$。
+调用 $\textit{calculateMKAverage}()$ 函数时，如果 $q$ 的长度小于 $m$，则返回 $-1$，否则返回 $\frac{s}{m - 2k}$。
 
-时间复杂度方面，每次调用 $addElement(num)$ 函数的时间复杂度为 $O(\log m)$，每次调用 $calculateMKAverage()$ 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(m)$。
+时间复杂度方面，每次调用 $\textit{addElement}(\textit{num})$ 函数的时间复杂度为 $O(\log m)$，每次调用 $\textit{calculateMKAverage}()$ 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(m)$。
 
 <!-- tabs:start -->
 
@@ -468,9 +468,9 @@ func (this *MKAverage) CalculateMKAverage() int {
 
 与方法一把窗口拆成三个集合不同，这里只维护一份有序序列。
 
-时间复杂度方面，每次调用 $addElement$ 为 $O(\log m)$，每次调用 $calculateMKAverage$ 为 $O(1)$。空间复杂度为 $O(m)$。
+时间复杂度方面，每次调用 $\textit{addElement}$ 为 $O(\log m)$，每次调用 $\textit{calculateMKAverage}$ 为 $O(1)$。空间复杂度为 $O(m)$。
 
-Java、C++、Go 中 $num\le 10^5$，用树状数组维护频次即可在对数时间内完成名次查询与第 $k$ 小查询，语义与有序集合一致。
+Java、C++、Go 中 $\textit{num}\le 10^5$，用树状数组维护频次即可在对数时间内完成名次查询与第 $k$ 小查询，语义与有序集合一致。
 
 <!-- tabs:start -->
 

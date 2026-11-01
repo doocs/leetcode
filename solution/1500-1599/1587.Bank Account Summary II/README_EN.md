@@ -107,7 +107,7 @@ Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 >
 > List users whose balance exceeds $10000$. Names and transactions live in two tables, so they must be joined on the account before we aggregate.
 >
-> After the equi-join, sum $amount$ per account and keep groups whose balance is greater than $10000$, projecting the name.
+> After the equi-join, sum $\textit{amount}$ per account and keep groups whose balance is greater than $10000$, projecting the name.
 
 <!-- thinking:end -->
 

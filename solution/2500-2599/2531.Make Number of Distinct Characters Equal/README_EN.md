@@ -80,9 +80,9 @@ We first use two arrays $\textit{cnt1}$ and $\textit{cnt2}$ of length $26$ to re
 
 Then, we count the number of distinct characters in $\textit{word1}$ and $\textit{word2}$, denoted as $x$ and $y$ respectively.
 
-Next, we enumerate each character $c1$ in $\textit{word1}$ and each character $c2$ in $\textit{word2}$. If $c1 = c2$, we only need to check if $x$ and $y$ are equal; otherwise, we need to check if $x - (\textit{cnt1}[c1] = 1) + (\textit{cnt1}[c2] = 0)$ and $y - (\textit{cnt2}[c2] = 1) + (\textit{cnt2}[c1] = 0)$ are equal. If they are equal, then we have found a solution and return $\text{true}$.
+Next, we enumerate each character $\textit{c1}$ in $\textit{word1}$ and each character $\textit{c2}$ in $\textit{word2}$. If $\textit{c1} = \textit{c2}$, we only need to check if $x$ and $y$ are equal; otherwise, we need to check if $x - (\textit{cnt1}[\textit{c1}] = 1) + (\textit{cnt1}[\textit{c2}] = 0)$ and $y - (\textit{cnt2}[\textit{c2}] = 1) + (\textit{cnt2}[\textit{c1}] = 0)$ are equal. If they are equal, then we have found a solution and return $\textit{true}$.
 
-If we have enumerated all characters and have not found a suitable solution, we return $\text{false}$.
+If we have enumerated all characters and have not found a suitable solution, we return $\textit{false}$.
 
 The time complexity is $O(m + n + |\Sigma|^2)$, where $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, and $\Sigma$ is the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma| = 26$.
 

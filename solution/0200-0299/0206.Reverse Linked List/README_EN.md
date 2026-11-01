@@ -65,11 +65,11 @@ tags:
 >
 > Storing nodes in an array and rebuilding backwards works, but only pointer rewrites are needed. Head insertion reverses the list in one pass: each node is inserted immediately after a dummy.
 >
-> When the scan ends, $\textit{dummy.next}$ is the new head and extra space is constant.
+> When the scan ends, $\textit{dummy}.\textit{next}$ is the new head and extra space is constant.
 
 <!-- thinking:end -->
 
-We create a dummy node $\textit{dummy}$, then traverse the linked list and insert each node after the $\textit{dummy}$ node. After traversal, return $\textit{dummy.next}$.
+We create a dummy node $\textit{dummy}$, then traverse the linked list and insert each node after the $\textit{dummy}$ node. After traversal, return $\textit{dummy}.\textit{next}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
@@ -312,7 +312,7 @@ public class Solution {
 
 <!-- thinking:end -->
 
-We recursively reverse all nodes from the second node to the end of the list, then attach the $head$ to the end of the reversed list.
+We recursively reverse all nodes from the second node to the end of the list, then attach the $\textit{head}$ to the end of the reversed list.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 

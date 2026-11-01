@@ -86,7 +86,7 @@ colsCount = 2
 
 > **Thinking**
 >
-> A 1-D array must fill a matrix column-wise, alternating up and down. If the length is not $rows \times cols$, the input is invalid. One pass writes every cell.
+> A 1-D array must fill a matrix column-wise, alternating up and down. If the length is not $\textit{rows} \times \textit{cols}$, the input is invalid. One pass writes every cell.
 >
 > Keep a vertical step $k=\pm 1$; reverse and move to the next column at either boundary, writing elements along that path.
 

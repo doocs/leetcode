@@ -65,17 +65,17 @@ tags:
 
 > **思考**
 >
-> 统计 $num$ 中能整除自身的数位个数。 $num$ 至多十位，枚举每一位即可。
+> 统计 $\textit{num}$ 中能整除自身的数位个数。 $\textit{num}$ 至多十位，枚举每一位即可。
 >
-> 用除十取余依次取出数位 $val$，判断 $num \bmod val = 0$。题目保证不含 $0$，故无需处理除零。
+> 用除十取余依次取出数位 $\textit{val}$，判断 $\textit{num} \bmod \textit{val} = 0$。题目保证不含 $0$，故无需处理除零。
 
 <!-- thinking:end -->
 
-我们直接枚举整数 $num$ 的每一位上的数 $val$，若 $val$ 能够整除 $num$，那么答案加一。
+我们直接枚举整数 $\textit{num}$ 的每一位上的数 $\textit{val}$，若 $\textit{val}$ 能够整除 $\textit{num}$，那么答案加一。
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(\log num)$，空间复杂度 $O(1)$。
+时间复杂度 $O(\log \textit{num})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

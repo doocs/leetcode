@@ -91,9 +91,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can directly simulate this process by defining a variable $\textit{ans}$ to store the answer and a variable $\textit{k}$ to represent the current digit place, where $\textit{k} = 1$ represents the units place, $\textit{k} = 10$ represents the tens place, and so on.
+We can directly simulate this process by defining a variable $\textit{ans}$ to store the answer and a variable $k$ to represent the current digit place, where $k = 1$ represents the units place, $k = 10$ represents the tens place, and so on.
 
-Starting from the units place, for each digit place, we calculate the current digit of $\textit{num1}$, $\textit{num2}$, and $\textit{num3}$, take the minimum of the three, and then add this minimum value multiplied by $\textit{k}$ to the answer. Then, multiply $\textit{k}$ by 10 and continue to the next digit place.
+Starting from the units place, for each digit place, we calculate the current digit of $\textit{num1}$, $\textit{num2}$, and $\textit{num3}$, take the minimum of the three, and then add this minimum value multiplied by $k$ to the answer. Then, multiply $k$ by 10 and continue to the next digit place.
 
 Finally, return the answer.
 

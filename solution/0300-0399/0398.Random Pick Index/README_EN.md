@@ -66,7 +66,7 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 
 > **Thinking**
 >
-> Return a uniform random index of $target$. Storing all indices uses $O(n)$ space. Reservoir sampling streams them.
+> Return a uniform random index of $\textit{target}$. Storing all indices uses $O(n)$ space. Reservoir sampling streams them.
 >
 > On the $n$-th match replace the answer with probability $1/n$. No index list is stored.
 

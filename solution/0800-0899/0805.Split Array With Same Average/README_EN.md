@@ -93,13 +93,13 @@ $$
 
 This means we need to find a subarray $A$ such that its average value equals the average value of the array $\textit{nums}$. We consider subtracting the average value of the array $\textit{nums}$ from each element of the array $\textit{nums}$, transforming the problem into finding a subarray in the array $\textit{nums}$ whose sum is $0$.
 
-However, the average value of the array $\textit{nums}$ may not be an integer, and floating-point calculations may have precision issues. We can multiply each element of the array $\textit{nums}$ by $n$, i.e., $nums[i] \leftarrow nums[i] \times n$. The above equation becomes:
+However, the average value of the array $\textit{nums}$ may not be an integer, and floating-point calculations may have precision issues. We can multiply each element of the array $\textit{nums}$ by $n$, i.e., $\textit{nums}[i] \leftarrow \textit{nums}[i] \times n$. The above equation becomes:
 
 $$
 \frac{s_1\times n}{k} = s
 $$
 
-Now, we subtract the integer $s$ from each element of the array $\textit{nums}$, transforming the problem into finding a subarray $A$ in the array $nums$ whose sum is $0$.
+Now, we subtract the integer $s$ from each element of the array $\textit{nums}$, transforming the problem into finding a subarray $A$ in the array $\textit{nums}$ whose sum is $0$.
 
 The length of the array $\textit{nums}$ ranges from $[1, 30]$. If we use brute force to enumerate subarrays, the time complexity is $O(2^n)$, which will time out. We can use binary search to reduce the time complexity to $O(2^{n/2})$.
 

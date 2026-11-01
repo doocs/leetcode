@@ -104,7 +104,7 @@ tags:
 - 若 $k = 1$，表示当前持有一支股票。
 - 若 $k = 2$，表示当前持有一支股票的空头。
 
-初始时，对任意 $j \in [1, k]$，都有 $f[0][j][1] = -prices[0]$ 和 $f[0][j][2] = prices[0]$。这表示在第 0 天买入一支股票或卖出一支股票的空头。
+初始时，对任意 $j \in [1, k]$，都有 $f[0][j][1] = -\textit{prices}[0]$ 和 $f[0][j][2] = \textit{prices}[0]$。这表示在第 0 天买入一支股票或卖出一支股票的空头。
 
 接下来，我们可以通过状态转移来更新 $f[i][j][k]$ 的值。对于每一天 $i$ 和每笔交易 $j$，我们可以根据当前状态 $k$ 来决定如何更新：
 
@@ -123,9 +123,9 @@ tags:
 
 $$
 \begin{aligned}
-f[i][j][0] &= \max(f[i - 1][j][0], f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]) \\
-f[i][j][1] &= \max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]) \\
-f[i][j][2] &= \max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i])
+f[i][j][0] &= \max(f[i - 1][j][0], f[i - 1][j][1] + \textit{prices}[i], f[i - 1][j][2] - \textit{prices}[i]) \\
+f[i][j][1] &= \max(f[i - 1][j][1], f[i - 1][j - 1][0] - \textit{prices}[i]) \\
+f[i][j][2] &= \max(f[i - 1][j][2], f[i - 1][j - 1][0] + \textit{prices}[i])
 \end{aligned}
 $$
 

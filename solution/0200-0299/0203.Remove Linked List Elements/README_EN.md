@@ -61,9 +61,9 @@ tags:
 
 > **Thinking**
 >
-> Removing nodes with value $val$ is a predecessor-pointer update, but the head itself may be deleted, so special-casing $head$ is messy.
+> Removing nodes with value $\textit{val}$ is a predecessor-pointer update, but the head itself may be deleted, so special-casing $\textit{head}$ is messy.
 >
-> A dummy node in front lets $pre$ inspect its successor: skip it when the value matches, otherwise advance. Return $\textit{dummy.next}$.
+> A dummy node in front lets $\textit{pre}$ inspect its successor: skip it when the value matches, otherwise advance. Return $\textit{dummy}.\textit{next}$.
 
 <!-- thinking:end -->
 

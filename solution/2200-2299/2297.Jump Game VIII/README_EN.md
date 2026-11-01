@@ -77,9 +77,9 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 
 > **Thinking**
 >
-> From $i$ we may jump to the next index that is $\ge nums[i]$ or the next that is $< nums[i]$, and we want the minimum cost to the end. Scanning right from every $i$ is too slow. Those two successors are exactly what monotonic stacks compute in linear time.
+> From $i$ we may jump to the next index that is $\ge \textit{nums}[i]$ or the next that is $< \textit{nums}[i]$, and we want the minimum cost to the end. Scanning right from every $i$ is too slow. Those two successors are exactly what monotonic stacks compute in linear time.
 >
-> Build $g[i]$ with an increasing stack and a non-increasing stack from the right, then relax $f[j] = \min(f[j], f[i]+costs[j])$ in index order. There are $O(n)$ edges.
+> Build $g[i]$ with an increasing stack and a non-increasing stack from the right, then relax $f[j] = \min(f[j], f[i]+\textit{costs}[j])$ in index order. There are $O(n)$ edges.
 
 <!-- thinking:end -->
 

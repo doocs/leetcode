@@ -94,11 +94,11 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 
 <!-- thinking:end -->
 
-We notice that the range of elements in the array $nums$ is $[-50,50]$. Therefore, we can use an array of length $101$, denoted as $cnt$, to count the occurrences of each number in $[-50,50]$. Due to the presence of negative numbers, we can add $50$ to each number to make them all non-negative, so we can use the array $cnt$ to count the occurrences of each number.
+We notice that the range of elements in the array $\textit{nums}$ is $[-50,50]$. Therefore, we can use an array of length $101$, denoted as $\textit{cnt}$, to count the occurrences of each number in $[-50,50]$. Due to the presence of negative numbers, we can add $50$ to each number to make them all non-negative, so we can use the array $\textit{cnt}$ to count the occurrences of each number.
 
-Next, we traverse the array $nums$, maintaining a sliding window of length $k$. The occurrence times of all elements in the window are recorded in the array $cnt$. Then we traverse the array $cnt$ to find the $x$-th smallest number, which is the beauty value of the current sliding window. If there is no $x$-th smallest number, then the beauty value is $0$.
+Next, we traverse the array $\textit{nums}$, maintaining a sliding window of length $k$. The occurrence times of all elements in the window are recorded in the array $\textit{cnt}$. Then we traverse the array $\textit{cnt}$ to find the $x$-th smallest number, which is the beauty value of the current sliding window. If there is no $x$-th smallest number, then the beauty value is $0$.
 
-The time complexity is $O(50n)$, and the space complexity is $O(100)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(50n)$, and the space complexity is $O(100)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

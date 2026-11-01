@@ -235,11 +235,11 @@ int secondHighest(char* s) {
 
 <!-- thinking:end -->
 
-We can use an integer $mask$ to mark the numbers that appear in the string, where the $i$-th bit of $mask$ indicates whether the number $i$ has appeared.
+We can use an integer $\textit{mask}$ to mark the numbers that appear in the string, where the $i$-th bit of $\textit{mask}$ indicates whether the number $i$ has appeared.
 
-We traverse the string $s$. If the current character is a digit, we convert it to a number $v$, and set the $v$-th bit of $mask$ to $1$.
+We traverse the string $s$. If the current character is a digit, we convert it to a number $v$, and set the $v$-th bit of $\textit{mask}$ to $1$.
 
-Finally, we traverse $mask$ from high to low, find the second bit that is $1$, and the corresponding number is the second largest number. If there is no second largest number, return $-1$.
+Finally, we traverse $\textit{mask}$ from high to low, find the second bit that is $1$, and the corresponding number is the second largest number. If there is no second largest number, return $-1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

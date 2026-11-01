@@ -279,12 +279,12 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We use variables $zero$ and $one$ to record the number of continuous $0$ and $1$.
+We use variables $\textit{zero}$ and $\textit{one}$ to record the number of continuous $0$ and $1$.
 
 Traverse the string $s$, for the current character $c$:
 
-- If the current character is `'0'`, we check if $one$ is greater than $0$, if so, we reset $zero$ and $one$ to $0$, and then add $1$ to $zero$.
-- If the current character is `'1'`, we add $1$ to $one$, and update the answer to $ans = max(ans, 2 \times min(one, zero))$.
+- If the current character is `'0'`, we check if $\textit{one}$ is greater than $0$, if so, we reset $\textit{zero}$ and $\textit{one}$ to $0$, and then add $1$ to $\textit{zero}$.
+- If the current character is `'1'`, we add $1$ to $\textit{one}$, and update the answer to $\textit{ans} = \max(\textit{ans}, 2 \times \min(\textit{one}, \textit{zero}))$.
 
 After the traversal is complete, we can get the length of the longest balanced substring.
 

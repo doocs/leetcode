@@ -75,7 +75,7 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 >
 > A node’s edge score is the sum of indices that point to it. $n \le 10^5$, so one accumulation suffices; ties take the smaller index.
 >
-> Add source $i$ into $cnt[j]$ and compare with the current best on the fly, avoiding a second scan.
+> Add source $i$ into $\textit{cnt}[j]$ and compare with the current best on the fly, avoiding a second scan.
 
 <!-- thinking:end -->
 

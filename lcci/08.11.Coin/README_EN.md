@@ -98,7 +98,7 @@ $$
 
 The final answer is $f[4][n]$.
 
-The time complexity is $O(Cn)$, and the space complexity is $O(Cn)$, where $C$ is the number of types of coins.
+The time complexity is $O(\textit{Cn})$, and the space complexity is $O(\textit{Cn})$, where $C$ is the number of types of coins.
 
 <!-- tabs:start -->
 

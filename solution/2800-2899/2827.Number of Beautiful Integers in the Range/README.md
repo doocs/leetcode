@@ -85,28 +85,28 @@ tags:
 
 > **思考**
 >
-> 美丽整数要求偶数位与奇数位个数相等且能被 $k$ 整除，区间上界很大，不宜枚举。化为 $F(high)-F(low-1)$ 后做数位 DP：余数 $mod$、奇偶个数差 $diff$（以 $10$ 为偏移避免负数）、前导零与上界。前导零不计入奇偶差。
+> 美丽整数要求偶数位与奇数位个数相等且能被 $k$ 整除，区间上界很大，不宜枚举。化为 $F(\textit{high})-F(\textit{low}-1)$ 后做数位 DP：余数 $\textit{mod}$、奇偶个数差 $\textit{diff}$（以 $10$ 为偏移避免负数）、前导零与上界。前导零不计入奇偶差。
 
 <!-- thinking:end -->
 
-我们注意到，题目求的是区间 $[low, high]$ 内的美丽整数的个数，对于这种区间 $[l,..r]$ 的问题，我们通常可以考虑转化为求 $[1, r]$ 和 $[1, l-1]$ 的答案，然后相减即可。另外，题目中只涉及到不同数位之间的关系，而不涉及具体的数值，因此我们可以考虑使用数位 DP 来解决。
+我们注意到，题目求的是区间 $[\textit{low}, \textit{high}]$ 内的美丽整数的个数，对于这种区间 $[l,..r]$ 的问题，我们通常可以考虑转化为求 $[1, r]$ 和 $[1, l-1]$ 的答案，然后相减即可。另外，题目中只涉及到不同数位之间的关系，而不涉及具体的数值，因此我们可以考虑使用数位 DP 来解决。
 
-我们设计一个函数 $dfs(pos, mod, diff, lead, limit)$，表示当前处理到第 $pos$ 位，当前数字模 $k$ 的结果为 $mod$，当前数字的奇偶数位差为 $diff$，当前数字是否有前导零为 $lead$，当前数字是否达到上界为 $limit$ 时的方案数。
+我们设计一个函数 $\textit{dfs}(\textit{pos}, \textit{mod}, \textit{diff}, \textit{lead}, \textit{limit})$，表示当前处理到第 $\textit{pos}$ 位，当前数字模 $k$ 的结果为 $\textit{mod}$，当前数字的奇偶数位差为 $\textit{diff}$，当前数字是否有前导零为 $\textit{lead}$，当前数字是否达到上界为 $\textit{limit}$ 时的方案数。
 
-函数 $dfs(pos, mod, diff, lead, limit)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{pos}, \textit{mod}, \textit{diff}, \textit{lead}, \textit{limit})$ 的执行逻辑如下：
 
-如果 $pos$ 超出了 $num$ 的长度，说明我们已经处理完了所有数位，如果此时 $mod=0$，并且 $diff=0$，说明当前数字满足题目要求，我们返回 $1$，否则返回 $0$。
+如果 $\textit{pos}$ 超出了 $\textit{num}$ 的长度，说明我们已经处理完了所有数位，如果此时 $\textit{mod}=0$，并且 $\textit{diff}=0$，说明当前数字满足题目要求，我们返回 $1$，否则返回 $0$。
 
 否则，我们计算得到当前数位的上界 $up$，然后在 $[0,..up]$ 范围内枚举当前数位的数字 $i$：
 
-- 如果 $i=0$ 且 $lead$ 为真，说明当前数字只包含前导零，我们递归计算 $dfs(pos + 1, mod, diff, 1, limit\ and\ i=up)$ 的值并累加到答案中；
-- 否则，我们根据 $i$ 的奇偶性更新 $diff$ 的值，然后递归计算 $dfs(pos + 1, (mod \times 10 + i) \bmod k, diff, 0, limit\ and\ i=up)$ 的值并累加到答案中。
+- 如果 $i=0$ 且 $\textit{lead}$ 为真，说明当前数字只包含前导零，我们递归计算 $\textit{dfs}(\textit{pos} + 1, \textit{mod}, \textit{diff}, 1, \textit{limit}\ \textit{and}\ i=up)$ 的值并累加到答案中；
+- 否则，我们根据 $i$ 的奇偶性更新 $\textit{diff}$ 的值，然后递归计算 $\textit{dfs}(\textit{pos} + 1, (\textit{mod} \times 10 + i) \bmod k, \textit{diff}, 0, \textit{limit}\ \textit{and}\ i=up)$ 的值并累加到答案中。
 
 最终我们返回答案。
 
-在主函数中，我们分别计算 $[1, high]$ 和 $[1, low-1]$ 的答案 $a$ 和 $b$，最终答案为 $a-b$。
+在主函数中，我们分别计算 $[1, \textit{high}]$ 和 $[1, \textit{low}-1]$ 的答案 $a$ 和 $b$，最终答案为 $a-b$。
 
-时间复杂度 $O(k|\Sigma| \log^2 M)$，空间复杂度 $O(k \log^2 M)$。其中 $M$ 表示 $high$ 数字的大小，而 $|\Sigma|$ 表示数字集合。
+时间复杂度 $O(k|\Sigma| \log^2 M)$，空间复杂度 $O(k \log^2 M)$。其中 $M$ 表示 $\textit{high}$ 数字的大小，而 $|\Sigma|$ 表示数字集合。
 
 相似题目：
 

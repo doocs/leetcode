@@ -76,9 +76,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用两个变量 $\textit{mx}$ 和 $\textit{mxDiff}$ 分别维护前缀最大值和最大差值，用一个变量 $\textit{ans}$ 维护答案。初始时，这些变量都为 $0$。
+我们用两个变量 $mx$ 和 $\textit{mxDiff}$ 分别维护前缀最大值和最大差值，用一个变量 $\textit{ans}$ 维护答案。初始时，这些变量都为 $0$。
 
-接下来，我们枚举数组的每个元素 $x$ 作为 $\textit{nums}[k]$，首先更新答案 $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$，然后我们更新最大差值 $\textit{mxDiff} = \max(\textit{mxDiff}, \textit{mx} - x)$，最后更新前缀最大值 $\textit{mx} = \max(\textit{mx}, x)$。
+接下来，我们枚举数组的每个元素 $x$ 作为 $\textit{nums}[k]$，首先更新答案 $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$，然后我们更新最大差值 $\textit{mxDiff} = \max(\textit{mxDiff}, mx - x)$，最后更新前缀最大值 $mx = \max(mx, x)$。
 
 枚举完所有元素后，返回答案 $\textit{ans}$。
 

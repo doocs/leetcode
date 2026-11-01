@@ -66,7 +66,7 @@ tags:
 
 We can directly calculate each element in the result matrix according to the definition of matrix multiplication.
 
-The time complexity is $O(mnk)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
+The time complexity is $O(mnk)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows of matrix $\textit{mat1}$ and the number of columns of matrix $\textit{mat2}$ respectively, and $k$ is the number of columns of matrix $\textit{mat1}$ or the number of rows of matrix $\textit{mat2}$.
 
 <!-- tabs:start -->
 
@@ -172,15 +172,15 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 
 > **Thinking**
 >
-> Method 1 still multiplies zeros. Compress each matrix to per-row lists of nonzero $(column,value)$, and accumulate $ans[i][j]\mathrel{+}=x\cdot y$ only for those pairs. Zeros never enter the inner loop; the worst case remains $O(mnk)$.
+> Method 1 still multiplies zeros. Compress each matrix to per-row lists of nonzero $(\textit{column},\textit{value})$, and accumulate $\textit{ans}[i][j]\mathrel{+}=x\cdot y$ only for those pairs. Zeros never enter the inner loop; the worst case remains $O(mnk)$.
 
 <!-- thinking:end -->
 
-We can preprocess the sparse representation of the two matrices, i.e., $g1[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat1$, and $g2[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat2$.
+We can preprocess the sparse representation of the two matrices, i.e., $\textit{g1}[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $\textit{mat1}$, and $\textit{g2}[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $\textit{mat2}$.
 
-Next, we traverse each row $i$, traverse each element $(k, x)$ in $g1[i]$, traverse each element $(j, y)$ in $g2[k]$, then $mat1[i][k] \times mat2[k][j]$ will correspond to $ans[i][j]$ in the result matrix, and we can accumulate all the results.
+Next, we traverse each row $i$, traverse each element $(k, x)$ in $\textit{g1}[i]$, traverse each element $(j, y)$ in $\textit{g2}[k]$, then $\textit{mat1}[i][k] \times \textit{mat2}[k][j]$ will correspond to $\textit{ans}[i][j]$ in the result matrix, and we can accumulate all the results.
 
-The time complexity is $O(mnk)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
+The time complexity is $O(mnk)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows of matrix $\textit{mat1}$ and the number of columns of matrix $\textit{mat2}$ respectively, and $k$ is the number of columns of matrix $\textit{mat1}$ or the number of rows of matrix $\textit{mat2}$.
 
 <!-- tabs:start -->
 

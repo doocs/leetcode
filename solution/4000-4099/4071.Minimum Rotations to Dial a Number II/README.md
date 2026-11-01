@@ -219,21 +219,21 @@ source: 第 522 场周赛 Q2
 设相邻字符之间的总旋转代价为 $T$，即
 
 $$
-T=\sum_{i=1}^{n-1} \operatorname{dist}(s[i-1], s[i]),
+T=\sum_{i=1}^{n-1} \textit{dist}(s[i-1], s[i]),
 $$
 
-其中 $\operatorname{dist}(a,b)$ 表示拨号盘上两个数字之间的最短环形距离。
+其中 $\textit{dist}(a,b)$ 表示拨号盘上两个数字之间的最短环形距离。
 
 如果翻转整个字符串，即 $k=0$，总代价为
 
 $$
-\operatorname{dist}(0, s[n-1]) + T.
+\textit{dist}(0, s[n-1]) + T.
 $$
 
 如果 $k>0$，那么前缀 $s[0..k-1]$ 不变，后缀内部总代价仍然保留，唯一被替换的是边 $(s[k-1], s[k])$，它会变成 $(s[k-1], s[n-1])$。同时起始位置仍然是从 $0$ 到 $s[0]$。因此此时总代价为
 
 $$
-T - \operatorname{dist}(s[k-1], s[k]) + \operatorname{dist}(0, s[0]) + \operatorname{dist}(s[k-1], s[n-1]).
+T - \textit{dist}(s[k-1], s[k]) + \textit{dist}(0, s[0]) + \textit{dist}(s[k-1], s[n-1]).
 $$
 
 枚举所有 $k$ 取最小值即可。

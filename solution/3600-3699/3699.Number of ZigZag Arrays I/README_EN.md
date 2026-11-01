@@ -93,7 +93,7 @@ source: Weekly Contest 469 Q3
 >
 > A zigzag array alternates the sign of consecutive differences. Values lie in $[l,r]$ and $n\le 2000$, so we shift the range to $[0,m-1]$ and DP.
 >
-> $\textit{up}[i]$ and $\textit{down}[i]$ count arrays ending at $i$ whose last step rises or falls. A descent sums all larger $\textit{up}$; an ascent sums all smaller $\textit{down}$.
+> $up[i]$ and $\textit{down}[i]$ count arrays ending at $i$ whose last step rises or falls. A descent sums all larger $up$; an ascent sums all smaller $\textit{down}$.
 >
 > Prefix and suffix sums make each of the $n-1$ rounds $O(m)$. Length $1$ seeds both directions with $1$. Reduce the total modulo $10^9+7$.
 
@@ -101,14 +101,14 @@ source: Weekly Contest 469 Q3
 
 Let $m = r - l + 1$ and map the range $[l, r]$ to $[0, m - 1]$.
 
-Let $up[i]$ be the number of arrays of the current length that end with $i$ whose last step is an increase, and $down[i]$ the number whose last step is a decrease. For length $1$ there is no direction, so initialize $up[i] = down[i] = 1$.
+Let $up[i]$ be the number of arrays of the current length that end with $i$ whose last step is an increase, and $\textit{down}[i]$ the number whose last step is a decrease. For length $1$ there is no direction, so initialize $up[i] = \textit{down}[i] = 1$.
 
 Transitions:
 
-- If the array ends at $i$ with a decrease, the previous value must be greater than $i$ and the previous step must be an increase: $down'[i] = \sum_{j > i} up[j]$;
-- If the last step is an increase: $up'[i] = \sum_{j < i} down[j]$.
+- If the array ends at $i$ with a decrease, the previous value must be greater than $i$ and the previous step must be an increase: $\textit{down}'[i] = \sum_{j > i} up[j]$;
+- If the last step is an increase: $up'[i] = \sum_{j < i} \textit{down}[j]$.
 
-Prefix and suffix sums make each transition $O(m)$. Repeat $n - 1$ times. The answer is the sum of all $up[i] + down[i]$.
+Prefix and suffix sums make each transition $O(m)$. Repeat $n - 1$ times. The answer is the sum of all $up[i] + \textit{down}[i]$.
 
 The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the array length and $m$ is the size of the value range.
 

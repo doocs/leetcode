@@ -61,7 +61,7 @@ Then 4 is the first bad version.
 
 > **Thinking**
 >
-> Once a version is bad, every later one is bad. If $isBadVersion(\textit{mid})$ then the first bad version lies in the left half including $\textit{mid}$; otherwise it lies to the right.
+> Once a version is bad, every later one is bad. If $\textit{isBadVersion}(\textit{mid})$ then the first bad version lies in the left half including $\textit{mid}$; otherwise it lies to the right.
 >
 > The search stops at $l=r$, the first bad version.
 

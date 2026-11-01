@@ -114,6 +114,18 @@ Follow this in every Markdown prose region that contains math, including algorit
 - Keep the closing `$` flush with the formula. A space before the closer drops the formula.
 - Do not insert this space inside fenced code, inline code, or `<pre>` blocks, and do not rewrite a currency amount that uses a single `$`.
 
+Use one notation for symbols in solution prose (Thinking blocks and the algorithm write-up), outside fenced code:
+
+- Put formulas in `$...$` or `$$...$$`. Do not put a formula in a fence or in inline code.
+- A single-letter symbol stays plain math: `$n$`, `$i$`, `$f[i][j]$`, `$O(n\log n)$`.
+- Two lowercase letters stay plain math. That spelling is also a product (`$O(mn)$`, `$ab$`, `$dp$`).
+- A longer code identifier is `\textit`, including inside a larger formula: `$\textit{nums}[i]$`, `$\textit{dfs}(i)$`, `$s_{\textit{left}}$`. A digit, underscore, or capital letter makes a short token an identifier too: `$\textit{s1}$`, `$\textit{is\_end}$`, `$\textit{COUNT}$`.
+- Words that are not identifiers stay `\text`: `$\text{真实值}$`, `$\text{Gold Medal}$`, `$\text{'S'}$`.
+- Operator names stay commands: `\log`, `\ln`, and `\min` / `\max` / `\gcd` when they are called or subscripted. Do not write code identifiers with `\text`, `\mathrm`, or `\operatorname`.
+- Inline code is for a concrete code token (a call, a literal, a keyword cited as syntax), not for a symbol that also appears in a formula. Fenced blocks are for code, traces, and diagrams.
+
+`scripts/normalize_solution_math.py` rewrites `<!-- solution:start -->` regions to this scheme. `--check` exits non-zero when a file still differs.
+
 ## Thinking section (how we arrive at the answer)
 
 Optional in `README.md` / `README_EN.md`. When present, teach the path to the solution, not only the finished algorithm.

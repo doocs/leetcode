@@ -64,13 +64,13 @@ tags:
 
 > **Thinking**
 >
-> With $num\le 10^5$, try every $k\in[0,num]$ and test $k+reverse(k)=num$. The range is small enough; reverse via the decimal string.
+> With $\textit{num}\le 10^5$, try every $k\in[0,\textit{num}]$ and test $k+\textit{reverse}(k)=\textit{num}$. The range is small enough; reverse via the decimal string.
 
 <!-- thinking:end -->
 
-Enumerate $k$ in the range $[0,.., num]$, and check whether $k + reverse(k)$ equals $num$.
+Enumerate $k$ in the range $[0,.., \textit{num}]$, and check whether $k + \textit{reverse}(k)$ equals $\textit{num}$.
 
-The time complexity is $O(n \log n)$, where $n$ is the size of $num$.
+The time complexity is $O(n \log n)$, where $n$ is the size of $\textit{num}$.
 
 <!-- tabs:start -->
 

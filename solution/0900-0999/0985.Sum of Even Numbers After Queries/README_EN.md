@@ -69,9 +69,9 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 
 <!-- thinking:end -->
 
-We use an integer variable $\textit{s}$ to record the sum of all even numbers in the array $\textit{nums}$. Initially, $\textit{s}$ is the sum of all even numbers in the array $\textit{nums}$.
+We use an integer variable $s$ to record the sum of all even numbers in the array $\textit{nums}$. Initially, $s$ is the sum of all even numbers in the array $\textit{nums}$.
 
-For each query $(v, i)$, we first check if $\textit{nums}[i]$ is even. If $\textit{nums}[i]$ is even, we subtract $\textit{nums}[i]$ from $\textit{s}$. Then, we add $v$ to $\textit{nums}[i]$. If $\textit{nums}[i]$ is even, we add $\textit{nums}[i]$ to $\textit{s}$, and then add $\textit{s}$ to the answer array.
+For each query $(v, i)$, we first check if $\textit{nums}[i]$ is even. If $\textit{nums}[i]$ is even, we subtract $\textit{nums}[i]$ from $s$. Then, we add $v$ to $\textit{nums}[i]$. If $\textit{nums}[i]$ is even, we add $\textit{nums}[i]$ to $s$, and then add $s$ to the answer array.
 
 The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 

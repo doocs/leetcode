@@ -152,9 +152,9 @@ tags:
 >
 > 每种燃料类型需要评分最高、里程最大、事故最少的司机；并列时全部保留。连接 $\textit{Drivers}$、 $\textit{Vehicles}$、 $\textit{Trips}$ 后按燃料与司机聚合，即可得到三项指标。
 >
-> 仅用 $\textit{GROUP BY}$ 加 $\textit{MAX}$ 无法在并列时同时带出 $\textit{driver\_id}$。
+> 仅用 $\textit{GROUP} \textit{BY}$ 加 $\textit{MAX}$ 无法在并列时同时带出 $\textit{driver\_id}$。
 >
-> 因此对聚合结果按评分降序、里程降序、事故升序做 $\textit{RANK}$，筛 $\textit{rk}=1$，再按燃料类型排序输出。
+> 因此对聚合结果按评分降序、里程降序、事故升序做 $\textit{RANK}$，筛 $rk=1$，再按燃料类型排序输出。
 
 <!-- thinking:end -->
 

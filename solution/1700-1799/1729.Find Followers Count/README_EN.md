@@ -77,7 +77,7 @@ The followers of 2 are {0,1}
 >
 > Each row is a follow edge. We need follower counts per user, ordered by $\textit{user\_id}$.
 >
-> Group $\textit{Followers}$ by $\textit{user\_id}$, $\mathrm{COUNT}$ the rows, and order by the first column.
+> Group $\textit{Followers}$ by $\textit{user\_id}$, $\textit{COUNT}$ the rows, and order by the first column.
 
 <!-- thinking:end -->
 

@@ -57,9 +57,9 @@ tags:
 
 > **Thinking**
 >
-> We could cut out $[left,right]$, reverse it, and splice it back, but $left=1$ replaces the head and we have to remember several cut points. The follow-up asks for one pass.
+> We could cut out $[\textit{left},\textit{right}]$, reverse it, and splice it back, but $\textit{left}=1$ replaces the head and we have to remember several cut points. The follow-up asks for one pass.
 >
-> The key: head-insert each node of the range right after the predecessor of $left$. That reverses in place. A dummy node covers $left=1$. Walk to $left-1$, then head-insert $right-left+1$ times.
+> The key: head-insert each node of the range right after the predecessor of $\textit{left}$. That reverses in place. A dummy node covers $\textit{left}=1$. Walk to $\textit{left}-1$, then head-insert $\textit{right}-\textit{left}+1$ times.
 
 <!-- thinking:end -->
 

@@ -66,19 +66,19 @@ So the maximum sum that we can obtain is 54.
 >
 > We want the maximum sum of two numbers with the same digit sum. $n \le 10^5$ forbids pairwise checks. Each digit sum only needs the best value seen so far.
 >
-> On value $v$ with digit sum $x$, if $x$ is known, update the answer with that record plus $v$, then store $\max(record, v)$. Digit sums are at most $81$, so an array may replace the map.
+> On value $v$ with digit sum $x$, if $x$ is known, update the answer with that record plus $v$, then store $\max(\textit{record}, v)$. Digit sums are at most $81$, so an array may replace the map.
 
 <!-- thinking:end -->
 
-We can use a hash table $d$ to record the maximum value corresponding to each digit sum, and initialize an answer variable $ans = -1$.
+We can use a hash table $d$ to record the maximum value corresponding to each digit sum, and initialize an answer variable $\textit{ans} = -1$.
 
-Next, we traverse the array $nums$. For each number $v$, we calculate its digit sum $x$. If $x$ exists in the hash table $d$, then we update the answer $ans = \max(ans, d[x] + v)$. Then update the hash table $d[x] = \max(d[x], v)$.
+Next, we traverse the array $\textit{nums}$. For each number $v$, we calculate its digit sum $x$. If $x$ exists in the hash table $d$, then we update the answer $\textit{ans} = \max(\textit{ans}, d[x] + v)$. Then update the hash table $d[x] = \max(d[x], v)$.
 
-Finally, return the answer $ans$.
+Finally, return the answer $\textit{ans}$.
 
-Since the maximum element in $nums$ is $10^9$, the maximum digit sum is $9 \times 9 = 81$. We can directly define an array $d$ of length $100$ to replace the hash table.
+Since the maximum element in $\textit{nums}$ is $10^9$, the maximum digit sum is $9 \times 9 = 81$. We can directly define an array $d$ of length $100$ to replace the hash table.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(D)$, where $n$ is the length of the array $nums$, and $M$ and $D$ are the maximum value of the elements in the array $nums$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(D)$, where $n$ is the length of the array $\textit{nums}$, and $M$ and $D$ are the maximum value of the elements in the array $\textit{nums}$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
 
 <!-- tabs:start -->
 

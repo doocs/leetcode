@@ -103,13 +103,13 @@ eventManager.pollHighest(); // no events remain, return -1</div>
 
 <!-- thinking:end -->
 
-We define a sorted set $\textit{sl}$ to store tuples of priority and id $(-\textit{priority}, \textit{eventId})$ for all active events, and a hash map $\textit{d}$ to store the priority of each event.
+We define a sorted set $sl$ to store tuples of priority and id $(-\textit{priority}, \textit{eventId})$ for all active events, and a hash map $d$ to store the priority of each event.
 
-During initialization, we iterate over the given event list, add the tuple of priority and id for each event into the sorted set $\textit{sl}$, and store each event's priority in the hash map $\textit{d}$.
+During initialization, we iterate over the given event list, add the tuple of priority and id for each event into the sorted set $sl$, and store each event's priority in the hash map $d$.
 
-For the $\textit{updatePriority}(eventId, newPriority)$ operation, we first retrieve the old priority of the event from the hash map $\textit{d}$, then remove the tuple of the old priority and event id from the sorted set $\textit{sl}$, add the tuple of the new priority and event id into $\textit{sl}$, and update the event's priority in $\textit{d}$.
+For the $\textit{updatePriority}(\textit{eventId}, \textit{newPriority})$ operation, we first retrieve the old priority of the event from the hash map $d$, then remove the tuple of the old priority and event id from the sorted set $sl$, add the tuple of the new priority and event id into $sl$, and update the event's priority in $d$.
 
-For the $\textit{pollHighest}()$ operation, we first check whether the sorted set $\textit{sl}$ is empty. If it is, return -1. Otherwise, we retrieve the event with the highest priority (i.e., the first element) from $\textit{sl}$, remove its tuple, delete the event's priority information from $\textit{d}$, and return the event's id.
+For the $\textit{pollHighest}()$ operation, we first check whether the sorted set $sl$ is empty. If it is, return -1. Otherwise, we retrieve the event with the highest priority (i.e., the first element) from $sl$, remove its tuple, delete the event's priority information from $d$, and return the event's id.
 
 In terms of time complexity, initialization takes $O(n \log n)$ time, where $n$ is the number of initial events. Each call to $\textit{updatePriority}$ and $\textit{pollHighest}$ takes $O(\log n)$ time. The space complexity is $O(n)$, where $n$ is the number of active events.
 

@@ -59,19 +59,19 @@ difficulty: 中等
 
 > **思考**
 >
-> $n\le 10^5$，统计每个元素出现次数不超过 $cnt$ 的子数组个数。右端点右移时，不合法的左端必须同步右移，具有单调性。
+> $n\le 10^5$，统计每个元素出现次数不超过 $\textit{cnt}$ 的子数组个数。右端点右移时，不合法的左端必须同步右移，具有单调性。
 >
-> 维护窗口内计数。右端纳入 $x$ 后，若 $x$ 的次数超过 $cnt$，则不断弹出左端直至合法。此时以当前右端结尾的合法子数组恰有 $i-j+1$ 个。
+> 维护窗口内计数。右端纳入 $x$ 后，若 $x$ 的次数超过 $\textit{cnt}$，则不断弹出左端直至合法。此时以当前右端结尾的合法子数组恰有 $i-j+1$ 个。
 
 <!-- thinking:end -->
 
 我们用双指针 $j$ 和 $i$ 分别指向当前窗口的左右端点，用数组或哈希表 $d$ 记录当前窗口内的元素以及出现的次数。
 
-遍历数组 $flowers$，每一次我们将 $flowers[i]$ 加入到窗口中，即 $d[flowers[i]]++$，然后判断 $d[flowers[i]]$ 是否大于 $cnt$，如果大于 $cnt$，则我们需要将 $flowers[j]$ 从窗口中移除，即 $d[flowers[j]]--$，并将 $j$ 右移，直到 $d[flowers[i]] \leq cnt$。此时窗口内的元素都不超过 $cnt$ 个，因此我们可以将 $i - j + 1$ 加到答案中。
+遍历数组 $\textit{flowers}$，每一次我们将 $\textit{flowers}[i]$ 加入到窗口中，即 $d[\textit{flowers}[i]]++$，然后判断 $d[\textit{flowers}[i]]$ 是否大于 $\textit{cnt}$，如果大于 $\textit{cnt}$，则我们需要将 $\textit{flowers}[j]$ 从窗口中移除，即 $d[\textit{flowers}[j]]--$，并将 $j$ 右移，直到 $d[\textit{flowers}[i]] \leq \textit{cnt}$。此时窗口内的元素都不超过 $\textit{cnt}$ 个，因此我们可以将 $i - j + 1$ 加到答案中。
 
 最后返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为数组 $flowers$ 的长度以及数组 $flowers$ 中的最大值。
+时间复杂度 $O(n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为数组 $\textit{flowers}$ 的长度以及数组 $\textit{flowers}$ 中的最大值。
 
 <!-- tabs:start -->
 

@@ -86,13 +86,13 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 
 > **Thinking**
 >
-> $maxTime \le 100$ and edge times $\ge 10$, so a walk from $0$ has at most about $10$ edges; degree $\le 4$ keeps the tree small. Value is collected on the first visit; edges may be reused.
+> $\textit{maxTime} \le 100$ and edge times $\ge 10$, so a walk from $0$ has at most about $10$ edges; degree $\le 4$ keeps the tree small. Value is collected on the first visit; edges may be reused.
 >
 > DFS tracks node, time, and value, updating the answer whenever it returns to $0$. `vis` is set on first entry and cleared on backtrack so revisits add nothing.
 
 <!-- thinking:end -->
 
-We observe the data range of the problem and find that the number of edges in each valid path starting from $0$ does not exceed $\frac{\textit{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$, and each node has at most four edges. Therefore, we can directly use naive DFS to brute-force search all valid paths.
+We observe the data range of the problem and find that the number of edges in each valid path starting from $0$ does not exceed $\frac{\textit{maxTime}}{\min(\textit{time}_j)} = \frac{100}{10} = 10$, and each node has at most four edges. Therefore, we can directly use naive DFS to brute-force search all valid paths.
 
 First, we store the edges of the graph in the adjacency list $g$. Then, we design a function $\textit{dfs}(u, \textit{cost}, \textit{value})$, where $u$ represents the current node number, and $\textit{cost}$ and $\textit{value}$ respectively represent the cost time and value of the current path. Additionally, we use an array $\textit{vis}$ of length $n$ to record whether each node has been visited. Initially, we mark node $0$ as visited.
 
@@ -105,7 +105,7 @@ The logic of the function $\textit{dfs}(u, \textit{cost}, \textit{value})$ is as
 
 In the main function, we call $\textit{dfs}(0, 0, \textit{values}[0])$ and return the answer $\textit{ans}$.
 
-The time complexity is $O(n + m + 4^{\frac{\textit{maxTime}}{\min(time_j)}})$, and the space complexity is $O(n + m + \frac{\textit{maxTime}}{\min(time_j)})$, where $n$ and $m$ respectively represent the number of nodes and edges.
+The time complexity is $O(n + m + 4^{\frac{\textit{maxTime}}{\min(\textit{time}_j)}})$, and the space complexity is $O(n + m + \frac{\textit{maxTime}}{\min(\textit{time}_j)})$, where $n$ and $m$ respectively represent the number of nodes and edges.
 
 <!-- tabs:start -->
 

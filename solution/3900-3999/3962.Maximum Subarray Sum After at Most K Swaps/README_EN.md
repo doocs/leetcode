@@ -108,7 +108,7 @@ Deduplicate and sort the values in $\textit{nums}$, and use that list as the com
 
 Enumerate the left end $l$. Every element starts outside the segment. The right end $r$ runs from $l$ to $n - 1$: move $\textit{nums}[r]$ from the outside tree into the inside tree and add it to the segment sum $s$.
 
-Let $c$ be the number of elements inside. At most $t = \min(k, c, n - c)$ swaps are possible. Binary search the largest $mid$ in $[1, t]$ such that the $mid$-th smallest inside value is strictly smaller than the $mid$-th largest outside value, and call it $best$. If $best > 0$, a candidate is $s$ plus the sum of the $best$ largest outside values, minus the sum of the $best$ smallest inside values. The answer is the maximum candidate over all segments.
+Let $c$ be the number of elements inside. At most $t = \min(k, c, n - c)$ swaps are possible. Binary search the largest $\textit{mid}$ in $[1, t]$ such that the $\textit{mid}$-th smallest inside value is strictly smaller than the $\textit{mid}$-th largest outside value, and call it $\textit{best}$. If $\textit{best} > 0$, a candidate is $s$ plus the sum of the $\textit{best}$ largest outside values, minus the sum of the $\textit{best}$ smallest inside values. The answer is the maximum candidate over all segments.
 
 The time complexity is $O(n^2 \log^2 n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 

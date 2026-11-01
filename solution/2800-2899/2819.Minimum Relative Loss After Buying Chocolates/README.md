@@ -92,23 +92,23 @@ tags:
 
 > **思考**
 >
-> 每次询问在阈值 $k$ 下购买 $m$ 块巧克力。相对损失在 $price\le k$ 时为价格本身，在 $price>k$ 时为 $2k-price$。最优组合是若干最便宜的与若干最贵的；排序并维护前缀和后，二分分界点即可在每次询问中算出损失。
+> 每次询问在阈值 $k$ 下购买 $m$ 块巧克力。相对损失在 $\textit{price}\le k$ 时为价格本身，在 $\textit{price}>k$ 时为 $2k-\textit{price}$。最优组合是若干最便宜的与若干最贵的；排序并维护前缀和后，二分分界点即可在每次询问中算出损失。
 
 <!-- thinking:end -->
 
 根据题目描述，我们可以知道：
 
-如果 $prices[i] \leq k$，那么 Bob 需要支付 $prices[i]$，而 Alice 不需要支付。因此 Bob 的相对损失为 $prices[i]$。在这种情况下，Bob 应该选择价格较低的巧克力，才能最小化相对损失。
+如果 $\textit{prices}[i] \leq k$，那么 Bob 需要支付 $\textit{prices}[i]$，而 Alice 不需要支付。因此 Bob 的相对损失为 $\textit{prices}[i]$。在这种情况下，Bob 应该选择价格较低的巧克力，才能最小化相对损失。
 
-如果 $prices[i] \gt k$，那么 Bob 需要支付 $k$，而 Alice 需要支付 $prices[i] - k$。因此 Bob 的相对损失为 $k - (prices[i] - k) = 2k - prices[i]$。在这种情况下，Bob 应该选择价格较高的巧克力，才能最小化相对损失。
+如果 $\textit{prices}[i] \gt k$，那么 Bob 需要支付 $k$，而 Alice 需要支付 $\textit{prices}[i] - k$。因此 Bob 的相对损失为 $k - (\textit{prices}[i] - k) = 2k - \textit{prices}[i]$。在这种情况下，Bob 应该选择价格较高的巧克力，才能最小化相对损失。
 
-因此，我们先对价格数组 $prices$ 进行排序，然后预处理出前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 个巧克力的价格之和。
+因此，我们先对价格数组 $\textit{prices}$ 进行排序，然后预处理出前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 个巧克力的价格之和。
 
 接下来，对于每个询问 $[k, m]$，我们先使用二分查找，找到第一个价格大于 $k$ 的巧克力的下标 $r$。然后，再利用二分查找，找到左侧应该选择的巧克力的数量 $l$，那么右侧应该选择的巧克力的数量就是 $m - l$。此时，Bob 的相对损失为 $s[l] + 2k(m - l) - (s[n] - s[n - (m - l)])$。
 
-上述第二次二分查找的过程中，我们需要判断 $prices[mid] \lt 2k - prices[n - (m - mid)]$，其中 $right$ 表示右侧应该选择的巧克力的数量。如果该不等式成立，那么说明选择 $mid$ 位置的巧克力的相对损失较低，此时更新 $l = mid + 1$。否则，说明 $mid$ 位置的巧克力的相对损失较高，此时更新 $r = mid$。
+上述第二次二分查找的过程中，我们需要判断 $\textit{prices}[\textit{mid}] \lt 2k - \textit{prices}[n - (m - \textit{mid})]$，其中 $\textit{right}$ 表示右侧应该选择的巧克力的数量。如果该不等式成立，那么说明选择 $\textit{mid}$ 位置的巧克力的相对损失较低，此时更新 $l = \textit{mid} + 1$。否则，说明 $\textit{mid}$ 位置的巧克力的相对损失较高，此时更新 $r = \textit{mid}$。
 
-时间复杂度 $O((n + m) \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $prices$ 和 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{prices}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

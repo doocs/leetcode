@@ -77,11 +77,11 @@ The fourth data point from sensor 1 is dropped, and the last value of sensor 1 i
 >
 > One sensor drops a value and shifts the rest; the other is correct. We must name the faulty sensor or report that we cannot tell. Trying every drop index is $O(n^2)$; the arrays differ by a single shift, so one alignment check suffices.
 >
-> Find the first mismatch $i$, then compare $sensor1[i+1:]$ with $sensor2[i:]$ and the swapped pair. The side that fails to line up is the defective sensor; if both alignments work, the answer is undetermined.
+> Find the first mismatch $i$, then compare $\textit{sensor1}[i+1:]$ with $\textit{sensor2}[i:]$ and the swapped pair. The side that fails to line up is the defective sensor; if both alignments work, the answer is undetermined.
 
 <!-- thinking:end -->
 
-Traverse both arrays, find the first unequal position $i$. If $i \lt n - 1$, loop to compare $sensor1[i + 1]$ and $sensor2[i]$, if they are not equal, it indicates that sensor $1$ is defective, return $1$; otherwise compare $sensor1[i]$ and $sensor2[i + 1]$, if they are not equal, it indicates that sensor $2$ is defective, return $2$.
+Traverse both arrays, find the first unequal position $i$. If $i \lt n - 1$, loop to compare $\textit{sensor1}[i + 1]$ and $\textit{sensor2}[i]$, if they are not equal, it indicates that sensor $1$ is defective, return $1$; otherwise compare $\textit{sensor1}[i]$ and $\textit{sensor2}[i + 1]$, if they are not equal, it indicates that sensor $2$ is defective, return $2$.
 
 If the traversal ends, it means that the defective sensor cannot be determined, return $-1$.
 

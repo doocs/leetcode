@@ -69,26 +69,26 @@ tags:
 
 > **思考**
 >
-> 在相邻差至多为 $1$、总和不超过 $\textit{maxSum}$ 的约束下，要使 $nums[\textit{index}]$ 尽可能大。若从大到小枚举该位置的取值再构造全数组，单次校验已是 $O(n)$，而取值上界为 $\textit{maxSum}$，无法承受。
+> 在相邻差至多为 $1$、总和不超过 $\textit{maxSum}$ 的约束下，要使 $\textit{nums}[\textit{index}]$ 尽可能大。若从大到小枚举该位置的取值再构造全数组，单次校验已是 $O(n)$，而取值上界为 $\textit{maxSum}$，无法承受。
 >
-> 一旦确定 $nums[\textit{index}]=x$，为使总和最小，两侧应尽量按 $x-1,x-2,\ldots$ 递减，触到 $1$ 后保持为 $1$。该最小和随 $x$ 单调递增，因此可对 $x$ 二分，并用闭式求和判断是否不超过 $\textit{maxSum}$。函数 $\textit{sum}(x,\textit{cnt})$ 按 $x$ 是否够填满 $\textit{cnt}$ 个位置分两种情形计算。
+> 一旦确定 $\textit{nums}[\textit{index}]=x$，为使总和最小，两侧应尽量按 $x-1,x-2,\ldots$ 递减，触到 $1$ 后保持为 $1$。该最小和随 $x$ 单调递增，因此可对 $x$ 二分，并用闭式求和判断是否不超过 $\textit{maxSum}$。函数 $\textit{sum}(x,\textit{cnt})$ 按 $x$ 是否够填满 $\textit{cnt}$ 个位置分两种情形计算。
 
 <!-- thinking:end -->
 
-根据题目描述，如果我们确定了 $nums[index]$ 的值为 $x$，此时我们可以找到一个最小的数组总和。也就是说，在 $index$ 左侧的数组元素从 $x-1$ 一直递减到 $1$，如果还有剩余的元素，那么剩余的元素都为 $1$；同理，在 $index$ 及右侧的数组元素从 $x$ 一直递减到 $1$，如果还有剩余的元素，那么剩余的元素都为 $1$。
+根据题目描述，如果我们确定了 $\textit{nums}[\textit{index}]$ 的值为 $x$，此时我们可以找到一个最小的数组总和。也就是说，在 $\textit{index}$ 左侧的数组元素从 $x-1$ 一直递减到 $1$，如果还有剩余的元素，那么剩余的元素都为 $1$；同理，在 $\textit{index}$ 及右侧的数组元素从 $x$ 一直递减到 $1$，如果还有剩余的元素，那么剩余的元素都为 $1$。
 
-这样我们就可以计算出数组的总和，如果总和小于等于 $maxSum$，那么此时的 $x$ 是合法的。随着 $x$ 的增大，数组的总和也会增大，因此我们可以使用二分查找的方法，找到一个最大的且符合条件的 $x$。
+这样我们就可以计算出数组的总和，如果总和小于等于 $\textit{maxSum}$，那么此时的 $x$ 是合法的。随着 $x$ 的增大，数组的总和也会增大，因此我们可以使用二分查找的方法，找到一个最大的且符合条件的 $x$。
 
-为了方便计算数组左侧、右侧的元素之和，我们定义一个函数 $sum(x, cnt)$，表示一共有 $cnt$ 个元素，且最大值为 $x$ 的数组的总和。函数 $sum(x, cnt)$ 可以分为两种情况：
+为了方便计算数组左侧、右侧的元素之和，我们定义一个函数 $\textit{sum}(x, \textit{cnt})$，表示一共有 $\textit{cnt}$ 个元素，且最大值为 $x$ 的数组的总和。函数 $\textit{sum}(x, \textit{cnt})$ 可以分为两种情况：
 
-- 如果 $x \geq cnt$，那么数组的总和为 $\frac{(x + x - cnt + 1) \times cnt}{2}$
-- 如果 $x \lt cnt$，那么数组的总和为 $\frac{(x + 1) \times x}{2} + cnt - x$
+- 如果 $x \geq \textit{cnt}$，那么数组的总和为 $\frac{(x + x - \textit{cnt} + 1) \times \textit{cnt}}{2}$
+- 如果 $x \lt \textit{cnt}$，那么数组的总和为 $\frac{(x + 1) \times x}{2} + \textit{cnt} - x$
 
-接下来，定义二分的左边界 $left = 1$，右边界 $right = maxSum$，然后二分查找 $nums[index]$ 的值 $mid$，如果 $sum(mid - 1, index) + sum(mid, n - index) \leq maxSum$，那么此时的 $mid$ 是合法的，我们可以将 $left$ 更新为 $mid$，否则我们将 $right$ 更新为 $mid - 1$。
+接下来，定义二分的左边界 $\textit{left} = 1$，右边界 $\textit{right} = \textit{maxSum}$，然后二分查找 $\textit{nums}[\textit{index}]$ 的值 $\textit{mid}$，如果 $\textit{sum}(\textit{mid} - 1, \textit{index}) + \textit{sum}(\textit{mid}, n - \textit{index}) \leq \textit{maxSum}$，那么此时的 $\textit{mid}$ 是合法的，我们可以将 $\textit{left}$ 更新为 $\textit{mid}$，否则我们将 $\textit{right}$ 更新为 $\textit{mid} - 1$。
 
-最后将 $left$ 作为答案返回即可。
+最后将 $\textit{left}$ 作为答案返回即可。
 
-时间复杂度 $O(\log M)$，空间复杂度 $O(1)$。其中 $M=maxSum$。
+时间复杂度 $O(\log M)$，空间复杂度 $O(1)$。其中 $M=\textit{maxSum}$。
 
 <!-- tabs:start -->
 

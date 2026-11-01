@@ -81,7 +81,7 @@ Output table is ordered by sessions count and user_id in descending order.
 
 > **Thinking**
 >
-> A user’s first session must be Viewer; we then count later Streamer sessions. $RANK$ on $session_start$ isolates the first row per user; joining back to $Sessions$ keeps first-as-Viewer and current-as-Streamer.
+> A user’s first session must be Viewer; we then count later Streamer sessions. $\textit{RANK}$ on $\textit{session}_\textit{start}$ isolates the first row per user; joining back to $\textit{Sessions}$ keeps first-as-Viewer and current-as-Streamer.
 >
 > Order by count then user id, both descending.
 

@@ -279,17 +279,17 @@ public class Solution {
 
 > **Thinking**
 >
-> Enumeration is acceptable at $n=100$, yet calling $count$ on every slice rescans the same range. Beautiful pieces are windows with exactly $k$ ones; dropping a leading $0$ does not lose a one, so a shortest candidate has no leading zero.
+> Enumeration is acceptable at $n=100$, yet calling $\textit{count}$ on every slice rescans the same range. Beautiful pieces are windows with exactly $k$ ones; dropping a leading $0$ does not lose a one, so a shortest candidate has no leading zero.
 >
 > Two pointers maintain the window: extend the right end, and shrink while the one-count exceeds $k$ or the left character is $0$. Whenever the count equals $k$, compare length and lexicographic order with the current answer.
 
 <!-- thinking:end -->
 
-We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $cnt$ to record the number of $1$s in the sliding window.
+We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $\textit{cnt}$ to record the number of $1$s in the sliding window.
 
-We first move pointer $j$ to the right, add $s[j]$ to the sliding window, and update $cnt$. If $cnt$ is greater than $k$, or if $i$ is less than $j$ and $s[i]$ is $0$, we move pointer $i$ to the right and update $cnt$.
+We first move pointer $j$ to the right, add $s[j]$ to the sliding window, and update $\textit{cnt}$. If $\textit{cnt}$ is greater than $k$, or if $i$ is less than $j$ and $s[i]$ is $0$, we move pointer $i$ to the right and update $\textit{cnt}$.
 
-When $cnt$ equals $k$, we have found a beautiful substring. We compare it with the current answer and update the answer if necessary.
+When $\textit{cnt}$ equals $k$, we have found a beautiful substring. We compare it with the current answer and update the answer if necessary.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 

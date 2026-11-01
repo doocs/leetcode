@@ -91,7 +91,7 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 
 > **Thinking**
 >
-> Find a walk of the same length as $targetPath$ whose city names differ in as few positions as possible. Enumerating walks is impossible for the given $m$ and $n$.
+> Find a walk of the same length as $\textit{targetPath}$ whose city names differ in as few positions as possible. Enumerating walks is impossible for the given $m$ and $n$.
 >
 > Let $f[i][j]$ be the min edit distance after $i$ steps, ending in city $j$. Transitions come only from neighbors $k$ of $j$, plus a mismatch cost on the current name. Store predecessors and walk backward from the best final city to rebuild the path.
 
@@ -99,17 +99,17 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 
 We first build an adjacency list $g$ based on the given roads, where $g[i]$ represents the list of cities directly connected to city $i$.
 
-Then we define $f[i][j]$ as the minimum edit distance of a walk that matches $targetPath[0..i]$ and ends at city $j$.
+Then we define $f[i][j]$ as the minimum edit distance of a walk that matches $\textit{targetPath}[0..i]$ and ends at city $j$.
 
 Then we can get the following recurrence equation:
 
 $$
-f[i][j] = \min_{k \in g[j]} f[i - 1][k] + (targetPath[i] \neq names[j])
+f[i][j] = \min_{k \in g[j]} f[i - 1][k] + (\textit{targetPath}[i] \neq \textit{names}[j])
 $$
 
-In the process of state transition, we record the predecessor city of each state, and finally restore the optimal path from the end to the beginning according to the predecessor city array $pre$.
+In the process of state transition, we record the predecessor city of each state, and finally restore the optimal path from the end to the beginning according to the predecessor city array $\textit{pre}$.
 
-The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $targetPath$ and $names$ respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{targetPath}$ and $\textit{names}$ respectively.
 
 <!-- tabs:start -->
 

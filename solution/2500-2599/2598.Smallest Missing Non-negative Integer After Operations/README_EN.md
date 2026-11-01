@@ -79,9 +79,9 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 > **Thinking**
 >
-> Adding or subtracting $\textit{value}$ any number of times replaces a number by any integer in its residue class. We want the smallest $mex$ after these operations.
+> Adding or subtracting $\textit{value}$ any number of times replaces a number by any integer in its residue class. We want the smallest $\textit{mex}$ after these operations.
 >
-> Residue $r$ can supply $r,r+\textit{value},r+2\textit{value},\ldots$. From $0$ upward we consume those residues in order; the first exhausted residue is the $mex$. Count residues and scan.
+> Residue $r$ can supply $r,r+\textit{value},r+2\textit{value},\ldots$. From $0$ upward we consume those residues in order; the first exhausted residue is the $\textit{mex}$. Count residues and scan.
 
 <!-- thinking:end -->
 

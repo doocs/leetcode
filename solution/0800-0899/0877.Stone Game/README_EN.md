@@ -73,20 +73,20 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 >
 > Players take from either end of a zero-sum pile array; we ask whether Alice scores more. With $\le 500$ piles, the state is the net score on interval $[i,j]$.
 >
-> $dfs(i,j)$ is the max of $piles[i]-dfs(i+1,j)$ and $piles[j]-dfs(i,j-1)$. A positive net score wins. Alice always wins under the constraints, but the code still computes the interval DP.
+> $\textit{dfs}(i,j)$ is the max of $\textit{piles}[i]-\textit{dfs}(i+1,j)$ and $\textit{piles}[j]-\textit{dfs}(i,j-1)$. A positive net score wins. Alice always wins under the constraints, but the code still computes the interval DP.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$ that represents the maximum difference in the number of stones between the current player and the other player when considering piles from the $i$-th to the $j$-th. The answer is then $dfs(0, n - 1) \gt 0$.
+We design a function $\textit{dfs}(i, j)$ that represents the maximum difference in the number of stones between the current player and the other player when considering piles from the $i$-th to the $j$-th. The answer is then $\textit{dfs}(0, n - 1) \gt 0$.
 
-The function $dfs(i, j)$ is computed as follows:
+The function $\textit{dfs}(i, j)$ is computed as follows:
 
-- If $i \gt j$, there are no stones left, so the current player cannot take any stones and the difference is $0$, i.e., $dfs(i, j) = 0$.
-- Otherwise, the current player has two choices: if they take the $i$-th pile, the difference between the current player and the other player is $piles[i] - dfs(i + 1, j)$; if they take the $j$-th pile, the difference is $piles[j] - dfs(i, j - 1)$. The current player will choose the option with the larger difference, so $dfs(i, j) = \max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1))$.
+- If $i \gt j$, there are no stones left, so the current player cannot take any stones and the difference is $0$, i.e., $\textit{dfs}(i, j) = 0$.
+- Otherwise, the current player has two choices: if they take the $i$-th pile, the difference between the current player and the other player is $\textit{piles}[i] - \textit{dfs}(i + 1, j)$; if they take the $j$-th pile, the difference is $\textit{piles}[j] - \textit{dfs}(i, j - 1)$. The current player will choose the option with the larger difference, so $\textit{dfs}(i, j) = \max(\textit{piles}[i] - \textit{dfs}(i + 1, j), \textit{piles}[j] - \textit{dfs}(i, j - 1))$.
 
-Finally, we only need to check whether $dfs(0, n - 1) \gt 0$.
+Finally, we only need to check whether $\textit{dfs}(0, n - 1) \gt 0$.
 
-To avoid redundant computation, we can use memoization: we use an array $f$ to record all values of $dfs(i, j)$, so that when the function is called again, we can directly retrieve the answer from $f$ without recomputing.
+To avoid redundant computation, we can use memoization: we use an array $f$ to record all values of $\textit{dfs}(i, j)$, so that when the function is called again, we can directly retrieve the answer from $f$ without recomputing.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
 
@@ -242,16 +242,16 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can also use dynamic programming. Define $f[i][j]$ as the maximum difference in the number of stones the current player can obtain over the other player from piles $piles[i..j]$. The final answer is then $f[0][n - 1] \gt 0$.
+We can also use dynamic programming. Define $f[i][j]$ as the maximum difference in the number of stones the current player can obtain over the other player from piles $\textit{piles}[i..j]$. The final answer is then $f[0][n - 1] \gt 0$.
 
-Initially, $f[i][i] = piles[i]$, because with only one pile, the current player can only take that pile, and the difference is $piles[i]$.
+Initially, $f[i][i] = \textit{piles}[i]$, because with only one pile, the current player can only take that pile, and the difference is $\textit{piles}[i]$.
 
 For $f[i][j]$ where $i \lt j$, there are two cases:
 
-- If the current player takes pile $piles[i]$, the remaining piles are $piles[i + 1..j]$, and it becomes the other player's turn, so $f[i][j] = piles[i] - f[i + 1][j]$.
-- If the current player takes pile $piles[j]$, the remaining piles are $piles[i..j - 1]$, and it becomes the other player's turn, so $f[i][j] = piles[j] - f[i][j - 1]$.
+- If the current player takes pile $\textit{piles}[i]$, the remaining piles are $\textit{piles}[i + 1..j]$, and it becomes the other player's turn, so $f[i][j] = \textit{piles}[i] - f[i + 1][j]$.
+- If the current player takes pile $\textit{piles}[j]$, the remaining piles are $\textit{piles}[i..j - 1]$, and it becomes the other player's turn, so $f[i][j] = \textit{piles}[j] - f[i][j - 1]$.
 
-Therefore, the final state transition equation is $f[i][j] = \max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])$.
+Therefore, the final state transition equation is $f[i][j] = \max(\textit{piles}[i] - f[i + 1][j], \textit{piles}[j] - f[i][j - 1])$.
 
 Finally, we only need to check whether $f[0][n - 1] \gt 0$.
 

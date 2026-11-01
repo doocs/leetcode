@@ -63,13 +63,13 @@ tags:
 
 We use two pointers $i$ and $j$ to point to the beginning and end of the array respectively. When $i < j$, we perform the following operations.
 
-- If $nums[i]$ is even, then increment $i$ by $1$.
-- If $nums[j]$ is odd, then decrement $j$ by $1$.
-- If $nums[i]$ is odd and $nums[j]$ is even, then swap $nums[i]$ and $nums[j]$. Then increment $i$ by $1$, and decrement $j$ by $1$.
+- If $\textit{nums}[i]$ is even, then increment $i$ by $1$.
+- If $\textit{nums}[j]$ is odd, then decrement $j$ by $1$.
+- If $\textit{nums}[i]$ is odd and $\textit{nums}[j]$ is even, then swap $\textit{nums}[i]$ and $\textit{nums}[j]$. Then increment $i$ by $1$, and decrement $j$ by $1$.
 
-Finally, return the array $nums$.
+Finally, return the array $\textit{nums}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

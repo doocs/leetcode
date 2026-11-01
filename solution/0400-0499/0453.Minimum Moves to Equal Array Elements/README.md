@@ -62,20 +62,20 @@ tags:
 >
 > 每次把 $n-1$ 个数加一，等价于把剩下那个数减一，直到全部等于最小值。模拟加一会改动整个数组。
 >
-> 因此答案是每个数减到最小值的次数之和，即 $\sum nums - n\cdot\min(nums)$。
+> 因此答案是每个数减到最小值的次数之和，即 $\sum \textit{nums} - n\cdot\min(\textit{nums})$。
 >
 > 一次求最小与总和即可，不必真的执行操作。
 
 <!-- thinking:end -->
 
-我们不妨记数组 $\textit{nums}$ 的最小值为 $\textit{mi}$，数组的和为 $\textit{s}$，数组的长度为 $\textit{n}$。
+我们不妨记数组 $\textit{nums}$ 的最小值为 $mi$，数组的和为 $s$，数组的长度为 $n$。
 
-假设最小操作次数为 $\textit{k}$，最终数组的所有元素都为 $\textit{x}$，则有：
+假设最小操作次数为 $k$，最终数组的所有元素都为 $x$，则有：
 
 $$
 \begin{aligned}
-\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times \textit{x} \\
-\textit{x} &= \textit{mi} + \textit{k} \\
+s + (n - 1) \times k &= n \times x \\
+x &= mi + k \\
 \end{aligned}
 $$
 
@@ -83,15 +83,15 @@ $$
 
 $$
 \begin{aligned}
-\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times (\textit{mi} + \textit{k}) \\
-\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times \textit{mi} + \textit{n} \times \textit{k} \\
-\textit{k} &= \textit{s} - \textit{n} \times \textit{mi} \\
+s + (n - 1) \times k &= n \times (mi + k) \\
+s + (n - 1) \times k &= n \times mi + n \times k \\
+k &= s - n \times mi \\
 \end{aligned}
 $$
 
-因此，最小操作次数为 $\textit{s} - \textit{n} \times \textit{mi}$。
+因此，最小操作次数为 $s - n \times mi$。
 
-$|\textit{nums}[i]|$ 可达 $10^9$，且 $n$ 可达 $10^5$，所以 $\textit{s}$ 与 $n \times \textit{mi}$ 都可能超出 32 位整数范围，题目则保证二者之差仍在 32 位整数内。求和时使用 64 位整数。
+$|\textit{nums}[i]|$ 可达 $10^9$，且 $n$ 可达 $10^5$，所以 $s$ 与 $n \times mi$ 都可能超出 32 位整数范围，题目则保证二者之差仍在 32 位整数内。求和时使用 64 位整数。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 

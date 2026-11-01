@@ -68,7 +68,7 @@ tags:
 
 > **Thinking**
 >
-> Count index pairs with $i<j$ and $nums[i]=nums[j]$. A double loop would pass for $n\le 100$, but it rescans earlier equals on every step.
+> Count index pairs with $i<j$ and $\textit{nums}[i]=\textit{nums}[j]$. A double loop would pass for $n\le 100$, but it rescans earlier equals on every step.
 >
 > The current $x$ forms one pair with each previous $x$. A frequency map of values already seen lets us add that count and then increment, so one pass suffices.
 

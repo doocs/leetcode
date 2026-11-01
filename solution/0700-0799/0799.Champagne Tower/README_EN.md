@@ -69,7 +69,7 @@ tags:
 
 > **Thinking**
 >
-> Pour $poured$ cups from the top and read one glass (capped at $1$). At most $99$ rows: simulate overflow.
+> Pour $\textit{poured}$ cups from the top and read one glass (capped at $1$). At most $99$ rows: simulate overflow.
 >
 > Anything above $1$ splits equally to the two glasses below. Fill, then overflow, through the query row.
 
@@ -77,13 +77,13 @@ tags:
 
 We directly simulate the process of pouring champagne.
 
-Define a 2D array $f$, where $f[i][j]$ represents the amount of champagne in the $j$-th glass of the $i$-th layer. Initially, $f[0][0] = poured$.
+Define a 2D array $f$, where $f[i][j]$ represents the amount of champagne in the $j$-th glass of the $i$-th layer. Initially, $f[0][0] = \textit{poured}$.
 
 For each layer, if the amount of champagne in the current glass $f[i][j]$ is greater than $1$, the champagne will flow to two glasses in the next layer. The amount flowing in is $\frac{f[i][j]-1}{2}$, which is the amount of champagne in the current glass minus $1$ and then divided by $2$. Then the amount of champagne in the current glass is updated to $1$.
 
-After the simulation ends, return $f[query\_row][query\_glass]$.
+After the simulation ends, return $f[\textit{query\_row}][\textit{query\_glass}]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of layers, i.e., $\text{query\_row}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of layers, i.e., $\textit{query\_row}$.
 
 <!-- tabs:start -->
 
@@ -229,7 +229,7 @@ impl Solution {
 
 Since the amount of champagne in each layer only depends on the amount in the previous layer, we can use a rolling array approach to optimize space complexity, converting the 2D array to a 1D array.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of layers, i.e., $\text{query\_row}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of layers, i.e., $\textit{query\_row}$.
 
 <!-- tabs:start -->
 

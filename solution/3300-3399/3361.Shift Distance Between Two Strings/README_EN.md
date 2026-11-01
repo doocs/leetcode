@@ -93,7 +93,7 @@ tags:
 >
 > Duplicating the cost arrays and taking prefix sums lets us read any circular arc.
 >
-> The forward cost is $s1[y]-s1[x]$ (adding $26$ to $y$ when needed); the backward cost is symmetric. We add the smaller of the two.
+> The forward cost is $\textit{s1}[y]-\textit{s1}[x]$ (adding $26$ to $y$ when needed); the backward cost is symmetric. We add the smaller of the two.
 
 <!-- thinking:end -->
 

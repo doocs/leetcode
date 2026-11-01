@@ -105,7 +105,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以倒序遍历数组 $\textit{nums}$，并使用哈希表 $\textit{s}$ 记录已经遍历过的元素。当遍历到元素 $\textit{nums}[i]$ 时，如果 $\textit{nums}[i]$ 已经在哈希表 $\textit{s}$ 中，那么说明我们需要移除 $\textit{nums}[0..i]$ 的所有元素，需要的操作次数为 $\left\lfloor \frac{i}{3} \right\rfloor + 1$。否则，我们将 $\textit{nums}[i]$ 加入哈希表 $\textit{s}$ 中，并继续遍历下一个元素。
+我们可以倒序遍历数组 $\textit{nums}$，并使用哈希表 $s$ 记录已经遍历过的元素。当遍历到元素 $\textit{nums}[i]$ 时，如果 $\textit{nums}[i]$ 已经在哈希表 $s$ 中，那么说明我们需要移除 $\textit{nums}[0..i]$ 的所有元素，需要的操作次数为 $\left\lfloor \frac{i}{3} \right\rfloor + 1$。否则，我们将 $\textit{nums}[i]$ 加入哈希表 $s$ 中，并继续遍历下一个元素。
 
 遍历结束后，如果没有找到重复的元素，那么数组中的元素已经互不相同，不需要进行任何操作，答案为 $0$。
 

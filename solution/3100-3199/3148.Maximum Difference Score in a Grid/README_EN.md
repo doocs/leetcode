@@ -78,7 +78,7 @@ The total score is <code>2 + 7 = 9</code>.</p>
 >
 > For a fixed end, the best start is the minimum cell in the closed upper-left region except itself. That minimum recurses from the cell above and the cell to the left.
 >
-> Let $f[i][j]$ be the smallest value seen on a path that can reach $(i,j)$. The answer is the maximum of $grid[i][j]-\min(f[i-1][j],f[i][j-1])$.
+> Let $f[i][j]$ be the smallest value seen on a path that can reach $(i,j)$. The answer is the maximum of $\textit{grid}[i][j]-\min(f[i-1][j],f[i][j-1])$.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ According to the problem description, if the values of the cells we pass through
 We can use dynamic programming to solve this problem. We define $f[i][j]$ as the minimum value of the path with $(i, j)$ as the endpoint. Then we can get the state transition equation:
 
 $$
-f[i][j] = \min(f[i-1][j], f[i][j-1], grid[i][j])
+f[i][j] = \min(f[i-1][j], f[i][j-1], \textit{grid}[i][j])
 $$
 
 So the answer is the maximum value of $\textit{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$.

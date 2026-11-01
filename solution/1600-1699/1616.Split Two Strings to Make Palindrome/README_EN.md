@@ -87,7 +87,7 @@ Then, a<sub>prefix</sub> + b<sub>suffix</sub> = &quot;ula&quot; + &quot;alu&quot
 
 We can use two pointers, where one pointer $i$ starts from the beginning of string $a$, and the other pointer $j$ starts from the end of string $b$. If the characters pointed to by the two pointers are equal, then both pointers move towards the center until they encounter different characters or the two pointers cross.
 
-If the two pointers cross, i.e., $i \geq j$, it means that $prefix$ and $suffix$ can already form a palindrome, and we return `true`. Otherwise, we need to check if $a[i,...j]$ or $b[i,...j]$ is a palindrome. If so, return `true`.
+If the two pointers cross, i.e., $i \geq j$, it means that $\textit{prefix}$ and $\textit{suffix}$ can already form a palindrome, and we return `true`. Otherwise, we need to check if $a[i,...j]$ or $b[i,...j]$ is a palindrome. If so, return `true`.
 
 Otherwise, we try swapping the two strings $a$ and $b$ and repeat the same process.
 

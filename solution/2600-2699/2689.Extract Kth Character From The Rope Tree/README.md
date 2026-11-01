@@ -99,13 +99,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以使用深度优先搜索的方法，定义一个函数 $dfs(root)$，表示从根节点开始搜索，返回以 $root$ 为根节点的子树的字符串。那么答案就是 $dfs(root)[k-1]$。
+我们可以使用深度优先搜索的方法，定义一个函数 $\textit{dfs}(\textit{root})$，表示从根节点开始搜索，返回以 $\textit{root}$ 为根节点的子树的字符串。那么答案就是 $\textit{dfs}(\textit{root})[k-1]$。
 
-函数 $dfs(root)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{root})$ 的执行逻辑如下：
 
-- 如果 $root$ 为空，返回空字符串；
-- 如果 $root$ 是叶子节点，返回 $root.val$；
-- 否则，返回 $dfs(root.left) + dfs(root.right)$。
+- 如果 $\textit{root}$ 为空，返回空字符串；
+- 如果 $\textit{root}$ 是叶子节点，返回 $\textit{root}.\textit{val}$；
+- 否则，返回 $\textit{dfs}(\textit{root}.\textit{left}) + \textit{dfs}(\textit{root}.\textit{right})$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的个数。
 

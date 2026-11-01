@@ -89,7 +89,7 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 
 We can enumerate each pair of numbers $(x, y)$ in the array. If $|x - y| \leq \min(x, y)$, then this pair is a strong pair. We can calculate the XOR value of this pair and update the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -190,15 +190,15 @@ function maximumStrongPairXor(nums: number[]): number {
 >
 > Method 1 is enough for $n=50$, but part II raises $n$ to $5 \times 10^4$. When $x \le y$ the inequality becomes $y \le 2x$. Sort, enumerate the larger $y$, and keep a window of $x$ with two pointers.
 >
-> The best XOR against $y$ inside the window is a 0-1 trie: insert $y$, drop expired $nums[i]$, then query. The same code serves part II.
+> The best XOR against $y$ inside the window is a 0-1 trie: insert $y$, drop expired $\textit{nums}[i]$, then query. The same code serves part II.
 
 <!-- thinking:end -->
 
 Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
 
-Therefore, we sort the array $nums$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.
+Therefore, we sort the array $\textit{nums}$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

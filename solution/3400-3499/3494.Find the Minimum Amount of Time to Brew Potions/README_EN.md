@@ -143,9 +143,9 @@ We define $f[i]$ as the time when wizard $i$ completes the previous potion.
 
 For the current potion $x$, we need to calculate the completion time for each wizard. Let $\textit{tot}$ represent the completion time of the current potion, initially $\textit{tot} = 0$.
 
-For each wizard $i$, the time he starts processing the current potion is $\max(\textit{tot}, f[i])$, and the time required to process this potion is $skill[i] \times mana[x]$. Therefore, the time he completes this potion is $\max(\textit{tot}, f[i]) + skill[i] \times mana[x]$. We update $\textit{tot}$ to this value.
+For each wizard $i$, the time he starts processing the current potion is $\max(\textit{tot}, f[i])$, and the time required to process this potion is $\textit{skill}[i] \times \textit{mana}[x]$. Therefore, the time he completes this potion is $\max(\textit{tot}, f[i]) + \textit{skill}[i] \times \textit{mana}[x]$. We update $\textit{tot}$ to this value.
 
-Since the brewing process requires that the potion must be immediately passed to the next wizard and processing must start immediately after the current wizard completes their work, we need to update the completion time $f[i]$ for each wizard's previous potion. For the last wizard $n-1$, we directly update $f[n-1]$ to $\textit{tot}$. For other wizards $i$, we can update $f[i]$ by traversing in reverse order, specifically, $f[i] = f[i+1] - skill[i+1] \times mana[x]$.
+Since the brewing process requires that the potion must be immediately passed to the next wizard and processing must start immediately after the current wizard completes their work, we need to update the completion time $f[i]$ for each wizard's previous potion. For the last wizard $n-1$, we directly update $f[n-1]$ to $\textit{tot}$. For other wizards $i$, we can update $f[i]$ by traversing in reverse order, specifically, $f[i] = f[i+1] - \textit{skill}[i+1] \times \textit{mana}[x]$.
 
 Finally, $f[n-1]$ is the minimum total time required to complete brewing all potions.
 

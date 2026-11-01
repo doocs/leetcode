@@ -80,7 +80,7 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 > **Thinking**
 >
-> Only Fridays in November 2023, rolled up by week-of-month. $DATE_FORMAT$ pins the month, $DAYOFWEEK=6$ selects Friday, and $CEIL(DAYOFMONTH/7)$ is the week index.
+> Only Fridays in November 2023, rolled up by week-of-month. $\textit{DATE}_\textit{FORMAT}$ pins the month, $\textit{DAYOFWEEK}=6$ selects Friday, and $\textit{CEIL}(\textit{DAYOFMONTH}/7)$ is the week index.
 >
 > Group by date, sum, and order by week. Fridays absent from the table do not appear.
 

@@ -94,7 +94,7 @@ Output table is ordered by tweet_id in ascending order.</div>
 >
 > SQL can count symbols via `LENGTH` minus `LENGTH(REPLACE(...))`; pandas counts them on the string column.
 >
-> Filter by the disjunction of the three tests, keep $tweet\_id$, and sort ascending.
+> Filter by the disjunction of the three tests, keep $\textit{tweet\_id}$, and sort ascending.
 
 <!-- thinking:end -->
 

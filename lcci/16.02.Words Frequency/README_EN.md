@@ -65,15 +65,15 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 >
 > One preprocessing pass leaves expected $O(1)$ lookups.
 >
-> `Counter(book)` builds the table; `get` returns $cnt[word]$. Space follows the number of distinct words.
+> `Counter(book)` builds the table; `get` returns $\textit{cnt}[\textit{word}]$. Space follows the number of distinct words.
 
 <!-- thinking:end -->
 
-We use a hash table $cnt$ to count the number of occurrences of each word in $book$.
+We use a hash table $\textit{cnt}$ to count the number of occurrences of each word in $\textit{book}$.
 
-When calling the `get` function, we only need to return the number of occurrences of the corresponding word in $cnt$.
+When calling the `get` function, we only need to return the number of occurrences of the corresponding word in $\textit{cnt}$.
 
-In terms of time complexity, the time complexity of initializing the hash table $cnt$ is $O(n)$, where $n$ is the length of $book$. The time complexity of the `get` function is $O(1)$. The space complexity is $O(n)$.
+In terms of time complexity, the time complexity of initializing the hash table $\textit{cnt}$ is $O(n)$, where $n$ is the length of $\textit{book}$. The time complexity of the `get` function is $O(1)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

@@ -61,11 +61,11 @@ to the starting pixel.</pre>
 >
 > Only cells reachable from the start with color $oc$ matter, which DFS visits.
 >
-> Return on out-of-range, a color other than $oc$, or the new color already; otherwise paint and recurse to four neighbors. The new-color test also stops infinite recursion when $oc$ equals $newColor$.
+> Return on out-of-range, a color other than $oc$, or the new color already; otherwise paint and recurse to four neighbors. The new-color test also stops infinite recursion when $oc$ equals $\textit{newColor}$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$ to start filling color from $(i, j)$. If $(i, j)$ is not within the image range, or the color of $(i, j)$ is not the original color, or the color of $(i, j)$ has been filled with the new color, then return. Otherwise, fill the color of $(i, j)$ with the new color, and then recursively search the four directions: up, down, left, and right of $(i, j)$.
+We design a function $\textit{dfs}(i, j)$ to start filling color from $(i, j)$. If $(i, j)$ is not within the image range, or the color of $(i, j)$ is not the original color, or the color of $(i, j)$ has been filled with the new color, then return. Otherwise, fill the color of $(i, j)$ with the new color, and then recursively search the four directions: up, down, left, and right of $(i, j)$.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the image, respectively.
 

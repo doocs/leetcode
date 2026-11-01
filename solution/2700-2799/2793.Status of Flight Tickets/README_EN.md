@@ -108,7 +108,7 @@ Passengers table:
 >
 > Seats on a flight are confirmed in booking-time order up to capacity; the rest are waitlisted. Ties at the same time are all confirmed while seats remain.
 >
-> $RANK()$ partitioned by $flight\_id$ and ordered by $booking\_time$ marks a row Confirmed when the rank is at most $capacity$. Tied ranks still sit under that cutoff, so no extra tie-breaking is required.
+> $\textit{RANK}()$ partitioned by $\textit{flight\_id}$ and ordered by $\textit{booking\_time}$ marks a row Confirmed when the rank is at most $\textit{capacity}$. Tied ranks still sit under that cutoff, so no extra tie-breaking is required.
 
 <!-- thinking:end -->
 

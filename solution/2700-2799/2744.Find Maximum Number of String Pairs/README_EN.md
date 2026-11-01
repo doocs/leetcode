@@ -90,13 +90,13 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 
 <!-- thinking:end -->
 
-We can use a hash table $cnt$ to store the number of occurrences of each reversed string in the array $words$.
+We can use a hash table $\textit{cnt}$ to store the number of occurrences of each reversed string in the array $\textit{words}$.
 
-We iterate through the array $words$. For each string $w$, we add the number of occurrences of its reversed string to the answer, then increment the count of $w$ by $1$.
+We iterate through the array $\textit{words}$. For each string $w$, we add the number of occurrences of its reversed string to the answer, then increment the count of $w$ by $1$.
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $words$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{words}$.
 
 <!-- tabs:start -->
 

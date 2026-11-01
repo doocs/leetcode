@@ -91,7 +91,7 @@ tags:
 >
 > 生成器按收到的步长在环上跳转并产出当前值。自行维护取模下标即可，不必每次拷贝数组。
 >
-> 用 $yield$ 给出 $arr[startIndex]$，下一次把传入的 $jump$ 加到下标上，并对 $n$ 做正向取模，以兼容负数步长。
+> 用 $\textit{yield}$ 给出 $\textit{arr}[\textit{startIndex}]$，下一次把传入的 $\textit{jump}$ 加到下标上，并对 $n$ 做正向取模，以兼容负数步长。
 
 <!-- thinking:end -->
 

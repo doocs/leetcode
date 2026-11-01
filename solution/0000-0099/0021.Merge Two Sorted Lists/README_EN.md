@@ -77,8 +77,8 @@ tags:
 
 First, we judge whether the linked lists $l_1$ and $l_2$ are empty. If one of them is empty, we return the other linked list. Otherwise, we compare the head nodes of $l_1$ and $l_2$:
 
-- If the value of the head node of $l_1$ is less than or equal to the value of the head node of $l_2$, we recursively call the function $mergeTwoLists(l_1.next, l_2)$, and connect the head node of $l_1$ with the returned linked list head node, and return the head node of $l_1$.
-- Otherwise, we recursively call the function $mergeTwoLists(l_1, l_2.next)$, and connect the head node of $l_2$ with the returned linked list head node, and return the head node of $l_2$.
+- If the value of the head node of $l_1$ is less than or equal to the value of the head node of $l_2$, we recursively call the function $\textit{mergeTwoLists}(l_1.\textit{next}, l_2)$, and connect the head node of $l_1$ with the returned linked list head node, and return the head node of $l_1$.
+- Otherwise, we recursively call the function $\textit{mergeTwoLists}(l_1, l_2.\textit{next})$, and connect the head node of $l_2$ with the returned linked list head node, and return the head node of $l_2$.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two linked lists respectively.
 
@@ -410,7 +410,7 @@ class Solution {
 >
 > Solution 1 is correct, but the recursion stack is linear in the number of nodes. The lists here are short, yet the same choice can be made with constant extra space.
 >
-> The observation is unchanged: each step still compares the two heads and appends the smaller. A dummy $dummy$ plus a tail pointer $curr$ do that in a loop; when one list runs out, splice the other on.
+> The observation is unchanged: each step still compares the two heads and appends the smaller. A dummy $\textit{dummy}$ plus a tail pointer $\textit{curr}$ do that in a loop; when one list runs out, splice the other on.
 >
 > Time matches the recursive version; extra space drops to $O(1)$.
 
@@ -418,9 +418,9 @@ class Solution {
 
 We can also use iteration to implement the merging of two sorted linked lists.
 
-First, we define a dummy head node $dummy$, then loop through the two linked lists, compare the head nodes of the two linked lists, add the smaller node to the end of $dummy$, until one of the linked lists is empty, then add the remaining part of the other linked list to the end of $dummy$.
+First, we define a dummy head node $\textit{dummy}$, then loop through the two linked lists, compare the head nodes of the two linked lists, add the smaller node to the end of $\textit{dummy}$, until one of the linked lists is empty, then add the remaining part of the other linked list to the end of $\textit{dummy}$.
 
-Finally, return $dummy.next$.
+Finally, return $\textit{dummy}.\textit{next}$.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the two linked lists respectively.
 

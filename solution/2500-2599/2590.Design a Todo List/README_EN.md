@@ -84,11 +84,11 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 >
 > Tasks are per user, unfinished ones must be listed by due date, and we must filter by tag and complete by id. The operation limit allows a linear scan to complete a task.
 >
-> A hash map stores a sorted list per user of $(\textit{due},\textit{desc},\textit{tags},\textit{id},\textit{done})$. Insertions stay ordered by due date. Queries skip completed items; completion marks the matching id.
+> A hash map stores a sorted list per user of $(\textit{due},\textit{desc},\textit{tags},id,\textit{done})$. Insertions stay ordered by due date. Queries skip completed items; completion marks the matching id.
 
 <!-- thinking:end -->
 
-We use a hash table $tasks$ to record the set of tasks for each user, where the key is the user ID and the value is a sorted set sorted by the deadline of the task. In addition, we use a variable $i$ to record the current task ID.
+We use a hash table $\textit{tasks}$ to record the set of tasks for each user, where the key is the user ID and the value is a sorted set sorted by the deadline of the task. In addition, we use a variable $i$ to record the current task ID.
 
 When calling the `addTask` method, we add the task to the task set of the corresponding user and return the task ID. The time complexity of this operation is $O(\log n)$.
 
@@ -96,7 +96,7 @@ When calling the `getAllTasks` method, we traverse the task set of the correspon
 
 When calling the `getTasksForTag` method, we traverse the task set of the corresponding user and add the description of the unfinished task to the result list, and then return the result list. The time complexity of this operation is $O(n)$.
 
-When calling the `completeTask` method, we traverse the task set of the corresponding user and mark the task whose task ID is $taskId$ as completed. The time complexity of this operation is $O(n)$.
+When calling the `completeTask` method, we traverse the task set of the corresponding user and mark the task whose task ID is $\textit{taskId}$ as completed. The time complexity of this operation is $O(n)$.
 
 The space complexity is $O(n)$, where $n$ is the number of all tasks.
 

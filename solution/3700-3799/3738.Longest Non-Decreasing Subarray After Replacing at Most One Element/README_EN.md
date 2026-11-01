@@ -73,7 +73,7 @@ tags:
 
 > **Thinking**
 >
-> After changing at most one index, the longest nondecreasing run may cross that index. We precompute the nondecreasing length ending or starting at each $i$. Replacing index $i$ concatenates the left and right runs when $nums[i-1]\le nums[i+1]$; otherwise we keep the longer side plus the replaced cell.
+> After changing at most one index, the longest nondecreasing run may cross that index. We precompute the nondecreasing length ending or starting at each $i$. Replacing index $i$ concatenates the left and right runs when $\textit{nums}[i-1]\le \textit{nums}[i+1]$; otherwise we keep the longer side plus the replaced cell.
 
 <!-- thinking:end -->
 

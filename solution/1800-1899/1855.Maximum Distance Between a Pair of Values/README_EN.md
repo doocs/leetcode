@@ -76,17 +76,17 @@ The maximum distance is 2 with pair (2,4).
 
 > **Thinking**
 >
-> Both arrays are nonincreasing; we want the largest $j-i$ with $i\le j$ and $nums1[i]\le nums2[j]$. Trying every pair is $O(mn)$ and too slow for $n\le 10^5$.
+> Both arrays are nonincreasing; we want the largest $j-i$ with $i\le j$ and $\textit{nums1}[i]\le \textit{nums2}[j]$. Trying every pair is $O(mn)$ and too slow for $n\le 10^5$.
 >
-> For a fixed $i$, the farthest legal $j$ is the last index in $nums2[i:]$ that is at least $nums1[i]$. Reversing $nums2$ lets us find that index by binary search.
+> For a fixed $i$, the farthest legal $j$ is the last index in $\textit{nums2}[i:]$ that is at least $\textit{nums1}[i]$. Reversing $\textit{nums2}$ lets us find that index by binary search.
 
 <!-- thinking:end -->
 
-Assume the lengths of $nums1$ and $nums2$ are $m$ and $n$ respectively.
+Assume the lengths of $\textit{nums1}$ and $\textit{nums2}$ are $m$ and $n$ respectively.
 
-Traverse array $nums1$, for each number $nums1[i]$, perform a binary search for numbers in $nums2$ in the range $[i,n)$, find the **last** position $j$ that is greater than or equal to $nums1[i]$, calculate the distance between this position and $i$, and update the maximum distance value $ans$.
+Traverse array $\textit{nums1}$, for each number $\textit{nums1}[i]$, perform a binary search for numbers in $\textit{nums2}$ in the range $[i,n)$, find the **last** position $j$ that is greater than or equal to $\textit{nums1}[i]$, calculate the distance between this position and $i$, and update the maximum distance value $\textit{ans}$.
 
-The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $nums1$ and $nums2$ respectively.
+The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$ respectively.
 
 <!-- tabs:start -->
 
@@ -258,7 +258,7 @@ var maxDistance = function (nums1, nums2) {
 
 > **Thinking**
 >
-> Solution 1 uses only the monotonicity of $nums2$. $nums1$ is also nonincreasing, so the farthest $j$ never moves left as $i$ grows. Two pointers advance together in linear time.
+> Solution 1 uses only the monotonicity of $\textit{nums2}$. $\textit{nums1}$ is also nonincreasing, so the farthest $j$ never moves left as $i$ grows. Two pointers advance together in linear time.
 
 <!-- thinking:end -->
 

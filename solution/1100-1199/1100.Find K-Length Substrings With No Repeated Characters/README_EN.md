@@ -65,13 +65,13 @@ tags:
 
 <!-- thinking:end -->
 
-We maintain a sliding window of length $k$, and use a hash table $cnt$ to count the occurrences of each character in the window.
+We maintain a sliding window of length $k$, and use a hash table $\textit{cnt}$ to count the occurrences of each character in the window.
 
-First, we add the first $k$ characters of the string $s$ to the hash table $cnt$, and check whether the size of $cnt$ is equal to $k$. If it is, it means that all characters in the window are different, and the answer $ans$ is incremented by one.
+First, we add the first $k$ characters of the string $s$ to the hash table $\textit{cnt}$, and check whether the size of $\textit{cnt}$ is equal to $k$. If it is, it means that all characters in the window are different, and the answer $\textit{ans}$ is incremented by one.
 
-Next, we start to traverse the string $s$ from $k$. Each time we add $s[i]$ to the hash table $cnt$, and at the same time subtract $s[i-k]$ from the hash table $cnt$ by one. If $cnt[s[i-k]]$ is equal to $0$ after subtraction, we remove $s[i-k]$ from the hash table $cnt$. If the size of the hash table $cnt$ is equal to $k$ at this time, it means that all characters in the window are different, and the answer $ans$ is incremented by one.
+Next, we start to traverse the string $s$ from $k$. Each time we add $s[i]$ to the hash table $\textit{cnt}$, and at the same time subtract $s[i-k]$ from the hash table $\textit{cnt}$ by one. If $\textit{cnt}[s[i-k]]$ is equal to $0$ after subtraction, we remove $s[i-k]$ from the hash table $\textit{cnt}$. If the size of the hash table $\textit{cnt}$ is equal to $k$ at this time, it means that all characters in the window are different, and the answer $\textit{ans}$ is incremented by one.
 
-Finally, return the answer $ans$.
+Finally, return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(\min(k, |\Sigma|))$, where $n$ is the length of the string $s$; and $\Sigma$ is the character set, in this problem the character set is lowercase English letters, so $|\Sigma| = 26$.
 

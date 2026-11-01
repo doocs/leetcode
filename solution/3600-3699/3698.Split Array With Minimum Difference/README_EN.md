@@ -168,7 +168,7 @@ tags:
 
 We use a prefix sum array $s$ to record the prefix sum of the array, where $s[i]$ represents the sum of the array $[0,..i]$. Then we use two boolean arrays $f$ and $g$ to record the monotonicity of prefixes and suffixes respectively, where $f[i]$ indicates whether the array $[0,..i]$ is strictly increasing, and $g[i]$ indicates whether the array $[i,..n-1]$ is strictly decreasing.
 
-Finally, we traverse array positions $i$ where $0 \leq i < n-1$. If both $f[i]$ and $g[i+1]$ are true, then we can calculate the sums of $left$ and $right$, which are $s[i]$ and $s[n-1]-s[i]$ respectively, and update the answer.
+Finally, we traverse array positions $i$ where $0 \leq i < n-1$. If both $f[i]$ and $g[i+1]$ are true, then we can calculate the sums of $\textit{left}$ and $\textit{right}$, which are $s[i]$ and $s[n-1]-s[i]$ respectively, and update the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

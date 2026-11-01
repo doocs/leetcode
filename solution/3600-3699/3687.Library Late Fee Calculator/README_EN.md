@@ -88,17 +88,17 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $\text{f}(x)$ to calculate the late fee for each book:
+We define a function $f(x)$ to calculate the late fee for each book:
 
 $$
-\text{f}(x) = \begin{cases}
+f(x) = \begin{cases}
 1 & x = 1 \\
 2x & 2 \leq x \leq 5 \\
 3x & x > 5
 \end{cases}
 $$
 
-Then, for each element $x$ in the array $\textit{daysLate}$, we compute $\text{f}(x)$ and sum them up to get the total late fee.
+Then, for each element $x$ in the array $\textit{daysLate}$, we compute $f(x)$ and sum them up to get the total late fee.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{daysLate}$.
 

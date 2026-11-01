@@ -57,7 +57,7 @@ tags:
 
 > **Thinking**
 >
-> We need not walk the whole BST: after comparing with $target$ only one child can improve. Along the path we keep the closer value, breaking ties toward the smaller key.
+> We need not walk the whole BST: after comparing with $\textit{target}$ only one child can improve. Along the path we keep the closer value, breaking ties toward the smaller key.
 >
 > A recursion follows left or right accordingly.
 

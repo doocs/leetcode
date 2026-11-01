@@ -121,18 +121,18 @@ tags:
 
 Define $f[i][j][k]$ as whether cell $(i, j)$ is reachable from $(0, 0)$ with the bitwise XOR of every cell on the path equal to $k$.
 
-Let $M$ be the maximum value in the grid. Every path XOR lies in $[0, \textit{mx})$, where $\textit{mx} = 2^{b}$ and $b$ is the bit length of $M$. When $M = 0$, $b = 0$ and $\textit{mx} = 1$. Cell values are at most $1023$, so $\textit{mx} \le 1024$.
+Let $M$ be the maximum value in the grid. Every path XOR lies in $[0, mx)$, where $mx = 2^{b}$ and $b$ is the bit length of $M$. When $M = 0$, $b = 0$ and $mx = 1$. Cell values are at most $1023$, so $mx \le 1024$.
 
-The path at the start contains only that cell, so $f[0][0][\textit{grid}[0][0]] = \text{true}$.
+The path at the start contains only that cell, so $f[0][0][\textit{grid}[0][0]] = \textit{true}$.
 
-Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, \textit{mx})$ is considered. Because $(k \oplus x) \oplus x = k$, the XOR before entering the cell is $k \oplus x$:
+Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, mx)$ is considered. Because $(k \oplus x) \oplus x = k$, the XOR before entering the cell is $k \oplus x$:
 
-- If $i > 0$ and $f[i - 1][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i][j][k] = \text{true}$.
-- If $j > 0$ and $f[i][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i][j][k] = \text{true}$.
+- If $i > 0$ and $f[i - 1][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i][j][k] = \textit{true}$.
+- If $j > 0$ and $f[i][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i][j][k] = \textit{true}$.
 
 Moves are only right or down, so the upper and left cells are already finished when $(i, j)$ is scanned. The answer is the smallest $k$ for which $f[m - 1][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
 
-The time complexity is $O(mn \textit{mx})$, and the space complexity is $O(mn \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
+The time complexity is $O(mn mx)$, and the space complexity is $O(mn mx)$, where $m$ and $n$ are the number of rows and columns, and $mx \le 1024$.
 
 <!-- tabs:start -->
 
@@ -332,20 +332,20 @@ function minCost(grid: number[][]): number {
 
 > **Thinking**
 >
-> Solution 1 keeps every reachable XOR of every cell, so the space grows with $mn$. Cell $(i, j)$ reads only the cell above and the cell to the left, and a row-major scan finishes both first. The previous row is still complete when the current row begins, and the current row only needs the left neighbor already written, so two rolling rows are enough. The transition still looks back at $k \oplus x$ for a cell of value $x$, the answer is still the smallest reachable XOR at the lower-right cell, and the space drops to $O(n \textit{mx})$.
+> Solution 1 keeps every reachable XOR of every cell, so the space grows with $mn$. Cell $(i, j)$ reads only the cell above and the cell to the left, and a row-major scan finishes both first. The previous row is still complete when the current row begins, and the current row only needs the left neighbor already written, so two rolling rows are enough. The transition still looks back at $k \oplus x$ for a cell of value $x$, the answer is still the smallest reachable XOR at the lower-right cell, and the space drops to $O(n mx)$.
 
 <!-- thinking:end -->
 
-Define $f[i \bmod 2][j][k]$ as whether row $i$ and column $j$ are reachable from $(0, 0)$ with the bitwise XOR of every cell on the path equal to $k$. The value of $\textit{mx}$ matches Solution 1, and the start cell again has $f[0][0][\textit{grid}[0][0]] = \text{true}$.
+Define $f[i \bmod 2][j][k]$ as whether row $i$ and column $j$ are reachable from $(0, 0)$ with the bitwise XOR of every cell on the path equal to $k$. The value of $mx$ matches Solution 1, and the start cell again has $f[0][0][\textit{grid}[0][0]] = \textit{true}$.
 
-Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, \textit{mx})$ is considered. The row index is taken modulo $2$, so the current slot may still hold an older row. Each $k$ is therefore cleared first, then set with the same conditions as Solution 1:
+Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, mx)$ is considered. The row index is taken modulo $2$, so the current slot may still hold an older row. Each $k$ is therefore cleared first, then set with the same conditions as Solution 1:
 
-- If $i > 0$ and $f[(i - 1) \bmod 2][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i \bmod 2][j][k] = \text{true}$.
-- If $j > 0$ and $f[i \bmod 2][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i \bmod 2][j][k] = \text{true}$.
+- If $i > 0$ and $f[(i - 1) \bmod 2][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i \bmod 2][j][k] = \textit{true}$.
+- If $j > 0$ and $f[i \bmod 2][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i \bmod 2][j][k] = \textit{true}$.
 
 Row $i$ is stored at index $i \bmod 2$, the previous row stays at $(i - 1) \bmod 2$, and the left cell shares that row. The answer is the smallest $k$ for which $f[(m - 1) \bmod 2][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
 
-The time complexity is $O(mn \textit{mx})$, and the space complexity is $O(n \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
+The time complexity is $O(mn mx)$, and the space complexity is $O(n mx)$, where $m$ and $n$ are the number of rows and columns, and $mx \le 1024$.
 
 <!-- tabs:start -->
 

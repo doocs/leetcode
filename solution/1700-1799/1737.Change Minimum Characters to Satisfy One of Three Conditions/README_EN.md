@@ -81,7 +81,7 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 
 <!-- thinking:end -->
 
-First, we count the number of occurrences of each letter in strings $a$ and $b$, denoted as $cnt_1$ and $cnt_2$.
+First, we count the number of occurrences of each letter in strings $a$ and $b$, denoted as $\textit{cnt}_1$ and $\textit{cnt}_2$.
 
 Then, we consider condition $3$, i.e., every letter in $a$ and $b$ is the same. We just need to enumerate the final letter $c$, and then count the number of letters in $a$ and $b$ that are not $c$. This is the number of characters that need to be changed.
 

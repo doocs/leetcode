@@ -123,18 +123,18 @@ tags:
 >
 > 信号灯同步且周期相同，汽车 $j$ 的到达余数为 $r=\textit{arrivalTime}[j]\bmod \textit{period}$。若再为每辆车枚举全部分配，只会重复同一计算。
 >
-> 设最长绿灯为 $\textit{mx}$。若 $r<\textit{mx}$，把该车分给这盏灯则等待为 $0$；若 $r\ge\textit{mx}$，则它对每盏灯都已错过绿灯，等待同为 $\textit{period}-r$。
+> 设最长绿灯为 $mx$。若 $r<mx$，把该车分给这盏灯则等待为 $0$；若 $r\gemx$，则它对每盏灯都已错过绿灯，等待同为 $\textit{period}-r$。
 >
-> 因此惩罚只由余数不小于 $\textit{mx}$ 的那些车决定，取其等待的最大值；若没有这样的车，答案为 $0$。
+> 因此惩罚只由余数不小于 $mx$ 的那些车决定，取其等待的最大值；若没有这样的车，答案为 $0$。
 
 <!-- thinking:end -->
 
-设最长绿灯时长为 $\textit{mx} = \max(\textit{lights})$。汽车 $j$ 到达时刻在周期内的余数为 $r = \textit{arrivalTime}[j] \bmod \textit{period}$。
+设最长绿灯时长为 $mx = \max(\textit{lights})$。汽车 $j$ 到达时刻在周期内的余数为 $r = \textit{arrivalTime}[j] \bmod \textit{period}$。
 
-- 若 $r < \textit{mx}$，可以把该车分配给绿灯最长的信号灯，等待时间为 $0$。
-- 若 $r \ge \textit{mx}$，则对任意信号灯都有 $r \ge \textit{lights}[i]$，等待时间均为 $\textit{period} - r$。
+- 若 $r < mx$，可以把该车分配给绿灯最长的信号灯，等待时间为 $0$。
+- 若 $r \ge mx$，则对任意信号灯都有 $r \ge \textit{lights}[i]$，等待时间均为 $\textit{period} - r$。
 
-因此，惩罚值等于所有满足 $r \ge \textit{mx}$ 的汽车中 $\textit{period} - r$ 的最大值；若所有汽车都能在绿灯通过，答案为 $0$。
+因此，惩罚值等于所有满足 $r \ge mx$ 的汽车中 $\textit{period} - r$ 的最大值；若所有汽车都能在绿灯通过，答案为 $0$。
 
 时间复杂度 $O(n + m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 $\textit{lights}$ 和 $\textit{arrivalTime}$ 的长度。
 

@@ -71,11 +71,11 @@ The third child gets 1 candy because it satisfies the above two conditions.
 
 <!-- thinking:end -->
 
-We initialize two arrays $left$ and $right$, where $left[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $right[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $left[i]=1$, $right[i]=1$.
+We initialize two arrays $\textit{left}$ and $\textit{right}$, where $\textit{left}[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $\textit{right}[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $\textit{left}[i]=1$, $\textit{right}[i]=1$.
 
-We traverse the array from left to right once, and if the current child's score is higher than the left child's score, then $left[i]=left[i-1]+1$; similarly, we traverse the array from right to left once, and if the current child's score is higher than the right child's score, then $right[i]=right[i+1]+1$.
+We traverse the array from left to right once, and if the current child's score is higher than the left child's score, then $\textit{left}[i]=\textit{left}[i-1]+1$; similarly, we traverse the array from right to left once, and if the current child's score is higher than the right child's score, then $\textit{right}[i]=\textit{right}[i+1]+1$.
 
-Finally, we traverse the array of scores once, and the minimum number of candies each child should get is the maximum of $left[i]$ and $right[i]$, and we add them up to get the answer.
+Finally, we traverse the array of scores once, and the minimum number of candies each child should get is the maximum of $\textit{left}[i]$ and $\textit{right}[i]$, and we add them up to get the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array of scores.
 

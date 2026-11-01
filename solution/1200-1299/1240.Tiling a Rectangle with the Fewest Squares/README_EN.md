@@ -70,7 +70,7 @@ tags:
 >
 > We tile an $n\times m$ rectangle with as few squares as possible. $n,m \le 13$, so occupancy fits in one bitmask per row. Naive partitions are many, but the tile count prunes.
 >
-> Row-major search finds the first empty cell, tries every feasible side length, writes $filled$, and recurses; XOR undoes the write. We stop when the tile count cannot beat the best known. Bitmasks make occupancy a bitwise test; backtracking covers the rectangle.
+> Row-major search finds the first empty cell, tries every feasible side length, writes $\textit{filled}$, and recurses; XOR undoes the write. We stop when the tile count cannot beat the best known. Bitmasks make occupancy a bitwise test; backtracking covers the rectangle.
 
 <!-- thinking:end -->
 
@@ -81,7 +81,7 @@ We can perform recursive backtracking by position, during which we use a variabl
 - If the current position $(i, j)$ has been filled, then directly recurse to the next position $(i, j + 1)$.
 - Otherwise, we enumerate the maximum square side length $w$ that the current position $(i, j)$ can fill, and fill all positions from $(i, j)$ to $(i + w - 1, j + w - 1)$, then recurse to the next position $(i, j + w)$. When backtracking, we need to clear all positions from $(i, j)$ to $(i + w - 1, j + w - 1)$.
 
-Since each position only has two states: filled or not filled, we can use an integer to represent the current state. We use an integer array $filled$ of length $n$, where $filled[i]$ represents the state of the $i$-th row. If the $j$-th bit of $filled[i]$ is $1$, it means that the $i$-th row and the $j$-th column have been filled, otherwise it means not filled.
+Since each position only has two states: filled or not filled, we can use an integer to represent the current state. We use an integer array $\textit{filled}$ of length $n$, where $\textit{filled}[i]$ represents the state of the $i$-th row. If the $j$-th bit of $\textit{filled}[i]$ is $1$, it means that the $i$-th row and the $j$-th column have been filled, otherwise it means not filled.
 
 <!-- tabs:start -->
 
@@ -364,7 +364,7 @@ function tilingRectangle(n: number, m: number): number {
 
 > **Thinking**
 >
-> Solution 1 places squares from small to large. Larger tiles shrink the hole sooner, so the $ans$ prune fires earlier. Solution 2 first fills the largest square at the cell, then shrinks the border from large to small. The move set is the same; only the order helps pruning.
+> Solution 1 places squares from small to large. Larger tiles shrink the hole sooner, so the $\textit{ans}$ prune fires earlier. Solution 2 first fills the largest square at the cell, then shrinks the border from large to small. The move set is the same; only the order helps pruning.
 
 <!-- thinking:end -->
 

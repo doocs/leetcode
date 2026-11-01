@@ -79,26 +79,26 @@ The entire array forms a non-decreasing subarray of length 2, making it the maxi
 
 > **Thinking**
 >
-> At each index we pick from $nums1$ or $nums2$ and want the longest non-decreasing contiguous run. The choice sequence is exponential, but the run is contiguous, so only how adjacent columns connect matters.
+> At each index we pick from $\textit{nums1}$ or $\textit{nums2}$ and want the longest non-decreasing contiguous run. The choice sequence is exponential, but the run is contiguous, so only how adjacent columns connect matters.
 >
-> Let $f$ and $g$ be the longest lengths ending at this column in $nums1$ and $nums2$, transferred from the previous column’s two choices when the values are non-decreasing. Roll the pair and keep a global maximum.
+> Let $f$ and $g$ be the longest lengths ending at this column in $\textit{nums1}$ and $\textit{nums2}$, transferred from the previous column’s two choices when the values are non-decreasing. Roll the pair and keep a global maximum.
 
 <!-- thinking:end -->
 
-We define two variables $f$ and $g$, which represent the length of the longest non-decreasing subarray at the current position. Here, $f$ represents the length of the longest non-decreasing subarray ending with an element from $nums1$, and $g$ represents the length of the longest non-decreasing subarray ending with an element from $nums2$. Initially, $f = g = 1$, and the initial answer $ans = 1$.
+We define two variables $f$ and $g$, which represent the length of the longest non-decreasing subarray at the current position. Here, $f$ represents the length of the longest non-decreasing subarray ending with an element from $\textit{nums1}$, and $g$ represents the length of the longest non-decreasing subarray ending with an element from $\textit{nums2}$. Initially, $f = g = 1$, and the initial answer $\textit{ans} = 1$.
 
-Next, we iterate over the array elements in the range $i \in [1, n)$, and for each $i$, we define two variables $ff$ and $gg$, which represent the length of the longest non-decreasing subarray ending with $nums1[i]$ and $nums2[i]$ respectively. When initialized, $ff = gg = 1$.
+Next, we iterate over the array elements in the range $i \in [1, n)$, and for each $i$, we define two variables $ff$ and $gg$, which represent the length of the longest non-decreasing subarray ending with $\textit{nums1}[i]$ and $\textit{nums2}[i]$ respectively. When initialized, $ff = gg = 1$.
 
 We can calculate the values of $ff$ and $gg$ based on the values of $f$ and $g$:
 
-- If $nums1[i] \ge nums1[i - 1]$, then $ff = \max(ff, f + 1)$;
-- If $nums1[i] \ge nums2[i - 1]$, then $ff = \max(ff, g + 1)$;
-- If $nums2[i] \ge nums1[i - 1]$, then $gg = \max(gg, f + 1)$;
-- If $nums2[i] \ge nums2[i - 1]$, then $gg = \max(gg, g + 1)$.
+- If $\textit{nums1}[i] \ge \textit{nums1}[i - 1]$, then $ff = \max(ff, f + 1)$;
+- If $\textit{nums1}[i] \ge \textit{nums2}[i - 1]$, then $ff = \max(ff, g + 1)$;
+- If $\textit{nums2}[i] \ge \textit{nums1}[i - 1]$, then $gg = \max(gg, f + 1)$;
+- If $\textit{nums2}[i] \ge \textit{nums2}[i - 1]$, then $gg = \max(gg, g + 1)$.
 
-Then, we update $f = ff$ and $g = gg$, and update $ans$ to $\max(ans, f, g)$.
+Then, we update $f = ff$ and $g = gg$, and update $\textit{ans}$ to $\max(\textit{ans}, f, g)$.
 
-After the iteration ends, we return $ans$.
+After the iteration ends, we return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

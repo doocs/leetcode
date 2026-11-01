@@ -108,7 +108,7 @@ Ads table:
 >
 > 需要找出播放过程中从未被同一用户广告命中的会话。若在应用层对每个会话扫描全部广告，两表规模较大时代价过高。
 >
-> 用子查询把「同一 $customer\_id$ 且广告时间落在 $[start\_time,end\_time]$」的会话求出来，外层再选出不在该集合中的 $session\_id$。连接条件同时约束用户与时间，即可一次排除所有被插播的会话。
+> 用子查询把「同一 $\textit{customer\_id}$ 且广告时间落在 $[\textit{start\_time},\textit{end\_time}]$」的会话求出来，外层再选出不在该集合中的 $\textit{session\_id}$。连接条件同时约束用户与时间，即可一次排除所有被插播的会话。
 
 <!-- thinking:end -->
 

@@ -80,11 +80,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个变量 $\textit{pre}$ 记录上一个位的数字，初始时 $\textit{pre} = 0$，用另一个变量 $\textit{vis}$ 记录是否已经找到一对连续置位，初始时 $\textit{vis} = \text{false}$。
+我们用一个变量 $\textit{pre}$ 记录上一个位的数字，初始时 $\textit{pre} = 0$，用另一个变量 $\textit{vis}$ 记录是否已经找到一对连续置位，初始时 $\textit{vis} = \textit{false}$。
 
-遍历 $n$ 的每个二进制位，记当前二进制位为 $\textit{cur}$。如果 $\textit{pre} = \textit{cur} = 1$，此时如果 $\textit{vis} = \text{true}$，说明存在多对连续置位，直接返回 $\text{false}$，否则我们将 $\textit{vis}$ 置为 $\text{true}$。然后我们更新 $\textit{pre} = \textit{cur}$，继续遍历下个二进制位。
+遍历 $n$ 的每个二进制位，记当前二进制位为 $\textit{cur}$。如果 $\textit{pre} = \textit{cur} = 1$，此时如果 $\textit{vis} = \textit{true}$，说明存在多对连续置位，直接返回 $\textit{false}$，否则我们将 $\textit{vis}$ 置为 $\textit{true}$。然后我们更新 $\textit{pre} = \textit{cur}$，继续遍历下个二进制位。
 
-遍历结束后，如果 $\textit{vis} = \text{true}$，返回 $\text{true}$，否则返回 $\text{false}$。
+遍历结束后，如果 $\textit{vis} = \textit{true}$，返回 $\textit{true}$，否则返回 $\textit{false}$。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 

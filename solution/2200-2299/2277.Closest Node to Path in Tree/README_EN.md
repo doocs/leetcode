@@ -85,7 +85,7 @@ Since 0 is the only node on the path, the answer to the first query is 0.</pre>
 
 > **Thinking**
 >
-> Each query asks for the closest vertex on the path $start\to end$ to a given $node$. $n$ and the query count are $10^3$, so a BFS per query would pass, but paths would be rebuilt often. On a tree the closest point is the deepest among $\mathrm{LCA}(start,end)$, $\mathrm{LCA}(start,node)$ and $\mathrm{LCA}(end,node)$.
+> Each query asks for the closest vertex on the path $\textit{start}\to \textit{end}$ to a given $\textit{node}$. $n$ and the query count are $10^3$, so a BFS per query would pass, but paths would be rebuilt often. On a tree the closest point is the deepest among $\textit{LCA}(\textit{start},\textit{end})$, $\textit{LCA}(\textit{start},\textit{node})$ and $\textit{LCA}(\textit{end},\textit{node})$.
 >
 > After binary lifting, each query computes those three LCAs. The tabs have no implementation; lifting or a BFS per query both fit.
 

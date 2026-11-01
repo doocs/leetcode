@@ -108,9 +108,9 @@ OrdersDetails 表：
 
 > **思考**
 >
-> 要找出「最大单行数量」严格大于「任意订单平均数量的最大值」的订单。平均与最大都需按 $order\_id$ 聚合，再做跨订单比较。
+> 要找出「最大单行数量」严格大于「任意订单平均数量的最大值」的订单。平均与最大都需按 $\textit{order\_id}$ 聚合，再做跨订单比较。
 >
-> 先按订单求出 $MAX(quantity)$ 与 $SUM/COUNT$，再用子查询取全部平均的最大值作为阈值。外层筛选最大数量超过该阈值的 $order\_id$。
+> 先按订单求出 $\textit{MAX}(\textit{quantity})$ 与 $\textit{SUM}/\textit{COUNT}$，再用子查询取全部平均的最大值作为阈值。外层筛选最大数量超过该阈值的 $\textit{order\_id}$。
 
 <!-- thinking:end -->
 

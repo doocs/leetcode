@@ -80,16 +80,16 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 
 Based on the problem description, we can draw the following conclusions:
 
-1. Moving from position $i$ to position $j$, if $nums[i]$ and $nums[j]$ have different parities, then $x$ points will be lost;
-2. Moving from position $i$ to position $j$, if $nums[i]$ and $nums[j]$ have the same parity, then no points will be lost.
+1. Moving from position $i$ to position $j$, if $\textit{nums}[i]$ and $\textit{nums}[j]$ have different parities, then $x$ points will be lost;
+2. Moving from position $i$ to position $j$, if $\textit{nums}[i]$ and $\textit{nums}[j]$ have the same parity, then no points will be lost.
 
-Therefore, we can use an array $f$ of length $2$ to represent the maximum score when the current position's parity is $0$ and $1$. Initially, the values of $f$ are $-\infty$, and then we initialize $f[nums[0] \& 1] = nums[0]$, indicating the score at the initial position.
+Therefore, we can use an array $f$ of length $2$ to represent the maximum score when the current position's parity is $0$ and $1$. Initially, the values of $f$ are $-\infty$, and then we initialize $f[\textit{nums}[0] \& 1] = \textit{nums}[0]$, indicating the score at the initial position.
 
-Next, we start traversing the array $nums$ from position $1$. For each position $i$ corresponding to the value $v$, we update the value of $f[v \& 1]$ to be the larger value between $f[v \& 1]$ and $f[v \& 1 \oplus 1] - x$ plus $v$, i.e., $f[v \& 1] = \max(f[v \& 1], f[v \& 1 \oplus 1] - x) + v$.
+Next, we start traversing the array $\textit{nums}$ from position $1$. For each position $i$ corresponding to the value $v$, we update the value of $f[v \& 1]$ to be the larger value between $f[v \& 1]$ and $f[v \& 1 \oplus 1] - x$ plus $v$, i.e., $f[v \& 1] = \max(f[v \& 1], f[v \& 1 \oplus 1] - x) + v$.
 
 The answer is the larger value between $f[0]$ and $f[1]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

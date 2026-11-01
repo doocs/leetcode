@@ -67,7 +67,7 @@ arr = [6]
 >
 > Delete every other number, alternating left-to-right and right-to-left. A list simulation is $O(n)$ for $n\le 10^9$. Each round halves the count; head, tail, and step have a closed update.
 >
-> Keep the current first $a1$, last $an$, step, and count. A left-to-right pass always moves the head; a right-to-left pass moves it when the count is odd. The tail is symmetric. When one remains, return $a1$.
+> Keep the current first $\textit{a1}$, last $an$, step, and count. A left-to-right pass always moves the head; a right-to-left pass moves it when the count is odd. The tail is symmetric. When one remains, return $\textit{a1}$.
 
 <!-- thinking:end -->
 

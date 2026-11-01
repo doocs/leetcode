@@ -86,13 +86,13 @@ The third house of cards uses 2 cards.
 
 We notice that the number of cards in each layer is $3 \times k + 2$, and the number of cards in each layer is different. Therefore, the problem can be transformed into: how many ways can the integer $n$ be expressed as the sum of numbers of the form $3 \times k + 2$. This is a classic knapsack problem that can be solved using memoization search.
 
-We design a function $\text{dfs}(n, k)$, which represents the number of ways to build different houses of cards when the remaining number of cards is $n$ and the current layer is $k$. The answer is $\text{dfs}(n, 0)$.
+We design a function $\textit{dfs}(n, k)$, which represents the number of ways to build different houses of cards when the remaining number of cards is $n$ and the current layer is $k$. The answer is $\textit{dfs}(n, 0)$.
 
-The execution logic of the function $\text{dfs}(n, k)$ is as follows:
+The execution logic of the function $\textit{dfs}(n, k)$ is as follows:
 
 - If $3 \times k + 2 \gt n$, then the current layer cannot place any cards, return $0$;
 - If $3 \times k + 2 = n$, then the current layer can place cards, and after placing them, the entire house of cards is completed, return $1$;
-- Otherwise, we can choose not to place cards or to place cards. If we choose not to place cards, the remaining number of cards does not change, and the number of layers increases by $1$, i.e., $\text{dfs}(n, k + 1)$. If we choose to place cards, the remaining number of cards decreases by $3 \times k + 2$, and the number of layers increases by $1$, i.e., $\text{dfs}(n - (3 \times k + 2), k + 1)$. The sum of these two cases is the answer.
+- Otherwise, we can choose not to place cards or to place cards. If we choose not to place cards, the remaining number of cards does not change, and the number of layers increases by $1$, i.e., $\textit{dfs}(n, k + 1)$. If we choose to place cards, the remaining number of cards decreases by $3 \times k + 2$, and the number of layers increases by $1$, i.e., $\textit{dfs}(n - (3 \times k + 2), k + 1)$. The sum of these two cases is the answer.
 
 During the process, we can use memoization to avoid repeated calculations.
 

@@ -80,9 +80,9 @@ tags:
 
 Treat all initially pushed dominoes (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
 
-We define $\text{time[i]}$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\text{force[i]}$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.
+We define $\textit{time}[i]$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\textit{force}[i]$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.
 
-When dequeuing index _i_, if $\text{force[i]}$ contains only one direction, the domino will fall in that direction $f$. Let the index of the next domino be:
+When dequeuing index _i_, if $\textit{force}[i]$ contains only one direction, the domino will fall in that direction $f$. Let the index of the next domino be:
 
 $$
 j =
@@ -94,10 +94,10 @@ $$
 
 If $0 \leq j < n$:
 
-- If $\text{time[j]} = -1$, it means _j_ has not been affected yet. Record $\text{time[j]} = \text{time[i]} + 1$, enqueue it, and append $f$ to $\text{force[j]}$.
-- If $\text{time[j]} = \text{time[i]} + 1$, it means _j_ has already been affected by another force at the same "next moment." In this case, append $f$ to $\text{force[j]}$, causing a standoff. Subsequently, since $\text{len(force[j])} = 2$, it will remain upright.
+- If $\textit{time}[j] = -1$, it means _j_ has not been affected yet. Record $\textit{time}[j] = \textit{time}[i] + 1$, enqueue it, and append $f$ to $\textit{force}[j]$.
+- If $\textit{time}[j] = \textit{time}[i] + 1$, it means _j_ has already been affected by another force at the same "next moment." In this case, append $f$ to $\textit{force}[j]$, causing a standoff. Subsequently, since $\textit{len}(\textit{force}[j]) = 2$, it will remain upright.
 
-After the queue is emptied, all positions where $\text{force[i]}$ has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
+After the queue is emptied, all positions where $\textit{force}[i]$ has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of dominoes.
 

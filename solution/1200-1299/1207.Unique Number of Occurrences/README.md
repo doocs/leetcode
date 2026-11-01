@@ -68,9 +68,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用哈希表 $cnt$ 统计数组 $arr$ 中每个数的出现次数，然后用哈希表 $vis$ 统计出现次数的种类，最后判断 $cnt$ 和 $vis$ 的大小是否相等即可。
+我们用哈希表 $\textit{cnt}$ 统计数组 $\textit{arr}$ 中每个数的出现次数，然后用哈希表 $\textit{vis}$ 统计出现次数的种类，最后判断 $\textit{cnt}$ 和 $\textit{vis}$ 的大小是否相等即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

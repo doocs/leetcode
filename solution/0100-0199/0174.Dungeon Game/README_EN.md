@@ -74,7 +74,7 @@ tags:
 We define $dp[i][j]$ as the minimum initial value needed from $(i, j)$ to the end point. The value of $dp[i][j]$ can be obtained from $dp[i+1][j]$ and $dp[i][j+1]$, that is:
 
 $$
-dp[i][j] = \max(\min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j], 1)
+dp[i][j] = \max(\min(dp[i+1][j], dp[i][j+1]) - \textit{dungeon}[i][j], 1)
 $$
 
 Initially, $dp[m][n-1]$ and $dp[m-1][n]$ are both $1$, and the values at other positions are maximum.

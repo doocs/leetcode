@@ -83,19 +83,19 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 <!-- thinking:end -->
 
-First, we sort the events by their start time in ascending order. Then, we define a function $\text{dfs}(i, k)$, which represents the maximum total value achievable by attending at most $k$ events starting from the $i$-th event. The answer is $\text{dfs}(0, k)$.
+First, we sort the events by their start time in ascending order. Then, we define a function $\textit{dfs}(i, k)$, which represents the maximum total value achievable by attending at most $k$ events starting from the $i$-th event. The answer is $\textit{dfs}(0, k)$.
 
-The calculation process of the function $\text{dfs}(i, k)$ is as follows:
+The calculation process of the function $\textit{dfs}(i, k)$ is as follows:
 
-If we do not attend the $i$-th event, the maximum value is $\text{dfs}(i + 1, k)$. If we attend the $i$-th event, we can use binary search to find the first event whose start time is greater than the end time of the $i$-th event, denoted as $j$. Then, the maximum value is $\text{dfs}(j, k - 1) + \text{value}[i]$. We take the maximum of the two options:
+If we do not attend the $i$-th event, the maximum value is $\textit{dfs}(i + 1, k)$. If we attend the $i$-th event, we can use binary search to find the first event whose start time is greater than the end time of the $i$-th event, denoted as $j$. Then, the maximum value is $\textit{dfs}(j, k - 1) + \textit{value}[i]$. We take the maximum of the two options:
 
 $$
-\text{dfs}(i, k) = \max(\text{dfs}(i + 1, k), \text{dfs}(j, k - 1) + \text{value}[i])
+\textit{dfs}(i, k) = \max(\textit{dfs}(i + 1, k), \textit{dfs}(j, k - 1) + \textit{value}[i])
 $$
 
 Here, $j$ is the index of the first event whose start time is greater than the end time of the $i$-th event, which can be found using binary search.
 
-Since the calculation of $\text{dfs}(i, k)$ involves calls to $\text{dfs}(i + 1, k)$ and $\text{dfs}(j, k - 1)$, we can use memoization to store the computed values and avoid redundant calculations.
+Since the calculation of $\textit{dfs}(i, k)$ involves calls to $\textit{dfs}(i + 1, k)$ and $\textit{dfs}(j, k - 1)$, we can use memoization to store the computed values and avoid redundant calculations.
 
 The time complexity is $O(n \log n + nk)$, and the space complexity is $O(nk)$, where $n$ is the number of events.
 
@@ -325,10 +325,10 @@ Solution 1 sorts by start and fills a suffix table. Here we sort by end and defi
 
 First, sort the events, this time by end time in ascending order. Then define $f[i][j]$ as the maximum total value by attending at most $j$ events among the first $i$ events. The answer is $f[n][k]$.
 
-For the $i$-th event, we can choose to attend it or not. If we do not attend, the maximum value is $f[i][j]$. If we attend, we can use binary search to find the last event whose end time is less than the start time of the $i$-th event, denoted as $h$. Then the maximum value is $f[h + 1][j - 1] + \text{value}[i]$. We take the maximum of the two options:
+For the $i$-th event, we can choose to attend it or not. If we do not attend, the maximum value is $f[i][j]$. If we attend, we can use binary search to find the last event whose end time is less than the start time of the $i$-th event, denoted as $h$. Then the maximum value is $f[h + 1][j - 1] + \textit{value}[i]$. We take the maximum of the two options:
 
 $$
-f[i + 1][j] = \max(f[i][j], f[h + 1][j - 1] + \text{value}[i])
+f[i + 1][j] = \max(f[i][j], f[h + 1][j - 1] + \textit{value}[i])
 $$
 
 Here, $h$ is the last event whose end time is less than the start time of the $i$-th event, which can be found by binary search.
@@ -524,10 +524,10 @@ fn search(events: &Vec<Vec<i32>>, x: i32, hi: usize) -> usize {
 
 First, we sort the events by their start time in ascending order. Let $f[i][c]$ be the maximum total value achievable by attending at most $c$ events starting from the $i$-th event. The answer is $f[0][k]$, and $f[n][c] = 0$.
 
-Fill $i$ from $n - 1$ down to $0$. If we do not attend the $i$-th event, the maximum value is $f[i + 1][c]$. If $c > 0$ and we attend it, binary search finds the first event $j$ whose start time is greater than the end time of the $i$-th event. The value is then $f[j][c - 1] + \text{value}[i]$. Take the larger of the two:
+Fill $i$ from $n - 1$ down to $0$. If we do not attend the $i$-th event, the maximum value is $f[i + 1][c]$. If $c > 0$ and we attend it, binary search finds the first event $j$ whose start time is greater than the end time of the $i$-th event. The value is then $f[j][c - 1] + \textit{value}[i]$. Take the larger of the two:
 
 $$
-f[i][c] = \max(f[i + 1][c], f[j][c - 1] + \text{value}[i])
+f[i][c] = \max(f[i + 1][c], f[j][c - 1] + \textit{value}[i])
 $$
 
 Here, $j$ is the index of the first event whose start time is greater than the end time of the $i$-th event. Because $j > i$, $f[j]$ is already filled.

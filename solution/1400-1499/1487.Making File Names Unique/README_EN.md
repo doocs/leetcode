@@ -79,23 +79,23 @@ tags:
 
 > **Thinking**
 >
-> $n\le 5\times 10^4$. Assign names in order without clashes. A map stores the next suffix $k$ to try; on a collision, probe $name(k),name(k+1),\ldots$ until free, then bump $k$.
+> $n\le 5\times 10^4$. Assign names in order without clashes. A map stores the next suffix $k$ to try; on a collision, probe $\textit{name}(k),\textit{name}(k+1),\ldots$ until free, then bump $k$.
 
 <!-- thinking:end -->
 
-We can use a hash table $d$ to record the minimum available index for each folder name, where $d[name] = k$ means the minimum available index for the folder $name$ is $k$. Initially, $d$ is empty since there are no folders.
+We can use a hash table $d$ to record the minimum available index for each folder name, where $d[\textit{name}] = k$ means the minimum available index for the folder $\textit{name}$ is $k$. Initially, $d$ is empty since there are no folders.
 
-Next, we iterate through the folder names array. For each file name $name$:
+Next, we iterate through the folder names array. For each file name $\textit{name}$:
 
-- If $name$ is already in $d$, it means the folder $name$ already exists, and we need to find a new folder name. We can keep trying $name(k)$, where $k$ starts from $d[name]$, until we find a folder name $name(k)$ that does not exist in $d$. We add $name(k)$ to $d$, update $d[name]$ to $k + 1$, and then update $name$ to $name(k)$.
-- If $name$ is not in $d$, we can directly add $name$ to $d$ and set $d[name]$ to $1$.
-- Then, we add $name$ to the answer array and continue to the next file name.
+- If $\textit{name}$ is already in $d$, it means the folder $\textit{name}$ already exists, and we need to find a new folder name. We can keep trying $\textit{name}(k)$, where $k$ starts from $d[\textit{name}]$, until we find a folder name $\textit{name}(k)$ that does not exist in $d$. We add $\textit{name}(k)$ to $d$, update $d[\textit{name}]$ to $k + 1$, and then update $\textit{name}$ to $\textit{name}(k)$.
+- If $\textit{name}$ is not in $d$, we can directly add $\textit{name}$ to $d$ and set $d[\textit{name}]$ to $1$.
+- Then, we add $\textit{name}$ to the answer array and continue to the next file name.
 
 After traversing all file names, we obtain the answer array.
 
-> In the code implementation below, we directly modify the $names$ array without using an extra answer array.
+> In the code implementation below, we directly modify the $\textit{names}$ array without using an extra answer array.
 
-The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all file names in the $names$ array.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all file names in the $\textit{names}$ array.
 
 <!-- tabs:start -->
 

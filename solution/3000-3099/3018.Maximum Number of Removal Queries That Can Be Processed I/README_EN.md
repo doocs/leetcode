@@ -109,13 +109,13 @@ We define $f[i][j]$ as the maximum number of queries we can handle when the numb
 
 Consider $f[i][j]$:
 
-- If $i > 0$, the value of $f[i][j]$ can be transferred from $f[i - 1][j]$. If $nums[i - 1] \ge queries[f[i - 1][j]]$, we can choose to delete $nums[i - 1]$. Therefore, we have $f[i][j] = f[i - 1][j] + (nums[i - 1] \ge queries[f[i - 1][j]])$.
-- If $j + 1 < n$, the value of $f[i][j]$ can be transferred from $f[i][j + 1]$. If $nums[j + 1] \ge queries[f[i][j + 1]]$, we can choose to delete $nums[j + 1]$. Therefore, we have $f[i][j] = f[i][j + 1] + (nums[j + 1] \ge queries[f[i][j + 1]])$.
+- If $i > 0$, the value of $f[i][j]$ can be transferred from $f[i - 1][j]$. If $\textit{nums}[i - 1] \ge \textit{queries}[f[i - 1][j]]$, we can choose to delete $\textit{nums}[i - 1]$. Therefore, we have $f[i][j] = f[i - 1][j] + (\textit{nums}[i - 1] \ge \textit{queries}[f[i - 1][j]])$.
+- If $j + 1 < n$, the value of $f[i][j]$ can be transferred from $f[i][j + 1]$. If $\textit{nums}[j + 1] \ge \textit{queries}[f[i][j + 1]]$, we can choose to delete $\textit{nums}[j + 1]$. Therefore, we have $f[i][j] = f[i][j + 1] + (\textit{nums}[j + 1] \ge \textit{queries}[f[i][j + 1]])$.
 - If $f[i][j] = m$, we can directly return $m$.
 
-The final answer is $\max\limits_{0 \le i < n} f[i][i] + (nums[i] \ge queries[f[i][i]])$.
+The final answer is $\max\limits_{0 \le i < n} f[i][i] + (\textit{nums}[i] \ge \textit{queries}[f[i][i]])$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

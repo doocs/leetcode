@@ -70,21 +70,21 @@ tags:
 
 > **Thinking**
 >
-> We may only drop endpoints so the removed sum equals $x$ in as few moves as possible — equivalently, keep the longest subarray whose sum is $\sum nums-x$. $n$ is $10^5$, so that subarray must be found in linear time.
+> We may only drop endpoints so the removed sum equals $x$ in as few moves as possible — equivalently, keep the longest subarray whose sum is $\sum \textit{nums}-x$. $n$ is $10^5$, so that subarray must be found in linear time.
 >
 > A prefix-sum map stores the first index of each sum; when $t-s$ has been seen, update the longest length. The answer is $n$ minus that length.
 
 <!-- thinking:end -->
 
-According to the problem description, we need to remove elements from both ends of the array $nums$ so that the sum of the removed elements equals $x$, and the number of removed elements is minimized. We can transform the problem into: find the longest consecutive subarray in the array $nums$ such that the sum of the subarray $s = \sum_{i=0}^{n} nums[i] - x$. In this way, we can transform the problem into finding the length $mx$ of the longest consecutive subarray in the array $nums$ with a sum of $s$, and the answer is $n - mx$.
+According to the problem description, we need to remove elements from both ends of the array $\textit{nums}$ so that the sum of the removed elements equals $x$, and the number of removed elements is minimized. We can transform the problem into: find the longest consecutive subarray in the array $\textit{nums}$ such that the sum of the subarray $s = \sum_{i=0}^{n} \textit{nums}[i] - x$. In this way, we can transform the problem into finding the length $mx$ of the longest consecutive subarray in the array $\textit{nums}$ with a sum of $s$, and the answer is $n - mx$.
 
-We initialize $mx = -1$, and then use a hash table $vis$ to store the prefix sum, where the key is the prefix sum and the value is the index corresponding to the prefix sum.
+We initialize $mx = -1$, and then use a hash table $\textit{vis}$ to store the prefix sum, where the key is the prefix sum and the value is the index corresponding to the prefix sum.
 
-Traverse the array $nums$, for the current element $nums[i]$, calculate the prefix sum $t$, if $t$ is not in the hash table, add $t$ to the hash table; if $t - s$ is in the hash table, update $mx = \max(mx, i - vis[t - s])$.
+Traverse the array $\textit{nums}$, for the current element $\textit{nums}[i]$, calculate the prefix sum $t$, if $t$ is not in the hash table, add $t$ to the hash table; if $t - s$ is in the hash table, update $mx = \max(mx, i - \textit{vis}[t - s])$.
 
 Finally, if $mx = -1$, return $-1$, otherwise return $n - mx$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -247,15 +247,15 @@ impl Solution {
 
 <!-- thinking:end -->
 
-Based on the analysis of Solution 1, we need to find the length $mx$ of the longest consecutive subarray in the array $nums$ with a sum of $s$. Since all elements in the array $nums$ are positive integers, the prefix sum of the array will only increase monotonically, so we can use two pointers to solve this problem.
+Based on the analysis of Solution 1, we need to find the length $mx$ of the longest consecutive subarray in the array $\textit{nums}$ with a sum of $s$. Since all elements in the array $\textit{nums}$ are positive integers, the prefix sum of the array will only increase monotonically, so we can use two pointers to solve this problem.
 
 We initialize pointer $j = 0$, prefix sum $t = 0$, and the length of the longest consecutive subarray $mx = -1$.
 
-Traverse the array $nums$, for the current element $nums[i]$, calculate the prefix sum $t += nums[i]$. If $t > s$, then move the pointer $j$ until $t \leq s$. If $t = s$, then update $mx = \max(mx, i - j + 1)$.
+Traverse the array $\textit{nums}$, for the current element $\textit{nums}[i]$, calculate the prefix sum $t += \textit{nums}[i]$. If $t > s$, then move the pointer $j$ until $t \leq s$. If $t = s$, then update $mx = \max(mx, i - j + 1)$.
 
 Finally, if $mx = -1$, return $-1$, otherwise return $n - mx$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

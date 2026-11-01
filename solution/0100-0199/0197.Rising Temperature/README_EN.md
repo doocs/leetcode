@@ -119,7 +119,7 @@ JOIN Weather AS w2
 
 > **Thinking**
 >
-> Solution 1 uses a date-difference function. Joining on $\textit{SUBDATE}(w1.\textit{recordDate},1)=w2.\textit{recordDate}$ lines up “yesterday” as an equality, which some planners handle more easily.
+> Solution 1 uses a date-difference function. Joining on $\textit{SUBDATE}(\textit{w1}.\textit{recordDate},1)=\textit{w2}.\textit{recordDate}$ lines up “yesterday” as an equality, which some planners handle more easily.
 
 <!-- thinking:end -->
 

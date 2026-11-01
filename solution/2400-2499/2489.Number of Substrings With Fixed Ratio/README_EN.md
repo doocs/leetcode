@@ -78,25 +78,25 @@ It can be shown that there are no more ratio substrings.
 
 > **Thinking**
 >
-> A substring has $0$/$1$ ratio $num1:num2$ iff $n_1\cdot num1-n_0\cdot num2$ matches at both ends. Equal prefix values of that form give a pair.
+> A substring has $0$/$1$ ratio $\textit{num1}:\textit{num2}$ iff $n_1\cdot \textit{num1}-n_0\cdot \textit{num2}$ matches at both ends. Equal prefix values of that form give a pair.
 >
 > Count those prefix values, starting from $(0,1)$ for the empty prefix. Add then increment at each index.
 
 <!-- thinking:end -->
 
-We use $one[i]$ to represent the number of $1$s in the substring $s[0,..i]$, and $zero[i]$ to represent the number of $0$s in the substring $s[0,..i]$. A substring meets the condition if
+We use $\textit{one}[i]$ to represent the number of $1$s in the substring $s[0,..i]$, and $\textit{zero}[i]$ to represent the number of $0$s in the substring $s[0,..i]$. A substring meets the condition if
 
 $$
-\frac{zero[j] - zero[i]}{one[j] - one[i]} = \frac{num1}{num2}
+\frac{\textit{zero}[j] - \textit{zero}[i]}{\textit{one}[j] - \textit{one}[i]} = \frac{\textit{num1}}{\textit{num2}}
 $$
 
 where $i < j$. We can transform the above equation into
 
 $$
-one[j] \times num1 - zero[j] \times num2 = one[i] \times num1 - zero[i] \times num2
+\textit{one}[j] \times \textit{num1} - \textit{zero}[j] \times \textit{num2} = \textit{one}[i] \times \textit{num1} - \textit{zero}[i] \times \textit{num2}
 $$
 
-When we iterate to index $j$, we only need to count how many indices $i$ satisfy the above equation. Therefore, we can use a hash table to record the number of occurrences of $one[i] \times num1 - zero[i] \times num2$, and when we iterate to index $j$, we only need to count the number of occurrences of $one[j] \times num1 - zero[j] \times num2$.
+When we iterate to index $j$, we only need to count how many indices $i$ satisfy the above equation. Therefore, we can use a hash table to record the number of occurrences of $\textit{one}[i] \times \textit{num1} - \textit{zero}[i] \times \textit{num2}$, and when we iterate to index $j$, we only need to count the number of occurrences of $\textit{one}[j] \times \textit{num1} - \textit{zero}[j] \times \textit{num2}$.
 
 The hash table initially only has one key-value pair $(0, 1)$.
 

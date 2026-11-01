@@ -106,7 +106,7 @@ Consider how to transition the state for $f[i][j][k]$. We can enumerate the $i$-
 - If $k \gt 0$ and $x \geq d$, then we can use operation 2. In this case, $f[i][j][k] = \min(f[i][j][k], f[i-1][j][k-1] + (x - d))$;
 - If $j \gt 0$ and $k \gt 0$, then we can use both operation 1 and operation 2. If we use operation 1 first, then $x$ becomes $\lceil \frac{x+1}{2} \rceil$. If $x \geq d$, then we can use operation 2. In this case, $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x+1}{2} \rceil - d)$. If we use operation 2 first, then $x$ becomes $x - d$. If $x \geq d$, then we can use operation 1. In this case, $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x-d+1}{2} \rceil)$.
 
-The final answer is $\min_{j=0}^{op1} \min_{k=0}^{op2} f[n][j][k]$. If it is $+\infty$, then output $-1$.
+The final answer is $\min_{j=0}^{\textit{op1}} \min_{k=0}^{\textit{op2}} f[n][j][k]$. If it is $+\infty$, then output $-1$.
 
 The time complexity is $O(n \textit{op1} \textit{op2})$, and the space complexity is $O(n \textit{op1} \textit{op2})$, where $n$ is the length of the array $\textit{nums}$.
 

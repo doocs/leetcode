@@ -86,9 +86,9 @@ For product 3, the price is 1000 in Shop and 1900 in Souq. It is not sold in the
 
 > **Thinking**
 >
-> Store names are not known in advance; we must pivot $(\textit{product\_id}, \textit{store}, \textit{price})$ into one column per store. Hard-coded $\textit{CASE WHEN}$ cannot name unknown stores, so the column list must be built from the data.
+> Store names are not known in advance; we must pivot $(\textit{product\_id}, \textit{store}, \textit{price})$ into one column per store. Hard-coded $\textit{CASE} \textit{WHEN}$ cannot name unknown stores, so the column list must be built from the data.
 >
-> $\textit{GROUP\_CONCAT}$ emits $\textit{MAX}(\textit{CASE WHEN store}=\ldots)$ pieces, wrapped in $\textit{SELECT product\_id},\ldots\ \textit{GROUP BY product\_id}$, then prepared and executed. Raise $\textit{group\_concat\_max\_len}$ so names are not truncated.
+> $\textit{GROUP\_CONCAT}$ emits $\textit{MAX}(\textit{CASE WHEN store}=\ldots)$ pieces, wrapped in $\textit{SELECT} \textit{product\_id},\ldots\ \textit{GROUP} \textit{BY} \textit{product\_id}$, then prepared and executed. Raise $\textit{group\_concat\_max\_len}$ so names are not truncated.
 
 <!-- thinking:end -->
 

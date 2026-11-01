@@ -69,7 +69,7 @@ tags:
 
 > **Thinking**
 >
-> Decode nested $k[encoded]$ repeats. Recursion works; a stack can store the multiplier and the outer string together.
+> Decode nested $k[\textit{encoded}]$ repeats. Recursion works; a stack can store the multiplier and the outer string together.
 >
 > Digits build `num`; `[` pushes the count and the current result; `]` pops and concatenates the repeated segment; letters append. The stack expands inside-out.
 

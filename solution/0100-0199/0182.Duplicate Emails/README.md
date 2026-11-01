@@ -116,7 +116,7 @@ HAVING COUNT(1) > 1;
 
 > **思考**
 >
-> 方法一用聚合。自连接同一邮箱、不同 $\textit{id}$ 的两行，也能证明该邮箱至少出现两次，再去重。不依赖 $\textit{GROUP BY}$。
+> 方法一用聚合。自连接同一邮箱、不同 $id$ 的两行，也能证明该邮箱至少出现两次，再去重。不依赖 $\textit{GROUP} \textit{BY}$。
 
 <!-- thinking:end -->
 

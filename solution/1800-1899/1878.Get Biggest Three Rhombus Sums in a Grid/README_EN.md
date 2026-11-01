@@ -91,13 +91,13 @@ tags:
 
 We can preprocess to get two prefix sum arrays $s_1$ and $s_2$, where $s_1[i][j]$ represents the sum of the elements on the upper left diagonal ending at $(i, j)$, and $s_2[i][j]$ represents the sum of the elements on the upper right diagonal ending at $(i, j)$.
 
-Next, we enumerate each position $(i, j)$, first add $grid[i][j]$ to the ordered set $ss$, and then enumerate the length $k$ of the diamond. The sum of the diamond with $(i, j)$ as the center and a side length of $k$ is:
+Next, we enumerate each position $(i, j)$, first add $\textit{grid}[i][j]$ to the ordered set $ss$, and then enumerate the length $k$ of the diamond. The sum of the diamond with $(i, j)$ as the center and a side length of $k$ is:
 
 $$
 \begin{aligned}
 &\quad s_1[i + k][j] - s_1[i][j - k] + s_1[i][j + k] - s_1[i - k][j] \\
 &+ s_2[i][j - k] - s_2[i - k][j] + s_2[i + k][j] - s_2[i][j + k] \\
-&- grid[i + k - 1][j - 1] + grid[i - k - 1][j - 1]
+&- \textit{grid}[i + k - 1][j - 1] + \textit{grid}[i - k - 1][j - 1]
 \end{aligned}
 $$
 

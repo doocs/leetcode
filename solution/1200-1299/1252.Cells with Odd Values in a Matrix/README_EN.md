@@ -297,7 +297,7 @@ func oddCells(m int, n int, indices [][]int) int {
 
 > **Thinking**
 >
-> Solution 2 still visits every cell. $(i,j)$ is odd iff the row and column increments have opposite parity. With $cnt1$ odd rows and $cnt2$ odd columns, the odd count is $cnt1(n-cnt2)+cnt2(m-cnt1)$, in $O(k+m+n)$ time.
+> Solution 2 still visits every cell. $(i,j)$ is odd iff the row and column increments have opposite parity. With $\textit{cnt1}$ odd rows and $\textit{cnt2}$ odd columns, the odd count is $\textit{cnt1}(n-\textit{cnt2})+\textit{cnt2}(m-\textit{cnt1})$, in $O(k+m+n)$ time.
 
 <!-- thinking:end -->
 

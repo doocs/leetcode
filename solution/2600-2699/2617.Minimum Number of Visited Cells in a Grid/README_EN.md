@@ -88,19 +88,19 @@ tags:
 >
 > $(i,j)$ only needs the closest predecessor in its row that can still reach column $j$, or in its column that can still reach row $i$. A min-heap per row and per column, ordered by distance, pops heads that can no longer reach the current index.
 >
-> Fill $dist$ in row-major order and, when a cell is reachable, push it into its row heap and column heap.
+> Fill $\textit{dist}$ in row-major order and, when a cell is reachable, push it into its row heap and column heap.
 
 <!-- thinking:end -->
 
-Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $dist[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $dist[0][0]=1$ and $dist[i][j]=-1$ for all other $i$ and $j$.
+Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $\textit{dist}[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $\textit{dist}[0][0]=1$ and $\textit{dist}[i][j]=-1$ for all other $i$ and $j$.
 
-For each grid $(i, j)$, it can come from the grid above or the grid on the left. If it comes from the grid above $(i', j)$, where $0 \leq i' \lt i$, then $(i', j)$ must satisfy $grid[i'][j] + i' \geq i$. We need to select from these grids the one that is closest.
+For each grid $(i, j)$, it can come from the grid above or the grid on the left. If it comes from the grid above $(i', j)$, where $0 \leq i' \lt i$, then $(i', j)$ must satisfy $\textit{grid}[i'][j] + i' \geq i$. We need to select from these grids the one that is closest.
 
-Therefore, we maintain a priority queue (min-heap) for each column $j$. Each element of the priority queue is a pair $(dist[i][j], i)$, which represents that the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$ is $dist[i][j]$. When we consider the coordinate $(i, j)$, we only need to take out the head element $(dist[i'][j], i')$ of the priority queue. If $grid[i'][j] + i' \geq i$, we can move from the coordinate $(i', j)$ to the coordinate $(i, j)$. At this time, we can update the value of $dist[i][j]$, that is, $dist[i][j] = dist[i'][j] + 1$, and add $(dist[i][j], i)$ to the priority queue.
+Therefore, we maintain a priority queue (min-heap) for each column $j$. Each element of the priority queue is a pair $(\textit{dist}[i][j], i)$, which represents that the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$ is $\textit{dist}[i][j]$. When we consider the coordinate $(i, j)$, we only need to take out the head element $(\textit{dist}[i'][j], i')$ of the priority queue. If $\textit{grid}[i'][j] + i' \geq i$, we can move from the coordinate $(i', j)$ to the coordinate $(i, j)$. At this time, we can update the value of $\textit{dist}[i][j]$, that is, $\textit{dist}[i][j] = \textit{dist}[i'][j] + 1$, and add $(\textit{dist}[i][j], i)$ to the priority queue.
 
 Similarly, we can maintain a priority queue for each row $i$ and perform a similar operation.
 
-Finally, we can obtain the shortest distance from the coordinate $(0, 0)$ to the coordinate $(m - 1, n - 1)$, that is, $dist[m - 1][n - 1]$, which is the answer.
+Finally, we can obtain the shortest distance from the coordinate $(0, 0)$ to the coordinate $(m - 1, n - 1)$, that is, $\textit{dist}[m - 1][n - 1]$, which is the answer.
 
 The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 

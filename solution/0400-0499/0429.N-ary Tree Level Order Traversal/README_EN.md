@@ -75,9 +75,9 @@ When the queue is not empty, we loop through the following operations:
 
 1. Create an empty list $t$ to store the values of the current level nodes.
 2. For each node in the queue, add its value to $t$ and add its child nodes to the queue.
-3. Add $t$ to the result list $ans$.
+3. Add $t$ to the result list $\textit{ans}$.
 
-Finally, return the result list $ans$.
+Finally, return the result list $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 
@@ -290,15 +290,15 @@ function levelOrder(root: Node | null): number[][] {
 
 We can use the Depth-First Search method to traverse the entire tree.
 
-We define a helper function $dfs(root, i)$, where $root$ represents the current node, and $i$ represents the current level.
+We define a helper function $\textit{dfs}(\textit{root}, i)$, where $\textit{root}$ represents the current node, and $i$ represents the current level.
 
-In the $dfs$ function, we first check if $root$ is null. If it is, we return directly.
+In the $\textit{dfs}$ function, we first check if $\textit{root}$ is null. If it is, we return directly.
 
-Otherwise, we check if the length of $ans$ is less than or equal to $i$. If it is, it means that the current level has not been added to $ans$ yet, so we need to add an empty list first. Then we add the value of $root$ to $ans[i]$.
+Otherwise, we check if the length of $\textit{ans}$ is less than or equal to $i$. If it is, it means that the current level has not been added to $\textit{ans}$ yet, so we need to add an empty list first. Then we add the value of $\textit{root}$ to $\textit{ans}[i]$.
 
-Next, we traverse all child nodes of $root$. For each child node, we call $dfs(child, i + 1)$.
+Next, we traverse all child nodes of $\textit{root}$. For each child node, we call $\textit{dfs}(\textit{child}, i + 1)$.
 
-In the main function, we call $dfs(root, 0)$ and return $ans$.
+In the main function, we call $\textit{dfs}(\textit{root}, 0)$ and return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 

@@ -75,11 +75,11 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 >
 > Each split scores the smaller half and continues only on that half (or either half on a tie). There are $O(n^2)$ intervals and $O(n)$ cuts, which is acceptable for typical $n\le 500$, but naive recursion repeats intervals.
 >
-> Let $dfs(i,j)$ be Alice's best score on $[i,j]$, with prefix sums giving the two halves in $O(1)$. Recurse only on the smaller side. If $ans\ge 2l$ a left-smaller cut cannot improve; if $ans\ge 2r$ later right-smaller cuts can be abandoned. Memoization stores each interval once.
+> Let $\textit{dfs}(i,j)$ be Alice's best score on $[i,j]$, with prefix sums giving the two halves in $O(1)$. Recurse only on the smaller side. If $\textit{ans}\ge 2l$ a left-smaller cut cannot improve; if $\textit{ans}\ge 2r$ later right-smaller cuts can be abandoned. Memoization stores each interval once.
 
 <!-- thinking:end -->
 
-First, we preprocess the prefix sum array $\textit{s}$, where $\textit{s}[i]$ represents the sum of the first $i$ elements of the array $\textit{stoneValue}$.
+First, we preprocess the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array $\textit{stoneValue}$.
 
 Next, we design a function $\textit{dfs}(i, j)$, which represents the maximum score Alice can get from the stones in the subarray $\textit{stoneValue}$ within the index range $[i, j]$. The answer is $\textit{dfs}(0, n - 1)$.
 

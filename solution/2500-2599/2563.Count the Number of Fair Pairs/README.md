@@ -70,9 +70,9 @@ tags:
 
 > **思考**
 >
-> 统计满足 $\textit{lower}\le nums[i]+nums[j]\le \textit{upper}$ 的无序对。双重循环在 $n\le 10^5$ 时不可行。
+> 统计满足 $\textit{lower}\le \textit{nums}[i]+\textit{nums}[j]\le \textit{upper}$ 的无序对。双重循环在 $n\le 10^5$ 时不可行。
 >
-> 和只与取值有关，排序不改变答案。固定 $x=nums[i]$ 后，另一侧落在 $[\textit{lower}-x,\textit{upper}-x]$，两次下界之差即个数，下标从 $i+1$ 起以免重复。
+> 和只与取值有关，排序不改变答案。固定 $x=\textit{nums}[i]$ 后，另一侧落在 $[\textit{lower}-x,\textit{upper}-x]$，两次下界之差即个数，下标从 $i+1$ 起以免重复。
 
 <!-- thinking:end -->
 

@@ -78,20 +78,20 @@ tags:
 
 > **Thinking**
 >
-> A good array is $1..n-1$ once each plus two copies of $n$, where $n=|nums|-1$. Sorting and comparing with a constructed base array works, but frequencies suffice.
+> A good array is $1..n-1$ once each plus two copies of $n$, where $n=|\textit{nums}|-1$. Sorting and comparing with a constructed base array works, but frequencies suffice.
 >
 > After counting, $n$ must occur twice and every index in $1..n-1$ must occur at least once (the length then forces exactly once).
 
 <!-- thinking:end -->
 
-We can use a hash table or array $cnt$ to record the number of occurrences of each element in the array $nums$. Then we determine whether the following conditions are met:
+We can use a hash table or array $\textit{cnt}$ to record the number of occurrences of each element in the array $\textit{nums}$. Then we determine whether the following conditions are met:
 
-1. $cnt[n] = 2$, i.e., the largest element in the array appears twice;
-2. For $1 \leq i \leq n-1$, it holds that $cnt[i] = 1$, i.e., except for the largest element, all other elements appear only once.
+1. $\textit{cnt}[n] = 2$, i.e., the largest element in the array appears twice;
+2. For $1 \leq i \leq n-1$, it holds that $\textit{cnt}[i] = 1$, i.e., except for the largest element, all other elements appear only once.
 
-If the above two conditions are met, then the array $nums$ is a good array, otherwise it is not.
+If the above two conditions are met, then the array $\textit{nums}$ is a good array, otherwise it is not.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

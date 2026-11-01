@@ -70,11 +70,11 @@ For each node, we define three states:
 - `b`: The current node does not have a camera, but is monitored by its children
 - `c`: The current node does not have a camera and is not monitored by its children
 
-Next, we design a function $dfs(root)$, which will return an array of length 3, representing the minimum number of cameras in the subtree rooted at `root` for the three states. The answer is $\min(dfs(root)[0], dfs(root)[1])$.
+Next, we design a function $\textit{dfs}(\textit{root})$, which will return an array of length 3, representing the minimum number of cameras in the subtree rooted at `root` for the three states. The answer is $\min(\textit{dfs}(\textit{root})[0], \textit{dfs}(\textit{root})[1])$.
 
-The calculation process of the function $dfs(root)$ is as follows:
+The calculation process of the function $\textit{dfs}(\textit{root})$ is as follows:
 
-If `root` is null, return $[inf, 0, 0]$, where `inf` represents a very large number, used to indicate an impossible situation.
+If `root` is null, return $[\textit{inf}, 0, 0]$, where `inf` represents a very large number, used to indicate an impossible situation.
 
 Otherwise, we recursively calculate the left and right subtrees of `root`, obtaining $[la, lb, lc]$ and $[ra, rb, rc]$ respectively.
 
@@ -281,7 +281,7 @@ For each node, we define three states:
 - `b`: The current node does not have a camera, but is monitored by its children
 - `c`: The current node does not have a camera and is not monitored by its children
 
-A null node corresponds to $(inf, 0, 0)$, where $inf$ is a very large number used for an impossible situation.
+A null node corresponds to $(\textit{inf}, 0, 0)$, where $\textit{inf}$ is a very large number used for an impossible situation.
 
 We walk the binary tree in postorder with an explicit stack. On entry we push an exit marker, then the right child and the left child. On exit the children’s states are already stored as $[la, lb, lc]$ and $[ra, rb, rc]$.
 

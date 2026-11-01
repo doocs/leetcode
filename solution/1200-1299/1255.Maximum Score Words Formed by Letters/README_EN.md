@@ -84,7 +84,7 @@ Letter &quot;e&quot; can only be used once.</pre>
 
 > **Thinking**
 >
-> There are at most $14$ words, so $2^{14}$ subsets are enumerable. A subset is legal iff it does not exceed the stock in $letters$.
+> There are at most $14$ words, so $2^{14}$ subsets are enumerable. A subset is legal iff it does not exceed the stock in $\textit{letters}$.
 >
 > We count the letter bank, then for each nonempty mask concatenate the chosen words, check the counts, and score legal ones. The masks exhaust the choices; the count test enforces the bank.
 
@@ -92,13 +92,13 @@ Letter &quot;e&quot; can only be used once.</pre>
 
 Given the small data range in the problem, we can use binary enumeration to enumerate all word combinations for the given word list. Then, we check whether each word combination meets the requirements of the problem. If it does, we calculate its score and finally take the word combination with the highest score.
 
-First, we use a hash table or array $cnt$ to record the number of occurrences of each letter in the alphabet $letters$.
+First, we use a hash table or array $\textit{cnt}$ to record the number of occurrences of each letter in the alphabet $\textit{letters}$.
 
 Next, we use binary enumeration to enumerate all word combinations. Each bit in the binary represents whether each word in the word list is selected. If the $i$th bit is $1$, it means the $i$th word is selected; otherwise, the $i$th word is not selected.
 
-Then, we count the number of occurrences of each letter in the current word combination and record it in the hash table or array $cur$. If the number of occurrences of each letter in $cur$ is not greater than the corresponding letter in $cnt$, it means the current word combination meets the requirements of the problem. We calculate the score of the current word combination and take the word combination with the highest score.
+Then, we count the number of occurrences of each letter in the current word combination and record it in the hash table or array $\textit{cur}$. If the number of occurrences of each letter in $\textit{cur}$ is not greater than the corresponding letter in $\textit{cnt}$, it means the current word combination meets the requirements of the problem. We calculate the score of the current word combination and take the word combination with the highest score.
 
-The time complexity is $O(2^n nM)$, and the space complexity is $O(C)$, where $n$ and $M$ are the number of words in the word set and the maximum length of the word, respectively; and $C$ is the number of letters in the alphabet, in this problem, $C=26$.
+The time complexity is $O(2^n \textit{nM})$, and the space complexity is $O(C)$, where $n$ and $M$ are the number of words in the word set and the maximum length of the word, respectively; and $C$ is the number of letters in the alphabet, in this problem, $C=26$.
 
 <!-- tabs:start -->
 

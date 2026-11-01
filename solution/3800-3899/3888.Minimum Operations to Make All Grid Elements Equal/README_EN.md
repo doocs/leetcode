@@ -103,7 +103,7 @@ A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that forms by choosing all
 
 Since the operation can only increase the value of elements, all elements in the final grid must be equal to some target value $T$, and $T \ge \max(\textit{grid})$.
 
-Start traversing the grid from the top-left corner $(0, 0)$. For any position $(i, j)$, if its current value is less than $T$, since subsequent operations (with a more rightward or downward position as the top-left corner) cannot cover $(i, j)$, it is necessary to perform $T - \text{current\_val}$ operations at the current position, each using $(i, j)$ as the top-left corner of a $k \times k$ increment operation.
+Start traversing the grid from the top-left corner $(0, 0)$. For any position $(i, j)$, if its current value is less than $T$, since subsequent operations (with a more rightward or downward position as the top-left corner) cannot cover $(i, j)$, it is necessary to perform $T - \textit{current\_val}$ operations at the current position, each using $(i, j)$ as the top-left corner of a $k \times k$ increment operation.
 
 If each operation traverses the $k \times k$ region, the complexity will reach $O(mnk^2)$. We can use a 2D difference array $\textit{diff}$ to record the operations. By maintaining the 2D prefix sum of $\textit{diff}$ in real time, we can obtain the cumulative increment at the current position in $O(1)$ time, and update the future impact of a $k \times k$ region in $O(1)$ time.
 

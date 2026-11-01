@@ -93,9 +93,9 @@ tags:
 
 我们可以将数组 $\textit{nums1}$ 转换成一个数组 $\textit{arr}$，其中每个元素是一个二元组 $(x, i)$，表示 $\textit{nums1}[i]$ 的值为 $x$。然后对数组 $\textit{arr}$ 按照 $x$ 进行升序排序。
 
-我们使用一个小根堆 $\textit{pq}$ 来维护数组 $\textit{nums2}$ 中的元素，初始时 $\textit{pq}$ 为空。用一个变量 $\textit{s}$ 来记录 $\textit{pq}$ 中的元素之和。另外，我们用一个指针 $j$ 来维护当前需要添加到 $\textit{pq}$ 中的元素在数组 $\textit{arr}$ 中的位置。
+我们使用一个小根堆 $pq$ 来维护数组 $\textit{nums2}$ 中的元素，初始时 $pq$ 为空。用一个变量 $s$ 来记录 $pq$ 中的元素之和。另外，我们用一个指针 $j$ 来维护当前需要添加到 $pq$ 中的元素在数组 $\textit{arr}$ 中的位置。
 
-我们遍历数组 $\textit{arr}$，对于第 $h$ 个元素 $(x, i)$，我们将所有满足 $j < h$ 并且 $\textit{arr}[j][0] < x$ 的元素 $\textit{nums2}[\textit{arr}[j][1]]$ 添加到 $\textit{pq}$ 中，并将这些元素的和加到 $\textit{s}$ 中。如果 $\textit{pq}$ 的大小超过了 $k$，我们将 $\textit{pq}$ 中的最小元素弹出，并将其从 $\textit{s}$ 中减去。然后，我们更新 $\textit{ans}[i]$ 的值为 $\textit{s}$。
+我们遍历数组 $\textit{arr}$，对于第 $h$ 个元素 $(x, i)$，我们将所有满足 $j < h$ 并且 $\textit{arr}[j][0] < x$ 的元素 $\textit{nums2}[\textit{arr}[j][1]]$ 添加到 $pq$ 中，并将这些元素的和加到 $s$ 中。如果 $pq$ 的大小超过了 $k$，我们将 $pq$ 中的最小元素弹出，并将其从 $s$ 中减去。然后，我们更新 $\textit{ans}[i]$ 的值为 $s$。
 
 遍历结束后，返回答案数组 $\textit{ans}$。
 

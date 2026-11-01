@@ -84,24 +84,24 @@ tags:
 
 > **Thinking**
 >
-> Count walks from $start$ to $finish$ that spend at most $fuel$. Cities and fuel are modest, but a walk may revisit a city, so we cannot list simple paths.
+> Count walks from $\textit{start}$ to $\textit{finish}$ that spend at most $\textit{fuel}$. Cities and fuel are modest, but a walk may revisit a city, so we cannot list simple paths.
 >
-> A state is the current city $i$ and remaining fuel $k$. If $k$ cannot even reach the finish, the count is zero; otherwise add one when $i$ is already the finish, then recurse to every other city with the spent distance. Memoization keeps $O(n fuel)$ states.
+> A state is the current city $i$ and remaining fuel $k$. If $k$ cannot even reach the finish, the count is zero; otherwise add one when $i$ is already the finish, then recurse to every other city with the spent distance. Memoization keeps $O(n \textit{fuel})$ states.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, k)$, which represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $dfs(start, fuel)$.
+We design a function $\textit{dfs}(i, k)$, which represents the number of paths from city $i$ with $k$ remaining fuel to the destination $\textit{finish}$. So the answer is $\textit{dfs}(\textit{start}, \textit{fuel})$.
 
-The process of calculating the function $dfs(i, k)$ is as follows:
+The process of calculating the function $\textit{dfs}(i, k)$ is as follows:
 
-- If $k \lt |locations[i] - locations[finish]|$, then return $0$.
-- If $i = finish$, then the number of paths is $1$ at the beginning, otherwise it is $0$.
-- Then, we traverse all cities $j$. If $j \ne i$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |locations[i] - locations[j]|$. Then we can add the number of paths to the answer $dfs(j, k - |locations[i] - locations[j]|)$.
+- If $k \lt |\textit{locations}[i] - \textit{locations}[\textit{finish}]|$, then return $0$.
+- If $i = \textit{finish}$, then the number of paths is $1$ at the beginning, otherwise it is $0$.
+- Then, we traverse all cities $j$. If $j \ne i$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |\textit{locations}[i] - \textit{locations}[j]|$. Then we can add the number of paths to the answer $\textit{dfs}(j, k - |\textit{locations}[i] - \textit{locations}[j]|)$.
 - Finally, we return the number of paths to the answer.
 
 To avoid repeated calculations, we can use memoization.
 
-The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
+The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the size of the array $\textit{locations}$ and $\textit{fuel}$ respectively.
 
 <!-- tabs:start -->
 
@@ -280,13 +280,13 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 We can also convert the memoization of solution 1 into dynamic programming.
 
-We define $f[i][k]$ represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $f[start][fuel]$. Initially $f[finish][k]=1$, others are $0$.
+We define $f[i][k]$ represents the number of paths from city $i$ with $k$ remaining fuel to the destination $\textit{finish}$. So the answer is $f[\textit{start}][\textit{fuel}]$. Initially $f[\textit{finish}][k]=1$, others are $0$.
 
-Next, we enumerate the remaining fuel $k$ from small to large, and then enumerate all cities $i$. For each city $i$, we enumerate all cities $j$. If $j \ne i$, and $|locations[i] - locations[j]| \le k$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |locations[i] - locations[j]|$. Then we can add the number of paths to the answer $f[j][k - |locations[i] - locations[j]|]$.
+Next, we enumerate the remaining fuel $k$ from small to large, and then enumerate all cities $i$. For each city $i$, we enumerate all cities $j$. If $j \ne i$, and $|\textit{locations}[i] - \textit{locations}[j]| \le k$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |\textit{locations}[i] - \textit{locations}[j]|$. Then we can add the number of paths to the answer $f[j][k - |\textit{locations}[i] - \textit{locations}[j]|]$.
 
-Finally, we return the number of paths to the answer $f[start][fuel]$.
+Finally, we return the number of paths to the answer $f[\textit{start}][\textit{fuel}]$.
 
-The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
+The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the size of the array $\textit{locations}$ and $\textit{fuel}$ respectively.
 
 <!-- tabs:start -->
 

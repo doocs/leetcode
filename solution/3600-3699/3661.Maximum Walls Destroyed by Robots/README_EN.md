@@ -120,17 +120,17 @@ tags:
 
 We first store each robot with its range in an array and sort them by robot position. We also sort the wall positions. Next, we use depth-first search (DFS) to calculate the number of walls each robot can destroy, and use memoized search to avoid redundant calculations.
 
-We design a function $\text{dfs}(i, j)$, where $i$ represents the index of the current robot being considered, and $j$ represents the firing direction of the next robot (0 for left, 1 for right), and returns the number of walls that can be destroyed. The answer is $\text{dfs}(n - 1, 1)$, where $j$ can be 0 or 1 in the boundary state.
+We design a function $\textit{dfs}(i, j)$, where $i$ represents the index of the current robot being considered, and $j$ represents the firing direction of the next robot (0 for left, 1 for right), and returns the number of walls that can be destroyed. The answer is $\textit{dfs}(n - 1, 1)$, where $j$ can be 0 or 1 in the boundary state.
 
-The execution logic of function $\text{dfs}(i, j)$ is as follows:
+The execution logic of function $\textit{dfs}(i, j)$ is as follows:
 
 If $i \lt 0$, it means all robots have been considered, return 0.
 
 Otherwise, for the current robot, there are two firing directions to choose from.
 
-If choosing to fire **left**, we need to calculate the left range $[\text{left}, \text{robot}[i][0]]$, and use binary search to calculate the number of walls that can be destroyed in this range. In this case, a total of $\text{dfs}(i - 1, 0) + \text{count}$ walls can be destroyed, where $\text{count}$ is the number of walls destroyed when the current robot fires left.
+If choosing to fire **left**, we need to calculate the left range $[\textit{left}, \textit{robot}[i][0]]$, and use binary search to calculate the number of walls that can be destroyed in this range. In this case, a total of $\textit{dfs}(i - 1, 0) + \textit{count}$ walls can be destroyed, where $\textit{count}$ is the number of walls destroyed when the current robot fires left.
 
-If choosing to fire **right**, we need to calculate the right range $[\text{robot}[i][0], \text{right}]$, and use binary search to calculate the number of walls that can be destroyed in this range. In this case, a total of $\text{dfs}(i - 1, 1) + \text{count}$ walls can be destroyed, where $\text{count}$ is the number of walls destroyed when the current robot fires right.
+If choosing to fire **right**, we need to calculate the right range $[\textit{robot}[i][0], \textit{right}]$, and use binary search to calculate the number of walls that can be destroyed in this range. In this case, a total of $\textit{dfs}(i - 1, 1) + \textit{count}$ walls can be destroyed, where $\textit{count}$ is the number of walls destroyed when the current robot fires right.
 
 The return value of the function is the maximum number of walls that can be destroyed by the two firing directions.
 
@@ -417,9 +417,9 @@ Define $f[i][j]$ as the number of walls that can be destroyed after considering 
 
 We fill $f$ for $i$ from $0$ to $n - 1$. For the current robot there are two firing directions.
 
-If it fires **left**, the range is $[\text{left}, \text{robot}[i][0]]$. Binary search counts the walls in that range. The total is $f[i - 1][0] + \text{count}$, where $\text{count}$ is the number of walls this robot destroys by firing left.
+If it fires **left**, the range is $[\textit{left}, \textit{robot}[i][0]]$. Binary search counts the walls in that range. The total is $f[i - 1][0] + \textit{count}$, where $\textit{count}$ is the number of walls this robot destroys by firing left.
 
-If it fires **right**, the range is $[\text{robot}[i][0], \text{right}]$. Binary search counts the walls in that range. The total is $f[i - 1][1] + \text{count}$, where $\text{count}$ is the number of walls this robot destroys by firing right.
+If it fires **right**, the range is $[\textit{robot}[i][0], \textit{right}]$. Binary search counts the walls in that range. The total is $f[i - 1][1] + \textit{count}$, where $\textit{count}$ is the number of walls this robot destroys by firing right.
 
 $f[i][j]$ is the larger of those two totals.
 

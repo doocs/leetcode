@@ -91,11 +91,11 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 
 We create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$.
 
-Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we set $f[a][b]$ to $true$.
+Next, we iterate through the prerequisites array $\textit{prerequisites}$. For each item $[a, b]$ in it, we set $f[a][b]$ to $\textit{true}$.
 
 Then, we use Floyd's algorithm to compute the reachability between all pairs of nodes.
 
-Specifically, we use three nested loops: first enumerating the intermediate node $k$, then the starting node $i$, and finally the ending node $j$. For each iteration, if node $i$ can reach node $k$ and node $k$ can reach node $j$, then node $i$ can also reach node $j$, and we set $f[i][j]$ to $true$.
+Specifically, we use three nested loops: first enumerating the intermediate node $k$, then the starting node $i$, and finally the ending node $j$. For each iteration, if node $i$ can reach node $k$ and node $k$ can reach node $j$, then node $i$ can also reach node $j$, and we set $f[i][j]$ to $\textit{true}$.
 
 After computing the reachability between all pairs of nodes, for each query $[a, b]$, we can directly return $f[a][b]$.
 
@@ -231,13 +231,13 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$. Additionally, we create an adjacency list $g$, where $g[i]$ represents all successor nodes of node $i$, and an array $indeg$, where $indeg[i]$ represents the in-degree of node $i$.
+Similar to Solution 1, we create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$. Additionally, we create an adjacency list $g$, where $g[i]$ represents all successor nodes of node $i$, and an array $\textit{indeg}$, where $\textit{indeg}[i]$ represents the in-degree of node $i$.
 
-Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we update the adjacency list $g$ and the in-degree array $indeg$.
+Next, we iterate through the prerequisites array $\textit{prerequisites}$. For each item $[a, b]$ in it, we update the adjacency list $g$ and the in-degree array $\textit{indeg}$.
 
 Then, we use topological sorting to compute the reachability between all pairs of nodes.
 
-We define a queue $q$, initially adding all nodes with an in-degree of $0$ to the queue. Then, we continuously perform the following operations: remove the front node $i$ from the queue, then iterate through all nodes $j$ in $g[i]$, setting $f[i][j]$ to $true$. Next, we enumerate node $h$, and if $f[h][i]$ is $true$, we also set $f[h][j]$ to $true$. After this, we decrease the in-degree of $j$ by $1$. If the in-degree of $j$ becomes $0$, we add $j$ to the queue.
+We define a queue $q$, initially adding all nodes with an in-degree of $0$ to the queue. Then, we continuously perform the following operations: remove the front node $i$ from the queue, then iterate through all nodes $j$ in $g[i]$, setting $f[i][j]$ to $\textit{true}$. Next, we enumerate node $h$, and if $f[h][i]$ is $\textit{true}$, we also set $f[h][j]$ to $\textit{true}$. After this, we decrease the in-degree of $j$ by $1$. If the in-degree of $j$ becomes $0$, we add $j$ to the queue.
 
 After computing the reachability between all pairs of nodes, for each query $[a, b]$, we can directly return $f[a][b]$.
 

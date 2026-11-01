@@ -67,7 +67,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table or array $cnt$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $cnt$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
+We can use a hash table or array $\textit{cnt}$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $\textit{cnt}$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set. Here the character set is all lowercase letters, so $|\Sigma|=26$.
 

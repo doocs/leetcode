@@ -84,7 +84,7 @@ User 14 did not login in 2020, so we do not include them in the result table.
 >
 > We need each user's last login in $2020$. Filter the year, then take a per-user maximum timestamp.
 >
-> $\textit{WHERE YEAR}(time\_stamp)=2020$, $\textit{GROUP BY}$ $user\_id$, and $MAX(time\_stamp)$.
+> $\textit{WHERE} \textit{YEAR}(\textit{time\_stamp})=2020$, $\textit{GROUP} \textit{BY}$ $\textit{user\_id}$, and $\textit{MAX}(\textit{time\_stamp})$.
 
 <!-- thinking:end -->
 

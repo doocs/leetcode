@@ -71,11 +71,11 @@ tags:
 
 <!-- thinking:end -->
 
-First, we count the number of '0's in string $s$, denoted as $tot$. We define a variable $ans$ for the answer, initially set $ans = tot$, which represents the number of flips to change all '0's to '1's.
+First, we count the number of '0's in string $s$, denoted as $\textit{tot}$. We define a variable $\textit{ans}$ for the answer, initially set $\textit{ans} = \textit{tot}$, which represents the number of flips to change all '0's to '1's.
 
-Then, we can enumerate each position $i$, change all '1's to the left of position $i$ (including $i$) to '0', and change all '0's to the right of position $i$ to '1'. We calculate the number of flips in this case, which is $i + 1 - cur + tot - cur$, where $cur$ represents the number of '0's to the left of position $i$ (including $i$). We update the answer $ans = \min(ans, i + 1 - cur + tot - cur)$.
+Then, we can enumerate each position $i$, change all '1's to the left of position $i$ (including $i$) to '0', and change all '0's to the right of position $i$ to '1'. We calculate the number of flips in this case, which is $i + 1 - \textit{cur} + \textit{tot} - \textit{cur}$, where $\textit{cur}$ represents the number of '0's to the left of position $i$ (including $i$). We update the answer $\textit{ans} = \min(\textit{ans}, i + 1 - \textit{cur} + \textit{tot} - \textit{cur})$.
 
-Finally, return the answer $ans$.
+Finally, return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

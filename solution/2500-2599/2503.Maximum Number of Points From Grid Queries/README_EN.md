@@ -87,7 +87,7 @@ According to the problem description, each query is independent, the order of th
 
 Therefore, we can first sort the `queries` array, and then process each query in ascending order.
 
-We use a priority queue (min heap) to maintain the smallest cell value that we have currently accessed, and use an array or hash table `vis` to record whether the current cell has been visited. Initially, we add the data $(grid[0][0], 0, 0)$ of the top left cell as a tuple to the priority queue, and set `vis[0][0]` to `True`.
+We use a priority queue (min heap) to maintain the smallest cell value that we have currently accessed, and use an array or hash table `vis` to record whether the current cell has been visited. Initially, we add the data $(\textit{grid}[0][0], 0, 0)$ of the top left cell as a tuple to the priority queue, and set `vis[0][0]` to `True`.
 
 For each query `queries[i]`, we judge whether the minimum value of the current priority queue is less than `queries[i]`. If it is, we pop the current minimum value, increment the counter `cnt`, and add the four cells above, below, left, and right of the current cell to the priority queue, noting to check whether they have been visited. Repeat the above operation until the minimum value of the current priority queue is greater than or equal to `queries[i]`, at which point `cnt` is the answer to the current query.
 

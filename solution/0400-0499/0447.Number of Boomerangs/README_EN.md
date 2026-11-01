@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can enumerate each point in `points` as the boomerang's point $i$, and then use a hash table $cnt$ to record the number of times the distance from other points to $i$ appears.
+We can enumerate each point in `points` as the boomerang's point $i$, and then use a hash table $\textit{cnt}$ to record the number of times the distance from other points to $i$ appears.
 
 If there are $x$ points with equal distance to $i$, then we can arbitrarily select two of them as the boomerang's $j$ and $k$. The number of schemes is $A_x^2 = x \times (x - 1)$. Therefore, for each value $x$ in the hash table, we calculate and accumulate $A_x^2$, which gives us the total number of boomerangs that meet the problem's requirements.
 

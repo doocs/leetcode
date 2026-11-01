@@ -71,19 +71,19 @@ $$
 \sum_{i=0}^{k-1}4(n-1-2i)=4k(n-k)
 $$
 
-这一圈左上角的乐器编号是 $start=4k(n-k)\bmod 9+1$。Python 先计算 $4(n-1)k-4k(k-1)$，它与 $4k(n-k)$ 相等；其余语言把每个因子对 $9$ 取模后再相乘，避免 $n\le 10^9$ 时中间结果溢出。
+这一圈左上角的乐器编号是 $\textit{start}=4k(n-k)\bmod 9+1$。Python 先计算 $4(n-1)k-4k(k-1)$，它与 $4k(n-k)$ 相等；其余语言把每个因子对 $9$ 取模后再相乘，避免 $n\le 10^9$ 时中间结果溢出。
 
-当前圈的边长 $s=n-2k$。从左上角 $(k,k)$ 顺时针行走，四条边上的步数 $offset$ 为：
+当前圈的边长 $s=n-2k$。从左上角 $(k,k)$ 顺时针行走，四条边上的步数 $\textit{offset}$ 为：
 
-- 上边 $x=k$： $offset=y-k$
-- 右边 $y=n-k-1$： $offset=(s-1)+(x-k)$
-- 下边 $x=n-k-1$： $offset=2(s-1)+(n-k-1-y)$
-- 左边： $offset=3(s-1)+(n-k-1-x)$
+- 上边 $x=k$： $\textit{offset}=y-k$
+- 右边 $y=n-k-1$： $\textit{offset}=(s-1)+(x-k)$
+- 下边 $x=n-k-1$： $\textit{offset}=2(s-1)+(n-k-1-y)$
+- 左边： $\textit{offset}=3(s-1)+(n-k-1-x)$
 
 先匹配上边、再匹配右边和下边，拐角只计入先经过的那条边。最内层若只剩一格，它落在上边且步数为 $0$。最终乐器编号为
 
 $$
-(start-1+offset)\bmod 9+1
+(\textit{start}-1+\textit{offset})\bmod 9+1
 $$
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。

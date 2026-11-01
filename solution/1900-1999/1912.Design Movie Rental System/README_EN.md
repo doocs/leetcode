@@ -98,23 +98,23 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 <!-- thinking:end -->
 
-We define an ordered set $\textit{available}$, where $\textit{available}[movie]$ stores a list of all shops that have not rented out the movie $movie$. Each element in the list is $(\textit{price}, \textit{shop})$, sorted in ascending order by $\textit{price}$, and if prices are equal, by $\textit{shop}$ in ascending order.
+We define an ordered set $\textit{available}$, where $\textit{available}[\textit{movie}]$ stores a list of all shops that have not rented out the movie $\textit{movie}$. Each element in the list is $(\textit{price}, \textit{shop})$, sorted in ascending order by $\textit{price}$, and if prices are equal, by $\textit{shop}$ in ascending order.
 
 Additionally, we define a hash map $\textit{price\_map}$, where $\textit{price\_map}[f(\textit{shop}, \textit{movie})]$ stores the rental price of movie $\textit{movie}$ in shop $\textit{shop}$.
 
 We also define an ordered set $\textit{rented}$, which stores all rented movies as $(\textit{price}, \textit{shop}, \textit{movie})$, sorted in ascending order by $\textit{price}$, then by $\textit{shop}$, and if both are equal, by $\textit{movie}$.
 
-For the $\text{MovieRentingSystem}(n, \text{entries})$ operation, we iterate through $\text{entries}$ and add each shop's movie information to both $\textit{available}$ and $\textit{price\_map}$. The time complexity is $O(m \log m)$, where $m$ is the length of $\text{entries}$.
+For the $\textit{MovieRentingSystem}(n, \textit{entries})$ operation, we iterate through $\textit{entries}$ and add each shop's movie information to both $\textit{available}$ and $\textit{price\_map}$. The time complexity is $O(m \log m)$, where $m$ is the length of $\textit{entries}$.
 
-For the $\text{search}(\text{movie})$ operation, we return the shop IDs of the first 5 shops in $\textit{available}[\text{movie}]$. The time complexity is $O(1)$.
+For the $\textit{search}(\textit{movie})$ operation, we return the shop IDs of the first 5 shops in $\textit{available}[\textit{movie}]$. The time complexity is $O(1)$.
 
-For the $\text{rent}(\text{shop}, \text{movie})$ operation, we remove $(\textit{price}, \textit{shop})$ from $\textit{available}[\text{movie}]$ and add $(\textit{price}, \textit{shop}, \textit{movie})$ to $\textit{rented}$. The time complexity is $O(\log m)$.
+For the $\textit{rent}(\textit{shop}, \textit{movie})$ operation, we remove $(\textit{price}, \textit{shop})$ from $\textit{available}[\textit{movie}]$ and add $(\textit{price}, \textit{shop}, \textit{movie})$ to $\textit{rented}$. The time complexity is $O(\log m)$.
 
-For the $\text{drop}(\text{shop}, \text{movie})$ operation, we remove $(\textit{price}, \textit{shop}, \textit{movie})$ from $\textit{rented}$ and add $(\textit{price}, \textit{shop})$ back to $\textit{available}[\text{movie}]$. The time complexity is $O(\log m)$.
+For the $\textit{drop}(\textit{shop}, \textit{movie})$ operation, we remove $(\textit{price}, \textit{shop}, \textit{movie})$ from $\textit{rented}$ and add $(\textit{price}, \textit{shop})$ back to $\textit{available}[\textit{movie}]$. The time complexity is $O(\log m)$.
 
-For the $\text{report}()$ operation, we return the shop and movie IDs of the first 5 rented movies in $\textit{rented}$. The time complexity is $O(1)$.
+For the $\textit{report}()$ operation, we return the shop and movie IDs of the first 5 rented movies in $\textit{rented}$. The time complexity is $O(1)$.
 
-The space complexity is $O(m)$, where $m$ is the length of $\text{entries}$.
+The space complexity is $O(m)$, where $m$ is the length of $\textit{entries}$.
 
 <!-- tabs:start -->
 

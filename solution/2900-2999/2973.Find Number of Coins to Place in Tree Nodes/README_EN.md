@@ -104,18 +104,18 @@ The first situation is relatively simple, we just need to count the number of no
 
 For the second situation, if all costs are positive, we should take the $3$ nodes with the largest costs; if there are negative costs, we should take the $2$ nodes with the smallest costs and the $1$ node with the largest cost. Therefore, we need to maintain the smallest $2$ costs and the largest $3$ costs in each subtree.
 
-We first construct the adjacency list $g$ based on the given two-dimensional array $edges$, where $g[a]$ represents all neighbor nodes of node $a$.
+We first construct the adjacency list $g$ based on the given two-dimensional array $\textit{edges}$, where $g[a]$ represents all neighbor nodes of node $a$.
 
-Next, we design a function $dfs(a, fa)$, which returns an array $res$, which stores the smallest $2$ costs and the largest $3$ costs in the subtree of node $a$ (may not be $5$).
+Next, we design a function $\textit{dfs}(a, fa)$, which returns an array $\textit{res}$, which stores the smallest $2$ costs and the largest $3$ costs in the subtree of node $a$ (may not be $5$).
 
-In the function $dfs(a, fa)$, we add the cost $cost[a]$ of node $a$ to the array $res$, and then traverse all neighbor nodes $b$ of node $a$. If $b$ is not the parent node $fa$ of node $a$, then we add the result of $dfs(b, a)$ to the array $res$.
+In the function $\textit{dfs}(a, fa)$, we add the cost $\textit{cost}[a]$ of node $a$ to the array $\textit{res}$, and then traverse all neighbor nodes $b$ of node $a$. If $b$ is not the parent node $fa$ of node $a$, then we add the result of $\textit{dfs}(b, a)$ to the array $\textit{res}$.
 
-Then, we sort the array $res$, and then calculate the number of coins placed at node $a$ based on the length $m$ of the array $res$, and update $ans[a]$:
+Then, we sort the array $\textit{res}$, and then calculate the number of coins placed at node $a$ based on the length $m$ of the array $\textit{res}$, and update $\textit{ans}[a]$:
 
-- If $m \ge 3$, then the number of coins placed at node $a$ is $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$, otherwise the number of coins placed at node $a$ is $1$;
-- If $m > 5$, then we only need to keep the first $2$ elements and the last $3$ elements of the array $res$.
+- If $m \ge 3$, then the number of coins placed at node $a$ is $\max(0, \textit{res}[m - 1] \times \textit{res}[m - 2] \times \textit{res}[m - 3], \textit{res}[0] \times \textit{res}[1] \times \textit{res}[m - 1])$, otherwise the number of coins placed at node $a$ is $1$;
+- If $m > 5$, then we only need to keep the first $2$ elements and the last $3$ elements of the array $\textit{res}$.
 
-Finally, we call the function $dfs(0, -1)$, and return the answer array $ans$.
+Finally, we call the function $\textit{dfs}(0, -1)$, and return the answer array $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -322,7 +322,7 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 
 > **Thinking**
 >
-> A subtree with fewer than three nodes places $1$ coin; otherwise it places the maximum product of three costs, or $0$ when that product is negative. The maximum is either the three largest costs or the two smallest costs times the largest. A subtree may contain $n$ nodes, so the full list cannot be sent upward, and each subtree keeps only the two smallest and three largest costs. Merging those lists by recursion along a chain uses a call depth equal to the node count and overflows Python once $n$ reaches $1000$, while $n$ can be $2 \times 10^4$. The stack stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ merges, sorts, and trims the child lists before writing the current answer.
+> A subtree with fewer than three nodes places $1$ coin; otherwise it places the maximum product of three costs, or $0$ when that product is negative. The maximum is either the three largest costs or the two smallest costs times the largest. A subtree may contain $n$ nodes, so the full list cannot be sent upward, and each subtree keeps only the two smallest and three largest costs. Merging those lists by recursion along a chain uses a call depth equal to the node count and overflows Python once $n$ reaches $1000$, while $n$ can be $2 \times 10^4$. The stack stores $(\textit{node}, \textit{parent}, \textit{state})$: state $0$ pushes the exit marker and then the children, and state $1$ merges, sorts, and trims the child lists before writing the current answer.
 
 <!-- thinking:end -->
 
@@ -333,10 +333,10 @@ There are two cases for the number of coins placed at node $a$:
 
 When every cost is positive, the product uses the $3$ largest costs. When negatives appear, the two smallest costs times the largest cost must also be considered. Each subtree therefore keeps only its $2$ smallest costs and its $3$ largest costs.
 
-Build the graph from $edges$ and set every answer to $1$. An explicit stack processes nodes in postorder. Each frame is $(a, fa, state)$. When $state = 0$, push $(a, fa, 1)$ and then push every neighbor other than the parent with state $0$. When $state = 1$, merge $cost[a]$ with the already trimmed lists of the children and sort the result into $res$ of length $m$:
+Build the graph from $\textit{edges}$ and set every answer to $1$. An explicit stack processes nodes in postorder. Each frame is $(a, fa, \textit{state})$. When $\textit{state} = 0$, push $(a, fa, 1)$ and then push every neighbor other than the parent with state $0$. When $\textit{state} = 1$, merge $\textit{cost}[a]$ with the already trimmed lists of the children and sort the result into $\textit{res}$ of length $m$:
 
-- If $m \ge 3$, the number of coins at $a$ is $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$; otherwise it stays $1$.
-- If $m > 5$, keep only the first $2$ elements and the last $3$ elements of $res$ for the parent to merge.
+- If $m \ge 3$, the number of coins at $a$ is $\max(0, \textit{res}[m - 1] \times \textit{res}[m - 2] \times \textit{res}[m - 3], \textit{res}[0] \times \textit{res}[1] \times \textit{res}[m - 1])$; otherwise it stays $1$.
+- If $m > 5$, keep only the first $2$ elements and the last $3$ elements of $\textit{res}$ for the parent to merge.
 
 The merged list is sorted again, so the order in which children are pushed does not change the answer.
 

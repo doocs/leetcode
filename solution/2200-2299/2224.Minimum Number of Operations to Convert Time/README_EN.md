@@ -67,7 +67,7 @@ It can be proven that it is not possible to convert current to correct in fewer 
 
 > **Thinking**
 >
-> We may add $1$, $5$, $15$, or $60$ minutes, and want the fewest additions from $current$ to $correct$. The gap is less than a day, so a knapsack search would work, but the denominations form a canonical chain: using a larger coin is never worse.
+> We may add $1$, $5$, $15$, or $60$ minutes, and want the fewest additions from $\textit{current}$ to $\textit{correct}$. The gap is less than a day, so a knapsack search would work, but the denominations form a canonical chain: using a larger coin is never worse.
 >
 > Convert both clocks to minutes past midnight and let $d$ be the positive difference. Take as many $60$s, then $15$s, then $5$s, then $1$s as possible.
 

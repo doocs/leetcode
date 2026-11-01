@@ -125,7 +125,7 @@ class MRUQueue:
 
 We use an array $q$ to maintain the current elements in the queue. When moving the $k$-th element, we do not delete it, but append it to the end of the array. How do we know the position of the $k$-th element in $q$ if we do not delete it?
 
-We can use a Binary Indexed Tree to maintain whether each position in $q$ has been deleted. If the element at position $i$ is deleted, we update the $i$-th position in the tree, indicating that the number of times this position has been moved increases by $1$. Then, each time we want to delete the $k$-th element, we can use binary search to find the first position $i$ that satisfies $i - tree.query(i) \geq k$, which is the position of the $k$-th element in $q$. Let $x = q[i]$, then we append $x$ to the end of $q$ and update the $i$-th position in the tree. Finally, we return $x$.
+We can use a Binary Indexed Tree to maintain whether each position in $q$ has been deleted. If the element at position $i$ is deleted, we update the $i$-th position in the tree, indicating that the number of times this position has been moved increases by $1$. Then, each time we want to delete the $k$-th element, we can use binary search to find the first position $i$ that satisfies $i - \textit{tree}.\textit{query}(i) \geq k$, which is the position of the $k$-th element in $q$. Let $x = q[i]$, then we append $x$ to the end of $q$ and update the $i$-th position in the tree. Finally, we return $x$.
 
 The time complexity is $O(\log^2 n)$, and the space complexity is $O(n)$, where $n$ is the length of the queue.
 

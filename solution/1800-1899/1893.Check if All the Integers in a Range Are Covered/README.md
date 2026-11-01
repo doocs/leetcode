@@ -68,9 +68,9 @@ tags:
 
 > **思考**
 >
-> 判断 $[left,right]$ 是否都被给定区间覆盖。值域不超过 $50$，不必用线段树。
+> 判断 $[\textit{left},\textit{right}]$ 是否都被给定区间覆盖。值域不超过 $50$，不必用线段树。
 >
-> 差分数组在每个 $[l,r]$ 的左端 $+1$、右端后一位 $-1$，前缀和即该点被覆盖次数。若 $[left,right]$ 中出现前缀和为 $0$ 的点则未完全覆盖。
+> 差分数组在每个 $[l,r]$ 的左端 $+1$、右端后一位 $-1$，前缀和即该点被覆盖次数。若 $[\textit{left},\textit{right}]$ 中出现前缀和为 $0$ 的点则未完全覆盖。
 
 <!-- thinking:end -->
 
@@ -78,9 +78,9 @@ tags:
 
 接下来，我们遍历数组 $\textit{ranges}$，对于每个区间 $[l, r]$，我们令 $\textit{diff}[l]$ 自增 $1$，而 $\textit{diff}[r + 1]$ 自减 $1$。
 
-接着，我们遍历差分数组 $\textit{diff}$，维护一个前缀和 $s$，对于每个位置 $i$，我们令 $s$ 自增 $\textit{diff}[i]$，如果 $s \le 0$ 且 $left \le i \le right$，则说明区间 $[left, right]$ 中有一个整数 $i$ 没有被覆盖，返回 $\textit{false}$。
+接着，我们遍历差分数组 $\textit{diff}$，维护一个前缀和 $s$，对于每个位置 $i$，我们令 $s$ 自增 $\textit{diff}[i]$，如果 $s \le 0$ 且 $\textit{left} \le i \le \textit{right}$，则说明区间 $[\textit{left}, \textit{right}]$ 中有一个整数 $i$ 没有被覆盖，返回 $\textit{false}$。
 
-如果遍历完差分数组 $\textit{diff}$ 后都没有返回 $\textit{false}$，则说明区间 $[left, right]$ 中的每个整数都被 $\textit{ranges}$ 中至少一个区间覆盖，返回 $\textit{true}$。
+如果遍历完差分数组 $\textit{diff}$ 后都没有返回 $\textit{false}$，则说明区间 $[\textit{left}, \textit{right}]$ 中的每个整数都被 $\textit{ranges}$ 中至少一个区间覆盖，返回 $\textit{true}$。
 
 时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{ranges}$ 的长度，而 $M$ 是区间的最大值，本题中 $M \le 50$。
 

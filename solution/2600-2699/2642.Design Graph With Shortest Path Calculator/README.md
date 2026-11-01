@@ -85,9 +85,9 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 
 在初始化函数中，我们先用邻接矩阵 $g$ 存储图的边权，其中 $g_{ij}$ 表示从节点 $i$ 到节点 $j$ 的边权，如果 $i$ 和 $j$ 之间没有边，则 $g_{ij}$ 的值为 $\infty$。
 
-在 `addEdge` 函数中，我们更新 $g_{ij}$ 的值为 $edge[2]$。
+在 `addEdge` 函数中，我们更新 $g_{ij}$ 的值为 $\textit{edge}[2]$。
 
-在 `shortestPath` 函数中，我们使用 Dijsktra 算法求从节点 $node1$ 到节点 $node2$ 的最短路径，其中 $dist[i]$ 表示从节点 $node1$ 到节点 $i$ 的最短路径， $vis[i]$ 表示节点 $i$ 是否已经被访问过。我们初始化 $dist[node1]$ 为 $0$，其余的 $dist[i]$ 均为 $\infty$。然后我们遍历 $n$ 次，每次找到当前未被访问过的节点 $t$，使得 $dist[t]$ 最小。然后我们将节点 $t$ 标记为已访问，然后更新 $dist[i]$ 的值为 $min(dist[i], dist[t] + g_{ti})$。最后我们返回 $dist[node2]$，如果 $dist[node2]$ 为 $\infty$，则说明从节点 $node1$ 到节点 $node2$ 不存在路径，返回 $-1$。
+在 `shortestPath` 函数中，我们使用 Dijsktra 算法求从节点 $\textit{node1}$ 到节点 $\textit{node2}$ 的最短路径，其中 $\textit{dist}[i]$ 表示从节点 $\textit{node1}$ 到节点 $i$ 的最短路径， $\textit{vis}[i]$ 表示节点 $i$ 是否已经被访问过。我们初始化 $\textit{dist}[\textit{node1}]$ 为 $0$，其余的 $\textit{dist}[i]$ 均为 $\infty$。然后我们遍历 $n$ 次，每次找到当前未被访问过的节点 $t$，使得 $\textit{dist}[t]$ 最小。然后我们将节点 $t$ 标记为已访问，然后更新 $\textit{dist}[i]$ 的值为 $\min(\textit{dist}[i], \textit{dist}[t] + g_{ti})$。最后我们返回 $\textit{dist}[\textit{node2}]$，如果 $\textit{dist}[\textit{node2}]$ 为 $\infty$，则说明从节点 $\textit{node1}$ 到节点 $\textit{node2}$ 不存在路径，返回 $-1$。
 
 时间复杂度 $O(n^2q)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数，而 $q$ 为 `shortestPath` 函数的调用次数。
 

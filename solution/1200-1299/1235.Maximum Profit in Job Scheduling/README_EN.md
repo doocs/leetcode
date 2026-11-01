@@ -81,21 +81,21 @@ Profit obtained 150 = 20 + 70 + 60.
 >
 > Jobs must not overlap. $n \le 5\times 10^4$ rules out subset search. Whether we take job $i$ only affects jobs that start no earlier than its end.
 >
-> After sorting by start, $dfs(i)$ takes the better of skipping $i$ and taking $i$ then jumping to the first job with $start\ge end_i$. That index is a binary search on the sorted starts. Memoization evaluates each $i$ once.
+> After sorting by start, $\textit{dfs}(i)$ takes the better of skipping $i$ and taking $i$ then jumping to the first job with $\textit{start}\ge \textit{end}_i$. That index is a binary search on the sorted starts. Memoization evaluates each $i$ once.
 
 <!-- thinking:end -->
 
-First, we sort the jobs by start time in ascending order, then design a function $dfs(i)$ to represent the maximum profit that can be obtained starting from the $i$-th job. The answer is $dfs(0)$.
+First, we sort the jobs by start time in ascending order, then design a function $\textit{dfs}(i)$ to represent the maximum profit that can be obtained starting from the $i$-th job. The answer is $\textit{dfs}(0)$.
 
-The calculation process of function $dfs(i)$ is as follows:
+The calculation process of function $\textit{dfs}(i)$ is as follows:
 
-For the $i$-th job, we can choose to do it or not. If we don't do it, the maximum profit is $dfs(i + 1)$; if we do it, we can use binary search to find the first job that starts after the end time of the $i$-th job, denoted as $j$, then the maximum profit is $profit[i] + dfs(j)$. We take the larger of the two. That is:
+For the $i$-th job, we can choose to do it or not. If we don't do it, the maximum profit is $\textit{dfs}(i + 1)$; if we do it, we can use binary search to find the first job that starts after the end time of the $i$-th job, denoted as $j$, then the maximum profit is $\textit{profit}[i] + \textit{dfs}(j)$. We take the larger of the two. That is:
 
 $$
-dfs(i)=\max(dfs(i+1),profit[i]+dfs(j))
+\textit{dfs}(i)=\max(\textit{dfs}(i+1),\textit{profit}[i]+\textit{dfs}(j))
 $$
 
-Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$.
+Where $j$ is the smallest index that satisfies $\textit{startTime}[j] \ge \textit{endTime}[i]$.
 
 In this process, we can use memoization search to save the answer of each state to avoid repeated calculations.
 
@@ -281,13 +281,13 @@ Solution 1 sorts by start and fills a suffix table. Here we sort by end and defi
 
 First, sort the jobs, this time we sort by end time in ascending order, then define $dp[i]$, which represents the maximum profit that can be obtained from the first $i$ jobs. The answer is $dp[n]$. Initialize $dp[0]=0$.
 
-For the $i$-th job, we can choose to do it or not. If we don't do it, the maximum profit is $dp[i]$; if we do it, we can use binary search to find the last job that ends before the start time of the $i$-th job, denoted as $j$, then the maximum profit is $profit[i] + dp[j]$. We take the larger of the two. That is:
+For the $i$-th job, we can choose to do it or not. If we don't do it, the maximum profit is $dp[i]$; if we do it, we can use binary search to find the last job that ends before the start time of the $i$-th job, denoted as $j$, then the maximum profit is $\textit{profit}[i] + dp[j]$. We take the larger of the two. That is:
 
 $$
-dp[i+1] = \max(dp[i], profit[i] + dp[j])
+dp[i+1] = \max(dp[i], \textit{profit}[i] + dp[j])
 $$
 
-Where $j$ is the largest index that satisfies $endTime[j] \leq startTime[i]$.
+Where $j$ is the largest index that satisfies $\textit{endTime}[j] \leq \textit{startTime}[i]$.
 
 The time complexity is $O(n \log n)$, where $n$ is the number of jobs.
 
@@ -491,13 +491,13 @@ class Solution {
 
 First, we sort the jobs by start time in ascending order. Let $f[i]$ be the maximum profit that can be obtained starting from the $i$-th job. The answer is $f[0]$, and $f[n] = 0$.
 
-Fill $i$ from $n - 1$ down to $0$. For the $i$-th job we can skip it, which keeps $f[i + 1]$, or take it. Binary search finds the first job $j$ that starts at or after $end_i$. Taking it earns $profit[i] + f[j]$. Take the larger of the two:
+Fill $i$ from $n - 1$ down to $0$. For the $i$-th job we can skip it, which keeps $f[i + 1]$, or take it. Binary search finds the first job $j$ that starts at or after $\textit{end}_i$. Taking it earns $\textit{profit}[i] + f[j]$. Take the larger of the two:
 
 $$
-f[i]=\max(f[i+1],profit[i]+f[j])
+f[i]=\max(f[i+1],\textit{profit}[i]+f[j])
 $$
 
-Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$. Because $j > i$, $f[j]$ is already filled.
+Where $j$ is the smallest index that satisfies $\textit{startTime}[j] \ge \textit{endTime}[i]$. Because $j > i$, $f[j]$ is already filled.
 
 The time complexity is $O(n \log n)$, where $n$ is the number of jobs.
 

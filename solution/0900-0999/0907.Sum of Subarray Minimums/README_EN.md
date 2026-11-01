@@ -59,17 +59,17 @@ Sum is 17.
 
 > **Thinking**
 >
-> Summing the minimum of every subarray is quadratic if we enumerate intervals. Switch to contribution: multiply $arr[i]$ by how often it is the minimum.
+> Summing the minimum of every subarray is quadratic if we enumerate intervals. Switch to contribution: multiply $\textit{arr}[i]$ by how often it is the minimum.
 >
 > Monotonic stacks find the previous strictly smaller value on the left and the next smaller-or-equal on the right, so equal values are credited once. The product of the two spans is the number of subarrays.
 
 <!-- thinking:end -->
 
-The problem asks for the sum of the minimum values of each subarray, which is equivalent to finding the number of subarrays for which each element $arr[i]$ is the minimum, then multiplying by $arr[i]$, and finally summing these up.
+The problem asks for the sum of the minimum values of each subarray, which is equivalent to finding the number of subarrays for which each element $\textit{arr}[i]$ is the minimum, then multiplying by $\textit{arr}[i]$, and finally summing these up.
 
-Therefore, the focus of the problem is to find the number of subarrays for which $arr[i]$ is the minimum. For $arr[i]$, we find the first position $left[i]$ to its left that is less than $arr[i]$, and the first position $right[i]$ to its right that is less than or equal to $arr[i]$. The number of subarrays for which $arr[i]$ is the minimum is $(i - left[i]) \times (right[i] - i)$.
+Therefore, the focus of the problem is to find the number of subarrays for which $\textit{arr}[i]$ is the minimum. For $\textit{arr}[i]$, we find the first position $\textit{left}[i]$ to its left that is less than $\textit{arr}[i]$, and the first position $\textit{right}[i]$ to its right that is less than or equal to $\textit{arr}[i]$. The number of subarrays for which $\textit{arr}[i]$ is the minimum is $(i - \textit{left}[i]) \times (\textit{right}[i] - i)$.
 
-Note, why do we find the first position $right[i]$ to the right that is less than or equal to $arr[i]$, rather than less than $arr[i]$? This is because if we find the first position $right[i]$ to the right that is less than $arr[i]$, it will lead to duplicate calculations.
+Note, why do we find the first position $\textit{right}[i]$ to the right that is less than or equal to $\textit{arr}[i]$, rather than less than $\textit{arr}[i]$? This is because if we find the first position $\textit{right}[i]$ to the right that is less than $\textit{arr}[i]$, it will lead to duplicate calculations.
 
 Let's take an example to illustrate. For the following array:
 
@@ -89,11 +89,11 @@ In the same way, we can find the subarray interval for the element at index $6$,
 
 If we find the first element to its right that is less than or equal to its value, there will be no duplication, because the subarray interval for the element at index $3$ becomes $(0, 6)$, and the subarray interval for the element at index $6$ is $(0, 7)$, which are not the same.
 
-Back to this problem, we just need to traverse the array, for each element $arr[i]$, use a monotonic stack to find the first position $left[i]$ to its left that is less than $arr[i]$, and the first position $right[i]$ to its right that is less than or equal to $arr[i]$. The number of subarrays for which $arr[i]$ is the minimum is $(i - left[i]) \times (right[i] - i)$, then multiply by $arr[i]$, and finally sum these up.
+Back to this problem, we just need to traverse the array, for each element $\textit{arr}[i]$, use a monotonic stack to find the first position $\textit{left}[i]$ to its left that is less than $\textit{arr}[i]$, and the first position $\textit{right}[i]$ to its right that is less than or equal to $\textit{arr}[i]$. The number of subarrays for which $\textit{arr}[i]$ is the minimum is $(i - \textit{left}[i]) \times (\textit{right}[i] - i)$, then multiply by $\textit{arr}[i]$, and finally sum these up.
 
 Be aware of data overflow and modulo operations.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

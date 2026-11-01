@@ -124,19 +124,19 @@ tags:
 
 <!-- thinking:end -->
 
-We first define a function $\text{check}(s)$ to determine whether an integer $s$ is a good number. For $s < 100$, we only need to check whether $s$ is a multiple of 11; if so, $s$ is not a good number. For $s \geq 100$, we need to check whether the digits of $s$ form a strictly monotonic sequence, i.e., strictly increasing or strictly decreasing. Since the range of digit sums is small, when the digit sum exceeds $100$, we only need to check the relationship between the tens digit and the units digit of the digit sum.
+We first define a function $\textit{check}(s)$ to determine whether an integer $s$ is a good number. For $s < 100$, we only need to check whether $s$ is a multiple of 11; if so, $s$ is not a good number. For $s \geq 100$, we need to check whether the digits of $s$ form a strictly monotonic sequence, i.e., strictly increasing or strictly decreasing. Since the range of digit sums is small, when the digit sum exceeds $100$, we only need to check the relationship between the tens digit and the units digit of the digit sum.
 
-Next, we use digit DP to count the number of fancy numbers in the interval $[l, r]$. We define a recursive function $\text{dfs}(pos, s, prev, st, lim)$, where:
+Next, we use digit DP to count the number of fancy numbers in the interval $[l, r]$. We define a recursive function $\textit{dfs}(\textit{pos}, s, \textit{prev}, st, \textit{lim})$, where:
 
-- Integer $pos$ represents the current digit position being processed, from high to low.
+- Integer $\textit{pos}$ represents the current digit position being processed, from high to low.
 - Integer $s$ represents the current digit sum.
-- Integer $prev$ represents the value of the previous digit.
+- Integer $\textit{prev}$ represents the value of the previous digit.
 - Integer $st$ represents the state of the current digit sequence, where state $0$ means there is at most one digit so far, state $1$ means strictly increasing, state $2$ means strictly decreasing, and state $3$ means not strictly monotonic.
-- Boolean $lim$ indicates whether the current digit is constrained by the upper bound.
+- Boolean $\textit{lim}$ indicates whether the current digit is constrained by the upper bound.
 
-In the recursive function, if $pos$ exceeds the length of the number, we have finished processing a number. If the state $st$ is not equal to $3$, the number is a good number and we return $1$; otherwise, we call $\text{check}(s)$ to determine whether the digit sum is a good number, returning $1$ if it is, and $0$ otherwise.
+In the recursive function, if $\textit{pos}$ exceeds the length of the number, we have finished processing a number. If the state $st$ is not equal to $3$, the number is a good number and we return $1$; otherwise, we call $\textit{check}(s)$ to determine whether the digit sum is a good number, returning $1$ if it is, and $0$ otherwise.
 
-During the recursion, we enumerate the range of the current digit: if $lim$ is true, the range is $[0, \text{num}[pos]]$; otherwise, it is $[0, 9]$. For each value, we update the state $st$ and recursively call $\text{dfs}$ to process the next digit.
+During the recursion, we enumerate the range of the current digit: if $\textit{lim}$ is true, the range is $[0, \textit{num}[\textit{pos}]]$; otherwise, it is $[0, 9]$. For each value, we update the state $st$ and recursively call $\textit{dfs}$ to process the next digit.
 
 Finally, we compute the count of fancy numbers in $[0, r]$ and $[0, l-1]$ separately, and the answer is their difference.
 

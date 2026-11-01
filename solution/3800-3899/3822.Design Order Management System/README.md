@@ -88,21 +88,21 @@ orderManagementSystem.getOrdersAtPrice("buy", 1); // 在价格 1 没有剩余的
 >
 > 查询键是 $(\textit{orderType},\textit{price})$，同时 $\textit{orderId}$ 必须能找到当前类型与价格以便修改、取消。
 >
-> 用 $\textit{orders}$ 存编号到 $(\textit{type},\textit{price})$，用 $\textit{t}$ 存该键下的编号列表。添加即双写；改价先从旧列表删除再插入新列表。
+> 用 $\textit{orders}$ 存编号到 $(\textit{type},\textit{price})$，用 $t$ 存该键下的编号列表。添加即双写；改价先从旧列表删除再插入新列表。
 >
 > 列表删除为线性，但 $n \le 2000$ 足够。查询直接返回对应列表。
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\textit{orders}$ 来存储每个订单的类型和价格信息，键为订单 ID，值为一个二元组 $(\textit{orderType}, \textit{price})$。另外，我们用另一个哈希表 $\textit{t}$ 来存储每个 $(\textit{orderType}, \textit{price})$ 对应的订单 ID 列表，键为一个二元组 $(\textit{orderType}, \textit{price})$，值为订单 ID 列表。
+我们用一个哈希表 $\textit{orders}$ 来存储每个订单的类型和价格信息，键为订单 ID，值为一个二元组 $(\textit{orderType}, \textit{price})$。另外，我们用另一个哈希表 $t$ 来存储每个 $(\textit{orderType}, \textit{price})$ 对应的订单 ID 列表，键为一个二元组 $(\textit{orderType}, \textit{price})$，值为订单 ID 列表。
 
-调用 $\texttt{addOrder}$ 时，我们将订单信息添加到 $\textit{orders}$ 中，并将订单 ID 添加到 $\textit{t}$ 中对应的列表中。
+调用 $\texttt{addOrder}$ 时，我们将订单信息添加到 $\textit{orders}$ 中，并将订单 ID 添加到 $t$ 中对应的列表中。
 
-调用 $\texttt{modifyOrder}$ 时，我们首先从 $\textit{orders}$ 中获取订单的类型和旧价格，然后更新订单的价格信息。接着，我们从 $\textit{t}$ 中对应的列表中移除订单 ID，并将其添加到新价格对应的列表中。
+调用 $\texttt{modifyOrder}$ 时，我们首先从 $\textit{orders}$ 中获取订单的类型和旧价格，然后更新订单的价格信息。接着，我们从 $t$ 中对应的列表中移除订单 ID，并将其添加到新价格对应的列表中。
 
-调用 $\texttt{cancelOrder}$ 时，我们从 $\textit{orders}$ 中获取订单的类型和价格信息，然后将订单 ID 从 $\textit{t}$ 中对应的列表中移除，并从 $\textit{orders}$ 中删除该订单。
+调用 $\texttt{cancelOrder}$ 时，我们从 $\textit{orders}$ 中获取订单的类型和价格信息，然后将订单 ID 从 $t$ 中对应的列表中移除，并从 $\textit{orders}$ 中删除该订单。
 
-调用 $\texttt{getOrdersAtPrice}$ 时，我们直接返回 $\textit{t}$ 中对应的订单 ID 列表。
+调用 $\texttt{getOrdersAtPrice}$ 时，我们直接返回 $t$ 中对应的订单 ID 列表。
 
 以上操作中，添加和获取订单 ID 列表的时间复杂度为 $O(1)$，而移除订单 ID 列表的时间复杂度为 $O(n)$，其中 $n$ 是对应列表的长度。由于题目中订单总数不超过 $2000$，该方法在实际运行中效率足够高。空间复杂度为 $O(m)$，其中 $m$ 是订单总数。
 

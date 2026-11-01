@@ -31,7 +31,7 @@ difficulty: 中等
 >
 > 二叉搜索树的中序遍历严格递增，因此可在中序过程中与前驱比较。
 >
-> $prev$ 初值为 $-\infty$，左子树合法后再检查 $prev < root.val$，更新 $prev$ 并进入右子树。一次中序即可，无需先物化序列。
+> $\textit{prev}$ 初值为 $-\infty$，左子树合法后再检查 $\textit{prev} < \textit{root}.\textit{val}$，更新 $\textit{prev}$ 并进入右子树。一次中序即可，无需先物化序列。
 
 <!-- thinking:end -->
 

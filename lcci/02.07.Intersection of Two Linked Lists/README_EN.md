@@ -74,13 +74,13 @@ difficulty: Easy
 
 <!-- thinking:end -->
 
-We use two pointers $a$ and $b$ to point to two linked lists $headA$ and $headB$ respectively.
+We use two pointers $a$ and $b$ to point to two linked lists $\textit{headA}$ and $\textit{headB}$ respectively.
 
-We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $headA$, it is repositioned to the head node of the linked list $headB$. When $b$ reaches the end of the linked list $headB$, it is repositioned to the head node of the linked list $headA$.
+We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $\textit{headA}$, it is repositioned to the head node of the linked list $\textit{headB}$. When $b$ reaches the end of the linked list $\textit{headB}$, it is repositioned to the head node of the linked list $\textit{headA}$.
 
 If the two pointers meet, the node they point to is the first common node. If they don't meet, it means that the two linked lists have no common nodes. At this time, both pointers point to `null`, and we can return either one.
 
-The time complexity is $O(m+n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively.
+The time complexity is $O(m+n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the linked lists $\textit{headA}$ and $\textit{headB}$ respectively.
 
 <!-- tabs:start -->
 

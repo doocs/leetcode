@@ -89,21 +89,21 @@ tags:
 
 > **思考**
 >
-> 每次可将一段连续下标同时加一，要把全零数组变成 $target$。 $n$ 与 $target[i]$ 均可达 $10^5$，不能按高度一层层模拟。
+> 每次可将一段连续下标同时加一，要把全零数组变成 $\textit{target}$。 $n$ 与 $\textit{target}[i]$ 均可达 $10^5$，不能按高度一层层模拟。
 >
-> 一次覆盖 $[i,j]$ 的操作，对前缀 $target[0..i]$ 而言，等价于在更短前缀的最优方案上，仅当 $target[i]$ 高于左侧时才多出高度差这么多次。因此 $f[i]=f[i-1]+\max(0,target[i]-target[i-1])$，而 $f[0]=target[0]$。递推只用到前一项，压缩成一次相邻差扫描即可。
+> 一次覆盖 $[i,j]$ 的操作，对前缀 $\textit{target}[0..i]$ 而言，等价于在更短前缀的最优方案上，仅当 $\textit{target}[i]$ 高于左侧时才多出高度差这么多次。因此 $f[i]=f[i-1]+\max(0,\textit{target}[i]-\textit{target}[i-1])$，而 $f[0]=\textit{target}[0]$。递推只用到前一项，压缩成一次相邻差扫描即可。
 
 <!-- thinking:end -->
 
-我们定义 $f[i]$ 表示得到 $target[0,..i]$ 的最少操作次数，初始时 $f[0] = target[0]$。
+我们定义 $f[i]$ 表示得到 $\textit{target}[0,..i]$ 的最少操作次数，初始时 $f[0] = \textit{target}[0]$。
 
-对于 $target[i]$，如果 $target[i] \leq target[i-1]$，则 $f[i] = f[i-1]$；否则 $f[i] = f[i-1] + target[i] - target[i-1]$。
+对于 $\textit{target}[i]$，如果 $\textit{target}[i] \leq \textit{target}[i-1]$，则 $f[i] = f[i-1]$；否则 $f[i] = f[i-1] + \textit{target}[i] - \textit{target}[i-1]$。
 
 最终答案即为 $f[n-1]$。
 
 我们注意到 $f[i]$ 只与 $f[i-1]$ 有关，因此可以只用一个变量来维护操作次数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $target$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{target}$ 的长度。
 
 相似题目：
 

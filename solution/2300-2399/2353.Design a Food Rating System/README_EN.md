@@ -101,19 +101,19 @@ foodRatings.highestRated(&quot;japanese&quot;); // return &quot;ramen&quot;
 >
 > We query the highest-rated food of a cuisine (breaking ties lexicographically) and update ratings. Up to $2 \times 10^4$ calls make a linear scan too slow.
 >
-> Each cuisine keeps a sorted set of $(-rating, food)$; a map stores each food’s rating and cuisine. An update removes the old pair and inserts the new one; a query reads the first food name.
+> Each cuisine keeps a sorted set of $(-\textit{rating}, \textit{food})$; a map stores each food’s rating and cuisine. An update removes the old pair and inserts the new one; a query reads the first food name.
 
 <!-- thinking:end -->
 
-We can use a hash table $\textit{d}$ to store the foods for each cuisine, where the key is the cuisine and the value is an ordered set. Each element in the ordered set is a tuple $(\textit{rating}, \textit{food})$, sorted by rating in descending order, and if the ratings are the same, sorted by food name in lexicographical order.
+We can use a hash table $d$ to store the foods for each cuisine, where the key is the cuisine and the value is an ordered set. Each element in the ordered set is a tuple $(\textit{rating}, \textit{food})$, sorted by rating in descending order, and if the ratings are the same, sorted by food name in lexicographical order.
 
-We can also use a hash table $\textit{g}$ to store the rating and cuisine for each food. That is, $\textit{g}[\textit{food}] = (\textit{rating}, \textit{cuisine})$.
+We can also use a hash table $g$ to store the rating and cuisine for each food. That is, $g[\textit{food}] = (\textit{rating}, \textit{cuisine})$.
 
-In the constructor, we iterate through $\textit{foods}$, $\textit{cuisines}$, and $\textit{ratings}$, storing the rating and cuisine for each food in $\textit{d}$ and $\textit{g}$.
+In the constructor, we iterate through $\textit{foods}$, $\textit{cuisines}$, and $\textit{ratings}$, storing the rating and cuisine for each food in $d$ and $g$.
 
-In the $\textit{changeRating}$ function, we first get the original rating $\textit{oldRating}$ and cuisine $\textit{cuisine}$ of the food $\textit{food}$, then update the rating of $\textit{g}[\textit{food}]$ to $\textit{newRating}$, remove $(\textit{oldRating}, \textit{food})$ from $\textit{d}[\textit{cuisine}]$, and add $(\textit{newRating}, \textit{food})$ to $\textit{d}[\textit{cuisine}]$.
+In the $\textit{changeRating}$ function, we first get the original rating $\textit{oldRating}$ and cuisine $\textit{cuisine}$ of the food $\textit{food}$, then update the rating of $g[\textit{food}]$ to $\textit{newRating}$, remove $(\textit{oldRating}, \textit{food})$ from $d[\textit{cuisine}]$, and add $(\textit{newRating}, \textit{food})$ to $d[\textit{cuisine}]$.
 
-In the $\textit{highestRated}$ function, we directly return the food name of the first element in $\textit{d}[\textit{cuisine}]$.
+In the $\textit{highestRated}$ function, we directly return the food name of the first element in $d[\textit{cuisine}]$.
 
 In terms of time complexity, the constructor has a time complexity of $O(n \log n)$, where $n$ is the number of foods. The other operations have a time complexity of $O(\log n)$. The space complexity is $O(n)$.
 

@@ -94,9 +94,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用一个哈希表 $\text{cnt}$ 统计每个元素的频次。然后遍历 $\text{cnt}$ 中的值，判断是否有质数，如果有则返回 `true`，否则返回 `false`。
+我们用一个哈希表 $\textit{cnt}$ 统计每个元素的频次。然后遍历 $\textit{cnt}$ 中的值，判断是否有质数，如果有则返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(n \sqrt{M})$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\text{nums}$ 的长度，而 $M$ 是 $\text{cnt}$ 中的最大值。
+时间复杂度 $O(n \sqrt{M})$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是 $\textit{cnt}$ 中的最大值。
 
 <!-- tabs:start -->
 

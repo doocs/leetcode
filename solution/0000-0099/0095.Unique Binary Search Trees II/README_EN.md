@@ -59,14 +59,14 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$ that returns all feasible binary search trees composed of $[i, j]$, so the answer is $dfs(1, n)$.
+We design a function $\textit{dfs}(i, j)$ that returns all feasible binary search trees composed of $[i, j]$, so the answer is $\textit{dfs}(1, n)$.
 
-The execution steps of the function $dfs(i, j)$ are as follows:
+The execution steps of the function $\textit{dfs}(i, j)$ are as follows:
 
 1. If $i > j$, it means that there are no numbers to form a binary search tree at this time, so return a list consisting of a null node.
-2. If $i \leq j$, we enumerate the numbers $v$ in $[i, j]$ as the root node. The left subtree of the root node $v$ is composed of $[i, v - 1]$, and the right subtree is composed of $[v + 1, j]$. Finally, we take the Cartesian product of all combinations of the left and right subtrees, i.e., $left \times right$, add the root node $v$, and get all binary search trees with $v$ as the root node.
+2. If $i \leq j$, we enumerate the numbers $v$ in $[i, j]$ as the root node. The left subtree of the root node $v$ is composed of $[i, v - 1]$, and the right subtree is composed of $[v + 1, j]$. Finally, we take the Cartesian product of all combinations of the left and right subtrees, i.e., $\textit{left} \times \textit{right}$, add the root node $v$, and get all binary search trees with $v$ as the root node.
 
-The time complexity is $O(nG(n))$, and the space complexity is $O(nG(n))$, where $G(n)$ is the Catalan number.
+The time complexity is $O(\textit{nG}(n))$, and the space complexity is $O(\textit{nG}(n))$, where $G(n)$ is the Catalan number.
 
 <!-- tabs:start -->
 

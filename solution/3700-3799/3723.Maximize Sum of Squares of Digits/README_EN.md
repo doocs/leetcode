@@ -103,15 +103,15 @@ tags:
 
 > **Thinking**
 >
-> Enumerating every $\text{num}$-digit integer whose digits sum to $\text{sum}$ and then comparing scores cannot finish when $\text{num}$ reaches $2\times 10^5$. The candidate set grows exponentially with the length, and the score still depends on how the digits are spread out, so the comparison itself is the bottleneck. Squaring is convex on the non-negative integers, so a fixed sum produces a larger sum of squares when the digits are concentrated; the optimal multiset is therefore as many $9$s as possible plus at most one remainder. Writing those larger digits from the high end leaves the score unchanged and selects the numerically largest integer among ties, which is why the answer is assembled directly in that order.
+> Enumerating every $\textit{num}$-digit integer whose digits sum to $\textit{sum}$ and then comparing scores cannot finish when $\textit{num}$ reaches $2\times 10^5$. The candidate set grows exponentially with the length, and the score still depends on how the digits are spread out, so the comparison itself is the bottleneck. Squaring is convex on the non-negative integers, so a fixed sum produces a larger sum of squares when the digits are concentrated; the optimal multiset is therefore as many $9$s as possible plus at most one remainder. Writing those larger digits from the high end leaves the score unchanged and selects the numerically largest integer among ties, which is why the answer is assembled directly in that order.
 
 <!-- thinking:end -->
 
-If $\text{num} \times 9 < \text{sum}$, then there is no valid good integer, so we return an empty string.
+If $\textit{num} \times 9 < \textit{sum}$, then there is no valid good integer, so we return an empty string.
 
-Otherwise, we can use as many digits $9$ as possible to form the good integer, since $9^2$ is the largest and will maximize the score. Specifically, we calculate how many $9$s are contained in $\text{sum}$, denoted as $k$, and the remaining part $s = \text{sum} - 9 \times k$. Then, we construct the good integer with the first $k$ digits as $9$. If $s > 0$, we append a digit $s$ at the end, and finally pad with $0$s to reach a total of $\text{num}$ digits.
+Otherwise, we can use as many digits $9$ as possible to form the good integer, since $9^2$ is the largest and will maximize the score. Specifically, we calculate how many $9$s are contained in $\textit{sum}$, denoted as $k$, and the remaining part $s = \textit{sum} - 9 \times k$. Then, we construct the good integer with the first $k$ digits as $9$. If $s > 0$, we append a digit $s$ at the end, and finally pad with $0$s to reach a total of $\textit{num}$ digits.
 
-The time complexity is $O(\text{num})$, and the space complexity is $O(\text{num})$, where $\text{num}$ is the number of digits in the good integer.
+The time complexity is $O(\textit{num})$, and the space complexity is $O(\textit{num})$, where $\textit{num}$ is the number of digits in the good integer.
 
 <!-- tabs:start -->
 

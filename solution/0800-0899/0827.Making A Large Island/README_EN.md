@@ -77,11 +77,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can assign a unique identifier to each connected component, using an array $p$ to record the connected component each position belongs to, i.e., $p[i][j]$ represents the connected component number of $(i, j)$. Use an array $cnt$ to record the size of each connected component, i.e., $cnt[root]$ represents the size of the connected component $root$.
+We can assign a unique identifier to each connected component, using an array $p$ to record the connected component each position belongs to, i.e., $p[i][j]$ represents the connected component number of $(i, j)$. Use an array $\textit{cnt}$ to record the size of each connected component, i.e., $\textit{cnt}[\textit{root}]$ represents the size of the connected component $\textit{root}$.
 
-First, we traverse the entire matrix. For each position $grid[i][j] = 1$ and $p[i][j] = 0$, we perform a depth-first search on it, mark its connected component as $root$, and count the size of the connected component.
+First, we traverse the entire matrix. For each position $\textit{grid}[i][j] = 1$ and $p[i][j] = 0$, we perform a depth-first search on it, mark its connected component as $\textit{root}$, and count the size of the connected component.
 
-Then, we traverse the entire matrix again. For each position $grid[i][j] = 0$, we find the connected components of the four positions above, below, left, and right of it, add up the sizes of these connected components, and add $1$ for the current position, to get the maximum island area after changing the current position to $1$.
+Then, we traverse the entire matrix again. For each position $\textit{grid}[i][j] = 0$, we find the connected components of the four positions above, below, left, and right of it, add up the sizes of these connected components, and add $1$ for the current position, to get the maximum island area after changing the current position to $1$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the sides of the matrix.
 

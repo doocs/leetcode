@@ -35,9 +35,9 @@ difficulty: 中等
 
 <!-- thinking:end -->
 
-我们首先判断根节点是否为空，或者根节点是否等于 $\textit{p}$ 或 $\textit{q}$，如果是的话，直接返回根节点。
+我们首先判断根节点是否为空，或者根节点是否等于 $p$ 或 $q$，如果是的话，直接返回根节点。
 
-然后递归地对左右子树进行查找，分别得到 $\textit{left}$ 和 $\textit{right}$。如果 $\textit{left}$ 和 $\textit{right}$ 都不为空，说明 $\textit{p}$ 和 $\textit{q}$ 分别在左右子树中，那么根节点就是最近公共祖先。否则，如果 $\textit{left}$ 和 $\textit{right}$ 中有一个为空，说明 $\textit{p}$ 和 $\textit{q}$ 都在非空的子树中，那么非空的子树的根节点就是最近公共祖先。
+然后递归地对左右子树进行查找，分别得到 $\textit{left}$ 和 $\textit{right}$。如果 $\textit{left}$ 和 $\textit{right}$ 都不为空，说明 $p$ 和 $q$ 分别在左右子树中，那么根节点就是最近公共祖先。否则，如果 $\textit{left}$ 和 $\textit{right}$ 中有一个为空，说明 $p$ 和 $q$ 都在非空的子树中，那么非空的子树的根节点就是最近公共祖先。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树中节点的数目。
 

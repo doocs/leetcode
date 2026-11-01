@@ -76,11 +76,11 @@ It can be seen that there does not exist any path from node 1 to node 2, hence t
 
 > **Thinking**
 >
-> We need a minimum-weight subgraph that contains both $src_1 \to dest$ and $src_2 \to dest$. Taking two shortest paths independently double-counts the shared suffix and is not always optimal. $n, m \le 10^5$, so enumerating subgraphs is impossible.
+> We need a minimum-weight subgraph that contains both $\textit{src}_1 \to \textit{dest}$ and $\textit{src}_2 \to \textit{dest}$. Taking two shortest paths independently double-counts the shared suffix and is not always optimal. $n, m \le 10^5$, so enumerating subgraphs is impossible.
 >
-> Both paths end at $dest$, so they meet at some vertex $p$ (possibly $dest$ itself). The optimum is the sum of three shortest paths: $src_1 \to p$, $src_2 \to p$, and $p \to dest$.
+> Both paths end at $\textit{dest}$, so they meet at some vertex $p$ (possibly $\textit{dest}$ itself). The optimum is the sum of three shortest paths: $\textit{src}_1 \to p$, $\textit{src}_2 \to p$, and $p \to \textit{dest}$.
 >
-> Run Dijkstra from $src_1$ and $src_2$ on the original graph, and from $dest$ on the reversed graph. Enumerate $p$ and take $\min(d_1[p]+d_2[p]+d_3[p])$, or $-1$ if the value stays infinite.
+> Run Dijkstra from $\textit{src}_1$ and $\textit{src}_2$ on the original graph, and from $\textit{dest}$ on the reversed graph. Enumerate $p$ and take $\min(d_1[p]+d_2[p]+d_3[p])$, or $-1$ if the value stays infinite.
 
 <!-- thinking:end -->
 

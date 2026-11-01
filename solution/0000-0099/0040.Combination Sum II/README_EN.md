@@ -68,25 +68,25 @@ tags:
 
 > **Thinking**
 >
-> Unlike the previous problem, each number may be used only once, and $candidates$ may contain duplicates. Without deduping, the same multiset is found via different index combinations. $n \le 100$ and $target \le 30$ make pruning even more important.
+> Unlike the previous problem, each number may be used only once, and $\textit{candidates}$ may contain duplicates. Without deduping, the same multiset is found via different index combinations. $n \le 100$ and $\textit{target} \le 30$ make pruning even more important.
 >
-> Sort so equal values sit together. At the same depth, if $j \gt i$ and $candidates[j]$ equals the previous value, that value has already been tried as “this level’s choice” and we skip it.
+> Sort so equal values sit together. At the same depth, if $j \gt i$ and $\textit{candidates}[j]$ equals the previous value, that value has already been tried as “this level’s choice” and we skip it.
 >
-> The recursive call is $dfs(j+1,\ldots)$: this index cannot be reused. If the remainder $s$ is already smaller than the current value, the whole branch stops.
+> The recursive call is $\textit{dfs}(j+1,\ldots)$: this index cannot be reused. If the remainder $s$ is already smaller than the current value, the whole branch stops.
 
 <!-- thinking:end -->
 
 We can first sort the array to facilitate pruning and skipping duplicate numbers.
 
-Next, we design a function $dfs(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $ans$.
+Next, we design a function $\textit{dfs}(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $\textit{ans}$.
 
-In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we start the search from index $i$, and the search index range is $j \in [i, n)$, where $n$ is the length of the array $candidates$. During the search, if $j \gt i$ and $candidates[j] = candidates[j - 1]$, it means that the current number is the same as the previous number, we can skip the current number because the previous number has been searched. Otherwise, we add the current number to the search path $t$, recursively call the function $dfs(j + 1, s - candidates[j])$, and after the recursion ends, we remove the current number from the search path $t$.
+In the function $\textit{dfs}(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $\textit{ans}$, and then return. If $i \geq n$ or $s \lt \textit{candidates}[i]$, the path is invalid, so we return directly. Otherwise, we start the search from index $i$, and the search index range is $j \in [i, n)$, where $n$ is the length of the array $\textit{candidates}$. During the search, if $j \gt i$ and $\textit{candidates}[j] = \textit{candidates}[j - 1]$, it means that the current number is the same as the previous number, we can skip the current number because the previous number has been searched. Otherwise, we add the current number to the search path $t$, recursively call the function $\textit{dfs}(j + 1, s - \textit{candidates}[j])$, and after the recursion ends, we remove the current number from the search path $t$.
 
-We can also change the implementation logic of the function $dfs(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $dfs(i + 1, s - candidates[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $dfs(j, s)$, where $j$ is the index of the first number that is different from the current number.
+We can also change the implementation logic of the function $\textit{dfs}(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $\textit{dfs}(i + 1, s - \textit{candidates}[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $\textit{dfs}(j, s)$, where $j$ is the index of the first number that is different from the current number.
 
-In the main function, we just need to call the function $dfs(0, target)$ to get the answer.
+In the main function, we just need to call the function $\textit{dfs}(0, \textit{target})$ to get the answer.
 
-The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{candidates}$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 Similar problems:
 
@@ -362,9 +362,9 @@ public class Solution {
 
 <!-- thinking:end -->
 
-We can also change the implementation logic of the function $dfs(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $dfs(i + 1, s - candidates[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $dfs(j, s)$, where $j$ is the index of the first number that is different from the current number.
+We can also change the implementation logic of the function $\textit{dfs}(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $\textit{dfs}(i + 1, s - \textit{candidates}[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $\textit{dfs}(j, s)$, where $j$ is the index of the first number that is different from the current number.
 
-The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{candidates}$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 <!-- tabs:start -->
 

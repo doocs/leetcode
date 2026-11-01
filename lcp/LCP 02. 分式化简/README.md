@@ -59,21 +59,21 @@ comments: true
 
 > **思考**
 >
-> 连分数由内向外嵌套， $cont$ 长度不超过 $10$，自右向左化简即可在线性递归深度内完成。若从左端展开，中间结果同样是分数，仍需通分，且不易直接得到最简形式。
+> 连分数由内向外嵌套， $\textit{cont}$ 长度不超过 $10$，自右向左化简即可在线性递归深度内完成。若从左端展开，中间结果同样是分数，仍需通分，且不易直接得到最简形式。
 >
-> 注意到最右一项本身就是整数 $\dfrac{cont[n-1]}{1}$，向左一层满足 $cont[i]+\dfrac{b}{a}=\dfrac{a\cdot cont[i]+b}{a}$。因此用 $dfs(i)$ 返回从 $i$ 起到末尾的最简分数，每层用最大公约数约分后回传，答案即为 $dfs(0)$。
+> 注意到最右一项本身就是整数 $\dfrac{\textit{cont}[n-1]}{1}$，向左一层满足 $\textit{cont}[i]+\dfrac{b}{a}=\dfrac{a\cdot \textit{cont}[i]+b}{a}$。因此用 $\textit{dfs}(i)$ 返回从 $i$ 起到末尾的最简分数，每层用最大公约数约分后回传，答案即为 $\textit{dfs}(0)$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始到最后一个元素的连分数的值，那么答案就是 $dfs(0)$。
+我们设计一个函数 $\textit{dfs}(i)$，表示从下标 $i$ 开始到最后一个元素的连分数的值，那么答案就是 $\textit{dfs}(0)$。
 
-函数 $dfs(i)$ 的执行逻辑如下：
+函数 $\textit{dfs}(i)$ 的执行逻辑如下：
 
-如果 $i = n - 1$，只有一个元素，那么它的值就是 $cont[i]$，分母为 $1$，返回 $[cont[i], 1]$。
+如果 $i = n - 1$，只有一个元素，那么它的值就是 $\textit{cont}[i]$，分母为 $1$，返回 $[\textit{cont}[i], 1]$。
 
-否则，我们递归调用 $dfs(i + 1)$，记返回值为 $[a, b]$，那么 $dfs(i)= 1 + \frac{1}{\frac{a}{b}}$，即 $dfs(i) = \frac{a \times cont[i] + b}{a}$，分子为 $x = a \times cont[i] + b$，分母为 $y = a$，我们求出 $x$ 和 $y$ 的最大公约数 $g$，最终返回 $[\frac{x}{g}, \frac{y}{g}]$。
+否则，我们递归调用 $\textit{dfs}(i + 1)$，记返回值为 $[a, b]$，那么 $\textit{dfs}(i)= 1 + \frac{1}{\frac{a}{b}}$，即 $\textit{dfs}(i) = \frac{a \times \textit{cont}[i] + b}{a}$，分子为 $x = a \times \textit{cont}[i] + b$，分母为 $y = a$，我们求出 $x$ 和 $y$ 的最大公约数 $g$，最终返回 $[\frac{x}{g}, \frac{y}{g}]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $cont$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{cont}$ 的长度。
 
 <!-- tabs:start -->
 

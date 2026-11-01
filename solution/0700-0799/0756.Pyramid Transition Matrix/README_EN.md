@@ -77,7 +77,7 @@ Starting from the bottom (level 4), there are multiple ways to build level 3, bu
 >
 > Each adjacent pair lists allowed tops; the Cartesian product of those lists is every possible next row.
 >
-> Memoized $dfs(s)$ succeeds at length $1$, fails if a pair has no candidate, otherwise recurses on each product string.
+> Memoized $\textit{dfs}(s)$ succeeds at length $1$, fails if a pair has no candidate, otherwise recurses on each product string.
 
 <!-- thinking:end -->
 

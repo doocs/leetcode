@@ -53,22 +53,22 @@ difficulty: Easy
 
 > **Thinking**
 >
-> A magic index satisfies $nums[i]=i$. A left-to-right scan finds the smallest one in linear time.
+> A magic index satisfies $\textit{nums}[i]=i$. A left-to-right scan finds the smallest one in linear time.
 >
-> Duplicates block the usual “compare $mid$ to $nums[mid]$ and drop a half” argument, because a match may still sit on the left.
+> Duplicates block the usual “compare $\textit{mid}$ to $\textit{nums}[\textit{mid}]$ and drop a half” argument, because a match may still sit on the left.
 >
 > Search the left half fully first (that answer is the smallest), then test the midpoint, then the right half. Worst case remains linear, but ordered data often skips ranges.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$ to find the magic index in the array $nums[i, j]$. If found, return the value of the magic index, otherwise return $-1$. So the answer is $dfs(0, n-1)$.
+We design a function $\textit{dfs}(i, j)$ to find the magic index in the array $\textit{nums}[i, j]$. If found, return the value of the magic index, otherwise return $-1$. So the answer is $\textit{dfs}(0, n-1)$.
 
-The implementation of the function $dfs(i, j)$ is as follows:
+The implementation of the function $\textit{dfs}(i, j)$ is as follows:
 
 1. If $i > j$, return $-1$.
-2. Otherwise, we take the middle position $mid = (i + j) / 2$, then recursively call $dfs(i, mid-1)$. If the return value is not $-1$, it means that the magic index is found in the left half, return it directly. Otherwise, if $nums[mid] = mid$, it means that the magic index is found, return it directly. Otherwise, recursively call $dfs(mid+1, j)$ and return.
+2. Otherwise, we take the middle position $\textit{mid} = (i + j) / 2$, then recursively call $\textit{dfs}(i, \textit{mid}-1)$. If the return value is not $-1$, it means that the magic index is found in the left half, return it directly. Otherwise, if $\textit{nums}[\textit{mid}] = \textit{mid}$, it means that the magic index is found, return it directly. Otherwise, recursively call $\textit{dfs}(\textit{mid}+1, j)$ and return.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ The worst case is that you pay $1.
 >
 > A wrong guess costs that number; we want the min-max cost to guarantee a win. Searching guess orders is a game tree. The optimum on $[i,j]$ depends only on shorter intervals.
 >
-> $f[i][j]$ is that min-max cost. Guessing $k$ costs $k+\max(left,right)$; minimize over $k$. Fill by interval length; the answer is $f[1][n]$.
+> $f[i][j]$ is that min-max cost. Guessing $k$ costs $k+\max(\textit{left},\textit{right})$; minimize over $k$. Fill by interval length; the answer is $f[1][n]$.
 
 <!-- thinking:end -->
 

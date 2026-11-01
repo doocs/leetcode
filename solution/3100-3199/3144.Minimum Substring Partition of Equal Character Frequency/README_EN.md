@@ -75,7 +75,7 @@ tags:
 >
 > From index $i$, extending $j$ can test balance with frequency maps: a piece is legal when only one frequency remains. The optimum depends only on the start index.
 >
-> Memoize $dfs(i)$: maintain $cnt$ and $freq$, and when $freq$ has size $1$ take $1+dfs(j+1)$. The empty suffix returns $0$.
+> Memoize $\textit{dfs}(i)$: maintain $\textit{cnt}$ and $\textit{freq}$, and when $\textit{freq}$ has size $1$ take $1+\textit{dfs}(j+1)$. The empty suffix returns $0$.
 
 <!-- thinking:end -->
 
@@ -295,9 +295,9 @@ function minimumSubstringsInPartition(s: string): number {
 >
 > Method 1 keeps a second map of frequency-of-frequencies, which adds constants and fiddly updates.
 >
-> Balance is equivalent to length equaling (maximum frequency) times (number of distinct letters). Only $cnt$ and that maximum $m$ are required.
+> Balance is equivalent to length equaling (maximum frequency) times (number of distinct letters). Only $\textit{cnt}$ and that maximum $m$ are required.
 >
-> While extending $j$, update $m$ and recurse when $j-i+1=m\cdot|cnt|$. The state is still the start index, with a shorter inner loop.
+> While extending $j$, update $m$ and recurse when $j-i+1=m\cdot|\textit{cnt}|$. The state is still the start index, with a shorter inner loop.
 
 <!-- thinking:end -->
 
@@ -633,7 +633,7 @@ function minimumSubstringsInPartition(s: string): number {
 
 > **Thinking**
 >
-> Enumerating every partition is exponential. The string length reaches $1000$, and a single character is already a balanced piece, so the first transition always moves to the next index and the search has depth $n$. Whether a piece is balanced depends only on the frequencies inside it, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end, updating with $1+f[j+1]$ when $freq$ contains only one frequency.
+> Enumerating every partition is exponential. The string length reaches $1000$, and a single character is already a balanced piece, so the first transition always moves to the next index and the search has depth $n$. Whether a piece is balanced depends only on the frequencies inside it, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end, updating with $1+f[j+1]$ when $\textit{freq}$ contains only one frequency.
 
 <!-- thinking:end -->
 

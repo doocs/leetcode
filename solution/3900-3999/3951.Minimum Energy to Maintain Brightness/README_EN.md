@@ -114,8 +114,8 @@ A single bulb can illuminate at most 3 positions. To ensure the total brightness
 This problem can be solved through the following steps:
 
 1. **Merge Overlapping Intervals**: Merge all intervals that intersect with each other to obtain a set of mutually disjoint continuous intervals.
-2. **Calculate Length Contribution**: For each merged interval $[start, end]$, the number of integer points (i.e., positions) it covers is $m = end - start + 1$. Since every position within the interval must satisfy the minimum brightness, the total energy required for this interval is:
-   $$\text{Energy} = \lceil \frac{\textit{brightness}}{3} \rceil \times m$$
+2. **Calculate Length Contribution**: For each merged interval $[\textit{start}, \textit{end}]$, the number of integer points (i.e., positions) it covers is $m = \textit{end} - \textit{start} + 1$. Since every position within the interval must satisfy the minimum brightness, the total energy required for this interval is:
+   $$\textit{Energy} = \lceil \frac{\textit{brightness}}{3} \rceil \times m$$
 3. **Accumulate and Sum**: Accumulate the energy of all disjoint intervals to get the final answer $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of intervals.

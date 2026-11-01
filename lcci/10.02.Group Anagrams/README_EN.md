@@ -58,7 +58,7 @@ difficulty: Medium
 >
 > Hashing that sorted string clusters the original words automatically.
 >
-> For each $s$, append it to $d[''.join(sorted(s))]$ and emit the value lists. One $O(k \log k)$ sort per word buys a hash insert.
+> For each $s$, append it to $d[''.\textit{join}(\textit{sorted}(s))]$ and emit the value lists. One $O(k \log k)$ sort per word buys a hash insert.
 
 <!-- thinking:end -->
 

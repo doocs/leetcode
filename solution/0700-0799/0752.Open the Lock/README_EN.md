@@ -322,7 +322,7 @@ function openLock(deadends: string[], target: string): number {
 >
 > One-sided BFS may expand most of the cube. The two ends are known, so bidirectional BFS meets in the middle with smaller fronts.
 >
-> Always extend the smaller queue. A neighbor already seen from the other side yields $step+1+m_2[t]$. Dead ends are skipped on both sides.
+> Always extend the smaller queue. A neighbor already seen from the other side yields $\textit{step}+1+m_2[t]$. Dead ends are skipped on both sides.
 
 <!-- thinking:end -->
 

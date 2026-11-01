@@ -101,7 +101,7 @@ tags:
 
 We note that the reversed number $r$ of $n$ will not exceed 1000, so we can precompute all prime numbers up to 1000.
 
-Next, we compute $low = \min(n, r)$ and $high = \max(n, r)$, then iterate through all integers in the range $[low, high]$. If an integer is prime, we add it to the answer.
+Next, we compute $\textit{low} = \min(n, r)$ and $\textit{high} = \max(n, r)$, then iterate through all integers in the range $[\textit{low}, \textit{high}]$. If an integer is prime, we add it to the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(M)$, where $M$ is the upper bound used for prime precomputation, which is 1000 here.
 

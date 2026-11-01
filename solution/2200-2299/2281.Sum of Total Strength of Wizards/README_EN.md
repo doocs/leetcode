@@ -88,9 +88,9 @@ The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
 
 > **Thinking**
 >
-> A subarray's strength is its minimum times its sum; we want the total. $n \le 10^5$ forbids enumerating subarrays. Charge each index $i$ as the minimum on the range where it is the leftmost minimum: $[left[i]+1, right[i]-1]$.
+> A subarray's strength is its minimum times its sum; we want the total. $n \le 10^5$ forbids enumerating subarrays. Charge each index $i$ as the minimum on the range where it is the leftmost minimum: $[\textit{left}[i]+1, \textit{right}[i]-1]$.
 >
-> Monotonic stacks give those bounds. The sum of subarray sums over that rectangle is a combination of prefix-of-prefix sums $ss$, computed in constant time, then multiplied by $strength[i]$ modulo $10^9+7$.
+> Monotonic stacks give those bounds. The sum of subarray sums over that rectangle is a combination of prefix-of-prefix sums $ss$, computed in constant time, then multiplied by $\textit{strength}[i]$ modulo $10^9+7$.
 
 <!-- thinking:end -->
 

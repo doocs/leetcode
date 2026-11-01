@@ -78,19 +78,19 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 >
 > We choose $k$ numbers from $1$ through $9$ that sum to $n$. The universe is tiny, so we can enumerate. Decide include-or-skip in increasing order, and prune when the remaining sum, the count, or the next integer is invalid.
 >
-> $dfs(i,s)$ considers integer $i$ with remaining sum $s$: take it via $dfs(i+1,s-i)$, or skip via $dfs(i+1,s)$.
+> $\textit{dfs}(i,s)$ considers integer $i$ with remaining sum $s$: take it via $\textit{dfs}(i+1,s-i)$, or skip via $\textit{dfs}(i+1,s)$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, s)$, which represents that we are currently enumerating the number $i$, and there are still numbers with a sum of $s$ to be enumerated. The current search path is $t$, and the answer is $ans$.
+We design a function $\textit{dfs}(i, s)$, which represents that we are currently enumerating the number $i$, and there are still numbers with a sum of $s$ to be enumerated. The current search path is $t$, and the answer is $\textit{ans}$.
 
-The execution logic of the function $dfs(i, s)$ is as follows:
+The execution logic of the function $\textit{dfs}(i, s)$ is as follows:
 
 Approach One:
 
-- If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
+- If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $\textit{ans}$ and then return.
 - If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
-- Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue to search, i.e., execute $dfs(i + 1, s - i)$. After the search is completed, remove $i$ from the search path $t$; we can also choose not to add the number $i$ to the search path $t$, and directly execute $dfs(i + 1, s)$.
+- Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue to search, i.e., execute $\textit{dfs}(i + 1, s - i)$. After the search is completed, remove $i$ from the search path $t$; we can also choose not to add the number $i$ to the search path $t$, and directly execute $\textit{dfs}(i + 1, s)$.
 
 <!-- tabs:start -->
 
@@ -341,13 +341,13 @@ public class Solution {
 
 Another approach:
 
-- If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
+- If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $\textit{ans}$ and then return.
 - If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
-- Otherwise, we enumerate the next number $j$, i.e., $j \in [i, 9]$, add the number $j$ to the search path $t$, and then continue to search, i.e., execute $dfs(j + 1, s - j)$. After the search is completed, remove $j$ from the search path $t$.
+- Otherwise, we enumerate the next number $j$, i.e., $j \in [i, 9]$, add the number $j$ to the search path $t$, and then continue to search, i.e., execute $\textit{dfs}(j + 1, s - j)$. After the search is completed, remove $j$ from the search path $t$.
 
-In the main function, we call $dfs(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.
+In the main function, we call $\textit{dfs}(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.
 
-The time complexity is $O(kC_9^k)$, and the space complexity is $O(k)$.
+The time complexity is $O(\textit{kC}_9^k)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -571,7 +571,7 @@ public class Solution {
 
 We can use a binary integer of length $9$ to represent the selection of numbers $1$ to $9$, where the $i$-th bit of the binary integer represents whether the number $i + 1$ is selected. If the $i$-th bit is $1$, it means that the number $i + 1$ is selected, otherwise, it means that the number $i + 1$ is not selected.
 
-We enumerate binary integers in the range of $[0, 2^9)$. For the currently enumerated binary integer $mask$, if the number of $1$s in the binary representation of $mask$ is $k$, and the sum of the numbers corresponding to $1$ in the binary representation of $mask$ is $n$, it means that the number selection scheme corresponding to $mask$ is a group of answers. We can add the number selection scheme corresponding to $mask$ to the answer.
+We enumerate binary integers in the range of $[0, 2^9)$. For the currently enumerated binary integer $\textit{mask}$, if the number of $1$s in the binary representation of $\textit{mask}$ is $k$, and the sum of the numbers corresponding to $1$ in the binary representation of $\textit{mask}$ is $n$, it means that the number selection scheme corresponding to $\textit{mask}$ is a group of answers. We can add the number selection scheme corresponding to $\textit{mask}$ to the answer.
 
 The time complexity is $O(2^9 \cdot 9)$, and the space complexity is $O(k)$.
 

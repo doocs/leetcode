@@ -75,9 +75,9 @@ difficulty: Hard
 
 We use a hash map $d$ to record the document ids that contain each word. Documents are scanned in increasing id order, and the integers inside one document are distinct, so the ids in $d[x]$ are strictly increasing.
 
-Two documents have similarity greater than $0$ exactly when they share at least one word. For every document list in $d$, we enumerate its id pairs and accumulate them in a hash map $cnt$. The key is the pair $(i, j)$ with $i < j$, and the value is the size of the intersection. The size of the union is $|docs[i]| + |docs[j]| - |\cap|$. An empty document never enters a list, so it is skipped.
+Two documents have similarity greater than $0$ exactly when they share at least one word. For every document list in $d$, we enumerate its id pairs and accumulate them in a hash map $\textit{cnt}$. The key is the pair $(i, j)$ with $i < j$, and the value is the size of the intersection. The size of the union is $|\textit{docs}[i]| + |\textit{docs}[j]| - |\cap|$. An empty document never enters a list, so it is skipped.
 
-While walking through $cnt$, the similarity is the ratio of the intersection to the union. Floating-point division can fall slightly short of the true value, so we add $10^{-9}$ before formatting the result to four decimal places. Each inverted list is already sorted by id, so the smaller id is the first component of the key.
+While walking through $\textit{cnt}$, the similarity is the ratio of the intersection to the union. Floating-point division can fall slightly short of the true value, so we add $10^{-9}$ before formatting the result to four decimal places. Each inverted list is already sorted by id, so the smaller id is the first component of the key.
 
 The time complexity is $O(mn^2)$, and the space complexity is $O(S)$, where $n$ is the number of documents, $m$ is the maximum document length, and $S$ is the total number of words. At most $1000$ pairs have similarity greater than $0$, and the inner loops run once per element of those intersections, so the running time on the given inputs is below this bound.
 

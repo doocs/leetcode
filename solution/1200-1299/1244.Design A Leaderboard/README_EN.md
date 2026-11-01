@@ -75,19 +75,19 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 
 > **Thinking**
 >
-> We update and reset a player's score and sum the top $K$ scores. A thousand calls make a linear scan of all players unattractive. A hash map stores the score by $playerId$; a sorted list holds the multiset of scores.
+> We update and reset a player's score and sum the top $K$ scores. A thousand calls make a linear scan of all players unattractive. A hash map stores the score by $\textit{playerId}$; a sorted list holds the multiset of scores.
 >
-> Adding a score removes the old value then inserts the new one; reset deletes symmetrically; $top(K)$ sums the last $K$ entries. The map locates a player in $O(1)$; the sorted list updates in logarithmic time and exposes an ordered suffix.
+> Adding a score removes the old value then inserts the new one; reset deletes symmetrically; $\textit{top}(K)$ sums the last $K$ entries. The map locates a player in $O(1)$; the sorted list updates in logarithmic time and exposes an ordered suffix.
 
 <!-- thinking:end -->
 
-We use a hash table $d$ to record the scores of each player, and an ordered list $rank$ to record the scores of all players.
+We use a hash table $d$ to record the scores of each player, and an ordered list $\textit{rank}$ to record the scores of all players.
 
-When the `addScore` function is called, we first check if the player is in the hash table $d$. If not, we add their score to the ordered list $rank$. Otherwise, we first remove their score from the ordered list $rank$, then add their updated score to the ordered list $rank$, and finally update the score in the hash table $d$. The time complexity is $O(\log n)$.
+When the `addScore` function is called, we first check if the player is in the hash table $d$. If not, we add their score to the ordered list $\textit{rank}$. Otherwise, we first remove their score from the ordered list $\textit{rank}$, then add their updated score to the ordered list $\textit{rank}$, and finally update the score in the hash table $d$. The time complexity is $O(\log n)$.
 
-When the `top` function is called, we directly return the sum of the first $K$ elements in the ordered list $rank$. The time complexity is $O(K \log n)$.
+When the `top` function is called, we directly return the sum of the first $K$ elements in the ordered list $\textit{rank}$. The time complexity is $O(K \log n)$.
 
-When the `reset` function is called, we first remove the player from the hash table $d$, then remove their score from the ordered list $rank$. The time complexity is $O(\log n)$.
+When the `reset` function is called, we first remove the player from the hash table $d$, then remove their score from the ordered list $\textit{rank}$. The time complexity is $O(\log n)$.
 
 The space complexity is $O(n)$, where $n$ is the number of players.
 

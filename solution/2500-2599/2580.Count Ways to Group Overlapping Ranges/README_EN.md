@@ -90,9 +90,9 @@ Thus, there are four possible ways to group them:
 
 <!-- thinking:end -->
 
-We can first sort the intervals in the range, merge the overlapping intervals, and count the number of non-overlapping intervals, denoted as $cnt$.
+We can first sort the intervals in the range, merge the overlapping intervals, and count the number of non-overlapping intervals, denoted as $\textit{cnt}$.
 
-Each non-overlapping interval can be chosen to be put in the first group or the second group, so the number of plans is $2^{cnt}$. Note that $2^{cnt}$ may be very large, so we need to take modulo $10^9 + 7$. Here, we can use fast power to solve this problem.
+Each non-overlapping interval can be chosen to be put in the first group or the second group, so the number of plans is $2^{\textit{cnt}}$. Note that $2^{\textit{cnt}}$ may be very large, so we need to take modulo $10^9 + 7$. Here, we can use fast power to solve this problem.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 

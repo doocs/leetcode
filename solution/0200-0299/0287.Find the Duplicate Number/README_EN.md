@@ -79,7 +79,7 @@ tags:
 >
 > We cannot mutate the array or use a hash table. By pigeonhole, if more than $x$ values lie in $[1,x]$, the duplicate is there.
 >
-> Binary-search the value range: count how many entries are $\le mid$; if that count exceeds $mid$, search the left half, otherwise the right.
+> Binary-search the value range: count how many entries are $\le \textit{mid}$; if that count exceeds $\textit{mid}$, search the left half, otherwise the right.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ We can observe that if the number of elements in $[1,..x]$ is greater than $x$, 
 
 Therefore, we can use binary search to find $x$, and check whether the number of elements in $[1,..x]$ is greater than $x$ at each iteration. This way, we can determine which interval the duplicate number is in, and narrow down the search range until we find the duplicate number.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

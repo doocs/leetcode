@@ -68,11 +68,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use an array or hash table $\text{d}$ to record the last occurrence position of each number, and use a prefix sum array $\text{s}$ to record the sum from the starting point to the current position. We use a variable $j$ to record the left endpoint of the current non-repeating subarray.
+We use an array or hash table $d$ to record the last occurrence position of each number, and use a prefix sum array $s$ to record the sum from the starting point to the current position. We use a variable $j$ to record the left endpoint of the current non-repeating subarray.
 
-We iterate through the array. For each number $v$, if $\text{d}[v]$ exists, we update $j$ to $\max(j, \text{d}[v])$, which ensures that the current non-repeating subarray does not contain $v$. Then we update the answer to $\max(\text{ans}, \text{s}[i] - \text{s}[j])$, and finally update $\text{d}[v]$ to $i$.
+We iterate through the array. For each number $v$, if $d[v]$ exists, we update $j$ to $\max(j, d[v])$, which ensures that the current non-repeating subarray does not contain $v$. Then we update the answer to $\max(\textit{ans}, s[i] - s[j])$, and finally update $d[v]$ to $i$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -223,13 +223,13 @@ impl Solution {
 
 <!-- thinking:end -->
 
-The problem is essentially asking us to find the longest subarray where all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$ and $j = 0$. Additionally, we use a hash table $\text{vis}$ to record the elements in the subarray.
+The problem is essentially asking us to find the longest subarray where all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$ and $j = 0$. Additionally, we use a hash table $\textit{vis}$ to record the elements in the subarray.
 
-We iterate through the array. For each number $x$, if $x$ is in $\text{vis}$, we continuously remove $\text{nums}[i]$ from $\text{vis}$ until $x$ is no longer in $\text{vis}$. This way, we find a subarray that contains no duplicate elements. We add $x$ to $\text{vis}$, update the subarray sum $s$, and then update the answer $\text{ans} = \max(\text{ans}, s)$.
+We iterate through the array. For each number $x$, if $x$ is in $\textit{vis}$, we continuously remove $\textit{nums}[i]$ from $\textit{vis}$ until $x$ is no longer in $\textit{vis}$. This way, we find a subarray that contains no duplicate elements. We add $x$ to $\textit{vis}$, update the subarray sum $s$, and then update the answer $\textit{ans} = \max(\textit{ans}, s)$.
 
 After the iteration, we can get the maximum subarray sum.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

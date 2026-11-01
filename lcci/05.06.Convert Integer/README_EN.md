@@ -69,7 +69,7 @@ difficulty: Easy
 >
 > Those bits are exactly the ones in $A\oplus B$, so the answer is the Hamming weight of the XOR.
 >
-> Mask both with $0xFFFFFFFF$ so negative values share a $32$-bit unsigned view, then `bit_count`.
+> Mask both with $0\textit{xFFFFFFFF}$ so negative values share a $32$-bit unsigned view, then `bit_count`.
 
 <!-- thinking:end -->
 

@@ -50,7 +50,7 @@ difficulty: 中等
 >
 > 把排序后的串当作哈希键，同一键下的原串自然成组。
 >
-> 对每个 $s$ 计算 $k=''.join(sorted(s))$ 并追加到 $d[k]$，最后输出 $d$ 的值列表。每词 $O(k \log k)$ 的排序换一次哈希。
+> 对每个 $s$ 计算 $k=''.\textit{join}(\textit{sorted}(s))$ 并追加到 $d[k]$，最后输出 $d$ 的值列表。每词 $O(k \log k)$ 的排序换一次哈希。
 
 <!-- thinking:end -->
 

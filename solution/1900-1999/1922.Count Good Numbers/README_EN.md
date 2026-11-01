@@ -79,7 +79,7 @@ tags:
 For a "good number" of length $n$, the even-indexed positions have $\lceil \frac{n}{2} \rceil = \lfloor \frac{n + 1}{2} \rfloor$ digits, and these positions can be filled with $5$ different digits ($0, 2, 4, 6, 8$). The odd-indexed positions have $\lfloor \frac{n}{2} \rfloor$ digits, and these positions can be filled with $4$ different digits ($2, 3, 5, 7$). Therefore, the total number of "good numbers" of length $n$ is:
 
 $$
-ans = 5^{\lceil \frac{n}{2} \rceil} \times 4^{\lfloor \frac{n}{2} \rfloor}
+\textit{ans} = 5^{\lceil \frac{n}{2} \rceil} \times 4^{\lfloor \frac{n}{2} \rfloor}
 $$
 
 We can use fast exponentiation to compute $5^{\lceil \frac{n}{2} \rceil}$ and $4^{\lfloor \frac{n}{2} \rfloor}$. The time complexity is $O(\log n)$, and the space complexity is $O(1)$.

@@ -89,9 +89,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们遍历数组 $nums$ 中的每个元素 $nums[i]$，将其映射后的值 $y$ 与下标 $i$ 一起存入数组 $arr$ 中，然后对数组 $arr$ 进行排序，最后将排序后的数组 $arr$ 中的下标 $i$ 取出，转换为原数组 $nums$ 中的元素 $nums[i]$ 即可。
+我们遍历数组 $\textit{nums}$ 中的每个元素 $\textit{nums}[i]$，将其映射后的值 $y$ 与下标 $i$ 一起存入数组 $\textit{arr}$ 中，然后对数组 $\textit{arr}$ 进行排序，最后将排序后的数组 $\textit{arr}$ 中的下标 $i$ 取出，转换为原数组 $\textit{nums}$ 中的元素 $\textit{nums}[i]$ 即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

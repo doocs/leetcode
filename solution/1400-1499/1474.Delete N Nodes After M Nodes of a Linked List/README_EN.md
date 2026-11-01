@@ -72,7 +72,7 @@ Head of the linked list after removing nodes is returned.
 
 > **Thinking**
 >
-> Repeatedly keep $m$ nodes and drop $n$. Advance $\textit{pre}$ over the kept segment, skip $n$ nodes with $\textit{cur}$, then relink $\textit{pre.next}$. Stop early if the list runs out.
+> Repeatedly keep $m$ nodes and drop $n$. Advance $\textit{pre}$ over the kept segment, skip $n$ nodes with $\textit{cur}$, then relink $\textit{pre}.\textit{next}$. Stop early if the list runs out.
 
 <!-- thinking:end -->
 

@@ -394,7 +394,7 @@ impl Solution {
 
 > **Thinking**
 >
-> If extra space is allowed, the unique value is $(3\sum_{\mathrm{unique}}-\sum_{\mathrm{all}})/2$. Deduplicate, sum twice, and divide. Direct, but $O(n)$ space.
+> If extra space is allowed, the unique value is $(3\sum_{\textit{unique}}-\sum_{\textit{all}})/2$. Deduplicate, sum twice, and divide. Direct, but $O(n)$ space.
 
 <!-- thinking:end -->
 

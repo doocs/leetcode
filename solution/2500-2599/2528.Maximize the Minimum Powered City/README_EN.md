@@ -98,9 +98,9 @@ According to the problem description, the minimum number of power stations incre
 
 First, we use a difference array and prefix sum to calculate the initial number of power stations in each city, recording it in the array $s$, where $s[i]$ represents the number of power stations in the $i$-th city.
 
-Next, we define the left boundary of the binary search as $0$ and the right boundary as $2^{40}$. Then, we implement a function $check(x, k)$ to determine whether the minimum number of power stations in the cities can be $x$, ensuring that the additional power stations needed do not exceed $k$.
+Next, we define the left boundary of the binary search as $0$ and the right boundary as $2^{40}$. Then, we implement a function $\textit{check}(x, k)$ to determine whether the minimum number of power stations in the cities can be $x$, ensuring that the additional power stations needed do not exceed $k$.
 
-The implementation logic of the function $check(x, k)$ is as follows:
+The implementation logic of the function $\textit{check}(x, k)$ is as follows:
 
 Traverse each city. If the number of power stations in the current city $i$ is less than $x$, we can greedily build a power station at the rightmost possible position, $j = \min(i + r, n - 1)$, to cover as many cities as possible. During this process, we can use the difference array to add a certain value to a continuous segment. If the number of additional power stations needed exceeds $k$, then $x$ does not meet the condition, and we return `false`. Otherwise, after the traversal, return `true`.
 

@@ -75,16 +75,16 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 >
 > We add a uniform integer in $[1,\textit{maxPts}]$ until the total reaches $k$, and want the probability it is still $\le n$. Expanding every draw is impossible for $k,n\le 10^4$; memoize on the current total.
 >
-> $dfs(i)$ is the success probability from total $i$. For $i\ge k$ we stop and test $i\le n$; $i=k-1$ has a closed form. Other states use a difference of neighbors so each transition is $O(1)$ instead of $O(\textit{maxPts})$.
+> $\textit{dfs}(i)$ is the success probability from total $i$. For $i\ge k$ we stop and test $i\le n$; $i=k-1$ has a closed form. Other states use a difference of neighbors so each transition is $O(1)$ instead of $O(\textit{maxPts})$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $dfs(0)$.
+We design a function $\textit{dfs}(i)$, which represents the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $\textit{dfs}(0)$.
 
-The calculation method of function $dfs(i)$ is as follows:
+The calculation method of function $\textit{dfs}(i)$ is as follows:
 
 - If $i \ge k$, then we stop drawing numbers. If $i \le n$, return $1$, otherwise return $0$;
-- Otherwise, we can draw the next number $j$ in the range $[1,..\textit{maxPts}]$, then $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$.
+- Otherwise, we can draw the next number $j$ in the range $[1,..\textit{maxPts}]$, then $\textit{dfs}(i) = \frac{1}{\textit{maxPts}} \sum_{j=1}^{\textit{maxPts}} \textit{dfs}(i+j)$.
 
 Here we can use memoized search to accelerate the calculation.
 
@@ -94,7 +94,7 @@ When $i \lt k$, the following equation holds:
 
 $$
 \begin{aligned}
-dfs(i) &= (dfs(i + 1) + dfs(i + 2) + \cdots + dfs(i + \textit{maxPts})) / \textit{maxPts} & (1)
+\textit{dfs}(i) &= (\textit{dfs}(i + 1) + \textit{dfs}(i + 2) + \cdots + \textit{dfs}(i + \textit{maxPts})) / \textit{maxPts} & (1)
 \end{aligned}
 $$
 
@@ -102,7 +102,7 @@ When $i \lt k - 1$, the following equation holds:
 
 $$
 \begin{aligned}
-dfs(i+1) &= (dfs(i + 2) + dfs(i + 3) + \cdots + dfs(i + \textit{maxPts} + 1)) / \textit{maxPts} & (2)
+\textit{dfs}(i+1) &= (\textit{dfs}(i + 2) + \textit{dfs}(i + 3) + \cdots + \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts} & (2)
 \end{aligned}
 $$
 
@@ -110,7 +110,7 @@ Therefore, when $i \lt k-1$, we subtract equation $(2)$ from equation $(1)$ to g
 
 $$
 \begin{aligned}
-dfs(i) - dfs(i+1) &= (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
+\textit{dfs}(i) - \textit{dfs}(i+1) &= (\textit{dfs}(i + 1) - \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -118,7 +118,7 @@ That is:
 
 $$
 \begin{aligned}
-dfs(i) &= dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
+\textit{dfs}(i) &= \textit{dfs}(i + 1) + (\textit{dfs}(i + 1) - \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -126,7 +126,7 @@ If $i=k-1$, we have:
 
 $$
 \begin{aligned}
-dfs(i) &= dfs(k - 1) = (dfs(k) + dfs(k + 1) + \cdots + dfs(k + \textit{maxPts} - 1)) / \textit{maxPts} & (3)
+\textit{dfs}(i) &= \textit{dfs}(k - 1) = (\textit{dfs}(k) + \textit{dfs}(k + 1) + \cdots + \textit{dfs}(k + \textit{maxPts} - 1)) / \textit{maxPts} & (3)
 \end{aligned}
 $$
 
@@ -134,7 +134,7 @@ We assume there are $i$ numbers not exceeding $n$, then $k+i-1 \leq n$, and sinc
 
 $$
 \begin{aligned}
-dfs(k-1) &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
+\textit{dfs}(k-1) &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -142,11 +142,11 @@ In summary, we have the following state transition equation:
 
 $$
 \begin{aligned}
-dfs(i) &= \begin{cases}
+\textit{dfs}(i) &= \begin{cases}
 1, & i \geq k, i \leq n \\
 0, & i \geq k, i \gt n \\
 \min(n-k+1, \textit{maxPts}) / \textit{maxPts}, & i = k - 1 \\
-dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i < k - 1
+\textit{dfs}(i + 1) + (\textit{dfs}(i + 1) - \textit{dfs}(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i < k - 1
 \end{cases}
 \end{aligned}
 $$
@@ -425,7 +425,7 @@ Let $f[i]$ be the probability that a current score of $i$ ends at most $n$. The 
 The value of $f[i]$ is as follows:
 
 - If $i \ge k$, drawing stops. The value is $1$ when $i \le n$, and $0$ otherwise;
-- Otherwise the next draw $j$ lies in $[1,..\textit{maxPts}]$, so $f[i] = \frac{1}{maxPts} \sum_{j=1}^{maxPts} f[i+j]$.
+- Otherwise the next draw $j$ lies in $[1,..\textit{maxPts}]$, so $f[i] = \frac{1}{\textit{maxPts}} \sum_{j=1}^{\textit{maxPts}} f[i+j]$.
 
 Every state depends only on a larger score, so fill from $k - 2$ down to $0$. When $k = 0$ no draw has started, and the answer is $1$.
 

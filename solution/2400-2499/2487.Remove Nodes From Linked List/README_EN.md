@@ -70,7 +70,7 @@ tags:
 
 <!-- thinking:end -->
 
-Store the node values in an array $nums$, then scan $nums$ with a monotonically decreasing stack. Pop while the current value is larger than the top, then push. Rebuild the list from the bottom of the stack.
+Store the node values in an array $\textit{nums}$, then scan $\textit{nums}$ with a monotonically decreasing stack. Pop while the current value is larger than the top, then push. Rebuild the list from the bottom of the stack.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
@@ -266,7 +266,7 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- thinking:end -->
 
-Traverse the list directly with a monotonically decreasing stack of nodes. When the current value is larger, pop; then link the new top's $next$ (or the dummy head) to the current node and push it. Return the dummy head's $next$.
+Traverse the list directly with a monotonically decreasing stack of nodes. When the current value is larger, pop; then link the new top's $\textit{next}$ (or the dummy head) to the current node and push it. Return the dummy head's $\textit{next}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 

@@ -70,9 +70,9 @@ tags:
 
 > **思考**
 >
-> 给字符串原型增加重复 $times$ 次的方法。循环拼接在 $times$ 较大时反复分配中间串。
+> 给字符串原型增加重复 $\textit{times}$ 次的方法。循环拼接在 $\textit{times}$ 较大时反复分配中间串。
 >
-> 用 $times$ 个当前字符串填入数组再 $join$，一次分配即可。
+> 用 $\textit{times}$ 个当前字符串填入数组再 $\textit{join}$，一次分配即可。
 
 <!-- thinking:end -->
 

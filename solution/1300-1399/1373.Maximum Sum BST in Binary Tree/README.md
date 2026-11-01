@@ -97,7 +97,7 @@ tags:
 
 > **思考**
 >
-> 求任意子树中，本身为 BST 的那些子树的最大节点和。自顶向下验证 BST 会对同一子树重复判断。后序返回四元组：是否为 BST、最小、最大、子树和。左右都是 BST 且 $l_{mx}<\textit{root}.val<r_{mi}$ 时，当前树合法，用其和更新答案。空树视为合法，最小为正无穷、最大为负无穷。
+> 求任意子树中，本身为 BST 的那些子树的最大节点和。自顶向下验证 BST 会对同一子树重复判断。后序返回四元组：是否为 BST、最小、最大、子树和。左右都是 BST 且 $l_{mx}<\textit{root}.\textit{val}<r_{mi}$ 时，当前树合法，用其和更新答案。空树视为合法，最小为正无穷、最大为负无穷。
 
 <!-- thinking:end -->
 
@@ -108,24 +108,24 @@ tags:
 - 左子树的最大值小于根节点的值；
 - 右子树的最小值大于根节点的值。
 
-因此，我们设计一个函数 $dfs(root)$，函数的返回值是一个四元组 $(bst, mi, mx, s)$，其中：
+因此，我们设计一个函数 $\textit{dfs}(\textit{root})$，函数的返回值是一个四元组 $(\textit{bst}, mi, mx, s)$，其中：
 
-- 数字 $bst$ 表示以 $root$ 为根的树是否是二叉搜索树。如果是二叉搜索树，则 $bst = 1$；否则 $bst = 0$；
-- 数字 $mi$ 表示以 $root$ 为根的树的最小值；
-- 数字 $mx$ 表示以 $root$ 为根的树的最大值；
-- 数字 $s$ 表示以 $root$ 为根的树的所有节点的和。
+- 数字 $\textit{bst}$ 表示以 $\textit{root}$ 为根的树是否是二叉搜索树。如果是二叉搜索树，则 $\textit{bst} = 1$；否则 $\textit{bst} = 0$；
+- 数字 $mi$ 表示以 $\textit{root}$ 为根的树的最小值；
+- 数字 $mx$ 表示以 $\textit{root}$ 为根的树的最大值；
+- 数字 $s$ 表示以 $\textit{root}$ 为根的树的所有节点的和。
 
-函数 $dfs(root)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{root})$ 的执行逻辑如下：
 
-如果 $root$ 为空节点，则返回 $(1, +\infty, -\infty, 0)$，表示空树是二叉搜索树，最小值和最大值分别为正无穷和负无穷，节点和为 $0$。
+如果 $\textit{root}$ 为空节点，则返回 $(1, +\infty, -\infty, 0)$，表示空树是二叉搜索树，最小值和最大值分别为正无穷和负无穷，节点和为 $0$。
 
-否则，递归计算 $root$ 的左子树和右子树，分别得到 $(lbst, lmi, lmx, ls)$ 和 $(rbst, rmi, rmx, rs)$，然后判断 $root$ 节点是否满足二叉搜索树的条件。
+否则，递归计算 $\textit{root}$ 的左子树和右子树，分别得到 $(\textit{lbst}, \textit{lmi}, \textit{lmx}, ls)$ 和 $(\textit{rbst}, \textit{rmi}, \textit{rmx}, rs)$，然后判断 $\textit{root}$ 节点是否满足二叉搜索树的条件。
 
-如果满足 $lbst = 1$ 且 $rbst = 1$ 且 $lmx \lt root.val \lt rmi$，则以 $root$ 为根的树是二叉搜索树，节点和 $s= ls + rs + root.val$。我们更新答案 $ans = \max(ans, s)$，并返回 $(1, \min(lmi, root.val), \max(rmx, root.val), s)$。
+如果满足 $\textit{lbst} = 1$ 且 $\textit{rbst} = 1$ 且 $\textit{lmx} \lt \textit{root}.\textit{val} \lt \textit{rmi}$，则以 $\textit{root}$ 为根的树是二叉搜索树，节点和 $s= ls + rs + \textit{root}.\textit{val}$。我们更新答案 $\textit{ans} = \max(\textit{ans}, s)$，并返回 $(1, \min(\textit{lmi}, \textit{root}.\textit{val}), \max(\textit{rmx}, \textit{root}.\textit{val}), s)$。
 
-否则，以 $root$ 为根的树不是二叉搜索树，我们返回 $(0, 0, 0, 0)$。
+否则，以 $\textit{root}$ 为根的树不是二叉搜索树，我们返回 $(0, 0, 0, 0)$。
 
-我们在主函数中调用 $dfs(root)$，执行完毕后，答案即为 $ans$。
+我们在主函数中调用 $\textit{dfs}(\textit{root})$，执行完毕后，答案即为 $\textit{ans}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

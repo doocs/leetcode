@@ -91,23 +91,23 @@ tags:
 
 <!-- thinking:end -->
 
-我们注意到，连续使用同一个轮胎 $(f, r)$ 跑 $i$ 圈，那么第 $i$ 圈的耗时不应该超过 $changeTime + f$，否则我们可以在第 $i$ 圈的时候换轮胎，这样总耗时会更少。即：
+我们注意到，连续使用同一个轮胎 $(f, r)$ 跑 $i$ 圈，那么第 $i$ 圈的耗时不应该超过 $\textit{changeTime} + f$，否则我们可以在第 $i$ 圈的时候换轮胎，这样总耗时会更少。即：
 
 $$
-f \times r^{i-1} \leq changeTime + f
+f \times r^{i-1} \leq \textit{changeTime} + f
 $$
 
-我们可以求出满足上式的最大的 $i$，要使得 $i$ 最大，那么 $f$ 和 $r$ 应该尽可能小，根据题目的数据范围，我们取 $f=1$, $r=2$，那么 $2^{i-1} \leq changeTime + 1$，即 $i \leq \log_2(changeTime + 1) + 1$。根据这个结论，以及题目中 $changeTime$ 的数据范围，我们可以知道 $i$ 最大为 $17$。
+我们可以求出满足上式的最大的 $i$，要使得 $i$ 最大，那么 $f$ 和 $r$ 应该尽可能小，根据题目的数据范围，我们取 $f=1$, $r=2$，那么 $2^{i-1} \leq \textit{changeTime} + 1$，即 $i \leq \log_2(\textit{changeTime} + 1) + 1$。根据这个结论，以及题目中 $\textit{changeTime}$ 的数据范围，我们可以知道 $i$ 最大为 $17$。
 
-我们定义 $cost[i]$ 表示使用同一个轮胎跑 $i$ 圈的最小耗时，那么我们可以预处理出 $cost$ 数组，然后使用动态规划求解即可。定义 $f[i]$ 表示跑 $i$ 圈的最小耗时，那么我们可以得到状态转移方程：
+我们定义 $\textit{cost}[i]$ 表示使用同一个轮胎跑 $i$ 圈的最小耗时，那么我们可以预处理出 $\textit{cost}$ 数组，然后使用动态规划求解即可。定义 $f[i]$ 表示跑 $i$ 圈的最小耗时，那么我们可以得到状态转移方程：
 
 $$
-f[i] = (\min_{1 \leq j \leq \min(17, i)} f[i-j] + cost[j]) + changeTime
+f[i] = (\min_{1 \leq j \leq \min(17, i)} f[i-j] + \textit{cost}[j]) + \textit{changeTime}
 $$
 
-初始时 $f[0] = -changeTime$，最终答案为 $f[numLaps]$。
+初始时 $f[0] = -\textit{changeTime}$，最终答案为 $f[\textit{numLaps}]$。
 
-时间复杂度 $O((n + numLaps) \log T_{max})$，空间复杂度 $O(n + \log T_{max})$。其中 $T_{max}$ 是题目中 $f_i$, $r_i$ 和 $changeTime$ 的最大值。本题中 $\log T_{max} \approx 17$。
+时间复杂度 $O((n + \textit{numLaps}) \log T_{\textit{max}})$，空间复杂度 $O(n + \log T_{\textit{max}})$。其中 $T_{\textit{max}}$ 是题目中 $f_i$, $r_i$ 和 $\textit{changeTime}$ 的最大值。本题中 $\log T_{\textit{max}} \approx 17$。
 
 <!-- tabs:start -->
 

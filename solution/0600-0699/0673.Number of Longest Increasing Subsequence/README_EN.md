@@ -63,17 +63,17 @@ tags:
 >
 > We need both the LIS length and how many such sequences exist. $n\le 2000$ allows $O(n^2)$.
 >
-> $f[i]$ and $cnt[i]$ are the best length and count ending at $i$. Update or add when $nums[j]<nums[i]$. Sum $cnt$ over positions that attain the global maximum length.
+> $f[i]$ and $\textit{cnt}[i]$ are the best length and count ending at $i$. Update or add when $\textit{nums}[j]<\textit{nums}[i]$. Sum $\textit{cnt}$ over positions that attain the global maximum length.
 
 <!-- thinking:end -->
 
-We define $f[i]$ as the length of the longest increasing subsequence ending with $nums[i]$, and $cnt[i]$ as the number of longest increasing subsequences ending with $nums[i]$. Initially, $f[i]=1$, $cnt[i]=1$. Also, we define $mx$ as the length of the longest increasing subsequence, and $ans$ as the number of longest increasing subsequences.
+We define $f[i]$ as the length of the longest increasing subsequence ending with $\textit{nums}[i]$, and $\textit{cnt}[i]$ as the number of longest increasing subsequences ending with $\textit{nums}[i]$. Initially, $f[i]=1$, $\textit{cnt}[i]=1$. Also, we define $mx$ as the length of the longest increasing subsequence, and $\textit{ans}$ as the number of longest increasing subsequences.
 
-For each $nums[i]$, we enumerate all elements $nums[j]$ in $nums[0:i-1]$. If $nums[j] < nums[i]$, then $nums[i]$ can be appended after $nums[j]$ to form a longer increasing subsequence. If $f[i] < f[j] + 1$, it means the length of the longest increasing subsequence ending with $nums[i]$ has increased, so we need to update $f[i]=f[j]+1$ and $cnt[i]=cnt[j]$. If $f[i]=f[j]+1$, it means we have found a longest increasing subsequence with the same length as before, so we need to increase $cnt[i]$ by $cnt[j]$. Then, if $mx < f[i]$, it means the length of the longest increasing subsequence has increased, so we need to update $mx=f[i]$ and $ans=cnt[i]$. If $mx=f[i]$, it means we have found a longest increasing subsequence with the same length as before, so we need to increase $ans$ by $cnt[i]$.
+For each $\textit{nums}[i]$, we enumerate all elements $\textit{nums}[j]$ in $\textit{nums}[0:i-1]$. If $\textit{nums}[j] < \textit{nums}[i]$, then $\textit{nums}[i]$ can be appended after $\textit{nums}[j]$ to form a longer increasing subsequence. If $f[i] < f[j] + 1$, it means the length of the longest increasing subsequence ending with $\textit{nums}[i]$ has increased, so we need to update $f[i]=f[j]+1$ and $\textit{cnt}[i]=\textit{cnt}[j]$. If $f[i]=f[j]+1$, it means we have found a longest increasing subsequence with the same length as before, so we need to increase $\textit{cnt}[i]$ by $\textit{cnt}[j]$. Then, if $mx < f[i]$, it means the length of the longest increasing subsequence has increased, so we need to update $mx=f[i]$ and $\textit{ans}=\textit{cnt}[i]$. If $mx=f[i]$, it means we have found a longest increasing subsequence with the same length as before, so we need to increase $\textit{ans}$ by $\textit{cnt}[i]$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -280,9 +280,9 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can use a binary indexed tree to maintain the length and count of the longest increasing subsequence in the prefix interval. We remove duplicates from the array $nums$ and sort it to get the array $arr$. Then we enumerate each element $x$ in $nums$, find the position $i$ of $x$ in the array $arr$ by binary search, then query the length and count of the longest increasing subsequence in $[1,i-1]$, denoted as $v$ and $cnt$, then update the length and count of the longest increasing subsequence in $[i]$ to $v+1$ and $\max(cnt,1)$. Finally, we query the length and count of the longest increasing subsequence in $[1,m]$, where $m$ is the length of the array $arr$, which is the answer.
+We can use a binary indexed tree to maintain the length and count of the longest increasing subsequence in the prefix interval. We remove duplicates from the array $\textit{nums}$ and sort it to get the array $\textit{arr}$. Then we enumerate each element $x$ in $\textit{nums}$, find the position $i$ of $x$ in the array $\textit{arr}$ by binary search, then query the length and count of the longest increasing subsequence in $[1,i-1]$, denoted as $v$ and $\textit{cnt}$, then update the length and count of the longest increasing subsequence in $[i]$ to $v+1$ and $\max(\textit{cnt},1)$. Finally, we query the length and count of the longest increasing subsequence in $[1,m]$, where $m$ is the length of the array $\textit{arr}$, which is the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

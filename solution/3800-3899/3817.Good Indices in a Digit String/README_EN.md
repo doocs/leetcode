@@ -94,9 +94,9 @@ difficulty: Medium
 >
 > Index $i$ is good iff some substring ending at $i$ equals the decimal writing of $i$. $|s| \le 10^5$, yet that writing has length at most $6$.
 >
-> For each $i$ it suffices to compare a suffix of length $|\mathrm{str}(i)|$; other substrings cannot match.
+> For each $i$ it suffices to compare a suffix of length $|\textit{str}(i)|$; other substrings cannot match.
 >
-> We scan every index and test $s[i+1-k:i+1]$ against $\mathrm{str}(i)$.
+> We scan every index and test $s[i+1-k:i+1]$ against $\textit{str}(i)$.
 >
 > The total comparison work is linear in $n$.
 

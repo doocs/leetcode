@@ -79,9 +79,9 @@ We return 0 because no subarrays meet the conditions.
 
 <!-- thinking:end -->
 
-We maintain a sliding window of length $k$, use a hash table $cnt$ to record the count of each number in the window, and use a variable $s$ to record the sum of all numbers in the window. Each time we slide the window, if all numbers in the window are unique, we update the answer.
+We maintain a sliding window of length $k$, use a hash table $\textit{cnt}$ to record the count of each number in the window, and use a variable $s$ to record the sum of all numbers in the window. Each time we slide the window, if all numbers in the window are unique, we update the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

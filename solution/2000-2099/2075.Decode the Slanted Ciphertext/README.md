@@ -105,11 +105,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们先计算出矩阵的列数 $cols = \textit{len}(encodedText) / rows$，然后按照题目描述的规则，从左上角开始遍历矩阵，将字符添加到答案中。
+我们先计算出矩阵的列数 $\textit{cols} = \textit{len}(\textit{encodedText}) / \textit{rows}$，然后按照题目描述的规则，从左上角开始遍历矩阵，将字符添加到答案中。
 
 最后返回答案，注意去掉末尾的空格。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $encodedText$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{encodedText}$ 的长度。
 
 <!-- tabs:start -->
 

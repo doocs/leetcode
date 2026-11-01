@@ -113,15 +113,15 @@ tags:
 
 <!-- thinking:end -->
 
-We define a function $\text{dfs}(l, r)$ that represents the minimum cost for the interval $[l, r)$ of string $s$. We can use the prefix sum array $\text{pre}$ to calculate the number of sensitive elements $x$ in the interval $[l, r)$, thereby computing the cost without splitting.
+We define a function $\textit{dfs}(l, r)$ that represents the minimum cost for the interval $[l, r)$ of string $s$. We can use the prefix sum array $\textit{pre}$ to calculate the number of sensitive elements $x$ in the interval $[l, r)$, thereby computing the cost without splitting.
 
-The calculation process of function $\text{dfs}(l, r)$ is as follows:
+The calculation process of function $\textit{dfs}(l, r)$ is as follows:
 
 1. Calculate the number of sensitive elements $x$ in the interval $[l, r)$.
-2. Calculate the cost without splitting: if $x > 0$, the cost is $(r - l) \cdot x \cdot \text{encCost}$; if $x = 0$, the cost is $\text{flatCost}$.
-3. If the interval length is even, we can try to split it into two consecutive segments of equal length, and calculate the cost after splitting as $\text{dfs}(l, m) + \text{dfs}(m, r)$, where $m = \frac{l + r}{2}$. Finally, return the smaller of the two values.
+2. Calculate the cost without splitting: if $x > 0$, the cost is $(r - l) \cdot x \cdot \textit{encCost}$; if $x = 0$, the cost is $\textit{flatCost}$.
+3. If the interval length is even, we can try to split it into two consecutive segments of equal length, and calculate the cost after splitting as $\textit{dfs}(l, m) + \textit{dfs}(m, r)$, where $m = \frac{l + r}{2}$. Finally, return the smaller of the two values.
 
-The answer is $\text{dfs}(0, n)$, where $n$ is the length of string $s$.
+The answer is $\textit{dfs}(0, n)$, where $n$ is the length of string $s$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 

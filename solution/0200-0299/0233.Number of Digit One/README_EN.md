@@ -55,7 +55,7 @@ tags:
 >
 > Scanning every integer in $[1,n]$ is impossible for large $n$. The count of digit $1$ depends only on the digits and the upper bound, which is a digit-DP setting.
 >
-> Treat $n$ as a string and memoize $dfs(i,\textit{cnt},\textit{limit})$: position $i$ from the high end, $\textit{cnt}$ ones so far, and whether we still match the prefix of $n$. Enumerate the current digit and add the results.
+> Treat $n$ as a string and memoize $\textit{dfs}(i,\textit{cnt},\textit{limit})$: position $i$ from the high end, $\textit{cnt}$ ones so far, and whether we still match the prefix of $n$. Enumerate the current digit and add the results.
 
 <!-- thinking:end -->
 
@@ -64,7 +64,7 @@ This problem essentially asks for the number of times the digit $1$ appears in t
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[1, ..r]$ and then subtract the result of $[1, ..l - 1]$, i.e.:
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value for the range $[1, ..r]$.
@@ -81,12 +81,12 @@ First, we convert the number $n$ to a string $s$. Then we design a function $\te
 
 The function executes as follows:
 
-If $i$ exceeds the length of the number $n$, it means the search is over, directly return $cnt$. If $\textit{limit}$ is true, $up$ is the $i$-th digit of the current number. Otherwise, $up = 9$. Next, we iterate $j$ from $0$ to $up$. For each $j$:
+If $i$ exceeds the length of the number $n$, it means the search is over, directly return $\textit{cnt}$. If $\textit{limit}$ is true, $up$ is the $i$-th digit of the current number. Otherwise, $up = 9$. Next, we iterate $j$ from $0$ to $up$. For each $j$:
 
-- If $j$ equals $1$, we increment $cnt$ by one.
+- If $j$ equals $1$, we increment $\textit{cnt}$ by one.
 - Recursively call $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \land j = up)$.
 
-The answer is $\textit{dfs}(0, 0, \text{True})$.
+The answer is $\textit{dfs}(0, 0, \textit{True})$.
 
 The time complexity is $O(m^2D)$, and the space complexity is $O(m^2)$, where $m$ is the length of the number $n$, and $D = 10$.
 

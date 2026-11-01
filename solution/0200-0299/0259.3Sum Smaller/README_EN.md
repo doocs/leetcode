@@ -69,7 +69,7 @@ tags:
 >
 > Order does not matter, so we sort. After fixing the smallest index $i$, two pointers count pairs on the right whose sum is below $\textit{target}$.
 >
-> If $nums[i]+nums[j]+nums[k]<\textit{target}$, every $k'$ in $(j,k]$ works, so we add $k-j$ and move $j$; otherwise we decrement $k$.
+> If $\textit{nums}[i]+\textit{nums}[j]+\textit{nums}[k]<\textit{target}$, every $k'$ in $(j,k]$ works, so we add $k-j$ and move $j$; otherwise we decrement $k$.
 
 <!-- thinking:end -->
 

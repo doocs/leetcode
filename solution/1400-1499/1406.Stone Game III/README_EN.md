@@ -84,21 +84,21 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 >
 > Each player takes $1$– $3$ piles. Plain recursion on $n\le 5\times 10^4$ recomputes the same suffixes many times.
 >
-> The current player maximizes “stones taken this turn minus the opponent's best difference on the rest”. Let $dfs(i)$ be that value from index $i$, trying the three prefixes.
+> The current player maximizes “stones taken this turn minus the opponent's best difference on the rest”. Let $\textit{dfs}(i)$ be that value from index $i$, trying the three prefixes.
 >
-> Memoizing $dfs(i)$ evaluates each start once. The sign of $dfs(0)$ decides Alice, Bob, or a tie.
+> Memoizing $\textit{dfs}(i)$ evaluates each start once. The sign of $\textit{dfs}(0)$ decides Alice, Bob, or a tie.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents the maximum score difference that the current player can obtain when playing the game in the range $[i, n)$. If $dfs(0) > 0$, it means that the first player Alice can win; if $dfs(0) < 0$, it means that the second player Bob can win; otherwise, it means that the two players tie.
+We design a function $\textit{dfs}(i)$, which represents the maximum score difference that the current player can obtain when playing the game in the range $[i, n)$. If $\textit{dfs}(0) > 0$, it means that the first player Alice can win; if $\textit{dfs}(0) < 0$, it means that the second player Bob can win; otherwise, it means that the two players tie.
 
-The execution logic of the function $dfs(i)$ is as follows:
+The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
 - If $i \geq n$, it means that there are no stones to take now, so we can directly return $0$;
-- Otherwise, we enumerate the index $j$ of the last pile taken by the current player, where $i \le j < \min(i + 3, n)$, i.e., the current player takes all the piles in the index range $[i, j]$ and gets a score of $\sum_{k=i}^{j} \textit{stoneValue}[k]$. Then the score difference that the other player can get in the next round is $dfs(j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{j} \textit{stoneValue}[k] - dfs(j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
+- Otherwise, we enumerate the index $j$ of the last pile taken by the current player, where $i \le j < \min(i + 3, n)$, i.e., the current player takes all the piles in the index range $[i, j]$ and gets a score of $\sum_{k=i}^{j} \textit{stoneValue}[k]$. Then the score difference that the other player can get in the next round is $\textit{dfs}(j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{j} \textit{stoneValue}[k] - \textit{dfs}(j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
 
 $$
-dfs(i) = \max_{i \le j < \min(i+3, n)} \left\{\sum_{k=i}^{j} \textit{stoneValue}[k] - dfs(j + 1)\right\}
+\textit{dfs}(i) = \max_{i \le j < \min(i+3, n)} \left\{\sum_{k=i}^{j} \textit{stoneValue}[k] - \textit{dfs}(j + 1)\right\}
 $$
 
 To prevent repeated calculations, we can use memoization search.

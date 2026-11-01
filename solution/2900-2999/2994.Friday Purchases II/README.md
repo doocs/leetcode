@@ -84,7 +84,7 @@ Purchases table:
 
 > **思考**
 >
-> 与 I 不同，没有消费的周五也要输出 $0$。递归 CTE 生成 11 月每一天，再左连 $Purchases$，滤出周五后 $IFNULL(SUM,0)$。
+> 与 I 不同，没有消费的周五也要输出 $0$。递归 CTE 生成 11 月每一天，再左连 $\textit{Purchases}$，滤出周五后 $\textit{IFNULL}(\textit{SUM},0)$。
 >
 > 这样日期轴完整，分组不会丢掉空周五。
 

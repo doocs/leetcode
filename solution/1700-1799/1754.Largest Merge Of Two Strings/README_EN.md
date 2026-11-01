@@ -84,7 +84,7 @@ tags:
 >
 > Each step takes the first character of one string. The lexicographically largest merge chooses the side whose remaining suffix is larger, not merely the larger next character.
 >
-> Two pointers compare $word1[i:]$ and $word2[j:]$, append the winner's first character, and concatenate whatever remains.
+> Two pointers compare $\textit{word1}[i:]$ and $\textit{word2}[j:]$, append the winner's first character, and concatenate whatever remains.
 
 <!-- thinking:end -->
 

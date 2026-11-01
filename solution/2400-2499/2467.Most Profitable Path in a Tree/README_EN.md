@@ -103,18 +103,18 @@ Thus, Alice opens the gate at node 0 only. Hence, her net income is -7280.
 
 > **Thinking**
 >
-> Bob's path is the unique $bob\to 0$ route; Alice walks from $0$ to a leaf. At $n\le 10^5$, a first DFS stores Bob's arrival time $ts$ on that path.
+> Bob's path is the unique $\textit{bob}\to 0$ route; Alice walks from $0$ to a leaf. At $n\le 10^5$, a first DFS stores Bob's arrival time $ts$ on that path.
 >
 > A second DFS from $0$ scores a node as half if times tie, full if Alice is earlier, and zero if later. Update the answer at leaves.
 
 <!-- thinking:end -->
 
-According to the problem, we know that Bob's moving path is fixed, that is, starting from node $bob$ and finally reaching node $0$. Therefore, we can first run a DFS to find out the time it takes for Bob to reach each node, which we record in the array $ts$.
+According to the problem, we know that Bob's moving path is fixed, that is, starting from node $\textit{bob}$ and finally reaching node $0$. Therefore, we can first run a DFS to find out the time it takes for Bob to reach each node, which we record in the array $ts$.
 
 Then we run another DFS to find the maximum score for each of Alice's moving paths. We denote the time for Alice to reach node $i$ as $t$, and the current cumulative score as $v$. After Alice passes node $i$, the cumulative score has three cases:
 
-1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{amount[i]}{2}$.
-2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + amount[i]$.
+1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{\textit{amount}[i]}{2}$.
+2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + \textit{amount}[i]$.
 3. The time $t$ for Alice to reach node $i$ is greater than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice does not open the door at node $i$, and the score Alice gets is $v$, which remains unchanged.
 
 When Alice reaches a leaf node, update the maximum score.
@@ -340,16 +340,16 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 
 > **Thinking**
 >
-> Bob follows the unique path from $bob$ to the root $0$, and Alice walks from $0$ to a leaf. The answer is her maximum net income. With $n\le 10^5$, recursion along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The path is unique, so the search does not need to return through every frame. A stack rooted at $0$ records each parent, and walking those parents writes Bob's arrival time into $ts$. Every other node keeps the sentinel $n$. Alice's score at node $i$ depends only on her time $t$ and $ts[i]$, so the second walk is a pre-order stack. A popped node adds half the gate, the whole gate, or nothing. A node whose only neighbor is its parent is a leaf, and that score updates the answer.
+> Bob follows the unique path from $\textit{bob}$ to the root $0$, and Alice walks from $0$ to a leaf. The answer is her maximum net income. With $n\le 10^5$, recursion along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The path is unique, so the search does not need to return through every frame. A stack rooted at $0$ records each parent, and walking those parents writes Bob's arrival time into $ts$. Every other node keeps the sentinel $n$. Alice's score at node $i$ depends only on her time $t$ and $ts[i]$, so the second walk is a pre-order stack. A popped node adds half the gate, the whole gate, or nothing. A node whose only neighbor is its parent is a leaf, and that score updates the answer.
 
 <!-- thinking:end -->
 
-The tree has one path from $bob$ to $0$. An explicit stack walks the tree from node $0$ and records each node's parent. Walking from $bob$ along those parents then sets $ts$ to the step $t$ at which Bob arrives. Nodes that are not on this path keep the initial value $n$, meaning Bob never opens them.
+The tree has one path from $\textit{bob}$ to $0$. An explicit stack walks the tree from node $0$ and records each node's parent. Walking from $\textit{bob}$ along those parents then sets $ts$ to the step $t$ at which Bob arrives. Nodes that are not on this path keep the initial value $n$, meaning Bob never opens them.
 
 A second explicit stack moves Alice from $0$ toward a leaf. Each frame stores a node, its parent, the arrival time $t$, and the income $v$ collected before entering the node. After node $i$ is popped, the income has three cases:
 
-1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{amount[i]}{2}$.
-2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + amount[i]$.
+1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{\textit{amount}[i]}{2}$.
+2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + \textit{amount}[i]$.
 3. The time $t$ for Alice to reach node $i$ is greater than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice does not open the door at node $i$, and the score Alice gets is $v$, which remains unchanged.
 
 If $i$ has only one neighbor and that neighbor is its parent, then $i$ is a leaf and the current score updates the answer.

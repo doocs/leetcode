@@ -58,12 +58,12 @@ tags:
 
 <!-- thinking:end -->
 
-Assume the lengths of $num1$ and $num2$ are $m$ and $n$ respectively, then the length of their product can be at most $m + n$.
+Assume the lengths of $\textit{num1}$ and $\textit{num2}$ are $m$ and $n$ respectively, then the length of their product can be at most $m + n$.
 
 The proof is as follows:
 
-- If $num1$ and $num2$ both take the minimum value, then their product is ${10}^{m - 1} \times {10}^{n - 1} = {10}^{m + n - 2}$, with a length of $m + n - 1$.
-- If $num1$ and $num2$ both take the maximum value, then their product is $({10}^m - 1) \times ({10}^n - 1) = {10}^{m + n} - {10}^m - {10}^n + 1$, with a length of $m + n$.
+- If $\textit{num1}$ and $\textit{num2}$ both take the minimum value, then their product is ${10}^{m - 1} \times {10}^{n - 1} = {10}^{m + n - 2}$, with a length of $m + n - 1$.
+- If $\textit{num1}$ and $\textit{num2}$ both take the maximum value, then their product is $({10}^m - 1) \times ({10}^n - 1) = {10}^{m + n} - {10}^m - {10}^n + 1$, with a length of $m + n$.
 
 Therefore, we can apply for an array of length $m + n$ to store each digit of the product.
 
@@ -71,7 +71,7 @@ From the least significant digit to the most significant digit, we calculate eac
 
 Note to check whether the most significant digit is $0$, if it is, remove it.
 
-The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of $num1$ and $num2$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of $\textit{num1}$ and $\textit{num2}$ respectively.
 
 <!-- tabs:start -->
 

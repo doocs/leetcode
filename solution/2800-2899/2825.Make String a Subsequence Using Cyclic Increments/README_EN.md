@@ -75,13 +75,13 @@ Therefore, false is returned.</pre>
 
 > **Thinking**
 >
-> $str2$ must be a subsequence of $str1$, allowing each matched character at most one cyclic increment. Scan $str1$ and advance in $str2$ when the current character or its successor matches the next needed letter.
+> $\textit{str2}$ must be a subsequence of $\textit{str1}$, allowing each matched character at most one cyclic increment. Scan $\textit{str1}$ and advance in $\textit{str2}$ when the current character or its successor matches the next needed letter.
 
 <!-- thinking:end -->
 
 This problem actually requires us to determine whether a string $s$ is a subsequence of another string $t$. However, the characters do not have to match exactly. If two characters are the same, or one character is the next character of the other, they can match.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the strings $str1$ and $str2$ respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the strings $\textit{str1}$ and $\textit{str2}$ respectively.
 
 <!-- tabs:start -->
 

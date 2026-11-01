@@ -82,11 +82,11 @@ Hence, the answer is nums[3] = 1.
 
 <!-- thinking:end -->
 
-We directly traverse each index $i$, and check whether the number of $1$s in its binary representation is equal to $k$. If it is, we add the corresponding element to the answer $ans$.
+We directly traverse each index $i$, and check whether the number of $1$s in its binary representation is equal to $k$. If it is, we add the corresponding element to the answer $\textit{ans}$.
 
 After the traversal ends, we return the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

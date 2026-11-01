@@ -61,7 +61,7 @@ tags:
 
 > **Thinking**
 >
-> Both denominations are primes, hence coprime; representable amounts are $a\cdot primeOne+b\cdot primeTwo$. The Chicken McNugget theorem names the largest non-representable integer $ab-a-b$, so a knapsack is unnecessary.
+> Both denominations are primes, hence coprime; representable amounts are $a\cdot \textit{primeOne}+b\cdot \textit{primeTwo}$. The Chicken McNugget theorem names the largest non-representable integer $ab-a-b$, so a knapsack is unnecessary.
 >
 > Return the product minus the two primes.
 

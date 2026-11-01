@@ -89,7 +89,7 @@ Employee 表：
 
 > **思考**
 >
-> 第二高薪水在去重之后的降序序列中取第二项，不足两项则返回 $\textit{NULL}$。 $\textit{ORDER BY}$ 加 $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ 直接取出该位置；外层再包一层是为了「没有第二名」时仍得到一行 $\textit{NULL}$，而不是空结果集。
+> 第二高薪水在去重之后的降序序列中取第二项，不足两项则返回 $\textit{NULL}$。 $\textit{ORDER} \textit{BY}$ 加 $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ 直接取出该位置；外层再包一层是为了「没有第二名」时仍得到一行 $\textit{NULL}$，而不是空结果集。
 
 <!-- thinking:end -->
 
@@ -175,7 +175,7 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 > **思考**
 >
-> 去重后用 $\textit{DENSE_RANK}$ 按薪水降序编号，筛出名为 $2$ 的那一行。并列最高不会占掉第二名，语义与「第 $k$ 高」一致，便于推广。
+> 去重后用 $\textit{DENSE}_\textit{RANK}$ 按薪水降序编号，筛出名为 $2$ 的那一行。并列最高不会占掉第二名，语义与「第 $k$ 高」一致，便于推广。
 
 <!-- thinking:end -->
 

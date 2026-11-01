@@ -85,7 +85,7 @@ We can use binary search to solve this problem.
 
 First, we define two pointers $l$ and $r$ pointing to the start and end of the array respectively. Then we enter a loop until $l$ is no longer less than $r$.
 
-In each iteration, we calculate the middle position $mid$ and compare $nums[mid]$ with $nums[n-1]$. If $nums[mid]$ is greater than $nums[n-1]$, the minimum value is to the right of $mid$, so we update $l$ to $mid + 1$. Otherwise, the minimum value is at $mid$ or to its left, so we update $r$ to $mid$. When the loop ends, pointer $l$ will point to the minimum value, and we return $nums[l]$.
+In each iteration, we calculate the middle position $\textit{mid}$ and compare $\textit{nums}[\textit{mid}]$ with $\textit{nums}[n-1]$. If $\textit{nums}[\textit{mid}]$ is greater than $\textit{nums}[n-1]$, the minimum value is to the right of $\textit{mid}$, so we update $l$ to $\textit{mid} + 1$. Otherwise, the minimum value is at $\textit{mid}$ or to its left, so we update $r$ to $\textit{mid}$. When the loop ends, pointer $l$ will point to the minimum value, and we return $\textit{nums}[l]$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 

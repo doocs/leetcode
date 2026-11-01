@@ -84,9 +84,9 @@ tags:
 
 > **思考**
 >
-> 每个询问要在 $nums1\ge x$ 且 $nums2\ge y$ 的点中最大化 $nums1+nums2$。点数与询问均为 $10^5$，对每个询问扫描全部点不可行。
+> 每个询问要在 $\textit{nums1}\ge x$ 且 $\textit{nums2}\ge y$ 的点中最大化 $\textit{nums1}+\textit{nums2}$。点数与询问均为 $10^5$，对每个询问扫描全部点不可行。
 >
-> 这是二维偏序上的最大值。将点与询问都按第一维降序处理，则扫描到询问 $(x,y)$ 时，所有 $nums1\ge x$ 的点已插入。树状数组在离散化后的 $nums2$ 上维护前缀最大和（将坐标反转后变成前缀），查询 $nums2\ge y$ 的最大和。
+> 这是二维偏序上的最大值。将点与询问都按第一维降序处理，则扫描到询问 $(x,y)$ 时，所有 $\textit{nums1}\ge x$ 的点已插入。树状数组在离散化后的 $\textit{nums2}$ 上维护前缀最大和（将坐标反转后变成前缀），查询 $\textit{nums2}\ge y$ 的最大和。
 
 <!-- thinking:end -->
 
@@ -95,16 +95,16 @@ tags:
 二维偏序是这样一类问题：给定若干个点对 $(a_1, b_1)$, $(a_2, b_2)$, $\cdots$, $(a_n, b_n)$，并定义某种偏序关系，现在给定点 $(a_i, b_i)$，求满足偏序关系的点对 $(a_j, b_j)$ 中的数量/最值。即：
 
 $$
-\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { def }}{=} a_{j} \lesseqgtr a_{i} \text { and } b_{j} \lesseqgtr b_{i}
+\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { \textit{def} }}{=} a_{j} \lesseqgtr a_{i} \text { \textit{and} } b_{j} \lesseqgtr b_{i}
 $$
 
 二维偏序的一般解决方法是排序一维，用数据结构处理第二维（这种数据结构一般是树状数组）。
 
-对于本题，我们可以创建一个数组 $nums$，其中 $nums[i]=(nums_1[i], nums_2[i])$，然后对 $nums$ 按照 $nums_1$ 从大到小的顺序排序，将查询 $queries$ 也按照 $x$ 从大到小的顺序排序。
+对于本题，我们可以创建一个数组 $\textit{nums}$，其中 $\textit{nums}[i]=(\textit{nums}_1[i], \textit{nums}_2[i])$，然后对 $\textit{nums}$ 按照 $\textit{nums}_1$ 从大到小的顺序排序，将查询 $\textit{queries}$ 也按照 $x$ 从大到小的顺序排序。
 
-接下来，遍历每个查询 $queries[i] = (x, y)$，对于当前查询，我们循环将 $nums$ 中所有大于等于 $x$ 的元素的 $nums_2$ 的值插入到树状数组中，树状数组维护的是离散化后的 $nums_2$ 的区间中 $nums_1 + nums_2$ 的最大值。那么我们只需要在树状数组中查询大于等于离散化后的 $y$ 区间对应的最大值即可。注意，由于树状数组维护的是前缀最大值，所以我们在实现上，可以将 $nums_2$ 反序插入到树状数组中。
+接下来，遍历每个查询 $\textit{queries}[i] = (x, y)$，对于当前查询，我们循环将 $\textit{nums}$ 中所有大于等于 $x$ 的元素的 $\textit{nums}_2$ 的值插入到树状数组中，树状数组维护的是离散化后的 $\textit{nums}_2$ 的区间中 $\textit{nums}_1 + \textit{nums}_2$ 的最大值。那么我们只需要在树状数组中查询大于等于离散化后的 $y$ 区间对应的最大值即可。注意，由于树状数组维护的是前缀最大值，所以我们在实现上，可以将 $\textit{nums}_2$ 反序插入到树状数组中。
 
-时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $nums$ 的长度，而 $m$ 是数组 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $m$ 是数组 $\textit{queries}$ 的长度。
 
 相似题目：
 
@@ -423,7 +423,7 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 > **思考**
 >
-> 树状数组需要离散化与下标变换。点数按 $nums1$ 降序弹出后，用单调栈按 $nums2$ 升序、和降序保存候选：更小的 $nums2$ 若和也不更优则丢弃。询问在栈上二分第一个 $nums2\ge y$ 的位置即可取到最大和。
+> 树状数组需要离散化与下标变换。点数按 $\textit{nums1}$ 降序弹出后，用单调栈按 $\textit{nums2}$ 升序、和降序保存候选：更小的 $\textit{nums2}$ 若和也不更优则丢弃。询问在栈上二分第一个 $\textit{nums2}\ge y$ 的位置即可取到最大和。
 
 <!-- thinking:end -->
 
@@ -434,9 +434,9 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 如此保证栈中每个数对的 $\textit{nums2}[i]$ 更大时， $\textit{nums1}[i] + \textit{nums2}[i]$ 却更小，隔绝无效候选数对。
 
-对于每个查询 $query_j$，靠二分查找在栈中找到第一个 $\textit{nums2}[i] \geq y_j$ 的数对，其对应的 $\textit{nums1}[i] + \textit{nums2}[i]$ 即为答案。
+对于每个查询 $\textit{query}_j$，靠二分查找在栈中找到第一个 $\textit{nums2}[i] \geq y_j$ 的数对，其对应的 $\textit{nums1}[i] + \textit{nums2}[i]$ 即为答案。
 
-时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $nums1$ 的长度，而 $m$ 是数组 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $\textit{nums1}$ 的长度，而 $m$ 是数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

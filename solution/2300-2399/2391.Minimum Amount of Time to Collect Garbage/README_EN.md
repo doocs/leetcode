@@ -91,7 +91,7 @@ It takes a total of 7 + 15 + 15 = 37 minutes to collect all the garbage.
 >
 > Three trucks each collect one type and must drive from house $0$ to that type’s last house. Collection time is the total number of characters; travel depends only on the farthest index. $n \le 10^5$.
 >
-> One scan adds string lengths and records last indices. Prefix sums of $travel$ are added when the prefix ends exactly at a truck’s last house.
+> One scan adds string lengths and records last indices. Prefix sums of $\textit{travel}$ are added when the prefix ends exactly at a truck’s last house.
 
 <!-- thinking:end -->
 

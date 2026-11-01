@@ -154,7 +154,7 @@ employee_id 是这张表的唯一主键。
 >
 > 层级适合自上而下按经理集合扩一层；团队规模与预算则必须等子树算完再加到经理，故按 $\textit{employee\_id}$ 降序（或后序）回传。
 >
-> 先定位 CEO 为 $1$ 层，递归把直接下属标成 $level+1$。再累加 $\textit{team\_size}$ 与 $\textit{budget}$，最后按层级升序、预算降序、姓名升序输出。
+> 先定位 CEO 为 $1$ 层，递归把直接下属标成 $\textit{level}+1$。再累加 $\textit{team\_size}$ 与 $\textit{budget}$，最后按层级升序、预算降序、姓名升序输出。
 
 <!-- thinking:end -->
 

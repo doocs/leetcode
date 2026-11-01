@@ -346,7 +346,7 @@ function finishTime(n: number, edges: number[][], baseTime: number[]): number {
 
 > **Thinking**
 >
-> The tasks form a tree rooted at $0$. A non-leaf finish time needs the earliest and latest finish times among its children, plus its own $\textit{baseTime}$. With $n \le 10^5$, every child must be finished before the current node is computed. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The stack stores $(node, state)$: state $0$ writes $\textit{baseTime}[i]$ for a leaf, and otherwise pushes the exit marker and then the children; state $1$ reads $\textit{earliest}$ and $\textit{latest}$, spends $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$, and finishes at $\textit{latest}$ plus that duration. Child order does not change the earliest or latest value.
+> The tasks form a tree rooted at $0$. A non-leaf finish time needs the earliest and latest finish times among its children, plus its own $\textit{baseTime}$. With $n \le 10^5$, every child must be finished before the current node is computed. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The stack stores $(\textit{node}, \textit{state})$: state $0$ writes $\textit{baseTime}[i]$ for a leaf, and otherwise pushes the exit marker and then the children; state $1$ reads $\textit{earliest}$ and $\textit{latest}$, spends $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$, and finishes at $\textit{latest}$ plus that duration. Child order does not change the earliest or latest value.
 
 <!-- thinking:end -->
 

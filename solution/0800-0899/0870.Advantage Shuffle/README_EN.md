@@ -51,9 +51,9 @@ tags:
 
 > **Thinking**
 >
-> Permute $nums1$ to maximize positions strictly larger than $nums2$. This is Tian Ji’s horse race: $n\le 10^5$, so against $nums2$ from weak to strong, win with the smallest sufficient value, otherwise dump the global minimum.
+> Permute $\textit{nums1}$ to maximize positions strictly larger than $\textit{nums2}$. This is Tian Ji’s horse race: $n\le 10^5$, so against $\textit{nums2}$ from weak to strong, win with the smallest sufficient value, otherwise dump the global minimum.
 >
-> Sort $nums1$ and $nums2$ (keeping indices). A two-pointer pass assigns the current minimum to the weakest winnable foe, or to the current strongest foe if it cannot win.
+> Sort $\textit{nums1}$ and $\textit{nums2}$ (keeping indices). A two-pointer pass assigns the current minimum to the weakest winnable foe, or to the current strongest foe if it cannot win.
 
 <!-- thinking:end -->
 

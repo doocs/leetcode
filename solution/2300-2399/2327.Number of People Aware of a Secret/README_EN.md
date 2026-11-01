@@ -72,15 +72,15 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 
 > **Thinking**
 >
-> A person shares once per day on $[delay, forget)$ after learning, then forgets. $n \le 1000$, so a day-by-day simulation is fine.
+> A person shares once per day on $[\textit{delay}, \textit{forget})$ after learning, then forgets. $n \le 1000$, so a day-by-day simulation is fine.
 >
-> Let $cnt[i]$ be new learners on day $i$; they copy themselves on each later share day. A difference array $d$ tracks who still remembers; the prefix through day $n$ is the answer.
+> Let $\textit{cnt}[i]$ be new learners on day $i$; they copy themselves on each later share day. A difference array $d$ tracks who still remembers; the prefix through day $n$ is the answer.
 
 <!-- thinking:end -->
 
-We use a difference array $d[i]$ to record the change in the number of people who know the secret on day $i$, and an array $cnt[i]$ to record the number of people who newly learn the secret on day $i$.
+We use a difference array $d[i]$ to record the change in the number of people who know the secret on day $i$, and an array $\textit{cnt}[i]$ to record the number of people who newly learn the secret on day $i$.
 
-For the $cnt[i]$ people who newly learn the secret on day $i$, they can share the secret with another $cnt[i]$ people each day during the interval $[i+\text{delay}, i+\text{forget})$.
+For the $\textit{cnt}[i]$ people who newly learn the secret on day $i$, they can share the secret with another $\textit{cnt}[i]$ people each day during the interval $[i+\textit{delay}, i+\textit{forget})$.
 
 The answer is $\sum_{i=1}^{n} d[i]$.
 

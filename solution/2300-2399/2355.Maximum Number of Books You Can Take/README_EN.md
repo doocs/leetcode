@@ -88,17 +88,17 @@ It can be proven that 13 is the maximum number of books you can take.
 >
 > Books come from a contiguous range of shelves, decreasing by at least one toward the left. Finding the break by brute force for every right end is too slow.
 >
-> Let $nums[i]=books[i]-i$. The break is the nearest smaller $nums[j]$ on the left. A monotonic stack fills $left[i]$; $dp[i]$ is the best take ending at $i$: an arithmetic segment in the middle plus $dp[j]$ on the left.
+> Let $\textit{nums}[i]=\textit{books}[i]-i$. The break is the nearest smaller $\textit{nums}[j]$ on the left. A monotonic stack fills $\textit{left}[i]$; $dp[i]$ is the best take ending at $i$: an arithmetic segment in the middle plus $dp[j]$ on the left.
 
 <!-- thinking:end -->
 
-Let $dp[i]$ be the maximum number of books taken from a contiguous segment that ends at shelf $i$. Set $nums[i] = books[i] - i$. If the strictly decreasing pattern breaks at some $j$ with $0 \le j < i$, then $books[j] < books[i] - (i - j)$, that is $nums[j] < nums[i]$. A monotonic stack finds, for each index, the nearest strictly smaller $nums$ on the left and stores it as $j$. When no such index exists, $j = -1$.
+Let $dp[i]$ be the maximum number of books taken from a contiguous segment that ends at shelf $i$. Set $\textit{nums}[i] = \textit{books}[i] - i$. If the strictly decreasing pattern breaks at some $j$ with $0 \le j < i$, then $\textit{books}[j] < \textit{books}[i] - (i - j)$, that is $\textit{nums}[j] < \textit{nums}[i]$. A monotonic stack finds, for each index, the nearest strictly smaller $\textit{nums}$ on the left and stores it as $j$. When no such index exists, $j = -1$.
 
-The books taken from shelf $j + 1$ through $i$ form an arithmetic sequence with difference $1$. Its length is $cnt = \min(books[i], i - j)$, it ends at $books[i]$, and it starts at $u = books[i] - cnt + 1$. The sum of that sequence is $s = (u + books[i]) \times cnt / 2$. Then $dp[i] = s$, plus $dp[j]$ when $j \ne -1$.
+The books taken from shelf $j + 1$ through $i$ form an arithmetic sequence with difference $1$. Its length is $\textit{cnt} = \min(\textit{books}[i], i - j)$, it ends at $\textit{books}[i]$, and it starts at $u = \textit{books}[i] - \textit{cnt} + 1$. The sum of that sequence is $s = (u + \textit{books}[i]) \times \textit{cnt} / 2$. Then $dp[i] = s$, plus $dp[j]$ when $j \ne -1$.
 
 The answer is $\max\limits_{i} dp[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $books$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{books}$.
 
 <!-- tabs:start -->
 

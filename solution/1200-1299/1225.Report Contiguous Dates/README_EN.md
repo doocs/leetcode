@@ -107,9 +107,9 @@ From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot
 >
 > Success and failure live in two tables, yet contiguous ranges share one timeline. We union $2019$ fail and success dates into a single event stream with a state flag.
 >
-> For a run of the same state, date minus in-group rank is constant, and that difference labels the island. Grouping by state and that label, $MIN$/$MAX$ dates form each range.
+> For a run of the same state, date minus in-group rank is constant, and that difference labels the island. Grouping by state and that label, $\textit{MIN}$/$\textit{MAX}$ dates form each range.
 >
-> $UNION\ ALL$ aligns the tables, $RANK$ builds the island key, and $GROUP\ BY$ collapses each range.
+> $\textit{UNION}\ \textit{ALL}$ aligns the tables, $\textit{RANK}$ builds the island key, and $\textit{GROUP}\ \textit{BY}$ collapses each range.
 
 <!-- thinking:end -->
 

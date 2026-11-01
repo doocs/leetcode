@@ -88,13 +88,13 @@ According to the problem description, we can draw three conclusions:
 2. The elements operated must be a continuous subarray in the sorted array.
 3. If a frequency $m$ satisfies the condition, then all $m' < m$ also satisfy the condition. This inspires us to consider using binary search to find the maximum frequency that satisfies the condition.
 
-Therefore, we can sort the array $nums$ and then calculate the prefix sum array $s$ of the sorted array, where $s[i]$ represents the sum of the first $i$ elements.
+Therefore, we can sort the array $\textit{nums}$ and then calculate the prefix sum array $s$ of the sorted array, where $s[i]$ represents the sum of the first $i$ elements.
 
 Next, we define the left boundary of the binary search as $l = 1$, and the right boundary as $r = n$. For each binary search, we take the middle value $m = (l + r + 1) / 2$, and then check whether there exists a continuous subarray of length $m$ such that all elements in the subarray can be changed to an element in the array, and the number of operations does not exceed $k$. If such a subarray exists, we can update the left boundary $l$ to $m$, otherwise update the right boundary $r$ to $m - 1$.
 
 Finally, return the left boundary $l$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -271,15 +271,15 @@ function maxFrequency(nums: number[], k: number): number {
 
 > **Thinking**
 >
-> Solution 1 needs prefix sums and a binary search. The window cost grows with the right end, so two pointers suffice: when $i$ advances we raise the window to $nums[i]$, and we move $j$ while the cost exceeds $k$. One scan yields the longest valid window.
+> Solution 1 needs prefix sums and a binary search. The window cost grows with the right end, so two pointers suffice: when $i$ advances we raise the window to $\textit{nums}[i]$, and we move $j$ while the cost exceeds $k$. One scan yields the longest valid window.
 
 <!-- thinking:end -->
 
 We can also use two pointers to maintain a sliding window, where all elements in the window can be changed to the maximum value in the window. The number of operations for the elements in the window is $s$, and $s \leq k$.
 
-Initially, we set the left pointer $j$ to point to the first element of the array, and the right pointer $i$ also points to the first element of the array. Next, we move the right pointer $i$ each time, changing all elements in the window to $nums[i]$. At this time, the number of operations to be increased is $(nums[i] - nums[i - 1]) \times (i - j)$. If this number of operations exceeds $k$, then we need to move the left pointer $j$ until the number of operations for the elements in the window does not exceed $k$. Then, we update the answer to the maximum length of the window.
+Initially, we set the left pointer $j$ to point to the first element of the array, and the right pointer $i$ also points to the first element of the array. Next, we move the right pointer $i$ each time, changing all elements in the window to $\textit{nums}[i]$. At this time, the number of operations to be increased is $(\textit{nums}[i] - \textit{nums}[i - 1]) \times (i - j)$. If this number of operations exceeds $k$, then we need to move the left pointer $j$ until the number of operations for the elements in the window does not exceed $k$. Then, we update the answer to the maximum length of the window.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

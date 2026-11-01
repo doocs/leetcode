@@ -86,15 +86,15 @@ Perform second operation four times p=&quot;addb&quot;, s=&quot;&quot;, t=&quot;
 >
 > At $n\le 10^5$, the paper tape is a stack: a letter must be pushed before it can be printed. For the lexicographically smallest string, pop whenever the top is no larger than the smallest letter still unread.
 >
-> Count remaining letters and keep the smallest leftover $\textit{mi}$. Push each character, then pop while the top is $\le \textit{mi}$.
+> Count remaining letters and keep the smallest leftover $mi$. Push each character, then pop while the top is $\le mi$.
 
 <!-- thinking:end -->
 
 The problem can be transformed into: given a string sequence, use an auxiliary stack to convert it into the lexicographically smallest string sequence.
 
-We can use an array $\textit{cnt}$ to maintain the count of each character in string $s$, use a stack $\textit{stk}$ as the auxiliary stack mentioned in the problem, and use a variable $\textit{mi}$ to keep track of the smallest character not yet traversed in the string.
+We can use an array $\textit{cnt}$ to maintain the count of each character in string $s$, use a stack $\textit{stk}$ as the auxiliary stack mentioned in the problem, and use a variable $mi$ to keep track of the smallest character not yet traversed in the string.
 
-Traverse the string $s$. For each character $c$, first decrement its count in the array $\textit{cnt}$ and update $\textit{mi}$. Then push $c$ onto the stack. At this point, if the top element of the stack is less than or equal to $\textit{mi}$, repeatedly pop the top element from the stack and add it to the answer.
+Traverse the string $s$. For each character $c$, first decrement its count in the array $\textit{cnt}$ and update $mi$. Then push $c$ onto the stack. At this point, if the top element of the stack is less than or equal to $mi$, repeatedly pop the top element from the stack and add it to the answer.
 
 After the traversal, return the answer.
 

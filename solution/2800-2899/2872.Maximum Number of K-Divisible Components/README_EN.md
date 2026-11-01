@@ -289,13 +289,13 @@ impl Solution {
 >
 > Recursing from the root into each child reaches depth $n$ on a chain and overflows the call stack. A subtree sum does not depend on the order of its children.
 >
-> An explicit stack of $(node, parent, state)$ therefore runs that postorder. On entry we push the exit marker and then the children; on exit we add each child's subtree sum to this node's value, and count a component when the sum is $0$ modulo $k$.
+> An explicit stack of $(\textit{node}, \textit{parent}, \textit{state})$ therefore runs that postorder. On entry we push the exit marker and then the children; on exit we add each child's subtree sum to this node's value, and count a component when the sum is $0$ modulo $k$.
 
 <!-- thinking:end -->
 
 We note that the problem guarantees the sum of all node values in the entire tree is divisible by $k$. Therefore, if we remove a subtree whose sum of elements is divisible by $k$, the sum of node values in each of the remaining connected components must also be divisible by $k$.
 
-An explicit stack walks the tree in postorder from the root. Each frame is $(node, parent, state)$. When a node is left, we add every child's subtree sum to this node's value. If that sum is divisible by $k$, we increment the answer by one.
+An explicit stack walks the tree in postorder from the root. Each frame is $(\textit{node}, \textit{parent}, \textit{state})$. When a node is left, we add every child's subtree sum to this node's value. If that sum is divisible by $k$, we increment the answer by one.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

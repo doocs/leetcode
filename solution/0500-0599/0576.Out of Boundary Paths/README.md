@@ -60,7 +60,7 @@ tags:
 >
 > 每步上下左右，最多 $k$ 步，统计走出网格的路径数。不记忆的搜索会重复同一格子与剩余步数。
 >
-> $dfs(i,j,k)$ 表示在 $(i,j)$ 还剩 $k$ 步时的出界路径数。已出界且步数仍非负则计 $1$；步数用尽则计 $0$。四向转移并对 $10^9+7$ 取模。记忆化保证每个三元组只算一次。
+> $\textit{dfs}(i,j,k)$ 表示在 $(i,j)$ 还剩 $k$ 步时的出界路径数。已出界且步数仍非负则计 $1$；步数用尽则计 $0$。四向转移并对 $10^9+7$ 取模。记忆化保证每个三元组只算一次。
 
 <!-- thinking:end -->
 
@@ -68,7 +68,7 @@ tags:
 
 在函数 $\textit{dfs}(i, j, k)$ 中，我们首先处理边界情况，如果当前坐标 $(i, j)$ 不在网格范围内，如果 $k \geq 0$，则返回 $1$，否则返回 $0$。如果 $k \leq 0$，说明还在网格内，但是已经没有移动次数了，返回 $0$。接下来，我们遍历四个方向，移动到下一个坐标 $(x, y)$，然后递归调用 $\textit{dfs}(x, y, k - 1)$，并将结果累加到答案中。
 
-在主函数中，我们调用 $\textit{dfs}(startRow, startColumn, maxMove)$，即从起始坐标 $(\textit{startRow}, \textit{startColumn})$ 出发，还剩下 $\textit{maxMove}$ 步可以移动的情况下，可以移出边界的路径数量。
+在主函数中，我们调用 $\textit{dfs}(\textit{startRow}, \textit{startColumn}, \textit{maxMove})$，即从起始坐标 $(\textit{startRow}, \textit{startColumn})$ 出发，还剩下 $\textit{maxMove}$ 步可以移动的情况下，可以移出边界的路径数量。
 
 为了避免重复计算，我们可以使用记忆化搜索。
 

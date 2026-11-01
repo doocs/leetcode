@@ -68,13 +68,13 @@ tags:
 
 > **思考**
 >
-> 要求 $\bigoplus_{i,j}(arr1[i]\wedge arr2[j])$。若枚举全部数对， $n,m$ 达 $10^5$ 时不可行。
+> 要求 $\bigoplus_{i,j}(\textit{arr1}[i]\wedge \textit{arr2}[j])$。若枚举全部数对， $n,m$ 达 $10^5$ 时不可行。
 >
-> 按位看，与运算相当于乘法、异或相当于不进位加法，因而整个式子等于 $(\bigoplus arr1)\wedge(\bigoplus arr2)$。分别求两数组的异或再取与即可。
+> 按位看，与运算相当于乘法、异或相当于不进位加法，因而整个式子等于 $(\bigoplus \textit{arr1})\wedge(\bigoplus \textit{arr2})$。分别求两数组的异或再取与即可。
 
 <!-- thinking:end -->
 
-假设数组 $arr1$ 的元素分别为 $a_1, a_2, \cdots, a_n$，数组 $arr2$ 的元素分别为 $b_1, b_2, \cdots, b_m$，那么题目答案为：
+假设数组 $\textit{arr1}$ 的元素分别为 $a_1, a_2, \cdots, a_n$，数组 $\textit{arr2}$ 的元素分别为 $b_1, b_2, \cdots, b_m$，那么题目答案为：
 
 $$
 \begin{aligned}
@@ -91,9 +91,9 @@ $$
 \textit{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
 $$
 
-即，数组 $arr1$ 的异或和与数组 $arr2$ 的异或和的与运算结果。
+即，数组 $\textit{arr1}$ 的异或和与数组 $\textit{arr2}$ 的异或和的与运算结果。
 
-时间复杂度 $O(n + m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 $arr1$ 和 $arr2$ 的长度。
+时间复杂度 $O(n + m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 $\textit{arr1}$ 和 $\textit{arr2}$ 的长度。
 
 <!-- tabs:start -->
 

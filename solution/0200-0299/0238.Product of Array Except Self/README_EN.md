@@ -54,7 +54,7 @@ tags:
 
 > **Thinking**
 >
-> The product except $nums[i]$ is the left product times the right product. Two extra arrays for prefixes and suffixes use more than constant space.
+> The product except $\textit{nums}[i]$ is the left product times the right product. Two extra arrays for prefixes and suffixes use more than constant space.
 >
 > Write prefix products into the answer left to right, then multiply a running suffix from the right, using only the output array.
 

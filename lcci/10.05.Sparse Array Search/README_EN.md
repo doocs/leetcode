@@ -61,12 +61,12 @@ difficulty: Easy
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$ to find the target string in the array $nums[i, j]$. If found, return the index of the target string, otherwise return $-1$. So the answer is $dfs(0, n-1)$.
+We design a function $\textit{dfs}(i, j)$ to find the target string in the array $\textit{nums}[i, j]$. If found, return the index of the target string, otherwise return $-1$. So the answer is $\textit{dfs}(0, n-1)$.
 
-The implementation of the function $dfs(i, j)$ is as follows:
+The implementation of the function $\textit{dfs}(i, j)$ is as follows:
 
 1. If $i > j$, return $-1$.
-2. Otherwise, we take the middle position $mid = (i + j) / 2$, then recursively call $dfs(i, mid-1)$. If the return value is not $-1$, it means that the target string is found in the left half, return it directly. Otherwise, if $words[mid] = s$, it means that the target string is found, return it directly. Otherwise, recursively call $dfs(mid+1, j)$ and return.
+2. Otherwise, we take the middle position $\textit{mid} = (i + j) / 2$, then recursively call $\textit{dfs}(i, \textit{mid}-1)$. If the return value is not $-1$, it means that the target string is found in the left half, return it directly. Otherwise, if $\textit{words}[\textit{mid}] = s$, it means that the target string is found, return it directly. Otherwise, recursively call $\textit{dfs}(\textit{mid}+1, j)$ and return.
 
 The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the string array and the length of the string $s$, respectively.
 

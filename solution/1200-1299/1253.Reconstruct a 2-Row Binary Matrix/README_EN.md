@@ -80,24 +80,24 @@ tags:
 
 > **Thinking**
 >
-> Column sums are given, and the two rows must contain $upper$ and $lower$ ones. $n \le 10^5$ forbids backtracking. A $2$ forces both ones; a $0$ forces both zeros; a $1$ must go to the row with the larger remaining quota, or that row may run out later.
+> Column sums are given, and the two rows must contain $\textit{upper}$ and $\textit{lower}$ ones. $n \le 10^5$ forbids backtracking. A $2$ forces both ones; a $0$ forces both zeros; a $1$ must go to the row with the larger remaining quota, or that row may run out later.
 >
 > We fill left to right; a negative remainder or leftover quota at the end means failure. Giving the singleton one to the tighter row does not create extra conflicts.
 
 <!-- thinking:end -->
 
-First, we create an answer array $ans$, where $ans[0]$ and $ans[1]$ represent the first and second rows of the matrix, respectively.
+First, we create an answer array $\textit{ans}$, where $\textit{ans}[0]$ and $\textit{ans}[1]$ represent the first and second rows of the matrix, respectively.
 
-Next, we traverse the array $colsum$ from left to right. For the current element $colsum[j]$, we have the following cases:
+Next, we traverse the array $\textit{colsum}$ from left to right. For the current element $\textit{colsum}[j]$, we have the following cases:
 
-- If $colsum[j] = 2$, then we set both $ans[0][j]$ and $ans[1][j]$ to $1$. In this case, both $upper$ and $lower$ are reduced by $1$.
-- If $colsum[j] = 1$, then we set either $ans[0][j]$ or $ans[1][j]$ to $1$. If $upper \gt lower$, then we prefer to set $ans[0][j]$ to $1$; otherwise, we prefer to set $ans[1][j]$ to $1$. In this case, either $upper$ or $lower$ is reduced by $1$.
-- If $colsum[j] = 0$, then we set both $ans[0][j]$ and $ans[1][j]$ to $0$.
-- If $upper \lt 0$ or $lower \lt 0$, then it is impossible to construct a matrix that meets the requirements, and we return an empty array.
+- If $\textit{colsum}[j] = 2$, then we set both $\textit{ans}[0][j]$ and $\textit{ans}[1][j]$ to $1$. In this case, both $\textit{upper}$ and $\textit{lower}$ are reduced by $1$.
+- If $\textit{colsum}[j] = 1$, then we set either $\textit{ans}[0][j]$ or $\textit{ans}[1][j]$ to $1$. If $\textit{upper} \gt \textit{lower}$, then we prefer to set $\textit{ans}[0][j]$ to $1$; otherwise, we prefer to set $\textit{ans}[1][j]$ to $1$. In this case, either $\textit{upper}$ or $\textit{lower}$ is reduced by $1$.
+- If $\textit{colsum}[j] = 0$, then we set both $\textit{ans}[0][j]$ and $\textit{ans}[1][j]$ to $0$.
+- If $\textit{upper} \lt 0$ or $\textit{lower} \lt 0$, then it is impossible to construct a matrix that meets the requirements, and we return an empty array.
 
-At the end of the traversal, if both $upper$ and $lower$ are $0$, then we return $ans$; otherwise, we return an empty array.
+At the end of the traversal, if both $\textit{upper}$ and $\textit{lower}$ are $0$, then we return $\textit{ans}$; otherwise, we return an empty array.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $colsum$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{colsum}$.
 
 <!-- tabs:start -->
 

@@ -65,7 +65,7 @@ tags:
 
 > **思考**
 >
-> 若枚举所有下标对 $(i, j)$，面积为 $\min(height[i], height[j]) \times (j - i)$，时间复杂度为 $O(n^2)$。 $n \le 10^5$，无法通过。
+> 若枚举所有下标对 $(i, j)$，面积为 $\min(\textit{height}[i], \textit{height}[j]) \times (j - i)$，时间复杂度为 $O(n^2)$。 $n \le 10^5$，无法通过。
 >
 > 容器的高度由较短的那根线决定。从最宽的区间 $[0, n-1]$ 出发：若向内移动较高的一端，宽度减小，高度仍受较短边限制，面积不会变大。因此每次应当舍弃较短的那根，尝试碰到更高的边。用左右指针向中间收缩，每次移动较矮的一侧，每个下标至多访问一次。
 
@@ -75,7 +75,7 @@ tags:
 
 接下来，我们使用变量 $\textit{ans}$ 记录容器的最大容量，初始化为 $0$。
 
-然后，我们开始进行循环，每次循环中，我们计算当前容器的容量，即 $\textit{min}(height[l], height[r]) \times (r - l)$，并将其与 $\textit{ans}$ 进行比较，将较大值赋给 $\textit{ans}$。然后，我们判断 $height[l]$ 和 $height[r]$ 的大小，如果 $\textit{height}[l] < \textit{height}[r]$，移动 $r$ 指针不会使得结果变得更好，因为容器的高度由较短的那根垂直线决定，所以我们移动 $l$ 指针。反之，我们移动 $r$ 指针。
+然后，我们开始进行循环，每次循环中，我们计算当前容器的容量，即 $\textit{min}(\textit{height}[l], \textit{height}[r]) \times (r - l)$，并将其与 $\textit{ans}$ 进行比较，将较大值赋给 $\textit{ans}$。然后，我们判断 $\textit{height}[l]$ 和 $\textit{height}[r]$ 的大小，如果 $\textit{height}[l] < \textit{height}[r]$，移动 $r$ 指针不会使得结果变得更好，因为容器的高度由较短的那根垂直线决定，所以我们移动 $l$ 指针。反之，我们移动 $r$ 指针。
 
 遍历结束后，返回 $\textit{ans}$ 即可。
 

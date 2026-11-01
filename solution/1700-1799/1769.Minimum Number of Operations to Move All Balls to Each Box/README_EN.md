@@ -68,7 +68,7 @@ tags:
 >
 > The cost of gathering every ball at box $i$ is the sum of index distances. $n\le 2000$ allows a double loop, but a linear recurrence exists.
 >
-> The left (right) cost follows from the neighbour: one more ball on that side increases the cost by the ball count. Precompute $left[i]$ and $right[i]$ and add them.
+> The left (right) cost follows from the neighbour: one more ball on that side increases the cost by the ball count. Precompute $\textit{left}[i]$ and $\textit{right}[i]$ and add them.
 
 <!-- thinking:end -->
 
@@ -279,7 +279,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 > **Thinking**
 >
-> The two arrays in Solution 1 depend only on the previous cell. Accumulate the same recurrences into $ans$ left-to-right and right-to-left, using constant extra space.
+> The two arrays in Solution 1 depend only on the previous cell. Accumulate the same recurrences into $\textit{ans}$ left-to-right and right-to-left, using constant extra space.
 
 <!-- thinking:end -->
 

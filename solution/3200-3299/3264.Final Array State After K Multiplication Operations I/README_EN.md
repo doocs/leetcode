@@ -126,7 +126,7 @@ tags:
 >
 > Each step multiplies the current minimum by $\textit{multiplier}$, breaking ties by the smaller index. $n$ and $k$ are tiny, so $k$ simulations suffice. A linear scan for the min would pass; a heap matches the rule.
 >
-> Store $(value,index)$, pop the min, multiply in place, and push back. After $k$ rounds the array is the answer.
+> Store $(\textit{value},\textit{index})$, pop the min, multiply in place, and push back. After $k$ rounds the array is the answer.
 
 <!-- thinking:end -->
 

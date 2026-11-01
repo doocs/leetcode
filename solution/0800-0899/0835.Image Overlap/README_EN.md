@@ -73,7 +73,7 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 
 > **Thinking**
 >
-> We slide $img1$ over $img2$ and maximize the number of overlapping ones. $n\le 30$ allows enumerating shifts, but it is enough to pair ones from the two images.
+> We slide $\textit{img1}$ over $\textit{img2}$ and maximize the number of overlapping ones. $n\le 30$ allows enumerating shifts, but it is enough to pair ones from the two images.
 >
 > Each pair of ones determines a shift vector. A counter over vectors yields the largest overlap; an empty counter means the answer is $0$.
 

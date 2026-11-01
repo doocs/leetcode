@@ -72,9 +72,9 @@ tags:
 
 > **Thinking**
 >
-> The longest subsequence whose sum is exactly $target$ is a 0-1 knapsack ($n,target \le 1000$). Let $f[i][j]$ be the best length using the first $i$ numbers to make $j$, with unreachable states at $-\infty$.
+> The longest subsequence whose sum is exactly $\textit{target}$ is a 0-1 knapsack ($n,\textit{target} \le 1000$). Let $f[i][j]$ be the best length using the first $i$ numbers to make $j$, with unreachable states at $-\infty$.
 >
-> The recurrence takes the better of skipping $x$ and taking it. If $f[n][target]$ is non-positive, no solution exists.
+> The recurrence takes the better of skipping $x$ and taking it. If $f[n][\textit{target}]$ is non-positive, no solution exists.
 
 <!-- thinking:end -->
 
@@ -86,9 +86,9 @@ $$
 f[i][j]=\max\{f[i-1][j],f[i-1][j-x]+1\}
 $$
 
-The final answer is $f[n][target]$. If $f[n][target]\le0$, there is no subsequence with a sum of $target$, return $-1$.
+The final answer is $f[n][\textit{target}]$. If $f[n][\textit{target}]\le0$, there is no subsequence with a sum of $\textit{target}$, return $-1$.
 
-The time complexity is $O(n target)$, and the space complexity is $O(n target)$, where $n$ is the length of the array, and $target$ is the target value.
+The time complexity is $O(n \textit{target})$, and the space complexity is $O(n \textit{target})$, where $n$ is the length of the array, and $\textit{target}$ is the target value.
 
 <!-- tabs:start -->
 
@@ -219,11 +219,11 @@ function lengthOfLongestSubsequence(nums: number[], target: number): number {
 
 > **Thinking**
 >
-> Method 1’s $f[i][j]$ depends only on the previous row, so the first index drops. Each number is used at most once, therefore the inner loop walks capacities downward. Space becomes $O(target)$ with the same answer.
+> Method 1’s $f[i][j]$ depends only on the previous row, so the first index drops. Each number is used at most once, therefore the inner loop walks capacities downward. Space becomes $O(\textit{target})$ with the same answer.
 
 <!-- thinking:end -->
 
-$f[i][j]$ depends only on the previous row $f[i-1][\cdot]$, so the first dimension can be dropped. Each number is used at most once, so $j$ is updated from large to small. The space complexity becomes $O(target)$.
+$f[i][j]$ depends only on the previous row $f[i-1][\cdot]$, so the first dimension can be dropped. Each number is used at most once, so $j$ is updated from large to small. The space complexity becomes $O(\textit{target})$.
 
 <!-- tabs:start -->
 

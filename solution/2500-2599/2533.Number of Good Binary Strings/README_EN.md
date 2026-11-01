@@ -87,13 +87,13 @@ We define $f[i]$ as the number of strings of length $i$ that meet the condition.
 $$
 f[i] = \begin{cases}
 1 & i = 0 \\
-f[i - oneGroup] + f[i - zeroGroup] & i \geq 1
+f[i - \textit{oneGroup}] + f[i - \textit{zeroGroup}] & i \geq 1
 \end{cases}
 $$
 
-The final answer is $f[minLength] + f[minLength + 1] + \cdots + f[maxLength]$.
+The final answer is $f[\textit{minLength}] + f[\textit{minLength} + 1] + \cdots + f[\textit{maxLength}]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n=maxLength$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n=\textit{maxLength}$.
 
 <!-- tabs:start -->
 

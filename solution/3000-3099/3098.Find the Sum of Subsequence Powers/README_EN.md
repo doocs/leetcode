@@ -89,20 +89,20 @@ tags:
 >
 > After sorting, only differences of consecutively chosen values can be the minimum, so a state is the current index, the last chosen index, how many picks remain, and the current minimum.
 >
-> Memoized $\textit{dfs}(i,j,k,\textit{mi})$ skips $i$ or takes it and updates the minimum by $\textit{nums}[i]-\textit{nums}[j]$. Sorting keeps those differences non-negative.
+> Memoized $\textit{dfs}(i,j,k,mi)$ skips $i$ or takes it and updates the minimum by $\textit{nums}[i]-\textit{nums}[j]$. Sorting keeps those differences non-negative.
 
 <!-- thinking:end -->
 
 Given the problem involves the minimum difference between elements of a subsequence, we might as well sort the array $\textit{nums}$, which facilitates the calculation of the minimum difference between subsequence elements.
 
-Next, we design a function $dfs(i, j, k, mi)$, representing the value of the energy sum when processing the $i$-th element, the last selected element is the $j$-th element, $k$ more elements need to be selected, and the current minimum difference is $mi$. Therefore, the answer is $dfs(0, n, k, +\infty)$ (If the last selected element is the $n$-th element, it indicates that no element has been selected before).
+Next, we design a function $\textit{dfs}(i, j, k, mi)$, representing the value of the energy sum when processing the $i$-th element, the last selected element is the $j$-th element, $k$ more elements need to be selected, and the current minimum difference is $mi$. Therefore, the answer is $\textit{dfs}(0, n, k, +\infty)$ (If the last selected element is the $n$-th element, it indicates that no element has been selected before).
 
-The execution process of the function $dfs(i, j, k, mi)$ is as follows:
+The execution process of the function $\textit{dfs}(i, j, k, mi)$ is as follows:
 
 - If $i \geq n$, it means all elements have been processed. If $k = 0$, return $mi$; otherwise, return $0$.
 - If the remaining number of elements $n - i$ is less than $k$, return $0$.
-- Otherwise, we can choose not to select the $i$-th element, and the energy sum obtained is $dfs(i + 1, j, k, mi)$.
-- We can also choose to select the $i$-th element. If $j = n$, it means no element has been selected before, then the energy sum obtained is $dfs(i + 1, i, k - 1, mi)$; otherwise, the energy sum obtained is $dfs(i + 1, i, k - 1, \min(mi, \textit{nums}[i] - \textit{nums}[j]))$.
+- Otherwise, we can choose not to select the $i$-th element, and the energy sum obtained is $\textit{dfs}(i + 1, j, k, mi)$.
+- We can also choose to select the $i$-th element. If $j = n$, it means no element has been selected before, then the energy sum obtained is $\textit{dfs}(i + 1, i, k - 1, mi)$; otherwise, the energy sum obtained is $\textit{dfs}(i + 1, i, k - 1, \min(mi, \textit{nums}[i] - \textit{nums}[j]))$.
 - We add up the above results and return the result modulo $10^9 + 7$.
 
 To avoid repeated calculations, we can use memoization, saving the results that have already been calculated.

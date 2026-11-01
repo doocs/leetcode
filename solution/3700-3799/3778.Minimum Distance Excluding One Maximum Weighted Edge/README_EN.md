@@ -99,11 +99,11 @@ difficulty: Medium
 
 The problem is essentially equivalent to finding a path from node $0$ to node $n-1$, where we have one opportunity to treat the weight of a traversed edge as $0$, in order to minimize the sum of path weights.
 
-We first convert $\textit{edges}$ into an adjacency list $\textit{g}$, where $\textit{g}[u]$ stores all edges $(v, w)$ connected to node $u$, indicating that there is an edge with weight $w$ between node $u$ and node $v$.
+We first convert $\textit{edges}$ into an adjacency list $g$, where $g[u]$ stores all edges $(v, w)$ connected to node $u$, indicating that there is an edge with weight $w$ between node $u$ and node $v$.
 
 Next, we use Dijkstra's algorithm to find the shortest path. We define a 2D array $\textit{dist}$, where $\textit{dist}[u][0]$ represents the minimum sum of path weights from node $0$ to node $u$ without using the opportunity to treat an edge weight as $0$; $\textit{dist}[u][1]$ represents the minimum sum of path weights from node $0$ to node $u$ having already used the opportunity to treat an edge weight as $0$.
 
-We use a priority queue $\textit{pq}$ to store pending nodes. Initially, we enqueue $(0, 0, 0)$, indicating that we start from node $0$, with a current path weight sum of $0$, and haven't used the opportunity.
+We use a priority queue $pq$ to store pending nodes. Initially, we enqueue $(0, 0, 0)$, indicating that we start from node $0$, with a current path weight sum of $0$, and haven't used the opportunity.
 
 In each iteration, we dequeue the node $(\textit{cur}, u, \textit{used})$ with the minimum path weight sum from the priority queue. If the current path weight sum $\textit{cur}$ is greater than $\textit{dist}[u][\textit{used}]$, we skip this node.
 

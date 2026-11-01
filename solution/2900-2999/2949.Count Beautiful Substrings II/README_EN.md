@@ -95,9 +95,9 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 > **Thinking**
 >
-> The predicate matches part I, but $n \le 5 \times 10^4$ forbids enumerating ends. Equal vowel and consonant counts means a prefix of $+1$ for a vowel and $-1$ for a consonant repeats; $v^2 \equiv 0 \pmod k$ with $v=len/2$ forces the length to be a multiple of an $l$ derived from the square-free kernel of $4k$.
+> The predicate matches part I, but $n \le 5 \times 10^4$ forbids enumerating ends. Equal vowel and consonant counts means a prefix of $+1$ for a vowel and $-1$ for a consonant repeats; $v^2 \equiv 0 \pmod k$ with $v=\textit{len}/2$ forces the length to be a multiple of an $l$ derived from the square-free kernel of $4k$.
 >
-> Store $(i \bmod l,\ prefix)$ in a hash map; prior positions with the same key form a beautiful substring with $i$. Shifting the prefix by $n$ keeps keys nonnegative.
+> Store $(i \bmod l,\ \textit{prefix})$ in a hash map; prior positions with the same key form a beautiful substring with $i$. Shifting the prefix by $n$ keeps keys nonnegative.
 
 <!-- thinking:end -->
 

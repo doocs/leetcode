@@ -74,7 +74,7 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 
 <!-- thinking:end -->
 
-By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted is the number of binary digits in $i$.
+By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $\textit{ans}$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted is the number of binary digits in $i$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 

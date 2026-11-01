@@ -84,18 +84,18 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 >
 > Choose a matching of tree edges with maximum weight. A choice only affects the two endpoints, so a tree DP is enough.
 >
-> $dfs(i)$ returns the best weight when the edge to the parent is taken, and when it is not. The former sums children’s “not taken” values; the latter may switch at most one child to “taken” and add that edge weight.
+> $\textit{dfs}(i)$ returns the best weight when the edge to the parent is taken, and when it is not. The former sums children’s “not taken” values; the latter may switch at most one child to “taken” and add that edge weight.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents the maximum sum of the weights of selected edges in the subtree rooted at node $i$, such that no two selected edges are adjacent. This function returns two values $(a, b)$. The first value $a$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is selected. The second value $b$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is not selected.
+We design a function $\textit{dfs}(i)$, which represents the maximum sum of the weights of selected edges in the subtree rooted at node $i$, such that no two selected edges are adjacent. This function returns two values $(a, b)$. The first value $a$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is selected. The second value $b$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is not selected.
 
 We can observe the following for the current node $i$:
 
 - If the edge between $i$ and its parent node is selected, then none of the edges between $i$ and its child nodes can be selected. In this case, the value of $a$ for the current node is the sum of the $b$ values of all its child nodes.
 - If the edge between $i$ and its parent node is not selected, then we can select at most one edge between $i$ and its child nodes. In this case, the value of $b$ for the current node is the sum of the $a$ values of the selected child nodes and the $b$ values of the unselected child nodes, plus the weight of the edge between $i$ and the selected child node.
 
-We call the function $dfs(0)$, and the second value returned is the answer, which is the sum of the weights of selected edges when the edge between the root node and its parent node is not selected.
+We call the function $\textit{dfs}(0)$, and the second value returned is the answer, which is the sum of the weights of selected edges when the edge between the root node and its parent node is not selected.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -227,7 +227,7 @@ func maxScore(edges [][]int) int64 {
 >
 > Each node needs two values: the best weight $a$ when the edge to its parent is taken, and the best weight $b$ when that edge is not taken. Taking the parent edge forbids every edge to a child, so $a$ is the sum of the children's $b$ values. Leaving it free allows at most one child edge, and the gain of switching that child is its $a$ minus its $b$ plus the edge weight.
 >
-> An explicit stack of $(node, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store $a$ and $b$. The root has no parent edge, so the answer is the root's $b$.
+> An explicit stack of $(\textit{node}, \textit{state})$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store $a$ and $b$. The root has no parent edge, so the answer is the root's $b$.
 
 <!-- thinking:end -->
 

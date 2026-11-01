@@ -87,22 +87,22 @@ tags:
 >
 > Each edge must be tested for membership in some shortest $0$– $n-1$ path. Rerunning Dijkstra per edge repeats the same search $m$ times.
 >
-> Undirected edge $(a,b,w)$ lies on a shortest path iff walking backward from $n-1$ along $dist[a]=dist[b]+w$ reaches it. One backward BFS marks every such edge.
+> Undirected edge $(a,b,w)$ lies on a shortest path iff walking backward from $n-1$ along $\textit{dist}[a]=\textit{dist}[b]+w$ reaches it. One backward BFS marks every such edge.
 >
-> Compute $dist$ with heap Dijkstra, then BFS from $n-1$ and flag edges that satisfy the equality. If $n-1$ is unreachable every answer is false.
+> Compute $\textit{dist}$ with heap Dijkstra, then BFS from $n-1$ and flag edges that satisfy the equality. If $n-1$ is unreachable every answer is false.
 
 <!-- thinking:end -->
 
-First, we create an adjacency list $g$ to store the edges of the graph. Then we create an array $dist$ to store the shortest distance from node $0$ to other nodes. We initialize $dist[0] = 0$, and the distance of other nodes is initialized to infinity.
+First, we create an adjacency list $g$ to store the edges of the graph. Then we create an array $\textit{dist}$ to store the shortest distance from node $0$ to other nodes. We initialize $\textit{dist}[0] = 0$, and the distance of other nodes is initialized to infinity.
 
 Then, we use the Dijkstra algorithm to calculate the shortest distance from node $0$ to other nodes. The specific steps are as follows:
 
 1. Create a priority queue $q$ to store the distance and node number of the nodes. Initially, add node $0$ to the queue with a distance of $0$.
-2. Take a node $a$ from the queue. If the distance $da$ of $a$ is greater than $dist[a]$, it means that $a$ has been updated, so skip it directly.
-3. Traverse all neighbor nodes $b$ of node $a$. If $dist[b] > dist[a] + w$, update $dist[b] = dist[a] + w$, and add node $b$ to the queue.
+2. Take a node $a$ from the queue. If the distance $da$ of $a$ is greater than $\textit{dist}[a]$, it means that $a$ has been updated, so skip it directly.
+3. Traverse all neighbor nodes $b$ of node $a$. If $\textit{dist}[b] > \textit{dist}[a] + w$, update $\textit{dist}[b] = \textit{dist}[a] + w$, and add node $b$ to the queue.
 4. Repeat steps 2 and 3 until the queue is empty.
 
-Next, we create an answer array $ans$ of length $m$, initially all elements are $false$. If $dist[n - 1]$ is infinity, it means that node $0$ cannot reach node $n - 1$, return $ans$ directly. Otherwise, we start from node $n - 1$, traverse all edges, if the edge $(a, b, i)$ satisfies $dist[a] = dist[b] + w$, set $ans[i]$ to $true$, and add node $b$ to the queue.
+Next, we create an answer array $\textit{ans}$ of length $m$, initially all elements are $\textit{false}$. If $\textit{dist}[n - 1]$ is infinity, it means that node $0$ cannot reach node $n - 1$, return $\textit{ans}$ directly. Otherwise, we start from node $n - 1$, traverse all edges, if the edge $(a, b, i)$ satisfies $\textit{dist}[a] = \textit{dist}[b] + w$, set $\textit{ans}[i]$ to $\textit{true}$, and add node $b$ to the queue.
 
 Finally, return the answer.
 

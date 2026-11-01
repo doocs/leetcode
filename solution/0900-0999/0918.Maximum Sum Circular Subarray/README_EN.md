@@ -71,7 +71,7 @@ tags:
 
 > **Thinking**
 >
-> A circular maximum subarray is either a normal Kadane segment, or the total sum minus a minimum segment that wraps around. One scan maintains the prefix minimum and prefix maximum to obtain both quantities, then returns the larger of $ans$ and $s-smi$.
+> A circular maximum subarray is either a normal Kadane segment, or the total sum minus a minimum segment that wraps around. One scan maintains the prefix minimum and prefix maximum to obtain both quantities, then returns the larger of $\textit{ans}$ and $s-\textit{smi}$.
 
 <!-- thinking:end -->
 
@@ -82,21 +82,21 @@ The maximum sum of a circular subarray can be divided into two cases:
 
 Therefore, we maintain the following variables:
 
-- The minimum prefix sum $pmi$, initially $0$;
-- The maximum prefix sum $pmx$, initially $-\infty$;
+- The minimum prefix sum $\textit{pmi}$, initially $0$;
+- The maximum prefix sum $\textit{pmx}$, initially $-\infty$;
 - The prefix sum $s$, initially $0$;
-- The minimum subarray sum $smi$, initially $\infty$;
-- The answer $ans$, initially $-\infty$.
+- The minimum subarray sum $\textit{smi}$, initially $\infty$;
+- The answer $\textit{ans}$, initially $-\infty$.
 
-Next, we only need to traverse the array $nums$. For the current element $x$ we are traversing, we perform the following update operations:
+Next, we only need to traverse the array $\textit{nums}$. For the current element $x$ we are traversing, we perform the following update operations:
 
 - Update the prefix sum $s = s + x$;
-- Update the answer $ans = \max(ans, s - pmi)$, which is the answer for Case 1 (the prefix sum $s$ minus the minimum prefix sum $pmi$ can give the maximum subarray sum);
-- Update $smi = \min(smi, s - pmx)$, which is the minimum subarray sum for Case 2;
-- Update $pmi = \min(pmi, s)$, which is the minimum prefix sum;
-- Update $pmx = \max(pmx, s)$, which is the maximum prefix sum.
+- Update the answer $\textit{ans} = \max(\textit{ans}, s - \textit{pmi})$, which is the answer for Case 1 (the prefix sum $s$ minus the minimum prefix sum $\textit{pmi}$ can give the maximum subarray sum);
+- Update $\textit{smi} = \min(\textit{smi}, s - \textit{pmx})$, which is the minimum subarray sum for Case 2;
+- Update $\textit{pmi} = \min(\textit{pmi}, s)$, which is the minimum prefix sum;
+- Update $\textit{pmx} = \max(\textit{pmx}, s)$, which is the maximum prefix sum.
 
-After the traversal, we return the maximum value of $ans$ and $s - smi$ as the answer.
+After the traversal, we return the maximum value of $\textit{ans}$ and $s - \textit{smi}$ as the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

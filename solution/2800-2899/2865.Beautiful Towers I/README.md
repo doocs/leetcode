@@ -75,7 +75,7 @@ tags:
 
 我们可以枚举每一座塔作为最高塔，每一次向左右两边扩展，算出其他每个位置的高度，然后累加得到高度和 $t$。求出所有高度和的最大值即可。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $maxHeights$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{maxHeights}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -220,16 +220,16 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 $$
 f[i]=
 \begin{cases}
-f[i-1]+heights[i],&\textit{if } heights[i]\geq heights[i-1]\\
-heights[i]\times(i-j)+f[j],&\textit{if } heights[i]<heights[i-1]
+f[i-1]+\textit{heights}[i],&\textit{if } \textit{heights}[i]\geq \textit{heights}[i-1]\\
+\textit{heights}[i]\times(i-j)+f[j],&\textit{if } \textit{heights}[i]<\textit{heights}[i-1]
 \end{cases}
 $$
 
-其中 $j$ 是最后一座塔左边第一个高度小于等于 $heights[i]$ 的塔的下标。我们可以使用单调栈来维护这个下标。
+其中 $j$ 是最后一座塔左边第一个高度小于等于 $\textit{heights}[i]$ 的塔的下标。我们可以使用单调栈来维护这个下标。
 
-我们可以使用类似的方法求出 $g[i]$，表示从右往左，以第 $i$ 座塔作为最高塔的美丽塔方案的高度和。最终答案即为 $f[i]+g[i]-heights[i]$ 的最大值。
+我们可以使用类似的方法求出 $g[i]$，表示从右往左，以第 $i$ 座塔作为最高塔的美丽塔方案的高度和。最终答案即为 $f[i]+g[i]-\textit{heights}[i]$ 的最大值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $maxHeights$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{maxHeights}$ 的长度。
 
 <!-- tabs:start -->
 

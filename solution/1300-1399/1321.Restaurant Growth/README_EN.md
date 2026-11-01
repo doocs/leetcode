@@ -91,7 +91,7 @@ Customer table:
 
 > **Thinking**
 >
-> Each date needs the sum and daily average over the inclusive $7$-day window ending that day, and the window must be full. Aggregate amount by day, then a $\mathrm{ROWS}\,6\,\mathrm{PRECEDING}$ window sum along the ordered dates, dropping the first six ranks, yields every valid seven-day average.
+> Each date needs the sum and daily average over the inclusive $7$-day window ending that day, and the window must be full. Aggregate amount by day, then a $\textit{ROWS}\,6\,\textit{PRECEDING}$ window sum along the ordered dates, dropping the first six ranks, yields every valid seven-day average.
 
 <!-- thinking:end -->
 

@@ -71,7 +71,7 @@ Under the given constraints, the string can be split into two parts:
 
 > **Thinking**
 >
-> Each part carries a $<j/k>$ suffix inside a length cap $limit$. With $n\le 10^4$, try $k=1,2,\ldots$: the digit lengths of indices and of $k$, plus three symbols per part, accumulate in $O(1)$. When leftover capacity is at least $n$, slice the message and append the tails.
+> Each part carries a $<j/k>$ suffix inside a length cap $\textit{limit}$. With $n\le 10^4$, try $k=1,2,\ldots$: the digit lengths of indices and of $k$, plus three symbols per part, accumulate in $O(1)$. When leftover capacity is at least $n$, slice the message and append the tails.
 
 <!-- thinking:end -->
 
@@ -81,9 +81,9 @@ According to the problem, if $k > n$, it means that we can divide the string int
 
 We enumerate the number of segments $k$ from small to large. Let the length of $a$ segments in all segments be $sa$, the length of $b$ segments in all segments be $sb$, and the length of all symbols (including angle brackets and slashes) in all segments be $sc$.
 
-Then the value of $sa$ is ${\textstyle \sum_{j=1}^{k}} len(s_j)$, which can be directly obtained through the prefix sum; the value of $sb$ is $len(str(k)) \times k$; and the value of $sc$ is $3 \times k$.
+Then the value of $sa$ is ${\textstyle \sum_{j=1}^{k}} \textit{len}(s_j)$, which can be directly obtained through the prefix sum; the value of $sb$ is $\textit{len}(\textit{str}(k)) \times k$; and the value of $sc$ is $3 \times k$.
 
-Therefore, the number of characters that can be filled in all segments is $limit\times k - (sa + sb + sc)$. If this value is greater than or equal to $n$, it means that the string can be divided into $k$ segments, and we can directly construct the answer and return it.
+Therefore, the number of characters that can be filled in all segments is $\textit{limit}\times k - (sa + sb + sc)$. If this value is greater than or equal to $n$, it means that the string can be divided into $k$ segments, and we can directly construct the answer and return it.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `message`.
 

@@ -96,7 +96,7 @@ tags:
 >
 > 箱子可从仓库两端推入，仍不能越过更矮的房间。 $n\le 10^5$，不能枚举左右入口的分配。房间 $i$ 的有效高度是自身与「从某一端进来时沿途最矮处」的较小者，而两端取较大的那条通路。
 >
-> 预处理左侧沿途最小高度 $left[i]$ 与右侧 $right[i]$，再令房间容量为 $\min(warehouse[i],\max(left[i],right[i]))$。之后与箱子一并排序，小箱子优先匹配当前最矮仍够高的房间。
+> 预处理左侧沿途最小高度 $\textit{left}[i]$ 与右侧 $\textit{right}[i]$，再令房间容量为 $\min(\textit{warehouse}[i],\max(\textit{left}[i],\textit{right}[i]))$。之后与箱子一并排序，小箱子优先匹配当前最矮仍够高的房间。
 
 <!-- thinking:end -->
 

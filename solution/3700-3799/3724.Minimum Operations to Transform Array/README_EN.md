@@ -213,13 +213,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define an answer variable $\text{ans}$ to record the minimum number of operations, with an initial value of $1$, representing the operation needed to append the last element to the end of the array.
+We define an answer variable $\textit{ans}$ to record the minimum number of operations, with an initial value of $1$, representing the operation needed to append the last element to the end of the array.
 
-Then we iterate through the first $n$ elements of the array. For each pair of corresponding elements $(\text{nums1}[i], \text{nums2}[i])$, we calculate their difference and add it to $\text{ans}$.
+Then we iterate through the first $n$ elements of the array. For each pair of corresponding elements $(\textit{nums1}[i], \textit{nums2}[i])$, we calculate their difference and add it to $\textit{ans}$.
 
-During the iteration, we also need to check whether $\min(\text{nums1}[i], \text{nums2}[i]) \leq \text{nums2}[n] \leq \max(\text{nums1}[i], \text{nums2}[i])$ holds. If it does, it means we can directly adjust $\text{nums1}[i]$ to reach $\text{nums2}[n]$. Otherwise, we need to record a minimum difference $d$, which represents the minimum number of operations required to adjust some element to $\text{nums2}[n]$.
+During the iteration, we also need to check whether $\min(\textit{nums1}[i], \textit{nums2}[i]) \leq \textit{nums2}[n] \leq \max(\textit{nums1}[i], \textit{nums2}[i])$ holds. If it does, it means we can directly adjust $\textit{nums1}[i]$ to reach $\textit{nums2}[n]$. Otherwise, we need to record a minimum difference $d$, which represents the minimum number of operations required to adjust some element to $\textit{nums2}[n]$.
 
-Finally, if no element satisfying the condition is found after the iteration, we need to add $d$ to $\text{ans}$, indicating that we need extra operations to adjust some element to $\text{nums2}[n]$.
+Finally, if no element satisfying the condition is found after the iteration, we need to add $d$ to $\textit{ans}$, indicating that we need extra operations to adjust some element to $\textit{nums2}[n]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

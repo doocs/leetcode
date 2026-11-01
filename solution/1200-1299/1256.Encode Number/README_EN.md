@@ -59,13 +59,13 @@ tags:
 
 > **Thinking**
 >
-> The table is $0,1,00,01,\ldots$, i.e. all binary strings in order. The bits of $num+1$ without the leading $1$ are exactly the $num$-th such string. $num$ reaches $10^9$, so we cannot list them; one bit trick suffices.
+> The table is $0,1,00,01,\ldots$, i.e. all binary strings in order. The bits of $\textit{num}+1$ without the leading $1$ are exactly the $\textit{num}$-th such string. $\textit{num}$ reaches $10^9$, so we cannot list them; one bit trick suffices.
 
 <!-- thinking:end -->
 
-We add one to $num$, then convert it to a binary string and remove the highest bit $1$.
+We add one to $\textit{num}$, then convert it to a binary string and remove the highest bit $1$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the size of $num$.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the size of $\textit{num}$.
 
 <!-- tabs:start -->
 

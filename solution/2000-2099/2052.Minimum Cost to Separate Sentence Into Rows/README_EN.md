@@ -94,13 +94,13 @@ The cost of the last row is not included in the total cost, and since there is o
 >
 > Words are wrapped into lines; every line but the last costs $(k-\textit{width})^2$. Breaks are exponential, yet the minimum from word $i$ depends only on the suffix.
 >
-> Prefix sums give a range length in $O(1)$. If the rest fits the last line, cost $0$; otherwise try the next break $j$ and add $(k-m)^2+dfs(j)$.
+> Prefix sums give a range length in $O(1)$. If the rest fits the last line, cost $0$; otherwise try the next break $j$ and add $(k-m)^2+\textit{dfs}(j)$.
 >
 > Memoization yields $n$ states and $O(n)$ transitions each.
 
 <!-- thinking:end -->
 
-We use an array $\textit{nums}$ to record the length of each word, and let the length of the array be $n$. Then we define a prefix sum array $\textit{s}$ of length $n + 1$, where $\textit{s}[i]$ represents the sum of the lengths of the first $i$ words.
+We use an array $\textit{nums}$ to record the length of each word, and let the length of the array be $n$. Then we define a prefix sum array $s$ of length $n + 1$, where $s[i]$ represents the sum of the lengths of the first $i$ words.
 
 Next, we design a function $\textit{dfs}(i)$, which represents the minimum cost of splitting the sentence starting from the $i$-th word. The answer is $\textit{dfs}(0)$.
 

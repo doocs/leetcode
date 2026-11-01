@@ -448,7 +448,7 @@ public class Solution {
 >
 > Recursing into each child and decreasing the remaining depth by one reaches depth $n$ on a chain when $k$ is close to $n$, which overflows the call stack. The count depends only on whether a node falls inside the budget, so sibling order does not matter.
 >
-> Each start therefore uses an explicit stack of $(node, parent, remaining\ depth)$. Popping a frame counts that node; a remaining depth of $0$ stops the walk, and otherwise each neighbor other than the parent is pushed with the budget decreased by one. The second tree's budget is $k - 1$ and does not depend on $i$, so its maximum is added to every start in the first tree.
+> Each start therefore uses an explicit stack of $(\textit{node}, \textit{parent}, \textit{remaining}\ \textit{depth})$. Popping a frame counts that node; a remaining depth of $0$ stops the walk, and otherwise each neighbor other than the parent is pushed with the budget decreased by one. The second tree's budget is $k - 1$ and does not depend on $i$, so its maximum is added to every start in the first tree.
 
 <!-- thinking:end -->
 
@@ -457,7 +457,7 @@ According to the problem description, to maximize the number of target nodes for
 - In the first tree, the number of nodes reachable from node $i$ within a depth of $k$.
 - In the second tree, the maximum number of nodes reachable from any node $j$ within a depth of $k - 1$.
 
-To count nodes within a depth budget $d$ from a start, an explicit stack stores $(node, parent, remaining\ depth)$. Popping a frame counts that node. If the remaining depth is positive, each neighbor that is not the parent is pushed with the budget decreased by one. Let $t$ be the maximum count in the second tree with $d = k - 1$. For each node $i$ in the first tree, add $t$ to the count obtained with $d = k$.
+To count nodes within a depth budget $d$ from a start, an explicit stack stores $(\textit{node}, \textit{parent}, \textit{remaining}\ \textit{depth})$. Popping a frame counts that node. If the remaining depth is positive, each neighbor that is not the parent is pushed with the budget decreased by one. Let $t$ be the maximum count in the second tree with $d = k - 1$. For each node $i$ in the first tree, add $t$ to the count obtained with $d = k$.
 
 The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the two trees, respectively.
 

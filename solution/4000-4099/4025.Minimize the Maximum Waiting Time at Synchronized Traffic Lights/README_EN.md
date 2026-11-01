@@ -121,18 +121,18 @@ tags:
 >
 > The lights share one period. Car $j$ arrives at residue $r=\textit{arrivalTime}[j]\bmod \textit{period}$. Enumerating assignments for every car would repeat the same arithmetic.
 >
-> Let $\textit{mx}$ be the longest green. If $r<\textit{mx}$, sending the car to that light yields wait $0$; if $r\ge\textit{mx}$, the car has missed every green and waits $\textit{period}-r$ at every light.
+> Let $mx$ be the longest green. If $r<mx$, sending the car to that light yields wait $0$; if $r\gemx$, the car has missed every green and waits $\textit{period}-r$ at every light.
 >
-> The penalty is therefore the maximum wait among cars with $r\ge\textit{mx}$, or $0$ if no such car exists.
+> The penalty is therefore the maximum wait among cars with $r\gemx$, or $0$ if no such car exists.
 
 <!-- thinking:end -->
 
-Let $\textit{mx} = \max(\textit{lights})$ be the longest green duration. For car $j$, let $r = \textit{arrivalTime}[j] \bmod \textit{period}$.
+Let $mx = \max(\textit{lights})$ be the longest green duration. For car $j$, let $r = \textit{arrivalTime}[j] \bmod \textit{period}$.
 
-- If $r < \textit{mx}$, we can assign the car to the light with the longest green phase, and the waiting time is $0$.
-- If $r \ge \textit{mx}$, then $r \ge \textit{lights}[i]$ for every light, so the waiting time is $\textit{period} - r$ regardless of the assignment.
+- If $r < mx$, we can assign the car to the light with the longest green phase, and the waiting time is $0$.
+- If $r \ge mx$, then $r \ge \textit{lights}[i]$ for every light, so the waiting time is $\textit{period} - r$ regardless of the assignment.
 
-Therefore, the penalty is the maximum of $\textit{period} - r$ over all cars with $r \ge \textit{mx}$. If every car can pass during a green light, the answer is $0$.
+Therefore, the penalty is the maximum of $\textit{period} - r$ over all cars with $r \ge mx$. If every car can pass during a green light, the answer is $0$.
 
 The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of $\textit{lights}$ and $\textit{arrivalTime}$, respectively.
 

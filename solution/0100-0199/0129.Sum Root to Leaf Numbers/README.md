@@ -82,14 +82,14 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以设计一个函数 $dfs(root, s)$，表示从当前节点 $root$ 出发，且当前路径数字为 $s$，返回从当前节点到叶子节点的所有路径数字之和。那么答案就是 $dfs(root, 0)$。
+我们可以设计一个函数 $\textit{dfs}(\textit{root}, s)$，表示从当前节点 $\textit{root}$ 出发，且当前路径数字为 $s$，返回从当前节点到叶子节点的所有路径数字之和。那么答案就是 $\textit{dfs}(\textit{root}, 0)$。
 
-函数 $dfs(root, s)$ 的计算如下：
+函数 $\textit{dfs}(\textit{root}, s)$ 的计算如下：
 
-- 如果当前节点 $root$ 为空，则返回 $0$。
-- 否则，将当前节点的值加到 $s$ 中，即 $s = s \times 10 + root.val$。
+- 如果当前节点 $\textit{root}$ 为空，则返回 $0$。
+- 否则，将当前节点的值加到 $s$ 中，即 $s = s \times 10 + \textit{root}.\textit{val}$。
 - 如果当前节点是叶子节点，则返回 $s$。
-- 否则，返回 $dfs(root.left, s) + dfs(root.right, s)$。
+- 否则，返回 $\textit{dfs}(\textit{root}.\textit{left}, s) + \textit{dfs}(\textit{root}.\textit{right}, s)$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点数。
 

@@ -79,7 +79,7 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 >
 > Adjacent pairs form a path; the two ends have degree $1$. Walking from either end restores the array.
 >
-> Build the undirected adjacency list, take a degree-$1$ node as $ans[0]$ and its neighbour as $ans[1]$. Each later value is the neighbour that is not the previous one.
+> Build the undirected adjacency list, take a degree-$1$ node as $\textit{ans}[0]$ and its neighbour as $\textit{ans}[1]$. Each later value is the neighbour that is not the previous one.
 
 <!-- thinking:end -->
 

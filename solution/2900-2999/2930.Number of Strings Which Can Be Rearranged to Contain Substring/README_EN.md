@@ -74,21 +74,21 @@ tags:
 
 > **Thinking**
 >
-> A length-$n$ lowercase string must be rearrangeable to contain $leet$, i.e. at least one $l$, two $e$, and one $t$. Building counted strings and multiplying by permutations overcounts. Filling positions while tracking whether those three quotas are met uses $n \times 2 \times 3 \times 2$ states.
+> A length-$n$ lowercase string must be rearrangeable to contain $\textit{leet}$, i.e. at least one $l$, two $e$, and one $t$. Building counted strings and multiplying by permutations overcounts. Filling positions while tracking whether those three quotas are met uses $n \times 2 \times 3 \times 2$ states.
 >
-> $dfs(i,l,e,t)$ tries “other”, $l$, $e$, or $t$, capping the last three at $1,2,1$. For $n \le 10^5$ the memo size matches the state space.
+> $\textit{dfs}(i,l,e,t)$ tries “other”, $l$, $e$, or $t$, capping the last three at $1,2,1$. For $n \le 10^5$ the memo size matches the state space.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, l, e, t)$, which represents the number of good strings that can be formed when the remaining string length is $i$, and there are at least $l$ characters 'l', $e$ characters 'e' and $t$ characters 't'. The answer is $dfs(n, 0, 0, 0)$.
+We design a function $\textit{dfs}(i, l, e, t)$, which represents the number of good strings that can be formed when the remaining string length is $i$, and there are at least $l$ characters 'l', $e$ characters 'e' and $t$ characters 't'. The answer is $\textit{dfs}(n, 0, 0, 0)$.
 
-The execution logic of the function $dfs(i, l, e, t)$ is as follows:
+The execution logic of the function $\textit{dfs}(i, l, e, t)$ is as follows:
 
 If $i = 0$, it means that the current string has been constructed. If $l = 1$, $e = 2$ and $t = 1$, it means that the current string is a good string, return $1$, otherwise return $0$.
 
-Otherwise, we can consider adding any lowercase letter other than 'l', 'e', 't' at the current position, there are 23 in total, so the number of schemes obtained at this time is $dfs(i - 1, l, e, t) \times 23$.
+Otherwise, we can consider adding any lowercase letter other than 'l', 'e', 't' at the current position, there are 23 in total, so the number of schemes obtained at this time is $\textit{dfs}(i - 1, l, e, t) \times 23$.
 
-We can also consider adding 'l' at the current position, and the number of schemes obtained at this time is $dfs(i - 1, \min(1, l + 1), e, t)$. Similarly, the number of schemes for adding 'e' and 't' are $dfs(i - 1, l, \min(2, e + 1), t)$ and $dfs(i - 1, l, e, \min(1, t + 1))$ respectively. Add them up and take the modulus of $10^9 + 7$ to get the value of $dfs(i, l, e, t)$.
+We can also consider adding 'l' at the current position, and the number of schemes obtained at this time is $\textit{dfs}(i - 1, \min(1, l + 1), e, t)$. Similarly, the number of schemes for adding 'e' and 't' are $\textit{dfs}(i - 1, l, \min(2, e + 1), t)$ and $\textit{dfs}(i - 1, l, e, \min(1, t + 1))$ respectively. Add them up and take the modulus of $10^9 + 7$ to get the value of $\textit{dfs}(i, l, e, t)$.
 
 To avoid repeated calculations, we can use memorization search.
 
@@ -262,11 +262,11 @@ We divide it into the following cases:
 - Case $ab$: represents the number of schemes where the string does not contain the characters 'l' and 't', so we have $ab = 24^n$.
 - Case $ac$: represents the number of schemes where the string does not contain the characters 'l' and 'e' or only contains one character 'e', so we have $ac = 24^n + n \times 24^{n - 1}$.
 - Case $bc$: similar to $ac$, represents the number of schemes where the string does not contain the characters 't' and 'e' or only contains one character 'e', so we have $bc = 24^n + n \times 24^{n - 1}$.
-- Case $abc$: represents the number of schemes where the string does not contain the characters 'l', 't' and 'e' or only contains one character 'e', so we have $abc = 23^n + n \times 23^{n - 1}$.
+- Case $\textit{abc}$: represents the number of schemes where the string does not contain the characters 'l', 't' and 'e' or only contains one character 'e', so we have $\textit{abc} = 23^n + n \times 23^{n - 1}$.
 
-Then according to the inclusion-exclusion principle, $a + b + c - ab - ac - bc + abc$ is the number of strings that do not contain the substring "leet".
+Then according to the inclusion-exclusion principle, $a + b + c - ab - ac - bc + \textit{abc}$ is the number of strings that do not contain the substring "leet".
 
-The total number $tot = 26^n$, so the answer is $tot - (a + b + c - ab - ac - bc + abc)$, remember to take the modulus of $10^9 + 7$.
+The total number $\textit{tot} = 26^n$, so the answer is $\textit{tot} - (a + b + c - ab - ac - bc + \textit{abc})$, remember to take the modulus of $10^9 + 7$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
@@ -415,7 +415,7 @@ function stringCount(n: number): number {
 
 > **Thinking**
 >
-> A length-$n$ string is good when a rearrangement contains $leet$, so the counts of $l$, $e$, and $t$ must reach $1$, $2$, and $1$. Counting those strings by multinomial coefficients overcounts the overlapping cases. The useful state is only the capped counts, $2 \times 3 \times 2$ possibilities, and a string of length $i$ depends only on length $i - 1$.
+> A length-$n$ string is good when a rearrangement contains $\textit{leet}$, so the counts of $l$, $e$, and $t$ must reach $1$, $2$, and $1$. Counting those strings by multinomial coefficients overcounts the overlapping cases. The useful state is only the capped counts, $2 \times 3 \times 2$ possibilities, and a string of length $i$ depends only on length $i - 1$.
 >
 > Recursing on the remaining length chains $n$ calls. For $n \le 10^5$ that overflows the call stack, and storing every layer in a C++ variable-length array puts about $9.6$MB on the stack.
 >

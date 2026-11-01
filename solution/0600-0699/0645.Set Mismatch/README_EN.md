@@ -58,11 +58,11 @@ tags:
 
 <!-- thinking:end -->
 
-We denote $s_1$ as the sum of all numbers from $[1,..n]$, $s_2$ as the sum of the numbers in the array $nums$ after removing duplicates, and $s$ as the sum of the numbers in the array $nums$.
+We denote $s_1$ as the sum of all numbers from $[1,..n]$, $s_2$ as the sum of the numbers in the array $\textit{nums}$ after removing duplicates, and $s$ as the sum of the numbers in the array $\textit{nums}$.
 
 Then $s - s_2$ is the duplicate number, and $s_1 - s_2$ is the missing number.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$. Extra space is needed to store the array after de-duplication.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Extra space is needed to store the array after de-duplication.
 
 <!-- tabs:start -->
 
@@ -185,11 +185,11 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can also use a more intuitive method, using a hash table $cnt$ to count the occurrence of each number in the array $nums$.
+We can also use a more intuitive method, using a hash table $\textit{cnt}$ to count the occurrence of each number in the array $\textit{nums}$.
 
-Next, iterate through $x \in [1, n]$, if $cnt[x] = 2$, then $x$ is the duplicate number, if $cnt[x] = 0$, then $x$ is the missing number.
+Next, iterate through $x \in [1, n]$, if $\textit{cnt}[x] = 2$, then $x$ is the duplicate number, if $\textit{cnt}[x] = 0$, then $x$ is the missing number.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -342,17 +342,17 @@ impl Solution {
 
 > **Thinking**
 >
-> The first two methods use linear extra memory. XOR of $nums$ and $1..n$ yields $a\oplus b$; split by the lowest set bit to recover $a$ and $b$, then see which one appears in the array.
+> The first two methods use linear extra memory. XOR of $\textit{nums}$ and $1..n$ yields $a\oplus b$; split by the lowest set bit to recover $a$ and $b$, then see which one appears in the array.
 
 <!-- thinking:end -->
 
-According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
+According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $\textit{nums}$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
 
-Since these two numbers are not equal, there must be at least one bit in the XOR result that is $1$. We find the lowest bit of $1$ in the XOR result through the $lowbit$ operation, and then divide all numbers in the array $nums$ and all numbers $i \in [1, n]$ into two groups according to whether this bit is $1$. In this way, the two numbers are divided into different groups. The XOR result of one group of numbers is $a$, and the XOR result of the other group is $b$. These two numbers are the answers we are looking for.
+Since these two numbers are not equal, there must be at least one bit in the XOR result that is $1$. We find the lowest bit of $1$ in the XOR result through the $\textit{lowbit}$ operation, and then divide all numbers in the array $\textit{nums}$ and all numbers $i \in [1, n]$ into two groups according to whether this bit is $1$. In this way, the two numbers are divided into different groups. The XOR result of one group of numbers is $a$, and the XOR result of the other group is $b$. These two numbers are the answers we are looking for.
 
-Next, we only need to determine which of $a$ and $b$ is the duplicate number and which is the missing number. Therefore, iterate through the array $nums$, for the traversed number $x$, if $x=a$, then $a$ is the duplicate number, return $[a, b]$, otherwise, at the end of the iteration, return $[b, a]$.
+Next, we only need to determine which of $a$ and $b$ is the duplicate number and which is the missing number. Therefore, iterate through the array $\textit{nums}$, for the traversed number $x$, if $x=a$, then $a$ is the duplicate number, return $[a, b]$, otherwise, at the end of the iteration, return $[b, a]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

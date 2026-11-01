@@ -62,9 +62,9 @@ tags:
 
 We define a function $\textit{check}(x)$ to determine whether $x$ is a self-dividing number. The implementation idea of the function is as follows:
 
-We use $y$ to record the value of $x$, and then continuously divide $y$ by $10$ until $y$ is $0$. During this process, we check whether the last digit of $y$ is $0$, or whether $x$ cannot be divided by the last digit of $y$. If either of these conditions is met, then $x$ is not a self-dividing number, and we return $\text{false}$. Otherwise, after traversing all the digits, we return $\text{true}$.
+We use $y$ to record the value of $x$, and then continuously divide $y$ by $10$ until $y$ is $0$. During this process, we check whether the last digit of $y$ is $0$, or whether $x$ cannot be divided by the last digit of $y$. If either of these conditions is met, then $x$ is not a self-dividing number, and we return $\textit{false}$. Otherwise, after traversing all the digits, we return $\textit{true}$.
 
-Finally, we traverse all the numbers in the interval $[\textit{left}, \textit{right}]$, and for each number, we call $\textit{check}(x)$. If it returns $\text{true}$, we add this number to the answer array.
+Finally, we traverse all the numbers in the interval $[\textit{left}, \textit{right}]$, and for each number, we call $\textit{check}(x)$. If it returns $\textit{true}$, we add this number to the answer array.
 
 The time complexity is $O(n \log_{10} M)$, where $n$ is the number of elements in the interval $[\textit{left}, \textit{right}]$, and $M = \textit{right}$, which is the maximum value in the interval.
 

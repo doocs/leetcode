@@ -90,7 +90,7 @@ In both cases, there are five consecutive &#39;T&#39;s.
 
 <!-- thinking:end -->
 
-We design a function $\textit{f}(c)$, which represents the longest length of consecutive characters under the condition that at most $k$ characters $c$ can be replaced, where $c$ can be 'T' or 'F'. The answer is $\max(\textit{f}('T'), \textit{f}('F'))$.
+We design a function $f(c)$, which represents the longest length of consecutive characters under the condition that at most $k$ characters $c$ can be replaced, where $c$ can be 'T' or 'F'. The answer is $\max(f('T'), f('F'))$.
 
 We iterate through the string $\textit{answerKey}$, using a variable $\textit{cnt}$ to record the number of characters $c$ within the current window. When $\textit{cnt} > k$, we move the left pointer of the window one position to the right. After the iteration ends, the length of the window is the maximum length of consecutive characters.
 

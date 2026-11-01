@@ -70,7 +70,7 @@ tags:
 
 我们可以枚举购买钢笔的数量 $x$，对于每个 $x$，我们最多可以购买铅笔的数量为 $\frac{\textit{total} - x \times \textit{cost1}}{\textit{cost2}}$，那么数量加 $1$ 即为 $x$ 的方案数。我们累加所有的 $x$ 的方案数，即为答案。
 
-时间复杂度 $O(\frac{total}{cost1})$，空间复杂度 $O(1)$。
+时间复杂度 $O(\frac{\textit{total}}{\textit{cost1}})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

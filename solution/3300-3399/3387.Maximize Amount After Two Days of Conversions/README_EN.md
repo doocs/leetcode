@@ -125,7 +125,7 @@ tags:
 >
 > Each rate is bidirectional with $r$ and $1/r$. The input has no arbitrage cycle, so one traversal is the maximum multiplier from the start.
 >
-> Day one produces $d1[a]$; day two converts $a$ back with $1/d2[a]$. The answer is the maximum of $d1[a]/d2[a]$.
+> Day one produces $\textit{d1}[a]$; day two converts $a$ back with $1/\textit{d2}[a]$. The answer is the maximum of $\textit{d1}[a]/\textit{d2}[a]$.
 
 <!-- thinking:end -->
 

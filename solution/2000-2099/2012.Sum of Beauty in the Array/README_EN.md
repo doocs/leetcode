@@ -76,21 +76,21 @@ tags:
 
 > **Thinking**
 >
-> With $n \le 10^5$, rescanning left/right extrema per $i$ is quadratic. Beauty $2$ needs $nums[i]$ strictly above every left value and below every right value; beauty $1$ only looks at neighbors.
+> With $n \le 10^5$, rescanning left/right extrema per $i$ is quadratic. Beauty $2$ needs $\textit{nums}[i]$ strictly above every left value and below every right value; beauty $1$ only looks at neighbors.
 >
-> Suffix minima $right[i]$ are precomputed; a running $l$ tracks the left maximum.
+> Suffix minima $\textit{right}[i]$ are precomputed; a running $l$ tracks the left maximum.
 >
-> Each middle index first tests $l < nums[i] < right[i+1]$ for $2$, else the adjacent triple for $1$.
+> Each middle index first tests $l < \textit{nums}[i] < \textit{right}[i+1]$ for $2$, else the adjacent triple for $1$.
 
 <!-- thinking:end -->
 
-We can preprocess the right minimum array $right$, where $right[i]$ represents the minimum value in $nums[i..n-1]$.
+We can preprocess the right minimum array $\textit{right}$, where $\textit{right}[i]$ represents the minimum value in $\textit{nums}[i..n-1]$.
 
-Then we traverse the array $nums$ from left to right, while maintaining the maximum value $l$ on the left. For each position $i$, we judge whether $l < nums[i] < right[i + 1]$ holds. If it does, we add $2$ to the answer. Otherwise, we judge whether $nums[i - 1] < nums[i] < nums[i + 1]$ holds. If it does, we add $1$ to the answer.
+Then we traverse the array $\textit{nums}$ from left to right, while maintaining the maximum value $l$ on the left. For each position $i$, we judge whether $l < \textit{nums}[i] < \textit{right}[i + 1]$ holds. If it does, we add $2$ to the answer. Otherwise, we judge whether $\textit{nums}[i - 1] < \textit{nums}[i] < \textit{nums}[i + 1]$ holds. If it does, we add $1$ to the answer.
 
 After the traversal, we can get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

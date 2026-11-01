@@ -82,15 +82,15 @@ Since student 2 has more points, [2,1] is returned.
 >
 > A student's score adds $+3$ for each positive word and $-1$ for each negative word in the report; the top $k$ are those with higher score, then smaller id. Linear lookup in the word lists on every token multiplies list size by report length.
 >
-> Store both word lists in sets so each token is classified in $O(1)$. Collect $(\textit{score},\textit{id})$, sort by $(-\textit{score},\textit{id})$, and take the first $k$ ids.
+> Store both word lists in sets so each token is classified in $O(1)$. Collect $(\textit{score},id)$, sort by $(-\textit{score},id)$, and take the first $k$ ids.
 
 <!-- thinking:end -->
 
 We can store the positive words in a hash table $ps$ and the negative words in a hash table $ns$.
 
-Then, we traverse the $report$ and for each student, we store their score in an array $arr$, where each element is a tuple $(t, sid)$, where $t$ represents the student's score and $sid$ represents the student's ID.
+Then, we traverse the $\textit{report}$ and for each student, we store their score in an array $\textit{arr}$, where each element is a tuple $(t, \textit{sid})$, where $t$ represents the student's score and $\textit{sid}$ represents the student's ID.
 
-Finally, we sort the array $arr$ in descending order by score, and if the scores are the same, we sort by ID in ascending order. Then, we take the IDs of the top $k$ students.
+Finally, we sort the array $\textit{arr}$ in descending order by score, and if the scores are the same, we sort by ID in ascending order. Then, we take the IDs of the top $k$ students.
 
 The time complexity is $O(n \log n + (|ps| + |ns| + n)|s|)$, and the space complexity is $O((|ps|+|ns|)|s| + n)$, where $n$ is the number of students, $|ps|$ and $|ns|$ are the number of positive and negative words, respectively, and $|s|$ is the average length of a word.
 

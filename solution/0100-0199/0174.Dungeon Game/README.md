@@ -85,7 +85,7 @@ tags:
 我们定义 $dp[i][j]$ 表示从 $(i, j)$ 到终点所需的最小初始值，那么 $dp[i][j]$ 的值可以由 $dp[i+1][j]$ 和 $dp[i][j+1]$ 得到，即：
 
 $$
-dp[i][j] = \max(\min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j], 1)
+dp[i][j] = \max(\min(dp[i+1][j], dp[i][j+1]) - \textit{dungeon}[i][j], 1)
 $$
 
 初始时 $dp[m][n-1]$ 和 $dp[m-1][n]$ 都为 $1$，其他位置的值为最大值。

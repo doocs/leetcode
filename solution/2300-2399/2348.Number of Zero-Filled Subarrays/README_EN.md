@@ -75,7 +75,7 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 >
 > Zero-filled subarrays live inside runs of zeros. $n \le 10^5$, so we count by run instead of endpoints.
 >
-> Keep the current run length $cnt$. A zero increments $cnt$ and adds it to the answer (subarrays ending here); a nonzero resets $cnt$.
+> Keep the current run length $\textit{cnt}$. A zero increments $\textit{cnt}$ and adds it to the answer (subarrays ending here); a nonzero resets $\textit{cnt}$.
 
 <!-- thinking:end -->
 

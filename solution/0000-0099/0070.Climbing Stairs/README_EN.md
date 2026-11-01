@@ -229,17 +229,17 @@ class Solution {
 
 <!-- thinking:end -->
 
-We set $Fib(n)$ to represent a $1 \times 2$ matrix $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$, where $F_n$ and $F_{n - 1}$ are the $n$-th and $(n - 1)$-th Fibonacci numbers respectively.
+We set $\textit{Fib}(n)$ to represent a $1 \times 2$ matrix $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$, where $F_n$ and $F_{n - 1}$ are the $n$-th and $(n - 1)$-th Fibonacci numbers respectively.
 
-We hope to derive $Fib(n)$ based on $Fib(n-1) = \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix}$. That is to say, we need a matrix $base$, so that $Fib(n - 1) \times base = Fib(n)$, that is:
+We hope to derive $\textit{Fib}(n)$ based on $\textit{Fib}(n-1) = \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix}$. That is to say, we need a matrix $\textit{base}$, so that $\textit{Fib}(n - 1) \times \textit{base} = \textit{Fib}(n)$, that is:
 
 $$
 \begin{bmatrix}
 F_{n - 1} & F_{n - 2}
-\end{bmatrix} \times base = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
+\end{bmatrix} \times \textit{base} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
 $$
 
-Since $F_n = F_{n - 1} + F_{n - 2}$, the first column of the matrix $base$ is:
+Since $F_n = F_{n - 1} + F_{n - 2}$, the first column of the matrix $\textit{base}$ is:
 
 $$
 \begin{bmatrix}
@@ -263,7 +263,7 @@ $$
 \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix} \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 1 \end{bmatrix}$, then $F_n$ is equal to the first element of the first row of the result matrix of $res$ multiplied by $base^{n - 1}$. We can solve it using matrix quick power.
+We define the initial matrix $\textit{res} = \begin{bmatrix} 1 & 1 \end{bmatrix}$, then $F_n$ is equal to the first element of the first row of the result matrix of $\textit{res}$ multiplied by $\textit{base}^{n - 1}$. We can solve it using matrix quick power.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

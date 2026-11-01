@@ -146,11 +146,11 @@ Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p
 
 <!-- thinking:end -->
 
-We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $nums$ whose $i$-th bit is $1$, denoted as $cnt$. If $cnt \ge k$, we add $2^i$ to the answer.
+We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $\textit{nums}$ whose $i$-th bit is $1$, denoted as $\textit{cnt}$. If $\textit{cnt} \ge k$, we add $2^i$ to the answer.
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in $nums$, respectively.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

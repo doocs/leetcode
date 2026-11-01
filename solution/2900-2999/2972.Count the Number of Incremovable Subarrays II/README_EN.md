@@ -83,29 +83,29 @@ It can be shown that there are only 7 incremovable subarrays in nums.
 
 According to the problem description, after removing a subarray, the remaining elements are strictly increasing. Therefore, there are several situations:
 
-1. The remaining elements only include the prefix of the array $nums$ (which can be empty);
-2. The remaining elements only include the suffix of the array $nums$;
-3. The remaining elements include both the prefix and the suffix of the array $nums$.
+1. The remaining elements only include the prefix of the array $\textit{nums}$ (which can be empty);
+2. The remaining elements only include the suffix of the array $\textit{nums}$;
+3. The remaining elements include both the prefix and the suffix of the array $\textit{nums}$.
 
-The second and third situations can be combined into one, that is, the remaining elements include the suffix of the array $nums$. So there are two situations in total:
+The second and third situations can be combined into one, that is, the remaining elements include the suffix of the array $\textit{nums}$. So there are two situations in total:
 
-1. The remaining elements only include the prefix of the array $nums$ (which can be empty);
-2. The remaining elements include the suffix of the array $nums$.
+1. The remaining elements only include the prefix of the array $\textit{nums}$ (which can be empty);
+2. The remaining elements include the suffix of the array $\textit{nums}$.
 
-First, consider the first situation, that is, the remaining elements only include the prefix of the array $nums$. We can use a pointer $i$ to point to the last element of the longest increasing prefix of the array $nums$, that is, $nums[0] \lt nums[1] \lt \cdots \lt nums[i]$, then the number of remaining elements is $n - i - 1$, where $n$ is the length of the array $nums$. Therefore, for this situation, to make the remaining elements strictly increasing, we can choose to remove the following subarrays:
+First, consider the first situation, that is, the remaining elements only include the prefix of the array $\textit{nums}$. We can use a pointer $i$ to point to the last element of the longest increasing prefix of the array $\textit{nums}$, that is, $\textit{nums}[0] \lt \textit{nums}[1] \lt \cdots \lt \textit{nums}[i]$, then the number of remaining elements is $n - i - 1$, where $n$ is the length of the array $\textit{nums}$. Therefore, for this situation, to make the remaining elements strictly increasing, we can choose to remove the following subarrays:
 
-1. $nums[i+1,...,n-1]$;
-2. $nums[i,...,n-1]$;
-3. $nums[i-1,...,n-1]$;
-4. $nums[i-2,...,n-1]$;
+1. $\textit{nums}[i+1,...,n-1]$;
+2. $\textit{nums}[i,...,n-1]$;
+3. $\textit{nums}[i-1,...,n-1]$;
+4. $\textit{nums}[i-2,...,n-1]$;
 5. $\cdots$;
-6. $nums[0,...,n-1]$.
+6. $\textit{nums}[0,...,n-1]$.
 
 There are $i + 2$ situations in total, so for this situation, the number of removed increasing subarrays is $i + 2$.
 
-Next, consider the second situation, that is, the remaining elements include the suffix of the array $nums$. We can use a pointer $j$ to point to the first element of the increasing suffix of the array $nums$. We enumerate $j$ as the first element of the increasing suffix in the range $[n - 1,...,1]$. Each time, we need to move the pointer $i$ to make $nums[i] \lt nums[j]$, then the number of removed increasing subarrays increases by $i + 2$. When $nums[j - 1] \ge nums[j]$, we stop enumerating because the suffix is not strictly increasing at this time.
+Next, consider the second situation, that is, the remaining elements include the suffix of the array $\textit{nums}$. We can use a pointer $j$ to point to the first element of the increasing suffix of the array $\textit{nums}$. We enumerate $j$ as the first element of the increasing suffix in the range $[n - 1,...,1]$. Each time, we need to move the pointer $i$ to make $\textit{nums}[i] \lt \textit{nums}[j]$, then the number of removed increasing subarrays increases by $i + 2$. When $\textit{nums}[j - 1] \ge \textit{nums}[j]$, we stop enumerating because the suffix is not strictly increasing at this time.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

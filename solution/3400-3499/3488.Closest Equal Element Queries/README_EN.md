@@ -83,11 +83,11 @@ tags:
 >
 > Concatenating a second copy unfolds the circle into nearest occurrences on a line.
 >
-> Forward and backward passes store the closest same value in $\textit{d}$. Index $i$ takes $\min(\textit{d}[i],\textit{d}[i+n])$; a distance $\ge n$ means the value is unique and the answer is $-1$.
+> Forward and backward passes store the closest same value in $d$. Index $i$ takes $\min(d[i],d[i+n])$; a distance $\ge n$ means the value is unique and the answer is $-1$.
 
 <!-- thinking:end -->
 
-According to the problem description, we need to find the minimum distance between each element in the array and its previous identical element, as well as the minimum distance to its next identical element. Since the array is circular, we need to consider the circular nature of the array. We can extend the array to twice its original length, and then use hash tables $\textit{left}$ and $\textit{right}$ to record the positions where each element last appeared and will next appear, respectively. We calculate the minimum distance between each position's element and another identical element, recording it in the array $\textit{d}$. Finally, we traverse the queries, and for each query $i$, we take the minimum value of $\textit{d}[i]$ and $\textit{d}[i+n]$. If this value is greater than or equal to $n$, it means there is no element identical to the queried element, so we return $-1$; otherwise, we return the value.
+According to the problem description, we need to find the minimum distance between each element in the array and its previous identical element, as well as the minimum distance to its next identical element. Since the array is circular, we need to consider the circular nature of the array. We can extend the array to twice its original length, and then use hash tables $\textit{left}$ and $\textit{right}$ to record the positions where each element last appeared and will next appear, respectively. We calculate the minimum distance between each position's element and another identical element, recording it in the array $d$. Finally, we traverse the queries, and for each query $i$, we take the minimum value of $d[i]$ and $d[i+n]$. If this value is greater than or equal to $n$, it means there is no element identical to the queried element, so we return $-1$; otherwise, we return the value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

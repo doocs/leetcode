@@ -70,11 +70,11 @@ tags:
 
 <!-- thinking:end -->
 
-First, we can count the number of character $c$ in string $s$, denoted as $cnt$.
+First, we can count the number of character $c$ in string $s$, denoted as $\textit{cnt}$.
 
-Each character $c$ can form a substring on its own, so there are $cnt$ substrings that meet the condition. Each character $c$ can form a substring with other $c$ characters, so there are $\frac{cnt \times (cnt - 1)}{2}$ substrings that meet the condition.
+Each character $c$ can form a substring on its own, so there are $\textit{cnt}$ substrings that meet the condition. Each character $c$ can form a substring with other $c$ characters, so there are $\frac{\textit{cnt} \times (\textit{cnt} - 1)}{2}$ substrings that meet the condition.
 
-Therefore, the answer is $cnt + \frac{cnt \times (cnt - 1)}{2}$.
+Therefore, the answer is $\textit{cnt} + \frac{\textit{cnt} \times (\textit{cnt} - 1)}{2}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

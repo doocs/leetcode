@@ -74,11 +74,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $cnt$ to record the occurrence count of each element in the array $nums$. For each element $x$, we can keep squaring it until its count in the hash table $cnt$ is less than $2$. At this point, we check if the count of $x$ in the hash table $cnt$ is $1$. If it is, it means that $x$ can still be included in the subset. Otherwise, we need to remove an element from the subset to ensure the subset count is odd. Then we update the answer and continue to enumerate the next element.
+We use a hash table $\textit{cnt}$ to record the occurrence count of each element in the array $\textit{nums}$. For each element $x$, we can keep squaring it until its count in the hash table $\textit{cnt}$ is less than $2$. At this point, we check if the count of $x$ in the hash table $\textit{cnt}$ is $1$. If it is, it means that $x$ can still be included in the subset. Otherwise, we need to remove an element from the subset to ensure the subset count is odd. Then we update the answer and continue to enumerate the next element.
 
 Note that we need to handle the case of $x = 1$ specially.
 
-The time complexity is $O(n \log \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+The time complexity is $O(n \log \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

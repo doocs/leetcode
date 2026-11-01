@@ -84,9 +84,9 @@ First, we concatenate strings `word1` and `word2` to get string $s$. Then we can
 
 We define $f[i][j]$ as the length of the longest palindromic subsequence in the substring of string $s$ with index range $[i, j]$.
 
-If $s[i] = s[j]$, then $s[i]$ and $s[j]$ must be in the longest palindromic subsequence, at this time $f[i][j] = f[i + 1][j - 1] + 2$. At this point, we also need to judge whether $s[i]$ and $s[j]$ come from `word1` and `word2`. If so, we update the maximum value of the answer to $ans=\max(ans, f[i][j])$.
+If $s[i] = s[j]$, then $s[i]$ and $s[j]$ must be in the longest palindromic subsequence, at this time $f[i][j] = f[i + 1][j - 1] + 2$. At this point, we also need to judge whether $s[i]$ and $s[j]$ come from `word1` and `word2`. If so, we update the maximum value of the answer to $\textit{ans}=\max(\textit{ans}, f[i][j])$.
 
-If $s[i] \neq s[j]$, then $s[i]$ and $s[j]$ will definitely not appear in the longest palindromic subsequence at the same time, at this time $f[i][j] = max(f[i + 1][j], f[i][j - 1])$.
+If $s[i] \neq s[j]$, then $s[i]$ and $s[j]$ will definitely not appear in the longest palindromic subsequence at the same time, at this time $f[i][j] = \max(f[i + 1][j], f[i][j - 1])$.
 
 Finally, we return the answer.
 

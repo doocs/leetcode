@@ -70,27 +70,27 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 
 > **Thinking**
 >
-> We may trade many times and pay $fee$ on each completed sale. $n \le 5\times 10^4$, so an unmemoized search over days repeats states.
+> We may trade many times and pay $\textit{fee}$ on each completed sale. $n \le 5\times 10^4$, so an unmemoized search over days repeats states.
 >
-> A day has two modes: flat or holding. From flat we buy or skip; from holding we sell (minus $fee$) or hold. The optimum from day $i$ in mode $j$ depends only on those two successors.
+> A day has two modes: flat or holding. From flat we buy or skip; from holding we sell (minus $\textit{fee}$) or hold. The optimum from day $i$ in mode $j$ depends only on those two successors.
 >
-> Memoize $dfs(i,j)$; past the last day the profit is $0$. The answer is $dfs(0,0)$. There are $O(n)$ states.
+> Memoize $\textit{dfs}(i,j)$; past the last day the profit is $0$. The answer is $\textit{dfs}(0,0)$. There are $O(n)$ states.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$, which represents the maximum profit that can be obtained starting from day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. The answer is $dfs(0, 0)$.
+We design a function $\textit{dfs}(i, j)$, which represents the maximum profit that can be obtained starting from day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. The answer is $\textit{dfs}(0, 0)$.
 
-The execution logic of the function $dfs(i, j)$ is as follows:
+The execution logic of the function $\textit{dfs}(i, j)$ is as follows:
 
 If $i \geq n$, there are no more stocks to trade, so we return $0$.
 
-Otherwise, we can choose not to trade, in which case $dfs(i, j) = dfs(i + 1, j)$. We can also choose to trade stocks. If $j \gt 0$, it means that we currently hold a stock and can sell it. In this case, $dfs(i, j) = prices[i] + dfs(i + 1, 0) - fee$. If $j = 0$, it means that we currently do not hold a stock and can buy one. In this case, $dfs(i, j) = -prices[i] + dfs(i + 1, 1)$. We take the maximum value as the return value of the function $dfs(i, j)$.
+Otherwise, we can choose not to trade, in which case $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$. We can also choose to trade stocks. If $j \gt 0$, it means that we currently hold a stock and can sell it. In this case, $\textit{dfs}(i, j) = \textit{prices}[i] + \textit{dfs}(i + 1, 0) - \textit{fee}$. If $j = 0$, it means that we currently do not hold a stock and can buy one. In this case, $\textit{dfs}(i, j) = -\textit{prices}[i] + \textit{dfs}(i + 1, 1)$. We take the maximum value as the return value of the function $\textit{dfs}(i, j)$.
 
-The answer is $dfs(0, 0)$.
+The answer is $\textit{dfs}(0, 0)$.
 
-To avoid redundant calculations, we use memoization to record the return value of $dfs(i, j)$ in an array $f$. If $f[i][j]$ is not equal to $-1$, it means that we have already calculated it, so we can directly return $f[i][j]$.
+To avoid redundant calculations, we use memoization to record the return value of $\textit{dfs}(i, j)$ in an array $f$. If $f[i][j]$ is not equal to $-1$, it means that we have already calculated it, so we can directly return $f[i][j]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -242,17 +242,17 @@ function maxProfit(prices: number[], fee: number): number {
 
 > **Thinking**
 >
-> Solution 1 fills a suffix table from the end. The same choices can be written forward: $f[i][0/1]$ is the best profit after day $i$, flat or holding. Flat comes from staying flat or selling today and paying $fee$; holding comes from staying put or buying today.
+> Solution 1 fills a suffix table from the end. The same choices can be written forward: $f[i][0/1]$ is the best profit after day $i$, flat or holding. Flat comes from staying flat or selling today and paying $\textit{fee}$; holding comes from staying put or buying today.
 >
 > Fill left to right; the answer is flat on the last day. Time stays $O(n)$.
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ as the maximum profit that can be obtained up to day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. We initialize $f[0][0] = 0$ and $f[0][1] = -prices[0]$.
+We define $f[i][j]$ as the maximum profit that can be obtained up to day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. We initialize $f[0][0] = 0$ and $f[0][1] = -\textit{prices}[0]$.
 
-When $i \geq 1$, if we do not hold a stock at the current day, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + prices[i] - fee$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i] - fee)$. If we hold a stock at the current day, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 1][0] - prices[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 1][0] - prices[i])$. The final answer is $f[n - 1][0]$.
+When $i \geq 1$, if we do not hold a stock at the current day, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + \textit{prices}[i] - \textit{fee}$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + \textit{prices}[i] - \textit{fee})$. If we hold a stock at the current day, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 1][0] - \textit{prices}[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 1][0] - \textit{prices}[i])$. The final answer is $f[n - 1][0]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -439,31 +439,31 @@ function maxProfit(prices: number[], fee: number): number {
 
 > **Thinking**
 >
-> We may trade many times and pay $fee$ on each completed sale. $n \le 5\times 10^4$, so a raw decision tree over days is far too large.
+> We may trade many times and pay $\textit{fee}$ on each completed sale. $n \le 5\times 10^4$, so a raw decision tree over days is far too large.
 >
 > The state is the day and whether we hold. Skipping always calls the next day before it returns, so the chain has length $n$ and overflows the stack.
 >
-> Later days are known if we walk backward. Let $f[i][j]$ be the best profit from day $i$ with holding flag $j$, and fill $i$ from $n-1$ down to $0$. Selling subtracts $fee$; buying enters the holding state.
+> Later days are known if we walk backward. Let $f[i][j]$ be the best profit from day $i$ with holding flag $j$, and fill $i$ from $n-1$ down to $0$. Selling subtracts $\textit{fee}$; buying enters the holding state.
 
 <!-- thinking:end -->
 
 Let $f[i][j]$ be the maximum profit starting from day $i$ in state $j$. The values of $j$ are $0$ and $1$, meaning we do not hold a stock and we hold a stock. The answer is $f[0][0]$. Days past the end contribute $0$, so $f[n][j] = 0$.
 
-Fill $i$ from $n - 1$ down to $0$. Doing nothing keeps $f[i + 1][j]$. If $j > 0$, we hold a stock and may sell it, earning $prices[i] + f[i + 1][0] - fee$. If $j = 0$, we may buy, earning $-prices[i] + f[i + 1][1]$. Take the larger value:
+Fill $i$ from $n - 1$ down to $0$. Doing nothing keeps $f[i + 1][j]$. If $j > 0$, we hold a stock and may sell it, earning $\textit{prices}[i] + f[i + 1][0] - \textit{fee}$. If $j = 0$, we may buy, earning $-\textit{prices}[i] + f[i + 1][1]$. Take the larger value:
 
 $$
-f[i][j] = \max(f[i + 1][j],\ prices[i] + f[i + 1][0] - fee)
+f[i][j] = \max(f[i + 1][j],\ \textit{prices}[i] + f[i + 1][0] - \textit{fee})
 $$
 
 when $j > 0$, and
 
 $$
-f[i][j] = \max(f[i + 1][j],\ -prices[i] + f[i + 1][1])
+f[i][j] = \max(f[i + 1][j],\ -\textit{prices}[i] + f[i + 1][1])
 $$
 
 when $j = 0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

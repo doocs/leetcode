@@ -59,7 +59,7 @@ difficulty: Medium
 >
 > Every node of $t_1$ can be tried as a root aligned with $t_2$; both structure and values must match.
 >
-> Inner $dfs$ compares two trees in lockstep; the outer call retries on the left and right of $t_1$ after a mismatch. An empty $t_2$ is true; an empty $t_1$ is false.
+> Inner $\textit{dfs}$ compares two trees in lockstep; the outer call retries on the left and right of $t_1$ after a mismatch. An empty $t_2$ is true; an empty $t_1$ is false.
 
 <!-- thinking:end -->
 

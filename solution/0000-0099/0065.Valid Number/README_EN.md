@@ -89,7 +89,7 @@ For example, all the following are valid numbers: <code>&quot;2&quot;, &quot;008
 >
 > The bottleneck is how the rules cross: a decimal point cannot appear in the exponent, `e` needs digits on both sides, the exponent may have its own sign, and a lone `.` or `+` is illegal.
 >
-> One left-to-right scan is enough: eat a leading sign, then count $dot$ and $e$ so each appears at most once, and reject as soon as a character or position is illegal. Linear time, constant extra space.
+> One left-to-right scan is enough: eat a leading sign, then count $\textit{dot}$ and $e$ so each appears at most once, and reject as soon as a character or position is illegal. Linear time, constant extra space.
 
 <!-- thinking:end -->
 
@@ -97,11 +97,11 @@ First, we check if the string starts with a positive or negative sign. If it doe
 
 If the character pointed to by the current pointer $i$ is a decimal point, and there is no number after the decimal point, or if there is an `e` or `E` after the decimal point, we return `false`.
 
-Next, we use two variables $dot$ and $e$ to record the number of decimal points and `e` or `E` respectively.
+Next, we use two variables $\textit{dot}$ and $e$ to record the number of decimal points and `e` or `E` respectively.
 
 We use pointer $j$ to point to the current character:
 
-- If the current character is a decimal point, and a decimal point or `e` or `E` has appeared before, return `false`. Otherwise, we increment $dot$ by one;
+- If the current character is a decimal point, and a decimal point or `e` or `E` has appeared before, return `false`. Otherwise, we increment $\textit{dot}$ by one;
 - If the current character is `e` or `E`, and `e` or `E` has appeared before, or if the current character is at the beginning or end of the string, return `false`. Otherwise, we increment $e$ by one; then check if the next character is a positive or negative sign, if it is, move the pointer $j$ one step forward. If the pointer $j$ has reached the end of the string at this point, return `false`;
 - If the current character is not a number, return `false`.
 

@@ -105,10 +105,10 @@ $$
 
 For odd elements, record as $+1$, and for even elements, record as $-1$. Use a hash table $\textit{last}$ to record the last occurrence position of each number. If a number appears repeatedly, we need to revoke its previous contribution.
 
-To efficiently calculate the subarray length each time a right endpoint element is added, we use a segment tree to maintain the minimum and maximum values of the interval prefix sum, while supporting interval addition operations and binary search queries on the segment tree. When iterating to right endpoint $i$, first update the contribution of the current element, then use the segment tree to query the earliest position $pos$ where the current prefix sum $\textit{now}$ appears. The current subarray length is $i - pos$, and we update the answer:
+To efficiently calculate the subarray length each time a right endpoint element is added, we use a segment tree to maintain the minimum and maximum values of the interval prefix sum, while supporting interval addition operations and binary search queries on the segment tree. When iterating to right endpoint $i$, first update the contribution of the current element, then use the segment tree to query the earliest position $\textit{pos}$ where the current prefix sum $\textit{now}$ appears. The current subarray length is $i - \textit{pos}$, and we update the answer:
 
 $$
-\textit{ans} = \max(\textit{ans}, i - pos)
+\textit{ans} = \max(\textit{ans}, i - \textit{pos})
 $$
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array. Each segment tree modification and query operation takes $O(\log n)$, and enumerating the right endpoint $n$ times gives a total time complexity of $O(n \log n)$, and segment tree nodes and the hash table each occupy $O(n)$ space.

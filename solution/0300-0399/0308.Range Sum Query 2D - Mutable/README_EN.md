@@ -82,7 +82,7 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectang
 >
 > The matrix needs both point updates and sub-rectangle sums. Scanning a rectangle per query, or rebuilding a 2D prefix after every write, cannot keep both cheap.
 >
-> The code builds one Fenwick tree per row: a row range is a prefix difference, then those rows in $[row1,row2]$ are added. An update touches only that row. With a modest number of rows this is simpler than a true 2D Fenwick tree.
+> The code builds one Fenwick tree per row: a row range is a prefix difference, then those rows in $[\textit{row1},\textit{row2}]$ are added. An update touches only that row. With a modest number of rows this is simpler than a true 2D Fenwick tree.
 
 <!-- thinking:end -->
 

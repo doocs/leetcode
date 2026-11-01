@@ -102,7 +102,7 @@ In the range <code>[198, 202]</code>:
 
 > **Thinking**
 >
-> The upper bound is only $10^5$, so we may strip digits of every integer. Numbers shorter than $3$ digits contribute $0$; each interior digit is a peak or valley when it differs strictly from both neighbors, and we sum over $[num1,num2]$.
+> The upper bound is only $10^5$, so we may strip digits of every integer. Numbers shorter than $3$ digits contribute $0$; each interior digit is a peak or valley when it differs strictly from both neighbors, and we sum over $[\textit{num1},\textit{num2}]$.
 
 <!-- thinking:end -->
 

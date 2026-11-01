@@ -76,11 +76,11 @@ At i = 2: 1, 2, and 3 are common in A and B, so C[2] = 3.
 
 <!-- thinking:end -->
 
-We can use two arrays $cnt1$ and $cnt2$ to record the occurrence times of each element in arrays $A$ and $B$ respectively, and use an array $ans$ to record the answer.
+We can use two arrays $\textit{cnt1}$ and $\textit{cnt2}$ to record the occurrence times of each element in arrays $A$ and $B$ respectively, and use an array $\textit{ans}$ to record the answer.
 
-Traverse arrays $A$ and $B$, increment the occurrence times of $A[i]$ in $cnt1$, and increment the occurrence times of $B[i]$ in $cnt2$. Then enumerate $j \in [1,n]$, calculate the minimum occurrence times of each element $j$ in $cnt1$ and $cnt2$, and accumulate them into $ans[i]$.
+Traverse arrays $A$ and $B$, increment the occurrence times of $A[i]$ in $\textit{cnt1}$, and increment the occurrence times of $B[i]$ in $\textit{cnt2}$. Then enumerate $j \in [1,n]$, calculate the minimum occurrence times of each element $j$ in $\textit{cnt1}$ and $\textit{cnt2}$, and accumulate them into $\textit{ans}[i]$.
 
-After the traversal, return the answer array $ans$.
+After the traversal, return the answer array $\textit{ans}$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of arrays $A$ and $B$.
 
@@ -216,17 +216,17 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 scans the domain every step. Each value appears once per array, so XOR-flipping a $vis$ flag increments the common count on the second sighting, an $O(1)$ update.
+> Solution 1 scans the domain every step. Each value appears once per array, so XOR-flipping a $\textit{vis}$ flag increments the common count on the second sighting, an $O(1)$ update.
 
 <!-- thinking:end -->
 
-We can use an array $vis$ of length $n+1$ to record the occurrence situation of each element in arrays $A$ and $B$, the initial value of array $vis$ is $1$. In addition, we use a variable $s$ to record the current number of common elements.
+We can use an array $\textit{vis}$ of length $n+1$ to record the occurrence situation of each element in arrays $A$ and $B$, the initial value of array $\textit{vis}$ is $1$. In addition, we use a variable $s$ to record the current number of common elements.
 
-Next, we traverse arrays $A$ and $B$, update $vis[A[i]] = vis[A[i]] \oplus 1$, and update $vis[B[i]] = vis[B[i]] \oplus 1$, where $\oplus$ represents XOR operation.
+Next, we traverse arrays $A$ and $B$, update $\textit{vis}[A[i]] = \textit{vis}[A[i]] \oplus 1$, and update $\textit{vis}[B[i]] = \textit{vis}[B[i]] \oplus 1$, where $\oplus$ represents XOR operation.
 
-If at the current position, the element $A[i]$ has appeared twice (i.e., it has appeared in both arrays $A$ and $B$), then the value of $vis[A[i]]$ will be $1$, and we increment $s$. Similarly, if the element $B[i]$ has appeared twice, then the value of $vis[B[i]]$ will be $1$, and we increment $s$. Then add the value of $s$ to the answer array $ans$.
+If at the current position, the element $A[i]$ has appeared twice (i.e., it has appeared in both arrays $A$ and $B$), then the value of $\textit{vis}[A[i]]$ will be $1$, and we increment $s$. Similarly, if the element $B[i]$ has appeared twice, then the value of $\textit{vis}[B[i]]$ will be $1$, and we increment $s$. Then add the value of $s$ to the answer array $\textit{ans}$.
 
-After the traversal, return the answer array $ans$.
+After the traversal, return the answer array $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of arrays $A$ and $B$.
 

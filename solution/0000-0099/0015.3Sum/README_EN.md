@@ -73,7 +73,7 @@ Notice that the order of the output and the order of the triplets does not matte
 >
 > The first idea is three nested loops plus a set for uniqueness. Correct, but $O(n^3)$. $n\le 3000$ will not pass. Hashing two-sum for each $i$ reaches $O(n^2)$, yet duplicates and extra space are messy.
 >
-> The bottleneck is finding two numbers that sum to the opposite of a fixed value, without repeating triplets. Sort first so duplicates sit together and are easy to skip; two-sum on a sorted array is two pointers in $O(n)$. If $nums[i]>0$, everything after it is positive, so the sum cannot be $0$ anymore.
+> The bottleneck is finding two numbers that sum to the opposite of a fixed value, without repeating triplets. Sort first so duplicates sit together and are easy to skip; two-sum on a sorted array is two pointers in $O(n)$. If $\textit{nums}[i]>0$, everything after it is positive, so the sum cannot be $0$ anymore.
 >
 > So we sort, enumerate the first number, and squeeze the rest with two pointers.
 
@@ -81,18 +81,18 @@ Notice that the order of the output and the order of the triplets does not matte
 
 We notice that the problem does not require us to return the triplet in order, so we might as well sort the array first, which makes it easy to skip duplicate elements.
 
-Next, we enumerate the first element of the triplet $nums[i]$, where $0 \leq i \lt n - 2$. For each $i$, we can find $j$ and $k$ satisfying $nums[i] + nums[j] + nums[k] = 0$ by maintaining two pointers $j = i + 1$ and $k = n - 1$. In the enumeration process, we need to skip duplicate elements to avoid duplicate triplets.
+Next, we enumerate the first element of the triplet $\textit{nums}[i]$, where $0 \leq i \lt n - 2$. For each $i$, we can find $j$ and $k$ satisfying $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] = 0$ by maintaining two pointers $j = i + 1$ and $k = n - 1$. In the enumeration process, we need to skip duplicate elements to avoid duplicate triplets.
 
 The specific judgment logic is as follows:
 
-If $i \gt 0$ and $nums[i] = nums[i - 1]$, it means that the element currently enumerated is the same as the previous element, we can skip it directly, because it will not produce new results.
+If $i \gt 0$ and $\textit{nums}[i] = \textit{nums}[i - 1]$, it means that the element currently enumerated is the same as the previous element, we can skip it directly, because it will not produce new results.
 
-If $nums[i] \gt 0$, it means that the element currently enumerated is greater than $0$, so the sum of three numbers must not be equal to $0$, and the enumeration ends.
+If $\textit{nums}[i] \gt 0$, it means that the element currently enumerated is greater than $0$, so the sum of three numbers must not be equal to $0$, and the enumeration ends.
 
-Otherwise, we let the left pointer $j = i + 1$, and the right pointer $k = n - 1$. When $j \lt k$, the loop is executed, and the sum of three numbers $x = nums[i] + nums[j] + nums[k]$ is calculated and compared with $0$:
+Otherwise, we let the left pointer $j = i + 1$, and the right pointer $k = n - 1$. When $j \lt k$, the loop is executed, and the sum of three numbers $x = \textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k]$ is calculated and compared with $0$:
 
-- If $x \lt 0$, it means that $nums[j]$ is too small, we need to move $j$ to the right.
-- If $x \gt 0$, it means that $nums[k]$ is too large, we need to move $k$ to the left.
+- If $x \lt 0$, it means that $\textit{nums}[j]$ is too small, we need to move $j$ to the right.
+- If $x \gt 0$, it means that $\textit{nums}[k]$ is too large, we need to move $k$ to the left.
 - Otherwise, it means that we have found a valid triplet, add it to the answer, move $j$ to the right, move $k$ to the left, and skip all duplicate elements to continue looking for the next valid triplet.
 
 After the enumeration is over, we can get the answer to the triplet.

@@ -86,7 +86,7 @@ Teacher 2:
 >
 > Count distinct subjects per teacher. The same subject may repeat across departments and must be unique’d.
 >
-> Group by $teacher\_id$ and $COUNT(DISTINCT subject\_id)$.
+> Group by $\textit{teacher\_id}$ and $\textit{COUNT}(\textit{DISTINCT} \textit{subject\_id})$.
 
 <!-- thinking:end -->
 

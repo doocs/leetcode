@@ -95,10 +95,10 @@ We define $f[i][j]$ as the number of ways to assign the first $i$ hats to the pe
 Consider $f[i][j]$. If we don't assign the $i$-th hat to anyone, then $f[i][j]=f[i-1][j]$; if we assign the $i$-th hat to the person $k$ who likes it, then $f[i][j]=f[i-1][j \oplus 2^k]$. Here $\oplus$ denotes the XOR operation. Therefore, we can get the state transition equation:
 
 $$
-f[i][j]=f[i-1][j]+ \sum_{k \in like[i]} f[i-1][j \oplus 2^k]
+f[i][j]=f[i-1][j]+ \sum_{k \in \textit{like}[i]} f[i-1][j \oplus 2^k]
 $$
 
-where $like[i]$ denotes the set of people who like the $i$-th hat.
+where $\textit{like}[i]$ denotes the set of people who like the $i$-th hat.
 
 The final answer is $f[m][2^n - 1]$, and the answer may be very large, so we need to take it modulo $10^9 + 7$.
 

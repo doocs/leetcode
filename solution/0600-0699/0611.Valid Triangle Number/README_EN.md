@@ -62,7 +62,7 @@ tags:
 >
 > A triple loop is acceptable for $n\le 10^3$ but sorting reduces the check: after $a\le b\le c$ only $a+b>c$ remains.
 >
-> Fix the two smaller sides $i,j$ and binary-search the first index $\ge nums[i]+nums[j]$; every $k$ in between is a valid third side.
+> Fix the two smaller sides $i,j$ and binary-search the first index $\ge \textit{nums}[i]+\textit{nums}[j]$; every $k$ in between is a valid third side.
 
 <!-- thinking:end -->
 
@@ -76,7 +76,7 @@ $$b + c \gt a \tag{3}$$
 
 If we arrange the sides in ascending order, i.e., $a \leq b \leq c$, then obviously conditions (2) and (3) are satisfied. We only need to ensure that condition (1) is also satisfied to form a valid triangle.
 
-We enumerate $i$ in the range $[0, n - 3]$, enumerate $j$ in the range $[i + 1, n - 2]$, and perform binary search in the range $[j + 1, n - 1]$ to find the first index $left$ that is greater than or equal to $nums[i] + nums[j]$. Then, the values of $k$ in the range $[j + 1, left - 1]$ satisfy the condition, and we add them to the result $\textit{ans}$.
+We enumerate $i$ in the range $[0, n - 3]$, enumerate $j$ in the range $[i + 1, n - 2]$, and perform binary search in the range $[j + 1, n - 1]$ to find the first index $\textit{left}$ that is greater than or equal to $\textit{nums}[i] + \textit{nums}[j]$. Then, the values of $k$ in the range $[j + 1, \textit{left} - 1]$ satisfy the condition, and we add them to the result $\textit{ans}$.
 
 The time complexity is $O(n^2 \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 

@@ -69,13 +69,13 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 
 > **Thinking**
 >
-> We need $\bigoplus_{i,j}(arr1[i]\wedge arr2[j])$. Enumerating pairs is impossible for lengths up to $10^5$.
+> We need $\bigoplus_{i,j}(\textit{arr1}[i]\wedge \textit{arr2}[j])$. Enumerating pairs is impossible for lengths up to $10^5$.
 >
-> Bitwise, AND behaves like multiplication and XOR like addition without carry, so the expression equals $(\bigoplus arr1)\wedge(\bigoplus arr2)$. XOR each array and AND the two results.
+> Bitwise, AND behaves like multiplication and XOR like addition without carry, so the expression equals $(\bigoplus \textit{arr1})\wedge(\bigoplus \textit{arr2})$. XOR each array and AND the two results.
 
 <!-- thinking:end -->
 
-Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the elements of array $arr2$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:
+Assume that the elements of array $\textit{arr1}$ are $a_1, a_2, ..., a_n$, and the elements of array $\textit{arr2}$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:
 
 $$
 \begin{aligned}
@@ -92,9 +92,9 @@ $$
 \textit{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
 $$
 
-That is, the bitwise AND of the XOR sum of array $arr1$ and the XOR sum of array $arr2$.
+That is, the bitwise AND of the XOR sum of array $\textit{arr1}$ and the XOR sum of array $\textit{arr2}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of arrays $\textit{arr1}$ and $\textit{arr2}$, respectively.
 
 <!-- tabs:start -->
 

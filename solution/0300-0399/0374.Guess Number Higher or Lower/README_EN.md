@@ -76,7 +76,7 @@ tags:
 >
 > Guess a number in $[1,n]$; `guess` says higher or lower. Linear probes take $n$ tries. The range is sorted, so binary search.
 >
-> Find the first $x$ with `guess(x)\le 0`. The code uses key $-guess(x)$ and a single `bisect`.
+> Find the first $x$ with `guess(x)\le 0`. The code uses key $-\textit{guess}(x)$ and a single `bisect`.
 
 <!-- thinking:end -->
 

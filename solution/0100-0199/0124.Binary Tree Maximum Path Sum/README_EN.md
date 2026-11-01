@@ -74,17 +74,17 @@ When thinking about the classic routine of recursion problems in binary trees, w
 2. Recursively process the left and right subtrees
 3. Merge the calculation results of the left and right subtrees
 
-For this problem, we design a function $dfs(root)$, which returns the maximum path sum of the binary tree with $root$ as the root node.
+For this problem, we design a function $\textit{dfs}(\textit{root})$, which returns the maximum path sum of the binary tree with $\textit{root}$ as the root node.
 
-The execution logic of the function $dfs(root)$ is as follows:
+The execution logic of the function $\textit{dfs}(\textit{root})$ is as follows:
 
-If $root$ does not exist, then $dfs(root)$ returns $0$;
+If $\textit{root}$ does not exist, then $\textit{dfs}(\textit{root})$ returns $0$;
 
-Otherwise, we recursively calculate the maximum path sum of the left and right subtrees of $root$, denoted as $left$ and $right$. If $left$ is less than $0$, then we set it to $0$, similarly, if $right$ is less than $0$, then we set it to $0$.
+Otherwise, we recursively calculate the maximum path sum of the left and right subtrees of $\textit{root}$, denoted as $\textit{left}$ and $\textit{right}$. If $\textit{left}$ is less than $0$, then we set it to $0$, similarly, if $\textit{right}$ is less than $0$, then we set it to $0$.
 
-Then, we update the answer with $root.val + left + right$. Finally, the function returns $root.val + \max(left, right)$.
+Then, we update the answer with $\textit{root}.\textit{val} + \textit{left} + \textit{right}$. Finally, the function returns $\textit{root}.\textit{val} + \max(\textit{left}, \textit{right})$.
 
-In the main function, we call $dfs(root)$ to get the maximum path sum of each node, and the maximum value among them is the answer.
+In the main function, we call $\textit{dfs}(\textit{root})$ to get the maximum path sum of each node, and the maximum value among them is the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

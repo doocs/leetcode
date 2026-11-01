@@ -84,11 +84,11 @@ We notice that the result of reversing several consecutive elements is independe
 
 We can process the array from left to right.
 
-Suppose we need to process position $i$, and the elements to the left of position $i$ have been processed. If the element at position $i$ is $0$, then we must perform a reversal operation, we need to reverse the elements in the interval $[i,..i+k-1]$. Here we use a difference array $d$ to maintain the number of reversals at each position, then to determine whether the current position $i$ needs to be reversed, we only need to see $s = \sum_{j=0}^{i}d[j]$ and the parity of $nums[i]$. If $s$ and $nums[i]$ have the same parity, then the element at position $i$ is still $0$ and needs to be reversed. At this time, we check whether $i+k$ exceeds the length of the array. If it exceeds the length of the array, then the target cannot be achieved, return $-1$. Otherwise, we increase $d[i]$ by $1$, decrease $d[i+k]$ by $1$, increase the answer by $1$, and increase $s$ by $1$.
+Suppose we need to process position $i$, and the elements to the left of position $i$ have been processed. If the element at position $i$ is $0$, then we must perform a reversal operation, we need to reverse the elements in the interval $[i,..i+k-1]$. Here we use a difference array $d$ to maintain the number of reversals at each position, then to determine whether the current position $i$ needs to be reversed, we only need to see $s = \sum_{j=0}^{i}d[j]$ and the parity of $\textit{nums}[i]$. If $s$ and $\textit{nums}[i]$ have the same parity, then the element at position $i$ is still $0$ and needs to be reversed. At this time, we check whether $i+k$ exceeds the length of the array. If it exceeds the length of the array, then the target cannot be achieved, return $-1$. Otherwise, we increase $d[i]$ by $1$, decrease $d[i+k]$ by $1$, increase the answer by $1$, and increase $s$ by $1$.
 
 In this way, when we have processed all the elements in the array, we can return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -258,7 +258,7 @@ Next, we traverse the array from left to right. For each position $i$, if $i \ge
 
 By processing all elements in the array in this manner, we can return the answer upon completion.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

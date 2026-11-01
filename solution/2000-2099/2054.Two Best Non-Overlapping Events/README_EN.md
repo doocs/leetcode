@@ -75,7 +75,7 @@ tags:
 >
 > Pick at most two non-overlapping events of maximum value. Pairwise search is quadratic for $n \le 10^5$. After sorting by start, the best single event in a suffix is a static array.
 >
-> $f[i]$ is that suffix maximum. For each event as the first, binary-search the first start after its end and add $f[idx]$ (or take the event alone).
+> $f[i]$ is that suffix maximum. For each event as the first, binary-search the first start after its end and add $f[\textit{idx}]$ (or take the event alone).
 >
 > Sort plus binary search is $O(n \log n)$.
 

@@ -81,17 +81,17 @@ Another possible matrix is: [[1,2],
 
 <!-- thinking:end -->
 
-We can first initialize an $m$ by $n$ answer matrix $ans$.
+We can first initialize an $m$ by $n$ answer matrix $\textit{ans}$.
 
-Next, we traverse each position $(i, j)$ in the matrix, set the element at this position to $x = \min(rowSum[i], colSum[j])$, and subtract $x$ from $rowSum[i]$ and $colSum[j]$ respectively. After traversing all positions, we can get a matrix $ans$ that meets the requirements of the problem.
+Next, we traverse each position $(i, j)$ in the matrix, set the element at this position to $x = \min(\textit{rowSum}[i], \textit{colSum}[j])$, and subtract $x$ from $\textit{rowSum}[i]$ and $\textit{colSum}[j]$ respectively. After traversing all positions, we can get a matrix $\textit{ans}$ that meets the requirements of the problem.
 
 The correctness of the above strategy is explained as follows:
 
-According to the requirements of the problem, we know that the sum of $rowSum$ and $colSum$ is equal, so $rowSum[0]$ must be less than or equal to $\sum_{j = 0}^{n - 1} colSum[j]$. Therefore, after $n$ operations, $rowSum[0]$ can definitely be made $0$, and for any $j \in [0, n - 1]$, $colSum[j] \geq 0$ is guaranteed.
+According to the requirements of the problem, we know that the sum of $\textit{rowSum}$ and $\textit{colSum}$ is equal, so $\textit{rowSum}[0]$ must be less than or equal to $\sum_{j = 0}^{n - 1} \textit{colSum}[j]$. Therefore, after $n$ operations, $\textit{rowSum}[0]$ can definitely be made $0$, and for any $j \in [0, n - 1]$, $\textit{colSum}[j] \geq 0$ is guaranteed.
 
-Therefore, we reduce the original problem to a subproblem with $m-1$ rows and $n$ columns, continue the above operations, until all elements in $rowSum$ and $colSum$ are $0$, we can get a matrix $ans$ that meets the requirements of the problem.
+Therefore, we reduce the original problem to a subproblem with $m-1$ rows and $n$ columns, continue the above operations, until all elements in $\textit{rowSum}$ and $\textit{colSum}$ are $0$, we can get a matrix $\textit{ans}$ that meets the requirements of the problem.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $rowSum$ and $colSum$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{rowSum}$ and $\textit{colSum}$ respectively.
 
 <!-- tabs:start -->
 

@@ -73,19 +73,19 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 >
 > Cut a stick of length $n$ at given points; each cut costs the current piece's length. $n$ can be $10^6$ but there are at most $100$ cuts, so DP belongs on the cut list, not on stick coordinates.
 >
-> Insert $0$ and $n$ and sort. $f[i][j]$ is the min cost to finish every cut strictly inside $(cuts[i],cuts[j])$. The last cut at $cuts[k]$ costs $f[i][k]+f[k][j]+cuts[j]-cuts[i]$. Filling by increasing interval length makes every subinterval ready.
+> Insert $0$ and $n$ and sort. $f[i][j]$ is the min cost to finish every cut strictly inside $(\textit{cuts}[i],\textit{cuts}[j])$. The last cut at $\textit{cuts}[k]$ costs $f[i][k]+f[k][j]+\textit{cuts}[j]-\textit{cuts}[i]$. Filling by increasing interval length makes every subinterval ready.
 
 <!-- thinking:end -->
 
 We can add two elements to the array $\textit{cuts}$, namely $0$ and $n$, representing the two ends of the stick. Then we sort the $\textit{cuts}$ array, so we can divide the entire stick into several intervals, each with two cut points. Let the length of the $\textit{cuts}$ array be $m$.
 
-Next, we define $\textit{f}[i][j]$ to represent the minimum cost to cut the interval $[\textit{cuts}[i], \textit{cuts}[j]]$.
+Next, we define $f[i][j]$ to represent the minimum cost to cut the interval $[\textit{cuts}[i], \textit{cuts}[j]]$.
 
-If an interval has only two cut points, meaning we do not need to cut this interval, then $\textit{f}[i][j] = 0$.
+If an interval has only two cut points, meaning we do not need to cut this interval, then $f[i][j] = 0$.
 
-Otherwise, we enumerate the length $l$ of the interval, where $l$ is equal to the number of cut points minus $1$. Then we enumerate the left endpoint $i$ of the interval, and the right endpoint $j$ can be obtained by $i + l$. For each interval, we enumerate its cut point $k$, where $i \lt k \lt j$. We can then divide the interval $[i, j]$ into $[i, k]$ and $[k, j]$. The cost at this point is $\textit{f}[i][k] + \textit{f}[k][j] + \textit{cuts}[j] - \textit{cuts}[i]$. We take the minimum value among all possible $k$, which is the value of $\textit{f}[i][j]$.
+Otherwise, we enumerate the length $l$ of the interval, where $l$ is equal to the number of cut points minus $1$. Then we enumerate the left endpoint $i$ of the interval, and the right endpoint $j$ can be obtained by $i + l$. For each interval, we enumerate its cut point $k$, where $i \lt k \lt j$. We can then divide the interval $[i, j]$ into $[i, k]$ and $[k, j]$. The cost at this point is $f[i][k] + f[k][j] + \textit{cuts}[j] - \textit{cuts}[i]$. We take the minimum value among all possible $k$, which is the value of $f[i][j]$.
 
-Finally, we return $\textit{f}[0][m - 1]$.
+Finally, we return $f[0][m - 1]$.
 
 The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$, where $m$ is the length of the modified $\textit{cuts}$ array.
 

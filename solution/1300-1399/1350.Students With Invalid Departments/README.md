@@ -105,7 +105,7 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 
 > **思考**
 >
-> 找出 $\textit{department\_id}$ 不在院系表中的学生。子查询列出全部院系编号，再用 $\mathrm{NOT\ IN}$ 过滤学生即可。
+> 找出 $\textit{department\_id}$ 不在院系表中的学生。子查询列出全部院系编号，再用 $\textit{NOT}\ \textit{IN}$ 过滤学生即可。
 
 <!-- thinking:end -->
 
@@ -134,7 +134,7 @@ WHERE department_id NOT IN (SELECT id FROM Departments);
 
 > **思考**
 >
-> $\mathrm{NOT\ IN}$ 在院系编号为空时语义需小心。改为学生左连院系，保留院系编号为空的行，只描述「匹配失败」，不依赖子查询。
+> $\textit{NOT}\ \textit{IN}$ 在院系编号为空时语义需小心。改为学生左连院系，保留院系编号为空的行，只描述「匹配失败」，不依赖子查询。
 
 <!-- thinking:end -->
 

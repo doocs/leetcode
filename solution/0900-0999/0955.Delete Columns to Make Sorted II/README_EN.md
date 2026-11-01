@@ -84,12 +84,12 @@ i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
 
 When comparing strings in lexicographical order, we compare from left to right, and the first unequal character determines the ordering relationship between two strings. Therefore, we can traverse each column from left to right and determine whether the current column needs to be deleted.
 
-We maintain a boolean array $\textit{st}$ of length $n - 1$, indicating whether the ordering relationship between adjacent string pairs has been determined. If the ordering relationship has been determined, then any subsequent character comparison between these two strings will not change their ordering relationship.
+We maintain a boolean array $st$ of length $n - 1$, indicating whether the ordering relationship between adjacent string pairs has been determined. If the ordering relationship has been determined, then any subsequent character comparison between these two strings will not change their ordering relationship.
 
 For each column $j$, we traverse all adjacent string pairs $(\textit{strs}[i], \textit{strs}[i + 1])$:
 
-- If $\textit{st}[i]$ is false and $\textit{strs}[i][j] > \textit{strs}[i + 1][j]$, it means the current column must be deleted. We increment the answer by one and skip processing this column;
-- Otherwise, if $\textit{st}[i]$ is false and $\textit{strs}[i][j] < \textit{strs}[i + 1][j]$, it means the current column determines the ordering relationship between these two strings. We set $\textit{st}[i]$ to true.
+- If $st[i]$ is false and $\textit{strs}[i][j] > \textit{strs}[i + 1][j]$, it means the current column must be deleted. We increment the answer by one and skip processing this column;
+- Otherwise, if $st[i]$ is false and $\textit{strs}[i][j] < \textit{strs}[i + 1][j]$, it means the current column determines the ordering relationship between these two strings. We set $st[i]$ to true.
 
 After traversing all columns, the answer is the number of columns that need to be deleted.
 

@@ -99,7 +99,7 @@ tags:
 >
 > One element may cover several targets by rising to a multiple of their LCM. We compute that increment per subset, then cover the targets across elements.
 >
-> Bitmask DP: $f[s]$ is the minimum increment to cover set $s$. Each element offers a cost for every subset $t$ and relaxes $f$. This is practical for $|target|\le 4$.
+> Bitmask DP: $f[s]$ is the minimum increment to cover set $s$. Each element offers a cost for every subset $t$ and relaxes $f$. This is practical for $|\textit{target}|\le 4$.
 
 <!-- thinking:end -->
 

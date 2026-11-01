@@ -89,23 +89,23 @@ The substring starting at 12 is <code>&quot;thefoobar&quot;</code>. It is the co
 
 > **Thinking**
 >
-> The first idea is to try every start and test whether the length-$n\cdot k$ window is some permutation of $words$. With $m \le 10^4$, $n \le 5000$, $k \le 30$, slicing $n$ words per start is worst-case $O(mnk)$ and will not pass.
+> The first idea is to try every start and test whether the length-$n\cdot k$ window is some permutation of $\textit{words}$. With $m \le 10^4$, $n \le 5000$, $k \le 30$, slicing $n$ words per start is worst-case $O(mnk)$ and will not pass.
 >
 > The bottleneck is recounting heavily overlapping windows from scratch. Words share one length $k$, so the window slides in steps of $k$ and frequencies can be maintained incrementally in a hash map.
 >
-> There are only $k$ alignments (starts $0,1,\ldots,k-1$). In each, the right end eats a length-$k$ token: a word outside $cnt$ resets the window; an over-used word is spat out from the left until counts are legal; exactly $n$ words means we record the left index.
+> There are only $k$ alignments (starts $0,1,\ldots,k-1$). In each, the right end eats a length-$k$ token: a word outside $\textit{cnt}$ resets the window; an over-used word is spat out from the left until counts are legal; exactly $n$ words means we record the left index.
 >
 > Each character enters and leaves a window a constant number of times, so the total is $O(mk)$.
 
 <!-- thinking:end -->
 
-We use a hash table $cnt$ to count the number of times each word appears in $words$, and use a hash table $cnt1$ to count the number of times each word appears in the current sliding window. We denote the length of the string $s$ as $m$, the number of words in the string array $words$ as $n$, and the length of each word as $k$.
+We use a hash table $\textit{cnt}$ to count the number of times each word appears in $\textit{words}$, and use a hash table $\textit{cnt1}$ to count the number of times each word appears in the current sliding window. We denote the length of the string $s$ as $m$, the number of words in the string array $\textit{words}$ as $n$, and the length of each word as $k$.
 
-We can enumerate the starting point $i$ of the sliding window, where $0 \lt i < k$. For each starting point, we maintain a sliding window with the left boundary as $l$, the right boundary as $r$, and the number of words in the sliding window as $t$. Additionally, we use a hash table $cnt1$ to count the number of times each word appears in the sliding window.
+We can enumerate the starting point $i$ of the sliding window, where $0 \lt i < k$. For each starting point, we maintain a sliding window with the left boundary as $l$, the right boundary as $r$, and the number of words in the sliding window as $t$. Additionally, we use a hash table $\textit{cnt1}$ to count the number of times each word appears in the sliding window.
 
-Each time, we extract the string $s[r:r+k]$. If $s[r:r+k]$ is not in the hash table $cnt$, it means that the words in the current sliding window are not valid. We update the left boundary $l$ to $r$, clear the hash table $cnt1$, and reset the word count $t$ to 0. If $s[r:r+k]$ is in the hash table $cnt$, it means that the words in the current sliding window are valid. We increase the word count $t$ by 1, and increase the count of $s[r:r+k]$ in the hash table $cnt1$ by 1. If $cnt1[s[r:r+k]]$ is greater than $cnt[s[r:r+k]]$, it means that $s[r:r+k]$ appears too many times in the current sliding window. We need to move the left boundary $l$ to the right until $cnt1[s[r:r+k]] = cnt[s[r:r+k]]$. If $t = n$, it means that the words in the current sliding window are exactly valid, and we add the left boundary $l$ to the answer array.
+Each time, we extract the string $s[r:r+k]$. If $s[r:r+k]$ is not in the hash table $\textit{cnt}$, it means that the words in the current sliding window are not valid. We update the left boundary $l$ to $r$, clear the hash table $\textit{cnt1}$, and reset the word count $t$ to 0. If $s[r:r+k]$ is in the hash table $\textit{cnt}$, it means that the words in the current sliding window are valid. We increase the word count $t$ by 1, and increase the count of $s[r:r+k]$ in the hash table $\textit{cnt1}$ by 1. If $\textit{cnt1}[s[r:r+k]]$ is greater than $\textit{cnt}[s[r:r+k]]$, it means that $s[r:r+k]$ appears too many times in the current sliding window. We need to move the left boundary $l$ to the right until $\textit{cnt1}[s[r:r+k]] = \textit{cnt}[s[r:r+k]]$. If $t = n$, it means that the words in the current sliding window are exactly valid, and we add the left boundary $l$ to the answer array.
 
-The time complexity is $O(mk)$, and the space complexity is $O(nk)$, where $m$ and $n$ are the lengths of the string $s$ and the string array $words$ respectively, and $k$ is the length of the words in the string array $words$.
+The time complexity is $O(mk)$, and the space complexity is $O(nk)$, where $m$ and $n$ are the lengths of the string $s$ and the string array $\textit{words}$ respectively, and $k$ is the length of the words in the string array $\textit{words}$.
 
 <!-- tabs:start -->
 

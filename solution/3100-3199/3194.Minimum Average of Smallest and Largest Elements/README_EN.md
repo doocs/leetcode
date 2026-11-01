@@ -179,7 +179,7 @@ The smallest element of averages, 5.5, is returned.</div>
 >
 > Each step averages the current minimum and maximum; the answer is the smallest of those averages. A multiset simulation works, but the endpoints after sorting already form the pairs.
 >
-> The $i$-th smallest pairs with the $i$-th largest, averaging $(nums[i]+nums[n-1-i])/2$.
+> The $i$-th smallest pairs with the $i$-th largest, averaging $(\textit{nums}[i]+\textit{nums}[n-1-i])/2$.
 >
 > Take the minimum of those sums for $i=0..n/2-1$ and divide by two.
 

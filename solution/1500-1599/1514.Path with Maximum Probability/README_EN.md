@@ -91,9 +91,9 @@ tags:
 
 We can use Dijkstra's algorithm to find the shortest path, but here we modify it slightly to find the path with the maximum probability.
 
-We use a priority queue (max-heap) $\textit{pq}$ to store the probability from the starting point to each node and the node's identifier. Initially, we set the probability of the starting point to $1$ and the probabilities of the other nodes to $0$, then add the starting point to $\textit{pq}$.
+We use a priority queue (max-heap) $pq$ to store the probability from the starting point to each node and the node's identifier. Initially, we set the probability of the starting point to $1$ and the probabilities of the other nodes to $0$, then add the starting point to $pq$.
 
-In each iteration, we take out the node $a$ with the highest probability from $\textit{pq}$ and its probability $w$. If the probability of node $a$ is already greater than $w$, we can skip this node. Otherwise, we traverse all adjacent edges $(a, b)$ of $a$. If the probability of $b$ is less than the probability of $a$ multiplied by the probability of $(a, b)$, we update the probability of $b$ and add $b$ to $\textit{pq}$.
+In each iteration, we take out the node $a$ with the highest probability from $pq$ and its probability $w$. If the probability of node $a$ is already greater than $w$, we can skip this node. Otherwise, we traverse all adjacent edges $(a, b)$ of $a$. If the probability of $b$ is less than the probability of $a$ multiplied by the probability of $(a, b)$, we update the probability of $b$ and add $b$ to $pq$.
 
 Finally, we obtain the maximum probability from the starting point to the endpoint.
 

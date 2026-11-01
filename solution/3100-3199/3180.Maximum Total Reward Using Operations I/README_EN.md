@@ -80,7 +80,7 @@ tags:
 >
 > Rewards $\le x$ are dead forever. After sorting, the first reward larger than $x$ is a binary search.
 >
-> Memoize $dfs(x)$ over those $v$ and recurse to $x+v$. Scores stay below about twice the maximum reward.
+> Memoize $\textit{dfs}(x)$ over those $v$ and recurse to $x+v$. Scores stay below about twice the maximum reward.
 
 <!-- thinking:end -->
 
@@ -247,7 +247,7 @@ function maxTotalReward(rewardValues: number[]): number {
 >
 > Taking $v$ requires the previous score to be $<v$, so $f[j]$ becomes true from $f[j-v]$ when $0\le j-v<v$.
 >
-> After sorting unique values, roll a Boolean array from $f[0]=\mathrm{True}$. The largest true index is the answer.
+> After sorting unique values, roll a Boolean array from $f[0]=\textit{True}$. The largest true index is the answer.
 
 <!-- thinking:end -->
 
@@ -263,7 +263,7 @@ The final answer is $\max\{j \mid f[n][j] = \textit{True}\}$.
 
 Since $f[i][j]$ only depends on $f[i - 1][j]$ and $f[i - 1][j - v]$, we can optimize away the first dimension and use only a one-dimensional array for state transitions.
 
-The time complexity is $O(nM)$, and the space complexity is $O(M)$, where $n$ is the length of the `rewardValues` array, and $M$ is twice the maximum value in the `rewardValues` array.
+The time complexity is $O(\textit{nM})$, and the space complexity is $O(M)$, where $n$ is the length of the `rewardValues` array, and $M$ is twice the maximum value in the `rewardValues` array.
 
 <!-- tabs:start -->
 
@@ -402,7 +402,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 > **Thinking**
 >
-> Method 2 scans every $j$ in $O(nM)$. The same update is “OR the low $v$ bits of $f$ shifted left by $v$”.
+> Method 2 scans every $j$ in $O(\textit{nM})$. The same update is “OR the low $v$ bits of $f$ shifted left by $v$”.
 >
 > Store reachability as bits of an integer.
 >
@@ -416,7 +416,7 @@ Observing the state transition equation from Solution 2, $f[j] = f[j] \vee f[j -
 
 Thus, the answer is the position of the highest bit in $f$.
 
-The time complexity is $O(nM / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
+The time complexity is $O(\textit{nM} / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
 
 <!-- tabs:start -->
 

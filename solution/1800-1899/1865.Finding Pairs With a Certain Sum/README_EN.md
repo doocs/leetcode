@@ -81,9 +81,9 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 
 > **Thinking**
 >
-> We must update one entry of $nums2$ and count pairs summing to $tot$. $nums2$ is long, so a nested scan on each query is impossible.
+> We must update one entry of $\textit{nums2}$ and count pairs summing to $\textit{tot}$. $\textit{nums2}$ is long, so a nested scan on each query is impossible.
 >
-> $nums1$ has length at most $10^3$, so we enumerate it. A frequency map of $nums2$ lets $\textit{count}$ add $cnt[tot-x]$ for each $x\in nums1$, while $\textit{add}$ decrements the old value and increments the new one.
+> $\textit{nums1}$ has length at most $10^3$, so we enumerate it. A frequency map of $\textit{nums2}$ lets $\textit{count}$ add $\textit{cnt}[\textit{tot}-x]$ for each $x\in \textit{nums1}$, while $\textit{add}$ decrements the old value and increments the new one.
 
 <!-- thinking:end -->
 
@@ -91,11 +91,11 @@ We note that the length of the array $\textit{nums1}$ does not exceed ${10}^3$, 
 
 Can we only enumerate the shorter array $\textit{nums1}$? The answer is yes. We use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums2}$, then enumerate each element $x$ in the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$.
 
-When calling the $\text{add}$ method, we need to first decrement the value corresponding to $\textit{nums2}[index]$ in $\textit{cnt}$ by $1$, then add $\textit{val}$ to the value of $\textit{nums2}[index]$, and finally increment the value corresponding to $\textit{nums2}[index]$ in $\textit{cnt}$ by $1$.
+When calling the $\textit{add}$ method, we need to first decrement the value corresponding to $\textit{nums2}[\textit{index}]$ in $\textit{cnt}$ by $1$, then add $\textit{val}$ to the value of $\textit{nums2}[\textit{index}]$, and finally increment the value corresponding to $\textit{nums2}[\textit{index}]$ in $\textit{cnt}$ by $1$.
 
-When calling the $\text{count}$ method, we only need to traverse the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$ for each element $x$.
+When calling the $\textit{count}$ method, we only need to traverse the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$ for each element $x$.
 
-The time complexity is $O(nq)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively, and $q$ is the number of times the $\text{count}$ method is called.
+The time complexity is $O(nq)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively, and $q$ is the number of times the $\textit{count}$ method is called.
 
 <!-- tabs:start -->
 

@@ -91,7 +91,7 @@ The specific steps of the monotonic stack are as follows:
 4. Then iterate through the heights array $\textit{heights}$ in reverse order, calculating the index of the first column to the right of each column that is shorter than the current column, and store it in $\textit{right}$.
 5. Finally, calculate the maximum rectangle area for each column and update the answer.
 
-The time complexity is $O(mn)$, where $m$ is the number of rows in $matrix$ and $n$ is the number of columns in $matrix$.
+The time complexity is $O(mn)$, where $m$ is the number of rows in $\textit{matrix}$ and $n$ is the number of columns in $\textit{matrix}$.
 
 <!-- tabs:start -->
 

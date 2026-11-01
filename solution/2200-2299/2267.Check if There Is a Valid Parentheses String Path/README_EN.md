@@ -89,11 +89,11 @@ Note that there may be other valid parentheses string paths.
 
 Let $m$ be the number of rows and $n$ be the number of columns in the matrix.
 
-If $m + n - 1$ is odd, or the parentheses in the top-left and bottom-right corners do not match, then there is no valid path, and we directly return $\text{false}$.
+If $m + n - 1$ is odd, or the parentheses in the top-left and bottom-right corners do not match, then there is no valid path, and we directly return $\textit{false}$.
 
 Otherwise, we design a function $\textit{dfs}(i, j, k)$, which represents whether there is a valid path starting from $(i, j)$ with the current balance of parentheses being $k$. The balance $k$ is defined as the number of left parentheses minus the number of right parentheses in the path from $(0, 0)$ to $(i, j)$.
 
-If the balance $k$ is less than $0$ or greater than $m + n - i - j$, then there is no valid path, and we directly return $\text{false}$. If $(i, j)$ is the bottom-right cell, then there is a valid path only if $k = 0$. Otherwise, we enumerate the next cell $(x, y)$ of $(i, j)$. If $(x, y)$ is a valid cell and $\textit{dfs}(x, y, k)$ is $\text{true}$, then there is a valid path.
+If the balance $k$ is less than $0$ or greater than $m + n - i - j$, then there is no valid path, and we directly return $\textit{false}$. If $(i, j)$ is the bottom-right cell, then there is a valid path only if $k = 0$. Otherwise, we enumerate the next cell $(x, y)$ of $(i, j)$. If $(x, y)$ is a valid cell and $\textit{dfs}(x, y, k)$ is $\textit{true}$, then there is a valid path.
 
 The time complexity is $O(mn(m + n))$, and the space complexity is $O(mn(m + n))$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 

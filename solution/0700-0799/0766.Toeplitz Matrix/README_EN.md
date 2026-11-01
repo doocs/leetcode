@@ -73,7 +73,7 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 >
 > A Toeplitz matrix has equal diagonals, i.e. every cell equals its upper-left neighbor. The grid is at most $20\times 20$.
 >
-> Scan from $(1,1)$; fail if $matrix[i][j]\ne matrix[i-1][j-1]$. The first row and column have no predecessor.
+> Scan from $(1,1)$; fail if $\textit{matrix}[i][j]\ne \textit{matrix}[i-1][j-1]$. The first row and column have no predecessor.
 
 <!-- thinking:end -->
 

@@ -66,17 +66,17 @@ tags:
 
 > **Thinking**
 >
-> Each query counts how many $words$ have a strictly larger $f$. Scanning all words per query is $O(qn)$. Precompute every $f(w)$, sort, and binary-search the first value above $f(q)$; the suffix length is the answer. $f$ is the count of the smallest letter and is linear in a short string.
+> Each query counts how many $\textit{words}$ have a strictly larger $f$. Scanning all words per query is $O(qn)$. Precompute every $f(w)$, sort, and binary-search the first value above $f(q)$; the suffix length is the answer. $f$ is the count of the smallest letter and is linear in a short string.
 
 <!-- thinking:end -->
 
 First, according to the problem description, we implement a function $f(s)$, which returns the frequency of the smallest letter in the string $s$ in lexicographical order.
 
-Next, we calculate $f(w)$ for each string $w$ in $words$, sort them, and store them in an array $nums$.
+Next, we calculate $f(w)$ for each string $w$ in $\textit{words}$, sort them, and store them in an array $\textit{nums}$.
 
-Then, we traverse each string $q$ in $queries$, and binary search in $nums$ for the first position $i$ that is greater than $f(q)$. Then, the elements at index $i$ and after in $nums$ all satisfy $f(q) < f(W)$, so the answer to the current query is $n - i$.
+Then, we traverse each string $q$ in $\textit{queries}$, and binary search in $\textit{nums}$ for the first position $i$ that is greater than $f(q)$. Then, the elements at index $i$ and after in $\textit{nums}$ all satisfy $f(q) < f(W)$, so the answer to the current query is $n - i$.
 
-The time complexity is $O((n + q)M)$, and the space complexity is $O(n)$, where $n$ and $q$ are the lengths of the arrays $words$ and $queries$ respectively, and $M$ is the maximum length of the strings.
+The time complexity is $O((n + q)M)$, and the space complexity is $O(n)$, where $n$ and $q$ are the lengths of the arrays $\textit{words}$ and $\textit{queries}$ respectively, and $M$ is the maximum length of the strings.
 
 <!-- tabs:start -->
 

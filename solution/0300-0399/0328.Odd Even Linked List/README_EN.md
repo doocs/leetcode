@@ -60,15 +60,15 @@ tags:
 >
 > Keep odd-positioned nodes before even-positioned ones, preserving order. An extra list is easy; $O(1)$ space is required.
 >
-> Let $a$ and $b$ trail the odd and even chains, and $c$ remember the even head. Repeatedly splice $b.next$ after $a$, then the new successor after $b$, until the even chain ends. Set $a.next=c$.
+> Let $a$ and $b$ trail the odd and even chains, and $c$ remember the even head. Repeatedly splice $b.\textit{next}$ after $a$, then the new successor after $b$, until the even chain ends. Set $a.\textit{next}=c$.
 
 <!-- thinking:end -->
 
-We can use two pointers $a$ and $b$ to represent the tail nodes of the odd and even nodes respectively. Initially, pointer $a$ points to the head node $head$ of the list, and pointer $b$ points to the second node $head.next$ of the list. In addition, we use a pointer $c$ to point to the head node $head.next$ of the even nodes, which is the initial position of pointer $b$.
+We can use two pointers $a$ and $b$ to represent the tail nodes of the odd and even nodes respectively. Initially, pointer $a$ points to the head node $\textit{head}$ of the list, and pointer $b$ points to the second node $\textit{head}.\textit{next}$ of the list. In addition, we use a pointer $c$ to point to the head node $\textit{head}.\textit{next}$ of the even nodes, which is the initial position of pointer $b$.
 
-We traverse the list, set pointer $a$ to point to the next node of $b$, i.e., $a.next = b.next$, then move pointer $a$ back by one position, i.e., $a = a.next$; set pointer $b$ to point to the next node of $a$, i.e., $b.next = a.next$, then move pointer $b$ back by one position, i.e., $b = b.next$. Continue to traverse until $b$ reaches the end of the list.
+We traverse the list, set pointer $a$ to point to the next node of $b$, i.e., $a.\textit{next} = b.\textit{next}$, then move pointer $a$ back by one position, i.e., $a = a.\textit{next}$; set pointer $b$ to point to the next node of $a$, i.e., $b.\textit{next} = a.\textit{next}$, then move pointer $b$ back by one position, i.e., $b = b.\textit{next}$. Continue to traverse until $b$ reaches the end of the list.
 
-Finally, we set the tail node $a$ of the odd nodes to point to the head node $c$ of the even nodes, i.e., $a.next = c$, then return the head node $head$ of the list.
+Finally, we set the tail node $a$ of the odd nodes to point to the head node $c$ of the even nodes, i.e., $a.\textit{next} = c$, then return the head node $\textit{head}$ of the list.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list, and we need to traverse the list once.
 

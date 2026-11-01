@@ -68,7 +68,7 @@ The 5 good pairs are <code>(0, 0)</code>, <code>(1, 0)</code>, <code>(1, 1)</cod
 
 > **Thinking**
 >
-> A pair is good when $nums1[i]$ is divisible by $nums2[j]\cdot k$. Both lengths are at most $50$, so a double loop is fine.
+> A pair is good when $\textit{nums1}[i]$ is divisible by $\textit{nums2}[j]\cdot k$. Both lengths are at most $50$, so a double loop is fine.
 >
 > No sieve is required. Test $x\bmod(y\cdot k)=0$ for every pair.
 >
@@ -174,7 +174,7 @@ function numberOfPairs(nums1: number[], nums2: number[], k: number): number {
 >
 > Method 1 relies on tiny $mn$. Part II needs a faster aggregation.
 >
-> Count quotients $x/k$ for values of $nums1$ divisible by $k$, then for each distinct $x$ in $nums2$ walk its multiples $y$ and add $cnt1[y]$.
+> Count quotients $x/k$ for values of $\textit{nums1}$ divisible by $k$, then for each distinct $x$ in $\textit{nums2}$ walk its multiples $y$ and add $\textit{cnt1}[y]$.
 >
 > After hashing, the inner loop steps by $x$ up to $mx$ and multiplies by the frequency of $x$.
 
@@ -182,7 +182,7 @@ function numberOfPairs(nums1: number[], nums2: number[], k: number): number {
 
 We use a hash table `cnt1` to record the occurrence times of each number divided by $k$ in array `nums1`, and a hash table `cnt2` to record the occurrence times of each number in array `nums2`.
 
-Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, \textit{mx}]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
+Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, mx]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
 
 The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays `nums1` and `nums2` respectively, and $M$ is the maximum value in array `nums1`.
 

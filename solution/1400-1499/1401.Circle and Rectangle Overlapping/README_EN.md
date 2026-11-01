@@ -71,25 +71,25 @@ tags:
 >
 > The circle meets the rectangle iff the closest point of the rectangle to the center lies inside the circle. That point's $x$ and $y$ can be clamped independently to $[x_1,x_2]$ and $[y_1,y_2]$.
 >
-> A coordinate that already lies in its interval contributes distance $0$; otherwise we take the nearer endpoint. Compare the sum of squared distances with $radius^2$.
+> A coordinate that already lies in its interval contributes distance $0$; otherwise we take the nearer endpoint. Compare the sum of squared distances with $\textit{radius}^2$.
 
 <!-- thinking:end -->
 
-For a point $(x, y)$, its shortest distance to the center of the circle $(xCenter, yCenter)$ is $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$. If this distance is less than or equal to the radius $radius$, then this point is within the circle (including the boundary).
+For a point $(x, y)$, its shortest distance to the center of the circle $(\textit{xCenter}, \textit{yCenter})$ is $\sqrt{(x - \textit{xCenter})^2 + (y - \textit{yCenter})^2}$. If this distance is less than or equal to the radius $\textit{radius}$, then this point is within the circle (including the boundary).
 
-For points within the rectangle (including the boundary), their x-coordinates $x$ satisfy $x_1 \leq x \leq x_2$, and their y-coordinates $y$ satisfy $y_1 \leq y \leq y_2$. To determine whether the circle and rectangle overlap, we need to find a point $(x, y)$ within the rectangle such that $a = |x - xCenter|$ and $b = |y - yCenter|$ are minimized. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.
+For points within the rectangle (including the boundary), their x-coordinates $x$ satisfy $x_1 \leq x \leq x_2$, and their y-coordinates $y$ satisfy $y_1 \leq y \leq y_2$. To determine whether the circle and rectangle overlap, we need to find a point $(x, y)$ within the rectangle such that $a = |x - \textit{xCenter}|$ and $b = |y - \textit{yCenter}|$ are minimized. If $a^2 + b^2 \leq \textit{radius}^2$, then the circle and rectangle overlap.
 
-Therefore, the problem is transformed into finding the minimum value of $a = |x - xCenter|$ when $x \in [x_1, x_2]$, and the minimum value of $b = |y - yCenter|$ when $y \in [y_1, y_2]$.
+Therefore, the problem is transformed into finding the minimum value of $a = |x - \textit{xCenter}|$ when $x \in [x_1, x_2]$, and the minimum value of $b = |y - \textit{yCenter}|$ when $y \in [y_1, y_2]$.
 
 For $x \in [x_1, x_2]$:
 
-- If $x_1 \leq xCenter \leq x_2$, then the minimum value of $|x - xCenter|$ is $0$;
-- If $xCenter < x_1$, then the minimum value of $|x - xCenter|$ is $x_1 - xCenter$;
-- If $xCenter > x_2$, then the minimum value of $|x - xCenter|$ is $xCenter - x_2$.
+- If $x_1 \leq \textit{xCenter} \leq x_2$, then the minimum value of $|x - \textit{xCenter}|$ is $0$;
+- If $\textit{xCenter} < x_1$, then the minimum value of $|x - \textit{xCenter}|$ is $x_1 - \textit{xCenter}$;
+- If $\textit{xCenter} > x_2$, then the minimum value of $|x - \textit{xCenter}|$ is $\textit{xCenter} - x_2$.
 
-Similarly, we can find the minimum value of $|y - yCenter|$ when $y \in [y_1, y_2]$. We can use a function $f(i, j, k)$ to handle the above situations.
+Similarly, we can find the minimum value of $|y - \textit{yCenter}|$ when $y \in [y_1, y_2]$. We can use a function $f(i, j, k)$ to handle the above situations.
 
-That is, $a = f(x_1, x_2, xCenter)$, $b = f(y_1, y_2, yCenter)$. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.
+That is, $a = f(x_1, x_2, \textit{xCenter})$, $b = f(y_1, y_2, \textit{yCenter})$. If $a^2 + b^2 \leq \textit{radius}^2$, then the circle and rectangle overlap.
 
 <!-- tabs:start -->
 

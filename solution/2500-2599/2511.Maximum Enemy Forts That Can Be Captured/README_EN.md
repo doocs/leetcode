@@ -83,7 +83,7 @@ Since 4 is the maximum number of enemy forts that can be captured, we return 4.
 
 <!-- thinking:end -->
 
-We use a pointer $i$ to traverse the array $forts$, and a pointer $j$ to start traversing from the next position of $i$ until it encounters the first non-zero position, i.e., $forts[j] \neq 0$. If $forts[i] + forts[j] = 0$, then we can move the army between $i$ and $j$, destroying $j - i - 1$ enemy forts. We use the variable $ans$ to record the maximum number of enemy forts that can be destroyed.
+We use a pointer $i$ to traverse the array $\textit{forts}$, and a pointer $j$ to start traversing from the next position of $i$ until it encounters the first non-zero position, i.e., $\textit{forts}[j] \neq 0$. If $\textit{forts}[i] + \textit{forts}[j] = 0$, then we can move the army between $i$ and $j$, destroying $j - i - 1$ enemy forts. We use the variable $\textit{ans}$ to record the maximum number of enemy forts that can be destroyed.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `forts`.
 

@@ -68,7 +68,7 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 
 We use a sliding window to enumerate the position of the third subarray, while maintaining the maximum sum and its position of the first two non-overlapping subarrays.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -276,17 +276,17 @@ function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
 
 > **Thinking**
 >
-> Coupled windows are compact but easy to get wrong. Prefix sums plus $pre[i]$ (best $k$-window on the left) and $suf[i]$ (best on the right) let us enumerate only the middle start.
+> Coupled windows are compact but easy to get wrong. Prefix sums plus $\textit{pre}[i]$ (best $k$-window on the left) and $\textit{suf}[i]$ (best on the right) let us enumerate only the middle start.
 
 <!-- thinking:end -->
 
-We can preprocess to get the prefix sum array $s$ of the array $nums$, where $s[i] = \sum_{j=0}^{i-1} nums[j]$. Then for any $i$, $j$, $s[j] - s[i]$ is the sum of the subarray $[i, j)$.
+We can preprocess to get the prefix sum array $s$ of the array $\textit{nums}$, where $s[i] = \sum_{j=0}^{i-1} \textit{nums}[j]$. Then for any $i$, $j$, $s[j] - s[i]$ is the sum of the subarray $[i, j)$.
 
-Next, we use dynamic programming to maintain two arrays $pre$ and $suf$ of length $n$, where $pre[i]$ represents the maximum sum and its starting position of the subarray of length $k$ within the range $[0, i]$, and $suf[i]$ represents the maximum sum and its starting position of the subarray of length $k$ within the range $[i, n)$.
+Next, we use dynamic programming to maintain two arrays $\textit{pre}$ and $\textit{suf}$ of length $n$, where $\textit{pre}[i]$ represents the maximum sum and its starting position of the subarray of length $k$ within the range $[0, i]$, and $\textit{suf}[i]$ represents the maximum sum and its starting position of the subarray of length $k$ within the range $[i, n)$.
 
-Then, we enumerate the starting position $i$ of the middle subarray. The sum of the three subarrays is $pre[i-1][0] + suf[i+k][0] + (s[i+k] - s[i])$, where $pre[i-1][0]$ represents the maximum sum of the subarray of length $k$ within the range $[0, i-1]$, $suf[i+k][0]$ represents the maximum sum of the subarray of length $k$ within the range $[i+k, n)$, and $(s[i+k] - s[i])$ represents the sum of the subarray of length $k$ within the range $[i, i+k)$. We find the starting positions of the three subarrays corresponding to the maximum sum.
+Then, we enumerate the starting position $i$ of the middle subarray. The sum of the three subarrays is $\textit{pre}[i-1][0] + \textit{suf}[i+k][0] + (s[i+k] - s[i])$, where $\textit{pre}[i-1][0]$ represents the maximum sum of the subarray of length $k$ within the range $[0, i-1]$, $\textit{suf}[i+k][0]$ represents the maximum sum of the subarray of length $k$ within the range $[i+k, n)$, and $(s[i+k] - s[i])$ represents the sum of the subarray of length $k$ within the range $[i, i+k)$. We find the starting positions of the three subarrays corresponding to the maximum sum.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

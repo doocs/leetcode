@@ -56,7 +56,7 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 
 > **Thinking**
 >
-> After both promises fulfill, return the sum of their numbers. $Promise.all$ plus a sum is correct but wraps an extra array.
+> After both promises fulfill, return the sum of their numbers. $\textit{Promise}.\textit{all}$ plus a sum is correct but wraps an extra array.
 >
 > Awaiting the two promises in turn and adding the values is enough; the second is already in flight, so the wait is still the slower of the two.
 

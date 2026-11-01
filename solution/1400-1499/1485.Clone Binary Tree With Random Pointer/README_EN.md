@@ -87,14 +87,14 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 
 We use a hash table $\textit{seen}$ to record the correspondence between each node in the original tree and its copy, then perform a depth-first search.
 
-Define $\text{dfs}(root)$ to return the copy of $root$:
+Define $\textit{dfs}(\textit{root})$ to return the copy of $\textit{root}$:
 
-- If $root$ is null, return null;
-- If $root$ is already in $\textit{seen}$, return $\textit{seen}[root]$;
-- Otherwise create a copy node $\textit{copy}$, set $\textit{seen}[root] = \textit{copy}$, then recurse on the left child, right child, and $\textit{random}$ pointer;
+- If $\textit{root}$ is null, return null;
+- If $\textit{root}$ is already in $\textit{seen}$, return $\textit{seen}[\textit{root}]$;
+- Otherwise create a copy node $\textit{copy}$, set $\textit{seen}[\textit{root}] = \textit{copy}$, then recurse on the left child, right child, and $\textit{random}$ pointer;
 - Finally return $\textit{copy}$.
 
-The main function returns $\text{dfs}(root)$.
+The main function returns $\textit{dfs}(\textit{root})$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

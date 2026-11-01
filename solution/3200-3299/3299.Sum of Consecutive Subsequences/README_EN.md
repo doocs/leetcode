@@ -81,7 +81,7 @@ tags:
 >
 > A consecutive subsequence changes by $\pm 1$ at each step (indices need not be adjacent). We want length-at-least-$2$ contributions plus every singleton. $n\le 10^5$ forbids listing subsequences. An element's contribution is the number of increasing or decreasing chains that contain it.
 >
-> For increasing chains, multiply the number of chains ending at $x-1$ on the left by those starting at $x+1$ on the right, plus the one-sided extensions. Two hash-map scans fill $left$ and $right$; add $(l+r+lr)\times x$. Reverse the array for decreasing chains, then add the sum of all elements.
+> For increasing chains, multiply the number of chains ending at $x-1$ on the left by those starting at $x+1$ on the right, plus the one-sided extensions. Two hash-map scans fill $\textit{left}$ and $\textit{right}$; add $(l+r+lr)\times x$. Reverse the array for decreasing chains, then add the sum of all elements.
 
 <!-- thinking:end -->
 

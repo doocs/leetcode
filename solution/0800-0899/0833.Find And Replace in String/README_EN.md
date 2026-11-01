@@ -92,7 +92,7 @@ tags:
 
 <!-- thinking:end -->
 
-We iterate through each replacement operation. For the current $k$-th replacement operation $(i, \text{src})$, if $s[i..i+|\text{src}|-1]$ is equal to $\text{src}$, we record that the string at index $i$ needs to be replaced with the $k$-th string in $\text{targets}$; otherwise, no replacement is needed.
+We iterate through each replacement operation. For the current $k$-th replacement operation $(i, \textit{src})$, if $s[i..i+|\textit{src}|-1]$ is equal to $\textit{src}$, we record that the string at index $i$ needs to be replaced with the $k$-th string in $\textit{targets}$; otherwise, no replacement is needed.
 
 Next, we only need to iterate through the original string $s$ and perform the replacements based on the recorded information.
 

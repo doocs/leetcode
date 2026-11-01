@@ -120,7 +120,7 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, a stable subarray is defined as a subarray without inversion pairs, meaning the elements in the subarray are arranged in non-decreasing order. Therefore, we can divide the array into several non-decreasing segments, using an array $\text{seg}$ to record the starting position of each segment. At the same time, we need a prefix sum array $\text{s}$ to record the number of stable subarrays within each segment.
+According to the problem description, a stable subarray is defined as a subarray without inversion pairs, meaning the elements in the subarray are arranged in non-decreasing order. Therefore, we can divide the array into several non-decreasing segments, using an array $\textit{seg}$ to record the starting position of each segment. At the same time, we need a prefix sum array $s$ to record the number of stable subarrays within each segment.
 
 Then, for each query $[l, r]$, there may be 3 cases:
 

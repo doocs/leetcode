@@ -92,19 +92,19 @@ i = 3:
 >
 > 对每个长度 $k$ 求所有窗口最小值的最大值。滑动窗口最值再取 $\max$ 为 $O(n)$ 每个 $k$，总 $O(n^2)$。
 >
-> 以 $nums[i]$ 为最小值的最长区间由其左右严格更小的位置决定，该区间长度 $m$ 意味着 $nums[i]$ 可充当所有 $\le m$ 的答案候选。
+> 以 $\textit{nums}[i]$ 为最小值的最长区间由其左右严格更小的位置决定，该区间长度 $m$ 意味着 $\textit{nums}[i]$ 可充当所有 $\le m$ 的答案候选。
 >
-> 单调栈求左右边界，写入 $ans[m-1]$，再从大到小用 $ans[i+1]$ 更新 $ans[i]$，因为更长窗口的最优值也可用于更短窗口。
+> 单调栈求左右边界，写入 $\textit{ans}[m-1]$，再从大到小用 $\textit{ans}[i+1]$ 更新 $\textit{ans}[i]$，因为更长窗口的最优值也可用于更短窗口。
 
 <!-- thinking:end -->
 
-我们可以先利用单调栈，求出每个位置的左边第一个比它小的位置 $left[i]$ 和右边第一个比它小的位置 $right[i]$，那么以 $nums[i]$ 为最小值的子数组的长度为 $m = right[i] - left[i] - 1$。
+我们可以先利用单调栈，求出每个位置的左边第一个比它小的位置 $\textit{left}[i]$ 和右边第一个比它小的位置 $\textit{right}[i]$，那么以 $\textit{nums}[i]$ 为最小值的子数组的长度为 $m = \textit{right}[i] - \textit{left}[i] - 1$。
 
-然后我们遍历数组，对于每个位置 $i$，更新 $ans[m - 1] = max(ans[m - 1], nums[i])$。
+然后我们遍历数组，对于每个位置 $i$，更新 $\textit{ans}[m - 1] = \max(\textit{ans}[m - 1], \textit{nums}[i])$。
 
-接着我们倒序遍历数组，更新 $ans[i] = max(ans[i], ans[i + 1])$。
+接着我们倒序遍历数组，更新 $\textit{ans}[i] = \max(\textit{ans}[i], \textit{ans}[i + 1])$。
 
-最后返回 $ans$ 即可。
+最后返回 $\textit{ans}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 

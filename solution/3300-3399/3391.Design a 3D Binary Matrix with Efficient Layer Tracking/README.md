@@ -100,13 +100,13 @@ matrix3D.largestMatrix(); // 返回 3。0 到 3 的对应值都有相同数量�
 
 <!-- thinking:end -->
 
-我们使用一个三维数组 $\textit{g}$ 来表示矩阵，其中 $\textit{g}[x][y][z]$ 表示矩阵中坐标 $(x, y, z)$ 的值，用一个长度为 $n$ 的数组 $\textit{cnt}$ 来记录每一层的 $1$ 的个数，用一个有序集合 $\textit{sl}$ 来维护每一层的 $1$ 的个数和层数，其中 $\textit{sl}$ 中的元素是 $(\textit{cnt}[x], x)$，这样 $\textit{sl}$ 就能按照 $1$ 的个数降序排序，如果 $1$ 的个数相同，则按照层数降序排序。
+我们使用一个三维数组 $g$ 来表示矩阵，其中 $g[x][y][z]$ 表示矩阵中坐标 $(x, y, z)$ 的值，用一个长度为 $n$ 的数组 $\textit{cnt}$ 来记录每一层的 $1$ 的个数，用一个有序集合 $sl$ 来维护每一层的 $1$ 的个数和层数，其中 $sl$ 中的元素是 $(\textit{cnt}[x], x)$，这样 $sl$ 就能按照 $1$ 的个数降序排序，如果 $1$ 的个数相同，则按照层数降序排序。
 
-调用 `setCell` 方法时，我们先判断 $(x, y, z)$ 是否已经被设置为 $1$，如果是则直接返回，否则将 $\textit{g}[x][y][z]$ 设置为 $1$，然后将 $(\textit{cnt}[x], x)$ 从 $\textit{sl}$ 中删除，将 $\textit{cnt}[x]$ 加一，再将 $(\textit{cnt}[x], x)$ 加入 $\textit{sl}$。
+调用 `setCell` 方法时，我们先判断 $(x, y, z)$ 是否已经被设置为 $1$，如果是则直接返回，否则将 $g[x][y][z]$ 设置为 $1$，然后将 $(\textit{cnt}[x], x)$ 从 $sl$ 中删除，将 $\textit{cnt}[x]$ 加一，再将 $(\textit{cnt}[x], x)$ 加入 $sl$。
 
-调用 `unsetCell` 方法时，我们先判断 $(x, y, z)$ 是否已经被设置为 $0$，如果是则直接返回，否则将 $\textit{g}[x][y][z]$ 设置为 $0$，然后将 $(\textit{cnt}[x], x)$ 从 $\textit{sl}$ 中删除，将 $\textit{cnt}[x]$ 减一，如果 $\textit{cnt}[x]$ 大于 $0$，则将 $(\textit{cnt}[x], x)$ 加入 $\textit{sl}$。
+调用 `unsetCell` 方法时，我们先判断 $(x, y, z)$ 是否已经被设置为 $0$，如果是则直接返回，否则将 $g[x][y][z]$ 设置为 $0$，然后将 $(\textit{cnt}[x], x)$ 从 $sl$ 中删除，将 $\textit{cnt}[x]$ 减一，如果 $\textit{cnt}[x]$ 大于 $0$，则将 $(\textit{cnt}[x], x)$ 加入 $sl$。
 
-调用 `largestMatrix` 方法时，我们返回 $\textit{sl}$ 中第一个元素的第二个值，如果 $\textit{sl}$ 为空，则返回 $n - 1$。
+调用 `largestMatrix` 方法时，我们返回 $sl$ 中第一个元素的第二个值，如果 $sl$ 为空，则返回 $n - 1$。
 
 时间复杂度方面，`setCell` 和 `unsetCell` 方法的时间复杂度均为 $O(\log n)$，`largestMatrix` 方法的时间复杂度为 $O(1)$。空间复杂度 $O(n^3)$。
 

@@ -85,11 +85,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table or an array of length $26$, denoted as $\textit{d}$, to store the positions of each character in the string $\textit{s}$.
+We can use a hash table or an array of length $26$, denoted as $d$, to store the positions of each character in the string $s$.
 
-Then, we traverse the string $\textit{t}$ and calculate the sum of the absolute differences between the positions of each character in the string $\textit{t}$ and the positions in the string $\textit{s}$.
+Then, we traverse the string $t$ and calculate the sum of the absolute differences between the positions of each character in the string $t$ and the positions in the string $s$.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma| \leq 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma| \leq 26$.
 
 <!-- tabs:start -->
 

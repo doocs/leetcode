@@ -71,7 +71,7 @@ tags:
 >
 > An alternating subarray has distinct adjacent values. Enumerating all $O(n^2)$ intervals and scanning each one repeats the same neighbor checks.
 >
-> Subarrays ending at $i$ are either the singleton $nums[i]$, or an extension of those ending at $i-1$ when $nums[i] \neq nums[i-1]$. Equality cuts every longer alternating run.
+> Subarrays ending at $i$ are either the singleton $\textit{nums}[i]$, or an extension of those ending at $i-1$ when $\textit{nums}[i] \neq \textit{nums}[i-1]$. Equality cuts every longer alternating run.
 >
 > Keep the alternating length $s$ ending at the current index, increment it on a change and reset it to $1$ otherwise, then add $s$ to the answer. One pass counts every valid subarray.
 
@@ -79,12 +79,12 @@ tags:
 
 We can enumerate the subarrays ending at each position, calculate the number of subarrays that meet the conditions, and sum up the number of subarrays that meet the conditions at all positions.
 
-Specifically, we define a variable $s$ to represent the number of subarrays that meet the conditions and end with the element $nums[i]$. Initially, we set $s$ to $1$, which means the number of subarrays that meet the conditions and end with the first element is $1$.
+Specifically, we define a variable $s$ to represent the number of subarrays that meet the conditions and end with the element $\textit{nums}[i]$. Initially, we set $s$ to $1$, which means the number of subarrays that meet the conditions and end with the first element is $1$.
 
-Next, we start to traverse the array from the second element. For each position $i$, we update the value of $s$ based on the relationship between $nums[i]$ and $nums[i-1]$:
+Next, we start to traverse the array from the second element. For each position $i$, we update the value of $s$ based on the relationship between $\textit{nums}[i]$ and $\textit{nums}[i-1]$:
 
-- If $nums[i] \neq nums[i-1]$, the value of $s$ increases by $1$, that is, $s = s + 1$;
-- If $nums[i] = nums[i-1]$, the value of $s$ is reset to $1$, that is, $s = 1$.
+- If $\textit{nums}[i] \neq \textit{nums}[i-1]$, the value of $s$ increases by $1$, that is, $s = s + 1$;
+- If $\textit{nums}[i] = \textit{nums}[i-1]$, the value of $s$ is reset to $1$, that is, $s = 1$.
 
 Then, we add the value of $s$ to the answer and continue to traverse the next position of the array until the entire array is traversed.
 

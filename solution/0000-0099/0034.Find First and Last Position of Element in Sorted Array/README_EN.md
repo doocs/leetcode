@@ -59,7 +59,7 @@ tags:
 >
 > The array is non-decreasing, so the two endpoints are separate binary-search questions; we need not find both in one pass.
 >
-> The left endpoint is the first index $\ge target$; the right endpoint is the first index $\ge target+1$, minus one. Two lower-bound queries suffice; if they land on the same index, $target$ is absent.
+> The left endpoint is the first index $\ge \textit{target}$; the right endpoint is the first index $\ge \textit{target}+1$, minus one. Two lower-bound queries suffice; if they land on the same index, $\textit{target}$ is absent.
 
 <!-- thinking:end -->
 

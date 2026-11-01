@@ -61,19 +61,19 @@ tags:
 
 > **Thinking**
 >
-> Primes may occupy only prime indices and composites only composite indices, so the count is $cnt!\times(n-cnt)!$. With $n\le 100$, a sieve yields the prime count on $[1,n]$; multiply the two factorials modulo $10^9+7$.
+> Primes may occupy only prime indices and composites only composite indices, so the count is $\textit{cnt}!\times(n-\textit{cnt})!$. With $n\le 100$, a sieve yields the prime count on $[1,n]$; multiply the two factorials modulo $10^9+7$.
 
 <!-- thinking:end -->
 
-First, count the number of prime numbers within the range $[1,n]$, which we denote as $cnt$. Then, calculate the product of the factorial of $cnt$ and $n-cnt$ to get the answer, remember to perform the modulo operation.
+First, count the number of prime numbers within the range $[1,n]$, which we denote as $\textit{cnt}$. Then, calculate the product of the factorial of $\textit{cnt}$ and $n-\textit{cnt}$ to get the answer, remember to perform the modulo operation.
 
 Here, we use the "Sieve of Eratosthenes" to count prime numbers.
 
 If $x$ is a prime number, then multiples of $x$ greater than $x$, such as $2x$, $3x$, ... are definitely not prime numbers, so we can start from here.
 
-Let $primes[i]$ indicate whether the number $i$ is a prime number. If it is a prime number, it is $true$, otherwise it is $false$.
+Let $\textit{primes}[i]$ indicate whether the number $i$ is a prime number. If it is a prime number, it is $\textit{true}$, otherwise it is $\textit{false}$.
 
-We sequentially traverse each number $i$ in the range $[2,n]$. If this number is a prime number, the number of prime numbers increases by $1$, and then all its multiples $j$ are marked as composite numbers (except for the prime number itself), that is, $primes[j]=false$. In this way, at the end of the run, we can know the number of prime numbers.
+We sequentially traverse each number $i$ in the range $[2,n]$. If this number is a prime number, the number of prime numbers increases by $1$, and then all its multiples $j$ are marked as composite numbers (except for the prime number itself), that is, $\textit{primes}[j]=\textit{false}$. In this way, at the end of the run, we can know the number of prime numbers.
 
 The time complexity is $O(n \log \log n)$.
 

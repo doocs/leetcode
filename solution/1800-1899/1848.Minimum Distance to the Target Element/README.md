@@ -78,9 +78,9 @@ tags:
 
 <!-- thinking:end -->
 
-遍历数组，找到所有等于 $target$ 的下标，然后计算 $|i - start|$，取最小值即可。
+遍历数组，找到所有等于 $\textit{target}$ 的下标，然后计算 $|i - \textit{start}|$，取最小值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

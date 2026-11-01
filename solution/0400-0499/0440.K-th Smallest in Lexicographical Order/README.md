@@ -56,7 +56,7 @@ tags:
 >
 > $n$ 可达 $10^9$，不能列出再排序。字典序对应一棵十叉子树：结点 $x$ 的孩子是 $10x,\ldots,10x+9$（不超过 $n$）。
 >
-> 在当前前缀 $curr$ 上统计子树大小：把 $[curr,curr+1)$ 逐层乘 $10$ 并与 $n$ 取交。若子树大小 $\le k$，则整棵跳过并 $curr{+}1$；否则进入孩子 $curr\times 10$ 且 $k$ 减一（消耗前缀本身）。
+> 在当前前缀 $\textit{curr}$ 上统计子树大小：把 $[\textit{curr},\textit{curr}+1)$ 逐层乘 $10$ 并与 $n$ 取交。若子树大小 $\le k$，则整棵跳过并 $\textit{curr}{+}1$；否则进入孩子 $\textit{curr}\times 10$ 且 $k$ 减一（消耗前缀本身）。
 >
 > 先把 $k$ 减一表示从 $1$ 出发已选中当前前缀。按层计数避免枚举子树中的每个整数。
 
@@ -83,10 +83,10 @@ tags:
 
 我们使用变量 $\textit{curr}$ 表示当前前缀，初始为 $1$。每次我们尝试向下扩展前缀，直到找到第 $k$ 小的数字。
 
-每次我们计算当前前缀下有多少个合法数字（即以 $\textit{curr}$ 为前缀、且不超过 $n$ 的整数个数），记作 $\textit{count}(\text{curr})$：
+每次我们计算当前前缀下有多少个合法数字（即以 $\textit{curr}$ 为前缀、且不超过 $n$ 的整数个数），记作 $\textit{count}(\textit{curr})$：
 
-- 如果 $k \ge \text{count}(\text{curr})$：说明目标不在这棵子树中，跳过整棵子树，前缀右移： $\textit{curr} \leftarrow \text{curr} + 1$，并更新 $k \leftarrow k - \text{count}(\text{curr})$；
-- 否则：说明目标在当前前缀的子树中，进入下一层： $\textit{curr} \leftarrow \text{curr} \times 10$，并消耗一个前缀： $k \leftarrow k - 1$。
+- 如果 $k \ge \textit{count}(\textit{curr})$：说明目标不在这棵子树中，跳过整棵子树，前缀右移： $\textit{curr} \leftarrow \textit{curr} + 1$，并更新 $k \leftarrow k - \textit{count}(\textit{curr})$；
+- 否则：说明目标在当前前缀的子树中，进入下一层： $\textit{curr} \leftarrow \textit{curr} \times 10$，并消耗一个前缀： $k \leftarrow k - 1$。
 
 每一层我们将当前区间扩大 $10$ 倍，向下延伸到更长的前缀，直到超出 $n$。
 

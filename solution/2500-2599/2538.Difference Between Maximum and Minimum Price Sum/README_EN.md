@@ -228,7 +228,7 @@ func maxOutput(n int, edges [][]int, price []int) int64 {
 >
 > Each node keeps two values: the longest downward chain $a$ that still includes the far endpoint, and the longest chain $b$ after that endpoint is dropped. The best path through the node joins one of those chains with a child's chain of the other kind, $a$ with $d$ or $b$ with $c$.
 >
-> An explicit stack of $(node, parent, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer from the children's two chains and store this node's $a$ and $b$.
+> An explicit stack of $(\textit{node}, \textit{parent}, \textit{state})$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer from the children's two chains and store this node's $a$ and $b$.
 
 <!-- thinking:end -->
 

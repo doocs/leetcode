@@ -58,9 +58,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use an array $cnt$ of length $26$ to record the minimum number of times each character appears in all strings. Finally, we traverse the $cnt$ array and add characters with a count greater than $0$ to the answer.
+We use an array $\textit{cnt}$ of length $26$ to record the minimum number of times each character appears in all strings. Finally, we traverse the $\textit{cnt}$ array and add characters with a count greater than $0$ to the answer.
 
-The time complexity is $O(n \sum w_i)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string array $words$, $w_i$ is the length of the $i$-th string in the array $words$, and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n \sum w_i)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string array $\textit{words}$, $w_i$ is the length of the $i$-th string in the array $\textit{words}$, and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

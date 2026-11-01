@@ -80,9 +80,9 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 
 Based on the problem description, we can use a union-find data structure to merge accounts with the same email address. The specific steps are as follows:
 
-First, we iterate through all the accounts. For the $i$th account, we iterate through all its email addresses. If an email address appears in the hash table $\textit{d}$, we use the union-find to merge the account's index $i$ with the previously appeared account's index; otherwise, we map this email address to the account's index $i$.
+First, we iterate through all the accounts. For the $i$th account, we iterate through all its email addresses. If an email address appears in the hash table $d$, we use the union-find to merge the account's index $i$ with the previously appeared account's index; otherwise, we map this email address to the account's index $i$.
 
-Next, we iterate through all the accounts again. For the $i$th account, we use the union-find to find its root node, and then add all the email addresses of that account to the hash table $\textit{g}$, where the key is the root node, and the value is the account's email addresses.
+Next, we iterate through all the accounts again. For the $i$th account, we use the union-find to find its root node, and then add all the email addresses of that account to the hash table $g$, where the key is the root node, and the value is the account's email addresses.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of accounts.
 

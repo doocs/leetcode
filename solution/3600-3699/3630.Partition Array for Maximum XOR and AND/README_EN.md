@@ -119,9 +119,9 @@ tags:
 
 > **Thinking**
 >
-> Partition into $A,B,C$ and maximize $(\mathrm{XOR}\,A)+(\mathrm{AND}\,B)+(\mathrm{XOR}\,C)$. A linear basis handles which XOR values are constructible.
+> Partition into $A,B,C$ and maximize $(\textit{XOR}\,A)+(\textit{AND}\,B)+(\textit{XOR}\,C)$. A linear basis handles which XOR values are constructible.
 >
-> The XOR of the whole array is fixed. $\mathrm{AND}\,B$ is the bitwise AND of a subset, so we enumerate candidate AND masks.
+> The XOR of the whole array is fixed. $\textit{AND}\,B$ is the bitwise AND of a subset, so we enumerate candidate AND masks.
 >
 > For a fixed AND contribution, insert the remaining values into a linear basis. The maximum XOR the basis can form, together with the XOR of the leftovers, yields the $A,C$ pair. Combining the enumeration with the basis gives the optimum.
 

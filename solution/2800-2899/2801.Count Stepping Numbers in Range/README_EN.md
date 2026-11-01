@@ -65,28 +65,28 @@ tags:
 
 > **Thinking**
 >
-> $low$ and $high$ are given as digit strings, so enumerating every integer in the range is infeasible. The count on $[low,high]$ equals $F(high)-F(low-1)$. A stepping number only constrains adjacent digits, which is a standard digit-DP setting. We memoize on position $pos$, previous digit $pre$, leading-zero flag $lead$, and upper-bound flag $limit$: leading zeros skip the adjacency check, and a nonzero digit $i$ is allowed only when there is no previous digit or $|i-pre|=1$.
+> $\textit{low}$ and $\textit{high}$ are given as digit strings, so enumerating every integer in the range is infeasible. The count on $[\textit{low},\textit{high}]$ equals $F(\textit{high})-F(\textit{low}-1)$. A stepping number only constrains adjacent digits, which is a standard digit-DP setting. We memoize on position $\textit{pos}$, previous digit $\textit{pre}$, leading-zero flag $\textit{lead}$, and upper-bound flag $\textit{limit}$: leading zeros skip the adjacency check, and a nonzero digit $i$ is allowed only when there is no previous digit or $|i-\textit{pre}|=1$.
 
 <!-- thinking:end -->
 
-We notice that the problem is asking for the number of stepping numbers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
+We notice that the problem is asking for the number of stepping numbers in the interval $[\textit{low}, \textit{high}]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
 
-We design a function $dfs(pos, pre, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the previous digit is $pre$, whether the current number only contains leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$. The range of $pos$ is $[0, len(num))$.
+We design a function $\textit{dfs}(\textit{pos}, \textit{pre}, \textit{lead}, \textit{limit})$, which represents the number of schemes when we are currently processing the $\textit{pos}$-th digit, the previous digit is $\textit{pre}$, whether the current number only contains leading zeros is $\textit{lead}$, and whether the current number has reached the upper limit is $\textit{limit}$. The range of $\textit{pos}$ is $[0, \textit{len}(\textit{num}))$.
 
-The execution logic of the function $dfs(pos, pre, lead, limit)$ is as follows:
+The execution logic of the function $\textit{dfs}(\textit{pos}, \textit{pre}, \textit{lead}, \textit{limit})$ is as follows:
 
-If $pos$ exceeds the length of $num$, it means that we have processed all the digits. If $lead$ is true at this time, it means that the current number only contains leading zeros and is not a valid number. We can return $0$ to indicate that the number of schemes is $0$; otherwise, we return $1$ to indicate that the number of schemes is $1$.
+If $\textit{pos}$ exceeds the length of $\textit{num}$, it means that we have processed all the digits. If $\textit{lead}$ is true at this time, it means that the current number only contains leading zeros and is not a valid number. We can return $0$ to indicate that the number of schemes is $0$; otherwise, we return $1$ to indicate that the number of schemes is $1$.
 
 Otherwise, we calculate the upper limit $up$ of the current digit, and then enumerate the digit $i$ in the range $[0,..up]$:
 
-- If $i=0$ and $lead$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $dfs(pos+1,pre, true, limit\ and\ i=up)$ and add it to the answer.
-- Otherwise, if $pre$ is $-1$, or the absolute difference between $i$ and $pre$ is $1$, it means that the current number is a valid stepping number. We recursively calculate the value of $dfs(pos+1,i, false, limit\ and\ i=up)$ and add it to the answer.
+- If $i=0$ and $\textit{lead}$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $\textit{dfs}(\textit{pos}+1,\textit{pre}, \textit{true}, \textit{limit}\ \textit{and}\ i=up)$ and add it to the answer.
+- Otherwise, if $\textit{pre}$ is $-1$, or the absolute difference between $i$ and $\textit{pre}$ is $1$, it means that the current number is a valid stepping number. We recursively calculate the value of $\textit{dfs}(\textit{pos}+1,i, \textit{false}, \textit{limit}\ \textit{and}\ i=up)$ and add it to the answer.
 
 Finally, we return the answer.
 
-In the main function, we calculate the answers $a$ and $b$ for $[1, high]$ and $[1, low-1]$ respectively. The final answer is $a-b$. Note the modulo operation of the answer.
+In the main function, we calculate the answers $a$ and $b$ for $[1, \textit{high}]$ and $[1, \textit{low}-1]$ respectively. The final answer is $a-b$. Note the modulo operation of the answer.
 
-The time complexity is $O(|\Sigma|^2 \log M)$, and the space complexity is $O(|\Sigma| \log M)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
+The time complexity is $O(|\Sigma|^2 \log M)$, and the space complexity is $O(|\Sigma| \log M)$, where $M$ represents the size of the number $\textit{high}$, and $|\Sigma|$ represents the digit set.
 
 Similar problems:
 

@@ -68,13 +68,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define the left boundary $l = 0$ and right boundary $r = n - 1$ for binary search. Each iteration, we calculate the middle position $mid = (l + r) \gg 1$ and compare the relationship between $nums[mid]$ and $nums[r]$:
+We define the left boundary $l = 0$ and right boundary $r = n - 1$ for binary search. Each iteration, we calculate the middle position $\textit{mid} = (l + r) \gg 1$ and compare the relationship between $\textit{nums}[\textit{mid}]$ and $\textit{nums}[r]$:
 
-- If $nums[mid] > nums[r]$, the minimum value is to the right of $mid$, so we update $l$ to $mid + 1$.
-- If $nums[mid] = nums[r]$, we cannot determine the position of the minimum value, but we can move $r$ to the left by one position, i.e., $r = r - 1$, to narrow down the search range.
-- If $nums[mid] < nums[r]$, the minimum value is to the left of $mid$ or at $mid$ itself, so we update $r$ to $mid$.
+- If $\textit{nums}[\textit{mid}] > \textit{nums}[r]$, the minimum value is to the right of $\textit{mid}$, so we update $l$ to $\textit{mid} + 1$.
+- If $\textit{nums}[\textit{mid}] = \textit{nums}[r]$, we cannot determine the position of the minimum value, but we can move $r$ to the left by one position, i.e., $r = r - 1$, to narrow down the search range.
+- If $\textit{nums}[\textit{mid}] < \textit{nums}[r]$, the minimum value is to the left of $\textit{mid}$ or at $\textit{mid}$ itself, so we update $r$ to $\textit{mid}$.
 
-When $l$ and $r$ meet, the pointer $l$ points to the position of the minimum value, and we return $nums[l]$.
+When $l$ and $r$ meet, the pointer $l$ points to the position of the minimum value, and we return $\textit{nums}[l]$.
 
 The time complexity is $O(n)$, as in the worst case where all elements in the array are the same, we need to traverse the entire array. The space complexity is $O(1)$.
 

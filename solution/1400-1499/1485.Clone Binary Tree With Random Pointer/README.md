@@ -95,14 +95,14 @@ tags:
 
 我们用哈希表 $\textit{seen}$ 记录原树中每个节点与其拷贝节点的对应关系，然后进行深度优先搜索。
 
-定义函数 $\text{dfs}(root)$，返回节点 $root$ 的拷贝。过程如下：
+定义函数 $\textit{dfs}(\textit{root})$，返回节点 $\textit{root}$ 的拷贝。过程如下：
 
-- 若 $root$ 为空，返回空；
-- 若 $root$ 已在 $\textit{seen}$ 中，返回 $\textit{seen}[root]$；
-- 否则创建拷贝节点 $\textit{copy}$，令 $\textit{seen}[root] = \textit{copy}$，再分别递归处理 $root$ 的左子节点、右子节点和 $\textit{random}$ 指针；
+- 若 $\textit{root}$ 为空，返回空；
+- 若 $\textit{root}$ 已在 $\textit{seen}$ 中，返回 $\textit{seen}[\textit{root}]$；
+- 否则创建拷贝节点 $\textit{copy}$，令 $\textit{seen}[\textit{root}] = \textit{copy}$，再分别递归处理 $\textit{root}$ 的左子节点、右子节点和 $\textit{random}$ 指针；
 - 最后返回 $\textit{copy}$。
 
-主函数返回 $\text{dfs}(root)$。
+主函数返回 $\textit{dfs}(\textit{root})$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数量。
 

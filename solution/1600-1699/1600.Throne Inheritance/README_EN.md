@@ -109,7 +109,7 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 
 <!-- thinking:end -->
 
-According to the problem description, we can find that the order of throne inheritance is actually a preorder traversal of a multi-branch tree. We can use a hash table $g$ to store the children of each person, and a set $dead$ to store the people who have died.
+According to the problem description, we can find that the order of throne inheritance is actually a preorder traversal of a multi-branch tree. We can use a hash table $g$ to store the children of each person, and a set $\textit{dead}$ to store the people who have died.
 
 - When calling `birth(parentName, childName)`, we add `childName` to the child list of `parentName`.
 - When calling `death(name)`, we add `name` to the `dead` set.
@@ -408,11 +408,11 @@ public class ThroneInheritance {
 
 <!-- thinking:end -->
 
-The inheritance order is a preorder traversal of a multi-way tree. A hash table $g$ stores each person's children in birth order, and a set $dead$ stores the people who have died.
+The inheritance order is a preorder traversal of a multi-way tree. A hash table $g$ stores each person's children in birth order, and a set $\textit{dead}$ stores the people who have died.
 
 - When calling `birth(parentName, childName)`, append `childName` to the child list of `parentName`.
-- When calling `death(name)`, add `name` to $dead$.
-- When calling `getInheritanceOrder()`, the stack starts with the king. After `x` is popped, append `x` when `x` is not in $dead$, then push the children of `x` from last to first so birth order is preserved.
+- When calling `death(name)`, add `name` to $\textit{dead}$.
+- When calling `getInheritanceOrder()`, the stack starts with the king. After `x` is popped, append `x` when `x` is not in $\textit{dead}$, then push the children of `x` from last to first so birth order is preserved.
 
 In terms of time complexity, both `birth` and `death` have a time complexity of $O(1)$, and `getInheritanceOrder` has a time complexity of $O(n)$. The space complexity is $O(n)$, where $n$ is the number of nodes.
 

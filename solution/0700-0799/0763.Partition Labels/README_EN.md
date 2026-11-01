@@ -65,7 +65,7 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 >
 > Split $s$ into as many parts as possible so no letter appears in two parts. A letter's last index is how far its part must reach.
 >
-> Scan left to right, extending the current end by $last[c]$. When the scan index meets that end, the part is closed.
+> Scan left to right, extending the current end by $\textit{last}[c]$. When the scan index meets that end, the part is closed.
 >
 > Build $\textit{last}$, then cut in one pass. $O(n)$.
 
@@ -77,9 +77,9 @@ Next, we use a greedy approach to partition the string into as many segments as 
 
 Traverse the string $s$ from left to right, while maintaining the start index $j$ and end index $i$ of the current segment, both initially set to $0$.
 
-For each letter $c$ visited, get the last occurrence position $\textit{last}[c]$. Since the end index of the current segment must not be less than $\textit{last}[c]$, let $\textit{mx} = \max(\textit{mx}, \textit{last}[c])$.
+For each letter $c$ visited, get the last occurrence position $\textit{last}[c]$. Since the end index of the current segment must not be less than $\textit{last}[c]$, let $mx = \max(mx, \textit{last}[c])$.
 
-When visiting the index $\textit{mx}$, it means the current segment ends. The index range of the current segment is $[j,.. i]$, and the length is $i - j + 1$. We add this length to the result array. Then set $j = i + 1$ and continue to find the next segment.
+When visiting the index $mx$, it means the current segment ends. The index range of the current segment is $[j,.. i]$, and the length is $i - j + 1$. We add this length to the result array. Then set $j = i + 1$ and continue to find the next segment.
 
 Repeat the above process until the string traversal is complete to get the lengths of all segments.
 

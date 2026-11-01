@@ -68,7 +68,7 @@ tags:
 >
 > 最少插入次数等于 $|\textit{target}|$ 减去最长公共子序列长度。标准 LCS 为 $O(mn)$，两边长度均达 $10^5$，不可行。
 >
-> $\textit{target}$ 元素互异，因此 $arr$ 中出现在 $\textit{target}$ 里的值可映射为 $\textit{target}$ 下标。LCS 退化为该下标序列的最长递增子序列。
+> $\textit{target}$ 元素互异，因此 $\textit{arr}$ 中出现在 $\textit{target}$ 里的值可映射为 $\textit{target}$ 下标。LCS 退化为该下标序列的最长递增子序列。
 >
 > 用树状数组维护「小于当前下标的最大 LIS」，每次查询 $x-1$ 再更新 $x$。答案为 $m$ 减去 LIS 长度。
 

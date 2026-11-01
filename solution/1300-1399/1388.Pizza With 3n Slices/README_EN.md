@@ -84,21 +84,21 @@ Therefore, the problem we need to solve can be transformed into: In a circular a
 
 In a circular array, if the first number is selected, the last number cannot be selected. If the last number is selected, the first number cannot be selected. Therefore, we can split the circular array into two arrays, one is without the first number, and the other is without the last number. Then solve the maximum value of these two arrays separately, and finally take the larger of the two maximum values.
 
-We use a function $g(nums)$, which represents the maximum sum of selecting $n$ non-adjacent numbers in the array $nums$. Then our goal is to find the larger value between $g(slices)$ and $g(slices[1:])$.
+We use a function $g(\textit{nums})$, which represents the maximum sum of selecting $n$ non-adjacent numbers in the array $\textit{nums}$. Then our goal is to find the larger value between $g(\textit{slices})$ and $g(\textit{slices}[1:])$.
 
-The solution method of function $g(nums)$ is as follows:
+The solution method of function $g(\textit{nums})$ is as follows:
 
-We denote the length of array $nums$ as $m$, and define $f[i][j]$ as the maximum sum of selecting $j$ non-adjacent numbers in the first $i$ numbers of array $nums$.
+We denote the length of array $\textit{nums}$ as $m$, and define $f[i][j]$ as the maximum sum of selecting $j$ non-adjacent numbers in the first $i$ numbers of array $\textit{nums}$.
 
-Consider $f[i][j]$, if we do not select the $i$-th number, then $f[i][j] = f[i - 1][j]$. If we select the $i$-th number, then $f[i][j] = f[i - 2][j - 1] + nums[i - 1]$. Therefore, we can get the state transition equation:
+Consider $f[i][j]$, if we do not select the $i$-th number, then $f[i][j] = f[i - 1][j]$. If we select the $i$-th number, then $f[i][j] = f[i - 2][j - 1] + \textit{nums}[i - 1]$. Therefore, we can get the state transition equation:
 
 $$
-f[i][j] = \max(f[i - 1][j], f[i - 2][j - 1] + nums[i - 1])
+f[i][j] = \max(f[i - 1][j], f[i - 2][j - 1] + \textit{nums}[i - 1])
 $$
 
 Finally, return $f[m][n]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $slices$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{slices}$.
 
 <!-- tabs:start -->
 

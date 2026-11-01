@@ -79,7 +79,7 @@ $$
 f[i][j]=
 \begin{cases}
 f[i-1][j-1], & s_1[i-1] = s_2[j-1] \\
-min(f[i-1][j] + s_1[i-1], f[i][j-1] + s_2[j-1]), & s_1[i-1] \neq s_2[j-1]
+\min(f[i-1][j] + s_1[i-1], f[i][j-1] + s_2[j-1]), & s_1[i-1] \neq s_2[j-1]
 \end{cases}
 $$
 

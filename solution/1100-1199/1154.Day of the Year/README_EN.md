@@ -57,7 +57,7 @@ tags:
 
 > **Thinking**
 >
-> The day-of-year is the sum of previous month lengths plus the day. Split $y,m,d$, set February from the leap-year rule, and add $days[0..m-2]$ and $d$. No full date object is required.
+> The day-of-year is the sum of previous month lengths plus the day. Split $y,m,d$, set February from the leap-year rule, and add $\textit{days}[0..m-2]$ and $d$. No full date object is required.
 
 <!-- thinking:end -->
 

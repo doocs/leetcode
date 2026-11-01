@@ -81,13 +81,13 @@ i = 4 ，arr[4] = 0 因为不存在值等于 2 的其他下标。
 
 <!-- thinking:end -->
 
-我们先用哈希表 $d$ 记录数组 $nums$ 中每个元素对应的下标列表，即 $d[x]$ 表示数组 $nums$ 中所有值为 $x$ 的下标列表。
+我们先用哈希表 $d$ 记录数组 $\textit{nums}$ 中每个元素对应的下标列表，即 $d[x]$ 表示数组 $\textit{nums}$ 中所有值为 $x$ 的下标列表。
 
-对于哈希表 $d$ 中的每个值列表 $idx$，我们可以计算出 $idx$ 中每个下标 $i$ 对应的 $arr[i]$ 的值。对于第一个下标 $idx[0]$，右边所有下标距离 $idx[0]$ 的和 $right=\sum_{i=0}^{m-1} - idx[0] \times m$。接下来我们遍历 $idx$，每一次计算得到 $ans[idx[i]] = left + right$，然后更新 $left$ 和 $right$，即 $left = left + (idx[i+1] - idx[i]) \times (i+1)$，而 $right = right - (idx[i+1] - idx[i]) \times (m-i-1)$。
+对于哈希表 $d$ 中的每个值列表 $\textit{idx}$，我们可以计算出 $\textit{idx}$ 中每个下标 $i$ 对应的 $\textit{arr}[i]$ 的值。对于第一个下标 $\textit{idx}[0]$，右边所有下标距离 $\textit{idx}[0]$ 的和 $\textit{right}=\sum_{i=0}^{m-1} - \textit{idx}[0] \times m$。接下来我们遍历 $\textit{idx}$，每一次计算得到 $\textit{ans}[\textit{idx}[i]] = \textit{left} + \textit{right}$，然后更新 $\textit{left}$ 和 $\textit{right}$，即 $\textit{left} = \textit{left} + (\textit{idx}[i+1] - \textit{idx}[i]) \times (i+1)$，而 $\textit{right} = \textit{right} - (\textit{idx}[i+1] - \textit{idx}[i]) \times (m-i-1)$。
 
-遍历结束后，我们得到了数组 $nums$ 中每个元素对应的 $arr$ 的值，即 $ans$。
+遍历结束后，我们得到了数组 $\textit{nums}$ 中每个元素对应的 $\textit{arr}$ 的值，即 $\textit{ans}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

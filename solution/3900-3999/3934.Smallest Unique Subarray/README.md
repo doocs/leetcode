@@ -125,13 +125,13 @@ tags:
 
 <!-- thinking:end -->
 
-在 $\textit{mid_len} = \frac{\textit{min_len} + \textit{max_len}}{2}$ 下，对于每个候选子数组长度 $\textit{mid_len}$，
+在 $\textit{mid}_\textit{len} = \frac{\min_\textit{len} + \max_\textit{len}}{2}$ 下，对于每个候选子数组长度 $\textit{mid}_\textit{len}$，
 
-用滚动哈希遍历所有长度为 $\textit{mid_len}$ 的子数组，记录每个哈希值出现的次数。
+用滚动哈希遍历所有长度为 $\textit{mid}_\textit{len}$ 的子数组，记录每个哈希值出现的次数。
 
-若存在某个哈希值恰好出现一次，则说明该长度存在唯一子数组，能因此尝试把 $\textit{max_len}$ 缩小到 $\textit{mid_len} - 1$；
+若存在某个哈希值恰好出现一次，则说明该长度存在唯一子数组，能因此尝试把 $\max_\textit{len}$ 缩小到 $\textit{mid}_\textit{len} - 1$；
 
-否则说明该长度不存在唯一子数组，必须让 $\textit{min_len}$ 上升到 $\textit{mid_len} + 1$。
+否则说明该长度不存在唯一子数组，必须让 $\min_\textit{len}$ 上升到 $\textit{mid}_\textit{len} + 1$。
 
 这是因为一旦长度为 $l$ 的子数组做到了唯一性，长度 $> l$ 的子数组也必然有唯一性。
 

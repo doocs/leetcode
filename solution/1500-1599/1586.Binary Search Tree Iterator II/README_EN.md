@@ -87,15 +87,15 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 
 > **Thinking**
 >
-> The iterator must support both $next$ and $prev$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search.
+> The iterator must support both $\textit{next}$ and $\textit{prev}$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search.
 >
 > An inorder walk flattens the BST into a sorted array; an index $i$ is the cursor. Next and prev become $i\pm 1$, and emptiness is a bound check. Initialization is linear; each later call is constant time.
 
 <!-- thinking:end -->
 
-We can use in-order traversal to store the values of all nodes in the binary search tree into an array $nums$, and then use the array to implement the iterator. We define a pointer $i$, initially $i = -1$, which points to an element in the array $nums$. Each time we call $next()$, we add $1$ to the value of $i$ and return $nums[i]$; each time we call $prev()$, we subtract $1$ from the value of $i$ and return $nums[i]$.
+We can use in-order traversal to store the values of all nodes in the binary search tree into an array $\textit{nums}$, and then use the array to implement the iterator. We define a pointer $i$, initially $i = -1$, which points to an element in the array $\textit{nums}$. Each time we call $\textit{next}()$, we add $1$ to the value of $i$ and return $\textit{nums}[i]$; each time we call $\textit{prev}()$, we subtract $1$ from the value of $i$ and return $\textit{nums}[i]$.
 
-In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $next()$ and $prev()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
+In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $\textit{next}()$ and $\textit{prev}()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
 
 <!-- tabs:start -->
 
@@ -404,19 +404,19 @@ class BSTIterator {
 
 > **Thinking**
 >
-> The iterator must support both $next$ and $prev$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search. Flattening the tree into a sorted array and moving an index is correct on a short tree.
+> The iterator must support both $\textit{next}$ and $\textit{prev}$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search. Flattening the tree into a sorted array and moving an index is correct on a short tree.
 >
 > The tree can contain $10^5$ nodes. A left chain makes this inorder walk recurse once per node and overflow the call stack.
 >
 > Inorder of a BST is already nondecreasing. Each node finishes its left subtree, records itself, then visits the right subtree, and no return value is required.
 >
-> An explicit stack performs that inorder walk and writes the values into $nums$. The cursor $i$ starts at $-1$. $next$ and $prev$ move $i$ by one and return $nums[i]$; the bounds of $i$ answer whether another step exists.
+> An explicit stack performs that inorder walk and writes the values into $\textit{nums}$. The cursor $i$ starts at $-1$. $\textit{next}$ and $\textit{prev}$ move $i$ by one and return $\textit{nums}[i]$; the bounds of $i$ answer whether another step exists.
 
 <!-- thinking:end -->
 
-An explicit stack walks the binary search tree inorder and stores every node value in an array $nums$. On entry we push an exit marker and the left child; on exit we append the node value and push the right child. The cursor $i$ starts at $-1$. Each $next()$ adds $1$ to $i$ and returns $nums[i]$; each $prev()$ subtracts $1$ from $i$ and returns $nums[i]$.
+An explicit stack walks the binary search tree inorder and stores every node value in an array $\textit{nums}$. On entry we push an exit marker and the left child; on exit we append the node value and push the right child. The cursor $i$ starts at $-1$. Each $\textit{next}()$ adds $1$ to $i$ and returns $\textit{nums}[i]$; each $\textit{prev}()$ subtracts $1$ from $i$ and returns $\textit{nums}[i]$.
 
-In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $next()$ and $prev()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
+In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $\textit{next}()$ and $\textit{prev}()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
 
 <!-- tabs:start -->
 

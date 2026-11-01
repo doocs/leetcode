@@ -74,7 +74,7 @@ difficulty: Medium
 >
 > With downward and rightward runs of zeros, a side $k$ is valid when four rays from the corners are at least $k$.
 >
-> Fill $down$ and $right$ from the bottom-right; try $k$ from large to small and the top-left cell; the first hit is maximal, return $[i,j,k]$.
+> Fill $\textit{down}$ and $\textit{right}$ from the bottom-right; try $k$ from large to small and the top-left cell; the first hit is maximal, return $[i,j,k]$.
 
 <!-- thinking:end -->
 

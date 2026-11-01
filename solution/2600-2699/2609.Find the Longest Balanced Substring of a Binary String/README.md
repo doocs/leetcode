@@ -281,12 +281,12 @@ impl Solution {
 
 <!-- thinking:end -->
 
-我们用变量 $zero$ 和 $one$ 分别记录当前连续的 $0$ 和 $1$ 的个数。
+我们用变量 $\textit{zero}$ 和 $\textit{one}$ 分别记录当前连续的 $0$ 和 $1$ 的个数。
 
 遍历字符串 $s$，对于当前字符 $c$：
 
-- 如果当前字符为 `'0'`，我们判断此时 $one$ 是否大于 $0$，是则将 $zero$ 和 $one$ 重置为 $0$，接下来将 $zero$ 加 $1$。
-- 如果当前字符为 `'1'`，则将 $one$ 加 $1$，并更新答案为 $ans = \max(ans, 2 \times \min(one, zero))$。
+- 如果当前字符为 `'0'`，我们判断此时 $\textit{one}$ 是否大于 $0$，是则将 $\textit{zero}$ 和 $\textit{one}$ 重置为 $0$，接下来将 $\textit{zero}$ 加 $1$。
+- 如果当前字符为 `'1'`，则将 $\textit{one}$ 加 $1$，并更新答案为 $\textit{ans} = \max(\textit{ans}, 2 \times \min(\textit{one}, \textit{zero}))$。
 
 遍历结束后，即可得到最长的平衡子串的长度。
 

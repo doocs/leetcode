@@ -80,15 +80,15 @@ The computer will be on for a total of 4 seconds.
 
 <!-- thinking:end -->
 
-We observe that the problem is equivalent to selecting $duration$ integer time points in each interval $[start,..,end]$, so that the total number of selected integer time points is minimized.
+We observe that the problem is equivalent to selecting $\textit{duration}$ integer time points in each interval $[\textit{start},..,\textit{end}]$, so that the total number of selected integer time points is minimized.
 
-Therefore, we can first sort $tasks$ in ascending order of end time $end$. Then we greedily make selections. For each task, we start from the end time $end$ and choose the points as late as possible from back to front. This way, these points are more likely to be reused by later tasks.
+Therefore, we can first sort $\textit{tasks}$ in ascending order of end time $\textit{end}$. Then we greedily make selections. For each task, we start from the end time $\textit{end}$ and choose the points as late as possible from back to front. This way, these points are more likely to be reused by later tasks.
 
-In our implementation, we can use an array $vis$ of length $2010$ to record whether each time point has been selected. Then for each task, we first count the number of points $cnt$ that have been selected in the interval $[start,..,end]$, and then select $duration - cnt$ points from back to front, while recording the number of selected points $ans$ and updating the $vis$ array.
+In our implementation, we can use an array $\textit{vis}$ of length $2010$ to record whether each time point has been selected. Then for each task, we first count the number of points $\textit{cnt}$ that have been selected in the interval $[\textit{start},..,\textit{end}]$, and then select $\textit{duration} - \textit{cnt}$ points from back to front, while recording the number of selected points $\textit{ans}$ and updating the $\textit{vis}$ array.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n \log n + nm)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $tasks$ and $vis$ array, respectively. In this problem, $m = 2010$.
+The time complexity is $O(n \log n + nm)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $\textit{tasks}$ and $\textit{vis}$ array, respectively. In this problem, $m = 2010$.
 
 <!-- tabs:start -->
 

@@ -174,10 +174,10 @@ tags:
 
 <!-- thinking:end -->
 
-The goal is to calculate total sum $S = \sum_i (\text{MaxSum}_i + \text{MinSum}_i)$, where:
+The goal is to calculate total sum $S = \sum_i (\textit{MaxSum}_i + \textit{MinSum}_i)$, where:
 
-1.  $\text{MaxSum}_i$: sum of maximum values of all valid subarrays ending at index $i$.
-2.  $\text{MinSum}_i$: sum of minimum values of all valid subarrays ending at index $i$.
+1.  $\textit{MaxSum}_i$: sum of maximum values of all valid subarrays ending at index $i$.
+2.  $\textit{MinSum}_i$: sum of minimum values of all valid subarrays ending at index $i$.
 
 We maintain two **Deques**, used as monotonic stacks with boundary control: `max_stack` and `min_stack`.
 
@@ -188,9 +188,9 @@ where `count` represents how many times this `value` acts as the max/min within 
 
 #### Step 1: Boundary Control
 
-For each element $nums[i]$, check if window boundary $\max(0, i - k + 1)$ has advanced.
+For each element $\textit{nums}[i]$, check if window boundary $\max(0, i - k + 1)$ has advanced.
 
-- If $i - k \ge 0$, it means the subarray $nums[i-k \dots i]$ would exceed length $k$ due to inclusion of $nums[i]$.
+- If $i - k \ge 0$, it means the subarray $\textit{nums}[i-k \dots i]$ would exceed length $k$ due to inclusion of $\textit{nums}[i]$.
 - Contribution of the subarray starting at $i-k$ must be removed. This contribution is located at the **front** of our deques.
 - We decrement the `count` of deques' front. If the front element's index falls out of window range, we `popleft()` to maintain efficiency.
 
@@ -198,20 +198,20 @@ For each element $nums[i]$, check if window boundary $\max(0, i - k + 1)$ has ad
 
 Taking `max_stack` as an example:
 
-- While `max_stack` is not empty and `max_stack` top value $\leq nums[i]$ (1):
-    - Current $nums[i]$ will replace this top element as the new maximum for all subarrays this top element previously "served."
+- While `max_stack` is not empty and `max_stack` top value $\leq \textit{nums}[i]$ (1):
+    - Current $\textit{nums}[i]$ will replace this top element as the new maximum for all subarrays this top element previously "served."
     - We take over the `prev_shares` (which is the count) from this popped element.
-    - Net increase to `subarrays_max_sum` is calculated as $(nums[i] - prev\_num) \times prev\_shares$.
-- After while-loop, we add $nums[i]$'s own contribution, as a single-element subarray, to `subarrays_max_sum`,
-  and push $nums[i]$ onto `max_stack` with its cumulative `count` and index.
+    - Net increase to `subarrays_max_sum` is calculated as $(\textit{nums}[i] - \textit{prev\_num}) \times \textit{prev\_shares}$.
+- After while-loop, we add $\textit{nums}[i]$'s own contribution, as a single-element subarray, to `subarrays_max_sum`,
+  and push $\textit{nums}[i]$ onto `max_stack` with its cumulative `count` and index.
 
-Logic for `min_stack` processing is similar, but inequality (1) must change into `min_stack` top value $\geq nums[i]$.
+Logic for `min_stack` processing is similar, but inequality (1) must change into `min_stack` top value $\geq \textit{nums}[i]$.
 
 #### Step 3: Accumulation
 
 At the end of each iteration $i$, we add current `subarrays_max_sum` and `subarrays_min_sum` to global total `subarrays_max_min_sum`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $nums$. Each element is pushed and popped at most $4$ times in total among the two deques.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$. Each element is pushed and popped at most $4$ times in total among the two deques.
 
 <!-- tabs:start -->
 

@@ -47,7 +47,7 @@ difficulty: Easy
 >
 > That is the longest window containing at most one $0$, which a sliding window finds in one pass.
 >
-> Right end $i$ walks $32$ bits; $cnt$ is the number of zeros. When $cnt>1$, advance $j$. `num>>i & 1 ^ 1` increments exactly on a zero bit.
+> Right end $i$ walks $32$ bits; $\textit{cnt}$ is the number of zeros. When $\textit{cnt}>1$, advance $j$. `num>>i & 1 ^ 1` increments exactly on a zero bit.
 
 <!-- thinking:end -->
 

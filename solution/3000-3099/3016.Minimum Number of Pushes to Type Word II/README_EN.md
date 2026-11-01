@@ -108,9 +108,9 @@ It can be shown that no other mapping can provide a lower cost.
 
 <!-- thinking:end -->
 
-We use a hash table or array $cnt$ to count the number of occurrences of each letter in the string $word$. Next, we sort the letters in descending order of their counts, and then group every $8$ letters together, assigning each group to the $8$ keys.
+We use a hash table or array $\textit{cnt}$ to count the number of occurrences of each letter in the string $\textit{word}$. Next, we sort the letters in descending order of their counts, and then group every $8$ letters together, assigning each group to the $8$ keys.
 
-The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $word$, and $\Sigma$ is the set of letters that appear in the string $word$.
+The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{word}$, and $\Sigma$ is the set of letters that appear in the string $\textit{word}$.
 
 <!-- tabs:start -->
 

@@ -76,19 +76,19 @@ tags:
 >
 > Split the string into as many distinct pieces as possible. $n\le 16$ allows full backtracking, yet if the pieces so far plus the leftover characters cannot beat the best answer, the branch is useless.
 >
-> From index $i$ try every end $j$, accept $s[i:j]$ only when it is new, and recurse. A set tests uniqueness; $len(st)+n-i\le ans$ prunes hopeless prefixes.
+> From index $i$ try every end $j$, accept $s[i:j]$ only when it is new, and recurse. A set tests uniqueness; $\textit{len}(st)+n-i\le \textit{ans}$ prunes hopeless prefixes.
 
 <!-- thinking:end -->
 
-We define a hash table $\textit{st}$ to store the currently split substrings. Then we use a depth-first search approach to try to split the string $\textit{s}$ into several unique substrings.
+We define a hash table $st$ to store the currently split substrings. Then we use a depth-first search approach to try to split the string $s$ into several unique substrings.
 
-Specifically, we design a function $\text{dfs}(i)$, which means we are considering splitting $\textit{s}[i:]$.
+Specifically, we design a function $\textit{dfs}(i)$, which means we are considering splitting $s[i:]$.
 
-In the function $\text{dfs}(i)$, we first check if the number of substrings already split plus the remaining characters is less than or equal to the current answer. If so, there is no need to continue splitting, and we return directly. If $i \geq n$, it means we have completed the splitting of the entire string, and we update the answer to the maximum of the current number of substrings and the answer. Otherwise, we enumerate the end position $j$ (exclusive) of the current substring and check if $\textit{s}[i..j)$ has already been split. If not, we add it to the hash table $\textit{st}$ and continue to recursively consider splitting the remaining part. After the recursive call, we need to remove $\textit{s}[i..j)$ from the hash table $\textit{st}$.
+In the function $\textit{dfs}(i)$, we first check if the number of substrings already split plus the remaining characters is less than or equal to the current answer. If so, there is no need to continue splitting, and we return directly. If $i \geq n$, it means we have completed the splitting of the entire string, and we update the answer to the maximum of the current number of substrings and the answer. Otherwise, we enumerate the end position $j$ (exclusive) of the current substring and check if $s[i..j)$ has already been split. If not, we add it to the hash table $st$ and continue to recursively consider splitting the remaining part. After the recursive call, we need to remove $s[i..j)$ from the hash table $st$.
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

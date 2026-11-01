@@ -115,9 +115,9 @@ signup_action 是 ('Verified', 'Not Verified') 的枚举类型。
 >
 > 要找注册次日即验证成功的用户。两表分别存邮箱与短信，条件分散在连接与日期差上。
 >
-> 内连 $email\_id$，并要求 $DATEDIFF=1$ 且操作为 `Verified`，一次即可筛出。
+> 内连 $\textit{email\_id}$，并要求 $\textit{DATEDIFF}=1$ 且操作为 `Verified`，一次即可筛出。
 >
-> 选出 $user\_id$ 并升序排列。无需分组或窗口。
+> 选出 $\textit{user\_id}$ 并升序排列。无需分组或窗口。
 
 <!-- thinking:end -->
 

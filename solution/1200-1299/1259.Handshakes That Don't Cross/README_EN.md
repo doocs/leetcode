@@ -62,20 +62,20 @@ tags:
 >
 > An even number of people shake hands on a circle without crossing; the count is Catalan-like. $n \le 1000$ forbids listing matchings. Fix one person: their partner splits the circle into two smaller even instances, and we multiply those counts over every legal partner.
 >
-> $dfs(i)$ tries an even left size $l$ and a right size $i-l-2$. Memoization shares sub-circles. We reduce modulo $10^9+7$.
+> $\textit{dfs}(i)$ tries an even left size $l$ and a right size $i-l-2$. Memoization shares sub-circles. We reduce modulo $10^9+7$.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents the number of handshake schemes for $i$ people. The answer is $dfs(n)$.
+We design a function $\textit{dfs}(i)$, which represents the number of handshake schemes for $i$ people. The answer is $\textit{dfs}(n)$.
 
-The execution logic of the function $dfs(i)$ is as follows:
+The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
 - If $i \lt 2$, then there is only one handshake scheme, which is not to shake hands, so return $1$.
-- Otherwise, we can enumerate who the first person shakes hands with. Let the number of remaining people on the left be $l$, and the number of people on the right be $r=i-l-2$. Then we have $dfs(i)= \sum_{l=0}^{i-1} dfs(l) \times dfs(r)$.
+- Otherwise, we can enumerate who the first person shakes hands with. Let the number of remaining people on the left be $l$, and the number of people on the right be $r=i-l-2$. Then we have $\textit{dfs}(i)= \sum_{l=0}^{i-1} \textit{dfs}(l) \times \textit{dfs}(r)$.
 
 To avoid repeated calculations, we use the method of memoization search.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the size of $numPeople$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the size of $\textit{numPeople}$.
 
 <!-- tabs:start -->
 

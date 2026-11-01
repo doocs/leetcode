@@ -86,7 +86,7 @@ Teacher 表:
 >
 > 每位教师讲授的不同课程数。同一教师可能在不同院系重复同一科目，须去重。
 >
-> 按 $teacher\_id$ 分组，对 $subject\_id$ 做 $COUNT(DISTINCT \cdot)$。
+> 按 $\textit{teacher\_id}$ 分组，对 $\textit{subject\_id}$ 做 $\textit{COUNT}(\textit{DISTINCT} \cdot)$。
 
 <!-- thinking:end -->
 

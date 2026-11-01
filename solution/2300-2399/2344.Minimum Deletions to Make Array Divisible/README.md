@@ -71,13 +71,13 @@ tags:
 
 > **思考**
 >
-> 删去若干元素后，剩下的最小值须整除 $numsDivide$ 中每一个。该最小值必是 $\gcd(numsDivide)$ 的因子。 $n$ 可达 $10^5$。
+> 删去若干元素后，剩下的最小值须整除 $\textit{numsDivide}$ 中每一个。该最小值必是 $\gcd(\textit{numsDivide})$ 的因子。 $n$ 可达 $10^5$。
 >
-> 先求 $x=\gcd(numsDivide)$，再将 $nums$ 升序扫描，第一个整除 $x$ 的值之前的个数即为删除次数；若没有则无解。
+> 先求 $x=\gcd(\textit{numsDivide})$，再将 $\textit{nums}$ 升序扫描，第一个整除 $x$ 的值之前的个数即为删除次数；若没有则无解。
 
 <!-- thinking:end -->
 
-如果一个元素能整除数组 `numsDivide` 所有元素，那么这个元素是所有 $numsDivide[i]$ 的最大公约数 $x$ 的因子。因此，我们可以先求出 `numsDivide` 的最大公约数 $x$。
+如果一个元素能整除数组 `numsDivide` 所有元素，那么这个元素是所有 $\textit{numsDivide}[i]$ 的最大公约数 $x$ 的因子。因此，我们可以先求出 `numsDivide` 的最大公约数 $x$。
 
 接下来，将数组 `nums` 排序，然后从头到尾遍历数组 `nums`，找到第一个是最大公约数 $x$ 的因子的元素，返回当前元素下标即可。
 

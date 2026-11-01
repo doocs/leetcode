@@ -87,7 +87,7 @@ tags:
 
 Let's define two new states. State $2$ indicates that the living cell becomes dead in the next state, and state $-1$ indicates that the dead cell becomes alive in the next state. Therefore, for the current grid we are traversing, if the grid is greater than $0$, it means that the current grid is a living cell, otherwise it is a dead cell.
 
-So we can traverse the entire board, for each grid, count the number of living neighbors around the grid, and use the variable $live$ to represent it. If the current grid is a living cell, then when $live \lt 2$ or $live \gt 3$, the next state of the current grid is a dead cell, that is, state $2$; if the current grid is a dead cell, then when $live = 3$, the next state of the current grid is an active cell, that is, state $-1$.
+So we can traverse the entire board, for each grid, count the number of living neighbors around the grid, and use the variable $\textit{live}$ to represent it. If the current grid is a living cell, then when $\textit{live} \lt 2$ or $\textit{live} \gt 3$, the next state of the current grid is a dead cell, that is, state $2$; if the current grid is a dead cell, then when $\textit{live} = 3$, the next state of the current grid is an active cell, that is, state $-1$.
 
 Finally, we traverse the board again, and update the grid with state $2$ to a dead cell, and update the grid with state $-1$ to an active cell.
 

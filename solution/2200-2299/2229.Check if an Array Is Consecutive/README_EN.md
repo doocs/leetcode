@@ -81,7 +81,7 @@ Therefore, nums is consecutive.
 
 <!-- thinking:end -->
 
-We can use a hash table $\textit{s}$ to store all the elements in the array $\textit{nums}$, and use two variables $\textit{mi}$ and $\textit{mx}$ to represent the minimum and maximum values in the array, respectively.
+We can use a hash table $s$ to store all the elements in the array $\textit{nums}$, and use two variables $mi$ and $mx$ to represent the minimum and maximum values in the array, respectively.
 
 If all elements in the array are distinct and the length of the array equals the difference between the maximum and minimum values plus $1$, then the array is consecutive, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 

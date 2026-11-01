@@ -101,9 +101,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们初始化一个变量 $\textit{ans}$ 为无穷大，表示当前的最小索引和，用一个哈希表 $\textit{d}$ 来存储数组 $\textit{nums2}$ 中每个元素第一次出现的索引。
+我们初始化一个变量 $\textit{ans}$ 为无穷大，表示当前的最小索引和，用一个哈希表 $d$ 来存储数组 $\textit{nums2}$ 中每个元素第一次出现的索引。
 
-然后我们遍历数组 $\textit{nums1}$，对于每个元素 $\textit{nums1}[i]$，如果它在 $\textit{d}$ 中存在，我们就计算它的索引和 $i + \textit{d}[\textit{nums1}[i]]$，并更新 $\textit{ans}$。
+然后我们遍历数组 $\textit{nums1}$，对于每个元素 $\textit{nums1}[i]$，如果它在 $d$ 中存在，我们就计算它的索引和 $i + d[\textit{nums1}[i]]$，并更新 $\textit{ans}$。
 
 最后如果 $\textit{ans}$ 仍然是无穷大，说明没有找到任何公共元素，返回 -1；否则返回 $\textit{ans}$。
 

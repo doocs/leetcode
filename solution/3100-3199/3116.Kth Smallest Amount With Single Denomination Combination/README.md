@@ -108,33 +108,33 @@ tags:
 >
 > 「不超过 $x$ 的合法金额个数」随 $x$ 单调不减，故可二分最小的 $x$ 使得个数至少为 $k$。个数本身由容斥给出：奇数个面值的最小公倍数贡献加，偶数个贡献减。
 >
-> 面值个数不超过 $15$，用二进制枚举子集并累加 $\lfloor x/\mathrm{lcm}\rfloor$ 即可实现 $\textit{check}$。二分上界取 $10^{11}$ 量级，即可得到第 $k$ 小金额。
+> 面值个数不超过 $15$，用二进制枚举子集并累加 $\lfloor x/\textit{lcm}\rfloor$ 即可实现 $\textit{check}$。二分上界取 $10^{11}$ 量级，即可得到第 $k$ 小金额。
 
 <!-- thinking:end -->
 
 我们可以将题目转化为：找到最小的正整数 $x$，使得小于等于 $x$ 的且满足条件的数的个数恰好为 $k$ 个。如果 $x$ 满足条件，那么对任意 $x' > x$ 的 $x'$ 也满足条件，这存在单调性，因此我们可以使用二分查找，找到最小的满足条件的 $x$。
 
-我们定义一个函数 `check(x)`，用来判断小于等于 $x$ 的且满足条件的数的个数是否大于等于 $k$。我们需要计算有多少个数可以由 $coins$ 中的数组合得到。
+我们定义一个函数 `check(x)`，用来判断小于等于 $x$ 的且满足条件的数的个数是否大于等于 $k$。我们需要计算有多少个数可以由 $\textit{coins}$ 中的数组合得到。
 
-假设 $coins$ 为 $[a, b]$，根据容斥原理，小于等于 $x$ 的满足条件的数的个数为：
-
-$$
-\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor - \left\lfloor \frac{x}{lcm(a, b)} \right\rfloor
-$$
-
-如果 $coins$ 为 $[a, b, c]$，小于等于 $x$ 的满足条件的数的个数为：
+假设 $\textit{coins}$ 为 $[a, b]$，根据容斥原理，小于等于 $x$ 的满足条件的数的个数为：
 
 $$
-\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor + \left\lfloor \frac{x}{c} \right\rfloor - \left\lfloor \frac{x}{lcm(a, b)} \right\rfloor - \left\lfloor \frac{x}{lcm(a, c)} \right\rfloor - \left\lfloor \frac{x}{lcm(b, c)} \right\rfloor + \left\lfloor \frac{x}{lcm(a, b, c)} \right\rfloor
+\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(a, b)} \right\rfloor
+$$
+
+如果 $\textit{coins}$ 为 $[a, b, c]$，小于等于 $x$ 的满足条件的数的个数为：
+
+$$
+\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor + \left\lfloor \frac{x}{c} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(a, b)} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(a, c)} \right\rfloor - \left\lfloor \frac{x}{\textit{lcm}(b, c)} \right\rfloor + \left\lfloor \frac{x}{\textit{lcm}(a, b, c)} \right\rfloor
 $$
 
 可以看到，我们需要累加所有任意奇数个数的情况，减去所有任意偶数个数的情况。
 
-由于 $n \leq 15$，我们可以使用二进制枚举的方式，枚举所有的子集，计算满足条件的数的个数，我们记为 $cnt$。如果 $cnt \geq k$，那么我们需要找到最小的 $x$，使得 $check(x)$ 为真。
+由于 $n \leq 15$，我们可以使用二进制枚举的方式，枚举所有的子集，计算满足条件的数的个数，我们记为 $\textit{cnt}$。如果 $\textit{cnt} \geq k$，那么我们需要找到最小的 $x$，使得 $\textit{check}(x)$ 为真。
 
-在二分查找开始时，我们定义二分查找的左边界 $l=1$，右边界 $r={10}^{11}$，然后我们不断地将中间值 $mid$ 代入 `check` 函数中，如果 `check(mid)` 为真，那么我们将右边界 $r$ 更新为 $mid$，否则我们将左边界 $l$ 更新为 $mid+1$。最终返回 $l$。
+在二分查找开始时，我们定义二分查找的左边界 $l=1$，右边界 $r={10}^{11}$，然后我们不断地将中间值 $\textit{mid}$ 代入 `check` 函数中，如果 `check(mid)` 为真，那么我们将右边界 $r$ 更新为 $\textit{mid}$，否则我们将左边界 $l$ 更新为 $\textit{mid}+1$。最终返回 $l$。
 
-时间复杂度 $O(n 2^n \log (kM))$。其中 $n$ 是数组 $coins$ 的长度，而 $M$ 是数组 $coins$ 中的最大值。
+时间复杂度 $O(n 2^n \log (\textit{kM}))$。其中 $n$ 是数组 $\textit{coins}$ 的长度，而 $M$ 是数组 $\textit{coins}$ 中的最大值。
 
 <!-- tabs:start -->
 

@@ -63,17 +63,17 @@ tags:
 >
 > 有序数组中只有一个元素出现一次，其余成对相邻。要求 $O(\log n)$，不能整表扫描。
 >
-> 成对元素占据偶数-奇数下标。若 $mid$ 与 $mid \oplus 1$ 仍是一对，则单独元素在右半，否则在左半（含 $mid$）。二分缩小到单独元素。按位异或避免讨论 $mid$ 奇偶分支。
+> 成对元素占据偶数-奇数下标。若 $\textit{mid}$ 与 $\textit{mid} \oplus 1$ 仍是一对，则单独元素在右半，否则在左半（含 $\textit{mid}$）。二分缩小到单独元素。按位异或避免讨论 $\textit{mid}$ 奇偶分支。
 
 <!-- thinking:end -->
 
 题目给定的数组 $\textit{nums}$ 是有序的，且要求在 $O(\log n)$ 时间找到只出现一次的元素，因此我们考虑使用二分查找解决。
 
-我们定义二分查找的左边界 $\textit{l} = 0$，右边界 $\textit{r} = n - 1$，其中 $n$ 是数组的长度。
+我们定义二分查找的左边界 $l = 0$，右边界 $r = n - 1$，其中 $n$ 是数组的长度。
 
 在每一步中，我们取中间位置 $\textit{mid} = (l + r) / 2$，如果下标 $\textit{mid}$ 为偶数，那么我们应该将 $\textit{nums}[\textit{mid}]$ 与 $\textit{nums}[\textit{mid} + 1]$ 进行比较；如果下标 $\textit{mid}$ 为奇数，那么我们应该将 $\textit{nums}[\textit{mid}]$ 与 $\textit{nums}[\textit{mid} - 1]$ 进行比较。因此，我们可以统一将 $\textit{nums}[\textit{mid}]$ 与 $\textit{nums}[\textit{mid} \oplus 1]$ 进行比较，其中 $\oplus$ 表示异或运算。
 
-如果 $\textit{nums}[\textit{mid}] \neq \textit{nums}[\textit{mid} \oplus 1]$，那么答案在 $[\textit{l}, \textit{mid}]$ 中，我们令 $\textit{r} = \textit{mid}$；如果 $\textit{nums}[\textit{mid}] = \textit{nums}[\textit{mid} \oplus 1]$，那么答案在 $[\textit{mid} + 1, \textit{r}]$ 中，我们令 $\textit{l} = \textit{mid} + 1$。继续二分查找，直到 $\textit{l} = \textit{r}$，此时 $\textit{nums}[\textit{l}]$ 即为只出现一次的元素。
+如果 $\textit{nums}[\textit{mid}] \neq \textit{nums}[\textit{mid} \oplus 1]$，那么答案在 $[l, \textit{mid}]$ 中，我们令 $r = \textit{mid}$；如果 $\textit{nums}[\textit{mid}] = \textit{nums}[\textit{mid} \oplus 1]$，那么答案在 $[\textit{mid} + 1, r]$ 中，我们令 $l = \textit{mid} + 1$。继续二分查找，直到 $l = r$，此时 $\textit{nums}[l]$ 即为只出现一次的元素。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 

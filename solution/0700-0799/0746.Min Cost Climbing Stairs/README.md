@@ -76,7 +76,7 @@ tags:
 >
 > 从 $i$ 出发的最小花费只依赖 $i+1$ 与 $i+2$，越过顶端代价为 $0$。记忆化后每个下标算一次。
 >
-> 答案为 $\min(dfs(0), dfs(1))$。时间与空间 $O(n)$。
+> 答案为 $\min(\textit{dfs}(0), \textit{dfs}(1))$。时间与空间 $O(n)$。
 
 <!-- thinking:end -->
 
@@ -84,7 +84,7 @@ tags:
 
 函数 $\textit{dfs}(i)$ 的执行过程如下：
 
-- 如果 $i \ge \textit{len(cost)}$，表示当前位置已经超过了楼梯顶部，不需要再爬楼梯，返回 $0$；
+- 如果 $i \ge \textit{len}(\textit{cost})$，表示当前位置已经超过了楼梯顶部，不需要再爬楼梯，返回 $0$；
 - 否则，我们可以选择爬 $1$ 级楼梯，花费为 $\textit{cost}[i]$，然后递归调用 $\textit{dfs}(i + 1)$；也可以选择爬 $2$ 级楼梯，花费为 $\textit{cost}[i]$，然后递归调用 $\textit{dfs}(i + 2)$；
 - 返回两种方案中的最小花费。
 
@@ -263,7 +263,7 @@ function minCostClimbingStairs(cost) {
 当 $i \ge 2$ 时，我们可以从第 $i - 1$ 个阶梯使用 $1$ 步直接到达第 $i$ 个阶梯，或者从第 $i - 2$ 个阶梯使用 $2$ 步到达第 $i$ 个阶梯，因此我们有状态转移方程：
 
 $$
-f[i] = \min(f[i - 1] + cost[i - 1], f[i - 2] + cost[i - 2])
+f[i] = \min(f[i - 1] + \textit{cost}[i - 1], f[i - 2] + \textit{cost}[i - 2])
 $$
 
 最终的答案即为 $f[n]$。

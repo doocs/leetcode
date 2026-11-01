@@ -158,16 +158,16 @@ tags:
 
 <!-- thinking:end -->
 
-We can directly simulate the operations described in the problem. We use a list $\text{result}$ to store the current result string. For each character in the input string $s$, we perform the corresponding operation based on the character type:
+We can directly simulate the operations described in the problem. We use a list $\textit{result}$ to store the current result string. For each character in the input string $s$, we perform the corresponding operation based on the character type:
 
-- If the character is a lowercase English letter, add it to $\text{result}$.
-- If the character is `*`, delete the last character in $\text{result}$ (if it exists).
-- If the character is `#`, copy $\text{result}$ and append it to itself.
-- If the character is `%`, reverse $\text{result}$.
+- If the character is a lowercase English letter, add it to $\textit{result}$.
+- If the character is `*`, delete the last character in $\textit{result}$ (if it exists).
+- If the character is `#`, copy $\textit{result}$ and append it to itself.
+- If the character is `%`, reverse $\textit{result}$.
 
-Finally, we convert $\text{result}$ to a string and return it.
+Finally, we convert $\textit{result}$ to a string and return it.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$. In the worst case, the `#` operation may cause the length of $\text{result}$ to double each time, resulting in exponential time complexity.
+The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$. In the worst case, the `#` operation may cause the length of $\textit{result}$ to double each time, resulting in exponential time complexity.
 
 <!-- tabs:start -->
 

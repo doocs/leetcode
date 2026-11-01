@@ -96,20 +96,20 @@ The subsequence has a length of 1, so we return 1.
 
 We assume that $f[v]$ represents the length of the longest increasing subsequence ending with the number $v$.
 
-We traverse each element $v$ in the array $nums$, with the state transition equation: $f[v] = \max(f[v], f[x])$, where the range of $x$ is $[v-k, v-1]$.
+We traverse each element $v$ in the array $\textit{nums}$, with the state transition equation: $f[v] = \max(f[v], f[x])$, where the range of $x$ is $[v-k, v-1]$.
 
 Therefore, we need a data structure to maintain the maximum value of the interval. It is not difficult to think of using a segment tree.
 
-The segment tree divides the entire interval into multiple discontinuous subintervals, and the number of subintervals does not exceed $log(width)$. To update the value of an element, only $log(width)$ intervals need to be updated, and these intervals are all contained in a large interval that contains the element.
+The segment tree divides the entire interval into multiple discontinuous subintervals, and the number of subintervals does not exceed $\log(\textit{width})$. To update the value of an element, only $\log(\textit{width})$ intervals need to be updated, and these intervals are all contained in a large interval that contains the element.
 
 - Each node of the segment tree represents an interval;
 - The segment tree has a unique root node, which represents the entire statistical range, such as $[1,N]$;
 - Each leaf node of the segment tree represents an elementary interval of length $1$, $[x, x]$;
-- For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid = \left \lfloor \frac{l+r}{2} \right \rfloor$.
+- For each internal node $[l,r]$, its left child is $[l,\textit{mid}]$, and the right child is $[\textit{mid}+1,r]$, where $\textit{mid} = \left \lfloor \frac{l+r}{2} \right \rfloor$.
 
 For this problem, the information maintained by the segment tree node is the maximum value within the interval range.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

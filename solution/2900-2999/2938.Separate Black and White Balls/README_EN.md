@@ -76,15 +76,15 @@ It can be proven that the minimum number of steps needed is 2.
 
 > **Thinking**
 >
-> Adjacent swaps that send every $1$ to the right (equivalently every $0$ to the left) cost the number of $0$s to the right of each $1$. $n \le 10^5$. Scanning right to left, a $1$ still crosses $n-i-cnt$ empty slots on its right.
+> Adjacent swaps that send every $1$ to the right (equivalently every $0$ to the left) cost the number of $0$s to the right of each $1$. $n \le 10^5$. Scanning right to left, a $1$ still crosses $n-i-\textit{cnt}$ empty slots on its right.
 >
-> $cnt$ is the number of ones already seen; summing those gaps is the minimum swap count. The balls need not be moved explicitly.
+> $\textit{cnt}$ is the number of ones already seen; summing those gaps is the minimum swap count. The balls need not be moved explicitly.
 
 <!-- thinking:end -->
 
-We consider moving all the '1's to the rightmost side. We use a variable $cnt$ to record the current number of '1's that have been moved to the rightmost side, and a variable $ans$ to record the number of moves.
+We consider moving all the '1's to the rightmost side. We use a variable $\textit{cnt}$ to record the current number of '1's that have been moved to the rightmost side, and a variable $\textit{ans}$ to record the number of moves.
 
-We traverse the string from right to left. If the current position is '1', then we increment $cnt$ by one, and add $n - i - cnt$ to $ans$, where $n$ is the length of the string. Finally, we return $ans$.
+We traverse the string from right to left. If the current position is '1', then we increment $\textit{cnt}$ by one, and add $n - i - \textit{cnt}$ to $\textit{ans}$, where $n$ is the length of the string. Finally, we return $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 

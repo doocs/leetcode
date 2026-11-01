@@ -117,9 +117,9 @@ Logs 表:
 
 > **思考**
 >
-> 工时按每次打卡向上取整到分钟后再加总，不足 $needed\_hours$ 的员工需要列出，包括没有日志的人。
+> 工时按每次打卡向上取整到分钟后再加总，不足 $\textit{needed\_hours}$ 的员工需要列出，包括没有日志的人。
 >
-> 用 $TIMESTAMPDIFF$ 取秒再 $CEILING$ 到分钟、除以 $60$ 得小时。左连员工表，空日志视为 $0$ 小时后筛选。
+> 用 $\textit{TIMESTAMPDIFF}$ 取秒再 $\textit{CEILING}$ 到分钟、除以 $60$ 得小时。左连员工表，空日志视为 $0$ 小时后筛选。
 
 <!-- thinking:end -->
 

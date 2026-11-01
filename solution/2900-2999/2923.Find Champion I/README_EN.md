@@ -72,7 +72,7 @@ So team 1 will be the champion.
 
 > **Thinking**
 >
-> $grid$ is a complete, transitive comparison; the champion is the team that beats every other. $n \le 100$, so it suffices to test whether each row is all ones off the diagonal.
+> $\textit{grid}$ is a complete, transitive comparison; the champion is the team that beats every other. $n \le 100$, so it suffices to test whether each row is all ones off the diagonal.
 >
 > The input contains a unique champion, so the first such team may be returned. No graph or in-degree array is required.
 

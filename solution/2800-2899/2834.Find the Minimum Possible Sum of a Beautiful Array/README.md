@@ -84,17 +84,17 @@ nums = [1,3,4] 是美丽数组。
 
 > **思考**
 >
-> 美丽数组不能同时包含和为 $target$ 的一对，且要求和最小。从 $1$ 起贪心选取时，不超过 $\lfloor target/2\rfloor$ 的数均可取；若还不够 $n$ 个，则从 $target$ 起接着取连续整数。两段均为等差数列，可用通项公式在常数时间内求和。
+> 美丽数组不能同时包含和为 $\textit{target}$ 的一对，且要求和最小。从 $1$ 起贪心选取时，不超过 $\lfloor \textit{target}/2\rfloor$ 的数均可取；若还不够 $n$ 个，则从 $\textit{target}$ 起接着取连续整数。两段均为等差数列，可用通项公式在常数时间内求和。
 
 <!-- thinking:end -->
 
-我们可以贪心地从 $x = 1$ 开始构造数组 $nums$，每次选择 $x$，并且排除 $target - x$。
+我们可以贪心地从 $x = 1$ 开始构造数组 $\textit{nums}$，每次选择 $x$，并且排除 $\textit{target} - x$。
 
-我们不妨记 $m = \left\lfloor \frac{target}{2} \right\rfloor$。
+我们不妨记 $m = \left\lfloor \frac{\textit{target}}{2} \right\rfloor$。
 
 如果 $x <= m$，那么我们可以选择的数有 $1, 2, \cdots, n$，所以数组的和为 $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$。
 
-如果 $x > m$，那么我们可以选择的数有 $1, 2, \cdots, m$，共 $m$ 个数，以及 $n - m$ 个从 $target$ 开始的数，所以数组的和为 $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(target + target + n - m - 1)(n-m)}{2} \right\rfloor$。
+如果 $x > m$，那么我们可以选择的数有 $1, 2, \cdots, m$，共 $m$ 个数，以及 $n - m$ 个从 $\textit{target}$ 开始的数，所以数组的和为 $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(\textit{target} + \textit{target} + n - m - 1)(n-m)}{2} \right\rfloor$。
 
 注意，我们需要对结果取模 $10^9 + 7$。
 

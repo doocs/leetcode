@@ -105,15 +105,15 @@ tags:
 >
 > 值域 $M\le 10^5$，从因子去标记倍数，类似埃氏筛，每个数只被其因子更新一次。
 >
-> 按 $\textit{elements}$ 从左到右，对尚未标记的 $x$ 遍历 $x,2x,\ldots\le M$，把 $\textit{d}[y]$ 写成当前下标。组的答案即 $\textit{d}[\textit{groups}[i]]$。重复因子跳过，避免后出现的更大下标覆盖。
+> 按 $\textit{elements}$ 从左到右，对尚未标记的 $x$ 遍历 $x,2x,\ldots\le M$，把 $d[y]$ 写成当前下标。组的答案即 $d[\textit{groups}[i]]$。重复因子跳过，避免后出现的更大下标覆盖。
 
 <!-- thinking:end -->
 
-我们先找到数组 $\textit{groups}$ 中的最大值，记为 $\textit{mx}$。用一个数组 $\textit{d}$ 记录每个元素对应的下标，初始时 $\textit{d}[x] = -1$ 表示元素 $x$ 还没有被分配。
+我们先找到数组 $\textit{groups}$ 中的最大值，记为 $mx$。用一个数组 $d$ 记录每个元素对应的下标，初始时 $d[x] = -1$ 表示元素 $x$ 还没有被分配。
 
-然后我们遍历数组 $\textit{elements}$，对于每个元素 $x$，如果 $x > \textit{mx}$ 或者 $\textit{d}[x] \neq -1$，说明元素 $x$ 无法被分配或者已经被分配，直接跳过。否则，我们从 $x$ 开始，每次加上 $x$，将 $\textit{d}[y]$ 设为 $j$，表示元素 $y$ 被分配给了下标 $j$。
+然后我们遍历数组 $\textit{elements}$，对于每个元素 $x$，如果 $x > mx$ 或者 $d[x] \neq -1$，说明元素 $x$ 无法被分配或者已经被分配，直接跳过。否则，我们从 $x$ 开始，每次加上 $x$，将 $d[y]$ 设为 $j$，表示元素 $y$ 被分配给了下标 $j$。
 
-最后我们遍历数组 $\textit{groups}$，根据 $\textit{d}$ 数组的记录，得到答案。
+最后我们遍历数组 $\textit{groups}$，根据 $d$ 数组的记录，得到答案。
 
 时间复杂度 $O(M \log m + n)$，空间复杂度 $O(M)$。其中 $n$ 和 $m$ 分别是数组 $\textit{groups}$ 和 $\textit{elements}$ 的长度；而 $M$ 是数组 $\textit{groups}$ 中的最大值。
 

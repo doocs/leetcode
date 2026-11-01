@@ -336,7 +336,7 @@ $$
 \end{bmatrix}
 $$
 
-我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1 & 1 \cdots 1 \end{bmatrix}$，与 $n - 1$ 个 $\textit{base}$ 矩阵相乘，即可得到 $T(n)$。最后，我们将 $T(n)$ 中所有元素相加，取模 $10^9 + 7$，即为答案。求 $\textit{base}^{n - 1}$，可以通过矩阵快速幂的方式，时间复杂度为 $O(\log n)$。
+我们定义初始矩阵 $\textit{res} = \begin{bmatrix} 1 & 1 & 1 \cdots 1 \end{bmatrix}$，与 $n - 1$ 个 $\textit{base}$ 矩阵相乘，即可得到 $T(n)$。最后，我们将 $T(n)$ 中所有元素相加，取模 $10^9 + 7$，即为答案。求 $\textit{base}^{n - 1}$，可以通过矩阵快速幂的方式，时间复杂度为 $O(\log n)$。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(|\Sigma|^2)$。其中 $\Sigma$ 为数字集合，本题中 $|\Sigma| = 10$。
 

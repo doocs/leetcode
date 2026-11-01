@@ -90,7 +90,7 @@ Employee table:
 >
 > 有主部门标记则取该行；仅属一个部门的员工即使标记为 $N$ 也要输出。两类行并起来即可。
 >
-> 选出 $\textit{primary\_flag}='Y'$ 的行，再 $\mathrm{UNION}$ 上按员工分组后个数为 $1$ 的行。
+> 选出 $\textit{primary\_flag}='Y'$ 的行，再 $\textit{UNION}$ 上按员工分组后个数为 $1$ 的行。
 
 <!-- thinking:end -->
 

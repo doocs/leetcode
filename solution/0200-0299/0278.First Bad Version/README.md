@@ -62,7 +62,7 @@ tags:
 
 > **思考**
 >
-> 版本一旦变坏则之后全坏，具有单调性。对 $isBadVersion(\textit{mid})$ 为真则答案在左侧含 $\textit{mid}$，否则在右侧。
+> 版本一旦变坏则之后全坏，具有单调性。对 $\textit{isBadVersion}(\textit{mid})$ 为真则答案在左侧含 $\textit{mid}$，否则在右侧。
 >
 > 二分收缩到 $l=r$ 即为第一个坏版本。
 

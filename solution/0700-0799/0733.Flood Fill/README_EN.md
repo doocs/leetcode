@@ -86,13 +86,13 @@ tags:
 >
 > Recolor the 4-connected component of the start pixel. The grid is small. If the start already has the target color we must not recurse, or we loop.
 >
-> The component is a grid graph. DFS recolors every neighbor that still equals the original color $\textit{oc}$; the new color is the visited mark.
+> The component is a grid graph. DFS recolors every neighbor that still equals the original color $oc$; the new color is the visited mark.
 >
-> Record $\textit{oc}$ and recurse from $(\textit{sr},\textit{sc})$ only when it differs from $\textit{color}$.
+> Record $oc$ and recurse from $(sr,sc)$ only when it differs from $\textit{color}$.
 
 <!-- thinking:end -->
 
-We denote the initial pixel's color as $\textit{oc}$. If $\textit{oc}$ is not equal to the target color $\textit{color}$, we start a depth-first search from $(\textit{sr}, \textit{sc})$ to change the color of all eligible pixels to the target color.
+We denote the initial pixel's color as $oc$. If $oc$ is not equal to the target color $\textit{color}$, we start a depth-first search from $(sr, sc)$ to change the color of all eligible pixels to the target color.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
 
@@ -292,13 +292,13 @@ impl Solution {
 >
 > Solution 1 is recursive; a large component uses $O(mn)$ stack. The same flood can proceed level by level.
 >
-> BFS from the start: pop a pixel, recolor neighbors that still equal $\textit{oc}$, and enqueue them. Same asymptotics, no call stack.
+> BFS from the start: pop a pixel, recolor neighbors that still equal $oc$, and enqueue them. Same asymptotics, no call stack.
 
 <!-- thinking:end -->
 
-We first check if the initial pixel's color is equal to the target color. If it is, we return the original image directly. Otherwise, we can use the breadth-first search method, starting from $(\textit{sr}, \textit{sc})$, to change the color of all eligible pixels to the target color.
+We first check if the initial pixel's color is equal to the target color. If it is, we return the original image directly. Otherwise, we can use the breadth-first search method, starting from $(sr, sc)$, to change the color of all eligible pixels to the target color.
 
-Specifically, we define a queue $\textit{q}$ and add the initial pixel $(\textit{sr}, \textit{sc})$ to the queue. Then, we continuously take pixels $(i, j)$ from the queue, change their color to the target color, and add the pixels in the four directions (up, down, left, right) that have the same original color as the initial pixel to the queue. When the queue is empty, we have completed the flood fill.
+Specifically, we define a queue $q$ and add the initial pixel $(sr, sc)$ to the queue. Then, we continuously take pixels $(i, j)$ from the queue, change their color to the target color, and add the pixels in the four directions (up, down, left, right) that have the same original color as the initial pixel to the queue. When the queue is empty, we have completed the flood fill.
 
 The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
 

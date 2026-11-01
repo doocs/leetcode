@@ -88,17 +88,17 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i][j]$ as the maximum length of the arithmetic sequence ending with $nums[i]$ and having a common difference of $j$. Initially, $f[i][j]=1$, that is, each element itself is an arithmetic sequence of length $1$.
+We define $f[i][j]$ as the maximum length of the arithmetic sequence ending with $\textit{nums}[i]$ and having a common difference of $j$. Initially, $f[i][j]=1$, that is, each element itself is an arithmetic sequence of length $1$.
 
 > Since the common difference may be negative, and the maximum difference is $500$, we can uniformly add $500$ to the common difference, so the range of the common difference becomes $[0, 1000]$.
 
-Considering $f[i]$, we can enumerate the previous element $nums[k]$ of $nums[i]$, then the common difference $j=nums[i]-nums[k]+500$, at this time $f[i][j]=\max(f[i][j], f[k][j]+1)$, then we update the answer $ans=\max(ans, f[i][j])$.
+Considering $f[i]$, we can enumerate the previous element $\textit{nums}[k]$ of $\textit{nums}[i]$, then the common difference $j=\textit{nums}[i]-\textit{nums}[k]+500$, at this time $f[i][j]=\max(f[i][j], f[k][j]+1)$, then we update the answer $\textit{ans}=\max(\textit{ans}, f[i][j])$.
 
 Finally, return the answer.
 
 > If initially $f[i][j]=0$, then we need to add $1$ to the answer when returning the answer.
 
-The time complexity is $O(n(d + n))$, and the space complexity is $O(nd)$, where $n$ and $d$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array $nums$, respectively.
+The time complexity is $O(n(d + n))$, and the space complexity is $O(nd)$, where $n$ and $d$ are the length of the array $\textit{nums}$ and the difference between the maximum and minimum values in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

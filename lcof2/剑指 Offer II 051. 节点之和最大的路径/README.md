@@ -74,17 +74,17 @@ comments: true
 2. 递归处理左右子树
 3. 合并左右子树的计算结果
 
-对于本题，我们设计一个函数 $dfs(root)$，它返回以 $root$ 为根节点的二叉树的最大路径和。
+对于本题，我们设计一个函数 $\textit{dfs}(\textit{root})$，它返回以 $\textit{root}$ 为根节点的二叉树的最大路径和。
 
-函数 $dfs(root)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{root})$ 的执行逻辑如下：
 
-如果 $root$ 不存在，那么 $dfs(root)$ 返回 $0$；
+如果 $\textit{root}$ 不存在，那么 $\textit{dfs}(\textit{root})$ 返回 $0$；
 
-否则，我们递归计算 $root$ 的左子树和右子树的最大路径和，分别记为 $left$ 和 $right$。如果 $left$ 小于 $0$，那么我们将其置为 $0$，同理，如果 $right$ 小于 $0$，那么我们将其置为 $0$。
+否则，我们递归计算 $\textit{root}$ 的左子树和右子树的最大路径和，分别记为 $\textit{left}$ 和 $\textit{right}$。如果 $\textit{left}$ 小于 $0$，那么我们将其置为 $0$，同理，如果 $\textit{right}$ 小于 $0$，那么我们将其置为 $0$。
 
-然后，我们用 $root.val + left + right$ 更新答案。最后，函数返回 $root.val + \max(left, right)$。
+然后，我们用 $\textit{root}.\textit{val} + \textit{left} + \textit{right}$ 更新答案。最后，函数返回 $\textit{root}.\textit{val} + \max(\textit{left}, \textit{right})$。
 
-在主函数中，我们调用 $dfs(root)$，即可得到每个节点的最大路径和，其中的最大值即为答案。
+在主函数中，我们调用 $\textit{dfs}(\textit{root})$，即可得到每个节点的最大路径和，其中的最大值即为答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 

@@ -93,7 +93,7 @@ The error should be thrown because we cannot divide by zero.
 >
 > The calculator must chain add, subtract, multiply, divide, and power on one instance and expose the result; division by zero throws a fixed error. Returning a new object each time would still chain, but would not keep a single piece of state.
 >
-> Store the running value $x$, update it in each method, and return $this$. $divide$ throws when the divisor is $0$. $getResult$ reads $x$.
+> Store the running value $x$, update it in each method, and return $\textit{this}$. $\textit{divide}$ throws when the divisor is $0$. $\textit{getResult}$ reads $x$.
 
 <!-- thinking:end -->
 

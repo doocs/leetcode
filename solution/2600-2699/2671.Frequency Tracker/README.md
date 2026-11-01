@@ -103,17 +103,17 @@ frequencyTracker.hasFrequency(1); // 返回 true ，因为 3 出现 1 次
 >
 > `hasFrequency` 要判断是否存在某频次，若每次扫描全部计数， $q \le 10^5$ 不可行。
 >
-> 用 $cnt$ 记每个数的出现次数，再用 $freq$ 记「该次数出现了几个数」。增删时先把旧频次减一、新频次加一，查询即看 $freq[f]>0$。
+> 用 $\textit{cnt}$ 记每个数的出现次数，再用 $\textit{freq}$ 记「该次数出现了几个数」。增删时先把旧频次减一、新频次加一，查询即看 $\textit{freq}[f]>0$。
 
 <!-- thinking:end -->
 
-我们定义两个哈希表，其中 $cnt$ 用于记录每个数字出现的次数，而 $freq$ 用于记录每个出现次数的数字的个数。
+我们定义两个哈希表，其中 $\textit{cnt}$ 用于记录每个数字出现的次数，而 $\textit{freq}$ 用于记录每个出现次数的数字的个数。
 
-对于 `add` 操作，我们直接将哈希表 $freq$ 中 $cnt[number]$ 对应的值减一，然后将 $cnt[number]$ 加一，再将 $freq[cnt[number]]$ 对应的值加一。
+对于 `add` 操作，我们直接将哈希表 $\textit{freq}$ 中 $\textit{cnt}[\textit{number}]$ 对应的值减一，然后将 $\textit{cnt}[\textit{number}]$ 加一，再将 $\textit{freq}[\textit{cnt}[\textit{number}]]$ 对应的值加一。
 
-对于 `deleteOne` 操作，我们首先判断 $cnt[number]$ 是否大于零，如果大于零，我们将哈希表 $freq$ 中 $cnt[number]$ 对应的值减一，然后将 $cnt[number]$ 减一，再将 $freq[cnt[number]]$ 对应的值加一。
+对于 `deleteOne` 操作，我们首先判断 $\textit{cnt}[\textit{number}]$ 是否大于零，如果大于零，我们将哈希表 $\textit{freq}$ 中 $\textit{cnt}[\textit{number}]$ 对应的值减一，然后将 $\textit{cnt}[\textit{number}]$ 减一，再将 $\textit{freq}[\textit{cnt}[\textit{number}]]$ 对应的值加一。
 
-对于 `hasFrequency` 操作，我们直接返回 $freq[frequency]$ 是否大于零。
+对于 `hasFrequency` 操作，我们直接返回 $\textit{freq}[\textit{frequency}]$ 是否大于零。
 
 时间复杂度方面，由于我们使用了哈希表，因此每个操作的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为不同的数字的个数。
 

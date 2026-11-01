@@ -79,7 +79,7 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 
 > **Thinking**
 >
-> Filter by vegan flag, price, and distance, then order by rating and id descending. Sorting and filtering commute: sort by $(-\textit{rating},-\textit{id})$ first, then drop restaurants that miss a constraint. The remaining ids are already in the required order.
+> Filter by vegan flag, price, and distance, then order by rating and id descending. Sorting and filtering commute: sort by $(-\textit{rating},-id)$ first, then drop restaurants that miss a constraint. The remaining ids are already in the required order.
 
 <!-- thinking:end -->
 

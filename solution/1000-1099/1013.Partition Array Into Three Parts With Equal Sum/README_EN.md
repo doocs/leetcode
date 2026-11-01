@@ -76,9 +76,9 @@ tags:
 
 First, we calculate the sum of the entire array and check if the sum is divisible by 3. If it is not, we directly return $\textit{false}$.
 
-Otherwise, let $\textit{s}$ represent the sum of each part. We use a variable $\textit{cnt}$ to record the number of parts found so far, and another variable $\textit{t}$ to record the current part's sum. Initially, $\textit{cnt} = 0$ and $\textit{t} = 0$.
+Otherwise, let $s$ represent the sum of each part. We use a variable $\textit{cnt}$ to record the number of parts found so far, and another variable $t$ to record the current part's sum. Initially, $\textit{cnt} = 0$ and $t = 0$.
 
-Then we traverse the array. For each element $x$, we add $x$ to $\textit{t}$. If $\textit{t}$ equals $s$, it means we have found one part, so we increment $\textit{cnt}$ by one and reset $\textit{t}$ to 0.
+Then we traverse the array. For each element $x$, we add $x$ to $t$. If $t$ equals $s$, it means we have found one part, so we increment $\textit{cnt}$ by one and reset $t$ to 0.
 
 Finally, we check if $\textit{cnt}$ is greater than or equal to 3.
 

@@ -96,9 +96,9 @@ tags:
 
 According to the problem, we need to find a horizontal line such that the total area of squares above the line equals the total area of squares below the line. Since as the $y$ coordinate increases, the area below the line increases and the area above the line decreases, we can use binary search to find the $y$ coordinate of this horizontal line.
 
-We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = \max(y_i + l_i)$, which is the highest point of all squares. Then we calculate the midpoint $mid = (l + r) / 2$ and calculate the area below this horizontal line. If this area is greater than or equal to half of the total area, it means we need to move the right boundary $r$ downward; otherwise, we move the left boundary $l$ upward. We repeat this process until the difference between the left and right boundaries is less than a very small value (e.g., $10^{-5}$).
+We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = \max(y_i + l_i)$, which is the highest point of all squares. Then we calculate the midpoint $\textit{mid} = (l + r) / 2$ and calculate the area below this horizontal line. If this area is greater than or equal to half of the total area, it means we need to move the right boundary $r$ downward; otherwise, we move the left boundary $l$ upward. We repeat this process until the difference between the left and right boundaries is less than a very small value (e.g., $10^{-5}$).
 
-The time complexity is $O(n \log(MU))$, and the space complexity is $O(1)$, where $n$ is the number of squares, $M = 10^5$, and $U = \max(y_i + l_i)$.
+The time complexity is $O(n \log(\textit{MU}))$, and the space complexity is $O(1)$, where $n$ is the number of squares, $M = 10^5$, and $U = \max(y_i + l_i)$.
 
 <!-- tabs:start -->
 

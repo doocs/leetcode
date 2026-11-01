@@ -127,9 +127,9 @@ Note that k = 3 but there are only 2 reachable items within the price range.
 
 <!-- thinking:end -->
 
-We can start from $(\textit{row}, \textit{col})$ and use breadth-first search to find all items with prices in the range $[\textit{low}, \textit{high}]$. Store the distance, price, row coordinate, and column coordinate of these items in the array $\textit{pq}$.
+We can start from $(\textit{row}, \textit{col})$ and use breadth-first search to find all items with prices in the range $[\textit{low}, \textit{high}]$. Store the distance, price, row coordinate, and column coordinate of these items in the array $pq$.
 
-Finally, sort $\textit{pq}$ by distance, price, row coordinate, and column coordinate, and return the coordinates of the first $k$ items.
+Finally, sort $pq$ by distance, price, row coordinate, and column coordinate, and return the coordinates of the first $k$ items.
 
 The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively.
 

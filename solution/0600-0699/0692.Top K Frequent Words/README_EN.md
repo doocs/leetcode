@@ -71,7 +71,7 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 >
 > Return the $k$ most frequent words, breaking ties lexicographically. A heap is $O(n \log k)$, but a full sort is fine here.
 >
-> Count, sort keys by $(-count, word)$, and take the first $k$.
+> Count, sort keys by $(-\textit{count}, \textit{word})$, and take the first $k$.
 
 <!-- thinking:end -->
 

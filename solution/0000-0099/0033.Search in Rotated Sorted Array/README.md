@@ -72,26 +72,26 @@ tags:
 >
 > 线性扫描的时间复杂度为 $O(n)$。题目要求 $O(\log n)$，因此不能逐个比较。
 >
-> 数组被旋转后整体不再有序，普通二分无法直接判断 $target$ 落在哪一半。
+> 数组被旋转后整体不再有序，普通二分无法直接判断 $\textit{target}$ 落在哪一半。
 >
-> 注意到，任取中点将区间一分为二，其中至少有一半保持单调。比较 $nums[0]$ 与 $nums[mid]$ 即可判断左半是否有序；若 $target$ 落在该有序区间内，则丢弃另一半，否则在无序半段中继续查找。因此仍可二分：有序半段用来判定去留，无序半段留给下一轮继续分割。
+> 注意到，任取中点将区间一分为二，其中至少有一半保持单调。比较 $\textit{nums}[0]$ 与 $\textit{nums}[\textit{mid}]$ 即可判断左半是否有序；若 $\textit{target}$ 落在该有序区间内，则丢弃另一半，否则在无序半段中继续查找。因此仍可二分：有序半段用来判定去留，无序半段留给下一轮继续分割。
 
 <!-- thinking:end -->
 
 我们使用二分，将数组分割成 $[left,.. mid]$, $[mid + 1,.. right]$ 两部分，这时候可以发现，其中有一部分一定是有序的。
 
-因此，我们可以根据有序的那一部分，判断 $target$ 是否在这一部分中：
+因此，我们可以根据有序的那一部分，判断 $\textit{target}$ 是否在这一部分中：
 
 - 若 $[0,.. mid]$ 范围内的元素构成有序数组：
-    - 若满足 $nums[0] \leq target \leq nums[mid]$，那么我们搜索范围可以缩小为 $[left,.. mid]$；
+    - 若满足 $\textit{nums}[0] \leq \textit{target} \leq \textit{nums}[\textit{mid}]$，那么我们搜索范围可以缩小为 $[left,.. mid]$；
     - 否则，在 $[mid + 1,.. right]$ 中查找；
-- 若 $[mid + 1, n - 1]$ 范围内的元素构成有序数组：
-    - 若满足 $nums[mid] \lt target \leq nums[n - 1]$，那么我们搜索范围可以缩小为 $[mid + 1,.. right]$；
+- 若 $[\textit{mid} + 1, n - 1]$ 范围内的元素构成有序数组：
+    - 若满足 $\textit{nums}[\textit{mid}] \lt \textit{target} \leq \textit{nums}[n - 1]$，那么我们搜索范围可以缩小为 $[mid + 1,.. right]$；
     - 否则，在 $[left,.. mid]$ 中查找。
 
-二分查找终止条件是 $left \geq right$，若结束后发现 $nums[left]$ 与 $target$ 不等，说明数组中不存在值为 $target$ 的元素，返回 $-1$，否则返回下标 $left$。
+二分查找终止条件是 $\textit{left} \geq \textit{right}$，若结束后发现 $\textit{nums}[\textit{left}]$ 与 $\textit{target}$ 不等，说明数组中不存在值为 $\textit{target}$ 的元素，返回 $-1$，否则返回下标 $\textit{left}$。
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

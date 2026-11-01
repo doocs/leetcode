@@ -79,7 +79,7 @@ tags:
 >
 > 额外石头要尽量装满更多背包。每个背包的缺口独立， $n \le 5\times 10^4$，应优先填缺口小的。
 >
-> 把 $capacity[i]-rocks[i]$ 排序后从小到大扣除 $\textit{additionalRocks}$，一旦不够就返回已装满的个数。
+> 把 $\textit{capacity}[i]-\textit{rocks}[i]$ 排序后从小到大扣除 $\textit{additionalRocks}$，一旦不够就返回已装满的个数。
 
 <!-- thinking:end -->
 

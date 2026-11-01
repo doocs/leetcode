@@ -61,7 +61,7 @@ Three values were passed to the function so it should return 3.
 >
 > The task is only to report how many arguments were passed; their types and values do not matter. Copying them into a new array just to read the length adds an allocation.
 >
-> A rest parameter is already an array, so its $length$ is the answer.
+> A rest parameter is already an array, so its $\textit{length}$ is the answer.
 
 <!-- thinking:end -->
 

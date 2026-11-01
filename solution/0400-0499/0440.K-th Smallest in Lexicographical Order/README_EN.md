@@ -54,7 +54,7 @@ tags:
 >
 > $n$ can be $10^9$, so we cannot list and sort. Lexicographic order is a $10$-ary trie: the children of $x$ are $10x,\ldots,10x+9$ that stay $\le n$.
 >
-> Count the subtree of a prefix $curr$ by intersecting $[curr,curr+1)$ with $[1,n]$ at each extra digit. If that count is $\le k$, skip the whole tree and increment $curr$; otherwise step into $curr\times 10$ and spend one for the prefix itself.
+> Count the subtree of a prefix $\textit{curr}$ by intersecting $[\textit{curr},\textit{curr}+1)$ with $[1,n]$ at each extra digit. If that count is $\le k$, skip the whole tree and increment $\textit{curr}$; otherwise step into $\textit{curr}\times 10$ and spend one for the prefix itself.
 >
 > Decrement $k$ once at the start because we already stand on $1$. Layered counting never enumerates every integer in the subtree.
 
@@ -81,12 +81,12 @@ root
 
 We use a variable $\textit{curr}$ to denote the current prefix, initialized as $1$. At each step, we try to expand or skip prefixes until we find the \$k\$-th smallest number.
 
-At each step, we calculate how many valid numbers (i.e., numbers $\le n$ with prefix $\textit{curr}$) exist under this prefix subtree. Let this count be $\textit{count}(\text{curr})$:
+At each step, we calculate how many valid numbers (i.e., numbers $\le n$ with prefix $\textit{curr}$) exist under this prefix subtree. Let this count be $\textit{count}(\textit{curr})$:
 
-- If $k \ge \text{count}(\text{curr})$: the target number is not in this subtree. We skip the entire subtree by moving to the next sibling:
+- If $k \ge \textit{count}(\textit{curr})$: the target number is not in this subtree. We skip the entire subtree by moving to the next sibling:
 
     $$
-    \textit{curr} \leftarrow \textit{curr} + 1,\quad k \leftarrow k - \text{count}(\text{curr})
+    \textit{curr} \leftarrow \textit{curr} + 1,\quad k \leftarrow k - \textit{count}(\textit{curr})
     $$
 
 - Otherwise: the target is within this subtree. We go one level deeper:

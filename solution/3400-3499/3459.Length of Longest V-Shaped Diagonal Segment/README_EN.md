@@ -123,9 +123,9 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function $\text{dfs}(i, j, k, \textit{cnt})$ that returns the length of the longest V-shaped diagonal segment, where $(i, j)$ is the previous position, $k$ is the current direction, and $\textit{cnt}$ is the remaining number of allowed turns.
+We design a function $\textit{dfs}(i, j, k, \textit{cnt})$ that returns the length of the longest V-shaped diagonal segment, where $(i, j)$ is the previous position, $k$ is the current direction, and $\textit{cnt}$ is the remaining number of allowed turns.
 
-The logic of the $\text{dfs}$ function is as follows:
+The logic of the $\textit{dfs}$ function is as follows:
 
 First, based on the previous position and the current direction, we calculate the current position $(x, y)$ and determine the target value $\textit{target}$. If $x$ or $y$ is out of bounds, or if $\textit{grid}[x][y] \neq \textit{target}$, we return $0$.
 

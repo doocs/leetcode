@@ -69,7 +69,7 @@ tags:
 >
 > 逐格扫描需要 $O(mn)$ 时间。 $m, n \le 100$ 可以接受，但题目要求 $O(\log(mn))$。
 >
-> 二维矩阵本身不便直接二分，但每一行递增，且上一行末尾小于下一行开头，因此按行拼接后是长度为 $mn$ 的有序序列。将逻辑下标 $mid$ 映射为 $matrix[\lfloor mid/n\rfloor][mid \bmod n]$，即可在 $[0, mn-1]$ 上做一次二分，不必真正展开数组。
+> 二维矩阵本身不便直接二分，但每一行递增，且上一行末尾小于下一行开头，因此按行拼接后是长度为 $mn$ 的有序序列。将逻辑下标 $\textit{mid}$ 映射为 $\textit{matrix}[\lfloor \textit{mid}/n\rfloor][\textit{mid} \bmod n]$，即可在 $[0, mn-1]$ 上做一次二分，不必真正展开数组。
 
 <!-- thinking:end -->
 
@@ -253,13 +253,13 @@ var searchMatrix = function (matrix, target) {
 
 <!-- thinking:end -->
 
-这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 $matrix[i][j]$ 与 $target$ 的大小关系：
+这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 $\textit{matrix}[i][j]$ 与 $\textit{target}$ 的大小关系：
 
-- 若 $matrix[i][j] = target$，说明找到了目标值，直接返回 `true`。
-- 若 $matrix[i][j] > target$，说明这一行从当前位置开始往右的所有元素均大于 target，应该让 i 指针往上移动，即 $i = i - 1$。
-- 若 $matrix[i][j] < target$，说明这一列从当前位置开始往上的所有元素均小于 target，应该让 j 指针往右移动，即 $j = j + 1$。
+- 若 $\textit{matrix}[i][j] = \textit{target}$，说明找到了目标值，直接返回 `true`。
+- 若 $\textit{matrix}[i][j] > \textit{target}$，说明这一行从当前位置开始往右的所有元素均大于 target，应该让 i 指针往上移动，即 $i = i - 1$。
+- 若 $\textit{matrix}[i][j] < \textit{target}$，说明这一列从当前位置开始往上的所有元素均小于 target，应该让 j 指针往右移动，即 $j = j + 1$。
 
-若搜索结束依然找不到 $target$，返回 `false`。
+若搜索结束依然找不到 $\textit{target}$，返回 `false`。
 
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 

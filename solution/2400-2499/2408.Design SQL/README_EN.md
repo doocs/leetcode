@@ -192,7 +192,7 @@ sQL.ins(&quot;two&quot;, [&quot;fourth&quot;, &quot;fifth&quot;, &quot;sixth&quo
 >
 > Each table needs a stable row id, a column count, and a way to drop a row without renumbering the others. At most $2000$ insertions and deletions occur, so a relational engine is unnecessary.
 >
-> A dense list indexed by $rowId-1$ still returns a deleted cell, and $\textit{exp}$ would keep that row. Ids also keep increasing after a removal, so a freed slot cannot be reused.
+> A dense list indexed by $\textit{rowId}-1$ still returns a deleted cell, and $\textit{exp}$ would keep that row. Ids also keep increasing after a removal, so a freed slot cannot be reused.
 >
 > Map each table name to the cells keyed by row id, and store the column count together with the next id.
 >

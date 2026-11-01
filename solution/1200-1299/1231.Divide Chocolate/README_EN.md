@@ -73,17 +73,17 @@ tags:
 >
 > We split the bar into $k+1$ pieces and maximize the minimum sweetness of our piece. $n \le 10^4$ forbids enumerating cuts. If a minimum $x$ is feasible, every smaller threshold is too, so the answer is monotone.
 >
-> The check accumulates from the left and cuts whenever the running sum reaches $x$; more than $k$ pieces (us plus $k$ friends) means $x$ works. We binary-search the largest feasible $x$ on $[0,\sum sweetness]$. Cutting as soon as a piece fills can only leave more remainder for later pieces.
+> The check accumulates from the left and cuts whenever the running sum reaches $x$; more than $k$ pieces (us plus $k$ friends) means $x$ works. We binary-search the largest feasible $x$ on $[0,\sum \textit{sweetness}]$. Cutting as soon as a piece fills can only leave more remainder for later pieces.
 
 <!-- thinking:end -->
 
 We notice that if we can eat a piece of chocolate with sweetness $x$, then we can also eat all chocolates with sweetness less than or equal to $x$. This shows monotonicity, therefore, we can use binary search to find the maximum $x$ that satisfies the condition.
 
-We define the left boundary of the binary search as $l=0$, and the right boundary as $r=\sum_{i=0}^{n-1} sweetness[i]$. Each time, we take the middle value $mid$ of $l$ and $r$, and then determine whether we can eat a piece of chocolate with sweetness $mid$. If we can, then we try to eat a piece of chocolate with greater sweetness, i.e., let $l=mid$; otherwise, we try to eat a piece of chocolate with smaller sweetness, i.e., let $r=mid-1$. After the binary search ends, we return $l$.
+We define the left boundary of the binary search as $l=0$, and the right boundary as $r=\sum_{i=0}^{n-1} \textit{sweetness}[i]$. Each time, we take the middle value $\textit{mid}$ of $l$ and $r$, and then determine whether we can eat a piece of chocolate with sweetness $\textit{mid}$. If we can, then we try to eat a piece of chocolate with greater sweetness, i.e., let $l=\textit{mid}$; otherwise, we try to eat a piece of chocolate with smaller sweetness, i.e., let $r=\textit{mid}-1$. After the binary search ends, we return $l$.
 
-The key to the problem is how to determine whether we can eat a piece of chocolate with sweetness $x$. We can use a greedy approach, traverse the array from left to right, accumulate the current sweetness each time, when the accumulated sweetness is greater than or equal to $x$, the chocolate count $cnt$ is increased by $1$, and the accumulated sweetness is reset to zero. Finally, check whether $cnt$ is greater than $k$.
+The key to the problem is how to determine whether we can eat a piece of chocolate with sweetness $x$. We can use a greedy approach, traverse the array from left to right, accumulate the current sweetness each time, when the accumulated sweetness is greater than or equal to $x$, the chocolate count $\textit{cnt}$ is increased by $1$, and the accumulated sweetness is reset to zero. Finally, check whether $\textit{cnt}$ is greater than $k$.
 
-The time complexity is $O(n \log \sum_{i=0}^{n-1} sweetness[i])$, and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n \log \sum_{i=0}^{n-1} \textit{sweetness}[i])$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -95,9 +95,9 @@ There is no way to make them compete in any other round.
 
 <!-- thinking:end -->
 
-We define a function $\text{dfs}(l, r, n)$, which represents the earliest and latest rounds where players numbered $l$ and $r$ compete among $n$ players in the current round.
+We define a function $\textit{dfs}(l, r, n)$, which represents the earliest and latest rounds where players numbered $l$ and $r$ compete among $n$ players in the current round.
 
-The execution logic of function $\text{dfs}(l, r, n)$ is as follows:
+The execution logic of function $\textit{dfs}(l, r, n)$ is as follows:
 
 1. If $l + r = n - 1$, it means the two players compete in the current round, return $[1, 1]$.
 2. If $f[l][r][n] \neq 0$, it means this state has been calculated before, directly return the result.
@@ -107,11 +107,11 @@ The execution logic of function $\text{dfs}(l, r, n)$ is as follows:
     - Determine which players win based on the current combination.
     - Determine the positions of players numbered $l$ and $r$ in the current round.
     - Count the positions of players numbered $l$ and $r$ among the remaining players, denoted as $a$ and $b$, and the total number of remaining players $c$.
-    - Recursively call $\text{dfs}(a, b, c)$ to get the earliest and latest round numbers for the current state.
+    - Recursively call $\textit{dfs}(a, b, c)$ to get the earliest and latest round numbers for the current state.
     - Update the earliest and latest round numbers.
 6. Store the calculation result in $f[l][r][n]$ and return the earliest and latest round numbers.
 
-The answer is $\text{dfs}(\text{firstPlayer} - 1, \text{secondPlayer} - 1, n)$.
+The answer is $\textit{dfs}(\textit{firstPlayer} - 1, \textit{secondPlayer} - 1, n)$.
 
 <!-- tabs:start -->
 

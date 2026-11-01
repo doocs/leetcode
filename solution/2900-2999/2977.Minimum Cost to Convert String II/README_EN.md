@@ -98,9 +98,9 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 
 > **Thinking**
 >
-> Rewrites now replace whole substrings and must hit $source$ and $target$ together. At most $100$ candidates, so a trie assigns ids and Floyd on those ids gives every replacement cost. The rest is a partition: pay $g[p][q]$ when both tries accept a pair, or step one free character when they already match.
+> Rewrites now replace whole substrings and must hit $\textit{source}$ and $\textit{target}$ together. At most $100$ candidates, so a trie assigns ids and Floyd on those ids gives every replacement cost. The rest is a partition: pay $g[p][q]$ when both tries accept a pair, or step one free character when they already match.
 >
-> $dfs(i)$ memoizes the tail from $i$, walking both tries in lockstep. The string length is $1000$, so states are linear and a transition follows the match length.
+> $\textit{dfs}(i)$ memoizes the tail from $i$, walking both tries in lockstep. The string length is $1000$, so states are linear and a transition follows the match length.
 
 <!-- thinking:end -->
 
@@ -108,24 +108,24 @@ According to the problem description, we can consider each string as a node, and
 
 Next, we use the Floyd algorithm to calculate the minimum cost between any two strings.
 
-Then, we define a function $dfs(i)$ to represent the minimum cost of converting the string $source[i..]$ to the string $target[i..]$. The answer is $dfs(0)$.
+Then, we define a function $\textit{dfs}(i)$ to represent the minimum cost of converting the string $\textit{source}[i..]$ to the string $\textit{target}[i..]$. The answer is $\textit{dfs}(0)$.
 
-The calculation process of the function $dfs(i)$ is as follows:
+The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i \geq |source|$, no conversion is needed, return $0$.
-- Otherwise, if $source[i] = target[i]$, we can skip directly and recursively calculate $dfs(i + 1)$. We can also enumerate the index $j$ in the range $[i, |source|)$, if $source[i..j]$ and $target[i..j]$ are both in the trie, and their corresponding integer identifiers $x$ and $y$ are both greater than or equal to $0$, then we can add $dfs(j + 1)$ and $g[x][y]$ to get the cost of one conversion scheme, and we take the minimum value among all schemes.
+- If $i \geq |\textit{source}|$, no conversion is needed, return $0$.
+- Otherwise, if $\textit{source}[i] = \textit{target}[i]$, we can skip directly and recursively calculate $\textit{dfs}(i + 1)$. We can also enumerate the index $j$ in the range $[i, |\textit{source}|)$, if $\textit{source}[i..j]$ and $\textit{target}[i..j]$ are both in the trie, and their corresponding integer identifiers $x$ and $y$ are both greater than or equal to $0$, then we can add $\textit{dfs}(j + 1)$ and $g[x][y]$ to get the cost of one conversion scheme, and we take the minimum value among all schemes.
 
 In summary, we can get:
 
 $$
-dfs(i) = \begin{cases}
-0, & i \geq |source| \\
-dfs(i + 1), & source[i] = target[i] \\
-\min_{i \leq j < |source|} \{ dfs(j + 1) + g[x][y] \}, & \textit{otherwise}
+\textit{dfs}(i) = \begin{cases}
+0, & i \geq |\textit{source}| \\
+\textit{dfs}(i + 1), & \textit{source}[i] = \textit{target}[i] \\
+\min_{i \leq j < |\textit{source}|} \{ \textit{dfs}(j + 1) + g[x][y] \}, & \textit{otherwise}
 \end{cases}
 $$
 
-Where $x$ and $y$ are the integer identifiers of $source[i..j]$ and $target[i..j]$ in the trie, respectively.
+Where $x$ and $y$ are the integer identifiers of $\textit{source}[i..j]$ and $\textit{target}[i..j]$ in the trie, respectively.
 
 To avoid repeated calculations, we can use memoization search.
 
@@ -716,17 +716,17 @@ impl Solution {
 
 > **Thinking**
 >
-> Replacing $source$ with $target$ by every partition is exponential. The strings can have length $1000$, and when the current characters match the first call always lands on the next index, so the chain has depth $n$. The minimum cost from index $i$ depends only on later suffixes. At most $100$ candidates, so a trie assigns ids and Floyd on those ids gives every replacement cost. Set $f[n]=0$ and fill $i$ from $n-1$ down to $0$: equal characters may take $f[i+1]$ for free, and each numbered pair found by walking the tries together updates with $f[j+1]+g[x][y]$. If $f[0]$ is still at least the sentinel, return $-1$.
+> Replacing $\textit{source}$ with $\textit{target}$ by every partition is exponential. The strings can have length $1000$, and when the current characters match the first call always lands on the next index, so the chain has depth $n$. The minimum cost from index $i$ depends only on later suffixes. At most $100$ candidates, so a trie assigns ids and Floyd on those ids gives every replacement cost. Set $f[n]=0$ and fill $i$ from $n-1$ down to $0$: equal characters may take $f[i+1]$ for free, and each numbered pair found by walking the tries together updates with $f[j+1]+g[x][y]$. If $f[0]$ is still at least the sentinel, return $-1$.
 
 <!-- thinking:end -->
 
 Treat each string in `original` and `changed` as a node and number them with a trie. $g[x][y]$ is the minimum cost of replacing the string numbered $x$ with the string numbered $y$, initially $\infty$, and $0$ on the diagonal. Floyd's algorithm then gives the minimum cost between any pair of ids.
 
-Let $f[i]$ be the minimum cost of turning $source[i..]$ into $target[i..]$, with $f[n] = 0$. Scan $i$ from $n - 1$ down to $0$. If $source[i] = target[i]$, that character can stay for free, so start from $f[i + 1]$. Also walk the trie on $source$ and $target$ together from $i$. Whenever the prefixes $source[i..j]$ and $target[i..j]$ both have ids $x$ and $y$, update $f[i]$ with $f[j + 1] + g[x][y]$.
+Let $f[i]$ be the minimum cost of turning $\textit{source}[i..]$ into $\textit{target}[i..]$, with $f[n] = 0$. Scan $i$ from $n - 1$ down to $0$. If $\textit{source}[i] = \textit{target}[i]$, that character can stay for free, so start from $f[i + 1]$. Also walk the trie on $\textit{source}$ and $\textit{target}$ together from $i$. Whenever the prefixes $\textit{source}[i..j]$ and $\textit{target}[i..j]$ both have ids $x$ and $y$, update $f[i]$ with $f[j + 1] + g[x][y]$.
 
 The answer is $f[0]$. If it is at least the preset upper bound, return $-1$.
 
-The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of `original` and $source$, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of `original` and $\textit{source}$, respectively.
 
 <!-- tabs:start -->
 

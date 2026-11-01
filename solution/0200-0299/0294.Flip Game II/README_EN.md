@@ -70,7 +70,7 @@ tags:
 >
 > Players flip $++$ in turn; the one who cannot move loses. A bit mask of length $n$ records pluses; we try each legal flip and see whether the opponent loses.
 >
-> Masks repeat, so we memoize $dfs(\textit{mask})$: the position is winning if some move returns false for the opponent.
+> Masks repeat, so we memoize $\textit{dfs}(\textit{mask})$: the position is winning if some move returns false for the opponent.
 
 <!-- thinking:end -->
 

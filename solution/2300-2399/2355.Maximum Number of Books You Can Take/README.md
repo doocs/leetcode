@@ -90,13 +90,13 @@ tags:
 >
 > 从连续书架取书，且往左每层至少少一本。枚举右端后若再暴力找断裂点，总复杂度过高。
 >
-> 令 $nums[i]=books[i]-i$，断裂发生在左侧第一个更小的 $nums[j]$。单调栈预处理 $left[i]$，再以 $dp[i]$ 表示以 $i$ 为右端的最大取书量：中间一段是等差数列，左侧接上 $dp[j]$。
+> 令 $\textit{nums}[i]=\textit{books}[i]-i$，断裂发生在左侧第一个更小的 $\textit{nums}[j]$。单调栈预处理 $\textit{left}[i]$，再以 $dp[i]$ 表示以 $i$ 为右端的最大取书量：中间一段是等差数列，左侧接上 $dp[j]$。
 
 <!-- thinking:end -->
 
-我们定义 $dp[i]$ 表示以书架 $i$ 为右端点时能取走的书的最大数量。令 $nums[i] = books[i] - i$。若往左的严格递减在某个 $j$ 处断开（ $0 \le j < i$），则 $books[j] < books[i] - (i - j)$，也就是 $nums[j] < nums[i]$。用单调栈为每个位置求出左侧第一个严格更小的 $nums$，记为 $j$；不存在时 $j = -1$。
+我们定义 $dp[i]$ 表示以书架 $i$ 为右端点时能取走的书的最大数量。令 $\textit{nums}[i] = \textit{books}[i] - i$。若往左的严格递减在某个 $j$ 处断开（ $0 \le j < i$），则 $\textit{books}[j] < \textit{books}[i] - (i - j)$，也就是 $\textit{nums}[j] < \textit{nums}[i]$。用单调栈为每个位置求出左侧第一个严格更小的 $\textit{nums}$，记为 $j$；不存在时 $j = -1$。
 
-从 $j + 1$ 到 $i$ 实际取走的本数是公差为 $1$ 的等差数列。其长度为 $cnt = \min(books[i], i - j)$，末项为 $books[i]$，首项为 $u = books[i] - cnt + 1$，和为 $s = (u + books[i]) \times cnt / 2$。于是 $dp[i] = s$，若 $j \ne -1$ 再加 $dp[j]$。
+从 $j + 1$ 到 $i$ 实际取走的本数是公差为 $1$ 的等差数列。其长度为 $\textit{cnt} = \min(\textit{books}[i], i - j)$，末项为 $\textit{books}[i]$，首项为 $u = \textit{books}[i] - \textit{cnt} + 1$，和为 $s = (u + \textit{books}[i]) \times \textit{cnt} / 2$。于是 $dp[i] = s$，若 $j \ne -1$ 再加 $dp[j]$。
 
 答案为 $\max\limits_{i} dp[i]$。
 

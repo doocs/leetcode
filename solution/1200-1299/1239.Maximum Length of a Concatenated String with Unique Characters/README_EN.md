@@ -79,7 +79,7 @@ Maximum length is 4.
 
 > **Thinking**
 >
-> Concatenated subsequences must have unique letters. $|arr|\le 16$, so $2^{16}$ subsets are enumerable. Twenty-six letters fit in one integer mask.
+> Concatenated subsequences must have unique letters. $|\textit{arr}|\le 16$, so $2^{16}$ subsets are enumerable. Twenty-six letters fit in one integer mask.
 >
 > Starting from the empty mask, each internally unique string is merged with an existing mask only when their bitwise AND is zero. The answer is the maximum popcount among reachable masks. Bit operations make set algebra constant-time.
 

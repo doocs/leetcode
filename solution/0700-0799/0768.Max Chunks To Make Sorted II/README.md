@@ -252,7 +252,7 @@ $$
 的索引 $i$，我们检查：
 
 $$
-\max(arr[:i]) \le \min(arr[i:])
+\max(\textit{arr}[:i]) \le \min(\textit{arr}[i:])
 $$
 
 是否成立。
@@ -266,7 +266,7 @@ $$
 - `prefix_maxs[j]`表示：
 
 $$
-\max(arr[:j + 1])
+\max(\textit{arr}[:j + 1])
 $$
 
 即前缀最大值。
@@ -274,7 +274,7 @@ $$
 - `suffix_min[j]`表示：
 
 $$
-\min(arr[j:])
+\min(\textit{arr}[j:])
 $$
 
 即后缀最小值。

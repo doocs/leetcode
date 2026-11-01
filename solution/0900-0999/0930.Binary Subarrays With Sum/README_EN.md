@@ -63,7 +63,7 @@ tags:
 
 > **Thinking**
 >
-> Count subarrays of a $0/1$ array whose sum is $\textit{goal}$. $n$ is large, so enumerating intervals is too slow. When the prefix sum is $s$, the number of earlier prefixes equal to $s-\textit{goal}$ is the number of good subarrays ending here. A counter of prefix frequencies, starting at $cnt[0]=1$, answers each step in $O(1)$.
+> Count subarrays of a $0/1$ array whose sum is $\textit{goal}$. $n$ is large, so enumerating intervals is too slow. When the prefix sum is $s$, the number of earlier prefixes equal to $s-\textit{goal}$ is the number of good subarrays ending here. A counter of prefix frequencies, starting at $\textit{cnt}[0]=1$, answers each step in $O(1)$.
 
 <!-- thinking:end -->
 

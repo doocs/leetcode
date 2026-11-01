@@ -65,14 +65,14 @@ tags:
 
 The basic steps of the Moore voting algorithm are as follows:
 
-Initialize the element $m$ and initialize the counter $cnt = 0$. Then, for each element $x$ in the input list:
+Initialize the element $m$ and initialize the counter $\textit{cnt} = 0$. Then, for each element $x$ in the input list:
 
-1. If $cnt = 0$, then $m = x$ and $cnt = 1$;
-1. Otherwise, if $m = x$, then $cnt = cnt + 1$, otherwise $cnt = cnt - 1$.
+1. If $\textit{cnt} = 0$, then $m = x$ and $\textit{cnt} = 1$;
+1. Otherwise, if $m = x$, then $\textit{cnt} = \textit{cnt} + 1$, otherwise $\textit{cnt} = \textit{cnt} - 1$.
 
 In general, the Moore voting algorithm requires **two passes** over the input list. In the first pass, we generate the candidate value $m$, and if there is a majority, the candidate value is the majority value. In the second pass, we simply compute the frequency of the candidate value to confirm whether it is the majority value. Since this problem has clearly stated that there is a majority value, we can directly return $m$ after the first pass, without the need for a second pass to confirm whether it is the majority value.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

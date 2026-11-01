@@ -75,11 +75,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以预处理出每个位置到左边最近的颜色 $1$,$2$,$3$ 的距离，以及每个位置到右边最近的颜色 $1$,$2$,$3$ 的距离，记录在数组 $left$ 和 $right$ 中。初始时 $left[0][0] = left[0][1] = left[0][2] = -\infty$，而 $right[n][0] = right[n][1] = right[n][2] = \infty$，其中 $n$ 是数组 $colors$ 的长度。
+我们可以预处理出每个位置到左边最近的颜色 $1$,$2$,$3$ 的距离，以及每个位置到右边最近的颜色 $1$,$2$,$3$ 的距离，记录在数组 $\textit{left}$ 和 $\textit{right}$ 中。初始时 $\textit{left}[0][0] = \textit{left}[0][1] = \textit{left}[0][2] = -\infty$，而 $\textit{right}[n][0] = \textit{right}[n][1] = \textit{right}[n][2] = \infty$，其中 $n$ 是数组 $\textit{colors}$ 的长度。
 
-然后对于每个查询 $(i, c)$，最小距离就是 $d = \min(i - left[i + 1][c - 1], right[i][c - 1][i] - i)$，如果 $d \gt n$，则不存在解决方案，此次查询的答案为 $-1$。
+然后对于每个查询 $(i, c)$，最小距离就是 $d = \min(i - \textit{left}[i + 1][c - 1], \textit{right}[i][c - 1][i] - i)$，如果 $d \gt n$，则不存在解决方案，此次查询的答案为 $-1$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $colors$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{colors}$ 的长度。
 
 <!-- tabs:start -->
 

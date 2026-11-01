@@ -137,7 +137,7 @@ tags:
 
 > **Thinking**
 >
-> Popcount-depth is the number of times $x$ is replaced by $\mathrm{popcount}(x)$ until it becomes $1$. $n$ is too large to iterate $[1,n]$.
+> Popcount-depth is the number of times $x$ is replaced by $\textit{popcount}(x)$ until it becomes $1$. $n$ is too large to iterate $[1,n]$.
 >
 > The depth is tiny because one popcount collapses $x$ to its bit length. Digit DP counts integers $\le n$ with a given number $c$ of ones; those $c$ are then matched against $k$.
 >

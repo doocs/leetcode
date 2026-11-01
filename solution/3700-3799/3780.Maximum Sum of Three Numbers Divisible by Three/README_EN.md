@@ -82,11 +82,11 @@ tags:
 
 <!-- thinking:end -->
 
-We first sort the array $\textit{nums}$, then divide the elements in the array into three groups based on their modulo $3$ results, denoted as $\textit{g}[0]$, $\textit{g}[1]$, and $\textit{g}[2]$. Where $\textit{g}[i]$ stores all elements that satisfy $\textit{nums}[j] \bmod 3 = i$.
+We first sort the array $\textit{nums}$, then divide the elements in the array into three groups based on their modulo $3$ results, denoted as $g[0]$, $g[1]$, and $g[2]$. Where $g[i]$ stores all elements that satisfy $\textit{nums}[j] \bmod 3 = i$.
 
-Next, we enumerate the cases of selecting one element each from $\textit{g}[a]$ and $\textit{g}[b]$, where $a, b \in \{0, 1, 2\}$. Based on the modulo $3$ results of the two selected elements, we can determine which group the third element should be selected from to ensure that the sum of the triplet is divisible by $3$. Specifically, the third element should be selected from $\textit{g}[c]$, where $c = (3 - (a + b) \bmod 3) \bmod 3$.
+Next, we enumerate the cases of selecting one element each from $g[a]$ and $g[b]$, where $a, b \in \{0, 1, 2\}$. Based on the modulo $3$ results of the two selected elements, we can determine which group the third element should be selected from to ensure that the sum of the triplet is divisible by $3$. Specifically, the third element should be selected from $g[c]$, where $c = (3 - (a + b) \bmod 3) \bmod 3$.
 
-For each combination of $(a, b)$, we try to take out the largest element from both $\textit{g}[a]$ and $\textit{g}[b]$, then take out the largest element from $\textit{g}[c]$, calculate the sum of these three elements, and update the answer.
+For each combination of $(a, b)$, we try to take out the largest element from both $g[a]$ and $g[b]$, then take out the largest element from $g[c]$, calculate the sum of these three elements, and update the answer.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

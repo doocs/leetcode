@@ -127,9 +127,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $\text{dfs}(i, j, k, \textit{cnt})$，表示上一个位置为 $(i, j)$，当前方向为 $k$，剩余可转向次数为 $\textit{cnt}$ 时，返回最长的 V 形对角线段长度。
+我们设计一个函数 $\textit{dfs}(i, j, k, \textit{cnt})$，表示上一个位置为 $(i, j)$，当前方向为 $k$，剩余可转向次数为 $\textit{cnt}$ 时，返回最长的 V 形对角线段长度。
 
-函数 $\text{dfs}$ 的执行逻辑如下：
+函数 $\textit{dfs}$ 的执行逻辑如下：
 
 我们首先基于上一个位置以及当前的方向，计算当前得到当前位置 $(x, y)$，然后计算当前目标值 $\textit{target}$。如果 $x$ 或 $y$ 不在矩阵范围内，或者 $\textit{grid}[x][y] \neq \textit{target}$，返回 $0$。
 

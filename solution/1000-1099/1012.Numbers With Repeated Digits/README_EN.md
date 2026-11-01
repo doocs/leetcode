@@ -90,11 +90,11 @@ The function executes as follows:
 
 If $i$ is greater than or equal to $m$, it means we have processed all digits. If $\textit{lead}$ is true, it means the current number is a leading zero, and we should return $0$. Otherwise, we should return $1$.
 
-Otherwise, we calculate the upper bound $\textit{up}$. If $\textit{limit}$ is true, then $\textit{up}$ is the digit corresponding to $s[i]$. Otherwise, $\textit{up}$ is $9$.
+Otherwise, we calculate the upper bound $up$. If $\textit{limit}$ is true, then $up$ is the digit corresponding to $s[i]$. Otherwise, $up$ is $9$.
 
-Then, we enumerate the current digit $j$ in the range $[0, \textit{up}]$. If $j$ is $0$ and $\textit{lead}$ is true, we recursively calculate $\textit{dfs}(i + 1, \textit{mask}, \text{true}, \textit{limit} \wedge j = \textit{up})$. Otherwise, if the $j$-th bit of $\textit{mask}$ is $0$, we recursively calculate $\textit{dfs}(i + 1, \textit{mask} \,|\, 2^j, \text{false}, \textit{limit} \wedge j = \textit{up})$. We accumulate all the results as the answer.
+Then, we enumerate the current digit $j$ in the range $[0, up]$. If $j$ is $0$ and $\textit{lead}$ is true, we recursively calculate $\textit{dfs}(i + 1, \textit{mask}, \textit{true}, \textit{limit} \wedge j = up)$. Otherwise, if the $j$-th bit of $\textit{mask}$ is $0$, we recursively calculate $\textit{dfs}(i + 1, \textit{mask} \,|\, 2^j, \textit{false}, \textit{limit} \wedge j = up)$. We accumulate all the results as the answer.
 
-The answer is $n - \textit{dfs}(0, 0, \text{true}, \text{true})$.
+The answer is $n - \textit{dfs}(0, 0, \textit{true}, \textit{true})$.
 
 The time complexity is $O(D 2^D \log n)$, and the space complexity is $O(2^D \log n)$, where $D = 10$.
 

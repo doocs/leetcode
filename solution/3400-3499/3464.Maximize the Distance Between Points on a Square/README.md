@@ -109,29 +109,29 @@ tags:
 >
 > 最小化最大值的对偶适合二分。把边界展开成周长为 $4\cdot\textit{side}$ 的环，距离变成一维差。
 >
-> 对候选距离 $\textit{lo}$，枚举起点并贪心二分跳 $k-1$ 次，同时限制终点不超过 $\textit{start}+4\textit{side}-\textit{lo}$，保证闭环。可行则升高 $\textit{lo}$。
+> 对候选距离 $lo$，枚举起点并贪心二分跳 $k-1$ 次，同时限制终点不超过 $\textit{start}+4\textit{side}-lo$，保证闭环。可行则升高 $lo$。
 
 <!-- thinking:end -->
 
 由于题目要求最大化最小距离，我们可以通过二分答案的方式来寻找最优解。
 
-首先，为了简化逻辑，我们将正方形边界上的二维坐标 $(x, y)$ 映射到一维数轴 $[0, 4 \times \text{side})$ 上。映射规则如下：
+首先，为了简化逻辑，我们将正方形边界上的二维坐标 $(x, y)$ 映射到一维数轴 $[0, 4 \times \textit{side})$ 上。映射规则如下：
 
 - 若 $x = 0$，映射值为 $y$；
-- 若 $y = \text{side}$，映射值为 $\text{side} + x$；
-- 若 $x = \text{side}$，映射值为 $3 \times \text{side} - y$；
-- 否则，映射值为 $4 \times \text{side} - x$。
+- 若 $y = \textit{side}$，映射值为 $\textit{side} + x$；
+- 若 $x = \textit{side}$，映射值为 $3 \times \textit{side} - y$；
+- 否则，映射值为 $4 \times \textit{side} - x$。
 
 映射后，将所有坐标点排序得到数组 $\textit{nums}$。由于是在正方形周长上选取点，这本质上是一个环形问题。
 
-在二分过程中，对于给定的最小距离 $\textit{lo}$，我们通过 $\textit{check}$ 函数验证其可行性：
+在二分过程中，对于给定的最小距离 $lo$，我们通过 $\textit{check}$ 函数验证其可行性：
 
 - 遍历 $\textit{nums}$ 中的每个点作为第一个点 $\textit{start}$。
-- 限制选点范围的终点为 $\textit{end} = \textit{start} + 4 \times \text{side} - \textit{lo}$，确保选出的最后一个点回到起点 $\textit{start}$ 的环绕距离也至少为 $\textit{lo}$。
-- 随后贪心地进行 $k-1$ 次跳转，每次利用二分查找快速定位下一个距离当前位置至少为 $\textit{lo}$ 的点。
-- 如果能在满足 $\textit{end}$ 限制的情况下选够 $k$ 个点，则该距离 $\textit{lo}$ 可行。
+- 限制选点范围的终点为 $\textit{end} = \textit{start} + 4 \times \textit{side} - lo$，确保选出的最后一个点回到起点 $\textit{start}$ 的环绕距离也至少为 $lo$。
+- 随后贪心地进行 $k-1$ 次跳转，每次利用二分查找快速定位下一个距离当前位置至少为 $lo$ 的点。
+- 如果能在满足 $\textit{end}$ 限制的情况下选够 $k$ 个点，则该距离 $lo$ 可行。
 
-时间复杂度 $O(n^2 \log(\text{side}) \log n)$，空间复杂度 $O(n)$。其中 $n$ 为点集 $\textit{points}$ 的长度。
+时间复杂度 $O(n^2 \log(\textit{side}) \log n)$，空间复杂度 $O(n)$。其中 $n$ 为点集 $\textit{points}$ 的长度。
 
 <!-- tabs:start -->
 

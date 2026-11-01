@@ -80,9 +80,9 @@ And <code>[3,1,2]</code> is at index 4.</p>
 >
 > The lexicographic index of a permutation is the number of permutations strictly smaller than it. Recursing over unused values at each prefix grows with factorials and cannot pass for moderate $n$.
 >
-> If position $i$ takes an unused value smaller than $perm[i]$, the remaining $n-i-1$ positions may be arbitrary, contributing that count times $(n-i-1)!$. Summing over positions yields the rank.
+> If position $i$ takes an unused value smaller than $\textit{perm}[i]$, the remaining $n-i-1$ positions may be arbitrary, contributing that count times $(n-i-1)!$. Summing over positions yields the rank.
 >
-> A Fenwick tree stores already seen values, so the number of used values below the current one is a prefix query. Accumulate $(perm[i]-1-\textit{query}(perm[i]))\times(n-i-1)!$ from left to right and mark $perm[i]$, which is $O(n \log n)$.
+> A Fenwick tree stores already seen values, so the number of used values below the current one is a prefix query. Accumulate $(\textit{perm}[i]-1-\textit{query}(\textit{perm}[i]))\times(n-i-1)!$ from left to right and mark $\textit{perm}[i]$, which is $O(n \log n)$.
 
 <!-- thinking:end -->
 
@@ -90,11 +90,11 @@ According to the problem requirements, we need to find out how many permutations
 
 We consider how to calculate the number of permutations that are lexicographically smaller than the given permutation. There are two situations:
 
-- The first element of the permutation is less than $perm[0]$, there are $(perm[0] - 1) \times (n-1)!$ permutations.
-- The first element of the permutation is equal to $perm[0]$, we need to continue to consider the second element, and so on.
+- The first element of the permutation is less than $\textit{perm}[0]$, there are $(\textit{perm}[0] - 1) \times (n-1)!$ permutations.
+- The first element of the permutation is equal to $\textit{perm}[0]$, we need to continue to consider the second element, and so on.
 - The sum of all situations is the answer.
 
-We can use a binary indexed tree to maintain the number of elements that are smaller than the current element in the traversed elements. For the $i$-th element of the given permutation, the number of remaining elements that are smaller than it is $perm[i] - 1 - tree.query(perm[i])$, and the number of permutation types is $(perm[i] - 1 - tree.query(perm[i])) \times (n-i-1)!$, which is added to the answer. Then we update the binary indexed tree and add the current element to the binary indexed tree. Continue to traverse the next element until all elements are traversed.
+We can use a binary indexed tree to maintain the number of elements that are smaller than the current element in the traversed elements. For the $i$-th element of the given permutation, the number of remaining elements that are smaller than it is $\textit{perm}[i] - 1 - \textit{tree}.\textit{query}(\textit{perm}[i])$, and the number of permutation types is $(\textit{perm}[i] - 1 - \textit{tree}.\textit{query}(\textit{perm}[i])) \times (n-i-1)!$, which is added to the answer. Then we update the binary indexed tree and add the current element to the binary indexed tree. Continue to traverse the next element until all elements are traversed.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the permutation.
 

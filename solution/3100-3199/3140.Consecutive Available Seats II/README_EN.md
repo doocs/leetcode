@@ -92,9 +92,9 @@ Output table is ordered by first_seat_id in ascending order.</div>
 >
 > Every longest run of free seats is required. A procedural scan works, but SQL groups consecutive ids more naturally.
 >
-> Subtracting a free seat's rank from $seat\_id$ yields a constant on each contiguous run, which becomes the group key.
+> Subtracting a free seat's rank from $\textit{seat\_id}$ yields a constant on each contiguous run, which becomes the group key.
 >
-> Keep $free=1$, group by $seat\_id-\mathrm{RANK}()$, compute min, max, and length, then keep the maximum-length groups ordered by the left seat.
+> Keep $\textit{free}=1$, group by $\textit{seat\_id}-\textit{RANK}()$, compute min, max, and length, then keep the maximum-length groups ordered by the left seat.
 
 <!-- thinking:end -->
 

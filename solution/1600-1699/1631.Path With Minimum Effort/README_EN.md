@@ -460,7 +460,7 @@ function minimumEffortPath(heights: number[][]): number {
 
 We notice that if the maximum physical consumption value of a path is $x$, then for any $y > x$, this path also meets the conditions. This shows monotonicity, so we can use the binary search method to find the minimum physical consumption value that meets the conditions.
 
-We define the left boundary of the binary search as $l=0$, and the right boundary as $r=10^6$. Each time we take $mid=(l+r)/2$, then use BFS to determine whether there is a path from the top-left corner to the bottom-right corner, so that the absolute difference in height between adjacent nodes on the path is not greater than $mid$. If it exists, it means that $mid$ may still be the minimum physical consumption value that meets the conditions, so we set $r=mid$, otherwise we set $l=mid+1$.
+We define the left boundary of the binary search as $l=0$, and the right boundary as $r=10^6$. Each time we take $\textit{mid}=(l+r)/2$, then use BFS to determine whether there is a path from the top-left corner to the bottom-right corner, so that the absolute difference in height between adjacent nodes on the path is not greater than $\textit{mid}$. If it exists, it means that $\textit{mid}$ may still be the minimum physical consumption value that meets the conditions, so we set $r=\textit{mid}$, otherwise we set $l=\textit{mid}+1$.
 
 The time complexity is $O(mn \log M)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively, and $M$ is the maximum value in the two-dimensional array. In this problem, $M=10^6$.
 
@@ -688,13 +688,13 @@ function minimumEffortPath(heights: number[][]): number {
 >
 > The first two methods sort globally or search repeatedly. Treating a move as the new bottleneck $\max(\textit{so far}, \lvert \Delta h \rvert)$ is a shortest-path problem with $\max$ instead of $+$.
 >
-> Dijkstra with a heap stores the best bottleneck $dist$ to each cell and relaxes four neighbors; the bottom-right entry is the answer.
+> Dijkstra with a heap stores the best bottleneck $\textit{dist}$ to each cell and relaxes four neighbors; the bottom-right entry is the answer.
 
 <!-- thinking:end -->
 
 We can treat each cell as a node in a graph, and the absolute difference in height between two adjacent cells as the weight of the edge. Therefore, this problem is to solve the shortest path problem from the top-left node to the bottom-right node.
 
-We can use the Dijkstra algorithm to solve the shortest path problem, and use a priority queue (heap) to optimize the time complexity. Specifically, we maintain a two-dimensional array $dist$ of size $m \times n$, where $dist[i][j]$ represents the maximum weight of the shortest path from the top-left corner to the node $(i,j)$. Initially, $dist[0][0]=0$, and all other elements are positive infinity.
+We can use the Dijkstra algorithm to solve the shortest path problem, and use a priority queue (heap) to optimize the time complexity. Specifically, we maintain a two-dimensional array $\textit{dist}$ of size $m \times n$, where $\textit{dist}[i][j]$ represents the maximum weight of the shortest path from the top-left corner to the node $(i,j)$. Initially, $\textit{dist}[0][0]=0$, and all other elements are positive infinity.
 
 We use a priority queue (heap) to store nodes, and each time we take out the node with the smallest weight from the priority queue (heap), then update the weights of its adjacent nodes. If the weight of an adjacent node changes, then we add this node to the priority queue (heap). When the priority queue (heap) is empty, it means that we have found the shortest path.
 

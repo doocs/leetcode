@@ -84,7 +84,7 @@ tags:
 
 > **Thinking**
 >
-> A balanced integer has at least two digits and equal odd/even place-sums. Range counting is a digit DP $calc(high)-calc(low-1)$ whose state is the position, the running difference, and tightness; numbers shorter than two digits are excluded by raising the lower bound to $11$.
+> A balanced integer has at least two digits and equal odd/even place-sums. Range counting is a digit DP $\textit{calc}(\textit{high})-\textit{calc}(\textit{low}-1)$ whose state is the position, the running difference, and tightness; numbers shorter than two digits are excluded by raising the lower bound to $11$.
 
 <!-- thinking:end -->
 
@@ -95,11 +95,11 @@ Then we design a function $\textit{dfs}(\textit{pos}, \textit{diff}, \textit{lim
 The execution logic of the function is as follows:
 
 - If $\textit{pos}$ exceeds the length of the number, it means all digits have been processed. If $\textit{diff} = 0$, the current number is a balanced integer, return $1$; otherwise, return $0$.
-- Calculate the upper bound $\textit{up}$ for the current digit. If constrained, it equals the current digit of the number; otherwise, it is $9$.
-- Iterate through all possible digits $i$ for the current position. For each digit $i$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if pos \% 2 == 0 else -1}), \textit{lim} \&\& i == \textit{up})$, and accumulate the results.
+- Calculate the upper bound $up$ for the current digit. If constrained, it equals the current digit of the number; otherwise, it is $9$.
+- Iterate through all possible digits $i$ for the current position. For each digit $i$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if pos \% 2 == 0 else -1}), \textit{lim} \&\& i == up)$, and accumulate the results.
 - Return the accumulated result.
 
-We first calculate the number of balanced integers $\textit{a}$ in the range $[1, \textit{low} - 1]$, then calculate the number of balanced integers $\textit{b}$ in the range $[1, \textit{high}]$, and finally return $\textit{b} - \textit{a}$.
+We first calculate the number of balanced integers $a$ in the range $[1, \textit{low} - 1]$, then calculate the number of balanced integers $b$ in the range $[1, \textit{high}]$, and finally return $b - a$.
 
 To avoid redundant calculations, we use memoization to store previously computed states.
 

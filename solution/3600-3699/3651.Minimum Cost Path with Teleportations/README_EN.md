@@ -158,11 +158,11 @@ First, we need to initialize $f[0][i][j]$. Without using teleportation, we can o
 
 If $i > 0$, we can move from the cell above $(i-1, j)$, updating the state as:
 
-$$f[0][i][j] = \min(f[0][i][j], f[0][i-1][j] + grid[i][j])$$
+$$f[0][i][j] = \min(f[0][i][j], f[0][i-1][j] + \textit{grid}[i][j])$$
 
 If $j > 0$, we can move from the cell to the left $(i, j-1)$, updating the state as:
 
-$$f[0][i][j] = \min(f[0][i][j], f[0][i][j-1] + grid[i][j])$$
+$$f[0][i][j] = \min(f[0][i][j], f[0][i][j-1] + \textit{grid}[i][j])$$
 
 To handle teleportation, we need to group the cells in the grid by their values. We use a hash map $g$, where the key is the cell value and the value is a list of coordinates of cells with that value.
 
@@ -176,11 +176,11 @@ Next, we traverse the entire grid again to update $f[t][i][j]$, considering move
 
 If $i > 0$, then:
 
-$$f[t][i][j] = \min(f[t][i][j], f[t][i-1][j] + grid[i][j])$$
+$$f[t][i][j] = \min(f[t][i][j], f[t][i-1][j] + \textit{grid}[i][j])$$
 
 If $j > 0$, then:
 
-$$f[t][i][j] = \min(f[t][i][j], f[t][i][j-1] + grid[i][j])$$
+$$f[t][i][j] = \min(f[t][i][j], f[t][i][j-1] + \textit{grid}[i][j])$$
 
 Finally, our answer is $\min(f[t][m-1][n-1])$, where $t$ ranges from $0$ to $k$.
 

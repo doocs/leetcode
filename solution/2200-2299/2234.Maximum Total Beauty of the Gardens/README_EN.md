@@ -94,7 +94,7 @@ Note that Alice could make all the gardens complete but in this case, she would 
 
 > **Thinking**
 >
-> A garden is either filled to $\textit{target}$ (perfect) or left imperfect, in which case we want its minimum as large as possible. $n \le 10^5$ and $newFlowers$ is up to $10^{10}$. Once the number of perfect gardens is fixed, leftover flowers should raise a prefix of the imperfect ones.
+> A garden is either filled to $\textit{target}$ (perfect) or left imperfect, in which case we want its minimum as large as possible. $n \le 10^5$ and $\textit{newFlowers}$ is up to $10^{10}$. Once the number of perfect gardens is fixed, leftover flowers should raise a prefix of the imperfect ones.
 >
 > Sort and prefix-sum. Enumerate the final perfect count $x$, pay to complete the most expensive gardens, then binary-search how far the remaining flowers can raise the imperfect prefix. The extra flowers are shared evenly but stay below $\textit{target}$. Maximize $x\cdot\textit{full}+y\cdot\textit{partial}$.
 

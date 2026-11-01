@@ -105,9 +105,9 @@ tags:
 
 Let $F(x)$ be the number of evenly good integers in $[0, x]$. The answer is $F(r)-F(l-1)$. The decimal form of $0$ is the single digit $0$, which has an odd number of even digits, so $F(0)=0$.
 
-Write $x$ as a decimal string $s$ and search from high digits to low digits with memoization. $dfs(pos, st, lim)$ is the number of ways to fill position $pos$ when the even digits placed so far number $st$ modulo $2$, and $lim$ says whether the prefix is tight against $x$.
+Write $x$ as a decimal string $s$ and search from high digits to low digits with memoization. $\textit{dfs}(\textit{pos}, st, \textit{lim})$ is the number of ways to fill position $\textit{pos}$ when the even digits placed so far number $st$ modulo $2$, and $\textit{lim}$ says whether the prefix is tight against $x$.
 
-At the end of the string, return $1$ when $st=0$ and return $0$ otherwise. The upper digit $up$ equals $s[pos]$ when the prefix is tight, and equals $9$ otherwise. For a digit $i$ from $0$ to $up$, the next parity is $(st+1)\bmod 2$ when $i$ is even and stays $st$ when $i$ is odd. The next position stays tight only when $lim$ is true and $i=up$.
+At the end of the string, return $1$ when $st=0$ and return $0$ otherwise. The upper digit $up$ equals $s[\textit{pos}]$ when the prefix is tight, and equals $9$ otherwise. For a digit $i$ from $0$ to $up$, the next parity is $(st+1)\bmod 2$ when $i$ is even and stays $st$ when $i$ is odd. The next position stays tight only when $\textit{lim}$ is true and $i=up$.
 
 Among $0$ through $9$, five digits are even and five are odd, so a free run of digits splits evenly between the two parities. When $x$ has $d\ge 2$ digits, every integer with fewer digits appears in this search with leading zeros, and those integers are exactly $[0, 10^{d-1}-1]$. After padding to $d$ digits the leading digit is the even digit $0$ and the rest are free, which gives $10^{d-1}/2$ strings with an even number of even digits. In the ordinary decimal form there are $5$ one-digit evenly good integers, and a length $k\ge 2$ contributes exactly half of its integers. Summing lengths $1$ through $d-1$ gives
 

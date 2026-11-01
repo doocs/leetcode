@@ -77,13 +77,13 @@ Falsey values such as 0 should be filtered out
 
 > **Thinking**
 >
-> `Array.filter` is disallowed. One sequential scan keeps elements for which $fn(arr[i],i)$ is truthy, preserving order.
+> `Array.filter` is disallowed. One sequential scan keeps elements for which $fn(\textit{arr}[i],i)$ is truthy, preserving order.
 
 <!-- thinking:end -->
 
-We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
+We traverse the array $\textit{arr}$ and for each element $\textit{arr}[i]$, if $fn(\textit{arr}[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

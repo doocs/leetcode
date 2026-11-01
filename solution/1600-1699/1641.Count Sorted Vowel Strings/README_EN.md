@@ -70,7 +70,7 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 >
 > A nondecreasing vowel string of length $n$ is a weakly sorted selection from five letters. $n$ is small, so search by “placed $i$ letters, last vowel index $j$”.
 >
-> $dfs(i,j)$ returns $1$ at $i=n$, otherwise sums $dfs(i+1,k)$ for $k \ge j$, memoized to reuse states.
+> $\textit{dfs}(i,j)$ returns $1$ at $i=n$, otherwise sums $\textit{dfs}(i+1,k)$ for $k \ge j$, memoized to reuse states.
 
 <!-- thinking:end -->
 

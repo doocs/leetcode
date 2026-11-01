@@ -77,15 +77,15 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 
 > **Thinking**
 >
-> Infection travels along tree edges; the time is the eccentricity of $start$. Up to $10^5$ nodes, so parent links must be explicit.
+> Infection travels along tree edges; the time is the eccentricity of $\textit{start}$. Up to $10^5$ nodes, so parent links must be explicit.
 >
-> The first DFS builds an undirected adjacency list; the second DFS from $start$ returns the farthest depth. Both are linear.
+> The first DFS builds an undirected adjacency list; the second DFS from $\textit{start}$ returns the farthest depth. Both are linear.
 
 <!-- thinking:end -->
 
-First, we build a graph through one DFS, and get an adjacency list $g$, where $g[node]$ represents all nodes connected to the node $node$.
+First, we build a graph through one DFS, and get an adjacency list $g$, where $g[\textit{node}]$ represents all nodes connected to the node $\textit{node}$.
 
-Then, we use $start$ as the starting point, and search the entire tree through DFS to find the farthest distance, which is the answer.
+Then, we use $\textit{start}$ as the starting point, and search the entire tree through DFS to find the farthest distance, which is the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
@@ -318,19 +318,19 @@ function amountOfTime(root: TreeNode | null, start: number): number {
 
 > **Thinking**
 >
-> Infection spreads along parent and child edges, so the minutes needed are the farthest distance from $start$. Recording those edges and then returning a depth is correct on a short tree.
+> Infection spreads along parent and child edges, so the minutes needed are the farthest distance from $\textit{start}$. Recording those edges and then returning a depth is correct on a short tree.
 >
 > The tree can contain $10^5$ nodes. A left chain makes both walks recurse once per node, which exceeds the call stack.
 >
 > Each walk only needs the current node and its parent, and a node's depth is one plus the maximum depth of its other neighbors. Those values can sit beside an explicit stack.
 >
-> The first stack records every parent edge in an undirected adjacency list, using the distinct node values as keys. The second stack enters a node, pushes its neighbors, and on exit writes one plus the maximum neighbor depth. The depth stored for $start$ is the answer.
+> The first stack records every parent edge in an undirected adjacency list, using the distinct node values as keys. The second stack enters a node, pushes its neighbors, and on exit writes one plus the maximum neighbor depth. The depth stored for $\textit{start}$ is the answer.
 
 <!-- thinking:end -->
 
 We traverse the binary tree with an explicit stack and record each parent-child edge in an undirected adjacency list $g$. Node values are distinct, so they are the graph keys.
 
-A second explicit stack then walks outward from $start$. On entry it pushes an exit marker and every neighbor except the parent; on exit the depth is one plus the maximum depth of those neighbors. The depth stored for $start$ is the answer.
+A second explicit stack then walks outward from $\textit{start}$. On entry it pushes an exit marker and every neighbor except the parent; on exit the depth is one plus the maximum depth of those neighbors. The depth stored for $\textit{start}$ is the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

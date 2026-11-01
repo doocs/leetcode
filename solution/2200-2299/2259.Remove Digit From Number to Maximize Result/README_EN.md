@@ -74,11 +74,11 @@ Both result in the string &quot;51&quot;.
 >
 > We must delete exactly one occurrence of a given digit to maximize the remaining decimal string. The length is at most $100$, so building the string for every deletion is enough.
 >
-> Enumerate indices $i$ equal to $\textit{digit}$ and take the maximum of $number[:i]+number[i+1:]$. Lexicographic order matches numeric order.
+> Enumerate indices $i$ equal to $\textit{digit}$ and take the maximum of $\textit{number}[:i]+\textit{number}[i+1:]$. Lexicographic order matches numeric order.
 
 <!-- thinking:end -->
 
-We can enumerate all positions $\textit{i}$ in the string $\textit{number}$. If $\textit{number}[i] = \textit{digit}$, we take the prefix $\textit{number}[0:i]$ and the suffix $\textit{number}[i+1:]$ of $\textit{number}$ and concatenate them. This gives the result after removing $\textit{number}[i]$. We then take the maximum of all possible results.
+We can enumerate all positions $i$ in the string $\textit{number}$. If $\textit{number}[i] = \textit{digit}$, we take the prefix $\textit{number}[0:i]$ and the suffix $\textit{number}[i+1:]$ of $\textit{number}$ and concatenate them. This gives the result after removing $\textit{number}[i]$. We then take the maximum of all possible results.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{number}$.
 
@@ -212,7 +212,7 @@ class Solution {
 
 <!-- thinking:end -->
 
-We can enumerate all positions $\textit{i}$ in the string $\textit{number}$. If $\textit{number}[i] = \textit{digit}$, we record the last occurrence position of $\textit{digit}$ as $\textit{last}$. If $\textit{i} + 1 < \textit{n}$ and $\textit{number}[i] < \textit{number}[i + 1]$, then we can directly return $\textit{number}[0:i] + \textit{number}[i+1:]$ as the result after removing $\textit{number}[i]$. This is because if $\textit{number}[i] < \textit{number}[i + 1]$, removing $\textit{number}[i]$ will result in a larger number.
+We can enumerate all positions $i$ in the string $\textit{number}$. If $\textit{number}[i] = \textit{digit}$, we record the last occurrence position of $\textit{digit}$ as $\textit{last}$. If $i + 1 < n$ and $\textit{number}[i] < \textit{number}[i + 1]$, then we can directly return $\textit{number}[0:i] + \textit{number}[i+1:]$ as the result after removing $\textit{number}[i]$. This is because if $\textit{number}[i] < \textit{number}[i + 1]$, removing $\textit{number}[i]$ will result in a larger number.
 
 After the traversal, we return $\textit{number}[0:\textit{last}] + \textit{number}[\textit{last}+1:]$.
 

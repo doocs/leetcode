@@ -87,21 +87,21 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 >
 > Each fruit may be skipped, bought, or bought at half price with a coupon. State $(i,j,k)$ is the index, remaining money, and remaining coupons. The product $n\times\textit{maxAmount}\times\textit{maxCoupons}$ is small enough to memoize.
 >
-> Transitions are skip, pay full price if $j$ allows, or spend one coupon at $\lfloor price/2\rfloor$. Take the maximum tastiness.
+> Transitions are skip, pay full price if $j$ allows, or spend one coupon at $\lfloor \textit{price}/2\rfloor$. Take the maximum tastiness.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j, k)$ to represent the maximum total tastiness starting from the $i$th fruit, with $j$ money left, and $k$ coupons left.
+We design a function $\textit{dfs}(i, j, k)$ to represent the maximum total tastiness starting from the $i$th fruit, with $j$ money left, and $k$ coupons left.
 
 For the $i$th fruit, we can choose to buy or not to buy. If we choose to buy, we can decide whether to use a coupon or not.
 
-If we don't buy, the maximum total tastiness is $dfs(i + 1, j, k)$;
+If we don't buy, the maximum total tastiness is $\textit{dfs}(i + 1, j, k)$;
 
-If we buy, and choose not to use a coupon (requires $j\ge price[i]$), the maximum total tastiness is $dfs(i + 1, j - price[i], k) + tastiness[i]$; if we use a coupon (requires $k\gt 0$ and $j\ge \lfloor \frac{price[i]}{2} \rfloor$), the maximum total tastiness is $dfs(i + 1, j - \lfloor \frac{price[i]}{2} \rfloor, k - 1) + tastiness[i]$.
+If we buy, and choose not to use a coupon (requires $j\ge \textit{price}[i]$), the maximum total tastiness is $\textit{dfs}(i + 1, j - \textit{price}[i], k) + \textit{tastiness}[i]$; if we use a coupon (requires $k\gt 0$ and $j\ge \lfloor \frac{\textit{price}[i]}{2} \rfloor$), the maximum total tastiness is $\textit{dfs}(i + 1, j - \lfloor \frac{\textit{price}[i]}{2} \rfloor, k - 1) + \textit{tastiness}[i]$.
 
-The final answer is $dfs(0, maxAmount, maxCoupons)$.
+The final answer is $\textit{dfs}(0, \textit{maxAmount}, \textit{maxCoupons})$.
 
-The time complexity is $O(n maxAmount maxCoupons)$, where $n$ is the number of fruits.
+The time complexity is $O(n \textit{maxAmount} \textit{maxCoupons})$, where $n$ is the number of fruits.
 
 <!-- tabs:start -->
 

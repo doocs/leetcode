@@ -76,7 +76,7 @@ There is 1 distinct prime factor so we return 1.
 
 > **Thinking**
 >
-> We need the number of distinct prime factors of $\prod nums[i]$. Forming the product first overflows and is unnecessary: the primes of the product are the union of the primes of each element.
+> We need the number of distinct prime factors of $\prod \textit{nums}[i]$. Forming the product first overflows and is unnecessary: the primes of the product are the union of the primes of each element.
 >
 > Trial-divide every $n$, insert factors into a set, and return the set size. Each factorization is $O(\sqrt{m})$.
 

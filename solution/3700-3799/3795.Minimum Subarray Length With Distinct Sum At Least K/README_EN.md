@@ -85,9 +85,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $\textit{cnt}$ to record the occurrence count of each element in the current window, and a variable $\textit{s}$ to record the sum of distinct elements in the current window. We use two pointers $l$ and $r$ to represent the left and right boundaries of the current window, both initially pointing to the beginning of the array. We initialize a variable $\textit{ans}$ to record the minimum length of a window that satisfies the condition, with an initial value of $n + 1$, where $n$ is the length of the array.
+We use a hash table $\textit{cnt}$ to record the occurrence count of each element in the current window, and a variable $s$ to record the sum of distinct elements in the current window. We use two pointers $l$ and $r$ to represent the left and right boundaries of the current window, both initially pointing to the beginning of the array. We initialize a variable $\textit{ans}$ to record the minimum length of a window that satisfies the condition, with an initial value of $n + 1$, where $n$ is the length of the array.
 
-We continuously move the right pointer $r$, adding new elements into the window and updating $\textit{cnt}$ and $\textit{s}$. When $\textit{s}$ is greater than or equal to $k$, we try to move the left pointer $l$ to shrink the window, updating $\textit{cnt}$ and $\textit{s}$ accordingly, until $\textit{s}$ is less than $k$. During this process, we record the minimum length of windows that satisfy the condition.
+We continuously move the right pointer $r$, adding new elements into the window and updating $\textit{cnt}$ and $s$. When $s$ is greater than or equal to $k$, we try to move the left pointer $l$ to shrink the window, updating $\textit{cnt}$ and $s$ accordingly, until $s$ is less than $k$. During this process, we record the minimum length of windows that satisfy the condition.
 
 Finally, if $\textit{ans} \gt n$, it means no valid window exists, and we return $-1$; otherwise we return $\textit{ans}$.
 

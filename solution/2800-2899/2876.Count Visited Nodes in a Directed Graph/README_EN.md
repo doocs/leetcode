@@ -82,7 +82,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can use an array $ans$ to record the answer for each node, and an array $vis$ to record the visit order for each node.
+We can use an array $\textit{ans}$ to record the answer for each node, and an array $\textit{vis}$ to record the visit order for each node.
 
 For each node $i$, if it has not been visited yet, we start traversing from node $i$. There are two cases:
 

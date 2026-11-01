@@ -69,7 +69,7 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 
 > **Thinking**
 >
-> Support adding numbers and querying whether two of them sum to a value. At most $10^4$ calls. Sorting on every $\textit{find}$ is undone by later adds. A frequency map makes $\textit{add}$ $O(1)$; $\textit{find}$ tries each $x$ and looks up $value-x$, requiring count at least $2$ when $x$ equals $value-x$.
+> Support adding numbers and querying whether two of them sum to a value. At most $10^4$ calls. Sorting on every $\textit{find}$ is undone by later adds. A frequency map makes $\textit{add}$ $O(1)$; $\textit{find}$ tries each $x$ and looks up $\textit{value}-x$, requiring count at least $2$ when $x$ equals $\textit{value}-x$.
 
 <!-- thinking:end -->
 

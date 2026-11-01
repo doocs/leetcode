@@ -87,21 +87,21 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 
 > **Thinking**
 >
-> We need the count of indices with $nums[i]\bmod modulo=k$ itself congruent to $k$ on a subarray. Mapping those indices to $1$ reduces the condition to $(s_r-s_{l-1})\bmod modulo=k$. A hash map of prefix sums modulo $modulo$ counts the matching left ends in one pass.
+> We need the count of indices with $\textit{nums}[i]\bmod \textit{modulo}=k$ itself congruent to $k$ on a subarray. Mapping those indices to $1$ reduces the condition to $(s_r-s_{l-1})\bmod \textit{modulo}=k$. A hash map of prefix sums modulo $\textit{modulo}$ counts the matching left ends in one pass.
 
 <!-- thinking:end -->
 
-The problem requires the number of indices $i$ in an interval that satisfy $nums[i] \bmod modulo = k$. We can transform the array $nums$ into a $0-1$ array $arr$, where $arr[i] = 1$ indicates $nums[i] \bmod modulo = k$, otherwise $arr[i] = 0$.
+The problem requires the number of indices $i$ in an interval that satisfy $\textit{nums}[i] \bmod \textit{modulo} = k$. We can transform the array $\textit{nums}$ into a $0-1$ array $\textit{arr}$, where $\textit{arr}[i] = 1$ indicates $\textit{nums}[i] \bmod \textit{modulo} = k$, otherwise $\textit{arr}[i] = 0$.
 
-For an interval $[l, r]$, we can calculate the number of $1$s in $arr[l..r]$ through the prefix sum array $s$, i.e., $s[r] - s[l - 1]$, where $s[0] = 0$.
+For an interval $[l, r]$, we can calculate the number of $1$s in $\textit{arr}[l..r]$ through the prefix sum array $s$, i.e., $s[r] - s[l - 1]$, where $s[0] = 0$.
 
-We use a hash table $cnt$ to record the number of occurrences of the prefix sum $s \bmod modulo$, initially $cnt[0]=1$.
+We use a hash table $\textit{cnt}$ to record the number of occurrences of the prefix sum $s \bmod \textit{modulo}$, initially $\textit{cnt}[0]=1$.
 
-Next, we traverse the array $arr$, calculate the prefix sum $s$, add the number of occurrences of $(s-k) \bmod modulo$ to the answer, and then add $1$ to the number of occurrences of $s \bmod modulo$.
+Next, we traverse the array $\textit{arr}$, calculate the prefix sum $s$, add the number of occurrences of $(s-k) \bmod \textit{modulo}$ to the answer, and then add $1$ to the number of occurrences of $s \bmod \textit{modulo}$.
 
 After the traversal ends, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

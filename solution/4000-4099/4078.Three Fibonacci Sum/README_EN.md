@@ -91,7 +91,7 @@ $$
 F_i+F_{i+1}+F_{i+2}=2F_{i+2}.
 $$
 
-For $i\ge 0$, $F_{i+2}$ runs through every Fibonacci number that is at least $1$. Generate every Fibonacci number up to $10^9$ in advance and store it in a hash set $f$. Return $\text{true}$ when $n$ is even and $n/2\in f$, and return $\text{false}$ otherwise.
+For $i\ge 0$, $F_{i+2}$ runs through every Fibonacci number that is at least $1$. Generate every Fibonacci number up to $10^9$ in advance and store it in a hash set $f$. Return $\textit{true}$ when $n$ is even and $n/2\in f$, and return $\textit{false}$ otherwise.
 
 Preprocessing takes $O(\log M)$ time and $O(\log M)$ space, and each query takes $O(1)$ time, where $M=10^9$.
 

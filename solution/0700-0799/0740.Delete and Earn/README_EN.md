@@ -70,9 +70,9 @@ You earn a total of 9 points.</pre>
 >
 > Taking $x$ earns every copy of $x$ and forbids $x-1$ and $x+1$. $n\le 2\times 10^4$ and values $\le 10^4$, so searching each choice repeats work.
 >
-> Each value is all-or-nothing and neighbors conflict—the house-robber recurrence. Bucket scores into $total[x]$, then walk the value line.
+> Each value is all-or-nothing and neighbors conflict—the house-robber recurrence. Bucket scores into $\textit{total}[x]$, then walk the value line.
 >
-> Two rolling scalars are the best through $i-2$ and $i-1$; $i$ takes $\max(first+total[i], second)$. Time follows the max value.
+> Two rolling scalars are the best through $i-2$ and $i-1$; $i$ takes $\max(\textit{first}+\textit{total}[i], \textit{second})$. Time follows the max value.
 
 <!-- thinking:end -->
 

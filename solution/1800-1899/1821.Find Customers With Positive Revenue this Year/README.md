@@ -82,9 +82,9 @@ Customers
 
 > **思考**
 >
-> 只需列出 $2021$ 年收入为正的客户。表中已有 $year$ 与 $revenue$ 两列，不必聚合或连接。
+> 只需列出 $2021$ 年收入为正的客户。表中已有 $\textit{year}$ 与 $\textit{revenue}$ 两列，不必聚合或连接。
 >
-> 用 $\textit{WHERE}$ 同时约束年份与收入符号，投影 $customer\_id$ 即可。
+> 用 $\textit{WHERE}$ 同时约束年份与收入符号，投影 $\textit{customer\_id}$ 即可。
 
 <!-- thinking:end -->
 

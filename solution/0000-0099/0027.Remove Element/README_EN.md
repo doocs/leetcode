@@ -87,23 +87,23 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 > **Thinking**
 >
-> The first idea is a fresh array of everything not equal to $val$. $n \le 100$ would pass, but the problem asks for an in-place rewrite, so the extra allocation is unnecessary.
+> The first idea is a fresh array of everything not equal to $\textit{val}$. $n \le 100$ would pass, but the problem asks for an in-place rewrite, so the extra allocation is unnecessary.
 >
-> The bottleneck is "deleting" with something like $erase$: later elements shift again and again, worst case $O(n^2)$.
+> The bottleneck is "deleting" with something like $\textit{erase}$: later elements shift again and again, worst case $O(n^2)$.
 >
-> The judge only cares that the first $k$ slots hold every non-$val$ value; order may change. So overwrite the front of the array with the values we keep.
+> The judge only cares that the first $k$ slots hold every non-$\textit{val}$ value; order may change. So overwrite the front of the array with the values we keep.
 >
-> $k$ counts how many we have written: when $x \neq val$, store it at $nums[k]$ and increment $k$. One pass, $O(1)$ extra space.
+> $k$ counts how many we have written: when $x \neq \textit{val}$, store it at $\textit{nums}[k]$ and increment $k$. One pass, $O(1)$ extra space.
 
 <!-- thinking:end -->
 
-We use the variable $k$ to record the number of elements that are not equal to $val$.
+We use the variable $k$ to record the number of elements that are not equal to $\textit{val}$.
 
-Traverse the array $nums$, if the current element $x$ is not equal to $val$, then assign $x$ to $nums[k]$, and increment $k$ by $1$.
+Traverse the array $\textit{nums}$, if the current element $x$ is not equal to $\textit{val}$, then assign $x$ to $\textit{nums}[k]$, and increment $k$ by $1$.
 
 Finally, return $k$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

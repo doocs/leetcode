@@ -102,7 +102,7 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 >
 > Four slam winners sit in wide columns; we need a per-player title count. Unpivot the four columns, then join players.
 >
-> $\mathrm{UNION\ ALL}$ the four winner ids, join $\textit{Players}$, and $\mathrm{COUNT}$ by player.
+> $\textit{UNION}\ \textit{ALL}$ the four winner ids, join $\textit{Players}$, and $\textit{COUNT}$ by player.
 
 <!-- thinking:end -->
 
@@ -146,7 +146,7 @@ GROUP BY 1;
 
 > **Thinking**
 >
-> Instead of unpivoting, cross join players to championships and sum four $\mathrm{CASE}$ expressions, dropping zeros with $\mathrm{HAVING}$. No intermediate table; each player scans the four columns.
+> Instead of unpivoting, cross join players to championships and sum four $\textit{CASE}$ expressions, dropping zeros with $\textit{HAVING}$. No intermediate table; each player scans the four columns.
 
 <!-- thinking:end -->
 

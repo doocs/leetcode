@@ -88,9 +88,9 @@ We use a variable `tot` to record the total waiting time of the customers, and a
 
 We traverse the customer array `customers`. For each customer:
 
-If the current time `t` is less than or equal to the customer's arrival time `customers[i][0]`, it means that the chef is not cooking, so the chef can start cooking immediately. The time to complete this dish is $t = customers[i][0] + customers[i][1]$, and the customer's waiting time is `customers[i][1]`.
+If the current time `t` is less than or equal to the customer's arrival time `customers[i][0]`, it means that the chef is not cooking, so the chef can start cooking immediately. The time to complete this dish is $t = \textit{customers}[i][0] + \textit{customers}[i][1]$, and the customer's waiting time is `customers[i][1]`.
 
-Otherwise, it means that the chef is cooking, so the customer needs to wait for the chef to finish the previous dishes before starting to cook their own dishes. The time to complete this dish is $t = t + customers[i][1]$, and the customer's waiting time is $t - customers[i][0]$.
+Otherwise, it means that the chef is cooking, so the customer needs to wait for the chef to finish the previous dishes before starting to cook their own dishes. The time to complete this dish is $t = t + \textit{customers}[i][1]$, and the customer's waiting time is $t - \textit{customers}[i][0]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the customer array `customers`.
 

@@ -91,9 +91,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root)$，用于处理以 $root$ 为根的子树。如果 $root$ 为 $null$ 或者 $root.right$ 已经被访问过，说明 $root$ 为无效节点，返回 $null$。否则，递归处理 $root.right$ 和 $root.left$，并返回 $root$。
+我们设计一个函数 $\textit{dfs}(\textit{root})$，用于处理以 $\textit{root}$ 为根的子树。如果 $\textit{root}$ 为 $\textit{null}$ 或者 $\textit{root}.\textit{right}$ 已经被访问过，说明 $\textit{root}$ 为无效节点，返回 $\textit{null}$。否则，递归处理 $\textit{root}.\textit{right}$ 和 $\textit{root}.\textit{left}$，并返回 $\textit{root}$。
 
-最后，返回 $dfs(root)$ 即可。
+最后，返回 $\textit{dfs}(\textit{root})$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 

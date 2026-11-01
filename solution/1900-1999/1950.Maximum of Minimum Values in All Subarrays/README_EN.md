@@ -95,9 +95,9 @@ i=3:
 >
 > For each length $k$ we want the maximum window minimum. A deque per $k$ is $O(n^2)$ overall.
 >
-> The longest interval where $nums[i]$ is the minimum is bounded by the nearest strictly smaller values; that length $m$ lets $nums[i]$ compete for every answer of length $\le m$.
+> The longest interval where $\textit{nums}[i]$ is the minimum is bounded by the nearest strictly smaller values; that length $m$ lets $\textit{nums}[i]$ compete for every answer of length $\le m$.
 >
-> Monotone stacks find those bounds, we write into $ans[m-1]$, then sweep from the right so longer answers also fill shorter lengths.
+> Monotone stacks find those bounds, we write into $\textit{ans}[m-1]$, then sweep from the right so longer answers also fill shorter lengths.
 
 <!-- thinking:end -->
 

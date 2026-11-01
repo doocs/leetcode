@@ -65,7 +65,7 @@ cache.get(4);       // returns 4
 >
 > The hash map locates a node; a doubly linked list orders keys from newest to oldest. Insert at the head on access; evict at the tail.
 >
-> Sentinels $head$ and $tail$ remove edge cases. A hit is detached and moved to the head; an insert that exceeds capacity pops the tail and the map entry.
+> Sentinels $\textit{head}$ and $\textit{tail}$ remove edge cases. A hit is detached and moved to the head; an insert that exceeds capacity pops the tail and the map entry.
 
 <!-- thinking:end -->
 

@@ -60,7 +60,7 @@ tags:
 
 > **Thinking**
 >
-> We swap two characters of $s1$ until it equals $s2$. They are anagrams of length $\le 20$, so BFS on the whole string is feasible.
+> We swap two characters of $\textit{s1}$ until it equals $\textit{s2}$. They are anagrams of length $\le 20$, so BFS on the whole string is feasible.
 >
 > From a state, only swap the first mismatch with a later character that belongs there. Useless swaps are skipped; the BFS layer is the swap count.
 
@@ -244,7 +244,7 @@ func kSimilarity(s1 string, s2 string) int {
 
 > **Thinking**
 >
-> Plain BFS expands by layer. Half the number of mismatches is an admissible heuristic: one swap fixes at most two positions. Pop $dist+h$ first.
+> Plain BFS expands by layer. Half the number of mismatches is an admissible heuristic: one swap fixes at most two positions. Pop $\textit{dist}+h$ first.
 >
 > Neighbors match Method 1 and edges still have weight $1$, so optimality remains; strings with fewer mismatches dequeue earlier.
 

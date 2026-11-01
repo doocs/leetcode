@@ -122,7 +122,7 @@ JOIN Weather AS w2
 
 > **思考**
 >
-> 方法一用日期差函数。连接条件写成 $\textit{SUBDATE}(w1.\textit{recordDate},1)=w2.\textit{recordDate}$，直接对齐「昨天」那一行，语义相同，便于走日期上的等值连接。
+> 方法一用日期差函数。连接条件写成 $\textit{SUBDATE}(\textit{w1}.\textit{recordDate},1)=\textit{w2}.\textit{recordDate}$，直接对齐「昨天」那一行，语义相同，便于走日期上的等值连接。
 
 <!-- thinking:end -->
 

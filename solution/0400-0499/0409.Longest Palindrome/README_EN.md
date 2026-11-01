@@ -68,11 +68,11 @@ tags:
 
 A valid palindrome string can have at most one character that appears an odd number of times, and the rest of the characters appear an even number of times.
 
-Therefore, we can first traverse the string $s$, count the number of occurrences of each character, and record it in an array or hash table $cnt$.
+Therefore, we can first traverse the string $s$, count the number of occurrences of each character, and record it in an array or hash table $\textit{cnt}$.
 
-Then, we traverse $cnt$, for each count $v$, we divide $v$ by 2, take the integer part, multiply by 2, and add it to the answer $ans$.
+Then, we traverse $\textit{cnt}$, for each count $v$, we divide $v$ by 2, take the integer part, multiply by 2, and add it to the answer $\textit{ans}$.
 
-Finally, if the answer is less than the length of the string $s$, we increment the answer by one and return $ans$.
+Finally, if the answer is less than the length of the string $s$, we increment the answer by one and return $\textit{ans}$.
 
 The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
 
@@ -205,11 +205,11 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We can use an array or hash table $odd$ to record whether each character in string $s$ appears an odd number of times, and an integer variable $cnt$ to record the number of characters that appear an odd number of times.
+We can use an array or hash table $\textit{odd}$ to record whether each character in string $s$ appears an odd number of times, and an integer variable $\textit{cnt}$ to record the number of characters that appear an odd number of times.
 
-We iterate through the string $s$. For each character $c$, we flip $odd[c]$, i.e., $0 \rightarrow 1$, $1 \rightarrow 0$. If $odd[c]$ changes from $0$ to $1$, then we increment $cnt$ by one; if $odd[c]$ changes from $1$ to $0$, then we decrement $cnt$ by one.
+We iterate through the string $s$. For each character $c$, we flip $\textit{odd}[c]$, i.e., $0 \rightarrow 1$, $1 \rightarrow 0$. If $\textit{odd}[c]$ changes from $0$ to $1$, then we increment $\textit{cnt}$ by one; if $\textit{odd}[c]$ changes from $1$ to $0$, then we decrement $\textit{cnt}$ by one.
 
-Finally, if $cnt$ is greater than $0$, the answer is $n - cnt + 1$, otherwise, the answer is $n$.
+Finally, if $\textit{cnt}$ is greater than $0$, the answer is $n - \textit{cnt} + 1$, otherwise, the answer is $n$.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
 

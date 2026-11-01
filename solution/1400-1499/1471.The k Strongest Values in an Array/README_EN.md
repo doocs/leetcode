@@ -99,7 +99,7 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 
 > **Thinking**
 >
-> Strength is distance to the median, ties broken by value. $n\le 10^5$. Sort to read $m=arr[(n-1)//2]$, then sort by $(-|x-m|,-x)$ and take $k$ elements.
+> Strength is distance to the median, ties broken by value. $n\le 10^5$. Sort to read $m=\textit{arr}[(n-1)//2]$, then sort by $(-|x-m|,-x)$ and take $k$ elements.
 
 <!-- thinking:end -->
 

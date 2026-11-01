@@ -110,11 +110,11 @@ tags:
 
 <!-- thinking:end -->
 
-We notice that if a subarray $\text{nums}[l..r]$ has a cost less than or equal to $k$, then for any $l' \geq l$ and $r' \leq r$, the subarray $\text{nums}[l'..r']$ also has a cost less than or equal to $k$. Therefore, we can enumerate the right endpoint $r$, use two pointers to maintain the minimum left endpoint $l$ that satisfies the condition, then the number of subarrays ending at $r$ that satisfy the condition is $r - l + 1$, which we accumulate to the answer.
+We notice that if a subarray $\textit{nums}[l..r]$ has a cost less than or equal to $k$, then for any $l' \geq l$ and $r' \leq r$, the subarray $\textit{nums}[l'..r']$ also has a cost less than or equal to $k$. Therefore, we can enumerate the right endpoint $r$, use two pointers to maintain the minimum left endpoint $l$ that satisfies the condition, then the number of subarrays ending at $r$ that satisfy the condition is $r - l + 1$, which we accumulate to the answer.
 
 We can use two deques to maintain the maximum and minimum values in the current window respectively.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

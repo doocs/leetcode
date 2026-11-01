@@ -91,7 +91,7 @@ tags:
 >
 > A node may be reattached under its nearest ancestor with the same letter. With $n \le 10^5$ we should not rebuild the edge list and then recount subtrees.
 >
-> One DFS is enough: stacks $\textit{d}[c]$ store ancestors of letter $c$. Before returning, we add the current subtree size to the previous same-letter ancestor if it exists, otherwise to the parent.
+> One DFS is enough: stacks $d[c]$ store ancestors of letter $c$. Before returning, we add the current subtree size to the previous same-letter ancestor if it exists, otherwise to the parent.
 >
 > Post-order ensures $\textit{ans}[i]$ already includes every descendant; popping the stack restores the ancestor chain.
 
@@ -275,7 +275,7 @@ function findSubtreeSizes(parent: number[], s: string): number[] {
 >
 > A subtree size can be added to its new parent only after every descendant has been counted, and a same-letter ancestor lies on the current path.
 >
-> An explicit stack walks the tree in postorder, while $\textit{d}[c]$ stores the nodes of letter $c$ still on the path. On entry, set the node's size to $1$, push it onto its letter stack, then push the exit marker and the children. On exit, add the subtree size to the earlier same-letter node when one exists, otherwise to the parent, and pop the letter stack.
+> An explicit stack walks the tree in postorder, while $d[c]$ stores the nodes of letter $c$ still on the path. On entry, set the node's size to $1$, push it onto its letter stack, then push the exit marker and the children. On exit, add the subtree size to the earlier same-letter node when one exists, otherwise to the parent, and pop the letter stack.
 
 <!-- thinking:end -->
 

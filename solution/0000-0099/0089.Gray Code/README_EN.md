@@ -88,7 +88,7 @@ The rule for converting binary code to binary Gray code is to keep the highest b
 
 Assume that a binary number is represented as $B_{n-1}B_{n-2}...B_2B_1B_0$, and its Gray code is represented as $G_{n-1}G_{n-2}...G_2G_1G_0$. The highest bit is retained, so $G_{n-1} = B_{n-1}$; and the other bits $G_i = B_{i+1} \oplus B_{i}$, where $i=0,1,2..,n-2$.
 
-Therefore, for an integer $x$, we can use the function $gray(x)$ to get its Gray code:
+Therefore, for an integer $x$, we can use the function $\textit{gray}(x)$ to get its Gray code:
 
 ```java
 int gray(x) {

@@ -241,7 +241,7 @@ function baseUnitConversions(conversions: number[][]): number[] {
 >
 > With $n \le 10^5$, recursing from the root into the next unit reaches depth $n$ on a chain and overflows the call stack. Each unit's factor depends only on the unique path from the root, so sibling order does not matter.
 >
-> An explicit stack of $(unit, accumulated\ factor)$ therefore starts at $(0, 1)$. Popping a frame writes the factor into the answer, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+> An explicit stack of $(\textit{unit}, \textit{accumulated}\ \textit{factor})$ therefore starts at $(0, 1)$. Popping a frame writes the factor into the answer, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
 
 <!-- thinking:end -->
 
@@ -249,7 +249,7 @@ The problem guarantees that unit 0 can be converted to any other unit through a 
 
 We can use an adjacency list $g$ to represent the unit conversion relationships, where $g[i]$ represents the units that unit $i$ can convert to and the corresponding conversion factors.
 
-An explicit stack then walks from the root. Each frame is $(unit, accumulated\ factor)$, starting from $(0, 1)$. Popping a frame writes the factor into the answer. For each successor $t$ with edge weight $w$, we push $(t, \textit{mul} \times w \bmod (10^9 + 7))$.
+An explicit stack then walks from the root. Each frame is $(\textit{unit}, \textit{accumulated}\ \textit{factor})$, starting from $(0, 1)$. Popping a frame writes the factor into the answer. For each successor $t$ with edge weight $w$, we push $(t, \textit{mul} \times w \bmod (10^9 + 7))$.
 
 Finally, we return the answer array.
 

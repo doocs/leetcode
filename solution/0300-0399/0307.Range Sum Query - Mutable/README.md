@@ -79,24 +79,24 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 >
 > 相对 303 题，本题需在单点修改后仍能快速求区间和。若每次修改后重建前缀和，或每次询问线性扫描，均无法同时把两类操作压到对数级。
 >
-> 树状数组用低位差分维护前缀和： $update$ 沿 $x+=x\&-x$ 向上加增量， $query$ 沿 $x-=x\&-x$ 向下取前缀。区间和写成两个前缀之差；修改时先读出旧值再写入差值。构造按位插入即可。
+> 树状数组用低位差分维护前缀和： $\textit{update}$ 沿 $x+=x\&-x$ 向上加增量， $\textit{query}$ 沿 $x-=x\&-x$ 向下取前缀。区间和写成两个前缀之差；修改时先读出旧值再写入差值。构造按位插入即可。
 
 <!-- thinking:end -->
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
-1. **单点更新** $update(x, delta)$： 把序列 $x$ 位置的数加上一个值 $delta$；
-1. **前缀和查询** $query(x)$：查询序列 $[1,...x]$ 区间的区间和，即位置 $x$ 的前缀和。
+1. **单点更新** $\textit{update}(x, \textit{delta})$： 把序列 $x$ 位置的数加上一个值 $\textit{delta}$；
+1. **前缀和查询** $\textit{query}(x)$：查询序列 $[1,...x]$ 区间的区间和，即位置 $x$ 的前缀和。
 
 这两个操作的时间复杂度均为 $O(\log n)$。
 
 树状数组最基本的功能就是求比某点 $x$ 小的点的个数（这里的比较是抽象的概念，可以是数的大小、坐标的大小、质量的大小等等）。
 
-对于本题，我们在构造函数中，先创建一个树状数组，然后遍历数组中每个元素的下标 $i$（从 $1$ 开始）和对应的值 $v$，调用 $update(i, v)$，即可完成树状数组的初始化。时间复杂度为 $O(n \log n)$。
+对于本题，我们在构造函数中，先创建一个树状数组，然后遍历数组中每个元素的下标 $i$（从 $1$ 开始）和对应的值 $v$，调用 $\textit{update}(i, v)$，即可完成树状数组的初始化。时间复杂度为 $O(n \log n)$。
 
-对于 $sumRange(left, right)$，我们可以通过 $query(right + 1) - query(left)$ 得到区间和。时间复杂度为 $O(\log n)$。
+对于 $\textit{sumRange}(\textit{left}, \textit{right})$，我们可以通过 $\textit{query}(\textit{right} + 1) - \textit{query}(\textit{left})$ 得到区间和。时间复杂度为 $O(\log n)$。
 
-对于 $update(index, val)$，我们可以先通过 $sumRange(index, index)$ 得到原来的值 $prev$，然后调用 $update(index, val - prev)$，即可完成更新。时间复杂度为 $O(\log n)$。
+对于 $\textit{update}(\textit{index}, \textit{val})$，我们可以先通过 $\textit{sumRange}(\textit{index}, \textit{index})$ 得到原来的值 $\textit{prev}$，然后调用 $\textit{update}(\textit{index}, \textit{val} - \textit{prev})$，即可完成更新。时间复杂度为 $O(\log n)$。
 
 空间复杂度 $O(n)$。
 
@@ -447,16 +447,16 @@ public class NumArray {
 >
 > 树状数组擅长前缀和，对更一般的区间信息不够直观。线段树按中点递归划分 $[l,r]$，每个内部结点保存子区间和，单点修改只沿根到叶的 $O(\log n)$ 条链更新。
 >
-> 询问时把 $[left,right]$ 拆成 $O(\log n)$ 个结点区间相加。时间与方法一同阶，实现改为显式左右儿子，便于扩展到最值等运算。
+> 询问时把 $[\textit{left},\textit{right}]$ 拆成 $O(\log n)$ 个结点区间相加。时间与方法一同阶，实现改为显式左右儿子，便于扩展到最值等运算。
 
 <!-- thinking:end -->
 
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(width)$。更新某个元素的值，只需要更新 $\log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(\textit{width})$。更新某个元素的值，只需要更新 $\log(\textit{width})$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。
 
 - 线段树的每个节点代表一个区间；
 - 线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1, N]$；
 - 线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
-- 对于每个内部节点 $[l, r]$，它的左儿子是 $[l, mid]$，右儿子是 $[mid + 1, r]$, 其中 $mid = \lfloor \frac{l + r}{2} \rfloor$（即向下取整）。
+- 对于每个内部节点 $[l, r]$，它的左儿子是 $[l, \textit{mid}]$，右儿子是 $[\textit{mid} + 1, r]$, 其中 $\textit{mid} = \lfloor \frac{l + r}{2} \rfloor$（即向下取整）。
 
 对于本题，构造函数的时间复杂度为 $O(n \log n)$，其他操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$。
 

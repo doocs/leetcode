@@ -83,7 +83,7 @@ tags:
 >
 > Same statement as I with larger limits, so the linear slide stays and substring enumeration does not. Coverage is still “at least as many of every character as $\textit{word2}$”, and it is still monotone.
 >
-> The same $need$ and window counts: extend the right, shrink the left while covered, add the left index. Return $0$ if $\textit{word1}$ is shorter. Linear time.
+> The same $\textit{need}$ and window counts: extend the right, shrink the left while covered, add the left index. Return $0$ if $\textit{word1}$ is shorter. Linear time.
 
 <!-- thinking:end -->
 
@@ -93,9 +93,9 @@ First, if the length of $\textit{word1}$ is less than the length of $\textit{wor
 
 Next, we use a hash table or an array of length $26$ called $\textit{cnt}$ to count the occurrences of characters in $\textit{word2}$. Then, we use $\textit{need}$ to record how many more characters are needed to meet the condition, initialized to the length of $\textit{cnt}$.
 
-We then use a sliding window $\textit{win}$ to record the occurrences of characters in the current window. We use $\textit{ans}$ to record the number of substrings that meet the condition, and $\textit{l}$ to record the left boundary of the window.
+We then use a sliding window $\textit{win}$ to record the occurrences of characters in the current window. We use $\textit{ans}$ to record the number of substrings that meet the condition, and $l$ to record the left boundary of the window.
 
-We traverse each character in $\textit{word1}$. For the current character $c$, we add it to $\textit{win}$. If the value of $\textit{win}[c]$ equals $\textit{cnt}[c]$, it means the current window already contains one of the characters in $\textit{word2}$, so we decrement $\textit{need}$ by one. If $\textit{need}$ equals $0$, it means the current window contains all the characters in $\textit{word2}$. We need to shrink the left boundary of the window until $\textit{need}$ is greater than $0$. Specifically, if $\textit{win}[\textit{word1}[l]]$ equals $\textit{cnt}[\textit{word1}[l]]$, it means the current window contains one of the characters in $\textit{word2}$. After shrinking the left boundary, it no longer meets the condition, so we increment $\textit{need}$ by one and decrement $\textit{win}[\textit{word1}[l]]$ by one. Then, we increment $\textit{l}$ by one. At this point, the window is $[l, r]$. For any $0 \leq l' < l$, $[l', r]$ are substrings that meet the condition, and there are $l$ such substrings, which we add to the answer.
+We traverse each character in $\textit{word1}$. For the current character $c$, we add it to $\textit{win}$. If the value of $\textit{win}[c]$ equals $\textit{cnt}[c]$, it means the current window already contains one of the characters in $\textit{word2}$, so we decrement $\textit{need}$ by one. If $\textit{need}$ equals $0$, it means the current window contains all the characters in $\textit{word2}$. We need to shrink the left boundary of the window until $\textit{need}$ is greater than $0$. Specifically, if $\textit{win}[\textit{word1}[l]]$ equals $\textit{cnt}[\textit{word1}[l]]$, it means the current window contains one of the characters in $\textit{word2}$. After shrinking the left boundary, it no longer meets the condition, so we increment $\textit{need}$ by one and decrement $\textit{win}[\textit{word1}[l]]$ by one. Then, we increment $l$ by one. At this point, the window is $[l, r]$. For any $0 \leq l' < l$, $[l', r]$ are substrings that meet the condition, and there are $l$ such substrings, which we add to the answer.
 
 After traversing all characters in $\textit{word1}$, we get the answer.
 

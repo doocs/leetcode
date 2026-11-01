@@ -85,11 +85,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $\textit{g}[u][v]$ 表示节点 $u$ 到节点 $v$ 的边权，如果节点 $u$ 到节点 $v$ 之间没有边，则 $\textit{g}[u][v] = +\infty$。
+我们定义 $g[u][v]$ 表示节点 $u$ 到节点 $v$ 的边权，如果节点 $u$ 到节点 $v$ 之间没有边，则 $g[u][v] = +\infty$。
 
-我们维护一个数组 $\textit{dist}$，其中 $\textit{dist}[i]$ 表示节点 $k$ 到节点 $i$ 的最短路径长度。初始时，我们将 $\textit{dist}[i]$ 全部初始化为 $+\infty$，但 $\textit{dist}[k - 1] = 0$。定义一个数组 $\textit{vis}$，其中 $\textit{vis}[i]$ 表示节点 $i$ 是否被访问过，初始时，我们将 $\textit{vis}[i]$ 全部初始化为 $\text{false}$。
+我们维护一个数组 $\textit{dist}$，其中 $\textit{dist}[i]$ 表示节点 $k$ 到节点 $i$ 的最短路径长度。初始时，我们将 $\textit{dist}[i]$ 全部初始化为 $+\infty$，但 $\textit{dist}[k - 1] = 0$。定义一个数组 $\textit{vis}$，其中 $\textit{vis}[i]$ 表示节点 $i$ 是否被访问过，初始时，我们将 $\textit{vis}[i]$ 全部初始化为 $\textit{false}$。
 
-我们每次找到未被访问的距离最小的节点 $t$，然后以节点 $t$ 为中心进行松弛操作，即对于每个节点 $j$，如果 $\textit{dist}[j] > \textit{dist}[t] + \textit{g}[t][j]$，则更新 $\textit{dist}[j] = \textit{dist}[t] + \textit{g}[t][j]$。
+我们每次找到未被访问的距离最小的节点 $t$，然后以节点 $t$ 为中心进行松弛操作，即对于每个节点 $j$，如果 $\textit{dist}[j] > \textit{dist}[t] + g[t][j]$，则更新 $\textit{dist}[j] = \textit{dist}[t] + g[t][j]$。
 
 最后，我们返回 $\textit{dist}$ 中的最大值，即为答案。如果答案为 $+\infty$，则说明存在无法到达的节点，返回 $-1$。
 
@@ -281,9 +281,9 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 
 我们可以使用优先队列（堆）来优化朴素 Dijkstra 算法。
 
-我们定义 $\textit{g}[u]$ 表示节点 $u$ 的所有邻接边，而 $\textit{dist}[u]$ 表示节点 $k$ 到节点 $u$ 的最短路径长度。初始时，我们将 $\textit{dist}[u]$ 全部初始化为 $+\infty$，但 $\textit{dist}[k - 1] = 0$。
+我们定义 $g[u]$ 表示节点 $u$ 的所有邻接边，而 $\textit{dist}[u]$ 表示节点 $k$ 到节点 $u$ 的最短路径长度。初始时，我们将 $\textit{dist}[u]$ 全部初始化为 $+\infty$，但 $\textit{dist}[k - 1] = 0$。
 
-定义一个优先队列 $\textit{pq}$，其中每个元素为 $(\textit{d}, u)$，表示节点 $u$ 到节点 $k$ 的距离为 $\textit{d}$。我们每次从 $\textit{pq}$ 中取出距离最小的节点 $(\textit{d}, u)$。如果 $\textit{d} > \textit{dist}[u]$，则跳过该节点。否则，我们遍历节点 $u$ 的所有邻接边，对于每个邻接边 $(v, w)$，如果 $\textit{dist}[v] > \textit{dist}[u] + w$，则更新 $\textit{dist}[v] = \textit{dist}[u] + w$，并将 $(\textit{dist}[v], v)$ 加入 $\textit{pq}$。
+定义一个优先队列 $pq$，其中每个元素为 $(d, u)$，表示节点 $u$ 到节点 $k$ 的距离为 $d$。我们每次从 $pq$ 中取出距离最小的节点 $(d, u)$。如果 $d > \textit{dist}[u]$，则跳过该节点。否则，我们遍历节点 $u$ 的所有邻接边，对于每个邻接边 $(v, w)$，如果 $\textit{dist}[v] > \textit{dist}[u] + w$，则更新 $\textit{dist}[v] = \textit{dist}[u] + w$，并将 $(\textit{dist}[v], v)$ 加入 $pq$。
 
 最后，我们返回 $\textit{dist}$ 中的最大值，即为答案。如果答案为 $+\infty$，则说明存在无法到达的节点，返回 $-1$。
 

@@ -140,7 +140,7 @@ Since Peru is the only country where the average call duration is greater than t
 >
 > We need countries whose average call duration is strictly above the global average. Calls only store two person ids, while the country lives in the first three digits of the phone number, so person, call, and country tables must be aligned before we can aggregate by country.
 >
-> Join $Person$ to $Calls$ when the person is the caller or the callee, then match $Country$ by the number prefix. Grouping by country yields each country's mean duration, which we compare with the global mean of $Calls$. A subquery supplies that global mean; the outer query keeps the qualifying countries.
+> Join $\textit{Person}$ to $\textit{Calls}$ when the person is the caller or the callee, then match $\textit{Country}$ by the number prefix. Grouping by country yields each country's mean duration, which we compare with the global mean of $\textit{Calls}$. A subquery supplies that global mean; the outer query keeps the qualifying countries.
 
 <!-- thinking:end -->
 

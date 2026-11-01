@@ -153,7 +153,7 @@ manager_id is null for the top-level manager (CEO).
 >
 > Levels expand top-down from the current manager set. Team size and budget must wait until children are done, so we fold in reverse id (or postorder).
 >
-> Mark the CEO as level $1$, recurse to tag direct reports as $level+1$, accumulate $\textit{team\_size}$ and $\textit{budget}$, and sort by level, budget descending, then name.
+> Mark the CEO as level $1$, recurse to tag direct reports as $\textit{level}+1$, accumulate $\textit{team\_size}$ and $\textit{budget}$, and sort by level, budget descending, then name.
 
 <!-- thinking:end -->
 

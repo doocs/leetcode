@@ -70,9 +70,9 @@ tags:
 
 We notice that if each child can receive $v$ candies, then for any $v' \lt v$, each child can also receive $v'$ candies. Therefore, we can use binary search to find the maximum $v$ such that each child can receive $v$ candies.
 
-We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \max(\text{candies})$, where $\max(\text{candies})$ represents the maximum value in the array $\text{candies}$. During the binary search, we take the middle value $v = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ each time, and then calculate the total number of candies each child can receive. If the total is greater than or equal to $k$, it means each child can receive $v$ candies, so we update the left boundary $l = v$. Otherwise, we update the right boundary $r = v - 1$. Finally, when $l = r$, we have found the maximum $v$.
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \max(\textit{candies})$, where $\max(\textit{candies})$ represents the maximum value in the array $\textit{candies}$. During the binary search, we take the middle value $v = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ each time, and then calculate the total number of candies each child can receive. If the total is greater than or equal to $k$, it means each child can receive $v$ candies, so we update the left boundary $l = v$. Otherwise, we update the right boundary $r = v - 1$. Finally, when $l = r$, we have found the maximum $v$.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\text{candies}$, and $M$ is the maximum value in the array $\text{candies}$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{candies}$, and $M$ is the maximum value in the array $\textit{candies}$.
 
 <!-- tabs:start -->
 

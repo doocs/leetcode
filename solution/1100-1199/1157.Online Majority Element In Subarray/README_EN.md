@@ -75,7 +75,7 @@ majorityChecker.query(2, 3, 2); // return 2
 
 > **Thinking**
 >
-> Many subarray majority queries make a linear scan per query too slow. Boyer–Moore candidates merge on a segment tree: each node stores a candidate and its remaining count. After the tree returns $x$, binary search $x$'s index list to count hits in $[left,right]$ and compare with $threshold$.
+> Many subarray majority queries make a linear scan per query too slow. Boyer–Moore candidates merge on a segment tree: each node stores a candidate and its remaining count. After the tree returns $x$, binary search $x$'s index list to count hits in $[\textit{left},\textit{right}]$ and compare with $\textit{threshold}$.
 
 <!-- thinking:end -->
 
@@ -96,7 +96,7 @@ The segment tree mainly has the following operations:
 
 In the initialization method of the main function, we first create a segment tree, and use a hash table $d$ to record all indexes of each element in the array.
 
-In the `query(left, right, threshold)` method, we directly call the `query` method of the segment tree to get the candidate majority element $x$. Then use binary search to find the first index $l$ in the array that is greater than or equal to $left$, and the first index $r$ that is greater than $right$. If $r - l \ge threshold$, return $x$, otherwise return $-1$.
+In the `query(left, right, threshold)` method, we directly call the `query` method of the segment tree to get the candidate majority element $x$. Then use binary search to find the first index $l$ in the array that is greater than or equal to $\textit{left}$, and the first index $r$ that is greater than $\textit{right}$. If $r - l \ge \textit{threshold}$, return $x$, otherwise return $-1$.
 
 In terms of time complexity, the time complexity of the initialization method is $O(n)$, and the time complexity of the query method is $O(\log n)$. The space complexity is $O(n)$. Here, $n$ is the length of the array.
 

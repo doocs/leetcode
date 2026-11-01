@@ -68,7 +68,7 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 > **Thinking**
 >
-> We may only call $hasShips$, and a rectangle holds at most $10$ ships. An empty rectangle is not split; a single occupied cell counts $1$. Otherwise we split into four quadrants. Divide-and-conquer spends queries on quadrants that actually contain ships; cost follows the number of ships times the log of the diameter.
+> We may only call $\textit{hasShips}$, and a rectangle holds at most $10$ ships. An empty rectangle is not split; a single occupied cell counts $1$. Otherwise we split into four quadrants. Divide-and-conquer spends queries on quadrants that actually contain ships; cost follows the number of ships times the log of the diameter.
 
 <!-- thinking:end -->
 

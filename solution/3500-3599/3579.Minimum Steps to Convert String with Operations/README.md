@@ -160,9 +160,9 @@ tags:
 
 我们可以通过遍历所有可能的分割点来计算 $f[i]$。对于每个分割点 $j$，我们需要计算将 $\textit{word1}[j:i]$ 转换为 $\textit{word2}[j:i]$ 所需的最小操作数。
 
-我们可以使用一个辅助函数 $\text{calc}(l, r, \text{rev})$ 来计算从 $\textit{word1}[l:r]$ 转换为 $\textit{word2}[l:r]$ 所需的最小操作数，其中 $\text{rev}$ 表示是否需要反转子串。由于反转前后进行其它操作的结果是一样的，所以我们可以考虑不反转，以及首先进行一次反转后再进行其它操作。因此有 $f[i] = \min_{j < i} (f[j] + \min(\text{calc}(j, i-1, \text{false}), 1 + \text{calc}(j, i-1, \text{true})))$。
+我们可以使用一个辅助函数 $\textit{calc}(l, r, \textit{rev})$ 来计算从 $\textit{word1}[l:r]$ 转换为 $\textit{word2}[l:r]$ 所需的最小操作数，其中 $\textit{rev}$ 表示是否需要反转子串。由于反转前后进行其它操作的结果是一样的，所以我们可以考虑不反转，以及首先进行一次反转后再进行其它操作。因此有 $f[i] = \min_{j < i} (f[j] + \min(\textit{calc}(j, i-1, \textit{false}), 1 + \textit{calc}(j, i-1, \textit{true})))$。
 
-接下来我们需要实现 $\text{calc}(l, r, \text{rev})$ 函数。我们用一个二维数组 $cnt$ 来记录 $\textit{word1}$ 和 $\textit{word2}$ 中字符的配对情况。对于每个字符对 $(a, b)$，如果 $a \neq b$，我们需要检查 $cnt[b][a]$ 是否大于 $0$。如果是，我们可以将其配对，减少一次操作；否则，我们需要增加一次操作，并将 $cnt[a][b]$ 加 $1$。
+接下来我们需要实现 $\textit{calc}(l, r, \textit{rev})$ 函数。我们用一个二维数组 $\textit{cnt}$ 来记录 $\textit{word1}$ 和 $\textit{word2}$ 中字符的配对情况。对于每个字符对 $(a, b)$，如果 $a \neq b$，我们需要检查 $\textit{cnt}[b][a]$ 是否大于 $0$。如果是，我们可以将其配对，减少一次操作；否则，我们需要增加一次操作，并将 $\textit{cnt}[a][b]$ 加 $1$。
 
 时间复杂度 $O(n^3 + |\Sigma|^2)$，空间复杂度 $O(n + |\Sigma|^2)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集大小（本题中为 $26$）。
 

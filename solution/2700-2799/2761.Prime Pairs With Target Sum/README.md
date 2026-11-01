@@ -75,9 +75,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们先预处理出 $n$ 范围内的所有质数，记录在数组 $primes$ 中，其中 $primes[i]$ 为 `true` 表示 $i$ 是一个质数。
+我们先预处理出 $n$ 范围内的所有质数，记录在数组 $\textit{primes}$ 中，其中 $\textit{primes}[i]$ 为 `true` 表示 $i$ 是一个质数。
 
-接下来，我们在 $[2, \frac{n}{2}]$ 的范围内枚举 $x$，那么 $y = n - x$，如果 $primes[x]$ 和 $primes[y]$ 均为 `true`，那么 $(x, y)$ 是一个质数对，添加到答案中。
+接下来，我们在 $[2, \frac{n}{2}]$ 的范围内枚举 $x$，那么 $y = n - x$，如果 $\textit{primes}[x]$ 和 $\textit{primes}[y]$ 均为 `true`，那么 $(x, y)$ 是一个质数对，添加到答案中。
 
 枚举结束后，返回答案即可。
 

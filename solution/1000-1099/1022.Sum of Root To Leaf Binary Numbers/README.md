@@ -75,12 +75,12 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个递归函数 $\text{dfs}(root, t)$，它接收两个参数：当前节点 $root$ 和当前节点的父节点对应的二进制数 $t$。函数的返回值是从当前节点到叶子节点的路径所表示的二进制数之和。答案即为 $\textrm{dfs}(root, 0)$。
+我们设计一个递归函数 $\textit{dfs}(\textit{root}, t)$，它接收两个参数：当前节点 $\textit{root}$ 和当前节点的父节点对应的二进制数 $t$。函数的返回值是从当前节点到叶子节点的路径所表示的二进制数之和。答案即为 $\textit{dfs}(\textit{root}, 0)$。
 
 递归函数的逻辑如下：
 
-- 如果当前节点 $root$ 为空，则返回 $0$，否则计算当前节点对应的二进制数 $t$，即 $t = t \ll 1 | root.val$。
-- 如果当前节点是叶子节点，则返回 $t$，否则返回 $\textrm{dfs}(root.left, t)$ 和 $\textrm{dfs}(root.right, t)$ 的和。
+- 如果当前节点 $\textit{root}$ 为空，则返回 $0$，否则计算当前节点对应的二进制数 $t$，即 $t = t \ll 1 | \textit{root}.\textit{val}$。
+- 如果当前节点是叶子节点，则返回 $t$，否则返回 $\textit{dfs}(\textit{root}.\textit{left}, t)$ 和 $\textit{dfs}(\textit{root}.\textit{right}, t)$ 的和。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。对每个节点访问一次；递归栈需要 $O(n)$ 的空间。
 

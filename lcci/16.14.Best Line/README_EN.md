@@ -269,17 +269,17 @@ class Solution {
 
 > **Thinking**
 >
-> Hashing the reduced $(\mathrm{d}x,\mathrm{d}y)$ directly breaks when two points coincide, because the gcd is $0$, and it also splits one line into opposite directions.
+> Hashing the reduced $(dx,dy)$ directly breaks when two points coincide, because the gcd is $0$, and it also splits one line into opposite directions.
 >
 > An anchor in the middle of a segment sees the two sides as negatives of each other, so each bucket undercounts and the chosen index pair is wrong.
 >
 > Copies of the anchor lie on every line through it, and opposite directions are the same line, so they must share one key.
 >
-> We therefore collect $(0,0)$ separately, canonicalize the reduced direction so that $\mathrm{d}x>0$ (or $\mathrm{d}y>0$ on a vertical line), and store indices under that key. The count is the anchor plus that bucket plus the copies, and the second index is the smallest among them.
+> We therefore collect $(0,0)$ separately, canonicalize the reduced direction so that $dx>0$ (or $dy>0$ on a vertical line), and store indices under that key. The count is the anchor plus that bucket plus the copies, and the second index is the smallest among them.
 
 <!-- thinking:end -->
 
-We enumerate an anchor $(x_1, y_1)$ and hash the direction from it to every later point. A point that coincides with the anchor has no slope; we record it separately and add it to every line through the anchor. For the other points, reduce $(\mathrm{d}x, \mathrm{d}y)$ by their greatest common divisor, then fold opposite directions onto one key so that $\mathrm{d}x > 0$, or $\mathrm{d}y > 0$ when $\mathrm{d}x = 0$. Points that share a key are collinear with the anchor and with those copies. The number of points on the line is $1$ plus the size of that bucket plus the number of copies, and the second index is the smallest index among them. Anchors are scanned in increasing index order, and the answer is updated only when the count is strictly larger, or the count is equal and the index pair is smaller.
+We enumerate an anchor $(x_1, y_1)$ and hash the direction from it to every later point. A point that coincides with the anchor has no slope; we record it separately and add it to every line through the anchor. For the other points, reduce $(dx, dy)$ by their greatest common divisor, then fold opposite directions onto one key so that $dx > 0$, or $dy > 0$ when $dx = 0$. Points that share a key are collinear with the anchor and with those copies. The number of points on the line is $1$ plus the size of that bucket plus the number of copies, and the second index is the smallest index among them. Anchors are scanned in increasing index order, and the answer is updated only when the count is strictly larger, or the count is equal and the index pair is smaller.
 
 The time complexity is $O(n^2 \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the array `points` and the maximum difference between all horizontal and vertical coordinates in the array `points`, respectively.
 

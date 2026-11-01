@@ -85,19 +85,19 @@ It can be proven that we can perform at most 2 operations.
 
 <!-- thinking:end -->
 
-There are three possible values for the score $s$, which are $s = nums[0] + nums[1]$, $s = nums[0] + nums[n-1]$, and $s = nums[n-1] + nums[n-2]$. We can perform memorization search for these three cases separately.
+There are three possible values for the score $s$, which are $s = \textit{nums}[0] + \textit{nums}[1]$, $s = \textit{nums}[0] + \textit{nums}[n-1]$, and $s = \textit{nums}[n-1] + \textit{nums}[n-2]$. We can perform memorization search for these three cases separately.
 
-We design a function $dfs(i, j)$, which represents the maximum number of operations from index $i$ to index $j$ when the score is $s$. The execution process of function $dfs(i, j)$ is as follows:
+We design a function $\textit{dfs}(i, j)$, which represents the maximum number of operations from index $i$ to index $j$ when the score is $s$. The execution process of function $\textit{dfs}(i, j)$ is as follows:
 
 - If $j - i < 1$, it means that the length of the interval $[i, j]$ is less than $2$, and no operation can be performed, so return $0$.
-- If $nums[i] + nums[i+1] = s$, it means that the elements at index $i$ and index $i+1$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i+2, j)$.
-- If $nums[i] + nums[j] = s$, it means that the elements at index $i$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i+1, j-1)$.
-- If $nums[j-1] + nums[j] = s$, it means that the elements at index $j-1$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i, j-2)$.
+- If $\textit{nums}[i] + \textit{nums}[i+1] = s$, it means that the elements at index $i$ and index $i+1$ can be deleted. In this case, the maximum number of operations is $1 + \textit{dfs}(i+2, j)$.
+- If $\textit{nums}[i] + \textit{nums}[j] = s$, it means that the elements at index $i$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + \textit{dfs}(i+1, j-1)$.
+- If $\textit{nums}[j-1] + \textit{nums}[j] = s$, it means that the elements at index $j-1$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + \textit{dfs}(i, j-2)$.
 - Return the maximum of the above values.
 
 Finally, we calculate the maximum number of operations for the three cases separately, and return the maximum value.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

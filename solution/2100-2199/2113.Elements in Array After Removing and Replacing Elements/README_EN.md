@@ -99,16 +99,16 @@ At minute 3, nums[0] does not exist.
 
 <!-- thinking:end -->
 
-First, we initialize an array $ans$ with length $m$ to store the answers, initializing all elements to $-1$.
+First, we initialize an array $\textit{ans}$ with length $m$ to store the answers, initializing all elements to $-1$.
 
-Next, we iterate through the array $queries$. For each query, we first obtain the current query time $t$ and index $i$. We then take $t$ modulo $2n$ and compare $t$ with $n$:
+Next, we iterate through the array $\textit{queries}$. For each query, we first obtain the current query time $t$ and index $i$. We then take $t$ modulo $2n$ and compare $t$ with $n$:
 
-- If $t < n$, then the number of array elements at time $t$ is $n - t$, and the array elements are the result of the original array elements shifted left by $t$ positions. Therefore, if $i < n - t$, the answer is $nums[i + t]$;
-- If $t > n$, then the number of array elements at time $t$ is $t - n$, and the array elements are the first $t - n$ elements of the original array. Therefore, if $i < t - n$, the answer is $nums[i]$.
+- If $t < n$, then the number of array elements at time $t$ is $n - t$, and the array elements are the result of the original array elements shifted left by $t$ positions. Therefore, if $i < n - t$, the answer is $\textit{nums}[i + t]$;
+- If $t > n$, then the number of array elements at time $t$ is $t - n$, and the array elements are the first $t - n$ elements of the original array. Therefore, if $i < t - n$, the answer is $\textit{nums}[i]$.
 
-Finally, return the array $ans$.
+Finally, return the array $\textit{ans}$.
 
-The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the length of the array $queries$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the length of the array $\textit{queries}$.
 
 <!-- tabs:start -->
 

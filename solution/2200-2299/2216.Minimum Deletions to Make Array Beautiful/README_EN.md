@@ -69,9 +69,9 @@ tags:
 
 > **Thinking**
 >
-> A beautiful array has even length and $nums[2k] \neq nums[2k+1]$ for every pair. $n \le 10^5$ forbids searching deletion subsets. Pairing left to right, a pair with $nums[i]=nums[i+1]$ cannot be kept, so one element must go.
+> A beautiful array has even length and $\textit{nums}[2k] \neq \textit{nums}[2k+1]$ for every pair. $n \le 10^5$ forbids searching deletion subsets. Pairing left to right, a pair with $\textit{nums}[i]=\textit{nums}[i+1]$ cannot be kept, so one element must go.
 >
-> Delete the current $nums[i]$ (advance one step and count a deletion); if the two values differ, keep the pair and skip two indices. If the leftover length is odd, delete one more at the end.
+> Delete the current $\textit{nums}[i]$ (advance one step and count a deletion); if the two values differ, keep the pair and skip two indices. If the leftover length is odd, delete one more at the end.
 
 <!-- thinking:end -->
 

@@ -62,7 +62,7 @@ tags:
 >
 > Find two nodes summing to $k$. Inorder plus two pointers works after collecting values.
 >
-> A set of seen values during a walk is enough: if $k-val$ is present, return true. The BST order is not required.
+> A set of seen values during a walk is enough: if $k-\textit{val}$ is present, return true. The BST order is not required.
 
 <!-- thinking:end -->
 

@@ -75,7 +75,7 @@ The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above)
 We define $f[i][j]$ as the minimum path sum from the bottom of the triangle to position $(i, j)$. Here, position $(i, j)$ refers to the position in row $i$ and column $j$ of the triangle (both indexed from $0$). We have the following state transition equation:
 
 $$
-f[i][j] = \min(f[i + 1][j], f[i + 1][j + 1]) + \text{triangle}[i][j]
+f[i][j] = \min(f[i + 1][j], f[i + 1][j + 1]) + \textit{triangle}[i][j]
 $$
 
 The answer is $f[0][0]$.

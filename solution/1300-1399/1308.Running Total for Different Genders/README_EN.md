@@ -100,7 +100,7 @@ The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the
 
 > **Thinking**
 >
-> A running score per gender and day would re-scan earlier rows if computed from scratch for every pair. A window $\mathrm{SUM}$ partitioned by gender and ordered by day accumulates every preceding (and current) score in one pass, which is exactly $\textit{total}$.
+> A running score per gender and day would re-scan earlier rows if computed from scratch for every pair. A window $\textit{SUM}$ partitioned by gender and ordered by day accumulates every preceding (and current) score in one pass, which is exactly $\textit{total}$.
 
 <!-- thinking:end -->
 

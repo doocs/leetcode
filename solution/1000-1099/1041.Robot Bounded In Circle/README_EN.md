@@ -115,11 +115,11 @@ Based on that, we return true.
 
 <!-- thinking:end -->
 
-We can simulate the robot's movement. Use a variable $k$ to represent the robot's direction, initialized to $0$, which means the robot is facing north. The variable $k$ can take values in the range $[0, 3]$, representing the robot facing north, west, south, and east, respectively. Additionally, we use an array $dist$ of length $4$ to record the distance the robot travels in the four directions, initialized to $[0, 0, 0, 0]$.
+We can simulate the robot's movement. Use a variable $k$ to represent the robot's direction, initialized to $0$, which means the robot is facing north. The variable $k$ can take values in the range $[0, 3]$, representing the robot facing north, west, south, and east, respectively. Additionally, we use an array $\textit{dist}$ of length $4$ to record the distance the robot travels in the four directions, initialized to $[0, 0, 0, 0]$.
 
-Traverse the instruction string $\textit{instructions}$. If the current instruction is `'L'`, the robot turns west, i.e., $k = (k + 1) \bmod 4$; if the instruction is `'R'`, the robot turns east, i.e., $k = (k + 3) \bmod 4$; otherwise, the robot moves one step in the current direction, i.e., $dist[k]++$.
+Traverse the instruction string $\textit{instructions}$. If the current instruction is `'L'`, the robot turns west, i.e., $k = (k + 1) \bmod 4$; if the instruction is `'R'`, the robot turns east, i.e., $k = (k + 3) \bmod 4$; otherwise, the robot moves one step in the current direction, i.e., $\textit{dist}[k]++$.
 
-If the given instruction string $\textit{instructions}$ is executed once and the robot returns to the origin, i.e., $dist[0] = dist[2]$ and $dist[1] = dist[3]$, then the robot will definitely enter a loop. This is because no matter how many times the instructions are repeated, the robot always returns to the origin, so it must enter a loop.
+If the given instruction string $\textit{instructions}$ is executed once and the robot returns to the origin, i.e., $\textit{dist}[0] = \textit{dist}[2]$ and $\textit{dist}[1] = \textit{dist}[3]$, then the robot will definitely enter a loop. This is because no matter how many times the instructions are repeated, the robot always returns to the origin, so it must enter a loop.
 
 If the given instruction string $\textit{instructions}$ is executed once and the robot does not return to the origin, suppose the robot is at $(x, y)$ and its direction is $k$.
 

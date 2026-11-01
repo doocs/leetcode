@@ -60,13 +60,13 @@ tags:
 
 > **Thinking**
 >
-> With $high\le 10^4$, every integer in the range can be tested: even length and equal digit sums on the two halves. Digit DP is unnecessary.
+> With $\textit{high}\le 10^4$, every integer in the range can be tested: even length and equal digit sums on the two halves. Digit DP is unnecessary.
 
 <!-- thinking:end -->
 
-We enumerate each integer $x$ in the range $[low, high]$, and check whether it is a palindromic number. If it is, then the answer $ans$ is increased by $1$.
+We enumerate each integer $x$ in the range $[\textit{low}, \textit{high}]$, and check whether it is a palindromic number. If it is, then the answer $\textit{ans}$ is increased by $1$.
 
-The time complexity is $O(n \log m)$, and the space complexity is $O(\log m)$, where $n$ is the number of integers in the range $[low, high]$, and $m$ is the maximum integer given in the problem.
+The time complexity is $O(n \log m)$, and the space complexity is $O(\log m)$, where $n$ is the number of integers in the range $[\textit{low}, \textit{high}]$, and $m$ is the maximum integer given in the problem.
 
 <!-- tabs:start -->
 

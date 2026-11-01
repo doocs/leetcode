@@ -63,7 +63,7 @@ tags:
 >
 > Redistribute the original spaces evenly between words and dump the remainder at the end. Both the word list and the space count come from one scan.
 >
-> Count spaces and $split$ out the words. A single word takes every space as a suffix; otherwise $divmod$ yields the gap size and the leftover, which we join and then append.
+> Count spaces and $\textit{split}$ out the words. A single word takes every space as a suffix; otherwise $\textit{divmod}$ yields the gap size and the leftover, which we join and then append.
 
 <!-- thinking:end -->
 

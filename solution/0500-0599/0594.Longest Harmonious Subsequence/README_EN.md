@@ -82,7 +82,7 @@ tags:
 >
 > A harmonious subsequence has max and min differing by exactly $1$. Order does not matter, only the values. Listing subsequences is unrealistic.
 >
-> Count frequencies. For each $x$ that has a neighbor $x+1$, $cnt[x]+cnt[x+1]$ is the longest subsequence using just those two values. Take the maximum.
+> Count frequencies. For each $x$ that has a neighbor $x+1$, $\textit{cnt}[x]+\textit{cnt}[x+1]$ is the longest subsequence using just those two values. Take the maximum.
 
 <!-- thinking:end -->
 

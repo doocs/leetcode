@@ -74,7 +74,7 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 >
 > A stack keeps surviving characters and their run lengths in left-to-right order. Matching the top increments the count; reaching $k$ pops the run, i.e. one erasure.
 >
-> We store $(char, count)$ and take the count modulo $k$ so a full run pops immediately. After one pass the stack is the final string.
+> We store $(\textit{char}, \textit{count})$ and take the count modulo $k$ so a full run pops immediately. After one pass the stack is the final string.
 
 <!-- thinking:end -->
 

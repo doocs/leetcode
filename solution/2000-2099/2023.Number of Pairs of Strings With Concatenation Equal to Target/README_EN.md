@@ -88,7 +88,7 @@ tags:
 
 <!-- thinking:end -->
 
-Traverse the array `nums`, for each $i$, enumerate all $j$, if $i \neq j$ and $nums[i] + nums[j] = target$, then increment the answer by one.
+Traverse the array `nums`, for each $i$, enumerate all $j$, if $i \neq j$ and $\textit{nums}[i] + \textit{nums}[j] = \textit{target}$, then increment the answer by one.
 
 The time complexity is $O(n^2m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
 
@@ -169,9 +169,9 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 > **Thinking**
 >
-> Solution 1 concatenates in $O(m)$ per pair. Every valid pair is some prefix of $target$ plus the matching suffix.
+> Solution 1 concatenates in $O(m)$ per pair. Every valid pair is some prefix of $\textit{target}$ plus the matching suffix.
 >
-> Count string frequencies, then split $target$. When prefix equals suffix use $c(c-1)$ so one index is not paired with itself.
+> Count string frequencies, then split $\textit{target}$. When prefix equals suffix use $c(c-1)$ so one index is not paired with itself.
 
 <!-- thinking:end -->
 

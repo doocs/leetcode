@@ -181,7 +181,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 > **Thinking**
 >
-> Solution 1 slices leftover strings. Store $(word\_index, matched\_len)$ instead; same buckets, less allocation.
+> Solution 1 slices leftover strings. Store $(\textit{word\_index}, \textit{matched\_len})$ instead; same buckets, less allocation.
 
 <!-- thinking:end -->
 

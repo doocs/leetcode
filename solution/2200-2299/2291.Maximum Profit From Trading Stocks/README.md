@@ -71,7 +71,7 @@ tags:
 >
 > 每支股票至多买一次，花费为现价，收益为未来价减现价，预算有限。 $n$ 与预算均为 $10^3$，是典型的 $0$-$1$ 背包：物品体积为现价，价值为利润（仅当利润为正时才值得买）。
 >
-> 令 $f[i][j]$ 为前 $i$ 支股票、预算 $j$ 的最大利润。不买则继承上一行；买则要求 $j\ge present[i]$ 且未来价更高。答案为 $f[n][\textit{budget}]$。
+> 令 $f[i][j]$ 为前 $i$ 支股票、预算 $j$ 的最大利润。不买则继承上一行；买则要求 $j\ge \textit{present}[i]$ 且未来价更高。答案为 $f[n][\textit{budget}]$。
 
 <!-- thinking:end -->
 
@@ -197,7 +197,7 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 
 <!-- thinking:end -->
 
-我们可以发现，对于每一行，我们只需要用到上一行的值，因此可以将空间复杂度优化到 $O(\text{budget})$。
+我们可以发现，对于每一行，我们只需要用到上一行的值，因此可以将空间复杂度优化到 $O(\textit{budget})$。
 
 <!-- tabs:start -->
 

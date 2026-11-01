@@ -63,9 +63,9 @@ tags:
 
 > **Thinking**
 >
-> Replace indices $[a,b]$ of $list1$ with $list2$. Find the predecessor of $a$ and node $b$, link the predecessor to $list2$'s head, then $list2$'s tail to $b$'s successor.
+> Replace indices $[a,b]$ of $\textit{list1}$ with $\textit{list2}$. Find the predecessor of $a$ and node $b$, link the predecessor to $\textit{list2}$'s head, then $\textit{list2}$'s tail to $b$'s successor.
 >
-> Two pointers walk the needed steps, a third scan finds $list2$'s end, and $b.\textit{next}$ is cleared.
+> Two pointers walk the needed steps, a third scan finds $\textit{list2}$'s end, and $b.\textit{next}$ is cleared.
 
 <!-- thinking:end -->
 

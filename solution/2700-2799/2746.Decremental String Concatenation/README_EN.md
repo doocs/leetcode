@@ -95,22 +95,22 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 >
 > Words must be prepended or appended in order; equal touching letters collapse into one, and we want the shortest final length. Two choices per word at $n\le 1000$ make a raw search impossible.
 >
-> The future cost depends only on the current first and last letters. $dfs(i,a,b)$ is the extra length from word $i$ with ends $a,b$: append compares $s[0]$ with $b$, prepend compares $s[-1]$ with $a$. Memoization yields $O(26^2 n)$ states.
+> The future cost depends only on the current first and last letters. $\textit{dfs}(i,a,b)$ is the extra length from word $i$ with ends $a,b$: append compares $s[0]$ with $b$, prepend compares $s[-1]$ with $a$. Memoization yields $O(26^2 n)$ states.
 
 <!-- thinking:end -->
 
-We notice that when concatenating strings, the first and last characters of the string will affect the length of the concatenated string. Therefore, we design a function $dfs(i, a, b)$, which represents the minimum length of the concatenated string starting from the $i$-th string, and the first character of the previously concatenated string is $a$, and the last character is $b$.
+We notice that when concatenating strings, the first and last characters of the string will affect the length of the concatenated string. Therefore, we design a function $\textit{dfs}(i, a, b)$, which represents the minimum length of the concatenated string starting from the $i$-th string, and the first character of the previously concatenated string is $a$, and the last character is $b$.
 
-The execution process of the function $dfs(i, a, b)$ is as follows:
+The execution process of the function $\textit{dfs}(i, a, b)$ is as follows:
 
 - If $i = n$, it means that all strings have been concatenated, return $0$;
-- Otherwise, we consider concatenating the $i$-th string to the end or the beginning of the already concatenated string, and get the lengths $x$ and $y$ of the concatenated string, then $dfs(i, a, b) = \min(x, y) + |words[i]|$.
+- Otherwise, we consider concatenating the $i$-th string to the end or the beginning of the already concatenated string, and get the lengths $x$ and $y$ of the concatenated string, then $\textit{dfs}(i, a, b) = \min(x, y) + |\textit{words}[i]|$.
 
-To avoid repeated calculations, we use the method of memoization search. Specifically, we use a three-dimensional array $f$ to store all the return values of $dfs(i, a, b)$. When we need to calculate $dfs(i, a, b)$, if $f[i][a][b]$ has been calculated, we directly return $f[i][a][b]$; otherwise, we calculate the value of $dfs(i, a, b)$ according to the above recurrence relation, and store it in $f[i][a][b]$.
+To avoid repeated calculations, we use the method of memoization search. Specifically, we use a three-dimensional array $f$ to store all the return values of $\textit{dfs}(i, a, b)$. When we need to calculate $\textit{dfs}(i, a, b)$, if $f[i][a][b]$ has been calculated, we directly return $f[i][a][b]$; otherwise, we calculate the value of $\textit{dfs}(i, a, b)$ according to the above recurrence relation, and store it in $f[i][a][b]$.
 
-In the main function, we directly return $|words[0]| + dfs(1, words[0][0], words[0][|words[0]| - 1])$.
+In the main function, we directly return $|\textit{words}[0]| + \textit{dfs}(1, \textit{words}[0][0], \textit{words}[0][|\textit{words}[0]| - 1])$.
 
-The time complexity is $O(nC^2)$, and the space complexity is $O(nC^2)$, where $C$ represents the maximum length of the string.
+The time complexity is $O(\textit{nC}^2)$, and the space complexity is $O(\textit{nC}^2)$, where $C$ represents the maximum length of the string.
 
 <!-- tabs:start -->
 
@@ -271,7 +271,7 @@ function minimizeConcatenatedLength(words: string[]): number {
 
 <!-- thinking:end -->
 
-Let $f[i][a][b]$ be the shortest extra length when connecting from word $i$, with the string so far starting with $a$ and ending with $b$. The boundary is $f[n][a][b]=0$. For $i$ from $n-1$ down to $1$, and for every pair of ends $a,b$, try both sides. Appending $words[i]$ saves one character when its first character equals $b$, and the new end is its last character. Prepending saves one character when its last character equals $a$, and the new start is its first character. $f[i][a][b]$ is the shorter of those two lengths plus $|words[i]|$. The answer is $|words[0]| + f[1][words[0][0]][words[0][|words[0]|-1]]$.
+Let $f[i][a][b]$ be the shortest extra length when connecting from word $i$, with the string so far starting with $a$ and ending with $b$. The boundary is $f[n][a][b]=0$. For $i$ from $n-1$ down to $1$, and for every pair of ends $a,b$, try both sides. Appending $\textit{words}[i]$ saves one character when its first character equals $b$, and the new end is its last character. Prepending saves one character when its last character equals $a$, and the new start is its first character. $f[i][a][b]$ is the shorter of those two lengths plus $|\textit{words}[i]|$. The answer is $|\textit{words}[0]| + f[1][\textit{words}[0][0]][\textit{words}[0][|\textit{words}[0]|-1]]$.
 
 The time complexity is $O(n|\Sigma|^2)$, and the space complexity is $O(n|\Sigma|^2)$, where $n$ is the number of words, and $|\Sigma|$ is the alphabet size, which is $26$ in this problem.
 

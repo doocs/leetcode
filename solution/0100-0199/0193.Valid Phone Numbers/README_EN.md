@@ -50,7 +50,7 @@ tags:
 
 > **Thinking**
 >
-> Valid numbers are only $xxx-xxx-xxxx$ and $(xxx)\,xxx-xxxx$. Match the whole line. An $\textit{awk}$ regex anchored at both ends: three digits and a dash, or a parenthesized triple and a space, then three digits, a dash, and four digits.
+> Valid numbers are only $\textit{xxx}-\textit{xxx}-\textit{xxxx}$ and $(\textit{xxx})\,\textit{xxx}-\textit{xxxx}$. Match the whole line. An $\textit{awk}$ regex anchored at both ends: three digits and a dash, or a parenthesized triple and a space, then three digits, a dash, and four digits.
 
 <!-- thinking:end -->
 

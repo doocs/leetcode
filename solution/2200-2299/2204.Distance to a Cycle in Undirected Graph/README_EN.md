@@ -91,19 +91,19 @@ The distance from 8 to 2 is 2.
 >
 > Degree-$1$ vertices are never on the cycle, so they can be peeled like leaves. Collect them in a queue, record the parent $f[i]$ when a vertex is removed, and decrease neighbor degrees. What remains is the cycle.
 >
-> Fill distances in reverse deletion order: cycle vertices stay $0$, and a removed vertex $i$ gets $ans[f[i]]+1$.
+> Fill distances in reverse deletion order: cycle vertices stay $0$, and a removed vertex $i$ gets $\textit{ans}[f[i]]+1$.
 
 <!-- thinking:end -->
 
-We can first convert the edges in $edges$ into an adjacency list $g$, where $g[i]$ represents all adjacent nodes of node $i$, represented as a set.
+We can first convert the edges in $\textit{edges}$ into an adjacency list $g$, where $g[i]$ represents all adjacent nodes of node $i$, represented as a set.
 
 Next, we delete nodes layer by layer from the outside to the inside until only a cycle remains. The specific method is as follows:
 
-We first find all nodes with a degree of $1$ and remove these nodes from the graph. If after deletion, the degree of its adjacent node becomes $1$, then we add it to the queue $q$. During this process, we record all deleted nodes in order as $seq$; and we use an array $f$ to record the adjacent node of each node that is closer to the cycle, i.e., $f[i]$ represents the adjacent node of node $i$ that is closer to the cycle.
+We first find all nodes with a degree of $1$ and remove these nodes from the graph. If after deletion, the degree of its adjacent node becomes $1$, then we add it to the queue $q$. During this process, we record all deleted nodes in order as $\textit{seq}$; and we use an array $f$ to record the adjacent node of each node that is closer to the cycle, i.e., $f[i]$ represents the adjacent node of node $i$ that is closer to the cycle.
 
-Finally, we initialize an answer array $ans$ of length $n$, where $ans[i]$ represents the minimum distance from node $i$ to any node in the cycle, initially $ans[i] = 0$. Then, we start traversing from the end of $seq$. For each node $i$, we can get the value of $ans[i]$ from its adjacent node $f[i]$, i.e., $ans[i] = ans[f[i]] + 1$.
+Finally, we initialize an answer array $\textit{ans}$ of length $n$, where $\textit{ans}[i]$ represents the minimum distance from node $i$ to any node in the cycle, initially $\textit{ans}[i] = 0$. Then, we start traversing from the end of $\textit{seq}$. For each node $i$, we can get the value of $\textit{ans}[i]$ from its adjacent node $f[i]$, i.e., $\textit{ans}[i] = \textit{ans}[f[i]] + 1$.
 
-After the traversal, return the answer array $ans$.
+After the traversal, return the answer array $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

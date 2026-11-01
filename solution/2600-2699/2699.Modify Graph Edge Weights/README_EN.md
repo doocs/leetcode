@@ -88,23 +88,23 @@ tags:
 
 > **Thinking**
 >
-> We must replace $-1$ edges with positive weights so the $source$– $destination$ shortest path equals $target$. Searching weight tuples is huge; $n \le 100$ allows repeated Dijkstra.
+> We must replace $-1$ edges with positive weights so the $\textit{source}$– $\textit{destination}$ shortest path equals $\textit{target}$. Searching weight tuples is huge; $n \le 100$ allows repeated Dijkstra.
 >
-> Ignore $-1$ edges first: a positive-weight shortest path already below $target$ is impossible; equality lets us set the rest to the cap so no shortcut appears. If it is still larger, try each $-1$ edge as weight $1$; once the distance is $\le target$, raise that edge to hit $target$ exactly and cap the remaining $-1$ edges.
+> Ignore $-1$ edges first: a positive-weight shortest path already below $\textit{target}$ is impossible; equality lets us set the rest to the cap so no shortcut appears. If it is still larger, try each $-1$ edge as weight $1$; once the distance is $\le \textit{target}$, raise that edge to hit $\textit{target}$ exactly and cap the remaining $-1$ edges.
 >
 > If the path never becomes short enough, return an empty list.
 
 <!-- thinking:end -->
 
-First, we ignore the edges with a weight of $-1$ and use Dijkstra's algorithm to find the shortest distance $d$ from $source$ to $destination$.
+First, we ignore the edges with a weight of $-1$ and use Dijkstra's algorithm to find the shortest distance $d$ from $\textit{source}$ to $\textit{destination}$.
 
-- If $d < target$, it means there is a shortest path composed entirely of positive weight edges. No matter how we modify the edges with a weight of $-1$, we cannot make the shortest distance from $source$ to $destination$ equal to $target$. Therefore, there is no modification scheme that satisfies the problem, and we can return an empty array.
+- If $d < \textit{target}$, it means there is a shortest path composed entirely of positive weight edges. No matter how we modify the edges with a weight of $-1$, we cannot make the shortest distance from $\textit{source}$ to $\textit{destination}$ equal to $\textit{target}$. Therefore, there is no modification scheme that satisfies the problem, and we can return an empty array.
 
-- If $d = target$, it means there is a shortest path composed entirely of positive weight edges, and its length is $target$. In this case, we can modify all edges with a weight of $-1$ to the maximum value $2 \times 10^9$.
+- If $d = \textit{target}$, it means there is a shortest path composed entirely of positive weight edges, and its length is $\textit{target}$. In this case, we can modify all edges with a weight of $-1$ to the maximum value $2 \times 10^9$.
 
-- If $d > target$, we can try to add an edge with a weight of $-1$ to the graph, set the weight of the edge to $1$, and then use Dijkstra's algorithm again to find the shortest distance $d$ from $source$ to $destination$.
-    - If the shortest distance $d \leq target$, it means that after adding this edge, the shortest path can be shortened, and the shortest path must pass through this edge. Then we only need to change the weight of this edge to $target-d+1$ to make the shortest path equal to $target$. Then we can modify the remaining edges with a weight of $-1$ to the maximum value $2 \times 10^9$.
-    - If the shortest distance $d > target$, it means that after adding this edge, the shortest path will not be shortened. Then we greedily keep the weight of this edge as $-1$ and continue to try to add the remaining edges with a weight of $-1$.
+- If $d > \textit{target}$, we can try to add an edge with a weight of $-1$ to the graph, set the weight of the edge to $1$, and then use Dijkstra's algorithm again to find the shortest distance $d$ from $\textit{source}$ to $\textit{destination}$.
+    - If the shortest distance $d \leq \textit{target}$, it means that after adding this edge, the shortest path can be shortened, and the shortest path must pass through this edge. Then we only need to change the weight of this edge to $\textit{target}-d+1$ to make the shortest path equal to $\textit{target}$. Then we can modify the remaining edges with a weight of $-1$ to the maximum value $2 \times 10^9$.
+    - If the shortest distance $d > \textit{target}$, it means that after adding this edge, the shortest path will not be shortened. Then we greedily keep the weight of this edge as $-1$ and continue to try to add the remaining edges with a weight of $-1$.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of points in the graph.
 

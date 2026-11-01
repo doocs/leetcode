@@ -69,23 +69,23 @@ tags:
 
 > **Thinking**
 >
-> After repeating $arr$ $k$ times, an optimal subarray spans at most the whole concatenation. Kadane on one copy gives $mxSub$, plus the max prefix and min prefix (hence max suffix). For $k=1$ that is the answer; otherwise also consider prefix+suffix, and if the total is positive add $k-2$ full copies. $k$ can be $10^5$, so we never materialize the concatenation.
+> After repeating $\textit{arr}$ $k$ times, an optimal subarray spans at most the whole concatenation. Kadane on one copy gives $\textit{mxSub}$, plus the max prefix and min prefix (hence max suffix). For $k=1$ that is the answer; otherwise also consider prefix+suffix, and if the total is positive add $k-2$ full copies. $k$ can be $10^5$, so we never materialize the concatenation.
 
 <!-- thinking:end -->
 
-We denote the sum of all elements in the array $arr$ as $s$, the maximum prefix sum as $mxPre$, the minimum prefix sum as $miPre$, and the maximum subarray sum as $mxSub$.
+We denote the sum of all elements in the array $\textit{arr}$ as $s$, the maximum prefix sum as $\textit{mxPre}$, the minimum prefix sum as $\textit{miPre}$, and the maximum subarray sum as $\textit{mxSub}$.
 
-We traverse the array $arr$. For each element $x$, we update $s = s + x$, $mxPre = \max(mxPre, s)$, $miPre = \min(miPre, s)$, $mxSub = \max(mxSub, s - miPre)$.
+We traverse the array $\textit{arr}$. For each element $x$, we update $s = s + x$, $\textit{mxPre} = \max(\textit{mxPre}, s)$, $\textit{miPre} = \min(\textit{miPre}, s)$, $\textit{mxSub} = \max(\textit{mxSub}, s - \textit{miPre})$.
 
 Next, we consider the value of $k$:
 
-- When $k = 1$, the answer is $mxSub$.
-- When $k \ge 2$, if the maximum subarray spans two $arr$, then the answer is $mxPre + mxSuf$, where $mxSuf = s - miPre$.
-- When $k \ge 2$ and $s > 0$, if the maximum subarray spans three $arr$, then the answer is $(k - 2) \times s + mxPre + mxSuf$.
+- When $k = 1$, the answer is $\textit{mxSub}$.
+- When $k \ge 2$, if the maximum subarray spans two $\textit{arr}$, then the answer is $\textit{mxPre} + \textit{mxSuf}$, where $\textit{mxSuf} = s - \textit{miPre}$.
+- When $k \ge 2$ and $s > 0$, if the maximum subarray spans three $\textit{arr}$, then the answer is $(k - 2) \times s + \textit{mxPre} + \textit{mxSuf}$.
 
 Finally, we return the result of the answer modulo $10^9 + 7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

@@ -78,17 +78,17 @@ One is [1, 17, 10, 13, 10, 16, 8] with differences (16, -7, 3, -3, 6, -8).
 >
 > A wiggle subsequence alternates up and down. Enumerating subsequences is large. At an ending index we only distinguish a last up or last down.
 >
-> $f[i]$ ends up, $g[i]$ ends down. A smaller $nums[j]$ extends a down into $f$; a larger one extends an up into $g$. The answer is the max of all $f$ and $g$.
+> $f[i]$ ends up, $g[i]$ ends down. A smaller $\textit{nums}[j]$ extends a down into $f$; a larger one extends an up into $g$. The answer is the max of all $f$ and $g$.
 
 <!-- thinking:end -->
 
 We define $f[i]$ as the length of the wiggle sequence ending at the $i$th element with an upward trend, and $g[i]$ as the length of the wiggle sequence ending at the $i$th element with a downward trend. Initially, $f[0] = g[0] = 1$ because when there is only one element, the length of the wiggle sequence is $1$. Initialize the answer as $1$.
 
-For $f[i]$, where $i \geq 1$, we enumerate $j$ in the range $[0, i)$, if $nums[j] < nums[i]$, it means that $i$ can be appended after $j$ to form an upward wiggle sequence, then $f[i] = \max(f[i], g[j] + 1)$; if $nums[j] > nums[i]$, it means that $i$ can be appended after $j$ to form a downward wiggle sequence, then $g[i] = \max(g[i], f[j] + 1)$. Then we update the answer to $\max(f[i], g[i])$.
+For $f[i]$, where $i \geq 1$, we enumerate $j$ in the range $[0, i)$, if $\textit{nums}[j] < \textit{nums}[i]$, it means that $i$ can be appended after $j$ to form an upward wiggle sequence, then $f[i] = \max(f[i], g[j] + 1)$; if $\textit{nums}[j] > \textit{nums}[i]$, it means that $i$ can be appended after $j$ to form a downward wiggle sequence, then $g[i] = \max(g[i], f[j] + 1)$. Then we update the answer to $\max(f[i], g[i])$.
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

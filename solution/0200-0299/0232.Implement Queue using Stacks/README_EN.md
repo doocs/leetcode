@@ -78,9 +78,9 @@ myQueue.empty(); // return false
 
 > **Thinking**
 >
-> A stack is LIFO and a queue is FIFO, so one stack cannot serve both ends. Push into $stk1$ and pop from $stk2$.
+> A stack is LIFO and a queue is FIFO, so one stack cannot serve both ends. Push into $\textit{stk1}$ and pop from $\textit{stk2}$.
 >
-> When $stk2$ is empty, pour $stk1$ into it so the oldest value sits on top. Each element moves at most once, and dequeue is amortized constant.
+> When $\textit{stk2}$ is empty, pour $\textit{stk1}$ into it so the oldest value sits on top. Each element moves at most once, and dequeue is amortized constant.
 
 <!-- thinking:end -->
 

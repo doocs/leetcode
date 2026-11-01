@@ -164,13 +164,13 @@ tags:
 
 > **Thinking**
 >
-> $nums[i]\le 5000$, so the nearest binary palindrome stays in a modest range. We precompute every binary palindrome below $2^{14}$ and, for each $x$, binary-search the two neighbors and take the smaller absolute difference.
+> $\textit{nums}[i]\le 5000$, so the nearest binary palindrome stays in a modest range. We precompute every binary palindrome below $2^{14}$ and, for each $x$, binary-search the two neighbors and take the smaller absolute difference.
 
 <!-- thinking:end -->
 
-We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $\textit{p}$.
+We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $p$.
 
-Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $\textit{p}$, denoted as $\textit{p}[i]$, as well as the first palindromic number less than $x$, denoted as $\textit{p}[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.
+Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $p$, denoted as $p[i]$, as well as the first palindromic number less than $x$, denoted as $p[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the number of preprocessed binary palindromic numbers.
 

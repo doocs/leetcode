@@ -74,15 +74,15 @@ The tree structure of the employees in the company is shown.
 
 > **Thinking**
 >
-> In a tree of managers, a message starts at the head; an edge costs that employee's inform time. $n \le 10^5$ forbids summing a path per leaf. After building the child list, $dfs(i)$ is the time for $i$ to inform its whole subtree: $\textit{informTime}[i]$ plus the slowest $dfs(j)$ among direct reports. The answer is $dfs(\textit{headID})$.
+> In a tree of managers, a message starts at the head; an edge costs that employee's inform time. $n \le 10^5$ forbids summing a path per leaf. After building the child list, $\textit{dfs}(i)$ is the time for $i$ to inform its whole subtree: $\textit{informTime}[i]$ plus the slowest $\textit{dfs}(j)$ among direct reports. The answer is $\textit{dfs}(\textit{headID})$.
 
 <!-- thinking:end -->
 
-We first build an adjacent list $g$ according to the $manager$ array, where $g[i]$ represents all direct subordinates of employee $i$.
+We first build an adjacent list $g$ according to the $\textit{manager}$ array, where $g[i]$ represents all direct subordinates of employee $i$.
 
-Next, we design a function $dfs(i)$, which means the time required for employee $i$ to notify all his subordinates (including direct subordinates and indirect subordinates), and then the answer is $dfs(headID)$.
+Next, we design a function $\textit{dfs}(i)$, which means the time required for employee $i$ to notify all his subordinates (including direct subordinates and indirect subordinates), and then the answer is $\textit{dfs}(\textit{headID})$.
 
-In function $dfs(i)$, we need to traverse all direct subordinates $j$ of $i$. For each subordinate, employee $i$ needs to notify him, which takes $informTime[i]$ time, and his subordinates need to notify their subordinates, which takes $dfs(j)$ time. We take the maximum value of $informTime[i] + dfs(j)$ as the return value of function $dfs(i)$.
+In function $\textit{dfs}(i)$, we need to traverse all direct subordinates $j$ of $i$. For each subordinate, employee $i$ needs to notify him, which takes $\textit{informTime}[i]$ time, and his subordinates need to notify their subordinates, which takes $\textit{dfs}(j)$ time. We take the maximum value of $\textit{informTime}[i] + \textit{dfs}(j)$ as the return value of function $\textit{dfs}(i)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of employees.
 
@@ -249,11 +249,11 @@ public class Solution {
 >
 > The time for employee $i$ to inform a whole subtree is $i$'s own inform time plus the slowest direct report. A leaf has no reports, so that time is $0$. The value depends only on results that are already known for the children.
 >
-> An explicit stack starts at $\textit{headID}$ and walks $(employee, state)$ in postorder. On entry we push the exit marker and then the reports, and on exit we store the maximum of $\textit{informTime}[i] + \textit{time}[j]$. The head's time is the answer.
+> An explicit stack starts at $\textit{headID}$ and walks $(\textit{employee}, \textit{state})$ in postorder. On entry we push the exit marker and then the reports, and on exit we store the maximum of $\textit{informTime}[i] + \textit{time}[j]$. The head's time is the answer.
 
 <!-- thinking:end -->
 
-We first build an adjacent list $g$ according to the $manager$ array, where $g[i]$ represents all direct subordinates of employee $i$.
+We first build an adjacent list $g$ according to the $\textit{manager}$ array, where $g[i]$ represents all direct subordinates of employee $i$.
 
 The time for employee $i$ to inform the whole subtree is $\textit{informTime}[i]$ plus the maximum time among the direct reports, or $0$ when there are no reports. An explicit stack walks from $\textit{headID}$ in postorder and writes that time when the node is left. The answer is the head's time.
 

@@ -90,9 +90,9 @@ promiseAll(functions).then(console.log); // [5]
 
 > **思考**
 >
-> 需要实现与 $Promise.all$ 相同的语义：全部成功则按原顺序给出结果，任一失败则立即拒绝。串行 $await$ 会拉长总时间，且先失败的函数无法尽早暴露。
+> 需要实现与 $\textit{Promise}.\textit{all}$ 相同的语义：全部成功则按原顺序给出结果，任一失败则立即拒绝。串行 $\textit{await}$ 会拉长总时间，且先失败的函数无法尽早暴露。
 >
-> 对每个工厂函数立即调用，在对应下标写入结果；用计数器统计已结算的成功次数，满员后 $resolve$。任一 $reject$ 直接拒绝外层 Promise，下标写入保证顺序与启动顺序一致。
+> 对每个工厂函数立即调用，在对应下标写入结果；用计数器统计已结算的成功次数，满员后 $\textit{resolve}$。任一 $\textit{reject}$ 直接拒绝外层 Promise，下标写入保证顺序与启动顺序一致。
 
 <!-- thinking:end -->
 

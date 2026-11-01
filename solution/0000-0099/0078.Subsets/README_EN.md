@@ -59,16 +59,16 @@ tags:
 >
 > A subset is a choose/skip for each element, $2^n$ of them. $n \le 10$, so listing all is fine. We could rebuild from each mask, or recurse.
 >
-> Recursion is the direct picture: from index $i$, skip $nums[i]$ then take it and pop. At $i=n$ copy the path into the answer. Distinct elements mean no duplicate subsets.
+> Recursion is the direct picture: from index $i$, skip $\textit{nums}[i]$ then take it and pop. At $i=n$ copy the path into the answer. Distinct elements mean no duplicate subsets.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i)$, which represents starting the search from the $i$th element of the array for all subsets. The execution logic of the function $dfs(i)$ is as follows:
+We design a function $\textit{dfs}(i)$, which represents starting the search from the $i$th element of the array for all subsets. The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
-- If $i = n$, it means the current search has ended. Add the current subset $t$ to the answer array $ans$, and then return.
-- Otherwise, we can choose not to select the current element and directly execute $dfs(i + 1)$; or we can choose the current element, i.e., add the current element $nums[i]$ to the subset $t$, and then execute $dfs(i + 1)$. Note that we need to remove $nums[i]$ from the subset $t$ after executing $dfs(i + 1)$ (backtracking).
+- If $i = n$, it means the current search has ended. Add the current subset $t$ to the answer array $\textit{ans}$, and then return.
+- Otherwise, we can choose not to select the current element and directly execute $\textit{dfs}(i + 1)$; or we can choose the current element, i.e., add the current element $\textit{nums}[i]$ to the subset $t$, and then execute $\textit{dfs}(i + 1)$. Note that we need to remove $\textit{nums}[i]$ from the subset $t$ after executing $\textit{dfs}(i + 1)$ (backtracking).
 
-In the main function, we call $dfs(0)$, i.e., start searching all subsets from the first element of the array. Finally, return the answer array $ans$.
+In the main function, we call $\textit{dfs}(0)$, i.e., start searching all subsets from the first element of the array. Finally, return the answer array $\textit{ans}$.
 
 The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
 
@@ -222,13 +222,13 @@ impl Solution {
 
 > **Thinking**
 >
-> Method 1 expands choose/skip on the call stack. $n$ is tiny, so each subset can be a mask in $[0,2^n)$: bit $i$ includes $nums[i]$. No recursion; the same $O(n 2^n)$ work.
+> Method 1 expands choose/skip on the call stack. $n$ is tiny, so each subset can be a mask in $[0,2^n)$: bit $i$ includes $\textit{nums}[i]$. No recursion; the same $O(n 2^n)$ work.
 
 <!-- thinking:end -->
 
 We can also use the method of binary enumeration to get all subsets.
 
-We can use $2^n$ binary numbers to represent all subsets of $n$ elements. For the current binary number $mask$, if the $i$th bit is $1$, it means that the $i$th element is selected, otherwise it means that the $i$th element is not selected.
+We can use $2^n$ binary numbers to represent all subsets of $n$ elements. For the current binary number $\textit{mask}$, if the $i$th bit is $1$, it means that the $i$th element is selected, otherwise it means that the $i$th element is not selected.
 
 The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
 

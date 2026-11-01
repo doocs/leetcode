@@ -93,7 +93,7 @@ tags:
 
 We define two variables $\textit{ans}$ and $t$, representing the index of the button with the longest press time and the press time, respectively.
 
-Next, we start traversing the array $\textit{events}$ from index $k = 1$. For each $k$, we calculate the press time of the current button $d = t2 - t1$, where $t2$ is the press time of the current button and $t1$ is the press time of the previous button. If $d > t$ or $d = t$ and the index $i$ of the current button is less than $\textit{ans}$, we update $\textit{ans} = i$ and $t = d$.
+Next, we start traversing the array $\textit{events}$ from index $k = 1$. For each $k$, we calculate the press time of the current button $d = \textit{t2} - \textit{t1}$, where $\textit{t2}$ is the press time of the current button and $\textit{t1}$ is the press time of the previous button. If $d > t$ or $d = t$ and the index $i$ of the current button is less than $\textit{ans}$, we update $\textit{ans} = i$ and $t = d$.
 
 Finally, we return $\textit{ans}$.
 

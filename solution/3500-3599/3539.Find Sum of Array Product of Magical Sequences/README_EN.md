@@ -99,19 +99,19 @@ A sequence of integers <code>seq</code> is called <strong>magical</strong> if:
 >
 > A sequence of length $m$ draws from $\textit{nums}$; the product’s contribution depends on the popcount of the frequency vector after binary carrying. Enumerating sequences is impossible.
 >
-> Assign a multiplicity $t$ to $\textit{nums}[i]$ with weight $\binom{j}{t} \cdot \textit{nums}[i]^t$. The carry and remaining popcount update from $t+\textit{st}$. Memoize $\textit{dfs}(i,j,k,\textit{st})$ and invert factorials for the binomials.
+> Assign a multiplicity $t$ to $\textit{nums}[i]$ with weight $\binom{j}{t} \cdot \textit{nums}[i]^t$. The carry and remaining popcount update from $t+st$. Memoize $\textit{dfs}(i,j,k,st)$ and invert factorials for the binomials.
 
 <!-- thinking:end -->
 
-We design a function $\text{dfs}(i, j, k, st)$, which represents the number of ways when we are currently processing the $i$-th element of array $\textit{nums}$, still need to select numbers from the remaining $j$ positions to fill into the magical sequence, still need to satisfy having $k$ set bits in binary form, and the current carry from the previous bit is $st$. Then the answer is $\text{dfs}(0, m, k, 0)$.
+We design a function $\textit{dfs}(i, j, k, st)$, which represents the number of ways when we are currently processing the $i$-th element of array $\textit{nums}$, still need to select numbers from the remaining $j$ positions to fill into the magical sequence, still need to satisfy having $k$ set bits in binary form, and the current carry from the previous bit is $st$. Then the answer is $\textit{dfs}(0, m, k, 0)$.
 
-The execution process of function $\text{dfs}(i, j, k, st)$ is as follows:
+The execution process of function $\textit{dfs}(i, j, k, st)$ is as follows:
 
 If $k < 0$ or $i = n$ and $j > 0$, it means the current solution is not feasible, return $0$.
 
 If $i = n$, it means we have finished processing array $\textit{nums}$. We need to check if there are still set bits in the current carry $st$, and if so, we need to decrease $k$. If $k = 0$ at this point, it means the current solution is feasible, return $1$, otherwise return $0$.
 
-Otherwise, we enumerate selecting $t$ numbers at position $i$ to fill into the magical sequence ($0 \leq t \leq j$). The number of ways to fill $t$ numbers into the magical sequence is $\binom{j}{t}$, the array product is $\textit{nums}[i]^t$, the updated carry is $(t + st) >> 1$, the updated number of required set bits is $k - ((t + st) \& 1)$, and we recursively call $\text{dfs}(i + 1, j - t, k - ((t + st) \& 1), (t + st) >> 1)$. The sum of all $t$ solutions is $\text{dfs}(i, j, k, st)$.
+Otherwise, we enumerate selecting $t$ numbers at position $i$ to fill into the magical sequence ($0 \leq t \leq j$). The number of ways to fill $t$ numbers into the magical sequence is $\binom{j}{t}$, the array product is $\textit{nums}[i]^t$, the updated carry is $(t + st) >> 1$, the updated number of required set bits is $k - ((t + st) \& 1)$, and we recursively call $\textit{dfs}(i + 1, j - t, k - ((t + st) \& 1), (t + st) >> 1)$. The sum of all $t$ solutions is $\textit{dfs}(i, j, k, st)$.
 
 To efficiently compute the binomial coefficient $\binom{m}{n}$, we preprocess the factorial array $f$ and the inverse factorial array $g$, where $f[i] = i! \mod (10^9 + 7)$ and $g[i] = (i!)^{-1} \mod (10^9 + 7)$. Then $\binom{m}{n} = f[m] \cdot g[n] \cdot g[m - n] \mod (10^9 + 7)$.
 

@@ -73,7 +73,7 @@ The calculation is as follows:
 
 > **Thinking**
 >
-> The table already stores item counts times their frequencies, so the mean is the weighted ratio of those two sums. One $SUM$ pair and $ROUND$ to two decimals suffice.
+> The table already stores item counts times their frequencies, so the mean is the weighted ratio of those two sums. One $\textit{SUM}$ pair and $\textit{ROUND}$ to two decimals suffice.
 >
 > Orders need not be unnested.
 

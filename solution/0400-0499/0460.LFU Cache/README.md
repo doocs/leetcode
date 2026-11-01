@@ -99,24 +99,24 @@ lfu.get(4);      // 返回 4
 
 我们定义两个哈希表，其中：
 
-- 哈希表 $map$：用于存储缓存的键值对，哈希表的键 $key$ 对应到缓存节点 $node$，方便 $O(1)$ 时间内获取缓存节点。
-- 哈希表 $freqMap$：用于存储使用频率相同的缓存节点的双向链表，哈希表的键 $freq$ 对应到双向链表 $list$，方便 $O(1)$ 时间内获取使用频率相同的缓存节点的双向链表。
+- 哈希表 $\textit{map}$：用于存储缓存的键值对，哈希表的键 $\textit{key}$ 对应到缓存节点 $\textit{node}$，方便 $O(1)$ 时间内获取缓存节点。
+- 哈希表 $\textit{freqMap}$：用于存储使用频率相同的缓存节点的双向链表，哈希表的键 $\textit{freq}$ 对应到双向链表 $\textit{list}$，方便 $O(1)$ 时间内获取使用频率相同的缓存节点的双向链表。
 
-另外，我们还需要维护一个变量 $minFreq$，用于记录当前最小的使用频率，方便 $O(1)$ 时间内获取最小使用频率的缓存节点。
+另外，我们还需要维护一个变量 $\textit{minFreq}$，用于记录当前最小的使用频率，方便 $O(1)$ 时间内获取最小使用频率的缓存节点。
 
-对于 $get(key)$ 操作：
+对于 $\textit{get}(\textit{key})$ 操作：
 
-我们首先判断 $capacity$ 是否为 $0$ 或者 $map$ 中是否存在键 $key$，如果不存在则返回 $-1$；否则从 $map$ 中获取缓存节点 $node$，并将 $node$ 的使用频率加 $1$，最后返回 $node$ 的值。
+我们首先判断 $\textit{capacity}$ 是否为 $0$ 或者 $\textit{map}$ 中是否存在键 $\textit{key}$，如果不存在则返回 $-1$；否则从 $\textit{map}$ 中获取缓存节点 $\textit{node}$，并将 $\textit{node}$ 的使用频率加 $1$，最后返回 $\textit{node}$ 的值。
 
-对于 $put(key, value)$ 操作：
+对于 $\textit{put}(\textit{key}, \textit{value})$ 操作：
 
-我们首先判断 $capacity$ 是否为 $0$，如果为 $0$ 则直接返回；
+我们首先判断 $\textit{capacity}$ 是否为 $0$，如果为 $0$ 则直接返回；
 
-否则判断 $map$ 中是否存在键 $key$，如果存在则从 $map$ 中获取缓存节点 $node$，更新 $node$ 的值为 $value$，并将 $node$ 的使用频率加 $1$，最后返回 $node$ 的值；
+否则判断 $\textit{map}$ 中是否存在键 $\textit{key}$，如果存在则从 $\textit{map}$ 中获取缓存节点 $\textit{node}$，更新 $\textit{node}$ 的值为 $\textit{value}$，并将 $\textit{node}$ 的使用频率加 $1$，最后返回 $\textit{node}$ 的值；
 
-如果不存在则判断 $map$ 的长度是否等于 $capacity$，如果等于 $capacity$ 则从 $freqMap$ 中获取使用频率最小的双向链表 $list$，从 $list$ 中删除最后一个节点，并且移除该节点对应的键值对。然后创建新的缓存节点 $node$，将 $node$ 的使用频率设置为 $1$，将 $node$ 添加到 $map$ 和 $freqMap$ 中，最后将 $minFreq$ 设置为 $1$。
+如果不存在则判断 $\textit{map}$ 的长度是否等于 $\textit{capacity}$，如果等于 $\textit{capacity}$ 则从 $\textit{freqMap}$ 中获取使用频率最小的双向链表 $\textit{list}$，从 $\textit{list}$ 中删除最后一个节点，并且移除该节点对应的键值对。然后创建新的缓存节点 $\textit{node}$，将 $\textit{node}$ 的使用频率设置为 $1$，将 $\textit{node}$ 添加到 $\textit{map}$ 和 $\textit{freqMap}$ 中，最后将 $\textit{minFreq}$ 设置为 $1$。
 
-时间复杂度方面，操作 $get$ 和 $put$ 的时间复杂度都是 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为缓存的容量。
+时间复杂度方面，操作 $\textit{get}$ 和 $\textit{put}$ 的时间复杂度都是 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为缓存的容量。
 
 <!-- tabs:start -->
 

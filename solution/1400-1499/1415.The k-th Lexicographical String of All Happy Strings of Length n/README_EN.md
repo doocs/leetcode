@@ -82,13 +82,13 @@ tags:
 
 <!-- thinking:end -->
 
-We use a string $\textit{s}$ to record the current string, initially an empty string. Then, we design a function $\text{dfs}$ to generate all happy strings of length $n$.
+We use a string $s$ to record the current string, initially an empty string. Then, we design a function $\textit{dfs}$ to generate all happy strings of length $n$.
 
-The implementation of the function $\text{dfs}$ is as follows:
+The implementation of the function $\textit{dfs}$ is as follows:
 
 1. If the length of the current string is equal to $n$, add the current string to the answer array $\textit{ans}$ and return;
 2. If the length of the answer array is greater than or equal to $k$, return directly;
-3. Otherwise, we iterate over the character set $\{a, b, c\}$. For each character $c$, if the current string is empty or the last character of the current string is not equal to $c$, add the character $c$ to the current string, then recursively call $\text{dfs}$. After the recursion ends, remove the last character of the current string.
+3. Otherwise, we iterate over the character set $\{a, b, c\}$. For each character $c$, if the current string is empty or the last character of the current string is not equal to $c$, add the character $c$ to the current string, then recursively call $\textit{dfs}$. After the recursion ends, remove the last character of the current string.
 
 Finally, we check if the length of the answer array is less than $k$. If it is, return an empty string; otherwise, return the $k$-th element of the answer array.
 

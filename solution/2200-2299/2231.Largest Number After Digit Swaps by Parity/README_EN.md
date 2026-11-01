@@ -63,7 +63,7 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 
 > **Thinking**
 >
-> We may swap digits of the same parity and want the largest decimal value. $num \le 10^9$ has few digits, yet searching permutations is unnecessary: digits of one parity may be rearranged freely, so each position should take the largest remaining digit of that parity.
+> We may swap digits of the same parity and want the largest decimal value. $\textit{num} \le 10^9$ has few digits, yet searching permutations is unnecessary: digits of one parity may be rearranged freely, so each position should take the largest remaining digit of that parity.
 >
 > Count digits $0$ through $9$. Walking the original number left to right, pick the next unused even or odd digit starting from $8$ or $9$.
 

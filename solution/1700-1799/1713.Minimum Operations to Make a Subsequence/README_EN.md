@@ -68,7 +68,7 @@ tags:
 >
 > The fewest insertions equal $|\textit{target}|$ minus the LCS length. Classic LCS is $O(mn)$ and both arrays can have length $10^5$.
 >
-> $\textit{target}$ has distinct values, so tokens of $arr$ that occur in $\textit{target}$ map to indices. The LCS becomes the LIS of that index sequence.
+> $\textit{target}$ has distinct values, so tokens of $\textit{arr}$ that occur in $\textit{target}$ map to indices. The LCS becomes the LIS of that index sequence.
 >
 > A Fenwick tree stores the best LIS ending below the current index: query $x-1$, then update $x$. The answer is $m$ minus that LIS length.
 

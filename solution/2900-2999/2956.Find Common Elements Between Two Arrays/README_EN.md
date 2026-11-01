@@ -88,21 +88,21 @@ tags:
 
 > **Thinking**
 >
-> Count how many values of $nums1$ occur in $nums2$ and the opposite; this is membership, not index alignment. $n,m \le 100$, so build two sets and scan each array once.
+> Count how many values of $\textit{nums1}$ occur in $\textit{nums2}$ and the opposite; this is membership, not index alignment. $n,m \le 100$, so build two sets and scan each array once.
 >
 > The domain is at most $100$, so a boolean array would also work. Return the pair.
 
 <!-- thinking:end -->
 
-We can use two hash tables or arrays $s1$ and $s2$ to record the elements that appear in the two arrays respectively.
+We can use two hash tables or arrays $\textit{s1}$ and $\textit{s2}$ to record the elements that appear in the two arrays respectively.
 
-Next, we create an array $ans$ of length $2$, where $ans[0]$ represents the number of elements in $nums1$ that appear in $s2$, and $ans[1]$ represents the number of elements in $nums2$ that appear in $s1$.
+Next, we create an array $\textit{ans}$ of length $2$, where $\textit{ans}[0]$ represents the number of elements in $\textit{nums1}$ that appear in $\textit{s2}$, and $\textit{ans}[1]$ represents the number of elements in $\textit{nums2}$ that appear in $\textit{s1}$.
 
-Then, we traverse each element $x$ in the array $nums1$. If $x$ has appeared in $s2$, we increment $ans[0]$. After that, we traverse each element $x$ in the array $nums2$. If $x$ has appeared in $s1$, we increment $ans[1]$.
+Then, we traverse each element $x$ in the array $\textit{nums1}$. If $x$ has appeared in $\textit{s2}$, we increment $\textit{ans}[0]$. After that, we traverse each element $x$ in the array $\textit{nums2}$. If $x$ has appeared in $\textit{s1}$, we increment $\textit{ans}[1]$.
 
-Finally, we return the array $ans$.
+Finally, we return the array $\textit{ans}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$ respectively.
 
 <!-- tabs:start -->
 

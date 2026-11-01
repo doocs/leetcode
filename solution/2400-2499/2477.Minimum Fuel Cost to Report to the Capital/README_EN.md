@@ -94,17 +94,17 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 
 > **Thinking**
 >
-> Everyone reaches the capital and cars only move toward the root. At $n\le 10^5$, $sz$ people leaving a child need $\lceil sz/seats\rceil$ liters on that edge, after carpooling inside the subtree.
+> Everyone reaches the capital and cars only move toward the root. At $n\le 10^5$, $sz$ people leaving a child need $\lceil sz/\textit{seats}\rceil$ liters on that edge, after carpooling inside the subtree.
 >
-> DFS bottom-up: a child of size $t$ costs $\lceil t/seats\rceil$ on the parent edge and adds $t$ to the current size. The root has no outgoing edge.
+> DFS bottom-up: a child of size $t$ costs $\lceil t/\textit{seats}\rceil$ on the parent edge and adds $t$ to the current size. The root has no outgoing edge.
 
 <!-- thinking:end -->
 
 According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
 
-Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $seats$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{seats} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.
+Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $\textit{seats}$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{\textit{seats}} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.
 
-We start a depth-first search from node $0$, using a variable $sz$ to count the number of nodes in the subtree with the current node as the root. Initially, $sz = 1$, representing the current node itself. Then we traverse all the child nodes of the current node. For each child node $b$, we recursively calculate the number of nodes $t$ in the subtree with $b$ as the root, and add $t$ to $sz$, and then we add $\lceil \frac{t}{seats} \rceil$ to the answer. Finally, return $sz$.
+We start a depth-first search from node $0$, using a variable $sz$ to count the number of nodes in the subtree with the current node as the root. Initially, $sz = 1$, representing the current node itself. Then we traverse all the child nodes of the current node. For each child node $b$, we recursively calculate the number of nodes $t$ in the subtree with $b$ as the root, and add $t$ to $sz$, and then we add $\lceil \frac{t}{\textit{seats}} \rceil$ to the answer. Finally, return $sz$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -303,15 +303,15 @@ impl Solution {
 >
 > The fuel on an edge depends only on the child's subtree size, so a parent can be finished only after its children.
 >
-> An explicit stack walks the tree in postorder: on entry, push the exit marker and then the children. On exit the child's size $t$ is known, the edge costs $\lceil t/seats\rceil$, and $t$ is added to the current node. The root has no edge above it.
+> An explicit stack walks the tree in postorder: on entry, push the exit marker and then the children. On exit the child's size $t$ is known, the edge costs $\lceil t/\textit{seats}\rceil$, and $t$ is added to the current node. The root has no edge above it.
 
 <!-- thinking:end -->
 
 According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
 
-Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $seats$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{seats} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.
+Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $\textit{seats}$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{\textit{seats}} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.
 
-An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, the subtree size $t$ of child $b$ is known: add $\lceil t/seats\rceil$ to the answer and add $t$ to the current node. The node itself starts as $1$ person. The root has no edge leading further up.
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, the subtree size $t$ of child $b$ is known: add $\lceil t/\textit{seats}\rceil$ to the answer and add $t$ to the current node. The node itself starts as $1$ person. The root has no edge leading further up.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

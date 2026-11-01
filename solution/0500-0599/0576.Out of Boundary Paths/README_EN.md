@@ -58,7 +58,7 @@ tags:
 >
 > From a cell we may step in four directions, at most $k$ times, and we count paths that leave the grid. Unmemoized search repeats the same cell and remaining steps.
 >
-> $dfs(i,j,k)$ is the number of out-of-bound paths from $(i,j)$ with $k$ steps left. Off-grid with $k \ge 0$ scores $1$; no steps left scores $0$. Four-way transitions modulo $10^9+7$. Each triple is computed once.
+> $\textit{dfs}(i,j,k)$ is the number of out-of-bound paths from $(i,j)$ with $k$ steps left. Off-grid with $k \ge 0$ scores $1$; no steps left scores $0$. Four-way transitions modulo $10^9+7$. Each triple is computed once.
 
 <!-- thinking:end -->
 
@@ -66,7 +66,7 @@ We define a function $\textit{dfs}(i, j, k)$ to represent the number of paths th
 
 In the function $\textit{dfs}(i, j, k)$, we first handle the boundary cases. If the current coordinates $(i, j)$ are out of the grid range, return $1$ if $k \geq 0$, otherwise return $0$. If $k \leq 0$, it means we are still within the grid but have no remaining moves, so return $0$. Next, we iterate over the four directions, move to the next coordinates $(x, y)$, then recursively call $\textit{dfs}(x, y, k - 1)$, and accumulate the results to the answer.
 
-In the main function, we call $\textit{dfs}(startRow, startColumn, maxMove)$, which represents the number of paths that can move out of the boundary starting from the initial coordinates $(\textit{startRow}, \textit{startColumn})$ with $\textit{maxMove}$ steps remaining.
+In the main function, we call $\textit{dfs}(\textit{startRow}, \textit{startColumn}, \textit{maxMove})$, which represents the number of paths that can move out of the boundary starting from the initial coordinates $(\textit{startRow}, \textit{startColumn})$ with $\textit{maxMove}$ steps remaining.
 
 To avoid redundant calculations, we can use memoization.
 

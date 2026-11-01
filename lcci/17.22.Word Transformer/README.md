@@ -51,22 +51,22 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 > **思考**
 >
-> 每次改一个字母，在词表中走出 $begin$ 到 $end$ 的一条路径。词表不大时搜索即可，不必先建完整邻接表。
+> 每次改一个字母，在词表中走出 $\textit{begin}$ 到 $\textit{end}$ 的一条路径。词表不大时搜索即可，不必先建完整邻接表。
 >
 > DFS 尝试每个未用且恰差一位的词，成功则保留路径，失败回溯。
 >
-> `check` 统计不等字符是否恰为 $1$； $vis$ 防止重入。找到 $endWord$ 即返回当前 $ans$，否则空列表。任意一条即可。
+> `check` 统计不等字符是否恰为 $1$； $\textit{vis}$ 防止重入。找到 $\textit{endWord}$ 即返回当前 $\textit{ans}$，否则空列表。任意一条即可。
 
 <!-- thinking:end -->
 
 我们定义一个答案数组 $\textit{ans}$，初始时只包含 $\textit{beginWord}$。然后我们定义一个数组 $\textit{vis}$，用来标记 $\textit{wordList}$ 中的单词是否被访问过。
 
-接下来，我们设计一个函数 $\textit{dfs}(s)$，表示从 $\textit{s}$ 出发，尝试将 $\textit{s}$ 转换为 $\textit{endWord}$，是否能够成功。如果能够成功，返回 $\textit{True}$，否则返回 $\textit{False}$。
+接下来，我们设计一个函数 $\textit{dfs}(s)$，表示从 $s$ 出发，尝试将 $s$ 转换为 $\textit{endWord}$，是否能够成功。如果能够成功，返回 $\textit{True}$，否则返回 $\textit{False}$。
 
 函数 $\textit{dfs}(s)$ 的具体实现如下：
 
-1. 如果 $\textit{s}$ 等于 $\textit{endWord}$，说明转换成功，返回 $\textit{True}$；
-2. 否则，我们遍历 $\textit{wordList}$ 中的每个单词 $\textit{t}$，如果 $\textit{t}$ 没有被访问过且 $\textit{s}$ 和 $\textit{t}$ 之间只有一个字符不同，那么我们将 $\textit{t}$ 标记为已访问，并将 $\textit{t}$ 加入到 $\textit{ans}$ 中，然后递归调用 $\textit{dfs}(t)$，如果返回 $\textit{True}$，说明转换成功，我们返回 $\textit{True}$，否则我们将 $\textit{t}$ 从 $\textit{ans}$ 中移除，继续遍历下一个单词；
+1. 如果 $s$ 等于 $\textit{endWord}$，说明转换成功，返回 $\textit{True}$；
+2. 否则，我们遍历 $\textit{wordList}$ 中的每个单词 $t$，如果 $t$ 没有被访问过且 $s$ 和 $t$ 之间只有一个字符不同，那么我们将 $t$ 标记为已访问，并将 $t$ 加入到 $\textit{ans}$ 中，然后递归调用 $\textit{dfs}(t)$，如果返回 $\textit{True}$，说明转换成功，我们返回 $\textit{True}$，否则我们将 $t$ 从 $\textit{ans}$ 中移除，继续遍历下一个单词；
 3. 如果遍历完 $\textit{wordList}$ 中的所有单词都没有找到可以转换的单词，说明转换失败，我们返回 $\textit{False}$。
 
 最后，我们调用 $\textit{dfs}(\textit{beginWord})$，如果返回 $\textit{True}$，说明转换成功，我们返回 $\textit{ans}$，否则返回空数组。

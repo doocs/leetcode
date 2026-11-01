@@ -111,13 +111,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先筛选出所有成本小于预算的机器，并将它们按成本从小到大排序，记录在数组 $\textitt{arr}$ 中，其中 $\textitt{arr}[i] = (costs[i], capacity[i])$。如果 $\textitt{arr}$ 为空，则无法购买任何机器，返回 $0$。
+我们首先筛选出所有成本小于预算的机器，并将它们按成本从小到大排序，记录在数组 $\texttt{arr}$ 中，其中 $\texttt{arr}[i] = (\textit{costs}[i], \textit{capacity}[i])$。如果 $\texttt{arr}$ 为空，则无法购买任何机器，返回 $0$。
 
-否则，我们可以获得 $\textitt{arr}$ 中最大容量的机器，初始化答案为该容量。
+否则，我们可以获得 $\texttt{arr}$ 中最大容量的机器，初始化答案为该容量。
 
-接下来，我们使用双指针方法枚举 $\textitt{arr}$ 中的机器对，用一个有序集合 $\textit{remain}$ 来维护当前所有可选的机器容量。初始时， $\textit{remain}$ 包含 $\textitt{arr}$ 中所有机器的容量。
+接下来，我们使用双指针方法枚举 $\texttt{arr}$ 中的机器对，用一个有序集合 $\textit{remain}$ 来维护当前所有可选的机器容量。初始时， $\textit{remain}$ 包含 $\texttt{arr}$ 中所有机器的容量。
 
-我们使用指针 $i$ 和 $j$ 分别指向 $\textitt{arr}$ 的开头和结尾。对于每个 $i$，我们将 $\texttt{arr}[i]$ 从 $\textit{remain}$ 中移除，然后移动指针 $j$，直到 $\texttt{arr}[i].\textit{cost} + \texttt{arr}[j].\textit{cost} < \textit{budget}$。在此过程中，我们将不满足条件的机器从 $\textit{remain}$ 中移除。此时， $\textit{remain}$ 中的机器均可与 $\texttt{arr}[i]$ 组成一对购买，我们取出 $\textit{remain}$ 中容量最大的机器，与 $\texttt{arr}[i]$ 的容量相加，更新答案。最后，返回答案即可。
+我们使用指针 $i$ 和 $j$ 分别指向 $\texttt{arr}$ 的开头和结尾。对于每个 $i$，我们将 $\texttt{arr}[i]$ 从 $\textit{remain}$ 中移除，然后移动指针 $j$，直到 $\texttt{arr}[i].\textit{cost} + \texttt{arr}[j].\textit{cost} < \textit{budget}$。在此过程中，我们将不满足条件的机器从 $\textit{remain}$ 中移除。此时， $\textit{remain}$ 中的机器均可与 $\texttt{arr}[i]$ 组成一对购买，我们取出 $\textit{remain}$ 中容量最大的机器，与 $\texttt{arr}[i]$ 的容量相加，更新答案。最后，返回答案即可。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为机器的数量。
 

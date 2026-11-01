@@ -61,17 +61,17 @@ tags:
 
 > **Thinking**
 >
-> Searching $target-x$ in one BST is $O(n \log n)$ and acceptable for $5000$ nodes, but we must pair values from two trees. Inorder traversals yield two sorted arrays, i.e. two-sum on sorted lists.
+> Searching $\textit{target}-x$ in one BST is $O(n \log n)$ and acceptable for $5000$ nodes, but we must pair values from two trees. Inorder traversals yield two sorted arrays, i.e. two-sum on sorted lists.
 >
-> Pointers sit at the left of $nums[0]$ and the right of $nums[1]$: a small sum advances the left pointer, a large sum retreats the right. Inorder supplies order; two pointers pair in linear time.
+> Pointers sit at the left of $\textit{nums}[0]$ and the right of $\textit{nums}[1]$: a small sum advances the left pointer, a large sum retreats the right. Inorder supplies order; two pointers pair in linear time.
 
 <!-- thinking:end -->
 
-We perform in-order traversals on the two trees separately, obtaining two sorted arrays $nums[0]$ and $nums[1]$. Then we use a two-pointer method to determine whether there exist two numbers whose sum equals the target value. The two-pointer method is as follows:
+We perform in-order traversals on the two trees separately, obtaining two sorted arrays $\textit{nums}[0]$ and $\textit{nums}[1]$. Then we use a two-pointer method to determine whether there exist two numbers whose sum equals the target value. The two-pointer method is as follows:
 
-Initialize two pointers $i$ and $j$, pointing to the left boundary of array $nums[0]$ and the right boundary of array $nums[1]$ respectively;
+Initialize two pointers $i$ and $j$, pointing to the left boundary of array $\textit{nums}[0]$ and the right boundary of array $\textit{nums}[1]$ respectively;
 
-Each time, compare the sum $x = nums[0][i] + nums[1][j]$ with the target value. If $x = target$, return `true`; otherwise, if $x \lt target$, move $i$ one step to the right; otherwise, if $x \gt target$, move $j$ one step to the left.
+Each time, compare the sum $x = \textit{nums}[0][i] + \textit{nums}[1][j]$ with the target value. If $x = \textit{target}$, return `true`; otherwise, if $x \lt \textit{target}$, move $i$ one step to the right; otherwise, if $x \gt \textit{target}$, move $j$ one step to the left.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of nodes in the two trees respectively.
 

@@ -104,12 +104,12 @@ tags:
 
 <!-- thinking:end -->
 
-We define two variables $f$ and $g$, where $f$ represents the maximum amount when the current house is not robbed, and $g$ represents the maximum amount when the current house is robbed. Initially, $f = 0$ and $g = nums[0]$. The answer is $\max(f, g)$.
+We define two variables $f$ and $g$, where $f$ represents the maximum amount when the current house is not robbed, and $g$ represents the maximum amount when the current house is robbed. Initially, $f = 0$ and $g = \textit{nums}[0]$. The answer is $\max(f, g)$.
 
 Next, we traverse starting from the second house:
 
-- If the current house has the same color as the previous house, then $f$ is updated to $\max(f, g)$, and $g$ is updated to $f + nums[i]$.
-- If the current house has a different color from the previous house, then $f$ is updated to $\max(f, g)$, and $g$ is updated to $\max(f, g) + nums[i]$.
+- If the current house has the same color as the previous house, then $f$ is updated to $\max(f, g)$, and $g$ is updated to $f + \textit{nums}[i]$.
+- If the current house has a different color from the previous house, then $f$ is updated to $\max(f, g)$, and $g$ is updated to $\max(f, g) + \textit{nums}[i]$.
 
 Finally, return $\max(f, g)$.
 

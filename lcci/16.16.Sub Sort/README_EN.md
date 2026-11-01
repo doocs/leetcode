@@ -44,17 +44,17 @@ difficulty: Medium
 >
 > The right bound is the rightmost index smaller than some left-hand maximum; the left bound is the leftmost index larger than some right-hand minimum.
 >
-> A left-to-right scan of $mx$ updates $right$; a right-to-left scan of $mi$ updates $left$. Two linear passes, constant extra space.
+> A left-to-right scan of $mx$ updates $\textit{right}$; a right-to-left scan of $mi$ updates $\textit{left}$. Two linear passes, constant extra space.
 
 <!-- thinking:end -->
 
-We first traverse the array $array$ from left to right, and use $mx$ to record the maximum value encountered so far. If the current value $x$ is less than $mx$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $right$; otherwise, update $mx$.
+We first traverse the array $\textit{array}$ from left to right, and use $mx$ to record the maximum value encountered so far. If the current value $x$ is less than $mx$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $\textit{right}$; otherwise, update $mx$.
 
-Similarly, we traverse the array $array$ from right to left, and use $mi$ to record the minimum value encountered so far. If the current value $x$ is greater than $mi$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $left$; otherwise, update $mi$.
+Similarly, we traverse the array $\textit{array}$ from right to left, and use $mi$ to record the minimum value encountered so far. If the current value $x$ is greater than $mi$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $\textit{left}$; otherwise, update $mi$.
 
-Finally, return $[left, right]$.
+Finally, return $[\textit{left}, \textit{right}]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $array$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{array}$.
 
 <!-- tabs:start -->
 

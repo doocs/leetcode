@@ -77,7 +77,7 @@ tags:
 
 <!-- thinking:end -->
 
-First, we calculate the maximum weight the boat can carry, which is $n \times n \times w$. Then, we take the minimum of this value and $\text{maxWeight}$, and divide it by $w$.
+First, we calculate the maximum weight the boat can carry, which is $n \times n \times w$. Then, we take the minimum of this value and $\textit{maxWeight}$, and divide it by $w$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

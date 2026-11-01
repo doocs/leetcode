@@ -69,13 +69,13 @@ Now nums is sorted; therefore the answer is 2.
 
 > **Thinking**
 >
-> A sortable array has at most one descent, and the second run must stay below $nums[0]$. After the first drop, scan the remainder; if it reaches the end, $n-i$ right shifts restore order.
+> A sortable array has at most one descent, and the second run must stay below $\textit{nums}[0]$. After the first drop, scan the remainder; if it reaches the end, $n-i$ right shifts restore order.
 
 <!-- thinking:end -->
 
-First, we use a pointer $i$ to traverse the array $nums$ from left to right, finding a continuous increasing sequence until $i$ reaches the end of the array or $nums[i - 1] > nums[i]$. Next, we use another pointer $k$ to traverse the array $nums$ from $i + 1$, finding a continuous increasing sequence until $k$ reaches the end of the array or $nums[k - 1] > nums[k]$ and $nums[k] > nums[0]$. If $k$ reaches the end of the array, it means the array is already increasing, so we return $n - i$; otherwise, we return $-1$.
+First, we use a pointer $i$ to traverse the array $\textit{nums}$ from left to right, finding a continuous increasing sequence until $i$ reaches the end of the array or $\textit{nums}[i - 1] > \textit{nums}[i]$. Next, we use another pointer $k$ to traverse the array $\textit{nums}$ from $i + 1$, finding a continuous increasing sequence until $k$ reaches the end of the array or $\textit{nums}[k - 1] > \textit{nums}[k]$ and $\textit{nums}[k] > \textit{nums}[0]$. If $k$ reaches the end of the array, it means the array is already increasing, so we return $n - i$; otherwise, we return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ tags:
 
 First, we convert the tree into a graph $g$, where $g[i]$ represents all the child nodes of node $i$.
 
-Then we design a function $dfs(i)$, which represents the number of nodes and the sum of the weights in the subtree rooted at node $i$. The answer is $dfs(0)[1]$.
+Then we design a function $\textit{dfs}(i)$, which represents the number of nodes and the sum of the weights in the subtree rooted at node $i$. The answer is $\textit{dfs}(0)[1]$.
 
 In this function, we recursively calculate the number of nodes and the sum of the weights in the subtree rooted at each child node $j$, and then accumulate these values. If the accumulated value is zero, we set the number of nodes in this subtree to zero. Finally, we return the number of nodes and the sum of the weights in the subtree rooted at node $i$.
 
@@ -207,7 +207,7 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 >
 > A subtree whose values sum to $0$ is deleted. With $n \le 10^4$, one bottom-up pass is enough: sum children's values and surviving sizes, then zero the size if this subtree sums to $0$. Recursing into each child is too deep: a chain makes the call depth $n$.
 >
-> An explicit stack of $(node, state)$ runs that postorder. On entry we push the exit marker and then the children; on exit we add each child's sum and surviving size, and zero the size when the sum is $0$. The root's surviving size is the answer.
+> An explicit stack of $(\textit{node}, \textit{state})$ runs that postorder. On entry we push the exit marker and then the children; on exit we add each child's sum and surviving size, and zero the size when the sum is $0$. The root's surviving size is the answer.
 
 <!-- thinking:end -->
 

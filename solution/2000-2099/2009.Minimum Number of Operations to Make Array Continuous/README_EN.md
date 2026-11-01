@@ -85,7 +85,7 @@ The resulting array is [1,2,3,4], which is continuous.
 >
 > A continuous array spans $n$ distinct values, so duplicates must change. With $n \le 10^5$ we cannot try every target range. After sorting unique values, a valid window is a stretch whose max–min is at most $n-1$.
 >
-> For left endpoint $nums[i]$, the right cannot exceed $nums[i]+n-1$. Binary search finds the first overflow $j$; we keep $j-i$ numbers and perform $n-(j-i)$ operations.
+> For left endpoint $\textit{nums}[i]$, the right cannot exceed $\textit{nums}[i]+n-1$. Binary search finds the first overflow $j$; we keep $j-i$ numbers and perform $n-(j-i)$ operations.
 >
 > Sorting dominates; each query is $O(\log n)$.
 
@@ -93,9 +93,9 @@ The resulting array is [1,2,3,4], which is continuous.
 
 First, we sort the array and remove duplicates.
 
-Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use binary search to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
+Then, we traverse the array, enumerating the current element $\textit{nums}[i]$ as the minimum value of the consecutive array. We use binary search to find the first position $j$ that is greater than $\textit{nums}[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $\textit{ans} = \min(\textit{ans}, n - (j - i))$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
@@ -272,9 +272,9 @@ impl Solution {
 
 Similar to Solution 1, we first sort the array and remove duplicates.
 
-Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use two pointers to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
+Then, we traverse the array, enumerating the current element $\textit{nums}[i]$ as the minimum value of the consecutive array. We use two pointers to find the first position $j$ that is greater than $\textit{nums}[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $\textit{ans} = \min(\textit{ans}, n - (j - i))$.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 

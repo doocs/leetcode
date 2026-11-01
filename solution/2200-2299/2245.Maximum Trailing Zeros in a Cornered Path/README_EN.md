@@ -88,7 +88,7 @@ There are no cornered paths in the grid that result in a product with a trailing
 
 Firstly, we need to understand that for a product, the number of trailing zeros depends on the smaller count of $2$ and $5$ in its factors. Also, each corner path should cover as many numbers as possible, so it must start from a boundary, reach a turning point, and then reach another boundary.
 
-Therefore, we can create four two-dimensional arrays $r2$, $c2$, $r5$, $c5$ to record the counts of $2$ and $5$ in each row and column. Where:
+Therefore, we can create four two-dimensional arrays $\textit{r2}$, $\textit{c2}$, $\textit{r5}$, $\textit{c5}$ to record the counts of $2$ and $5$ in each row and column. Where:
 
 - `r2[i][j]` represents the count of $2$ from the first column to the $j$-th column in the $i$-th row;
 - `c2[i][j]` represents the count of $2$ from the first row to the $i$-th row in the $j$-th column;

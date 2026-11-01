@@ -94,7 +94,7 @@ We can achieve all the requests. </pre>
 
 We note that the length of the room change request list does not exceed $16$. Therefore, we can use the method of binary enumeration to enumerate all room change request lists. Specifically, we can use a binary number of length $16$ to represent a room change request list, where the $i$-th bit being $1$ means the $i$-th room change request is selected, and $0$ means the $i$-th room change request is not selected.
 
-We enumerate all binary numbers in the range of $[1, 2^{m})$, for each binary number $mask$, we first calculate how many $1$s are in its binary representation, denoted as $cnt$. If $cnt$ is larger than the current answer $ans$, then we judge whether $mask$ is a feasible room change request list. If it is, then we update the answer $ans$ with $cnt$. To judge whether $mask$ is a feasible room change request list, we only need to check whether the net inflow of each room is $0$.
+We enumerate all binary numbers in the range of $[1, 2^{m})$, for each binary number $\textit{mask}$, we first calculate how many $1$s are in its binary representation, denoted as $\textit{cnt}$. If $\textit{cnt}$ is larger than the current answer $\textit{ans}$, then we judge whether $\textit{mask}$ is a feasible room change request list. If it is, then we update the answer $\textit{ans}$ with $\textit{cnt}$. To judge whether $\textit{mask}$ is a feasible room change request list, we only need to check whether the net inflow of each room is $0$.
 
 The time complexity is $O(2^m(m + n))$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the room change request list and the number of rooms, respectively.
 

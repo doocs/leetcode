@@ -96,15 +96,15 @@ tags:
 
 > **Thinking**
 >
-> Each query keeps the rightmost $trim$ digits and asks for the $k$-th smallest original index. The input is small enough to sort per query.
+> Each query keeps the rightmost $\textit{trim}$ digits and asks for the $k$-th smallest original index. The input is small enough to sort per query.
 >
-> For $(k, trim)$, sort the suffixes with their indices; the answer is the $k$-th index. String order handles leading zeros.
+> For $(k, \textit{trim})$, sort the suffixes with their indices; the answer is the $k$-th index. String order handles leading zeros.
 
 <!-- thinking:end -->
 
 According to the problem description, we can simulate the cropping process, then sort the cropped strings, and finally find the corresponding number based on the index.
 
-The time complexity is $O(mns \log n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of $\textit{nums}$ and $\textit{queries}$ respectively, and $s$ is the length of the string $\textit{nums}[i]$.
+The time complexity is $O(\textit{mns} \log n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of $\textit{nums}$ and $\textit{queries}$ respectively, and $s$ is the length of the string $\textit{nums}[i]$.
 
 <!-- tabs:start -->
 

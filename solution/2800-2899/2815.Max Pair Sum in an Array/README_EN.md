@@ -87,7 +87,7 @@ tags:
 
 <!-- thinking:end -->
 
-First, we initialize the answer variable $ans=-1$. Next, we directly enumerate all pairs $(nums[i], nums[j])$ where $i \lt j$, and calculate their sum $v=nums[i] + nums[j]$. If $v$ is greater than $ans$ and the largest digit of $nums[i]$ and $nums[j]$ are the same, then we update $ans$ with $v$.
+First, we initialize the answer variable $\textit{ans}=-1$. Next, we directly enumerate all pairs $(\textit{nums}[i], \textit{nums}[j])$ where $i \lt j$, and calculate their sum $v=\textit{nums}[i] + \textit{nums}[j]$. If $v$ is greater than $\textit{ans}$ and the largest digit of $\textit{nums}[i]$ and $\textit{nums}[j]$ are the same, then we update $\textit{ans}$ with $v$.
 
 The time complexity is $O(n^2 \log M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
 

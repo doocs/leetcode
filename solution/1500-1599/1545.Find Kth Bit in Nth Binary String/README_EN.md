@@ -84,14 +84,14 @@ The 11<sup>th</sup> bit is &quot;1&quot;.
 
 <!-- thinking:end -->
 
-We can observe that for $S_n$, the first half is the same as $S_{n-1}$, and the second half is the reverse and negation of $S_{n-1}$. Therefore, we can design a function $dfs(n, k)$, which represents the $k$-th character of the $n$-th string. The answer is $dfs(n, k)$.
+We can observe that for $S_n$, the first half is the same as $S_{n-1}$, and the second half is the reverse and negation of $S_{n-1}$. Therefore, we can design a function $\textit{dfs}(n, k)$, which represents the $k$-th character of the $n$-th string. The answer is $\textit{dfs}(n, k)$.
 
-The calculation process of the function $dfs(n, k)$ is as follows:
+The calculation process of the function $\textit{dfs}(n, k)$ is as follows:
 
 - If $k = 1$, then the answer is $0$;
 - If $k$ is a power of $2$, then the answer is $1$;
-- If $k \times 2 < 2^n - 1$, it means that $k$ is in the first half, and the answer is $dfs(n - 1, k)$;
-- Otherwise, the answer is $dfs(n - 1, 2^n - k) \oplus 1$, where $\oplus$ represents the XOR operation.
+- If $k \times 2 < 2^n - 1$, it means that $k$ is in the first half, and the answer is $\textit{dfs}(n - 1, k)$;
+- Otherwise, the answer is $\textit{dfs}(n - 1, 2^n - k) \oplus 1$, where $\oplus$ represents the XOR operation.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the given $n$ in the problem.
 

@@ -90,17 +90,17 @@ It can be shown that Bob cannot obtain a score higher than 27 points.
 >
 > Bob must allocate arrows to $12$ sections and scores a section only with strictly more arrows than Alice. Searching the exact count per section is hopeless: $\textit{numArrows}$ can be $10^5$. Only $12$ sections exist, so the real choice is which sections to win.
 >
-> Winning section $i$ costs $aliceArrows[i]+1$ arrows and yields $i$ points. Enumerate a $12$-bit mask of winning sections, accumulate cost and score, and keep the best feasible mask.
+> Winning section $i$ costs $\textit{aliceArrows}[i]+1$ arrows and yields $i$ points. Enumerate a $12$-bit mask of winning sections, accumulate cost and score, and keep the best feasible mask.
 >
 > Rebuild the arrow vector from that mask and dump leftover arrows into section $0$. $2^{12}$ masks are cheap.
 
 <!-- thinking:end -->
 
-Since there are only $12$ regions, we use binary enumeration to determine in which regions $\textit{Bob}$ scores. We use a variable $\textit{st}$ to represent the scheme in which $\textit{Bob}$ obtains the maximum score, and $\textit{mx}$ to represent the maximum score $\textit{Bob}$ obtains.
+Since there are only $12$ regions, we use binary enumeration to determine in which regions $\textit{Bob}$ scores. We use a variable $st$ to represent the scheme in which $\textit{Bob}$ obtains the maximum score, and $mx$ to represent the maximum score $\textit{Bob}$ obtains.
 
-We enumerate $\textit{Bob}$'s scoring schemes in the range $[1, 2^m)$, where $m$ is the length of $\textit{aliceArrows}$. For each scheme, we calculate $\textit{Bob}$'s score $\textit{s}$ and the number of arrows $\textit{cnt}$. If $\textit{cnt} \leq \textit{numArrows}$ and $\textit{s} > \textit{mx}$, we update $\textit{mx}$ and $\textit{st}$.
+We enumerate $\textit{Bob}$'s scoring schemes in the range $[1, 2^m)$, where $m$ is the length of $\textit{aliceArrows}$. For each scheme, we calculate $\textit{Bob}$'s score $s$ and the number of arrows $\textit{cnt}$. If $\textit{cnt} \leq \textit{numArrows}$ and $s > mx$, we update $mx$ and $st$.
 
-Then, we calculate $\textit{Bob}$'s scoring scheme based on $\textit{st}$. If there are any remaining arrows, we allocate the remaining arrows to the first region, which is the region with index $0$.
+Then, we calculate $\textit{Bob}$'s scoring scheme based on $st$. If there are any remaining arrows, we allocate the remaining arrows to the first region, which is the region with index $0$.
 
 The time complexity is $O(2^m m)$, and the space complexity is $O(1)$, where $m$ is the length of $\textit{aliceArrows}$.
 

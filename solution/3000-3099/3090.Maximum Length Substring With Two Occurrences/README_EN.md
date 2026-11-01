@@ -69,11 +69,11 @@ The following substring has a length of 2 and contains at most two occurrences o
 
 <!-- thinking:end -->
 
-We use two pointers $l$ and $r$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
+We use two pointers $l$ and $r$ to maintain a sliding window, and an array $\textit{cnt}$ to record the occurrence times of each character in the window.
 
-In each iteration, we add the character $c$ at the pointer $r$ into the window, then check if $cnt[c]$ is greater than $2$. If it is, we move the pointer $l$ to the right until $cnt[c]$ is less than or equal to $2$. At this point, we update the answer $ans = \max(ans, r - l + 1)$.
+In each iteration, we add the character $c$ at the pointer $r$ into the window, then check if $\textit{cnt}[c]$ is greater than $2$. If it is, we move the pointer $l$ to the right until $\textit{cnt}[c]$ is less than or equal to $2$. At this point, we update the answer $\textit{ans} = \max(\textit{ans}, r - l + 1)$.
 
-Finally, we return the answer $ans$.
+Finally, we return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set, and in this problem, $\Sigma = 26$.
 

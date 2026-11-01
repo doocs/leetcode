@@ -159,11 +159,11 @@ var isPowerOfTwo = function (n) {
 
 > **思考**
 >
-> 消去最低位 $1$ 与取 $\mathrm{lowbit}$ 等价。若 $n>0$ 且 $n=n\mathrel{\&}(-n)$，则 $n$ 只有这一位 $1$，同为 2 的幂。
+> 消去最低位 $1$ 与取 $\textit{lowbit}$ 等价。若 $n>0$ 且 $n=n\mathrel{\&}(-n)$，则 $n$ 只有这一位 $1$，同为 2 的幂。
 
 <!-- thinking:end -->
 
-根据 $\text{lowbit}$ 的定义，我们知道 $\text{lowbit}(x) = x \& (-x)$，可以得到 $n$ 的最后一位 $1$ 表示的十进制数。因此，如果 $n > 0$，并且满足 $\text{lowbit}(n)$ 等于 $n$，则说明 $n$ 是 $2$ 的幂。
+根据 $\textit{lowbit}$ 的定义，我们知道 $\textit{lowbit}(x) = x \& (-x)$，可以得到 $n$ 的最后一位 $1$ 表示的十进制数。因此，如果 $n > 0$，并且满足 $\textit{lowbit}(n)$ 等于 $n$，则说明 $n$ 是 $2$ 的幂。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

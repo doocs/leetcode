@@ -94,7 +94,7 @@ We pair the elements of arrays $x$ and $y$ into a 2D array $\textit{arr}$, and t
 
 If we manage to select three different $x$ values during the iteration, we return the sum of their corresponding $y$ values; if we finish iterating without selecting three distinct $x$ values, we return -1.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of arrays $\textit{x}$ and $\textit{y}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of arrays $x$ and $y$.
 
 <!-- tabs:start -->
 

@@ -74,7 +74,7 @@ tags:
 
 <!-- thinking:end -->
 
-We define $f[i]$ to be the length of the longest valid parentheses that ends with $s[i-1]$, and the answer is $max(f[i])$.
+We define $f[i]$ to be the length of the longest valid parentheses that ends with $s[i-1]$, and the answer is $\max(f[i])$.
 
 When $i \lt 2$, the length of the string is less than $2$, and there is no valid parentheses, so $f[i] = 0$.
 
@@ -95,7 +95,7 @@ f[i] = f[i-1] + 2 + f[i-f[i-1]-2], & \textit{if } s[i-1] = ')' \textit{ and } s[
 \end{cases}
 $$
 
-Finally, we only need to return $max(f)$.
+Finally, we only need to return $\max(f)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 

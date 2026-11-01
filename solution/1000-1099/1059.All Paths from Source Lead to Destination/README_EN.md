@@ -77,7 +77,7 @@ tags:
 
 > **Thinking**
 >
-> Every path from $source$ must stop at $destination$ and must not loop elsewhere. $n,m\le 10^4$, so each node remembers “visiting” versus “already leads to the destination”.
+> Every path from $\textit{source}$ must stop at $\textit{destination}$ and must not loop elsewhere. $n,m\le 10^4$, so each node remembers “visiting” versus “already leads to the destination”.
 >
 > A destination with outgoing edges is invalid. DFS treats state $1$ as a cycle; a sink must be the destination; otherwise mark $1$, require every successor to succeed, then mark $2$.
 >
@@ -93,13 +93,13 @@ We use a state array $\textit{state}$ to record the status of each node, where:
 
 First, we build the graph as an adjacency list, then perform a depth-first search (DFS) starting from the source node. During the DFS process:
 
-- If the current node's state is 1, it means we have encountered a cycle, and we return $\text{false}$ directly;
-- If the current node's state is 2, it means the node has been visited and can lead to the destination, and we return $\text{true}$ directly;
-- If the current node has no outgoing edges, we check whether it is the destination node. If so, return $\text{true}$; otherwise, return $\text{false}$;
+- If the current node's state is 1, it means we have encountered a cycle, and we return $\textit{false}$ directly;
+- If the current node's state is 2, it means the node has been visited and can lead to the destination, and we return $\textit{true}$ directly;
+- If the current node has no outgoing edges, we check whether it is the destination node. If so, return $\textit{true}$; otherwise, return $\textit{false}$;
 - Otherwise, set the current node's state to 1 and recursively visit all adjacent nodes;
-- If all adjacent nodes can lead to the destination, set the current node's state to 2 and return $\text{true}$; otherwise, return $\text{false}$.
+- If all adjacent nodes can lead to the destination, set the current node's state to 2 and return $\textit{true}$; otherwise, return $\textit{false}$.
 
-The answer is the result of $\text{dfs}(\text{source})$.
+The answer is the result of $\textit{dfs}(\textit{source})$.
 
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 

@@ -100,20 +100,20 @@ tags:
 
 > **思考**
 >
-> 得分是 $nums$ 中能被该除数整除的个数，并列取最小除数。两数组长度 $\le 1000$，枚举每个除数扫描 $nums$ 即可。
+> 得分是 $\textit{nums}$ 中能被该除数整除的个数，并列取最小除数。两数组长度 $\le 1000$，枚举每个除数扫描 $\textit{nums}$ 即可。
 >
-> 维护当前最大计数及对应除数，计数相等时改取更小的 $div$。
+> 维护当前最大计数及对应除数，计数相等时改取更小的 $\textit{div}$。
 
 <!-- thinking:end -->
 
-我们可以枚举 $divisors$ 中的每个元素 $div$，计算 $nums$ 中有多少个元素能被 $div$ 整除，记为 $cnt$。
+我们可以枚举 $\textit{divisors}$ 中的每个元素 $\textit{div}$，计算 $\textit{nums}$ 中有多少个元素能被 $\textit{div}$ 整除，记为 $\textit{cnt}$。
 
-- 如果 $cnt$ 大于当前最大的可整除性得分 $mx$，则更新 $mx = cnt$，并且更新 $ans = div$。
-- 如果 $cnt$ 等于 $mx$ 并且 $div$ 小于 $ans$，则更新 $ans = div$。
+- 如果 $\textit{cnt}$ 大于当前最大的可整除性得分 $mx$，则更新 $mx = \textit{cnt}$，并且更新 $\textit{ans} = \textit{div}$。
+- 如果 $\textit{cnt}$ 等于 $mx$ 并且 $\textit{div}$ 小于 $\textit{ans}$，则更新 $\textit{ans} = \textit{div}$。
 
-最后返回 $ans$ 即可。
+最后返回 $\textit{ans}$ 即可。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是 $nums$ 和 $divisors$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是 $\textit{nums}$ 和 $\textit{divisors}$ 的长度。
 
 <!-- tabs:start -->
 

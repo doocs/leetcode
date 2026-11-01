@@ -92,7 +92,7 @@ robot.getDir(); // return &quot;West&quot;
 
 <!-- thinking:end -->
 
-Let $mx = width - 1$ and $my = height - 1$. The robot's trajectory forms the boundary of a rectangle with $(0, 0)$ as the bottom-left corner and $(mx, my)$ as the top-right corner. We can divide the robot's trajectory into four segments:
+Let $mx = \textit{width} - 1$ and $my = \textit{height} - 1$. The robot's trajectory forms the boundary of a rectangle with $(0, 0)$ as the bottom-left corner and $(mx, my)$ as the top-right corner. We can divide the robot's trajectory into four segments:
 
 1. From $(0, 0)$ moving along the positive $x$-axis to $(mx, 0)$, where the robot faces "East".
 2. From $(mx, 0)$ moving along the positive $y$-axis to $(mx, my)$, where the robot faces "North".

@@ -191,7 +191,7 @@ tags:
 
 > **Thinking**
 >
-> There are quadratically many subarrays, so $n = 10^5$ rules out enumeration. The complement of $|sum - \textit{goal}| \ge k$ is $|sum - \textit{goal}| < k$; subtracting that count from the total is cleaner.
+> There are quadratically many subarrays, so $n = 10^5$ rules out enumeration. The complement of $|\textit{sum} - \textit{goal}| \ge k$ is $|\textit{sum} - \textit{goal}| < k$; subtracting that count from the total is cleaner.
 >
 > Prefix sums turn a subarray sum into a difference of two points. For each right endpoint we need how many earlier prefix sums fall inside a numeric interval.
 >

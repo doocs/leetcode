@@ -51,7 +51,7 @@ tags:
 >
 > First check that at most one character has an odd count. Keep that character (if any) as the center and grow pairs outward.
 >
-> $dfs(t)$ picks a letter that still has two copies, wraps it around $t$, and stops when the length matches $s$.
+> $\textit{dfs}(t)$ picks a letter that still has two copies, wraps it around $t$, and stops when the length matches $s$.
 
 <!-- thinking:end -->
 

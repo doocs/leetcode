@@ -72,19 +72,19 @@ tags:
 
 > **Thinking**
 >
-> Maximize $nums[i]-nums[j]+nums[k]$ over $i<j<k$ with $nums[i]<nums[j]<nums[k]$. $n \le 10^5$.
+> Maximize $\textit{nums}[i]-\textit{nums}[j]+\textit{nums}[k]$ over $i<j<k$ with $\textit{nums}[i]<\textit{nums}[j]<\textit{nums}[k]$. $n \le 10^5$.
 >
-> For fixed $j$, $k$ should be the maximum on the right (and larger than $nums[j]$), and $i$ the maximum on the left that is still $< nums[j]$.
+> For fixed $j$, $k$ should be the maximum on the right (and larger than $\textit{nums}[j]$), and $i$ the maximum on the left that is still $< \textit{nums}[j]$.
 >
-> A suffix-max array handles the right; a sorted list of the left side binary-searches the largest value below $nums[j]$.
+> A suffix-max array handles the right; a sorted list of the left side binary-searches the largest value below $\textit{nums}[j]$.
 
 <!-- thinking:end -->
 
-We can consider enumerating $nums[j]$. Then, we need to find the largest $nums[i]$ on the left of $j$ such that $nums[i] < nums[j]$, and find the largest $nums[k]$ on the right of $j$ such that $nums[k] > nums[j]$.
+We can consider enumerating $\textit{nums}[j]$. Then, we need to find the largest $\textit{nums}[i]$ on the left of $j$ such that $\textit{nums}[i] < \textit{nums}[j]$, and find the largest $\textit{nums}[k]$ on the right of $j$ such that $\textit{nums}[k] > \textit{nums}[j]$.
 
-Therefore, we can preprocess an array $right$, where $right[i]$ represents the maximum value to the right of $nums[i]$. Then, we can use an ordered set to maintain the values on the left of $nums[j]$, so that we can find the largest $nums[i]$ less than $nums[j]$ in $O(\log n)$ time.
+Therefore, we can preprocess an array $\textit{right}$, where $\textit{right}[i]$ represents the maximum value to the right of $\textit{nums}[i]$. Then, we can use an ordered set to maintain the values on the left of $\textit{nums}[j]$, so that we can find the largest $\textit{nums}[i]$ less than $\textit{nums}[j]$ in $O(\log n)$ time.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

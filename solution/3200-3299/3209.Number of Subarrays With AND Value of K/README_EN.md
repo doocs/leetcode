@@ -87,11 +87,11 @@ tags:
 
 According to the problem description, we need to find the result of the bitwise AND operation of elements from index $l$ to $r$ in the array $\textit{nums}$, that is, $\textit{nums}[l] \land \textit{nums}[l + 1] \land \cdots \land \textit{nums}[r]$, where $\land$ represents the bitwise AND operation.
 
-If we fix the right endpoint $r$, then the range of the left endpoint $l$ is $[0, r]$. Since the sum of bitwise AND decreases monotonically as $l$ decreases, and the value of $nums[i]$ does not exceed $10^9$, the interval $[0, r]$ can have at most $30$ different values. Therefore, we can use a set to maintain all the values of $\textit{nums}[l] \land \textit{nums}[l + 1] \land \cdots \land \textit{nums}[r]$ and the number of times these values occur.
+If we fix the right endpoint $r$, then the range of the left endpoint $l$ is $[0, r]$. Since the sum of bitwise AND decreases monotonically as $l$ decreases, and the value of $\textit{nums}[i]$ does not exceed $10^9$, the interval $[0, r]$ can have at most $30$ different values. Therefore, we can use a set to maintain all the values of $\textit{nums}[l] \land \textit{nums}[l + 1] \land \cdots \land \textit{nums}[r]$ and the number of times these values occur.
 
-When we traverse from $r$ to $r+1$, the values with $r+1$ as the right endpoint are the values obtained by performing the bitwise AND operation of each value in the set with $nums[r + 1]$, plus $\textit{nums}[r + 1]$ itself.
+When we traverse from $r$ to $r+1$, the values with $r+1$ as the right endpoint are the values obtained by performing the bitwise AND operation of each value in the set with $\textit{nums}[r + 1]$, plus $\textit{nums}[r + 1]$ itself.
 
-Therefore, we only need to enumerate each value in the set and perform the bitwise AND operation with $\textit{nums[r]}$ to get all the values and their occurrences with $r$ as the right endpoint. Then, we need to add the occurrence count of $\textit{nums[r]}$. At this point, we add the occurrence count of value $k$ to the answer. Continue traversing $r$ until the entire array is traversed.
+Therefore, we only need to enumerate each value in the set and perform the bitwise AND operation with $\textit{nums}[r]$ to get all the values and their occurrences with $r$ as the right endpoint. Then, we need to add the occurrence count of $\textit{nums}[r]$. At this point, we add the occurrence count of value $k$ to the answer. Continue traversing $r$ until the entire array is traversed.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
 

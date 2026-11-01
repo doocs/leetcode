@@ -132,21 +132,21 @@ tags:
 
 <!-- thinking:end -->
 
-We define a direction array $dirs = [0, 1, 0, -1, 0]$ of length $5$, where each pair of adjacent elements represents a direction. That is, $(dirs[0], dirs[1])$ represents north, $(dirs[1], dirs[2])$ represents east, and so on.
+We define a direction array $\textit{dirs} = [0, 1, 0, -1, 0]$ of length $5$, where each pair of adjacent elements represents a direction. That is, $(\textit{dirs}[0], \textit{dirs}[1])$ represents north, $(\textit{dirs}[1], \textit{dirs}[2])$ represents east, and so on.
 
 We use a hash table $s$ to store the coordinates of all obstacles, so we can determine in $O(1)$ time whether the next step will encounter an obstacle.
 
-Additionally, we use two variables $x$ and $y$ to represent the robot's current coordinates, initially $x = y = 0$. The variable $k$ represents the robot's current direction, and the answer variable $ans$ represents the maximum squared Euclidean distance from the origin.
+Additionally, we use two variables $x$ and $y$ to represent the robot's current coordinates, initially $x = y = 0$. The variable $k$ represents the robot's current direction, and the answer variable $\textit{ans}$ represents the maximum squared Euclidean distance from the origin.
 
-Next, we iterate over each element $c$ in the array $commands$:
+Next, we iterate over each element $c$ in the array $\textit{commands}$:
 
 - If $c = -2$, the robot turns left $90$ degrees, i.e., $k = (k + 3) \bmod 4$;
 - If $c = -1$, the robot turns right $90$ degrees, i.e., $k = (k + 1) \bmod 4$;
-- Otherwise, the robot moves forward $c$ units. We combine the robot's current direction $k$ with the direction array $dirs$ to obtain the increments along the $x$-axis and $y$-axis. We accumulate the increments step by step onto $x$ and $y$, and check whether each new coordinate $(nx, ny)$ is in the obstacle set. If not, we update the answer $ans$; otherwise, we stop the simulation and proceed to the next command.
+- Otherwise, the robot moves forward $c$ units. We combine the robot's current direction $k$ with the direction array $\textit{dirs}$ to obtain the increments along the $x$-axis and $y$-axis. We accumulate the increments step by step onto $x$ and $y$, and check whether each new coordinate $(nx, ny)$ is in the obstacle set. If not, we update the answer $\textit{ans}$; otherwise, we stop the simulation and proceed to the next command.
 
-Finally, return the answer $ans$.
+Finally, return the answer $\textit{ans}$.
 
-The time complexity is $O(Cn + m)$, and the space complexity is $O(m)$, where $C$ is the maximum number of steps per move, and $n$ and $m$ are the lengths of the arrays $commands$ and $obstacles$, respectively.
+The time complexity is $O(\textit{Cn} + m)$, and the space complexity is $O(m)$, where $C$ is the maximum number of steps per move, and $n$ and $m$ are the lengths of the arrays $\textit{commands}$ and $\textit{obstacles}$, respectively.
 
 <!-- tabs:start -->
 

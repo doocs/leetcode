@@ -98,7 +98,7 @@ tags:
 
 > **Thinking**
 >
-> A mirror pair satisfies $\mathrm{reverse}(nums[i])=nums[j]$. The closest $j$ is the latest previous index of that reversed value, so a left-to-right scan with a map from $\mathrm{reverse}(x)$ to its last index suffices.
+> A mirror pair satisfies $\textit{reverse}(\textit{nums}[i])=\textit{nums}[j]$. The closest $j$ is the latest previous index of that reversed value, so a left-to-right scan with a map from $\textit{reverse}(x)$ to its last index suffices.
 
 <!-- thinking:end -->
 
@@ -106,7 +106,7 @@ We can use a hash table $\textit{pos}$ to record the last occurrence position of
 
 We first initialize the answer $\textit{ans} = n + 1$, where $n$ is the length of the array $\textit{nums}$.
 
-Next, we iterate through the array $\textit{nums}$. For each index $i$ and its corresponding number $x = \textit{nums}[i]$, if the key $x$ exists in $\textit{pos}$, it means there exists an index $j$ such that $\textit{nums}[j]$ reversed equals $x$. In this case, we update the answer to $\min(\textit{ans}, i - \textit{pos}[x])$. Then, we update $\textit{pos}[\text{reverse}(x)]$ to $i$. Continue this process until we finish iterating through the entire array.
+Next, we iterate through the array $\textit{nums}$. For each index $i$ and its corresponding number $x = \textit{nums}[i]$, if the key $x$ exists in $\textit{pos}$, it means there exists an index $j$ such that $\textit{nums}[j]$ reversed equals $x$. In this case, we update the answer to $\min(\textit{ans}, i - \textit{pos}[x])$. Then, we update $\textit{pos}[\textit{reverse}(x)]$ to $i$. Continue this process until we finish iterating through the entire array.
 
 Finally, if the answer $\textit{ans}$ is still equal to $n + 1$, it means no mirror pair exists, and we return $-1$; otherwise, we return the answer $\textit{ans}$.
 

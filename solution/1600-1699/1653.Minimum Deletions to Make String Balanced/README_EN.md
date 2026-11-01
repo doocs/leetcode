@@ -88,7 +88,7 @@ $$
 
 The final answer is $f[n]$.
 
-We notice that the state transition equation is only related to the previous state and the variable $b$, so we can just use an answer variable $ans$ to maintain the current $f[i]$, and there is no need to allocate an array $f$.
+We notice that the state transition equation is only related to the previous state and the variable $b$, so we can just use an answer variable $\textit{ans}$ to maintain the current $f[i]$, and there is no need to allocate an array $f$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

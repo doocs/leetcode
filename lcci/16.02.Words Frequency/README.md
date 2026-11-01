@@ -51,15 +51,15 @@ wordsFrequency.get("pen"); //返回1
 >
 > 预处理一次频次，之后每次查询期望 $O(1)$。
 >
-> 构造时 `Counter(book)` 建表，`get` 直接返回 $cnt[word]$。空间与不同单词数成正比。
+> 构造时 `Counter(book)` 建表，`get` 直接返回 $\textit{cnt}[\textit{word}]$。空间与不同单词数成正比。
 
 <!-- thinking:end -->
 
-我们用哈希表 $cnt$ 统计 $book$ 中每个单词出现的次数。
+我们用哈希表 $\textit{cnt}$ 统计 $\textit{book}$ 中每个单词出现的次数。
 
-调用 `get` 函数时，我们只需要返回 $cnt$ 中对应的单词的出现次数即可。
+调用 `get` 函数时，我们只需要返回 $\textit{cnt}$ 中对应的单词的出现次数即可。
 
-时间复杂度方面，初始化哈希表 $cnt$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $book$ 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
+时间复杂度方面，初始化哈希表 $\textit{cnt}$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $\textit{book}$ 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 

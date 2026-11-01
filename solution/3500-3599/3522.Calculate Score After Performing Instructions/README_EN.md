@@ -134,14 +134,14 @@ tags:
 
 We can simulate the process based on the problem description.
 
-Define a boolean array $\textit{vis}$ of length $n$ to record whether each instruction has been executed. Initially, all elements are set to $\text{false}$.
+Define a boolean array $\textit{vis}$ of length $n$ to record whether each instruction has been executed. Initially, all elements are set to $\textit{false}$.
 
 Then, starting from index $i = 0$, perform the following steps in a loop:
 
-1. Set $\textit{vis}[i]$ to $\text{true}$.
+1. Set $\textit{vis}[i]$ to $\textit{true}$.
 2. If the first character of $\textit{instructions}[i]$ is 'a', add $\textit{value}[i]$ to the answer and increment $i$ by $1$. Otherwise, increment $i$ by $\textit{value}[i]$.
 
-The loop continues until $i \lt 0$, $i \ge n$, or $\textit{vis}[i]$ is $\text{true}$.
+The loop continues until $i \lt 0$, $i \ge n$, or $\textit{vis}[i]$ is $\textit{true}$.
 
 Finally, return the answer.
 

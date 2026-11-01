@@ -89,13 +89,13 @@ tags:
 
 <!-- thinking:end -->
 
-For an integer $a$, the result of $a \lor (a + 1)$ is always odd. Therefore, if $\text{nums[i]}$ is even, then $\text{ans}[i]$ does not exist, and we directly return $-1$. In this problem, $\textit{nums}[i]$ is a prime number, so to check if it is even, we only need to check if it equals $2$.
+For an integer $a$, the result of $a \lor (a + 1)$ is always odd. Therefore, if $\textit{nums}[i]$ is even, then $\textit{ans}[i]$ does not exist, and we directly return $-1$. In this problem, $\textit{nums}[i]$ is a prime number, so to check if it is even, we only need to check if it equals $2$.
 
-If $\text{nums[i]}$ is odd, suppose $\text{nums[i]} = \text{0b1101101}$. Since $a \lor (a + 1) = \text{nums[i]}$, this is equivalent to changing the last $0$ bit of $a$ to $1$. To solve for $a$, we need to change the bit after the last $0$ in $\text{nums[i]}$ to $0$. We start traversing from the least significant bit (index $1$) and find the first $0$ bit. If it is at position $i$, we change the $(i - 1)$-th bit of $\text{nums[i]}$ to $1$, i.e., $\text{ans}[i] = \text{nums[i]} \oplus 2^{i - 1}$.
+If $\textit{nums}[i]$ is odd, suppose $\textit{nums}[i] = \texttt{0b1101101}$. Since $a \lor (a + 1) = \textit{nums}[i]$, this is equivalent to changing the last $0$ bit of $a$ to $1$. To solve for $a$, we need to change the bit after the last $0$ in $\textit{nums}[i]$ to $0$. We start traversing from the least significant bit (index $1$) and find the first $0$ bit. If it is at position $i$, we change the $(i - 1)$-th bit of $\textit{nums}[i]$ to $1$, i.e., $\textit{ans}[i] = \textit{nums}[i] \oplus 2^{i - 1}$.
 
-By traversing all elements in $\text{nums}$, we can obtain the answer.
+By traversing all elements in $\textit{nums}$, we can obtain the answer.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\text{nums}$ and the maximum value in the array, respectively.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

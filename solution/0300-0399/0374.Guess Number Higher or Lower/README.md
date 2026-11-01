@@ -78,7 +78,7 @@ tags:
 >
 > 在 $[1,n]$ 中猜数，`guess` 告诉偏大或偏小。线性试探最坏 $n$ 次。有序区间上标准二分。
 >
-> 找第一个使 `guess(x)\le 0` 的 $x$，即所猜之数。代码把比较键写成 $-guess(x)$，用 `bisect` 一次完成。
+> 找第一个使 `guess(x)\le 0` 的 $x$，即所猜之数。代码把比较键写成 $-\textit{guess}(x)$，用 `bisect` 一次完成。
 
 <!-- thinking:end -->
 

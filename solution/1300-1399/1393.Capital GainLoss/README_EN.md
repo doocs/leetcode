@@ -88,7 +88,7 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 
 > **Thinking**
 >
-> Net capital gain per stock is sells minus buys. Grouping by $\textit{stock\_name}$ and $\mathrm{SUM}(\mathrm{IF}(\textit{operation}=\texttt{'Buy'},-\textit{price},\textit{price}))$ yields that net in one pass.
+> Net capital gain per stock is sells minus buys. Grouping by $\textit{stock\_name}$ and $\textit{SUM}(\textit{IF}(\textit{operation}=\texttt{'Buy'},-\textit{price},\textit{price}))$ yields that net in one pass.
 
 <!-- thinking:end -->
 

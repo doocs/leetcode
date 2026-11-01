@@ -100,23 +100,23 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 
 <!-- thinking:end -->
 
-我们定义一个有序集合 $\textit{available}$，其中 $\textit{available}[movie]$ 存储所有未借出的电影 $movie$ 的商店列表，列表中的元素为 $(\textit{price}, \textit{shop})$，并按照 $\textit{price}$ 升序排序，如果 $\textit{price}$ 相同，则按照 $\textit{shop}$ 升序排序。
+我们定义一个有序集合 $\textit{available}$，其中 $\textit{available}[\textit{movie}]$ 存储所有未借出的电影 $\textit{movie}$ 的商店列表，列表中的元素为 $(\textit{price}, \textit{shop})$，并按照 $\textit{price}$ 升序排序，如果 $\textit{price}$ 相同，则按照 $\textit{shop}$ 升序排序。
 
 另外定义一个哈希表 $\textit{price\_map}$，其中 $\textit{price\_map}[f(\textit{shop}, \textit{movie})]$ 存储商店 $\textit{shop}$ 中电影 $\textit{movie}$ 的租借价格。
 
 我们还定义一个有序集合 $\textit{rented}$，其中存储所有已借出的电影，元素为 $(\textit{price}, \textit{shop}, \textit{movie})$，并按照 $\textit{price}$ 升序排序，如果 $\textit{price}$ 相同，则按照 $\textit{shop}$ 升序排序，如果 $\textit{shop}$ 也相同，则按照 $\textit{movie}$ 升序排序。
 
-对于 $\text{MovieRentingSystem}(n, \text{entries})$ 操作，我们遍历 $\text{entries}$，将每个商店的电影信息加入到 $\textit{available}$ 和 $\textit{price\_map}$ 中。时间复杂度为 $O(m \log m)$，其中 $m$ 是 $\text{entries}$ 的长度。
+对于 $\textit{MovieRentingSystem}(n, \textit{entries})$ 操作，我们遍历 $\textit{entries}$，将每个商店的电影信息加入到 $\textit{available}$ 和 $\textit{price\_map}$ 中。时间复杂度为 $O(m \log m)$，其中 $m$ 是 $\textit{entries}$ 的长度。
 
-对于 $\text{search}(\text{movie})$ 操作，我们返回 $\textit{available}[\text{movie}]$ 中前 5 个商店的编号。时间复杂度为 $O(1)$。
+对于 $\textit{search}(\textit{movie})$ 操作，我们返回 $\textit{available}[\textit{movie}]$ 中前 5 个商店的编号。时间复杂度为 $O(1)$。
 
-对于 $\text{rent}(\text{shop}, \text{movie})$ 操作，我们从 $\textit{available}[\text{movie}]$ 中移除 $(\textit{price}, \textit{shop})$，并将 $(\textit{price}, \textit{shop}, \textit{movie})$ 加入到 $\textit{rented}$ 中。时间复杂度为 $O(\log m)$。
+对于 $\textit{rent}(\textit{shop}, \textit{movie})$ 操作，我们从 $\textit{available}[\textit{movie}]$ 中移除 $(\textit{price}, \textit{shop})$，并将 $(\textit{price}, \textit{shop}, \textit{movie})$ 加入到 $\textit{rented}$ 中。时间复杂度为 $O(\log m)$。
 
-对于 $\text{drop}(\text{shop}, \text{movie})$ 操作，我们从 $\textit{rented}$ 中移除 $(\textit{price}, \textit{shop}, \textit{movie})$，并将 $(\textit{price}, \textit{shop})$ 加入到 $\textit{available}[\text{movie}]$ 中。时间复杂度为 $O(\log m)$。
+对于 $\textit{drop}(\textit{shop}, \textit{movie})$ 操作，我们从 $\textit{rented}$ 中移除 $(\textit{price}, \textit{shop}, \textit{movie})$，并将 $(\textit{price}, \textit{shop})$ 加入到 $\textit{available}[\textit{movie}]$ 中。时间复杂度为 $O(\log m)$。
 
-对于 $\text{report}()$ 操作，我们返回 $\textit{rented}$ 中前 5 个已借出电影的商店编号和电影编号。时间复杂度为 $O(1)$。
+对于 $\textit{report}()$ 操作，我们返回 $\textit{rented}$ 中前 5 个已借出电影的商店编号和电影编号。时间复杂度为 $O(1)$。
 
-空间复杂度 $O(m)$。其中 $m$ 是 $\text{entries}$ 的长度。
+空间复杂度 $O(m)$。其中 $m$ 是 $\textit{entries}$ 的长度。
 
 <!-- tabs:start -->
 

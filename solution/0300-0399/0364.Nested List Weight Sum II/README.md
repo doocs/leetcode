@@ -68,9 +68,9 @@ tags:
 
 > **思考**
 >
-> 与 339 相反，权重为 $maxDepth-depth+1$。先求最大深度再二次遍历亦可。一次 DFS 同时累加所有整数之和 $s$ 与带深度加权和 $ws$。
+> 与 339 相反，权重为 $\textit{maxDepth}-\textit{depth}+1$。先求最大深度再二次遍历亦可。一次 DFS 同时累加所有整数之和 $s$ 与带深度加权和 $ws$。
 >
-> 目标为 $\sum a_i(maxDepth-d_i+1)=(maxDepth+1)s-ws$。DFS 更新 $maxDepth$，遇整数则累加 $s$ 与 $ws$。
+> 目标为 $\sum a_i(\textit{maxDepth}-d_i+1)=(\textit{maxDepth}+1)s-ws$。DFS 更新 $\textit{maxDepth}$，遇整数则累加 $s$ 与 $ws$。
 
 <!-- thinking:end -->
 
@@ -92,13 +92,13 @@ $$
 (\textit{maxDepth} + 1) \times s - ws
 $$
 
-因此，我们设计一个函数 $dfs(x, d)$，表示从 $x$ 开始，深度为 $d$ 开始搜索，函数 $dfs(x, d)$ 的执行过程如下：
+因此，我们设计一个函数 $\textit{dfs}(x, d)$，表示从 $x$ 开始，深度为 $d$ 开始搜索，函数 $\textit{dfs}(x, d)$ 的执行过程如下：
 
 - 我们先更新 $\textit{maxDepth} = \max(\textit{maxDepth}, d)$；
 - 如果 $x$ 是一个整数，那么我们更新 $s = s + x$, $ws = ws + x \times d$；
-- 否则，我们递归地遍历 $x$ 的每一个元素 $y$，调用 $dfs(y, d + 1)$。
+- 否则，我们递归地遍历 $x$ 的每一个元素 $y$，调用 $\textit{dfs}(y, d + 1)$。
 
-我们遍历整个列表，对于每一个元素 $x$，我们调用 $dfs(x, 1)$，最终返回 $(\textit{maxDepth} + 1) \times s - ws$ 即可。
+我们遍历整个列表，对于每一个元素 $x$，我们调用 $\textit{dfs}(x, 1)$，最终返回 $(\textit{maxDepth} + 1) \times s - ws$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为整数的个数。
 

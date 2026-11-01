@@ -31,16 +31,16 @@ difficulty: 简单
 >
 > 高度最小当左右子树规模尽量接近，因此根应取区间中点，左右递归同样处理。
 >
-> $dfs(l,r)$ 在 $l>r$ 时返回空，否则以 $mid=(l+r)//2$ 为根。中序恰好是原数组，故所得必为 BST，且每次对半分割，高度为 $\Theta(\log n)$。
+> $\textit{dfs}(l,r)$ 在 $l>r$ 时返回空，否则以 $\textit{mid}=(l+r)//2$ 为根。中序恰好是原数组，故所得必为 BST，且每次对半分割，高度为 $\Theta(\log n)$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $\textit{dfs}(l, r)$，表示构造出从 $l$ 到 $r$ 的子树，那么答案就是 $\textit{dfs}(0, \textit{len}(nums) - 1)$。
+我们设计一个函数 $\textit{dfs}(l, r)$，表示构造出从 $l$ 到 $r$ 的子树，那么答案就是 $\textit{dfs}(0, \textit{len}(\textit{nums}) - 1)$。
 
 函数 $\textit{dfs}(l, r)$ 的执行过程如下：
 
 1. 如果 $l > r$，返回 $\textit{None}$。
-2. 否则，我们计算出中间位置 $mid = \frac{l + r}{2}$，然后构造出根节点，左子树为 $\textit{dfs}(l, mid - 1)$，右子树为 $\textit{dfs}(mid + 1, r)$。
+2. 否则，我们计算出中间位置 $\textit{mid} = \frac{l + r}{2}$，然后构造出根节点，左子树为 $\textit{dfs}(l, \textit{mid} - 1)$，右子树为 $\textit{dfs}(\textit{mid} + 1, r)$。
 3. 最后返回根节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。

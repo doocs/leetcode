@@ -71,7 +71,7 @@ Every row sum, column sum, and diagonal sum of this magic square is equal to 12.
 
 <!-- thinking:end -->
 
-We define $\text{rowsum}[i][j]$ as the sum of elements in the $i$-th row up to the $j$-th column of the matrix, and $\text{colsum}[i][j]$ as the sum of elements in the $j$-th column up to the $i$-th row. Thus, for any submatrix from $(x_1, y_1)$ to $(x_2, y_2)$, the sum of its $i$-th row can be expressed as $\text{rowsum}[i+1][y_2+1] - \text{rowsum}[i+1][y_1]$, and the sum of its $j$-th column can be expressed as $\text{colsum}[x_2+1][j+1] - \text{colsum}[x_1][j+1]$.
+We define $\textit{rowsum}[i][j]$ as the sum of elements in the $i$-th row up to the $j$-th column of the matrix, and $\textit{colsum}[i][j]$ as the sum of elements in the $j$-th column up to the $i$-th row. Thus, for any submatrix from $(x_1, y_1)$ to $(x_2, y_2)$, the sum of its $i$-th row can be expressed as $\textit{rowsum}[i+1][y_2+1] - \textit{rowsum}[i+1][y_1]$, and the sum of its $j$-th column can be expressed as $\textit{colsum}[x_2+1][j+1] - \textit{colsum}[x_1][j+1]$.
 
 We enumerate all possible submatrices and check if they are magic squares. For each submatrix, we calculate the sum of each row, each column, and both diagonals to determine if they are all equal.
 

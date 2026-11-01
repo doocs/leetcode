@@ -69,17 +69,17 @@ tags:
 
 > **思考**
 >
-> 统计工作时长不小于 $target$ 的员工数。一次线性扫描即可，无需排序或额外结构。
+> 统计工作时长不小于 $\textit{target}$ 的员工数。一次线性扫描即可，无需排序或额外结构。
 >
-> 对 $hours$ 中每个值判断 $x\ge target$ 并求和。
+> 对 $\textit{hours}$ 中每个值判断 $x\ge \textit{target}$ 并求和。
 
 <!-- thinking:end -->
 
-我们可以遍历数组 $hours$，对于每个员工，如果其工作时长 $x$ 大于等于 $target$，则将计数器 $ans$ 加一。
+我们可以遍历数组 $\textit{hours}$，对于每个员工，如果其工作时长 $x$ 大于等于 $\textit{target}$，则将计数器 $\textit{ans}$ 加一。
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $hours$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{hours}$ 的长度。
 
 <!-- tabs:start -->
 

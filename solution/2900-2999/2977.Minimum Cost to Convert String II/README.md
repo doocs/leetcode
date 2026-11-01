@@ -102,9 +102,9 @@ tags:
 
 > **思考**
 >
-> 改写对象变成整段子串，且 $source$、 $target$ 须同步替换。候选串不超过 $100$，先用字典树编号，再在编号点上 Floyd 得到任意替换代价。剩余问题是按位置切分：能匹配一对原串/目标串则付 $g[p][q]$，或单字符相等则免费前进。
+> 改写对象变成整段子串，且 $\textit{source}$、 $\textit{target}$ 须同步替换。候选串不超过 $100$，先用字典树编号，再在编号点上 Floyd 得到任意替换代价。剩余问题是按位置切分：能匹配一对原串/目标串则付 $g[p][q]$，或单字符相等则免费前进。
 >
-> $dfs(i)$ 记忆化从 $i$ 切到末尾的最小代价，两指针同步走字典树。串长 $1000$，状态线性，转移与匹配长度同阶。
+> $\textit{dfs}(i)$ 记忆化从 $i$ 切到末尾的最小代价，两指针同步走字典树。串长 $1000$，状态线性，转移与匹配长度同阶。
 
 <!-- thinking:end -->
 
@@ -112,28 +112,28 @@ tags:
 
 然后，我们使用 Floyd 算法计算出任意两个字符串之间的最小成本。
 
-接下来，我们定义函数 $dfs(i)$ 表示将字符串 $source[i..]$ 转换为字符串 $target[i..]$ 所需的最小成本。那么答案就是 $dfs(0)$。
+接下来，我们定义函数 $\textit{dfs}(i)$ 表示将字符串 $\textit{source}[i..]$ 转换为字符串 $\textit{target}[i..]$ 所需的最小成本。那么答案就是 $\textit{dfs}(0)$。
 
-函数 $dfs(i)$ 的计算过程如下：
+函数 $\textit{dfs}(i)$ 的计算过程如下：
 
-- 如果 $i \geq |source|$，说明不需要转换，返回 $0$。
-- 否则，如果 $source[i] = target[i]$，那么可以直接跳过，我们直接递归计算 $dfs(i + 1)$。我们也可以在 $[i, |source|)$ 的范围内枚举下标 $j$，如果 $source[i..j]$ 和 $target[i..j]$ 都在字典树中，且其对应的整数编号 $x$ 和 $y$ 都大于等于 $0$，那么我们可以将 $dfs(j + 1)$ 和 $g[x][y]$ 相加，得到一种转换方案的成本，我们取所有方案中的最小值。
+- 如果 $i \geq |\textit{source}|$，说明不需要转换，返回 $0$。
+- 否则，如果 $\textit{source}[i] = \textit{target}[i]$，那么可以直接跳过，我们直接递归计算 $\textit{dfs}(i + 1)$。我们也可以在 $[i, |\textit{source}|)$ 的范围内枚举下标 $j$，如果 $\textit{source}[i..j]$ 和 $\textit{target}[i..j]$ 都在字典树中，且其对应的整数编号 $x$ 和 $y$ 都大于等于 $0$，那么我们可以将 $\textit{dfs}(j + 1)$ 和 $g[x][y]$ 相加，得到一种转换方案的成本，我们取所有方案中的最小值。
 
 综上，我们可以得到：
 
 $$
-dfs(i) = \begin{cases}
-0, & i \geq |source| \\
-dfs(i + 1), & source[i] = target[i] \\
-\min_{i \leq j < |source|} \{ dfs(j + 1) + g[x][y] \}, & \textit{otherwise}
+\textit{dfs}(i) = \begin{cases}
+0, & i \geq |\textit{source}| \\
+\textit{dfs}(i + 1), & \textit{source}[i] = \textit{target}[i] \\
+\min_{i \leq j < |\textit{source}|} \{ \textit{dfs}(j + 1) + g[x][y] \}, & \textit{otherwise}
 \end{cases}
 $$
 
-其中 $x$ 和 $y$ 分别是 $source[i..j]$ 和 $target[i..j]$ 在字典树中对应的整数编号。
+其中 $x$ 和 $y$ 分别是 $\textit{source}[i..j]$ 和 $\textit{target}[i..j]$ 在字典树中对应的整数编号。
 
 为了避免重复计算，我们可以使用记忆化搜索。
 
-时间复杂度 $O(m^3 + n^2 + mn)$，空间复杂度 $O(m^2 + mn + n)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度。
+时间复杂度 $O(m^3 + n^2 + mn)$，空间复杂度 $O(m^2 + mn + n)$。其中 $m$ 和 $n$ 分别是数组 $\textit{original}$ 和 $\textit{source}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -720,17 +720,17 @@ impl Solution {
 
 > **思考**
 >
-> 把 $source$ 整段换成 $target$ 的每一种切法是指数级的。串长可以到 $1000$，而当前字符相等时第一次递归总是落到下一位置，调用深度就是 $n$。从下标 $i$ 起的最小代价只依赖更靠后的后缀。候选串不超过 $100$，先用字典树编号，Floyd 得到任意一对的替换代价。令 $f[n]=0$，按 $i$ 从 $n-1$ 降到 $0$：字符相等则可以免费用 $f[i+1]$，同时沿字典树同步走，每对已经编号的子串再用 $f[j+1]+g[x][y]$ 更新。 $f[0]$ 仍不小于哨兵时返回 $-1$。
+> 把 $\textit{source}$ 整段换成 $\textit{target}$ 的每一种切法是指数级的。串长可以到 $1000$，而当前字符相等时第一次递归总是落到下一位置，调用深度就是 $n$。从下标 $i$ 起的最小代价只依赖更靠后的后缀。候选串不超过 $100$，先用字典树编号，Floyd 得到任意一对的替换代价。令 $f[n]=0$，按 $i$ 从 $n-1$ 降到 $0$：字符相等则可以免费用 $f[i+1]$，同时沿字典树同步走，每对已经编号的子串再用 $f[j+1]+g[x][y]$ 更新。 $f[0]$ 仍不小于哨兵时返回 $-1$。
 
 <!-- thinking:end -->
 
 我们把 `original` 和 `changed` 中的每个字符串看作一个节点，用字典树为它们编号。 $g[x][y]$ 表示编号 $x$ 的字符串换成编号 $y$ 的最小代价，初值为 $\infty$，自身为 $0$。用 Floyd 算法求出任意两个编号之间的最小代价。
 
-令 $f[i]$ 表示把 $source[i..]$ 变成 $target[i..]$ 的最小代价， $f[n] = 0$。按 $i$ 从 $n - 1$ 降到 $0$。若 $source[i] = target[i]$，可以免费留下这一位，先取 $f[i + 1]$。再从 $i$ 起沿字典树同步匹配 $source$ 与 $target$，一旦前缀 $source[i..j]$ 和 $target[i..j]$ 都有编号 $x$、 $y$，就用 $f[j + 1] + g[x][y]$ 更新 $f[i]$。
+令 $f[i]$ 表示把 $\textit{source}[i..]$ 变成 $\textit{target}[i..]$ 的最小代价， $f[n] = 0$。按 $i$ 从 $n - 1$ 降到 $0$。若 $\textit{source}[i] = \textit{target}[i]$，可以免费留下这一位，先取 $f[i + 1]$。再从 $i$ 起沿字典树同步匹配 $\textit{source}$ 与 $\textit{target}$，一旦前缀 $\textit{source}[i..j]$ 和 $\textit{target}[i..j]$ 都有编号 $x$、 $y$，就用 $f[j + 1] + g[x][y]$ 更新 $f[i]$。
 
 答案为 $f[0]$。若它不小于预先设定的上界，返回 $-1$。
 
-时间复杂度 $O(m^3 + n^2 + mn)$，空间复杂度 $O(m^2 + mn + n)$。其中 $m$ 和 $n$ 分别是数组 `original` 和 $source$ 的长度。
+时间复杂度 $O(m^3 + n^2 + mn)$，空间复杂度 $O(m^2 + mn + n)$。其中 $m$ 和 $n$ 分别是数组 `original` 和 $\textit{source}$ 的长度。
 
 <!-- tabs:start -->
 

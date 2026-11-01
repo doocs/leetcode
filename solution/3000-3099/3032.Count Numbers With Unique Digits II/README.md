@@ -82,10 +82,10 @@ tags:
 
 基本步骤如下：
 
-1. 我们将数字 $n$ 转换为字符串 $num$，其中 $num[0]$ 为最高位，而 $num[len - 1]$ 为最低位。
-2. 根据题目信息，设计一个函数 $dfs(pos, mask, limit)$，其中 $pos$ 表示当前处理的位置， $mask$ 表示当前数字中出现过的数字， $limit$ 表示当前位置是否有限制。如果 $limit$ 为真，那么当前位置的数字不能超过 $num[pos]$。
+1. 我们将数字 $n$ 转换为字符串 $\textit{num}$，其中 $\textit{num}[0]$ 为最高位，而 $\textit{num}[\textit{len} - 1]$ 为最低位。
+2. 根据题目信息，设计一个函数 $\textit{dfs}(\textit{pos}, \textit{mask}, \textit{limit})$，其中 $\textit{pos}$ 表示当前处理的位置， $\textit{mask}$ 表示当前数字中出现过的数字， $\textit{limit}$ 表示当前位置是否有限制。如果 $\textit{limit}$ 为真，那么当前位置的数字不能超过 $\textit{num}[\textit{pos}]$。
 
-答案为 $dfs(0, 0, true)$。
+答案为 $\textit{dfs}(0, 0, \textit{true})$。
 
 时间复杂度 $O(10m 2^{10})$，空间复杂度 $O(m 2^{10})$。其中 $m$ 为 $b$ 的位数。
 

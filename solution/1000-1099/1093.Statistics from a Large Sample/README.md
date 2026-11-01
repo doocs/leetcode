@@ -88,9 +88,9 @@ tags:
 >
 > 样本以 $0..255$ 的频次给出，总数可达 $10^9$，不能展开。最小、最大、和、众数都可以在扫频次数组时得到；中位数则要按累计频次定位第 $k$ 个元素。
 >
-> 一遍扫描更新 $mi,mx,s,cnt$ 以及频次最大的 $\textit{mode}$。`find(i)` 沿 `count` 累加直到达到第 $i$ 个样本。
+> 一遍扫描更新 $mi,mx,s,\textit{cnt}$ 以及频次最大的 $\textit{mode}$。`find(i)` 沿 `count` 累加直到达到第 $i$ 个样本。
 >
-> 总数为奇数取正中一个，偶数取中间两个的平均，再与均值 $s/cnt$ 一起返回。
+> 总数为奇数取正中一个，偶数取中间两个的平均，再与均值 $s/\textit{cnt}$ 一起返回。
 
 <!-- thinking:end -->
 
@@ -99,24 +99,24 @@ tags:
 - 变量 $mi$ 表示最小值；
 - 变量 $mx$ 表示最大值；
 - 变量 $s$ 表示总和；
-- 变量 $cnt$ 表示总个数；
-- 变量 $mode$ 表示众数。
+- 变量 $\textit{cnt}$ 表示总个数；
+- 变量 $\textit{mode}$ 表示众数。
 
-我们遍历数组 $count$，对于当前遍历到的数字 $count[k]$，如果 $count[k] \gt 0$，那么我们做以下更新操作：
+我们遍历数组 $\textit{count}$，对于当前遍历到的数字 $\textit{count}[k]$，如果 $\textit{count}[k] \gt 0$，那么我们做以下更新操作：
 
 - 更新 $mi = \min(mi, k)$；
 - 更新 $mx = \max(mx, k)$；
-- 更新 $s = s + k \times count[k]$；
-- 更新 $cnt = cnt + count[k]$；
-- 如果 $count[k] \gt count[mode]$，那么更新 $mode = k$。
+- 更新 $s = s + k \times \textit{count}[k]$；
+- 更新 $\textit{cnt} = \textit{cnt} + \textit{count}[k]$；
+- 如果 $\textit{count}[k] \gt \textit{count}[\textit{mode}]$，那么更新 $\textit{mode} = k$。
 
-遍历结束后，我们再根据 $cnt$ 的奇偶性来计算中位数 $median$，如果 $cnt$ 是奇数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字，如果 $cnt$ 是偶数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor$ 和第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字的平均值。
+遍历结束后，我们再根据 $\textit{cnt}$ 的奇偶性来计算中位数 $\textit{median}$，如果 $\textit{cnt}$ 是奇数，那么中位数就是第 $\lfloor \frac{\textit{cnt}}{2} \rfloor + 1$ 个数字，如果 $\textit{cnt}$ 是偶数，那么中位数就是第 $\lfloor \frac{\textit{cnt}}{2} \rfloor$ 和第 $\lfloor \frac{\textit{cnt}}{2} \rfloor + 1$ 个数字的平均值。
 
-> 这里我们通过一个简单的辅助函数 $find(i)$ 来找到第 $i$ 个数字，具体实现可以参考下面的代码。
+> 这里我们通过一个简单的辅助函数 $\textit{find}(i)$ 来找到第 $i$ 个数字，具体实现可以参考下面的代码。
 
-最后，我们将 $mi, mx, \frac{s}{cnt}, median, mode$ 放入答案数组中返回即可。
+最后，我们将 $mi, mx, \frac{s}{\textit{cnt}}, \textit{median}, \textit{mode}$ 放入答案数组中返回即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $count$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{count}$ 的长度。
 
 <!-- tabs:start -->
 

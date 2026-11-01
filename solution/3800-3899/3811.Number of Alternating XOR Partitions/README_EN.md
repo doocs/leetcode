@@ -109,11 +109,11 @@ tags:
 >
 > A valid partition's block XORs must alternate between $\textit{target1}$ and $\textit{target2}$, starting with $\textit{target1}$. $n \le 10^5$ forbids enumerating cuts.
 >
-> With prefix XOR $pre$, a block $[l,r]$ has XOR $pre_r \oplus pre_{l-1}$. Alternation becomes a count over past prefixes.
+> With prefix XOR $\textit{pre}$, a block $[l,r]$ has XOR $\textit{pre}_r \oplus \textit{pre}_{l-1}$. Alternation becomes a count over past prefixes.
 >
 > Let $\textit{cnt1}[x]$ and $\textit{cnt2}[x]$ be ways to end with $\textit{target1}$ or $\textit{target2}$ at prefix XOR $x$. The empty prefix is $\textit{cnt2}[0]=1$.
 >
-> After each value we update $pre$, read the opposite map for legal attachments, and write back. A linear scan yields the ways ending at the current index.
+> After each value we update $\textit{pre}$, read the opposite map for legal attachments, and write back. A linear scan yields the ways ending at the current index.
 
 <!-- thinking:end -->
 

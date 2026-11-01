@@ -91,7 +91,7 @@ So, the answer is -1.
 
 > **Thinking**
 >
-> The maxima of $nums1$ and $nums2$ must sit at the ends, and only same-index swaps are allowed. The last pair is either left or swapped once; that choice fixes how every earlier pair must be oriented.
+> The maxima of $\textit{nums1}$ and $\textit{nums2}$ must sit at the ends, and only same-index swaps are allowed. The last pair is either left or swapped once; that choice fixes how every earlier pair must be oriented.
 >
 > $f(x,y)$ assumes the ends are $(x,y)$. Each previous pair stays, swaps, or is impossible. The answer is the better of “do not swap the ends” and “swap them and add one”.
 
@@ -99,10 +99,10 @@ So, the answer is -1.
 
 We can discuss two cases:
 
-1. Do not swap the values of $nums1[n - 1]$ and $nums2[n - 1]$
-2. Swap the values of $nums1[n - 1]$ and $nums2[n - 1]$
+1. Do not swap the values of $\textit{nums1}[n - 1]$ and $\textit{nums2}[n - 1]$
+2. Swap the values of $\textit{nums1}[n - 1]$ and $\textit{nums2}[n - 1]$
 
-For each case, we denote the last values of the arrays $nums1$ and $nums2$ as $x$ and $y$, respectively. Then we traverse the first $n - 1$ values of the arrays $nums1$ and $nums2$, and use a variable $cnt$ to record the number of swaps. If $nums1[i] \leq x$ and $nums2[i] \leq y$, then no swap is needed. Otherwise, if $nums1[i] \leq y$ and $nums2[i] \leq x$, then a swap is needed. If neither condition is met, return $-1$. Finally, return $cnt$.
+For each case, we denote the last values of the arrays $\textit{nums1}$ and $\textit{nums2}$ as $x$ and $y$, respectively. Then we traverse the first $n - 1$ values of the arrays $\textit{nums1}$ and $\textit{nums2}$, and use a variable $\textit{cnt}$ to record the number of swaps. If $\textit{nums1}[i] \leq x$ and $\textit{nums2}[i] \leq y$, then no swap is needed. Otherwise, if $\textit{nums1}[i] \leq y$ and $\textit{nums2}[i] \leq x$, then a swap is needed. If neither condition is met, return $-1$. Finally, return $\textit{cnt}$.
 
 We denote the number of swaps in the two cases as $a$ and $b$, respectively. If $a + b = -2$, then it is impossible to satisfy both conditions, so return $-1$. Otherwise, return $\min(a, b + 1)$.
 

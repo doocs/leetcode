@@ -94,9 +94,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table $\textit{s}$ to store all the elements in the array $\textit{nums}$. Then, we define a dummy node $\textit{dummy}$ and point it to the head node of the list $\textit{head}$.
+We can use a hash table $s$ to store all the elements in the array $\textit{nums}$. Then, we define a dummy node $\textit{dummy}$ and point it to the head node of the list $\textit{head}$.
 
-Next, we traverse the list starting from the dummy node $\textit{dummy}$. If the value of the next node of the current node is in the hash table $\textit{s}$, we make the current node point to the next next node; otherwise, we move the current node pointer to the next node.
+Next, we traverse the list starting from the dummy node $\textit{dummy}$. If the value of the next node of the current node is in the hash table $s$, we make the current node point to the next next node; otherwise, we move the current node pointer to the next node.
 
 Finally, we return the next node of the dummy node $\textit{dummy}$.
 

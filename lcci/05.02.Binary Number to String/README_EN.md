@@ -52,7 +52,7 @@ comments: true
 >
 > Doubling the fraction yields the next bit; the leftover fraction is doubled again. If $32$ bits are not enough to reach $0$, it cannot be represented.
 >
-> Start from `0.`, loop `num *= 2`, append the integer part and subtract it. A leftover $num$ becomes `ERROR`.
+> Start from `0.`, loop `num *= 2`, append the integer part and subtract it. A leftover $\textit{num}$ becomes `ERROR`.
 
 <!-- thinking:end -->
 

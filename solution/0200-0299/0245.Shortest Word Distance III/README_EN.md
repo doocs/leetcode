@@ -50,7 +50,7 @@ tags:
 
 > **Thinking**
 >
-> $word1$ may equal $word2$, in which case the answer is the gap between consecutive occurrences of that word; otherwise it is the usual two-word gap.
+> $\textit{word1}$ may equal $\textit{word2}$, in which case the answer is the gap between consecutive occurrences of that word; otherwise it is the usual two-word gap.
 >
 > Track the last index accordingly: one pointer when the words coincide, two pointers when they differ.
 

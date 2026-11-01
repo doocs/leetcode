@@ -77,7 +77,7 @@ tags:
 
 <!-- thinking:end -->
 
-Starting from the root node, we traverse the tree. If the current node's value is less than both $\textit{p}$ and $\textit{q}$ values, it means that $\textit{p}$ and $\textit{q}$ should be in the right subtree of the current node, so we move to the right child. If the current node's value is greater than both $\textit{p}$ and $\textit{q}$ values, it means that $\textit{p}$ and $\textit{q}$ should be in the left subtree, so we move to the left child. Otherwise, it means the current node is the lowest common ancestor of $\textit{p}$ and $\textit{q}$, so we return the current node.
+Starting from the root node, we traverse the tree. If the current node's value is less than both $p$ and $q$ values, it means that $p$ and $q$ should be in the right subtree of the current node, so we move to the right child. If the current node's value is greater than both $p$ and $q$ values, it means that $p$ and $q$ should be in the left subtree, so we move to the left child. Otherwise, it means the current node is the lowest common ancestor of $p$ and $q$, so we return the current node.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the binary search tree.
 
@@ -269,7 +269,7 @@ public class Solution {
 
 We can also use a recursive approach to solve this problem.
 
-We first check if the current node's value is less than both $\textit{p}$ and $\textit{q}$ values. If it is, we recursively traverse the right subtree. If the current node's value is greater than both $\textit{p}$ and $\textit{q}$ values, we recursively traverse the left subtree. Otherwise, it means the current node is the lowest common ancestor of $\textit{p}$ and $\textit{q}$, so we return the current node.
+We first check if the current node's value is less than both $p$ and $q$ values. If it is, we recursively traverse the right subtree. If the current node's value is greater than both $p$ and $q$ values, we recursively traverse the left subtree. Otherwise, it means the current node is the lowest common ancestor of $p$ and $q$, so we return the current node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 

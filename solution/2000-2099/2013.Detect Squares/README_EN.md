@@ -85,19 +85,19 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 >
 > At most $5000$ calls and coordinates in $[0,1000]$. Enumerating all triples per `count` is clumsy. An axis-aligned square is fixed by one horizontal side.
 >
-> Store frequencies in $cnt[x][y]$. For query $(x_1,y_1)$, enumerate existing $x_2 \ne x_1$ with side $d=x_2-x_1$; the other two vertices of the upper/lower squares follow.
+> Store frequencies in $\textit{cnt}[x][y]$. For query $(x_1,y_1)$, enumerate existing $x_2 \ne x_1$ with side $d=x_2-x_1$; the other two vertices of the upper/lower squares follow.
 >
 > The product of the three frequencies is the count. `add` is $O(1)$; `count` is linear in distinct $x$.
 
 <!-- thinking:end -->
 
-We can use a hash table $cnt$ to maintain all the information of the points, where $cnt[x][y]$ represents the count of point $(x, y)$.
+We can use a hash table $\textit{cnt}$ to maintain all the information of the points, where $\textit{cnt}[x][y]$ represents the count of point $(x, y)$.
 
-When calling the $add(x, y)$ method, we increase the value of $cnt[x][y]$ by $1$.
+When calling the $\textit{add}(x, y)$ method, we increase the value of $\textit{cnt}[x][y]$ by $1$.
 
-When calling the $count(x_1, y_1)$ method, we need to get three other points to form an axis-aligned square. We can enumerate the point $(x_2, y_1)$ that is parallel to the $x$-axis and at a distance $d$ from $(x_1, y_1)$. If such a point exists, based on these two points, we can determine the other two points as $(x_1, y_1 + d)$ and $(x_2, y_1 + d)$, or $(x_1, y_1 - d)$ and $(x_2, y_1 - d)$. We can add up the number of schemes for these two situations.
+When calling the $\textit{count}(x_1, y_1)$ method, we need to get three other points to form an axis-aligned square. We can enumerate the point $(x_2, y_1)$ that is parallel to the $x$-axis and at a distance $d$ from $(x_1, y_1)$. If such a point exists, based on these two points, we can determine the other two points as $(x_1, y_1 + d)$ and $(x_2, y_1 + d)$, or $(x_1, y_1 - d)$ and $(x_2, y_1 - d)$. We can add up the number of schemes for these two situations.
 
-In terms of time complexity, the time complexity of calling the $add(x, y)$ method is $O(1)$, and the time complexity of calling the $count(x_1, y_1)$ method is $O(n)$; the space complexity is $O(n)$. Here, $n$ is the number of points in the data stream.
+In terms of time complexity, the time complexity of calling the $\textit{add}(x, y)$ method is $O(1)$, and the time complexity of calling the $\textit{count}(x_1, y_1)$ method is $O(n)$; the space complexity is $O(n)$. Here, $n$ is the number of points in the data stream.
 
 <!-- tabs:start -->
 

@@ -103,9 +103,9 @@ tags:
 
 We notice that the problem requires us to find the median of node values at a certain level in a binary search tree. Since the definition of median is to sort the node values and take the middle value, and the in-order traversal of a binary search tree is inherently sorted, we can collect the node values at the specified level through in-order traversal.
 
-We define a helper function $\text{dfs}(root, i)$, where $root$ is the current node and $i$ is the level of the current node. In the function, if the current node is empty, we return directly. Otherwise, we recursively traverse the left subtree, check if the level of the current node equals the target level, and if so, add the value of the current node to the result list, and finally recursively traverse the right subtree.
+We define a helper function $\textit{dfs}(\textit{root}, i)$, where $\textit{root}$ is the current node and $i$ is the level of the current node. In the function, if the current node is empty, we return directly. Otherwise, we recursively traverse the left subtree, check if the level of the current node equals the target level, and if so, add the value of the current node to the result list, and finally recursively traverse the right subtree.
 
-We initialize an empty list $\text{nums}$ to store the node values at the specified level, and call $\text{dfs}(root, 0)$ to start the traversal. Finally, we check if $\text{nums}$ is empty, and if so, return -1, otherwise return the value at the middle position of $\text{nums}$.
+We initialize an empty list $\textit{nums}$ to store the node values at the specified level, and call $\textit{dfs}(\textit{root}, 0)$ to start the traversal. Finally, we check if $\textit{nums}$ is empty, and if so, return -1, otherwise return the value at the middle position of $\textit{nums}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 

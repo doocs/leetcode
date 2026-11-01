@@ -53,11 +53,11 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 
 <!-- thinking:end -->
 
-We notice that there can be at most $24 \times 60 = 1440$ distinct time points. Therefore, if the length of $timePoints$ exceeds $1440$, it implies there are duplicate time points, and we can return $0$ early.
+We notice that there can be at most $24 \times 60 = 1440$ distinct time points. Therefore, if the length of $\textit{timePoints}$ exceeds $1440$, it implies there are duplicate time points, and we can return $0$ early.
 
-Next, we iterate through the list of time points and convert it into a list of minutes $nums$. For example, for the time point `13:14`, we convert it into $13 \times 60 + 14$.
+Next, we iterate through the list of time points and convert it into a list of minutes $\textit{nums}$. For example, for the time point `13:14`, we convert it into $13 \times 60 + 14$.
 
-Then, we sort the list of minutes in ascending order and append the smallest time $nums[0]$ plus $1440$ to the end of the list. This step is to handle the special case of the difference between the maximum and minimum values.
+Then, we sort the list of minutes in ascending order and append the smallest time $\textit{nums}[0]$ plus $1440$ to the end of the list. This step is to handle the special case of the difference between the maximum and minimum values.
 
 Finally, we iterate through the list of minutes to find the minimum difference between any two adjacent times.
 

@@ -169,11 +169,11 @@ source: Biweekly Contest 166 Q1
 
 <!-- thinking:end -->
 
-We first use an array or hash table $\textit{cnt}$ to count the frequency of each character in the string. Then, we use another hash table $\textit{f}$ to group characters with the same frequency $k$ into the same list, i.e., $\textit{f}[k]$ stores all characters with frequency $k$.
+We first use an array or hash table $\textit{cnt}$ to count the frequency of each character in the string. Then, we use another hash table $f$ to group characters with the same frequency $k$ into the same list, i.e., $f[k]$ stores all characters with frequency $k$.
 
-Next, we iterate through the hash table $\textit{f}$ to find the frequency group with the maximum group size. If multiple frequency groups have the same maximum size, we choose the one with the larger frequency $k$. Finally, we concatenate all characters in that frequency group into a string and return it.
+Next, we iterate through the hash table $f$ to find the frequency group with the maximum group size. If multiple frequency groups have the same maximum size, we choose the one with the larger frequency $k$. Finally, we concatenate all characters in that frequency group into a string and return it.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

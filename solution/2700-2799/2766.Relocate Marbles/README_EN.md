@@ -85,9 +85,9 @@ Since 2 is the only occupied position, we return [2].
 
 <!-- thinking:end -->
 
-Let's use a hash table $pos$ to record all stone positions. Initially, $pos$ contains all elements of $nums$. Then we iterate through $moveFrom$ and $moveTo$. Each time, we remove $moveFrom[i]$ from $pos$ and add $moveTo[i]$ to $pos$. Finally, we sort the elements in $pos$ and return.
+Let's use a hash table $\textit{pos}$ to record all stone positions. Initially, $\textit{pos}$ contains all elements of $\textit{nums}$. Then we iterate through $\textit{moveFrom}$ and $\textit{moveTo}$. Each time, we remove $\textit{moveFrom}[i]$ from $\textit{pos}$ and add $\textit{moveTo}[i]$ to $\textit{pos}$. Finally, we sort the elements in $\textit{pos}$ and return.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

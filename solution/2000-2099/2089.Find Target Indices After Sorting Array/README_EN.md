@@ -73,7 +73,7 @@ The index where nums[i] == 5 is 4.
 
 > **Thinking**
 >
-> With $n \le 100$, sort and collect indices equal to $target$; they already appear in increasing order.
+> With $n \le 100$, sort and collect indices equal to $\textit{target}$; they already appear in increasing order.
 >
 > A linear count of smaller/equal values could build the same range; the code simply sorts.
 
@@ -166,13 +166,13 @@ function targetIndices(nums: number[], target: number): number[] {
 
 > **Thinking**
 >
-> Solution 1 sorts the whole array to recover indices, so the time stays $O(n \log n)$. Those indices depend only on where $target$ would sit after sorting, not on the order among the other values.
+> Solution 1 sorts the whole array to recover indices, so the time stays $O(n \log n)$. Those indices depend only on where $\textit{target}$ would sit after sorting, not on the order among the other values.
 >
-> The number of values strictly less than $target$ is the start of that contiguous range, and the number of values equal to $target$ is its length. Both counts come from one pass over the original array, which removes the comparison sort.
+> The number of values strictly less than $\textit{target}$ is the start of that contiguous range, and the number of values equal to $\textit{target}$ is its length. Both counts come from one pass over the original array, which removes the comparison sort.
 
 <!-- thinking:end -->
 
-After sorting into non-decreasing order, every value equal to $target$ occupies one contiguous index range. The start of the range equals the number of elements strictly less than $target$, and the length equals the number of elements equal to $target$.
+After sorting into non-decreasing order, every value equal to $\textit{target}$ occupies one contiguous index range. The start of the range equals the number of elements strictly less than $\textit{target}$, and the length equals the number of elements equal to $\textit{target}$.
 
 Scan $\textit{nums}$ once and store the two counts in $\textit{less}$ and $\textit{equal}$. The answer is every integer in $[\textit{less}, \textit{less} + \textit{equal})$. The range is empty when $\textit{equal} = 0$.
 

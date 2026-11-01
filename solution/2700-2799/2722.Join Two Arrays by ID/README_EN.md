@@ -107,9 +107,9 @@ arr2 = [
 
 > **Thinking**
 >
-> Merge two object arrays on $id$, with $arr2$ winning on conflicts. Nested pairing is slow on large inputs and still needs a sort.
+> Merge two object arrays on $id$, with $\textit{arr2}$ winning on conflicts. Nested pairing is slow on large inputs and still needs a sort.
 >
-> Index $arr1$ by $id$, then scan $arr2$: $Object.assign$ into an existing record or insert a new one. $Object.values$ yields the rows; integer keys keep them ordered.
+> Index $\textit{arr1}$ by $id$, then scan $\textit{arr2}$: $\textit{Object}.\textit{assign}$ into an existing record or insert a new one. $\textit{Object}.\textit{values}$ yields the rows; integer keys keep them ordered.
 
 <!-- thinking:end -->
 

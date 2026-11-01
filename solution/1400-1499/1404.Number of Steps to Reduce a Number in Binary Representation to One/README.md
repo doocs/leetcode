@@ -94,15 +94,15 @@ Step 1) 2 是偶数，除 2 得到 1
 
 <!-- thinking:end -->
 
-我们模拟操作 $1$ 和 $2$，同时维护一个进位 $\textit{carry}$ 来表示当前是否有进位，初始时 $\textit{carry} = \text{false}$。
+我们模拟操作 $1$ 和 $2$，同时维护一个进位 $\textit{carry}$ 来表示当前是否有进位，初始时 $\textit{carry} = \textit{false}$。
 
 我们从字符串 $s$ 的末尾开始向前遍历：
 
-- 如果 $\textit{carry}$ 为 $\text{true}$，则当前位 $c$ 需要加 $1$，如果 $c$ 是 $0$，则加 $1$ 后变为 $1$，同时 $\textit{carry}$ 变为 $\text{false}$；如果 $c$ 是 $1$，则加 $1$ 后变为 $0$，同时 $\textit{carry}$ 保持为 $\text{true}$。
-- 如果 $c$ 是 $1$，则需要执行操作 $1$，即加 $1$，同时 $\textit{carry}$ 变为 $\text{true}$。
+- 如果 $\textit{carry}$ 为 $\textit{true}$，则当前位 $c$ 需要加 $1$，如果 $c$ 是 $0$，则加 $1$ 后变为 $1$，同时 $\textit{carry}$ 变为 $\textit{false}$；如果 $c$ 是 $1$，则加 $1$ 后变为 $0$，同时 $\textit{carry}$ 保持为 $\textit{true}$。
+- 如果 $c$ 是 $1$，则需要执行操作 $1$，即加 $1$，同时 $\textit{carry}$ 变为 $\textit{true}$。
 - 此时 $c$ 是 $0$，则需要执行操作 $2$，即除以 $2$。
 
-当遍历结束后，如果 $\textit{carry}$ 仍然为 $\text{true}$，则需要再执行一次操作 $1$。
+当遍历结束后，如果 $\textit{carry}$ 仍然为 $\textit{true}$，则需要再执行一次操作 $1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $s$ 的长度。
 

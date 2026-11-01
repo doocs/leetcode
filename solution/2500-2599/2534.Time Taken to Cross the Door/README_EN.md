@@ -97,7 +97,7 @@ We define two queues, where $q[0]$ stores the indices of people who want to ente
 
 We maintain a variable $t$ to represent the current time, and a variable $st$ to represent the current state of the door. When $st = 1$, it means the door is not in use or someone exited in the previous second. When $st = 0$, it means someone entered in the previous second. Initially, $t = 0$ and $st = 1$.
 
-We traverse the array $\textit{arrival}$. For each person, if the current time $t$ is less than or equal to the time the person arrives at the door $\textit{arrival}[i]$, we add the person's index to the corresponding queue $q[\text{state}[i]]$.
+We traverse the array $\textit{arrival}$. For each person, if the current time $t$ is less than or equal to the time the person arrives at the door $\textit{arrival}[i]$, we add the person's index to the corresponding queue $q[\textit{state}[i]]$.
 
 Then we check if both queues $q[0]$ and $q[1]$ are not empty. If both are not empty, we dequeue the front element from the queue $q[st]$ and assign the current time $t$ to the person's passing time. If only one queue is not empty, we update the value of $st$ based on which queue is not empty, then dequeue the front element from that queue and assign the current time $t$ to the person's passing time. If both queues are empty, we update the value of $st$ to $1$, indicating the door is not in use.
 

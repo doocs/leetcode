@@ -133,7 +133,7 @@ Jerry 的总数是 0。</pre>
 >
 > 每位销售的影响力是其客户订单金额之和，没有客户则为 $0$。需要保留没有业绩的销售。
 >
-> 从 $Salesperson$ 左连 $Customer$ 再左连 $Sales$，按销售分组对 $price$ 求和，空值用 $0$ 填充。
+> 从 $\textit{Salesperson}$ 左连 $\textit{Customer}$ 再左连 $\textit{Sales}$，按销售分组对 $\textit{price}$ 求和，空值用 $0$ 填充。
 
 <!-- thinking:end -->
 

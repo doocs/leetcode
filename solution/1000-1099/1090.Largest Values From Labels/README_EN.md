@@ -93,9 +93,9 @@ tags:
 >
 > A subset of size at most $\textit{numWanted}$ may take a label at most $\textit{useLimit}$ times and should maximize the value sum. Larger values come first; a counter enforces the per-label cap. $n\le 2\times 10^4$ allows a sort then a linear pick.
 >
-> Sort $(value,label)$ descending and take an item when its label is still under the limit, until $\textit{numWanted}$ items are chosen.
+> Sort $(\textit{value},\textit{label})$ descending and take an item when its label is still under the limit, until $\textit{numWanted}$ items are chosen.
 >
-> $cnt$ stores how often each label has been used.
+> $\textit{cnt}$ stores how often each label has been used.
 
 <!-- thinking:end -->
 

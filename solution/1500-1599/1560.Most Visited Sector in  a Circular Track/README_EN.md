@@ -73,7 +73,7 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 >
 > We walk a circular track along given segments and want the most visited sectors. Full laps add the same count to every sector; only the leftover walk from the first start to the last end creates a difference.
 >
-> If the start index is at most the end, that leftover is the closed interval $[rounds[0],rounds[-1]]$. Otherwise it wraps past $n$ and is the union of $[1,rounds[-1]]$ and $[rounds[0],n]$. Listing the union avoids simulating laps.
+> If the start index is at most the end, that leftover is the closed interval $[\textit{rounds}[0],\textit{rounds}[-1]]$. Otherwise it wraps past $n$ and is the union of $[1,\textit{rounds}[-1]]$ and $[\textit{rounds}[0],n]$. Listing the union avoids simulating laps.
 
 <!-- thinking:end -->
 

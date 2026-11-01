@@ -79,31 +79,31 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (蓝色矩形框的元素总和)
 
 <!-- thinking:end -->
 
-我们可以用一个二维数组 $s$ 来保存矩阵 $matrix$ 的前缀和，其中 $s[i+1][j+1]$ 表示矩阵 $matrix$ 中以 $(0,0)$ 为左上角， $(i,j)$ 为右下角的子矩阵中所有元素的和。
+我们可以用一个二维数组 $s$ 来保存矩阵 $\textit{matrix}$ 的前缀和，其中 $s[i+1][j+1]$ 表示矩阵 $\textit{matrix}$ 中以 $(0,0)$ 为左上角， $(i,j)$ 为右下角的子矩阵中所有元素的和。
 
 那么：
 
 $$
 \begin{aligned}
-s[i+1][j+1] &= s[i][j+1] + s[i+1][j] - s[i][j] + matrix[i][j]
+s[i+1][j+1] &= s[i][j+1] + s[i+1][j] - s[i][j] + \textit{matrix}[i][j]
 \end{aligned}
 $$
 
-我们可以用前缀和数组 $s$ 来快速计算矩阵 $matrix$ 中任意子矩阵的元素和，计算公式如下：
+我们可以用前缀和数组 $s$ 来快速计算矩阵 $\textit{matrix}$ 中任意子矩阵的元素和，计算公式如下：
 
 $$
 \begin{aligned}
-&\textit{sumRegion}(row_1,col_1,row_2,col_2) \\
-&= s[row_2+1][col_2+1] - s[row_2+1][col_1] - s[row_1][col_2+1] + s[row_1][col_1]
+&\textit{sumRegion}(\textit{row}_1,\textit{col}_1,\textit{row}_2,\textit{col}_2) \\
+&= s[\textit{row}_2+1][\textit{col}_2+1] - s[\textit{row}_2+1][\textit{col}_1] - s[\textit{row}_1][\textit{col}_2+1] + s[\textit{row}_1][\textit{col}_1]
 \end{aligned}
 $$
 
 时间复杂度：
 
-- 初始化的时间复杂度为 $O(mn)$，其中 $m$ 和 $n$ 分别是矩阵 $matrix$ 的行数和列数。
+- 初始化的时间复杂度为 $O(mn)$，其中 $m$ 和 $n$ 分别是矩阵 $\textit{matrix}$ 的行数和列数。
 - 每次计算子矩阵的元素和的时间复杂度为 $O(1)$。
 
-空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是矩阵 $matrix$ 的行数和列数。我们需要创建一个二维数组 $s$ 来保存矩阵 $matrix$ 的前缀和。
+空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是矩阵 $\textit{matrix}$ 的行数和列数。我们需要创建一个二维数组 $s$ 来保存矩阵 $\textit{matrix}$ 的前缀和。
 
 <!-- tabs:start -->
 

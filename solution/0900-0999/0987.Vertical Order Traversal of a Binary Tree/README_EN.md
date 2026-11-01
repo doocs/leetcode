@@ -85,13 +85,13 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 
 > **Thinking**
 >
-> Report nodes left to right by column, and within a column by row then value. DFS records $(col,row,val)$; one sort groups them in the required order.
+> Report nodes left to right by column, and within a column by row then value. DFS records $(\textit{col},\textit{row},\textit{val})$; one sort groups them in the required order.
 
 <!-- thinking:end -->
 
-We design a function $dfs(root, i, j)$, where $i$ and $j$ represent the row and column of the current node. We can record the row and column information of the nodes through depth-first search, store it in an array or list $nodes$, and then sort $nodes$ in the order of column, row, and value.
+We design a function $\textit{dfs}(\textit{root}, i, j)$, where $i$ and $j$ represent the row and column of the current node. We can record the row and column information of the nodes through depth-first search, store it in an array or list $\textit{nodes}$, and then sort $\textit{nodes}$ in the order of column, row, and value.
 
-Next, we traverse $nodes$, putting the values of nodes in the same column into the same list, and finally return these lists.
+Next, we traverse $\textit{nodes}$, putting the values of nodes in the same column into the same list, and finally return these lists.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
@@ -321,7 +321,7 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 
 > **Thinking**
 >
-> DFS still sorts by column, row, and value afterwards. BFS already visits in row order, so we bucket by column and sort each bucket by $(row,val)$. A deque grows new columns on either end so column indices need not be shifted.
+> DFS still sorts by column, row, and value afterwards. BFS already visits in row order, so we bucket by column and sort each bucket by $(\textit{row},\textit{val})$. A deque grows new columns on either end so column indices need not be shifted.
 
 <!-- thinking:end -->
 

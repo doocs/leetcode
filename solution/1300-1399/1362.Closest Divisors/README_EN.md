@@ -64,15 +64,15 @@ tags:
 
 > **Thinking**
 >
-> Find a factor pair of $num+1$ or $num+2$ with the smallest gap. $num \le 10^9$ forbids scanning up to $x$. The closest pair sits near $\sqrt{x}$, so we walk downward from $\lfloor\sqrt{x}\rfloor$ until a divisor appears. Do this for both $num+1$ and $num+2$ and keep the tighter pair.
+> Find a factor pair of $\textit{num}+1$ or $\textit{num}+2$ with the smallest gap. $\textit{num} \le 10^9$ forbids scanning up to $x$. The closest pair sits near $\sqrt{x}$, so we walk downward from $\lfloor\sqrt{x}\rfloor$ until a divisor appears. Do this for both $\textit{num}+1$ and $\textit{num}+2$ and keep the tighter pair.
 
 <!-- thinking:end -->
 
 We design a function $f(x)$ that returns two numbers whose product equals $x$ and the absolute difference between these two numbers is the smallest. We can start enumerating $i$ from $\sqrt{x}$. If $x$ can be divided by $i$, then $\frac{x}{i}$ is another factor. At this point, we have found two factors whose product equals $x$. We can return them directly. Otherwise, we decrease the value of $i$ and continue to enumerate.
 
-Next, we only need to calculate $f(num + 1)$ and $f(num + 2)$ respectively, and then compare the return values of the two functions. We return the one with the smaller absolute difference.
+Next, we only need to calculate $f(\textit{num} + 1)$ and $f(\textit{num} + 2)$ respectively, and then compare the return values of the two functions. We return the one with the smaller absolute difference.
 
-The time complexity is $O(\sqrt{num})$, and the space complexity is $O(1)$, where $num$ is the given integer.
+The time complexity is $O(\sqrt{\textit{num}})$, and the space complexity is $O(1)$, where $\textit{num}$ is the given integer.
 
 <!-- tabs:start -->
 

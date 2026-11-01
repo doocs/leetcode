@@ -67,7 +67,7 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 >
 > Adjacent values (including the wrap-around) differ by one bit, which is a Gray code. $i\oplus(i\gg 1)$ builds a Gray cycle on $0\ldots 2^n-1$. $n \le 16$ lets us list every codeword.
 >
-> After generating the sequence we locate $start$ and rotate so it comes first; circular adjacency is preserved.
+> After generating the sequence we locate $\textit{start}$ and rotate so it comes first; circular adjacency is preserved.
 
 <!-- thinking:end -->
 
@@ -77,7 +77,7 @@ The rule for converting binary code to binary Gray code is to keep the highest b
 
 Assume a binary number is represented as $B_{n-1}B_{n-2}...B_2B_1B_0$, its Gray code representation is $G_{n-1}G_{n-2}...G_2G_1G_0$. The highest bit is kept, so $G_{n-1} = B_{n-1}$; and the other bits $G_i = B_{i+1} \oplus B_{i}$, where $i=0,1,2..,n-2$.
 
-Therefore, for an integer $x$, we can use the function $gray(x)$ to get its Gray code:
+Therefore, for an integer $x$, we can use the function $\textit{gray}(x)$ to get its Gray code:
 
 ```java
 int gray(x) {
@@ -85,7 +85,7 @@ int gray(x) {
 }
 ```
 
-We can directly convert the integers $[0,..2^n - 1]$ into the corresponding Gray code array, then find the position of $start$ in the Gray code array, cut the Gray code array from this position, and then append the cut part to the front of the Gray code array to get the arrangement required by the problem.
+We can directly convert the integers $[0,..2^n - 1]$ into the corresponding Gray code array, then find the position of $\textit{start}$ in the Gray code array, cut the Gray code array from this position, and then append the cut part to the front of the Gray code array to get the arrangement required by the problem.
 
 The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$ is the integer given in the problem.
 
@@ -186,13 +186,13 @@ function circularPermutation(n: number, start: number): number[] {
 
 > **Thinking**
 >
-> Solution 1 generates then rotates. $gray(i)\oplus start$ still differs by one bit between neighbors, and equals $start$ at $i=0$, so we map $i$ directly and skip the search-and-concat step.
+> Solution 1 generates then rotates. $\textit{gray}(i)\oplus \textit{start}$ still differs by one bit between neighbors, and equals $\textit{start}$ at $i=0$, so we map $i$ directly and skip the search-and-concat step.
 
 <!-- thinking:end -->
 
-Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.
+Since $\textit{gray}(0) = 0$, then $\textit{gray}(0) \oplus \textit{start} = \textit{start}$, and $\textit{gray}(i)$ is only one binary bit different from $\textit{gray}(i-1)$, so $\textit{gray}(i) \oplus \textit{start}$ is also only one binary bit different from $\textit{gray}(i-1) \oplus \textit{start}$.
 
-Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $gray(i) \oplus start$ to get the Gray code arrangement with $start$ as the first term.
+Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $\textit{gray}(i) \oplus \textit{start}$ to get the Gray code arrangement with $\textit{start}$ as the first term.
 
 The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 

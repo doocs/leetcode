@@ -79,14 +79,14 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义 $f[i][h]$ 表示以 $nums[i]$ 结尾，且有不超过 $h$ 个下标满足条件的最长好子序列的长度。初始时 $f[i][h] = 1$。答案为 $\max(f[i][k])$，其中 $0 \le i < n$。
+我们定义 $f[i][h]$ 表示以 $\textit{nums}[i]$ 结尾，且有不超过 $h$ 个下标满足条件的最长好子序列的长度。初始时 $f[i][h] = 1$。答案为 $\max(f[i][k])$，其中 $0 \le i < n$。
 
-我们考虑如何计算 $f[i][h]$。我们可以枚举 $0 \le j < i$，如果 $nums[i] = nums[j]$，那么 $f[i][h] = \max(f[i][h], f[j][h] + 1)$；否则如果 $h > 0$，那么 $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$。即：
+我们考虑如何计算 $f[i][h]$。我们可以枚举 $0 \le j < i$，如果 $\textit{nums}[i] = \textit{nums}[j]$，那么 $f[i][h] = \max(f[i][h], f[j][h] + 1)$；否则如果 $h > 0$，那么 $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$。即：
 
 $$
 f[i][h]=
 \begin{cases}
-\max(f[i][h], f[j][h] + 1), & \textit{if } nums[i] = nums[j], \\
+\max(f[i][h], f[j][h] + 1), & \textit{if } \textit{nums}[i] = \textit{nums}[j], \\
 \max(f[i][h], f[j][h - 1] + 1), & \textit{if } h > 0.
 \end{cases}
 $$
@@ -239,7 +239,7 @@ function maximumLength(nums: number[], k: number): number {
 
 <!-- thinking:end -->
 
-根据方法一的状态转移方程，如果 $nums[i] = nums[j]$，那么我们只需要获取 $f[j][h]$ 的最大值，我们可以用一个长度为 $k + 1$ 的数组 $mp$ 来维护。如果 $nums[i] \neq nums[j]$，我们需要记录 $f[j][h - 1]$ 的最大值对应的 $nums[j]$，最大值和次大值，我们可以用一个长度为 $k + 1$ 的数组 $g$ 来维护。
+根据方法一的状态转移方程，如果 $\textit{nums}[i] = \textit{nums}[j]$，那么我们只需要获取 $f[j][h]$ 的最大值，我们可以用一个长度为 $k + 1$ 的数组 $mp$ 来维护。如果 $\textit{nums}[i] \neq \textit{nums}[j]$，我们需要记录 $f[j][h - 1]$ 的最大值对应的 $\textit{nums}[j]$，最大值和次大值，我们可以用一个长度为 $k + 1$ 的数组 $g$ 来维护。
 
 时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。其中 $n$ 是数组 `nums` 的长度。
 

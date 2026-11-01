@@ -59,18 +59,18 @@ tags:
 
 > **思考**
 >
-> 求 BST 中落在 $[low,high]$ 的结点值和。中序遍历整棵树可行，但可用有序性剪枝：当前值已 $\le low$ 则左子树不必看，已 $\ge high$ 则右子树不必看。递归累加落在区间内的结点。
+> 求 BST 中落在 $[\textit{low},\textit{high}]$ 的结点值和。中序遍历整棵树可行，但可用有序性剪枝：当前值已 $\le \textit{low}$ 则左子树不必看，已 $\ge \textit{high}$ 则右子树不必看。递归累加落在区间内的结点。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(root)$，表示求以 $root$ 为根的子树中，值位于范围 $[low, high]$ 之间的所有结点的值的和。那么答案就是 $dfs(root)$。
+我们设计一个函数 $\textit{dfs}(\textit{root})$，表示求以 $\textit{root}$ 为根的子树中，值位于范围 $[\textit{low}, \textit{high}]$ 之间的所有结点的值的和。那么答案就是 $\textit{dfs}(\textit{root})$。
 
-函数 $dfs(root)$ 的执行逻辑如下：
+函数 $\textit{dfs}(\textit{root})$ 的执行逻辑如下：
 
-- 如果 $root$ 为空，返回 $0$。
-- 如果 $root$ 的值 $x$ 在范围 $[low, high]$ 之间，那么函数 $dfs(root)$ 的初始答案就是 $x$，否则为 $0$。
-- 如果 $x > low$，说明 $root$ 的左子树中可能有值在范围 $[low, high]$ 之间的结点，所以我们需要递归调用 $dfs(root.left)$，并将结果加到答案上。
-- 如果 $x < high$，说明 $root$ 的右子树中可能有值在范围 $[low, high]$ 之间的结点，所以我们需要递归调用 $dfs(root.right)$，并将结果加到答案上。
+- 如果 $\textit{root}$ 为空，返回 $0$。
+- 如果 $\textit{root}$ 的值 $x$ 在范围 $[\textit{low}, \textit{high}]$ 之间，那么函数 $\textit{dfs}(\textit{root})$ 的初始答案就是 $x$，否则为 $0$。
+- 如果 $x > \textit{low}$，说明 $\textit{root}$ 的左子树中可能有值在范围 $[\textit{low}, \textit{high}]$ 之间的结点，所以我们需要递归调用 $\textit{dfs}(\textit{root}.\textit{left})$，并将结果加到答案上。
+- 如果 $x < \textit{high}$，说明 $\textit{root}$ 的右子树中可能有值在范围 $[\textit{low}, \textit{high}]$ 之间的结点，所以我们需要递归调用 $\textit{dfs}(\textit{root}.\textit{right})$，并将结果加到答案上。
 - 最后返回答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的结点个数。

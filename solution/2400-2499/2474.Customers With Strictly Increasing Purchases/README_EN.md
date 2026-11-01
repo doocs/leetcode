@@ -101,9 +101,9 @@ Customer 3: The first year is 2017, and the last year is 2018
 
 > **Thinking**
 >
-> Customers whose yearly totals are strictly increasing. After summing $price$ per customer and year, a strictly increasing series makes $YEAR-RANK(\textit{total})$ constant.
+> Customers whose yearly totals are strictly increasing. After summing $\textit{price}$ per customer and year, a strictly increasing series makes $\textit{YEAR}-\textit{RANK}(\textit{total})$ constant.
 >
-> Window $RANK()$ on the yearly total, then keep customers for whom that difference has a single distinct value.
+> Window $\textit{RANK}()$ on the yearly total, then keep customers for whom that difference has a single distinct value.
 
 <!-- thinking:end -->
 

@@ -82,7 +82,7 @@ Employees 表:
 >
 > 奇数学工号且姓名不以 $M$ 开头的雇员拿全额奖金，其余为 $0$，并按工号排序。规则可在投影时直接写出。
 >
-> 用 $\textit{IF}$ 把「工号为偶数或姓名以 $M$ 开头」映射为 $0$，否则取 $salary$，再 $\textit{ORDER BY}$ $employee\_id$。
+> 用 $\textit{IF}$ 把「工号为偶数或姓名以 $M$ 开头」映射为 $0$，否则取 $\textit{salary}$，再 $\textit{ORDER} \textit{BY}$ $\textit{employee\_id}$。
 
 <!-- thinking:end -->
 

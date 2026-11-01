@@ -75,7 +75,7 @@ Teams 表:
 >
 > 联赛需要所有主客场不同的对阵。球队表自联结，排除同名即可列出全部有序对。
 >
-> $t1$ 与 $t2$ 笛卡尔积后加 $t1.team\_name \ne t2.team\_name$，分别作为主队与客队。
+> $\textit{t1}$ 与 $\textit{t2}$ 笛卡尔积后加 $\textit{t1}.\textit{team\_name} \ne \textit{t2}.\textit{team\_name}$，分别作为主队与客队。
 
 <!-- thinking:end -->
 

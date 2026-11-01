@@ -76,17 +76,17 @@ tags:
 
 > **思考**
 >
-> 前缀分数定义为该前缀转换数组的前缀和，转换值是 $nums[i]$ 加上截至 $i$ 的最大值。若每个前缀都重新求最大再求和， $n \le 10^5$ 会平方。
+> 前缀分数定义为该前缀转换数组的前缀和，转换值是 $\textit{nums}[i]$ 加上截至 $i$ 的最大值。若每个前缀都重新求最大再求和， $n \le 10^5$ 会平方。
 >
-> 最大值 $mx$ 可在扫描中维护，当前转换值加上上一前缀分数即得 $ans[i]$。一次遍历同时完成转换与前缀和。
+> 最大值 $mx$ 可在扫描中维护，当前转换值加上上一前缀分数即得 $\textit{ans}[i]$。一次遍历同时完成转换与前缀和。
 
 <!-- thinking:end -->
 
-我们用变量 $mx$ 记录数组 $nums$ 中前 $i$ 个元素的最大值，用数组 $ans[i]$ 记录数组 $nums$ 中前 $i$ 个元素的分数。
+我们用变量 $mx$ 记录数组 $\textit{nums}$ 中前 $i$ 个元素的最大值，用数组 $\textit{ans}[i]$ 记录数组 $\textit{nums}$ 中前 $i$ 个元素的分数。
 
-接下来，遍历数组 $nums$，对于每个元素 $nums[i]$，我们更新 $mx$，即 $mx = \max(mx, nums[i])$，然后更新 $ans[i]$，如果 $i = 0$，则 $ans[i] = nums[i] + mx$，否则 $ans[i] = nums[i] + mx + ans[i - 1]$。
+接下来，遍历数组 $\textit{nums}$，对于每个元素 $\textit{nums}[i]$，我们更新 $mx$，即 $mx = \max(mx, \textit{nums}[i])$，然后更新 $\textit{ans}[i]$，如果 $i = 0$，则 $\textit{ans}[i] = \textit{nums}[i] + mx$，否则 $\textit{ans}[i] = \textit{nums}[i] + mx + \textit{ans}[i - 1]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

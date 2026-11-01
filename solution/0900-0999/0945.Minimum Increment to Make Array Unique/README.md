@@ -70,7 +70,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先对数组 $\textit{nums}$ 进行排序，用一个变量 $\textit{y}$ 记录当前的最大值，初始时 $\textit{y} = -1$。
+我们首先对数组 $\textit{nums}$ 进行排序，用一个变量 $y$ 记录当前的最大值，初始时 $y = -1$。
 
 然后遍历数组 $\textit{nums}$，对于每个元素 $x$，我们将 $y$ 更新为 $\max(y + 1, x)$，并将操作次数 $y - x$ 累加到结果中。
 
@@ -166,7 +166,7 @@ function minIncrementForUnique(nums: number[]): number {
 
 > **思考**
 >
-> 排序需要 $O(n \log n)$。值域加上长度后上界为 $m$，可用计数：从低到高，多余的 $cnt[i]-1$ 个 $i$ 全部挪到 $i+1$，线性扫完值域。
+> 排序需要 $O(n \log n)$。值域加上长度后上界为 $m$，可用计数：从低到高，多余的 $\textit{cnt}[i]-1$ 个 $i$ 全部挪到 $i+1$，线性扫完值域。
 
 <!-- thinking:end -->
 

@@ -69,7 +69,7 @@ difficulty: Medium
 >
 > BST inorder is strictly increasing, so each visit can be checked against the previous value.
 >
-> $prev$ starts at $-\infty$; after a valid left subtree, require $prev < root.val$, update $prev$, and go right. No explicit sequence is stored.
+> $\textit{prev}$ starts at $-\infty$; after a valid left subtree, require $\textit{prev} < \textit{root}.\textit{val}$, update $\textit{prev}$, and go right. No explicit sequence is stored.
 
 <!-- thinking:end -->
 

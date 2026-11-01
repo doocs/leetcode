@@ -88,7 +88,7 @@ Thus, one milestone in project 0 will remain unfinished.
 >
 > Consecutive weeks cannot share a project. If one project exceeds the sum of the others plus one, the surplus can never be scheduled.
 >
-> Let $s$ be the total, $mx$ the largest, and $rest=s-mx$. If $mx>rest+1$ the limit is $2\cdot rest+1$; otherwise all $s$ weeks are feasible.
+> Let $s$ be the total, $mx$ the largest, and $\textit{rest}=s-mx$. If $mx>\textit{rest}+1$ the limit is $2\cdot \textit{rest}+1$; otherwise all $s$ weeks are feasible.
 >
 > One pass for the max and the sum decides the answer without simulating weeks.
 
@@ -96,9 +96,9 @@ Thus, one milestone in project 0 will remain unfinished.
 
 We consider under what circumstances we cannot complete all stage tasks. If there is a project $i$ whose number of stage tasks is greater than the sum of the number of stage tasks of all other projects plus $1$, then we cannot complete all stage tasks. Otherwise, we can definitely complete all stage tasks by interlacing between different projects.
 
-We denote the sum of the number of stage tasks of all projects as $s$, and the maximum number of stage tasks as $mx$, then the sum of the number of stage tasks of all other projects is $rest = s - mx$.
+We denote the sum of the number of stage tasks of all projects as $s$, and the maximum number of stage tasks as $mx$, then the sum of the number of stage tasks of all other projects is $\textit{rest} = s - mx$.
 
-If $mx > rest + 1$, then we cannot complete all stage tasks, and at most we can complete $rest \times 2 + 1$ stage tasks. Otherwise, we can complete all stage tasks, the number is $s$.
+If $mx > \textit{rest} + 1$, then we cannot complete all stage tasks, and at most we can complete $\textit{rest} \times 2 + 1$ stage tasks. Otherwise, we can complete all stage tasks, the number is $s$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of projects.
 

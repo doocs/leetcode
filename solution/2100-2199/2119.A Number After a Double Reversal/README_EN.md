@@ -71,9 +71,9 @@ tags:
 >
 > Reversing an integer drops leading zeros, so a second reverse returns the original number iff the first reverse did not drop trailing zeros. Performing both reversals works, but the digit rule is immediate.
 >
-> Zero stays zero. Otherwise the first reverse loses trailing zeros iff $num$ is divisible by $10$, i.e., its last digit is $0$.
+> Zero stays zero. Otherwise the first reverse loses trailing zeros iff $\textit{num}$ is divisible by $10$, i.e., its last digit is $0$.
 >
-> Hence the answer is true iff $num=0$ or $num\bmod 10\neq 0$.
+> Hence the answer is true iff $\textit{num}=0$ or $\textit{num}\bmod 10\neq 0$.
 
 <!-- thinking:end -->
 

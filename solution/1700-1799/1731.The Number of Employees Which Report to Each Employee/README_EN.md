@@ -105,7 +105,7 @@ Employees table:
 >
 > Employees point to a manager via $\textit{reports\_to}$. We need each manager's report count and average age.
 >
-> Self-join reports to managers, then $\mathrm{COUNT}$ and $\mathrm{ROUND}(\mathrm{AVG}(\textit{age}))$ grouped by the manager.
+> Self-join reports to managers, then $\textit{COUNT}$ and $\textit{ROUND}(\textit{AVG}(\textit{age}))$ grouped by the manager.
 
 <!-- thinking:end -->
 

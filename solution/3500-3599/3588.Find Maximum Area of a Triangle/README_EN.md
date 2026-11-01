@@ -90,7 +90,7 @@ Since the triangle must have at least one side parallel to the $x$-axis or $y$-a
 
 Therefore, we design a function $\textit{calc}$ to calculate the double area for all possible triangles with sides parallel to the $y$-axis.
 
-We use two hash maps $\textit{f}$ and $\textit{g}$ to record the minimum and maximum $y$-coordinates for each $x$-coordinate. Then we iterate through $\textit{coords}$, updating $\textit{f}$ and $\textit{g}$, and also record the minimum and maximum $x$-coordinates. Finally, we iterate through $\textit{f}$, calculate the double area for each $x$-coordinate, and update the answer.
+We use two hash maps $f$ and $g$ to record the minimum and maximum $y$-coordinates for each $x$-coordinate. Then we iterate through $\textit{coords}$, updating $f$ and $g$, and also record the minimum and maximum $x$-coordinates. Finally, we iterate through $f$, calculate the double area for each $x$-coordinate, and update the answer.
 
 In the main function, we first call the $\textit{calc}$ function to calculate the double area for triangles with sides parallel to the $y$-axis, then swap the coordinates in $\textit{coords}$ and repeat the process to calculate the double area for triangles with sides parallel to the $x$-axis. Finally, we return the answer; if the answer is 0, we return -1.
 

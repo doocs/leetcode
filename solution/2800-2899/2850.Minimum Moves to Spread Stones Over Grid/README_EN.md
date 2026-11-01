@@ -401,13 +401,13 @@ function g(s: string): number[][] {
 
 <!-- thinking:end -->
 
-We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
+We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $\textit{left}$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $\textit{right}$. The problem then becomes that each coordinate $(i, j)$ in $\textit{right}$ needs to be moved to a coordinate $(x, y)$ in $\textit{left}$, and we need to find the minimum number of moves.
 
-Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
+Let's denote the length of $\textit{left}$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $\textit{left}$ is filled by a coordinate in $\textit{right}$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
 
-Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
+Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $\textit{cal}(\textit{left}[k-1], \textit{right}[j])$, where $\textit{cal}$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
 
-The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of $left$, and in this problem, $n \le 9$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of $\textit{left}$, and in this problem, $n \le 9$.
 
 <!-- tabs:start -->
 

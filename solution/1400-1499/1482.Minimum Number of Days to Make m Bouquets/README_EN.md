@@ -97,7 +97,7 @@ Finally, when $l = r$, the binary search ends. At this point, if $l > mx$, it me
 
 Therefore, the problem is reduced to checking if a day $\textit{days}$ can make $m$ bouquets.
 
-We can use a function $\text{check}(\textit{days})$ to determine if it is possible to make $m$ bouquets. Specifically, we traverse each flower in the garden from left to right. If the blooming day of the current flower is less than or equal to $\textit{days}$, we add the current flower to the current bouquet; otherwise, we clear the current bouquet. When the number of flowers in the current bouquet equals $k$, we increment the bouquet count and clear the current bouquet. Finally, we check if the bouquet count is greater than or equal to $m$. If it is, it means it is possible to make $m$ bouquets; otherwise, it is not possible.
+We can use a function $\textit{check}(\textit{days})$ to determine if it is possible to make $m$ bouquets. Specifically, we traverse each flower in the garden from left to right. If the blooming day of the current flower is less than or equal to $\textit{days}$, we add the current flower to the current bouquet; otherwise, we clear the current bouquet. When the number of flowers in the current bouquet equals $k$, we increment the bouquet count and clear the current bouquet. Finally, we check if the bouquet count is greater than or equal to $m$. If it is, it means it is possible to make $m$ bouquets; otherwise, it is not possible.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the number of flowers in the garden and the maximum blooming day, respectively. In this problem, $M \leq 10^9$.
 

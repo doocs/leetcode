@@ -84,13 +84,13 @@ tags:
 
 > **Thinking**
 >
-> The range is determined by the minimum and maximum of the array; missing values are the integers inside that interval that never appear. With $n\le 100$, a set plus a scan of $(\textit{mn},\textit{mx})$ lists them in order.
+> The range is determined by the minimum and maximum of the array; missing values are the integers inside that interval that never appear. With $n\le 100$, a set plus a scan of $(mn,mx)$ lists them in order.
 
 <!-- thinking:end -->
 
-We first find the minimum and maximum values in the array $\textit{nums}$, denoted as $\textit{mn}$ and $\textit{mx}$. Then we use a hash table to store all elements in the array $\textit{nums}$.
+We first find the minimum and maximum values in the array $\textit{nums}$, denoted as $mn$ and $mx$. Then we use a hash table to store all elements in the array $\textit{nums}$.
 
-Next, we iterate through the interval $[\textit{mn} + 1, \textit{mx} - 1]$. For each integer $x$, if $x$ is not in the hash table, we add it to the answer list.
+Next, we iterate through the interval $[mn + 1, mx - 1]$. For each integer $x$, if $x$ is not in the hash table, we add it to the answer list.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 

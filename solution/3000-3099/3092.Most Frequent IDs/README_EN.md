@@ -90,11 +90,11 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
 
 <!-- thinking:end -->
 
-We use a hash table $cnt$ to record the occurrence times of each ID, a hash table $lazy$ to record the number of times each occurrence needs to be deleted, and a priority queue $pq$ to maintain the maximum occurrence times.
+We use a hash table $\textit{cnt}$ to record the occurrence times of each ID, a hash table $\textit{lazy}$ to record the number of times each occurrence needs to be deleted, and a priority queue $pq$ to maintain the maximum occurrence times.
 
-For each operation $(x, f)$, we need to update the occurrence times $cnt[x]$ of $x$, which means the value of $cnt[x]$ in $lazy$ needs to increase by $1$, indicating that the number of times this occurrence needs to be deleted increases by $1$. Then we update the value of $cnt[x]$, adding $f$ to $cnt[x]$. Then we add the updated value of $cnt[x]$ to the priority queue $pq$. Then we check the top element of the priority queue $pq$. If the number of times the corresponding occurrence needs to be deleted in $lazy$ is greater than $0$, we pop the top element. Finally, we judge whether the priority queue is empty. If it is not empty, the top element is the maximum occurrence times, and we add it to the answer array.
+For each operation $(x, f)$, we need to update the occurrence times $\textit{cnt}[x]$ of $x$, which means the value of $\textit{cnt}[x]$ in $\textit{lazy}$ needs to increase by $1$, indicating that the number of times this occurrence needs to be deleted increases by $1$. Then we update the value of $\textit{cnt}[x]$, adding $f$ to $\textit{cnt}[x]$. Then we add the updated value of $\textit{cnt}[x]$ to the priority queue $pq$. Then we check the top element of the priority queue $pq$. If the number of times the corresponding occurrence needs to be deleted in $\textit{lazy}$ is greater than $0$, we pop the top element. Finally, we judge whether the priority queue is empty. If it is not empty, the top element is the maximum occurrence times, and we add it to the answer array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

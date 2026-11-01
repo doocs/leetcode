@@ -93,24 +93,24 @@ tags:
 >
 > Two jugs of capacities $x,y$; can we measure $z$? Bézout’s identity says $z$ must be a multiple of $\gcd(x,y)$. A state search also decides it. There are $O(xy)$ states.
 >
-> $dfs(i,j)$ is the current pair. A seen state fails; a jug or their sum equal to $z$ succeeds. Otherwise fill, empty, or pour. Start from $(0,0)$.
+> $\textit{dfs}(i,j)$ is the current pair. A seen state fails; a jug or their sum equal to $z$ succeeds. Otherwise fill, empty, or pour. Start from $(0,0)$.
 
 <!-- thinking:end -->
 
-Let's denote $jug1Capacity$ as $x$, $jug2Capacity$ as $y$, and $targetCapacity$ as $z$.
+Let's denote $\textit{jug1Capacity}$ as $x$, $\textit{jug2Capacity}$ as $y$, and $\textit{targetCapacity}$ as $z$.
 
-Next, we design a function $dfs(i, j)$, which represents whether we can get $z$ liters of water when there are $i$ liters of water in $jug1$ and $j$ liters of water in $jug2$.
+Next, we design a function $\textit{dfs}(i, j)$, which represents whether we can get $z$ liters of water when there are $i$ liters of water in $\textit{jug1}$ and $j$ liters of water in $\textit{jug2}$.
 
-The execution process of the function $dfs(i, j)$ is as follows:
+The execution process of the function $\textit{dfs}(i, j)$ is as follows:
 
-- If $(i, j)$ has been visited, return $false$.
-- If $i = z$ or $j = z$ or $i + j = z$, return $true$.
-- If we can get $z$ liters of water by filling $jug1$ or $jug2$, or emptying $jug1$ or $jug2$, return $true$.
-- If we can get $z$ liters of water by pouring water from $jug1$ into $jug2$, or pouring water from $jug2$ into $jug1$, return $true$.
+- If $(i, j)$ has been visited, return $\textit{false}$.
+- If $i = z$ or $j = z$ or $i + j = z$, return $\textit{true}$.
+- If we can get $z$ liters of water by filling $\textit{jug1}$ or $\textit{jug2}$, or emptying $\textit{jug1}$ or $\textit{jug2}$, return $\textit{true}$.
+- If we can get $z$ liters of water by pouring water from $\textit{jug1}$ into $\textit{jug2}$, or pouring water from $\textit{jug2}$ into $\textit{jug1}$, return $\textit{true}$.
 
-The answer is $dfs(0, 0)$.
+The answer is $\textit{dfs}(0, 0)$.
 
-The time complexity is $O(x + y)$, and the space complexity is $O(x + y)$, where $x$ and $y$ are the sizes of $jug1Capacity$ and $jug2Capacity$ respectively.
+The time complexity is $O(x + y)$, and the space complexity is $O(x + y)$, where $x$ and $y$ are the sizes of $\textit{jug1Capacity}$ and $\textit{jug2Capacity}$ respectively.
 
 <!-- tabs:start -->
 

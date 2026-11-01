@@ -63,7 +63,7 @@ tags:
 
 > **思考**
 >
-> 两种面值均为质数因而互质，能表示的金额是非负整数组合 $a\cdot primeOne+b\cdot primeTwo$。Chicken McNugget 定理给出最大不能表示数为 $ab-a-b$，无需背包。
+> 两种面值均为质数因而互质，能表示的金额是非负整数组合 $a\cdot \textit{primeOne}+b\cdot \textit{primeTwo}$。Chicken McNugget 定理给出最大不能表示数为 $ab-a-b$，无需背包。
 >
 > 直接返回乘积减两质数。
 

@@ -98,26 +98,26 @@ The difference between their scores is (-22) - 0 = -22.
 >
 > Each move merges a prefix of at least two piles and scores the new prefix sum; both players maximize the score difference. $n\le 10^5$ forbids searching every cut.
 >
-> Merging leaves the prefix-sum array $s$ unchanged. From index $i$ the current player may take $s[i]$ and leave $i+1$ to the opponent, or postpone the cut. $dfs(i)=\max(dfs(i+1),s[i]-dfs(i+1))$, starting at $i=1$. Memoization yields linearly many states.
+> Merging leaves the prefix-sum array $s$ unchanged. From index $i$ the current player may take $s[i]$ and leave $i+1$ to the opponent, or postpone the cut. $\textit{dfs}(i)=\max(\textit{dfs}(i+1),s[i]-\textit{dfs}(i+1))$, starting at $i=1$. Memoization yields linearly many states.
 
 <!-- thinking:end -->
 
 According to the problem description, each time we take the leftmost $x$ stones, add their sum to our score, and then put a stone with this sum value on the leftmost side, it is equivalent to merging these $x$ stones into a stone with this sum value, and the prefix sum remains unchanged.
 
-We can use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
+We can use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $\textit{stones}$, where $s[i]$ represents the sum of the elements $\textit{stones}[0..i]$.
 
-Next, we design a function $dfs(i)$, which means that we currently take stones from $stones[i:]$, and return the maximum score difference that the current player can get.
+Next, we design a function $\textit{dfs}(i)$, which means that we currently take stones from $\textit{stones}[i:]$, and return the maximum score difference that the current player can get.
 
-The execution process of the function $dfs(i)$ is as follows:
+The execution process of the function $\textit{dfs}(i)$ is as follows:
 
 - If $i \geq n - 1$, it means that we can only take all the stones at present, so we return $s[n - 1]$.
-- Otherwise, we can choose to take all the stones from $stones[i + 1:]$, and the score difference obtained is $dfs(i + 1)$; we can also choose to take the stones $stones[:i]$, and the score difference obtained is $s[i] - dfs(i + 1)$. We take the maximum of the two situations, which is the maximum score difference that the current player can get.
+- Otherwise, we can choose to take all the stones from $\textit{stones}[i + 1:]$, and the score difference obtained is $\textit{dfs}(i + 1)$; we can also choose to take the stones $\textit{stones}[:i]$, and the score difference obtained is $s[i] - \textit{dfs}(i + 1)$. We take the maximum of the two situations, which is the maximum score difference that the current player can get.
 
-Finally, we can get the score difference between Alice and Bob as $dfs(1)$, that is, Alice must start the game by taking stones from $stones[1:]$.
+Finally, we can get the score difference between Alice and Bob as $\textit{dfs}(1)$, that is, Alice must start the game by taking stones from $\textit{stones}[1:]$.
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $stones$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{stones}$.
 
 <!-- tabs:start -->
 
@@ -260,13 +260,13 @@ function stoneGameVIII(stones: number[]): number {
 
 We can also use dynamic programming to solve this problem.
 
-Similar to Solution 1, we first use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
+Similar to Solution 1, we first use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $\textit{stones}$, where $s[i]$ represents the sum of the elements $\textit{stones}[0..i]$.
 
-We define $f[i]$ to represent the maximum score difference that the current player can get when taking stones from $stones[i:]$.
+We define $f[i]$ to represent the maximum score difference that the current player can get when taking stones from $\textit{stones}[i:]$.
 
-If the player chooses to take the stones $stones[:i]$, then the score obtained is $s[i]$. At this time, the other player will take stones from $stones[i+1:]$, and the maximum score difference that the other player can get is $f[i+1]$. Therefore, the maximum score difference that the current player can get is $s[i] - f[i+1]$.
+If the player chooses to take the stones $\textit{stones}[:i]$, then the score obtained is $s[i]$. At this time, the other player will take stones from $\textit{stones}[i+1:]$, and the maximum score difference that the other player can get is $f[i+1]$. Therefore, the maximum score difference that the current player can get is $s[i] - f[i+1]$.
 
-If the player chooses to take stones from $stones[i+1:]$, then the maximum score difference obtained is $f[i+1]$.
+If the player chooses to take stones from $\textit{stones}[i+1:]$, then the maximum score difference obtained is $f[i+1]$.
 
 Therefore, we can get the state transition equation:
 
@@ -274,11 +274,11 @@ $$
 f[i] = \max\{s[i] - f[i+1], f[i+1]\}
 $$
 
-Finally, we can get the score difference between Alice and Bob as $f[1]$, that is, Alice must start the game by taking stones from $stones[1:]$.
+Finally, we can get the score difference between Alice and Bob as $f[1]$, that is, Alice must start the game by taking stones from $\textit{stones}[1:]$.
 
 We notice that $f[i]$ is only related to $f[i+1]$, so we only need to use a variable $f$ to represent $f[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $stones$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{stones}$.
 
 <!-- tabs:start -->
 
@@ -363,23 +363,23 @@ function stoneGameVIII(stones: number[]): number {
 >
 > From index $i$ the current player takes $s[i]$ and leaves $i+1$, or postpones the cut. That recurrence always calls $i+1$ first, so the chain has length $n$ and overflows the stack.
 >
-> The next index is known if we walk from the end. Let $f[i]$ be the best difference on $stones[i:]$, with $f[n-1]=s[n-1]$, and fill $i$ from $n-2$ down to $1$.
+> The next index is known if we walk from the end. Let $f[i]$ be the best difference on $\textit{stones}[i:]$, with $f[n-1]=s[n-1]$, and fill $i$ from $n-2$ down to $1$.
 
 <!-- thinking:end -->
 
 According to the problem description, each time we take the leftmost $x$ stones, add their sum to our score, and then put a stone with this sum value on the leftmost side, it is equivalent to merging these $x$ stones into a stone with this sum value, and the prefix sum remains unchanged.
 
-We can use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
+We can use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $\textit{stones}$, where $s[i]$ represents the sum of the elements $\textit{stones}[0..i]$.
 
-Let $f[i]$ be the maximum score difference the current player can get on $stones[i:]$. The answer is $f[1]$, because Alice must start by taking at least the first two stones. Set $f[n - 1] = s[n - 1]$: only one pile remains, so the player takes it.
+Let $f[i]$ be the maximum score difference the current player can get on $\textit{stones}[i:]$. The answer is $f[1]$, because Alice must start by taking at least the first two stones. Set $f[n - 1] = s[n - 1]$: only one pile remains, so the player takes it.
 
-Fill $i$ from $n - 2$ down to $1$. Postponing the cut keeps $f[i + 1]$. Taking $stones[0..i]$ scores $s[i]$ and leaves the opponent with $f[i + 1]$, so the difference is $s[i] - f[i + 1]$. Take the larger one:
+Fill $i$ from $n - 2$ down to $1$. Postponing the cut keeps $f[i + 1]$. Taking $\textit{stones}[0..i]$ scores $s[i]$ and leaves the opponent with $f[i + 1]$, so the difference is $s[i] - f[i + 1]$. Take the larger one:
 
 $$
 f[i] = \max(f[i + 1], s[i] - f[i + 1])
 $$
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $stones$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{stones}$.
 
 <!-- tabs:start -->
 

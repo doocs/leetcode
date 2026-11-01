@@ -85,7 +85,7 @@ It can be proven that 3 is the minimum number of operations needed.
 >
 > Each level is sorted independently by swapping values. The minimum swaps equal the number of moves that turn the permutation into the identity, i.e. walk cycles after ranking the values.
 >
-> BFS collects a level, map values to ranks $0..len-1$, then swap $t[i]$ with $t[t[i]]$ until fixed, counting swaps.
+> BFS collects a level, map values to ranks $0..\textit{len}-1$, then swap $t[i]$ with $t[t[i]]$ until fixed, counting swaps.
 
 <!-- thinking:end -->
 

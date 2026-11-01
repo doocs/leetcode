@@ -83,7 +83,7 @@ tags:
 >
 > It suffices to compare the last lowercase index with the first uppercase index, both obtainable in one scan.
 >
-> Record $first$ and $last$ while walking $word$, then count letters whose last lower index is strictly left of the first upper index.
+> Record $\textit{first}$ and $\textit{last}$ while walking $\textit{word}$, then count letters whose last lower index is strictly left of the first upper index.
 
 <!-- thinking:end -->
 

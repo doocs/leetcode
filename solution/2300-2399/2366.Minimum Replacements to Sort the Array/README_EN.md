@@ -70,20 +70,20 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 >
 > Split a number into positive parts so the array becomes non-decreasing, with as few splits as possible. $n \le 10^5$ forces a right-to-left bound.
 >
-> The current maximum $mx$ on the right should not be split down. If $nums[i] \le mx$, replace $mx$; otherwise split into $k=\lceil nums[i]/mx \rceil$ parts, add $k-1$, and set $mx=\lfloor nums[i]/k \rfloor$ so the left side stays as large as possible.
+> The current maximum $mx$ on the right should not be split down. If $\textit{nums}[i] \le mx$, replace $mx$; otherwise split into $k=\lceil \textit{nums}[i]/mx \rceil$ parts, add $k-1$, and set $mx=\lfloor \textit{nums}[i]/k \rfloor$ so the left side stays as large as possible.
 
 <!-- thinking:end -->
 
-We observe that to make the array $nums$ non-decreasing or monotonically increasing, the elements towards the end of the array should be as large as possible. Therefore, it is unnecessary to replace the last element $nums[n-1]$ of the array $nums$ with multiple smaller numbers.
+We observe that to make the array $\textit{nums}$ non-decreasing or monotonically increasing, the elements towards the end of the array should be as large as possible. Therefore, it is unnecessary to replace the last element $\textit{nums}[n-1]$ of the array $\textit{nums}$ with multiple smaller numbers.
 
-In other words, we can traverse the array $nums$ from the end to the beginning, maintaining the current maximum value $mx$, initially $mx = nums[n-1]$.
+In other words, we can traverse the array $\textit{nums}$ from the end to the beginning, maintaining the current maximum value $mx$, initially $mx = \textit{nums}[n-1]$.
 
-- If the current element $nums[i] \leq mx$, there is no need to replace $nums[i]$. We simply update $mx = nums[i]$.
-- Otherwise, we need to replace $nums[i]$ with multiple numbers that sum to $nums[i]$. The maximum of these numbers is $mx$, and the total number of replacements is $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$. Therefore, we need to perform $k-1$ operations, which are added to the answer. Among these $k$ numbers, the smallest number is $\left \lfloor \frac{nums[i]}{k} \right \rfloor$. Therefore, we update $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$.
+- If the current element $\textit{nums}[i] \leq mx$, there is no need to replace $\textit{nums}[i]$. We simply update $mx = \textit{nums}[i]$.
+- Otherwise, we need to replace $\textit{nums}[i]$ with multiple numbers that sum to $\textit{nums}[i]$. The maximum of these numbers is $mx$, and the total number of replacements is $k=\left \lceil \frac{\textit{nums}[i]}{mx} \right \rceil$. Therefore, we need to perform $k-1$ operations, which are added to the answer. Among these $k$ numbers, the smallest number is $\left \lfloor \frac{\textit{nums}[i]}{k} \right \rfloor$. Therefore, we update $mx = \left \lfloor \frac{\textit{nums}[i]}{k} \right \rfloor$.
 
 After the traversal, we return the total number of operations.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

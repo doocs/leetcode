@@ -88,7 +88,7 @@ tags:
 >
 > Players take from the two ends; the first player wins if her score is at least the second's. The game tree repeats the same interval.
 >
-> $dfs(i,j)$ is the best score gap on $[i,j]$: take the left end for $nums[i]-dfs(i+1,j)$, or the right end symmetrically. The first player wins iff $dfs(0,n-1)\ge 0$.
+> $\textit{dfs}(i,j)$ is the best score gap on $[i,j]$: take the left end for $\textit{nums}[i]-\textit{dfs}(i+1,j)$, or the right end symmetrically. The first player wins iff $\textit{dfs}(0,n-1)\ge 0$.
 >
 > There are $O(n^2)$ intervals; memoization makes every leftover interval optimal for the player to move.
 

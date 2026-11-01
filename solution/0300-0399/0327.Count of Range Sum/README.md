@@ -65,17 +65,17 @@ tags:
 
 > **思考**
 >
-> 统计和落在 $[lower,upper]$ 的子数组个数。子数组和为前缀差，枚举两端为 $O(n^2)$。对当前前缀 $x$，需要已知前缀中有多少落在 $[x-upper,x-lower]$。
+> 统计和落在 $[\textit{lower},\textit{upper}]$ 的子数组个数。子数组和为前缀差，枚举两端为 $O(n^2)$。对当前前缀 $x$，需要已知前缀中有多少落在 $[x-\textit{upper},x-\textit{lower}]$。
 >
-> 把所有 $x$、 $x-lower$、 $x-upper$ 离散化，树状数组维护已出现前缀的频次。先查询区间个数，再插入当前 $x$，保证只用到左侧前缀。
+> 把所有 $x$、 $x-\textit{lower}$、 $x-\textit{upper}$ 离散化，树状数组维护已出现前缀的频次。先查询区间个数，再插入当前 $x$，保证只用到左侧前缀。
 
 <!-- thinking:end -->
 
-题目要求区间和，因此我们可以先求出前缀和数组 $s$，其中 $s[i]$ 表示 $nums$ 中前 $i$ 个元素的和。那么对于任意的 $i \lt j$， $s[j+1] - s[i]$ 就是 $nums$ 中下标在 $[i, j]$ 的元素之和。
+题目要求区间和，因此我们可以先求出前缀和数组 $s$，其中 $s[i]$ 表示 $\textit{nums}$ 中前 $i$ 个元素的和。那么对于任意的 $i \lt j$， $s[j+1] - s[i]$ 就是 $\textit{nums}$ 中下标在 $[i, j]$ 的元素之和。
 
-而 $lower \leq s[j+1] - s[i] \leq upper$，可以转换为 $s[j+1] - upper \leq s[i] \leq s[j+1] - lower$，也就是说，对于当前前缀和 $s[j+1]$，我们需要统计 $s$ 中有多少个下标 $i$ 满足 $s[j+1] - upper \leq s[i] \leq s[j+1] - lower$。
+而 $\textit{lower} \leq s[j+1] - s[i] \leq \textit{upper}$，可以转换为 $s[j+1] - \textit{upper} \leq s[i] \leq s[j+1] - \textit{lower}$，也就是说，对于当前前缀和 $s[j+1]$，我们需要统计 $s$ 中有多少个下标 $i$ 满足 $s[j+1] - \textit{upper} \leq s[i] \leq s[j+1] - \textit{lower}$。
 
-我们可以用树状数组来维护每个前缀和出现的次数，这样对于每个前缀和 $s[j+1]$，我们只需要查询树状数组中有多少个前缀和 $s[i]$ 满足 $s[j+1] - upper \leq s[i] \leq s[j+1] - lower$ 即可。
+我们可以用树状数组来维护每个前缀和出现的次数，这样对于每个前缀和 $s[j+1]$，我们只需要查询树状数组中有多少个前缀和 $s[i]$ 满足 $s[j+1] - \textit{upper} \leq s[i] \leq s[j+1] - \textit{lower}$ 即可。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 

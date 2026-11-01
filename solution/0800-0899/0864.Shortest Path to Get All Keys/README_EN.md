@@ -107,13 +107,13 @@ f   d c b
 
 We define a queue $q$ to store the current position and the state of the collected keys, i.e., $(i, j, \textit{state})$, where $(i, j)$ represents the current position, and $\textit{state}$ represents the state of the collected keys. The $i$-th bit of $\textit{state}$ being $1$ indicates that the $i$-th key has been collected; otherwise, it indicates that the $i$-th key has not been collected.
 
-Additionally, we define a hash table or array $vis$ to record whether the current position and the state of the collected keys have been visited. If visited, there is no need to visit again. $vis[i][j][\textit{state}]$ indicates whether the position $(i, j)$ and the state of the collected keys $state$ have been visited.
+Additionally, we define a hash table or array $\textit{vis}$ to record whether the current position and the state of the collected keys have been visited. If visited, there is no need to visit again. $\textit{vis}[i][j][\textit{state}]$ indicates whether the position $(i, j)$ and the state of the collected keys $\textit{state}$ have been visited.
 
-We start from the initial position $(si, sj)$, add it to the queue $q$, and set $vis[si][sj][0]$ to $true$, indicating that the initial position and the state of the collected keys $0$ have been visited.
+We start from the initial position $(si, sj)$, add it to the queue $q$, and set $\textit{vis}[si][sj][0]$ to $\textit{true}$, indicating that the initial position and the state of the collected keys $0$ have been visited.
 
-During the BFS process, we take out a position $(i, j, \textit{state})$ from the front of the queue and check whether the current position is the endpoint, i.e., whether the current position has collected all keys, which means the number of $1$s in the binary representation of $state$ is $k$. If so, we return the current number of steps as the answer.
+During the BFS process, we take out a position $(i, j, \textit{state})$ from the front of the queue and check whether the current position is the endpoint, i.e., whether the current position has collected all keys, which means the number of $1$s in the binary representation of $\textit{state}$ is $k$. If so, we return the current number of steps as the answer.
 
-Otherwise, we move from the current position in four directions (up, down, left, right). If we can move to the next position $(x, y)$, we add $(x, y, nxt)$ to the queue $q$, where $nxt$ represents the state of the keys at the next position.
+Otherwise, we move from the current position in four directions (up, down, left, right). If we can move to the next position $(x, y)$, we add $(x, y, \textit{nxt})$ to the queue $q$, where $\textit{nxt}$ represents the state of the keys at the next position.
 
 Here, $(x, y)$ must first be within the grid range, i.e., $0 \leq x < m$ and $0 \leq y < n$. Secondly, if the position $(x, y)$ is a wall, i.e., `grid[x][y] == '#'`, or the position $(x, y)$ is a lock but we do not have the corresponding key, i.e., `grid[x][y] >= 'A' && grid[x][y] <= 'F' && (state >> (grid[x][y] - 'A') & 1) == 0)`, then we cannot move to the position $(x, y)`. Otherwise, we can move to the position $(x, y)`.
 

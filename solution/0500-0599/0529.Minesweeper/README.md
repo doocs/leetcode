@@ -90,9 +90,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们记 $click = (i, j)$，如果 $board[i][j]$ 等于 `'M'`，那么直接将 $board[i][j]$ 的值改为 `'X'` 即可。否则，我们需要统计 $board[i][j]$ 周围的地雷数量 $cnt$，如果 $cnt$ 不为 $0$，那么将 $board[i][j]$ 的值改为 $cnt$ 的字符串形式。否则，将 $board[i][j]$ 的值改为 `'B'`，并且递归地搜索处理 $board[i][j]$ 周围的未挖出的方块。
+我们记 $\textit{click} = (i, j)$，如果 $\textit{board}[i][j]$ 等于 `'M'`，那么直接将 $\textit{board}[i][j]$ 的值改为 `'X'` 即可。否则，我们需要统计 $\textit{board}[i][j]$ 周围的地雷数量 $\textit{cnt}$，如果 $\textit{cnt}$ 不为 $0$，那么将 $\textit{board}[i][j]$ 的值改为 $\textit{cnt}$ 的字符串形式。否则，将 $\textit{board}[i][j]$ 的值改为 `'B'`，并且递归地搜索处理 $\textit{board}[i][j]$ 周围的未挖出的方块。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是二维数组 $board$ 的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是二维数组 $\textit{board}$ 的行数和列数。
 
 <!-- tabs:start -->
 

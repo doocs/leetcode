@@ -178,7 +178,7 @@ function heightChecker(heights: number[]): number {
 
 <!-- thinking:end -->
 
-Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $cnt$ of length $101$ to count the number of times each height $h_i$ appears.
+Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $\textit{cnt}$ of length $101$ to count the number of times each height $h_i$ appears.
 
 The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the number of students, and $M$ is the maximum height of the students. In this problem, $M = 101$.
 

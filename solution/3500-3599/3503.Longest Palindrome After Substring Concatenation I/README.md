@@ -113,9 +113,9 @@ tags:
 
 那么我们可以初始化答案 $\textit{ans}$ 为 $\textit{g1}$ 和 $\textit{g2}$ 中的最大值。
 
-接下来，我们定义 $\textit{f}[i][j]$ 表示以字符串 $s$ 的第 $i$ 个字符结尾，以字符串 $t$ 的第 $j$ 个字符结尾的回文子串的长度。
+接下来，我们定义 $f[i][j]$ 表示以字符串 $s$ 的第 $i$ 个字符结尾，以字符串 $t$ 的第 $j$ 个字符结尾的回文子串的长度。
 
-对于 $\textit{f}[i][j]$，如果 $s[i - 1]$ 等于 $t[j - 1]$，那么有 $\textit{f}[i][j] = \textit{f}[i - 1][j - 1] + 1$。然后，我们更新答案：
+对于 $f[i][j]$，如果 $s[i - 1]$ 等于 $t[j - 1]$，那么有 $f[i][j] = f[i - 1][j - 1] + 1$。然后，我们更新答案：
 
 $$
 \textit{ans} = \max(\textit{ans}, \textit{f}[i][j] \times 2 + (0 \text{ if } i \geq m \text{ else } \textit{g1}[i])) \\

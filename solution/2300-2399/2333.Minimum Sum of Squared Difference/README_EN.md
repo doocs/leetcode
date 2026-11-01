@@ -83,11 +83,11 @@ Note that, there are other ways to obtain the minimum of the sum of square diffe
 
 <!-- thinking:end -->
 
-Set $k = k_1 + k_2$ and let $d_i = |nums1_i - nums2_i|$. If the sum of these differences is at most $k$, every difference can be reduced to $0$ and the answer is $0$.
+Set $k = k_1 + k_2$ and let $d_i = |\textit{nums1}_i - \textit{nums2}_i|$. If the sum of these differences is at most $k$, every difference can be reduced to $0$ and the answer is $0$.
 
-Otherwise, record the frequency of each difference in $cnt$, and let $m$ be the maximum difference. Scan $v$ downward from $m$: this level contains $cnt[v]$ values, and $\textit{take} = \min(cnt[v], k)$ of them can be decreased by one. Move those $\textit{take}$ counts to $v - 1$ and subtract $\textit{take}$ from $k$. Stop when $k$ is exhausted.
+Otherwise, record the frequency of each difference in $\textit{cnt}$, and let $m$ be the maximum difference. Scan $v$ downward from $m$: this level contains $\textit{cnt}[v]$ values, and $\textit{take} = \min(\textit{cnt}[v], k)$ of them can be decreased by one. Move those $\textit{take}$ counts to $v - 1$ and subtract $\textit{take}$ from $k$. Stop when $k$ is exhausted.
 
-The answer is $\sum_v v^2 \cdot cnt[v]$.
+The answer is $\sum_v v^2 \cdot \textit{cnt}[v]$.
 
 The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the array length and $M$ is the maximum difference. In this problem, $M \le 10^5$.
 

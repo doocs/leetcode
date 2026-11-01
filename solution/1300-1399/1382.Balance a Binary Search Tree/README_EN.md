@@ -66,12 +66,12 @@ tags:
 
 <!-- thinking:end -->
 
-Since the original tree is a binary search tree, we can save the result of the in-order traversal in an array $nums$. Then we design a function $build(i, j)$, which is used to construct a balanced binary search tree within the index range $[i, j]$ in $nums$. The answer is $build(0, |nums| - 1)$.
+Since the original tree is a binary search tree, we can save the result of the in-order traversal in an array $\textit{nums}$. Then we design a function $\textit{build}(i, j)$, which is used to construct a balanced binary search tree within the index range $[i, j]$ in $\textit{nums}$. The answer is $\textit{build}(0, |\textit{nums}| - 1)$.
 
-The execution logic of the function $build(i, j)$ is as follows:
+The execution logic of the function $\textit{build}(i, j)$ is as follows:
 
 - If $i > j$, then the balanced binary search tree is empty, return an empty node;
-- Otherwise, we take $mid = (i + j) / 2$ as the root node, then recursively build the left and right subtrees, and return the root node.
+- Otherwise, we take $\textit{mid} = (i + j) / 2$ as the root node, then recursively build the left and right subtrees, and return the root node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 

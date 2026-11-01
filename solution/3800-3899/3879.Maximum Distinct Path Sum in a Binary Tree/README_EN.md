@@ -112,11 +112,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can treat the tree as an undirected graph, using a hash table $g$ to store the adjacent nodes of each node, where $g[node]$ contains the parent node, left child node, and right child node of $node$.
+We can treat the tree as an undirected graph, using a hash table $g$ to store the adjacent nodes of each node, where $g[\textit{node}]$ contains the parent node, left child node, and right child node of $\textit{node}$.
 
-We use depth-first search to traverse the tree and build the hash table $g$. For each node, we add its parent node, left child node, and right child node to $g[node]$.
+We use depth-first search to traverse the tree and build the hash table $g$. For each node, we add its parent node, left child node, and right child node to $g[\textit{node}]$.
 
-Next, we use another depth-first search to compute the maximum path sum starting from each node. During this process, we use a hash set $vis$ to record the node values already visited on the current path, ensuring all node values along the path are distinct. For each node, we first check whether it is already in $vis$; if so, we return $0$. Otherwise, we add the node value to $vis$ and compute the path sum starting from that node. We traverse the adjacent nodes in $g[node]$, recursively compute the path sum starting from each adjacent node, and update the current best. Finally, we remove the current node value from $vis$ and return the current node value plus the best path sum.
+Next, we use another depth-first search to compute the maximum path sum starting from each node. During this process, we use a hash set $\textit{vis}$ to record the node values already visited on the current path, ensuring all node values along the path are distinct. For each node, we first check whether it is already in $\textit{vis}$; if so, we return $0$. Otherwise, we add the node value to $\textit{vis}$ and compute the path sum starting from that node. We traverse the adjacent nodes in $g[\textit{node}]$, recursively compute the path sum starting from each adjacent node, and update the current best. Finally, we remove the current node value from $\textit{vis}$ and return the current node value plus the best path sum.
 
 We perform the above computation for every node in the tree and track the maximum path sum. The final answer is the maximum path sum.
 

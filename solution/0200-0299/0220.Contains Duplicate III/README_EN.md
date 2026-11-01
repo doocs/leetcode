@@ -82,7 +82,7 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 
 We maintain a sliding window of size $k$, and the elements in the window are kept in order.
 
-We traverse the array `nums`. For each element $nums[i]$, we look for the first element in the ordered set that is greater than or equal to $nums[i] - t$. If the element exists, and this element is less than or equal to $nums[i] + t$, it means we have found a pair of elements that meet the conditions, and we return `true`. Otherwise, we insert $nums[i]$ into the ordered set, and if the size of the ordered set exceeds $k$, we need to remove the earliest added element from the ordered set.
+We traverse the array `nums`. For each element $\textit{nums}[i]$, we look for the first element in the ordered set that is greater than or equal to $\textit{nums}[i] - t$. If the element exists, and this element is less than or equal to $\textit{nums}[i] + t$, it means we have found a pair of elements that meet the conditions, and we return `true`. Otherwise, we insert $\textit{nums}[i]$ into the ordered set, and if the size of the ordered set exceeds $k$, we need to remove the earliest added element from the ordered set.
 
 The time complexity is $O(n \log k)$, where $n$ is the length of the array `nums`. For each element, we need $O(\log k)$ time to find the element in the ordered set, and there are $n$ elements in total, so the total time complexity is $O(n \log k)$.
 

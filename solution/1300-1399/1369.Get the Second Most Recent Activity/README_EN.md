@@ -79,7 +79,7 @@ Bob only has one record, we just take that one.
 
 > **Thinking**
 >
-> Each user needs their second-most-recent activity, or the only one if they have a single row. A window $\mathrm{RANK}$ partitioned by user and ordered by start date descending, together with a window $\mathrm{COUNT}$, lets us keep rank $2$ or a count of $1$.
+> Each user needs their second-most-recent activity, or the only one if they have a single row. A window $\textit{RANK}$ partitioned by user and ordered by start date descending, together with a window $\textit{COUNT}$, lets us keep rank $2$ or a count of $1$.
 
 <!-- thinking:end -->
 

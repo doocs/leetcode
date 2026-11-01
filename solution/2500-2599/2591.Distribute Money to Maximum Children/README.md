@@ -78,13 +78,13 @@ tags:
 
 <!-- thinking:end -->
 
-如果 $money \lt children$，那么一定存在儿童没有分到钱，返回 $-1$。
+如果 $\textit{money} \lt \textit{children}$，那么一定存在儿童没有分到钱，返回 $-1$。
 
-如果 $money \gt 8 \times children$，那么有 $children-1$ 个儿童获得了 $8$ 美元，剩下的一个儿童获得了 $money - 8 \times (children-1)$ 美元，返回 $children-1$。
+如果 $\textit{money} \gt 8 \times \textit{children}$，那么有 $\textit{children}-1$ 个儿童获得了 $8$ 美元，剩下的一个儿童获得了 $\textit{money} - 8 \times (\textit{children}-1)$ 美元，返回 $\textit{children}-1$。
 
-如果 $money = 8 \times children - 4$，那么有 $children-2$ 个儿童获得了 $8$ 美元，剩下的两个儿童分摊剩下的 $12$ 美元（只要不是 $4$, $8$ 美元就行），返回 $children-2$。
+如果 $\textit{money} = 8 \times \textit{children} - 4$，那么有 $\textit{children}-2$ 个儿童获得了 $8$ 美元，剩下的两个儿童分摊剩下的 $12$ 美元（只要不是 $4$, $8$ 美元就行），返回 $\textit{children}-2$。
 
-如果，我们假设有 $x$ 个儿童获得了 $8$ 美元，那么剩下的钱为 $money- 8 \times x$，只要保证大于等于剩下的儿童数 $children-x$，就可以满足题意。因此，我们只需要求出 $x$ 的最大值，即为答案。
+如果，我们假设有 $x$ 个儿童获得了 $8$ 美元，那么剩下的钱为 $\textit{money}- 8 \times x$，只要保证大于等于剩下的儿童数 $\textit{children}-x$，就可以满足题意。因此，我们只需要求出 $x$ 的最大值，即为答案。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

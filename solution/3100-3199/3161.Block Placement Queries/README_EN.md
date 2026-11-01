@@ -92,7 +92,7 @@ tags:
 >
 > Reversed time turns insertions into deletions, which only enlarge gaps. A Fenwick tree can store prefix maxima of gap lengths keyed by the right endpoint.
 >
-> Load every obstacle plus sentinels, write gaps, then go backward: a query checks the prefix maximum up to $pre$ and the tail $x-pre$; a deletion updates the successor gap to $nxt-pre$. Reverse the collected answers.
+> Load every obstacle plus sentinels, write gaps, then go backward: a query checks the prefix maximum up to $\textit{pre}$ and the tail $x-\textit{pre}$; a deletion updates the successor gap to $\textit{nxt}-\textit{pre}$. Reverse the collected answers.
 
 <!-- thinking:end -->
 
@@ -102,8 +102,8 @@ Put all obstacles into an ordered set, and add sentinels $0$ and $m+1$, where $m
 
 Then scan the queries from back to front:
 
-- Type $2$: find the last obstacle $pre \le x$. The block can be placed if the maximum gap in $[0, pre]$ or the tail gap $(pre, x]$ is at least $sz$.
-- Type $1$: delete obstacle $x$, and update the gap at its successor $nxt$ to $nxt - pre$.
+- Type $2$: find the last obstacle $\textit{pre} \le x$. The block can be placed if the maximum gap in $[0, \textit{pre}]$ or the tail gap $(\textit{pre}, x]$ is at least $sz$.
+- Type $1$: delete obstacle $x$, and update the gap at its successor $\textit{nxt}$ to $\textit{nxt} - \textit{pre}$.
 
 The time complexity is $O(q \log m)$, and the space complexity is $O(m)$, where $q$ is the number of queries and $m$ is the maximum coordinate.
 

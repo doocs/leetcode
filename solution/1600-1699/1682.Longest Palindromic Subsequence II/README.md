@@ -70,17 +70,17 @@ tags:
 >
 > 好的回文子序列长度至少为 $2$，且相邻的「成对字符」不能相同。普通 LPS 只需区间两端，这里还要记住上一对用过的字符。
 >
-> $dfs(i,j,x)$：区间 $[i,j]$、上一对字符为 $x$。两端相等且不等于 $x$ 则配对并更新 $x$，否则收缩一端。记忆化后复杂度 $O(n^2\lvert \Sigma \rvert)$。
+> $\textit{dfs}(i,j,x)$：区间 $[i,j]$、上一对字符为 $x$。两端相等且不等于 $x$ 则配对并更新 $x$，否则收缩一端。记忆化后复杂度 $O(n^2\lvert \Sigma \rvert)$。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i, j, x)$ 表示字符串 $s$ 中下标范围 $[i, j]$ 内，且以字符 $x$ 结尾的最长“好的回文子序列”的长度。答案为 $dfs(0, n - 1, 26)$。
+我们设计一个函数 $\textit{dfs}(i, j, x)$ 表示字符串 $s$ 中下标范围 $[i, j]$ 内，且以字符 $x$ 结尾的最长“好的回文子序列”的长度。答案为 $\textit{dfs}(0, n - 1, 26)$。
 
-函数 $dfs(i, j, x)$ 的计算过程如下：
+函数 $\textit{dfs}(i, j, x)$ 的计算过程如下：
 
-- 如果 $i >= j$，则 $dfs(i, j, x) = 0$；
-- 如果 $s[i] = s[j]$，且 $s[i] \neq x$，那么 $dfs(i, j, x) = dfs(i + 1, j - 1, s[i]) + 2$；
-- 如果 $s[i] \neq s[j]$，那么 $dfs(i, j, x) = max(dfs(i + 1, j, x), dfs(i, j - 1, x))$。
+- 如果 $i >= j$，则 $\textit{dfs}(i, j, x) = 0$；
+- 如果 $s[i] = s[j]$，且 $s[i] \neq x$，那么 $\textit{dfs}(i, j, x) = \textit{dfs}(i + 1, j - 1, s[i]) + 2$；
+- 如果 $s[i] \neq s[j]$，那么 $\textit{dfs}(i, j, x) = \max(\textit{dfs}(i + 1, j, x), \textit{dfs}(i, j - 1, x))$。
 
 过程中，我们可以使用记忆化搜索的方式，避免重复计算。
 

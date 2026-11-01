@@ -81,13 +81,13 @@ The different GCDs are 6, 10, 3, 2, and 1.
 
 <!-- thinking:end -->
 
-For all sub-sequences of the array $nums$, their greatest common divisor (GCD) will not exceed the maximum value $mx$ in the array.
+For all sub-sequences of the array $\textit{nums}$, their greatest common divisor (GCD) will not exceed the maximum value $mx$ in the array.
 
-Therefore, we can enumerate each number $x$ in $[1,.. mx]$, and determine whether $x$ is the GCD of a sub-sequence of the array $nums$. If it is, then we increment the answer by one.
+Therefore, we can enumerate each number $x$ in $[1,.. mx]$, and determine whether $x$ is the GCD of a sub-sequence of the array $\textit{nums}$. If it is, then we increment the answer by one.
 
-So the problem is transformed into: determining whether $x$ is the GCD of a sub-sequence of the array $nums$. We can do this by enumerating the multiples $y$ of $x$, and checking whether $y$ exists in the array $nums$. If $y$ exists in the array $nums$, then we calculate the GCD $g$ of $y$. If $g = x$ occurs, then $x$ is the GCD of a sub-sequence of the array $nums$.
+So the problem is transformed into: determining whether $x$ is the GCD of a sub-sequence of the array $\textit{nums}$. We can do this by enumerating the multiples $y$ of $x$, and checking whether $y$ exists in the array $\textit{nums}$. If $y$ exists in the array $\textit{nums}$, then we calculate the GCD $g$ of $y$. If $g = x$ occurs, then $x$ is the GCD of a sub-sequence of the array $\textit{nums}$.
 
-The time complexity is $O(n + M \log M)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+The time complexity is $O(n + M \log M)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

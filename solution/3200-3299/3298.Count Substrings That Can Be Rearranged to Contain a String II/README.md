@@ -85,7 +85,7 @@ tags:
 >
 > 题意与 I 相同，仅数据范围更大，必须沿用线性滑窗而不能枚举子串。覆盖仍由「每种字符数量不少于 $\textit{word2}$」刻画，单调性不变。
 >
-> 同一套 $need$ 与窗口计数：右端纳入、左端在仍覆盖时右移，答案累加当前左端。长度不足时直接 $0$。总时间线性。
+> 同一套 $\textit{need}$ 与窗口计数：右端纳入、左端在仍覆盖时右移，答案累加当前左端。长度不足时直接 $0$。总时间线性。
 
 <!-- thinking:end -->
 
@@ -95,9 +95,9 @@ tags:
 
 接下来，我们用一个哈希表或长度为 $26$ 的数组 $\textit{cnt}$ 来统计 $\textit{word2}$ 中的字符出现的次数。然后，我们用 $\textit{need}$ 来记录还需要多少个字符才能满足条件，初始化为 $\textit{cnt}$ 的长度。
 
-接着，我们用一个滑动窗口 $\textit{win}$ 来记录当前窗口中的字符出现的次数。我们用 $\textit{ans}$ 来记录满足条件的子串的个数，用 $\textit{l}$ 来记录窗口的左边界。
+接着，我们用一个滑动窗口 $\textit{win}$ 来记录当前窗口中的字符出现的次数。我们用 $\textit{ans}$ 来记录满足条件的子串的个数，用 $l$ 来记录窗口的左边界。
 
-遍历 $\textit{word1}$ 中的每个字符，对于当前字符 $c$，我们将其加入到 $\textit{win}$ 中，如果 $\textit{win}[c]$ 的值等于 $\textit{cnt}[c]$，那么说明当前窗口中已经包含了 $\textit{word2}$ 中的所有字符之一，那么 $\textit{need}$ 减一。如果 $\textit{need}$ 等于 $0$，说明当前窗口中包含了 $\textit{word2}$ 中的所有字符，我们需要缩小窗口的左边界，直到 $\textit{need}$ 大于 $0$。具体地，如果 $\textit{win}[\textit{word1}[l]]$ 等于 $\textit{cnt}[\textit{word1}[l]]$，那么说明当前窗口中包含了 $\textit{word2}$ 中的所有字符之一，那么缩小窗口的左边界之后，就不满足条件了，所以 $\textit{need}$ 加一，同时 $\textit{win}[\textit{word1}[l]]$ 减一。然后，我们将 $\textit{l}$ 加一。此时窗口为 $[l, r]$，那么对于任意 $0 \leq l' \lt l$， $[l', r]$ 都是满足条件的子串，一共有 $l$ 个，我们累加到答案中。
+遍历 $\textit{word1}$ 中的每个字符，对于当前字符 $c$，我们将其加入到 $\textit{win}$ 中，如果 $\textit{win}[c]$ 的值等于 $\textit{cnt}[c]$，那么说明当前窗口中已经包含了 $\textit{word2}$ 中的所有字符之一，那么 $\textit{need}$ 减一。如果 $\textit{need}$ 等于 $0$，说明当前窗口中包含了 $\textit{word2}$ 中的所有字符，我们需要缩小窗口的左边界，直到 $\textit{need}$ 大于 $0$。具体地，如果 $\textit{win}[\textit{word1}[l]]$ 等于 $\textit{cnt}[\textit{word1}[l]]$，那么说明当前窗口中包含了 $\textit{word2}$ 中的所有字符之一，那么缩小窗口的左边界之后，就不满足条件了，所以 $\textit{need}$ 加一，同时 $\textit{win}[\textit{word1}[l]]$ 减一。然后，我们将 $l$ 加一。此时窗口为 $[l, r]$，那么对于任意 $0 \leq l' \lt l$， $[l', r]$ 都是满足条件的子串，一共有 $l$ 个，我们累加到答案中。
 
 遍历完 $\textit{word1}$ 中的所有字符之后，我们就得到了答案。
 

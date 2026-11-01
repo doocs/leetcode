@@ -97,7 +97,7 @@ tags:
 
 We define an array $f$, where $f[i]$ represents the length of the continuous increasing subsequence ending at the $i$-th element. Initially, $f[i] = 1$.
 
-Next, we traverse the array $\textit{nums}$ to calculate the values of the array $f$. If $nums[i] = nums[i - 1] + 1$, then $f[i] = f[i - 1] + 1$; otherwise, $f[i] = 1$.
+Next, we traverse the array $\textit{nums}$ to calculate the values of the array $f$. If $\textit{nums}[i] = \textit{nums}[i - 1] + 1$, then $f[i] = f[i - 1] + 1$; otherwise, $f[i] = 1$.
 
 Then, we traverse the array $f$ in the range $[k - 1, n)$. If $f[i] \ge k$, we add $\textit{nums}[i]$ to the answer array; otherwise, we add $-1$.
 

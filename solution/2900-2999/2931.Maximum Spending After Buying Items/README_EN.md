@@ -104,7 +104,7 @@ According to the problem description, we should prioritize purchasing items with
 
 Each day, we take out the item with the smallest value from the priority queue, add it to the answer, and add the previous item in the store where the item is located to the priority queue. We repeat the above operation until the priority queue is empty.
 
-The time complexity is $O(mn \log m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns of the array $values$, respectively.
+The time complexity is $O(mn \log m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns of the array $\textit{values}$, respectively.
 
 <!-- tabs:start -->
 

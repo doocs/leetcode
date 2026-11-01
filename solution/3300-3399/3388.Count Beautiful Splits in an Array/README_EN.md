@@ -87,11 +87,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can preprocess $\text{LCP}[i][j]$ to represent the length of the longest common prefix of $\textit{nums}[i:]$ and $\textit{nums}[j:]$. Initially, $\text{LCP}[i][j] = 0$.
+We can preprocess $\textit{LCP}[i][j]$ to represent the length of the longest common prefix of $\textit{nums}[i:]$ and $\textit{nums}[j:]$. Initially, $\textit{LCP}[i][j] = 0$.
 
-Next, we enumerate $i$ and $j$ in reverse order. For each pair of $i$ and $j$, if $\textit{nums}[i] = \textit{nums}[j]$, then we can get $\text{LCP}[i][j] = \text{LCP}[i + 1][j + 1] + 1$.
+Next, we enumerate $i$ and $j$ in reverse order. For each pair of $i$ and $j$, if $\textit{nums}[i] = \textit{nums}[j]$, then we can get $\textit{LCP}[i][j] = \textit{LCP}[i + 1][j + 1] + 1$.
 
-Finally, we enumerate the ending position $i$ of the first subarray (excluding position $i$) and the ending position $j$ of the second subarray (excluding position $j$). The length of the first subarray is $i$, the length of the second subarray is $j - i$, and the length of the third subarray is $n - j$. If $i \leq j - i$ and $\text{LCP}[0][i] \geq i$, or $j - i \leq n - j$ and $\text{LCP}[i][j] \geq j - i$, then this split is beautiful, and we increment the answer by one.
+Finally, we enumerate the ending position $i$ of the first subarray (excluding position $i$) and the ending position $j$ of the second subarray (excluding position $j$). The length of the first subarray is $i$, the length of the second subarray is $j - i$, and the length of the third subarray is $n - j$. If $i \leq j - i$ and $\textit{LCP}[0][i] \geq i$, or $j - i \leq n - j$ and $\textit{LCP}[i][j] \geq j - i$, then this split is beautiful, and we increment the answer by one.
 
 After enumerating, the answer is the number of beautiful splits.
 

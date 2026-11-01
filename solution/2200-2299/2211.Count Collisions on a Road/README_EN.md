@@ -87,7 +87,7 @@ No cars will collide with each other. Thus, the total number of collisions that 
 
 According to the problem description, when two cars moving in opposite directions collide, the collision count increases by $2$, meaning both cars stop, and the answer increases by $2$. When a moving car collides with a stationary car, the collision count increases by $1$, meaning one car stops, and the answer increases by $1$.
 
-Obviously, the prefix $\textit{L}$ and the suffix $\textit{R}$ will not collide, so we only need to count the number of characters in the middle that are not $\textit{S}$.
+Obviously, the prefix $L$ and the suffix $R$ will not collide, so we only need to count the number of characters in the middle that are not $S$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(1)$, where $n$ is the length of the string $\textit{directions}$.
 

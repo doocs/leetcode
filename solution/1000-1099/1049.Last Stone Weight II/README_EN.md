@@ -75,9 +75,9 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 >
 > Each smash assigns opposite signs to two stones, so the remainder is the absolute difference of two subset sums. $n\le 30$ but the total is only a few thousand, which is a $0$-$1$ knapsack of capacity $\lfloor s/2\rfloor$: pack as close to half as possible.
 >
-> $\textit{dp}[i][j]$ is the best weight of the first $i$ stones that does not exceed $j$, taking or skipping stone $i$.
+> $dp[i][j]$ is the best weight of the first $i$ stones that does not exceed $j$, taking or skipping stone $i$.
 >
-> The answer is $s-2\cdot\textit{dp}[n][\lfloor s/2\rfloor]$.
+> The answer is $s-2\cdotdp[n][\lfloor s/2\rfloor]$.
 
 <!-- thinking:end -->
 

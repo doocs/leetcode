@@ -118,15 +118,15 @@ tags:
 
 We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all adjacent nodes of node $a$ and the indices of the corresponding edges.
 
-We design a function $\text{dfs}(a, \text{fa})$, which indicates whether the edge between node $a$ and $\text{fa}$ needs to be toggled in the subtree rooted at node $a$ with parent $\text{fa}$. The logic of the function $\text{dfs}(a, \text{fa})$ is as follows:
+We design a function $\textit{dfs}(a, fa)$, which indicates whether the edge between node $a$ and $fa$ needs to be toggled in the subtree rooted at node $a$ with parent $fa$. The logic of the function $\textit{dfs}(a, fa)$ is as follows:
 
-1. Initialize a boolean variable $\text{rev}$, indicating whether node $a$ needs to be toggled. The initial value is $\text{start}[a] \ne \text{target}[a]$.
+1. Initialize a boolean variable $\textit{rev}$, indicating whether node $a$ needs to be toggled. The initial value is $\textit{start}[a] \ne \textit{target}[a]$.
 2. Iterate through all adjacent nodes $b$ of node $a$ and the corresponding edge index $i$:
-    - If $b \ne \text{fa}$, recursively call $\text{dfs}(b, a)$.
-    - If the recursive call returns true, it means the edge $[a, b]$ in the subtree needs to be toggled. We add the edge index $i$ to the answer list and toggle $\text{rev}$.
-3. Return $\text{rev}$.
+    - If $b \ne fa$, recursively call $\textit{dfs}(b, a)$.
+    - If the recursive call returns true, it means the edge $[a, b]$ in the subtree needs to be toggled. We add the edge index $i$ to the answer list and toggle $\textit{rev}$.
+3. Return $\textit{rev}$.
 
-Finally, we call $\text{dfs}(0, -1)$. If the return value is true, it means it is impossible to convert $\text{start}$ to $\text{target}$, so we return $[-1]$. Otherwise, we sort the answer list and return it.
+Finally, we call $\textit{dfs}(0, -1)$. If the return value is true, it means it is impossible to convert $\textit{start}$ to $\textit{target}$, so we return $[-1]$. Otherwise, we sort the answer list and return it.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
@@ -316,7 +316,7 @@ function minimumFlips(n: number, edges: number[][], start: string, target: strin
 
 We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all adjacent nodes of node $a$ and the indices of the corresponding edges.
 
-An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, $\text{rev}$ records whether the edge from the current node to its parent still needs a toggle. It starts as $\text{start}[a] \ne \text{target}[a]$. For each child $b$, if that subtree still needs the edge $[a, b]$ toggled, append the edge index $i$ and negate $\text{rev}$. The root has no parent. If the root's $\text{rev}$ is still true, converting $\text{start}$ to $\text{target}$ is impossible and the result is $[-1]$. Otherwise sort the answer and return it.
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, $\textit{rev}$ records whether the edge from the current node to its parent still needs a toggle. It starts as $\textit{start}[a] \ne \textit{target}[a]$. For each child $b$, if that subtree still needs the edge $[a, b]$ toggled, append the edge index $i$ and negate $\textit{rev}$. The root has no parent. If the root's $\textit{rev}$ is still true, converting $\textit{start}$ to $\textit{target}$ is impossible and the result is $[-1]$. Otherwise sort the answer and return it.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
