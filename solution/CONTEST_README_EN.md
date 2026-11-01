@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 526
+
+- [4097. Minimum Value of Merged Integers](/solution/4000-4099/4097.Minimum%20Value%20of%20Merged%20Integers/README_EN.md)
+- [4098. Minimize the Maximum Value of GCD-Connected Array](/solution/4000-4099/4098.Minimize%20the%20Maximum%20Value%20of%20GCD-Connected%20Array/README_EN.md)
+- [4099. Minimum Operations to Sort With Locked Indices](/solution/4000-4099/4099.Minimum%20Operations%20to%20Sort%20With%20Locked%20Indices/README_EN.md)
+- [4100. Minimum Cost Path With Even XOR Parity](/solution/4100-4199/4100.Minimum%20Cost%20Path%20With%20Even%20XOR%20Parity/README_EN.md)
+
 #### Weekly Contest 525
 
 - [4092. Binary Digit Score](/solution/4000-4099/4092.Binary%20Digit%20Score/README_EN.md)

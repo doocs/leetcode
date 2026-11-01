@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 简单
+rating: 1124
+source: 第 525 场周赛 Q1
 ---
 
 <!-- problem:start -->

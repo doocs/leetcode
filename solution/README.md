@@ -4107,6 +4107,10 @@
 |  4094  |  [统计频次阶梯子数组的数目 I](/solution/4000-4099/4094.Count%20Frequency%20Staircase%20Subarrays%20I/README.md)  |    |  中等  |  第 525 场周赛  |
 |  4095  |  [统计频次阶梯子数组的数目 II](/solution/4000-4099/4095.Count%20Frequency%20Staircase%20Subarrays%20II/README.md)  |    |  困难  |  第 525 场周赛  |
 |  4096  |  [Simulate Bomb Explosions and Falling Boxes](/solution/4000-4099/4096.Simulate%20Bomb%20Explosions%20and%20Falling%20Boxes/README.md)  |    |  中等  |  🔒  |
+|  4097  |  [合并整数后的最小值](/solution/4000-4099/4097.Minimum%20Value%20of%20Merged%20Integers/README.md)  |    |  简单  |  第 526 场周赛  |
+|  4098  |  [最小化 GCD 连通数组的最大值](/solution/4000-4099/4098.Minimize%20the%20Maximum%20Value%20of%20GCD-Connected%20Array/README.md)  |    |  中等  |  第 526 场周赛  |
+|  4099  |  [将锁定数组排序的最少操作次数](/solution/4000-4099/4099.Minimum%20Operations%20to%20Sort%20With%20Locked%20Indices/README.md)  |    |  中等  |  第 526 场周赛  |
+|  4100  |  [平衡异或路径的最小开销](/solution/4100-4199/4100.Minimum%20Cost%20Path%20With%20Even%20XOR%20Parity/README.md)  |    |  困难  |  第 526 场周赛  |
 
 ## 版权
 

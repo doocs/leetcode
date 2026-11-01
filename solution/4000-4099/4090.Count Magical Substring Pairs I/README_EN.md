@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1733
+source: Biweekly Contest 194 Q3
 ---
 
 <!-- problem:start -->

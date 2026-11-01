@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 困难
+rating: 2155
+source: 第 194 场双周赛 Q4
 ---
 
 <!-- problem:start -->

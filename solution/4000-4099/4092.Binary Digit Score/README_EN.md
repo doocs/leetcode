@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1124
+source: Weekly Contest 525 Q1
 ---
 
 <!-- problem:start -->

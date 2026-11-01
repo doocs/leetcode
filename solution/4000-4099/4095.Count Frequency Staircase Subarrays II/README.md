@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 困难
+rating: 2343
+source: 第 525 场周赛 Q4
 ---
 
 <!-- problem:start -->

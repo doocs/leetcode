@@ -4105,6 +4105,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4094  |  [Count Frequency Staircase Subarrays I](/solution/4000-4099/4094.Count%20Frequency%20Staircase%20Subarrays%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 525  |
 |  4095  |  [Count Frequency Staircase Subarrays II](/solution/4000-4099/4095.Count%20Frequency%20Staircase%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 525  |
 |  4096  |  [Simulate Bomb Explosions and Falling Boxes](/solution/4000-4099/4096.Simulate%20Bomb%20Explosions%20and%20Falling%20Boxes/README_EN.md)  |    |  Medium  |  🔒  |
+|  4097  |  [Minimum Value of Merged Integers](/solution/4000-4099/4097.Minimum%20Value%20of%20Merged%20Integers/README_EN.md)  |    |  Easy  |  Weekly Contest 526  |
+|  4098  |  [Minimize the Maximum Value of GCD-Connected Array](/solution/4000-4099/4098.Minimize%20the%20Maximum%20Value%20of%20GCD-Connected%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 526  |
+|  4099  |  [Minimum Operations to Sort With Locked Indices](/solution/4000-4099/4099.Minimum%20Operations%20to%20Sort%20With%20Locked%20Indices/README_EN.md)  |    |  Medium  |  Weekly Contest 526  |
+|  4100  |  [Minimum Cost Path With Even XOR Parity](/solution/4100-4199/4100.Minimum%20Cost%20Path%20With%20Even%20XOR%20Parity/README_EN.md)  |    |  Hard  |  Weekly Contest 526  |
 
 ## Copyright
 
