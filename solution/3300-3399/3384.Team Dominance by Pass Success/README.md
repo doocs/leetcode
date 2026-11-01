@@ -162,7 +162,7 @@ pass_to 表示 player_id 对应队员接球。
 
 <!-- solution:start -->
 
-### 方法一：等值连接 + 分组求和
+### 方法一：补齐球队 × 半场骨架 + 等值连接 + 分组求和
 
 <!-- thinking:start -->
 
@@ -170,13 +170,15 @@ pass_to 表示 player_id 对应队员接球。
 >
 > 同队传球得 $1$ 分，跨队传球得 $-1$ 分，按球队与上下半场合计。时间戳 $\le 45{:}00$ 为上半场。
 >
-> 传球表分别按发起者、接收者连接球队表，即可比较两队名并打出优势值。
+> 传球表分别按发起者、接收者连接球队表，即可比较两队名并打出优势值，再按发起方队名与半场分组求和。
 >
-> 再按发起方队名与半场分组求和，最后按队名、半场排序。
+> **但要注意**：题目要求的是「每支球队」在上下两个半场的优势得分，即使某队在某半场没有任何发起传球，也应输出 $0$。若只从 `Passes` 出发分组，缺失的球队/半场不会出现。因此需要先构造「球队 × 半场」的完整骨架，再左连接统计结果。
 
 <!-- thinking:end -->
 
 我们可以通过等值连接，找到每次传球的发起方和接收方所在的球队，然后根据传球的时间戳判断传球发生在上半场还是下半场，根据传球的发起方和接收方所在的球队是否相同，计算出每次传球的优势值，最后按照球队名称和半场编号进行分组求和，得到每支球队在上半场和下半场的优势值。
+
+需要注意的是，**直接对 `Passes` 分组会遗漏「某队某半场无发起传球」的行**。因此需要先用「所有球队」与「两个半场」做笛卡尔积，得到每队两个半场的完整骨架，再将统计结果左连接到骨架上，未匹配到的行补 $0$。
 
 <!-- tabs:start -->
 
@@ -193,10 +195,20 @@ WITH
         FROM Passes p
         JOIN Teams t1 ON p.pass_from = t1.player_id
         JOIN Teams t2 ON p.pass_to = t2.player_id
+    ),
+    S AS (
+        SELECT team_name, half_number, SUM(dominance) dominance
+        FROM T
+        GROUP BY 1, 2
     )
-SELECT team_name, half_number, SUM(dominance) dominance
-FROM T
-GROUP BY 1, 2
+SELECT a.team_name, b.half_number, IFNULL(S.dominance, 0) dominance
+FROM (SELECT DISTINCT team_name FROM Teams) a
+CROSS JOIN (
+    SELECT 1 half_number
+    UNION ALL
+    SELECT 2
+) b
+LEFT JOIN S ON a.team_name = S.team_name AND b.half_number = S.half_number
 ORDER BY 1, 2;
 ```
 

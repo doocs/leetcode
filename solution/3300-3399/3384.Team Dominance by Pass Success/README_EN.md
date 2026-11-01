@@ -161,21 +161,17 @@ pass_to is the player_id of the player receiving the pass.
 
 <!-- solution:start -->
 
-### Solution 1: Equi-Join + Group By and Sum
+### Solution 1: Team-Half Combinations + Equi-Join + Grouping
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> A pass is $+1$ inside a team and $-1$ across teams, aggregated by team and half. Timestamps up to $45{:}00$ are the first half.
->
-> Join the pass list to the team table on both player ids so the two team names can be compared.
->
-> Group by the sender's team and the half, sum dominance, and sort by team then half.
+> We can join each pass to the teams of its sender and receiver, assign it a score of $1$ or $-1$, and sum by the sender's team and half. However, grouping passes alone omits a team and half with no passes. To include those cases, we first construct every combination of team and half, then left join the sums and fill missing scores with zero.
 
 <!-- thinking:end -->
 
-We can use an equi-join to find the teams of both the passer and the receiver for each pass. Then, based on the timestamp, we determine whether the pass occurred in the first half or the second half. By checking if the passer and receiver belong to the same team, we calculate the advantage value for each pass. Finally, we group by team name and half number, and sum the advantage values to get the advantage value for each team in the first and second halves.
+Join `Passes` with `Teams` twice to identify the sender's and receiver's teams. Determine the half from the timestamp and sum the scores by the sender's team and half. Cross join the distinct teams with the two halves, then left join the sums, replacing missing values with $0$. Finally, sort by team name and half number.
 
 <!-- tabs:start -->
 
@@ -192,10 +188,20 @@ WITH
         FROM Passes p
         JOIN Teams t1 ON p.pass_from = t1.player_id
         JOIN Teams t2 ON p.pass_to = t2.player_id
+    ),
+    S AS (
+        SELECT team_name, half_number, SUM(dominance) dominance
+        FROM T
+        GROUP BY 1, 2
     )
-SELECT team_name, half_number, SUM(dominance) dominance
-FROM T
-GROUP BY 1, 2
+SELECT a.team_name, b.half_number, IFNULL(S.dominance, 0) dominance
+FROM (SELECT DISTINCT team_name FROM Teams) a
+CROSS JOIN (
+    SELECT 1 half_number
+    UNION ALL
+    SELECT 2
+) b
+LEFT JOIN S ON a.team_name = S.team_name AND b.half_number = S.half_number
 ORDER BY 1, 2;
 ```
 
