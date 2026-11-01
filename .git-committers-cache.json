@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793527256,
+  "cache_date": 1793528064,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -47023,13 +47023,19 @@
     "solution/0400-0499/0453.Minimum Moves to Equal Array Elements/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793496210
+      "retrieved": 1793527433
     },
     "solution/0400-0499/0454.4Sum II/README.md": {
       "authors": [
@@ -114408,13 +114414,19 @@
     "solution/0400-0499/0453.Minimum Moves to Equal Array Elements/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793496198
+      "retrieved": 1793527430
     },
     "solution/0400-0499/0454.4Sum II/README_EN.md": {
       "authors": [
