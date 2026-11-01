@@ -111,7 +111,7 @@ For each start $i$ of $a$, advance a pointer to the earliest start $j$ of $b$ wi
 
 A later $b$ can only push $c$ further right, so the earliest $b$ and the earliest $c$ are optimal for a fixed $i$.
 
-The time complexity is $O(n+m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $s$ and $p$.
+The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $s$ and $p$.
 
 <!-- tabs:start -->
 

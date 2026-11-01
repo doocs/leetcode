@@ -101,7 +101,7 @@ We iterate through the array $tasks$. For each task $task$, we increment the cur
 
 After the iteration, we return $ans$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $tasks$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $tasks$.
 
 <!-- tabs:start -->
 

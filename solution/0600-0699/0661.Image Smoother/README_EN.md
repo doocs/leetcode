@@ -77,7 +77,7 @@ For $\textit{ans}[i][j]$, we traverse the cell in the $i$-th row and $j$-th colu
 
 After the traversal, we return $\textit{ans}$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of $\textit{img}$, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of $\textit{img}$, respectively.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ tags:
 
 我们可以枚举中间元素 $profits[j]$，然后再枚举左边元素 $profits[i]$ 和右边元素 $profits[k]$。对于每个 $profits[j]$，我们需要找到最大的 $profits[i]$ 和最大的 $profits[k]$，使得 $prices[i] < prices[j] < prices[k]$。我们记 $left$ 为 $profits[j]$ 左边的最大值，而 $right$ 为 $profits[j]$ 右边的最大值。如果存在，那么我们更新答案为 $ans = \max(ans, left + profits[j] + right)$。
 
-时间复杂度 $O(n^2)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -274,7 +274,7 @@ impl Solution {
 
 我们可以用两个树状数组分别维护每个价格左边以及右边的最大利润，然后枚举中间的价格，通过树状数组查询左右两边的最大利润，最后取最大值即可。
 
-时间复杂度 $O(n \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $prices$ 的长度，而 $M$ 是数组 $prices$ 中的最大值，本题中 $M \le 10^6$。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $prices$ 的长度，而 $M$ 是数组 $prices$ 中的最大值，本题中 $M \le 10^6$。
 
 由于 $prices$ 的长度不超过 $2000$，而 $prices[i]$ 的取值达到 $10^6$，因此，我们可以对 $prices$ 进行离散化处理，这样可以将空间复杂度降低到 $O(n)$。
 

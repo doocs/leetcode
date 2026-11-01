@@ -129,7 +129,7 @@ Next, we iterate through all buildings. For the current building $(x, y)$, we re
 
 After finishing the iteration, we return the final answer.
 
-The complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of buildings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of buildings.
 
 <!-- tabs:start -->
 

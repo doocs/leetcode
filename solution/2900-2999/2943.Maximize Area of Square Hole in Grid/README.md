@@ -111,7 +111,7 @@ tags:
 
 我们在求出 $\textit{hBars}$ 和 $\textit{vBars}$ 中最长的连续递增子序列的长度之后，我们取两者中的最小值作为正方形的边长，然后再求出正方形的面积即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{hBars}$ 或 $\textit{vBars}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{hBars}$ 或 $\textit{vBars}$ 的长度。
 
 <!-- tabs:start -->
 

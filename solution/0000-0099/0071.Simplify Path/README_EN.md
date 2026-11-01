@@ -134,7 +134,7 @@ We first split the path into a number of substrings split by `'/'`. Then, we tra
 
 Finally, we concatenate all the elements in the stack from the bottom to the top of the stack to form a string, which is the simplified canonical path.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the path.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the path.
 
 <!-- tabs:start -->
 

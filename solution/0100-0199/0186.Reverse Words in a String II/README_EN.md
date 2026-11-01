@@ -59,7 +59,7 @@ tags:
 
 We can iterate through the character array $s$, using two pointers $i$ and $j$ to find the start and end positions of each word, then reverse each word, and finally reverse the entire character array.
 
-The time complexity is $O(n)$, where $n$ is the length of the character array $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the character array $s$.
 
 <!-- tabs:start -->
 

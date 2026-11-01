@@ -102,7 +102,7 @@ A queen moves any number of squares along one row, one column, or one diagonal. 
 
 Every remaining pair takes two moves. Go from $(s_r, s_c)$ to $(s_r, t_c)$, then from $(s_r, t_c)$ to $(t_r, t_c)$. The squares share neither a row nor a column, so the intermediate square differs from both ends. The board is empty, and both moves are legal. The answer is $2$.
 
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

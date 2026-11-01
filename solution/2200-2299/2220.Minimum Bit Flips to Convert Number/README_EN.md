@@ -79,7 +79,7 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 
 According to the problem description, we only need to count the number of 1s in the binary representation of $\textit{start} \oplus \textit{goal}$.
 
-The time complexity is $O(\log n)$, where $n$ is the size of the integers in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the size of the integers in the problem.
 
 <!-- tabs:start -->
 

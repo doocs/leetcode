@@ -104,7 +104,7 @@ For the second category, we can ignore these triplets because they cannot help u
 
 Finally, we just need to check whether $[d, e, f]$ is equal to $\textit{target}$. If it is, return $\textit{true}$; otherwise, return $\textit{false}$.
 
-Time complexity is $O(n)$, where $n$ is the length of the array $\textit{triplets}$. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{triplets}$.
 
 <!-- tabs:start -->
 

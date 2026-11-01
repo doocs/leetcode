@@ -96,7 +96,7 @@ If the left endpoint of the current interval is greater than $\textit{last}+1$, 
 
 Finally, we return the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{ranges}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{ranges}$.
 
 <!-- tabs:start -->
 

@@ -131,7 +131,7 @@ If `left_to_go` is `true`, we take a worker from `wait_in_left`, update `cur` to
 
 Repeat the above process until the number of boxes is zero. At this point, `cur` is the answer.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ and $k$ are the number of workers and the number of boxes, respectively.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ and $k$ are the number of workers and the number of boxes, respectively.
 
 <!-- tabs:start -->
 

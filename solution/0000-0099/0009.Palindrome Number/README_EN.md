@@ -92,7 +92,7 @@ By continuously multiplying the last digit to the variable $y$, we can get the n
 
 In the code implementation, we can repeatedly "take out" the last digit of $x$ and "add" it to the end of $y$, loop until $y \ge x$. If at this time $x = y$, or $x = y / 10$, then $x$ is a palindrome.
 
-The time complexity is $O(\log_{10}(n))$, where $n$ is $x$. For each iteration, we will divide the input by $10$, so the time complexity is $O(\log_{10}(n))$. The space complexity is $O(1)$.
+The time complexity is $O(\log_{10}(n))$, and the space complexity is $O(1)$, where $n$ is $x$. For each iteration, we will divide the input by $10$, so the time complexity is $O(\log_{10}(n))$.
 
 <!-- tabs:start -->
 

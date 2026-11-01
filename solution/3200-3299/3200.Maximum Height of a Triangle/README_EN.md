@@ -100,7 +100,7 @@ The only possible arrangement is shown above.</p>
 
 We can enumerate the color of the first row, then simulate the construction of the triangle, calculating the maximum height.
 
-The time complexity is $O(\sqrt{n})$, where $n$ is the number of red and blue balls. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the number of red and blue balls.
 
 <!-- tabs:start -->
 

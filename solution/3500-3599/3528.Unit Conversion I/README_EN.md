@@ -96,7 +96,7 @@ Then, we start the DFS from the root node $0$, i.e., call the function $\textit{
 
 Finally, we return the answer array.
 
-The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of units.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of units.
 
 <!-- tabs:start -->
 
@@ -253,7 +253,7 @@ An explicit stack then walks from the root. Each frame is $(unit, accumulated\ f
 
 Finally, we return the answer array.
 
-The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of units.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of units.
 
 <!-- tabs:start -->
 

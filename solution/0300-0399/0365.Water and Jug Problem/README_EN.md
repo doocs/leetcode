@@ -110,7 +110,7 @@ The execution process of the function $dfs(i, j)$ is as follows:
 
 The answer is $dfs(0, 0)$.
 
-The time complexity is $O(x + y)$, and the space complexity is $O(x + y)$. Here, $x$ and $y$ are the sizes of $jug1Capacity$ and $jug2Capacity$ respectively.
+The time complexity is $O(x + y)$, and the space complexity is $O(x + y)$, where $x$ and $y$ are the sizes of $jug1Capacity$ and $jug2Capacity$ respectively.
 
 <!-- tabs:start -->
 

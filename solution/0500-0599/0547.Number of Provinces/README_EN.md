@@ -77,7 +77,7 @@ Next, we traverse each city $i$. If the city has not been visited, we start a de
 
 Finally, return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of cities.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of cities.
 
 <!-- tabs:start -->
 
@@ -267,7 +267,7 @@ Next, we traverse the matrix $\textit{isConnected}$. If there is a connection be
 
 Finally, return the number of provinces.
 
-The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of cities, and $\log n$ is the time complexity of path compression in the union-find data structure.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the number of cities, and $\log n$ is the time complexity of path compression in the union-find data structure.
 
 <!-- tabs:start -->
 

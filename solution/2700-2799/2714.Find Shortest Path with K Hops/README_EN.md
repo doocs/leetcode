@@ -95,7 +95,7 @@ Then, we use Dijkstra's algorithm to find the shortest path from node $s$ to nod
 
 Finally, we only need to return the minimum value in $dist[d][0..k]$.
 
-The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n \times k)$, where $n$ represents the number of nodes and $k$ represents the maximum number of edges crossed.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(nk)$, where $n$ represents the number of nodes and $k$ represents the maximum number of edges crossed.
 
 <!-- tabs:start -->
 

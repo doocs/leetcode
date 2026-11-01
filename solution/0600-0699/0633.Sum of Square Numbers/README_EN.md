@@ -62,7 +62,7 @@ tags:
 
 We can use the two-pointer method to solve this problem. Define two pointers $a$ and $b$, pointing to $0$ and $\sqrt{c}$ respectively. In each step, we calculate the value of $s = a^2 + b^2$, and then compare the size of $s$ and $c$. If $s = c$, we have found two integers $a$ and $b$ such that $a^2 + b^2 = c$. If $s < c$, we increase the value of $a$ by $1$. If $s > c$, we decrease the value of $b$ by $1$. We continue this process until we find the answer, or the value of $a$ is greater than the value of $b$, and return `false`.
 
-The time complexity is $O(\sqrt{c})$, where $c$ is the given non-negative integer. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{c})$, and the space complexity is $O(1)$, where $c$ is the given non-negative integer.
 
 <!-- tabs:start -->
 
@@ -229,7 +229,7 @@ For example:
 
 In summary, this theorem is very important in number theory for determining whether a number can be expressed as the sum of two squares.
 
-The time complexity is $O(\sqrt{c})$, where $c$ is the given non-negative integer. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{c})$, and the space complexity is $O(1)$, where $c$ is the given non-negative integer.
 
 <!-- tabs:start -->
 

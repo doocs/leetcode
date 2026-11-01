@@ -94,7 +94,7 @@ To avoid issues with negative modulo operations, we can replace $(k - \textit{gr
 
 The answer is $f[m - 1][n - 1][0]$.
 
-The time complexity is $O(m \times n \times K)$ and the space complexity is $O(m \times n \times K)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively, and $K$ is the integer $k$ from the problem.
+The time complexity is $O(mnK)$, and the space complexity is $O(mnK)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively, and $K$ is the integer $k$ from the problem.
 
 <!-- tabs:start -->
 

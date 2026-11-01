@@ -136,7 +136,7 @@ tags:
 
 最后对 $\textit{pq}$ 按照距离、价格、行坐标和列坐标的顺序排序，取前 $k$ 个物品的坐标返回。
 
-时间复杂度 $O(m \times n \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组 $\textit{grid}$ 的行数和列数。
+时间复杂度 $O(mn \log (mn))$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是二维数组 $\textit{grid}$ 的行数和列数。
 
 <!-- tabs:start -->
 

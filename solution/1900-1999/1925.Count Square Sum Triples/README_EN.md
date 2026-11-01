@@ -68,7 +68,7 @@ We enumerate $a$ and $b$ in the range $[1, n)$, then calculate $c = \sqrt{a^2 + 
 
 After the enumeration is complete, return the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

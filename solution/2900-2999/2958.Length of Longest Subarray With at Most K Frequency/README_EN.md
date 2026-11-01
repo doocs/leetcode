@@ -88,7 +88,7 @@ We can use two pointers $l$ and $r$ to represent the left and right endpoints of
 
 Next, we iterate over each element $x$ in the array $nums$. For each element $x$, we increment the occurrence count of $x$, then check if the current subarray meets the requirements. If the current subarray does not meet the requirements, we move the pointer $l$ one step to the right, and decrement the occurrence count of $nums[l]$, until the current subarray meets the requirements. Then we update the answer $ans = \max(ans, r - l + 1)$. Continue the iteration until $r$ reaches the end of the array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

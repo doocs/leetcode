@@ -53,7 +53,7 @@ difficulty: Easy
 
 First, we clear the bits from the $i$-th to the $j$-th in $N$, then we left shift $M$ by $i$ bits, and finally perform a bitwise OR operation on $M$ and $N$.
 
-The time complexity is $O(\log n)$, where $n$ is the size of $N$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the size of $N$.
 
 <!-- tabs:start -->
 

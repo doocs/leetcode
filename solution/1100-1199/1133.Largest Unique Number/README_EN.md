@@ -63,7 +63,7 @@ tags:
 
 Given the data range in the problem, we can use an array of length $1001$ to count the occurrence of each number. Then, we traverse the array in reverse order to find the first number that appears only once. If no such number is found, we return $-1$.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array, and $M$ is the maximum number that appears in the array. In this problem, $M \leq 1000$.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array, and $M$ is the maximum number that appears in the array. In this problem, $M \leq 1000$.
 
 <!-- tabs:start -->
 

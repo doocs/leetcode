@@ -71,7 +71,7 @@ tags:
 
 因此，我们将数组 $\textit{nums1}$ 按照升序排序，将数组 $\textit{nums2}$ 按照降序排序，然后将两个数组对应位置的元素相乘，累加即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums1}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums1}$ 的长度。
 
 <!-- tabs:start -->
 

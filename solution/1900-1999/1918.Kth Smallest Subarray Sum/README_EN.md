@@ -100,7 +100,7 @@ The function $f(s)$ is calculated as follows:
 
 Finally, return $cnt$ as the result of the function $f(s)$.
 
-Time complexity is $O(n \times \log S)$, where $n$ is the length of the array $\textit{nums}$, and $S$ is the sum of all elements in the array $\textit{nums}$. Space complexity is $O(1)$.
+The time complexity is $O(n \log S)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$, and $S$ is the sum of all elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

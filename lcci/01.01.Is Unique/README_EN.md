@@ -65,7 +65,7 @@ Based on the examples, we can assume that the string only contains lowercase let
 
 Therefore, we can use each bit of a $32$-bit integer `mask` to represent whether each character in the string has appeared.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

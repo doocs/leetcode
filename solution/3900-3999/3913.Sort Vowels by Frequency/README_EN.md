@@ -107,7 +107,7 @@ We then sort the $\textit{vowels}$ list with a custom comparator: vowels are sor
 
 Finally, we traverse the string, replacing each vowel with the corresponding letter from the $\textit{vowels}$ list, and update the frequency in the hash table. When the frequency of a vowel becomes 0, we move the pointer in the $\textit{vowels}$ list forward by one.
 
-The time complexity is $O(n + |\Sigma| \log |\Sigma|)$ and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string and $\Sigma$ is the set of vowels that appear in the string.
+The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string and $\Sigma$ is the set of vowels that appear in the string.
 
 <!-- tabs:start -->
 

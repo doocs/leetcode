@@ -90,7 +90,7 @@ We can sort the elements of the array by their squared values, then place the el
 
 The final alternating score is the sum of the squared values of the larger elements minus the sum of the squared values of the smaller elements, that is, the sum of the squares of the latter half of the sorted array $\text{nums}$ minus the sum of the squares of the first half.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

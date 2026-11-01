@@ -99,7 +99,7 @@ tags:
 
 最后我们返回 $f[\textit{mx}][2^m - 1]$ 即可。
 
-时间复杂度 $O(m \times 2^m \times \textit{mx})$，空间复杂度 $O(\textit{mx} \times 2^m)$。其中 $m$ 为矩阵的行数，而 $\textit{mx}$ 为矩阵中的最大值。
+时间复杂度 $O(m 2^m \textit{mx})$，空间复杂度 $O(\textit{mx} 2^m)$。其中 $m$ 为矩阵的行数，而 $\textit{mx}$ 为矩阵中的最大值。
 
 <!-- tabs:start -->
 

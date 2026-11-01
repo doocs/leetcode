@@ -84,7 +84,7 @@ Next, we design a function $dfs(i)$, which means the time required for employee 
 
 In function $dfs(i)$, we need to traverse all direct subordinates $j$ of $i$. For each subordinate, employee $i$ needs to notify him, which takes $informTime[i]$ time, and his subordinates need to notify their subordinates, which takes $dfs(j)$ time. We take the maximum value of $informTime[i] + dfs(j)$ as the return value of function $dfs(i)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of employees.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of employees.
 
 <!-- tabs:start -->
 
@@ -257,7 +257,7 @@ We first build an adjacent list $g$ according to the $manager$ array, where $g[i
 
 The time for employee $i$ to inform the whole subtree is $\textit{informTime}[i]$ plus the maximum time among the direct reports, or $0$ when there are no reports. An explicit stack walks from $\textit{headID}$ in postorder and writes that time when the node is left. The answer is the head's time.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of employees.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of employees.
 
 <!-- tabs:start -->
 

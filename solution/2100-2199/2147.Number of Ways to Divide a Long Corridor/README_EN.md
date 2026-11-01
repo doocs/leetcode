@@ -98,7 +98,7 @@ Otherwise, we need to consider the situation at the current position $i$:
 
 Finally, we return $\textit{dfs}(0, 0)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the corridor.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the corridor.
 
 <!-- tabs:start -->
 
@@ -336,7 +336,7 @@ When we encounter a seat, we increment $\textit{cnt}$ by $1$. If $\textit{cnt}$ 
 
 Finally, if $\textit{cnt}$ is greater than $0$ and $\textit{cnt}$ is even, return $\textit{ans}$; otherwise, return $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the corridor. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the corridor.
 
 <!-- tabs:start -->
 
@@ -498,7 +498,7 @@ Otherwise, let $nk$ be $k+1$ when $\textit{corridor}[i]$ is a seat and $k$ when 
 
 We calculate $f$ from $i = n - 1$ down to $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the corridor.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the corridor.
 
 <!-- tabs:start -->
 

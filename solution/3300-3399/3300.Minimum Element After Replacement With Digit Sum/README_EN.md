@@ -91,7 +91,7 @@ tags:
 
 We can traverse the array $\textit{nums}$. For each number $x$, we calculate the sum of its digits $y$. The minimum value among all $y$ is the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

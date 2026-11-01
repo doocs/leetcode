@@ -86,7 +86,7 @@ tags:
 >
 > $|x_1-x_2|+|y_1-y_2|$ equals the larger of the spreads of $x+y$ and $x-y$. The global maximum therefore depends only on the extreme values of these two transformed coordinates.
 >
-> Store every $x+y$ and $x-y$ in ordered sets, temporarily drop each point, read the new extrema, and insert it back. Each update is logarithmic, so the best removal is found in $O(n\log n)$.
+> Store every $x+y$ and $x-y$ in ordered sets, temporarily drop each point, read the new extrema, and insert it back. Each update is logarithmic, so the best removal is found in $O(n \log n)$.
 
 <!-- thinking:end -->
 
@@ -116,7 +116,7 @@ Here, the first two cases can be represented as $\max(\max(x_1 + y_1, x_2 + y_2)
 
 Therefore, we can store all points according to the values of $x + y$ and $x - y$ in two ordered sets, respectively. Then, for each point, we remove it, update the values in the ordered sets, calculate the difference between the maximum and minimum values, and take the minimum value.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of points.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 
 If strings `a` and `b` are equal, then they have no special sequences, return `-1`; otherwise, return the length of the longer string.
 
-The time complexity is $O(n)$, where $n$ is the length of the longer string among `a` and `b`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the longer string among `a` and `b`.
 
 <!-- tabs:start -->
 

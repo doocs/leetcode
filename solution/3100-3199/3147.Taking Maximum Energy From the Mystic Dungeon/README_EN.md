@@ -114,7 +114,7 @@ tags:
 
 We can enumerate the endpoints within the range $[n - k, n)$, then traverse backwards from each endpoint, accumulating the energy values of wizards at intervals of $k$, and update the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{energy}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{energy}$.
 
 <!-- tabs:start -->
 

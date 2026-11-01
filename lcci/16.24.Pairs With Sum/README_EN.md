@@ -57,7 +57,7 @@ We traverse the array, and for each element $x$, we calculate $y = target - x$. 
 
 After the traversal, we can obtain the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

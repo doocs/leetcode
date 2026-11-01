@@ -100,7 +100,7 @@ For all cell positions corresponding to each value, we traverse them in order of
 
 Finally, return the answer.
 
-The time complexity is $O(m \times n \times \log(m \times n))$, and the space complexity is $O(m \times n)$.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$.
 
 <!-- tabs:start -->
 

@@ -66,7 +66,7 @@ tags:
 
 我们可以先对数组 `citations` 按照元素值从大到小进行排序。然后我们从大到小枚举 $h$ 值，如果某个 $h$ 值满足 $citations[h-1] \geq h$，则说明有至少 $h$ 篇论文分别被引用了至少 $h$ 次，直接返回 $h$ 即可。如果没有找到这样的 $h$ 值，说明所有的论文都没有被引用，返回 $0$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `citations` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `citations` 的长度。
 
 <!-- tabs:start -->
 
@@ -179,7 +179,7 @@ impl Solution {
 
 > **思考**
 >
-> 排序为 $O(n\log n)$。 $h$ 不超过 $n$，可把引用次数封顶为 $n$ 后计数，从大到小累加篇数，第一次 $s\ge h$ 即答案。
+> 排序为 $O(n \log n)$。 $h$ 不超过 $n$，可把引用次数封顶为 $n$ 后计数，从大到小累加篇数，第一次 $s\ge h$ 即答案。
 
 <!-- thinking:end -->
 
@@ -305,7 +305,7 @@ function hIndex(citations: number[]): number {
 
 我们定义二分查找的左边界 $l=0$，右边界 $r=n$。每次我们取 $mid = \lfloor \frac{l + r + 1}{2} \rfloor$，其中 $\lfloor x \rfloor$ 表示对 $x$ 向下取整。然后我们统计数组 `citations` 中大于等于 $mid$ 的元素的个数，记为 $s$。如果 $s \geq mid$，说明至少有 $mid$ 篇论文至少被引用 $mid$ 次，此时我们将左边界 $l$ 变为 $mid$，否则我们将右边界 $r$ 变为 $mid-1$。当左边界 $l$ 等于右边界 $r$ 时，我们找到了最大的 $h$ 值，即为 $l$ 或 $r$。
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 `citations` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `citations` 的长度。
 
 <!-- tabs:start -->
 

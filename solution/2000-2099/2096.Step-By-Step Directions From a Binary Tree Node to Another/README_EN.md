@@ -83,7 +83,7 @@ tags:
 
 We can first find the lowest common ancestor of nodes $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{node}$. Then, starting from $\textit{node}$, we find the paths to $\textit{startValue}$ and $\textit{destValue}$ respectively. The path from $\textit{startValue}$ to $\textit{node}$ will consist of a number of $\textit{U}$s, and the path from $\textit{node}$ to $\textit{destValue}$ will be the $\textit{path}$. Finally, we concatenate these two paths.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -428,7 +428,7 @@ var getDirections = function (root, startValue, destValue) {
 
 We can start from $\textit{root}$, find the paths to $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{pathToStart}$ and $\textit{pathToDest}$, respectively. Then, remove the longest common prefix of $\textit{pathToStart}$ and $\textit{pathToDest}$. At this point, the length of $\textit{pathToStart}$ is the number of $\textit{U}$s in the answer, and the path of $\textit{pathToDest}$ is the path in the answer. We just need to concatenate these two paths.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -727,7 +727,7 @@ var getDirections = function (root, startValue, destValue) {
 
 An explicit stack finds the lowest common ancestor of $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{node}$. State $0$ expands the two children, and state $1$ decides the ancestor after both sides return: the current node when both sides are non-empty, otherwise the non-empty side. The same stack then walks from $\textit{node}$, recording `L` to the left and rewriting that step to `R` when the left subtree misses the target. The number of steps from $\textit{startValue}$ back to $\textit{node}$ is the number of `U`s, followed by the direction string from $\textit{node}$ to $\textit{destValue}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -1224,7 +1224,7 @@ var getDirections = function (root, startValue, destValue) {
 
 An explicit stack walks from $\textit{root}$ to $\textit{startValue}$ and to $\textit{destValue}$, producing $\textit{pathToStart}$ and $\textit{pathToDest}$. A failed left subtree rewrites the last step to `R` before the right child is searched, so the strings match the previous depth-first order. After the longest common prefix is removed, the remaining length of $\textit{pathToStart}$ is the number of `U`s, and the remaining part of $\textit{pathToDest}$ is the downward path. Concatenate the two pieces.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

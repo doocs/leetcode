@@ -86,7 +86,7 @@ tags:
 
 We reverse the first $k$ characters of the string according to the problem description, and then concatenate them with the remaining characters.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ Traverse the array $nums$, for the current element $nums[i]$, calculate the pref
 
 Finally, if $mx = -1$, return $-1$, otherwise return $n - mx$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -255,7 +255,7 @@ Traverse the array $nums$, for the current element $nums[i]$, calculate the pref
 
 Finally, if $mx = -1$, return $-1$, otherwise return $n - mx$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -131,7 +131,7 @@ tags:
 
 最后，调用 $\text{dfs}(0, -1)$，如果返回值为真，表示无法将 $\text{start}$ 转换为 $\text{target}$，则返回 $[-1]$。否则，对答案列表进行排序并返回。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
 
@@ -321,7 +321,7 @@ function minimumFlips(n: number, edges: number[][], start: string, target: strin
 
 用显式栈从结点 $0$ 做后序遍历。进入一个结点时，先压入该结点的离开标记，再压入它的孩子，这样孩子会先处理完。离开时，用 $\text{rev}$ 记录当前结点是否仍需翻转连向父亲的边，初始值为 $\text{start}[a] \ne \text{target}[a]$。对每个孩子 $b$，若它的子树仍需要翻转边 $[a, b]$，就把边下标 $i$ 加入答案，并将 $\text{rev}$ 取反。根结点没有父亲。若根的 $\text{rev}$ 仍为真，表示无法把 $\text{start}$ 变成 $\text{target}$，返回 $[-1]$。否则对答案排序后返回。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
 

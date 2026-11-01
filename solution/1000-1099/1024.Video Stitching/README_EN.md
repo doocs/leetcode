@@ -100,7 +100,7 @@ At the same time, we record the right endpoint `pre` of the last used sub-interv
 
 After the traversal is over, return `ans`.
 
-The time complexity is $O(n+m)$, and the space complexity is $O(m)$. Where $n$ and $m$ are the lengths of the `clips` array and the value of `time`, respectively.
+The time complexity is $O(n+m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the `clips` array and the value of `time`, respectively.
 
 Similar problems:
 

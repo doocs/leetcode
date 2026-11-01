@@ -93,7 +93,7 @@ tags:
 
 我们可以将 $num$ 转换为字符串 $s$，然后枚举 $s$ 的所有长度为 $k$ 的子字符串，将其转换为整数 $t$，判断 $t$ 是否能整除 $num$，如果能则答案加一。
 
-时间复杂度 $O(\log num \times k)$，空间复杂度 $O(\log num + k)$。
+时间复杂度 $O(k \log num)$，空间复杂度 $O(\log num + k)$。
 
 <!-- tabs:start -->
 

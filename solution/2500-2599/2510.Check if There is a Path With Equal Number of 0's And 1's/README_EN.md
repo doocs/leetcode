@@ -70,7 +70,7 @@ According to the problem description, we know that the number of 0s and 1s on th
 
 Therefore, we can use memoization search, starting from the top-left corner and moving right or down until reaching the bottom-right corner, to check if the number of 0s and 1s on the path is equal.
 
-The time complexity is $O(m \times n \times (m + n))$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn(m + n))$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -91,7 +91,7 @@ Next, we discuss in two cases:
 
 Therefore, we sort the array $coins$ in ascending order, and then traverse the coins in the array from small to large. For each coin $x$, we discuss in the above two cases until $s > target$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

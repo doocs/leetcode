@@ -74,7 +74,7 @@ tags:
 
 Precompute $\textit{left}[i]$ as the cost of moving all balls on the left of $i$ to position $i$, and $\textit{right}[i]$ as the cost of moving all balls on the right of $i$ to position $i$. The answer at $i$ is $\textit{left}[i] + \textit{right}[i]$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{boxes}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{boxes}$.
 
 <!-- tabs:start -->
 
@@ -285,7 +285,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 $\textit{left}[i]$ and $\textit{right}[i]$ in Solution 1 depend only on the previous position, so we can drop those arrays and accumulate into $\textit{ans}$ with one left-to-right pass and one right-to-left pass.
 
-The time complexity is $O(n)$. Ignoring the answer array, the extra space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -478,7 +478,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 Collect every ball position, then for each box $i$ add $|i - j|$ for every ball $j$.
 
-The time complexity is $O(n \times m)$ and the space complexity is $O(m)$, where $n$ is the length of $\textit{boxes}$ and $m$ is the number of balls.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the length of $\textit{boxes}$ and $m$ is the number of balls.
 
 <!-- tabs:start -->
 

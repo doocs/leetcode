@@ -83,7 +83,7 @@ If $\textit{rounds}[0] \leq \textit{rounds}[m]$, then the sectors from $\textit{
 
 Otherwise, the sectors from $1$ to $\textit{rounds}[m]$ and the sectors from $\textit{rounds}[0]$ to $n$ form the union of the most passed sectors, and we can return the union of these two intervals.
 
-The time complexity is $O(n)$, where $n$ is the number of sectors. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of sectors.
 
 <!-- tabs:start -->
 

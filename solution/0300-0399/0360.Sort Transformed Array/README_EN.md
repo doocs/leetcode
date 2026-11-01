@@ -52,7 +52,7 @@ tags:
 
 > **Thinking**
 >
-> $nums$ is sorted; we must output $ax^2+bx+c$ in order. Evaluating and sorting is $O(n\log n)$, but a quadratic is monotone on each side of the vertex.
+> $nums$ is sorted; we must output $ax^2+bx+c$ in order. Evaluating and sorting is $O(n \log n)$, but a quadratic is monotone on each side of the vertex.
 >
 > If $a>0$ the ends are larger, so fill the answer from the back; if $a\le 0$ fill from the front. Two pointers move inward in linear time.
 

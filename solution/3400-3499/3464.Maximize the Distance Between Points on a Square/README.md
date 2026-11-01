@@ -131,7 +131,7 @@ tags:
 - 随后贪心地进行 $k-1$ 次跳转，每次利用二分查找快速定位下一个距离当前位置至少为 $\textit{lo}$ 的点。
 - 如果能在满足 $\textit{end}$ 限制的情况下选够 $k$ 个点，则该距离 $\textit{lo}$ 可行。
 
-时间复杂度 $O(n \log (\text{side}) \cdot n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为点集 $\textit{points}$ 的长度。
+时间复杂度 $O(n^2 \log(\text{side}) \log n)$，空间复杂度 $O(n)$。其中 $n$ 为点集 $\textit{points}$ 的长度。
 
 <!-- tabs:start -->
 

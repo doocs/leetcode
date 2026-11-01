@@ -74,7 +74,7 @@ $$
 
 Therefore, we just need to find the maximum value $mx$ and the minimum value $mi$ of $a \times x_i + b \times y_i + i$, where $a, b \in \{-1, 1\}$. The answer is the maximum value among all $mx - mi$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 Similar problems:
 

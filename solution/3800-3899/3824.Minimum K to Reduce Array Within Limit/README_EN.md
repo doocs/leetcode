@@ -93,7 +93,7 @@ We notice that as $k$ increases, it becomes easier to satisfy the condition. Thi
 
 We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = 10^5$. In each binary search iteration, we calculate the middle value $mid = \lfloor (l + r) / 2 \rfloor$ and determine whether the condition $\text{nonPositive}(\text{nums}, k) \leq k^2$ is satisfied when $k = mid$. If the condition is satisfied, we update the right boundary to $r = mid$; otherwise, we update the left boundary to $l = mid + 1$. When the binary search ends, the left boundary $l$ is the minimum $k$ we are looking for.
 
-The time complexity is $O(n \log M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum range respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum range respectively.
 
 <!-- tabs:start -->
 

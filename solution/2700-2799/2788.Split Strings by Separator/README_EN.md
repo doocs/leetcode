@@ -94,7 +94,7 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 
 We traverse the string array $words$. For each string $w$, we use `separator` as the delimiter to split it. If the split string is not empty, we add it to the answer array.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, where $n$ is the length of the string array $words$, and $m$ is the maximum length of the strings in the array $words$.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the length of the string array $words$, and $m$ is the maximum length of the strings in the array $words$.
 
 <!-- tabs:start -->
 

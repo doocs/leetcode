@@ -94,7 +94,7 @@ In each round of operations, if the current number of stones that can be removed
 
 Finally, we check the parity of $k$. If $k$ is odd, Alice wins the game; otherwise, Bob wins the game.
 
-The time complexity is $O(\sqrt{n})$, where $n$ is the number of stones. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 

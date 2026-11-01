@@ -110,7 +110,7 @@ where $k$ represents the number of questions of the $i$th type.
 
 The final answer is $f[n][target]$. Note that the answer may be very large and needs to be modulo $10^9 + 7$.
 
-The time complexity is $O(n \times target \times count)$ and the space complexity is $O(n \times target)$. $n$ is the number of types of questions, and $target$ and $count$ are the target score and the number of questions of each type, respectively.
+The time complexity is $O(n target count)$, and the space complexity is $O(n target)$, where $n$ is the number of types of questions, and $target$ and $count$ are the target score and the number of questions of each type, respectively.
 
 <!-- tabs:start -->
 

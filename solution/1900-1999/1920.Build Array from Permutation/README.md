@@ -78,7 +78,7 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 我们可以直接模拟题目描述的过程，构建一个新的数组 $\textit{ans}$，对于每个 $i$，令 $\textit{ans}[i] = \textit{nums}[\textit{nums}[i]]$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

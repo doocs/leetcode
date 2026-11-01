@@ -126,7 +126,7 @@ tags:
 - 如果当前班次的时间 $\textit{shifts}[j]$ 小于完成当前任务所需的时间 $\textit{tasks}[i] - \textit{cur}$，说明这个班次只能推进当前任务的一部分，更新 $\textit{cur} \gets \textit{cur} + \textit{shifts}[j]$，未完成任务数为 $m - i$；
 - 否则，当前任务会被完成，剩余时间为 $t = \textit{shifts}[j] - (\textit{tasks}[i] - \textit{cur})$。如果 $t \ge s[m] - s[i + 1]$，说明所有任务都能被完成，下一班次重新从任务 $0$ 开始，即 $i \gets 0$， $\textit{cur} \gets 0$，未完成任务数为 $0$；否则，我们在区间 $[i + 1, m]$ 中二分查找最大的下标 $l$，使得 $s[l] - s[i + 1] \le t$，即班次结束时正在处理任务 $l$，且该任务已处理的时间为 $\textit{cur} = t - (s[l] - s[i + 1])$，未完成任务数为 $m - l$。
 
-时间复杂度 $O((m + n) \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是数组 $\textit{tasks}$ 和 $\textit{shifts}$ 的长度。
+时间复杂度 $O((m + n) \log m)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是数组 $\textit{tasks}$ 和 $\textit{shifts}$ 的长度。
 
 <!-- tabs:start -->
 

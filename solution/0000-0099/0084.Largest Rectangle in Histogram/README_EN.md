@@ -67,7 +67,7 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 We can enumerate the height $h$ of each bar as the height of the rectangle. Using a monotonic stack, we find the index $left_i$, $right_i$ of the first bar with a height less than $h$ to the left and right. The area of the rectangle at this time is $h \times (right_i-left_i-1)$. We can find the maximum value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of $heights$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of $heights$.
 
 Common model of monotonic stack: Find the **nearest** number to the left/right of each number that is **larger/smaller** than it. Template:
 

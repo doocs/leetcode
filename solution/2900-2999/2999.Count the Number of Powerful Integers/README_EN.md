@@ -107,7 +107,7 @@ The basic steps are as follows:
 
 The answer is the count of valid numbers in $[1, \textit{finish}]$ minus the count of valid numbers in $[1, \textit{start} - 1]$.
 
-Time complexity is $O(\log M \times D)$, and space complexity is $O(\log M)$, where $M$ is the upper limit of the number, and $D = 10$.
+The time complexity is $O(D \log M)$, and the space complexity is $O(\log M)$, where $M$ is the upper limit of the number, and $D = 10$.
 
 <!-- tabs:start -->
 

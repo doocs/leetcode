@@ -127,7 +127,7 @@ Then, for each query $[l, r]$, there may be 3 cases:
 1. The query interval $[l, r]$ is completely contained within a single segment. In this case, the number of stable subarrays can be directly calculated using the formula $\frac{(k + 1) \cdot k}{2}$, where $k = r - l + 1$.
 2. The query interval $[l, r]$ spans multiple segments. In this case, we need to separately calculate the number of stable subarrays in the left incomplete segment, the right incomplete segment, and the complete segments in the middle, then add them together to get the final result.
 
-The time complexity is $O((n + q) \log n)$, where $n$ is the length of the array and $q$ is the number of queries. The space complexity is $O(n)$.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

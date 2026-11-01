@@ -76,7 +76,7 @@ tags:
 
 We can sort the free time intervals of both people, then use two pointers to traverse the two arrays and find the intersection of the free time intervals of both people. If the length of the intersection is greater than or equal to `duration`, return the start time of the intersection and the start time plus `duration`. Otherwise, if the end time of the first person's free time interval is less than the end time of the second person's free time interval, move the first person's pointer; otherwise, move the second person's pointer. Continue traversing until a suitable time interval is found or the traversal ends.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Here, $m$ and $n$ are the lengths of the two arrays, respectively.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\log m + \log n)$, where $m$ and $n$ are the lengths of the two arrays, respectively.
 
 <!-- tabs:start -->
 

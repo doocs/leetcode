@@ -64,7 +64,7 @@ difficulty: Medium
 
 We design a function $\textit{dfs}(i)$ to represent that the first $i$ positions have been filled, and now we need to fill the $(i+1)$-th position. Enumerate all possible characters, and if the character has not been used, fill in this character and continue to fill the next position until all positions are filled.
 
-The time complexity is $O(n \times n!)$, where $n$ is the length of the string. There are $n!$ permutations in total, and each permutation takes $O(n)$ time to construct.
+The time complexity is $O(nn!)$, where $n$ is the length of the string. There are $n!$ permutations in total, and each permutation takes $O(n)$ time to construct.
 
 <!-- tabs:start -->
 

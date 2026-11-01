@@ -87,7 +87,7 @@ tags:
 
 对于每个数据中心，我们假设可以升级 $\textit{x}$ 台服务器，那么 $\textit{x} \times \textit{upgrade[i]} \leq \textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}$。即 $\textit{x} \leq \frac{\textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}}{\textit{upgrade[i]} + \textit{sell[i]}}$。又因为 $\textit{x} \leq \textit{count[i]}$，所以我们取两者的最小值即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 

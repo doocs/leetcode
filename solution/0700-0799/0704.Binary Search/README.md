@@ -76,7 +76,7 @@ tags:
 
 循环结束的条件是 $l<r$，此时 $\textit{nums}[l]$ 就是我们要找的目标值，如果 $\textit{nums}[l]=\textit{target}$，返回 $l$，否则返回 $-1$。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

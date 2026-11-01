@@ -183,7 +183,7 @@ Next, we iterate through each position $i$ in the string as the starting positio
 
 For a substring starting at position $i$ and containing $\textit{cnt}_0$ zeros, it can contain at most $\textit{nxt}[j + 1] - i - \textit{cnt}_0$ ones. If this quantity is greater than or equal to $\textit{cnt}_0^2$, it means there exists a substring that satisfies the condition. At this point, we need to determine how many positions the right endpoint $\textit{nxt}[j + 1] - 1$ can move left while still satisfying the condition. Specifically, the right endpoint has a total of $\min(\textit{nxt}[j + 1] - j, \textit{cnt}_1 - \textit{cnt}_0^2 + 1)$ possible choices. We accumulate these counts to the answer. Then we move pointer $j$ to the position of the next $0$ and continue enumerating the next value of $\textit{cnt}_0$ until $\textit{cnt}_0^2$ exceeds the string length.
 
-The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the length of the string.
+The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

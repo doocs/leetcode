@@ -104,7 +104,7 @@ We use a stack to simulate this process. We traverse the array, and for each num
 
 The final elements in the stack are the final result.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Where $M$ is the maximum value in the array.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

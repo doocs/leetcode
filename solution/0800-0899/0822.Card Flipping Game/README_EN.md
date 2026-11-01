@@ -78,7 +78,7 @@ Next, we iterate through all elements in both the front and back arrays. For any
 
 Finally, if we find any element that satisfies the condition, we return the minimum answer; otherwise, we return $0$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the arrays.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays.
 
 <!-- tabs:start -->
 

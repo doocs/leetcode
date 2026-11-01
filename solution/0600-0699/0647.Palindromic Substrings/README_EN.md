@@ -68,7 +68,7 @@ tags:
 
 We can enumerate the center position of each palindrome and expand outward to count the number of palindromic substrings. For a string of length $n$, there are $2n-1$ possible center positions (covering both odd-length and even-length palindromes). For each center, we expand outward until the palindrome condition is no longer satisfied, and count the number of palindromic substrings.
 
-The time complexity is $O(n^2)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -184,7 +184,7 @@ var countSubstrings = function (s) {
 
 In Manacher's algorithm, $p[i] - 1$ represents the maximum palindrome length centered at position $i$, and the number of palindromic substrings centered at position $i$ is $\left \lceil \frac{p[i]-1}{2} \right \rceil$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

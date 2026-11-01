@@ -93,7 +93,7 @@ Consider how to perform state transition for $f[i][j]$.
 
 The answer is $\sum_{i,j} f[i][j]$.
 
-Time complexity $O(m \times n)$, space complexity $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
 <!-- tabs:start -->
 

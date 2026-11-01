@@ -79,7 +79,7 @@ tags:
 
 We can generate the array $\textit{arr}$ according to the problem's requirements, then sort the array, and finally calculate the sum of all elements in the range $[\textit{left}-1, \textit{right}-1]$ to get the result.
 
-The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array given in the problem.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array given in the problem.
 
 <!-- tabs:start -->
 

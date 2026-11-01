@@ -73,7 +73,7 @@ The execution logic of the function $dfs(root)$ is as follows:
 - If $x < high$, it means that there may be nodes in the right subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.right)$ and add the result to the answer.
 - Finally, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

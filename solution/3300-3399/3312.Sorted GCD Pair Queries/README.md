@@ -121,7 +121,7 @@ tags:
 
 最后，我们计算数组 $\textit{cntG}$ 的前缀和，然后对于每个查询，我们可以通过二分查找在数组 $\textit{cntG}$ 中找到第一个大于 $\textit{queries}[i]$ 的元素的下标，即为答案。
 
-时间复杂度 $O(n + (M + q) \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和最大值，而 $q$ 是查询的数量。
+时间复杂度 $O(n + (M + q) \log M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和最大值，而 $q$ 是查询的数量。
 
 <!-- tabs:start -->
 

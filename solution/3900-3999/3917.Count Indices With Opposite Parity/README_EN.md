@@ -94,7 +94,7 @@ Then, we traverse the array $\textit{nums}$ from left to right. For index $i$, w
 
 After the traversal, return the answer array $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space complexity of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

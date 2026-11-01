@@ -96,7 +96,7 @@ If no choice can make the current player win, then the current player is losing,
 
 To avoid repeated calculations, we use a hash table `f` to record the calculated states, where the key is `mask`, and the value is whether the current player can win.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$ is `maxChoosableInteger`.
+The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$ is `maxChoosableInteger`.
 
 <!-- tabs:start -->
 

@@ -117,7 +117,7 @@ The implementation of the function $\text{parse}(i)$ is as follows:
 2. Otherwise, the current position $i$ is the starting position of an operator `op`. We continue scanning forward until we encounter a left parenthesis `(`, parsing the operator string `op`. Then we skip the left parenthesis, recursively call $\text{parse}$ to parse the first parameter $a$, skip the comma, recursively call $\text{parse}$ to parse the second parameter $b$, and finally skip the right parenthesis `)`.
 3. Based on the operator `op`, calculate the result of $a$ and $b$, and return that result along with the next unprocessed index position.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the expression string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the expression string.
 
 <!-- tabs:start -->
 

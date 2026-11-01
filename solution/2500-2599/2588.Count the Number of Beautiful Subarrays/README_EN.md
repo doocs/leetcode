@@ -94,7 +94,7 @@ Therefore, we can use the prefix XOR method and a hash table $cnt$ to count the 
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

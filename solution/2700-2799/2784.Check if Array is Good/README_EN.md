@@ -91,7 +91,7 @@ We can use a hash table or array $cnt$ to record the number of occurrences of ea
 
 If the above two conditions are met, then the array $nums$ is a good array, otherwise it is not.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

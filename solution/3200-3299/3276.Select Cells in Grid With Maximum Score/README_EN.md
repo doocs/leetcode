@@ -97,7 +97,7 @@ For the state $f[i][j]$, we can choose not to select the number $i$, in which ca
 
 Finally, we return $f[\textit{mx}][2^m - 1]$.
 
-The time complexity is $O(m \times 2^m \times \textit{mx})$, and the space complexity is $O(\textit{mx} \times 2^m)$. Here, $m$ is the number of rows in the matrix, and $\textit{mx}$ is the maximum value in the matrix.
+The time complexity is $O(m 2^m \textit{mx})$, and the space complexity is $O(\textit{mx} 2^m)$, where $m$ is the number of rows in the matrix, and $\textit{mx}$ is the maximum value in the matrix.
 
 <!-- tabs:start -->
 

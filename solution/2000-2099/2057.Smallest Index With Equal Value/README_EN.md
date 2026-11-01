@@ -85,7 +85,7 @@ We directly traverse the array. For each index $i$, we check if it satisfies $i 
 
 If we traverse the entire array and do not find a satisfying index, we return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ f[i - 1][j - 1] + 1, & text1[i - 1] = text2[j - 1] \\
 \end{cases}
 $$
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为 $text1$ 和 $text2$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为 $text1$ 和 $text2$ 的长度。
 
 <!-- tabs:start -->
 

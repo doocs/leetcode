@@ -102,7 +102,7 @@ Observing the state transition equation $f[j] = f[j] \vee f[j - v]$, this is equ
 
 Thus, the answer is the position of the highest bit in $f$.
 
-The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M / w)$. Where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
+The time complexity is $O(nM / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
 
 <!-- tabs:start -->
 

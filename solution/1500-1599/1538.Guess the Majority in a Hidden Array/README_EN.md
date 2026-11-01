@@ -103,7 +103,7 @@ Then, we need to check whether the elements at indices $0, 1, 2$ are the same as
 
 Finally, if $a = b$, it means the number of $0$s and $1$s in the array are equal, so we return $-1$; otherwise, if $a > b$, we return $3$, otherwise we return $k$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

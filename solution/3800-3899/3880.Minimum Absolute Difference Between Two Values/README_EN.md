@@ -92,7 +92,7 @@ We use an array $\textit{last}$ of length $3$ to record the last occurrence inde
 
 After the iteration, if $\textit{ans}$ is greater than the length of the array $\textit{nums}$, it means no valid index pair exists, so we return -1; otherwise, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

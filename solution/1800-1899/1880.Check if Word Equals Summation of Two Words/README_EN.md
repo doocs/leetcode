@@ -96,7 +96,7 @@ We define a function $\textit{f}(s)$ to calculate the numerical value of the str
 
 Finally, we just need to check whether $\textit{f}(\textit{firstWord}) + \textit{f}(\textit{secondWord})$ equals $\textit{f}(\textit{targetWord})$.
 
-The time complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the problem. The space complexity is $O(1)$.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the sum of the lengths of all strings in the problem.
 
 <!-- tabs:start -->
 

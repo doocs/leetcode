@@ -77,7 +77,7 @@ We traverse the array from left to right once, and if the current child's score 
 
 Finally, we traverse the array of scores once, and the minimum number of candies each child should get is the maximum of $left[i]$ and $right[i]$, and we add them up to get the answer.
 
-Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array of scores.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array of scores.
 
 <!-- tabs:start -->
 

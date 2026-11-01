@@ -76,7 +76,7 @@ tags:
 
 遍历完成后，返回结果即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -166,7 +166,7 @@ function minIncrementForUnique(nums: number[]): number {
 
 > **思考**
 >
-> 排序需要 $O(n\log n)$。值域加上长度后上界为 $m$，可用计数：从低到高，多余的 $cnt[i]-1$ 个 $i$ 全部挪到 $i+1$，线性扫完值域。
+> 排序需要 $O(n \log n)$。值域加上长度后上界为 $m$，可用计数：从低到高，多余的 $cnt[i]-1$ 个 $i$ 全部挪到 $i+1$，线性扫完值域。
 
 <!-- thinking:end -->
 

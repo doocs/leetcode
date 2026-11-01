@@ -116,7 +116,7 @@ The key to the problem is how to judge whether we can mark all indices within $t
 
 We traverse the first $t$ elements of the array `changeIndices`, for each element $i$, if $last[i] = s$, then we need to check whether $decrement$ is greater than or equal to $nums[i - 1]$, if it is, we subtract $nums[i - 1]$ from $decrement$, and add one to $marked$; otherwise, we return `False`. If $last[i] \neq s$, then we can temporarily not mark the index, so we add one to $decrement$. Finally, we check whether $marked$ is equal to $n$, if it is, we return `True`, otherwise return `False`.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of `nums` and `changeIndices` respectively.
+The time complexity is $O(m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of `nums` and `changeIndices` respectively.
 
 <!-- tabs:start -->
 

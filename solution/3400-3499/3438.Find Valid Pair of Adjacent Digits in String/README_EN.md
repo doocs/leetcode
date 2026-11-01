@@ -99,7 +99,7 @@ Then, we traverse the adjacent digit pairs in the string $\textit{s}$. If the tw
 
 After traversing, if no valid pair of adjacent digits is found, we return an empty string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set of the string $\textit{s}$. In this problem, $\Sigma = \{1, 2, \ldots, 9\}$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set of the string $\textit{s}$. In this problem, $\Sigma = \{1, 2, \ldots, 9\}$.
 
 <!-- tabs:start -->
 

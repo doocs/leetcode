@@ -93,7 +93,7 @@ Call each maximal run of consecutive equal elements a **block**. An integer $x$ 
 
 So we traverse the array, and whenever $i = 0$ or $\textit{nums}[i] \neq \textit{nums}[i - 1]$, position $i$ starts a new block, and we increment $\textit{cnt}[\textit{nums}[i]]$. After the traversal, the answer is the number of integers whose count in $\textit{cnt}$ is exactly $1$.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M = 100$ is the maximum value in the array.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{nums}$, and $M = 100$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

@@ -83,7 +83,7 @@ Therefore, we only need to traverse the string $blocks$, use a variable $cnt$ to
 
 After the traversal ends, we can get the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $blocks$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $blocks$.
 
 <!-- tabs:start -->
 

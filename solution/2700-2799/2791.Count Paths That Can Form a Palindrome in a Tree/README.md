@@ -258,7 +258,7 @@ function countPalindromePaths(parent: number[], s: string): number {
 
 用显式栈从根做先序遍历。根的掩码 $0$ 预先计入哈希表。访问每条边时，用父节点掩码异或该边字母得到子节点掩码，把与已访问节点形成回文的路径数累加进答案，再把子节点掩码入库。
 
-时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(n)$。其中 $|\Sigma|$ 是字母表大小。
+时间复杂度 $O(n|\Sigma|)$，空间复杂度 $O(n)$。其中 $|\Sigma|$ 是字母表大小。
 
 <!-- tabs:start -->
 

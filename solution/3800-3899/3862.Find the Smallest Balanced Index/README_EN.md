@@ -116,7 +116,7 @@ We first compute the total sum $s$ of all elements in the array. Then we enumera
 
 If no balanced index is found after the enumeration, we return -1.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

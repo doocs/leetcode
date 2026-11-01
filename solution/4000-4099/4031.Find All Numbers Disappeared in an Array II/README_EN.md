@@ -110,7 +110,7 @@ Iterate over the sorted array and skip values outside $[\textit{lower}, \textit{
 
 After the scan, if $\textit{prev} < \textit{upper}$, append the trailing range $[\textit{prev} + 1, \textit{upper}]$.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

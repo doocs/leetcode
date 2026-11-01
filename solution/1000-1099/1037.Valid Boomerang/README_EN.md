@@ -69,7 +69,7 @@ Note:
 1. When the slope between two points does not exist, i.e., $x_1 = x_2$, the transformed equation still holds.
 2. If there are precision issues with division in slope comparison, it can be converted to multiplication.
 
-Time complexity is $O(1)$.
+The time complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -68,7 +68,7 @@ tags:
 
 We can start from $1$ and alternately add positive and negative numbers to the result array. We repeat this process $\frac{n}{2}$ times. If $n$ is odd, we add $0$ to the result array at the end.
 
-The time complexity is $O(n)$, where $n$ is the given integer. Ignoring the space used for the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -180,7 +180,7 @@ impl Solution {
 
 We can also add all integers from $1$ to $n-1$ to the result array, and finally add the opposite of the sum of the first $n-1$ integers, which is $-\frac{n(n-1)}{2}$, to the result array.
 
-The time complexity is $O(n)$, where $n$ is the given integer. Ignoring the space used for the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

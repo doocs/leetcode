@@ -85,7 +85,7 @@ Therefore, we first sort the two arrays, and then use two pointers $i$ and $j$ t
 
 If we have traversed the array $g$, it means that all children have been allocated cookies, and we can return the total number of children.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Where $m$ and $n$ are the lengths of arrays $g$ and $s$ respectively.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\log m + \log n)$, where $m$ and $n$ are the lengths of arrays $g$ and $s$ respectively.
 
 <!-- tabs:start -->
 

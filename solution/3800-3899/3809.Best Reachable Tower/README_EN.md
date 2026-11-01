@@ -136,7 +136,7 @@ If $\textit{dist} > \textit{radius}$, the tower is unreachable, so we skip it. O
 
 After the traversal ends, if $\textit{idx} = -1$, it means there are no reachable towers, so we return $[-1, -1]$. Otherwise, we return the coordinates of the best tower.
 
-The time complexity is $O(n)$, where $n$ is the number of towers. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of towers.
 
 <!-- tabs:start -->
 

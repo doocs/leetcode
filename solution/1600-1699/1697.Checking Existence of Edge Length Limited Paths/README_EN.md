@@ -87,7 +87,7 @@ The connectivity of two points can be determined by a union-find set. Moreover, 
 
 Then for each query, we start from the edge with the smallest weight, add all edges with weights strictly less than $limit$ to the union-find set, and then use the query operation of the union-find set to determine whether the two points are connected.
 
-The time complexity is $O(m \times \log m + q \times \log q)$, where $m$ and $q$ are the number of edges and queries, respectively.
+The time complexity is $O(m \log m + q \log q)$, where $m$ and $q$ are the number of edges and queries, respectively.
 
 <!-- tabs:start -->
 

@@ -97,7 +97,7 @@ First, we traverse the entire two-dimensional array to find the position of `*`,
 
 Then, we start BFS, traversing the elements in the queue. Each time we traverse an element, we add the elements in the four directions (up, down, left, and right) of it into the queue, until we encounter `#`, and return the current layer number.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Here, $m$ and $n$ are the number of rows and columns of the two-dimensional array, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the two-dimensional array, respectively.
 
 <!-- tabs:start -->
 

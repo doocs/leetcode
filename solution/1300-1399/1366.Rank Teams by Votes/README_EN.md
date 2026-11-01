@@ -89,7 +89,7 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 
 For each candidate, we can count the number of votes they receive at each rank, then compare the vote counts for different ranks in order. If the vote counts are the same, we compare the letters.
 
-The time complexity is $O(n \times m + m^2 \times \log m)$, and the space complexity is $O(m^2)$. Here, $n$ is the length of $\textit{votes}$, and $m$ is the number of candidates, i.e., the length of $\textit{votes}[0]$.
+The time complexity is $O(nm + m^2 \log m)$, and the space complexity is $O(m^2)$, where $n$ is the length of $\textit{votes}$, and $m$ is the number of candidates, i.e., the length of $\textit{votes}[0]$.
 
 <!-- tabs:start -->
 

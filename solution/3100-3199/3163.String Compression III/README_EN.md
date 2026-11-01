@@ -97,7 +97,7 @@ We can use two pointers to count the consecutive occurrences of each character. 
 
 Finally, return the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

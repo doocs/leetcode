@@ -68,7 +68,7 @@ We perform an in-order traversal on the binary search tree. During the traversal
 
 After the traversal ends, the original binary search tree is modified into a singly linked list with only right child nodes. We then return the right child of the virtual node $dummy$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

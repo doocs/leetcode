@@ -82,7 +82,7 @@ To minimize the number of days required to complete all jobs, we can try to assi
 
 Therefore, we can first sort $\textit{jobs}$ and $\textit{workers}$, then assign jobs to workers based on their indices. Finally, we calculate the maximum ratio of job time to worker time.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of jobs.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of jobs.
 
 <!-- tabs:start -->
 

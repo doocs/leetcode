@@ -96,7 +96,7 @@ According to the description of the problem, we traverse each character $c$ in t
 
 After the traversal is over, return the answer $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -229,7 +229,7 @@ We can consider the value $v$ of each character $c$ as an integer, so the actual
 
 We use the variable $f$ to maintain the cost of the maximum cost substring ending with the current character $c$. Each time we traverse to a character $c$, we update $f=max(f, 0) + v$. Then we update the answer $ans=max(ans,f)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

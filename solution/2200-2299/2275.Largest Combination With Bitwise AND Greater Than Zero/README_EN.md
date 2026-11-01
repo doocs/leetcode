@@ -81,7 +81,7 @@ The size of the combination is 2, so we return 2.
 
 The problem requires finding the maximum length of a combination of numbers where the bitwise AND result is greater than $0$. This implies that there must be a certain binary bit where all numbers have a $1$ at that position. Therefore, we can enumerate each binary bit and count the number of $1$s at that bit position for all numbers. Finally, we take the maximum count.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $\textit{candidates}$ and the maximum value in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\textit{candidates}$ and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

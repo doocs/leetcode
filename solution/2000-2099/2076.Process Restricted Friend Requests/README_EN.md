@@ -100,7 +100,7 @@ We can use a union-find set to maintain the friend relationships, and then for e
 
 For the two people $(u, v)$ in the current request, if they are already friends, then the request can be directly accepted; otherwise, we traverse the restriction conditions. If there exists a restriction condition $(x, y)$ such that $u$ and $x$ are friends and $v$ and $y$ are friends, or $u$ and $y$ are friends and $v$ and $x$ are friends, then the request cannot be accepted.
 
-The time complexity is $O(q \times m \times \log(n))$, and the space complexity is $O(n)$. Where $q$ and $m$ are the number of requests and the number of restriction conditions respectively.
+The time complexity is $O(qm \log(n))$, and the space complexity is $O(n)$, where $q$ and $m$ are the number of requests and the number of restriction conditions respectively.
 
 <!-- tabs:start -->
 

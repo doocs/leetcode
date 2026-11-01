@@ -79,7 +79,7 @@ tags:
 
 We can use a hash table to store the corresponding character for each character entity. Then, we traverse the string, and when we encounter a character entity, we replace it with the corresponding character.
 
-The time complexity is $O(n \times l)$, and the space complexity is $O(l)$. Here, $n$ is the length of the string, and $l$ is the total length of the character entities.
+The time complexity is $O(nl)$, and the space complexity is $O(l)$, where $n$ is the length of the string, and $l$ is the total length of the character entities.
 
 <!-- tabs:start -->
 

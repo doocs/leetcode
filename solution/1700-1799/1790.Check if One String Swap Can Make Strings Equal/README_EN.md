@@ -81,7 +81,7 @@ While traversing the two strings simultaneously, for two characters $a$ and $b$ 
 
 At the end of the traversal, if $cnt \neq 1$, return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

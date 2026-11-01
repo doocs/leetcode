@@ -61,7 +61,7 @@ tags:
 
 > **Thinking**
 >
-> Searching $target-x$ in one BST is $O(n\log n)$ and acceptable for $5000$ nodes, but we must pair values from two trees. Inorder traversals yield two sorted arrays, i.e. two-sum on sorted lists.
+> Searching $target-x$ in one BST is $O(n \log n)$ and acceptable for $5000$ nodes, but we must pair values from two trees. Inorder traversals yield two sorted arrays, i.e. two-sum on sorted lists.
 >
 > Pointers sit at the left of $nums[0]$ and the right of $nums[1]$: a small sum advances the left pointer, a large sum retreats the right. Inorder supplies order; two pointers pair in linear time.
 
@@ -73,7 +73,7 @@ Initialize two pointers $i$ and $j$, pointing to the left boundary of array $num
 
 Each time, compare the sum $x = nums[0][i] + nums[1][j]$ with the target value. If $x = target$, return `true`; otherwise, if $x \lt target$, move $i$ one step to the right; otherwise, if $x \gt target$, move $j$ one step to the left.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of nodes in the two trees respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of nodes in the two trees respectively.
 
 <!-- tabs:start -->
 

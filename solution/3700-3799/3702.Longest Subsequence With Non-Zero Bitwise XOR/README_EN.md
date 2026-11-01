@@ -77,7 +77,7 @@ If all elements in the array are zero, then there is no subsequence with non-zer
 
 Otherwise, we can remove one non-zero element from the array to make the bitwise XOR of the remaining elements non-zero. The length of the longest subsequence is the array length minus $1$.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

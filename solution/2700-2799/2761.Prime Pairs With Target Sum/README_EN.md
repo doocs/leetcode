@@ -81,7 +81,7 @@ Next, we enumerate $x$ in the range of $[2, \frac{n}{2}]$. In this case, $y = n 
 
 After the enumeration is complete, we return the answer.
 
-The time complexity is $O(n \log \log n)$ and the space complexity is $O(n)$, where $n$ is the number given in the problem.
+The time complexity is $O(n \log \log n)$, and the space complexity is $O(n)$, where $n$ is the number given in the problem.
 
 <!-- tabs:start -->
 

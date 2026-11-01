@@ -104,7 +104,7 @@ The execution process of the function $\textit{dfs}(a, \textit{fa})$ is as follo
 
 In the main function, we call $\textit{dfs}(0, -1)$ and return the final answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the number of nodes.
 
 <!-- tabs:start -->
 
@@ -301,7 +301,7 @@ First, we construct the adjacency list $\textit{g}$ of the tree based on the giv
 
 An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $\textit{pre} = -1$, $\textit{cnt} = 1$, and $\textit{ok} = 1$. For each child, add its subtree size to $\textit{cnt}$. If that size differs from $\textit{pre}$, set $\textit{ok}$ to $0$. Then add $\textit{ok}$ to the answer and store $\textit{cnt}$ as the current node's subtree size.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the number of nodes.
 
 <!-- tabs:start -->
 

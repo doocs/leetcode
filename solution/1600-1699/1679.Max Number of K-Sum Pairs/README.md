@@ -82,7 +82,7 @@ tags:
 
 循环结束，返回答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为 $nums$ 的长度。
 
 <!-- tabs:start -->
 

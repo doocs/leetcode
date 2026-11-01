@@ -84,7 +84,7 @@ Next, we traverse the linked list starting from the second node. If the value of
 
 Finally, we return the node next to $\textit{dummy}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

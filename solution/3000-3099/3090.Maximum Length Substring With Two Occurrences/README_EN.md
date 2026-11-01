@@ -75,7 +75,7 @@ In each iteration, we add the character $c$ at the pointer $r$ into the window, 
 
 Finally, we return the answer $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, and in this problem, $\Sigma = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set, and in this problem, $\Sigma = 26$.
 
 <!-- tabs:start -->
 

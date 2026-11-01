@@ -81,7 +81,7 @@ tags:
 
 遍历结束后，说明可以将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，返回 $\text{true}$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{hand}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{hand}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -236,7 +236,7 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 
 然后，我们循环取出有序集合中的最小值 $x$，然后枚举 $x$ 到 $x+\textit{groupSize}-1$ 的每个数字 $y$，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，返回 $\text{false}$。如果可以将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，则遍历结束后返回 $\text{true}$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{hand}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{hand}$ 的长度。
 
 <!-- tabs:start -->
 

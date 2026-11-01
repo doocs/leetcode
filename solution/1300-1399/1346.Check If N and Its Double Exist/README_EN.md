@@ -76,7 +76,7 @@ Traverse the array $arr$. For each element $x$, if either double of $x$ or half 
 
 If no element satisfying the condition is found after the traversal, return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

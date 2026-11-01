@@ -86,7 +86,7 @@ We might as well consider starting from node $0$ and reaching all other nodes. T
 
 Next, we only need to start from node $0$, search all other nodes, and during the process, if we encounter an edge that needs to change direction, we accumulate the number of direction changes once.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the problem.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the problem.
 
 <!-- tabs:start -->
 
@@ -250,7 +250,7 @@ impl Solution {
 
 We can use the Breadth-First Search (BFS) method, starting from node $0$, to search all other nodes. During the process, if we encounter an edge that requires a change of direction, we increment the count of direction changes.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the problem.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the problem.
 
 <!-- tabs:start -->
 
@@ -425,7 +425,7 @@ We might as well consider starting from node $0$ and reaching all other nodes. T
 
 An explicit stack walks the tree from node $0$. After a node is popped, each neighbor that is not the parent adds its edge weight to the answer and is pushed. A forward edge has weight $1$, and a reverse edge has weight $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the problem.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the problem.
 
 <!-- tabs:start -->
 

@@ -108,7 +108,7 @@ tags:
 
 根据题目描述，我们需要找出链表的第一个临界点和最后一个临界点位置 $\textit{first}$ 和 $\textit{last}$，这样可以计算出最大距离 $\textit{maxDistance} = \textit{last} - \textit{first}$。对于最小距离 $\textit{minDistance}$，我们需要遍历链表，计算相邻两个临界点之间的距离，取最小值即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
 

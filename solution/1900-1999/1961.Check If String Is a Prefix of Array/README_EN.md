@@ -75,7 +75,7 @@ We traverse the array $words$, using a variable $t$ to record the currently conc
 
 At the end of the traversal, if the length of $t$ is less than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

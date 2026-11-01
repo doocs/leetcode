@@ -120,7 +120,7 @@ source: 第 514 场周赛 Q1
 
 因此，我们将 $\textit{prices}$ 和 $\textit{discounts}$ 都按升序排序，然后用双指针从两个数组的末尾开始，依次把当前最大的折扣应用到当前最贵的商品上，并累加折后价格。当折扣用完后，剩余的商品按原价累加即可。
 
-时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{prices}$ 和 $\textit{discounts}$ 的长度。
+时间复杂度 $O(n \log n + m \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{prices}$ 和 $\textit{discounts}$ 的长度。
 
 <!-- tabs:start -->
 

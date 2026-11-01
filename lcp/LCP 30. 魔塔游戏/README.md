@@ -65,7 +65,7 @@ difficulty: 中等
 
 遍历结束后，我们需要更新当前的血量 $blood$，即 $blood = blood + v$。如果此时 $blood \le 0$，说明无法访问完所有房间，返回 $-1$。否则，返回 $ans$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 为房间的数量。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为房间的数量。
 
 <!-- tabs:start -->
 

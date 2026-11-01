@@ -98,7 +98,7 @@ Therefore, we design a function $dfs(x, d)$, which starts searching from $x$ wit
 
 We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\textit{maxDepth} + 1) \times s - ws$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of integers.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of integers.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ Then, we traverse the array $nums$ from left to right. For the current number $n
 
 Finally, we consider the number of division schemes for $k$ subarrays. The number of subarrays is $k$, and there are $k-1$ positions that can be divided (concatenated), so the number of schemes is $2^{k-1}$. Since the answer may be very large, we need to take the modulo of $10^9 + 7$. Here we can use fast power to speed up the calculation.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

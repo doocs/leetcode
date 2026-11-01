@@ -99,7 +99,7 @@ $$
 
 We traverse the matrix, calculate all $s[i][j]$, then sort them, and finally return the $k$th largest element. If you don't want to use sorting, you can also use the quick selection algorithm, which can optimize the time complexity.
 
-The time complexity is $O(m \times n \times \log (m \times n))$ or $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \log (mn))$ or $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

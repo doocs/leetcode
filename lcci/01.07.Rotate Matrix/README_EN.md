@@ -109,7 +109,7 @@ According to the problem requirements, we need to rotate $\text{matrix}[i][j]$ t
 
 We can first flip the matrix upside down, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[n - i - 1][j]$, and then flip the matrix along the main diagonal, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[j][i]$. This will rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.
 
-The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
 

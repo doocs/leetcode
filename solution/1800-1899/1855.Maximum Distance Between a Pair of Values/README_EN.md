@@ -86,7 +86,7 @@ Assume the lengths of $nums1$ and $nums2$ are $m$ and $n$ respectively.
 
 Traverse array $nums1$, for each number $nums1[i]$, perform a binary search for numbers in $nums2$ in the range $[i,n)$, find the **last** position $j$ that is greater than or equal to $nums1[i]$, calculate the distance between this position and $i$, and update the maximum distance value $ans$.
 
-The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the lengths of $nums1$ and $nums2$ respectively. The space complexity is $O(1)$.
+The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $nums1$ and $nums2$ respectively.
 
 <!-- tabs:start -->
 

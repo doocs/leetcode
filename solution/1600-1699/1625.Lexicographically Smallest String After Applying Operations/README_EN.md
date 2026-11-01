@@ -276,7 +276,7 @@ Therefore, the rotation operation produces at most $n$ states. If the rotation c
 
 Thus, we can directly enumerate all possible string states and take the lexicographically smallest one.
 
-The time complexity is $O(n^2 \times 10^2)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(10^2 n^2)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

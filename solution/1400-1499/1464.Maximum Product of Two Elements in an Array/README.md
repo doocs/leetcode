@@ -244,7 +244,7 @@ int maxProduct(int* nums, int numsSize) {
 
 对 $nums$ 进行排序，取最后两个元素，计算乘积 $(nums[n-1]-1) \times (nums[n-2]-1)$ 即可。
 
-时间复杂度 $O(nlogn)$。
+时间复杂度 $O(n \log n)$。
 
 <!-- tabs:start -->
 

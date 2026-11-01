@@ -70,7 +70,7 @@ tags:
 >
 > A BST preorder segment still has every left-subtree key below the root and every right-subtree key above it, so the first index greater than the root can be found by binary search.
 >
-> $\textit{dfs}(i,j)$ builds a node from $\textit{preorder}[i]$, bisects to the right-subtree start, and recurses on both sides in $O(n\log n)$.
+> $\textit{dfs}(i,j)$ builds a node from $\textit{preorder}[i]$, bisects to the right-subtree start, and recurses on both sides in $O(n \log n)$.
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ In $\textit{dfs}(i, j)$, we first construct the root node, which is $\textit{pre
 
 Finally, we return the root node.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{preorder}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{preorder}$.
 
 <!-- tabs:start -->
 

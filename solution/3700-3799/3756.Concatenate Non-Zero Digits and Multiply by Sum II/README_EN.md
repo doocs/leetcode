@@ -158,7 +158,7 @@ For a query $[l, r]$, the number of non-zero digits in the substring is $n_0 = c
 
 We precompute powers of $10$ and answer each query in $O(1)$.
 
-The time complexity is $O(n + q)$ and the space complexity is $O(n)$, where $n$ is the string length and $q$ is the number of queries.
+The time complexity is $O(n + q)$, and the space complexity is $O(n)$, where $n$ is the string length and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

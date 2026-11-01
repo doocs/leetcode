@@ -91,7 +91,7 @@ For each chicken, we use the pointer $j$ to point to the leftmost grain that has
 
 If $j=m$, it means that all the grains have been eaten, return `true`, otherwise return `false`.
 
-Time complexity $O(n \times \log n + m \times \log m + (m + n) \times \log U)$, space complexity $O(\log m + \log n)$. $n$ and $m$ are the number of chickens and grains respectively, and $U$ is the maximum value of all the chicken and grain positions.
+The time complexity is $O(n \log n + m \log m + (m + n) \log U)$, and the space complexity is $O(\log m + \log n)$, where $n$ and $m$ are the number of chickens and grains respectively, and $U$ is the maximum value of all the chicken and grain positions.
 
 <!-- tabs:start -->
 

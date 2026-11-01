@@ -87,7 +87,7 @@ For each group $arr$, we can use dynamic programming to obtain the number of sub
 
 Finally, we multiply the number of subsets of each group to obtain the answer.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

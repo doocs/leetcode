@@ -84,7 +84,7 @@ Traverse the string, for characters at odd indices, replace them with the charac
 
 Finally, return the replaced string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

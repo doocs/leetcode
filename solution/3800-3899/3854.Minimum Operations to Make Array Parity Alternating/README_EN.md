@@ -121,7 +121,7 @@ We define a function $f(k)$, where $k$ represents the desired parity of the numb
 
 In the function $f(k)$, we iterate over each element in the array. If the parity of the current element does not match the expected parity, we perform one operation to adjust it. To minimize the difference between the maximum and minimum values, we adjust the current element to the nearest number, which is either the current element plus $1$ or minus $1$, depending on whether the current element equals the minimum or maximum value in the array. If the current element equals the minimum value, we increase it by $1$; if it equals the maximum value, we decrease it by $1$; otherwise, we can choose to either increase or decrease by $1$. We then update the current maximum and minimum values. Finally, the function $f(k)$ returns the operation count and the difference between the maximum and minimum values of the resulting array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$, as we only use a constant amount of extra space.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

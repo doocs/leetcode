@@ -80,7 +80,7 @@ It can be shown that appending any 4 characters to the end of s will never make 
 
 We define two pointers $i$ and $j$, pointing to the first characters of strings $s$ and $t$ respectively. We iterate through string $s$, if $s[i] = t[j]$, then we move $j$ one step forward. Finally, we return $n - j$, where $n$ is the length of string $t$.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of strings $s$ and $t$ respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of strings $s$ and $t$ respectively.
 
 <!-- tabs:start -->
 

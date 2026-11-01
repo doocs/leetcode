@@ -62,7 +62,7 @@ second = &quot;pal&quot;
 - 当 $m = n$ 时， $\textit{first}$ 和 $\textit{second}$ 只有在且仅在有且仅有一个字符不同的情况下才能通过一次编辑得到；
 - 当 $m - n = 1$ 时， $\textit{first}$ 和 $\textit{second}$ 只有在且仅在 $\textit{second}$ 是 $\textit{first}$ 删除一个字符后得到的情况下才能通过一次编辑得到，我们可以使用双指针来实现。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
 

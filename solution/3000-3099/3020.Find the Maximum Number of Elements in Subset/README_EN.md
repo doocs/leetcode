@@ -78,7 +78,7 @@ We use a hash table $cnt$ to record the occurrence count of each element in the 
 
 Note that we need to handle the case of $x = 1$ specially.
 
-The time complexity is $O(n \times \log \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+The time complexity is $O(n \log \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
 

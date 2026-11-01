@@ -89,7 +89,7 @@ We can use a hash table or an array of length $26$, denoted as $\textit{d}$, to 
 
 Then, we traverse the string $\textit{t}$ and calculate the sum of the absolute differences between the positions of each character in the string $\textit{t}$ and the positions in the string $\textit{s}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma| \leq 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma| \leq 26$.
 
 <!-- tabs:start -->
 

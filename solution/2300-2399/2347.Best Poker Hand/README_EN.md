@@ -97,7 +97,7 @@ Next, we use a hash table or array $\textit{cnt}$ to count the quantity of each 
 - Otherwise, if any card appears $2$ times, return `"Pair"`;
 - Otherwise, return `"High Card"`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{ranks}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{ranks}$.
 
 <!-- tabs:start -->
 

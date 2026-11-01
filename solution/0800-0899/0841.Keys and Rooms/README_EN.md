@@ -240,7 +240,7 @@ Specifically, we define a queue $q$, initially put node $0$ into the queue, and 
 
 Finally, we count the number of visited nodes. If it is the same as the total number of nodes, it means that all nodes can be visited; otherwise, it means that there are unreachable nodes.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes, and $m$ is the number of edges.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ is the number of nodes, and $m$ is the number of edges.
 
 <!-- tabs:start -->
 

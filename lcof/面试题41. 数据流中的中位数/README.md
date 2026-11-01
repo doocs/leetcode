@@ -75,7 +75,7 @@ difficulty: 困难
 
 调用 `findMedian` 方法时，如果 $\textit{minQ}$ 的大小等于 $\textit{maxQ}$ 的大小，说明元素的总数为偶数，我们就可以返回 $\textit{minQ}$ 的堆顶元素与 $\textit{maxQ}$ 的堆顶元素的平均值；否则，我们返回 $\textit{minQ}$ 的堆顶元素。时间复杂度为 $O(1)$。
 
-空间复杂度为 $O(n)$。其中 $n$ 为元素的个数。
+空间复杂度 $O(n)$。其中 $n$ 为元素的个数。
 
 <!-- tabs:start -->
 

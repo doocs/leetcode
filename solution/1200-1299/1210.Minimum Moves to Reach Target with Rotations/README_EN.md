@@ -107,7 +107,7 @@ We use BFS to solve it. Each time we take a position from the queue $q$, we chec
 
 Finally, if the queue $q$ is empty, it means that it is impossible to reach the target position from the starting position, so return $-1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of rows or columns of the 2D maze.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of rows or columns of the 2D maze.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ Therefore, we can iterate over the song list and use an array $cnt$ of length $6
 
 After the iteration, we get the number of song pairs that satisfy the condition.
 
-The time complexity is $O(n)$ and the space complexity is $O(C)$, where $n$ is the length of the song list and $C$ is the number of possible remainders, here $C = 60$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the song list and $C$ is the number of possible remainders, here $C = 60$.
 
 <!-- tabs:start -->
 

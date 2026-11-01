@@ -82,7 +82,7 @@ The calculation process of function $dfs(i, j)$ is as follows:
 
 Note that the parameter $j$ may be less than $0$. Therefore, in the actual coding process, except for the $Python$ language, we add an offset $n$ to $j$ so that the range of $j$ is $[0, 2n]$.
 
-Time complexity $O(n^2)$, space complexity $O(n^2)$. Where $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

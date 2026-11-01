@@ -82,7 +82,7 @@ First, we define a pointer $r = 1$. Each time, we check if the value at position
 
 Next, we define a pointer $l = r / 2$, and then we can use the binary search method to find the position of the target value within the interval $[l, r]$.
 
-The time complexity is $O(\log M)$, where $M$ is the position of the target value. The space complexity is $O(1)$.
+The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M$ is the position of the target value.
 
 <!-- tabs:start -->
 

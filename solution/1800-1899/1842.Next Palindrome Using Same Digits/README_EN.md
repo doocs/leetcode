@@ -75,7 +75,7 @@ tags:
 
 According to the problem description, we only need to find the next permutation of the first half of the string, then traverse the first half and symmetrically assign values to the second half.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

@@ -116,7 +116,7 @@ We enumerate each pair of numbers and use a difference array to update the numbe
 
 Finally, we find the minimum value among the prefix sums from the difference array, which is the minimum number of changes needed.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

@@ -119,7 +119,7 @@ Once we know the minimum number of operations for each element, for a range $[l,
 
 We define a function $f(x)$ to represent the sum of the minimum operations for all elements in the range $[1, x]$. For each query $[l, r]$, we can compute $s = f(r) - f(l - 1)$ and $mx = f(r) - f(r - 1)$ to obtain the answer.
 
-The time complexity is $O(q \log M)$, where $q$ is the number of queries and $M$ is the maximum value in the query range. The space complexity is $O(1)$.
+The time complexity is $O(q \log M)$, and the space complexity is $O(1)$, where $q$ is the number of queries and $M$ is the maximum value in the query range.
 
 <!-- tabs:start -->
 

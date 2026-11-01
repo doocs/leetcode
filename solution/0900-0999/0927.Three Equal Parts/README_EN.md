@@ -90,7 +90,7 @@ Then we start from $i$, $j$, $k$ and traverse each part at the same time, check 
 
 At the end of the traversal, if $k=n$, it means that it satisfies the three equal parts, and we return $[i - 1, j]$ as the answer, otherwise return $[-1, -1]$.
 
-The time complexity is $O(n)$, where $n$ is the length of `arr`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of `arr`.
 
 Similar problems:
 

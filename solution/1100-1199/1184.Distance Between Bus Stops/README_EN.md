@@ -85,7 +85,7 @@ tags:
 
 We can first calculate the total distance $s$ that the bus travels, then simulate the bus's journey. Starting from the departure point, we move one stop to the right each time until we reach the destination, recording the travel distance $t$ during this process. Finally, we return the minimum value between $t$ and $s - t$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{distance}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{distance}$.
 
 <!-- tabs:start -->
 

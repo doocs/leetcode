@@ -88,7 +88,7 @@ We traverse the array $\textit{nums}$, and for the current number $x$, we update
 
 If the traversal ends without finding a middle index, return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

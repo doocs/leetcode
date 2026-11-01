@@ -67,7 +67,7 @@ When we encounter a 1, we increment $\textit{cnt}$ by one, and then update $\tex
 
 After the iteration ends, we return the value of $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

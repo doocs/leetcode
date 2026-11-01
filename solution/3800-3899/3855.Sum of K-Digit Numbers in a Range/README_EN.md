@@ -114,7 +114,7 @@ $$
 
 Since $k$ can be up to $10^9$, we use fast power (binary exponentiation) to compute $(r - l + 1)^{k - 1}$ and $10^k$. Division by $9$ is handled using the modular inverse of $9$ via Fermat's little theorem.
 
-The time complexity is $O(\log k)$ and the space complexity is $O(1)$.
+The time complexity is $O(\log k)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

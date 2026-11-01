@@ -104,7 +104,7 @@ tags:
 
 We use two pointers $i$ and $j$ pointing to the beginning and end of the array respectively. Each time, we move $i$ to the right until we find a 0, and move $j$ to the left until we find a non-zero number. If $i < j$, we swap the two elements and increment the answer by 1. We repeat this process until $i \geq j$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

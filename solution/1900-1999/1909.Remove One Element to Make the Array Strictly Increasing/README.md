@@ -88,7 +88,7 @@ tags:
 
 我们可以遍历数组，找到第一个不满足 $\textit{nums}[i] < \textit{nums}[i+1]$ 的位置 $i$，然后检查删除 $i$ 或者 $i+1$ 后的数组是否严格递增，如果是则返回 $\textit{true}$，否则返回 $\textit{false}$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

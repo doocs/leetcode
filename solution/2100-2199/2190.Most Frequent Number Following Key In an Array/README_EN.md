@@ -86,7 +86,7 @@ Traverse the array $\textit{nums}$. If $\textit{nums}[i] = \textit{key}$, increm
 
 After the traversal, return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value of the elements in the array $\textit{nums}$, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value of the elements in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

@@ -85,7 +85,7 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 
 We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 5000$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 5000$.
 
 <!-- tabs:start -->
 

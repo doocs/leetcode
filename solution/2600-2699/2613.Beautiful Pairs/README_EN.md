@@ -88,9 +88,7 @@ The above considers the case where the two points are on the same side. If the t
 
 Finally, we return the answer.
 
-Time complexity: $O(n \times \log n)$, where $n$ is the length of the array.
-
-Space complexity: $O(n)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

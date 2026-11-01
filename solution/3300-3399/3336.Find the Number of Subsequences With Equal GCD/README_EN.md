@@ -126,7 +126,7 @@ Base case: when $i \lt 0$, return $1$ if $j = k$, otherwise return $0$.
 
 The initial call $\textit{dfs}(n - 1, 0, 0)$ counts all pairs with equal GCDs, including the case where both subsequences are empty. Therefore, we subtract $1$ and take the result modulo $10^9 + 7$.
 
-The time complexity is $O(n \times m^2 \times \log m)$, and the space complexity is $O(n \times m^2)$, where $n$ is the length of the array and $m$ is the maximum value in the array.
+The time complexity is $O(nm^2 \log m)$, and the space complexity is $O(nm^2)$, where $n$ is the length of the array and $m$ is the maximum value in the array.
 
 <!-- tabs:start -->
 
@@ -334,7 +334,7 @@ $$
 
 These correspond to skipping $x$, putting $x$ into the first subsequence, and putting $x$ into the second subsequence, respectively. After processing all elements, the answer is $\sum_{i=0}^{m} f[i][i] - 1$, taken modulo $10^9 + 7$.
 
-The time complexity is $O(n \times m^2 \times \log m)$, and the space complexity is $O(m^2)$, where $n$ is the length of the array and $m$ is the maximum value in the array.
+The time complexity is $O(nm^2 \log m)$, and the space complexity is $O(m^2)$, where $n$ is the length of the array and $m$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

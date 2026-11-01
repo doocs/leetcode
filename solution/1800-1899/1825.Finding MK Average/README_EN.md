@@ -89,7 +89,7 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 
 > **Thinking**
 >
-> We need the average of an $m$-length window after dropping the smallest and largest $k$ values, with frequent insertions. Sorting the window every time is $O(m\log m)$ and too slow.
+> We need the average of an $m$-length window after dropping the smallest and largest $k$ values, with frequent insertions. Sorting the window every time is $O(m \log m)$ and too slow.
 >
 > A queue stores insertion order. Three ordered multisets hold the lowest $k$, the middle segment, and the highest $k$, together with the middle sum $s$. After each insert or pop we move overflow elements so both ends have size $k$. The average is $s/(m-2k)$.
 

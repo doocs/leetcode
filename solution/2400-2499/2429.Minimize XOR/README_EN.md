@@ -79,7 +79,7 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 
 According to the problem description, we first calculate the number of set bits in $\textit{num2}$, denoted as $\textit{cnt}$. Then, we iterate from the highest to the lowest bit of $\textit{num1}$; if the current bit is $1$, we set the corresponding bit in $x$ to $1$ and decrement $\textit{cnt}$, until $\textit{cnt}$ becomes $0$. If $\textit{cnt}$ is still not $0$, we iterate from the lowest bit upwards, setting positions where $\textit{num1}$ has $0$ to $1$ in $x$, and decrement $\textit{cnt}$ until it reaches $0$.
 
-The time complexity is $O(\log n)$, where $n$ is the maximum value of $\textit{num1}$ and $\textit{num2}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the maximum value of $\textit{num1}$ and $\textit{num2}$.
 
 <!-- tabs:start -->
 

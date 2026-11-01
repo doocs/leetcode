@@ -80,7 +80,7 @@ According to the problem description, to find triplets $(i, j, k)$ that satisfy 
 
 After the enumeration is complete, we return the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

@@ -74,7 +74,7 @@ For the case of more than two numbers, if $arr[i]=arr[j]$, then $f[i][j]$ can be
 
 The answer is $f[0][n - 1]$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

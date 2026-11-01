@@ -75,7 +75,7 @@ We use an array $d$ of length $3$ to record the most recent occurrence of the th
 
 We traverse the string $s$. For the current position $i$, we first update $d[s[i]]=i$, then the number of valid strings is $\min(d[0], d[1], d[2]) + 1$, which is accumulated to the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -201,7 +201,7 @@ Traverse the string and keep moving the right boundary $r$ to include $s[r]$. If
 
 At this point, all substrings ending at $r$ that contain $a$, $b$, and $c$ can start at indices $0, 1, \ldots, l - 1$, giving $l$ valid substrings in total. Add this count to the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

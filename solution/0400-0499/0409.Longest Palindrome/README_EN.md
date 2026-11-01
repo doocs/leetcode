@@ -74,7 +74,7 @@ Then, we traverse $cnt$, for each count $v$, we divide $v$ by 2, take the intege
 
 Finally, if the answer is less than the length of the string $s$, we increment the answer by one and return $ans$.
 
-The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
 
 <!-- tabs:start -->
 
@@ -211,7 +211,7 @@ We iterate through the string $s$. For each character $c$, we flip $odd[c]$, i.e
 
 Finally, if $cnt$ is greater than $0$, the answer is $n - cnt + 1$, otherwise, the answer is $n$.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
 
 <!-- tabs:start -->
 

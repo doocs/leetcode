@@ -102,7 +102,7 @@ The calculation process of function $dfs(i)$ is as follows:
 
 To avoid duplicate calculations, we can use memoization.
 
-Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of array.
 
 <!-- tabs:start -->
 
@@ -306,7 +306,7 @@ impl Solution {
 
 Let $f[i]$ be the maximum number of jumps from index $i$ to the end. Set $f[n-1]=0$ and every earlier entry to $-\infty$. For $i$ from $n-2$ down to $0$, enumerate a landing index $j$ ($i < j < n$). If $|nums[i]-nums[j]| \leq target$, update $f[i]$ with $1+f[j]$. If $f[0]$ is still negative, the end cannot be reached and the answer is $-1$; otherwise the answer is $f[0]$.
 
-Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of array.
 
 <!-- tabs:start -->
 

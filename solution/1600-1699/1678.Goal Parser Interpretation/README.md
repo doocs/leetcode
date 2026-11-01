@@ -184,7 +184,7 @@ char* interpret(char* command) {
 
 遍历结束，返回结果串即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是字符串 $command$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $command$ 的长度。
 
 <!-- tabs:start -->
 

@@ -117,7 +117,7 @@ $$
 
 最后，我们返回 $\textit{dfs}(0, \text{true}, \text{true})$ 即可。
 
-时间复杂度 $O(\log n \times D)$，空间复杂度 $O(\log n)$。其中 $D = 10$。
+时间复杂度 $O(D \log n)$，空间复杂度 $O(\log n)$。其中 $D = 10$。
 
 相似题目：
 

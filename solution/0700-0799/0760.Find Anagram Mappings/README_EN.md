@@ -68,7 +68,7 @@ tags:
 
 We use a hash table $\textit{d}$ to store each element of the array $\textit{nums2}$ and its corresponding index. Then we iterate through the array $\textit{nums1}$, and for each element $\textit{nums1}[i]$, we retrieve its corresponding index from the hash table $\textit{d}$ and store it in the result array.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

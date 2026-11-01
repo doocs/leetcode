@@ -83,13 +83,13 @@ merging them into one sorted linked list:
 >
 > At any moment the next node is just the minimum of the current heads. A min-heap of those $k$ heads pops the smallest and pushes its successor.
 >
-> Each node enters and leaves the heap once, so the time is $O(N\log k)$ and the heap holds at most $k$ pointers.
+> Each node enters and leaves the heap once, so the time is $O(N \log k)$ and the heap holds at most $k$ pointers.
 
 <!-- thinking:end -->
 
 We can create a min heap $pq$ to maintain the head nodes of all linked lists. Each time, we take out the node with the smallest value from the min heap, add it to the end of the result linked list, and then add the next node of this node to the heap. Repeat the above steps until the heap is empty.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the total number of all linked list nodes, and $k$ is the number of linked lists given in the problem.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the total number of all linked list nodes, and $k$ is the number of linked lists given in the problem.
 
 <!-- tabs:start -->
 

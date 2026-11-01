@@ -69,7 +69,7 @@ Suppose there exist $i_1<i_2$ and $\textit{nums}[i_1]\leq\textit{nums}[i_2]$, th
 
 We use a monotonically decreasing stack $\textit{stk}$ (from bottom to top) to store all possible $\textit{nums}[i]$. Then we traverse $j$ starting from the right boundary. If we encounter $\textit{nums}[\textit{stk.top()}]\leq\textit{nums}[j]$, it means a ramp is formed at this point. We cyclically pop the top elements from the stack and update $\textit{ans}$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ represents the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

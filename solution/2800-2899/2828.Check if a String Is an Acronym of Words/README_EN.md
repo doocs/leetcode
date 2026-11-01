@@ -80,7 +80,7 @@ Hence, s = &quot;ngguoy&quot; is the acronym.
 
 We can iterate over each string in the array $words$, concatenate their first letters to form a new string $t$, and then check if $t$ is equal to $s$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $words$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $words$.
 
 <!-- tabs:start -->
 
@@ -177,7 +177,7 @@ Then, we iterate over each character in $s$, checking if it is equal to the firs
 
 After the iteration, if we haven't returned $false$, then $s$ is an acronym of the first letters of $words$, and we return $true$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $words$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $words$.
 
 <!-- tabs:start -->
 

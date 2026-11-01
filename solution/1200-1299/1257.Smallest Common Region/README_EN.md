@@ -89,7 +89,7 @@ region2 = &quot;New York&quot;
 
 We can use a hash table $\textit{g}$ to store the parent region of each region. Then, starting from $\textit{region1}$, we keep moving upwards to find all its parent regions until the root region, and store these regions in the set $\textit{s}$. Next, starting from $\textit{region2}$, we keep moving upwards to find the first region that is in the set $\textit{s}$, which is the smallest common region.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the region list $\textit{regions}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the region list $\textit{regions}$.
 
 <!-- tabs:start -->
 

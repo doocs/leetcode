@@ -99,7 +99,7 @@ tags:
 
 最终答案是 $\max(f[n][k][0], f[n][k][1])$。
 
-时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 

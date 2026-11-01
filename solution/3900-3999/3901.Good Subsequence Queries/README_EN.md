@@ -221,7 +221,7 @@ The segment tree supports two operations:
 
 After each query update, we just apply the rules above to determine whether a good subsequence exists.
 
-The time complexity is $O((n + q) \times \log n)$. In the worst case, when $n \le 6$, we additionally enumerate the deleted position for each query, but that is only a constant factor. So the total complexity remains $O((n + q) \times \log n)$. The space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$ and $q$ is the number of queries.
+The time complexity is $O((n + q) \log n)$. In the worst case, when $n \le 6$, we additionally enumerate the deleted position for each query, but that is only a constant factor. So the total complexity remains $O((n + q) \log n)$. The space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$ and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

@@ -99,7 +99,7 @@ Next, we define a $\textit{SegmentTree}$ class to construct the segment tree. Du
 
 In the main function, we first construct the segment tree based on the given array $\textit{nums}$ and process each query. For each query, we first perform a point update, then query the state values of the entire range, and accumulate the result into the answer.
 
-The time complexity is $O((n + q) \times \log n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of the array $\textit{nums}$, and $q$ represents the number of queries.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n)$, where $n$ represents the length of the array $\textit{nums}$, and $q$ represents the number of queries.
 
 <!-- tabs:start -->
 

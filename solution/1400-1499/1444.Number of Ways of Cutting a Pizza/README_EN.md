@@ -98,7 +98,7 @@ The final answer is the value of $dfs(0, 0, k-1)$.
 
 To avoid repeated calculations, we can use memoized search. We use a 3D array $f$ to record the value of $dfs(i, j, k)$. When we need to calculate the value of $dfs(i, j, k)$, if $f[i][j][k]$ is not $-1$, it means we have already calculated it before, and we can directly return $f[i][j][k]$. Otherwise, we calculate the value of $dfs(i, j, k)$ according to the above method and save the result in $f[i][j][k]$.
 
-The time complexity is $O(m \times n \times k \times (m + n))$, and the space complexity is $O(m \times n \times k)$. Here, $m$ and $n$ are the number of rows and columns of the rectangle, respectively.
+The time complexity is $O(mnk(m + n))$, and the space complexity is $O(mnk)$, where $m$ and $n$ are the number of rows and columns of the rectangle, respectively.
 
 Similar problems:
 

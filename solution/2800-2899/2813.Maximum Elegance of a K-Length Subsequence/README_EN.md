@@ -101,7 +101,7 @@ Next, we consider starting from the $k+1$ item. If its category is already in $v
 
 Finally, we return $ans$.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of items.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of items.
 
 <!-- tabs:start -->
 

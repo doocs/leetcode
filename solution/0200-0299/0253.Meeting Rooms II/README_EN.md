@@ -62,7 +62,7 @@ First, we find the maximum end time of all the meetings, denoted as $m$. Then, w
 
 Next, we calculate the prefix sum of the difference array and find the maximum value of the prefix sum, which represents the minimum number of meeting rooms required.
 
-The time complexity is $O(n + m)$ and the space complexity is $O(m)$, where $n$ is the number of meetings and $m$ is the maximum end time.
+The time complexity is $O(n + m)$, and the space complexity is $O(m)$, where $n$ is the number of meetings and $m$ is the maximum end time.
 
 <!-- tabs:start -->
 
@@ -225,7 +225,7 @@ First, we create a hash map $d$, where we add to the corresponding positions for
 
 Then, we sort the hash map by its keys, calculate the prefix sum of the hash map, and find the maximum value of the prefix sum, which represents the minimum number of meeting rooms required.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of meetings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of meetings.
 
 <!-- tabs:start -->
 

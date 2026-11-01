@@ -86,7 +86,7 @@ Next, we define two variables $\textit{ans}$ and $i$, both initialized to $0$. T
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(\log n)$, where $n$ is the given decimal number. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given decimal number.
 
 <!-- tabs:start -->
 

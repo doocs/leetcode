@@ -166,7 +166,7 @@ $$
 
 The length part of the last merge is always $\textit{cnt}[i]$. The answer is $f[2^n - 1]$.
 
-Time complexity is $O(3^n + 2^n \times n \times \log V \times \log L)$, and space complexity is $O(2^n)$, where $n$ is the number of lists, $V$ is the number of distinct values, and $L$ is the maximum length of a single list.
+The time complexity is $O(3^n + 2^n n \log V \log L)$, and the space complexity is $O(2^n)$, where $n$ is the number of lists, $V$ is the number of distinct values, and $L$ is the maximum length of a single list.
 
 <!-- tabs:start -->
 

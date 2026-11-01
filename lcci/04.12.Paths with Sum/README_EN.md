@@ -85,7 +85,7 @@ The recursive process of the function $dfs(node, s)$ is as follows:
 - After the return value is calculated, subtract the count of the prefix sum $s$ of the current node by $1$, i.e., execute $cnt[s] = cnt[s] - 1$.
 - Finally, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

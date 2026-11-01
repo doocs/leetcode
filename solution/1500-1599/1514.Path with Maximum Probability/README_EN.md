@@ -97,7 +97,7 @@ In each iteration, we take out the node $a$ with the highest probability from $\
 
 Finally, we obtain the maximum probability from the starting point to the endpoint.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the number of edges.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the number of edges.
 
 <!-- tabs:start -->
 

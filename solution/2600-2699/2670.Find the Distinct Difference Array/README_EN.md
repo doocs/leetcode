@@ -81,7 +81,7 @@ We can preprocess a suffix array $suf$, where $suf[i]$ represents the number of 
 
 After preprocessing the suffix array $suf$, we clear the hash table $s$, and then traverse the array $nums$ again, using the hash table $s$ to maintain the elements that have appeared in the prefix. The answer at position $i$ is the number of distinct elements in $s$ minus $suf[i + 1]$, that is, $s.size() - suf[i + 1]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

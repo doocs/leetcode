@@ -103,7 +103,7 @@ We first calculate the number of balanced integers $\textit{a}$ in the range $[1
 
 To avoid redundant calculations, we use memoization to store previously computed states.
 
-The time complexity is $O(\log^2 M \times D^2)$, and the space complexity is $O(\log^2 M \times D)$. Here, $M$ is the value of $\textit{high}$, and $D = 10$.
+The time complexity is $O(D^2 \log^2 M)$, and the space complexity is $O(D \log^2 M)$, where $M$ is the value of $\textit{high}$, and $D = 10$.
 
 <!-- tabs:start -->
 

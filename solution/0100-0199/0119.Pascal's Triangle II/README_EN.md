@@ -63,7 +63,7 @@ Next, starting from the second row, we calculate the value of the $j$th element 
 
 Finally, return $f$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the given number of rows.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the given number of rows.
 
 <!-- tabs:start -->
 

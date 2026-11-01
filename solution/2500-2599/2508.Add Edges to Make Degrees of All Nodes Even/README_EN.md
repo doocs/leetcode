@@ -90,7 +90,7 @@ If the length of $vs$ is $4$, we enumerate all possible pairs and check if any c
 
 In other cases, we return `false`.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

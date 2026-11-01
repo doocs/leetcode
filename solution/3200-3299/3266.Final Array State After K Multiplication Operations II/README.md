@@ -149,7 +149,7 @@ tags:
 
 最后，我们将数组中的每个元素乘上对应的乘法次数，再取模 $10^9 + 7$ 即可，可以通过快速幂来计算。
 
-时间复杂度 $O(n \times \log n \times \log M + n \times \log k)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $M$ 为数组 $\textit{nums}$ 中的最大值。
+时间复杂度 $O(n \log n \log M + n \log k)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $M$ 为数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 

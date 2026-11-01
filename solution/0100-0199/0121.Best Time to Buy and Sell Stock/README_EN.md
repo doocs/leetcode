@@ -70,7 +70,7 @@ Therefore, we use a variable $mi$ to maintain the prefix minimum value of the ar
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

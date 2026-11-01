@@ -80,7 +80,7 @@ Then, we iterate through the difference array $\textit{diff}$, maintaining a pre
 
 If we finish iterating through the difference array $\textit{diff}$ without returning $\textit{false}$, it means that every integer within the interval $[left, right]$ is covered by at least one interval in $\textit{ranges}$, and we return $\textit{true}$.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $\textit{ranges}$, and $M$ is the maximum value of the interval, which in this case is $M \le 50$.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{ranges}$, and $M$ is the maximum value of the interval, which in this case is $M \le 50$.
 
 <!-- tabs:start -->
 

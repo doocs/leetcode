@@ -113,7 +113,7 @@ We first calculate the sum of the array $\textit{balance}$. If the sum is less t
 
 Next, we calculate the amount of balance needed $\textit{need}$, which is the opposite of the minimum balance. Then starting from the index of the minimum balance, we traverse the array to the left and right, taking as much balance as possible from each position to fill $\textit{need}$, and calculate the number of moves. We continue until $\textit{need}$ becomes $0$, and return the total number of moves.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{balance}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{balance}$.
 
 <!-- tabs:start -->
 

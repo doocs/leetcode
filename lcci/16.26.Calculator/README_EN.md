@@ -68,7 +68,7 @@ We can use a stack to store numbers. Each time we encounter an operator, we push
 
 Finally, the sum of all elements in the stack is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

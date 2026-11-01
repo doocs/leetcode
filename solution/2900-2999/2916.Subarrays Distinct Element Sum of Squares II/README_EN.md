@@ -102,7 +102,7 @@ $$
 
 Positions to the right of $r$ stay $0$, so the root's $\textit{sumSq}$ after each update is the sum of squares of distinct counts of every subarray ending at $r$. Summing these contributions modulo $10^9 + 7$ gives the answer.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

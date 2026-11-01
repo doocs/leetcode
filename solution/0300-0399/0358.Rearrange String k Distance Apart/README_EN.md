@@ -80,7 +80,7 @@ When rearranging the string, we repeatedly pop the top element $(v, c)$ from the
 
 Finally, we check whether the length of the result string equals the original string. If so, we return the result string; otherwise, we return an empty string.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n \log n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
 
 Related problems:
 

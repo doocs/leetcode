@@ -68,7 +68,7 @@ To maximize the number of apples, we should try to minimize the weight of the ap
 
 If all the apples can be put into the basket, then we return the total number of apples.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of apples.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of apples.
 
 <!-- tabs:start -->
 

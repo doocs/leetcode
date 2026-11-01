@@ -90,7 +90,7 @@ Next, we perform $k$ operations. In each operation, we take out the top element 
 
 After performing $k$ operations, the sum of all elements in the priority queue is the answer.
 
-The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `piles`.
+The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `piles`.
 
 <!-- tabs:start -->
 

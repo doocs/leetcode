@@ -88,7 +88,7 @@ tags:
 
 We use a variable $s$ to record the result of the square sum minus the digit sum of $n$. If $s$ is greater than or equal to 50, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-The time complexity is $O(\log n)$, where $\log n$ is the number of digits in $n$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $\log n$ is the number of digits in $n$.
 
 <!-- tabs:start -->
 

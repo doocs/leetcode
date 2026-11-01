@@ -112,7 +112,7 @@ We design a function $\textit{dfs}(i, j, k)$, which represents the maximum amoun
 
 Based on the above analysis, we can write the code for memoized search.
 
-The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n \times k)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{coins}$, and $k$ is the number of conversion opportunities, which is $3$ in this problem.
+The time complexity is $O(mnk)$, and the space complexity is $O(mnk)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{coins}$, and $k$ is the number of conversion opportunities, which is $3$ in this problem.
 
 <!-- tabs:start -->
 

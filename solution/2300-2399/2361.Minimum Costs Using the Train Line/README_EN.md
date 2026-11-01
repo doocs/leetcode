@@ -113,7 +113,7 @@ We denote the answer array as $cost$, where $cost[i]$ represents the minimum cos
 
 Finally, we return $cost$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of stations.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of stations.
 
 <!-- tabs:start -->
 

@@ -93,7 +93,7 @@ The problem essentially asks us to find each segment of consecutive identical ch
 
 We can use two pointers $l$ and $r$ to traverse the string $s$. When $s[l] = s[r]$, move $r$ to the right until $s[r] \neq s[l]$. At this point, check if $r - l$ equals $k$. If it does, return $\textit{true}$; otherwise, move $l$ to $r$ and continue traversing.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -109,7 +109,7 @@ Then, we continuously take elements $(x, y)$ from the queue and try to move in f
 
 Finally, when the queue is empty, we obtain $\textit{dist}[m-1][n-1]$, which is the minimum health value required to reach the bottom-right corner from the top-left corner. If this value is less than $\textit{health}$, then we can reach the bottom-right corner; otherwise, we cannot.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

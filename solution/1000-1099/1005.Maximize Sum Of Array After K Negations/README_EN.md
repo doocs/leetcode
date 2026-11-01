@@ -91,7 +91,7 @@ If $k$ is still odd and $\textit{cnt}[0] = 0$, we need to take the smallest posi
 
 Finally, we traverse the hash table $\textit{cnt}$ and sum the products of $x$ and $\textit{cnt}[x]$ to get the answer.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $\textit{nums}$ and the size of the data range of $\textit{nums}$, respectively.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the size of the data range of $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

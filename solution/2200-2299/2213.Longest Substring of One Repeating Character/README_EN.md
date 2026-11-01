@@ -97,7 +97,7 @@ For this problem, the information maintained by the segment tree node includes:
 3. The number of longest consecutive characters in the interval, $mx$.
 4. The left endpoint $l$ and the right endpoint $r$ of the interval.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n \times \log n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

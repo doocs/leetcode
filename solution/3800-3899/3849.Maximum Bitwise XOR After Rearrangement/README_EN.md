@@ -105,7 +105,7 @@ We use an array $\textit{cnt}$ of length $2$ to count the number of character '0
 
 Then we iterate through string $s$. For each character $s[i]$, we want to find a character in string $t$ that is different from $s[i]$ to perform the XOR operation, in order to get a larger result. If we find such a character, we set the $i$-th bit of the answer to '1' and decrement the count of that character by one; otherwise, we can only use a character that is the same as $s[i]$ for the XOR operation, the $i$-th bit of the answer remains '0', and we decrement the count of that character by one. Finally, we return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

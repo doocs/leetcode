@@ -89,7 +89,7 @@ According to the problem description, we can first traverse the array `nums` to 
 
 Next, we traverse the array `queries`. For each query $i$, if $i - 1$ is less than the length of `ids`, then the answer is `ids[i - 1]`, otherwise, the answer is $-1$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `nums` and `queries` respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays `nums` and `queries` respectively.
 
 <!-- tabs:start -->
 

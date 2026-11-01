@@ -130,7 +130,7 @@ For $f[i][j]$, we have two choices:
 
 The final answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $\textit{source}$ and $\textit{pattern}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{source}$ and $\textit{pattern}$, respectively.
 
 <!-- tabs:start -->
 

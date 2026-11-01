@@ -99,7 +99,7 @@ tags:
 
 We can enumerate the left endpoint $i$ of the subarray, and then enumerate the right endpoint $j$ from the left endpoint. During the enumeration process, we use a hash table $\textit{vis}$ to record the numbers that have appeared in the subarray, and use an array $\textit{cnt}$ of length $2$ to record the count of distinct even numbers and distinct odd numbers in the subarray respectively. When $\textit{cnt}[0] = \textit{cnt}[1]$, we update the answer $\textit{ans} = \max(\textit{ans}, j - i + 1)$.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

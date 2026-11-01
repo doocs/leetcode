@@ -74,7 +74,7 @@ First, we calculate the sum $s$ of the longest sequential prefix of the array $n
 
 Since $nums[i] \leq 50$ in this problem, we can use an array of length $51$ (or a hash table) to record the integers that appear in the array, so as to quickly determine whether an integer is in the array $nums$.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $nums$, and $M$ is the upper bound of the array elements, which is $51$ in this problem.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $nums$, and $M$ is the upper bound of the array elements, which is $51$ in this problem.
 
 <!-- tabs:start -->
 

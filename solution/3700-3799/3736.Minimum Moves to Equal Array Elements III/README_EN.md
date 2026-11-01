@@ -92,7 +92,7 @@ This problem requires making all elements in the array equal, with each operatio
 
 Therefore, we can first calculate the maximum value $\textit{mx}$ and the sum of array elements $\textit{s}$. The number of operations required to make all elements equal to $\textit{mx}$ is $\textit{mx} \times n - \textit{s}$, where $n$ is the length of the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ We use an array $\textit{idx}$ to store the indices from $0$ to $n-1$, then sort
 
 Next, we define an array $\textit{top3} = [\text{Gold Medal}, \text{Silver Medal}, \text{Bronze Medal}]$. We traverse $\textit{idx}$, and for each index $j$, if $j$ is less than $3$, then $\textit{ans}[j]$ is $\textit{top3}[j]$; otherwise, it is $j+1$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{score}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{score}$.
 
 <!-- tabs:start -->
 

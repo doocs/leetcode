@@ -83,7 +83,7 @@ If the `node` has a right subtree, then the in-order successor of `node` is the 
 
 If the `node` does not have a right subtree, then if `node` is the right child of its parent, we continue to search upwards until the parent of the node is null, or the node is the left child of its parent. In this case, the parent node is the in-order successor.
 
-The time complexity is $O(h)$, where $h$ is the height of the binary tree. The space complexity is $O(1)$.
+The time complexity is $O(h)$, and the space complexity is $O(1)$, where $h$ is the height of the binary tree.
 
 <!-- tabs:start -->
 

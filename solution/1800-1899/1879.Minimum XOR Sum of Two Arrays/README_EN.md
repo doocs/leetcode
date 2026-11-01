@@ -333,7 +333,7 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 > **Thinking**
 >
-> Enumerate the mask $i$ itself: let $k=\mathrm{popcount}(i)-1$ be the $nums1$ index being placed, and try each bit of $i$ as the chosen $nums2[j]$. Each state is filled once in $O(n\,2^n)$ time and $O(2^n)$ space.
+> Enumerate the mask $i$ itself: let $k=\mathrm{popcount}(i)-1$ be the $nums1$ index being placed, and try each bit of $i$ as the chosen $nums2[j]$. Each state is filled once in $O(n 2^n)$ time and $O(2^n)$ space.
 
 <!-- thinking:end -->
 

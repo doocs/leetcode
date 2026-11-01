@@ -76,7 +76,7 @@ Next, we initialize $j=0$, and then loop $n1$ times. Each time, we add $d[j][0]$
 
 The final answer is the count of $s_2$ that can be matched by $n1$ $s_1$, divided by $n2$.
 
-The time complexity is $O(m \times n + n_1)$, and the space complexity is $O(n)$. Where $m$ and $n$ are the lengths of $s_1$ and $s_2$ respectively.
+The time complexity is $O(mn + n_1)$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of $s_1$ and $s_2$ respectively.
 
 <!-- tabs:start -->
 

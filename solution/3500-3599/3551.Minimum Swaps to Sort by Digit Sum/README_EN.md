@@ -103,7 +103,7 @@ We first compute the digit sum of each element, pair it with the element, and so
 
 Let $n$ be the length of the array. Treat the original array as a permutation: the value at index $i$ should move to its index in the target sequence. If this permutation contains $c$ cycles, the minimum number of swaps is $n - c$. We store each value's target index in a hash table. Starting from every unvisited index, we repeatedly jump to the index where the current value belongs, until we reach a visited index and thus close one cycle. The answer starts at $n$ and decreases by one for each cycle.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

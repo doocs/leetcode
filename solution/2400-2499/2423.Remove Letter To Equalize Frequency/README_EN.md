@@ -79,7 +79,7 @@ Next, we enumerate the $26$ letters. If letter $c$ appears in the string, we dec
 
 If the enumeration ends, it means that it is impossible to make the counts of the remaining letters the same by deleting one letter, so return `false`.
 
-The time complexity is $O(n + C^2)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $word$, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n + C^2)$, and the space complexity is $O(C)$, where $n$ is the length of the string $word$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

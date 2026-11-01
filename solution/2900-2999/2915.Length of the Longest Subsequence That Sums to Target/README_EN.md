@@ -88,7 +88,7 @@ $$
 
 The final answer is $f[n][target]$. If $f[n][target]\le0$, there is no subsequence with a sum of $target$, return $-1$.
 
-The time complexity is $O(n\times target)$, and the space complexity is $O(n\times target)$. Here, $n$ is the length of the array, and $target$ is the target value.
+The time complexity is $O(n target)$, and the space complexity is $O(n target)$, where $n$ is the length of the array, and $target$ is the target value.
 
 <!-- tabs:start -->
 

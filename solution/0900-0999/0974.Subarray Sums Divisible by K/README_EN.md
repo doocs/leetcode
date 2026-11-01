@@ -73,7 +73,7 @@ In the end, we return the answer $\textit{ans}$.
 
 > Note: Since the value of $s$ can be negative, we can add $k$ to the result of $s \bmod k$ and then take modulo $k$ again to ensure that the value of $s$ is non-negative.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

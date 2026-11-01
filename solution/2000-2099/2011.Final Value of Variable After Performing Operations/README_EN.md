@@ -96,7 +96,7 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 
 We traverse the array $\textit{operations}$. For each operation $\textit{operations}[i]$, if it contains `'+'`, we increment the answer by $1$, otherwise, we decrement the answer by $1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{operations}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{operations}$.
 
 <!-- tabs:start -->
 

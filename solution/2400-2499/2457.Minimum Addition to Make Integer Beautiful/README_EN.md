@@ -93,7 +93,7 @@ $$
 \end{aligned}
 $$
 
-The time complexity is $O(\log^2 n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\log^2 n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

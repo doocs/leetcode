@@ -109,7 +109,7 @@ For the latter two cases, we need to count the number of differing pairs of cell
 
 We add the number of operations to the answer and finally return the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

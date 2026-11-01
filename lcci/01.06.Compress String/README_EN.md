@@ -67,7 +67,7 @@ We can use two pointers to find the start and end positions of each consecutive 
 
 Finally, we compare the lengths of $t$ and $S$. If the length of $t$ is less than $S$, we return $t$, otherwise we return $S$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

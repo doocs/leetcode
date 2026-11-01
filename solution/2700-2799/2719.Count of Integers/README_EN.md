@@ -79,7 +79,7 @@ For the answer to $[1,..r]$, we can use digit DP to solve it. We design a functi
 
 For $dfs(pos, s, limit)$, we can enumerate the value of the current digit $i$, and then recursively calculate $dfs(pos+1, s+i, limit \bigcap i==up)$, where $up$ represents the upper limit of the current digit. If $limit$ is true, then $up$ is the upper limit of the current digit, otherwise $up$ is $9$. If $pos$ is greater than or equal to the length of $num$, then we can judge whether $s$ is in the range $[min\_sum,..max\_sum]$. If it is, return $1$, otherwise return $0$.
 
-The time complexity is $O(10 \times n \times max\_sum)$, and the space complexity is $O(n \times max\_sum)$. Here, $n$ represents the length of $num$.
+The time complexity is $O(10nmax\_sum)$, and the space complexity is $O(nmax\_sum)$, where $n$ represents the length of $num$.
 
 Similar problems:
 

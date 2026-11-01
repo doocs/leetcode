@@ -98,7 +98,7 @@ $$
 
 To avoid repeated calculations, we use the method of memoization search.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -274,7 +274,7 @@ f[i-3],&i-3 \ge 0\ \textit{and}\ \textit{nums}[i-1] - \textit{nums}[i-2] = 1\ \t
 \end{cases}
 $$
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -401,7 +401,7 @@ f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \texti
 \end{cases}
 $$
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

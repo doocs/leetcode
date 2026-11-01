@@ -85,7 +85,7 @@ Traverse both arrays, find the first unequal position $i$. If $i \lt n - 1$, loo
 
 If the traversal ends, it means that the defective sensor cannot be determined, return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

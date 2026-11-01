@@ -80,7 +80,7 @@ We sort $nums$. Then $l$ and $r$ point to the first and last elements of $nums$ 
 
 After the loop ends, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of $nums$.
 
 <!-- tabs:start -->
 
@@ -243,7 +243,7 @@ We iterate over $nums$. For the current integer $x$, we check if $k - x$ is in $
 
 After the iteration ends, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $nums$.
 
 <!-- tabs:start -->
 

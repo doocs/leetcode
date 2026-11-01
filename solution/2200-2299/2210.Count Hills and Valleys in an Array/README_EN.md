@@ -88,7 +88,7 @@ We initialize a pointer $j$ to point to the position with index $0$, and then tr
 
 After the traversal, we can get the number of peaks and valleys.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

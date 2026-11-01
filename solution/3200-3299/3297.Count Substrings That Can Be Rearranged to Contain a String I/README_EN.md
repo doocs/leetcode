@@ -97,7 +97,7 @@ We traverse each character in $\textit{word1}$. For the current character $c$, w
 
 After traversing all characters in $\textit{word1}$, we get the answer.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{word1}$ and $\textit{word2}$, respectively. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. Here, it is the set of lowercase letters, so the space complexity is constant.
+The time complexity is $O(n + m)$, and the space complexity is $O(|\Sigma|)$, where $n$ and $m$ are the lengths of $\textit{word1}$ and $\textit{word2}$, respectively, and $\Sigma$ is the character set. Here, it is the set of lowercase letters, so the space complexity is constant.
 
 <!-- tabs:start -->
 

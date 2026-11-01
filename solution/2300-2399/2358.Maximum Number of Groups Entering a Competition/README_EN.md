@@ -84,7 +84,7 @@ We define the left boundary of binary search as $l = 1$ and the right boundary a
 
 Finally, we return $l$ as the answer.
 
-The time complexity is $O(\log n)$ and the space complexity is $O(1)$, where $n$ is the total number of students.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the total number of students.
 
 <!-- tabs:start -->
 

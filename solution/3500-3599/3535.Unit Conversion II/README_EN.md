@@ -97,7 +97,7 @@ The conversion relations form a directed tree rooted at $0$. Starting a DFS from
 
 For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
 
-The time complexity is $O(n + q \log MOD)$ and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
+The time complexity is $O(n + q \log MOD)$, and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
 
 <!-- tabs:start -->
 
@@ -376,7 +376,7 @@ The conversion relations form a directed tree rooted at $0$. An explicit stack w
 
 For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
 
-The time complexity is $O(n + q \log MOD)$ and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
+The time complexity is $O(n + q \log MOD)$, and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

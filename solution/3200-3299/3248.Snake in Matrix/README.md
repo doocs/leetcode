@@ -203,7 +203,7 @@ tags:
 
 我们可以用两个变量 $x$ 和 $y$ 来表示蛇的位置，初始时 $x = y = 0$，然后遍历 $\textit{commands}$，根据当前的命令更新 $x$ 和 $y$ 的值，最后返回 $x \times n + y$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{commands}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{commands}$ 的长度。
 
 <!-- tabs:start -->
 

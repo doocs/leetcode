@@ -98,7 +98,7 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 
 对于 $update(index, val)$，我们可以先通过 $sumRange(index, index)$ 得到原来的值 $prev$，然后调用 $update(index, val - prev)$，即可完成更新。时间复杂度为 $O(\log n)$。
 
-空间复杂度为 $O(n)$。
+空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 

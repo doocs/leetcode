@@ -109,7 +109,7 @@ We use a priority queue $\textit{pq}$ to store each state, where each state cons
 
 In each iteration, we take the front element $(d, i, j)$ from $\textit{pq}$. If $(i, j)$ is the endpoint, we return $d$. If $d$ is greater than $\textit{dist}[i][j]$, we skip this state. Otherwise, we enumerate the four adjacent positions $(x, y)$ of $(i, j)$. If $(x, y)$ is within the map, we calculate the final time $t$ from $(i, j)$ to $(x, y)$ as $t = \max(\textit{moveTime}[x][y], \textit{dist}[i][j]) + (i + j) \bmod 2 + 1$. If $t$ is less than $\textit{dist}[x][y]$, we update the value of $\textit{dist}[x][y]$ and add $(t, x, y)$ to $\textit{pq}$.
 
-The time complexity is $O(n \times m \times \log (n \times m))$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the number of rows and columns of the map, respectively.
+The time complexity is $O(nm \log (nm))$, and the space complexity is $O(nm)$, where $n$ and $m$ are the number of rows and columns of the map, respectively.
 
 <!-- tabs:start -->
 

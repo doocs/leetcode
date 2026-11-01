@@ -95,7 +95,7 @@ Since we are allowed to operate at most $k$ times, we can greedily enumerate $nu
 
 Return the answer after the loop. Note that the power is large, so we need to use fast power.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

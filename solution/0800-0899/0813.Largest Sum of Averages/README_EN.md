@@ -79,7 +79,7 @@ The execution logic of the function $\textit{dfs}(i, k)$ is as follows:
 - When $k = 1$, it means there is only one group left, and we return the average value from index $i$ to the end of the array.
 - Otherwise, we enumerate the starting position $j$ of the next group in the interval $[i + 1, n)$, calculate the average value from $i$ to $j - 1$ as $\frac{s[j] - s[i]}{j - i}$, add the result of $\textit{dfs}(j, k - 1)$, and take the maximum value of all results.
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ represents the length of the array $\textit{nums}$.
+The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -264,7 +264,7 @@ Define $f[i][j]$ to represent the maximum sum of averages when dividing the firs
 
 For $f[i][j]$, we can enumerate the end position $h$ of the previous group, calculate $f[h][j-1]$, add the result of $\frac{s[i] - s[h]}{i - h}$, and take the maximum value of all results.
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ represents the length of the array $\textit{nums}$.
+The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

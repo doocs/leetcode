@@ -75,7 +75,7 @@ The execution logic of the function $dfs(i)$ is as follows:
 
 To avoid repeated calculations, we use the method of memoization search.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the size of $numPeople$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the size of $numPeople$.
 
 <!-- tabs:start -->
 

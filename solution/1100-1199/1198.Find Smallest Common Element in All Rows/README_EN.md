@@ -71,7 +71,7 @@ We use an array $cnt$ of length $10001$ to count the frequency of each number. W
 
 If we do not find the smallest common element after the traversal, we return $-1$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(10^4)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(10^4)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ $$
 
 最终答案即为 $f[m][n]$。其中 $m$ 为数组 $\textit{nums}$ 的长度，而 $n = \frac{s - \textit{target}}{2}$。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。
 
 <!-- tabs:start -->
 
@@ -305,7 +305,7 @@ var findTargetSumWays = function (nums, target) {
 
 我们可以发现，方法一中的状态转移方程中， $f[i][j]$ 的值只和 $f[i - 1][j]$ 以及 $f[i - 1][j - \textit{nums}[i - 1]]$ 有关，因此我们去掉第一维空间，只使用一维数组即可。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(mn)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 

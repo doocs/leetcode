@@ -101,7 +101,7 @@ If we buy, and choose not to use a coupon (requires $j\ge price[i]$), the maximu
 
 The final answer is $dfs(0, maxAmount, maxCoupons)$.
 
-The time complexity is $O(n \times maxAmount \times maxCoupons)$, where $n$ is the number of fruits.
+The time complexity is $O(n maxAmount maxCoupons)$, where $n$ is the number of fruits.
 
 <!-- tabs:start -->
 

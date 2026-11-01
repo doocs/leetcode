@@ -83,7 +83,7 @@ We define a variable $k$ to represent the length of the longest consecutive subs
 
 Finally, we return the sum of all elements in $f$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, in this case, the set of lowercase letters.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set, in this case, the set of lowercase letters.
 
 <!-- tabs:start -->
 

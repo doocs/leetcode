@@ -88,7 +88,7 @@ First, we preprocess the warehouse to get the maximum height of each room. Then,
 
 Finally, we return the number of boxes that can be placed.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the warehouse.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the warehouse.
 
 <!-- tabs:start -->
 

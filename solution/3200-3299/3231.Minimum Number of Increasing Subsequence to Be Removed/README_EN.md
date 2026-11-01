@@ -85,7 +85,7 @@ From this analysis, we can observe that the last elements of the preceding seque
 
 Finally, we return the number of sequences.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ tags:
 >
 > We enumerate $i<j$, compute $\frac{\textit{nums}[i]\cdot\textit{nums}[j]}{\gcd^2}$ by Euclidean algorithm, and keep the maximum.
 >
-> $O(n^2\log M)$ already fits the limits, so grouping the array by common divisors is unnecessary.
+> $O(n^2 \log M)$ already fits the limits, so grouping the array by common divisors is unnecessary.
 
 <!-- thinking:end -->
 
@@ -95,7 +95,7 @@ We directly enumerate all pairs $(i, j)$ where $i < j$, calculate the strength o
 
 The greatest common divisor $\gcd$ can be computed using the Euclidean algorithm.
 
-The time complexity is $O(n^2 \times \log M)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array. The space complexity is $O(1)$.
+The time complexity is $O(n^2 \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

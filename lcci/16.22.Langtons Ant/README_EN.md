@@ -92,7 +92,7 @@ We simulate the walking process of the ant. If the square where the ant is locat
 
 After the simulation, we construct the answer matrix $g$ based on the values of $x_1$, $y_1$, $x_2$, $y_2$. Then, we paint the direction of the ant at the ant's position, and paint all black squares with $X$, and finally return the answer matrix.
 
-The time complexity is $O(K)$, and the space complexity is $O(K)$. Where $K$ is the number of steps the ant walks.
+The time complexity is $O(K)$, and the space complexity is $O(K)$, where $K$ is the number of steps the ant walks.
 
 <!-- tabs:start -->
 

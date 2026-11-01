@@ -117,7 +117,7 @@ Next, we calculate the size of each group $m = n / k$ and count the occurrence o
 
 Finally, if the occurrence count of all elements does not exceed $m$, then we can partition the array into groups where each group contains $k$ elements, and we return $\text{true}$.
 
-Time complexity $O(n)$, space complexity $O(n)$ or $O(M)$. Where $n$ is the length of the array, and $M$ is the maximum value of elements in the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(M)$, where $n$ is the length of the array, and $M$ is the maximum value of elements in the array.
 
 <!-- tabs:start -->
 

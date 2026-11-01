@@ -76,7 +76,7 @@ Thus, starting with money = 3, the transactions can be performed in any order.
 
 First, we accumulate all negative profits, denoted as $s$. Then, we enumerate each transaction $\text{transactions}[i] = [a, b]$ as the last transaction. If $a > b$, it means the current transaction is a loss, and this transaction has already been included when we accumulated the negative profits earlier. Therefore, we update the answer with $s + b$. Otherwise, we update the answer with $s + a$.
 
-The time complexity is $O(n)$, where $n$ is the number of transactions. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of transactions.
 
 <!-- tabs:start -->
 

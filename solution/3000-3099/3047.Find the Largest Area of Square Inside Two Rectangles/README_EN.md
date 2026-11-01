@@ -110,7 +110,7 @@ If rectangle 1 and rectangle 2 intersect, then the coordinates of the intersecti
 
 Then the width and height of the intersection are $w = \min(x_2, x_4) - \max(x_1, x_3)$ and $h = \min(y_2, y_4) - \max(y_1, y_3)$ respectively. We take the minimum of the two as the side length, i.e., $e = \min(w, h)$. If $e > 0$, then we can get a square with an area of $e^2$. We take the maximum area of all squares.
 
-The time complexity is $O(n^2)$, where $n$ is the number of rectangles. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the number of rectangles.
 
 <!-- tabs:start -->
 

@@ -71,7 +71,7 @@ tags:
 
 We can calculate the sum of the digits of $x$, denoted as $s$, by simulation. If $x$ can be divided evenly by $s$, then we return $s$, otherwise, we return $-1$.
 
-The time complexity is $O(\log x)$, where $x$ is the input integer. The space complexity is $O(1)$.
+The time complexity is $O(\log x)$, and the space complexity is $O(1)$, where $x$ is the input integer.
 
 <!-- tabs:start -->
 

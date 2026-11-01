@@ -110,7 +110,7 @@ This turns the problem into a 0-1 knapsack: every element contributes at most on
 
 We define $f[w]$ as the minimum number of operations needed for a subset to sum to exactly $w$, with $f[0] = 0$ and all other entries set to $+\infty$. For each element $x$, we iterate the capacity $w$ from large to small, enumerate every value $y$ that $x$ can become together with its cost $i$, and update $f[w]$ with $f[w - y] + i$ whenever $y \leq w$. If $f[\textit{sum}]$ is still $+\infty$ at the end, no valid sequence of operations exists and we return $-1$; otherwise we return $f[\textit{sum}]$.
 
-The time complexity is $O(n \times S \times \log S)$, and the space complexity is $O(S)$. Here, $n$ is the length of the array $\textit{nums}$, and $S$ is the given $\textit{sum}$.
+The time complexity is $O(nS \log S)$, and the space complexity is $O(S)$, where $n$ is the length of the array $\textit{nums}$, and $S$ is the given $\textit{sum}$.
 
 <!-- tabs:start -->
 

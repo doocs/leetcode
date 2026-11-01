@@ -95,7 +95,7 @@ When calling the $\text{add}$ method, we need to first decrement the value corre
 
 When calling the $\text{count}$ method, we only need to traverse the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$ for each element $x$.
 
-The time complexity is $O(n \times q)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively, and $q$ is the number of times the $\text{count}$ method is called.
+The time complexity is $O(nq)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively, and $q$ is the number of times the $\text{count}$ method is called.
 
 <!-- tabs:start -->
 

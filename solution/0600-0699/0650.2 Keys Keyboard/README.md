@@ -80,7 +80,7 @@ $$
 dfs(i)=\min _{j \mid i} (dfs(\frac{i}{j})+j, i), 2\leq j\lt i
 $$
 
-时间复杂度 $O(n\sqrt{n})$。
+时间复杂度 $O(n \sqrt{n})$。
 
 <!-- tabs:start -->
 
@@ -211,7 +211,7 @@ $$
 dp[i]=\min _{j \mid i} (dp[\frac{i}{j}]+j, i), 2\leq j\lt i
 $$
 
-时间复杂度 $O(n\sqrt{n})$。
+时间复杂度 $O(n \sqrt{n})$。
 
 <!-- tabs:start -->
 

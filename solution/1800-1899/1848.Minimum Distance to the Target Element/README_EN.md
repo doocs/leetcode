@@ -78,7 +78,7 @@ tags:
 
 Traverse the array, find all indices equal to $target$, then calculate $|i - start|$, and take the minimum value.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

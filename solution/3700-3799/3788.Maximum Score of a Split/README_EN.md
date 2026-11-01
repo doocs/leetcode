@@ -100,7 +100,7 @@ We first define an array $\textit{suf}$ of length $n$, where $\textit{suf}[i]$ r
 
 Next, we define a variable $\textit{pre}$ to represent the prefix sum of the array $\textit{nums}$. We traverse the first $n - 1$ elements of the array $\textit{nums}$. For each index $i$, we add $\textit{nums}[i]$ to $\textit{pre}$ and calculate the split score $\textit{score}(i) = \textit{pre} - \textit{suf}[i + 1]$. We use a variable $\textit{ans}$ to maintain the maximum value among all split scores.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

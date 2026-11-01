@@ -88,7 +88,7 @@ We can directly simulate this process by repeatedly performing the following ope
 
 When either $\textit{num1}$ or $\textit{num2}$ becomes $0$, stop the loop and return the operation count.
 
-The time complexity is $O(m)$, where $m$ is the maximum of $\textit{num1}$ and $\textit{num2}$. The space complexity is $O(1)$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the maximum of $\textit{num1}$ and $\textit{num2}$.
 
 <!-- tabs:start -->
 
@@ -235,7 +235,7 @@ var countOperations = function (num1, num2) {
 
 Following the simulation process in Solution 1, we notice that if $\textit{num1}$ is much larger than $\textit{num2}$, each operation will only reduce the value of $\textit{num1}$ slightly, leading to an excessive number of operations. We can optimize this process by directly adding the quotient of $\textit{num1}$ divided by $\textit{num2}$ to the answer in each operation, then taking the remainder of $\textit{num1}$ divided by $\textit{num2}$. This reduces the number of operations.
 
-The time complexity is $O(\log m)$, where $m$ is the maximum of $\textit{num1}$ and $\textit{num2}$. The space complexity is $O(1)$.
+The time complexity is $O(\log m)$, and the space complexity is $O(1)$, where $m$ is the maximum of $\textit{num1}$ and $\textit{num2}$.
 
 <!-- tabs:start -->
 

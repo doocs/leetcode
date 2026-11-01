@@ -60,7 +60,7 @@ tags:
 
 We can directly traverse the string according to the requirements of the problem, and append characters that are not vowels to the result string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

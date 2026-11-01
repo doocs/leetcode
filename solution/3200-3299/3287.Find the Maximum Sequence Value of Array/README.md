@@ -103,7 +103,7 @@ $$
 
 最后，我们在 $[k, n - k]$ 的范围内枚举 $i$，对于每一个 $i$，我们枚举 $x$ 和 $y$，其中 $0 \leq x, y < 2^7$，如果 $f[i][k][x]$ 和 $g[i][k][y]$ 均为真，那么我们更新答案 $\text{ans} = \max(\text{ans}, x \oplus y)$。
 
-时间复杂度 $O(n \times m \times k)$，空间复杂度 $O(n \times m \times k)$，其中 $n$ 为数组长度，而 $m = 2^7$。
+时间复杂度 $O(nmk)$，空间复杂度 $O(nmk)$。其中 $n$ 为数组长度，而 $m = 2^7$。
 
 <!-- tabs:start -->
 

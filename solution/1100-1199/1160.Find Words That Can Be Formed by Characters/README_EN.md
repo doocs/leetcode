@@ -74,7 +74,7 @@ Then we traverse the string array $words$. For each string $w$, we use an array 
 
 After the traversal, we can get the answer.
 
-The time complexity is $O(L)$, and the space complexity is $O(C)$. Here, $L$ is the sum of the lengths of all strings in the problem, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(L)$, and the space complexity is $O(C)$, where $L$ is the sum of the lengths of all strings in the problem, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ The execution logic of the function $build(i, j)$ is as follows:
 - If $i > j$, then the balanced binary search tree is empty, return an empty node;
 - Otherwise, we take $mid = (i + j) / 2$ as the root node, then recursively build the left and right subtrees, and return the root node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

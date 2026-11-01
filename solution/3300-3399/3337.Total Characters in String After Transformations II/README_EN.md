@@ -139,7 +139,7 @@ Since the frequency of each letter after a transformation affects the next trans
 
 Note that the result can be very large, so we take modulo $10^9 + 7$.
 
-The time complexity of this approach is $O(n + \log t \times |\Sigma|^3)$, where $n$ is the length of the string and $|\Sigma|$ is the size of the alphabet (in this case, 26). The space complexity is $O(|\Sigma|^2)$, which is the size of the matrix used for matrix multiplication.
+The time complexity of this approach is $O(n + |\Sigma|^3 \log t)$, where $n$ is the length of the string and $|\Sigma|$ is the size of the alphabet (in this case, 26). The space complexity is $O(|\Sigma|^2)$, which is the size of the matrix used for matrix multiplication.
 
 <!-- tabs:start -->
 

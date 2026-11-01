@@ -75,7 +75,7 @@ Therefore, nums is consecutive.
 
 > **Thinking**
 >
-> We ask whether the array is a permutation of some contiguous range. Sorting and checking adjacent gaps is $O(n\log n)$ and would pass, but a cheaper criterion exists: all values are distinct and $\max-\min+1$ equals the length.
+> We ask whether the array is a permutation of some contiguous range. Sorting and checking adjacent gaps is $O(n \log n)$ and would pass, but a cheaper criterion exists: all values are distinct and $\max-\min+1$ equals the length.
 >
 > A set gives uniqueness; together with the min and max this is necessary and sufficient.
 
@@ -85,7 +85,7 @@ We can use a hash table $\textit{s}$ to store all the elements in the array $\te
 
 If all elements in the array are distinct and the length of the array equals the difference between the maximum and minimum values plus $1$, then the array is consecutive, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ For each time point $s$ from $\textit{l}$ to $\textit{r}$ in increasing order, w
 
 In this way, we ensure that at each time point $s$, we always attend the event that ends the earliest, thus maximizing the number of events attended.
 
-The time complexity is $O(M \times \log n)$, and the space complexity is $O(n)$, where $M$ is the maximum end time and $n$ is the number of events.
+The time complexity is $O(M \log n)$, and the space complexity is $O(n)$, where $M$ is the maximum end time and $n$ is the number of events.
 
 <!-- tabs:start -->
 

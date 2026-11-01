@@ -93,7 +93,7 @@ We calculate the total deletion cost for each character in the string and store 
 
 Next, we iterate through the hash table $g$. For each character $c$, we calculate the minimum deletion cost required to keep that character, which is $\textit{tot} - g[c]$. The final answer is the minimum of all the minimum deletion costs corresponding to each character.
 
-The time complexity is $O(n)$ and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the set of distinct characters in the string.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the set of distinct characters in the string.
 
 <!-- tabs:start -->
 

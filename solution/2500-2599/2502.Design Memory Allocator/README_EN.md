@@ -102,7 +102,7 @@ When the `allocate` method is called, traverse the array, find `size` consecutiv
 
 When the `free` method is called, traverse the array, set all memory units equal to `mID` to $0$, indicating they are free.
 
-The time complexity is $O(n \times q)$, and the space complexity is $O(n)$, where $n$ and $q$ are the size of the memory space and the number of method calls, respectively.
+The time complexity is $O(nq)$, and the space complexity is $O(n)$, where $n$ and $q$ are the size of the memory space and the number of method calls, respectively.
 
 <!-- tabs:start -->
 

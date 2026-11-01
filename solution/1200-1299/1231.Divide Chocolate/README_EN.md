@@ -83,7 +83,7 @@ We define the left boundary of the binary search as $l=0$, and the right boundar
 
 The key to the problem is how to determine whether we can eat a piece of chocolate with sweetness $x$. We can use a greedy approach, traverse the array from left to right, accumulate the current sweetness each time, when the accumulated sweetness is greater than or equal to $x$, the chocolate count $cnt$ is increased by $1$, and the accumulated sweetness is reset to zero. Finally, check whether $cnt$ is greater than $k$.
 
-The time complexity is $O(n \times \log \sum_{i=0}^{n-1} sweetness[i])$, and the space complexity is $O(1)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log \sum_{i=0}^{n-1} sweetness[i])$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

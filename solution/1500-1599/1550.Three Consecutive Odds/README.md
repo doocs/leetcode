@@ -68,7 +68,7 @@ tags:
 
 遍历结束后，如果没有找到连续三个奇数，则返回 $\textit{False}$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -186,7 +186,7 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 
 因此，我们只需要遍历数组，判断是否存在连续三个数的按位与结果是否是奇数即可，如果存在则返回 $\textit{True}$，否则返回 $\textit{False}$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

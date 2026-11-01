@@ -98,7 +98,7 @@ tags:
 
 We can enumerate the target value $x$ for even indices and the target value $y$ for odd indices, where $0 \leq x, y < k$ and $x \neq y$. For each element, we calculate the number of operations required to change it to the target value, and accumulate the total number of operations. Finally, we return the minimum value among all enumeration results.
 
-The time complexity is $O(n \times k^2)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(nk^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

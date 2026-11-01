@@ -237,7 +237,7 @@ var bestTeamScore = function (scores, ages) {
 >
 > Solution 1 scans every predecessor in $O(n^2)$. After the same sort we only need the best score among ages up to the current one — a prefix maximum.
 >
-> A Fenwick tree stores those maxima: query $[1,\textit{age}]$, add $\textit{score}$, and update that age, for $O(n\log m)$ time.
+> A Fenwick tree stores those maxima: query $[1,\textit{age}]$, add $\textit{score}$, and update that age, for $O(n \log m)$ time.
 
 <!-- thinking:end -->
 

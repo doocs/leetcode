@@ -93,7 +93,7 @@ For $i \gt 0$, if $\textit{nums}[i] \gt \textit{nums}[i - 1]$, then $f[i] = g[i 
 
 Since $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$, two variables can be used instead of arrays.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ We can use two pointers $i$ and $j$ to find the left and right endpoints of each
 
 Traverse the array, when $j + 1 < n$ and $nums[j + 1] = nums[j] + 1$, move $j$ to the right, otherwise the interval $[i, j]$ has been found, add it to the answer, then move $i$ to the position of $j + 1$, and continue to find the next interval.
 
-Time complexity $O(n)$, where $n$ is the length of the array. Space complexity $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

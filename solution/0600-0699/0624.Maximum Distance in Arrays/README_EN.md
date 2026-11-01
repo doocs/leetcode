@@ -74,7 +74,7 @@ Next, we traverse from the second array. For each array, we first calculate the 
 
 After traversing all arrays, we get the maximum distance.
 
-The time complexity is $O(m)$, where $m$ is the number of arrays. The space complexity is $O(1)$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the number of arrays.
 
 <!-- tabs:start -->
 

@@ -71,7 +71,7 @@ Finally, after traversing string $s2$, we return `true`.
 
 Note: In this problem, all test case strings only contain lowercase letters, so we can directly create an array of length $26$ for counting.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C=26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C=26$.
 
 <!-- tabs:start -->
 
@@ -270,7 +270,7 @@ class Solution {
 
 We can also sort the two strings in lexicographical order, and then compare whether the two strings are equal.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

@@ -102,7 +102,7 @@ Otherwise, we can sort all edges by weight in ascending order, then use a union-
 
 We assume that initially all nodes are not connected, with each node being an independent connected component. Starting from the edge with the smallest weight, we try to add it to the current connected components. If the number of connected components becomes less than or equal to $k$ after adding the edge, it means all remaining edges can be removed, and the weight of the current edge is the maximum cost we are looking for. We return this weight. Otherwise, we continue processing the next edge.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

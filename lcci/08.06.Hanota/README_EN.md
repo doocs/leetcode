@@ -63,7 +63,7 @@ We design a function $dfs(n, a, b, c)$, which represents moving $n$ disks from $
 
 First, we move $n - 1$ disks from $a$ to $b$, then move the $n$-th disk from $a$ to $c$, and finally move $n - 1$ disks from $b$ to $c$.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ is the number of disks.
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ is the number of disks.
 
 <!-- tabs:start -->
 
@@ -218,7 +218,7 @@ Otherwise, we push three subtasks into the stack, which are:
 2. Move the $n$-th disk from $a$ to $c$;
 3. Move $n - 1$ disks from $a$ to $b$ with the help of $c$.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ is the number of disks.
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ is the number of disks.
 
 <!-- tabs:start -->
 

@@ -109,7 +109,7 @@ $$
 
 答案为 $f[n][k]+g[n][k]$。
 
-时间复杂度 $O(n\times k)$，空间复杂度 $O(n\times k)$。
+时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。
 
 <!-- tabs:start -->
 

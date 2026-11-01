@@ -105,7 +105,7 @@ We first use an ordered set to preprocess the positions that can be jumped to fr
 
 Then using memoization search, starting from each position with the current being an odd jump, we determine whether we can jump to the end of the array. If we can, then increment the result by one.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -337,7 +337,7 @@ Let $f[i][k]$ mean that, starting at index $i$ with the next jump of parity $k$,
 
 The answer is the number of indexes $i$ for which $f[i][1]$ is true.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

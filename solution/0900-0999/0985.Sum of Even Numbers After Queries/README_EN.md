@@ -73,7 +73,7 @@ We use an integer variable $\textit{s}$ to record the sum of all even numbers in
 
 For each query $(v, i)$, we first check if $\textit{nums}[i]$ is even. If $\textit{nums}[i]$ is even, we subtract $\textit{nums}[i]$ from $\textit{s}$. Then, we add $v$ to $\textit{nums}[i]$. If $\textit{nums}[i]$ is even, we add $\textit{nums}[i]$ to $\textit{s}$, and then add $\textit{s}$ to the answer array.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

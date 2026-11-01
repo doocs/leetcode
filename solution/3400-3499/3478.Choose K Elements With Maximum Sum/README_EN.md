@@ -99,7 +99,7 @@ We traverse the array $\textit{arr}$. For the $h$-th element $(x, i)$, we add al
 
 After traversing, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

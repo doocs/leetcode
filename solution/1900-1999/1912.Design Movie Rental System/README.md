@@ -116,7 +116,7 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 
 对于 $\text{report}()$ 操作，我们返回 $\textit{rented}$ 中前 5 个已借出电影的商店编号和电影编号。时间复杂度为 $O(1)$。
 
-空间复杂度为 $O(m)$。其中 $m$ 是 $\text{entries}$ 的长度。
+空间复杂度 $O(m)$。其中 $m$ 是 $\text{entries}$ 的长度。
 
 <!-- tabs:start -->
 

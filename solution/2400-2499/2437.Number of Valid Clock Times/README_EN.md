@@ -79,7 +79,7 @@ We can directly enumerate all times from $00:00$ to $23:59$, then judge whether 
 
 After the enumeration ends, return the answer.
 
-The time complexity is $O(24 \times 60)$, and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

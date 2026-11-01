@@ -86,7 +86,7 @@ First, we check if the root node is null or if the root node is equal to $\texti
 
 Then, we recursively search the left and right subtrees to get $\textit{left}$ and $\textit{right}$, respectively. If both $\textit{left}$ and $\textit{right}$ are not null, it means $\textit{p}$ and $\textit{q}$ are in the left and right subtrees, respectively, so the root node is the lowest common ancestor. Otherwise, if either $\textit{left}$ or $\textit{right}$ is null, it means both $\textit{p}$ and $\textit{q}$ are in the non-null subtree, so the root node of the non-null subtree is the lowest common ancestor.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ First, we traverse the linked list to obtain its length $n$, and then we calcula
 
 Next, we just need to traverse the linked list and split it into $k$ parts.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

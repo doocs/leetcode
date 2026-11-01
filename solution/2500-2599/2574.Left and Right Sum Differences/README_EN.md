@@ -78,7 +78,7 @@ We traverse the array $\textit{nums}$. For the current number $x$, we update $r 
 
 After the traversal, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$, not counting the space for the return value.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

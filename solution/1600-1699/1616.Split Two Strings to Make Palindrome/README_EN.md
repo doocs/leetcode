@@ -91,7 +91,7 @@ If the two pointers cross, i.e., $i \geq j$, it means that $prefix$ and $suffix$
 
 Otherwise, we try swapping the two strings $a$ and $b$ and repeat the same process.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of string $a$ or $b$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of string $a$ or $b$.
 
 <!-- tabs:start -->
 

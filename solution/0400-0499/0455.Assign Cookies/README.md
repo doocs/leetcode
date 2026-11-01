@@ -89,7 +89,7 @@ tags:
 
 如果遍历完数组 $g$，则说明所有孩子都已经分配到饼干，则返回孩子总数即可。
 
-时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为数组 $g$ 和 $s$ 的长度。
+时间复杂度 $O(m \log m + n \log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为数组 $g$ 和 $s$ 的长度。
 
 <!-- tabs:start -->
 

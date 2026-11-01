@@ -82,7 +82,7 @@ If the root node's value is greater than $\textit{val}$, we recursively insert $
 
 If the root node's value is less than $\textit{val}$, we recursively insert $\textit{val}$ into the right subtree and update the root of the right subtree with the returned root node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

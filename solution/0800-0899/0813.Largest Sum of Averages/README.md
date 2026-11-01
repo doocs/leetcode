@@ -83,7 +83,7 @@ nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) /
 
 否则，我们在 $[i + 1, n)$ 的区间内枚举下一个分组的开始位置 $j$，计算从 $i$ 到 $j - 1$ 的平均值 $\frac{s[j] - s[i]}{j - i}$，加上 $\textit{dfs}(j, k - 1)$ 的结果，取所有结果的最大值。
 
-时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n^2k)$，空间复杂度 $O(nk)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -268,7 +268,7 @@ function largestSumOfAverages(nums: number[], k: number): number {
 
 对于 $f[i][j]$，我们可以枚举上一组的结束位置 $h$，计算 $f[h][j-1]$，加上 $\frac{s[i]-s[h]}{i-h}$ 的结果，取所有结果的最大值。
 
-时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n^2k)$，空间复杂度 $O(nk)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

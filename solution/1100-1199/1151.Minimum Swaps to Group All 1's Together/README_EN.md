@@ -75,7 +75,7 @@ The minimum is 1.
 
 First, we count the number of $1$s in the array, denoted as $k$. Then we use a sliding window of size $k$, moving the right boundary of the window from left to right, and count the number of $1$s in the window, denoted as $t$. Each time we move the window, we update the value of $t$. Finally, when the right boundary of the window moves to the end of the array, the number of $1$s in the window is the maximum, denoted as $mx$. The final answer is $k - mx$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -106,7 +106,7 @@ tags:
 
 遍历结束后，返回答案数组即可。
 
-时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{queries}$ 的长度。
+时间复杂度 $O(n \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

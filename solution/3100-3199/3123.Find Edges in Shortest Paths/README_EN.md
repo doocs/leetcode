@@ -106,7 +106,7 @@ Next, we create an answer array $ans$ of length $m$, initially all elements are 
 
 Finally, return the answer.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges respectively.
+The time complexity is $O(m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges respectively.
 
 <!-- tabs:start -->
 

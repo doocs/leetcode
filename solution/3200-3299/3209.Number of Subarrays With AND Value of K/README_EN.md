@@ -93,7 +93,7 @@ When we traverse from $r$ to $r+1$, the values with $r+1$ as the right endpoint 
 
 Therefore, we only need to enumerate each value in the set and perform the bitwise AND operation with $\textit{nums[r]}$ to get all the values and their occurrences with $r$ as the right endpoint. Then, we need to add the occurrence count of $\textit{nums[r]}$. At this point, we add the occurrence count of value $k$ to the answer. Continue traversing $r$ until the entire array is traversed.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

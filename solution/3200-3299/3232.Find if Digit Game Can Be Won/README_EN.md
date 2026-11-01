@@ -89,7 +89,7 @@ tags:
 
 According to the problem description, as long as the sum of the units digits is not equal to the sum of the tens digits, Alice can always choose a larger sum to win.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

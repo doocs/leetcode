@@ -96,7 +96,7 @@ We can observe that at least one of the two words with maximum distance must be 
 
 So, we only need to traverse the array, calculate the distance between each word and the words at both ends of the array, and update the maximum distance.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{words}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{words}$.
 
 <!-- tabs:start -->
 

@@ -100,7 +100,7 @@ The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
 
 To avoid repeated calculations, we use memoized search.
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n^2 \times k)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n^2k)$, and the space complexity is $O(n^2k)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

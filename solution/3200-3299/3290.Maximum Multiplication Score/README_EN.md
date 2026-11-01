@@ -84,7 +84,7 @@ The function $\textit{dfs}(i, j)$ is calculated as follows:
 
 We can use memoization to avoid redundant calculations.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively.
 
 <!-- tabs:start -->
 
@@ -245,7 +245,7 @@ Otherwise we either skip $b[j]$, which scores $f[i][j + 1]$, or take it, which s
 
 We calculate $f$ from $j = n - 1$ down to $0$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively.
 
 <!-- tabs:start -->
 

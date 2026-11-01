@@ -84,7 +84,7 @@ where $(x, y)$ is one of the $8$ positions the knight can move to from $(i, j)$.
 
 The final answer is $f[k][\textit{row}][\textit{column}]$.
 
-The time complexity is $O(k \times n^2)$, and the space complexity is $O(k \times n^2)$. Here, $k$ and $n$ are the given number of steps and the size of the board, respectively.
+The time complexity is $O(kn^2)$, and the space complexity is $O(kn^2)$, where $k$ and $n$ are the given number of steps and the size of the board, respectively.
 
 <!-- tabs:start -->
 

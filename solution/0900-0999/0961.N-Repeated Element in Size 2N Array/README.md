@@ -201,7 +201,7 @@ var repeatedNTimes = function (nums) {
 
 如果没有在上述过程中找到重复的元素，那么重复的元素一定是 $\textit{nums}[0]$，我们直接返回 $\textit{nums}[0]$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

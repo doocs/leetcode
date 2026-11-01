@@ -77,7 +77,7 @@ tags:
 
 We can start from the last digit of the array and add each digit of the array to $k$. Then, divide $k$ by $10$, and use the remainder as the current digit's value, with the quotient as the carry. Continue this process until the array is fully traversed and $k = 0$. Finally, reverse the answer array.
 
-The time complexity is $O(n)$, where $n$ is the length of $\textit{num}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{num}$.
 
 <!-- tabs:start -->
 

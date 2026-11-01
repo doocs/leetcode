@@ -89,7 +89,7 @@ Next, we need to build the graph. For each project, we need to build two types o
 
 Next, we perform topological sorting on the group graph to get the sorted group list $groupOrder$. If the length of the sorted list is not equal to the total number of groups, it means that the sorting cannot be completed, so we return an empty list. Otherwise, we traverse $groupOrder$, and for each group $gi$, we perform topological sorting on the project list $groupItems[gi]$ to get the sorted project list $itemOrder$. If the length of the sorted list is not equal to the total number of projects in the group, it means that the sorting cannot be completed, so we return an empty list. Otherwise, we add the projects in $itemOrder$ to the answer array, and finally return this answer array.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the total number of projects and groups, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the total number of projects and groups, respectively.
 
 <!-- tabs:start -->
 

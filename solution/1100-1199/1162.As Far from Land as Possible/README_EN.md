@@ -75,7 +75,7 @@ In each round of search, we spread all cells in the queue in four directions. If
 
 Finally, we return the step count $ans$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the grid.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the grid.
 
 <!-- tabs:start -->
 

@@ -88,7 +88,7 @@ When we enumerate the right endpoint, we can add the character at the right endp
 
 After enumeration, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which in this case is the set of lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set, which in this case is the set of lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

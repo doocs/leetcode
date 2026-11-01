@@ -184,7 +184,7 @@ $$f[t][i][j] = \min(f[t][i][j], f[t][i][j-1] + grid[i][j])$$
 
 Finally, our answer is $\min(f[t][m-1][n-1])$, where $t$ ranges from $0$ to $k$.
 
-The time complexity is $O((k + \log mn) \times mn)$, and the space complexity is $O(k \times mn)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively, and $k$ is the maximum allowed number of teleportations.
+The time complexity is $O(mn(k + \log mn))$, and the space complexity is $O(kmn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively, and $k$ is the maximum allowed number of teleportations.
 
 <!-- tabs:start -->
 

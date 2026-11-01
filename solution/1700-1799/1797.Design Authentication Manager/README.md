@@ -95,7 +95,7 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 
 时间复杂度方面，`generate` 和 `renew` 操作的时间复杂度均为 $O(1)$，`countUnexpiredTokens` 操作的时间复杂度为 $O(n)$，其中 $n$ 为哈希表 $d$ 的键值对个数。
 
-空间复杂度为 $O(n)$，其中 $n$ 为哈希表 $d$ 的键值对个数。
+空间复杂度 $O(n)$。其中 $n$ 为哈希表 $d$ 的键值对个数。
 
 <!-- tabs:start -->
 

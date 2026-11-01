@@ -88,15 +88,7 @@ countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 
 The task requires outputting the appearance sequence of the $n$-th item, where the $n$-th item is the description of the $n-1$-th item in the sequence. Therefore, we iterate $n-1$ times. In each iteration, we use fast and slow pointers, denoted as j and i respectively, to record the current character's position and the position of the next character that is not equal to the current character. We then update the sequence of the previous item to be $j-i$ occurrences of the current character.
 
-Time Complexity:
-
-1. The outer loop runs `n - 1` times, iterating to generate the "Count and Say" sequence up to the nth term.
-2. The inner while loop iterates through each character in the current string s and counts the consecutive occurrences of the same character.
-3. The inner while loop runs in $O(m)$ time, where m is the length of the current string s.
-
-Overall, the time complexity is $O(n \times m)$, where n is the input parameter representing the term to generate, and m is the maximum length of the string in the sequence.
-
-Space Complexity: $O(m)$.
+Overall, the time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the input parameter representing the term to generate, and $m$ is the maximum length of the string in the sequence.
 
 <!-- tabs:start -->
 

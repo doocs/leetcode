@@ -85,7 +85,7 @@ Then we traverse the hash table. For each employee, we first check whether the n
 
 Finally, we sort the answer array in lexicographical order to get the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of clock-in records.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of clock-in records.
 
 <!-- tabs:start -->
 

@@ -78,7 +78,7 @@ Then, we construct a binary number, where the $k$-th bit is $0$ and the rest of 
 
 Finally, we perform XOR operation on $\textit{num}$ and the constructed binary number to get the answer.
 
-The time complexity is $O(\log \textit{num})$, where $\textit{num}$ is the input integer. The space complexity is $O(1)$.
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(1)$, where $\textit{num}$ is the input integer.
 
 <!-- tabs:start -->
 

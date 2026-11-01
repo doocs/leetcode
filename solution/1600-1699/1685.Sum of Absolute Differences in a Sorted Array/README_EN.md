@@ -74,7 +74,7 @@ First, we calculate the sum of all elements in the array $nums$, denoted as $s$.
 
 Next, we enumerate $nums[i]$. Then $ans[i] = nums[i] \times i - t + s - t - nums[i] \times (n - i)$. After that, we update $t$, i.e., $t = t + nums[i]$. We continue to enumerate the next element until all elements are enumerated.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

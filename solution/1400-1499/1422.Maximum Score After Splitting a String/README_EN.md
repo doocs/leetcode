@@ -82,7 +82,7 @@ We use two variables $l$ and $r$ to record the number of 0s in the left substrin
 
 We traverse the first $n - 1$ characters of the string $s$. For each position $i$, if $s[i] = 0$, then $l$ is incremented by 1; otherwise, $r$ is decremented by 1. Then we update the answer to be the maximum value of $l + r$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

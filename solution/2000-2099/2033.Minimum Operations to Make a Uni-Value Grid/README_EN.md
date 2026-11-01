@@ -90,7 +90,7 @@ Firstly, to make the grid a single-value grid, the remainder of all elements of 
 
 Therefore, we can first traverse the grid to check whether the remainder of all elements with $x$ is the same. If not, return $-1$. Otherwise, we put all elements into an array, sort the array, take the median, then traverse the array, calculate the difference between each element and the median, divide it by $x$, and add all the differences to get the answer.
 
-The time complexity is $O((m \times n) \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

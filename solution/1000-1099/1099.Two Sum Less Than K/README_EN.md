@@ -74,7 +74,7 @@ Next, we enumerate each element $nums[i]$ in the array, and find the maximum $nu
 
 After the enumeration ends, return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -189,7 +189,7 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 > **Thinking**
 >
-> One binary search per $x$ is $O(n\log n)$. Two pointers use the same monotonicity: a small sum moves the left end right; a sum of at least $k$ moves the right end left.
+> One binary search per $x$ is $O(n \log n)$. Two pointers use the same monotonicity: a small sum moves the left end right; a sum of at least $k$ moves the right end left.
 >
 > A single pass covers the Pareto front of distinct-index pairs with a smaller constant.
 
@@ -201,7 +201,7 @@ Next, we use two pointers $i$ and $j$ to point to the left and right ends of the
 
 After the enumeration ends, return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

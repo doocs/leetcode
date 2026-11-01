@@ -167,7 +167,7 @@ We can directly simulate the operations described in the problem. We use a list 
 
 Finally, we convert $\text{result}$ to a string and return it.
 
-The time complexity is $O(2^n)$, where $n$ is the length of string $s$. In the worst case, the `#` operation may cause the length of $\text{result}$ to double each time, resulting in exponential time complexity. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$. In the worst case, the `#` operation may cause the length of $\text{result}$ to double each time, resulting in exponential time complexity.
 
 <!-- tabs:start -->
 

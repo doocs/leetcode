@@ -90,7 +90,7 @@ We define a function $check(x)$, which indicates whether there exists a substrin
 
 Next, we define the left boundary $l$ of binary search as $0$ and the right boundary $r$ as $n$. In each step, we let $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If the return value of $check(mid)$ is `true`, we update the left boundary to $mid$, otherwise we update the right boundary to $mid - 1$. After the binary search, the left boundary we get is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of string $s$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -277,7 +277,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 > **Thinking**
 >
-> Solution 1 uses an $O(n)$ prefix array and $O(n\log n)$ time. Costs are non-negative, so extending the right end only increases the cost and advancing the left end only decreases it. Two pointers maintain the longest feasible window in one pass, in linear time and constant extra space.
+> Solution 1 uses an $O(n)$ prefix array and $O(n \log n)$ time. Costs are non-negative, so extending the right end only increases the cost and advancing the left end only decreases it. Two pointers maintain the longest feasible window in one pass, in linear time and constant extra space.
 
 <!-- thinking:end -->
 
@@ -285,7 +285,7 @@ We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a vari
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -410,7 +410,7 @@ Specifically, we use two pointers $l$ and $r$ to point to the left and right end
 
 Finally, return $n - l$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

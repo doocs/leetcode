@@ -73,7 +73,7 @@ In the function $\textit{dfs(node)}$, we first traverse the left and right subtr
 
 Finally, we return the number of moves.
 
-The time complexity is $O(n)$, and the space complexity is $O(h)$. Here, $n$ and $h$ respectively represent the number of nodes and the height of the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(h)$, where $n$ and $h$ respectively represent the number of nodes and the height of the binary tree.
 
 <!-- tabs:start -->
 

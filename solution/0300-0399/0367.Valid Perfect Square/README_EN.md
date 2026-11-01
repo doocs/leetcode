@@ -66,7 +66,7 @@ tags:
 
 We can use binary search to solve this problem. Define the left boundary $l = 1$ and the right boundary $r = num$ of the binary search, then find the smallest integer $x$ that satisfies $x^2 \geq num$ in the range $[l, r]$. Finally, if $x^2 = num$, then $num$ is a perfect square.
 
-The time complexity is $O(\log n)$, where $n$ is the given number. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given number.
 
 <!-- tabs:start -->
 

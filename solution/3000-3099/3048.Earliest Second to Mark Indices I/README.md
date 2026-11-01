@@ -118,7 +118,7 @@ tags:
 
 我们遍历数组 `changeIndices` 的前 $t$ 个元素，对于每一个元素 $i$，如果 $last[i] = s$，那么我们需要检查 $decrement$ 是否大于等于 $nums[i - 1]$，如果是，我们将 $decrement$ 减去 $nums[i - 1]$，并且将 $marked$ 加一；否则，我们返回 `False`。如果 $last[i] \neq s$，那么我们可以暂时不标记下标，因此将 $decrement$ 加一。最后，我们检查 $marked$ 是否等于 $n$，如果是，我们返回 `True`，否则返回 `False`。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `changeIndices` 的长度。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `changeIndices` 的长度。
 
 <!-- tabs:start -->
 

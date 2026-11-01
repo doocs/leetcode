@@ -87,7 +87,7 @@ Observing the problem's data range, the maximum number of balls does not exceed 
 
 The answer is the maximum value in the array $\textit{cnt}$.
 
-The time complexity is $O(n \times \log_{10}m)$. Here, $n = \textit{highLimit} - \textit{lowLimit} + 1$, and $m = \textit{highLimit}$.
+The time complexity is $O(n \log_{10}m)$, where $n = \textit{highLimit} - \textit{lowLimit} + 1$, and $m = \textit{highLimit}$.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ $$
 
 Initially, $dp[m][n-1]$ and $dp[m-1][n]$ are both $1$, and the values at other positions are maximum.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the dungeon, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the dungeon, respectively.
 
 <!-- tabs:start -->
 

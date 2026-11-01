@@ -95,7 +95,7 @@ Otherwise, we design a function $\textit{dfs}(i, j, k)$, which represents whethe
 
 If the balance $k$ is less than $0$ or greater than $m + n - i - j$, then there is no valid path, and we directly return $\text{false}$. If $(i, j)$ is the bottom-right cell, then there is a valid path only if $k = 0$. Otherwise, we enumerate the next cell $(x, y)$ of $(i, j)$. If $(x, y)$ is a valid cell and $\textit{dfs}(x, y, k)$ is $\text{true}$, then there is a valid path.
 
-The time complexity is $O(m \times n \times (m + n))$, and the space complexity is $O(m \times n \times (m + n))$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn(m + n))$, and the space complexity is $O(mn(m + n))$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -102,7 +102,7 @@ In $\textit{dfs}(i, s)$, if $i \geq m$, it means all students have been assigned
 
 We call $\textit{dfs}(0, 0)$ to get the maximum compatibility score sum.
 
-The time complexity is $O(m!)$, and the space complexity is $O(m^2)$. Here, $m$ is the number of students and mentors.
+The time complexity is $O(m!)$, and the space complexity is $O(m^2)$, where $m$ is the number of students and mentors.
 
 <!-- tabs:start -->
 

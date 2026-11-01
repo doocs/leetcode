@@ -84,7 +84,7 @@ Therefore, we can traverse the array from right to left. For each position $i$, 
 
 In the end, the maximum element in the array is the maximum element in the merged array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

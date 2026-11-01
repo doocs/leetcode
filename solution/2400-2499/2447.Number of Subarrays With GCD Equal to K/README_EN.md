@@ -74,7 +74,7 @@ We can enumerate $nums[i]$ as the left endpoint of the subarray, and then enumer
 
 After the enumeration ends, return the answer.
 
-The time complexity is $O(n \times (n + \log M))$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+The time complexity is $O(n(n + \log M))$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
 

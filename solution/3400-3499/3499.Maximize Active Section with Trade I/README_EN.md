@@ -131,7 +131,7 @@ Thus, we can use two pointers to traverse the string $\textit{s}$. Use a variabl
 
 Each time, we count the number of consecutive identical characters $\textit{cnt}$. If the current character is `'1'`, add $\textit{cnt}$ to the answer. If the current character is `'0'`, update $\textit{mx}$ as $\textit{mx} = \max(\textit{mx}, \textit{pre} + \textit{cnt})$, and update $\textit{pre}$ to $\textit{cnt}$. Finally, add $\textit{mx}$ to the answer.
 
-Time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

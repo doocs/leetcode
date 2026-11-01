@@ -105,7 +105,7 @@ The logic of the function $\textit{dfs}(u, \textit{cost}, \textit{value})$ is as
 
 In the main function, we call $\textit{dfs}(0, 0, \textit{values}[0])$ and return the answer $\textit{ans}$.
 
-The time complexity is $O(n + m + 4^{\frac{\textit{maxTime}}{\min(time_j)}})$, and the space complexity is $O(n + m + \frac{\textit{maxTime}}{\min(time_j)})$. Here, $n$ and $m$ respectively represent the number of nodes and edges.
+The time complexity is $O(n + m + 4^{\frac{\textit{maxTime}}{\min(time_j)}})$, and the space complexity is $O(n + m + \frac{\textit{maxTime}}{\min(time_j)})$, where $n$ and $m$ respectively represent the number of nodes and edges.
 
 <!-- tabs:start -->
 

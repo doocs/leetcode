@@ -123,7 +123,7 @@ We decode each element exactly as the statement describes. For each element $v$ 
 
 Since $y$ can be as large as $10^9$, multiplying repeatedly would be too slow, so we use fast power to compute $x^y \bmod (10^9 + 7)$ in $O(\log y)$ time, then accumulate the decoded values modulo $10^9 + 7$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

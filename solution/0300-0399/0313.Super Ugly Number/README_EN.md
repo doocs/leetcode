@@ -75,7 +75,7 @@ Each time we take the smallest super ugly number $x$ from the queue, multiply $x
 
 Since the problem guarantees that the $n$th super ugly number is within the range of a 32-bit signed integer, before we put the product into the queue, we can first check whether the product exceeds $2^{31} - 1$. If it does, there is no need to put the product into the queue. In addition, the Euler sieve can be used for optimization.
 
-The time complexity is $O(n \times m \times \log (n \times m))$, and the space complexity is $O(n \times m)$. Where $m$ and $n$ are the length of the array `primes` and the given integer $n$ respectively.
+The time complexity is $O(nm \log (nm))$, and the space complexity is $O(nm)$, where $m$ and $n$ are the length of the array `primes` and the given integer $n$ respectively.
 
 <!-- tabs:start -->
 
@@ -193,7 +193,7 @@ func (h *hp) Pop() any {
 
 > **Thinking**
 >
-> Method 1 fans each ugly number across every prime and the heap grows large. Keep one pointer per prime: the heap top is the next candidate; after writing it, push that prime's next multiple. The heap stays $O(m)$ and the time is $O(n\log m)$.
+> Method 1 fans each ugly number across every prime and the heap grows large. Keep one pointer per prime: the heap top is the next candidate; after writing it, push that prime's next multiple. The heap stays $O(m)$ and the time is $O(n \log m)$.
 
 <!-- thinking:end -->
 
@@ -201,7 +201,7 @@ Store the first $n$ super ugly numbers in $ugly[1..n]$, and keep a min-heap. Eac
 
 Initialize $ugly[1] = 1$ and push $(p, p, 2)$ for every prime. Repeatedly pop the heap minimum into $ugly$, then advance that prime's pointer and push it back. Each prime keeps a single pointer, so we do not expand every generated ugly number against the whole prime list.
 
-The time complexity is $O(n \times \log m)$, and the space complexity is $O(n + m)$, where $m$ is the length of $\textit{primes}$.
+The time complexity is $O(n \log m)$, and the space complexity is $O(n + m)$, where $m$ is the length of $\textit{primes}$.
 
 <!-- tabs:start -->
 

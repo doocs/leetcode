@@ -182,7 +182,7 @@ Traverse each character in the string:
 
 After traversal, the remaining elements in the stack represent the final state of the string. We concatenate these elements in order to get the result string.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

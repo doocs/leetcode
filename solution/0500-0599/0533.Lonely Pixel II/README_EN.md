@@ -82,7 +82,7 @@ Next, we traverse each column. For each column, we find the first row $i_1$ cont
 
 After the traversal, we return the answer.
 
-The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively.
 
 <!-- tabs:start -->
 

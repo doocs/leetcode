@@ -102,7 +102,7 @@ We can traverse each position of the string $s$. For each position, we enumerate
 
 After the traversal, we get a string that meets the conditions.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 26$.
 
 <!-- tabs:start -->
 

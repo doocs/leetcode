@@ -247,7 +247,7 @@ We can use a hash set $\textit{st}$ to store the normalized result of each email
 
 Finally, the number of elements in the hash set $\textit{st}$ is the number of unique email groups.
 
-The time complexity is $O(n \cdot m)$, where $n$ and $m$ are the number of email addresses and the average length of each email address, respectively. The space complexity is $O(n \cdot m)$, in the worst case where all email addresses are distinct.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the number of email addresses and the average length of each email address, respectively.
 
 <!-- tabs:start -->
 

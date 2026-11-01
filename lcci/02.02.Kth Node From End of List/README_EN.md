@@ -51,7 +51,7 @@ difficulty: Easy
 
 We define two pointers `slow` and `fast`, both initially pointing to the head node `head`. Then the `fast` pointer moves forward $k$ steps first, and then the `slow` and `fast` pointers move forward together until the `fast` pointer points to the end of the list. At this point, the node pointed to by the `slow` pointer is the $k$-th node from the end of the list.
 
-The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list.
 
 <!-- tabs:start -->
 

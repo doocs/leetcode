@@ -87,7 +87,7 @@ The red arrow denotes the order in which the cells should be presented.
 
 We directly traverse all the cells within the range and add them to the answer array.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the range of rows and columns, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the range of rows and columns, respectively.
 
 <!-- tabs:start -->
 

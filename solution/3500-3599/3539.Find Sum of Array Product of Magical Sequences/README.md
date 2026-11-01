@@ -117,7 +117,7 @@ tags:
 
 为了高效计算组合数 $\binom{m}{n}$，我们预处理阶乘数组 $f$ 和阶乘的逆元数组 $g$，其中 $f[i] = i! \mod (10^9 + 7)$， $g[i] = (i!)^{-1} \mod (10^9 + 7)$。则 $\binom{m}{n} = f[m] \cdot g[n] \cdot g[m - n] \mod (10^9 + 7)$。
 
-时间复杂度 $O(n \cdot m^3 \cdot k)$，空间复杂度 $O(n \cdot m^2 \cdot k)$，其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $m$ 和 $k$ 分别是题目中的参数。
+时间复杂度 $O(nm^3k)$，空间复杂度 $O(nm^2k)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $m$ 和 $k$ 分别是题目中的参数。
 
 <!-- tabs:start -->
 

@@ -85,7 +85,7 @@ Next, we consider the value of $k$:
 
 Finally, we return the result of the answer modulo $10^9 + 7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

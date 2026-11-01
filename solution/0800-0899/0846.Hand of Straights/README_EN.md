@@ -78,7 +78,7 @@ After that, we iterate over the sorted array $\textit{hand}$. For each number $x
 
 If the iteration completes successfully, it means that the array can be partitioned into multiple valid subarrays, so we return $\text{true}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hand}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hand}$.
 
 <!-- tabs:start -->
 
@@ -233,7 +233,7 @@ Next, we use an ordered set $\textit{sd}$ to count the occurrences of each numbe
 
 Then, we repeatedly take the smallest value $x$ from the ordered set and enumerate each number $y$ from $x$ to $x + \textit{groupSize} - 1$. If all these numbers appear at least once in the ordered set, we decrement their occurrence count by $1$. If any count reaches $0$, we remove that number from the ordered set. Otherwise, if we encounter a number that does not exist in the ordered set, it means that the array cannot be partitioned into valid subarrays, so we return $\text{false}$. If the iteration completes successfully, it means that the array can be partitioned into multiple valid subarrays, so we return $\text{true}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hand}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hand}$.
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ tags:
 >
 > 先序在 BST 上的片段仍保持「左子树键均小于根、右子树键均大于根」，且左段之后的元素单调地大于根，因此第一个大于根的下标可以用二分找到。
 >
-> 递归 $\textit{dfs}(i,j)$ 以 $\textit{preorder}[i]$ 为根，二分得到右子树起点后再构造两侧，总时间 $O(n\log n)$。
+> 递归 $\textit{dfs}(i,j)$ 以 $\textit{preorder}[i]$ 为根，二分得到右子树起点后再构造两侧，总时间 $O(n \log n)$。
 
 <!-- thinking:end -->
 
@@ -86,7 +86,7 @@ tags:
 
 最后返回根节点即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{preorder}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{preorder}$ 的长度。
 
 <!-- tabs:start -->
 

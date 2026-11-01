@@ -123,9 +123,9 @@ Time complexity:
 
 - The initialization time complexity is $O(n)$.
 - The time complexity of `gather(k, maxRow)` is $O(\log n)$.
-- The time complexity of `scatter(k, maxRow)` is $O((n + q) \times \log n)$.
+- The time complexity of `scatter(k, maxRow)` is $O((n + q) \log n)$.
 
-The overall time complexity is $O(n + q \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of rows, and $q$ is the number of operations.
+The time complexity is $O(n + q \log n)$, and the space complexity is $O(n)$, where $n$ is the number of rows, and $q$ is the number of operations.
 
 <!-- tabs:start -->
 

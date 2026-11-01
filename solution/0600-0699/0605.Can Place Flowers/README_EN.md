@@ -58,7 +58,7 @@ tags:
 
 We directly traverse the array $flowerbed$. For each position $i$, if $flowerbed[i]=0$ and its adjacent positions on the left and right are also $0$, then we can plant a flower at this position. Otherwise, we cannot. Finally, we count the number of flowers that can be planted. If it is not less than $n$, we return $true$, otherwise we return $false$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $flowerbed$. We only need to traverse the array once. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $flowerbed$.
 
 <!-- tabs:start -->
 

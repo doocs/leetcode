@@ -67,7 +67,7 @@ tags:
 
 For each round $k$, we fix the starting point from the top-right and traverse diagonally to the bottom-left to get $t$. If $k$ is even, we reverse $t$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Ignoring the space used for the answer.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

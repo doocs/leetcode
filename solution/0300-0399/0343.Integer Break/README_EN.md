@@ -77,7 +77,7 @@ $$
 
 Finally, returning $f[n]$ will suffice.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the given positive integer.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the given positive integer.
 
 <!-- tabs:start -->
 

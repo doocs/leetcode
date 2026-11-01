@@ -78,7 +78,7 @@ Specifically, we use two arrays $left$ and $right$ of length $n+1$, where $left[
 
 The final answer is $\max_{0 \leq i < n} \{left[i] + right[i+1]\}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -256,7 +256,7 @@ Therefore, we can use two pointers $j$ and $i$ to point to the left and right bo
 
 Next, we move the right pointer $i$. If $nums[i] = 0$, then $cnt$ is incremented by $1$. When $cnt > 1$, we need to move the left pointer $j$ until $cnt \leq 1$. Then, we update the answer, i.e., $ans = \max(ans, i - j)$. Continue to move the right pointer $i$ until $i$ reaches the end of the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -389,7 +389,7 @@ In Solution 2, we move the left pointer in a loop until $cnt \leq 1$. Since the 
 
 Finally, the answer we return is $n - l - 1$, where $l$ is the position of the left pointer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

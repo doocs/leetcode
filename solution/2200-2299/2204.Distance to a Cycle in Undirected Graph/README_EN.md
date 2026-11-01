@@ -105,7 +105,7 @@ Finally, we initialize an answer array $ans$ of length $n$, where $ans[i]$ repre
 
 After the traversal, return the answer array $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 Similar problems:
 

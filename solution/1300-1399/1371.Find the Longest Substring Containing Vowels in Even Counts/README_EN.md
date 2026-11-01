@@ -81,7 +81,7 @@ We traverse the string $\textit{s}$, and if we encounter a vowel, we toggle the 
 
 After traversing the string, we will have found the longest valid substring.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

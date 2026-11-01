@@ -89,7 +89,7 @@ According to the problem description, when two cars moving in opposite direction
 
 Obviously, the prefix $\textit{L}$ and the suffix $\textit{R}$ will not collide, so we only need to count the number of characters in the middle that are not $\textit{S}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(1)$. Here, $n$ is the length of the string $\textit{directions}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(1)$, where $n$ is the length of the string $\textit{directions}$.
 
 <!-- tabs:start -->
 

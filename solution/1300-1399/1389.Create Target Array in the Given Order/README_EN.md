@@ -94,7 +94,7 @@ nums       index     target
 
 We create a list $target$ to store the target array. Since the problem guarantees that the insertion position always exists, we can directly insert in the given order into the corresponding position.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

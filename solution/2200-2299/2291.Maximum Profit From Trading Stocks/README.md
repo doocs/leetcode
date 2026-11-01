@@ -84,7 +84,7 @@ tags:
 
 最后返回 $f[n][\textit{budget}]$ 即可。
 
-时间复杂度 $O(n \times \textit{budget})$，空间复杂度 $O(n \times \textit{budget})$。其中 $n$ 为数组长度。
+时间复杂度 $O(n \textit{budget})$，空间复杂度 $O(n \textit{budget})$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 

@@ -181,7 +181,7 @@ Finally, return $f$.
 
 The answer is $\text{dfs}(1)[\text{budget}][0]$.
 
-The time complexity is $O(n \times \text{budget}^2)$, and the space complexity is $O(n \times \text{budget})$.
+The time complexity is $O(n \text{budget}^2)$, and the space complexity is $O(n \text{budget})$.
 
 <!-- tabs:start -->
 

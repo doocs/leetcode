@@ -66,7 +66,7 @@ We can traverse the adjacent two binary bits of $num$ from low to high. If the l
 
 In implementation, we can use a piece of code to handle the above two situations uniformly.
 
-The time complexity is $O(\log n)$, where $n$ is the size of $num$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the size of $num$.
 
 <!-- tabs:start -->
 

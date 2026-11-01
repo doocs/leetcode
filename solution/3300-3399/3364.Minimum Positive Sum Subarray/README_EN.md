@@ -104,7 +104,7 @@ We can enumerate the left endpoint $i$ of the subarray, then enumerate the right
 
 Finally, if the answer is still the initial value, it means no subarray meets the conditions, so we return $-1$. Otherwise, we return the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

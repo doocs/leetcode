@@ -97,7 +97,7 @@ First, we initialize $\textit{cnt}$ to count the occurrences of each character i
 
 Finally, if there are duplicate characters in the stack, we continue to pop the top character until the count of the top character in $\textit{cnt}$ is 1.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

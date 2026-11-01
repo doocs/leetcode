@@ -102,7 +102,7 @@ After two robots collide, they will immediately change direction, which is equiv
 
 Next, we enumerate the position of each robot from small to large, and calculate the sum of the distances between the current robot and all robots in front, which is the answer.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of robots.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of robots.
 
 <!-- tabs:start -->
 

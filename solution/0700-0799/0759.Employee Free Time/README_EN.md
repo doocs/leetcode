@@ -74,7 +74,7 @@ We discard any intervals that contain inf as they aren&#39;t finite.
 
 We can merge all employees' working time intervals into a single list, then sort and merge the overlapping intervals. Finally, we traverse the merged interval list to find the free time periods between adjacent intervals.
 
-The time complexity is $O(mn \log(mn))$ and the space complexity is $O(mn)$, where $m$ is the number of employees and $n$ is the number of working intervals per employee.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ is the number of employees and $n$ is the number of working intervals per employee.
 
 <!-- tabs:start -->
 

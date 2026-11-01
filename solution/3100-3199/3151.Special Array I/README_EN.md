@@ -88,7 +88,7 @@ tags:
 
 We traverse the array from left to right. For each pair of adjacent elements, if their parity is the same, then the array is not a special array, return `false`; otherwise, the array is a special array, return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

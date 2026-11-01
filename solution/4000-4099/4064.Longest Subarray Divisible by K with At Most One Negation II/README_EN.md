@@ -126,7 +126,7 @@ After negating index $i$, a subarray that starts at $\textit{first}[q]$ and ends
 
 Let $s=p[i+1]$. When $\textit{best}[s]$ is not the sentinel, update the answer with $i+1-\textit{best}[s]$. Negative values are reduced into $[0,k)$.
 
-The time complexity is $O(n+k^2)$ and the space complexity is $O(n+k)$.
+The time complexity is $O(n+k^2)$, and the space complexity is $O(n+k)$.
 
 <!-- tabs:start -->
 

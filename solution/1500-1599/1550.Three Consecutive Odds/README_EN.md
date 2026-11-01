@@ -67,7 +67,7 @@ Next, we iterate through the array. If the current element is odd, then $\textit
 
 After the iteration, if three consecutive odd numbers are not found, then return $\textit{False}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -185,7 +185,7 @@ Based on the properties of bitwise operations, the result of a bitwise AND opera
 
 Therefore, we only need to iterate through the array and check if there exists three consecutive numbers whose bitwise AND result is odd. If such numbers exist, return $\textit{True}$; otherwise, return $\textit{False}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

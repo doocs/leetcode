@@ -104,7 +104,7 @@ $$
 g[i][j] = g[i + 1][j - 1] + \textit{houses}[j] - \textit{houses}[i]
 $$
 
-时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n^2)$。其中 $n$ 为房子的数量。
+时间复杂度 $O(n^2k)$，空间复杂度 $O(n^2)$。其中 $n$ 为房子的数量。
 
 <!-- tabs:start -->
 

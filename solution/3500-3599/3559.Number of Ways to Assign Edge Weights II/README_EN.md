@@ -107,7 +107,7 @@ The path $u \to v$ has $d = \textit{depth}[u] + \textit{depth}[v] - 2 \cdot \tex
 
 Use BFS to compute the depth and parent of each node, then binary lifting to preprocess LCAs. Precompute powers of $2$ so each query can be answered in $O(\log n)$.
 
-The time complexity is $O((n + q) \times \log n)$, and the space complexity is $O(n \times \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

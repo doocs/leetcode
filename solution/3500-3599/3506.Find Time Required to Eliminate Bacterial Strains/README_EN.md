@@ -110,7 +110,7 @@ Instead, we can adopt a reverse-thinking approach: instead of splitting the WBCs
 
 To minimize the involvement of bacteria with long elimination times in the merging process, we can greedily select the two bacteria with the smallest elimination times for merging at each step. Therefore, we can maintain a min-heap, repeatedly extracting the two bacteria with the smallest elimination times and merging them until only one type of bacteria remains. The elimination time of this final bacteria is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of bacteria.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of bacteria.
 
 <!-- tabs:start -->
 

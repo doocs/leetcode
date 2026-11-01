@@ -85,7 +85,7 @@ For each $\textit{nums}[i]$, count the occurrences of digits $0$ through $9$, th
 
 Sort the indices by gain in descending order. After sorting, take the value from $t$ for the first $k$ positions and keep the original $\textit{nums}$ value for the rest. Their sum is the answer. A nonnegative gain means performing fewer operations cannot increase the sum, so at most $k$ operations means choosing the $k$ largest gains.
 
-Each number has a constant number of digits. The time complexity is $O(n\log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+Each number has a constant number of digits. The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

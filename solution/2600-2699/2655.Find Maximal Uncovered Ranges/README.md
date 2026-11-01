@@ -97,7 +97,7 @@ tags:
 
 最后我们将答案数组返回即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{ranges}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{ranges}$ 的长度。
 
 <!-- tabs:start -->
 

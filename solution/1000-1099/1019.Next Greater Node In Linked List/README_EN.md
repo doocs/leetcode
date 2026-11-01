@@ -78,7 +78,7 @@ If the stack is empty at this time, it means that the current element does not h
 
 After the traversal is over, we return the answer array $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

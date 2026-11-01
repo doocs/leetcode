@@ -269,7 +269,7 @@ impl Solution {
 
 我们可以遍历所有可能的 $\textit{mask}$，从 $0$ 到 $2^n - 1$。对于每个 $\textit{mask}$，我们可以计算出对应子集的按位或结果，并更新最大值 $\textit{mx}$ 和答案 $\textit{ans}$。
 
-时间复杂度 $O(2^n \cdot n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(2^n n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

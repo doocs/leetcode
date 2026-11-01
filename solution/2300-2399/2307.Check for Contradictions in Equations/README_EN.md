@@ -86,7 +86,7 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 
 First, we convert the strings into integers starting from $0$. Then, we traverse all the equations, map the two strings in each equation to the corresponding integers $a$ and $b$. If these two integers are not in the same set, we merge them into the same set and record the weights of the two integers, which is the ratio of $a$ to $b$. If these two integers are in the same set, we check whether their weights satisfy the equation. If not, we return `true`.
 
-The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of equations.
+The time complexity is $O(n \log n)$ or $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of equations.
 
 Similar problems:
 

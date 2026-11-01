@@ -82,7 +82,7 @@ where $h$ represents the number of points on the $i$-th die.
 
 Initially, we have $f[0][0] = 1$, and the final answer is $f[n][target]$.
 
-The time complexity is $O(n \times k \times target)$, and the space complexity is $O(n \times target)$.
+The time complexity is $O(nk target)$, and the space complexity is $O(n target)$.
 
 <!-- tabs:start -->
 
@@ -219,7 +219,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Row $i$ of method 1 depends only on row $i-1$. Two rolling arrays cut space from $O(n\times target)$ to $O(target)$ with the same transition.
+> Row $i$ of method 1 depends only on row $i-1$. Two rolling arrays cut space from $O(n target)$ to $O(target)$ with the same transition.
 
 <!-- thinking:end -->
 

@@ -95,7 +95,7 @@ We design a function `dfs(root)` that returns a tuple `(l, d)`, where `l` is the
 
 In the main function, we call `dfs(root)` and return the first element of its return value to get the deepest common ancestor node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

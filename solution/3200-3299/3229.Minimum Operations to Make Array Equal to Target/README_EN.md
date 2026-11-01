@@ -87,7 +87,7 @@ tags:
 
 We can first calculate the difference between the arrays $\textit{nums}$ and $\textit{target}$. For a difference array, we find continuous intervals where the signs of the differences are the same. For each interval, we add the absolute value of the first element to the result. For the subsequent elements, if the absolute value of the difference is greater than the absolute value of the previous difference, we add the difference of the absolute values to the result.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

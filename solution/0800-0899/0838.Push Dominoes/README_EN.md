@@ -99,7 +99,7 @@ If $0 \leq j < n$:
 
 After the queue is emptied, all positions where $\text{force[i]}$ has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
 
-The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of dominoes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of dominoes.
 
 <!-- tabs:start -->
 

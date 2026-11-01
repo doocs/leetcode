@@ -98,7 +98,7 @@ Then we traverse the character array $\textit{s}$. For each character $\textit{c
 
 Finally, we convert the character array $\textit{s}$ back to a string and return it.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{num}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{num}$.
 
 <!-- tabs:start -->
 

@@ -302,7 +302,7 @@ public class Solution {
 
 An inorder walk of a binary search tree is non-decreasing, so equal values are adjacent. An explicit stack carries that walk together with the previous value, the current run length, and the best frequency. On entry we push an exit marker and the left child. On exit the run grows by one when the value matches its predecessor and otherwise restarts at $1$. A longer run replaces the answer, a tie appends the value, and then the right child is pushed.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

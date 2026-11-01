@@ -106,7 +106,7 @@ We denote the depth of each node as $depth$, its parent node as $p$, and $f[i][j
 
 Finally, the minimum number of operations from node $u$ to node $v$ is $depth(u) + depth(v) - 2 \times depth(x) - \max_{0 \leq j < 26} cnt[u][j] + cnt[v][j] - 2 \times cnt[x][j]$.
 
-The time complexity is $O((n + q) \times C \times \log n)$, and the space complexity is $O(n \times C \times \log n)$. Here, $C$ is the maximum value of the edge weight.
+The time complexity is $O((n + q)C \log n)$, and the space complexity is $O(nC \log n)$, where $C$ is the maximum value of the edge weight.
 
 <!-- tabs:start -->
 

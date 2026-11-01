@@ -101,7 +101,7 @@ $$
 
 The final total deposit amount is $S = S_1 + S_2$.
 
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

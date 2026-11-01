@@ -134,7 +134,7 @@ For each query $[a_i, b_i, c_i, d_i]$, let's assume $a_i \le c_i$, then we need 
 
 Based on the above analysis, we iterate through each query $[a_i, b_i, c_i, d_i]$, and determine whether it satisfies the above conditions.
 
-The time complexity is $O((n + q) \times |\Sigma|)$, and the space complexity is $O(n \times |\Sigma|)$. Where $n$ and $q$ are the lengths of string $s$ and the query array $queries$ respectively; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O((n + q)|\Sigma|)$, and the space complexity is $O(n|\Sigma|)$, where $n$ and $q$ are the lengths of string $s$ and the query array $queries$ respectively; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

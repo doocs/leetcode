@@ -114,7 +114,7 @@ We notice that if a subarray $\text{nums}[l..r]$ has a cost less than or equal t
 
 We can use two deques to maintain the maximum and minimum values in the current window respectively.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 

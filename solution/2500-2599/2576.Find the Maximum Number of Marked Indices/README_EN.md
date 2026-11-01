@@ -99,7 +99,7 @@ According to the problem description, the problem can generate at most $n / 2$ p
 
 To mark as many indices as possible, we can sort the array $\textit{nums}$. Next, we traverse each element $\textit{nums}[j]$ in the right half of the array, using a pointer $\textit{i}$ to point to the smallest element in the left half. If $\textit{nums}[i] \times 2 \leq \textit{nums}[j]$, we can mark the indices $\textit{i}$ and $\textit{j}$, and move $\textit{i}$ one position to the right. Continue traversing the elements in the right half until reaching the end of the array. At this point, the number of indices we can mark is $\textit{i} \times 2$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

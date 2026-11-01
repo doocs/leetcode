@@ -91,7 +91,7 @@ tags:
 
 We can simulate Alice's typing process, starting from an empty string and updating the string after each keystroke until the target string is obtained.
 
-The time complexity is $O(n^2 \times |\Sigma|)$, where $n$ is the length of the target string and $\Sigma$ is the character set, which in this case is the set of lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n^2|\Sigma|)$, where $n$ is the length of the target string and $\Sigma$ is the character set, which in this case is the set of lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

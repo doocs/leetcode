@@ -79,7 +79,7 @@ We can iterate through the array $hours$. For each employee, if their working ho
 
 After the iteration, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $hours$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $hours$.
 
 <!-- tabs:start -->
 

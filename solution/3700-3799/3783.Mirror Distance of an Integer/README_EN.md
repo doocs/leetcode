@@ -98,7 +98,7 @@ We define a function $\text{reverse}(x)$ to reverse the digits of integer $x$. S
 
 Next, we compute the mirror distance of integer $n$, which is $\text{abs}(n - \text{reverse}(n))$, and return the result.
 
-The time complexity is $O(\log n)$ and the space complexity is $O(1)$, where $n$ is the size of the input integer.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the size of the input integer.
 
 <!-- tabs:start -->
 

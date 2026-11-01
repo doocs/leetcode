@@ -90,7 +90,7 @@ The final answer is $f[n]$.
 
 We notice that the state transition equation is only related to the previous state and the variable $b$, so we can just use an answer variable $ans$ to maintain the current $f[i]$, and there is no need to allocate an array $f$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -239,7 +239,7 @@ We can enumerate each position $i$ in the string $s$, dividing the string $s$ in
 
 Therefore, we maintain two variables $lb$ and $ra$ to represent the number of character 'b' in $s[0,..,i-1]$ and the number of character 'a' in $s[i+1,..n-1]$ respectively. The number of characters we need to delete is $lb+ra$. During the enumeration process, we update the variables $lb$ and $ra$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

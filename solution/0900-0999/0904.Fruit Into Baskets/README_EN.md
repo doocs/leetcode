@@ -104,7 +104,7 @@ j   i
   j     i
 ```
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the $\textit{fruits}$ array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the $\textit{fruits}$ array.
 
 <!-- tabs:start -->
 

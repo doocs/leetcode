@@ -96,7 +96,7 @@ According to the problem description, we need to calculate the result of the bit
 
 If we fix the right endpoint $r$, then the range of the left endpoint $l$ is $[0, r]$. Each time we move the right endpoint $r$, the result of the bitwise OR operation will only increase. We use a variable $s$ to record the current result of the bitwise OR operation. If $s$ is greater than $k$, we move the left endpoint $l$ to the right until $s$ is less than or equal to $k$. During the process of moving the left endpoint $l$, we need to maintain an array $cnt$ to record the number of $0$s on each binary digit in the current interval. When $cnt[h] = 0$, it means that all elements in the current interval have a $0$ on the $h^{th}$ bit, and we can set the $h^{th}$ bit of $s$ to $0$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ respectively represent the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ and $M$ respectively represent the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$.
 
 Similar Problems:
 
@@ -296,7 +296,7 @@ According to the problem description, we need to calculate the result of the bit
 
 If we fix the right endpoint $r$, then the range of the left endpoint $l$ is $[0, r]$. Since the sum of bitwise OR increases monotonically as $l$ decreases, and the value of $\textit{nums}[i]$ does not exceed $10^9$, the interval $[0, r]$ can have at most $30$ different values. Therefore, we can use a set to maintain all the values of $nums[l] \lor nums[l + 1] \lor \cdots \lor nums[r]$. When we traverse from $r$ to $r+1$, the values with $r+1$ as the right endpoint are the values obtained by performing the bitwise OR operation of each value in the set with $nums[r + 1]$, plus $nums[r + 1]$ itself. Therefore, we only need to enumerate each value in the set and perform the bitwise OR operation with $nums[r]$, to get all the values for $r$ as the right endpoint. Then, we take the absolute difference of each value with $k$, and the minimum of these differences is the answer.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ respectively represent the length of the array $nums$ and the maximum value in the array $nums$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ and $M$ respectively represent the length of the array $nums$ and the maximum value in the array $nums$.
 
 Similar Problems:
 

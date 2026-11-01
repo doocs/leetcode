@@ -80,7 +80,7 @@ tags:
 
 We first convert the integer $n$ into a binary string $s$. Then we use two pointers to traverse from both ends of the string towards the center, counting the number of positions where the characters differ, denoted as $cnt$. Since each flip can only affect one bit, the total number of flips is $cnt \times 2$.
 
-The time complexity is $O(\log n)$ and the space complexity is $O(\log n)$, where $n$ is the input integer.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the input integer.
 
 <!-- tabs:start -->
 

@@ -123,7 +123,7 @@ $$
 
 Note that since the answer can be very large, we need to take the modulo $10^9 + 7$.
 
-The time complexity is $O(n \times x)$, and the space complexity is $O(n \times x)$. Here, $n$ and $x$ represent the number of performers and the number of programs, respectively.
+The time complexity is $O(nx)$, and the space complexity is $O(nx)$, where $n$ and $x$ represent the number of performers and the number of programs, respectively.
 
 <!-- tabs:start -->
 

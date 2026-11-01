@@ -89,7 +89,7 @@ Traverse the string $s$. When encountering a left parenthesis, increment the dep
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

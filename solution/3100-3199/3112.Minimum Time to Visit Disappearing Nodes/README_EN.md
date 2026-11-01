@@ -125,7 +125,7 @@ Next, we use the Dijkstra algorithm to calculate the shortest distances from nod
 
 Finally, we iterate through the $\textit{dist}$ array. If $\textit{dist}[i] < \textit{disappear}[i]$, then $\textit{answer}[i] = \textit{dist}[i]$; otherwise, $\textit{answer}[i] = -1$.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the number of edges.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the number of edges.
 
 <!-- tabs:start -->
 

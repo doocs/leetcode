@@ -97,7 +97,7 @@ $$
 
 Finally, we return $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. $m$ and $n$ are the lengths of $word1$ and $word2$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $word1$ and $word2$ respectively.
 
 <!-- tabs:start -->
 

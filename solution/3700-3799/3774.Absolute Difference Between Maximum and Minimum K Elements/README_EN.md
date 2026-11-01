@@ -89,7 +89,7 @@ tags:
 
 We first sort the array $\textit{nums}$. Then we calculate the sum of the first $k$ elements and the sum of the last $k$ elements in the array, and finally return the difference between them.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ We define three variables $a$, $b$, $c$ to represent $T_{n-3}$, $T_{n-2}$, $T_{n
 
 Then we decrease $n$ to $0$, updating the values of $a$, $b$, $c$ each time, until $n$ is $0$, at which point the answer is $a$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the given integer.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

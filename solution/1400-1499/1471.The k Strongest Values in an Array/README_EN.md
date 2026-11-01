@@ -107,7 +107,7 @@ We first sort the array $\textit{arr}$ and then find the median $m$ of the array
 
 Next, we sort the array according to the rules described in the problem, and finally return the first $k$ elements of the array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

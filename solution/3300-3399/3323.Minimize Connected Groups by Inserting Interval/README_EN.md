@@ -99,7 +99,7 @@ Next, we enumerate each interval $[\_, e]$ in $\textit{merged}$. Using binary se
 
 Finally, we return the answer $\textit{ans}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

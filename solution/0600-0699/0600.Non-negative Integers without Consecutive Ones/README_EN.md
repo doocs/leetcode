@@ -100,7 +100,7 @@ If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search 
 
 Finally, we sum all the results from the recursive calls to the next level, which is the answer.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given positive integer.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the given positive integer.
 
 Similar problems:
 

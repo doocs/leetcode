@@ -69,7 +69,7 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 Directly use `replace` to replace all ` ` with `%20`:
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -153,7 +153,7 @@ class Solution {
 
 Traverse each character $c$ in the string. When encountering a space, add `%20` to the result, otherwise add $c$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

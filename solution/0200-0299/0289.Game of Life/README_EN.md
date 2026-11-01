@@ -91,7 +91,7 @@ So we can traverse the entire board, for each grid, count the number of living n
 
 Finally, we traverse the board again, and update the grid with state $2$ to a dead cell, and update the grid with state $-1$ to an active cell.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the board, respectively. We need to traverse the entire board. And the space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the board, respectively.
 
 <!-- tabs:start -->
 

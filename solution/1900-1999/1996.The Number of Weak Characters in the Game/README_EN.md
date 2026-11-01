@@ -85,7 +85,7 @@ Then, traverse all characters. For the current character, if its defense power i
 
 After the traversal, we get the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of characters.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of characters.
 
 <!-- tabs:start -->
 

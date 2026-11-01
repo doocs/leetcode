@@ -88,7 +88,7 @@ $$
 
 The final answer is $f[goal][n]$.
 
-The time complexity is $O(goal \times n)$, and the space complexity is $O(goal \times n)$. Here, $goal$ and $n$ are the parameters given in the problem.
+The time complexity is $O(goal n)$, and the space complexity is $O(goal n)$, where $goal$ and $n$ are the parameters given in the problem.
 
 <!-- tabs:start -->
 

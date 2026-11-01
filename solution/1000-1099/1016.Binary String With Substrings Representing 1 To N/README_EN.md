@@ -65,7 +65,7 @@ We observe that the length of string $s$ does not exceed $1000$, so string $s$ c
 
 Additionally, for an integer $x$, if the binary representation of $x$ is a substring of $s$, then the binary representation of $\lfloor x / 2 \rfloor$ is also a substring of $s$. Therefore, we only need to check whether the binary representations of integers in the range $[\lfloor n / 2 \rfloor + 1,.. n]$ are substrings of $s$.
 
-The time complexity is $O(m^2 \times \log m)$ and the space complexity is $O(\log n)$, where $m$ is the length of string $s$ and $n$ is the positive integer given in the problem.
+The time complexity is $O(m^2 \log m)$, and the space complexity is $O(\log n)$, where $m$ is the length of string $s$ and $n$ is the positive integer given in the problem.
 
 <!-- tabs:start -->
 

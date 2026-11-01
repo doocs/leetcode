@@ -81,7 +81,7 @@ When placing the $(i+1)$-th plot, there are two cases:
 
 Finally, we square $f[n-1] + g[n-1]$ modulo to get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the street.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the street.
 
 <!-- tabs:start -->
 

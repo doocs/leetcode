@@ -113,7 +113,7 @@ tags:
 
 最后，如果答案 $\textit{ans}$ 仍然等于 $n + 1$，则说明不存在镜像对，我们返回 $-1$；否则，返回答案 $\textit{ans}$。
 
-时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组中数字的最大值。空间复杂度 $O(n)$，用于存储哈希表 $\textit{pos}$。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组中数字的最大值。
 
 <!-- tabs:start -->
 

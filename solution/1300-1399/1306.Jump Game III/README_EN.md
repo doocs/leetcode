@@ -88,7 +88,7 @@ When the queue is not empty, take out the front index $i$ of the queue. If $arr[
 
 Finally, if the queue is empty, it means that we cannot reach the index with a value of $0$, so return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ Starting from $0$, we iterate through each position $i$, updating $\textit{mi}$ 
 
 Finally, return the answer array.
 
-Time complexity is $O(n)$, where $n$ is the length of the array $\textit{cost}$. Ignoring the space used by the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{cost}$.
 
 <!-- tabs:start -->
 

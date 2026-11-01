@@ -89,7 +89,7 @@ The execution steps of the function $dfs(a, b, c, d)$ are as follows:
 
 In the function $dfs(a, b, c, d)$, we need to use a hash table $pos$, which stores the position of each node in the post-order traversal. At the beginning of the function, we can calculate this hash table first, so that we can find the position of any node in the post-order traversal in $O(1)$ time.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -313,7 +313,7 @@ The execution steps of the function $dfs(i, j, n)$ are as follows:
 3. If $n = 1$, it means that $root$ has neither a left subtree nor a right subtree, so return $root$ directly.
 4. Otherwise, the value of the root node of the left subtree is $preorder[i + 1]$. We find the position of $preorder[i + 1]$ in the post-order traversal, denoted as $k$. Then the number of nodes in the left subtree is $m = k - j + 1$, and the number of nodes in the right subtree is $n - m - 1$. We recursively rebuild the left and right subtrees, and then make the root nodes of the left and right subtrees the left and right child nodes of $root$, respectively. Finally, return $root$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

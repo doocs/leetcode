@@ -113,7 +113,7 @@ tags:
 >
 > A knight eats at most $15$ pawns, Alice maximizing total steps and Bob minimizing. The board is $50\times 50$; BFS from each pawn gives knight distances. The $15!$ orders need a subset game.
 >
-> $\textit{dfs}(last,state,k)$: $last$ is the last eaten pawn (initially the knight), $state$ the remaining set, $k$ whose turn. Alice maxes, Bob mins, using $dist[last][x][y]$. Memoized states are $O(n\cdot 2^n)$.
+> $\textit{dfs}(last,state,k)$: $last$ is the last eaten pawn (initially the knight), $state$ the remaining set, $k$ whose turn. Alice maxes, Bob mins, using $dist[last][x][y]$. Memoized states are $O(n 2^n)$.
 
 <!-- thinking:end -->
 
@@ -129,7 +129,7 @@ The specific implementation of the function $\text{dfs}$ is as follows:
 
 To avoid repeated calculations, we use memoization, i.e., using a hash table to record the states that have already been calculated.
 
-The time complexity is $O(n \times m^2 + 2^n \times n^2)$, and the space complexity is $O(n \times m^2 + 2^n \times n)$. Here, $n$ and $m$ represent the number of pawns and the size of the chessboard, respectively.
+The time complexity is $O(nm^2 + 2^n n^2)$, and the space complexity is $O(nm^2 + 2^n n)$, where $n$ and $m$ represent the number of pawns and the size of the chessboard, respectively.
 
 <!-- tabs:start -->
 

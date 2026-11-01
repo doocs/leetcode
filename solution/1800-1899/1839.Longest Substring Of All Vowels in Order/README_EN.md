@@ -85,7 +85,7 @@ We can first transform the string `word`. For example, for `word="aaaeiouu"`, we
 
 Next, we traverse the array `arr`, each time taking $5$ adjacent data items, and judge whether the vowels in these data items are `'a'`, `'e'`, `'i'`, `'o'`, `'u'` respectively. If so, calculate the total number of times the vowels appear in these $5$ data items, which is the length of the current beautiful substring, and update the maximum value of the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `word`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
 

@@ -82,7 +82,7 @@ The calculation process of the function $dfs(i, j, x)$ is as follows:
 
 During the process, we can use memorization search to avoid repeated calculations.
 
-The time complexity is $O(n^2 \times C)$. Where $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n^2C)$, where $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

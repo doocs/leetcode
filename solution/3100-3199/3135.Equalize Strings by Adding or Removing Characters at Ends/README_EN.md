@@ -136,7 +136,7 @@ $$
 
 Then $mx = \max f[i][j]$, and the final answer is $m + n - 2 \times mx$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of the strings `initial` and `target`, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings `initial` and `target`, respectively.
 
 <!-- tabs:start -->
 

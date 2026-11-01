@@ -97,7 +97,7 @@ We can use a variable $\textit{a}$ to record the maximum frequency of vowels and
 
 Finally, we return $\textit{a} + \textit{b}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the alphabet, which is $26$ in this case.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the alphabet, which is $26$ in this case.
 
 <!-- tabs:start -->
 

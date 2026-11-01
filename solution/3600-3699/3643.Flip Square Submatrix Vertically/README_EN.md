@@ -93,7 +93,7 @@ During the swap, we need to traverse $j \in [y, y + k)$ and swap $\text{grid}[i]
 
 Finally, return the updated matrix.
 
-The time complexity is $O(k^2)$, where $k$ is the side length of the submatrix. The space complexity is $O(1)$.
+The time complexity is $O(k^2)$, and the space complexity is $O(1)$, where $k$ is the side length of the submatrix.
 
 <!-- tabs:start -->
 

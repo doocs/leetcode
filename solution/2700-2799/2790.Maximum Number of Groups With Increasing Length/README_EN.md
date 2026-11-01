@@ -99,7 +99,7 @@ So, the output is 1.
 
 Sort the limits in increasing order and accumulate them. Each extra unit of remaining quota is used to try opening one more group; if it succeeds, subtract that group's cost from the running sum. The final group count is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

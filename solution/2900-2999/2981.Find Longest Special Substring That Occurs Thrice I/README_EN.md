@@ -92,7 +92,7 @@ In the function $check(x)$, we define a hash table or an array of length $26$ na
 
 After the traversal, we go through the array $cnt$. If there exists $cnt[i] \geq 3$, it means a special substring of length $x$ that appears at least three times exists, so we return $true$. Otherwise, we return $false$.
 
-The time complexity is $O((n + |\Sigma|) \times \log n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O((n + |\Sigma|) \log n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
@@ -290,7 +290,7 @@ function maximumLength(s: string): number {
 
 <!-- thinking:end -->
 
-The time complexity is $O(n)$
+The time complexity is $O(n)$.
 
 <!-- tabs:start -->
 

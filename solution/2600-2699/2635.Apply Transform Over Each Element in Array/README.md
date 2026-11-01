@@ -78,7 +78,7 @@ const newArray = map(arr, plusone); // [2,3,4]
 
 我们遍历数组 $arr$，对于每个元素 $arr[i]$，将其替换为 $fn(arr[i], i)$。最后返回数组 $arr$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $arr$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 

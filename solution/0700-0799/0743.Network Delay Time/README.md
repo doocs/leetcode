@@ -273,7 +273,7 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 
 > **思考**
 >
-> 方法一每次线性扫点找最小距离，边稀疏时浪费。 $m$ 最多 $6000$，用堆按距离弹出可以降到 $O(m\log m)$。
+> 方法一每次线性扫点找最小距离，边稀疏时浪费。 $m$ 最多 $6000$，用堆按距离弹出可以降到 $O(m \log m)$。
 >
 > 邻接表存边，优先队列弹出 $(d,u)$，若 $d$ 已不是当前最优则跳过，否则松弛邻居并入堆。答案同样取距离最大值。
 
@@ -287,7 +287,7 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 
 最后，我们返回 $\textit{dist}$ 中的最大值，即为答案。如果答案为 $+\infty$，则说明存在无法到达的节点，返回 $-1$。
 
-时间复杂度 $O(m \times \log m + n)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为节点数和边数。
+时间复杂度 $O(m \log m + n)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为节点数和边数。
 
 <!-- tabs:start -->
 

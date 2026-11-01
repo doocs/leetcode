@@ -84,7 +84,7 @@ We note that the problem guarantees the sum of all node values in the entire tre
 
 Thus, we can use a depth-first search approach, starting from the root node to traverse the entire tree. For each node, we calculate the sum of all node values in its subtree. If this sum is divisible by $k$, we increment the answer by one.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -297,7 +297,7 @@ We note that the problem guarantees the sum of all node values in the entire tre
 
 An explicit stack walks the tree in postorder from the root. Each frame is $(node, parent, state)$. When a node is left, we add every child's subtree sum to this node's value. If that sum is divisible by $k$, we increment the answer by one.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ First, we add the first interval to the answer. Then, we consider each subsequen
 
 Finally, we return the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

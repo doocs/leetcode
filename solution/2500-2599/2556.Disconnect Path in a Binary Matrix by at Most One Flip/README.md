@@ -87,7 +87,7 @@ tags:
 
 最后，如果 $a$ 和 $b$ 都为 `true`，则返回 `false`，否则返回 `true`。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -240,7 +240,7 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 最后，如果 $a$ 和 $b$ 都为 `true`，则返回 `false`，否则返回 `true`。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 

@@ -128,7 +128,7 @@ For each state $i$ that contains request $j$, let $i_0 = i \oplus 2^j$:
 
 The answer is the minimum of $f[2^m-1][j]$ over all $j$.
 
-The time complexity is $O(m^2 \times 2^m)$, and the space complexity is $O(m \times 2^m)$, where $m$ is the number of requests.
+The time complexity is $O(m^2 2^m)$, and the space complexity is $O(m 2^m)$, where $m$ is the number of requests.
 
 <!-- tabs:start -->
 

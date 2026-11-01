@@ -82,7 +82,7 @@ According to the problem description, we need to find the minimum absolute diffe
 
 Finally, we traverse the adjacent elements again to find all pairs of elements where the minimum absolute difference equals $mi$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

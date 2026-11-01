@@ -78,7 +78,7 @@ We can directly traverse the first $n-1$ elements of the array $\textit{bits}$, 
 
 When the traversal ends, if the current index equals $n-1$, it means the last character is a one-bit character, and we return $\text{true}$; otherwise, return $\text{false}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{bits}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{bits}$.
 
 <!-- tabs:start -->
 

@@ -102,7 +102,7 @@ To ensure that the starting point (or endpoint) of the path is greater than or e
 
 When traversing to point $a$, for the adjacent point $b$ that is less than or equal to $vals[a]$, if they are not in the same connected component, they can be merged. And we can use all points in the connected component where point $a$ is located with a value of $vals[a]$ as the starting point, and all points in the connected component where point $b$ is located with a value of $vals[a]$ as the endpoint. The product of the number of the two types of points is the contribution to the answer when adding point $a$.
 
-The time complexity is $O(n \times \log n)$.
+The time complexity is $O(n \log n)$.
 
 <!-- tabs:start -->
 

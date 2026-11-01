@@ -132,7 +132,7 @@ The specific steps are as follows:
     - For query $[2, x]$, find the root node of the grid that station $x$ belongs to, and remove station $x$ from that grid's sorted set, indicating that the station is offline.
 4. Finally, return all query results of type $[1, x]$.
 
-The time complexity is $O((c + n + q) \log c)$ and the space complexity is $O(c)$, where $c$ is the number of stations, and $n$ and $q$ are the number of connections and queries, respectively.
+The time complexity is $O((c + n + q) \log c)$, and the space complexity is $O(c)$, where $c$ is the number of stations, and $n$ and $q$ are the number of connections and queries, respectively.
 
 <!-- tabs:start -->
 

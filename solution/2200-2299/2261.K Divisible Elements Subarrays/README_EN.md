@@ -92,7 +92,7 @@ Since all subarrays are distinct, the total number of subarrays satisfying all t
 
 We can enumerate the left endpoint $i$ of the subarray, and then enumerate the right endpoint $j$ in the range $[i, n)$. During the enumeration of the right endpoint, we use double hashing to store the hash value of the subarray into a set. Finally, we return the size of the set.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

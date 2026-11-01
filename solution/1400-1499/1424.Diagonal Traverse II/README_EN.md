@@ -72,7 +72,7 @@ We observe that:
 
 Therefore, we store all numbers in the form of $(i, j, \textit{nums}[i][j])$ into $\textit{arr}$, and then sort according to the first two items. Finally, return the array composed of the values at index 2 of all elements in $\textit{arr}$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the number of elements in the array $\textit{nums}$. The space complexity is $O(n)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

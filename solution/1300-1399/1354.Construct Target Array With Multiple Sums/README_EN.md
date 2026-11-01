@@ -85,7 +85,7 @@ We observe that if we start constructing the target array $\textit{target}$ from
 
 Therefore, we can use a priority queue (max heap) to store the elements of array $\textit{target}$, and use a variable $s$ to record the sum of all elements in array $\textit{target}$. Each time we extract the maximum element $mx$ from the priority queue and calculate the sum $t$ of all elements in the current array except $mx$. If $t \lt 1$ or $mx - t \lt 1$, it means the target array $\textit{target}$ cannot be constructed, and we return `false`. Otherwise, we calculate $mx \bmod t$. If $mx \bmod t = 0$, we set $x = t$; otherwise, we set $x = mx \bmod t$. We add $x$ to the priority queue and update the value of $s$. We repeat this process until all elements in the priority queue become $1$, at which point we return `true`.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the length of array $\textit{target}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $\textit{target}$.
 
 <!-- tabs:start -->
 

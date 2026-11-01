@@ -92,7 +92,7 @@ Assume that the boxes are arranged in $k$ layers. From top to bottom, if each la
 
 If there are still remaining boxes at this point, they can continue to be placed from the lowest layer. Assume that $i$ boxes are placed, then the cumulative number of boxes that can be placed is $1+2+\cdots+i$.
 
-The time complexity is $O(\sqrt{n})$, where $n$ is the number of boxes given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the number of boxes given in the problem.
 
 <!-- tabs:start -->
 

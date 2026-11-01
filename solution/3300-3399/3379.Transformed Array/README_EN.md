@@ -95,7 +95,7 @@ For each index <code>i</code> (where <code>0 &lt;= i &lt; nums.length</code>), p
 
 We create a result array $\textit{ans}$. For each index, we move right or left $|nums[i]|$ steps based on whether $nums[i]$ is positive or negative, calculate the landing index, and assign the value at that index to $\textit{ans}[i]$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

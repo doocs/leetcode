@@ -97,7 +97,7 @@ The calculation method of function $f(v)$ is as follows:
 
 Traverse each element $x$ in the array $nums$. If $x < v$, it means that we need to delete all characters with a frequency of $x$, and the number of deletions is $x$. If $x > v + k$, it means that we need to adjust all characters with a frequency of $x$ to $v + k$, and the number of deletions is $x - v - k$. The sum of all deletion counts is the value of $f(v)$.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

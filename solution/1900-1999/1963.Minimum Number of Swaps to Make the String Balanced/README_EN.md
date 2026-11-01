@@ -100,7 +100,7 @@ We use a variable $x$ to record the current number of unmatched left brackets. W
 
 After the traversal, we will definitely get a string of the form `"]]]...[[[..."`. We then greedily swap the brackets at both ends each time, which can eliminate $2$ unmatched left brackets at a time. Therefore, the total number of swaps needed is $\left\lfloor \frac{x + 1}{2} \right\rfloor$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

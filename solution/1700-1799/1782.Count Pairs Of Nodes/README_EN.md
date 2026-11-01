@@ -93,7 +93,7 @@ Therefore, we can first use the array $cnt$ to count the number of edges connect
 
 Then, for each query $q$, we can enumerate $a$. For each $a$, we can find the first $b$ that satisfies $cnt[a] + cnt[b] > q$ through binary search, add the number to the current query answer, and then subtract some duplicate edges.
 
-The time complexity is $O(q \times (n \times \log n + m))$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of points and edges respectively, and $q$ is the number of queries.
+The time complexity is $O(q(n \log n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of points and edges respectively, and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

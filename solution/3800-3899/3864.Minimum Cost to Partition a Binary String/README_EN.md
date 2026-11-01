@@ -123,7 +123,7 @@ The calculation process of function $\text{dfs}(l, r)$ is as follows:
 
 The answer is $\text{dfs}(0, n)$, where $n$ is the length of string $s$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

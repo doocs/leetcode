@@ -103,7 +103,7 @@ The valid sudoku satisfies the following three conditions:
 
 Traverse the sudoku, for each digit, check whether the row, column and $3 \times 3$ box it is in have appeared the digit. If it is, return `false`. If the traversal is over, return `true`.
 
-The time complexity is $O(C)$ and the space complexity is $O(C)$, where $C$ is the number of empty spaces in the sudoku. In this question, $C=81$.
+The time complexity is $O(C)$, and the space complexity is $O(C)$, where $C$ is the number of empty spaces in the sudoku. In this question, $C=81$.
 
 <!-- tabs:start -->
 

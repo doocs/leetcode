@@ -61,7 +61,7 @@ tags:
 
 We can use a hash table or array $cnt$ to record the frequency of each number in the array $arr$. Then, we traverse each number $x$ in $cnt$. If $x+1$ also exists in $cnt$, we add $cnt[x]$ to the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

@@ -63,7 +63,7 @@ $$
 
 最终答案即为 $f[n][26]$。
 
-时间复杂度 $O(n \times k \times |\Sigma|)$，空间复杂度 $O(n \times |\Sigma|)$。其中 $|\Sigma|$ 表示字母表大小。
+时间复杂度 $O(nk|\Sigma|)$，空间复杂度 $O(n|\Sigma|)$。其中 $|\Sigma|$ 表示字母表大小。
 
 <!-- tabs:start -->
 

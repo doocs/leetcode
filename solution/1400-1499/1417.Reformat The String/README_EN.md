@@ -80,7 +80,7 @@ Compare the lengths of $a$ and $b$. If the length of $a$ is less than $b$, swap 
 
 Next, iterate through both arrays simultaneously, appending characters from $a$ and $b$ alternately to the answer. After the iteration, if $a$ is longer than $b$, append the last character of $a$ to the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

@@ -74,7 +74,7 @@ We traverse each subarray of length $3$ in the array $\textit{nums}$ and check i
 
 After traversing, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

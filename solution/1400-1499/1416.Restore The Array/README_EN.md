@@ -76,7 +76,7 @@ tags:
 
 Compute $f(i)$ from the right, with $f(n)=1$. If $s[i]$ is `0`, then $f(i)=0$. Otherwise extend a number from index $i$ and stop once it exceeds $k$, adding $f(j+1)$ for every valid cut. The answer is $f(0)$ modulo $10^9+7$.
 
-The time complexity is $O(n \times d)$ and the space complexity is $O(n)$, where $n$ is the length of $s$ and $d$ is the number of decimal digits of $k$, at most $10$.
+The time complexity is $O(nd)$, and the space complexity is $O(n)$, where $n$ is the length of $s$ and $d$ is the number of decimal digits of $k$, at most $10$.
 
 <!-- tabs:start -->
 

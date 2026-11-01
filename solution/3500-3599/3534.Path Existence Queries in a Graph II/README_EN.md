@@ -183,7 +183,7 @@ For each query, assume `nums[u] <= nums[v]`:
 - If `nums[u] == nums[v]`, the answer is $1$;
 - Otherwise, use binary lifting to find the minimum number of jumps so that the reached node's value is at least `nums[v]`; if unreachable, return $-1$, otherwise the answer is $d + 1$.
 
-The time complexity is $O(n \log n + (n + q) \log n)$ and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
+The time complexity is $O(n \log n + (n + q) \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

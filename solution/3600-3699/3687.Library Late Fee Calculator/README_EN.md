@@ -100,7 +100,7 @@ $$
 
 Then, for each element $x$ in the array $\textit{daysLate}$, we compute $\text{f}(x)$ and sum them up to get the total late fee.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{daysLate}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{daysLate}$.
 
 <!-- tabs:start -->
 

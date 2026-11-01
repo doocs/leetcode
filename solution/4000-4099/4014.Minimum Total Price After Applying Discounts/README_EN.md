@@ -118,7 +118,7 @@ To minimize the total price, we need to maximize the total amount saved by disco
 
 Therefore, we sort both $\textit{prices}$ and $\textit{discounts}$ in ascending order, then use two pointers starting from the ends of both arrays, repeatedly applying the current largest discount to the current most expensive item and accumulating the discounted price. Once all discounts are used up, the remaining items are added at their original prices.
 
-The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{prices}$ and $\textit{discounts}$, respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(\log n + \log m)$, where $n$ and $m$ are the lengths of the arrays $\textit{prices}$ and $\textit{discounts}$, respectively.
 
 <!-- tabs:start -->
 

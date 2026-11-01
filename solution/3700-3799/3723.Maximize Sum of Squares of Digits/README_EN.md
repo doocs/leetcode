@@ -111,7 +111,7 @@ If $\text{num} \times 9 < \text{sum}$, then there is no valid good integer, so w
 
 Otherwise, we can use as many digits $9$ as possible to form the good integer, since $9^2$ is the largest and will maximize the score. Specifically, we calculate how many $9$s are contained in $\text{sum}$, denoted as $k$, and the remaining part $s = \text{sum} - 9 \times k$. Then, we construct the good integer with the first $k$ digits as $9$. If $s > 0$, we append a digit $s$ at the end, and finally pad with $0$s to reach a total of $\text{num}$ digits.
 
-The time complexity is $O(\text{num})$ and the space complexity is $O(\text{num})$, where $\text{num}$ is the number of digits in the good integer.
+The time complexity is $O(\text{num})$, and the space complexity is $O(\text{num})$, where $\text{num}$ is the number of digits in the good integer.
 
 <!-- tabs:start -->
 

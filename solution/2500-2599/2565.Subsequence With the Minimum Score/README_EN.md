@@ -89,7 +89,7 @@ Therefore, we can preprocess to get arrays $f$ and $g$, where $f[i]$ represents 
 
 The length of the deleted characters has monotonicity. If the condition is satisfied after deleting a string of length $x$, then the condition is definitely satisfied after deleting a string of length $x+1$. Therefore, we can use the method of binary search to find the smallest length that satisfies the condition.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of string $t$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of string $t$.
 
 <!-- tabs:start -->
 

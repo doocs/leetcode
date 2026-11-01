@@ -107,7 +107,7 @@ We can enumerate the numbers in the first half, and then construct the complete 
 4. **Check k-Mirror Numbers**: Convert the constructed number to base $k$ and check whether it is a palindrome.
 5. **Accumulate the Result**: If it is a k-mirror number, add it to the result and decrease the counter $n$. When $n$ reaches 0, return the result.
 
-The time complexity mainly depends on the length being enumerated and the range of the first half. Since the maximum value of $n$ is 30, the number of enumerations is limited in practice. The space complexity is $O(1)$, since only a constant amount of extra space is
+The time complexity mainly depends on the length being enumerated and the range of the first half. Since the maximum value of $n$ is 30, the number of enumerations is limited in practice. The space complexity is $O(1)$, since only a constant amount of extra space is used.
 
 <!-- tabs:start -->
 

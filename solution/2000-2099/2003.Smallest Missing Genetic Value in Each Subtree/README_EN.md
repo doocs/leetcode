@@ -109,7 +109,7 @@ Then, we update the answer for node $idx$, i.e., $ans[idx]=i$, and update $idx$ 
 
 Finally, we return the answer array $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -434,7 +434,7 @@ Then, we update the answer for node $idx$, i.e., $ans[idx]=i$, and update $idx$ 
 
 Finally, we return the answer array $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

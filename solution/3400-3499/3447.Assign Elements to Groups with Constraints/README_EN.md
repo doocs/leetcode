@@ -113,7 +113,7 @@ Then, we traverse the array $\textit{elements}$. For each element $x$, if $x > \
 
 Finally, we traverse the array $\textit{groups}$ and obtain the answer based on the records in the $\textit{d}$ array.
 
-The time complexity is $O(M \times \log m + n)$, and the space complexity is $O(M)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{groups}$ and $\textit{elements}$, respectively, while $M$ is the maximum value in the array $\textit{groups}$.
+The time complexity is $O(M \log m + n)$, and the space complexity is $O(M)$, where $n$ and $m$ are the lengths of the arrays $\textit{groups}$ and $\textit{elements}$, respectively, while $M$ is the maximum value in the array $\textit{groups}$.
 
 <!-- tabs:start -->
 

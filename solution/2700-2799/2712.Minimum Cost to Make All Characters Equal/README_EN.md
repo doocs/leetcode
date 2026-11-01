@@ -84,7 +84,7 @@ We can either choose to reverse all characters from $s[0..i-1]$, with a cost of 
 
 By iterating through the string $s$ and summing up the costs of all characters that need to be reversed, we can obtain the minimum cost.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

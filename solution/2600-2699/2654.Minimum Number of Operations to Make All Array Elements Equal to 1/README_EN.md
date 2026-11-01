@@ -86,7 +86,7 @@ Otherwise, we need to first turn one element in the array into $1$, and then the
 
 Consider how to turn one element in the array into $1$ while minimizing the number of operations. In fact, we only need to find a minimum contiguous subarray interval $nums[i,..j]$ such that the greatest common divisor of all elements in the subarray is $1$, with the subarray length being $mi = \min(mi, j - i + 1)$. Finally, our total number of operations is $n - 1 + mi - 1$.
 
-The time complexity is $O(n \times (n + \log M))$ and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+The time complexity is $O(n(n + \log M))$, and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
 

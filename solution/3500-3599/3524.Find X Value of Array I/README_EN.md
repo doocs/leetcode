@@ -135,7 +135,7 @@ After removing any non-overlapping prefix and suffix, the remainder is a non-emp
 
 Let $f[r]$ be the number of subarrays ending at the current index whose product is $r$ modulo $k$. Scan $x = \textit{nums}[i]$ from left to right and use $g$ for the new ending-at-$i$ state: move each $f[r]$ to $g[(r \times x) \bmod k]$, then add the singleton subarray $[x]$ into $g[x \bmod k]$. Add $g$ into the answer and set $f \leftarrow g$.
 
-The time complexity is $O(n \times k)$ and the space complexity is $O(k)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(nk)$, and the space complexity is $O(k)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ Next, we traverse the linked list again. If the current node $cur$ has a prefix 
 
 Finally, we return the head node of the linked list $dummy.next$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

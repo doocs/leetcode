@@ -102,7 +102,7 @@ Then we move the pointer $j$ forward by $1$ position, repeat the above process, 
 
 Finally, if $i + x$ equals $m$ and $j$ equals $n$, it means that the string $word$ can be abbreviated as the string $abbr$, return `true`; otherwise return `false`.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the string $word$ and the string $abbr$ respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the string $word$ and the string $abbr$ respectively.
 
 <!-- tabs:start -->
 

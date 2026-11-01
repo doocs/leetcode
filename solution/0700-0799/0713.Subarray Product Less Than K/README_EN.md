@@ -75,7 +75,7 @@ Define two pointers $l$ and $r$ pointing to the left and right boundaries of the
 
 Each time, we move $r$ one step to the right, adding the element $x$ pointed to by $r$ to the window, and update $p = p \times x$. Then, if $p \geq k$, we move $l$ one step to the right in a loop and update $p = p \div \text{nums}[l]$ until $p < k$ or $l \gt r$. Thus, the number of contiguous subarrays ending at $r$ with a product less than $k$ is $r - l + 1$. We then add this number to the answer and continue moving $r$ until $r$ reaches the end of the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

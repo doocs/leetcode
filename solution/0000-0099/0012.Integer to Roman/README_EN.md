@@ -148,7 +148,7 @@ Note: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal 
 
 We can first list all possible symbols $cs$ and their corresponding values $vs$, then enumerate each value $vs[i]$ from large to small. Each time, we use as many symbols $cs[i]$ corresponding to this value as possible, until the number $num$ becomes $0$.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the number of symbols.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the number of symbols.
 
 <!-- tabs:start -->
 

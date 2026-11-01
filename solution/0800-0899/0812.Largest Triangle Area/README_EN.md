@@ -69,7 +69,7 @@ $$S = \frac{1}{2} \left| x_1y_2 + x_2y_3 + x_3y_1 - x_1y_3 - x_2y_1 - x_3y_2 \ri
 
 We can enumerate all combinations of three points and calculate the maximum area.
 
-The time complexity is $O(n^3)$, where $n$ is the number of points. The space complexity is $O(1)$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

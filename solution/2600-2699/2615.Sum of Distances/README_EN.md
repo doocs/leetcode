@@ -85,7 +85,7 @@ For each list of indices $idx$ in the hash map $d$, we can calculate the value o
 
 After the iteration, we obtain the array $arr$ corresponding to each element in $nums$, which is stored in $ans$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

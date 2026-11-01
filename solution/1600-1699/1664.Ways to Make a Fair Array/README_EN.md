@@ -100,7 +100,7 @@ We observe that for the current element $v$ being traversed, if it is removed, t
 
 Then we update $t_1$ and $t_2$ and continue to traverse the next element. After traversing the array, we can get the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

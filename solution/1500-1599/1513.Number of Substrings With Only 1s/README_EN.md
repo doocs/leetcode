@@ -77,7 +77,7 @@ We traverse the string $s$, using a variable $\textit{cur}$ to record the curren
 
 After the traversal is complete, return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 Similar problems:
 

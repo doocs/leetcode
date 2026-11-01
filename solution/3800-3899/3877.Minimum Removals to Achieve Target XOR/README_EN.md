@@ -111,7 +111,7 @@ $$
 
 Finally, if $f[n][target]$ is less than $0$, it means the target XOR value cannot be achieved, and we return $-1$; otherwise, we return $n - f[n][target]$, which is the number of elements that need to be removed.
 
-The time complexity is $O(n \times 2^m)$ and the space complexity is $O(n \times 2^m)$, where $n$ is the length of the array and $m$ is the number of binary bits of the maximum element in the array.
+The time complexity is $O(n 2^m)$, and the space complexity is $O(n 2^m)$, where $n$ is the length of the array and $m$ is the number of binary bits of the maximum element in the array.
 
 <!-- tabs:start -->
 

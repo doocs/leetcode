@@ -84,7 +84,7 @@ First, we iterate through all the accounts. For the $i$th account, we iterate th
 
 Next, we iterate through all the accounts again. For the $i$th account, we use the union-find to find its root node, and then add all the email addresses of that account to the hash table $\textit{g}$, where the key is the root node, and the value is the account's email addresses.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of accounts.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of accounts.
 
 <!-- tabs:start -->
 

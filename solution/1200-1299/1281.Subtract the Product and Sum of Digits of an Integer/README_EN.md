@@ -70,7 +70,7 @@ When $n \gt 0$, each time we take the $mod$ of $n$ by $10$ to get the current di
 
 Finally, we return $x - y$.
 
-The time complexity is $O(\log n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

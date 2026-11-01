@@ -100,7 +100,7 @@ We use a variable $s$ to record the sum of the number of horizontal edges for al
 
 Note that since the answer may be very large, we need to take the modulo $10^9 + 7$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of points.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

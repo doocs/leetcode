@@ -83,7 +83,7 @@ When visiting the index $\textit{mx}$, it means the current segment ends. The in
 
 Repeat the above process until the string traversal is complete to get the lengths of all segments.
 
-Time complexity is $O(n)$, and space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ tags:
 
 > **Thinking**
 >
-> Only the two diagonals matter. The order is at most $300$ and values at most $4\times 10^6$, so trial division on diagonal entries, $O(n\sqrt{M})$, is enough.
+> Only the two diagonals matter. The order is at most $300$ and values at most $4\times 10^6$, so trial division on diagonal entries, $O(n \sqrt{M})$, is enough.
 >
 > Integers below $2$ are not prime; others are tested up to the square root. We scan both diagonals and keep the largest prime.
 
@@ -83,7 +83,7 @@ We implement a function `is_prime` to check whether a number is prime.
 
 Then we iterate the array and check whether the numbers on the diagonals are prime. If so, we update the answer.
 
-The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the number of rows of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \sqrt{M})$, and the space complexity is $O(1)$, where $n$ and $M$ are the number of rows of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

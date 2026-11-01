@@ -114,7 +114,7 @@ Next, we check if the remaining number of digits to be filled in odd positions $
 
 Otherwise, we can enumerate the number of current digits assigned to odd positions $l$, and the number of digits assigned to even positions is $r = \textit{cnt}[i] - l$. We need to ensure $0 \leq r \leq b$ and $l \times i \leq j$. Then we calculate the number of current arrangements $t = C_a^l \times C_b^r \times \text{dfs}(i + 1, j - l \times i, a - l, b - r)$. Finally, the answer is the sum of all arrangement counts.
 
-The time complexity is $O(|\Sigma| \times n^2 \times (n + |\Sigma|))$, where $|\Sigma|$ represents the number of different digits, and in this problem $|\Sigma| = 10$. The space complexity is $O(n^2 \times |\Sigma|^2)$.
+The time complexity is $O(|\Sigma|n^2(n + |\Sigma|))$, and the space complexity is $O(n^2|\Sigma|^2)$, where $|\Sigma|$ represents the number of different digits, and in this problem $|\Sigma| = 10$.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ We can first give all the cheese to the second mouse. Next, consider giving $k$ 
 
 Therefore, we sort the cheese in decreasing order of `reward1[i] - reward2[i]`. The first $k$ pieces of cheese are eaten by the first mouse, and the remaining cheese is eaten by the second mouse to obtain the maximum score.
 
-Time complexity $O(n \times \log n)$, space complexity $O(n)$. Where $n$ is the number of cheeses.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of cheeses.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ Finally, we return the answer.
 
 In the main function, we calculate the answers $a$ and $b$ for $[1, high]$ and $[1, low-1]$ respectively. The final answer is $a-b$.
 
-The time complexity is $O((\log M)^2 \times k \times |\Sigma|)$, and the space complexity is $O((\log M)^2 \times k)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
+The time complexity is $O(k|\Sigma| \log^2 M)$, and the space complexity is $O(k \log^2 M)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
 
 Similar problems:
 

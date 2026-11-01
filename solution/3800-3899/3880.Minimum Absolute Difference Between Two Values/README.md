@@ -94,7 +94,7 @@ tags:
 
 遍历结束后，如果 $\textit{ans}$ 大于数组 $\textit{nums}$ 的长度，则说明不存在有效下标对，返回 -1；否则返回 $\textit{ans}$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

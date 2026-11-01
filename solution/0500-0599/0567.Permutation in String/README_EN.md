@@ -70,7 +70,7 @@ Then we traverse the string $\textit{s2}$. For each character, we decrement its 
 
 Otherwise, if the traversal ends without finding a valid substring, we return $\text{false}$.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so the space complexity is constant.
+The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively, and $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so the space complexity is constant.
 
 <!-- tabs:start -->
 

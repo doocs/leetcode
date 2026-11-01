@@ -89,7 +89,7 @@ Since each operation involves removing the maximum value from each row and then 
 
 Next, we traverse each column, take the maximum value from each column, and add it to the answer.
 
-The time complexity is $O(m \times n \times \log n)$, and the space complexity is $O(\log n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \log n)$, and the space complexity is $O(\log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

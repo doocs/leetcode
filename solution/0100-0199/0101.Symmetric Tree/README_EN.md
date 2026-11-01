@@ -72,7 +72,7 @@ The logic of the function $\textit{dfs}(\textit{root1}, \textit{root2})$ is as f
 - If only one of $\textit{root1}$ and $\textit{root2}$ is null, or $\textit{root1.val} \neq \textit{root2.val}$, we return `false`;
 - Otherwise, we check whether the left subtree of $\textit{root1}$ is symmetric with the right subtree of $\textit{root2}$, and whether the right subtree of $\textit{root1}$ is symmetric with the left subtree of $\textit{root2}$, using recursion.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

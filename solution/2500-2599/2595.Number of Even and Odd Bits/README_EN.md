@@ -81,7 +81,7 @@ tags:
 
 According to the problem description, enumerate the binary representation of $n$ from the low bit to the high bit. If the bit is $1$, add $1$ to the corresponding counter according to whether the index of the bit is odd or even.
 
-The time complexity is $O(\log n)$ and the space complexity is $O(1)$. Where $n$ is the given integer.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -190,7 +190,7 @@ impl Solution {
 
 We can define a mask $\textit{mask} = \text{0x5555}$, which is represented in binary as $\text{0101 0101 0101 0101}_2$. Then, performing a bitwise AND operation between $n$ and $\textit{mask}$ will give us the bits at even indices in the binary representation of $n$. Performing a bitwise AND operation between $n$ and the complement of $\textit{mask}$ will give us the bits at odd indices in the binary representation of $n$. We can count the number of 1s in these two results.
 
-The time complexity is $O(1)$, and the space complexity is $O(1)$. Here, $n$ is the given integer.
+The time complexity is $O(1)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

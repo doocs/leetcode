@@ -132,7 +132,7 @@ Traverse $\textit{operations}$, for each operation:
 
 Finally, sum all the elements in the stack to get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of $\textit{operations}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{operations}$.
 
 <!-- tabs:start -->
 

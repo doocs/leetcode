@@ -80,7 +80,7 @@ The problem asks for the number of good leaf node pairs in a binary tree. The an
 
 We can solve this recursively.
 
-The time complexity is $O(n \times d^2 \times h)$, where $n$ is the number of nodes in the binary tree, and $h$ and $d$ are the height of the binary tree and the distance limit, respectively. The space complexity is $O(h)$ for the recursion stack.
+The time complexity is $O(nd^2h)$, and the space complexity is $O(h)$, where $n$ is the number of nodes in the binary tree, and $h$ and $d$ are the height of the binary tree and the distance limit, respectively.
 
 <!-- tabs:start -->
 

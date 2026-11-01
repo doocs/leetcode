@@ -137,7 +137,7 @@ When a passenger checks out, we retrieve the passenger's check-in time and stati
 
 When we want to calculate a passenger's average travel time, we retrieve the passenger's total travel time and number of trips `(totalTime, count)` from `d`, then calculate the average travel time as $totalTime / count$.
 
-The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the number of passengers.
+The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of passengers.
 
 <!-- tabs:start -->
 

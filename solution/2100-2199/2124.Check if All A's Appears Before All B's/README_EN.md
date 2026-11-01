@@ -81,7 +81,7 @@ According to the problem statement, the string $s$ consists only of characters `
 
 To ensure that all `a`s appear before all `b`s, the condition that must be met is that `b` should not appear before `a`. In other words, the substring "ba" should not be present in the string $s$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

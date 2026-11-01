@@ -92,7 +92,7 @@ Suppose there is a prefix $A_1$ and a suffix $A_2$ that meet the conditions, and
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/images/demo.png" style="width: 300px;" /></p>
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$. Here, $n$ is the length of the string.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -261,7 +261,7 @@ function longestDecomposition(text: string): number {
 
 Therefore, based on Solution 1, we can use the method of string hash to compare whether two strings are equal in $O(1)$ time.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

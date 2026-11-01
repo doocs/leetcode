@@ -90,7 +90,7 @@ The subsequence has a length of 1, so we return 1.
 >
 > Classic LIS is $O(n^2)$, which fails at $n\le 10^5$, and adjacent values may differ by at most $k$. The best length ending at $v$ is one plus the maximum $f$ on $[v-k,v-1]$, so we need range-max queries and point updates on the value domain.
 >
-> Values lie in $[1,10^5]$. A segment tree stores $f[v]$; for each $v$ query then update, in $O(n\log V)$.
+> Values lie in $[1,10^5]$. A segment tree stores $f[v]$; for each $v$ query then update, in $O(n \log V)$.
 
 <!-- thinking:end -->
 
@@ -109,7 +109,7 @@ The segment tree divides the entire interval into multiple discontinuous subinte
 
 For this problem, the information maintained by the segment tree node is the maximum value within the interval range.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

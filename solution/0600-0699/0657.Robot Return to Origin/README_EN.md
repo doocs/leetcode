@@ -78,7 +78,7 @@ Traverse the string $\textit{moves}$ and update the coordinate $(x, y)$ based on
 
 Finally, check if both $x$ and $y$ are $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{moves}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{moves}$.
 
 <!-- tabs:start -->
 

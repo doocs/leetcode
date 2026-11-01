@@ -82,7 +82,7 @@ tags:
 
 We perform a binary search in the interval $[1,..n]$, and find the first number that satisfies `guess(x) <= 0`, which is the answer.
 
-The time complexity is $O(\log n)$, where $n$ is the upper limit given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the upper limit given in the problem.
 
 <!-- tabs:start -->
 

@@ -102,7 +102,7 @@ Since buying the first item of a type is special and yields free items, we consi
 
 For the first purchased item, suppose we spend a budget of $i$ and obtain $f[i]$ items in total, including both the purchased item and the free items. For the later purchases, we can use the remaining budget $\text{budget} - i$ to buy the cheapest item, obtaining $\lfloor \frac{\text{budget} - i}{\text{mn}} \rfloor$ items, where $\text{mn}$ is the minimum price among all items. Therefore, we enumerate the budget $i$ spent on the first purchase and compute the maximum value of $f[i] + \lfloor \frac{\text{budget} - i}{\text{mn}} \rfloor$, which is the final answer.
 
-The time complexity is $O(n^2 + n \times m)$, where $n$ is the number of items and $m$ is the budget.
+The time complexity is $O(n^2 + nm)$, where $n$ is the number of items and $m$ is the budget.
 
 <!-- tabs:start -->
 

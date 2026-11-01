@@ -57,7 +57,7 @@ tags:
 
 > **Thinking**
 >
-> A list cannot access the midpoint in $O(1)$. Finding it with two pointers at every recursive step costs $O(n\log n)$. There are up to $2\times 10^4$ nodes.
+> A list cannot access the midpoint in $O(1)$. Finding it with two pointers at every recursive step costs $O(n \log n)$. There are up to $2\times 10^4$ nodes.
 >
 > A sorted list is still an inorder sequence. Flatten it into an array, then build a balanced BST as with a sorted array: midpoint as root, recurse on both sides. $O(n)$ extra space buys $O(1)$ midpoint access.
 
@@ -69,7 +69,7 @@ We define a function $\textit{dfs}(i, j)$, where $i$ and $j$ represent the curre
 
 In the main function, we just need to call $\textit{dfs}(0, n - 1)$ and return the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

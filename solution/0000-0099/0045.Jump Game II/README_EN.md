@@ -79,7 +79,7 @@ Next, we traverse each position $i$ in $[0,..n - 2]$. For each position $i$, we 
 
 Finally, we return the number of jumps $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 Similar problems:
 

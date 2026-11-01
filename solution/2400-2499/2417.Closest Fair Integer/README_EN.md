@@ -70,7 +70,7 @@ We denote the number of digits of $n$ as $k$, and the number of odd and even dig
 - If $a = b$, then $n$ itself is `fair`, and we can directly return $n$;
 - Otherwise, if $k$ is odd, we can find the smallest `fair` number with $k+1$ digits, in the form of `10000111`. If $k$ is even, we can directly brute force `closestFair(n+1)`.
 
-The time complexity is $O(\sqrt{n} \times \log_{10} n)$.
+The time complexity is $O(\sqrt{n} \log_{10} n)$.
 
 <!-- tabs:start -->
 

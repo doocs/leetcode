@@ -74,9 +74,9 @@ tags:
 
 > **Thinking**
 >
-> The $k$ most frequent values. Full sort is $O(n\log n)$. Only the top $k$ frequencies matter.
+> The $k$ most frequent values. Full sort is $O(n \log n)$. Only the top $k$ frequencies matter.
 >
-> Count, then select the $k$ largest frequencies. `Counter.most_common(k)` is a heap selection in $O(n\log k)$.
+> Count, then select the $k$ largest frequencies. `Counter.most_common(k)` is a heap selection in $O(n \log k)$.
 
 <!-- thinking:end -->
 
@@ -86,7 +86,7 @@ First, we traverse the array once to count the occurrence of each element. Then,
 
 Finally, we pop the elements from the min heap one by one and place them into the result array.
 
-The time complexity is $O(n \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

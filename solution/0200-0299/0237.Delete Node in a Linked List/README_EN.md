@@ -83,7 +83,7 @@ tags:
 
 We can replace the value of the current node with the value of the next node, and then delete the next node. This can achieve the purpose of deleting the current node.
 
-Time complexity $O(1)$, space complexity $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

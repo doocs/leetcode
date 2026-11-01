@@ -79,7 +79,7 @@ Therefore, we maintain a sliding window, with pointers $j$ and $i$ representing 
 
 The final answer is the length of string $s$ minus the size of the maximum window.
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

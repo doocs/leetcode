@@ -104,7 +104,7 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 We enumerate the starting position $i$ of the substring in the range $[0, n)$, and the ending position $j$ in the range $[i, n)$, count the number of vowels and consonants in the substring $s[i \dots j]$, and check whether it is a beautiful substring. If so, we increment the answer by $1$.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

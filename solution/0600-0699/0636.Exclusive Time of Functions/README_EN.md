@@ -106,7 +106,7 @@ If $\textit{op}$ is $\text{start}$, it means function $\textit{i}$ starts execut
 
 Finally, we return the array $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the log array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the log array.
 
 <!-- tabs:start -->
 

@@ -100,7 +100,7 @@ First, we sort the robots and factories in ascending order. Then we define a fun
 
 For $dfs(i, j)$, if the $j$-th factory does not repair the robot, then $dfs(i, j) = dfs(i, j+1)$. If the $j$-th factory repairs the robot, we can enumerate the number of robots repaired by the $j$-th factory and find the minimum total moving distance. That is, $dfs(i, j) = \min(dfs(i + k + 1, j + 1) + \sum_{t = 0}^{k} |robot[i + t] - factory[j][0]|)$.
 
-The time complexity is $O(m^2 \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of robots and factories, respectively.
+The time complexity is $O(m^2n)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of robots and factories, respectively.
 
 <!-- tabs:start -->
 

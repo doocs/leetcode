@@ -82,7 +82,7 @@ Finally, return $dfs(0, 0, 0)$.
 
 In order to avoid repeated calculation, we can use the method of memoization. We use a three-dimensional array $f$ to record all the results of $dfs(i, j, k)$. When we calculate the value of $dfs(i, j, k)$, we store it in $f[i][j][k]$. When we call $dfs(i, j, k)$, if $f[i][j][k]$ has been calculated, we return $f[i][j][k]$ directly.
 
-The time complexity is $O(m \times n \times minProfit)$, and th e space complexity is $O(m \times n \times minProfit)$. Here $m$ and $n$ are the number of jobs and employees, and $minProfit$ is the minimum profit.
+The time complexity is $O(mn minProfit)$, and the space complexity is $O(mn minProfit)$, where $m$ and $n$ are the number of jobs and employees, and $minProfit$ is the minimum profit.
 
 <!-- tabs:start -->
 
@@ -236,7 +236,7 @@ For the $i$-th job, we can choose to work or not to work. If we do not work, the
 
 The final answer is $f[m][n][minProfit]$.
 
-The time complexity is $O(m \times n \times minProfit)$, and the space complexity is $O(m \times n \times minProfit)$. Here $m$ and $n$ are the numbers of jobs and workers, and $minProfit$ is the minimum profit to make.
+The time complexity is $O(mn minProfit)$, and the space complexity is $O(mn minProfit)$, where $m$ and $n$ are the numbers of jobs and workers, and $minProfit$ is the minimum profit to make.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ When we encounter an element $x$, if the stack is not empty and the top element 
 
 Finally, we traverse the array $\textit{nums1}$ and use the hash table $\textit{d}$ to get the answer.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

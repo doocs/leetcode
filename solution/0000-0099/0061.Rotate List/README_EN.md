@@ -72,7 +72,7 @@ Otherwise, we use fast and slow pointers, let the fast pointer move $k$ steps fi
 
 Finally, we concatenate the linked list.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the linked list.
 
 <!-- tabs:start -->
 

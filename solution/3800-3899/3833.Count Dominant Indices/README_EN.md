@@ -93,7 +93,7 @@ tags:
 
 We can traverse the array from back to front, maintaining a suffix sum $\text{suf}$, which represents the sum of all elements to the right of the current element. For each element, we check if it is greater than the average value of the elements to its right $\frac{\text{suf}}{n - i - 1}$. If so, we increment the answer by one. Finally, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 

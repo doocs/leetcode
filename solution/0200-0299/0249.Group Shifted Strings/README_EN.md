@@ -82,7 +82,7 @@ We iterate through each string. For each string, we calculate its shifted string
 
 Finally, we take out all the values in $g$, which is the answer.
 
-The time complexity is $O(L)$ and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all strings.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all strings.
 
 <!-- tabs:start -->
 

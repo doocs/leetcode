@@ -79,7 +79,7 @@ We can use binary enumeration to check all possible subset partitions. For each 
 
 Specifically, we can use an integer $i$ to represent the state of the subset partition, where the binary bits of $i$ indicate whether each element belongs to the first subset. For each possible $i$, we calculate the product of the two subsets and check whether both are equal to the target value.
 
-The time complexity is $O(2^n \times n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

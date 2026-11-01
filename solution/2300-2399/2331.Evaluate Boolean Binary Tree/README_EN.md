@@ -94,7 +94,7 @@ For the current node $\textit{root}$:
 - If its left child is null, it means the current node is a leaf node. If the value of the current node is $1$, then return $\textit{true}$; otherwise, return $\textit{false}$;
 - If the value of the current node is $2$, then return the logical OR of the recursion results of its left and right children; otherwise, return the logical AND of the recursion results of its left and right children.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

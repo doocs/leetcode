@@ -117,7 +117,7 @@ The function $\textit{dfs}(i)$ is calculated as follows:
 
 To avoid redundant calculations, we use memoization.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
 
 <!-- tabs:start -->
 
@@ -403,7 +403,7 @@ Scan $i$ from $n - 1$ down to $0$. Starting from the trie root, walk down $\text
 
 If $f[0]$ is at least the preset upper bound, $\textit{target}$ cannot be formed and we return $-1$. Otherwise we return $f[0]$.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the total length of all valid strings.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of $\textit{target}$, and $L$ is the total length of all valid strings.
 
 <!-- tabs:start -->
 

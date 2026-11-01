@@ -64,7 +64,7 @@ We traverse the string. If the current character and the next character are both
 
 After the traversal ends, we return the result array.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the string. Ignoring the space complexity of the result array, the space complexity is $O(n)$ or $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

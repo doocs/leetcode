@@ -102,7 +102,7 @@ Finally, we return $dfs(0, 0, n)$.
 
 In order to avoid repeated calculation, we can use memory search.
 
-The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the string.
+The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -319,7 +319,7 @@ Next, we enumerate the length $k$ of the substring from small to large, and enum
 
 Finally, we return $f[0][0][n]$.
 
-The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the string.
+The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

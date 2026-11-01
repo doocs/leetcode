@@ -100,7 +100,7 @@ kthLargest.add(9); // return 8</div>
 
 We maintain a priority queue (min heap) $\textit{minQ}$.
 
-Initially, we add the elements of the array $\textit{nums}$ to $\textit{minQ}$ one by one, ensuring that the size of $\textit{minQ}$ does not exceed $k$. The time complexity is $O(n \times \log k)$.
+Initially, we add the elements of the array $\textit{nums}$ to $\textit{minQ}$ one by one, ensuring that the size of $\textit{minQ}$ does not exceed $k$. The time complexity is $O(n \log k)$.
 
 Each time a new element is added, if the size of $\textit{minQ}$ exceeds $k$, we pop the top element of the heap to ensure that the size of $\textit{minQ}$ is $k$. The time complexity is $O(\log k)$.
 

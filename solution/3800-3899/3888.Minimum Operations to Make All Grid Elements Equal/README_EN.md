@@ -105,11 +105,11 @@ Since the operation can only increase the value of elements, all elements in the
 
 Start traversing the grid from the top-left corner $(0, 0)$. For any position $(i, j)$, if its current value is less than $T$, since subsequent operations (with a more rightward or downward position as the top-left corner) cannot cover $(i, j)$, it is necessary to perform $T - \text{current\_val}$ operations at the current position, each using $(i, j)$ as the top-left corner of a $k \times k$ increment operation.
 
-If each operation traverses the $k \times k$ region, the complexity will reach $O(m \cdot n \cdot k^2)$. We can use a 2D difference array $\textit{diff}$ to record the operations. By maintaining the 2D prefix sum of $\textit{diff}$ in real time, we can obtain the cumulative increment at the current position in $O(1)$ time, and update the future impact of a $k \times k$ region in $O(1)$ time.
+If each operation traverses the $k \times k$ region, the complexity will reach $O(mnk^2)$. We can use a 2D difference array $\textit{diff}$ to record the operations. By maintaining the 2D prefix sum of $\textit{diff}$ in real time, we can obtain the cumulative increment at the current position in $O(1)$ time, and update the future impact of a $k \times k$ region in $O(1)$ time.
 
 In most cases, $T = \max(\textit{grid})$ is sufficient. However, in some cases where $k \times k$ regions overlap, a smaller $T$ may cause the middle positions to be passively increased beyond $T$. According to mathematical consistency, if both $T = \max(\textit{grid})$ and $T = \max(\textit{grid}) + 1$ are not feasible, then it is impossible to flatten the grid using $k \times k$ operations.
 
-The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

@@ -329,7 +329,7 @@ In the recursive function, we first check if all positions have been processed; 
 
 We enumerate all possible digits for the current position, updating $last$ to the current digit if this is a key cell, or keeping it unchanged otherwise. We also update $lim$: if the current digit equals the upper bound, $lim$ remains true; otherwise, it becomes false. We sum the results of all branches and return the total.
 
-The time complexity is $O(D^2 \times \log r)$ and the space complexity is $O(D \times \log r)$, where $D = 10$ is the range of digits and $\log r$ is the number of digits in $r$.
+The time complexity is $O(D^2 \log r)$, and the space complexity is $O(D \log r)$, where $D = 10$ is the range of digits and $\log r$ is the number of digits in $r$.
 
 <!-- tabs:start -->
 

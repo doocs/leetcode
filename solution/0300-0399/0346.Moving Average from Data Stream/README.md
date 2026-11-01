@@ -78,7 +78,7 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 调用 $\textit{next}$ 函数时，我们先计算出 $\textit{val}$ 要存放的下标 $i$，然后我们更新元素和 $s$，并且将下标 $i$ 处的值设置为 $\textit{val}$，同时将元素的个数加一。最后，我们返回 $\frac{s}{\min(\textit{cnt}, \textit{size})}$ 的值即可。
 
-时间复杂度 $O(1)$，空间复杂度 $O(n)$，其中 $n$ 是题目给定的整数 $\textit{size}$。
+时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是题目给定的整数 $\textit{size}$。
 
 <!-- tabs:start -->
 
@@ -241,7 +241,7 @@ class MovingAverage {
 
 在调用 $\textit{next}$ 函数时，我们首先判断队列 $\textit{q}$ 的长度是否等于 $\textit{size}$，如果等于 $\textit{size}$，则将队列 $\textit{q}$ 的头部元素出队，并且更新 $\textit{s}$ 的值。然后将 $\textit{val}$ 入队，并且更新 $\textit{s}$ 的值。最后返回 $\frac{s}{\text{len}(q)}$ 的值即可。
 
-时间复杂度 $O(1)$，空间复杂度 $O(n)$，其中 $n$ 是题目给定的整数 $\textit{size}$。
+时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是题目给定的整数 $\textit{size}$。
 
 <!-- tabs:start -->
 

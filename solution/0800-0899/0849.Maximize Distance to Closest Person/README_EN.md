@@ -86,7 +86,7 @@ Then, we traverse the array $\textit{seats}$. If the current position is occupie
 
 Finally, we return $\max(\textit{first}, n - \textit{last} - 1, d / 2)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{seats}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{seats}$.
 
 <!-- tabs:start -->
 

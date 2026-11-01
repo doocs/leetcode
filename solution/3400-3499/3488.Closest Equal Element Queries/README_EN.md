@@ -89,7 +89,7 @@ tags:
 
 According to the problem description, we need to find the minimum distance between each element in the array and its previous identical element, as well as the minimum distance to its next identical element. Since the array is circular, we need to consider the circular nature of the array. We can extend the array to twice its original length, and then use hash tables $\textit{left}$ and $\textit{right}$ to record the positions where each element last appeared and will next appear, respectively. We calculate the minimum distance between each position's element and another identical element, recording it in the array $\textit{d}$. Finally, we traverse the queries, and for each query $i$, we take the minimum value of $\textit{d}[i]$ and $\textit{d}[i+n]$. If this value is greater than or equal to $n$, it means there is no element identical to the queried element, so we return $-1$; otherwise, we return the value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

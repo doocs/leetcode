@@ -55,7 +55,7 @@ tags:
 
 We can first use a hash table or array $s$ to record all types of jewels. Then traverse all the stones, and if the current stone is a jewel, increment the answer by one.
 
-Time complexity is $O(m+n)$, and space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of the strings $jewels$ and $stones$ respectively, and $\Sigma$ is the character set, which in this problem is the set of all uppercase and lowercase English letters.
+The time complexity is $O(m+n)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of the strings $jewels$ and $stones$ respectively, and $\Sigma$ is the character set, which in this problem is the set of all uppercase and lowercase English letters.
 
 <!-- tabs:start -->
 

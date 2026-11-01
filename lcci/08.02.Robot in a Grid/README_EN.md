@@ -65,7 +65,7 @@ We can use depth-first search to solve this problem. We start from the top left 
 
 If we can finally reach the bottom right corner, then we have found a feasible path, otherwise, it means there is no feasible path.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

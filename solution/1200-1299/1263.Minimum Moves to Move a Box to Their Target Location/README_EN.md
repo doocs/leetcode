@@ -127,7 +127,7 @@ We continue the breadth-first search until the queue is empty.
 
 Finally, if no valid push scheme is found, then return $-1$.
 
-The time complexity is $O(m^2 \times n^2)$, and the space complexity is $O(m^2 \times n^2)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
+The time complexity is $O(m^2n^2)$, and the space complexity is $O(m^2n^2)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ tags:
 
 We can point the left pointer of the binary tree to the first child of the N-ary tree and the right pointer of the binary tree to the next sibling node of the N-ary tree.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the N-ary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
 

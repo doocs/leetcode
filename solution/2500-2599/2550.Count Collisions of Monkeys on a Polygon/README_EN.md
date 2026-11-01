@@ -80,7 +80,7 @@ According to the problem description, each monkey has two ways of moving, either
 
 We can use fast power to calculate the value of $2^n$, then use $2^n - 2$ to calculate the number of collision ways of moving, and finally take the remainder of $10^9 + 7$.
 
-The time complexity is $O(\log n)$, where $n$ is the number of monkeys. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the number of monkeys.
 
 <!-- tabs:start -->
 

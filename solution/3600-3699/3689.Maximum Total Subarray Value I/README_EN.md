@@ -99,7 +99,7 @@ tags:
 
 We can observe that the value of a subarray only depends on the global maximum and minimum values. Therefore, we just need to find the global maximum and minimum, then multiply their difference by $k$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

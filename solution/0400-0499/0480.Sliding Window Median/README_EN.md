@@ -74,7 +74,7 @@ Window position                Median
 
 > **Thinking**
 >
-> Median of every window. Sorting each window is $O(nk\log k)$. Heaps give the median but cannot delete an arbitrary outgoing value.
+> Median of every window. Sorting each window is $O(nk \log k)$. Heaps give the median but cannot delete an arbitrary outgoing value.
 >
 > Two heaps: a max-heap for the lower half, a min-heap for the upper half, plus a lazy-deletion map. After insert or erase, only expired heap tops are popped, then the live sizes are rebalanced.
 >
@@ -102,7 +102,7 @@ In the `prune(pq)` method, if the top element of the heap is in the lazy deletio
 
 In the `rebalance()` method, if the number of elements in the smaller half exceeds the number of elements in the larger half by $2$, it moves the top element of the larger half to the smaller half. If the number of elements in the smaller half is less than the number of elements in the larger half, it moves the top element of the larger half to the smaller half.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -485,7 +485,7 @@ We traverse the array $\textit{nums}$. For each element $x$, we add it to the or
 
 If the total number of elements in the current window is $k$ and the size is odd, the maximum value in the ordered set $l$ is the median. If the size of the current window is even, the average of the maximum value in the ordered set $l$ and the minimum value in the ordered set $r$ is the median. Then, we remove the leftmost element of the window and continue traversing the array.
 
-The time complexity is $O(n \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

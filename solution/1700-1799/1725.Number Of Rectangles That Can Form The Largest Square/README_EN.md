@@ -76,7 +76,7 @@ We traverse the array $rectangles$. For each rectangle $[l, w]$, we take $x = \m
 
 Finally, we return $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $rectangles$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $rectangles$.
 
 <!-- tabs:start -->
 

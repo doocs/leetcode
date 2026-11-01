@@ -77,7 +77,7 @@ We traverse `responses`, and for each word in `responses[i]`, we temporarily sto
 
 Next, we use custom sorting to sort the words in `features` in descending order of occurrence. If the number of occurrences is the same, we sort them in ascending order of the index where they appear.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of `features`.
+The time complexity is $O(n \log n)$, where $n$ is the length of `features`.
 
 <!-- tabs:start -->
 

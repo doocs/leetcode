@@ -82,7 +82,7 @@ We use an integer $\textit{mask}$ to record the counts of `'1'`s across all stri
 
 We then enumerate $i$ starting from $0$, representing the count of `'1'`s in a binary string of length $n$. If the $i$-th bit of $\textit{mask}$ is $0$, it means no binary string of length $n$ with exactly $i$ occurrences of `'1'` exists, and we can return that string as the answer.
 
-The time complexity is $O(L)$, where $L$ is the total length of all strings in $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the total length of all strings in $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -234,7 +234,7 @@ public class Solution {
 
 We can construct a binary string $\textit{ans}$ of length $n$, where the $i$-th bit of $\textit{ans}$ differs from the $i$-th bit of $\textit{nums}[i]$. Since all strings in $\textit{nums}$ are distinct, $\textit{ans}$ will not appear in $\textit{nums}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the strings in $\textit{nums}$. Ignoring the space used by the answer string, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the strings in $\textit{nums}$.
 
 <!-- tabs:start -->
 

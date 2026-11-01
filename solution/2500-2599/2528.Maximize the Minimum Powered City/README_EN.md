@@ -104,7 +104,7 @@ The implementation logic of the function $check(x, k)$ is as follows:
 
 Traverse each city. If the number of power stations in the current city $i$ is less than $x$, we can greedily build a power station at the rightmost possible position, $j = \min(i + r, n - 1)$, to cover as many cities as possible. During this process, we can use the difference array to add a certain value to a continuous segment. If the number of additional power stations needed exceeds $k$, then $x$ does not meet the condition, and we return `false`. Otherwise, after the traversal, return `true`.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the number of cities, and $M$ is fixed at $2^{40}$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where $n$ is the number of cities, and $M$ is fixed at $2^{40}$.
 
 <!-- tabs:start -->
 

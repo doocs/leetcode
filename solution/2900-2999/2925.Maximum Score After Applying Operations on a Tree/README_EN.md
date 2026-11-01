@@ -101,7 +101,7 @@ It should be noted that the value of $[1]$ of the leaf node is $0$, because the 
 
 The answer is $dfs(0, -1)[1]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -292,7 +292,7 @@ Each stack frame is $(i, fa, state)$. When $state = 0$, we push $(i, fa, 1)$ and
 
 The answer is the second value at the root.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

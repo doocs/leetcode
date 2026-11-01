@@ -71,7 +71,7 @@ For a complete binary tree, the number of nodes in the $i$th row is $2^{i-1}$, a
 
 Finally, we need to reverse the path, because the problem requires the path from the root node to node $label$.
 
-The time complexity is $O(\log n)$, where $n$ is the label of the node. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the label of the node.
 
 <!-- tabs:start -->
 

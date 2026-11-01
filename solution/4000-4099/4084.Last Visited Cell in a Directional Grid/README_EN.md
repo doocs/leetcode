@@ -98,7 +98,7 @@ source: Weekly Contest 524 Q2
 
 Simulate from $(0,0)$. Use a boolean array $\textit{vis}$ to mark cells that have already been visited. At each step, save the current coordinate $(r,c)$, then move according to $\textit{grid}[r][c]$: $L$ and $R$ change the column, while $U$ and $D$ change the row. If the new coordinate is outside the grid or its cell has already been visited, do not take that step and return the saved coordinate. Each cell is visited at most once.
 
-The time complexity is $O(mn)$ and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns.
 
 <!-- tabs:start -->
 

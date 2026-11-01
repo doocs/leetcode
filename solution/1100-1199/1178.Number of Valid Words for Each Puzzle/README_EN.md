@@ -90,7 +90,7 @@ Next, we traverse the puzzle array $puzzles$. For each puzzle $p$, we note that 
 
 After the traversal, we can get the number of puzzle solutions corresponding to each puzzle in the puzzle array $puzzles$, and return it.
 
-The time complexity is $O(m \times |w| + n \times 2^{|p|})$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $words$ and $puzzles$ respectively, and $|w|$ and $|p|$ are the maximum length of the words in the array $words$ and the length of the puzzles in the array $puzzles$, respectively.
+The time complexity is $O(m|w| + n 2^{|p|})$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $words$ and $puzzles$ respectively, and $|w|$ and $|p|$ are the maximum length of the words in the array $words$ and the length of the puzzles in the array $puzzles$, respectively.
 
 <!-- tabs:start -->
 

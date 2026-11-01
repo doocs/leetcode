@@ -268,7 +268,7 @@ function stringCount(n: number): number {
 
 而总数 $tot = 26^n$，所以答案为 $tot - (a + b + c - ab - ac - bc + abc)$，注意要对 $10^9 + 7$ 取模。
 
-时间复杂度 $O(\log n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
 

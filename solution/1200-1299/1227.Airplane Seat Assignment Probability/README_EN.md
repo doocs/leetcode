@@ -145,7 +145,7 @@ f(n) = \begin{cases}
 \end{cases}
 $$
 
-The time complexity of this solution is $O(1)$, and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

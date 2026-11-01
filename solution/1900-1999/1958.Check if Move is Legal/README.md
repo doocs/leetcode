@@ -85,7 +85,7 @@ tags:
 
 枚举结束后，如果我们没有找到任何好线段，那么返回 $\textit{false}$。
 
-时间复杂度 $O(m + n)$，其中 $m$ 为 $\textit{board}$ 的行数，而 $n$ 为 $\textit{board}$ 的列数，本题中 $m = n = 8$。空间复杂度 $O(1)$。
+时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 为 $\textit{board}$ 的行数，而 $n$ 为 $\textit{board}$ 的列数，本题中 $m = n = 8$。
 
 <!-- tabs:start -->
 

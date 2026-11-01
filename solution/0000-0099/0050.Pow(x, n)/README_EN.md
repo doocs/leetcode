@@ -74,7 +74,7 @@ tags:
 
 The core idea of the fast powering algorithm is to decompose the exponent $n$ into the sum of $1$s on several binary bits, and then transform the $n$th power of $x$ into the product of several powers of $x$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the exponent.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the exponent.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ We traverse the sorted pairs. If the first number of the current pair is greater
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of pairs.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of pairs.
 
 <!-- tabs:start -->
 

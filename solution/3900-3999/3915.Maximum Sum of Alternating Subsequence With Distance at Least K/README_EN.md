@@ -144,7 +144,7 @@ The transitions involve dynamic prefix/suffix maximum queries over a value domai
 
 To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we first insert the state of index $i - k$ into the BITs, then query.
 
-The time complexity is $O(n \log m)$ and the space complexity is $O(n + m)$, where $n$ is the length of the array and $m$ is the number of distinct values.
+The time complexity is $O(n \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array and $m$ is the number of distinct values.
 
 <!-- tabs:start -->
 

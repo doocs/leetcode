@@ -79,7 +79,7 @@ tags:
 
 First, we use depth-first search to construct an undirected graph $g$, where $g[node]$ represents the set of nodes adjacent to the node $node$. Then we start a breadth-first search from node $k$ until we find a leaf node, which is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

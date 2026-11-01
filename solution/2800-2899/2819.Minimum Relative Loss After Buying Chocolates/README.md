@@ -108,7 +108,7 @@ tags:
 
 上述第二次二分查找的过程中，我们需要判断 $prices[mid] \lt 2k - prices[n - (m - mid)]$，其中 $right$ 表示右侧应该选择的巧克力的数量。如果该不等式成立，那么说明选择 $mid$ 位置的巧克力的相对损失较低，此时更新 $l = mid + 1$。否则，说明 $mid$ 位置的巧克力的相对损失较高，此时更新 $r = mid$。
 
-时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $prices$ 和 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $prices$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
 

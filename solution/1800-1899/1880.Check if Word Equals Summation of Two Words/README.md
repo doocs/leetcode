@@ -94,7 +94,7 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 
 最后，我们只需要判断 $\textit{f}(\textit{firstWord}) + \textit{f}(\textit{secondWord})$ 是否等于 $\textit{f}(\textit{targetWord})$ 即可。
 
-时间复杂度 $O(L)$，其中 $L$ 为题目中所有字符串的长度之和。空间复杂度 $O(1)$。
+时间复杂度 $O(L)$，空间复杂度 $O(1)$。其中 $L$ 为题目中所有字符串的长度之和。
 
 <!-- tabs:start -->
 

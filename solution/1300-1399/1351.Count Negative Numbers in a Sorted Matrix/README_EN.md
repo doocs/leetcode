@@ -74,7 +74,7 @@ If the element at the current position is less than $0$, it means the current el
 
 We repeat the above process until the row index $i$ is less than $0$ or the column index $j$ is greater than or equal to $n$. Finally, the count of negative numbers is the answer.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

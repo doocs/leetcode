@@ -90,8 +90,7 @@ Let `dp[i][j]` be true if and only if the interval `s[i], s[i+1], ..., s[j]` can
 - `s[i]` is `'*'`, and the interval `s[i+1], s[i+2], ..., s[j]` can be made valid;
 - or, `s[i]` can be made to be `'('`, and there is some `k` in `[i+1, j]` such that `s[k]` can be made to be `')'`, plus the two intervals cut by `s[k]` (`s[i+1: k] and s[k+1: j+1]`) can be made valid;
 
-- Time Complexity: $O(n^3)$, where $n$ is the length of the string. There are $O(n^2)$ states corresponding to entries of dp, and we do an average of $O(n)$ work on each state.
-- Space Complexity: $O(n^2)$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string `s`.
 
 <!-- tabs:start -->
 
@@ -206,8 +205,7 @@ func checkValidString(s string) bool {
 
 Scan twice, first from left to right to make sure that each of the closing brackets is matched successfully, and second from right to left to make sure that each of the opening brackets is matched successfully.
 
-- Time Complexity: $O(n)$, where $n$ is the length of the string.
-- Space Complexity: $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `s`.
 
 <!-- tabs:start -->
 

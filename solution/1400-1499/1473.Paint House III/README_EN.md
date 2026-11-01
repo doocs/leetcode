@@ -113,7 +113,7 @@ $$
 
 Finally, we return $f[m - 1][j][\textit{target}]$, where $j \in [1,..n]$. If all values of $f[m - 1][j][\textit{target}]$ are $\infty$, then return $-1$.
 
-The time complexity is $O(m \times n^2 \times \textit{target})$, and the space complexity is $O(m \times n \times \textit{target})$. Here, $m$, $n$, and $\textit{target}$ represent the number of houses, the number of colors, and the number of blocks, respectively.
+The time complexity is $O(mn^2 \textit{target})$, and the space complexity is $O(mn \textit{target})$, where $m$, $n$, and $\textit{target}$ represent the number of houses, the number of colors, and the number of blocks, respectively.
 
 <!-- tabs:start -->
 

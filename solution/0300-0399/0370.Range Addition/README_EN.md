@@ -69,7 +69,7 @@ This is a template problem for difference arrays.
 
 We define $d$ as the difference array. To add $c$ to each number in the interval $[l,..r]$, we set $d[l] += c$ and $d[r+1] -= c$. Finally, we compute the prefix sum of the difference array to obtain the original array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -205,7 +205,7 @@ var getModifiedArray = function (length, updates) {
 
 <!-- thinking:end -->
 
-The time complexity is $O(n \times \log n)$.
+The time complexity is $O(n \log n)$.
 
 A Binary Indexed Tree (BIT), also known as a Fenwick Tree, can efficiently perform the following two operations:
 

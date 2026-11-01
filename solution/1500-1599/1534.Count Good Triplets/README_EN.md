@@ -81,7 +81,7 @@ We can enumerate all $i$, $j$, and $k$ where $i \lt j \lt k$, and check if they 
 
 After enumerating all possible triplets, we get the answer.
 
-The time complexity is $O(n^3)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

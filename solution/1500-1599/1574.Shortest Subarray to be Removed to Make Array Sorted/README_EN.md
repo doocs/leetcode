@@ -87,7 +87,7 @@ Otherwise, we can choose to delete the right suffix or the left prefix. Therefor
 
 Next, we enumerate the right endpoint $l$ of the left prefix. For each $l$, we can use binary search to find the first position greater than or equal to $\textit{nums}[l]$ in $\textit{nums}[j..n-1]$, denoted as $r$. At this point, we can delete $\textit{nums}[l+1..r-1]$ and update the answer $\textit{ans} = \min(\textit{ans}, r - l - 1)$. Continue enumerating $l$ to get the final answer.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -225,7 +225,7 @@ Otherwise, we can choose to delete the right suffix or the left prefix. Therefor
 
 Next, we enumerate the right endpoint $l$ of the left prefix. For each $l$, we directly use two pointers to find the first position greater than or equal to $\textit{nums}[l]$ in $\textit{nums}[j..n-1]$, denoted as $r$. At this point, we can delete $\textit{nums}[l+1..r-1]$ and update the answer $\textit{ans} = \min(\textit{ans}, r - l - 1)$. Continue enumerating $l$ to get the final answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

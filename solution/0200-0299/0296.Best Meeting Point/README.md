@@ -78,7 +78,7 @@ tags:
 
 最后，我们计算所有 $1$ 到碰头地点 $(i, j)$ 的曼哈顿距离之和即可。
 
-时间复杂度 $O(m\times n\times \log(m\times n))$。最多有 $m\times n$ 个 $1$，排序的时间复杂度为 $\log(m\times n)$。
+时间复杂度 $O(mn \log(mn))$。最多有 $m\times n$ 个 $1$，排序的时间复杂度为 $\log(m\times n)$。
 
 相似题目：
 

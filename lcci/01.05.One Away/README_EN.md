@@ -71,7 +71,7 @@ Next, we discuss the following cases:
 - When $m = n$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if there is exactly one different character;
 - When $m - n = 1$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if $\textit{second}$ is obtained by deleting one character from $\textit{first}$. We can use two pointers to achieve this.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

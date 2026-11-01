@@ -92,7 +92,7 @@ We define a variable $\textit{ans}$ with an initial value of 0. Then, we iterate
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

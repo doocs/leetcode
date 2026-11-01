@@ -91,7 +91,7 @@ We use a stack `stk` to simulate this process. We traverse the string `s`. If th
 
 Finally, we concatenate the elements in the stack into a string and return it.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `s`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `s`.
 
 <!-- tabs:start -->
 

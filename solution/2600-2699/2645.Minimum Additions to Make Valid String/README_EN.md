@@ -83,7 +83,7 @@ Then, we move $i$ one step to the right, i.e., $i = (i + 1) \bmod 3$. We continu
 
 Finally, we check whether the last character of $word$ is `'b'` or `'a'`. If it is, we need to insert `'c'` or `'bc'`, and we add $1$ or $2$ to the answer and return it.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $word$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $word$.
 
 <!-- tabs:start -->
 

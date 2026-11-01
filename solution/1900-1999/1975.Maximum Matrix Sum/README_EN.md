@@ -80,7 +80,7 @@ If there is a zero in the matrix, or the number of negative numbers in the matri
 
 Otherwise, if there are an odd number of negative numbers in the matrix, there will be one negative number left in the end. We choose the number with the smallest absolute value and make it negative, so that the final sum is maximized.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

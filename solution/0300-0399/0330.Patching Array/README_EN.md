@@ -93,7 +93,7 @@ We perform the following operations in a loop:
 
 The final answer is the number of supplemented numbers.
 
-The time complexity is $O(m + \log n)$, where $m$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(m + \log n)$, and the space complexity is $O(1)$, where $m$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

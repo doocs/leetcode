@@ -91,7 +91,7 @@ In the problem, $nums[i]-k$ might be negative. We add $k$ to all elements to ens
 
 Next, we iterate through the array $nums$. For the current element $x$ being iterated, we increase $d[x]$ by $1$ and decrease $d[x+k\times2+1]$ by $1$. In this way, we can calculate the prefix sum for each position using the $d$ array, which represents the beauty value for each position. The maximum beauty value can then be found.
 
-The time complexity is $O(M + 2 \times k + n)$, and the space complexity is $O(M + 2 \times k)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(M + 2k + n)$, and the space complexity is $O(M + 2k)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
 

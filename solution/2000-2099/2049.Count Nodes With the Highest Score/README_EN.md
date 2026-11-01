@@ -101,7 +101,7 @@ Finally, we return $cnt$.
 
 In the end, we call `dfs(0, -1)` and return $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -366,7 +366,7 @@ First, we construct a graph $g$ based on the given parent array `parents`, where
 
 An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $cnt = 1$ and $score = 1$. Multiply each child's subtree size into $score$ and add it to $cnt$. If $n - cnt > 0$, also multiply $n - cnt$ into $score$. If $score$ is greater than $mx$, set $mx$ to $score$ and $ans$ to $1$; if they are equal, add $1$ to $ans$. Store $cnt$ as the current node's subtree size.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

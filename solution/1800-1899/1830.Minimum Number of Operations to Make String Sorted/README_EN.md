@@ -95,7 +95,7 @@ Next, we traverse the string $s$ from left to right. For each position $i$, we n
 
 After traversing the entire string, we can get the answer. Note the modulo operation of the answer.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Where $n$ and $k$ are the length of the string and the number of types of letters, respectively.
+The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ and $k$ are the length of the string and the number of types of letters, respectively.
 
 <!-- tabs:start -->
 

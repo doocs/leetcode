@@ -107,7 +107,7 @@ We define a function $\text{is\_prime}(x)$ to determine whether a number $x$ is 
 
 Next, we convert the integer $\textit{num}$ to a string $s$, and sequentially check whether the integer corresponding to each prefix and suffix of $s$ is prime. For prefixes, we construct the integer $x$ from left to right; for suffixes, we construct the integer $x$ from right to left. If during the checking process we find that the integer corresponding to some prefix or suffix is not prime, we return $\text{false}$; if all integers corresponding to prefixes and suffixes are prime, we return $\text{true}$.
 
-The time complexity is $O(\sqrt{n} \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the value of the integer $\textit{num}$.
+The time complexity is $O(\sqrt{n} \log n)$, and the space complexity is $O(\log n)$, where $n$ is the value of the integer $\textit{num}$.
 
 <!-- tabs:start -->
 

@@ -97,7 +97,7 @@ We use a boolean variable $\textit{hasX}$ to record whether the digit $x$ appear
 
 We repeatedly take the last digit of $n$ and compare it with $x$. If they are equal, we set $\textit{hasX}$ to $\texttt{true}$. At the same time, we divide $n$ by $10$ to remove the last digit. When $n$ is less than or equal to $9$, it means we have checked all the digits. At this point, if $\textit{hasX}$ is $\texttt{true}$ and $n$ is not equal to $x$, then $n$ is a valid number and we return $\texttt{true}$; otherwise, we return $\texttt{false}$.
 
-The time complexity is $O(\log n)$, where $n$ is the input integer. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the input integer.
 
 <!-- tabs:start -->
 

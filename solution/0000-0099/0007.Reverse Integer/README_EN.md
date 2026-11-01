@@ -86,7 +86,7 @@ Similarly, when $x \lt 0$, the necessary and sufficient condition for the inequa
 
 Therefore, we can check whether $ans$ overflows by checking whether $ans$ is within the range $[\left \lfloor \frac{mi}{10} \right \rfloor, \left \lfloor \frac{mx}{10} \right \rfloor]$. If it overflows, return $0$. Otherwise, add $y$ to the end of $ans$, and then remove the last digit of $x$, that is, $x \gets \left \lfloor \frac{x}{10} \right \rfloor$.
 
-The time complexity is $O(\log |x|)$, where $|x|$ is the absolute value of $x$. The space complexity is $O(1)$.
+The time complexity is $O(\log |x|)$, and the space complexity is $O(1)$, where $|x|$ is the absolute value of $x$.
 
 <!-- tabs:start -->
 

@@ -97,7 +97,7 @@ Then we traverse all the meetings. For each meeting $(st, ed)$, if `last < st`, 
 
 Finally, if `last < days`, it means that there is a time period after the end of the last meeting when employees can work and no meetings are scheduled. We add this time period to the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the number of meetings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of meetings.
 
 <!-- tabs:start -->
 

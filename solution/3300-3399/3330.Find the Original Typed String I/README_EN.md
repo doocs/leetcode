@@ -92,7 +92,7 @@ By analogy, if there are $k$ pairs of adjacent identical characters, then there 
 
 Therefore, we just need to traverse the string, count the number of pairs of adjacent identical characters, and add 1.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

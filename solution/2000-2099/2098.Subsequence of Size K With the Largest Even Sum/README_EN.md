@@ -89,7 +89,7 @@ Otherwise, we have two greedy strategies:
 
 We take the largest even sum as the answer. If no even sum exists, return $-1$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

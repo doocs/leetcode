@@ -84,7 +84,7 @@ We directly iterate through the array $\textit{nums}$. For each element $x$, if 
 
 Therefore, we only need to count the number of elements in the array that are not divisible by $3$ to get the minimum number of operations.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

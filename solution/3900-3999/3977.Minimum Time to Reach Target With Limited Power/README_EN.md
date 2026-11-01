@@ -149,7 +149,7 @@ When popping $(d, p, u)$:
 
 If the priority queue becomes empty before reaching the target node, return $[-1, -1]$.
 
-The time complexity is $O((n + m) \times \textit{power} \times \log (n \times \textit{power}))$, and the space complexity is $O(n \times \textit{power})$. Here, $n$ and $m$ are the number of nodes and edges, and $\textit{power}$ is the initial power.
+The time complexity is $O((n + m) \textit{power} \log (n \textit{power}))$, and the space complexity is $O(n \textit{power})$, where $n$ and $m$ are the number of nodes and edges, and $\textit{power}$ is the initial power.
 
 <!-- tabs:start -->
 

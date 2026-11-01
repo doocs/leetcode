@@ -96,7 +96,7 @@ We can use a variable $f$ to record the length of the longest Fibonacci subarray
 
 Then we traverse the array starting from index $2$. For each element $nums[i]$, if it equals the sum of the previous two elements, i.e., $nums[i] = nums[i-1] + nums[i-2]$, it means the current element can be appended to the previous Fibonacci subarray, so we increment $f$ by $1$. Otherwise, it means the current element cannot be appended to the previous Fibonacci subarray, so we reset $f$ to $2$. During the traversal, we continuously update the answer $\textit{ans} = \max(\textit{ans}, f)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ $$
 
 The final answer is $\sum_{j=0}^{n-1}f[2^n-1][j]$. Note that the answer may be very large, so we need to take the modulus of $10^9+7$.
 
-The time complexity is $O(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n 2^n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

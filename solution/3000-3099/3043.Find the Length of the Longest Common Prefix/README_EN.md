@@ -82,7 +82,7 @@ Note that common prefixes between elements of the same array do not count.
 
 We can use a hash table to store all the prefixes of the numbers in `arr1`. Then, we traverse all the numbers $x$ in `arr2`. For each number $x$, we start from the highest bit and gradually decrease, checking whether it exists in the hash table. If it does, we have found a common prefix, and we can update the answer accordingly.
 
-The time complexity is $O(m \times \log M + n \times \log N)$, and the space complexity is $O(m \times \log M)$. Here, $m$ and $n$ are the lengths of `arr1` and `arr2` respectively, and $M$ and $N$ are the maximum values in `arr1` and `arr2` respectively.
+The time complexity is $O(m \log M + n \log N)$, and the space complexity is $O(m \log M)$, where $m$ and $n$ are the lengths of `arr1` and `arr2` respectively, and $M$ and $N$ are the maximum values in `arr1` and `arr2` respectively.
 
 <!-- tabs:start -->
 

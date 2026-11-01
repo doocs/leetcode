@@ -99,7 +99,7 @@ Next, we design a function $dfs(a, fa)$, which will return whether the subtree w
 
 We call $dfs(0, -1)$, where $0$ represents the root node number, and $-1$ represents that the root node has no parent node. The final answer is $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -296,7 +296,7 @@ First, according to the edge information given in the problem, we construct an a
 
 An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. Every node's $size$ starts at $1$. On exit, $ok$ records whether the subtree is monochromatic and starts true. For each child $b$, $ok$ becomes the conjunction of its current value, $colors[a] = colors[b]$, and the child's own monochromatic flag, and $size[b]$ is added to $size[a]$. If $ok$ is still true, $size[a]$ updates the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

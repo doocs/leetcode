@@ -114,7 +114,7 @@ Suppose we initially move to the left and encounter a non-zero element. In that 
 
 Therefore, we can maintain the sum of elements to the left of each zero-value element as $l$, and the sum of elements to the right as $s - l$. If $l = s - l$, meaning the sum of elements on the left equals the sum of elements on the right, we can choose the current zero-value element and move either left or right, adding $2$ to the answer. If $|l - (s - l)| = 1$, and the sum of elements on the left is greater, we can choose the current zero-value element and move left, adding $1$ to the answer. If the sum of elements on the right is greater, we can choose the current zero-value element and move right, adding $1$ to the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

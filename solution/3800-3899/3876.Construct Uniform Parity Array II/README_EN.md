@@ -112,7 +112,7 @@ If all elements in $\textit{nums1}$ are either all odd or all even, we can direc
 
 If $\textit{nums1}$ contains both odd and even numbers, we need to find the minimum odd number $mn$, and check whether there exists an even number $x$ in $\textit{nums1}$ such that $x < mn$. If such an even number exists, we cannot construct a valid $\textit{nums2}$, so we return $\text{false}$; otherwise we return $\text{true}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums1}$.
 
 Similar problems:
 

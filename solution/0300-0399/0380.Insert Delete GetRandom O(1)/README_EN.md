@@ -86,7 +86,7 @@ When deleting an element, if the element does not exist in the hash table $d$, r
 
 When getting a random element, we can randomly select an element from the dynamic list $q$ and return it.
 
-Time complexity $O(1)$, space complexity $O(n)$, where $n$ is the number of elements in the set.
+The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of elements in the set.
 
 <!-- tabs:start -->
 

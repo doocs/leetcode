@@ -82,7 +82,7 @@ Then we traverse the array. For each element $x$, we add $x$ to $\textit{t}$. If
 
 Finally, we check if $\textit{cnt}$ is greater than or equal to 3.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

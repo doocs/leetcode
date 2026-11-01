@@ -85,7 +85,7 @@ Initially, we place the window at the end of the array, i.e., the $k$ positions 
 
 Next, we consider the situation where we take $1, 2, ..., k$ cards from the beginning of the array in turn. Suppose the card taken is $cardPoints[i]$. Then we add it to $s$. Due to the length limit of the window is $k$, we need to subtract $cardPoints[n-k+i]$ from $s$. In this way, we can calculate the sum of the points of the $k$ cards taken and update the answer $ans$.
 
-The time complexity is $O(k)$, where $k$ is the integer given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

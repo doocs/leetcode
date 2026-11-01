@@ -65,7 +65,7 @@ tags:
 
 We can perform two binary searches to find the left boundary and the right boundary.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

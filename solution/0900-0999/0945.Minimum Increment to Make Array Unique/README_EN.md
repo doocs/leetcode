@@ -72,7 +72,7 @@ Then, we iterate through the array $\textit{nums}$. For each element $x$, we upd
 
 After completing the iteration, we return the result.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -162,7 +162,7 @@ function minIncrementForUnique(nums: number[]): number {
 
 > **Thinking**
 >
-> Sorting costs $O(n\log n)$. With an upper bound $m=\max+n$, a count array works: from low to high, the surplus $cnt[i]-1$ copies of $i$ move to $i+1$, a linear sweep of the range.
+> Sorting costs $O(n \log n)$. With an upper bound $m=\max+n$, a count array works: from low to high, the surplus $cnt[i]-1$ copies of $i$ move to $i+1$, a linear sweep of the range.
 
 <!-- thinking:end -->
 
@@ -172,7 +172,7 @@ Then, we iterate from $0$ to $m - 1$. For each element $i$, if its occurrence co
 
 After completing the iteration, we return the result.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the length of the array $\textit{nums}$ plus the maximum value in the array.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the length of the array $\textit{nums}$ plus the maximum value in the array.
 
 <!-- tabs:start -->
 

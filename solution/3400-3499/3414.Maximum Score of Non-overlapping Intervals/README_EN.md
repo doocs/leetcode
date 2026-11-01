@@ -86,7 +86,7 @@ Copy the intervals and record each original index, then sort by left endpoint. F
 
 Let $f[i][k]$ be the maximum weight obtainable from interval $i$ onward with at most $k$ picks, and let $g[i][k]$ store the corresponding lexicographically smallest index list. Transition from the back: skipping $i$ inherits $f[i+1][k]$; taking $i$ inserts its original index into $g[\textit{nxt}[i]][k-1]$ and adds the current weight. Keep the larger weight, or the lexicographically smaller index list on a tie. The answer is $g[0][4]$.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. At most $4$ intervals are chosen, so inserting and comparing index lists is constant time.
+The time complexity is $O(n \log n)$ and the space complexity is $O(n)$. At most $4$ intervals are chosen, so inserting and comparing index lists is constant time.
 
 <!-- tabs:start -->
 

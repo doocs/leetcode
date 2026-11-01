@@ -102,7 +102,7 @@ We define the left boundary of binary search as $l=-1$ and the right boundary as
 
 The key problem is how to determine whether a stay time $t$ satisfies the condition. We can use breadth-first search to simulate the spread of fire within $t$ time. If the fire spreads to the starting position after staying for $t$ time, it means the condition is not satisfied and we return early. Otherwise, we use breadth-first search again, searching in four directions from the current position each time, and after each round, we need to spread the fire in four directions. If we find a path from the starting position to the ending position during this process, it means the condition is satisfied.
 
-The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 

@@ -632,7 +632,7 @@ func countSmaller(nums []int) []int {
 
 > **Thinking**
 >
-> The first two methods need discretization and an extra tree. During merge, when a left value is $\le$ the current right value, exactly $j$ consumed right elements are smaller and later; add $j$ to that index. No value tree is required; time stays $O(n\log n)$.
+> The first two methods need discretization and an extra tree. During merge, when a left value is $\le$ the current right value, exactly $j$ consumed right elements are smaller and later; add $j$ to that index. No value tree is required; time stays $O(n \log n)$.
 
 <!-- thinking:end -->
 
@@ -647,10 +647,7 @@ into each remaining left element's count.
 **Note:** In C++, merge sort on very large arrays may suffer Memory Limit Exceeded.
 Use a buffer array to avoid excessive memory allocations.
 
-#### Complexity
-
-- Time complexity: $O(n \log n)$, the standard time complexity for merge sort.
-- Space complexity: $O(n)$, the standard space complexity of recursion stack.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -75,7 +75,7 @@ If $k > 1$, for a string like $abc[xy]def$, we can move $a$, $b$, and $c$ to the
 
 Therefore, as long as $k > 1$, we can swap any two adjacent characters in the string, eventually obtaining a string sorted in ascending order.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

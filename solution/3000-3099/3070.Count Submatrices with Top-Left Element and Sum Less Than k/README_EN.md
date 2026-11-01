@@ -78,7 +78,7 @@ $$
 s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + x
 $$
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

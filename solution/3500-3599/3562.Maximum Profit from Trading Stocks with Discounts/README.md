@@ -184,7 +184,7 @@ $$
 
 答案为 $\text{dfs}(1)[\text{budget}][0]$。
 
-时间复杂度 $O(n \times \text{budget}^2)$，空间复杂度 $O(n \times \text{budget})$。
+时间复杂度 $O(n \text{budget}^2)$，空间复杂度 $O(n \text{budget})$。
 
 <!-- tabs:start -->
 

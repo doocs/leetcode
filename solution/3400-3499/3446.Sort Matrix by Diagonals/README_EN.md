@@ -112,7 +112,7 @@ We can simulate the diagonal sorting process as described in the problem.
 
 First, we sort the diagonals of the lower-left triangle, including the main diagonal, in non-increasing order. Then, we sort the diagonals of the upper-right triangle in non-decreasing order. Finally, we return the sorted matrix.
 
-The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$. Here, $n$ is the size of the matrix.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the size of the matrix.
 
 <!-- tabs:start -->
 

@@ -131,7 +131,7 @@ There is a special keyboard where keys are arranged in a rectangular grid as fol
 
 We define a hash table $\textit{pos}$ to store the position of each character on the keyboard. For each character in string $s$, we calculate the distance from the previous character to the current character and accumulate it to the answer. Finally, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which here is 26 lowercase English letters.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $\Sigma$ is the character set, which here is 26 lowercase English letters.
 
 <!-- tabs:start -->
 

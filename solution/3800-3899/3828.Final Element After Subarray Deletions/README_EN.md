@@ -98,7 +98,7 @@ For the cases of elements at indices $1, 2, ..., n-2$ (the middle elements), eve
 
 Therefore, the answer is exactly $\max(nums[0], nums[n - 1])$.
 
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

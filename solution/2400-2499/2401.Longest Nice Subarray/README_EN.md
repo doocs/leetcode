@@ -85,7 +85,7 @@ We use a variable $\textit{mask}$ to represent the bitwise OR result of the elem
 
 After the traversal, return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

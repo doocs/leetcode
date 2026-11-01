@@ -95,7 +95,7 @@ tags:
 
 过程中，我们可以使用记忆化搜索避免重复计算。
 
-时间复杂度 $O(steps \times steps)$，空间复杂度 $O(steps \times steps)$。其中 $steps$ 是题目给定的步数。
+时间复杂度 $O(steps^2)$，空间复杂度 $O(steps^2)$。其中 $steps$ 是题目给定的步数。
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ Both result in the string &quot;51&quot;.
 
 We can enumerate all positions $\textit{i}$ in the string $\textit{number}$. If $\textit{number}[i] = \textit{digit}$, we take the prefix $\textit{number}[0:i]$ and the suffix $\textit{number}[i+1:]$ of $\textit{number}$ and concatenate them. This gives the result after removing $\textit{number}[i]$. We then take the maximum of all possible results.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{number}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{number}$.
 
 <!-- tabs:start -->
 

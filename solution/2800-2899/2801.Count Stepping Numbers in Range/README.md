@@ -86,7 +86,7 @@ tags:
 
 在主函数中，我们分别计算 $[1, high]$ 和 $[1, low-1]$ 的答案 $a$ 和 $b$，最终答案为 $a-b$。注意答案的取模运算。
 
-时间复杂度 $O(\log M \times |\Sigma|^2)$，空间复杂度 $O(\log M \times |\Sigma|)$，其中 $M$ 表示 $high$ 数字的大小，而 $|\Sigma|$ 表示数字集合。
+时间复杂度 $O(|\Sigma|^2 \log M)$，空间复杂度 $O(|\Sigma| \log M)$。其中 $M$ 表示 $high$ 数字的大小，而 $|\Sigma|$ 表示数字集合。
 
 相似题目：
 

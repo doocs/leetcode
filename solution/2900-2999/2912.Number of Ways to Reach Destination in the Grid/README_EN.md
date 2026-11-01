@@ -109,7 +109,7 @@ $$
 
 We loop $k$ times, and finally check whether `source` and `dest` are in the same row or column, and return the corresponding state.
 
-The time complexity is $O(k)$, where $k$ is the number of moves. The space complexity is $O(1)$.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the number of moves.
 
 <!-- tabs:start -->
 

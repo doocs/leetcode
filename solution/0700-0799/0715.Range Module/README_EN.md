@@ -88,7 +88,7 @@ The segment tree divides the entire interval into multiple non-continuous sub-in
 
 Due to the large data range of the problem, we can implement it with a dynamically allocated segment tree. A dynamically allocated segment tree means that we only allocate nodes when needed, instead of allocating all nodes at the beginning. This can save space, but it requires **lazy propagation** to maintain interval modification.
 
-In terms of time complexity, the time complexity of each operation is $O(\log n)$. The space complexity is $O(m \times \log n)$. Here, $m$ is the number of operations, and $n$ is the data range.
+In terms of time complexity, the time complexity of each operation is $O(\log n)$. The space complexity is $O(m \log n)$. Here, $m$ is the number of operations, and $n$ is the data range.
 
 <!-- tabs:start -->
 

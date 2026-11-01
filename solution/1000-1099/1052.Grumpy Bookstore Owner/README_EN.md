@@ -87,7 +87,7 @@ We define a variable $cnt$ to record the number of customers when the boss is an
 
 Finally, return $tot + mx$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `customers`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `customers`.
 
 <!-- tabs:start -->
 

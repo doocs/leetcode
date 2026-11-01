@@ -72,7 +72,7 @@ We can use the BFS (Breadth-First Search) method to solve this problem. First, e
 
 Finally, return the reversed answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

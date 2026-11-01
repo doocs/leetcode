@@ -102,7 +102,7 @@ Next, we need to update the element pairs related to indices $i$ and $j$:
 
 Next, we replace the element at index $i$ with $\textit{s}$ and remove index $j$ from the sorted set $\textit{idx}$. We repeat the above process until the number of inversions $\textit{inv}$ becomes zero. Finally, the number of operations is the minimum number of operations required to make the array non-decreasing.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

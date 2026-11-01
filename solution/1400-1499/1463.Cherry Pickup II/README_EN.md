@@ -101,7 +101,7 @@ Where $f[i-1][y_1][y_2]$ is ignored when it is $-1$.
 
 The final answer is $\max_{0 \leq j_1, j_2 < n} f[m-1][j_1][j_2]$.
 
-The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n^2)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(mn^2)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

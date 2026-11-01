@@ -72,7 +72,7 @@ tags:
 
 According to the problem description, we need to find an edge that can be removed so that the remaining part is a tree with $n$ nodes. We can traverse each edge and determine whether the two nodes of this edge are in the same connected component. If they are in the same connected component, it means this edge is redundant and can be removed, so we directly return this edge. Otherwise, we merge the two nodes connected by this edge into the same connected component.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of edges.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of edges.
 
 <!-- tabs:start -->
 
@@ -243,7 +243,7 @@ var findRedundantConnection = function (edges) {
 
 Here is a template approach using Union-Find for your reference.
 
-The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of edges, and $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of edges, and $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
 
 <!-- tabs:start -->
 

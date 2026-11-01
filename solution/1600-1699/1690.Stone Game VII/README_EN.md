@@ -89,7 +89,7 @@ The calculation process of the function $dfs(i, j)$ is as follows:
 
 During the process, we use memorization search, i.e., use an array $f$ to record the return value of the function $dfs(i, j)$, to avoid repeated calculations.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 
@@ -252,7 +252,7 @@ When calculating $f[i][j]$, we need to ensure that $f[i + 1][j]$ and $f[i][j - 1
 
 Finally, the answer is $f[0][n - 1]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 
@@ -378,7 +378,7 @@ function stoneGameVII(stones: number[]): number {
 
 Precompute the prefix sums $s$, where $s[i]$ is the sum of the first $i$ stones. Let $f[i][j]$ be the score difference between the current player and the opponent on $stones[i], stones[i + 1], \dots, stones[j]$. A single stone has difference $0$. For $i$ from $n-2$ down to $0$, and for each $i$ with $j$ from $i+1$ to $n-1$, the shorter states $f[i+1][j]$ and $f[i][j-1]$ are already known. Removing the left stone scores $s[j+1]-s[i+1]-f[i+1][j]$, and removing the right stone scores $s[j]-s[i]-f[i][j-1]$. $f[i][j]$ is the larger of the two. The answer is $f[0][n-1]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 

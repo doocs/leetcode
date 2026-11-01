@@ -114,7 +114,7 @@ tags:
 
 然后，我们遍历范围 $[\textit{num1}, \textit{num2}]$ 内的每一个整数 $x$，累加其波动值 $f(x)$ 即可得到最终结果。
 
-时间复杂度 $O((\textit{num2} - \textit{num1} + 1) \cdot \log \textit{num2})$，空间复杂度 $O(\log \textit{num2})$。
+时间复杂度 $O((\textit{num2} - \textit{num1} + 1) \log \textit{num2})$，空间复杂度 $O(\log \textit{num2})$。
 
 <!-- tabs:start -->
 

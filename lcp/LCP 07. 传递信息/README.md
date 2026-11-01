@@ -73,7 +73,7 @@ comments: true
 
 最终答案即为 $f[k][n-1]$。
 
-时间复杂度 $O(k \times m)$，空间复杂度 $O(k \times n)$，其中 $m$ 为 $relation$ 的长度。
+时间复杂度 $O(km)$，空间复杂度 $O(kn)$。其中 $m$ 为 $relation$ 的长度。
 
 <!-- tabs:start -->
 

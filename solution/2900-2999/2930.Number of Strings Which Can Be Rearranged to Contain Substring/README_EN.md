@@ -92,7 +92,7 @@ We can also consider adding 'l' at the current position, and the number of schem
 
 To avoid repeated calculations, we can use memorization search.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -268,7 +268,7 @@ Then according to the inclusion-exclusion principle, $a + b + c - ab - ac - bc +
 
 The total number $tot = 26^n$, so the answer is $tot - (a + b + c - ab - ac - bc + abc)$, remember to take the modulus of $10^9 + 7$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -435,7 +435,7 @@ $$
 
 Each value is reduced modulo $10^9 + 7$. Layer $i$ reads only layer $i - 1$, so the implementation keeps two arrays of $12$ states.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

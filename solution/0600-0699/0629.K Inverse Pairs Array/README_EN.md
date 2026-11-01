@@ -78,7 +78,7 @@ Therefore, $f[i][j] = \sum_{k=1}^{i} f[i-1][j-(i-k)]$.
 
 We notice that the calculation of $f[i][j]$ actually involves prefix sums, so we can use prefix sums to optimize the calculation process. Moreover, since $f[i][j]$ only depends on $f[i-1][j]$, we can use a one-dimensional array to optimize the space complexity.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(k)$. Here, $n$ and $k$ are the array length and the number of inverse pairs, respectively.
+The time complexity is $O(nk)$, and the space complexity is $O(k)$, where $n$ and $k$ are the array length and the number of inverse pairs, respectively.
 
 <!-- tabs:start -->
 

@@ -118,7 +118,7 @@ tags:
 
 具体做法是找出 $\textit{target}$ 从高到低第一个位为 $1$，而当前元素对应位为 $0$ 的位置 $j - 1$，那么我们只需要将当前元素增加到 $\textit{target}$ 在低 $j$ 位的值即可，所需的操作数为 $(\textit{target} \& 2^{j} - 1) - (\textit{nums}[i] \& 2^{j} - 1)$。我们将所有元素所需的操作数存入数组 $\textit{cost}$ 中，并对其进行排序，取前 $m$ 个元素的操作数之和，如果不超过 $k$，则说明可以将按位与结果的该位加入最终结果中。
 
-时间复杂度 $O(n \times \log n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。
+时间复杂度 $O(n \log n \log M)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 

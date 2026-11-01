@@ -104,7 +104,7 @@ Next, we iterate through all point pairs, calculate the corresponding slope $k$,
 
 Then, we iterate through the hash table $\textit{cnt1}$. For each slope $k$, we calculate the sum of all pairwise combinations of the occurrence counts of intercept $b$ and add it to the answer. Finally, we iterate through the hash table $\textit{cnt2}$. For each midpoint coordinate $p$, we calculate the sum of all pairwise combinations of the occurrence counts of slope $k$ and subtract it from the answer.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of points.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

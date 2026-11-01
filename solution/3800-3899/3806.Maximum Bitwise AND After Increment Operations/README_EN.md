@@ -114,7 +114,7 @@ We enumerate each bit from the highest bit, attempting to include that bit in th
 
 Specifically, we find the position $j - 1$ where $\textit{target}$ has the first bit set to $1$ from high to low, while the current element has the corresponding bit set to $0$. Then we only need to increase the current element to the value of $\textit{target}$ in the lower $j$ bits. The required number of operations is $(\textit{target} \& 2^{j} - 1) - (\textit{nums}[i] \& 2^{j} - 1)$. We store the required number of operations for all elements in the array $\textit{cost}$, sort it, and take the sum of the first $m$ elements. If it does not exceed $k$, it means we can include this bit in the final bitwise AND result.
 
-The time complexity is $O(n \times \log n \times \log M)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n \log n \log M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

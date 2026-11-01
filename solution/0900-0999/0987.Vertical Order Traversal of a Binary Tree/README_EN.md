@@ -93,7 +93,7 @@ We design a function $dfs(root, i, j)$, where $i$ and $j$ represent the row and 
 
 Next, we traverse $nodes$, putting the values of nodes in the same column into the same list, and finally return these lists.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -354,18 +354,7 @@ in ascending order to satisfy ordering requirements of the problem.
 
 Finally, we output all columns from left to right.
 
-#### Complexity Analysis
-
-Assume binary tree contains $n$ nodes.
-
-- Time Complexity: $O(n \log n)$
-
-    BFS visits every node exactly once, which takes $O(n)$ time. Sorting values is $O(n \log n)$ time in worst case.
-    Therefore, overall time complexity is $O(n \log n)$.
-
-- Space Complexity: $O(n)$
-
-    BFS queue, deque structure, and result container may collectively store all nodes, resulting in $O(n)$ space.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

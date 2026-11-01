@@ -104,7 +104,7 @@ tags:
 
 We traverse each row. If the current row index is odd, we reverse the elements of that row. Then, we traverse the elements of the row and add them to the answer array according to the rules specified in the problem.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 

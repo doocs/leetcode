@@ -82,7 +82,7 @@ And <code>[3,1,2]</code> is at index 4.</p>
 >
 > If position $i$ takes an unused value smaller than $perm[i]$, the remaining $n-i-1$ positions may be arbitrary, contributing that count times $(n-i-1)!$. Summing over positions yields the rank.
 >
-> A Fenwick tree stores already seen values, so the number of used values below the current one is a prefix query. Accumulate $(perm[i]-1-\textit{query}(perm[i]))\times(n-i-1)!$ from left to right and mark $perm[i]$, which is $O(n\log n)$.
+> A Fenwick tree stores already seen values, so the number of used values below the current one is a prefix query. Accumulate $(perm[i]-1-\textit{query}(perm[i]))\times(n-i-1)!$ from left to right and mark $perm[i]$, which is $O(n \log n)$.
 
 <!-- thinking:end -->
 
@@ -96,7 +96,7 @@ We consider how to calculate the number of permutations that are lexicographical
 
 We can use a binary indexed tree to maintain the number of elements that are smaller than the current element in the traversed elements. For the $i$-th element of the given permutation, the number of remaining elements that are smaller than it is $perm[i] - 1 - tree.query(perm[i])$, and the number of permutation types is $(perm[i] - 1 - tree.query(perm[i])) \times (n-i-1)!$, which is added to the answer. Then we update the binary indexed tree and add the current element to the binary indexed tree. Continue to traverse the next element until all elements are traversed.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the permutation.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the permutation.
 
 <!-- tabs:start -->
 

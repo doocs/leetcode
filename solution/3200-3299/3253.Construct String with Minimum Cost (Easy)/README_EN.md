@@ -100,7 +100,7 @@ The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
 Finally, if $\textit{dfs}(0) < \textit{inf}$, return $\textit{dfs}(0)$; otherwise, return $-1$.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the $\textit{words}$ array.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the $\textit{words}$ array.
 
 <!-- tabs:start -->
 
@@ -402,7 +402,7 @@ Insert every word into a trie. Each node stores $\textit{children}$ for the next
 
 Let $f[i]$ be the minimum cost of building $\textit{target}$ from index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, walk from the root along $\textit{target}[i:]$. The walk stops when the next character has no child. Otherwise the node is reached and $f[i]$ is updated with $\textit{cost}+f[j+1]$. If $f[0]$ is still infinite, return $-1$; otherwise return $f[0]$.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the $\textit{words}$ array.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the $\textit{words}$ array.
 
 <!-- tabs:start -->
 

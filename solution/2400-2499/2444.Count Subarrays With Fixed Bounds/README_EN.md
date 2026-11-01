@@ -86,7 +86,7 @@ The specific implementation logic is as follows:
 2. Maintain the most recent index $j_1$ where the value is $\textit{minK}$ and the most recent index $j_2$ where the value is $\textit{maxK}$, both initialized to $-1$. The left endpoint of the current element $\textit{nums}[i]$ must be less than or equal to $\min(j_1, j_2)$.
 3. Based on the above, the number of bounded subarrays with the current element as the right endpoint is $\max\bigl(0,\ \min(j_1, j_2) - k\bigr)$. Accumulate all these counts to get the result.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

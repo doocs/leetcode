@@ -77,7 +77,7 @@ First, we sort the positions of the baskets, and then use binary search with the
 
 The problem is transformed into determining whether a given minimum magnetic force $f$ can place $m$ balls. We can traverse the positions of the baskets from left to right, and if the distance between the position of the last ball and the current basket's position is greater than or equal to $f$, it indicates that a ball can be placed in the current basket. Finally, we check if the number of balls placed is not less than $m$.
 
-The time complexity is $O(n \times \log n + n \times \log M)$, and the space complexity is $O(\log n)$. Here, $n$ and $M$ respectively represent the number of baskets and the maximum value of the basket positions.
+The time complexity is $O(n \log n + n \log M)$, and the space complexity is $O(\log n)$, where $n$ and $M$ respectively represent the number of baskets and the maximum value of the basket positions.
 
 <!-- tabs:start -->
 

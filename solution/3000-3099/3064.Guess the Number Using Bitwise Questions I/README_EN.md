@@ -74,7 +74,7 @@ tags:
 
 We can enumerate the powers of 2, and then call the `commonSetBits` method. If the return value is greater than 0, it means that the corresponding bit in the binary representation of `n` is 1.
 
-The time complexity is $O(\log n)$, where $n \le 2^{30}$ in this problem. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n \le 2^{30}$ in this problem.
 
 <!-- tabs:start -->
 

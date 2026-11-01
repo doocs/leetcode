@@ -84,7 +84,7 @@ tags:
 
 The problem is equivalent to finding the sum of each digit of a number. We can obtain each digit by repeatedly taking the modulus and dividing by 10, and accumulate the result.
 
-The time complexity is $O(\log n)$, where $\log n$ is the number of digits in $n$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $\log n$ is the number of digits in $n$.
 
 <!-- tabs:start -->
 

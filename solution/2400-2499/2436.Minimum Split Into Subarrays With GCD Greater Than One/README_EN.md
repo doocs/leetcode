@@ -90,7 +90,7 @@ Therefore, we first initialize a variable $g$, representing the gcd of the curre
 
 Next, we traverse the array from front to back, maintaining the gcd $g$ of the current subarray. If the gcd of the current element $x$ and $g$ is $1$, then we need to make the current element the first element of a new subarray. Therefore, the answer increases by $1$, and $g$ is updated to $x$. Otherwise, the current element can be placed in the same subarray with the previous elements. Continue to traverse the array until the traversal ends.
 
-The time complexity is $O(n \times \log m)$, where $n$ and $m$ are the length of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

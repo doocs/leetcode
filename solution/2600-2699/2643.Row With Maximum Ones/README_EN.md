@@ -84,7 +84,7 @@ Then, we iterate through each row of the matrix:
 
 After finishing the iteration, we return $\textit{ans}$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

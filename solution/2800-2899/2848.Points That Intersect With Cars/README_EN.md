@@ -191,7 +191,7 @@ function numberOfPoints(nums: number[][]): number {
 
 If the range of intervals in the problem is large, we can use a hash table to store the start and end points of the intervals. Then, we sort the keys of the hash table and perform prefix sum statistics.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the given array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the given array.
 
 <!-- tabs:start -->
 

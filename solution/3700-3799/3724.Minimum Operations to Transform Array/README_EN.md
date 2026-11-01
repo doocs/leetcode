@@ -221,7 +221,7 @@ During the iteration, we also need to check whether $\min(\text{nums1}[i], \text
 
 Finally, if no element satisfying the condition is found after the iteration, we need to add $d$ to $\text{ans}$, indicating that we need extra operations to adjust some element to $\text{nums2}[n]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

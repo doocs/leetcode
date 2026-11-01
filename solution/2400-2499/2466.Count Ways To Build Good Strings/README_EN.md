@@ -83,7 +83,7 @@ The computation process of the function $dfs(i)$ is as follows:
 
 During the process, we need to take the modulus of the answer, and we can use memoization search to reduce redundant computations.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = high$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = high$.
 
 <!-- tabs:start -->
 
@@ -290,7 +290,7 @@ Let $f[i]$ be the number of good strings that can be built when the current leng
 
 Fill $i$ from $high$ down to $0$. If $low \le i \le high$, the current string is already good, so start from $1$. Then add $f[i + zero]$ and $f[i + one]$; an index past $high$ contributes $0$. Reduce each value modulo $10^9 + 7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = high$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = high$.
 
 <!-- tabs:start -->
 

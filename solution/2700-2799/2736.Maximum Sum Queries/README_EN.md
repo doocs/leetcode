@@ -108,7 +108,7 @@ For this problem, we can create an array $nums$, where $nums[i]=(nums_1[i], nums
 
 Next, we iterate through each query $queries[i] = (x, y)$. For the current query, we loop to insert the value of $nums_2$ for all elements in $nums$ that are greater than or equal to $x$ into the binary indexed tree. The binary indexed tree maintains the maximum value of $nums_1 + nums_2$ in the discretized $nums_2$ interval. Therefore, we only need to query the maximum value corresponding to the interval greater than or equal to the discretized $y$ in the binary indexed tree. Note that since the binary indexed tree maintains the prefix maximum value, we can insert $nums_2$ in reverse order into the binary indexed tree in the implementation.
 
-The time complexity is $O((n + m) \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Here, $n$ is the length of the array $nums$, and $m$ is the length of the array $queries$.
+The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array $nums$, and $m$ is the length of the array $queries$.
 
 Similar problems:
 
@@ -443,12 +443,7 @@ has a smaller $\textit{nums1}[i] + \textit{nums2}[i]$ instead, so only effective
 For each $query_j$, binary search locates the first stack entry having
 $\textit{nums2}[i] \geq y_j$. Its corresponding $\textit{nums1}[i] + \textit{nums2}[i]$ is the answer.
 
-### Time & Space Complexity
-
-Here, $n$ is the length of array $nums2$, and $m$ is the length of array $queries$.
-
-- Time complexity: $O((n + m) \times \log n + m \times \log m)$。
-- Space complexity: $O(n + m)$。
+The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array $nums2$, and $m$ is the length of the array $queries$.
 
 <!-- tabs:start -->
 

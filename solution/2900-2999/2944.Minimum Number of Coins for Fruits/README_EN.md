@@ -127,7 +127,7 @@ The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
 To avoid redundant calculations, we use memoization to store the results that have already been computed. When encountering the same situation again, we directly return the result.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -267,7 +267,7 @@ Similar to Solution 1, we define $f[i]$ to represent the minimum number of coins
 
 The state transition equation is $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + \textit{prices}[i - 1]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 In the code implementation, we can directly use the $\textit{prices}$ array to store the $f$ array, thus optimizing the space complexity to $O(1)$.
 
@@ -361,7 +361,7 @@ Observing the state transition equation in Solution 2, we can see that for each 
 
 We calculate from back to front, maintaining a monotonically increasing queue $q$, where the queue stores indices. If the front element of $q$ is greater than $i \times 2 + 1$, it means that the elements after $i$ will not be used, so we dequeue the front element. If $i$ is not greater than $(n - 1) / 2$, we can add $\textit{prices}[q[0] - 1]$ to $\textit{prices}[i - 1]$, and then add $i$ to the back of the queue. If the fruit price corresponding to the back element of $q$ is greater than or equal to $\textit{prices}[i - 1]$, we dequeue the back element until the fruit price corresponding to the back element is less than $\textit{prices}[i - 1]$ or the queue is empty, then add $i$ to the back of the queue.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

@@ -107,7 +107,7 @@ $$
 
 初始时 $f[0] = -changeTime$，最终答案为 $f[numLaps]$。
 
-时间复杂度 $O((n + numLaps) \times \log T_{max})$，空间复杂度 $O(n + \log T_{max})$，其中 $T_{max}$ 是题目中 $f_i$, $r_i$ 和 $changeTime$ 的最大值。本题中 $\log T_{max} \approx 17$。
+时间复杂度 $O((n + numLaps) \log T_{max})$，空间复杂度 $O(n + \log T_{max})$。其中 $T_{max}$ 是题目中 $f_i$, $r_i$ 和 $changeTime$ 的最大值。本题中 $\log T_{max} \approx 17$。
 
 <!-- tabs:start -->
 

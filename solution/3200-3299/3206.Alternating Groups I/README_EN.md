@@ -92,7 +92,7 @@ For convenience, we can unfold the ring into an array of length $2n$ and then tr
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{colors}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{colors}$.
 
 <!-- tabs:start -->
 

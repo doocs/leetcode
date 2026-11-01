@@ -85,7 +85,7 @@ For each number $x$ in the array $\textit{nums}$, we have two choices:
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

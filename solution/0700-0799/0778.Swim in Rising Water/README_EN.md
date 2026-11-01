@@ -80,7 +80,7 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 >
 > When the cell of height $t$ is unioned with already-present neighbors, the first time start meets end is the answer.
 >
-> Map height to id, then union as $t$ grows. $O(n^2\alpha)$.
+> Map height to id, then union as $t$ grows. $O(n^2 \alpha)$.
 
 <!-- thinking:end -->
 
@@ -90,7 +90,7 @@ First, we use a one-dimensional array $hi$ to record the position ID correspondi
 
 Then we traverse from height $0$ to height $n^2 - 1$. For each height $t$, we merge position $hi[t]$ with its four adjacent positions that have heights not exceeding $t$. If after merging, position $0$ and position $n^2 - 1$ are connected, then we have found the minimum time $t$, and we return $t$.
 
-The time complexity is $O(n^2 \times \log n)$ and the space complexity is $O(n^2)$, where $n$ is the side length of the matrix.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
 

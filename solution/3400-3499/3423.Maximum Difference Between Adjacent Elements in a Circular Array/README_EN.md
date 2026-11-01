@@ -76,7 +76,7 @@ tags:
 
 We traverse the array $\textit{nums}$, calculate the absolute difference between adjacent elements, and maintain the maximum absolute difference. Finally, we compare it with the absolute difference between the first and last elements and take the maximum value.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

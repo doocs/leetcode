@@ -88,7 +88,7 @@ Given the small data scale, we can directly enumerate all substrings of each str
 
 Specifically, we first enumerate each string `arr[i]`, then enumerate the length $j$ of each substring from small to large, and then enumerate the starting position $l$ of each substring. We can get the current substring as `sub = arr[i][l:l+j]`. Then we determine whether `sub` is a substring of other strings. If it is, we skip the current substring; otherwise, we update the answer.
 
-The time complexity is $O(n^2 \times m^4)$, and the space complexity is $O(m)$. Where $n$ is the length of the string array `arr`, and $m$ is the maximum length of the string. In this problem, $m \le 20$.
+The time complexity is $O(n^2m^4)$, and the space complexity is $O(m)$, where $n$ is the length of the string array `arr`, and $m$ is the maximum length of the string. In this problem, $m \le 20$.
 
 <!-- tabs:start -->
 

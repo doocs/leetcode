@@ -68,7 +68,7 @@ The implementation of the function $dfs(i, j)$ is as follows:
 1. If $i > j$, return $-1$.
 2. Otherwise, we take the middle position $mid = (i + j) / 2$, then recursively call $dfs(i, mid-1)$. If the return value is not $-1$, it means that the target string is found in the left half, return it directly. Otherwise, if $words[mid] = s$, it means that the target string is found, return it directly. Otherwise, recursively call $dfs(mid+1, j)$ and return.
 
-In the worst case, the time complexity is $O(n \times m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the length of the string array and the length of the string $s$, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the string array and the length of the string $s$, respectively.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ Note that there are other valid answers as [8, 3] that can be accepted.
 
 Starting from $1$, we enumerate $a$, then $b = n - a$. For each $a$ and $b$, we convert them to strings and concatenate them, then check if they contain the character '0'. If they do not contain '0', we have found the answer and return $[a, b]$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the integer given in the problem. The space complexity is $O(\log n)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 
@@ -179,7 +179,7 @@ impl Solution {
 
 In Solution 1, we converted $a$ and $b$ into strings and concatenated them, then checked if they contained the character '0'. Here, we can use a function $f(x)$ to check whether $x$ contains the character '0', and then directly enumerate $a$, checking whether both $a$ and $b = n - a$ do not contain the character '0'. If they do not, we have found the answer and return $[a, b]$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

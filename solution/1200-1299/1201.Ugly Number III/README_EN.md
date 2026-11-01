@@ -94,7 +94,7 @@ We can use binary search to find the smallest positive integer $x$ such that the
 
 Define the left boundary of binary search as $l=1$ and the right boundary as $r=2 \times 10^9$, where $2 \times 10^9$ is the maximum value given by the problem. In each step of binary search, we find the middle number $mid$. If the number of ugly numbers less than or equal to $mid$ is greater than or equal to $n$, it means that the smallest positive integer $x$ falls in the interval $[l,mid]$, otherwise it falls in the interval $[mid+1,r]$. During the binary search process, we need to continuously update the number of ugly numbers less than or equal to $mid$ until we find the smallest positive integer $x$.
 
-The time complexity is $O(\log m)$, where $m = 2 \times 10^9$. The space complexity is $O(1)$.
+The time complexity is $O(\log m)$, and the space complexity is $O(1)$, where $m = 2 \times 10^9$.
 
 <!-- tabs:start -->
 

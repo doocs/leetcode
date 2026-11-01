@@ -107,7 +107,7 @@ $$
 
 Finally, we return $dfs(0, n - 1)$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $arr$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 
@@ -295,7 +295,7 @@ $$
 
 Finally, we return $f[0][n - 1]$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $arr$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

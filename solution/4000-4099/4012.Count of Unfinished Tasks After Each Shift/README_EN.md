@@ -124,7 +124,7 @@ Then we use a variable $i$ to record the index of the task currently being proce
 - If the current shift time $\textit{shifts}[j]$ is less than the time needed to finish the current task $\textit{tasks}[i] - \textit{cur}$, the shift can only make partial progress on the current task. We update $\textit{cur} \gets \textit{cur} + \textit{shifts}[j]$, and the number of unfinished tasks is $m - i$;
 - Otherwise, the current task is finished, and the remaining time is $t = \textit{shifts}[j] - (\textit{tasks}[i] - \textit{cur})$. If $t \ge s[m] - s[i + 1]$, all tasks can be completed, so the next shift restarts from task $0$, i.e., $i \gets 0$, $\textit{cur} \gets 0$, and the number of unfinished tasks is $0$. Otherwise, we binary search in the range $[i + 1, m]$ for the largest index $l$ such that $s[l] - s[i + 1] \le t$, meaning the shift ends while processing task $l$ with $\textit{cur} = t - (s[l] - s[i + 1])$ time already spent on it, and the number of unfinished tasks is $m - l$.
 
-The time complexity is $O((m + n) \times \log m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $\textit{tasks}$ and $\textit{shifts}$, respectively.
+The time complexity is $O((m + n) \log m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $\textit{tasks}$ and $\textit{shifts}$, respectively.
 
 <!-- tabs:start -->
 

@@ -127,7 +127,7 @@ tags:
 
 最后，我们遍历 $\textit{dist}$ 数组，如果 $\textit{dist}[i] < \textit{disappear}[i]$，则 $\textit{answer}[i] = \textit{dist}[i]$，否则 $\textit{answer}[i] = -1$。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 是边的数量。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 是边的数量。
 
 <!-- tabs:start -->
 

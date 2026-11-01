@@ -78,7 +78,7 @@ We use a hash table $\textit{cnt}$ to maintain the elements of the window of siz
 
 First, calculate the score of all elements in the initial window of size $k$. Then, use a sliding window to add one element at a time and remove the leftmost element, while updating the score using fast power.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

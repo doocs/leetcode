@@ -99,7 +99,7 @@ $$
 
 the prefix of length $\textit{cnt}$ is resilient, and the answer is updated with $\textit{cnt}$. Both $r$ and $\textit{cnt}$ can reach $10^5$, so the product is computed with $64$-bit integers. A change of residue starts a new run.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

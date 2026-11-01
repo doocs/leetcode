@@ -95,7 +95,7 @@ Because the speed of the fast pointer is twice that of the slow pointer, it is $
 
 That is to say, if we define an answer pointer $ans$ to point to the head of the linked list, and the $ans$ and the slow pointer move forward together, they will definitely meet at the ring entrance.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the linked list.
 
 <!-- tabs:start -->
 

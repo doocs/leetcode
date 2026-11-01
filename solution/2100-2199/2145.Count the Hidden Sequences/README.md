@@ -102,7 +102,7 @@ tags:
 
 我们不妨假设数组 $\textit{hidden}$ 的第一个元素为 $0$，那么 $\textit{hidden}[i] = \textit{hidden}[i - 1] + \textit{differences}[i - 1]$，其中 $1 \leq i \leq n$。记数组 $\textit{hidden}$ 的最大值为 $mx$，最小值为 $mi$，如果 $mx - mi \leq \textit{upper} - \textit{lower}$，那么我们就可以构造出一个合法的 $\textit{hidden}$ 数组，可以构造的个数为 $\textit{upper} - \textit{lower} - (mx - mi) + 1$。否则，无法构造出合法的 $\textit{hidden}$ 数组，返回 $0$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{differences}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{differences}$ 的长度。
 
 <!-- tabs:start -->
 

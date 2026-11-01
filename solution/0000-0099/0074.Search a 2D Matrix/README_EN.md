@@ -73,7 +73,7 @@ tags:
 
 We can logically unfold the two-dimensional matrix and then perform binary search.
 
-The time complexity is $O(\log(m \times n))$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(\log(mn))$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -257,7 +257,7 @@ Here, we start searching from the bottom left corner and move towards the top ri
 
 If we still can't find $target$ after the search, return `false`.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ tags:
 
 最后返回两种情况的最大值即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -163,7 +163,7 @@ function maximumProduct(nums: number[]): number {
 
 > **思考**
 >
-> 方法一付出排序的 $O(n\log n)$。乘积只依赖最小两个与最大三个数，一次遍历（或 `nlargest`）维护这五个极值即可降到线性。
+> 方法一付出排序的 $O(n \log n)$。乘积只依赖最小两个与最大三个数，一次遍历（或 `nlargest`）维护这五个极值即可降到线性。
 
 <!-- thinking:end -->
 
@@ -171,7 +171,7 @@ function maximumProduct(nums: number[]): number {
 
 最后返回 $\max(\textit{mi1} \times \textit{mi2} \times \textit{mx1}, \textit{mx1} \times \textit{mx2} \times \textit{mx3})$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 

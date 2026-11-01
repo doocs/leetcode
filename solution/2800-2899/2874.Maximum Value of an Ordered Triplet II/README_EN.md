@@ -80,7 +80,7 @@ Next, we iterate through each element $x$ in the array as $\textit{nums}[k]$. Fi
 
 After iterating through all elements, we return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

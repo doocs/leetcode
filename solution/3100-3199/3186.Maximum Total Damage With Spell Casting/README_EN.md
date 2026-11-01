@@ -96,7 +96,7 @@ To avoid repeated calculations, we can use memoization, storing the results that
 
 The answer is $\textit{dfs}(0)$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{power}$.
 
 <!-- tabs:start -->
 
@@ -343,7 +343,7 @@ $$
 f[i] = \max(f[i + \textit{cnt}[x]],\ x \times \textit{cnt}[x] + f[\textit{nxt}[i]])
 $$
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{power}$.
 
 <!-- tabs:start -->
 

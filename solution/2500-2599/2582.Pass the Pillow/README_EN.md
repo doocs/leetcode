@@ -73,7 +73,7 @@ After two seconds, the 3<sup>r</sup><sup>d</sup> person is holding the pillow.
 
 We can simulate the process of passing the pillow, and each time the pillow is passed, if the pillow reaches the front or the end of the queue, the direction of the pillow will change, and the queue will continue to pass the pillow along the opposite direction.
 
-The time complexity is $O(time)$ and the space complexity is $O(1)$, where $time$ is the given time.
+The time complexity is $O(time)$, and the space complexity is $O(1)$, where $time$ is the given time.
 
 <!-- tabs:start -->
 
@@ -200,7 +200,7 @@ Then we judge the current round $k$:
 - If $k$ is odd, then the current direction of the pillow is from the end of the queue to the front, so the pillow will be passed to the person with the number $n - mod$.
 - If $k$ is even, then the current direction of the pillow is from the front of the queue to the back, so the pillow will be passed to the person with the number $mod + 1$.
 
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ If $money = 8 \times children - 4$, then there are $children-2$ children who rec
 
 If we assume that there are $x$ children who received $8$ dollars, then the remaining money is $money- 8 \times x$, as long as it is greater than or equal to the number of remaining children $children-x$, it can meet the requirements. Therefore, we only need to find the maximum value of $x$, which is the answer.
 
-Time complexity $O(1)$, space complexity $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

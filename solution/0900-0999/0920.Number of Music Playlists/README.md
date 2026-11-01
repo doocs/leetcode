@@ -90,7 +90,7 @@ $$
 
 最终的答案为 $f[goal][n]$。
 
-时间复杂度 $O(goal \times n)$，空间复杂度 $O(goal \times n)$。其中 $goal$ 和 $n$ 为题目中给定的参数。
+时间复杂度 $O(goal n)$，空间复杂度 $O(goal n)$。其中 $goal$ 和 $n$ 为题目中给定的参数。
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ Finally, we return $f[i][j]$.
 
 The answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid graph, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the grid graph, respectively.
 
 <!-- tabs:start -->
 
@@ -290,7 +290,7 @@ $$
 
 A larger cell does not depend on the current one. Processing cells from largest value to smallest finishes those neighbors first. The answer is $\sum f[i][j]$ modulo $10^9+7$.
 
-The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$. Here $m$ and $n$ are the number of rows and columns.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ Enumerate the positions where the binary bits in $k$ are 1, suppose they are $i$
 
 The final answer is $f[2^m - 1]$.
 
-The time complexity is $O(2^m \times m^2)$, and the space complexity is $O(2^m)$. Here, $m$ is the number of elements in the array `nums`.
+The time complexity is $O(2^m m^2)$, and the space complexity is $O(2^m)$, where $m$ is the number of elements in the array `nums`.
 
 <!-- tabs:start -->
 

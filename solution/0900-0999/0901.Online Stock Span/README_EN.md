@@ -91,7 +91,7 @@ When the price $price$ appears, we compare it with the top element of the stack.
 
 Finally, we push $(price, cnt)$ onto the stack and return $cnt$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of times `next(price)` is called.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of times `next(price)` is called.
 
 <!-- tabs:start -->
 

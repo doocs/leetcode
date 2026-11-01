@@ -73,7 +73,7 @@ Then we traverse the string $word$, using a variable $i$ to record the current p
 
 After traversing the string $word$, we can get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $word$, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $word$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

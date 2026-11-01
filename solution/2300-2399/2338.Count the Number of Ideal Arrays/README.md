@@ -103,7 +103,7 @@ $$
 
 其中 $k$ 表示数组的最大值，即 $\textit{maxValue}$。
 
-时间复杂度 $O(m \times \log^2 m)$，空间复杂度 $O(m \times \log m)$。
+时间复杂度 $O(m \log^2 m)$，空间复杂度 $O(m \log m)$。
 
 <!-- tabs:start -->
 

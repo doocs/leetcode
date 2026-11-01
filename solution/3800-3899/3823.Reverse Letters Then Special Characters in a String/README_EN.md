@@ -116,7 +116,7 @@ We first store the letters and special characters from string $s$ into two separ
 
 After the traversal is complete, we obtain the result string.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

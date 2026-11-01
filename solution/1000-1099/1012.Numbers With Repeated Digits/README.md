@@ -98,7 +98,7 @@ tags:
 
 答案为 $n - \textit{dfs}(0, 0, \text{true}, \text{true})$。
 
-时间复杂度 $O(\log n \times 2^D \times D)$，空间复杂度 $O(\log n \times 2^D)$。其中 $D = 10$。
+时间复杂度 $O(D 2^D \log n)$，空间复杂度 $O(2^D \log n)$。其中 $D = 10$。
 
 相似题目：
 

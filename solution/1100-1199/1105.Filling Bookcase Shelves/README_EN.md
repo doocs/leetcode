@@ -86,7 +86,7 @@ Consider $f[i]$, the last book is $books[i - 1]$, its thickness is $w$, and its 
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $books$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $books$.
 
 <!-- tabs:start -->
 

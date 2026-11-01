@@ -247,7 +247,7 @@ First count the groups whose sizes are multiples of $batchSize$, then keep only 
 
 Use a bitmask for the set of placed groups, and let $dfs(state, x)$ be the number of additional happy groups when the placed set is $state$ and the current prefix remainder is $x$. Enumerate unused groups, skip duplicate remainders, and recurse. If $x = 0$, the current step makes one group happy.
 
-The time complexity is $O(2^m \times m)$, and the space complexity is $O(2^m)$, where $m$ is the number of groups whose remainder is nonzero.
+The time complexity is $O(2^m m)$, and the space complexity is $O(2^m)$, where $m$ is the number of groups whose remainder is nonzero.
 
 <!-- tabs:start -->
 

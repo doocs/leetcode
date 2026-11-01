@@ -92,7 +92,7 @@ $$
 
 The final answer is $f[n][k]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Where $n$ and $k$ are the two integers given in the problem.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the two integers given in the problem.
 
 <!-- tabs:start -->
 
@@ -203,7 +203,7 @@ function rearrangeSticks(n: number, k: number): number {
 
 We notice that $f[i][j]$ is only related to $f[i - 1][j - 1]$ and $f[i - 1][j]$, so we can use a one-dimensional array to optimize the space complexity.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(k)$. Here, $n$ and $k$ are the two integers given in the problem.
+The time complexity is $O(nk)$, and the space complexity is $O(k)$, where $n$ and $k$ are the two integers given in the problem.
 
 <!-- tabs:start -->
 

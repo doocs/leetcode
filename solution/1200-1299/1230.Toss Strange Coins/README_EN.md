@@ -73,7 +73,7 @@ $$
 
 where $p$ represents the probability of the $i$-th coin facing up.
 
-The time complexity is $O(n \times target)$, and the space complexity is $O(n \times target)$. Where $n$ is the number of coins.
+The time complexity is $O(n target)$, and the space complexity is $O(n target)$, where $n$ is the number of coins.
 
 <!-- tabs:start -->
 

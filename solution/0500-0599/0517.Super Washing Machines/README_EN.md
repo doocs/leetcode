@@ -95,7 +95,7 @@ Then there are the following two situations:
 
 We take the maximum of the two.
 
-The time complexity is $O(n)$, where $n$ is the number of washing machines. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of washing machines.
 
 <!-- tabs:start -->
 

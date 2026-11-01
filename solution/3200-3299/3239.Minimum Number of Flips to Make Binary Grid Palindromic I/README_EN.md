@@ -98,7 +98,7 @@ tags:
 
 We separately count the number of flips for rows and columns, denoted as $\textit{cnt1}$ and $\textit{cnt2}$, respectively. Finally, we take the minimum of the two.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
+The time complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 

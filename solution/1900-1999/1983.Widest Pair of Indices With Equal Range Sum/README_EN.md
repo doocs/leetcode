@@ -93,7 +93,7 @@ Next, we traverse each element $x$ in the array $nums$, calculate the value of $
 
 After the traversal, we can get the final answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

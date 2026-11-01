@@ -81,7 +81,7 @@ Specifically, we can use the idea of topological sorting. For each node with an 
 
 If all nodes have been traversed, it means there is no cycle in the graph, and we can complete all courses; otherwise, we cannot complete all courses.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of courses and prerequisites respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of courses and prerequisites respectively.
 
 <!-- tabs:start -->
 

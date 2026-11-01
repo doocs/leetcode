@@ -93,7 +93,7 @@ To conveniently calculate the sum of the subarray, we can preprocess the prefix 
 
 Then the minimum product with $nums[i]$ as the minimum value of the subarray is $nums[i] \times (s[right[i]] - s[left[i] + 1])$. We can enumerate each element $nums[i]$, find the minimum product with $nums[i]$ as the minimum value of the subarray, and then take the maximum value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

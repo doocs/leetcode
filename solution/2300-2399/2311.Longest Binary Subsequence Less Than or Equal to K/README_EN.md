@@ -81,7 +81,7 @@ The length of this subsequence is 6, so 6 is returned.
 
 The longest binary subsequence must include all the $0$s in the original string. On this basis, we traverse $s$ from right to left. If we encounter a $1$, we check if adding this $1$ to the subsequence keeps the binary number $v \leq k$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

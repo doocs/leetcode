@@ -97,7 +97,7 @@ tags:
 
 We can enumerate the left endpoint $l$ of the subarray, and for each $l$, we enumerate the right endpoint $r$ in the range $[l, n)$, and calculate the sum of $nums[l..r]$. If it satisfies the conditions, the answer is increased by one.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

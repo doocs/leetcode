@@ -80,7 +80,7 @@ In implementation, since the state transition equation of $f[i][j]$ involves $f[
 
 Finally, we return $f[0][n+1]$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array `nums`.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 

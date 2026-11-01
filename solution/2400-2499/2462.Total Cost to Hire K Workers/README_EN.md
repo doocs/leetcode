@@ -100,7 +100,7 @@ Then we perform $k$ iterations, each time taking the worker with the smallest co
 
 After the loop ends, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $costs$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $costs$.
 
 <!-- tabs:start -->
 

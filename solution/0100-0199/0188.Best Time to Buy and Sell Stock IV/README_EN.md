@@ -77,7 +77,7 @@ The value of $dfs(i, j, k)$ is the maximum value of the above three cases.
 
 During the process, we can use memoization search to save the results of each calculation to avoid repeated calculations.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ and $k$ are the length of the prices array and the value of $k$, respectively.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the length of the prices array and the value of $k$, respectively.
 
 <!-- tabs:start -->
 
@@ -298,7 +298,7 @@ $$
 
 The final answer is $f[n - 1][k][0]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ and $k$ are the length of the prices array and the value of $k$, respectively.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the length of the prices array and the value of $k$, respectively.
 
 <!-- tabs:start -->
 

@@ -75,7 +75,7 @@ Traverse the string $s$. For the current index $i$, if $i + 2 < n$ and $s[i + 2]
 
 Finally, convert the result array to a string and return it.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

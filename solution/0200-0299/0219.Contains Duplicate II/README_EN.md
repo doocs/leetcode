@@ -74,7 +74,7 @@ Traverse the array $\textit{nums}$. For the current element $\textit{nums}[i]$, 
 
 After traversing, return $\text{false}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ $$
 
 其中 $p$ 表示第 $i$ 枚硬币正面朝上的概率。
 
-时间复杂度 $O(n \times target)$，空间复杂度 $O(n \times target)$。其中 $n$ 为硬币的数量。
+时间复杂度 $O(n target)$，空间复杂度 $O(n target)$。其中 $n$ 为硬币的数量。
 
 <!-- tabs:start -->
 

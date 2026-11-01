@@ -94,7 +94,7 @@ We can traverse the array backwards from the end to find the first position $i$ 
 
 If the entire array is strictly increasing, we do not need to remove any prefix, so we return $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

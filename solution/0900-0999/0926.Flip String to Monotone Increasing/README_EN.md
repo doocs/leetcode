@@ -77,7 +77,7 @@ Then, we can enumerate each position $i$, change all '1's to the left of positio
 
 Finally, return the answer $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

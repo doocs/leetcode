@@ -114,7 +114,7 @@ Next, we use a hash set to store the distinct final coordinates. For each possib
 
 Finally, the size of the hash set is the number of distinct final coordinates.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

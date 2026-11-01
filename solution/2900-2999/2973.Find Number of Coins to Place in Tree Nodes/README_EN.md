@@ -117,7 +117,7 @@ Then, we sort the array $res$, and then calculate the number of coins placed at 
 
 Finally, we call the function $dfs(0, -1)$, and return the answer array $ans$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -340,7 +340,7 @@ Build the graph from $edges$ and set every answer to $1$. An explicit stack proc
 
 The merged list is sorted again, so the order in which children are pushed does not change the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

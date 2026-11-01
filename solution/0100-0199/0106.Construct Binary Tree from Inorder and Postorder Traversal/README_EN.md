@@ -73,7 +73,7 @@ Specifically, we first use a hash table $d$ to store the position of each node i
 - Otherwise, take out the last node $v$ of the post-order traversal, and then find the position $k$ of $v$ in the in-order traversal using the hash table $d$. Then the number of nodes in the left subtree is $k - i$, and the number of nodes in the right subtree is $n - k + i - 1$.
 - Recursively construct the left subtree $dfs(i, j, k - i)$ and the right subtree $dfs(k + 1, j + k - i, n - k + i - 1)$, connect them to the root node, and finally return the root node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ Finally, we return the answer.
 
 In the main function, we calculate the answers $a$ and $b$ for $[1, high]$ and $[1, low-1]$ respectively. The final answer is $a-b$. Note the modulo operation of the answer.
 
-The time complexity is $O(\log M \times |\Sigma|^2)$, and the space complexity is $O(\log M \times |\Sigma|)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
+The time complexity is $O(|\Sigma|^2 \log M)$, and the space complexity is $O(|\Sigma| \log M)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
 
 Similar problems:
 

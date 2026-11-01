@@ -98,7 +98,7 @@ Finally, return the answer.
 
 > If initially $f[i][j]=0$, then we need to add $1$ to the answer when returning the answer.
 
-The time complexity is $O(n \times (d + n))$, and the space complexity is $O(n \times d)$. Where $n$ and $d$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array $nums$, respectively.
+The time complexity is $O(n(d + n))$, and the space complexity is $O(nd)$, where $n$ and $d$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array $nums$, respectively.
 
 <!-- tabs:start -->
 

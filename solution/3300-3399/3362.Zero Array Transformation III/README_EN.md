@@ -131,7 +131,7 @@ The specific steps are as follows:
 
 4. After traversing all positions, the intervals remaining in the heap are those that were **not popped**, i.e., the queries that are truly **retained** (not used for the "zeroing" task). The heap size is the answer.
 
-The time complexity is $O(n + m \times \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array and $m$ is the number of queries.
+The time complexity is $O(n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ is the length of the array and $m$ is the number of queries.
 
 <!-- tabs:start -->
 

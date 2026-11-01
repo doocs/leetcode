@@ -105,7 +105,7 @@ $$
 
 所以，我们只需要枚举 $n$，直到找到第一个满足 $2n(n+1)(2n+1) \geq neededApples$ 的 $n$ 即可。
 
-时间复杂度 $O(m^{\frac{1}{3}})$，其中 $m$ 为 $neededApples$ 的值。空间复杂度 $O(1)$。
+时间复杂度 $O(m^{\frac{1}{3}})$，空间复杂度 $O(1)$。其中 $m$ 为 $neededApples$ 的值。
 
 <!-- tabs:start -->
 

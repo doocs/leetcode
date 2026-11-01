@@ -86,7 +86,7 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 
 We can use a hash table $\textit{cnt}$ to record the number of occurrences of each string. Then, we traverse the array once more. For each string, if its occurrence count is $1$, we decrement $k$ by one. When $k$ reaches $0$, we return the current string.
 
-Time complexity is $O(L)$, and space complexity is $O(L)$, where $L$ is the total length of all strings in the array $\textit{arr}$.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total length of all strings in the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

@@ -299,7 +299,7 @@ impl Solution {
 
 An explicit stack writes the preorder string into one buffer. On entry we write the node value. A leaf stops there. Otherwise we write `(`, push a marker meaning the left subtree is finished, and push the left child. When that marker pops we write `)`. If a right child exists, we write `(` and push that child with its own closing marker.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

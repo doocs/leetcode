@@ -91,7 +91,7 @@ We can traverse the array $\textit{nums}$ in reverse order and use a hash table 
 
 After the traversal is complete, if no duplicate elements are found, then all elements in the array are already distinct, no operations are needed, and the answer is $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

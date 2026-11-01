@@ -94,7 +94,7 @@ tags:
 >
 > Validity after a prefix depends only on remaining zeros and ones and on which bit is written next. Overflow is the case of writing $limit+1$ equal bits after the opposite bit.
 >
-> Let $dfs(i,j,k)$ be the number of ways with $i$ zeros and $j$ ones left and next bit $k$. Add the same-color and other-color transitions and subtract the overflow term. Memoization yields $O(zero\cdot one)$ states.
+> Let $dfs(i,j,k)$ be the number of ways with $i$ zeros and $j$ ones left and next bit $k$. Add the same-color and other-color transitions and subtract the overflow term. Memoization yields $O(zero one)$ states.
 
 <!-- thinking:end -->
 
@@ -110,7 +110,7 @@ The computation process of $\textit{dfs}(i, j, k)$ is as follows:
 
 To avoid repeated computation, we use memoized search.
 
-The time complexity is $O(\textit{zero} \times \textit{one})$, and the space complexity is $O(\textit{zero} \times \textit{one})$.
+The time complexity is $O(\textit{zero} \textit{one})$, and the space complexity is $O(\textit{zero} \textit{one})$.
 
 <!-- tabs:start -->
 
@@ -384,7 +384,7 @@ The state transition equations are as follows:
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
 
-The time complexity is $O(\textit{zero} \times \textit{one})$, and the space complexity is $O(\textit{zero} \times \textit{one})$.
+The time complexity is $O(\textit{zero} \textit{one})$, and the space complexity is $O(\textit{zero} \textit{one})$.
 
 <!-- tabs:start -->
 

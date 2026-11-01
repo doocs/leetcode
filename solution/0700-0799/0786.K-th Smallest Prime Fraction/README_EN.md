@@ -70,7 +70,7 @@ The third fraction is 2/5.
 
 > **Thinking**
 >
-> The $k$-th smallest proper fraction $arr[i]/arr[j]$ over a sorted prime list. $n\le 1000$; listing all pairs is $O(n^2\log n)$.
+> The $k$-th smallest proper fraction $arr[i]/arr[j]$ over a sorted prime list. $n\le 1000$; listing all pairs is $O(n^2 \log n)$.
 >
 > For fixed $j$ the fractions increase with $i$. A min-heap merges these $n-1$ chains.
 >

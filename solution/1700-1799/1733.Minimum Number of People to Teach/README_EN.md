@@ -87,7 +87,7 @@ For each friendship, if the sets of languages known by the two people do not int
 
 Then, for each language, we count how many people in set $s$ know that language and find the maximum count, denoted as $mx$. The answer is $|s| - mx$, where $|s|$ is the size of set $s$.
 
-The time complexity is $O(m^2 \times k)$. Here, $m$ is the number of languages, and $k$ is the number of friendships.
+The time complexity is $O(m^2k)$, where $m$ is the number of languages, and $k$ is the number of friendships.
 
 <!-- tabs:start -->
 

@@ -91,7 +91,7 @@ According to the requirements of the problem, we know that the sum of $rowSum$ a
 
 Therefore, we reduce the original problem to a subproblem with $m-1$ rows and $n$ columns, continue the above operations, until all elements in $rowSum$ and $colSum$ are $0$, we can get a matrix $ans$ that meets the requirements of the problem.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $rowSum$ and $colSum$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $rowSum$ and $colSum$ respectively.
 
 <!-- tabs:start -->
 

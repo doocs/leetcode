@@ -73,7 +73,7 @@ Next, we traverse the array $nums$. For the current value that we traverse to $n
 
 If we traverse to the end, it means that we have removed all the elements, and the minimum number of different integers in the array is $0$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

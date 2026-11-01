@@ -79,7 +79,7 @@ The enumeration is over, indicating that the frog cannot choose the appropriate 
 
 In order to prevent repeated calculations in the function $dfs(i, k)$, we can use memoization, record the result of $dfs(i, k)$ in an array $f$, and assign $f[i][k]$ each time the function $dfs(i, k)$ returns result, and return $f[i][k]$ directly when encountering $dfs(i, k)$ next time.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the number of stones.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 
@@ -319,7 +319,7 @@ We can determine the value of $f[i][k]$ for all $i$ and $k$ using a double loop.
 
 If we can reach the last stone, the answer is true. Otherwise, the answer is false.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the number of stones.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 

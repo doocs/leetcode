@@ -96,7 +96,7 @@ We enumerate $n$ from small to large, and find the first $n$ that satisfies $\te
 
 We can also only consider the units digit. If the units digit satisfies the condition, the higher digits can be arbitrary.
 
-The time complexity is $O(n)$, where $n$ is the size of $\textit{num}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the size of $\textit{num}$.
 
 <!-- tabs:start -->
 

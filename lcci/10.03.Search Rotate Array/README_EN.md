@@ -67,7 +67,7 @@ After the binary search ends, if $nums[l] = target$, it means that the target va
 
 Note that if initially $nums[l] = nums[r]$, we loop to decrease $r$ by $1$ until $nums[l] \neq nums[r]$.
 
-The time complexity is approximately $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+The time complexity is approximately $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 Similar problems:
 

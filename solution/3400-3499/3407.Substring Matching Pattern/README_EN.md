@@ -95,7 +95,7 @@ According to the problem description, `*` can be replaced by any sequence of zer
 
 Therefore, we first initialize a pointer $i$ to the start of string $s$, then iterate over each substring $t$ obtained by splitting the pattern string $p$ by `*`. For each $t$, we search for it in $s$ starting from position $i$. If it is found, we move the pointer $i$ to the end of $t$ and continue searching for the next substring. If it is not found, it means the pattern string $p$ cannot become a substring of $s$, and we return $\text{false}$. If all substrings are found, we return $\text{true}$.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of strings $s$ and $p$, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of strings $s$ and $p$, respectively.
 
 <!-- tabs:start -->
 

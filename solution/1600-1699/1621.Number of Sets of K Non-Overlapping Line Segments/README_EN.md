@@ -94,7 +94,7 @@ $$
 
 The answer is $f[n][k]+g[n][k]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$.
 
 <!-- tabs:start -->
 

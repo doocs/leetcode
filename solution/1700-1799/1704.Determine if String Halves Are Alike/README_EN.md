@@ -71,7 +71,7 @@ Notice that the vowel o is counted twice.
 
 Traverse the string. If the number of vowels in the first half of the string is equal to the number of vowels in the second half, return `true`. Otherwise, return `false`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(C)$, where $C$ is the number of vowel characters.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string, and $C$ is the number of vowel characters.
 
 <!-- tabs:start -->
 

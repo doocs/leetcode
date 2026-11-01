@@ -88,7 +88,7 @@ Two integers have bitwise XOR $0$ if and only if they are equal. The task is the
 
 Scan the array from left to right. If $\textit{nums}[i]=\textit{nums}[i-1]$, those two positions cannot both stay. Treat each contiguous run of equal values as one group. A group of length $k$ must lose $k-1$ elements, and that group contains exactly $k-1$ adjacent equal pairs. Elements on either side of a group boundary are already different, so keeping one element from each group still leaves unequal neighbors. The minimum number of deletions is the number of adjacent equal pairs.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

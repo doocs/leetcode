@@ -73,7 +73,7 @@ We traverse the array `nums` from left to right, maintaining a stack `stk`. Duri
 
 After the traversal, the elements in the stack are the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 

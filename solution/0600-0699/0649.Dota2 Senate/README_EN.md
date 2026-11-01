@@ -90,7 +90,7 @@ We create two queues $qr$ and $qd$ to record the indices of the Radiant and Dire
 
 Finally, when there are only senators from one faction left in the queues, the senators from that faction win.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of senators.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of senators.
 
 <!-- tabs:start -->
 

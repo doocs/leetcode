@@ -69,13 +69,13 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 
 > **Thinking**
 >
-> Find the $k$ points closest to the origin. Sorting by Euclidean distance and taking the first $k$ is $O(n\log n)$, which is fine for $n\le 10^4$.
+> Find the $k$ points closest to the origin. Sorting by Euclidean distance and taking the first $k$ is $O(n \log n)$, which is fine for $n\le 10^4$.
 
 <!-- thinking:end -->
 
 We sort all points by their distance from the origin in ascending order, and then take the first $k$ points.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{points}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 
@@ -161,13 +161,13 @@ impl Solution {
 
 > **Thinking**
 >
-> A full sort also orders the farthest $n-k$ points. A max-heap of size $k$ keeps only the current closest $k$, in $O(n\log k)$ time.
+> A full sort also orders the farthest $n-k$ points. A max-heap of size $k$ keeps only the current closest $k$, in $O(n \log k)$ time.
 
 <!-- thinking:end -->
 
 We can use a priority queue (max heap) to maintain the $k$ closest points to the origin.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{points}$.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 
@@ -305,7 +305,7 @@ Therefore, we can use binary search to enumerate the distance. In each binary se
 
 After the binary search is finished, we just need to return the points whose distance is less than or equal to the left boundary.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{points}$, and $M$ is the maximum value of the distance.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{points}$, and $M$ is the maximum value of the distance.
 
 <!-- tabs:start -->
 

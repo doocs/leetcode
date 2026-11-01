@@ -110,7 +110,7 @@ If $mi$ appears only once, we can perform operations with $mi$ and the other ele
 
 If $mi$ appears multiple times, we need to check whether all elements in the array $nums$ are multiples of $mi$. If not, there exists at least one element $x$ such that $0 < x \bmod mi < mi$. This means we can construct an element smaller than $mi$ through operations. This smaller element can eliminate all other elements through operations, leaving only this smaller element. The answer is $1$. If all elements are multiples of $mi$, we can first use $mi$ to eliminate all elements larger than $mi$. The remaining elements are all $mi$, with a count of $cnt$. Pair them up, and perform an operation for each pair. Finally, there will be $\lceil cnt / 2 \rceil$ elements left, so the answer is $\lceil cnt / 2 \rceil$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

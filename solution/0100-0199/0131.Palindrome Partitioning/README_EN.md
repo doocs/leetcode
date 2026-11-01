@@ -61,7 +61,7 @@ If $i = |s|$, it means the partitioning is complete, and we add $t$ to the answe
 
 Otherwise, we can start from $i$ and enumerate the end position $j$ from small to large. If $s[i..j]$ is a palindrome, we add $s[i..j]$ to $t$, then continue to recursively call $dfs(j+1)$. When backtracking, we need to pop $s[i..j]$.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

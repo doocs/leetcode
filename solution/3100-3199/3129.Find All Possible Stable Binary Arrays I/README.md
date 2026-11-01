@@ -96,7 +96,7 @@ tags:
 >
 > 填完后的合法性只依赖剩余 $0$、 $1$ 个数以及下一位准备填的数字。连续超限等价于「连续填了 $limit+1$ 个相同位且再往前是另一种位」。
 >
-> 定义 $dfs(i,j,k)$ 为剩余 $i$ 个 $0$、 $j$ 个 $1$ 且下一位填 $k$ 的方案。转移为续填同色或改色，并减去超限的那一支。记忆化后状态量为 $O(zero\cdot one)$。
+> 定义 $dfs(i,j,k)$ 为剩余 $i$ 个 $0$、 $j$ 个 $1$ 且下一位填 $k$ 的方案。转移为续填同色或改色，并减去超限的那一支。记忆化后状态量为 $O(zero one)$。
 
 <!-- thinking:end -->
 
@@ -112,7 +112,7 @@ tags:
 
 为了避免重复计算，我们使用记忆化搜索的方法。
 
-时间复杂度 $O(\textit{zero} \times \textit{one})$，空间复杂度 $O(\textit{zero} \times \textit{one})$。
+时间复杂度 $O(\textit{zero} \textit{one})$，空间复杂度 $O(\textit{zero} \textit{one})$。
 
 <!-- tabs:start -->
 
@@ -388,7 +388,7 @@ impl Solution {
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。
 
-时间复杂度 $O(\textit{zero} \times \textit{one})$，空间复杂度 $O(\textit{zero} \times \textit{one})$。
+时间复杂度 $O(\textit{zero} \textit{one})$，空间复杂度 $O(\textit{zero} \textit{one})$。
 
 <!-- tabs:start -->
 

@@ -78,7 +78,7 @@ Next, we iterate through the array, calculating the prefix sum `s` at the curren
 
 After the iteration, we return the subarray with a left endpoint of `k` and a length of `mx`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

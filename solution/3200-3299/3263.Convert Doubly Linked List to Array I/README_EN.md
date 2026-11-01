@@ -76,7 +76,7 @@ We can directly traverse the linked list, adding the values of the nodes to the 
 
 After the traversal is complete, return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

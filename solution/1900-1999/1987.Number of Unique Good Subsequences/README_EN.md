@@ -94,7 +94,7 @@ For a binary string, we can traverse each bit from left to right. Suppose the cu
 
 If the string contains $0$, the final answer is $f + g + 1$, otherwise the answer is $f + g$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 Similar problems:
 

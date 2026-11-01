@@ -84,7 +84,7 @@ We sort all the logs in ascending order by timestamp, then traverse the sorted l
 
 If we have traversed all the logs and not everyone is in one friend circle, then return $-1$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of logs.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of logs.
 
 <!-- tabs:start -->
 

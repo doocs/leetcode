@@ -73,7 +73,7 @@ We directly enumerate every number $x$ in $[1,..n]$, and if $x$ is divisible by 
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

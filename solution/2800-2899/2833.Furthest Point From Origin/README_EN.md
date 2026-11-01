@@ -82,7 +82,7 @@ When encountering the character '_', we can choose to move left or right. The pr
 
 Further, we only need to calculate the difference between the number of 'L' and 'R' in the string, and then add the number of '\_'.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

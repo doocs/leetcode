@@ -66,7 +66,7 @@ tags:
 
 > **Thinking**
 >
-> Sort a list; the follow-up wants $O(n\log n)$ time and constant extra space. There is no random access, so quicksort swaps are awkward. $n\le 5\times 10^4$. Merge sort only needs sequential scans: split at the midpoint, sort both halves, merge. The recursion stack is $O(\log n)$.
+> Sort a list; the follow-up wants $O(n \log n)$ time and constant extra space. There is no random access, so quicksort swaps are awkward. $n\le 5\times 10^4$. Merge sort only needs sequential scans: split at the midpoint, sort both halves, merge. The recursion stack is $O(\log n)$.
 
 <!-- thinking:end -->
 
@@ -76,7 +76,7 @@ First, we use the fast and slow pointers to find the middle of the linked list a
 
 Then, we recursively sort $\textit{l1}$ and $\textit{l2}$, and finally merge $\textit{l1}$ and $\textit{l2}$ into a sorted linked list.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

@@ -88,7 +88,7 @@ Finally, we iterate through each digit in $cnt1$, take the minimum count of the 
 
 In the end, we return the values of $x$ and $y$.
 
-The time complexity is $O(n)$, where $n$ is the length of the secret number and the friend's guess. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set. In this problem, the character set is digits, so $|\Sigma| = 10$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the secret number and the friend's guess, and $|\Sigma|$ is the size of the character set. In this problem, the character set is digits, so $|\Sigma| = 10$.
 
 <!-- tabs:start -->
 

@@ -98,7 +98,7 @@ Each child $j$ likewise returns $(x, y) = dfs2(j, i)$. If $i$ stays at full pric
 
 $dfs2$ returns $(a, b)$. Calling $dfs2(0, -1)$ and taking the smaller component is the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(n)$, where $m$ is the number of trips and $n$ is the number of nodes.
+The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ is the number of trips and $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

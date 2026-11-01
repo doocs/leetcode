@@ -103,7 +103,7 @@ We traverse each column, starting from the second row, and compare the character
 
 Finally, we return the result.
 
-The time complexity is $O(L)$, where $L$ is the total length of the strings in the array $\textit{strs}$. The space complexity is $O(1)$.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the total length of the strings in the array $\textit{strs}$.
 
 <!-- tabs:start -->
 

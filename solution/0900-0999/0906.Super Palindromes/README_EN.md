@@ -73,7 +73,7 @@ Next, we traverse the array $ps$. For each $p$, we calculate $p^2$, check whethe
 
 After the traversal, return the answer.
 
-The time complexity is $O(M^{\frac{1}{4}} \times \log M)$, and the space complexity is $O(M^{\frac{1}{4}})$. Where $M$ is the upper bound of $L$ and $R$, and in this problem, $M \leq 10^{18}$.
+The time complexity is $O(M^{\frac{1}{4}} \log M)$, and the space complexity is $O(M^{\frac{1}{4}})$, where $M$ is the upper bound of $L$ and $R$, and in this problem, $M \leq 10^{18}$.
 
 Similar problems:
 

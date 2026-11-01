@@ -88,7 +88,7 @@ tags:
 
 We first sort the array $\textit{nums}$, then iterate from the second element of the array. If the current element is not equal to the previous element, we increment $\textit{cnt}$, indicating the number of operations needed to reduce the current element to the minimum value. Then we add $\textit{cnt}$ to $\textit{ans}$ and continue to the next element.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

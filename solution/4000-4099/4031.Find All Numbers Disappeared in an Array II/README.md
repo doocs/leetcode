@@ -113,7 +113,7 @@ tags:
 
 遍历结束后，若 $\textit{prev} < \textit{upper}$，还需要把末尾区间 $[\textit{prev} + 1, \textit{upper}]$ 加入答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

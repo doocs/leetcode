@@ -92,7 +92,7 @@ For each query, we need to find the maximum beauty value among the items with a 
 
 Next, we traverse the queries from small to large. For each query, we use a pointer $i$ to point to the item array. If the price of the item is less than or equal to the query price, we update the current maximum beauty value and move the pointer $i$ to the right until the price of the item is greater than the query price. We record the current maximum beauty value, which is the answer to the current query. Continue to traverse the next query until all queries are processed.
 
-The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + m)$. Where $n$ and $m$ are the lengths of the item array and the query array, respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(\log n + m)$, where $n$ and $m$ are the lengths of the item array and the query array, respectively.
 
 <!-- tabs:start -->
 
@@ -240,7 +240,7 @@ We can sort the items by price, and then preprocess the maximum beauty value of 
 
 For each query, we can use binary search to find the index $j$ of the first item with a price greater than the query price, then $j - 1$ is the index of the item with the maximum beauty value and a price less than or equal to the query price, which is added to the answer.
 
-The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the item array and the query array, respectively.
+The time complexity is $O((m + n) \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the item array and the query array, respectively.
 
 <!-- tabs:start -->
 

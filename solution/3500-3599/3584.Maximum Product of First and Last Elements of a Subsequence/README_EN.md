@@ -88,7 +88,7 @@ tags:
 
 We can enumerate the last element of the subsequence, assuming it is $\textit{nums}[i]$. Then the first element of the subsequence can be $\textit{nums}[j]$, where $j \leq i - m + 1$. Therefore, we use two variables $\textit{mi}$ and $\textit{mx}$ to maintain the prefix minimum and maximum values respectively. When traversing to $\textit{nums}[i]$, we update $\textit{mi}$ and $\textit{mx}$, then calculate the products of $\textit{nums}[i]$ with $\textit{mi}$ and $\textit{mx}$, taking the maximum value.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. And the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

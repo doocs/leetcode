@@ -97,7 +97,7 @@ $$
 
 Where $t$ represents the number of cherries at positions $(i_1, k-i_1)$ and $(i_2, k-i_2)$, and $x_1, x_2$ represent the previous step positions of $(i_1, k-i_1)$ and $(i_2, k-i_2)$ respectively.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$. Where $n$ is the side length of the grid.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$, where $n$ is the side length of the grid.
 
 <!-- tabs:start -->
 

@@ -65,7 +65,7 @@ We can iterate through the array $\textit{nums}$ and use a variable $j$ to recor
 
 After the iteration is complete, we return $\text{true}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -101,7 +101,7 @@ Otherwise, we enumerate the numbers $j$ that have not been used in the current p
 
 Finally, we can get the value of $dfs(0)$, which is the answer.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the length of the permutation.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of the permutation.
 
 <!-- tabs:start -->
 
@@ -292,7 +292,7 @@ We enumerate $mask$ in the range of $[0, 2^n)$, for each $mask$, we use $i$ to r
 
 Finally, we can get the value of $f[2^n - 1]$, which is the answer.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the length of the permutation.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of the permutation.
 
 <!-- tabs:start -->
 

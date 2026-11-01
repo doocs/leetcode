@@ -86,7 +86,7 @@ We can also choose to delete $word[i]$ and some characters after it. Suppose we 
 
 Finally, we call $dfs(0)$ in the main function.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $word$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $word$.
 
 <!-- tabs:start -->
 
@@ -239,7 +239,7 @@ function generateAbbreviations(word: string): string[] {
 
 Since the length of the string $word$ does not exceed $15$, we can use the method of binary enumeration to enumerate all abbreviations. We use a binary number $i$ of length $n$ to represent an abbreviation, where $0$ represents keeping the corresponding character, and $1$ represents deleting the corresponding character. We enumerate all $i$ in the range of $[0, 2^n)$, convert it into the corresponding abbreviation, and add it to the answer list.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $word$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $word$.
 
 <!-- tabs:start -->
 

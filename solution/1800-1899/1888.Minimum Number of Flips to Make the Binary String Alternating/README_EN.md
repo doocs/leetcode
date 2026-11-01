@@ -96,7 +96,7 @@ Next, we enumerate each substring of length $n$ and update the value of $\textit
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

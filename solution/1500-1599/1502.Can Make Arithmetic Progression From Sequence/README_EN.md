@@ -67,7 +67,7 @@ tags:
 
 We can first sort the array $\textit{arr}$, then traverse the array, and check whether the difference between adjacent items is equal.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -216,7 +216,7 @@ bool canMakeArithmeticProgression(int* arr, int arrSize) {
 
 > **Thinking**
 >
-> Solution 1 spends $O(n\log n)$ on sorting. If an arithmetic progression exists, its difference is fixed by the minimum $a$ and maximum $b$ as $d=(b-a)/(n-1)$, which must be an integer. After placing the values in a hash set, it is enough to test that $a, a+d, \ldots, a+(n-1)d$ all appear, which is linear time.
+> Solution 1 spends $O(n \log n)$ on sorting. If an arithmetic progression exists, its difference is fixed by the minimum $a$ and maximum $b$ as $d=(b-a)/(n-1)$, which must be an integer. After placing the values in a hash set, it is enough to test that $a, a+d, \ldots, a+(n-1)d$ all appear, which is linear time.
 
 <!-- thinking:end -->
 
@@ -224,7 +224,7 @@ We first find the minimum value $a$ and the maximum value $b$ in the array $\tex
 
 We can use a hash table to record all elements in the array $\textit{arr}$, then traverse $i \in [0, n)$, and check whether $a + d \times i$ is in the hash table. If not, it means that the array $\textit{arr}$ cannot be rearranged into an arithmetic sequence, and we return `false`. Otherwise, after traversing the array, we return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

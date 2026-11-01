@@ -138,7 +138,7 @@ Satisfying any one of the above conditions guarantees that the part remains conn
 
 We also need to enumerate vertical partition lines, which is similar to the horizontal case. To simplify the enumeration of vertical partition lines, we can first transpose the matrix and then apply the same logic.
 
-The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

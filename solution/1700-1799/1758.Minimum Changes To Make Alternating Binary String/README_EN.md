@@ -78,7 +78,7 @@ According to the problem, if the number of operations needed to obtain the alter
 
 Therefore, we only need to traverse the string $s$ once, count the value of $\textit{cnt}$, and the answer is $\min(\textit{cnt}, n - \textit{cnt})$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

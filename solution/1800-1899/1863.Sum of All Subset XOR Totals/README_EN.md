@@ -103,7 +103,7 @@ We can use binary enumeration to enumerate all subsets, and then calculate the X
 
 Specifically, we enumerate $i$ in the range $[0, 2^n)$, where $n$ is the length of the array $nums$. If the $j$th bit of the binary representation of $i$ is $1$, it means that the $j$th element of $nums$ is in the current subset; if the $j$th bit is $0$, it means that the $j$th element of $nums$ is not in the current subset. We can get the XOR sum of the current subset according to the binary representation of $i$, and add it to the answer.
 
-The time complexity is $O(n \times 2^n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -273,7 +273,7 @@ We design a function $dfs(i, s)$, where $i$ represents the current search to the
 
 When we have searched all elements of the array $nums$, i.e., $i=n$, the XOR sum of the current subset is $s$, and we can add it to the answer.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

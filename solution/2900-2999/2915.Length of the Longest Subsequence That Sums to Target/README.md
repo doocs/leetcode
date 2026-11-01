@@ -90,7 +90,7 @@ $$
 
 最终答案为 $f[n][target]$，如果 $f[n][target]\le0$，则不存在和为 $target$ 的子序列，返回 $-1$。
 
-时间复杂度 $O(n\times target)$，空间复杂度 $O(n\times target)$。其中 $n$ 为数组长度，而 $target$ 为目标值。
+时间复杂度 $O(n target)$，空间复杂度 $O(n target)$。其中 $n$ 为数组长度，而 $target$ 为目标值。
 
 <!-- tabs:start -->
 

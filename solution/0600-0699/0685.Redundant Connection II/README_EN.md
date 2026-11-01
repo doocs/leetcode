@@ -402,7 +402,7 @@ var findRedundantDirectedConnection = function (edges) {
 
 Here is a template approach using Union-Find for your reference.
 
-The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of edges, and $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of edges, and $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
 
 <!-- tabs:start -->
 

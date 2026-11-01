@@ -106,7 +106,7 @@ tags:
 >
 > The problem matches Cutting Cake I, but $m,n\le 10^5$, so exponential or quadratic DP is gone; we must keep the “cut large costs first” merge.
 >
-> Sort both cost arrays descending and always cut the currently larger side, adding $h$ or $v$ times that cost. Sorting is $O((m+n)\log(m+n))$ and the merge is linear, which matches the limits.
+> Sort both cost arrays descending and always cut the currently larger side, adding $h$ or $v$ times that cost. Sorting is $O((m+n) \log(m+n))$ and the merge is linear, which matches the limits.
 
 <!-- thinking:end -->
 
@@ -118,7 +118,7 @@ Each time a horizontal cut is made, if the number of columns before the cut was 
 
 Finally, when both $i$ and $j$ reach the end, return the total cost.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Here, $m$ and $n$ are the lengths of $\textit{horizontalCut}$ and $\textit{verticalCut}$, respectively.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\log m + \log n)$, where $m$ and $n$ are the lengths of $\textit{horizontalCut}$ and $\textit{verticalCut}$, respectively.
 
 <!-- tabs:start -->
 

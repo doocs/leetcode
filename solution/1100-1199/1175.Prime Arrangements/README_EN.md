@@ -75,7 +75,7 @@ Let $primes[i]$ indicate whether the number $i$ is a prime number. If it is a pr
 
 We sequentially traverse each number $i$ in the range $[2,n]$. If this number is a prime number, the number of prime numbers increases by $1$, and then all its multiples $j$ are marked as composite numbers (except for the prime number itself), that is, $primes[j]=false$. In this way, at the end of the run, we can know the number of prime numbers.
 
-The time complexity is $O(n \times \log \log n)$.
+The time complexity is $O(n \log \log n)$.
 
 <!-- tabs:start -->
 

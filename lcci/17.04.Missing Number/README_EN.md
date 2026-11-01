@@ -53,7 +53,7 @@ difficulty: Easy
 >
 > After sorting, index should equal value; the first mismatch is the missing number, or $n$ if none.
 >
-> `sort` then scan is the shortest correct solution, in $O(n\log n)$.
+> `sort` then scan is the shortest correct solution, in $O(n \log n)$.
 
 <!-- thinking:end -->
 

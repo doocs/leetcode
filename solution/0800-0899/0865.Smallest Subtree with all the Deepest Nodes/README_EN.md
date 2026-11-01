@@ -96,7 +96,7 @@ The execution process of the function $\textit{dfs}(\textit{root})$ is as follow
 
 Finally, return the first element of the result of $\textit{dfs}(\textit{root})$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

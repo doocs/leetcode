@@ -100,7 +100,7 @@ tags:
 
 答案为 $\sum_{j=0}^{\textit{nums}[n-1]} f[n-1][j]$。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度，而 $m$ 表示数组 $\textit{nums}$ 中的最大值。
+时间复杂度 $O(nm)$，空间复杂度 $O(nm)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度，而 $m$ 表示数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 

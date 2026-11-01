@@ -86,7 +86,7 @@ We use a hash table $d$ to record the first occurrence of each aesthetic value, 
 
 After traversing all the aesthetic values, we can get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of flowers.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of flowers.
 
 <!-- tabs:start -->
 

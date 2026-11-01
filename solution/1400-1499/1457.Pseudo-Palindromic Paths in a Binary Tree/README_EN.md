@@ -95,7 +95,7 @@ If $root$ is a leaf node, return $1$ if $mask \&(mask - 1) = 0$, otherwise retur
 
 If $root$ is not a leaf node, return $dfs(root.left, mask) + dfs(root.right, mask)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -103,7 +103,7 @@ We can enumerate each number, and for each number, we can enumerate each pair of
 
 This enumeration may miss some pairs of numbers, such as $[100, 1]$, because the number obtained after swapping $100$ is $1$, and the previously enumerated numbers do not include $1$, so some pairs of numbers will be missed. We only need to sort the array before enumeration to solve this problem.
 
-The time complexity is $O(n \times (\log n + \log^5 M))$, and the space complexity is $O(n + \log^4 M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n(\log n + \log^5 M))$, and the space complexity is $O(n + \log^4 M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

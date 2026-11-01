@@ -99,7 +99,7 @@ We define the left boundary of the binary search as $left=0$, the right boundary
 
 Finally, we return $left$ as the maximum length of the ropes we can obtain.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively.
 
 <!-- tabs:start -->
 

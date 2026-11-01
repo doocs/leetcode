@@ -97,7 +97,7 @@ For state $i$, we find all undivided and non-repeated elements, represented by a
 
 Finally, if $f[2^n-1]=+\infty$, it means that it cannot be partitioned into $k$ subsets, return $-1$, otherwise return $f[2^n-1]$.
 
-The time complexity is $O(3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the array.
+The time complexity is $O(3^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

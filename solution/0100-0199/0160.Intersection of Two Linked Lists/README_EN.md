@@ -109,7 +109,7 @@ Traverse the linked lists simultaneously. When $a$ reaches the end of $\textit{h
 
 If the two pointers meet, the node they point to is the first common node. If they do not meet, it means the two linked lists have no common nodes, and both pointers will point to `null`. Return either pointer.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the linked lists $\textit{headA}$ and $\textit{headB}$, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the linked lists $\textit{headA}$ and $\textit{headB}$, respectively.
 
 <!-- tabs:start -->
 

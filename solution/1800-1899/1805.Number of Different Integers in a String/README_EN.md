@@ -83,7 +83,7 @@ After the traversal, return the size of the hash set $s$.
 
 > Note, the integer represented by each substring may be very large, we cannot directly convert it to an integer. Therefore, we can remove the leading zeros of each substring before storing it in the hash set.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string `word`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ Next, define the left boundary of the binary search as $left = 1$, the right bou
 
 Finally, return $left$ as the answer.
 
-The time complexity is $O(\log M)$, where $M=maxSum$. The space complexity is $O(1)$.
+The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M=maxSum$.
 
 <!-- tabs:start -->
 

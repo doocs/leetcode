@@ -80,7 +80,7 @@ We can use an ordered set to store the schedule. An ordered set can perform inse
 
 When calling the $\text{book}(start, end)$ method, we search for the first schedule in the ordered set with an end time greater than $\textit{start}$. If it exists and its start time is less than $\textit{end}$, it means there is a double booking, and we return $\text{false}$. Otherwise, we insert $\textit{end}$ as the key and $\textit{start}$ as the value into the ordered set and return $\text{true}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of schedules.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of schedules.
 
 <!-- tabs:start -->
 

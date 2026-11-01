@@ -85,7 +85,7 @@ The basic steps are as follows:
 
 The answer is $dfs(0, 0, true)$.
 
-The time complexity is $O(m \times 2^{10} \times 10)$, and the space complexity is $O(m \times 2^{10})$. Where $m$ is the number of digits in $b$.
+The time complexity is $O(10m 2^{10})$, and the space complexity is $O(m 2^{10})$, where $m$ is the number of digits in $b$.
 
 <!-- tabs:start -->
 
@@ -311,7 +311,7 @@ function numberCount(a: number, b: number): number {
 
 Since $1 \le a \le b \le 1000$, we can enumerate every integer in $[a, b]$ and check whether its digits are unique.
 
-The time complexity is $O((b - a + 1) \times \log b)$, and the space complexity is $O(1)$.
+The time complexity is $O((b - a + 1) \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

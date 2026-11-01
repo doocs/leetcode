@@ -83,7 +83,7 @@ The problem is essentially about finding a path that starts from a specified sta
 
 Since the problem guarantees that there is at least one feasible itinerary, we can directly use the Hierholzer algorithm to output the Eulerian path starting from the starting point.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the number of edges.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the number of edges.
 
 <!-- tabs:start -->
 

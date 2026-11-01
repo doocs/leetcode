@@ -93,7 +93,7 @@ tags:
 4. 然后反向遍历柱子高度数组 $\textit{heights}$，计算每个柱子右侧第一个小于当前柱子的柱子的索引，并存储在 $\textit{right}$ 中。
 5. 最后，计算每个柱子的最大矩形面积，并更新答案。
 
-时间复杂度 $O(m \times n)$，其中 $m$ 表示 $matrix$ 的行数， $n$ 表示 $matrix$ 的列数。
+时间复杂度 $O(mn)$。其中 $m$ 表示 $matrix$ 的行数， $n$ 表示 $matrix$ 的列数。
 
 <!-- tabs:start -->
 

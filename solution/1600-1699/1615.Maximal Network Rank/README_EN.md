@@ -90,7 +90,7 @@ We can use a one-dimensional array $\textit{cnt}$ to record the degree of each c
 
 Next, we enumerate each pair of cities $(a, b)$, where $a \lt b$, and calculate their network rank, which is $\textit{cnt}[a] + \textit{cnt}[b] - \textit{g}[a][b]$. The maximum value among these is the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of cities.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of cities.
 
 <!-- tabs:start -->
 

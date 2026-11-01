@@ -71,7 +71,7 @@ When $i, j > 0$, if $\textit{word1}[i - 1] = \textit{word2}[j - 1]$, then $f[i][
 
 Finally, return $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, respectively.
 
 <!-- tabs:start -->
 

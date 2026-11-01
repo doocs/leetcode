@@ -123,7 +123,7 @@ We can assume that the robot starts from the coordinate $(0, 0)$. Then, we can u
 
 If the endpoint cannot be found, we directly return $-1$. Otherwise, we can use BFS to find the shortest path.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 Similar problems:
 

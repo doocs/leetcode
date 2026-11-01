@@ -85,7 +85,7 @@ If $f[n][0] \le 0$, then we cannot select any number, so the answer string is em
 
 Define $i = n$, $j = 0$, start backtracking from $f[i][j]$, let $k = (j - x_i \bmod 3 + 3) \bmod 3$, if $f[i - 1][k] + 1 = f[i][j]$, then we have selected the $i$-th number, otherwise we have not selected the $i$-th number. If we have selected the $i$-th number, then we update $j$ to $k$, otherwise we keep $j$ unchanged. To make the number of the same length as large as possible, we should prefer to select larger numbers, so we should sort the array first.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

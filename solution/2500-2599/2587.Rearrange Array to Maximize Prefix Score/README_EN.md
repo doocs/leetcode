@@ -75,7 +75,7 @@ To maximize the number of positive integers in the prefix sum array, we need to 
 
 Otherwise, after the traversal, we return the length of the array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -37,7 +37,7 @@ difficulty: Medium
 >
 > A min-heap pops the smallest, multiplies by $3,5,7$, and $vis$ blocks duplicate pushes.
 >
-> After $k-1$ pops the heap top is the $k$-th number. Each value expands at most three times, $O(k\log k)$.
+> After $k-1$ pops the heap top is the $k$-th number. Each value expands at most three times, $O(k \log k)$.
 
 <!-- thinking:end -->
 

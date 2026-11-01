@@ -89,7 +89,7 @@ The execution logic of the function $dfs(i, k)$ is as follows:
 
 To prevent repeated calculations, we can use memoization to optimize the time complexity.
 
-The time complexity is $O(n \times 25)$, and the space complexity is $O(n \times 25)$. Here, $n$ is the length of the string $num$.
+The time complexity is $O(25n)$, and the space complexity is $O(25n)$, where $n$ is the length of the string $num$.
 
 <!-- tabs:start -->
 

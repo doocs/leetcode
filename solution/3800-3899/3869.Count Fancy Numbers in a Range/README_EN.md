@@ -140,7 +140,7 @@ During the recursion, we enumerate the range of the current digit: if $lim$ is t
 
 Finally, we compute the count of fancy numbers in $[0, r]$ and $[0, l-1]$ separately, and the answer is their difference.
 
-The time complexity is $O(D^3 \times \log^2 r)$ and the space complexity is $O(D^2 \times \log^2 r)$, where $D = 10$.
+The time complexity is $O(D^3 \log^2 r)$, and the space complexity is $O(D^2 \log^2 r)$, where $D = 10$.
 
 <!-- tabs:start -->
 

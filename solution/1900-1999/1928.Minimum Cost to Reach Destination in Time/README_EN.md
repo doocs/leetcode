@@ -102,7 +102,7 @@ Next, within the time range $[1, \textit{maxTime}]$, we traverse all edges. For 
 
 The final answer is $\min\{f[i][n - 1]\}$, where $i \in [0, \textit{maxTime}]$. If the answer is $+\infty$, return $-1$.
 
-The time complexity is $O(\textit{maxTime} \times (m + n))$, where $m$ and $n$ are the number of edges and cities, respectively. The space complexity is $O(\textit{maxTime} \times n)$.
+The time complexity is $O(\textit{maxTime}(m + n))$, and the space complexity is $O(\textit{maxTime} n)$, where $m$ and $n$ are the number of edges and cities, respectively.
 
 <!-- tabs:start -->
 

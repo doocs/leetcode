@@ -141,7 +141,7 @@ Specifically, the implementation steps of function $\textit{dfs}(i, j, k)$ are a
 
 Finally, we call $\textit{dfs}(m-1, n-1, k)$ to calculate the maximum score achievable when starting from the bottom-right corner and reaching the top-left corner with remaining cost not exceeding $k$. If the result is less than $0$, return $-1$ to indicate no valid path exists; otherwise, return the result.
 
-The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n \times k)$, where $m$ and $n$ are the number of rows and columns in the grid, and $k$ is the maximum allowed cost.
+The time complexity is $O(mnk)$, and the space complexity is $O(mnk)$, where $m$ and $n$ are the number of rows and columns in the grid, and $k$ is the maximum allowed cost.
 
 <!-- tabs:start -->
 

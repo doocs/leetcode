@@ -88,7 +88,7 @@ Next, we consider how the state transitions when $i \geq 1$. We can enumerate th
 
 Finally, we return $\min_{0 \leq j \lt n} f[m - 1][j]$.
 
-The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of the strings $key$ and $ring$, respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $key$ and $ring$, respectively.
 
 <!-- tabs:start -->
 

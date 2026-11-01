@@ -115,7 +115,7 @@ Otherwise, we enumerate selecting $t$ numbers at position $i$ to fill into the m
 
 To efficiently compute the binomial coefficient $\binom{m}{n}$, we preprocess the factorial array $f$ and the inverse factorial array $g$, where $f[i] = i! \mod (10^9 + 7)$ and $g[i] = (i!)^{-1} \mod (10^9 + 7)$. Then $\binom{m}{n} = f[m] \cdot g[n] \cdot g[m - n] \mod (10^9 + 7)$.
 
-The time complexity is $O(n \cdot m^3 \cdot k)$ and the space complexity is $O(n \cdot m^2 \cdot k)$, where $n$ is the length of array $\textit{nums}$, and $m$ and $k$ are the parameters in the problem.
+The time complexity is $O(nm^3k)$, and the space complexity is $O(nm^2k)$, where $n$ is the length of array $\textit{nums}$, and $m$ and $k$ are the parameters in the problem.
 
 <!-- tabs:start -->
 

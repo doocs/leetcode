@@ -89,7 +89,7 @@ Otherwise, record the frequency of each difference in $cnt$, and let $m$ be the 
 
 The answer is $\sum_v v^2 \cdot cnt[v]$.
 
-The time complexity is $O(n + M)$ and the space complexity is $O(M)$, where $n$ is the array length and $M$ is the maximum difference. In this problem, $M \le 10^5$.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the array length and $M$ is the maximum difference. In this problem, $M \le 10^5$.
 
 <!-- tabs:start -->
 

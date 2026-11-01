@@ -115,7 +115,7 @@ Then, we create an array $d$ of the same size as $t$ to store the rotated non-ne
 
 Next, we iterate through the original array $\textit{nums}$. For each position containing a non-negative element, we replace it with the element from the corresponding position in $d$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(m)$, where $m$ is the number of non-negative elements.
+The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ is the length of the array, and $m$ is the number of non-negative elements.
 
 <!-- tabs:start -->
 

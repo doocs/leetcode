@@ -95,7 +95,7 @@ We first traverse the board to find the position of the rook $(i, j)$. Then, sta
 
 After traversing in all four directions, we get the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the board, respectively. In this problem, $m = n = 8$. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the board, respectively. In this problem, $m = n = 8$.
 
 <!-- tabs:start -->
 

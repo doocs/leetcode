@@ -85,7 +85,7 @@ The range of palindrome numbers in the problem is $[1, 10^9]$. Due to the symmet
 
 Next, we sort the array $nums$ and take the median $x$ of $nums$. We only need to find a number in the palindrome array $ps$ that is closest to $x$ through binary search, and then calculate the cost of $nums$ becoming this number to get the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $nums$, and $M$ is the length of the palindrome array $ps$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(M)$, where $n$ is the length of the array $nums$, and $M$ is the length of the palindrome array $ps$.
 
 Similar problems:
 

@@ -62,7 +62,7 @@ We traverse the array `nums`, calculate the prefix sum `s`, then add the value o
 
 After the traversal, we return the answer.
 
-The time complexity is `O(n)`, and the space complexity is `O(n)`. Where `n` is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 

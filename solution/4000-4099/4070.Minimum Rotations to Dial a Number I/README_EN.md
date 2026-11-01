@@ -230,7 +230,7 @@ $$
 
 We iterate through the string, add this value to the answer, and update $\textit{pre}$ to $\textit{cur}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 

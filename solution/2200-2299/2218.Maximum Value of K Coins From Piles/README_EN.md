@@ -85,7 +85,7 @@ $$
 
 where $0 \leq h \leq j$, and $s[h]$ represents the value sum of taking the first $h$ coins from the $i$-th pile.
 
-The time complexity is $O(k \times L)$, and the space complexity is $O(n \times k)$. Here, $L$ is the total number of coins, and $n$ is the number of piles.
+The time complexity is $O(kL)$, and the space complexity is $O(nk)$, where $L$ is the total number of coins, and $n$ is the number of piles.
 
 <!-- tabs:start -->
 
@@ -227,7 +227,7 @@ function maxValueOfCoins(piles: number[][], k: number): number {
 
 We can observe that for the $i$-th pile, we only need to use $f[i - 1][j]$ and $f[i][j - h]$, so we can optimize the two-dimensional array to a one-dimensional array.
 
-The time complexity is $O(k \times L)$, and the space complexity is $O(k)$.
+The time complexity is $O(kL)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 

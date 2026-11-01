@@ -170,7 +170,7 @@ We use a prefix sum array $s$ to record the prefix sum of the array, where $s[i]
 
 Finally, we traverse array positions $i$ where $0 \leq i < n-1$. If both $f[i]$ and $g[i+1]$ are true, then we can calculate the sums of $left$ and $right$, which are $s[i]$ and $s[n-1]-s[i]$ respectively, and update the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

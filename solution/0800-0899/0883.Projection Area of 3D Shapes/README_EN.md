@@ -86,7 +86,7 @@ We can calculate the area of the three projections separately.
 
 Finally, add up the three areas.
 
-The time complexity is $O(n^2)$, where $n$ is the side length of the grid `grid`. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the side length of the grid `grid`.
 
 <!-- tabs:start -->
 

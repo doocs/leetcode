@@ -81,7 +81,7 @@ tags:
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(n\times \log M)$，其中 $n$ 是数组 `deliciousness` 的长度，而 $M$ 是元素的上限，对于本题，上限 $M=2^{20}$。
+时间复杂度 $O(n \log M)$。其中 $n$ 是数组 `deliciousness` 的长度，而 $M$ 是元素的上限，对于本题，上限 $M=2^{20}$。
 
 我们也可以先用哈希表 $cnt$ 统计数组中每个元素出现的次数。
 
@@ -185,7 +185,7 @@ func countPairs(deliciousness []int) (ans int) {
 >
 > 方法一按元素顺序边扫边查。也可以先统计全部频次，再枚举幂与哈希表中的 $a$，用 $cnt[s-a]$ 成对累加。
 >
-> 当 $a=s-a$ 时用 $m(m-1)$，否则用 $m\cdot cnt[s-a]$；每对被算两次，最后右移一位再取模。复杂度同为 $O(n\log M)$。
+> 当 $a=s-a$ 时用 $m(m-1)$，否则用 $m\cdot cnt[s-a]$；每对被算两次，最后右移一位再取模。复杂度同为 $O(n \log M)$。
 
 <!-- thinking:end -->
 

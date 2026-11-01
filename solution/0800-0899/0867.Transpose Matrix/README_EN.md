@@ -73,7 +73,7 @@ For any position $(i, j)$ in $\textit{ans}$, it corresponds to the position $(j,
 
 After the traversal, we return $\textit{ans}$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix $\textit{matrix}$, respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix $\textit{matrix}$, respectively.
 
 <!-- tabs:start -->
 

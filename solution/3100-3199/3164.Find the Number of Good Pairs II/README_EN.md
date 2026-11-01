@@ -80,7 +80,7 @@ We use a hash table `cnt1` to record the occurrence times of each number divided
 
 Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, \textit{mx}]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
 
-The time complexity is $O(n + m + (M / k) \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays `nums1` and `nums2` respectively, and $M$ is the maximum value in array `nums1`.
+The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays `nums1` and `nums2` respectively, and $M$ is the maximum value in array `nums1`.
 
 <!-- tabs:start -->
 

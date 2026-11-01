@@ -97,7 +97,7 @@ $$
 
 Finally, return $\max(f[n - 1][0], f[n - 1][1])$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -203,7 +203,7 @@ function maxEnergyBoost(energyDrinkA: number[], energyDrinkB: number[]): number 
 
 We notice that the state $f[i]$ is only related to $f[i - 1]$ and not to $f[i - 2]$. Therefore, we can use only two variables $f$ and $g$ to maintain the state, thus optimizing the space complexity to $O(1)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -147,7 +147,7 @@ $$
 
 Finally, we traverse the query array. For each query $[l, r]$, we add $g[l][r]$ to the answer array.
 
-The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
+The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

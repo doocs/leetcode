@@ -83,7 +83,7 @@ tags:
 
 > **Thinking**
 >
-> The median is the middle value after sorting. Enumerating which elements to change without ordering the array explodes combinatorially; $n$ allows an $O(n\log n)$ sort.
+> The median is the middle value after sorting. Enumerating which elements to change without ordering the array explodes combinatorially; $n$ allows an $O(n \log n)$ sort.
 >
 > The middle element must become $k$. If it is larger than $k$, only values to its left that still exceed $k$ need to be lowered; if it is not larger, only values to its right that are still below $k$ need to be raised.
 >
@@ -98,7 +98,7 @@ Next, we discuss in two cases:
 - If $nums[m] > k$, then all elements to the right of $m$ are greater than or equal to $k$. We only need to reduce the elements greater than $k$ on the left of $m$ to $k$.
 - If $nums[m] \le k$, then all elements to the left of $m$ are less than or equal to $k$. We only need to increase the elements less than $k$ on the right of $m$ to $k$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

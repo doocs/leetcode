@@ -78,7 +78,7 @@ Finally, return the answer $ans$.
 
 Since the maximum element in $nums$ is $10^9$, the maximum digit sum is $9 \times 9 = 81$. We can directly define an array $d$ of length $100$ to replace the hash table.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(D)$. Here, $n$ is the length of the array $nums$, and $M$ and $D$ are the maximum value of the elements in the array $nums$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(D)$, where $n$ is the length of the array $nums$, and $M$ and $D$ are the maximum value of the elements in the array $nums$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
 
 <!-- tabs:start -->
 

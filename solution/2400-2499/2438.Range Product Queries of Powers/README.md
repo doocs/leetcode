@@ -90,7 +90,7 @@ $$
 
 其中 $\textit{answers}[i]$ 是第 $i$ 个查询的答案。由于查询的结果可能非常大，我们需要对每个答案取模 $10^9 + 7$。
 
-时间复杂度 $O(m \times \log n)$，其中 $m$ 为数组 $\textit{queries}$ 的长度。忽略答案的空间消耗，空间复杂度 $O(\log n)$。
+时间复杂度 $O(m \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 为数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

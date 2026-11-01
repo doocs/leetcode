@@ -90,7 +90,7 @@ tags:
 
 我们记初始像素的颜色为 $\textit{oc}$，如果 $\textit{oc}$ 不等于目标颜色 $\textit{color}$，我们就从 $(\textit{sr}, \textit{sc})$ 开始深度优先搜索，将所有符合条件的像素点的颜色都更改成目标颜色。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为二维数组 $\textit{image}$ 的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为二维数组 $\textit{image}$ 的行数和列数。
 
 <!-- tabs:start -->
 
@@ -296,7 +296,7 @@ impl Solution {
 
 具体地，我们定义一个队列 $\textit{q}$，将初始像素 $(\textit{sr}, \textit{sc})$ 加入队列。然后我们不断从队列中取出像素点 $(i, j)$，将其颜色更改成目标颜色，并将其上下左右四个方向上与初始像素的原始颜色相同的像素点加入队列。直到队列为空，我们就完成了图像的渲染。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为二维数组 $\textit{image}$ 的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为二维数组 $\textit{image}$ 的行数和列数。
 
 <!-- tabs:start -->
 

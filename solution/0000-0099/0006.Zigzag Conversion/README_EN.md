@@ -91,7 +91,7 @@ We use a 2D array $g$ to simulate the process of arranging the string in a zigza
 
 We traverse the string $s$ from left to right. For each character $c$, we append it to $g[i]$. If $i = 0$ or $i = \textit{numRows} - 1$, it means the current character is at a turning point in the zigzag pattern, so we reverse the value of $k$, i.e., $k = -k$. Then, we update $i$ to $i + k$, which means moving up or down one row. Continue traversing the next character until the end of the string $s$. Finally, we return the concatenation of all rows in $g$ as the result.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

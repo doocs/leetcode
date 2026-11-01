@@ -90,7 +90,7 @@ tags:
 
 We first recursively traverse the left and right subtrees, then visit the root node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree. The space complexity mainly depends on the stack space used for recursive calls.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity mainly depends on the stack space used for recursive calls.
 
 <!-- tabs:start -->
 
@@ -313,7 +313,7 @@ Therefore, the idea of using a stack to implement non-recursive traversal is as 
 5. Repeat steps 2-4.
 6. Reverse the result to get the postorder traversal result.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree. The space complexity mainly depends on the stack space.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity mainly depends on the stack space.
 
 <!-- tabs:start -->
 
@@ -520,7 +520,7 @@ Traverse the binary tree nodes,
 
 > The idea of Morris postorder traversal is consistent with Morris preorder traversal, just change the "root-left-right" of preorder to "root-right-left", and finally reverse the result to become "left-right-root".
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

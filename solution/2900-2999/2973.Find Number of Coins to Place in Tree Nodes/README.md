@@ -125,7 +125,7 @@ tags:
 
 最后，我们调用函数 $dfs(0, -1)$，并且返回答案数组 $ans$ 即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数目。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数目。
 
 <!-- tabs:start -->
 
@@ -348,7 +348,7 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 
 合并之后会重新排序，所以子节点入栈的先后不影响答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数目。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数目。
 
 <!-- tabs:start -->
 

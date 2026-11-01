@@ -81,7 +81,7 @@ dp[i + 1][j + 1] =
 \end{cases}
 $$
 
-The time complexity is $O(m\times n)$, and the space complexity is $O(m\times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

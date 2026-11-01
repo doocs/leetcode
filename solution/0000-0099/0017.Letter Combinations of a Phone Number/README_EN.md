@@ -66,7 +66,7 @@ tags:
 
 First, we use an array or hash table to store the letters corresponding to each digit. Then we traverse each digit, combine its corresponding letters with the previous results to get the new results.
 
-The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$. Here, $n$ is the length of the input digits.
+The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$, where $n$ is the length of the input digits.
 
 <!-- tabs:start -->
 
@@ -327,7 +327,7 @@ char** letterCombinations(char* digits, int* returnSize) {
 
 We can use the method of depth-first search to enumerate all possible letter combinations. Suppose that a part of the letter combination has been generated, but some digits have not been exhausted. At this time, we take out the letters corresponding to the next digit, and then enumerate each letter corresponding to this digit one by one, add them to the letter combination that has been generated before, to form all possible combinations.
 
-The time complexity is $O(4^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the input digits.
+The time complexity is $O(4^n)$, and the space complexity is $O(n)$, where $n$ is the length of the input digits.
 
 <!-- tabs:start -->
 

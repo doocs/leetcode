@@ -87,7 +87,7 @@ We create an ordered set to store the elements whose distance to the current ind
 
 Next, we enumerate from index $i = x$, each time we add $nums[i - x]$ into the ordered set. Then we find the two elements in the ordered set which are closest to $nums[i]$, and the minimum absolute difference between them is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
 

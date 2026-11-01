@@ -106,7 +106,7 @@ tags:
 
 We use a queue $q$ to perform a level-order traversal, and define a boolean variable $\textit{left}$ to indicate the traversal direction of the current level. For each level, we first add the nodes of the next level to the queue $nq$, and then compute the sum of the node values of the current level, denoted by $s$, according to the value of $\textit{left}$, and append $s$ to the answer array. Finally, we update the value of $\textit{left}$ and assign $nq$ to $q$ to continue traversing the next level.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

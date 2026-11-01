@@ -91,7 +91,7 @@ We first count the occurrence of each character in the string and record it in a
 
 Next, starting from the lexicographically smallest character, we sequentially add half of each character's count to the first half of the result string $\textit{t}$. If a character appears an odd number of times, we record it as the middle character $\textit{ch}$. Finally, we concatenate $\textit{t}$, $\textit{ch}$, and the reverse of $\textit{t}$ to obtain the final lexicographically smallest palindromic rearrangement.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

@@ -106,7 +106,7 @@ We enumerate each friend $x$. For $x$'s paired friend $y$, we find the closeness
 
 After the enumeration, we obtain the number of unhappy friends.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of friends.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of friends.
 
 <!-- tabs:start -->
 

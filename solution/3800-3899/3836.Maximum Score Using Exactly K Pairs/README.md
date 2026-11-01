@@ -144,7 +144,7 @@ $$
 
 最终我们需要返回 $f[n][m][K]$。
 
-时间复杂度 $O(m \times n \times K)$，空间复杂度 $O(m \times n \times K)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $K$ 是题目中的 $k$。
+时间复杂度 $O(mnK)$，空间复杂度 $O(mnK)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $K$ 是题目中的 $k$。
 
 <!-- tabs:start -->
 

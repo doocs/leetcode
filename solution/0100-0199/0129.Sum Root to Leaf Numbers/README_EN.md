@@ -87,7 +87,7 @@ The calculation of the function $dfs(root, s)$ is as follows:
 - If the current node is a leaf node, return $s$.
 - Otherwise, return $dfs(root.left, s) + dfs(root.right, s)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(\log n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

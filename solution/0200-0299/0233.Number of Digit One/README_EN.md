@@ -88,7 +88,7 @@ If $i$ exceeds the length of the number $n$, it means the search is over, direct
 
 The answer is $\textit{dfs}(0, 0, \text{True})$.
 
-The time complexity is $O(m^2 \times D)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the number $n$, and $D = 10$.
+The time complexity is $O(m^2D)$, and the space complexity is $O(m^2)$, where $m$ is the length of the number $n$, and $D = 10$.
 
 Similar Problems:
 

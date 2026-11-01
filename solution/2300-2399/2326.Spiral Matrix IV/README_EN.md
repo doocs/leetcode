@@ -82,7 +82,7 @@ Otherwise, we need to find the position of the next element. We can calculate th
 
 After traversing the linked list, we get a spiral matrix and return it.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ We iterate through the array $words$. For each string $w$, we add the number of 
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $words$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $words$.
 
 <!-- tabs:start -->
 

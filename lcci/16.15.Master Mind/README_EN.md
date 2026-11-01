@@ -59,7 +59,7 @@ We simultaneously traverse both strings, count the number of corresponding chara
 
 Next, we traverse both hash tables, count the number of common characters, and accumulate them in $y$. The answer is then $[x, y - x]$.
 
-The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C=4$ for this problem.
+The time complexity is $O(C)$, and the space complexity is $O(C)$, where $C=4$ for this problem.
 
 <!-- tabs:start -->
 

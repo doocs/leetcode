@@ -65,7 +65,7 @@ We can enumerate the number of nodes $i$, then the number of nodes in the left s
 
 Finally, return $f[n]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

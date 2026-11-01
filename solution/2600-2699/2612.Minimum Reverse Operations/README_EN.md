@@ -128,7 +128,7 @@ Then we use BFS to search, each time searching all the flipped indices $j$ of th
 
 When the search is over, the answer to all indices can be obtained.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Where $n$ is the given array length in the problem.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the given array length in the problem.
 
 <!-- tabs:start -->
 

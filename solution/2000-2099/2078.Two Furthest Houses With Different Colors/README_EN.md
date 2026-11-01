@@ -87,7 +87,7 @@ We can observe that if the first and last houses have different colors, the maxi
 
 If the first and last houses have the same color, we can scan from the left to find the first house with a different color (let its index be $i$), and scan from the right to find the first house with a different color (let its index be $j$). The maximum distance is then $\max(n - i - 1, j)$.
 
-The time complexity is $O(n)$, where $n$ is the number of houses. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of houses.
 
 <!-- tabs:start -->
 

@@ -83,7 +83,7 @@ We can drink all the full water bottles at the beginning, so initially the amoun
 
 We repeat the above process until we can no longer exchange bottles. The total amount of water drunk is the answer.
 
-The time complexity is $O(\sqrt{n})$, where $n$ is the initial number of full bottles. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the initial number of full bottles.
 
 <!-- tabs:start -->
 

@@ -92,7 +92,7 @@ For each string, we can convert it into a binary number of length $26$, where th
 
 If two strings contain the same letters, their binary numbers are the same. Therefore, for each string, we use a hash table to count the occurrences of its binary number. Each time we add the count to the answer, then increment the count of its binary number by $1$.
 
-The time complexity is $O(L)$, and the space complexity is $O(n)$. Here, $L$ is the total length of all strings, and $n$ is the number of strings.
+The time complexity is $O(L)$, and the space complexity is $O(n)$, where $L$ is the total length of all strings, and $n$ is the number of strings.
 
 <!-- tabs:start -->
 

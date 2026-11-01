@@ -95,7 +95,7 @@ That is, to find the $2^j$-th ancestor node of node $i$, we can first find the $
 
 For each query later, we can decompose $k$ into its binary representation, and then according to the positions of $1$ in the binary, we accumulate the queries upwards, and finally get the $k$-th ancestor node of node $node$.
 
-In terms of time complexity, the initialization is $O(n \times \log n)$, and the query is $O(\log n)$. The space complexity is $O(n \times \log n)$, where $n$ is the number of nodes in the tree.
+In terms of time complexity, the initialization is $O(n \log n)$, and the query is $O(\log n)$. The space complexity is $O(n \log n)$, where $n$ is the number of nodes in the tree.
 
 Similar problems:
 

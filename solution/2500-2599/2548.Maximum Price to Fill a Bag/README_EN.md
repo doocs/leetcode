@@ -84,7 +84,7 @@ We sort the items in descending order by unit price, and then take out the items
 
 If the backpack is not full in the end, return $-1$, otherwise return the total price.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of items.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of items.
 
 <!-- tabs:start -->
 

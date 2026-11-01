@@ -91,7 +91,7 @@ We enumerate each person $j$ in `people`. If $f[i] + 1 \lt f[i | p[j]]$, it mean
 
 Finally, we start from the skill set $i=2^m-1$, find the number of the last person at this time $g[i]$, add it to the answer, then update $i$ to $h[i]$, and keep backtracking until $i=0$, to get the personnel numbers in the smallest necessary team.
 
-The time complexity is $O(2^m \times n)$, and the space complexity is $O(2^m)$. Here, $m$ and $n$ are the lengths of `req_skills` and `people`, respectively.
+The time complexity is $O(2^m n)$, and the space complexity is $O(2^m)$, where $m$ and $n$ are the lengths of `req_skills` and `people`, respectively.
 
 <!-- tabs:start -->
 

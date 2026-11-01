@@ -78,7 +78,7 @@ Next, we initialize the right endpoint of the current interval as $-\infty$. We 
 
 Finally, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of mountains.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of mountains.
 
 <!-- tabs:start -->
 

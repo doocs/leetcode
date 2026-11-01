@@ -77,7 +77,7 @@ It is possible to distribute the apples as the total capacity is greater than or
 
 To minimize the number of boxes needed, we should prioritize using boxes with larger capacities. Therefore, we can sort the boxes in descending order of capacity, and then use the boxes one by one until all the apples are packed. We return the number of boxes used at this point.
 
-The time complexity is $O(m \times \log m + n)$ and the space complexity is $O(\log m)$, where $m$ and $n$ are the lengths of the arrays $\textit{capacity}$ and $\textit{apple}$ respectively.
+The time complexity is $O(m \log m + n)$, and the space complexity is $O(\log m)$, where $m$ and $n$ are the lengths of the arrays $\textit{capacity}$ and $\textit{apple}$ respectively.
 
 <!-- tabs:start -->
 

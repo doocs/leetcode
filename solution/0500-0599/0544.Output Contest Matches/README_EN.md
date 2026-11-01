@@ -79,7 +79,7 @@ We can use an array $s$ of length $n$ to store the ID of each team, and then sim
 
 In each round of matches, we pair up the first $n$ elements in array $s$ two by two, and then store the ID of the winners in the first $n/2$ positions of array $s$. After that, we halve $n$ and continue to the next round of matches, until $n$ is reduced to $1$. At this point, the first element in array $s$ is the final match-up scheme.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of teams.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of teams.
 
 <!-- tabs:start -->
 

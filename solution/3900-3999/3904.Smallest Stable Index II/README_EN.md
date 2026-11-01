@@ -112,7 +112,7 @@ First, we preprocess an array $\textit{right}$, where $\textit{right}[i]$ repres
 
 Next, we traverse the $nums$ array from front to back, maintaining a variable $\textit{left}$, which represents the maximum value among the elements in $nums$ from index $0$ to index $i$. For each index $i$, we calculate the instability score as $\textit{left} - \textit{right}[i]$. If the instability score is less than or equal to $k$, we return index $i$. If no such index is found after the traversal, we return $-1$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the $nums$ array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $nums$ array.
 
 <!-- tabs:start -->
 

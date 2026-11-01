@@ -101,7 +101,7 @@ Otherwise, we continue to traverse the element $nums[j]$. Suppose the current su
 
 Otherwise, we continue to traverse the element $nums[j]$ until the entire array is traversed.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array, respectively.
 
 <!-- tabs:start -->
 

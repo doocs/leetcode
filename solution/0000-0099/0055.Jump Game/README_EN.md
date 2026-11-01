@@ -72,7 +72,7 @@ We traverse the array from left to right. For each position $i$ we traverse, if 
 
 At the end of the traversal, we directly return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 Similar problems:
 

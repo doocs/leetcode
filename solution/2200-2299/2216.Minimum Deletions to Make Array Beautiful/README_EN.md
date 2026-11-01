@@ -81,7 +81,7 @@ Therefore, we consider traversing the array from left to right. As long as we en
 
 Finally, we check whether the length of the array after deletion is even. If not, it means that we need to delete one more element to make the final array length even.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. We only need to traverse the array once. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

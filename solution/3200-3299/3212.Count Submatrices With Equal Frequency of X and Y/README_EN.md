@@ -94,7 +94,7 @@ According to the problem description, we only need to calculate the prefix sums 
 
 After traversing all positions, return the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -97,7 +97,7 @@ Finally, we traverse the strings in $\textit{ideas}$ again. For the current stri
 
 The final answer is $\textit{ans}$.
 
-The time complexity is $O(n \times m \times |\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$. Here, $n$ and $m$ are the number of strings in $\textit{ideas}$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set of the strings, with $|\Sigma| \leq 26$ in this problem.
+The time complexity is $O(nm|\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$, where $n$ and $m$ are the number of strings in $\textit{ideas}$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set of the strings, with $|\Sigma| \leq 26$ in this problem.
 
 <!-- tabs:start -->
 

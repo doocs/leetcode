@@ -86,7 +86,7 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 调用 `unreserve` 方法时，我们将座位编号加入到 $\textit{q}$ 中。
 
-时间复杂度方面，初始化的时间复杂度为 $O(n)$ 或 $O(n \times \log n)$，`reserve` 和 `unreserve` 方法的时间复杂度均为 $O(\log n)$。空间复杂度为 $O(n)$。
+时间复杂度方面，初始化的时间复杂度为 $O(n)$ 或 $O(n \log n)$，`reserve` 和 `unreserve` 方法的时间复杂度均为 $O(\log n)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 

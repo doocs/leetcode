@@ -102,7 +102,7 @@ Then, we take out a task from the queue, add its index to the answer array, and 
 
 We repeat the above process until the queue is empty and all tasks have been added to the queue.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the number of tasks.
+The time complexity is $O(n \log n)$, where $n$ is the number of tasks.
 
 <!-- tabs:start -->
 

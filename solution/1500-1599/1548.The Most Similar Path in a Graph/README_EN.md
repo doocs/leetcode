@@ -109,7 +109,7 @@ $$
 
 In the process of state transition, we record the predecessor city of each state, and finally restore the optimal path from the end to the beginning according to the predecessor city array $pre$.
 
-The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $targetPath$ and $names$ respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $targetPath$ and $names$ respectively.
 
 <!-- tabs:start -->
 

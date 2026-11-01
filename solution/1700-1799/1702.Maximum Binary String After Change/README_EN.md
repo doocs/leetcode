@@ -93,7 +93,7 @@ Therefore, to get the maximum binary string, we should move all $1$s that are no
 
 In the code implementation, we first judge whether the string contains $0$. If it does not, we directly return the original string. Otherwise, we find the position $k$ of the first $0$, add the number of $0$s after this position, and the position of $0$ in the modified string is obtained. The rest of the positions are all $1$s.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

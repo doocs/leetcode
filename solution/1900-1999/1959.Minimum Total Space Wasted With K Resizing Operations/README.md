@@ -103,7 +103,7 @@ $$
 
 最终答案为 $\textit{f}[n][k]$。
 
-时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n \times (n + k))$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n^2k)$，空间复杂度 $O(n(n + k))$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

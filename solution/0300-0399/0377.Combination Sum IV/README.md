@@ -85,7 +85,7 @@ tags:
 
 最后返回 $f[target]$ 即可。
 
-时间复杂度 $O(n \times target)$，空间复杂度 $O(target)$。其中 $n$ 为数组的长度。
+时间复杂度 $O(n target)$，空间复杂度 $O(target)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 

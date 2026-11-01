@@ -133,7 +133,7 @@ A `1` can be placed at the current position only if both of the following condit
 
 After each recursive call returns, we undo the current choice to restore the state before entering the recursion, allowing the algorithm to explore other possible combinations.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

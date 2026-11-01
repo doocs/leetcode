@@ -105,7 +105,7 @@ According to the problem description, the node indices within the same connected
 
 Finally, for each query $(u, v)$, we only need to check whether $g[u]$ and $g[v]$ are equal. If they are equal, it means $u$ and $v$ are in the same connected component, and the answer for the $i$-th query is $\text{true}$. Otherwise, the answer is $\text{false}$.
 
-The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{nums}$ array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{nums}$ array.
 
 <!-- tabs:start -->
 

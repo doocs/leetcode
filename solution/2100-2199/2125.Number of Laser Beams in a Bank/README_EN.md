@@ -92,7 +92,7 @@ This is because the 2<sup>nd</sup> row contains security devices, which breaks t
 
 We can count the number of safety devices row by row. If the current row does not have any safety devices, we skip it. Otherwise, we multiply the number of safety devices in the current row by the number of safety devices in the previous row, and add it to the answer. Then we update the number of safety devices in the previous row to be the number of safety devices in the current row.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns, respectively.
 
 <!-- tabs:start -->
 

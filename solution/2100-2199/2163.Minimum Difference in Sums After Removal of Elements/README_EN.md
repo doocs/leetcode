@@ -97,7 +97,7 @@ We can use a max heap to maintain the smallest $n$ elements in the prefix, and a
 
 Finally, we enumerate the split points in the range of $i \in [n, 2n]$, calculate the value of $pre[i] - suf[i + 1]$, and take the minimum value.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

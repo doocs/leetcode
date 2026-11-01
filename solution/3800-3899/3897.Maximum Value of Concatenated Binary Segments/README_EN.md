@@ -127,7 +127,7 @@ Next, we do not need to actually construct the whole binary string. Let the tota
 
 Finally, we obtain the answer.
 
-The time complexity is $O(n \log n + m)$, and the space complexity is $O(n + m)$. Here, $n$ is the number of segments, and $m = \sum \textit{nums1}[i] + \sum \textit{nums0}[i]$. The problem guarantees that $m \le 2 \times 10^5$.
+The time complexity is $O(n \log n + m)$, and the space complexity is $O(n + m)$, where $n$ is the number of segments, and $m = \sum \textit{nums1}[i] + \sum \textit{nums0}[i]$. The problem guarantees that $m \le 2 \times 10^5$.
 
 <!-- tabs:start -->
 

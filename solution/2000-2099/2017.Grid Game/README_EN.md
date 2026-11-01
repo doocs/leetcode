@@ -96,7 +96,7 @@ Then we enumerate the position $j$ where the first robot turns down. At this tim
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the number of columns in the grid.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of columns in the grid.
 
 <!-- tabs:start -->
 

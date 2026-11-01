@@ -90,7 +90,7 @@ If $s[i] \neq s[j]$, then $s[i]$ and $s[j]$ will definitely not appear in the lo
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

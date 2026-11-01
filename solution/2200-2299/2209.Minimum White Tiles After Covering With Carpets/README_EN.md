@@ -91,7 +91,7 @@ For index $i$, we discuss the following cases:
 
 We use memoization search to solve this problem.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the string $\textit{floor}$ and the value of $\textit{numCarpets}$, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the length of the string $\textit{floor}$ and the value of $\textit{numCarpets}$, respectively.
 
 <!-- tabs:start -->
 
@@ -348,7 +348,7 @@ Fill $i$ from $n - 1$ down to $0$ and $j$ from $0$ through $m$:
 - If $j = 0$, no carpet remains, so $f[i][j] = s[n] - s[i]$.
 - Otherwise the tile is white. Leaving it visible costs $1 + f[i + 1][j]$. Laying a carpet of length $L$ jumps to index $i + L$ and leaves $j - 1$ carpets. That branch is $f[i + L][j - 1]$ when $i + L \le n$, and $0$ when the jump passes the end of the floor. $f[i][j]$ is the smaller of the two.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here $n$ and $m$ are the length of $\textit{floor}$ and the value of $\textit{numCarpets}$.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the length of $\textit{floor}$ and the value of $\textit{numCarpets}$.
 
 <!-- tabs:start -->
 

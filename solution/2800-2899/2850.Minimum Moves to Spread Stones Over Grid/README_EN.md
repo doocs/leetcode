@@ -407,7 +407,7 @@ Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to
 
 Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of $left$, and in this problem, $n \le 9$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ is the length of $left$, and in this problem, $n \le 9$.
 
 <!-- tabs:start -->
 

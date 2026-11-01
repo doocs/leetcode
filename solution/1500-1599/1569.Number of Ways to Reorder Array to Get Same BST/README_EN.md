@@ -108,7 +108,7 @@ where $C_{m+n}^m$ represents the number of schemes to select $m$ positions from 
 
 Note the modulo operation of the answer, because the value of $dfs(nums)$ may be very large, so we need to take the modulo of each step in the calculation process, and finally take the modulo of the entire result.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
 

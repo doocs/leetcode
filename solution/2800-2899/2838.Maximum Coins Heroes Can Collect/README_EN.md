@@ -92,7 +92,7 @@ We can sort the monsters and coins in ascending order of the monsters' combat po
 
 Next, for each hero, we can use binary search to find the strongest monster he can defeat, and then use prefix sum to calculate the total number of coins he can get.
 
-The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of monsters and heroes, respectively.
+The time complexity is $O((m + n) \log n)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of monsters and heroes, respectively.
 
 <!-- tabs:start -->
 

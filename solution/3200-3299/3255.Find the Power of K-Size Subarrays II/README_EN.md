@@ -103,7 +103,7 @@ Then, we traverse the array $f$ in the range $[k - 1, n)$. If $f[i] \ge k$, we a
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

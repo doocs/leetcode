@@ -80,7 +80,7 @@ tags:
 
 因此，我们可以先将数组 $\textit{nums}$ 进行升序排序，然后对于每个 $\textit{queries[i]}$，我们可以使用二分查找，找到最小的下标 $j$，使得 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$。此时 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ 就是满足条件的子序列的元素和，且该子序列的长度为 $j$。因此，我们可以将 $j$ 加入答案数组中。
 
-时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$ 或 $O(\log n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
+时间复杂度 $O((n + m) \log n)$，空间复杂度 $O(n)$ 或 $O(\log n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -244,7 +244,7 @@ public class Solution {
 
 遍历完下标数组 $idx$ 后，我们即可得到答案数组 $ans$，其中 $ans[i]$ 即为满足 $queries[i]$ 的子序列的长度。
 
-时间复杂度 $O(n \times \log n + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $queries$ 的长度。
+时间复杂度 $O(n \log n + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
 

@@ -105,7 +105,7 @@ Then we iterate through array $\textit{nums1}$. For each element $\textit{nums1}
 
 Finally, if $\textit{ans}$ is still infinity, it means no common element was found, so we return -1; otherwise, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

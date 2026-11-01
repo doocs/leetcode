@@ -75,7 +75,7 @@ The function increases each value in the array by one.
 
 We traverse the array $arr$, for each element $arr[i]$, replace it with $fn(arr[i], i)$. Finally, return the array $arr$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $arr$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

@@ -112,7 +112,7 @@ tags:
 
 We can traverse the array $groups$, and for the current index $i$, if $i=0$ or $groups[i] \neq groups[i - 1]$, we add $words[i]$ to the answer array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $groups$. The space complexity is $O(n)$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $groups$.
 
 <!-- tabs:start -->
 

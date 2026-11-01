@@ -92,7 +92,7 @@ The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1
 
 We can use the Breadth-First Search (BFS) method, using a queue $q$ to store the nodes of each level, and a variable $i$ to record the current level. If $i$ is odd, we reverse the values of the nodes at the current level.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

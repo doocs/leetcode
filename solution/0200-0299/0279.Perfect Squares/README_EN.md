@@ -213,7 +213,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-$f[i][j]$ depends only on $f[i - 1][j]$ and $f[i][j - i^2]$, so the table can be rolled into a 1D array of space $O(n)$. The time complexity stays $O(m \times n)$.
+$f[i][j]$ depends only on $f[i - 1][j]$ and $f[i][j - i^2]$, so the table can be rolled into a 1D array of space $O(n)$. The time complexity stays $O(mn)$.
 
 <!-- tabs:start -->
 

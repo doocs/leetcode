@@ -86,7 +86,7 @@ tags:
 >
 > Count walks from $start$ to $finish$ that spend at most $fuel$. Cities and fuel are modest, but a walk may revisit a city, so we cannot list simple paths.
 >
-> A state is the current city $i$ and remaining fuel $k$. If $k$ cannot even reach the finish, the count is zero; otherwise add one when $i$ is already the finish, then recurse to every other city with the spent distance. Memoization keeps $O(n\cdot fuel)$ states.
+> A state is the current city $i$ and remaining fuel $k$. If $k$ cannot even reach the finish, the count is zero; otherwise add one when $i$ is already the finish, then recurse to every other city with the spent distance. Memoization keeps $O(n fuel)$ states.
 
 <!-- thinking:end -->
 
@@ -101,7 +101,7 @@ The process of calculating the function $dfs(i, k)$ is as follows:
 
 To avoid repeated calculations, we can use memoization.
 
-The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
+The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
 
 <!-- tabs:start -->
 
@@ -286,7 +286,7 @@ Next, we enumerate the remaining fuel $k$ from small to large, and then enumerat
 
 Finally, we return the number of paths to the answer $f[start][fuel]$.
 
-The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
+The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
 
 <!-- tabs:start -->
 

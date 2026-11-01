@@ -69,7 +69,7 @@ The problem requires us to find the minimum difference between the values of any
 
 We can use a recursive method to implement the inorder traversal. During the process, we use a variable $\textit{pre}$ to save the value of the previous node. This way, we can calculate the minimum difference between the values of two adjacent nodes during the traversal.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 
@@ -337,7 +337,7 @@ The minimum difference between any two node values of a binary search tree is th
 
 An explicit stack walks the tree in that order, and $\textit{pre}$ stores the previous value, initially $-\infty$. On entry we push an exit marker and the left child. On exit we update the answer with the current value minus $\textit{pre}$, store the current value in $\textit{pre}$, and push the right child.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

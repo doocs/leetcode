@@ -95,7 +95,7 @@ We take the minimum value of the above three operations as the value of $dfs(i, 
 
 To avoid redundant calculations, we can use memoization to record the return value of $dfs(i, j)$ in a 2D array $f$. If $f[i][j]$ is not equal to $-1$, it means that we have already calculated it, so we can directly return $f[i][j]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the strings.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the strings.
 
 <!-- tabs:start -->
 

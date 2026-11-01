@@ -84,7 +84,7 @@ tags:
 
 因此，我们只需要对两个数组进行排序，然后判断排序后的数组是否相等即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $arr$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -211,7 +211,7 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 > **思考**
 >
-> 方法一花费 $O(n\log n)$。值域仅为 $1$～ $1000$，比较频次即可，线性判定。
+> 方法一花费 $O(n \log n)$。值域仅为 $1$～ $1000$，比较频次即可，线性判定。
 
 <!-- thinking:end -->
 

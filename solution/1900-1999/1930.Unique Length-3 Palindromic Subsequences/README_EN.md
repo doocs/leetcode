@@ -96,7 +96,7 @@ Since the string contains only lowercase letters, we can directly enumerate all 
 
 After enumerating all pairs, we get the answer.
 
-The time complexity is $O(n \times |\Sigma|)$, where $n$ is the length of the string and $\Sigma$ is the size of the character set. In this problem, $|\Sigma| = 26$. The space complexity is $O(|\Sigma|)$ or $O(1)$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$ or $O(1)$, where $n$ is the length of the string and $\Sigma$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

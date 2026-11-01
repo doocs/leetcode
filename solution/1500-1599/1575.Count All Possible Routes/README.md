@@ -89,7 +89,7 @@ tags:
 >
 > 从 $start$ 出发、油量不超过 $fuel$，统计到达 $finish$ 的路径数，中途可停留。城市数与油量都不大，但路径可反复经过同一城，不能按简单路径枚举。
 >
-> 状态只需当前城市 $i$ 与剩余油量 $k$。若 $k$ 已不够直达终点则无解；否则当前若已在终点先计入一条「到此为止」的路径，再枚举下一城 $j$ 并递归 $k-|locations[i]-locations[j]|$。记忆化后状态数为 $O(n\cdot fuel)$。
+> 状态只需当前城市 $i$ 与剩余油量 $k$。若 $k$ 已不够直达终点则无解；否则当前若已在终点先计入一条「到此为止」的路径，再枚举下一城 $j$ 并递归 $k-|locations[i]-locations[j]|$。记忆化后状态数为 $O(n fuel)$。
 
 <!-- thinking:end -->
 
@@ -104,7 +104,7 @@ tags:
 
 为了避免重复计算，我们可以使用记忆化搜索。
 
-时间复杂度 $O(n^2 \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别是数组 $locations$ 和 $fuel$ 的大小。
+时间复杂度 $O(n^2m)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别是数组 $locations$ 和 $fuel$ 的大小。
 
 <!-- tabs:start -->
 
@@ -289,7 +289,7 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 最后，我们返回答案路径数 $f[start][fuel]$ 即可。
 
-时间复杂度 $O(n^2 \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别是数组 $locations$ 和 $fuel$ 的大小。
+时间复杂度 $O(n^2m)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别是数组 $locations$ 和 $fuel$ 的大小。
 
 <!-- tabs:start -->
 

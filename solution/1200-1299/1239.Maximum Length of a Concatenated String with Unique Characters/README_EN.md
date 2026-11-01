@@ -93,7 +93,7 @@ Then we traverse the array $\textit{arr}$. For each string $t$, we use an intege
 
 Finally, we return the answer.
 
-The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string array, and $L$ is the sum of the lengths of all strings in the array.
+The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$, where $n$ is the length of the string array, and $L$ is the sum of the lengths of all strings in the array.
 
 <!-- tabs:start -->
 

@@ -78,7 +78,7 @@ The indices 0 and 1 both violate the condition, so return false.
 
 We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the string $\textit{num}$. Then, we enumerate each digit in the string $\textit{num}$ and check if its occurrence count equals the digit itself. If this condition is satisfied for all digits, we return $\text{true}$; otherwise, we return $\text{false}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $\textit{num}$, and $|\Sigma|$ is the range of possible digit values, which is $10$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{num}$, and $|\Sigma|$ is the range of possible digit values, which is $10$.
 
 <!-- tabs:start -->
 

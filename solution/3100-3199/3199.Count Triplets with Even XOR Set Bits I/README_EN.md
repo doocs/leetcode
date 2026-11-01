@@ -85,7 +85,7 @@ Then, we enumerate the parity of the number of $1$s in the binary representation
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of arrays `a`, `b`, `c`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays `a`, `b`, `c`.
 
 <!-- tabs:start -->
 

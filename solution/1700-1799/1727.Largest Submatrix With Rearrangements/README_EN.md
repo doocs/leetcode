@@ -89,7 +89,7 @@ Next, we sort each row of the updated matrix. Then we traverse each row and comp
 
 For a given row, let the $k$-th largest element be $\text{val}_k$, where $k \geq 1$. Then there are at least $k$ elements in that row no less than $\text{val}_k$, forming an all-$1$ submatrix with area $\text{val}_k \times k$. We iterate through the elements of the row from largest to smallest, take the maximum value of $\text{val}_k \times k$, and update the answer.
 
-The time complexity is $O(m \times n \times \log n)$ and the space complexity is $O(\log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \log n)$, and the space complexity is $O(\log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

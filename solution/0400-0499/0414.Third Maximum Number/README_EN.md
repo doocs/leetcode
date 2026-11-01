@@ -96,7 +96,7 @@ Then, we iterate through each number in the array. For each number:
 
 Finally, if the value of $m_3$ has not been updated, it means that there is no third largest number in the array, so we return $m_1$. Otherwise, we return $m_3$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 

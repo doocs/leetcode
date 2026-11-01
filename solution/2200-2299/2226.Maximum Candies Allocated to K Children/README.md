@@ -74,7 +74,7 @@ tags:
 
 我们定义二分查找的左边界 $l = 0$，右边界 $r = \max(\text{candies})$，其中 $\max(\text{candies})$ 表示数组 $\text{candies}$ 中的最大值。在二分查找的过程中，我们每次取 $v$ 的中间值 $v = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$，然后计算每个小孩能分到的糖果数 $v$ 的总和，如果总和大于等于 $k$，则说明每个小孩能分到 $v$ 颗糖果，此时我们更新左边界 $l = v$，否则我们更新右边界 $r = v - 1$。最终，当 $l = r$ 时，我们找到了最大的 $v$。
 
-时间复杂度 $O(n \times \log M)$，其中 $n$ 表示数组 $\text{candies}$ 的长度，而 $M$ 表示数组 $\text{candies}$ 中的最大值。空间复杂度 $O(1)$。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(1)$。其中 $n$ 表示数组 $\text{candies}$ 的长度，而 $M$ 表示数组 $\text{candies}$ 中的最大值。
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ We can repeatedly perform modulo and division operations on $n$. Each modulo res
 
 Finally, we reverse the answer to arrange it in descending order.
 
-The time complexity is $O(\log n)$, where $n$ is the input positive integer. The space complexity is $O(\log n)$ for storing the answer.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the input positive integer.
 
 <!-- tabs:start -->
 

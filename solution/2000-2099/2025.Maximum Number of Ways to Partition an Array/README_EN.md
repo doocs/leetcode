@@ -100,7 +100,7 @@ If we modify the array $nums$, we can enumerate each modification position $i$, 
 
 Finally, we return $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -97,7 +97,7 @@ We use a hash set $\textit{s}$ to record all distinct three-digit even numbers, 
 
 Finally, we return the size of the hash set.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the array $\textit{digits}$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$, where $n$ is the length of the array $\textit{digits}$.
 
 <!-- tabs:start -->
 

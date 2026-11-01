@@ -88,7 +88,7 @@ We define a function $\textit{dfs}(i, j)$, which performs DFS traversal starting
 
 In the main function, we traverse the entire grid. For each unvisited position $(i, j)$, if its value is greater than 0, we call $\textit{dfs}(i, j)$ to calculate the total value of that island. If the total value is divisible by $k$, we increment the answer by one.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -276,7 +276,7 @@ We walk each island with an explicit stack. Starting from a still-positive cell 
 
 The main loop scans the grid. Every remaining positive cell starts one walk, and the answer increases when $s \bmod k = 0$. The sum is stored in a 64-bit integer so that $10^5$ cells of value up to $10^6$ do not overflow.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

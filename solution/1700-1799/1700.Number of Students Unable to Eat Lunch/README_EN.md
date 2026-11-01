@@ -96,7 +96,7 @@ Then we traverse the sandwiches. If we cannot find a student who likes this sand
 
 If the traversal is over, it means that all students have sandwiches to eat, and we return $0$.
 
-The time complexity is $O(n)$, where $n$ is the number of sandwiches. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of sandwiches.
 
 <!-- tabs:start -->
 

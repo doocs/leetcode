@@ -69,7 +69,7 @@ If the string $s$ does not contain the substring `"01"`, then $s$ can only be of
 
 Therefore, we only need to check whether the string $s$ contains the substring `"01"`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

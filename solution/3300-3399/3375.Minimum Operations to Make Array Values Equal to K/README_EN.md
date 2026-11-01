@@ -103,7 +103,7 @@ According to the problem description, we can choose the second largest value in 
 
 We iterate through the array $\textit{nums}$. For the current number $x$, if $x < k$, we directly return -1. Otherwise, we add $x$ to the hash table and update the minimum value $\textit{mi}$ in the current array. Finally, we return the size of the hash table minus 1 (if $\textit{mi} = k$, we need to subtract 1).
 
-Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ tags:
 
 最后，我们只需要调用 $\textit{dfs}(0)$，返回答案数组即可。
 
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -335,7 +335,7 @@ public class Solution {
 
 枚举结束后，我们返回答案数组即可。
 
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

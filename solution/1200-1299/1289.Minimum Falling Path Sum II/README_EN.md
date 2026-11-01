@@ -81,7 +81,7 @@ The answer is $\min_{0 \leq j < n} f[n][j]$. After rolling, only the last row re
 
 $f[i][j]$ depends only on the previous row, so we keep two arrays $f$ and $g$ of length $n$.
 
-The time complexity is $O(n^3)$ and the space complexity is $O(n)$, where $n$ is the number of rows.
+The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ is the number of rows.
 
 <!-- tabs:start -->
 

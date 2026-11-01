@@ -94,7 +94,7 @@ When calling the `resetCell` method, we remove the cell reference from the hash 
 
 When calling the `getValue` method, we split the formula into two cell references, calculate their values, and then return their sum.
 
-The time complexity is $O(L)$, and the space complexity is $O(L)$. Where $L$ is the length of the formula.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the length of the formula.
 
 <!-- tabs:start -->
 

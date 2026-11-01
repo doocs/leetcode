@@ -83,7 +83,7 @@ Then we iterate through $\textit{cnt}$. For each element $x$, we add it to the 0
 
 Finally, we return the answer list.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

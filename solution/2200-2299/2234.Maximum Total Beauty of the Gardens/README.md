@@ -110,7 +110,7 @@ tags:
 
 否则，我们在 $[0,..n-x-1]$ 范围内，二分查找可以把不完善花园变成完善花园的最大下标。记下标为 $l$，那么所需要种植的花的数量为 $\textit{cost} = \textit{flowers}[l] \times (l + 1) - s[l + 1]$，其中 $s[i]$ 是 $\textit{flowers}$ 数组中前 $i$ 个数之和。如果此时还能提升最小值的大小，我们算出能提升的幅度 $\frac{\textit{newFlowers} - \textit{cost}}{l + 1}$，并且保证最终的最小值不超过 $\textit{target}-1$。即最小值 $y = \min(\textit{flowers}[l] + \frac{\textit{newFlowers} - \textit{cost}}{l + 1}, \textit{target} - 1)$。那么此时花园的美丽值为 $x \times \textit{full} + y \times \textit{partial}$。答案为所有美丽值的最大值。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{flowers}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{flowers}$ 的长度。
 
 <!-- tabs:start -->
 

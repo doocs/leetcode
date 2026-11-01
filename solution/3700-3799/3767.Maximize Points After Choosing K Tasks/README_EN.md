@@ -109,7 +109,7 @@ Then, we calculate the score increase for each task if it were completed using t
 
 Next, we select the first $k$ tasks to be completed using technique 1 and add their score differences to the total score. For the remaining tasks, if a task can increase the score by using technique 1 (i.e., $\text{diff}[i] \geq 0$), we also choose to complete it using technique 1.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of tasks.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of tasks.
 
 <!-- tabs:start -->
 

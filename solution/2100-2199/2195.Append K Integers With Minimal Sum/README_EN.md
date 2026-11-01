@@ -79,7 +79,7 @@ Then we sort the array. For any two adjacent elements $a$ and $b$ in the array, 
 
 Therefore, we traverse the adjacent element pairs $(a, b)$ in the array from small to large. For each adjacent element pair, we calculate the number of integers $m$ in the interval $[a+1, b-1]$. The sum of these $m$ integers is $\frac{m \times (a+1 + a+m)}{2}$. We add this sum to the answer and subtract $m$ from $k$. If $k$ is reduced to $0$, we can stop the traversal and return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

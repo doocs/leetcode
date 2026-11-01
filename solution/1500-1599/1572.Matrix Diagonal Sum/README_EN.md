@@ -82,7 +82,7 @@ We can traverse each row $\textit{row}[i]$ of the matrix. For each row, we calcu
 
 After traversing all rows, we get the answer.
 
-The time complexity is $O(n)$, where $n$ is the number of rows in the matrix. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of rows in the matrix.
 
 <!-- tabs:start -->
 

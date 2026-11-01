@@ -89,7 +89,7 @@ We define $f[i][j]$ as the minimum number of operations to turn the first $i$ nu
 
 We can enumerate all cases where the $i$th number is changed to $j+1$, and then take the minimum value. Here, we can use a rolling array to optimize the space complexity.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

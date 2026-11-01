@@ -107,7 +107,7 @@ To maximize the lexicographical order, we greedily use the heaviest letters firs
 
 Note that $t \in \{0, 1\}$ whenever $j \lt 25$, so only $\texttt{'z'}$ can appear consecutively in the answer, and $\texttt{"zz"}$ cannot be merged any further. Therefore the resulting string is valid and lexicographically largest.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$. The space for the answer is not counted.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$. The space for the answer is not counted.
 
 <!-- tabs:start -->
 

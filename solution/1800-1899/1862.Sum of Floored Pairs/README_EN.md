@@ -70,7 +70,7 @@ We calculate the floor of the division for every pair of indices in the array th
 >
 > We need $\sum_{i,j}\lfloor nums[i]/nums[j]\rfloor$. Pair enumeration is $O(n^2)$ and too slow for $n\le 10^5$.
 >
-> Values are at most $10^5$, so build a prefix of frequencies. For each denominator $y$ and quotient $d$, the count of numerators in $[dy,dy+y)$ is a prefix difference, multiplied by $cnt[y]\cdot d$. The harmonic enumeration is $O(M\log M)$.
+> Values are at most $10^5$, so build a prefix of frequencies. For each denominator $y$ and quotient $d$, the count of numerators in $[dy,dy+y)$ is a prefix difference, multiplied by $cnt[y]\cdot d$. The harmonic enumeration is $O(M \log M)$.
 
 <!-- thinking:end -->
 
@@ -78,7 +78,7 @@ First, we count the occurrences of each element in the array $nums$ and record t
 
 Next, we enumerate the denominator $y$ and the quotient $d$. Using the prefix sum array, we can calculate the count of the numerator $s[\min(mx, d \times y + y - 1)] - s[d \times y - 1]$, where $mx$ represents the maximum value in the array $nums$. Then, we multiply the count of the numerator by the count of the denominator $cnt[y]$, and then multiply by the quotient $d$. This gives us the value of all fractions that meet the conditions. By summing these values, we can get the answer.
 
-The time complexity is $O(M \times \log M)$, and the space complexity is $O(M)$. Here, $M$ is the maximum value in the array $nums$.
+The time complexity is $O(M \log M)$, and the space complexity is $O(M)$, where $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
 

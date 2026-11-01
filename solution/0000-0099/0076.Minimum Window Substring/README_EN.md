@@ -89,7 +89,7 @@ We traverse the string $s$ from left to right. For the current character $s[r]$:
 
 After the traversal, if no minimum window substring is found, return an empty string. Otherwise, return $s[k:k+\textit{mi}]$.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$. Here, $m$ and $n$ are the lengths of strings $s$ and $t$, respectively; and $|\Sigma|$ is the size of the character set, which is $128$ in this problem.
+The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of strings $s$ and $t$, respectively; and $|\Sigma|$ is the size of the character set, which is $128$ in this problem.
 
 <!-- tabs:start -->
 

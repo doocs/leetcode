@@ -124,7 +124,7 @@ $$
 
 Finally, we return $f[n][k]$, which is the minimum possible value of the maximum XOR when partitioning the entire array into $k$ subarrays.
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the length of the array.
+The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

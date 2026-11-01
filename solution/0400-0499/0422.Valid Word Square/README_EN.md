@@ -90,7 +90,7 @@ We observe that if $words[i][j] \neq words[j][i]$, we can directly return `false
 
 Therefore, we only need to iterate through each row, and then check whether each row satisfies $words[i][j] = words[j][i]$. Note that if the index is out of bounds, we also directly return `false`.
 
-The time complexity is $O(n^2)$, where $n$ is the length of `words`. The space complexity is $O(1)`.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of `words`.
 
 <!-- tabs:start -->
 

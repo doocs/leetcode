@@ -80,7 +80,7 @@ s2 = "bab"
 s1 + s1 = "abaaba"
 ```
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of string $s1$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s1$.
 
 <!-- tabs:start -->
 

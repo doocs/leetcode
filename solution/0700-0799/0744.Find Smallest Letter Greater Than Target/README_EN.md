@@ -82,7 +82,7 @@ We define the left boundary of the binary search as $l = 0$, and the right bound
 
 Finally, we return $letters[l \mod n]$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of `letters`. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of `letters`.
 
 <!-- tabs:start -->
 

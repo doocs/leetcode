@@ -97,7 +97,7 @@ Finally, $f[n]$ is the number of ways to make up amount $n$ using coins $1, 2, 6
 
 Note the modulus operation for the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the amount.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the amount.
 
 <!-- tabs:start -->
 
@@ -250,7 +250,7 @@ We can start by preprocessing the number of ways to make up every amount from $1
 
 Note the modulus operation for the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the amount.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the amount.
 
 <!-- tabs:start -->
 

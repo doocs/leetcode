@@ -90,7 +90,7 @@ We only need to traverse all odd indices $1, 3, 5, \cdots$ of the string $s$. If
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -112,7 +112,7 @@ Before recursing into the right subtree, we calculate the depth from the root no
 
 Finally, we return the result values corresponding to each query node.
 
-The time complexity is $O(n+m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the tree and the number of queries, respectively.
+The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the number of nodes in the tree and the number of queries, respectively.
 
 <!-- tabs:start -->
 

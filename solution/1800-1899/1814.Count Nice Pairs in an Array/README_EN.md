@@ -67,7 +67,7 @@ tags:
 
 > **Thinking**
 >
-> A nice pair satisfies $nums[i]+rev(nums[j])=nums[j]+rev(nums[i])$. Checking every pair is $O(n^2\log M)$. With $n\le 10^5$ this will not pass.
+> A nice pair satisfies $nums[i]+rev(nums[j])=nums[j]+rev(nums[i])$. Checking every pair is $O(n^2 \log M)$. With $n\le 10^5$ this will not pass.
 >
 > Rearrangement yields $nums[i]-rev(nums[i])=nums[j]-rev(nums[j])$. Count each difference; the answer is $\sum C(v,2)$ over those frequencies, modulo $10^9+7$.
 
@@ -79,7 +79,7 @@ Therefore, we can use $nums[i] - rev(nums[i])$ as the key of a hash table and co
 
 Note that we need to perform modulo operation on the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the $nums$ array and the maximum value in the $nums$ array, respectively. The space complexity is $O(n)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the $nums$ array and the maximum value in the $nums$ array, respectively.
 
 <!-- tabs:start -->
 

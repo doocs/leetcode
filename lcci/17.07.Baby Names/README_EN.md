@@ -55,7 +55,7 @@ Next, we traverse each name in the set $s$. If the name has not been visited, we
 
 After traversing all names, the answer array is what we seek.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the name array and the synonym array, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the name array and the synonym array, respectively.
 
 <!-- tabs:start -->
 

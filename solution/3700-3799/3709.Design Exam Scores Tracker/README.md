@@ -93,7 +93,7 @@ examTracker.totalScore(2, 5); // 在时间 2 和时间 5 之间，Alice 参加�
 
 对于每次调用 $\texttt{totalScore}(startTime, endTime)$，我们使用二分查找在 $\textit{times}$ 中找到第一个大于等于 $startTime$ 的位置 $l$ 和第一个大于 $endTime$ 的位置 $r$，然后返回 $\textit{pre}[r-1] - \textit{pre}[l-1]$ 即可。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是考试次数。空间复杂度 $O(n)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(n)$。其中 $n$ 是考试次数。
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ We define a 3D array $f$, where $f[i][j][0]$ and $f[i][j][1]$ represent the mini
 
 Finally, we need to return $f[m - 1][n - 1][1]$ modulo $10^9 + 7$. If $f[m - 1][n - 1][1]$ is less than $0$, return $-1$.
 
-The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

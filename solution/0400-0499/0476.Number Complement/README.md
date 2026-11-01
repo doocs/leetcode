@@ -84,7 +84,7 @@ tags:
 
 最后，将 $\textit{num}$ 与上述构造的二进制数进行异或运算，即可得到答案。
 
-时间复杂度 $O(\log \textit{num})$，其中 $\textit{num}$ 为输入的整数。空间复杂度 $O(1)$。
+时间复杂度 $O(\log \textit{num})$，空间复杂度 $O(1)$。其中 $\textit{num}$ 为输入的整数。
 
 <!-- tabs:start -->
 

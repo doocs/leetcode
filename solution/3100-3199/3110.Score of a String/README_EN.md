@@ -76,7 +76,7 @@ tags:
 
 We directly traverse the string $s$, calculating the sum of the absolute differences of the ASCII codes of adjacent characters.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

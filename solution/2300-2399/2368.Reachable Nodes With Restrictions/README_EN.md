@@ -89,7 +89,7 @@ Next, we define a depth-first search function $dfs(i)$, which represents the num
 
 Finally, we return $dfs(0)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -256,7 +256,7 @@ Next, we use breadth-first search to traverse the entire graph and count the num
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -431,7 +431,7 @@ Next, an explicit stack walks from node $0$. When node $i$ is popped and still u
 
 Finally, we return the number of nodes counted.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

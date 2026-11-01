@@ -278,7 +278,7 @@ To avoid repeated searches, we use an array $\textit{f}$ of length $2^n$ to reco
 - `-1`: indicates that the current state cannot be partitioned into $k$ subsets;
 - `1`: indicates that the current state can be partitioned into $k$ subsets.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ represents the length of the array $\textit{nums}$. For each state, we need to traverse the array $\textit{nums}$, which has a time complexity of $O(n)$. The total number of states is $2^n$, so the overall time complexity is $O(n \times 2^n)$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ represents the length of the array $\textit{nums}$. For each state, we need to traverse the array $\textit{nums}$, which has a time complexity of $O(n)$. The total number of states is $2^n$, so the overall time complexity is $O(n 2^n)$.
 
 <!-- tabs:start -->
 
@@ -509,7 +509,7 @@ We enumerate the states $i$ in the range $[0, 2^n]$. For each state $i$, if $f[i
 
 Finally, we return $f[2^n - 1]$.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ represents the length of the array $\textit{nums}$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

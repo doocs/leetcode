@@ -67,7 +67,7 @@ Iterate through the string, adding the character at the right boundary to the ha
 
 Finally, return the length of the string minus the length of the left boundary.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

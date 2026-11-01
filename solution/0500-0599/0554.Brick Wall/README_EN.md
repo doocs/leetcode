@@ -73,7 +73,7 @@ Traverse each row, and for each brick in the current row, add it to the current 
 
 Finally, we traverse $\textit{cnt}$ to find the prefix sum that appears the most times, which represents the situation where the least number of bricks are crossed. The final answer is the number of rows in the brick wall minus the number of bricks crossed.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of rows and the number of bricks in the brick wall, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of rows and the number of bricks in the brick wall, respectively.
 
 <!-- tabs:start -->
 

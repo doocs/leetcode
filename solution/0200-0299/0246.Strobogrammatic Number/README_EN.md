@@ -72,7 +72,7 @@ We define an array $d$, where $d[i]$ represents the number after rotating the di
 
 We define two pointers $i$ and $j$, pointing to the left and right ends of the string, respectively. Then we continuously move the pointers towards the center, checking whether $d[num[i]]$ and $num[j]$ are equal. If they are not equal, it means that the string is not a strobogrammatic number, and we can directly return $false$. If $i > j$, it means that we have traversed the entire string, and we return $true$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

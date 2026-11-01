@@ -95,7 +95,7 @@ After traversing all columns, the answer is the number of columns that need to b
 
 This greedy strategy is optimal because lexicographical order is determined by the first different column from left to right. If the current column is not deleted and causes incorrect ordering for some string pair, then regardless of subsequent columns, this error cannot be corrected, so the current column must be deleted. If the current column is not deleted and does not cause incorrect ordering for any string pair, then keeping the current column will not affect the final lexicographical ordering relationship.
 
-The time complexity is $O(n \times m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the length of the string array and the length of each string, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the string array and the length of each string, respectively.
 
 <!-- tabs:start -->
 

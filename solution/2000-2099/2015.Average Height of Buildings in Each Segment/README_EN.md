@@ -116,7 +116,7 @@ Then, we traverse the hash table $\textit{d}$. For each position, if $\textit{m}
 
 Finally, we return the result set.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of buildings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of buildings.
 
 <!-- tabs:start -->
 

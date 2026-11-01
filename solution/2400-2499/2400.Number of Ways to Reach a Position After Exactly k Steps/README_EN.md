@@ -85,7 +85,7 @@ The calculation method of the function $dfs(i, j)$ is as follows:
 
 To avoid repeated calculations, we use memorization search, that is, we use a two-dimensional array $f$ to record the result of the function $dfs(i, j)$. When the function $dfs(i, j)$ is called, if $f[i][j]$ is not $-1$, return $f[i][j]$ directly, otherwise calculate the value of $f[i][j]$, and return $f[i][j]$.
 
-The time complexity is $O(k^2)$, and the space complexity is $O(k^2)$. Here, $k$ is the number of steps given in the problem.
+The time complexity is $O(k^2)$, and the space complexity is $O(k^2)$, where $k$ is the number of steps given in the problem.
 
 <!-- tabs:start -->
 

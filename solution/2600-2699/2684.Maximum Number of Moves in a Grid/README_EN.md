@@ -85,7 +85,7 @@ Next, we start from the first column and traverse column by column. For each col
 
 Finally, if we have traversed all the columns, it means that we can move to the last column, so we return $n - 1$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

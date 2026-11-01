@@ -71,7 +71,7 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 We can enumerate each bit of the binary representation of $a$, $b$, and $c$, denoted as $x$, $y$, and $z$ respectively. If the bitwise OR operation result of $x$ and $y$ is different from $z$, we then check if both $x$ and $y$ are $1$. If so, we need to flip twice, otherwise, we only need to flip once. We accumulate all the required flip times.
 
-The time complexity is $O(\log M)$, where $M$ is the maximum value of the numbers in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M$ is the maximum value of the numbers in the problem.
 
 <!-- tabs:start -->
 

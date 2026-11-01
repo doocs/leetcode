@@ -98,7 +98,7 @@ We traverse the expression `expression` from left to right. For each character $
 
 After traversing the expression `expression`, there is only one character left in the stack. If it is `'t'`, return `true`, otherwise return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the expression `expression`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the expression `expression`.
 
 <!-- tabs:start -->
 

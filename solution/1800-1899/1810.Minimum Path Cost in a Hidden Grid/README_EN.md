@@ -127,7 +127,7 @@ We observe that the grid size is $m \times n$, where $m, n \leq 100$. Therefore,
 
 Next, we can use the heap-optimized Dijkstra algorithm to calculate the minimum cost path from the starting point $(sx, sy)$ to the target $\textit{target}$. We use a priority queue to store the current path cost and coordinates, and use a 2D array $\textit{dist}$ to record the minimum cost from the starting point to each cell. When we pop a node from the priority queue, if that node is the target, we return the current path cost as the answer. If the path cost of that node is greater than the value recorded in $\textit{dist}$, we skip that node. Otherwise, we traverse the four neighbors of that node. If a neighbor is reachable and the path cost to reach the neighbor through this node is smaller, we update the neighbor's path cost and add it to the priority queue.
 
-The time complexity is $O(m \times n \log(m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 

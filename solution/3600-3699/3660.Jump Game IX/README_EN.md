@@ -109,7 +109,7 @@ The specific steps are as follows:
 4. Next, traverse the array from right to left. For each position $i$, if $\textit{preMax}[i] > \textit{sufMin}$, it means we can jump from $i$ to the position where $\textit{preMax}$ is located, then jump to the position where $\textit{sufMin}$ is located, and finally jump to $i + 1$. Therefore, the numbers that can be reached from $i + 1$ can also be reached from $i$, so $\textit{ans}[i] = \textit{ans}[i + 1]$; otherwise update to $\textit{preMax}[i]$. Then update $\textit{sufMin}$.
 5. Finally return the result array $\textit{ans}$.
 
-Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

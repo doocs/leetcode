@@ -65,7 +65,7 @@ We can count the number of uppercase letters in the string, and then determine w
 - If the number of uppercase letters is 1 and the first letter is an uppercase letter, then return `true`.
 - Otherwise, return `false`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
 

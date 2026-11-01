@@ -75,7 +75,7 @@ Similarly, if $s[i + k] \gt s[j + k]$, it means that the dictionary order of $s[
 
 Finally, we return the suffix substring starting from $i$, that is, $s[i,..,n-1]$.
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

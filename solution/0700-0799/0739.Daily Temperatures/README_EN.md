@@ -64,7 +64,7 @@ We traverse the array $\textit{temperatures}$ from right to left, maintaining a 
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{temperatures}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{temperatures}$.
 
 <!-- tabs:start -->
 

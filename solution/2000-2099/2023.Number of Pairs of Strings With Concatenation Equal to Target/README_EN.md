@@ -90,7 +90,7 @@ tags:
 
 Traverse the array `nums`, for each $i$, enumerate all $j$, if $i \neq j$ and $nums[i] + nums[j] = target$, then increment the answer by one.
 
-The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n^2m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
 
 <!-- tabs:start -->
 
@@ -177,7 +177,7 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 We can use a hash table to count the occurrence of each string in the array `nums`, then traverse all prefixes and suffixes of the string `target`. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.
 
-The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
+The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
 
 <!-- tabs:start -->
 

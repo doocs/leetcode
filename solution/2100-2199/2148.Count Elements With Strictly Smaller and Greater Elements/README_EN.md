@@ -71,7 +71,7 @@ Since there are two elements with the value 3, in total there are 2 elements hav
 
 According to the problem description, we can first find the minimum value $\textit{mi}$ and the maximum value $\textit{mx}$ of the array $\textit{nums}$. Then, traverse the array $\textit{nums}$ and count the number of elements that satisfy $\textit{mi} < x < \textit{mx}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

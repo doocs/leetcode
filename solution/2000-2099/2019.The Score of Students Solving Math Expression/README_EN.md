@@ -128,7 +128,7 @@ The possible values of the results of all digit operations in the string $s$ are
 
 Finally, we count the answer. We use an array $cnt$ to count the number of times each answer appears in the answer array $answers$. If the answer is equal to $x$, then this student gets $5$ points, otherwise if the answer is in $f[0][m-1]$, then this student gets $2$ points. Traverse $cnt$ to count the answer.
 
-The time complexity is $O(n^3 \times M^2)$, and the space complexity is $O(n^2 \times M^2)$. Here, $M$ is the maximum possible value of the answer, and $n$ is the number of digits in the length of the string $s$.
+The time complexity is $O(n^3M^2)$, and the space complexity is $O(n^2M^2)$, where $M$ is the maximum possible value of the answer, and $n$ is the number of digits in the length of the string $s$.
 
 <!-- tabs:start -->
 

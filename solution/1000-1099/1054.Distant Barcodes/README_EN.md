@@ -66,7 +66,7 @@ First, we use a hash table or array $cnt$ to count the number of occurrences of 
 
 Next, we create an answer array $ans$ of length $n$. We traverse the sorted $barcodes$, and sequentially fill the elements into the even index positions $0, 2, 4, \cdots$ of the answer array. Then, we fill the remaining elements into the odd index positions $1, 3, 5, \cdots$ of the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Where $n$ and $M$ are the length of the array $barcodes$ and the maximum value in the array $barcodes$, respectively.
+The time complexity is $O(n \log n)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length of the array $barcodes$ and the maximum value in the array $barcodes$, respectively.
 
 <!-- tabs:start -->
 

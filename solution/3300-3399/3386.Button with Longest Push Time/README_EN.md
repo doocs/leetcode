@@ -97,7 +97,7 @@ Next, we start traversing the array $\textit{events}$ from index $k = 1$. For ea
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{events}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{events}$.
 
 <!-- tabs:start -->
 

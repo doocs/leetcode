@@ -93,7 +93,7 @@ tags:
 
 我们可以枚举子序列的最后一个元素，假设它是 $\textit{nums}[i]$，那么子序列的第一个元素可以是 $\textit{nums}[j]$，其中 $j \leq i - m + 1$。因此，我们用两个变量 $\textit{mi}$ 和 $\textit{mx}$ 分别维护前缀最小值和最大值，遍历到 $\textit{nums}[i]$ 时，更新 $\textit{mi}$ 和 $\textit{mx}$，然后计算 $\textit{nums}[i]$ 和 $\textit{mi}$ 以及 $\textit{mx}$ 的乘积，取最大值即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

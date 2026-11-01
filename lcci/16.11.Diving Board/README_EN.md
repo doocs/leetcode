@@ -66,7 +66,7 @@ If $shorter=longer$, we can only use a board with length $longer \times k$, so w
 
 Otherwise, we can use a board with length $shorter \times (k-i) + longer \times i$, where $0 \leq i \leq k$. We enumerate $i$ in the range $[0, k]$, and calculate the corresponding length. For different values of $i$, we will not get the same length, because if $0 \leq i \lt j \leq k$, then the difference in length is $(i - j) \times (longer - shorter) \lt 0$. Therefore, for different values of $i$, we will get different lengths.
 
-The time complexity is $O(k)$, where $k$ is the number of boards. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the number of boards.
 
 <!-- tabs:start -->
 

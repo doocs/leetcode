@@ -73,7 +73,7 @@ tags:
 
 我们可以先对矩阵进行上下翻转，即 $\text{matrix}[i][j]$ 和 $\text{matrix}[n - i - 1][j]$ 进行交换，然后再对矩阵进行主对角线翻转，即 $\text{matrix}[i][j]$ 和 $\text{matrix}[j][i]$ 进行交换。这样就能将 $\text{matrix}[i][j]$ 旋转至 $\text{matrix}[j][n - i - 1]$ 了。
 
-时间复杂度 $O(n^2)$，其中 $n$ 是矩阵的边长。空间复杂度 $O(1)$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 是矩阵的边长。
 
 <!-- tabs:start -->
 

@@ -99,7 +99,7 @@ $$
 
 If $f[n]$ is still $\infty$, it means it is impossible to obtain $n$ as the sum of the first $m$ primes, so return -1; otherwise, return $f[n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(n + M)$, where $M$ is the number of preprocessed primes (here it is $1000$).
+The time complexity is $O(mn)$, and the space complexity is $O(n + M)$, where $M$ is the number of preprocessed primes (here it is $1000$).
 
 <!-- tabs:start -->
 

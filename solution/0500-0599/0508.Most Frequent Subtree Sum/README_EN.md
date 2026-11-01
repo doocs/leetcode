@@ -68,7 +68,7 @@ We can use a hash table $\textit{cnt}$ to record the frequency of each subtree s
 
 Finally, we traverse $\textit{cnt}$ to find all subtree sums that appear most frequently.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -328,7 +328,7 @@ A hash table $\textit{cnt}$ records how often each subtree sum appears. An expli
 
 Finally we keep every subtree sum whose frequency is maximal.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

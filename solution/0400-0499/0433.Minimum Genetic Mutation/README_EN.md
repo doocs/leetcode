@@ -82,7 +82,7 @@ Then, we continuously take out a gene sequence from the queue `q`. If this gene 
 
 If the queue `q` is empty, it means that the gene change cannot be completed, so we return $-1$.
 
-The time complexity is $O(C \times n \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the lengths of the gene sequence and the gene bank respectively, and $C$ is the size of the character set of the gene sequence. In this problem, $C = 4$.
+The time complexity is $O(Cnm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the lengths of the gene sequence and the gene bank respectively, and $C$ is the size of the character set of the gene sequence. In this problem, $C = 4$.
 
 <!-- tabs:start -->
 

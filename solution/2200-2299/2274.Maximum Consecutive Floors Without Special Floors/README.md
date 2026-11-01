@@ -76,7 +76,7 @@ tags:
 
 我们可以将特殊楼层按照升序排序，然后计算相邻两个特殊楼层之间的楼层数，最后再计算第一个特殊楼层和 $\textit{bottom}$ 之间的楼层数，以及最后一个特殊楼层和 $\textit{top}$ 之间的楼层数，取这些楼层数的最大值即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{special}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{special}$ 的长度。
 
 <!-- tabs:start -->
 

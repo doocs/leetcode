@@ -103,7 +103,7 @@ For the current character $c$ being traversed:
 
 After traversal, we need to handle the remaining "ba"s and add several $y$ points.
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

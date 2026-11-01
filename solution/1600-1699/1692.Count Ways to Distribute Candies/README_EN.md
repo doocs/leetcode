@@ -95,7 +95,7 @@ $$
 
 The final answer is $f[n][k]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ and $k$ are the number of candies and bags, respectively.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the number of candies and bags, respectively.
 
 <!-- tabs:start -->
 

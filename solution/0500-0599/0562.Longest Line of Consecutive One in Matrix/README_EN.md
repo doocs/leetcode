@@ -59,7 +59,7 @@ tags:
 
 > **Thinking**
 >
-> The longest run of ones may go horizontally, vertically, or on either diagonal. Extending from every start is $O(mn \cdot (m+n))$.
+> The longest run of ones may go horizontally, vertically, or on either diagonal. Extending from every start is $O(mn(m+n))$.
 >
 > Four tables store the run ending at $(i,j)$ in each direction, taking the cell above, left, upper-left, or upper-right plus one. Zeros stay zero. A one-cell border avoids bounds checks. Track the global maximum.
 
@@ -71,7 +71,7 @@ We define $f[i][j][k]$ to represent the length of the longest consecutive $1$s e
 
 We traverse the matrix, and when we encounter $1$, we update the value of $f[i][j][k]$. For each position $(i, j)$, we only need to update the values in its four directions. Then we update the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -63,7 +63,7 @@ tags:
 
 We can first calculate the number of digits $k$, then calculate the sum $s$ of the $k$th power of each digit, and finally check whether $s$ equals $n$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given number.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
 
 <!-- tabs:start -->
 

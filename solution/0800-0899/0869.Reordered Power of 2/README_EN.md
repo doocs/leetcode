@@ -69,7 +69,7 @@ Define a function $f(x)$ that represents the digit composition of number $x$. We
 
 First, we calculate the digit composition of the given number $n$ as $\text{target} = f(n)$. Then, we enumerate $i$ starting from 1, shifting $i$ left by one bit each time (equivalent to multiplying by 2), until $i$ exceeds $10^9$. For each $i$, we calculate its digit composition and compare it with $\text{target}$. If they are the same, we return $\text{true}$; if the enumeration ends without finding the same digit composition, we return $\text{false}$.
 
-Time complexity $O(\log^2 M)$, space complexity $O(\log M)$. Where $M$ is the upper limit of the input range ${10}^9$ for this problem.
+The time complexity is $O(\log^2 M)$, and the space complexity is $O(\log M)$, where $M$ is the upper limit of the input range ${10}^9$ for this problem.
 
 <!-- tabs:start -->
 

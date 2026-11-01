@@ -84,7 +84,7 @@ Next, we enumerate the end position $i$ of the subarray. The result of the bitwi
 
 Finally, we return the number of elements in the hash table $ans$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

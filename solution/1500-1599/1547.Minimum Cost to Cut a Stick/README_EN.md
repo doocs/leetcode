@@ -87,7 +87,7 @@ Otherwise, we enumerate the length $l$ of the interval, where $l$ is equal to th
 
 Finally, we return $\textit{f}[0][m - 1]$.
 
-The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the modified $\textit{cuts}$ array.
+The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$, where $m$ is the length of the modified $\textit{cuts}$ array.
 
 <!-- tabs:start -->
 
@@ -225,7 +225,7 @@ function minCost(n: number, cuts: number[]): number {
 
 We can also enumerate $i$ from large to small and $j$ from small to large. This ensures that when calculating $f[i][j]$, the states $f[i][k]$ and $f[k][j]$ have already been computed, where $i \lt k \lt j$.
 
-The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the modified $\textit{cuts}$ array.
+The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$, where $m$ is the length of the modified $\textit{cuts}$ array.
 
 <!-- tabs:start -->
 

@@ -100,7 +100,7 @@ tags:
 
 We can use a segment tree to maintain the maximum basket capacity in an interval, which allows us to quickly find the first basket with capacity greater than or equal to the fruit quantity through binary search. If no such basket is found, we increment the answer by one; if found, we set that basket's capacity to zero, indicating that the basket has been used.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{baskets}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{baskets}$.
 
 <!-- tabs:start -->
 

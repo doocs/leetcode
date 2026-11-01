@@ -288,7 +288,7 @@ function findShortestCycle(n: number, edges: number[][]): number {
 
 接下来，我们枚举顶点 $u$，如果从顶点 $u$ 出发，有两条路径都到达了顶点 $v$，说明当前找到了一个环，长度为两条路径的长度之和。我们取所有这样的环的最小值即可。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为数组 $edges$ 的长度以及顶点数。
+时间复杂度 $O(mn)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为数组 $edges$ 的长度以及顶点数。
 
 <!-- tabs:start -->
 

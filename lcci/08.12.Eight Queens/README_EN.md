@@ -81,7 +81,7 @@ Otherwise, we enumerate each column $j$ of the current row. If there is no queen
 
 In the main function, we call $dfs(0)$ to start recursion, and finally return the answer array.
 
-The time complexity is $O(n^2 \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the integer given in the problem.
+The time complexity is $O(n^2n!)$, and the space complexity is $O(n)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

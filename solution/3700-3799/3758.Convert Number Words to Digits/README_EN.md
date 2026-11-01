@@ -121,7 +121,7 @@ Then we traverse the string $s$ from left to right. For each position $i$, we en
 
 We repeat this process until we have traversed the entire string $s$. Finally, we concatenate the digits in the result into a string and return it.
 
-The time complexity is $O(n \times |d|)$ and the space complexity is $O(|d|)$, where $n$ is the length of string $s$ and $|d|$ is the number of digit words.
+The time complexity is $O(n|d|)$, and the space complexity is $O(|d|)$, where $n$ is the length of string $s$ and $|d|$ is the number of digit words.
 
 <!-- tabs:start -->
 

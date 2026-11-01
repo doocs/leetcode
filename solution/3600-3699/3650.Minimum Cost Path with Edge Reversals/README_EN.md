@@ -105,7 +105,7 @@ In each iteration, we extract the node $(d, u)$ with the minimum cost from the p
 
 When we extract node $n-1$, the current $d$ is the minimum total cost from node $0$ to node $n-1$. If the priority queue becomes empty and node $n-1$ has not been extracted, it implies that node $n-1$ is unreachable, so we return -1.
 
-The time complexity is $O(n + m \times \log m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ refer to the number of nodes and edges, respectively.
+The time complexity is $O(n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ refer to the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

@@ -105,7 +105,7 @@ Then scan the queries from back to front:
 - Type $2$: find the last obstacle $pre \le x$. The block can be placed if the maximum gap in $[0, pre]$ or the tail gap $(pre, x]$ is at least $sz$.
 - Type $1$: delete obstacle $x$, and update the gap at its successor $nxt$ to $nxt - pre$.
 
-The time complexity is $O(q \times \log m)$, and the space complexity is $O(m)$, where $q$ is the number of queries and $m$ is the maximum coordinate.
+The time complexity is $O(q \log m)$, and the space complexity is $O(m)$, where $q$ is the number of queries and $m$ is the maximum coordinate.
 
 <!-- tabs:start -->
 

@@ -98,7 +98,7 @@ int gray(x) {
 
 We directly map the integers $[0,..2^n - 1]$ to the corresponding Gray codes to get the answer array.
 
-The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

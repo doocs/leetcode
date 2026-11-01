@@ -85,7 +85,7 @@ To get the maximum value, we need to find the first digit $s[i]$ in the string $
 
 Finally, return the difference between the maximum and minimum values.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Where $n$ is the size of the number $\textit{num}$.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the size of the number $\textit{num}$.
 
 <!-- tabs:start -->
 

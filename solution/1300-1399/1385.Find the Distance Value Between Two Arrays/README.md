@@ -94,7 +94,7 @@ tags:
 
 我们可以先对数组 $\textit{arr2}$ 排序，然后对于数组 $\textit{arr1}$ 中的每个元素 $x$，使用二分查找，找到数组 $\textit{arr2}$ 中第一个大于等于 $x - d$ 的元素，如果元素存在，且小于等于 $x + d$，则说明不符合距离要求，否则说明符合距离要求。我们将符合距离要求的元素个数累加，即为答案。
 
-时间复杂度 $O((m + n) \times \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别是数组 $\textit{arr1}$ 和 $\textit{arr2}$ 的长度。
+时间复杂度 $O((m + n) \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别是数组 $\textit{arr1}$ 和 $\textit{arr2}$ 的长度。
 
 <!-- tabs:start -->
 

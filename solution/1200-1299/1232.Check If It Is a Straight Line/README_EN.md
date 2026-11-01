@@ -70,7 +70,7 @@ tags:
 
 <!-- thinking:end -->
 
-The time complexity is $O(n)$, where $n$ is the length of the `coordinates` array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the `coordinates` array.
 
 <!-- tabs:start -->
 

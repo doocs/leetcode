@@ -90,7 +90,7 @@ For the $i$-th stock, we have two choices:
 
 Finally, return $f[n][\textit{budget}]$.
 
-The time complexity is $O(n \times \textit{budget})$, and the space complexity is $O(n \times \textit{budget})$. Where $n$ is the length of the array.
+The time complexity is $O(n \textit{budget})$, and the space complexity is $O(n \textit{budget})$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

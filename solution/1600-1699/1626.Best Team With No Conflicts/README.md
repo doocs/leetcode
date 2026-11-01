@@ -247,7 +247,7 @@ var bestTeamScore = function (scores, ages) {
 >
 > 方法一枚举前驱是 $O(n^2)$。同一排序下，需要的是「年龄不超过当前值的最大得分」，这是前缀最大值查询。
 >
-> 树状数组按下标维护最大值：查询 $[1,\textit{age}]$ 的最优，再把 $\textit{score}$ 加回去更新该年龄。复杂度降为 $O(n\log m)$。
+> 树状数组按下标维护最大值：查询 $[1,\textit{age}]$ 的最优，再把 $\textit{score}$ 加回去更新该年龄。复杂度降为 $O(n \log m)$。
 
 <!-- thinking:end -->
 
@@ -257,7 +257,7 @@ var bestTeamScore = function (scores, ages) {
 
 最后，我们返回得分的最大值即可。
 
-时间复杂度 $O(n \times (\log n + \log m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为球员的数量和球员的年龄的最大值。
+时间复杂度 $O(n(\log n + \log m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为球员的数量和球员的年龄的最大值。
 
 <!-- tabs:start -->
 

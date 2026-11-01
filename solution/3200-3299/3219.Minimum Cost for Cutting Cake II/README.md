@@ -108,7 +108,7 @@ tags:
 >
 > 题意与切蛋糕 I 相同，但 $m,n\le 10^5$，指数或平方 DP 不再可行，必须沿用「大费用先切」的线性合并。
 >
-> 仍将横竖费用降序，双指针每次切当前更大的一边并累加 $h$ 或 $v$ 倍费用。排序 $O((m+n)\log(m+n))$，之后线性，正好匹配本题规模。
+> 仍将横竖费用降序，双指针每次切当前更大的一边并累加 $h$ 或 $v$ 倍费用。排序 $O((m+n) \log(m+n))$，之后线性，正好匹配本题规模。
 
 <!-- thinking:end -->
 
@@ -120,7 +120,7 @@ tags:
 
 最后，当 $i$ 和 $j$ 都到达末尾时，返回总开销即可。
 
-时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 $\textit{horizontalCut}$ 和 $\textit{verticalCut}$ 的长度。
+时间复杂度 $O(m \log m + n \log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 $\textit{horizontalCut}$ 和 $\textit{verticalCut}$ 的长度。
 
 <!-- tabs:start -->
 

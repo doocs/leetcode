@@ -89,7 +89,7 @@ Since friend 0 sat on chair 2, we return 2.
 >
 > A min-heap of idle indices and a min-heap of $(\textit{leaving},\textit{chair})$ handle reuse. On arrival we free every expired chair, then pop the smallest idle index.
 >
-> We stop when the target friend is seated. Sorting plus heaps is $O(n\log n)$.
+> We stop when the target friend is seated. Sorting plus heaps is $O(n \log n)$.
 
 <!-- thinking:end -->
 
@@ -99,7 +99,7 @@ We use a min-heap $\textit{idle}$ to store the currently available chair numbers
 
 We iterate through each friend's arrival time, leaving time, and index. For each friend, we first remove all friends from $\textit{busy}$ whose leaving time is less than or equal to the current friend's arrival time, and add their chair numbers back to $\textit{idle}$. Then we pop a chair number from $\textit{idle}$, assign it to the current friend, and add $(\textit{leaving}, \textit{chair})$ to $\textit{busy}$. If the current friend's index is equal to $\textit{targetFriend}$, we return the assigned chair number.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of friends.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of friends.
 
 <!-- tabs:start -->
 

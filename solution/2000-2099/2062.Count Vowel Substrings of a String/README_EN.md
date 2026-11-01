@@ -86,7 +86,7 @@ tags:
 
 We can enumerate the left endpoint $i$ of the substring. For the current left endpoint, maintain a hash table to record the vowels that appear in the current substring. Then enumerate the right endpoint $j$. If the character at the current right endpoint is not a vowel, break the loop. Otherwise, add the character at the current right endpoint to the hash table. If the number of elements in the hash table is $5$, it means the current substring is a vowel substring, and increment the result by $1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $word$, and $C$ is the size of the character set, which is $5$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(C)$, where $n$ is the length of the string $word$, and $C$ is the size of the character set, which is $5$ in this problem.
 
 <!-- tabs:start -->
 

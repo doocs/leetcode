@@ -110,7 +110,7 @@ The calculation of the function $\textit{dfs}(\textit{mask})$ is as follows:
 
 Finally, we return $\textit{dfs}(2^n - 1)$.
 
-The time complexity is $O(2^n \times n)$, and the space complexity is $O(2^n)$. Here, $n$ is the number of monsters.
+The time complexity is $O(2^n n)$, and the space complexity is $O(2^n)$, where $n$ is the number of monsters.
 
 <!-- tabs:start -->
 
@@ -285,7 +285,7 @@ We enumerate $\textit{mask}$ in the range $[1, 2^n - 1]$. For each $\textit{mask
 
 Finally, return $f[2^n - 1]$.
 
-The time complexity is $O(2^n \times n)$, and the space complexity is $O(2^n)$. Here, $n$ is the number of monsters.
+The time complexity is $O(2^n n)$, and the space complexity is $O(2^n)$, where $n$ is the number of monsters.
 
 <!-- tabs:start -->
 

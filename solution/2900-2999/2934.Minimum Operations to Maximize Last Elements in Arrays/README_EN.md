@@ -106,7 +106,7 @@ For each case, we denote the last values of the arrays $nums1$ and $nums2$ as $x
 
 We denote the number of swaps in the two cases as $a$ and $b$, respectively. If $a + b = -2$, then it is impossible to satisfy both conditions, so return $-1$. Otherwise, return $\min(a, b + 1)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

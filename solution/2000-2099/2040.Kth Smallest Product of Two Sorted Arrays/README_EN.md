@@ -100,7 +100,7 @@ The key to the problem is how to calculate the number of products less than or e
 
 This way, we can find the $k$-th smallest product through binary search.
 
-The time complexity is $O(m \times \log n \times \log M)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively, and $M$ is the maximum absolute value in $\textit{nums1}$ and $\textit{nums2}$.
+The time complexity is $O(m \log n \log M)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively, and $M$ is the maximum absolute value in $\textit{nums1}$ and $\textit{nums2}$.
 
 <!-- tabs:start -->
 

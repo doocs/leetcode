@@ -76,13 +76,13 @@ tags:
 
 According to the problem statement, the longer the common subsequence between `target` and `arr`, the fewer elements need to be added. Therefore, the minimum number of elements to be added equals the length of `target` minus the length of the longest common subsequence between `target` and `arr`.
 
-However, the time complexity of [finding the longest common subsequence](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md) is $O(m \times n)$, which cannot pass this problem. We need to change our approach.
+However, the time complexity of [finding the longest common subsequence](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md) is $O(mn)$, which cannot pass this problem. We need to change our approach.
 
 We can use a hash table to record the index of each element in the `target` array, then iterate through the `arr` array. For each element in the `arr` array, if the hash table contains that element, we add the index of that element to an array. This gives us a new array `nums`, which represents the indices in the `target` array of elements from `arr` (excluding elements not in `target`). The length of the longest increasing subsequence of this array `nums` is the length of the longest common subsequence between `target` and `arr`.
 
 Therefore, the problem is transformed into finding the length of the longest increasing subsequence of the `nums` array. Refer to [300. Longest Increasing Subsequence](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md).
 
-The time complexity is $O(n \times \log m)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of `target` and `arr`, respectively.
+The time complexity is $O(n \log m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of `target` and `arr`, respectively.
 
 <!-- tabs:start -->
 

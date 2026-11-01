@@ -118,7 +118,7 @@ In the function $f(l, r)$, we first expand towards both sides until the conditio
 
 Finally, we enumerate the center position $i$ of the palindrome, and calculate the length of the longest almost-palindromic substring obtained by starting from $(i, i)$ and $(i, i + 1)$, expanding towards both sides, and deleting one character, taking the maximum value among them.
 
-The time complexity is $O(n^2)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

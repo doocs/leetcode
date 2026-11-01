@@ -100,7 +100,7 @@ Next, we start traversing the array from the second element. If the current elem
 
 Finally, we return the last element of the array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

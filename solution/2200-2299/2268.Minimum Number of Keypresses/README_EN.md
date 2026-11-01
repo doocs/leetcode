@@ -93,7 +93,7 @@ The problem requires minimizing the number of key presses, so the $9$ most frequ
 
 Therefore, we can sort the values in $\textit{cnt}$ in descending order, and then allocate them to the keys in the order from $1$ to $9$, adding $1$ to the number of key presses after allocating every $9$ characters.
 
-The time complexity is $O(n + |\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $s$, and $\Sigma$ is the set of characters appearing in the string $s$. In this problem, $\Sigma$ is the set of lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the set of characters appearing in the string $s$. In this problem, $\Sigma$ is the set of lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

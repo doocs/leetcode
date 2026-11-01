@@ -78,7 +78,7 @@ Next, we use Breadth-First Search (BFS), removing an element $(i, j)$ from the q
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix $\textit{mat}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix $\textit{mat}$, respectively.
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ We can preprocess all the indices of the strings that start and end with a vowel
 
 Next, we iterate through each query $(l, r)$, and use binary search to find the first index $i$ in $nums$ that is greater than or equal to $l$, and the first index $j$ that is greater than $r$. Therefore, the answer to the current query is $j - i$.
 
-The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
+The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
 
 <!-- tabs:start -->
 
@@ -228,7 +228,7 @@ Next, we iterate through the array $words$. If the current string starts and end
 
 Finally, we iterate through each query $(l, r)$. Therefore, the answer to the current query is $s[r+1] - s[l]$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
 
 <!-- tabs:start -->
 

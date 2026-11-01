@@ -96,7 +96,7 @@ These valid intervals can only be disjoint or nested; they never partially overl
 
 Sorting by right endpoint always chooses the interval that finishes earliest, so we obtain the maximum number of non-overlapping substrings. Nested shorter intervals have smaller right endpoints and are chosen first, so the total length is also minimized.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here $n$ is the length of $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

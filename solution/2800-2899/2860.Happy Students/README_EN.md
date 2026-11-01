@@ -91,7 +91,7 @@ We enumerate $k$ in the range $[0,..n]$. For the current number of selected stud
 
 After the enumeration ends, return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

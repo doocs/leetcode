@@ -95,7 +95,7 @@ tags:
 
 在上述过程结束后，我们返回答案数组 $ans$ 即可。
 
-时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $intervals$ 和 $queries$ 的长度。
+时间复杂度 $O(n \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $intervals$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
 

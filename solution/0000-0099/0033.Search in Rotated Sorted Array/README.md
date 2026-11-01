@@ -91,7 +91,7 @@ tags:
 
 二分查找终止条件是 $left \geq right$，若结束后发现 $nums[left]$ 与 $target$ 不等，说明数组中不存在值为 $target$ 的元素，返回 $-1$，否则返回下标 $left$。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 

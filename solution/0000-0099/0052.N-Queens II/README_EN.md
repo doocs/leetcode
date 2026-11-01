@@ -73,7 +73,7 @@ To determine whether a conflict occurs, we need to use three arrays to record wh
 
 Specifically, we use the $cols$ array to record whether a queen has been placed in each column, the $dg$ array to record whether a queen has been placed in each positive diagonal, and the $udg$ array to record whether a queen has been placed in each negative diagonal.
 
-The time complexity is $O(n!)$, and the space complexity is $O(n)$. Here, $n$ is the number of queens.
+The time complexity is $O(n!)$, and the space complexity is $O(n)$, where $n$ is the number of queens.
 
 <!-- tabs:start -->
 

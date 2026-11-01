@@ -99,7 +99,7 @@ tags:
 
 如果遍历结束后都没有返回 $\text{false}$，说明 $\textit{sentence1}$ 和 $\textit{sentence2}$ 是相似的，返回 $\text{true}$。
 
-时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 为题目中所有字符串的长度之和。
+时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为题目中所有字符串的长度之和。
 
 <!-- tabs:start -->
 

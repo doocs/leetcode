@@ -68,7 +68,7 @@ tags:
 
 > **Thinking**
 >
-> Scanning the array for every candidate $\textit{value}$ costs $O(n \times M)$. With $n \le 10^4$ and $M \le 10^5$, that is too slow.
+> Scanning the array for every candidate $\textit{value}$ costs $O(nM)$. With $n \le 10^4$ and $M \le 10^5$, that is too slow.
 >
 > The mutated sum depends only on keeping values at most $\textit{value}$ and replacing the rest by $\textit{value}$. After sorting, that split is a prefix: binary search finds the cut, and a prefix-sum array evaluates the kept part. Enumerating $\textit{value}$ from $0$ to $\max(\textit{arr})$ then costs $O(\log n)$ per candidate; we keep the value whose mutated sum is closest to $\textit{target}$, breaking ties toward the smaller value.
 
@@ -80,7 +80,7 @@ Next, we can enumerate all `value` values from smallest to largest. For each `va
 
 After enumerating all `value` values, we can get the final answer `ans`.
 
-Time complexity $O(n \times \log n)$, space complexity $O(n)$. Where $n$ is the length of the array `arr`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `arr`.
 
 <!-- tabs:start -->
 

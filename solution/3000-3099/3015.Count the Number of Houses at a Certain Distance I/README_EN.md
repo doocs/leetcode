@@ -98,7 +98,7 @@ tags:
 
 We can enumerate each pair of points $(i, j)$. The shortest distance from $i$ to $j$ is $min(|i - j|, |i - x| + 1 + |j - y|, |i - y| + 1 + |j - x|)$. We add $2$ to the count of this distance because both $(i, j)$ and $(j, i)$ are valid pairs of points.
 
-The time complexity is $O(n^2)$, where $n$ is the $n$ given in the problem. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the $n$ given in the problem.
 
 <!-- tabs:start -->
 

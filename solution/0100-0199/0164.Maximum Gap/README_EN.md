@@ -60,7 +60,7 @@ tags:
 
 > **Thinking**
 >
-> Maximum gap after sorting, in linear time. Comparison sorts are $O(n\log n)$; $n\le 10^5$. The max adjacent gap is at least $(\textit{max}-\textit{min})/(n-1)$. Bucket by that width: gaps inside a bucket are smaller than this lower bound, so the answer is between consecutive non-empty buckets (next min minus previous max). Each bucket stores only min and max.
+> Maximum gap after sorting, in linear time. Comparison sorts are $O(n \log n)$; $n\le 10^5$. The max adjacent gap is at least $(\textit{max}-\textit{min})/(n-1)$. Bucket by that width: gaps inside a bucket are smaller than this lower bound, so the answer is between consecutive non-empty buckets (next min minus previous max). Each bucket stores only min and max.
 
 <!-- thinking:end -->
 

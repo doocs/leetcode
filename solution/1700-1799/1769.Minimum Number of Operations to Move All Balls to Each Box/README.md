@@ -285,7 +285,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 方法一中 $left[i]$ 和 $right[i]$ 只依赖前一个位置，因此可以去掉这两个数组，从左到右、再从右到左各扫一遍，把结果累加到答案数组 $ans$ 上。
 
-时间复杂度 $O(n)$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
 
 <!-- tabs:start -->
 
@@ -478,7 +478,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 先收集所有小球的位置，再对每个盒子 $i$ 枚举每个小球 $j$，将 $|i - j|$ 累加到 $\textit{ans}[i]$。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(m)$。其中 $n$ 为 `boxes` 的长度，而 $m$ 为小球个数。
+时间复杂度 $O(nm)$，空间复杂度 $O(m)$。其中 $n$ 为 `boxes` 的长度，而 $m$ 为小球个数。
 
 <!-- tabs:start -->
 

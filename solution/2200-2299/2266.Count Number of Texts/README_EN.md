@@ -110,7 +110,7 @@ $$
 
 Finally, we traverse $\textit{pressedKeys}$, group consecutive identical characters, calculate the number of ways for each group, and multiply the number of ways for all groups.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{pressedKeys}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{pressedKeys}$.
 
 <!-- tabs:start -->
 

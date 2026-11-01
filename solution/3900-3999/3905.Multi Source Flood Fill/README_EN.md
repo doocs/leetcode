@@ -122,7 +122,7 @@ After processing all cells in the current queue, we clear the queue and add the 
 
 We repeat this process until the queue is empty, meaning no more cells can be colored.
 
-The time complexity is $O(n \times m)$ and the space complexity is $O(n \times m)$, where $n$ and $m$ are the number of rows and columns in the grid, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 

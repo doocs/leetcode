@@ -88,7 +88,7 @@ We traverse the matrix, and for each piece of land, we perform a depth-first sea
 
 Finally, we return the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -303,7 +303,7 @@ Then, we traverse the matrix again, for each piece of land, if its root node is 
 
 Finally, we return the answer.
 
-The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn \alpha(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

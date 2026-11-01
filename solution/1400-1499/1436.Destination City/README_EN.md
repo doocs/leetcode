@@ -81,7 +81,7 @@ Clearly the destination city is &quot;A&quot;.
 
 According to the problem description, the destination city will not appear in any of the $\textit{cityA}$. Therefore, we can first traverse the $\textit{paths}$ and put all $\textit{cityA}$ into a set $\textit{s}$. Then, we traverse the $\textit{paths}$ again to find the $\textit{cityB}$ that is not in $\textit{s}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of $\textit{paths}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{paths}$.
 
 <!-- tabs:start -->
 

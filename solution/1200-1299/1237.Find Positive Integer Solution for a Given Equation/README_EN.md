@@ -103,7 +103,7 @@ x=5, y=1 -&gt; f(5, 1) = 5 * 1 = 5.
 
 According to the problem, we know that the function $f(x, y)$ is a monotonically increasing function. Therefore, we can enumerate $x$, and then binary search $y$ in $[1,...z]$ to make $f(x, y) = z$. If found, add $(x, y)$ to the answer.
 
-The time complexity is $O(n \log n)$, where $n$ is the value of $z$, and the space complexity is $O(1)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the value of $z$.
 
 <!-- tabs:start -->
 
@@ -287,7 +287,7 @@ We can define two pointers $x$ and $y$, initially $x = 1$, $y = z$.
 
 After the loop ends, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the value of $z$, and the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the value of $z$.
 
 <!-- tabs:start -->
 

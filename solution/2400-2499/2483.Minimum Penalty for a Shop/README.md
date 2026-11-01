@@ -98,7 +98,7 @@ tags:
 
 遍历结束后，返回答案变量 $\textit{ans}$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{customers}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{customers}$ 的长度。
 
 <!-- tabs:start -->
 

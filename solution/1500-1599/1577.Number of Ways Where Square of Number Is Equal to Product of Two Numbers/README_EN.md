@@ -86,7 +86,7 @@ We use a hash table $\textit{cnt1}$ to count the occurrences of each pair $(\tex
 
 Next, we enumerate each number $x$ in the array $\textit{nums1}$ and calculate the value of $\textit{cnt2}[x^2]$, which is the number of pairs $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums2}$ that satisfy $\textit{nums}[j] \times \textit{nums}[k] = x^2$. Similarly, we enumerate each number $x$ in the array $\textit{nums2}$ and calculate the value of $\textit{cnt1}[x^2]$, which is the number of pairs $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums1}$ that satisfy $\textit{nums}[j] \times \textit{nums}[k] = x^2$. Finally, we return the sum of the two results.
 
-The time complexity is $O(m^2 + n^2 + m + n)$, and the space complexity is $O(m^2 + n^2)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(m^2 + n^2 + m + n)$, and the space complexity is $O(m^2 + n^2)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 
@@ -246,7 +246,7 @@ We use a hash table $\textit{cnt1}$ to count the occurrences of each number in $
 
 Next, we enumerate each number $x$ in the array $\textit{nums1}$, and then enumerate each pair $(y, v1)$ in $\textit{cnt2}$, where $y$ is the key of $\textit{cnt2}$ and $v1$ is the value of $\textit{cnt2}$. We calculate $z = x^2 / y$. If $y \times z = x^2$, and if $y = z$, it means $y$ and $z$ are the same number, then the number of ways to choose two numbers from $v1$ is $v1 \times (v1 - 1) = v1 \times (v2 - 1)$. If $y \neq z$, then the number of ways to choose two numbers from $v1$ is $v1 \times v2$. Finally, we sum all the ways and divide by $2$. The division by $2$ is because we count the number of ways for the pair $(j, k)$, but $(j, k)$ and $(k, j)$ are the same way.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

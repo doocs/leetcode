@@ -120,7 +120,7 @@ If it is increasing to the left from `0`, we can sort the array in either of the
 
 We compute the number of operations for all four methods above and return the minimum. If sorting is impossible, return `-1`.
 
-The time complexity is $O(n)$, where $n$ is the length of $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

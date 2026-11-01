@@ -88,7 +88,7 @@ We design a function $\text{dfs}(i)$ to represent the maximum number of indices 
 
 We can use memoized search to optimize this process, that is, use an array $f$ to record the value of $\text{dfs}$ for each index and avoid repeated computation.
 
-The time complexity is $O(n \times d)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$.
+The time complexity is $O(nd)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$.
 
 <!-- tabs:start -->
 
@@ -327,7 +327,7 @@ We enumerate $i$ in the order of the tuples $(x, i)$, and enumerate all valid ju
 
 The final answer is $\max_{0 \leq i < n} f[i]$.
 
-The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{arr}$.
+The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$.
 
 <!-- tabs:start -->
 
@@ -532,7 +532,7 @@ Sort the indices in increasing order of $\text{arr}[i]$. When index $i$ is proce
 
 The answer is the maximum value of $f[i]$.
 
-The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$, where $n$ is the length of $\text{arr}$.
+The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, where $n$ is the length of $\text{arr}$.
 
 <!-- tabs:start -->
 

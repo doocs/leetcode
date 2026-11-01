@@ -73,7 +73,7 @@ Let $j = n - 1$ be the write index. If the last kept value is a zero that would 
 
 Then fill from right to left. Copy $arr[i]$ once into $arr[j]$ if it is nonzero, or twice if it is zero.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

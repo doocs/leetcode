@@ -70,7 +70,7 @@ tags:
 
 We can enumerate $j$ from left to right while maintaining the maximum value of $values[i] + i$ for elements to the left of $j$, denoted as $mx$. For each $j$, the maximum score is $mx + values[j] - j$. The answer is the maximum of these maximum scores for all positions.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{values}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{values}$.
 
 <!-- tabs:start -->
 

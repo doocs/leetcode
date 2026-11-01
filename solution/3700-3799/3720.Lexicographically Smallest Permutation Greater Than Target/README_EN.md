@@ -103,7 +103,7 @@ We first count the occurrences of every character of $s$ in $\textit{cnt}$, then
 
 Next we walk back from the end of that prefix, trying each position $i$ as the place where the answer diverges: we put the smallest still available character greater than $\textit{target}[i]$ at position $i$, and if that succeeds we append the remaining characters in ascending order and return. Otherwise we give $\textit{target}[i - 1]$ back to $\textit{cnt}$ and try an earlier position. Note that when $\textit{target}$ itself is a permutation of $s$, no character can be placed at position $n$, so we have to start backtracking from the last position because the answer must be strictly greater. If every position fails, no such permutation exists and we return an empty string.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma| = 26$ is the size of the character set.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma| = 26$ is the size of the character set.
 
 <!-- tabs:start -->
 

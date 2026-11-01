@@ -101,7 +101,7 @@ If there is $1$ character left in the end, we form a new group of two characters
 
 Finally, we add hyphens between all groups and return the result string.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

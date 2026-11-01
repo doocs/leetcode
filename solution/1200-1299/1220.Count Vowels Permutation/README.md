@@ -268,7 +268,7 @@ var countVowelPermutation = function (n) {
 
 <!-- thinking:end -->
 
-时间复杂度 $O(C^3 \times \log n)$，空间复杂度 $O(C^2)$，其中 $C$ 是元音字母的个数，本题中 $C=5$。
+时间复杂度 $O(C^3 \log n)$，空间复杂度 $O(C^2)$。其中 $C$ 是元音字母的个数，本题中 $C=5$。
 
 <!-- tabs:start -->
 

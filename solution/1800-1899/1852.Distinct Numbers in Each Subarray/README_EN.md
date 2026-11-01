@@ -81,7 +81,7 @@ Then, we continue to traverse the array from the index $k$. Each time we travers
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array $nums$, and $k$ is the parameter given by the problem.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array $nums$, and $k$ is the parameter given by the problem.
 
 <!-- tabs:start -->
 
@@ -210,7 +210,7 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 We can also use an array to replace the hash table, which can improve performance to some extent.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M \leq 10^5$.
+The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M \leq 10^5$.
 
 <!-- tabs:start -->
 

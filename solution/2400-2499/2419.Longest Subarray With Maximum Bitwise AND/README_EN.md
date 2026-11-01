@@ -86,7 +86,7 @@ The problem can be converted to finding the maximum number of consecutive occurr
 
 First, traverse the array $\textit{nums}$ to find the maximum value $\textit{mx}$, then traverse the array again to find the maximum number of consecutive occurrences of the maximum value. Finally, return this count.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

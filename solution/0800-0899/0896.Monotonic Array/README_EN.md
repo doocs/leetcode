@@ -73,7 +73,7 @@ We traverse the array, and if an increasing or decreasing situation occurs, we r
 
 Otherwise, if we reach the end of the traversal, it means that the array is monotonic, and we return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

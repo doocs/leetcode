@@ -72,7 +72,7 @@ tags:
 
 We can follow the problem description, traverse each column, find the maximum value of each column, and then traverse each column again, replacing the elements with a value of -1 with the maximum value of that column.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

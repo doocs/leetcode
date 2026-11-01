@@ -83,7 +83,7 @@ Traverse the array. For the current element $x$, if $x \gt \textit{mi}$, update 
 
 After the traversal, return $\textit{ans}$.
 
-Time complexity is $O(n)$, where $n$ is the length of the array. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

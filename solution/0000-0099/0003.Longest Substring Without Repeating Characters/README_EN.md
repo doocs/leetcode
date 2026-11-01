@@ -79,7 +79,7 @@ Next, we move the right pointer $r$ one step at a time. Each time we move it, we
 
 Finally, we return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $\Sigma$ represents the character set, and the size of $\Sigma$ is $128$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set, and the size of $\Sigma$ is $128$.
 
 <!-- tabs:start -->
 

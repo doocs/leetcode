@@ -91,7 +91,7 @@ tags:
 >
 > 用 $\textit{words}$ 拼接 $\textit{target}$ 使代价最小， $n$ 与词长总和均为 $5\times 10^4$。朴素 DP 对每个位置枚举每个单词做串匹配，时间过大。
 >
-> 不同词长种类至多为 $O(\sqrt{L})$。以字符串哈希把单词映到最小代价，再对 $f[i]=$ 拼出前 $i$ 个字符的最小代价，只枚举出现过的长度 $j$，用 $O(1)$ 哈希判断 $\textit{target}[i-j+1..i]$ 是否在表中。转移次数降为 $O(n\sqrt{L})$。
+> 不同词长种类至多为 $O(\sqrt{L})$。以字符串哈希把单词映到最小代价，再对 $f[i]=$ 拼出前 $i$ 个字符的最小代价，只枚举出现过的长度 $j$，用 $O(1)$ 哈希判断 $\textit{target}[i-j+1..i]$ 是否在表中。转移次数降为 $O(n \sqrt{L})$。
 
 <!-- thinking:end -->
 
@@ -105,7 +105,7 @@ $$
 
 其中 $\textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。
 
-时间复杂度 $O(n \times \sqrt{L})$，空间复杂度 $O(n)$。其中 $n$ 是 $\textit{target}$ 的长度，而 $L$ 是数组 $\textit{words}$ 中所有单词的长度之和。
+时间复杂度 $O(n \sqrt{L})$，空间复杂度 $O(n)$。其中 $n$ 是 $\textit{target}$ 的长度，而 $L$ 是数组 $\textit{words}$ 中所有单词的长度之和。
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ We can traverse the matrix, and for each row $\textit{row}$, we use two pointers
 
 Finally, if $i = j$, we directly invert $\textit{row}[i]$.
 
-The time complexity is $O(n^2)$, where $n$ is the number of rows or columns in the matrix. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the number of rows or columns in the matrix.
 
 <!-- tabs:start -->
 

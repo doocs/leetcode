@@ -79,7 +79,7 @@ We define the left boundary of the binary search as $left = \max(nums)$, and the
 
 How do we determine whether there is a way to split the array so that the maximum sum of the subarrays does not exceed $mid$? We can use a greedy method, traverse the array from left to right, and add the elements of the array to the subarray one by one. If the current sum of the subarray is greater than $mid$, then we add the current element to the next subarray. If we can split the array into no more than $k$ subarrays, and the maximum sum of each subarray does not exceed $mid$, then $mid$ is the smallest value that meets the condition. Otherwise, $mid$ does not meet the condition.
 
-The time complexity is $O(n \times \log m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the length of the array and the sum of all elements in the array, respectively.
+The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the length of the array and the sum of all elements in the array, respectively.
 
 <!-- tabs:start -->
 

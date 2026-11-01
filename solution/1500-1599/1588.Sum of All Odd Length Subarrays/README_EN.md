@@ -96,7 +96,7 @@ For the state $g[i]$, when $i = 0$, there are no even-length subarrays, so $g[0]
 
 The final answer is $\sum_{i=0}^{n-1} f[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

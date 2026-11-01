@@ -103,7 +103,7 @@ First, let's consider the case where Alice removes a stone with a remainder of $
 
 For the case where Alice removes a stone with a remainder of $2$ in the first round, we can draw a similar conclusion.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{stones}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{stones}$.
 
 <!-- tabs:start -->
 
@@ -280,7 +280,7 @@ For each opening, both players follow the optimal residue sequence: starting wit
 
 Return $\text{true}$ if either opening lets Alice win.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{stones}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{stones}$.
 
 <!-- tabs:start -->
 

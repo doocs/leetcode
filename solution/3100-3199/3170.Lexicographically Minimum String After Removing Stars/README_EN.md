@@ -95,7 +95,7 @@ If the current character is not an asterisk, we add the index of the current cha
 
 Finally, we traverse $s$ and concatenate the undeleted characters.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

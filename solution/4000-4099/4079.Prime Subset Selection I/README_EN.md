@@ -110,7 +110,7 @@ Use the sieve of Eratosthenes to precompute every prime up to $10^6$ and store t
 
 The selected primes are the smallest ones that do not exceed $n$. They have the minimum sum among all subsets of the same size, so the size is already maximum. Any optimal subset is acceptable.
 
-The sieve takes $O(M\log\log M)$ time and $O(M)$ space, where $M=10^6$. Each query takes $O(\pi(n))$ time, where $\pi(n)$ is the number of primes not exceeding $n$.
+The sieve takes $O(M \log \log M)$ time and $O(M)$ space, where $M=10^6$. Each query takes $O(\pi(n))$ time, where $\pi(n)$ is the number of primes not exceeding $n$.
 
 <!-- tabs:start -->
 

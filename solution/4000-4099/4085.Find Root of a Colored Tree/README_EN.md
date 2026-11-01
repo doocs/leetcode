@@ -108,7 +108,7 @@ Return $-1$ if the degree is greater than $3$, if any neighbor has the same colo
 
 When the degree is less than $3$ and no neighbor has color $(c + 2) \bmod 3$, every neighbor of $u$ is a child and there are at most two of them, so record $u$. Each edge whose colors are one step apart increments the parent count of exactly one endpoint, and a tree has $n - 1$ edges. If every parent count is at most $1$, exactly one node has count $0$. If that node has degree $3$, all three neighbors are children, so it cannot be the root and the answer stays $-1$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

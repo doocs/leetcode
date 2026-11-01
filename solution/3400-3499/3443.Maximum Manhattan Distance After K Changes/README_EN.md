@@ -138,7 +138,7 @@ Traverse the string $\textit{s}$. If the current character is $\textit{a}$ or $\
 
 Finally, return the maximum value among the four cases.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

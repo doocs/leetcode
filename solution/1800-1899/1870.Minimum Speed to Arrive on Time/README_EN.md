@@ -102,7 +102,7 @@ The problem is transformed into determining whether a speed value $v$ can allow 
 
 After the binary search ends, if the left boundary exceeds $10^7$, it means we cannot arrive within the stipulated time, and we return $-1$; otherwise, we return the left boundary.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of train trips and the upper bound of the speed, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the number of train trips and the upper bound of the speed, respectively.
 
 <!-- tabs:start -->
 

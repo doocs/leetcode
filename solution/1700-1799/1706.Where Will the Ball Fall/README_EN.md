@@ -102,7 +102,7 @@ We can use DFS to simulate the movement of the ball. Design a function $\textit{
 
 If any of the above conditions are met, we can determine that the ball will get stuck and return $-1$. Otherwise, we can continue to recursively find the next position of the ball. Finally, if the ball reaches the last row, we can return the current column index.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ $$
 (1 + x) \times x = (x + n) \times (n - x + 1)
 $$
 
-The time complexity is $O(n)$, where $n$ is the given positive integer $n$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given positive integer $n$.
 
 <!-- tabs:start -->
 

@@ -106,7 +106,7 @@ difficulty: Easy
 
 Let $s_1$ and $s_2$ be the number of $1$s in the binary representations of $a$ and $b$. If $s_1\ge s_2$, the score is $s_1\cdot s_2$. Otherwise it is the integer quotient $s_2/s_1$.
 
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

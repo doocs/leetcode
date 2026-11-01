@@ -111,7 +111,7 @@ Otherwise, the tree with $root$ as the root is not a binary search tree, we retu
 
 We call $dfs(root)$ in the main function. After execution, the answer is $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

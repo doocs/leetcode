@@ -115,7 +115,7 @@ First build three auxiliary arrays. $\textit{prefMax}[i]$ is the maximum of $\te
 
 Then enumerate every divisor $k$ of $n$ and split the array into blocks of length $k$. For a block starting at $i$, the number of adjacent descents inside the block is $\textit{prefDrop}[i+k-1] - \textit{prefDrop}[i]$, plus one more when $\textit{nums}[i+k-1] > \textit{nums}[i]$. If this total is at most $1$ and $\textit{prefMax}[i] \le \textit{suffMin}[i]$, the block can be cyclically rotated onto the already ordered prefix. When every block passes, add $k$ to the answer.
 
-The time complexity is $O(n + \sigma(n))$ and the space complexity is $O(n)$, where $n$ is the length of the array and $\sigma(n)$ is the sum of all positive divisors of $n$.
+The time complexity is $O(n + \sigma(n))$, and the space complexity is $O(n)$, where $n$ is the length of the array and $\sigma(n)$ is the sum of all positive divisors of $n$.
 
 <!-- tabs:start -->
 

@@ -158,7 +158,7 @@ When $j > 0$, the number of passes is $2^j$, which is equivalent to passing the 
 
 Next, we can enumerate each player $i$ as the starting player, then accumulate upwards according to the binary representation of $k$, and finally get the maximum sum of the player IDs who have touched the ball within $k$ passes starting from player $i$.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(n \times \log k)$. Here, $n$ is the number of players.
+The time complexity is $O(n \log k)$, and the space complexity is $O(n \log k)$, where $n$ is the number of players.
 
 Similar problems:
 

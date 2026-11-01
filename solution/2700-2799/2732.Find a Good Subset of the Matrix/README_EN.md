@@ -103,7 +103,7 @@ We can consider the number of rows $k$ chosen for the answer from smallest to la
 
 In summary, we only need to consider the cases of $k = 1$ and $k = 2$. That is, to check whether there is a row entirely composed of $0$s, or whether there exist two rows whose bitwise AND result is $0$.
 
-The time complexity is $O(m \times n + 4^n)$, and the space complexity is $O(2^n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn + 4^n)$, and the space complexity is $O(2^n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

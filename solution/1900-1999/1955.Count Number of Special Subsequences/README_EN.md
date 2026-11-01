@@ -112,7 +112,7 @@ $$
 
 The final answer is $f[n-1][2]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 Similar code found with 1 license type
 
@@ -281,7 +281,7 @@ We notice that in the above state transition equations, the value of $f[i][j]$ i
 
 We can use an array $f$ of length 3 to represent the number of special subsequences ending with 0, 1, and 2, respectively. For each element in the array, we update the array $f$ according to the value of the current element.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

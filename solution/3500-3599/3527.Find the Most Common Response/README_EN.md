@@ -89,7 +89,7 @@ We can use a hash table $\textit{cnt}$ to count the occurrences of each response
 
 Finally, we iterate through the hash table to find the response with the highest count. If there are multiple responses with the same count, we return the lexicographically smallest one.
 
-The complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total length of all responses.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total length of all responses.
 
 <!-- tabs:start -->
 

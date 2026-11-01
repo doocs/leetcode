@@ -76,7 +76,7 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 
 According to the problem, we can find that from left to right, each chunk has a maximum value, and these maximum values are monotonically increasing (non-strictly increasing). We can use a stack to store these maximum values of the chunks. The size of the final stack is the maximum number of chunks that can be sorted.
 
-Time complexity is $O(n)$, where $n$ represents the length of $\textit{arr}$.
+The time complexity is $O(n)$, where $n$ represents the length of $\textit{arr}$.
 
 <!-- tabs:start -->
 

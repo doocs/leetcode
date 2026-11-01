@@ -82,7 +82,7 @@ tags:
 
 We can iterate through each digit of the integer $n$, calculating the digit sum $s$ and digit product $p$. Finally, we check whether $n$ is divisible by $s + p$.
 
-The time complexity is $O(\log n)$, where $n$ is the value of the integer $n$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the value of the integer $n$.
 
 <!-- tabs:start -->
 

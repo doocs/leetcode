@@ -95,7 +95,7 @@ Then, we just need to pair the elements in $a_1$ with the elements in $b_1$, and
 
 Since each operation can reduce the difference of the corresponding elements by $4$, we accumulate the difference of each corresponding position, and finally divide by $4$ to get the answer.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

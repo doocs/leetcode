@@ -115,7 +115,7 @@ tags:
 
 最后我们遍历数组 $\textit{groups}$，根据 $\textit{d}$ 数组的记录，得到答案。
 
-时间复杂度 $O(M \times \log m + n)$，空间复杂度 $O(M)$。其中 $n$ 和 $m$ 分别是数组 $\textit{groups}$ 和 $\textit{elements}$ 的长度；而 $M$ 是数组 $\textit{groups}$ 中的最大值。
+时间复杂度 $O(M \log m + n)$，空间复杂度 $O(M)$。其中 $n$ 和 $m$ 分别是数组 $\textit{groups}$ 和 $\textit{elements}$ 的长度；而 $M$ 是数组 $\textit{groups}$ 中的最大值。
 
 <!-- tabs:start -->
 

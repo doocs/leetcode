@@ -83,13 +83,13 @@ The sum of the scores is 2 + 3 + 9 = 14, so we return 14.
 >
 > Each $s_i$ is the length-$i$ suffix of $s$, and its score is the LCP of that suffix with $s$ itself. Comparing every suffix naively is $O(n^2)$ and fails for $n \le 10^5$.
 >
-> Those LCPs are the Z-array: $z[i]$ is the LCP of $s[i:]$ with $s$, and $z[0]=n$. Summing the Z-array after a linear construction is enough. String hashing plus binary search on each start is an $O(n\log n)$ alternative.
+> Those LCPs are the Z-array: $z[i]$ is the LCP of $s[i:]$ with $s$, and $z[0]=n$. Summing the Z-array after a linear construction is enough. String hashing plus binary search on each start is an $O(n \log n)$ alternative.
 
 <!-- thinking:end -->
 
 Compute the Z-array of $s$, where $z[i]$ is the LCP of $s[i:]$ with $s$. The score of the length-$i$ suffix $s_i$ is $z[n-i]$, and the whole string scores $n$. Summing the Z-array and adding $n$ is the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 

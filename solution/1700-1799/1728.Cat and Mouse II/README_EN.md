@@ -136,7 +136,7 @@ For the second update rule, we need to record the degree of each state. Initiall
 
 When all states have been updated, the result of the initial state is the final answer.
 
-The time complexity is $O(m^2 \times n^2 \times (m + n))$ and the space complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(m^2n^2(m + n))$, and the space complexity is $O(m^2n^2)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

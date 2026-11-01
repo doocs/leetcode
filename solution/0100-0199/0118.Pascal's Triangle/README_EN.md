@@ -53,7 +53,7 @@ tags:
 
 We first create an answer array $f$, then set the first row of $f$ to $[1]$. Next, starting from the second row, the first and last elements of each row are $1$, and for other elements $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$.
 
-The time complexity is $O(n^2)$, where $n$ is the given number of rows. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the given number of rows.
 
 <!-- tabs:start -->
 

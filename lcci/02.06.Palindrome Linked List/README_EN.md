@@ -71,7 +71,7 @@ Then, we reverse the list after the slow pointer, giving us the second half of t
 
 Finally, we loop to compare the first half and the second half of the list. If there are any unequal nodes, we return `false` directly. Otherwise, we return `true` after traversing the list.
 
-The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list.
 
 <!-- tabs:start -->
 

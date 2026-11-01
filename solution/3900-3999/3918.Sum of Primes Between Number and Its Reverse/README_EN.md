@@ -95,7 +95,7 @@ tags:
 >
 > Sieve all primes up to $1000$ once, then sum those that fall in $[\min(n,r),\max(n,r)]$.
 >
-> The sieve is $O(M\log\log M)$ and the query itself is linear in the interval length.
+> The sieve is $O(M \log \log M)$ and the query itself is linear in the interval length.
 
 <!-- thinking:end -->
 

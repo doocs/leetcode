@@ -98,7 +98,7 @@ tags:
 - 如果当前元素 $x = -1$，我们将 $k$ 加 1。如果 $k$ 大于 $\textit{seen}$ 的长度，我们在 $\textit{ans}$ 中添加 $-1$；否则，我们在 $\textit{ans}$ 中添加 $\textit{seen}$ 的倒数第 $k$ 个元素。
 - 如果当前元素 $x$ 是一个正整数，我们将 $k$ 重置为 0，并将 $x$ 添加到 $\textit{seen}$ 的末尾。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -200,7 +200,7 @@ tags:
 >
 > Segments must be the shortest unseen strings in left-to-right order. Store emitted pieces in a set; after each appended character, emit and clear the buffer when it is new.
 >
-> Segment lengths grow like $1+2+\cdots$, so lookups cost about $O(n\sqrt{n})$ overall, which fits the limits.
+> Segment lengths grow like $1+2+\cdots$, so lookups cost about $O(n \sqrt{n})$ overall, which fits the limits.
 
 <!-- thinking:end -->
 
@@ -208,7 +208,7 @@ We can use a hash table $\textit{vis}$ to record the segments that have already 
 
 After the traversal, we simply return the result list.
 
-The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

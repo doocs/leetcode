@@ -104,7 +104,7 @@ circularDeque.getFront();				// 返回 4
 
 调用 $\textit{isFull}$ 时，检查 $\textit{size}$ 是否等于 $\textit{capacity}$。
 
-以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(k)$，其中 $k$ 是队列的容量。
+以上操作的时间复杂度均为 $O(1)$，空间复杂度 $O(k)$。其中 $k$ 是队列的容量。
 
 <!-- tabs:start -->
 

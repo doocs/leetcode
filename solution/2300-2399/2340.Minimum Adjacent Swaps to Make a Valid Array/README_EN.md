@@ -87,7 +87,7 @@ Next, we need to consider the number of swaps.
 - If $i < j$, it means the minimum value in the array $\textit{nums}$ is to the left of the maximum value. The number of swaps needed is $i + n - 1 - j$, where $n$ is the length of the array $\textit{nums}$.
 - If $i > j$, it means the minimum value in the array $\textit{nums}$ is to the right of the maximum value. The number of swaps needed is $i + n - 1 - j - 1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

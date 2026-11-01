@@ -78,7 +78,7 @@ We can iterate through all the rectangles, calculate the square of their diagona
 
 After the iteration, we return the recorded maximum area.
 
-The time complexity is $O(n)$, where $n$ is the number of rectangles. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of rectangles.
 
 <!-- tabs:start -->
 

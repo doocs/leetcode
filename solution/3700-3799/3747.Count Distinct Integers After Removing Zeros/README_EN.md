@@ -80,7 +80,7 @@ In the function $\text{dfs}(i, \text{zero}, \text{lead}, \text{limit})$, if $i$ 
 
 For $\text{dfs}(i, \text{zero}, \text{lead}, \text{limit})$, we can enumerate the value of the current digit $d$, then recursively calculate $\text{dfs}(i+1, \text{nxt\_zero}, \text{nxt\_lead}, \text{nxt\_limit})$, where $\text{nxt\_zero}$ indicates whether a non-zero digit has appeared in the current number, $\text{nxt\_lead}$ indicates whether we are still processing leading zeros, and $\text{nxt\_limit}$ indicates whether the current number is constrained by the upper bound. If $\text{limit}$ is true, then $up$ is the upper bound of the current digit; otherwise, $up$ is $9$.
 
-The time complexity is $O(\log_{10} n \times D)$ and the space complexity is $O(\log_{10} n)$, where $D$ represents the count of digits from 0 to 9.
+The time complexity is $O(D \log_{10} n)$, and the space complexity is $O(\log_{10} n)$, where $D$ represents the count of digits from 0 to 9.
 
 <!-- tabs:start -->
 

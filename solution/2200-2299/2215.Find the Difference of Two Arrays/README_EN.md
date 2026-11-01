@@ -75,7 +75,7 @@ Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 
 We define two hash tables $s1$ and $s2$ to store the elements in arrays $nums1$ and $nums2$ respectively. Then we traverse each element in $s1$. If this element is not in $s2$, we add it to the first list in the answer. Similarly, we traverse each element in $s2$. If this element is not in $s1$, we add it to the second list in the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ difficulty: 简单
 
 对于每个任务，我们贪心地按照 $limit$ 的大小来采集，那么每个任务需要的时间为 $\lceil \frac{num}{limit} \rceil \times time[type]$，其中 $\lceil x \rceil$ 表示对 $x$ 向上取整。我们将所有任务需要的时间求和即为答案。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $fruits$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $fruits$ 的长度。
 
 <!-- tabs:start -->
 

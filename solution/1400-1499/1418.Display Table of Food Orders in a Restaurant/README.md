@@ -99,7 +99,7 @@ tags:
 
 最后返回 $\textit{ans}$。
 
-时间复杂度 $O(n + m \times \log m + k \times \log k + m \times k)$，空间复杂度 $O(n + m + k)$。其中 $n$ 是数组 $\textit{orders}$ 的长度，而 $m$ 和 $k$ 分别表示菜品种类数和餐桌数。
+时间复杂度 $O(n + m \log m + k \log k + mk)$，空间复杂度 $O(n + m + k)$。其中 $n$ 是数组 $\textit{orders}$ 的长度，而 $m$ 和 $k$ 分别表示菜品种类数和餐桌数。
 
 <!-- tabs:start -->
 

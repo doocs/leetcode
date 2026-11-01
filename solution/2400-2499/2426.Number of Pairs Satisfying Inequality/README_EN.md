@@ -87,7 +87,7 @@ We can transform the inequality in the problem to $nums1[i] - nums2[i] \leq nums
 
 We can enumerate $j$ from small to large, find out how many numbers before it satisfy $nums[i] \leq nums[j] + diff$, and thus calculate the number of pairs. We can use a binary indexed tree to maintain the prefix sum, so we can find out how many numbers before it satisfy $nums[i] \leq nums[j] + diff$ in $O(\log n)$ time.
 
-The time complexity is $O(n \times \log n)$.
+The time complexity is $O(n \log n)$.
 
 <!-- tabs:start -->
 

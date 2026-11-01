@@ -83,7 +83,7 @@ We traverse the array, updating the `decr` and `incr` arrays.
 
 Then we sequentially traverse the index $i$ (where $k\le i \lt n - k$), if $decr[i] \geq k$ and $incr[i] \geq k$, then $i$ is a good index.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

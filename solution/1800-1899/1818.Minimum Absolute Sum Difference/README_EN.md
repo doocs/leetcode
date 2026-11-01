@@ -99,7 +99,7 @@ Next, we enumerate each element $nums1[i]$ in `nums1`, replacing it with the ele
 
 Finally, we subtract $mx$ from $s$, which is the answer. Note the modulus operation.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `nums1`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums1`.
 
 <!-- tabs:start -->
 

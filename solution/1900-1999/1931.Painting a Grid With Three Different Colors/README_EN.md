@@ -88,7 +88,7 @@ The final answer is the sum of $f[n][j]$, where $j$ is any legal state.
 
 We notice that $f[i][j]$ is only related to $f[i - 1][k]$, so we can use a rolling array to optimize the space complexity.
 
-The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $O(3^m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O((m + n) 3^{2m})$, and the space complexity is $O(3^m)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

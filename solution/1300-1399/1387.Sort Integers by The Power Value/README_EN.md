@@ -88,7 +88,7 @@ Then, we sort all the numbers in the interval $[\textit{lo}, \textit{hi}]$ in as
 
 Finally, we return the $k$-th number in the sorted list.
 
-The time complexity is $O(n \times \log n \times M)$, and the space complexity is $O(n)$. Here, $n$ is the number of numbers in the interval $[\textit{lo}, \textit{hi}]$, and $M$ is the maximum value of $f(x)$, which is at most $178$ in this problem.
+The time complexity is $O(nM \log n)$, and the space complexity is $O(n)$, where $n$ is the number of numbers in the interval $[\textit{lo}, \textit{hi}]$, and $M$ is the maximum value of $f(x)$, which is at most $178$ in this problem.
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ We assume that there is a well with the number $0$. Then we can consider the con
 
 We can use Kruskal's algorithm to find the minimum spanning tree of the undirected graph. First, we add an edge between the well $0$ and the house to the $pipes$ array, and then sort the $pipes$ array in ascending order of edge weights. Then, we traverse each edge. If this edge connects different connected components, we choose this edge and merge the corresponding connected components. If the current connected component is exactly $1$, then we have found the minimum spanning tree. The answer at this time is the current edge weight, and we return it.
 
-The time complexity is $O((m + n) \times \log (m + n))$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of the $pipes$ array and the $wells$ array, respectively.
+The time complexity is $O((m + n) \log (m + n))$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the $pipes$ array and the $wells$ array, respectively.
 
 <!-- tabs:start -->
 

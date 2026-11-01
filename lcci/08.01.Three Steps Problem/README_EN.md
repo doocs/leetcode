@@ -65,7 +65,7 @@ The recursion formula is $f[i] = f[i-1] + f[i-2] + f[i-3]$.
 
 Since $f[i]$ is only related to $f[i-1]$, $f[i-2]$, $f[i-3]$, we can use three variables $a$, $b$, $c$ to store the values of $f[i-1]$, $f[i-2]$, $f[i-3]$, reducing the space complexity to $O(1)$.
 
-The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

@@ -82,7 +82,7 @@ We iterate over both arrays. If the two elements at the current position are equ
 
 Finally, if $a$ equals $b$, we return $a$; otherwise, we return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the two arrays. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the two arrays.
 
 <!-- tabs:start -->
 

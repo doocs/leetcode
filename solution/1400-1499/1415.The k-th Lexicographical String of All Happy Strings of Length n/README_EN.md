@@ -92,7 +92,7 @@ The implementation of the function $\text{dfs}$ is as follows:
 
 Finally, we check if the length of the answer array is less than $k$. If it is, return an empty string; otherwise, return the $k$-th element of the answer array.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

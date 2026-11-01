@@ -94,7 +94,7 @@ We should put the copy operation (i.e., operation $2$) at the end to reduce the 
 
 Therefore, we enumerate the number of times $a$ for operation $1$ in the range $[0, k]$, then the number of times $b$ for operation $2$ is $\left\lceil \frac{k}{a+1} \right\rceil - 1$. We take the minimum of $a+b$.
 
-The time complexity is $O(k)$, where $k$ is the input positive integer $k$. The space complexity is $O(1)$.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the input positive integer $k$.
 
 <!-- tabs:start -->
 

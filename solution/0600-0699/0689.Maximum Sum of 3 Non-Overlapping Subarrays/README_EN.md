@@ -68,7 +68,7 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 
 We use a sliding window to enumerate the position of the third subarray, while maintaining the maximum sum and its position of the first two non-overlapping subarrays.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -286,7 +286,7 @@ Next, we use dynamic programming to maintain two arrays $pre$ and $suf$ of lengt
 
 Then, we enumerate the starting position $i$ of the middle subarray. The sum of the three subarrays is $pre[i-1][0] + suf[i+k][0] + (s[i+k] - s[i])$, where $pre[i-1][0]$ represents the maximum sum of the subarray of length $k$ within the range $[0, i-1]$, $suf[i+k][0]$ represents the maximum sum of the subarray of length $k$ within the range $[i+k, n)$, and $(s[i+k] - s[i])$ represents the sum of the subarray of length $k$ within the range $[i, i+k)$. We find the starting positions of the three subarrays corresponding to the maximum sum.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ Next, we enumerate the left endpoint index $i$ of the subarray and maintain a se
 
 After the enumeration ends, we return the answer.
 
-Time complexity: $O(n^2)$, Space complexity: $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -243,7 +243,7 @@ Next, we use two pointers to maintain a sliding window, where the right endpoint
 
 Each time we fix the left endpoint index $i$, we move the right endpoint index $j$ to the right. When the number of distinct elements in the sliding window equals $cnt$, it means that all subarrays from the left endpoint index $i$ to the right endpoint index $j$ and beyond are complete subarrays. We then increment the answer by $n - j$, where $n$ is the length of the array. Afterward, we move the left endpoint index $i$ one step to the right and repeat the process.
 
-Time complexity: $O(n)$, Space complexity: $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

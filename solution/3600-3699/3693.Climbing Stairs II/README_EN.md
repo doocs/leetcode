@@ -155,7 +155,7 @@ Where $\textit{costs}[i]$ is the cost of the $i$-th stair, and $(i - j)^2$ is th
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of stairs.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of stairs.
 
 <!-- tabs:start -->
 

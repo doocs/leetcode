@@ -89,7 +89,7 @@ The calculation process of the function $dfs(i)$ is as follows:
 
 To avoid repeated calculations, we can use memoization, i.e., use an array $f$ to record the calculation results of the function $dfs(i)$.
 
-The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$. Where $n$ is the number of stones in the pile.
+The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the number of stones in the pile.
 
 <!-- tabs:start -->
 
@@ -292,7 +292,7 @@ $$
 
 Finally, we return $f[n]$.
 
-The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$. Where $n$ is the number of stones in the pile.
+The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the number of stones in the pile.
 
 <!-- tabs:start -->
 
@@ -428,7 +428,7 @@ impl Solution {
 
 Let $f[i]$ be whether the player to move wins with $i$ stones. $f[0]$ is $false$, since no move remains. For $i$ from $1$ to $n$, enumerate squares $j^2 \le i$. If $f[i-j^2]$ is $false$, the opponent loses from there, so $f[i]$ is $true$ and the remaining squares can be skipped. If every square leaves a winning position for the opponent, $f[i]$ stays $false$. The answer is $f[n]$.
 
-The time complexity is $O(n \times \sqrt{n})$, and the space complexity is $O(n)$. Where $n$ is the number of stones in the pile.
+The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, where $n$ is the number of stones in the pile.
 
 <!-- tabs:start -->
 

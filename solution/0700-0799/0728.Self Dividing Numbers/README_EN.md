@@ -66,7 +66,7 @@ We use $y$ to record the value of $x$, and then continuously divide $y$ by $10$ 
 
 Finally, we traverse all the numbers in the interval $[\textit{left}, \textit{right}]$, and for each number, we call $\textit{check}(x)$. If it returns $\text{true}$, we add this number to the answer array.
 
-The time complexity is $O(n \times \log_{10} M)$, where $n$ is the number of elements in the interval $[\textit{left}, \textit{right}]$, and $M = \textit{right}$, which is the maximum value in the interval.
+The time complexity is $O(n \log_{10} M)$, where $n$ is the number of elements in the interval $[\textit{left}, \textit{right}]$, and $M = \textit{right}$, which is the maximum value in the interval.
 
 <!-- tabs:start -->
 

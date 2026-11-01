@@ -128,7 +128,7 @@ We design a function $\text{dfs}(a, \text{fa})$, which indicates whether the edg
 
 Finally, we call $\text{dfs}(0, -1)$. If the return value is true, it means it is impossible to convert $\text{start}$ to $\text{target}$, so we return $[-1]$. Otherwise, we sort the answer list and return it.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -318,7 +318,7 @@ We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all a
 
 An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, $\text{rev}$ records whether the edge from the current node to its parent still needs a toggle. It starts as $\text{start}[a] \ne \text{target}[a]$. For each child $b$, if that subtree still needs the edge $[a, b]$ toggled, append the edge index $i$ and negate $\text{rev}$. The root has no parent. If the root's $\text{rev}$ is still true, converting $\text{start}$ to $\text{target}$ is impossible and the result is $[-1]$. Otherwise sort the answer and return it.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 

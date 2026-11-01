@@ -114,7 +114,7 @@ tags:
 
 Traverse the linked list, each time taking out two nodes, compare their values, and then update the scores of odd and even numbers based on the comparison results. Finally, compare the scores of odd and even numbers and return the result.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

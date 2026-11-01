@@ -97,7 +97,7 @@ tags:
 
 We can start from index $i = 0$ and iterate through each element $x$ in the array, calculating the digit sum $s$ of $x$. If $s = i$, return the index $i$. If no such index is found after traversing all elements, return -1.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, as only constant extra space is used.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ Then, we enumerate the current digit $j$ in the range $[0, \textit{up}]$. If $j$
 
 The answer is $n - \textit{dfs}(0, 0, \text{true}, \text{true})$.
 
-The time complexity is $O(\log n \times 2^D \times D)$, and the space complexity is $O(\log n \times 2^D)$. Here, $D = 10$.
+The time complexity is $O(D 2^D \log n)$, and the space complexity is $O(2^D \log n)$, where $D = 10$.
 
 Similar problems:
 

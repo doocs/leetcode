@@ -103,7 +103,7 @@ The methods of the trie are defined as follows:
 - `insert(w, v)`: Insert the path $w$ and set its corresponding value to $v$. If the path $w$ already exists or its parent path does not exist, return `false`, otherwise return `true`. The time complexity is $O(|w|)$, where $|w|$ is the length of the path $w$.
 - `search(w)`: Return the value corresponding to the path $w$. If the path $w$ does not exist, return $-1$. The time complexity is $O(|w|)$.
 
-The total time complexity is $O(\sum_{w \in W}|w|)$, and the total space complexity is $O(\sum_{w \in W}|w|)$, where $W$ is the set of all inserted paths.
+The time complexity is $O(\sum_{w \in W}|w|)$, and the space complexity is $O(\sum_{w \in W}|w|)$, where $W$ is the set of all inserted paths.
 
 <!-- tabs:start -->
 

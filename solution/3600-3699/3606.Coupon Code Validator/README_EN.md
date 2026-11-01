@@ -110,7 +110,7 @@ We can directly simulate the conditions described in the problem to filter out v
 5. **Sort**: Sort the valid coupons by business category and identifier.
 6. **Return Result**: Return the list of identifiers of the sorted valid coupons.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of coupons.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of coupons.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ Since 11 is smaller than 17, we return the first pair.
 
 For the given range $[\textit{left}, \textit{right}]$, we can use the linear sieve method to find all prime numbers. Then, we traverse the prime numbers in ascending order to find the pair of adjacent prime numbers with the smallest difference, which will be the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = \textit{right}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n = \textit{right}$.
 
 <!-- tabs:start -->
 

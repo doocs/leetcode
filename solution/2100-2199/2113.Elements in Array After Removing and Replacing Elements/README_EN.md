@@ -108,7 +108,7 @@ Next, we iterate through the array $queries$. For each query, we first obtain th
 
 Finally, return the array $ans$.
 
-The time complexity is $O(m)$, where $m$ is the length of the array $queries$. Ignoring the space consumed by the answer array, the space complexity is $O(1)$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the length of the array $queries$.
 
 <!-- tabs:start -->
 

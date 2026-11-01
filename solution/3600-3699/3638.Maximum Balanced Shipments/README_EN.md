@@ -110,7 +110,7 @@ We maintain the maximum value $\text{mx}$ of the currently traversed array, and 
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant extra space.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

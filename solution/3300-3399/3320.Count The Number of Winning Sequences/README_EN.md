@@ -104,7 +104,7 @@ The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
 - If $i \geq n$, then all rounds have ended. If $\textit{Bob}$'s score is less than $0$, return $1$; otherwise, return $0$.
 - Otherwise, we enumerate the creatures $\textit{Bob}$ can summon this round. If the creature summoned this round is the same as the one summoned in the previous round, $\textit{Bob}$ cannot win this round, so we skip it. Otherwise, we recursively calculate $\textit{dfs}(i + 1, j + \textit{calc}(d[s[i]], l), l)$, where $\textit{calc}(x, y)$ represents the outcome between $x$ and $y$, and $d$ is a mapping that maps characters to $\textit{012}$. We sum all the results and take the modulo $10^9 + 7$.
 
-The time complexity is $O(n^2 \times k^2)$, where $n$ is the length of the string $s$, and $k$ represents the size of the character set. The space complexity is $O(n^2 \times k)$.
+The time complexity is $O(n^2k^2)$, and the space complexity is $O(n^2k)$, where $n$ is the length of the string $s$, and $k$ represents the size of the character set.
 
 <!-- tabs:start -->
 

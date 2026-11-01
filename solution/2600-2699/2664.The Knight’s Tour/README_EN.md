@@ -76,7 +76,7 @@ Next, we start depth-first search from $(r, c)$. Each time we search position $(
 
 Finally, return the two-dimensional array $g$.
 
-The time complexity is $O(8^{m \times n})$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the integers given in the problem.
+The time complexity is $O(8^{mn})$, and the space complexity is $O(mn)$, where $m$ and $n$ are the integers given in the problem.
 
 <!-- tabs:start -->
 

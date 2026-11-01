@@ -121,7 +121,7 @@ For each upper-left point $(x_1, y_1)$, maintain $\textit{maxY}$, the largest $y
 
 After every upper-left point has been scanned, the answer is complete.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of points.
+The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

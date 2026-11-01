@@ -86,7 +86,7 @@ We use a variable $mx$ to record the maximum value of the first $i$ elements in 
 
 Next, we traverse the array $nums$. For each element $nums[i]$, we update $mx$, i.e., $mx = \max(mx, nums[i])$, and then update $ans[i]$. If $i = 0$, then $ans[i] = nums[i] + mx$, otherwise $ans[i] = nums[i] + mx + ans[i - 1]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

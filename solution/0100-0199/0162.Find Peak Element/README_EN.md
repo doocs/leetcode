@@ -70,7 +70,7 @@ We define the left boundary of binary search as $left=0$ and the right boundary 
 - Otherwise, there exists a peak element on the right side, and we update the left boundary $left$ to $mid+1$.
 - Finally, when the left boundary $left$ is equal to the right boundary $right$, we have found the peak element of the array.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. Each step of binary search can reduce the search interval by half, so the time complexity is $O(\log n)$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$. Each step of binary search can reduce the search interval by half, so the time complexity is $O(\log n)$.
 
 <!-- tabs:start -->
 

@@ -92,7 +92,7 @@ When $\textit{nums1}[i-1] \neq \textit{nums2}[j-1]$, we either solve based on th
 
 Finally, return $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

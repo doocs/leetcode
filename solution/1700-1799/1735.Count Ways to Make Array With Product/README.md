@@ -88,7 +88,7 @@ tags:
 
 所以，问题转化为如何快速计算 $C_m^n$，根据公式 $C_m^n = \frac{m!}{n!(m-n)!}$，我们可以先预处理出 $m!$，然后利用逆元快速计算 $C_m^n$。
 
-时间复杂度 $O(K \times \log \log K + N + m \times \log K)$，空间复杂度 $O(N)$。
+时间复杂度 $O(K \log \log K + N + m \log K)$，空间复杂度 $O(N)$。
 
 <!-- tabs:start -->
 

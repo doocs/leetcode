@@ -88,7 +88,7 @@ $$ f[i] = \max(f[i], f[j] + 1) $$
 
 Finally, we return $n - \max(f)$.
 
-The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n)$, where $n$ is the length of each string in the array $\textit{strs}$, and $m$ is the number of strings in the array.
+The time complexity is $O(n^2m)$, and the space complexity is $O(n)$, where $n$ is the length of each string in the array $\textit{strs}$, and $m$ is the number of strings in the array.
 
 <!-- tabs:start -->
 

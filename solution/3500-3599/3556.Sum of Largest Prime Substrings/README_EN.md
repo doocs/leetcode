@@ -90,7 +90,7 @@ After traversing all substrings, we sort the primes in the hash table in ascendi
 
 If there are fewer than 3 primes in the hash table, return the sum of all primes.
 
-The time complexity is $O(n^2 \times \sqrt{M})$, and the space complexity is $O(n^2)$, where $n$ is the length of the string and $M$ is the value of the largest substring.
+The time complexity is $O(n^2 \sqrt{M})$, and the space complexity is $O(n^2)$, where $n$ is the length of the string and $M$ is the value of the largest substring.
 
 <!-- tabs:start -->
 

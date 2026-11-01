@@ -96,7 +96,7 @@ If $n$ is even, there are two possible valid chessboards, where the first row is
 
 If $n$ is odd, there is only one possible valid chessboard. If the number of $0$s in the first row is greater than the number of $1$s, then the first row of the final chessboard must be "01010..."; otherwise, it must be "10101...". We calculate the number of swaps required and use it as the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the size of the chessboard. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the size of the chessboard.
 
 <!-- tabs:start -->
 

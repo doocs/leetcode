@@ -86,7 +86,7 @@ Since the problem is about subsequences and involves the sum of the minimum and 
 
 Then we enumerate the minimum element $\textit{nums}[i]$. For each $\textit{nums}[i]$, we can find the maximum element $\textit{nums}[j]$ in $\textit{nums}[i + 1]$ to $\textit{nums}[n - 1]$ such that $\textit{nums}[i] + \textit{nums}[j] \leq \textit{target}$. The number of valid subsequences in this case is $2^{j - i}$, where $2^{j - i}$ represents all possible subsequences from $\textit{nums}[i + 1]$ to $\textit{nums}[j]$. We sum up the counts of all such subsequences.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

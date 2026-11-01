@@ -94,7 +94,7 @@ tags:
 
 接下来，我们定义二分查找的左边界 $l$ 为 $0$，右边界 $r$ 为 $n$。在每一步中，我们令 $mid = \lfloor \frac{l + r + 1}{2} \rfloor$，如果函数 $check(mid)$ 的返回值为 `true`，那么我们将左边界更新为 $mid$，否则我们将右边界更新为 $mid - 1$。在二分查找结束后，我们得到的左边界即为答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -281,7 +281,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 > **思考**
 >
-> 方法一额外需要 $O(n)$ 前缀数组，总时间为 $O(n\log n)$。费用非负，窗口右端右移时费用只增，左端右移时费用只减，因此可用双指针在一次扫描中维护最大可行窗口，线性时间且常数空间。
+> 方法一额外需要 $O(n)$ 前缀数组，总时间为 $O(n \log n)$。费用非负，窗口右端右移时费用只增，左端右移时费用只减，因此可用双指针在一次扫描中维护最大可行窗口，线性时间且常数空间。
 
 <!-- thinking:end -->
 
@@ -289,7 +289,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 最后返回答案即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -414,7 +414,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 最后返回 $n - l$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ If $s \gt n \times 6$ or $s \lt n$, it means there is no answer that satisfies t
 
 Otherwise, we can evenly distribute $s$ to $n$ numbers, that is, the value of each number is $s / n$, and the value of $s \bmod n$ numbers is increased by $1$.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the number of missing numbers and known numbers, respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the number of missing numbers and known numbers, respectively.
 
 <!-- tabs:start -->
 

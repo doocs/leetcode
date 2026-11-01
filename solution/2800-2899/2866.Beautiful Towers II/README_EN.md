@@ -110,7 +110,7 @@ Where $j$ is the index of the first tower to the left of the last tower with a h
 
 We can use a similar method to find $g[i]$, which represents the height sum of the beautiful tower scheme from right to left with the $i$th tower as the tallest tower. The final answer is the maximum value of $f[i]+g[i]-heights[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $maxHeights$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $maxHeights$.
 
 <!-- tabs:start -->
 

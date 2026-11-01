@@ -77,7 +77,7 @@ tags:
 
 We use a hash table to store the types of candies. If the number of candy types is less than $n / 2$, then the maximum number of candy types that Alice can eat is the number of candy types. Otherwise, the maximum number of candy types that Alice can eat is $n / 2$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of candies.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of candies.
 
 <!-- tabs:start -->
 

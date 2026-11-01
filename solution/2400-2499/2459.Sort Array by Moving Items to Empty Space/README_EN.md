@@ -98,7 +98,7 @@ We find all permutation cycles, first calculate the total number of swaps assumi
 
 Here, $0$ can be at position $0$ or at position $n-1$. We take the minimum of these two cases.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

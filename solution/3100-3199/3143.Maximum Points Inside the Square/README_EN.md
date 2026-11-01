@@ -111,7 +111,7 @@ For a point $(x, y)$, we can map it to the first quadrant with the origin as the
 
 We can use a hash table $g$ to store the distance from all points to the origin, and then sort them according to the distance. For each distance $d$, we put all points with a distance of $d$ together, and then traverse these points. If there are two points with the same label, then this square is illegal, and we directly return the answer. Otherwise, we add these points to the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of points.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

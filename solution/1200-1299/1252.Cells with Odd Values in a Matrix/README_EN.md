@@ -82,7 +82,7 @@ We create a matrix $g$ to store the result of operations. For each pair $(r_i, c
 
 After the simulation ends, we traverse the matrix and count the number of odd numbers.
 
-The time complexity is $O(k \times (m + n) + m \times n)$, and the space complexity is $O(m \times n)$. Here, $k$ is the length of $\textit{indices}$.
+The time complexity is $O(k(m + n) + mn)$, and the space complexity is $O(mn)$, where $k$ is the length of $\textit{indices}$.
 
 <!-- tabs:start -->
 
@@ -200,7 +200,7 @@ We can use a row array $\textit{row}$ and a column array $\textit{col}$ to recor
 
 After the operations are completed, the count at position $(i, j)$ can be calculated as $\textit{row}[i] + \textit{col}[j]$. We traverse the matrix and count the number of odd numbers.
 
-The time complexity is $O(k + m \times n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\textit{indices}$.
+The time complexity is $O(k + mn)$, and the space complexity is $O(m + n)$, where $k$ is the length of $\textit{indices}$.
 
 <!-- tabs:start -->
 
@@ -305,7 +305,7 @@ We notice that a number at position $(i, j)$ in the matrix will be odd only when
 
 We count the number of odd numbers in $\textit{row}$, denoted as $\textit{cnt1}$, and the number of odd numbers in $\textit{col}$, denoted as $\textit{cnt2}$. Therefore, the final count of odd numbers is $\textit{cnt1} \times (n - \textit{cnt2}) + \textit{cnt2} \times (m - \textit{cnt1})$.
 
-The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\textit{indices}$.
+The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$, where $k$ is the length of $\textit{indices}$.
 
 <!-- tabs:start -->
 

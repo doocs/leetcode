@@ -91,7 +91,7 @@ If $val$ is the maximum number, then make $val$ the new root node, and $root$ th
 
 If $val$ is not the maximum number, since $val$ is the last appended number, it must be on the right side of $root$. Therefore, we can insert $val$ as a new node into the right subtree of $root$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -302,7 +302,7 @@ Search the right subtree, find the node where $curr.val \gt val \gt curr.right.v
 
 Finally, return $root$.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the tree. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 

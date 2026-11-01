@@ -107,7 +107,7 @@ We define a helper function $\text{dfs}(root, i)$, where $root$ is the current n
 
 We initialize an empty list $\text{nums}$ to store the node values at the specified level, and call $\text{dfs}(root, 0)$ to start the traversal. Finally, we check if $\text{nums}$ is empty, and if so, return -1, otherwise return the value at the middle position of $\text{nums}$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -312,7 +312,7 @@ An explicit stack carries the current node, its depth, and whether its left subt
 
 An empty $\textit{nums}$ returns $-1$; otherwise the middle entry is the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 

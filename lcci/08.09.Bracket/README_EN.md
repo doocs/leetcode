@@ -66,7 +66,7 @@ We design a function `dfs(l, r, t)`, where $l$ and $r$ represent the number of l
 - We can choose to add a left parenthesis, and recursively execute `dfs(l + 1, r, t + "(")`;
 - We can also choose to add a right parenthesis, and recursively execute `dfs(l, r + 1, t + ")")`.
 
-The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
+The time complexity is $O(n 2^{2n})$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

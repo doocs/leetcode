@@ -96,7 +96,7 @@ Then, we traverse $pattern$ and $ws$. For each character $a$ and word $b$, if th
 
 After the traversal, return `true`.
 
-The time complexity is $O(m + n)$ and the space complexity is $O(m + n)$. Here $m$ and $n$ are the length of $pattern$ and string $s$.
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of $pattern$ and string $s$.
 
 <!-- tabs:start -->
 

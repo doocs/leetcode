@@ -85,7 +85,7 @@ In the problem, both $\textit{left}$ and $\textit{right}$ are within the range o
 
 We enumerate each number in the range $[\textit{left},.. \textit{right}]$, count the number of $1$s in its binary representation, and then check if this count is a prime number. If it is, we increment the answer by one.
 
-The time complexity is $O(n\times \log m)$, where $n = \textit{right} - \textit{left} + 1$ and $m$ is the maximum number in the range $[\textit{left},.. \textit{right}]$.
+The time complexity is $O(n \log m)$, where $n = \textit{right} - \textit{left} + 1$ and $m$ is the maximum number in the range $[\textit{left},.. \textit{right}]$.
 
 <!-- tabs:start -->
 

@@ -70,7 +70,7 @@ tags:
 
 Enumerate the starting position $i$ of each substring, find all substrings with the character at this starting position as the left endpoint, then calculate the beauty value of each substring, and accumulate it to the answer.
 
-The time complexity is $O(n^2 \times C)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n^2C)$, and the space complexity is $O(C)$, where $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

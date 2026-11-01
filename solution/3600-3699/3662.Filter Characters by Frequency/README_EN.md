@@ -92,7 +92,7 @@ First, we iterate through the string $s$ and count the frequency of each charact
 
 Then, we iterate through the string $s$ again, adding characters whose frequency is less than $k$ to the result string. Finally, we return the result string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the size of the character set.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the size of the character set.
 
 <!-- tabs:start -->
 

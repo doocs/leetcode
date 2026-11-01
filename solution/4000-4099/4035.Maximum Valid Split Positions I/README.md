@@ -169,7 +169,7 @@ tags:
 >
 > 枚举被删除的下标（以及一个都不删），对得到的数组预处理前缀、后缀 GCD，统计相等的分割点，取所有情形的最大值。
 >
-> 单次计分为 $O(n\log M)$，总时间 $O(n^2\log M)$ 可以接受。
+> 单次计分为 $O(n \log M)$，总时间 $O(n^2 \log M)$ 可以接受。
 
 <!-- thinking:end -->
 
@@ -177,7 +177,7 @@ tags:
 
 对于长度为 $m$ 的数组 $\textit{arr}$，我们预处理出前缀 GCD 数组 $\textit{pre}$ 和后缀 GCD 数组 $\textit{suf}$，其中 $\textit{pre}[i] = \gcd(\textit{arr}[0..i])$， $\textit{suf}[i] = \gcd(\textit{arr}[i..m - 1])$。那么分割位置 $i$ 有效当且仅当 $\textit{pre}[i] = \textit{suf}[i + 1]$，统计满足条件的下标个数即为 $\textit{arr}$ 的得分。
 
-时间复杂度 $O(n^2 \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。
+时间复杂度 $O(n^2 \log M)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 

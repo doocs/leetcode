@@ -73,7 +73,7 @@ The answer is $\min_{0 \leq j < n} f[n - 1][j]$.
 
 $f[i][j]$ depends only on the previous row, so we keep two arrays $f$ and $g$ of length $n$.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the side length of the matrix.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
 

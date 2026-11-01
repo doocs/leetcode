@@ -85,7 +85,7 @@ We take the maximum of these two choices to obtain the value of $f[i][j][k]$.
 
 The final answer is $f[sz][m][n]$.
 
-The time complexity is $O(sz \times m \times n)$, and the space complexity is $O(sz \times m \times n)$, where $sz$ is the length of the array $strs$, and $m$ and $n$ are the upper limits on the number of zeros and ones, respectively.
+The time complexity is $O(sz mn)$, and the space complexity is $O(sz mn)$, where $sz$ is the length of the array $strs$, and $m$ and $n$ are the upper limits on the number of zeros and ones, respectively.
 
 <!-- tabs:start -->
 
@@ -270,7 +270,7 @@ impl Solution {
 
 <!-- thinking:end -->
 
-We notice that the calculation of $f[i][j][k]$ only depends on $f[i-1][j][k]$ and $f[i-1][j-a][k-b]$. Therefore, we can eliminate the first dimension and optimize the space complexity to $O(m \times n)$.
+We notice that the calculation of $f[i][j][k]$ only depends on $f[i-1][j][k]$ and $f[i-1][j-a][k-b]$. Therefore, we can eliminate the first dimension and optimize the space complexity to $O(mn)$.
 
 <!-- tabs:start -->
 

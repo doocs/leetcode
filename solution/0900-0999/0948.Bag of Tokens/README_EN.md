@@ -144,7 +144,7 @@ There are two ways to use tokens: one is to consume energy to gain points, and t
 
 Therefore, we can sort the tokens by the amount of energy they consume, and then use two pointers: one moving from left to right and the other from right to left. In each iteration, we try to consume energy to gain points as much as possible, and then update the maximum score. If the current energy is not enough to consume the current token, we try to consume the current token using points. If the points are not enough to consume the current token, we stop the iteration.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of tokens.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of tokens.
 
 <!-- tabs:start -->
 

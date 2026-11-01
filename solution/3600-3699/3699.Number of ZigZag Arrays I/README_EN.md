@@ -110,7 +110,7 @@ Transitions:
 
 Prefix and suffix sums make each transition $O(m)$. Repeat $n - 1$ times. The answer is the sum of all $up[i] + down[i]$.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, where $n$ is the array length and $m$ is the size of the value range.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the array length and $m$ is the size of the value range.
 
 <!-- tabs:start -->
 
