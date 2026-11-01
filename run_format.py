@@ -385,10 +385,10 @@ def run_prettier(root: Path = None) -> None:
     old caller ignored Prettier's exit code. Prettier expands the glob itself,
     on every platform.
 
-    A sharing violation is retried. Windows antivirus often locks a file that
-    was just written (``UNKNOWN`` / ``EBUSY`` / ``EPERM`` / ``EACCES``).
-    Prettier rewrites a file only when its contents change, so the next
-    attempt writes just the files that failed.
+    A sharing violation is retried three times after the first attempt.
+    Windows antivirus often locks a file that was just written (``UNKNOWN`` /
+    ``EBUSY`` / ``EPERM`` / ``EACCES``). Prettier rewrites a file only when its
+    contents change, so a later attempt writes just the files that failed.
     """
     root = root or Path(__file__).resolve().parent
     node = shutil.which("node")
@@ -407,19 +407,22 @@ def run_prettier(root: Path = None) -> None:
     ]
     # Node's libuv message, e.g. "EBUSY: resource busy or locked, open '…'".
     locked = re.compile(r"\b(?:UNKNOWN|EBUSY|EPERM|EACCES):")
+    # The first call is the initial format. Three further calls are retries.
+    retries = 3
     print(f"prettier --write {pattern}", flush=True)
-    for attempt in range(1, 4):
+    for attempt in range(1, retries + 2):
         proc = subprocess.run(command, cwd=root, stderr=subprocess.PIPE)
-        if proc.stderr:
-            sys.stderr.buffer.write(proc.stderr)
+        err = proc.stderr or b""
+        if err:
+            sys.stderr.buffer.write(err)
             sys.stderr.flush()
         if proc.returncode == 0:
             return
-        text = proc.stderr.decode("utf-8", "replace")
-        if attempt == 3 or not locked.search(text):
+        text = err.decode("utf-8", "replace")
+        if attempt > retries or not locked.search(text):
             raise SystemExit(proc.returncode)
         print(
-            f"prettier could not write a file, retrying ({attempt}/3)",
+            f"prettier could not write a file, retrying ({attempt}/{retries})",
             flush=True,
         )
         time.sleep(attempt)
