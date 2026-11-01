@@ -140,7 +140,7 @@ GROUP BY 1;
 
 > **思考**
 >
-> 子查询的 $\textit{NOT}\ \textit{IN}$ 在部分引擎上对空值不友好，且语义是反包含。左连接 $\textit{Visits}$ 与 $\textit{Transactions}$ 后，未匹配行的 $\textit{amount}$ 为 $\textit{NULL}$，过滤这些行再分组，得到同一统计且更易与其它列一起扩展。
+> 子查询的 $\textit{NOT IN}$ 在部分引擎上对空值不友好，且语义是反包含。左连接 $\textit{Visits}$ 与 $\textit{Transactions}$ 后，未匹配行的 $\textit{amount}$ 为 $\textit{NULL}$，过滤这些行再分组，得到同一统计且更易与其它列一起扩展。
 
 <!-- thinking:end -->
 

@@ -138,7 +138,7 @@ Since $n \leq 15$, we can use binary enumeration to enumerate all subsets and ca
 
 At the start of the binary search, we define the left boundary $l=1$ and the right boundary $r={10}^{11}$. Then we continuously substitute the middle value $\textit{mid}$ into the `check` function. If `check(mid)` is true, then we update the right boundary $r$ to $\textit{mid}$, otherwise we update the left boundary $l$ to $\textit{mid}+1$. Finally, we return $l$.
 
-The time complexity is $O(n 2^n \log (\textit{kM}))$, where $n$ is the length of the array $\textit{coins}$, and $M$ is the maximum value in the array.
+The time complexity is $O(n 2^n \log (k \times M))$, where $n$ is the length of the array $\textit{coins}$, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

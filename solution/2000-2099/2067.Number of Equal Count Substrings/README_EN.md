@@ -89,7 +89,7 @@ We can enumerate the number of types of letters in the substring within the rang
 
 Next, we take the current substring length as the size of the window, count the number of types of letters in the window size that are equal to $\textit{count}$, and record it in $t$. If $i = t$ at this time, it means that the number of letters in the current window are all $\textit{count}$, then we can increment the answer by one.
 
-The time complexity is $O(\textit{nC})$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$, and $C$ is the number of types of letters, in this problem $C = 26$.
+The time complexity is $O(n \times C)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$, and $C$ is the number of types of letters, in this problem $C = 26$.
 
 <!-- tabs:start -->
 

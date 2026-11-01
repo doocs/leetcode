@@ -109,7 +109,7 @@ From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot
 >
 > For a run of the same state, date minus in-group rank is constant, and that difference labels the island. Grouping by state and that label, $\textit{MIN}$/$\textit{MAX}$ dates form each range.
 >
-> $\textit{UNION}\ \textit{ALL}$ aligns the tables, $\textit{RANK}$ builds the island key, and $\textit{GROUP}\ \textit{BY}$ collapses each range.
+> $\textit{UNION ALL}$ aligns the tables, $\textit{RANK}$ builds the island key, and $\textit{GROUP BY}$ collapses each range.
 
 <!-- thinking:end -->
 

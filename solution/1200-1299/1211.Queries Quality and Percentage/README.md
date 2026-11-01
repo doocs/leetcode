@@ -98,7 +98,7 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 > **思考**
 >
-> 质量是 $\textit{rating}/\textit{position}$ 的均值，劣质占比是 $\textit{rating} < 3$ 的比例。二者都是按查询名聚合的标量，直接 $\textit{GROUP}\ \textit{BY}\ \textit{query\_name}$，用 $\textit{AVG}$ 分别计算比值与布尔均值，再 $\textit{ROUND}$ 到两位。空查询名按题意排除。
+> 质量是 $\textit{rating}/\textit{position}$ 的均值，劣质占比是 $\textit{rating} < 3$ 的比例。二者都是按查询名聚合的标量，直接 $\textit{GROUP BY}\ \textit{query\_name}$，用 $\textit{AVG}$ 分别计算比值与布尔均值，再 $\textit{ROUND}$ 到两位。空查询名按题意排除。
 
 <!-- thinking:end -->
 

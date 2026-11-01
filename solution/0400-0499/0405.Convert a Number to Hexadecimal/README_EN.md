@@ -52,7 +52,7 @@ tags:
 >
 > A $32$-bit two's-complement integer must be printed in hex, including negatives. Digit-by-digit decimal conversion fights the sign; grouping $4$ bits does not.
 >
-> Eight groups from high to low, each masked with $0\textit{xF}$, map through a digit table. Skip leading zeros until a nonzero nibble appears; treat $0$ as a special case.
+> Eight groups from high to low, each masked with `0xF`, map through a digit table. Skip leading zeros until a nonzero nibble appears; treat $0$ as a special case.
 >
 > Scanning from the high end lets us drop leading zeros without reversing a buffer.
 

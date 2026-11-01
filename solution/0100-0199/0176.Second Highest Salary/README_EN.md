@@ -85,7 +85,7 @@ Employee table:
 
 > **Thinking**
 >
-> The second highest salary is the second value of the distinct salaries in descending order, or $\textit{NULL}$ if fewer than two exist. $\textit{ORDER} \textit{BY}$ plus $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ picks that slot; an outer query keeps a single $\textit{NULL}$ row when the offset is empty.
+> The second highest salary is the second value of the distinct salaries in descending order, or $\textit{NULL}$ if fewer than two exist. $\textit{ORDER BY}$ plus $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ picks that slot; an outer query keeps a single $\textit{NULL}$ row when the offset is empty.
 
 <!-- thinking:end -->
 

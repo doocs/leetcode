@@ -83,7 +83,7 @@ So, we can use a hash table or array to record the first occurrence of all state
 
 Finally, return the answer.
 
-The time complexity is $O(\textit{nC})$, and the space complexity is $O(2^C)$, where $n$ and $C$ are the length of the string $s$ and the number of types of digit characters, respectively.
+The time complexity is $O(n \times C)$, and the space complexity is $O(2^C)$, where $n$ and $C$ are the length of the string $s$ and the number of types of digit characters, respectively.
 
 <!-- tabs:start -->
 

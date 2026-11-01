@@ -105,7 +105,7 @@ John, Daiana, Steve, and Jasmine are enrolled in departments 14, 33, 74, and 77 
 
 > **Thinking**
 >
-> Students whose $\textit{department\_id}$ is missing from the department table. A subquery lists every department id; $\textit{NOT}\ \textit{IN}$ keeps the unmatched students.
+> Students whose $\textit{department\_id}$ is missing from the department table. A subquery lists every department id; $\textit{NOT IN}$ keeps the unmatched students.
 
 <!-- thinking:end -->
 
@@ -134,7 +134,7 @@ WHERE department_id NOT IN (SELECT id FROM Departments);
 
 > **Thinking**
 >
-> $\textit{NOT}\ \textit{IN}$ is sensitive to null keys. A left join from students to departments, keeping rows whose department id is null, states the mismatch without a subquery.
+> $\textit{NOT IN}$ is sensitive to null keys. A left join from students to departments, keeping rows whose department id is null, states the mismatch without a subquery.
 
 <!-- thinking:end -->
 

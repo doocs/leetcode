@@ -134,7 +134,7 @@ tags:
 
 最后返回答案 $\textit{ans}$ 即可。
 
-时间复杂度 $O(\textit{Cn} + m)$，空间复杂度 $O(m)$。其中 $C$ 表示每次可以移动的最大步数，而 $n$ 和 $m$ 分别表示数组 $\textit{commands}$ 和数组 $\textit{obstacles}$ 的长度。
+时间复杂度 $O(C \times n + m)$，空间复杂度 $O(m)$。其中 $C$ 表示每次可以移动的最大步数，而 $n$ 和 $m$ 分别表示数组 $\textit{commands}$ 和数组 $\textit{obstacles}$ 的长度。
 
 <!-- tabs:start -->
 

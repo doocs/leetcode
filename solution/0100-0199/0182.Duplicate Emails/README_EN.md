@@ -114,7 +114,7 @@ HAVING COUNT(1) > 1;
 
 > **Thinking**
 >
-> Solution 1 aggregates. A self-join on the same email and different $id$s also proves the email appears twice; then distinct. No $\textit{GROUP} \textit{BY}$.
+> Solution 1 aggregates. A self-join on the same email and different $id$s also proves the email appears twice; then distinct. No $\textit{GROUP BY}$.
 
 <!-- thinking:end -->
 

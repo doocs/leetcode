@@ -94,7 +94,7 @@ Since the range of $\textit{nums}[i]$ in the problem is $[1, 50]$, we can prepro
 
 Next, we can use a backtracking method to traverse the entire tree from the root node. For each node $i$, we can get all the coprime numbers of $\textit{nums}[i]$ through the array $f$. Then we enumerate all the coprime numbers of $\textit{nums}[i]$, find the ancestor node $t$ that has appeared and has the maximum depth, which is the nearest coprime ancestor node of $i$. Here we can use a stack array $\textit{stks}$ of length $51$ to get each appeared value $v$ and its depth. The top element of each stack $\textit{stks}[v]$ is the nearest ancestor node with the maximum depth.
 
-The time complexity is $O(\textit{nM})$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $\textit{nums}[i]$, in this problem $M = 50$.
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $\textit{nums}[i]$, in this problem $M = 50$.
 
 <!-- tabs:start -->
 
@@ -315,7 +315,7 @@ Since the range of $\textit{nums}[i]$ in the problem is $[1, 50]$, we can prepro
 
 Next, an explicit stack walks the tree in preorder from the root. For each node $i$, enumerate the values coprime to $\textit{nums}[i]$ and take the ancestor $t$ of maximum depth among those stack tops; that is the nearest coprime ancestor. The stack array $\textit{stks}$ has length $51$, and $\textit{stks}[v]$ records nodes of value $v$ on the current root path together with their depths. Before walking to a child, push $(i,\textit{depth})$ onto $\textit{stks}[\textit{nums}[i]]$, and pop it after that child is finished.
 
-The time complexity is $O(\textit{nM})$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $\textit{nums}[i]$, in this problem $M = 50$.
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$, where $n$ is the number of nodes, and $M$ is the maximum value of $\textit{nums}[i]$, in this problem $M = 50$.
 
 <!-- tabs:start -->
 

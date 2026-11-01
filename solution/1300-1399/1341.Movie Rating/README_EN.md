@@ -128,7 +128,7 @@ Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smal
 
 > **Thinking**
 >
-> Two scalars stacked as one column: the user with the most ratings (lexicographically smallest on a tie) and the February $2020$ movie with the highest average (same tie-break). Each side is a join, group, order, and $\textit{LIMIT}\,1$; $\textit{UNION}\ \textit{ALL}$ concatenates them.
+> Two scalars stacked as one column: the user with the most ratings (lexicographically smallest on a tie) and the February $2020$ movie with the highest average (same tie-break). Each side is a join, group, order, and $\textit{LIMIT}\,1$; $\textit{UNION ALL}$ concatenates them.
 
 <!-- thinking:end -->
 

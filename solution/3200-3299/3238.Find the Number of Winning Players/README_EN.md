@@ -106,7 +106,7 @@ Traverse the $\textit{pick}$ array, for each element $[x, y]$, we increment $\te
 
 Finally, return the size of the hash table $s$.
 
-The time complexity is $O(m + \textit{nM})$, and the space complexity is $O(\textit{nM})$, where $m$ is the length of the $\textit{pick}$ array, and $n$ and $M$ are the number of players and the number of colors, respectively.
+The time complexity is $O(m + n \times M)$, and the space complexity is $O(n \times M)$, where $m$ is the length of the $\textit{pick}$ array, and $n$ and $M$ are the number of players and the number of colors, respectively.
 
 <!-- tabs:start -->
 

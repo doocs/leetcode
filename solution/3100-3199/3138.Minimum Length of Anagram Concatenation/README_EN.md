@@ -92,7 +92,7 @@ First, we count the occurrence of each character in string $s$ and record it in 
 
 Next, we define a function $\textit{check}(k)$ to check whether the length $k$ of string $t$ meets the requirements. We can traverse string $s$, taking a substring of length $k$ each time, and then count the occurrence of each character. If the occurrence of each character multiplied by $\frac{n}{k}$ does not equal the value in $\textit{cnt}$, then return $\textit{false}$. If all checks pass by the end of the traversal, return $\textit{true}$.
 
-The time complexity is $O(\textit{nA})$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $A$ is the number of factors of $n$, and $\Sigma$ is the character set, which in this case is the set of lowercase letters.
+The time complexity is $O(n \times A)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $A$ is the number of factors of $n$, and $\Sigma$ is the character set, which in this case is the set of lowercase letters.
 
 <!-- tabs:start -->
 

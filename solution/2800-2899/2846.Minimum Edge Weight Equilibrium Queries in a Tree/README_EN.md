@@ -106,7 +106,7 @@ We denote the depth of each node as $\textit{depth}$, its parent node as $p$, an
 
 Finally, the minimum number of operations from node $u$ to node $v$ is $\textit{depth}(u) + \textit{depth}(v) - 2 \times \textit{depth}(x) - \max_{0 \leq j < 26} \textit{cnt}[u][j] + \textit{cnt}[v][j] - 2 \times \textit{cnt}[x][j]$.
 
-The time complexity is $O((n + q)C \log n)$, and the space complexity is $O(\textit{nC} \log n)$, where $C$ is the maximum value of the edge weight.
+The time complexity is $O((n + q)C \log n)$, and the space complexity is $O(n \times C \log n)$, where $C$ is the maximum value of the edge weight.
 
 <!-- tabs:start -->
 

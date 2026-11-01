@@ -159,7 +159,7 @@ ORDER BY s1.tx;
 
 > **Thinking**
 >
-> Solution 1 marks months with a window and joins on a one-month gap. We can also $\textit{GROUP} \textit{BY}$ account and $\textit{YYYYMM}$, keep overflowing months with $\textit{HAVING}$, and test whether $(\textit{account\_id},\textit{next month})$ still sits in that set.
+> Solution 1 marks months with a window and joins on a one-month gap. We can also $\textit{GROUP BY}$ account and $\textit{YYYYMM}$, keep overflowing months with $\textit{HAVING}$, and test whether $(\textit{account\_id},\textit{next month})$ still sits in that set.
 
 <!-- thinking:end -->
 

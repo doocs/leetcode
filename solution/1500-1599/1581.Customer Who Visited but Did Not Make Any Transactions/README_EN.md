@@ -140,7 +140,7 @@ GROUP BY 1;
 
 > **Thinking**
 >
-> $\textit{NOT}\ \textit{IN}$ is awkward with nulls on some engines. A left join from $\textit{Visits}$ to $\textit{Transactions}$ leaves $\textit{amount}$ null on unmatched visits; filtering those rows and grouping yields the same counts and composes more easily with extra columns.
+> $\textit{NOT IN}$ is awkward with nulls on some engines. A left join from $\textit{Visits}$ to $\textit{Transactions}$ leaves $\textit{amount}$ null on unmatched visits; filtering those rows and grouping yields the same counts and composes more easily with extra columns.
 
 <!-- thinking:end -->
 

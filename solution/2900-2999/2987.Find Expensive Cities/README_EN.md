@@ -85,7 +85,7 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 
 > **Thinking**
 >
-> A city qualifies when its average price exceeds the national average. Group by $\textit{city}$ and compare $\textit{HAVING} \textit{AVG}(\textit{price})$ with a scalar subquery $\textit{AVG}(\textit{price})$ computed once on the whole table.
+> A city qualifies when its average price exceeds the national average. Group by $\textit{city}$ and compare $\textit{HAVING AVG}(\textit{price})$ with a scalar subquery $\textit{AVG}(\textit{price})$ computed once on the whole table.
 >
 > Sort by city name.
 

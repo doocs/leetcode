@@ -151,7 +151,7 @@ Each row includes a trip&#39;s ID, the vehicle used, the distance covered (in mi
 >
 > For each fuel type we need the driver with the best rating, then the largest distance, then the fewest accidents, keeping ties. Joining $\textit{Drivers}$, $\textit{Vehicles}$, and $\textit{Trips}$ and grouping by fuel type and driver yields those three aggregates.
 >
-> A plain $\textit{GROUP} \textit{BY}$ with $\textit{MAX}$ cannot return every tied $\textit{driver\_id}$.
+> A plain $\textit{GROUP BY}$ with $\textit{MAX}$ cannot return every tied $\textit{driver\_id}$.
 >
 > We therefore rank the aggregates by rating descending, distance descending, and accidents ascending, keep $rk=1$, and order by fuel type.
 

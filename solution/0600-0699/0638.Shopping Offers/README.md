@@ -86,7 +86,7 @@ tags:
 
 我们注意到，题目中物品的种类 $n \leq 6$，而每种物品需要购买的数量不超过 $10$，我们可以用 $4$ 个二进制位来表示每种物品需要购买的数量，这样，我们只需要最多 $6 \times 4 = 24$ 个二进制位来表示整个购物清单。
 
-我们首先将购物清单 $\textit{needs}$ 转换为一个整数 $\textit{mask}$，其中第 $i$ 个物品需要购买的数量存储在 $\textit{mask}$ 的第 $i \times 4$ 位到第 $(i + 1) \times 4 - 1$ 位。例如，当 $\textit{needs} = [1, 2, 1]$ 时，有 $\textit{mask} = 0\textit{b0001} 0010 0001$。
+我们首先将购物清单 $\textit{needs}$ 转换为一个整数 $\textit{mask}$，其中第 $i$ 个物品需要购买的数量存储在 $\textit{mask}$ 的第 $i \times 4$ 位到第 $(i + 1) \times 4 - 1$ 位。例如，当 $\textit{needs} = [1, 2, 1]$ 时，有 $\textit{mask} = \texttt{0b0001 0010 0001}$。
 
 然后，我们设计一个函数 $\textit{dfs}(\textit{cur})$，表示当前购物清单的状态为 $\textit{cur}$ 时，我们需要花费的最少金额。那么答案即为 $\textit{dfs}(\textit{mask})$。
 

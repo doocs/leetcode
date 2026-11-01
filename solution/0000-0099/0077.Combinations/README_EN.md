@@ -75,7 +75,7 @@ The above method is actually enumerating whether to select the current number or
 
 In the main function, we start the search from number $1$, i.e., execute $\textit{dfs}(1)$.
 
-The time complexity is $O(\textit{kC}_n^k)$, and the space complexity is $O(k)$, where $C_n^k$ represents the combination number.
+The time complexity is $O(k \times C_n^k)$, and the space complexity is $O(k)$, where $C_n^k$ represents the combination number.
 
 Similar problems:
 

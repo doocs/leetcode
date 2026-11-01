@@ -102,7 +102,7 @@ Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 >
 > 四项大满贯冠军存在宽表里，要按球员统计冠军次数。先把四列竖成一列再与球员表连接。
 >
-> $\textit{UNION}\ \textit{ALL}$ 四次选出冠军 $\textit{player\_id}$，等值连接 $\textit{Players}$ 后按人 $\textit{COUNT}$。
+> $\textit{UNION ALL}$ 四次选出冠军 $\textit{player\_id}$，等值连接 $\textit{Players}$ 后按人 $\textit{COUNT}$。
 
 <!-- thinking:end -->
 

@@ -8,7 +8,9 @@ fenced code:
 - Single-letter symbols stay plain math (``$n$``, ``$O(n\\log n)$``).
 - Two lowercase letters stay plain (``$dp$``, ``$O(mn)$``, ``$ab$``).
 - Longer code identifiers use ``\\textit`` (``$\\textit{nums}[i]$``).
-  A digit, underscore, or capital also forces ``\\textit`` (``$\\textit{s1}$``).
+  A digit, underscore, or capital also forces ``\\textit`` (``$\\textit{s1}$``),
+  except a run of single-letter factors (``$C \\times n$``) and a multi-word
+  identifier phrase (``$\\textit{NOT IN}$``).
 - Natural-language words inside a formula stay ``\\text``.
 - ``\\log`` / ``\\ln`` are operator commands. ``\\min`` / ``\\max`` / ``\\gcd``
   are operators when they are called or subscripted; a bare name is an identifier.
@@ -131,6 +133,56 @@ def split_log_ident(ident: str) -> str | None:
     return " ".join(parts)
 
 
+def grouped_ident_phrase(inner: str) -> str | None:
+    """Keep ``NOT IN`` and ``GROUP BY product\\_id`` as one italic phrase.
+
+    Adjacent ``\\textit`` words that were already separate stay separate.
+    This only preserves a phrase that arrived inside one wrapper.
+    """
+    text = inner.replace("\\ ", " ").strip()
+    parts = re.split(r"\s+", text)
+    if len(parts) < 2:
+        return None
+    if not all(PURE_IDENT.fullmatch(part) for part in parts):
+        return None
+    return " ".join(parts)
+
+
+def split_letter_product(ident: str) -> str | None:
+    """``nC`` and ``Cn`` are products of single-letter factors, not one name."""
+    if len(ident) < 2 or not ident.isalpha():
+        return None
+    if ident.islower() or ident.isupper():
+        return None
+    for prev, curr in zip(ident, ident[1:]):
+        if prev.isupper() == curr.isupper():
+            return None
+    return r" \times ".join(ident)
+
+
+def radix_suffix(token: str) -> str | None:
+    if re.fullmatch(r"[xX][0-9A-Fa-f]+", token):
+        return token
+    if re.fullmatch(r"[bB][01]+", token):
+        return token
+    return None
+
+
+def pop_lone_zero(out: list[str]) -> bool:
+    if not out or not out[-1].endswith("0"):
+        return False
+    tail = out[-1]
+    if len(tail) > 1 and tail[-2].isdigit():
+        return False
+    if len(tail) == 1 and len(out) > 1 and out[-2][-1].isdigit():
+        return False
+    if len(tail) == 1:
+        out.pop()
+    else:
+        out[-1] = tail[:-1]
+    return True
+
+
 def should_textit(ident: str) -> bool:
     """Multi-letter code names are italic words.
 
@@ -138,7 +190,7 @@ def should_textit(ident: str) -> bool:
     short names, and plain math already renders both. A digit, underscore, or
     capital letter marks a real token (``s1``, ``is\\_end``, ``COUNT``).
     """
-    if ident in GLUED_PRODUCTS:
+    if ident in GLUED_PRODUCTS or split_letter_product(ident):
         return False
     letters = ident.replace("\\_", "")
     # Complexity O(·) and other single-letter symbols stay plain, any case.
@@ -152,6 +204,9 @@ def should_textit(ident: str) -> bool:
 
 
 def style_ident(ident: str, nxt: str) -> str:
+    product = split_letter_product(ident)
+    if product:
+        return product
     split = split_log_ident(ident)
     if split:
         return split
@@ -217,6 +272,9 @@ def transform_wrapped(name: str, inner: str) -> str:
         return stripped
     if re.fullmatch(r"0[xX][0-9A-Fa-f]+|0[bB][01]+", stripped):
         return "\\texttt{" + stripped + "}"
+    phrase = grouped_ident_phrase(inner)
+    if phrase:
+        return "\\textit{" + phrase + "}"
     if name == "text" and stripped == inner and is_kept_prose(inner):
         return "\\text{" + inner + "}"
     return normalize_math_expr(inner)
@@ -251,12 +309,30 @@ def _normalize_math_expr(src: str) -> str:
                     inner, j = read_group(src, j, "{", "}")
                     if name == "textitt":
                         inner = _unwrap_simple_textit(inner)
+                    if re.fullmatch(r"0[bB][01]+", inner):
+                        extra, j = absorb_bit_groups(src, j)
+                        inner += extra
                     out.append("\\texttt{" + inner + "}")
                     i = j
                     continue
                 if name in {"textit", "texttt"}:
                     if j < n and src[j] == "{":
                         inner, j = read_group(src, j, "{", "}")
+                        phrase = (
+                            grouped_ident_phrase(inner) if name == "textit" else None
+                        )
+                        if phrase:
+                            out.append("\\textit{" + phrase + "}")
+                            i = j
+                            continue
+                        suffix = radix_suffix(inner) if name == "textit" else None
+                        if suffix and pop_lone_zero(out):
+                            extra = ""
+                            if suffix[0] in "bB":
+                                extra, j = absorb_bit_groups(src, j)
+                            out.append("\\texttt{0" + suffix + extra + "}")
+                            i = j
+                            continue
                         if name == "texttt" or _keep_textit(inner):
                             if name == "textit":
                                 out.append("\\textit{" + inner + "}")
@@ -278,7 +354,11 @@ def _normalize_math_expr(src: str) -> str:
                     out.append(src[i:j])
                     i = j
                     continue
-                out.append(src[i:j])
+                spaced = src[i:j]
+                nxt = src[j] if j < n else ""
+                if name == "times" and nxt.isalpha():
+                    spaced += " "
+                out.append(spaced)
                 i = j
                 continue
             if i + 1 < n:
@@ -291,13 +371,55 @@ def _normalize_math_expr(src: str) -> str:
         matched = IDENT_RE.match(src, i)
         if matched:
             ident = matched.group(0)
+            suffix = radix_suffix(ident)
+            if suffix and pop_lone_zero(out):
+                end = matched.end()
+                extra = ""
+                if suffix[0] in "bB":
+                    extra, end = absorb_bit_groups(src, end)
+                out.append("\\texttt{0" + suffix + extra + "}")
+                i = end
+                continue
             nxt = next_sig(src, matched.end())
             out.append(style_ident(ident, nxt))
             i = matched.end()
             continue
         out.append(src[i])
         i += 1
-    return "".join(out)
+    return join_upper_phrases(separate_times("".join(out)))
+
+
+def separate_times(src: str) -> str:
+    """``\\timesv`` is an undefined command; keep the control word intact."""
+    return re.sub(r"\\times(?=[A-Za-z])", r"\\times ", src)
+
+
+def join_upper_phrases(src: str) -> str:
+    """``UNION\\ ALL`` is one SQL phrase, not two identifiers."""
+
+    def repl(match: re.Match[str]) -> str:
+        words = re.findall(r"\\textit\{([A-Z][A-Z0-9_]*)\}", match.group(0))
+        return "\\textit{" + " ".join(words) + "}"
+
+    return re.sub(
+        r"\\textit\{[A-Z][A-Z0-9_]*\}(?:(?:\s|\\ )+\\textit\{[A-Z][A-Z0-9_]*\})+",
+        repl,
+        src,
+    )
+
+
+def absorb_bit_groups(src: str, i: int) -> tuple[str, int]:
+    """Pull `` 0010 0001`` into a binary mask that already started at ``0b``."""
+    extra: list[str] = []
+    while i < len(src) and src[i] == " ":
+        k = i + 1
+        while k < len(src) and src[k] in "01":
+            k += 1
+        if k == i + 1:
+            break
+        extra.append(src[i:k])
+        i = k
+    return "".join(extra), i
 
 
 def _unwrap_simple_textit(inner: str) -> str:
@@ -349,6 +471,28 @@ def looks_like_prose(expr: str) -> bool:
     return False
 
 
+def code_literal(expr: str) -> str | None:
+    """A whole span that is only a hex or binary mask belongs in inline code."""
+    stripped = expr.strip()
+    stripped = re.sub(r"\\(?:textit|texttt|text)\{([^{}]*)\}", r"\1", stripped)
+    stripped = re.sub(r"\s+", " ", stripped).strip()
+    if re.fullmatch(r"0[xX][0-9A-Fa-f]+", stripped):
+        return stripped
+    if re.fullmatch(r"0[bB][01]+(?: [01]+)*", stripped):
+        return stripped
+    return None
+
+
+def render_math(inner: str, display: bool) -> str:
+    literal = None if display else code_literal(inner)
+    if literal is not None:
+        return "`" + literal + "`"
+    body = normalize_math_span(inner)
+    if display:
+        return "$$" + body + "$$"
+    return "$" + body + "$"
+
+
 def normalize_math_span(expr: str) -> str:
     if looks_like_prose(expr):
         return expr
@@ -391,9 +535,7 @@ def normalize_prose(src: str) -> str:
                     i += 2
                     continue
                 inner = src[i + 2 : closed]
-                out.append("$$")
-                out.append(normalize_math_span(inner))
-                out.append("$$")
+                out.append(render_math(inner, True))
                 i = closed + 2
                 continue
             j = i + 1
@@ -413,9 +555,7 @@ def normalize_prose(src: str) -> str:
                 i += 1
                 continue
             inner = src[i + 1 : closed]
-            out.append("$")
-            out.append(normalize_math_span(inner))
-            out.append("$")
+            out.append(render_math(inner, False))
             i = closed + 1
             continue
         out.append(src[i])
@@ -488,7 +628,18 @@ def self_test() -> None:
         "$\\text{'S'}$": "$\\text{'S'}$",
         "$\\text{-}$": "$\\text{-}$",
         "$\\text{0}$": "$0$",
-        "$\\text{0x5555}$": "$\\texttt{0x5555}$",
+        "$\\text{0x5555}$": "`0x5555`",
+        "$0xFFFFFFFF$": "`0xFFFFFFFF`",
+        "$0\\textit{xFFFFFFFF}$": "`0xFFFFFFFF`",
+        "$0b1111$": "`0b1111`",
+        "$0\\textit{b0001} 0010 0001$": "`0b0001 0010 0001`",
+        "$n = 0xFF$": "$n = \\texttt{0xFF}$",
+        "$O(\\textit{Cn})$": "$O(C \\times n)$",
+        "$O(\\textit{nC})$": "$O(n \\times C)$",
+        "$O(\\textit{nG}(n))$": "$O(n \\times G(n))$",
+        "$\\textit{maxGap}$": "$\\textit{maxGap}$",
+        "$|\\mathbf{u}\\times\\mathbf{v}|/2$": "$|u\\times v|/2$",
+        "$u\\timesv$": "$u\\times v$",
         "$\\frac{nums}{2}$": "$\\frac{\\textit{nums}}{2}$",
         "$\\begin{bmatrix} a \\\\ b \\end{bmatrix}$": "$\\begin{bmatrix} a \\\\ b \\end{bmatrix}$",
         "$\\begin{\\textit{bmatrix}} a \\end{\\textit{bmatrix}}$": "$\\begin{bmatrix} a \\end{bmatrix}$",
@@ -504,7 +655,17 @@ def self_test() -> None:
         "$\\textit{nums[i]}$": "$\\textit{nums}[i]$",
         "$\\textit{2k}$": "$\\textit{2k}$",
         "$\\textit{root.val}$": "$\\textit{root}.\\textit{val}$",
-        "$\\mathrm{NOT\\ IN}$": "$\\textit{NOT}\\ \\textit{IN}$",
+        "$\\mathrm{NOT\\ IN}$": "$\\textit{NOT IN}$",
+        "$\\textit{NOT IN}$": "$\\textit{NOT IN}$",
+        "$\\textit{GROUP BY product\\_id}$": "$\\textit{GROUP BY product\\_id}$",
+        "$\\textit{NOT} \\textit{IN}$": "$\\textit{NOT IN}$",
+        "$O(\\textit{Kn}^2)$": "$O(K \\times n^2)$",
+        "$O(\\textit{kC}_n^k)$": "$O(k \\times C_n^k)$",
+        "$UNION\\ ALL$": "$\\textit{UNION ALL}$",
+        "$\\textit{NOT}\\ \\textit{IN}$": "$\\textit{NOT IN}$",
+        "$\\textit{AND} \\textit{nums}$": "$\\textit{AND} \\textit{nums}$",
+        "$mask = 0b0001 0010 0001$": "$\\textit{mask} = \\texttt{0b0001 0010 0001}$",
+        "$\\texttt{0b0001} 0010 0001$": "`0b0001 0010 0001`",
         "$\\text{1 if pos \\% 2 == 0 else -1}$": "$\\text{1 if pos \\% 2 == 0 else -1}$",
         "$dfs(pos, mod, limit)$": "$\\textit{dfs}(\\textit{pos}, \\textit{mod}, \\textit{limit})$",
         "find the words equal to $n$": "find the words equal to $n$",

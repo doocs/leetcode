@@ -114,7 +114,7 @@ WHERE p1.mark AND p2.mark;
 
 > **Thinking**
 >
-> Solution 1 keeps every year and filters on $\textit{mark}$. We can instead keep only years with $\textit{HAVING} \textit{COUNT}(1)\ge 3$, so the self-join has no extra predicate. The result is the same.
+> Solution 1 keeps every year and filters on $\textit{mark}$. We can instead keep only years with $\textit{HAVING COUNT}(1)\ge 3$, so the self-join has no extra predicate. The result is the same.
 
 <!-- thinking:end -->
 

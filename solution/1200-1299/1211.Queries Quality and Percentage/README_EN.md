@@ -97,7 +97,7 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 > **Thinking**
 >
-> Quality is the average of $\textit{rating}/\textit{position}$; the poor-query rate is the fraction with $\textit{rating} < 3$. Both are scalars per query name, so we $\textit{GROUP}\ \textit{BY}\ \textit{query\_name}$, take $\textit{AVG}$ of the ratio and of the boolean, and $\textit{ROUND}$ to two decimals. Null query names are dropped.
+> Quality is the average of $\textit{rating}/\textit{position}$; the poor-query rate is the fraction with $\textit{rating} < 3$. Both are scalars per query name, so we $\textit{GROUP BY}\ \textit{query\_name}$, take $\textit{AVG}$ of the ratio and of the boolean, and $\textit{ROUND}$ to two decimals. Null query names are dropped.
 
 <!-- thinking:end -->
 

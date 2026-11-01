@@ -108,7 +108,7 @@ tags:
 
 最后，节点 $u$ 到节点 $v$ 的最小操作次数就是 $\textit{depth}(u) + \textit{depth}(v) - 2 \times \textit{depth}(x) - \max_{0 \leq j < 26} \textit{cnt}[u][j] + \textit{cnt}[v][j] - 2 \times \textit{cnt}[x][j]$。
 
-时间复杂度 $O((n + q)C \log n)$，空间复杂度 $O(\textit{nC} \log n)$。其中 $C$ 为边权重的最大值。
+时间复杂度 $O((n + q)C \log n)$，空间复杂度 $O(n \times C \log n)$。其中 $C$ 为边权重的最大值。
 
 <!-- tabs:start -->
 

@@ -108,7 +108,7 @@ The execution logic of the function $\textit{dfs}$ is as follows:
 
 In the main function, we call the $\textit{dfs}$ function, pass in the text string $\textit{text}$, and return the result.
 
-The time complexity is $O(m + \textit{nL})$, and the space complexity is $O(m + \textit{nL})$, where $m$ is the length of the substitution mapping, and $n$ and $L$ are the length of the text string and the average length of the placeholders, respectively.
+The time complexity is $O(m + n \times L)$, and the space complexity is $O(m + n \times L)$, where $m$ is the length of the substitution mapping, and $n$ and $L$ are the length of the text string and the average length of the placeholders, respectively.
 
 <!-- tabs:start -->
 

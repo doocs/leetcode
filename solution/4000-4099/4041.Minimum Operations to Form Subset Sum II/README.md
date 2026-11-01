@@ -121,7 +121,7 @@ tags:
 
 我们定义 $f[w]$ 表示子集和恰好为 $w$ 时所需的最少操作次数，初始时 $f[0] = 0$，其余为 $+\infty$。依次枚举每个元素 $x$，容量 $w$ 从大到小遍历，再枚举除法次数 $i$ 与乘法次数 $j$，得到取值 $y = \lfloor x / 2^i \rfloor \times 2^j$，若 $y \leq w$，则用 $f[w - y] + i + j$ 更新 $f[w]$。最后若 $f[\textit{sum}]$ 仍为 $+\infty$，说明无解，返回 $-1$，否则返回 $f[\textit{sum}]$。
 
-时间复杂度 $O(\textit{nS} \log M \log S)$，空间复杂度 $O(S)$。其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和最大值，而 $S$ 是给定的 $\textit{sum}$。
+时间复杂度 $O(n \times S \log M \log S)$，空间复杂度 $O(S)$。其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和最大值，而 $S$ 是给定的 $\textit{sum}$。
 
 <!-- tabs:start -->
 

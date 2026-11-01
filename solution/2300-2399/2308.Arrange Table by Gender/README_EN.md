@@ -135,7 +135,7 @@ ORDER BY rk1, rk2;
 
 > **Thinking**
 >
-> Method 1 materializes two sort keys in a CTE. The same window rank can sit in $\textit{ORDER}\ \textit{BY}$: partition by gender, rank by $\textit{user\_id}$, then use gender’s lexicographic order (female, male, other) as the second key, dropping the explicit $\textit{CASE}$ and the extra $\textit{WITH}$.
+> Method 1 materializes two sort keys in a CTE. The same window rank can sit in $\textit{ORDER BY}$: partition by gender, rank by $\textit{user\_id}$, then use gender’s lexicographic order (female, male, other) as the second key, dropping the explicit $\textit{CASE}$ and the extra $\textit{WITH}$.
 
 <!-- thinking:end -->
 

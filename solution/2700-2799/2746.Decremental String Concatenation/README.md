@@ -110,7 +110,7 @@ join(str<sub>0</sub>, "b") = "ab" 或者 join("b", str<sub>0</sub>) = "bab" 。
 
 在主函数中，我们直接返回 $|\textit{words}[0]| + \textit{dfs}(1, \textit{words}[0][0], \textit{words}[0][|\textit{words}[0]| - 1])$。
 
-时间复杂度 $O(\textit{nC}^2)$，空间复杂度 $O(\textit{nC}^2)$。其中 $C$ 表示字符串的最大长度。
+时间复杂度 $O(n \times C^2)$，空间复杂度 $O(n \times C^2)$。其中 $C$ 表示字符串的最大长度。
 
 <!-- tabs:start -->
 

@@ -134,7 +134,7 @@ $$
 
 在二分查找开始时，我们定义二分查找的左边界 $l=1$，右边界 $r={10}^{11}$，然后我们不断地将中间值 $\textit{mid}$ 代入 `check` 函数中，如果 `check(mid)` 为真，那么我们将右边界 $r$ 更新为 $\textit{mid}$，否则我们将左边界 $l$ 更新为 $\textit{mid}+1$。最终返回 $l$。
 
-时间复杂度 $O(n 2^n \log (\textit{kM}))$。其中 $n$ 是数组 $\textit{coins}$ 的长度，而 $M$ 是数组 $\textit{coins}$ 中的最大值。
+时间复杂度 $O(n 2^n \log (k \times M))$。其中 $n$ 是数组 $\textit{coins}$ 的长度，而 $M$ 是数组 $\textit{coins}$ 中的最大值。
 
 <!-- tabs:start -->
 

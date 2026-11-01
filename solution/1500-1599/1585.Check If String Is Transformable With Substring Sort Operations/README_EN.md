@@ -98,7 +98,7 @@ Next, we iterate through string $t$. For each character $t[i]$ in $t$, we conver
 
 After the iteration, we return `true`.
 
-The time complexity is $O(\textit{nC})$, and the space complexity is $O(n)$, where $n$ is the length of string $s$, and $C$ is the size of the digit set, which is 10 in this problem.
+The time complexity is $O(n \times C)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$, and $C$ is the size of the digit set, which is 10 in this problem.
 
 <!-- tabs:start -->
 

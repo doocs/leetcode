@@ -80,7 +80,7 @@ First, consider whether a substring can become a palindrome after at most $k$ re
 
 Therefore, we define a prefix sum array $ss$, where $ss[i][j]$ represents the number of times character $j$ appears in the first $i$ characters of string $s$. Then for a substring $s[l..r]$, we can get the number of times character $j$ appears in the substring through $ss[r + 1][j] - ss[l][j]$. We traverse all queries. For each query $[l, r, k]$, we count the number of characters $x$ that appear an odd number of times in the substring $s[l..r]$. If $\lfloor \frac{x}{2} \rfloor \leq k$, then this substring can become a palindrome.
 
-The time complexity is $O((n + m)C)$, and the space complexity is $O(\textit{nC})$, where $n$ and $m$ are the lengths of the string $s$ and the query array respectively; and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C = 26$.
+The time complexity is $O((n + m)C)$, and the space complexity is $O(n \times C)$, where $n$ and $m$ are the lengths of the string $s$ and the query array respectively; and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C = 26$.
 
 <!-- tabs:start -->
 

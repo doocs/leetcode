@@ -75,7 +75,7 @@ tags:
 
 We observe the rotation pattern of the matrix and find that for an element $\textit{mat}[i][j]$, after rotating 90 degrees it appears at position $\textit{mat}[j][n-1-i]$, after rotating 180 degrees it appears at position $\textit{mat}[n-1-i][n-1-j]$, and after rotating 270 degrees it appears at position $\textit{mat}[n-1-j][i]$.
 
-Therefore, we can use an integer $ok$ to record the current rotation state, initialized to $0\textit{b1111}$, indicating that all four rotation states are possible. For each element in the matrix, we compare whether its position under different rotation states matches the corresponding element in the target matrix. If they are not equal, we remove that rotation state from $ok$. Finally, if $ok$ is not zero, it means at least one rotation state can make the matrix consistent with the target matrix, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
+Therefore, we can use an integer $ok$ to record the current rotation state, initialized to `0b1111`, indicating that all four rotation states are possible. For each element in the matrix, we compare whether its position under different rotation states matches the corresponding element in the target matrix. If they are not equal, we remove that rotation state from $ok$. Finally, if $ok$ is not zero, it means at least one rotation state can make the matrix consistent with the target matrix, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the size of the matrix.
 

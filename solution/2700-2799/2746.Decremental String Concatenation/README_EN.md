@@ -110,7 +110,7 @@ To avoid repeated calculations, we use the method of memoization search. Specifi
 
 In the main function, we directly return $|\textit{words}[0]| + \textit{dfs}(1, \textit{words}[0][0], \textit{words}[0][|\textit{words}[0]| - 1])$.
 
-The time complexity is $O(\textit{nC}^2)$, and the space complexity is $O(\textit{nC}^2)$, where $C$ represents the maximum length of the string.
+The time complexity is $O(n \times C^2)$, and the space complexity is $O(n \times C^2)$, where $C$ represents the maximum length of the string.
 
 <!-- tabs:start -->
 

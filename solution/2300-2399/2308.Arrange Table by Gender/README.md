@@ -134,7 +134,7 @@ ORDER BY rk1, rk2;
 
 > **思考**
 >
-> 方法一借助中间表存放两个排序键。窗口函数可直接写在 $\textit{ORDER}\ \textit{BY}$ 中：仍按性别分区、按 $\textit{user\_id}$ 取 $\textit{RANK}$，再以性别字典序（female、male、other）作为第二键，省去显式 $\textit{CASE}$ 与额外一层 $\textit{WITH}$。
+> 方法一借助中间表存放两个排序键。窗口函数可直接写在 $\textit{ORDER BY}$ 中：仍按性别分区、按 $\textit{user\_id}$ 取 $\textit{RANK}$，再以性别字典序（female、male、other）作为第二键，省去显式 $\textit{CASE}$ 与额外一层 $\textit{WITH}$。
 
 <!-- thinking:end -->
 

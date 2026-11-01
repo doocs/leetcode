@@ -82,7 +82,7 @@ The rest of the employees get a 100% bonus.
 >
 > Employees with an odd id whose name does not start with $M$ receive their salary as a bonus; others get $0$. The rule belongs in the select list.
 >
-> $\textit{IF}$ maps an even id or a name starting with $M$ to $0$, otherwise $\textit{salary}$, then $\textit{ORDER} \textit{BY}$ $\textit{employee\_id}$.
+> $\textit{IF}$ maps an even id or a name starting with $M$ to $0$, otherwise $\textit{salary}$, then $\textit{ORDER BY}$ $\textit{employee\_id}$.
 
 <!-- thinking:end -->
 

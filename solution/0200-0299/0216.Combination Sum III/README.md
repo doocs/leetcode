@@ -348,7 +348,7 @@ public class Solution {
 
 在主函数中，我们调用 $\textit{dfs}(1, n)$，即从数字 $1$ 开始枚举，剩下和为 $n$ 的数字需要枚举。搜索完成后，即可得到所有的答案。
 
-时间复杂度 $O(\textit{kC}_9^k)$，空间复杂度 $O(k)$。
+时间复杂度 $O(k \times C_9^k)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 

@@ -115,7 +115,7 @@ WHERE p1.mark AND p2.mark;
 
 > **思考**
 >
-> 方法一把所有年份都留在 CTE 里再用 $\textit{mark}$ 过滤。也可以在分组时用 $\textit{HAVING} \textit{COUNT}(1)\ge 3$ 只保留达标年份，自连接条件更短，语义相同。
+> 方法一把所有年份都留在 CTE 里再用 $\textit{mark}$ 过滤。也可以在分组时用 $\textit{HAVING COUNT}(1)\ge 3$ 只保留达标年份，自连接条件更短，语义相同。
 
 <!-- thinking:end -->
 

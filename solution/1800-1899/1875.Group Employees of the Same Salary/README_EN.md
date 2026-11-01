@@ -95,7 +95,7 @@ Juan&#39;s salary of 6100 is not included in the ranking because they are not on
 >
 > Employees who share a salary with at least one other person form a team, numbered by the rank of that salary; unique salaries are omitted. We must find repeated salaries first, then rank them.
 >
-> Group by $\textit{salary}$ with $\textit{HAVING} \textit{COUNT}>1$, assign $\textit{team\_id}$ by $\textit{ROW\_NUMBER}$ ordered by salary, and join back to Employees.
+> Group by $\textit{salary}$ with $\textit{HAVING COUNT}>1$, assign $\textit{team\_id}$ by $\textit{ROW\_NUMBER}$ ordered by salary, and join back to Employees.
 
 <!-- thinking:end -->
 

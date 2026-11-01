@@ -87,7 +87,7 @@ tags:
 
 最后返回答案即可。
 
-时间复杂度 $O(n^2 + \textit{nM})$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度；而 $M$ 是数组 $\textit{nums}$ 中的最大值，本题中 $M \leq 2^{16}$。
+时间复杂度 $O(n^2 + n \times M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度；而 $M$ 是数组 $\textit{nums}$ 中的最大值，本题中 $M \leq 2^{16}$。
 
 <!-- tabs:start -->
 

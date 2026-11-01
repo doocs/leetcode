@@ -102,7 +102,7 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 >
 > Four slam winners sit in wide columns; we need a per-player title count. Unpivot the four columns, then join players.
 >
-> $\textit{UNION}\ \textit{ALL}$ the four winner ids, join $\textit{Players}$, and $\textit{COUNT}$ by player.
+> $\textit{UNION ALL}$ the four winner ids, join $\textit{Players}$, and $\textit{COUNT}$ by player.
 
 <!-- thinking:end -->
 

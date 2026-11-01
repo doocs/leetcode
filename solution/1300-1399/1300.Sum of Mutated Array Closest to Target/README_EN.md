@@ -68,7 +68,7 @@ tags:
 
 > **Thinking**
 >
-> Scanning the array for every candidate $\textit{value}$ costs $O(\textit{nM})$. With $n \le 10^4$ and $M \le 10^5$, that is too slow.
+> Scanning the array for every candidate $\textit{value}$ costs $O(n \times M)$. With $n \le 10^4$ and $M \le 10^5$, that is too slow.
 >
 > The mutated sum depends only on keeping values at most $\textit{value}$ and replacing the rest by $\textit{value}$. After sorting, that split is a prefix: binary search finds the cut, and a prefix-sum array evaluates the kept part. Enumerating $\textit{value}$ from $0$ to $\max(\textit{arr})$ then costs $O(\log n)$ per candidate; we keep the value whose mutated sum is closest to $\textit{target}$, breaking ties toward the smaller value.
 

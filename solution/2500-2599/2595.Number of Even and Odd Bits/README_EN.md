@@ -184,7 +184,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 is linear in the bit length. Even indices are exactly the mask $0\texttt{x}5555$; $\textit{bit\_count}(n\&\textit{mask})$ is the even tally, and the complement mask yields the odd tally in constant time.
+> Solution 1 is linear in the bit length. Even indices are exactly the mask `0x5555`; $\textit{bit\_count}(n\&\textit{mask})$ is the even tally, and the complement mask yields the odd tally in constant time.
 
 <!-- thinking:end -->
 

@@ -118,7 +118,7 @@ Dortmund is the first team in the table. Ajax and Arsenal have the same points, 
 >
 > We must aggregate matches, points, goals for/against, and goal difference per team, with different home and away scoring. Grouping the raw match table cannot turn one match into two team rows.
 >
-> $\textit{UNION} \textit{ALL}$ splits each match into a home row and an away row, $\textit{CASE}$ fills points and goals, then we group by $\textit{team\_id}$, join team names, and order by points, goal difference, and name.
+> $\textit{UNION ALL}$ splits each match into a home row and an away row, $\textit{CASE}$ fills points and goals, then we group by $\textit{team\_id}$, join team names, and order by points, goal difference, and name.
 
 <!-- thinking:end -->
 

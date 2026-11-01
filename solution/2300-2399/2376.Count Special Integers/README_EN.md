@@ -105,7 +105,7 @@ Finally, if $\textit{limit}$ is false and $\textit{lead}$ is false, memoize the 
 
 Return the final answer.
 
-The time complexity is $O(\textit{mD} 2^D)$, and the space complexity is $O(m 2^D)$, where $m$ is the length of the number $n$, and $D = 10$.
+The time complexity is $O(m \times D 2^D)$, and the space complexity is $O(m 2^D)$, where $m$ is the length of the number $n$, and $D = 10$.
 
 Similar Problems:
 

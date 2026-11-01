@@ -119,8 +119,10 @@ Use one notation for symbols in solution prose (Thinking blocks and the algorith
 - Put formulas in `$...$` or `$$...$$`. Do not put a formula in a fence or in inline code.
 - A single-letter symbol stays plain math: `$n$`, `$i$`, `$f[i][j]$`, `$O(n\log n)$`.
 - Two lowercase letters stay plain math. That spelling is also a product (`$O(mn)$`, `$ab$`, `$dp$`).
-- A longer code identifier is `\textit`, including inside a larger formula: `$\textit{nums}[i]$`, `$\textit{dfs}(i)$`, `$s_{\textit{left}}$`. A digit, underscore, or capital letter makes a short token an identifier too: `$\textit{s1}$`, `$\textit{is\_end}$`, `$\textit{COUNT}$`.
+- A longer code identifier is `\textit`, including inside a larger formula: `$\textit{nums}[i]$`, `$\textit{dfs}(i)$`, `$s_{\textit{left}}$`. A digit, underscore, or capital letter makes a short token an identifier too: `$\textit{s1}$`, `$\textit{is\_end}$`, `$\textit{COUNT}$`. A capital letter does not glue single-letter factors into one name: write `$O(C \times n)$` and `$O(n \times G(n))$`, not `$O(\textit{Cn})$`. Several uppercase words in one formula stay one italic phrase: `$\textit{NOT IN}$`, `$\textit{UNION ALL}$`, `$\textit{GROUP BY}$`.
+- A hexadecimal or binary mask is inline code, not a split formula: `` `0xFFFFFFFF` ``, `` `0b1111` ``. Inside a larger formula, keep the whole literal in `\texttt`.
 - Words that are not identifiers stay `\text`: `$\text{真实值}$`, `$\text{Gold Medal}$`, `$\text{'S'}$`.
+- Keep a TeX control word separate from the next letter: `$u\times v$`, not `$u\timesv$`.
 - Operator names stay commands: `\log`, `\ln`, and `\min` / `\max` / `\gcd` when they are called or subscripted. Do not write code identifiers with `\text`, `\mathrm`, or `\operatorname`.
 - Inline code is for a concrete code token (a call, a literal, a keyword cited as syntax), not for a symbol that also appears in a formula. Fenced blocks are for code, traces, and diagrams.
 

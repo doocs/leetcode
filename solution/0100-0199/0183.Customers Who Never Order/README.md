@@ -90,7 +90,7 @@ Orders table:
 
 > **思考**
 >
-> 没有下过单的客户，即 $id$ 不在订单表的 $\textit{customerId}$ 集合里。 $\textit{NOT} \textit{IN}$ 直接表达这个集合差；注意订单表为空时部分引擎对 $\textit{NOT} \textit{IN}$ 的空集语义。
+> 没有下过单的客户，即 $id$ 不在订单表的 $\textit{customerId}$ 集合里。 $\textit{NOT IN}$ 直接表达这个集合差；注意订单表为空时部分引擎对 $\textit{NOT IN}$ 的空集语义。
 
 <!-- thinking:end -->
 
@@ -140,7 +140,7 @@ WHERE
 
 > **思考**
 >
-> 方法一在子查询很大时不够友好。左连接订单表后保留 $\textit{customerId}$ 为空的行，避免 $\textit{NOT} \textit{IN}$ 对 $\textit{NULL}$ 的陷阱，也便于走连接计划。
+> 方法一在子查询很大时不够友好。左连接订单表后保留 $\textit{customerId}$ 为空的行，避免 $\textit{NOT IN}$ 对 $\textit{NULL}$ 的陷阱，也便于走连接计划。
 
 <!-- thinking:end -->
 

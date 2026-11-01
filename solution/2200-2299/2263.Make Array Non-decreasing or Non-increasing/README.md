@@ -98,7 +98,7 @@ $$
 f[i][j] = \min_{0 \leq k \leq j} f[i - 1][k] + \left| j - \textit{nums}[i - 1] \right|
 $$
 
-时间复杂度 $O(\textit{nM})$，空间复杂度 $O(\textit{nM})$。其中 $n$ 和 $M$ 分别为数组 $\textit{nums}$ 的长度和数组 $\textit{nums}$ 元素的取值范围。本题中 $M = 1001$。
+时间复杂度 $O(n \times M)$，空间复杂度 $O(n \times M)$。其中 $n$ 和 $M$ 分别为数组 $\textit{nums}$ 的长度和数组 $\textit{nums}$ 元素的取值范围。本题中 $M = 1001$。
 
 由于我们定义的是非递减序列的最小操作次数，因此我们可以将数组 $\textit{nums}$ 翻转，然后求出非递减序列的最小操作次数，也即是非递增序列的最小操作次数。最后取两者的最小值即可。
 

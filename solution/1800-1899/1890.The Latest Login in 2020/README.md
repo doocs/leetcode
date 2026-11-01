@@ -84,7 +84,7 @@ Logins 表:
 >
 > 求每名用户在 $2020$ 年的最后一次登录。过滤年份后按用户取最大时间戳即可。
 >
-> $\textit{WHERE} \textit{YEAR}(\textit{time\_stamp})=2020$，再按 $\textit{user\_id}$ 分组取 $\textit{MAX}(\textit{time\_stamp})$。
+> $\textit{WHERE YEAR}(\textit{time\_stamp})=2020$，再按 $\textit{user\_id}$ 分组取 $\textit{MAX}(\textit{time\_stamp})$。
 
 <!-- thinking:end -->
 

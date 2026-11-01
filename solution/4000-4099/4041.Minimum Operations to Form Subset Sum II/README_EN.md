@@ -116,7 +116,7 @@ This turns the problem into a 0-1 knapsack: every element contributes at most on
 
 We define $f[w]$ as the minimum number of operations needed for a subset to sum to exactly $w$, with $f[0] = 0$ and all other entries set to $+\infty$. For each element $x$, we iterate the capacity $w$ from large to small, enumerate the number of divisions $i$ and multiplications $j$ to get the value $y = \lfloor x / 2^i \rfloor \times 2^j$, and update $f[w]$ with $f[w - y] + i + j$ whenever $y \leq w$. If $f[\textit{sum}]$ is still $+\infty$ at the end, no valid sequence of operations exists and we return $-1$; otherwise we return $f[\textit{sum}]$.
 
-The time complexity is $O(\textit{nS} \log M \log S)$, and the space complexity is $O(S)$, where $n$ and $M$ are the length and the maximum value of the array $\textit{nums}$, and $S$ is the given $\textit{sum}$.
+The time complexity is $O(n \times S \log M \log S)$, and the space complexity is $O(S)$, where $n$ and $M$ are the length and the maximum value of the array $\textit{nums}$, and $S$ is the given $\textit{sum}$.
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ Orders table:
 
 > **Thinking**
 >
-> Customers with no orders are those whose $id$ is outside the $\textit{customerId}$ set. $\textit{NOT} \textit{IN}$ is that set difference. Watch the empty-list semantics of $\textit{NOT} \textit{IN}$ on some engines.
+> Customers with no orders are those whose $id$ is outside the $\textit{customerId}$ set. $\textit{NOT IN}$ is that set difference. Watch the empty-list semantics of $\textit{NOT IN}$ on some engines.
 
 <!-- thinking:end -->
 
@@ -144,7 +144,7 @@ WHERE
 
 > **Thinking**
 >
-> Solution 1 is awkward on a large subquery. A left join to orders, keeping rows whose $\textit{customerId}$ is null, avoids the $\textit{NOT} \textit{IN}$/$\textit{NULL}$ trap and can use a join plan.
+> Solution 1 is awkward on a large subquery. A left join to orders, keeping rows whose $\textit{customerId}$ is null, avoids the $\textit{NOT IN}$/$\textit{NULL}$ trap and can use a join plan.
 
 <!-- thinking:end -->
 

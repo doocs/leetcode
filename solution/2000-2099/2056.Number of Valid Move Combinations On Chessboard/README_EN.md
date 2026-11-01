@@ -108,7 +108,7 @@ We define a method $\textit{checkStop}(i, x, y, t)$ to determine whether the $i$
 
 Additionally, we define a method $\textit{checkPass}(i, x, y, t)$ to determine whether the $i$-th piece can pass through coordinate $(x, y)$ at time $t$. If any other piece $j$ also passes through coordinate $(x, y)$ at time $t$, or if any other piece $j$ stops at $(x, y)$ and the time does not exceed $t$, then the $i$-th piece cannot pass through coordinate $(x, y)$ at time $t$.
 
-The time complexity is $O((\textit{nM})^n)$, and the space complexity is $O(\textit{nM})$, where $n$ is the number of pieces, and $M$ is the movement range of each piece.
+The time complexity is $O((n \times M)^n)$, and the space complexity is $O(n \times M)$, where $n$ is the number of pieces, and $M$ is the movement range of each piece.
 
 <!-- tabs:start -->
 
