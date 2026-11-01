@@ -73,7 +73,7 @@ tags:
 
 If $n \gt 2$, we can continuously divide $n$ by $3$. If it's not divisible, it means $n$ is not a power of $3$, otherwise we continue dividing by $3$ until $n$ is less than or equal to $2$. If $n$ equals $1$, it means $n$ is a power of $3$, otherwise it's not a power of $3$.
 
-Time complexity $O(\log_3n)$, space complexity $O(1)$.
+The time complexity is $O(\log_3n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -202,7 +202,7 @@ var isPowerOfThree = function (n) {
 
 If $n$ is a power of $3$, then the maximum value of $n$ is $3^{19} = 1162261467$. Therefore, we only need to check if $n$ is a divisor of $3^{19}$.
 
-Time complexity $O(1)$, space complexity $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

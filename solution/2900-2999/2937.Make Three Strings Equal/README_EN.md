@@ -70,7 +70,7 @@ tags:
 
 According to the problem description, we know that if the three strings are equal after deleting characters, then they have a common prefix of length greater than $1$. Therefore, we can enumerate the position $i$ of the common prefix. If the three characters at the current index $i$ are not all equal, then the length of the common prefix is $i$. At this point, we check if $i$ is $0$. If it is, return $-1$. Otherwise, return $s - 3 \times i$, where $s$ is the sum of the lengths of the three strings.
 
-The time complexity is $O(n)$, where $n$ is the minimum length of the three strings. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the minimum length of the three strings.
 
 <!-- tabs:start -->
 

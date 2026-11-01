@@ -87,7 +87,7 @@ Therefore, we design a function $dfs(i, j, k)$, which represents whether we can 
 
 In the main function, we enumerate each position $(i, j)$ in the grid as the starting point. If calling $dfs(i, j, 0)$ returns `true`, it means the word exists, otherwise, it means the word does not exist, so return `false`.
 
-The time complexity is $O(m \times n \times 3^k)$, and the space complexity is $O(\min(m \times n, k))$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively; and $k$ is the length of the string $word$.
+The time complexity is $O(mn 3^k)$, and the space complexity is $O(\min(mn, k))$, where $m$ and $n$ are the number of rows and columns of the grid, respectively; and $k$ is the length of the string $word$.
 
 <!-- tabs:start -->
 

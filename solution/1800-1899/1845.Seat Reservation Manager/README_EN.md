@@ -85,7 +85,7 @@ When calling the `reserve` method, we pop the top element from $\textit{q}$, whi
 
 When calling the `unreserve` method, we add the seat number back into $\textit{q}$.
 
-In terms of time complexity, the initialization time complexity is $O(n)$ or $O(n \times \log n)$, and the time complexity of the `reserve` and `unreserve` methods is both $O(\log n)$. The space complexity is $O(n)$.
+In terms of time complexity, the initialization time complexity is $O(n)$ or $O(n \log n)$, and the time complexity of the `reserve` and `unreserve` methods is both $O(\log n)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

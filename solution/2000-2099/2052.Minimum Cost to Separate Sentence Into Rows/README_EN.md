@@ -113,7 +113,7 @@ The answer is $\textit{dfs}(0)$.
 
 To avoid repeated calculations, we can use memoized search.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of words.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of words.
 
 <!-- tabs:start -->
 
@@ -290,7 +290,7 @@ function minimumCost(sentence: string, k: number): number {
 
 Let $s[i]$ be the total length of the first $i$ words, and let $n$ be the number of words. Let $f[i]$ be the minimum cost of typesetting from word $i$. For $i$ from $n-1$ down to $0$, if the words from $i$ through the end, plus the spaces between them, fit in $k$, they form the last line and $f[i]=0$. Otherwise enumerate the next line start $j$ such that the width $m$ of words $i$ through $j-1$, including spaces, is at most $k$, and update $f[i]$ with $(k-m)^2+f[j]$. The answer is $f[0]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of words.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of words.
 
 <!-- tabs:start -->
 

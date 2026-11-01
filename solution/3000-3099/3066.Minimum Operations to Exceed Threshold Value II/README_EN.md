@@ -108,7 +108,7 @@ We can use a priority queue (min heap) to simulate this process.
 
 Specifically, we first add the elements in the array to the priority queue `pq`. Then we continuously take out the two smallest elements `x` and `y` from the priority queue, and put `min(x, y) * 2 + max(x, y)` back into the priority queue. After each operation, we increase the operation count by one. We stop the operation when the number of elements in the queue is less than 2 or the smallest element in the queue is greater than or equal to `k`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

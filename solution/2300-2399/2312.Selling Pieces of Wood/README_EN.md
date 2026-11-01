@@ -93,7 +93,7 @@ The process of function $dfs(h, w)$ is as follows:
 - If $(h, w)$ has been calculated before, return the answer directly.
 - Otherwise, initialize the answer as $d[h][w]$, then enumerate the cutting positions, calculate the maximum amount of money obtained by cutting the wood block into two pieces, and take the maximum value.
 
-The time complexity is $O(m \times n \times (m + n) + p)$, and the space complexity is $O(m \times n)$. Here, $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
+The time complexity is $O(mn(m + n) + p)$, and the space complexity is $O(mn)$, where $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
 
 <!-- tabs:start -->
 
@@ -269,7 +269,7 @@ Then, we define another 2D array $f$, where $f[i][j]$ represents the maximum amo
 
 Considering how $f[i][j]$ transitions, initially $f[i][j] = d[i][j]$. We enumerate the cutting positions, calculate the maximum amount of money obtained by cutting the wood block into two pieces, and take the maximum value.
 
-The time complexity is $O(m \times n \times (m + n) + p)$, and the space complexity is $O(m \times n)$. Here, $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
+The time complexity is $O(mn(m + n) + p)$, and the space complexity is $O(mn)$, where $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
 
 Similar problems:
 

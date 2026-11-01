@@ -96,7 +96,7 @@ tags:
 
 因此，我们可以通过判断 $ans$ 是否在 $[\left \lfloor \frac{mi}{10} \right \rfloor, \left \lfloor \frac{mx}{10} \right \rfloor]$ 的范围内来判断 $ans$ 是否溢出。若溢出，则返回 $0$。否则，将 $y$ 添加到 $ans$ 的末尾，然后将 $x$ 的最后一位数字去除，即 $x \gets \left \lfloor \frac{x}{10} \right \rfloor$。
 
-时间复杂度 $O(\log |x|)$，其中 $|x|$ 为 $x$ 的绝对值。空间复杂度 $O(1)$。
+时间复杂度 $O(\log |x|)$，空间复杂度 $O(1)$。其中 $|x|$ 为 $x$ 的绝对值。
 
 <!-- tabs:start -->
 

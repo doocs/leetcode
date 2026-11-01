@@ -72,7 +72,7 @@ Considering $f[i][j]$, if $s[i] = s[j]$, then $f[i][j] = f[i + 1][j - 1]$; other
 
 Since $f[i][j]$ depends on $f[i + 1][j - 1]$, we need to ensure that $i + 1$ is before $j - 1$, so we need to enumerate $i$ from large to small, and enumerate $j$ from small to large.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -404,7 +404,7 @@ class Solution {
 
 We can enumerate the midpoint of the palindrome, spread to both sides, and find the longest palindrome.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

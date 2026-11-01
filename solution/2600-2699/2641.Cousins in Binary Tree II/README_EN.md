@@ -85,7 +85,7 @@ We create a list $s$ to record the sum of the node values at each level of the b
 
 Next, we perform a DFS traversal to calculate the values in the array $s$. Then, we perform another DFS traversal to update the values of each node's children. The value of a child node is equal to the sum of the node values at its level minus the value of the child node and its sibling nodes.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -360,7 +360,7 @@ Then, we traverse the queue, calculate the sum $s$ of all child nodes' values at
 
 After the traversal ends, we return the root node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

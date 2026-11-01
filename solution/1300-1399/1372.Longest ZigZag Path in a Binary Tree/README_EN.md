@@ -232,7 +232,7 @@ We walk the tree with an explicit stack. Each frame stores the current node and 
 
 After a node is popped, $\max(l, r)$ updates the answer. A left child is pushed with left length $r+1$ and right length $0$; a right child is pushed with right length $l+1$ and left length $0$. The root starts with both lengths equal to $0$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

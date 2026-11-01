@@ -106,7 +106,7 @@ We first rotate the matrix 90 degrees clockwise, then simulate the falling proce
 
 Specifically, we use a queue $q$ to store the row indices of empty positions in the current column. When traversing each column, we scan from bottom to top. If we encounter a stone, we drop it to the first empty position in $q$, remove that empty position from $q$, and add the current position's row index to $q$ since it becomes empty. If we encounter an obstacle, we clear $q$ because stones cannot pass through obstacles. If we encounter an empty position, we add its row index to $q$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
 <!-- tabs:start -->
 

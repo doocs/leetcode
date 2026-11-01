@@ -127,7 +127,7 @@ Adding a unit to a device can only decrease or keep its rating unchanged. Theref
 
 Otherwise, we sort the units of each device in ascending order, take the smallest unit from each device, and concentrate them into one device with rating $\textit{mn}$. If we concentrate them into device $i$, the rating of device $i$ changes from the second smallest value $\textit{mn2}$ to $\textit{mn}$, so the total rating decreases by $\textit{mn2} - \textit{mn}$. To maximize the total rating, we should choose the device with the smallest decrease, i.e., the device with the smallest $\textit{mn2}$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of devices and the number of units per device, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of devices and the number of units per device, respectively.
 
 <!-- tabs:start -->
 

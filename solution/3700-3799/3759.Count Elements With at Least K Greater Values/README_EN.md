@@ -82,7 +82,7 @@ If $k = 0$, then all elements in the array are qualified elements, and we can di
 
 Otherwise, we sort the array, and let $n$ be the length of the sorted array. For each index $i$ satisfying $0 \leq i < n - k$, if the element at index $i$ is strictly less than the element at index $n - k$, then it is a qualified element. We just need to count the number of such elements and return it.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

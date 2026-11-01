@@ -103,7 +103,7 @@ $$
 
 We add this value to the ordered set $ss$, while ensuring that the size of the ordered set $ss$ does not exceed $3$. Finally, we output the elements in the ordered set $ss$ in reverse order.
 
-The time complexity is $O(m \times n \times \min(m, n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \min(m, n))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

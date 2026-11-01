@@ -89,7 +89,7 @@ We use a hash table $\textit{cnt}$ to count the number of remainders when each n
 
 Then we traverse starting from $0$. For the current number $i$ being traversed, if $\textit{cnt}[i \bmod \textit{value}]$ is $0$, it means there is no number in the array whose remainder when modulo $\textit{value}$ is $i$, so $i$ is the MEX of the array, and we can return it directly. Otherwise, we decrement $\textit{cnt}[i \bmod \textit{value}]$ by $1$ and continue traversing.
 
-The time complexity is $O(n)$ and the space complexity is $O(\textit{value})$, where $n$ is the length of array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(\textit{value})$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

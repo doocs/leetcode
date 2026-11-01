@@ -107,7 +107,7 @@ tags:
 
 然后更新 $a$ 和 $b$，即 $a = \max(a, price[i] + c)$, $b = \max(b, price[i] + d)$，最后返回。
 
-时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为节点个数。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
 
@@ -272,7 +272,7 @@ func maxOutput(n int, edges [][]int, price []int) int64 {
 
 然后更新 $a$ 和 $b$，即 $a = \max(a, price[i] + c)$， $b = \max(b, price[i] + d)$。
 
-时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为节点个数。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
 

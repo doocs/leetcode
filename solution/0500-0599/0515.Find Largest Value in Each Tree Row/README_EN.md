@@ -63,7 +63,7 @@ tags:
 
 We define a queue $q$ and put the root node into the queue. Each time, we take out all the nodes of the current level from the queue, find the maximum value, and then put all the nodes of the next level into the queue until the queue is empty.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ The segment of 1s is not longer, so return false.
 
 We design a function $f(x)$, which represents the length of the longest consecutive substring in string $s$ composed of $x$. If $f(1) > f(0)$, then return `true`, otherwise return `false`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

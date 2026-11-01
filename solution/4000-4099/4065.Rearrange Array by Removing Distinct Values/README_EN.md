@@ -153,7 +153,7 @@ Let $m=\max(\textit{nums})$ and let $\textit{cnt}[x]$ be the number of times $x$
 
 Store the frequencies in an array of length $m+1$. While the answer has fewer than $n$ elements, scan $x$ from $1$ to $m$. If $\textit{cnt}[x]>0$, append $x$ and decrease the count. One scan is one operation, and the appended values are already sorted.
 
-The time complexity is $O(nm)$ and the space complexity is $O(m)$.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$.
 
 <!-- tabs:start -->
 

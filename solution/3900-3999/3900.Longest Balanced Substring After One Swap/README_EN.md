@@ -105,7 +105,7 @@ While traversing the string up to position $i$, let the current prefix sum be $\
 
 Since an earlier occurrence of the same prefix sum gives a longer substring, we always try the earliest position first. If it cannot satisfy the condition that there is still a character outside the substring available for swapping, we try the second earliest position.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

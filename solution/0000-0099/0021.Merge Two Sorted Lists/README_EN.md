@@ -80,7 +80,7 @@ First, we judge whether the linked lists $l_1$ and $l_2$ are empty. If one of th
 - If the value of the head node of $l_1$ is less than or equal to the value of the head node of $l_2$, we recursively call the function $mergeTwoLists(l_1.next, l_2)$, and connect the head node of $l_1$ with the returned linked list head node, and return the head node of $l_1$.
 - Otherwise, we recursively call the function $mergeTwoLists(l_1, l_2.next)$, and connect the head node of $l_2$ with the returned linked list head node, and return the head node of $l_2$.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of the two linked lists respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two linked lists respectively.
 
 <!-- tabs:start -->
 
@@ -422,7 +422,7 @@ First, we define a dummy head node $dummy$, then loop through the two linked lis
 
 Finally, return $dummy.next$.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two linked lists respectively. Ignoring the space consumption of the answer linked list, the space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the two linked lists respectively.
 
 <!-- tabs:start -->
 

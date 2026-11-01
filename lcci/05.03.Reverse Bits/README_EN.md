@@ -55,7 +55,7 @@ We can use two pointers $i$ and $j$ to maintain a sliding window, where $i$ is t
 
 Finally, return the maximum length.
 
-The time complexity is $O(\log M)$, and the space complexity is $O(1)$. Here, $M$ is the maximum value of a 32-bit integer.
+The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M$ is the maximum value of a 32-bit integer.
 
 <!-- tabs:start -->
 

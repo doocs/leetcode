@@ -103,7 +103,7 @@ The function implementation is as follows:
 
 We call the $\textit{dfs}$ function separately to find the left boundary, leaf nodes, and right boundary, and then concatenate these three parts to get the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

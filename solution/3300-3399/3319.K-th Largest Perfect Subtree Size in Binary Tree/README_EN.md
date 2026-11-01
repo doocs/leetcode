@@ -111,7 +111,7 @@ The execution process of the function $\textit{dfs}$ is as follows:
 
 We call the $\textit{dfs}$ function to calculate the sizes of all perfect binary subtrees. If the length of the array $\textit{nums}$ is less than $k$, return $-1$. Otherwise, sort the array $\textit{nums}$ in descending order and return the $k$-th largest perfect binary subtree size.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

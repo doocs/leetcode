@@ -69,7 +69,7 @@ pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 We iterate through the $\textit{pushed}$ array. For the current element $x$ being iterated, we push it into the stack $\textit{stk}$. Then, we check if the top element of the stack is equal to the next element to be popped in the $\textit{popped}$ array. If they are equal, we pop the top element from the stack and increment the index $i$ of the next element to be popped in the $\textit{popped}$ array. Finally, if all elements can be popped in the order specified by the $\textit{popped}$ array, return $\textit{true}$; otherwise, return $\textit{false}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $\textit{pushed}$ array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{pushed}$ array.
 
 <!-- tabs:start -->
 

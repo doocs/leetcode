@@ -104,7 +104,7 @@ Finally, we return the maximum score that can be obtained by using the two metho
 
 In order to avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, fa, j)$ in $f[i][j]$, where $f[i][j]$ represents that the current node is $i$, the parent node is $fa$, the number of gold coins of the current node needs to be shifted to the right by $j$ bits, and the maximum score that can be obtained.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $M$ represents the maximum value of $coins[i]$.
 
 <!-- tabs:start -->
 
@@ -314,7 +314,7 @@ If we collect them by the second method, its score is $coins[i] >> (j + 1)$. Whe
 
 $f[i][j]$ is the larger of the two methods. The answer is $f[0][0]$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $M$ represents the maximum value of $coins[i]$.
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ It can be shown that 3 is the minimum number of operations needed so that all el
 
 We only need to traverse the array once, counting the number of elements less than $k$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

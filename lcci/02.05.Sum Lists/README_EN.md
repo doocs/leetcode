@@ -65,7 +65,7 @@ During each traversal, we take out the current digit of the corresponding linked
 
 Finally, we return the head node of the answer linked list.
 
-The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of the two linked lists respectively. We need to traverse all positions of the two linked lists, and it only takes $O(1)$ time to process each position. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(\max(m, n))$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the two linked lists respectively. We need to traverse all positions of the two linked lists, and it only takes $O(1)$ time to process each position.
 
 <!-- tabs:start -->
 

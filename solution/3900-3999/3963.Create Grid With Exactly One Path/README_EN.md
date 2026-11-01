@@ -112,7 +112,7 @@ We construct the grid as follows:
 - Set all elements in the last column to `.`.
 - Return the constructed grid.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ tags:
 
 > **Thinking**
 >
-> Unlike the previous problem, adjacent words must also have equal length and Hamming distance exactly $1$, so alternating groups greedily need not be feasible. $n$ is a few hundred and words are short, so $O(n^2 \cdot L)$ transitions are acceptable.
+> Unlike the previous problem, adjacent words must also have equal length and Hamming distance exactly $1$, so alternating groups greedily need not be feasible. $n$ is a few hundred and words are short, so $O(n^2L)$ transitions are acceptable.
 >
 > Let $f[i]$ be the longest length ending at $i$ and $g[i]$ the predecessor. For $j < i$, update with $f[j]+1$ only when the groups differ and $check$ holds. Walk $g$ from an index that attains the global maximum $mx$ and reverse to recover one subsequence.
 
@@ -118,7 +118,7 @@ We traverse $i$ and $j \in [0, i)$, and if $groups[i] \neq groups[j]$, $f[i] \lt
 
 Finally, we find the index $i$ corresponding to the maximum value in the $f$ array, and then continuously search backwards from $i$ until we find $g[i] = -1$, which gives us the longest adjacent non-equal subsequence.
 
-The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. Here, $L$ represents the maximum length of a word.
+The time complexity is $O(n^2L)$, and the space complexity is $O(n)$, where $L$ represents the maximum length of a word.
 
 <!-- tabs:start -->
 

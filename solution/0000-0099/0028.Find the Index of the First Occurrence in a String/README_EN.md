@@ -72,7 +72,7 @@ The first occurrence is at index 0, so we return 0.
 
 We compare the string `needle` with each character of the string `haystack` as the starting point. If we find a matching index, we return it directly.
 
-Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O((n-m) \times m)$, and the space complexity is $O(1)$.
+Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O((n-m)m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -443,7 +443,7 @@ function strStr(haystack: string, needle: string): number {
 
 Compute the prefix function $\textit{next}$ of $\textit{needle}$, where $\textit{next}[i]$ is the longest proper border of $\textit{needle}[0..i]$. Scan $\textit{haystack}$: equal characters grow the match length, and a mismatch jumps it to $\textit{next}[j-1]$. When the match length reaches $m$, return the start index $i-m+1$.
 
-The time complexity is $O(n+m)$ and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $\textit{haystack}$ and $\textit{needle}$.
+The time complexity is $O(n+m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $\textit{haystack}$ and $\textit{needle}$.
 
 <!-- tabs:start -->
 

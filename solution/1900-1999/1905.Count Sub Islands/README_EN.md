@@ -78,7 +78,7 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 
 We can traverse each cell $(i, j)$ in the matrix `grid2`. If the value of the cell is $1$, we start a depth-first search from this cell, set the value of all cells connected to this cell to $0$, and record whether the corresponding cell in `grid1` is also $1$ for all cells connected to this cell. If it is $1$, it means that this cell is also an island in `grid1`, otherwise it is not. Finally, we count the number of sub-islands in `grid2`.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrices `grid1` and `grid2`, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrices `grid1` and `grid2`, respectively.
 
 <!-- tabs:start -->
 
@@ -284,7 +284,7 @@ function countSubIslands(grid1, grid2) {
 
 Scan every cell of `grid2`. When it is still $1$, walk that island with an explicit stack, set `grid2` to $0$ along the way, and AND the matching `grid1` cells. A result of $1$ means the island is a sub-island.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrices `grid1` and `grid2`, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrices `grid1` and `grid2`, respectively.
 
 <!-- tabs:start -->
 

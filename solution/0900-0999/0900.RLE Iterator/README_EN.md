@@ -87,7 +87,7 @@ Each time we call `next(n)`, we judge whether the remaining number of characters
 
 If $i$ exceeds the length of the run-length encoding and there is still no return value, it means that there are no remaining elements to be exhausted, and we return $-1$.
 
-The time complexity is $O(n + q)$, and the space complexity is $O(n)$. Here, $n$ is the length of the run-length encoding, and $q$ is the number of times `next(n)` is called.
+The time complexity is $O(n + q)$, and the space complexity is $O(n)$, where $n$ is the length of the run-length encoding, and $q$ is the number of times `next(n)` is called.
 
 <!-- tabs:start -->
 

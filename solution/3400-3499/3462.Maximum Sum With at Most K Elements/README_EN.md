@@ -101,7 +101,7 @@ Traverse each row, sort the elements in each row, and then take the largest $\te
 
 Finally, sum the elements in $\textit{pq}$.
 
-The time complexity is $O(n \times m \times (\log m + \log k))$, and the space complexity is $O(k)$. Here, $n$ and $m$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
+The time complexity is $O(nm(\log m + \log k))$, and the space complexity is $O(k)$, where $n$ and $m$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 

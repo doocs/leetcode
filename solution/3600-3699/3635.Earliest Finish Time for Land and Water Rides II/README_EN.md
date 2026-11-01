@@ -153,7 +153,7 @@ For each order, we first calculate the earliest end time $\textit{minEnd}$ of th
 
 Finally, we return the minimum value between the answers of the two orders.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the numbers of land rides and water rides respectively. The space complexity is $O(1)$.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the numbers of land rides and water rides respectively.
 
 <!-- tabs:start -->
 

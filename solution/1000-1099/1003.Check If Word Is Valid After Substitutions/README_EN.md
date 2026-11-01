@@ -90,7 +90,7 @@ Next, we traverse each character $c$ in the string $s$. We first push the charac
 
 After the traversal, if the stack $t$ is empty, it means the string $s$ is valid, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

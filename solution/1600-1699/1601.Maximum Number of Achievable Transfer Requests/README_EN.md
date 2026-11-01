@@ -96,7 +96,7 @@ We note that the length of the room change request list does not exceed $16$. Th
 
 We enumerate all binary numbers in the range of $[1, 2^{m})$, for each binary number $mask$, we first calculate how many $1$s are in its binary representation, denoted as $cnt$. If $cnt$ is larger than the current answer $ans$, then we judge whether $mask$ is a feasible room change request list. If it is, then we update the answer $ans$ with $cnt$. To judge whether $mask$ is a feasible room change request list, we only need to check whether the net inflow of each room is $0$.
 
-The time complexity is $O(2^m \times (m + n))$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the room change request list and the number of rooms, respectively.
+The time complexity is $O(2^m(m + n))$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the room change request list and the number of rooms, respectively.
 
 <!-- tabs:start -->
 

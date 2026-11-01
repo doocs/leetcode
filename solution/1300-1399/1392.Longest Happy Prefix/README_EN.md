@@ -218,7 +218,7 @@ impl Solution {
 
 According to the problem description, we need to find the longest happy prefix of a string, which is the longest prefix of the string that is also a suffix of the string. We can use the KMP algorithm to solve this problem.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ We can use a hash table or array $cnt$ to record the occurrence of each element.
 
 Then we traverse $cnt$ to find the element with the most occurrences, and let its occurrence be $mx$. We sum up the occurrences of elements that appear $mx$ times, which is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

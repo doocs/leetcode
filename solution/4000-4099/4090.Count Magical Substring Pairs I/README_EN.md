@@ -249,7 +249,7 @@ Move $i$ from $j$ down to $0$. A hash map stores the occurrence count of each ch
 
 The alphabet size is the constant $26$, and each split scans the left side once and the right side once.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string and $|\Sigma|=26$.
+The time complexity is $O(n^2)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string and $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

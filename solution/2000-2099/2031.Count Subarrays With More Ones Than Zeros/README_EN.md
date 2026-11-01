@@ -92,7 +92,7 @@ Next, we traverse the array $nums$, use variable $s$ to record the current prefi
 
 Finally, return $ans$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

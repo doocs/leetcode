@@ -77,7 +77,7 @@ tags:
 
 我们直接遍历数组 $\textit{queries}$ 中的每个单词 $s$，再遍历数组 $\textit{dictionary}$ 中的每个单词 $t$，如果存在一个单词 $t$ 与 $s$ 的编辑距离小于 $3$，则将 $s$ 加入答案数组中，然后退出内层循环的遍历。如果不存在这样的单词 $t$，则继续遍历下一个单词 $s$。
 
-时间复杂度 $O(m \times n \times l)$，其中 $m$ 和 $n$ 分别是数组 $\textit{queries}$ 和 $\textit{dictionary}$ 的长度，而 $l$ 是单词的长度。
+时间复杂度 $O(mnl)$。其中 $m$ 和 $n$ 分别是数组 $\textit{queries}$ 和 $\textit{dictionary}$ 的长度，而 $l$ 是单词的长度。
 
 <!-- tabs:start -->
 

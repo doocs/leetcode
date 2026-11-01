@@ -68,7 +68,7 @@ tags:
 
 We define two pointers $a$ and $b$, both initially pointing to the head of the linked list. Each iteration, pointer $a$ moves forward one step, and pointer $b$ moves forward two steps, until pointer $b$ reaches the end of the linked list. At this point, pointer $a$ points to half of the linked list nodes, and we break the linked list from pointer $a$, thus obtaining the head nodes of the two linked lists.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. It requires one traversal of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list. It requires one traversal of the linked list.
 
 <!-- tabs:start -->
 

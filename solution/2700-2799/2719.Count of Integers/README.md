@@ -81,7 +81,7 @@ tags:
 
 对于 $dfs(pos, s, limit)$，我们可以枚举当前数位 $i$ 的值，然后递归计算 $dfs(pos+1, s+i, limit \bigcap i==up)$，其中 $up$ 表示当前数位的上界。如果 $limit$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。如果 $pos$ 大于等于 $num$ 的长度，那么我们就可以判断 $s$ 是否在 $[min\_sum,..max\_sum]$ 的范围内，如果在就返回 $1$，否则返回 $0$。
 
-时间复杂度 $O(10 \times n \times max\_sum)$，空间复杂度 $O(n \times max\_sum)$。其中 $n$ 表示 $num$ 的长度。
+时间复杂度 $O(10nmax\_sum)$，空间复杂度 $O(nmax\_sum)$。其中 $n$ 表示 $num$ 的长度。
 
 相似题目：
 

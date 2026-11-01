@@ -383,7 +383,7 @@ function goodTriplets(nums1: number[], nums2: number[]): number {
 - 线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
 - 对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
 
-时间复杂度 $O(n \log n)$，其中 $n$ 为数组 $\textit{nums1}$ 的长度。空间复杂度 $O(n)$。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums1}$ 的长度。
 
 <!-- tabs:start -->
 

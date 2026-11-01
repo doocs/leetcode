@@ -92,7 +92,7 @@ The execution process of the function $dfs(i, j)$ is as follows:
 
 To avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, j)$ in a hash table.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
 
 <!-- tabs:start -->
 
@@ -364,7 +364,7 @@ Next, we consider the case of $i \in [1, m]$ and $j \in [1, n]$:
 
 The final answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
 
 <!-- tabs:start -->
 
@@ -569,7 +569,7 @@ Next, we consider the case of $i \in [1, m]$ and $j \in [1, n]$:
 
 The final answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
 
 <!-- tabs:start -->
 

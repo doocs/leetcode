@@ -83,7 +83,7 @@ The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smalles
 
 We can store the start point and index of each interval into an array `arr`, and sort it by the start point. Then we iterate through the interval array, for each interval `[_, ed]`, we can use binary search to find the first interval whose start point is greater than or equal to `ed`, which is its right-side interval. If found, we store its index into the answer array, otherwise, we store `-1`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the intervals.
 
 <!-- tabs:start -->
 

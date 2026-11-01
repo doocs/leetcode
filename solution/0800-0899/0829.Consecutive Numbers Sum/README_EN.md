@@ -82,7 +82,7 @@ We start enumerating from $k = 1$, and we can stop when $k \times (k + 1) > n \t
 
 After finishing the enumeration, we return the answer.
 
-The time complexity is $O(\sqrt{n})$, where $n$ is the given positive integer. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the given positive integer.
 
 <!-- tabs:start -->
 

@@ -121,7 +121,7 @@ We define $\textit{last}$ to represent the last moved position and $\textit{mx}$
 
 After the traversal, return the answer.
 
-The time complexity is $O(n \times \log n + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
+The time complexity is $O(n \log n + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
 
 <!-- tabs:start -->
 

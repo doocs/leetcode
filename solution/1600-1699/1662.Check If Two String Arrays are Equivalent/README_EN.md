@@ -75,7 +75,7 @@ The strings are the same, so return true.</pre>
 
 Concatenate the strings in the two arrays into two strings, then compare whether the two strings are equal.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the total length of the strings in the arrays.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the total length of the strings in the arrays.
 
 <!-- tabs:start -->
 
@@ -184,7 +184,7 @@ Each time we compare $word1[i][x]$ and $word2[j][y]$. If they are not equal, we 
 
 If both string arrays are traversed, we return `true`, otherwise, we return `false`.
 
-The time complexity is $O(m)$, and the space complexity is $O(1)$. Here, $m$ is the total length of the strings in the arrays.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the total length of the strings in the arrays.
 
 <!-- tabs:start -->
 

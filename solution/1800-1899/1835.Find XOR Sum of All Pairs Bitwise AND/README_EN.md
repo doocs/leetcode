@@ -94,7 +94,7 @@ $$
 
 That is, the bitwise AND of the XOR sum of array $arr1$ and the XOR sum of array $arr2$.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively.
 
 <!-- tabs:start -->
 

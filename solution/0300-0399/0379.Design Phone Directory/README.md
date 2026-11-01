@@ -88,7 +88,7 @@ phoneDirectory.check(2);   // 数字 2 重新可用，返回 true。
 
 调用 `release` 方法时，我们将 `number` 添加到 `available` 中。时间复杂度 $O(1)$。
 
-空间复杂度 $O(n)$，其中 $n$ 是 `maxNumbers` 的值。
+空间复杂度 $O(n)$。其中 $n$ 是 `maxNumbers` 的值。
 
 <!-- tabs:start -->
 

@@ -75,13 +75,13 @@ It can be shown that every subsequence of length 4 is not a square streak.
 >
 > A square streak requires each next term to be the square of the previous one. Enumerating all subsequences is impossible at $n\le 10^5$; even walking ordered chains with a linear search for the successor wastes the unique successor structure.
 >
-> The next value is determined by $x\mapsto x^2$, so membership of the square is enough. After putting $\textit{nums}$ in a set, repeatedly square from each start to obtain that chain's length. Squares grow so fast that a chain is only $O(\log\log M)$ long. Lengths of at most $1$ are reported as $-1$.
+> The next value is determined by $x\mapsto x^2$, so membership of the square is enough. After putting $\textit{nums}$ in a set, repeatedly square from each start to obtain that chain's length. Squares grow so fast that a chain is only $O(\log \log M)$ long. Lengths of at most $1$ are reported as $-1$.
 
 <!-- thinking:end -->
 
 We first use a hash table to record all elements in the array. Then, we enumerate each element in the array as the first element of the subsequence, square this element continuously, and check whether the squared result is in the hash table. If it is, we use the squared result as the next element and continue checking until the squared result is not in the hash table. At this point, we check whether the length of the subsequence is greater than $1$. If it is, we update the answer.
 
-The time complexity is $O(n \times \log \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
+The time complexity is $O(n \log \log M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -252,7 +252,7 @@ The calculation process of the function $\textit{dfs}(x)$ is as follows:
 
 During the process, we can use memoization, i.e., use a hash table to record the value of the function $\textit{dfs}(x)$ to avoid redundant calculations.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

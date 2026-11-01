@@ -90,7 +90,7 @@ We use an array $\textit{times}$ to store the time points of each exam, and anot
 
 For each call to $\texttt{totalScore}(startTime, endTime)$, we use binary search to find the first position $l$ in $\textit{times}$ that is greater than or equal to $startTime$ and the first position $r$ that is greater than $endTime$, then return $\textit{pre}[r-1] - \textit{pre}[l-1]$.
 
-The time complexity is $O(\log n)$, where $n$ is the number of exams. The space complexity is $O(n)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(n)$, where $n$ is the number of exams.
 
 <!-- tabs:start -->
 

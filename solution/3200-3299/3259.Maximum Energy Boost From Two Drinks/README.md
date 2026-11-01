@@ -203,7 +203,7 @@ function maxEnergyBoost(energyDrinkA: number[], energyDrinkB: number[]): number 
 
 我们注意到，状态 $f[i]$ 至于 $f[i - 1]$ 有关，而与 $f[i - 2]$ 无关。因此我们可以只使用两个变量 $f$ 和 $g$ 来维护状态，从而将空间复杂度优化到 $O(1)$。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 

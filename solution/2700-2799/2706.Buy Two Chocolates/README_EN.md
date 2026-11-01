@@ -71,7 +71,7 @@ tags:
 
 We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $cost$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `prices`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `prices`.
 
 <!-- tabs:start -->
 
@@ -160,13 +160,13 @@ impl Solution {
 
 > **Thinking**
 >
-> Sorting costs $O(n\log n)$ when only the two smallest values are needed. A single scan that tracks the current minimum and second minimum yields the same $cost$ in linear time.
+> Sorting costs $O(n \log n)$ when only the two smallest values are needed. A single scan that tracks the current minimum and second minimum yields the same $cost$ in linear time.
 
 <!-- thinking:end -->
 
 We can find the two smallest prices in one pass, and then calculate the cost.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `prices`.
 
 <!-- tabs:start -->
 

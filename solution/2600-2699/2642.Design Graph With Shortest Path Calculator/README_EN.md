@@ -86,7 +86,7 @@ In the `addEdge` function, we update the value of $g_{ij}$ to $edge[2]$.
 
 In the `shortestPath` function, we use Dijsktra's algorithm to find the shortest path from node $node1$ to node $node2$. Here, $dist[i]$ represents the shortest path from node $node1$ to node $i$, and $vis[i]$ indicates whether node $i$ has been visited. We initialize $dist[node1]$ to $0$, and the rest of $dist[i]$ are all $\infty$. Then we iterate $n$ times, each time finding the current unvisited node $t$ such that $dist[t]$ is the smallest. Then we mark node $t$ as visited, and then update the value of $dist[i]$ to $min(dist[i], dist[t] + g_{ti})$. Finally, we return $dist[node2]$. If $dist[node2]$ is $\infty$, it means that there is no path from node $node1$ to node $node2$, so we return $-1$.
 
-The time complexity is $O(n^2 \times q)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes, and $q$ is the number of calls to the `shortestPath` function.
+The time complexity is $O(n^2q)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes, and $q$ is the number of calls to the `shortestPath` function.
 
 <!-- tabs:start -->
 

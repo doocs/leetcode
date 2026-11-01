@@ -119,7 +119,7 @@ Traverse the student array $\textit{students}$ and store the student IDs and ben
 
 Finally, we traverse the values of the hash table $d$ and take the maximum size of the sets, which is the maximum number of different students on a single bench.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the student array $\textit{students}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the student array $\textit{students}$.
 
 <!-- tabs:start -->
 

@@ -170,7 +170,7 @@ Scan $s$ from left to right and store the characters that have not been removed 
 
 This matches Solution 1. At every moment $st$ contains no occurrence of $\textit{part}$, so the next match must end at the character just appended, which is the leftmost occurrence in what remains.
 
-The time complexity is $O(n \times m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $s$ and $\textit{part}$.
+The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $s$ and $\textit{part}$.
 
 <!-- tabs:start -->
 

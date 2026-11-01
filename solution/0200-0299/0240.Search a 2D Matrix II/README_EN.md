@@ -65,7 +65,7 @@ tags:
 
 > **Thinking**
 >
-> Each row (and column) is sorted, so we can binary-search $target$ in every row. That is $O(m\log n)$ with no extra memory.
+> Each row (and column) is sorted, so we can binary-search $target$ in every row. That is $O(m \log n)$ with no extra memory.
 
 <!-- thinking:end -->
 
@@ -73,7 +73,7 @@ Since all elements in each row are sorted in ascending order, for each row, we c
 
 If all rows have been searched and the target value is not found, it means the target value does not exist, and we return $\text{false}$.
 
-The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -242,7 +242,7 @@ We start the search from the bottom-left or top-right corner and move towards th
 
 If the search ends and the $\textit{target}$ is not found, return $\text{false}$.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

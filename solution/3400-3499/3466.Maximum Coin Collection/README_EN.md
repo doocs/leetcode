@@ -155,7 +155,7 @@ The function $\textit{dfs}(i, j, k)$ is calculated as follows:
 
 To avoid repeated calculations, we use memoized search to store the results that have already been computed.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$. Where $n$ represents the length of the lanes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the lanes.
 
 <!-- tabs:start -->
 
@@ -357,7 +357,7 @@ $$
 
 The in-place switch reads $k - 1$ at the same mile, which is already filled.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$. Where $n$ represents the length of the lanes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the lanes.
 
 <!-- tabs:start -->
 

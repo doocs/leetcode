@@ -104,7 +104,7 @@ The maximum product among these three cases is the answer.
 
 Therefore, we can first sort the array, then calculate the products for the above three cases, and return the maximum value among them.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

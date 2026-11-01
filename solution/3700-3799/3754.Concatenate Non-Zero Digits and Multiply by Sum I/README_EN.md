@@ -82,7 +82,7 @@ tags:
 
 We can simulate the required operation by processing the number digit by digit. While processing each digit, we concatenate non-zero digits to form a new integer $x$ and calculate the digit sum $s$. Finally, we return $x \times s$.
 
-The time complexity is $O(\log n)$ and the space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

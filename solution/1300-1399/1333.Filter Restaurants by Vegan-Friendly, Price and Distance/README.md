@@ -84,7 +84,7 @@ tags:
 
 我们先将数组 `restaurants` 按照 `rating` 和 `id` 两个维度进行排序，然后再按照题目给定的条件进行筛选即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `restaurants` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `restaurants` 的长度。
 
 <!-- tabs:start -->
 

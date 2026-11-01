@@ -79,7 +79,7 @@ tags:
 
 Traverse the binary search tree in the order of "right-root-left". Accumulate all the node values encountered into $s$, and assign the accumulated value to the corresponding `node`.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

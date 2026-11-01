@@ -80,7 +80,7 @@ tags:
 
 We can traverse the matrix row by row and column by column to find three consecutive identical elements and mark them as negative numbers. If marking is successful, we need to move the elements in the matrix down until no elements can move down.
 
-The time complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m^2n^2)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ Iterate through the array $\textit{nums}$. For each number $x$, we enumerate eac
 
 After the iteration, return the answer.
 
-The time complexity is $O(n \times (k + \log M))$, and the space complexity is $O(k + \log M)$. Here, $n$ is the length of the array $\textit{nums}$, while $k$ and $M$ respectively represent the number of distinct numbers and the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n(k + \log M))$, and the space complexity is $O(k + \log M)$, where $n$ is the length of the array $\textit{nums}$, while $k$ and $M$ respectively represent the number of distinct numbers and the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

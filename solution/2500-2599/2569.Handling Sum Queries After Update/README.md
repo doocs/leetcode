@@ -110,7 +110,7 @@ tags:
 
 执行操作 $3$ 时，我们只需要将 $s$ 加入答案数组即可。
 
-时间复杂度 $O(n + m \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `queries` 的长度。
+时间复杂度 $O(n + m \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `queries` 的长度。
 
 <!-- tabs:start -->
 

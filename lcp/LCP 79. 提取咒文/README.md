@@ -63,7 +63,7 @@ difficulty: 中等
 
 <!-- thinking:end -->
 
-时间复杂度 $O(m \times n \times l)$，空间复杂度 $O(m \times n \times l)$。
+时间复杂度 $O(mnl)$，空间复杂度 $O(mnl)$。
 
 <!-- tabs:start -->
 

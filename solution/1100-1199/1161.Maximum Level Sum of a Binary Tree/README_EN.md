@@ -72,7 +72,7 @@ We use BFS to traverse level by level, calculating the sum of nodes at each leve
 
 Specifically, we use a queue $q$ to store the nodes of the current level. During each traversal, we record the sum of nodes at the current level as $s$, then add all child nodes of the current level to the queue to prepare for the next level. We use variable $mx$ to record the current maximum sum, and variable $ans$ to record the corresponding level number. After calculating the sum of each level, if $s$ is greater than $mx$, we update $mx$ and $ans$. Finally, we return $ans$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -362,7 +362,7 @@ impl Solution {
 
 We can also use DFS to solve this problem. We use an array $s$ to store the sum of nodes at each level. The index of the array represents the level, and the value of the array represents the sum of nodes. We use DFS to traverse the binary tree, adding the value of each node to the sum of nodes at the corresponding level. Finally, we return the index corresponding to the maximum value in $s$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

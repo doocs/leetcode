@@ -108,7 +108,7 @@ tags:
 
 最后返回哈希表 $\textit{s}$ 的大小即可。
 
-时间复杂度 $O(m + n \times M)$，空间复杂度 $O(n \times M)$。其中 $m$ 为 $\textit{pick}$ 数组的长度，而 $n$ 和 $M$ 分别为玩家数目和颜色数目。
+时间复杂度 $O(m + nM)$，空间复杂度 $O(nM)$。其中 $m$ 为 $\textit{pick}$ 数组的长度，而 $n$ 和 $M$ 分别为玩家数目和颜色数目。
 
 <!-- tabs:start -->
 

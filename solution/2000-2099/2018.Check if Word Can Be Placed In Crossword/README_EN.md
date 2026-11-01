@@ -105,7 +105,7 @@ We first get the other boundary position $(x, y)$ in the current direction, i.e.
 
 Otherwise, we start from the position $(i, j)$ and traverse the word `word` in the direction $(a, b)$. If we encounter a cell `board[i][j]` that is not a space or not the current character of the word `word`, it means that the word `word` cannot be placed, and `false` is returned. If the word `word` is traversed, it means that the word `word` can be placed, and `true` is returned.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

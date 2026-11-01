@@ -103,7 +103,7 @@ According to the problem description, to maximize the number of target nodes for
 
 Thus, we can first calculate the number of nodes reachable within a depth of $k - 1$ for each node in the second tree. Then, we enumerate each node $i$ in the first tree, calculate the sum of the two parts mentioned above, and take the maximum value.
 
-The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the two trees, respectively.
+The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the two trees, respectively.
 
 <!-- tabs:start -->
 
@@ -459,7 +459,7 @@ According to the problem description, to maximize the number of target nodes for
 
 To count nodes within a depth budget $d$ from a start, an explicit stack stores $(node, parent, remaining\ depth)$. Popping a frame counts that node. If the remaining depth is positive, each neighbor that is not the parent is pushed with the budget decreased by one. Let $t$ be the maximum count in the second tree with $d = k - 1$. For each node $i$ in the first tree, add $t$ to the count obtained with $d = k$.
 
-The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the two trees, respectively.
+The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the two trees, respectively.
 
 <!-- tabs:start -->
 

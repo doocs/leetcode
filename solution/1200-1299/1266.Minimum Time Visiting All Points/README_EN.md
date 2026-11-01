@@ -87,7 +87,7 @@ If $d_x \ge d_y$, we move diagonally for $d_y$ steps, then move horizontally for
 
 We can iterate through all pairs of points, calculate the shortest distance between each pair, and sum them up.
 
-The time complexity is $O(n)$, where $n$ is the number of points. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

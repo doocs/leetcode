@@ -78,7 +78,7 @@ Then, we start a loop. In each iteration, we calculate the current capacity of t
 
 After the iteration, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{height}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{height}$.
 
 <!-- tabs:start -->
 

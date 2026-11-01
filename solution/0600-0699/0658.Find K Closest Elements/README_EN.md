@@ -68,7 +68,7 @@ tags:
 
 > **Thinking**
 >
-> We need the $k$ closest values to $x$, reported in sorted order. Sorting by distance then taking $k$ is $O(n\log n)$.
+> We need the $k$ closest values to $x$, reported in sorted order. Sorting by distance then taking $k$ is $O(n \log n)$.
 >
 > Sort by $|v-x|$, keep $k$ elements, and sort those by value.
 

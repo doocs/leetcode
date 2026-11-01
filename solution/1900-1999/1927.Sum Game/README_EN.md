@@ -113,7 +113,7 @@ Let's consider the case where there are two remaining `'?'` and the difference i
 
 Therefore, if the difference between the sums of the two halves is $d = \frac{9 \times \textit{cnt}}{2}$, where $\textit{cnt}$ is the number of remaining `'?'`, Bob will definitely win; otherwise, Alice will definitely win.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

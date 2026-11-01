@@ -102,7 +102,7 @@ For each character $s[i]$, we have the following cases:
 
 Finally, we count the number of valid words in the sentence.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the sentence.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the sentence.
 
 <!-- tabs:start -->
 

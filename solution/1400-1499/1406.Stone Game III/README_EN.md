@@ -103,7 +103,7 @@ $$
 
 To prevent repeated calculations, we can use memoization search.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of piles of stones.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of piles of stones.
 
 <!-- tabs:start -->
 
@@ -372,7 +372,7 @@ $$
 
 We calculate $f$ from $i = n - 1$ down to $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of piles of stones.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of piles of stones.
 
 <!-- tabs:start -->
 

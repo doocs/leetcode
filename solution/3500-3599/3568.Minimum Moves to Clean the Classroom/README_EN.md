@@ -132,7 +132,7 @@ We start from the initial position and try to move in four directions. If we mov
 
 If we find a state in BFS where the garbage bitmask is 0 (meaning all garbage has been collected), we return the current number of moves. If BFS completes without finding such a state, we return -1.
 
-The time complexity is $O(m \times n \times \textit{energy} \times 2^{\textit{count}})$, and the space complexity is $O(m \times n \times \textit{energy} \times 2^{\textit{count}})$, where $m$ and $n$ are the number of rows and columns in the grid, and $\textit{count}$ is the number of garbage cells.
+The time complexity is $O(mn \textit{energy} 2^{\textit{count}})$, and the space complexity is $O(mn \textit{energy} 2^{\textit{count}})$, where $m$ and $n$ are the number of rows and columns in the grid, and $\textit{count}$ is the number of garbage cells.
 
 <!-- tabs:start -->
 

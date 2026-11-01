@@ -81,7 +81,7 @@ Observing the squirrel's movement path, we can see that the squirrel will first 
 
 Therefore, we only need to select a nut as the squirrel's first target, such that the sum of its distance to the tree is minimized, to obtain the shortest path.
 
-The time complexity is $O(n)$, where $n$ is the number of nuts. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nuts.
 
 <!-- tabs:start -->
 

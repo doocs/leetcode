@@ -117,7 +117,7 @@ Combining the above two cases, we can uniformly express it as $\min(s, \textit{c
 
 Finally, we traverse all positions, calculate the maximum frequency at each position, and take the maximum value among them as the answer.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

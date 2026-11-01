@@ -87,7 +87,7 @@ Next, we traverse the array $trust$, for each item $[a_i, b_i]$, we increment $c
 
 Finally, we enumerate each person $i$ in the range $[1,..n]$. If $cnt1[i] = 0$ and $cnt2[i] = n - 1$, it means that $i$ is the town judge, and we return $i$. Otherwise, if no such person is found after the traversal, we return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $trust$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $trust$.
 
 <!-- tabs:start -->
 

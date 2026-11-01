@@ -76,7 +76,7 @@ If the tree only has one node, then this node is the root of the minimum height 
 
 If the tree has multiple nodes, there must be leaf nodes. A leaf node is a node that only has one adjacent node. We can use topological sorting to peel off the leaf nodes from the outside to the inside. When we reach the last layer, the remaining nodes are the root nodes of the minimum height tree.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

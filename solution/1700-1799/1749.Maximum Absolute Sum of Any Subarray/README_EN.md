@@ -85,7 +85,7 @@ The final answer is the maximum value of $max(f[i], |g[i]|)$.
 
 Since $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$, we can use two variables to replace the array, reducing the space complexity to $O(1)$.
 
-Time complexity $O(n)$, space complexity $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

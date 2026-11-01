@@ -96,7 +96,7 @@ After the simulation ends, judge whether the last bus still has seats:
 - If there are seats, we can arrive at the bus station when the bus departs at $bus[|bus|-1]$; if there are people at this time, we can find the time when no one arrives by going forward.
 - If there are no seats, we can find the last passenger who got on the bus, and find the time when no one arrives by going forward from him.
 
-The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Where $n$ and $m$ are the numbers of buses and passengers respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(\log n + \log m)$, where $n$ and $m$ are the numbers of buses and passengers respectively.
 
 <!-- tabs:start -->
 

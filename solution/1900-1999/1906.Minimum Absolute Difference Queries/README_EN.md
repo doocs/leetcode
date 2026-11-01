@@ -85,7 +85,7 @@ tags:
 
 > **Thinking**
 >
-> Sorting a query range to scan adjacent gaps costs $O((r-l)\log(r-l))$. With $n\le 10^5$ and $q\le 2\times 10^4$ that is too slow.
+> Sorting a query range to scan adjacent gaps costs $O((r-l) \log(r-l))$. With $n\le 10^5$ and $q\le 2\times 10^4$ that is too slow.
 >
 > Values lie in $[1,100]$, so the minimum distinct gap is the difference of two consecutive values that actually appear in $[l,r]$. We only need presence of each of the $100$ numbers.
 >

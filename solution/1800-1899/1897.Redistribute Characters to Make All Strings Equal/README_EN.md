@@ -75,7 +75,7 @@ According to the problem description, as long as the occurrence count of each ch
 
 Therefore, we use a hash table or an integer array of length $26$ $\textit{cnt}$ to count the occurrences of each character. Finally, we check if the occurrence count of each character can be divided by the length of the string array.
 
-The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$. Here, $L$ is the total length of all strings in the array $\textit{words}$, and $\Sigma$ is the character set, which is the set of lowercase letters, so $|\Sigma|=26$.
+The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$, where $L$ is the total length of all strings in the array $\textit{words}$, and $\Sigma$ is the character set, which is the set of lowercase letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

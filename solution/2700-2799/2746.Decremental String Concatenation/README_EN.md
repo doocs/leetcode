@@ -95,7 +95,7 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 >
 > Words must be prepended or appended in order; equal touching letters collapse into one, and we want the shortest final length. Two choices per word at $n\le 1000$ make a raw search impossible.
 >
-> The future cost depends only on the current first and last letters. $dfs(i,a,b)$ is the extra length from word $i$ with ends $a,b$: append compares $s[0]$ with $b$, prepend compares $s[-1]$ with $a$. Memoization yields $O(n\cdot 26^2)$ states.
+> The future cost depends only on the current first and last letters. $dfs(i,a,b)$ is the extra length from word $i$ with ends $a,b$: append compares $s[0]$ with $b$, prepend compares $s[-1]$ with $a$. Memoization yields $O(26^2 n)$ states.
 
 <!-- thinking:end -->
 
@@ -110,7 +110,7 @@ To avoid repeated calculations, we use the method of memoization search. Specifi
 
 In the main function, we directly return $|words[0]| + dfs(1, words[0][0], words[0][|words[0]| - 1])$.
 
-The time complexity is $O(n \times C^2)$, and the space complexity is $O(n \times C^2)$. Where $C$ represents the maximum length of the string.
+The time complexity is $O(nC^2)$, and the space complexity is $O(nC^2)$, where $C$ represents the maximum length of the string.
 
 <!-- tabs:start -->
 
@@ -273,7 +273,7 @@ function minimizeConcatenatedLength(words: string[]): number {
 
 Let $f[i][a][b]$ be the shortest extra length when connecting from word $i$, with the string so far starting with $a$ and ending with $b$. The boundary is $f[n][a][b]=0$. For $i$ from $n-1$ down to $1$, and for every pair of ends $a,b$, try both sides. Appending $words[i]$ saves one character when its first character equals $b$, and the new end is its last character. Prepending saves one character when its last character equals $a$, and the new start is its first character. $f[i][a][b]$ is the shorter of those two lengths plus $|words[i]|$. The answer is $|words[0]| + f[1][words[0][0]][words[0][|words[0]|-1]]$.
 
-The time complexity is $O(n \times |\Sigma|^2)$, and the space complexity is $O(n \times |\Sigma|^2)$. Here, $n$ is the number of words, and $|\Sigma|$ is the alphabet size, which is $26$ in this problem.
+The time complexity is $O(n|\Sigma|^2)$, and the space complexity is $O(n|\Sigma|^2)$, where $n$ is the number of words, and $|\Sigma|$ is the alphabet size, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

@@ -95,7 +95,7 @@ Otherwise, we enumerate $x^k$ starting from $k=2$ to find the first $k$ where $x
 
 To avoid redundant calculations, we implement the $dfs$ function using memoization search.
 
-The time complexity is $O(\log_{x}{target})$ and the space complexity is $O(\log_{x}{target})$.
+The time complexity is $O(\log_{x}{target})$, and the space complexity is $O(\log_{x}{target})$.
 
 <!-- tabs:start -->
 

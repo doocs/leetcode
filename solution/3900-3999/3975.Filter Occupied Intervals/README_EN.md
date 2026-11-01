@@ -93,7 +93,7 @@ Next, we traverse all occupied intervals. If the right endpoint of the current i
 
 Finally, we return the result.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{occupiedIntervals}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{occupiedIntervals}$.
 
 <!-- tabs:start -->
 

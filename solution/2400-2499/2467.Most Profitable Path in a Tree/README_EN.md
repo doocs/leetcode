@@ -119,7 +119,7 @@ Then we run another DFS to find the maximum score for each of Alice's moving pat
 
 When Alice reaches a leaf node, update the maximum score.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -354,7 +354,7 @@ A second explicit stack moves Alice from $0$ toward a leaf. Each frame stores a 
 
 If $i$ has only one neighbor and that neighbor is its parent, then $i$ is a leaf and the current score updates the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

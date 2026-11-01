@@ -99,7 +99,7 @@ tags:
 
 First, we sort the arrays $nums1$ and $nums2$. Since we need to remove two elements from $nums1$, we only need to consider the first three elements of $nums1$, denoted as $a_1, a_2, a_3$. We can enumerate the first element $b_1$ of $nums2$, then we can get $x = b_1 - a_i$, where $i \in \{1, 2, 3\}$. Then we can use the two pointers method to determine whether there exists an integer $x$ that makes $nums1$ and $nums2$ equal, and take the smallest $x$ that satisfies the condition.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -85,7 +85,7 @@ tags:
 
 接下来，我们计算 `target - mi`，即需要向上入的价格个数，然后将 `arr` 从大到小排序，从前往后遍历，将前 `target - mi` 个价格向上入，其余价格向下舍入，累计到 `ans` 中。
 
-时间复杂度 $O(n\log n)$。其中 $n$ 为 `prices` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 为 `prices` 的长度。
 
 <!-- tabs:start -->
 

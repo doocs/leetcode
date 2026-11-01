@@ -88,7 +88,7 @@ tags:
 
 最后将 $left$ 作为答案返回即可。
 
-时间复杂度 $O(\log M)$，其中 $M=maxSum$。空间复杂度 $O(1)$。
+时间复杂度 $O(\log M)$，空间复杂度 $O(1)$。其中 $M=maxSum$。
 
 <!-- tabs:start -->
 

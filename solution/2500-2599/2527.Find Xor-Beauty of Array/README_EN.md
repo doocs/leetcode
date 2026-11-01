@@ -92,7 +92,7 @@ Therefore, we only need to consider the case where $i$ and $j$ are equal. In thi
 
 Therefore, we ultimately only need to consider the case where $i = j = k$, and the answer is the XOR result of all $nums[i]$.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

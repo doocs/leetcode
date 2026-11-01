@@ -79,7 +79,7 @@ For each element, we enumerate the powers of two $s$ as the sum of two numbers f
 
 After the traversal ends, return the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the length of the array `deliciousness`, and $M$ is the upper limit of the elements. For this problem, the upper limit $M=2^{20}$.
+The time complexity is $O(n \log M)$, where $n$ is the length of the array `deliciousness`, and $M$ is the upper limit of the elements. For this problem, the upper limit $M=2^{20}$.
 
 We can also use a hash table $cnt$ to count the number of occurrences of each element in the array first.
 
@@ -183,7 +183,7 @@ func countPairs(deliciousness []int) (ans int) {
 >
 > Solution 1 queries while scanning. We may instead count all frequencies first, then enumerate each power $s$ and each key $a$, pairing with $cnt[s-a]$.
 >
-> Use $m(m-1)$ when $a=s-a$ and $m\cdot cnt[s-a]$ otherwise. Each pair is counted twice, so shift right once before taking modulo. The complexity remains $O(n\log M)$.
+> Use $m(m-1)$ when $a=s-a$ and $m\cdot cnt[s-a]$ otherwise. Each pair is counted twice, so shift right once before taking modulo. The complexity remains $O(n \log M)$.
 
 <!-- thinking:end -->
 

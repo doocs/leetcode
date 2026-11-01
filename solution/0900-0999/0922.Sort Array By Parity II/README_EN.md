@@ -72,7 +72,7 @@ We use two pointers $i$ and $j$ to point to even and odd indices, respectively. 
 
 When $i$ points to an even index, if $\textit{nums}[i]$ is odd, we need to find an odd index $j$ such that $\textit{nums}[j]$ is even, and then swap $\textit{nums}[i]$ and $\textit{nums}[j]$. Continue traversing until $i$ reaches the end of the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

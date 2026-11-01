@@ -106,7 +106,7 @@ $$
 
 最终的答案即为 $f[n][target]$。注意答案可能很大，需要对 $10^9 + 7$ 取模。
 
-时间复杂度 $O(n \times target \times count)$，空间复杂度 $O(n \times target)$。其中 $n$ 为题目类型的数量；而 $target$ 和 $count$ 分别为题目的目标分数和每种类型题目的数量。
+时间复杂度 $O(n target count)$，空间复杂度 $O(n target)$。其中 $n$ 为题目类型的数量；而 $target$ 和 $count$ 分别为题目的目标分数和每种类型题目的数量。
 
 <!-- tabs:start -->
 

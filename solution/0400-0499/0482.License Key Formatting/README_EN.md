@@ -74,7 +74,7 @@ Next, we iterate through the string $s$. For each character, if it is a hyphen, 
 
 Finally, we remove the hyphen at the end of the answer string and return the answer string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

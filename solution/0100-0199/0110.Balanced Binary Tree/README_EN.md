@@ -74,7 +74,7 @@ We define a function $height(root)$ to calculate the height of a binary tree, wi
 
 Therefore, if the function $height(root)$ returns $-1$, it means the binary tree $root$ is not balanced. Otherwise, it is balanced.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

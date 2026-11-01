@@ -67,7 +67,7 @@ tags:
 
 According to the problem description, we need to count the number of black pixels in each row and column, which are recorded in the arrays `rows` and `cols` respectively. Then we traverse each black pixel, check whether there is only one black pixel in its row and column. If so, we increment the answer by one.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively.
 
 <!-- tabs:start -->
 

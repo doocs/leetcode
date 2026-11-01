@@ -88,7 +88,7 @@ In the function $\text{dfs}(i)$, we first check if the number of substrings alre
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2 \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

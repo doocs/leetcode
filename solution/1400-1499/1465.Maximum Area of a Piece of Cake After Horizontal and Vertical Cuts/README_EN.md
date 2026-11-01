@@ -85,7 +85,7 @@ We first sort `horizontalCuts` and `verticalCuts` separately, and then traverse 
 
 Note that we need to consider the boundary cases, i.e., the first and last elements of `horizontalCuts` and `verticalCuts`.
 
-The time complexity is $O(m\log m + n\log n)$, where $m$ and $n$ are the lengths of `horizontalCuts` and `verticalCuts`, respectively. The space complexity is $O(\log m + \log n)$.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\log m + \log n)$, where $m$ and $n$ are the lengths of `horizontalCuts` and `verticalCuts`, respectively.
 
 <!-- tabs:start -->
 

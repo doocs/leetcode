@@ -55,7 +55,7 @@ Next, we traverse the entire text file. For each word $w$, if $w$ equals $\texti
 
 After the traversal, we return the answer $ans$.
 
-The time complexity is $O(n)$, where $n$ is the number of words in the text file. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of words in the text file.
 
 <!-- tabs:start -->
 
@@ -226,7 +226,7 @@ Next, we find the positions where $\textit{word1}$ and $\textit{word2}$ appear i
 
 Next, we traverse $idx1$ and $idx2$. Each time we update the answer $ans = \min(ans, |idx1[i] - idx2[j]|)$, then we move the smaller pointer of $i$ and $j$ one step backward.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of words in the text file.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of words in the text file.
 
 <!-- tabs:start -->
 

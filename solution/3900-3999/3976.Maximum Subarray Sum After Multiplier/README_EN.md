@@ -116,7 +116,7 @@ Next, we consider the state transitions. For the $i$-th number $nums[i]$, we can
 
 We take the maximum among all states as the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

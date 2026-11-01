@@ -54,7 +54,7 @@ k = 3
 
 否则，我们可以使用长度为 $shorter \times (k-i) + longer \times i$ 的木板，其中 $0 \leq i \leq k$。我们在 $[0, k]$ 的范围内枚举 $i$，并计算对应的长度即可。对于不同的 $i$，我们不会得到相同的长度，这是因为，假如有 $0 \leq i \lt j \leq k$，那么两者长度差为 $shorter \times (k-i) + longer \times i - shorter \times (k-j) - longer \times j$，整理得到长度差 $(i - j) \times (longer - shorter) \lt 0$。因此，对于不同的 $i$，我们会得到不同的长度。
 
-时间复杂度 $O(k)$，其中 $k$ 为木板数量。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(k)$，空间复杂度 $O(1)$。其中 $k$ 为木板数量。
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ The basic idea of Kruskal's algorithm is to select the smallest edge from the ed
 
 For this problem, we can sort the edges in ascending order of connection cost, use a union-find set to maintain connected components, select the smallest edge each time, and if the two vertices connected by this edge are not in the same connected component, then merge these two vertices and accumulate the connection cost. If a situation occurs where the number of connected components is $1$, it means that all vertices are connected, and we return the accumulated connection cost, otherwise, we return $-1$.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of edges and vertices, respectively.
+The time complexity is $O(m \log m)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of edges and vertices, respectively.
 
 <!-- tabs:start -->
 

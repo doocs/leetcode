@@ -111,7 +111,7 @@ $$
 \textit{ans} = \max(\textit{ans}, i - pos)
 $$
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array. Each segment tree modification and query operation takes $O(\log n)$, and enumerating the right endpoint $n$ times gives a total time complexity of $O(n \log n)$. The space complexity is $O(n)$, where segment tree nodes and the hash table each occupy $O(n)$ space.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array. Each segment tree modification and query operation takes $O(\log n)$, and enumerating the right endpoint $n$ times gives a total time complexity of $O(n \log n)$, and segment tree nodes and the hash table each occupy $O(n)$ space.
 
 <!-- tabs:start -->
 

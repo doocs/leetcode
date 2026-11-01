@@ -91,7 +91,7 @@ We can use two hash tables or arrays $d_1$ and $d_2$ to record the character map
 
 Traverse $s$ and $t$, if the corresponding character mapping relationships in $d_1$ and $d_2$ are different, return `false`, otherwise update the corresponding character mapping relationships in $d_1$ and $d_2$. After the traversal is complete, it means that $s$ and $t$ are isomorphic, and return `true`.
 
-The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $C = 256$ in this problem.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $C = 256$ in this problem.
 
 <!-- tabs:start -->
 

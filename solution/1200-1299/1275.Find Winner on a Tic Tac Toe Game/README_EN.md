@@ -93,7 +93,7 @@ We use an array `cnt` of length $8$ to record the number of moves in rows, colum
 
 If the last player to move does not win, then we determine whether the board is full. If it is full, it is a draw; otherwise, the game is not over yet.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of `moves`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of `moves`.
 
 <!-- tabs:start -->
 

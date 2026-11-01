@@ -72,7 +72,7 @@ We define the left boundary of the binary search $l=1$, $r=\max(nums)$. Each tim
 
 Finally, return $l$.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $nums$ and $M$ is the maximum value in the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$ and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
 

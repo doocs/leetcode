@@ -86,7 +86,7 @@ $$
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

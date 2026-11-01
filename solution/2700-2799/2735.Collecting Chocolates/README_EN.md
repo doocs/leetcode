@@ -95,7 +95,7 @@ $$
 
 Finally, we only need to enumerate the number of operations $j$, calculate the minimum cost under each number of operations, and take the minimum value. That is, the answer is $\min\limits_{0 \leq j \leq n - 1} \sum\limits_{i = 0}^{n - 1} f[i][j] + x \times j$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

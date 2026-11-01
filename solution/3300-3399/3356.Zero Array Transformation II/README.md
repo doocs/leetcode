@@ -135,7 +135,7 @@ tags:
 
 最后，我们判断 $l$ 是否大于 $m$，如果是，则返回 -1，否则返回 $l$。
 
-时间复杂度 $O((n + m) \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
+时间复杂度 $O((n + m) \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

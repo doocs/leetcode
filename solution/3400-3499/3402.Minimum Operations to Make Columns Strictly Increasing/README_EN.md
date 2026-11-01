@@ -98,7 +98,7 @@ tags:
 
 We can traverse the matrix column by column. For each column, we calculate the minimum number of operations required to make it strictly increasing. Specifically, for each column, we maintain a variable $\textit{pre}$ to represent the value of the previous element in the current column. Then, we traverse the current column from top to bottom. For the current element $\textit{cur}$, if $\textit{pre} < \textit{cur}$, it means the current element is already greater than the previous element, so we only need to update $\textit{pre} = \textit{cur}$. Otherwise, we need to increase the current element to $\textit{pre} + 1$ and add the number of increases to the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 

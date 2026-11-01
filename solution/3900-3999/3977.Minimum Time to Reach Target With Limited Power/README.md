@@ -151,7 +151,7 @@ tags:
 
 若优先队列为空仍未到达目标节点，返回 $[-1, -1]$。
 
-时间复杂度 $O((n + m) \times \textit{power} \times \log (n \times \textit{power}))$，空间复杂度 $O(n \times \textit{power})$。其中 $n$ 和 $m$ 分别是节点数和边数， $\textit{power}$ 是初始电量。
+时间复杂度 $O((n + m) \textit{power} \log (n \textit{power}))$，空间复杂度 $O(n \textit{power})$。其中 $n$ 和 $m$ 分别是节点数和边数， $\textit{power}$ 是初始电量。
 
 <!-- tabs:start -->
 

@@ -102,7 +102,7 @@ The number of target nodes for node $i$ can be divided into two parts:
 
 First, we use Depth-First Search (DFS) to calculate the number of nodes in the second tree with the same depth parity, denoted as $\textit{cnt2}$. Then, we calculate the number of nodes in the first tree with the same depth parity as node $i$, denoted as $\textit{cnt1}$. Therefore, the number of target nodes for node $i$ is $\max(\textit{cnt2}) + \textit{cnt1}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the first and second trees, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the first and second trees, respectively.
 
 <!-- tabs:start -->
 
@@ -453,7 +453,7 @@ The number of target nodes for node $i$ can be divided into two parts:
 
 First, an explicit stack counts the nodes of each depth parity in the second tree, denoted as $\textit{cnt2}$. Then it counts the nodes in the first tree with the same depth parity as node $i$, denoted as $\textit{cnt1}$. Therefore, the number of target nodes for node $i$ is $\max(\textit{cnt2}) + \textit{cnt1}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the first and second trees, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the first and second trees, respectively.
 
 <!-- tabs:start -->
 

@@ -116,7 +116,7 @@ During the traversal, we continuously update the value of $\textit{left}$.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

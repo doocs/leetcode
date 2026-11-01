@@ -88,7 +88,7 @@ The difference is 4, which is more than the allowed 3.
 
 We can create an array $cnt$ of length $26$ to record the difference in the number of times each letter appears in the two strings. Then we traverse $cnt$, if any letter appears the difference in the number of times greater than $3$, then return `false`, otherwise return `true`.
 
-The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the length of the string, and $C$ is the size of the character set, and in this question $C = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string, and $C$ is the size of the character set, and in this question $C = 26$.
 
 <!-- tabs:start -->
 

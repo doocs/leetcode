@@ -102,7 +102,7 @@ We can enumerate all subsets $j$ of $i$, where each bit of the binary representa
 
 The final answer is $f[2^n - 1]$.
 
-The time complexity is $O(n \times 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the number of tasks.
+The time complexity is $O(n 3^n)$, and the space complexity is $O(2^n)$, where $n$ is the number of tasks.
 
 <!-- tabs:start -->
 

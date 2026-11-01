@@ -110,7 +110,7 @@ We define a helper function $f(x)$ to calculate the waviness value of integer $x
 
 Then, we iterate through each integer $x$ in the range $[\textit{num1}, \textit{num2}]$ and accumulate its waviness value $f(x)$ to obtain the final result.
 
-The time complexity is $O((\textit{num2} - \textit{num1} + 1) \cdot \log \textit{num2})$ and the space complexity is $O(\log \textit{num2})$.
+The time complexity is $O((\textit{num2} - \textit{num1} + 1) \log \textit{num2})$, and the space complexity is $O(\log \textit{num2})$.
 
 <!-- tabs:start -->
 

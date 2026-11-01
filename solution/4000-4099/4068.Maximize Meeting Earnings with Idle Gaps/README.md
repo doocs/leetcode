@@ -141,7 +141,7 @@ $$
 
 然后令 $\textit{preMax}[i+1]=\max(\textit{preMax}[i], f[i]-\textit{end}_i)$。结束时间相同的两场会议一定重叠，二分不会把它们接在一起。
 
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 

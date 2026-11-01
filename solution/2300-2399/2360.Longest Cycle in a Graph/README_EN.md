@@ -78,7 +78,7 @@ The length of this cycle is 3, so 3 is returned.
 
 We can traverse each node in the range $[0,..,n-1]$. If a node has not been visited, we start from this node and search for adjacent nodes until we encounter a cycle or a node that has already been visited. If we encounter a cycle, we update the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 Similar problems:
 

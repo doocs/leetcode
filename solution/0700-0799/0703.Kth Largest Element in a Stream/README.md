@@ -101,7 +101,7 @@ kthLargest.add(9); // 返回 8</div>
 
 我们维护一个优先队列（小根堆） $\textit{minQ}$。
 
-初始化时，我们将数组 $\textit{nums}$ 中的元素依次加入 $\textit{minQ}$，并保持 $\textit{minQ}$ 的大小不超过 $k$。时间复杂度 $O(n \times \log k)$。
+初始化时，我们将数组 $\textit{nums}$ 中的元素依次加入 $\textit{minQ}$，并保持 $\textit{minQ}$ 的大小不超过 $k$。时间复杂度 $O(n \log k)$。
 
 每次加入一个新元素时，如果 $\textit{minQ}$ 的大小超过了 $k$，我们就将堆顶元素弹出，保证 $\textit{minQ}$ 的大小为 $k$。时间复杂度 $O(\log k)$。
 

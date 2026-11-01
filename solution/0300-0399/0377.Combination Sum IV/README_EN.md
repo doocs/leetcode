@@ -82,7 +82,7 @@ For $f[i]$, we can enumerate each element $x$ in the array. If $i \ge x$, then $
 
 Finally, return $f[target]$.
 
-The time complexity is $O(n \times target)$, and the space complexity is $O(target)$, where $n$ is the length of the array.
+The time complexity is $O(n target)$, and the space complexity is $O(target)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

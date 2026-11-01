@@ -88,7 +88,7 @@ $$
 \end{aligned}
 $$
 
-Time complexity is $O(n+m)$, and space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{arr}$ and the query array $\textit{queries}$, respectively.
+The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array $\textit{arr}$ and the query array $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ tags:
 
 我们用一个哈希表 $s$ 存储 $\textit{bannedWords}$ 中的所有单词，然后遍历 $\textit{message}$ 中的每个单词，如果单词在哈希表 $s$ 中出现，我们就将计数器 $cnt$ 加一，如果 $cnt$ 大于等于 $2$，我们就返回 $\text{true}$，否则返回 $\text{false}$。
 
-时间复杂度 $O((n + m) \times |w|)$，空间复杂度 $O(m \times |w|)$。其中 $n$ 是数组 $\textit{message}$ 的长度，而 $m$ 和 $|w|$ 分别是数组 $\textit{bannedWords}$ 的长度和数组中单词的最大长度。
+时间复杂度 $O((n + m)|w|)$，空间复杂度 $O(m|w|)$。其中 $n$ 是数组 $\textit{message}$ 的长度，而 $m$ 和 $|w|$ 分别是数组 $\textit{bannedWords}$ 的长度和数组中单词的最大长度。
 
 <!-- tabs:start -->
 

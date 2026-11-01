@@ -101,7 +101,7 @@ Next, we traverse the array $arr$, calculate the prefix sum $s$, add the number 
 
 After the traversal ends, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

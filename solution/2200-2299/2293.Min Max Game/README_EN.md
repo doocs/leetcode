@@ -82,7 +82,7 @@ Third: nums = [1]
 
 According to the problem statement, we can simulate the entire process, and the remaining number will be the answer. In implementation, we do not need to create an additional array; we can directly operate on the original array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

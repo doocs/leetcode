@@ -96,7 +96,7 @@ The execution logic of the function $\text{dfs}(n, k)$ is as follows:
 
 During the process, we can use memoization to avoid repeated calculations.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of cards.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of cards.
 
 <!-- tabs:start -->
 

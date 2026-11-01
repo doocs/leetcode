@@ -131,7 +131,7 @@ We can start from $(\textit{row}, \textit{col})$ and use breadth-first search to
 
 Finally, sort $\textit{pq}$ by distance, price, row coordinate, and column coordinate, and return the coordinates of the first $k$ items.
 
-The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 

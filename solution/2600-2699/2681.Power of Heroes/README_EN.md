@@ -95,7 +95,7 @@ Then, we enumerate $a_i$ from right to left. Each time, we add $a_i \times p$ to
 
 After enumerating all $a_i$, return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

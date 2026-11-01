@@ -491,7 +491,7 @@ function findTarget(root: TreeNode | null, k: number): boolean {
 
 A hash set stores values already visited, and an explicit stack walks the tree depth-first. When a node is popped, return true if $k$ minus its value is already in the set. Otherwise store the value and push the non-null right child and left child.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

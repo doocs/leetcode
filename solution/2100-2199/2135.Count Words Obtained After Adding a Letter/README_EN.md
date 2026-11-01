@@ -103,7 +103,7 @@ We notice that the given strings only contain lowercase letters, and each letter
 
 We can convert each string in the array $\textit{startWords}$ into a binary number and store these binary numbers in a set $\textit{s}$. For each string in the array $\textit{targetWords}$, we first convert it into a binary number, then enumerate each letter in this string, remove this letter from the binary number, and check if there exists a binary number in the set $\textit{s}$ such that the XOR result of this binary number with the removed letter's binary number is in the set $\textit{s}$. If such a binary number exists, then this string can be obtained by performing a transformation operation on some string in $\textit{startWords}$, and we increment the answer by one. Then, we skip this string and continue processing the next string.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string array $\textit{targetWords}$, and $|\Sigma|$ is the size of the character set in the string, which is $26$ in this problem.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(n)$, where $n$ is the length of the string array $\textit{targetWords}$, and $|\Sigma|$ is the size of the character set in the string, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

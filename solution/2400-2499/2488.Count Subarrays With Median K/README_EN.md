@@ -91,7 +91,7 @@ Similarly, start traversing to the left from $i - 1$, also maintaining a variabl
 
 Finally, return the answer variable $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 > In coding, we can directly open an array of length $2 \times n + 1$, used to count the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current array. Each time we add the difference by $n$, we can convert the range of the difference from $[-n, n]$ to $[0, 2n]$.
 

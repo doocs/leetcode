@@ -76,7 +76,7 @@ We construct a data item $(x, i)$ for each number $x$ and its group $i$, and sto
 
 Next, we traverse each data item in $t$, focusing on the group to which each number belongs. We use a hash table to record the groups of numbers within the sliding window. If the number of groups is $k$, it means the current window meets the problem's requirements. At this point, we calculate the start and end positions of the window and update the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of numbers in all arrays.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the total number of numbers in all arrays.
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ $$
 
 That is, each item in the answer array is obtained by performing a bitwise XOR operation on the adjacent two items in the prefix XOR array.
 
-The time complexity is $O(n)$, where $n$ is the length of the prefix XOR array. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the prefix XOR array.
 
 <!-- tabs:start -->
 

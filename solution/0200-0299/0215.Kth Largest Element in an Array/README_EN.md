@@ -61,7 +61,7 @@ tags:
 
 Quick Select is an algorithm for finding the $k^{th}$ largest or smallest element in an unsorted array. Its basic idea is to select a pivot element each time, dividing the array into two parts: one part contains elements smaller than the pivot, and the other part contains elements larger than the pivot. Then, based on the position of the pivot, it decides whether to continue the search on the left or right side until the $k^{th}$ largest element is found.
 
-The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -290,13 +290,13 @@ impl Solution {
 >
 > Quickselect is linear on average but quadratic in the worst case. A min-heap of size $k$ is enough if we only need that order statistic.
 >
-> After one pass the heap stores the $k$ largest values and its top is the answer, in $O(n\log k)$ time.
+> After one pass the heap stores the $k$ largest values and its top is the answer, in $O(n \log k)$ time.
 
 <!-- thinking:end -->
 
 We can maintain a min heap $\textit{minQ}$ of size $k$, and then iterate through the array $\textit{nums}$, adding each element to the min heap. When the size of the min heap exceeds $k$, we pop the top element of the heap. This way, the final $k$ elements in the min heap are the $k$ largest elements in the array, and the top element of the heap is the $k^{th}$ largest element.
 
-The time complexity is $O(n\log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -423,7 +423,7 @@ impl Solution {
 
 We can use the idea of counting sort, counting the occurrence of each element in the array $\textit{nums}$ and recording it in a hash table $\textit{cnt}$. Then, we iterate over the elements $i$ from largest to smallest, subtracting the occurrence count $\textit{cnt}[i]$ each time, until $k$ is less than or equal to $0$. At this point, the element $i$ is the $k^{th}$ largest element in the array.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $m$ is the maximum value among the elements in $\textit{nums}$.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $m$ is the maximum value among the elements in $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -105,7 +105,7 @@ We can enumerate each number, and for each number, we can enumerate each pair of
 
 This enumeration method may miss some pairs, such as $[100, 1]$, because the number obtained by swapping digits in $100$ is $1$, and previously enumerated numbers do not include $1$, thus missing some pairs. We can solve this problem by sorting the array before enumeration.
 
-The time complexity is $O(n \times (\log n + \log^3 M))$, and the space complexity is $O(n + \log^2 M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n(\log n + \log^3 M))$, and the space complexity is $O(n + \log^2 M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

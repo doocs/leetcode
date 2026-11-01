@@ -109,7 +109,7 @@ We can enumerate each element $div$ in $divisors$, and calculate how many elemen
 
 Finally, return $ans$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively.
 
 <!-- tabs:start -->
 

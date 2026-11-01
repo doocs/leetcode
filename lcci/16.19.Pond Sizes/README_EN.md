@@ -70,7 +70,7 @@ We can traverse each point $(i, j)$ in the integer matrix $land$. If the value o
 
 Finally, we sort the answer array to obtain the final answer.
 
-The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix $land$, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix $land$, respectively.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ Then, we enumerate each element $arr[j]$ in the array $arr$, first subtract one 
 
 Note that the answer may exceed ${10}^9 + 7$, so take the modulus after each addition operation.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $arr$. The space complexity is $O(C)$, where $C$ is the maximum value of the elements in the array $arr$, in this problem $C = 100$.
+The time complexity is $O(n^2)$, and the space complexity is $O(C)$, where $n$ is the length of the array $arr$, and $C$ is the maximum value of the elements in the array $arr$, in this problem $C = 100$.
 
 <!-- tabs:start -->
 

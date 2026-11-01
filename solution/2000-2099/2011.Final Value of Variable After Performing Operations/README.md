@@ -98,7 +98,7 @@ X--：X 减 1 ，X = 1 - 1 = 0
 
 我们遍历数组 $\textit{operations}$，对于每个操作 $\textit{operations}[i]$，如果包含 `'+'`，那么答案加 $1$，否则答案减 $1$。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{operations}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{operations}$ 的长度。
 
 <!-- tabs:start -->
 

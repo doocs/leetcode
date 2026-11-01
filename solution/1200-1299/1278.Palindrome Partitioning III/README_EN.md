@@ -80,7 +80,7 @@ We define $f[i][j]$ to represent the minimum number of changes needed to partiti
 
 For $f[i][j]$, we can enumerate the position $h$ of the last character of the $(j-1)$-th palindromic substring. Then $f[i][j]$ is equal to the minimum value of $f[h][j-1] + g[h][i-1]$, where $g[h][i-1]$ represents the minimum number of changes needed to turn the substring $s[h..i-1]$ into a palindrome (this part can be preprocessed with a time complexity of $O(n^2)$).
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times (n + k))$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n^2k)$, and the space complexity is $O(n(n + k))$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

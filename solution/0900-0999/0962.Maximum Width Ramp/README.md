@@ -73,7 +73,7 @@ tags:
 
 我们用一个从栈底到栈顶单调递减的栈 $\textit{stk}$ 来存储所有可能的 $\textit{nums}[i]$，然后我们从右边界开始遍历 $j$，若遇到 $\textit{nums}[\textit{stk.top()}]\leq\textit{nums}[j]$，说明此时构成一个坡，循环弹出栈顶元素，更新 $\textit{ans}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 表示 $\textit{nums}$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

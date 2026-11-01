@@ -91,7 +91,7 @@ Therefore, we traverse all the black cells, and then accumulate the number of bl
 
 Finally, we traverse all the values in $cnt$ (greater than $0$), count the number of times they appear, and record them in the answer array $ans$, while $ans[0]$ represents the number of submatrices without black cells, the value is $(m - 1) \times (n - 1) - \sum_{i = 1}^4 ans[i]$.
 
-Time complexity $O(l)$, space complexity $O(l)$, where $l$ is the length of $coordinates$.
+The time complexity is $O(l)$, and the space complexity is $O(l)$, where $l$ is the length of $coordinates$.
 
 <!-- tabs:start -->
 

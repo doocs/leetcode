@@ -100,7 +100,7 @@ int rev(int x) {
 }
 ```
 
-The time complexity is $O(\log n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

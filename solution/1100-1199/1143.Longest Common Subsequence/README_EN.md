@@ -88,7 +88,7 @@ f[i - 1][j - 1] + 1, & \textit{if } text1[i - 1] = text2[j - 1] \\
 \end{cases}
 $$
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
 
 <!-- tabs:start -->
 

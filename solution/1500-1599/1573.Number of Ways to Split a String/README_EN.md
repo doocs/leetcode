@@ -87,7 +87,7 @@ Next, we find the minimum index of the right boundary of the first substring, de
 
 Note that the answer may be very large, so we need to take the modulo $10^9+7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 Similar problems:
 

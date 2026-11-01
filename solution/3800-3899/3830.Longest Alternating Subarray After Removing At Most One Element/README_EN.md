@@ -120,7 +120,7 @@ Next, we initialize the answer as $\max(\max(l_1), \max(l_2))$, which represents
 
 Then, we enumerate the position $i$ of the element to be removed. If after removing position $i$, positions $i-1$ and $i+1$ can still form an alternating relationship, we can add $l_1[i-1]$ and $r_1[i+1]$ (or $l_2[i-1]$ and $r_2[i+1]$) together to update the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

@@ -91,7 +91,7 @@ If the $i$th character $s[i-1]$ is `'I'`, then $f[i][j]$ can be transferred from
 
 The final answer is $\sum_{j=0}^n f[n][j]$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

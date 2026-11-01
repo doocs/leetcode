@@ -132,7 +132,7 @@ Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it 
 
 Moves are only right or down, so the upper and left cells are already finished when $(i, j)$ is scanned. The answer is the smallest $k$ for which $f[m - 1][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
 
-The time complexity is $O(mn \cdot \textit{mx})$ and the space complexity is $O(mn \cdot \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
+The time complexity is $O(mn \textit{mx})$, and the space complexity is $O(mn \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
 
 <!-- tabs:start -->
 
@@ -332,7 +332,7 @@ function minCost(grid: number[][]): number {
 
 > **Thinking**
 >
-> Solution 1 keeps every reachable XOR of every cell, so the space grows with $mn$. Cell $(i, j)$ reads only the cell above and the cell to the left, and a row-major scan finishes both first. The previous row is still complete when the current row begins, and the current row only needs the left neighbor already written, so two rolling rows are enough. The transition still looks back at $k \oplus x$ for a cell of value $x$, the answer is still the smallest reachable XOR at the lower-right cell, and the space drops to $O(n \cdot \textit{mx})$.
+> Solution 1 keeps every reachable XOR of every cell, so the space grows with $mn$. Cell $(i, j)$ reads only the cell above and the cell to the left, and a row-major scan finishes both first. The previous row is still complete when the current row begins, and the current row only needs the left neighbor already written, so two rolling rows are enough. The transition still looks back at $k \oplus x$ for a cell of value $x$, the answer is still the smallest reachable XOR at the lower-right cell, and the space drops to $O(n \textit{mx})$.
 
 <!-- thinking:end -->
 
@@ -345,7 +345,7 @@ Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it 
 
 Row $i$ is stored at index $i \bmod 2$, the previous row stays at $(i - 1) \bmod 2$, and the left cell shares that row. The answer is the smallest $k$ for which $f[(m - 1) \bmod 2][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
 
-The time complexity is $O(mn \cdot \textit{mx})$ and the space complexity is $O(n \cdot \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
+The time complexity is $O(mn \textit{mx})$, and the space complexity is $O(n \textit{mx})$, where $m$ and $n$ are the number of rows and columns, and $\textit{mx} \le 1024$.
 
 <!-- tabs:start -->
 

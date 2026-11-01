@@ -67,7 +67,7 @@ So you should return 1 because there is only one bulb is on.</pre>
 
 > **Thinking**
 >
-> Bulb $i$ is toggled once per divisor of $i$ and ends on iff that count is odd. Simulating $n$ rounds is $O(n\log n)$, while $n$ may be $10^9$.
+> Bulb $i$ is toggled once per divisor of $i$ and ends on iff that count is odd. Simulating $n$ rounds is $O(n \log n)$, while $n$ may be $10^9$.
 >
 > Divisors pair except for perfect squares. The number of squares in $1\ldots n$ is $\lfloor\sqrt{n}\rfloor$, which is the answer.
 

@@ -86,7 +86,7 @@ Therefore, for each query $queries[i]$, we can first perform prime factorization
 
 So, the problem is transformed into how to quickly calculate $C_m^n$. According to the formula $C_m^n = \frac{m!}{n!(m-n)!}$, we can pre-process $m!$, and then use the inverse element to quickly calculate $C_m^n$.
 
-The time complexity is $O(K \times \log \log K + N + m \times \log K)$, and the space complexity is $O(N)$.
+The time complexity is $O(K \log \log K + N + m \log K)$, and the space complexity is $O(N)$.
 
 <!-- tabs:start -->
 

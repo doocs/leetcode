@@ -173,7 +173,7 @@ Next, we iterate through all the points. If the current point's x-coordinate $x$
 
 After completing the iteration, we obtain the minimum number of rectangles needed.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of points.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 

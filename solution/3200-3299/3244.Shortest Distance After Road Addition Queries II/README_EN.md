@@ -108,7 +108,7 @@ For each query $[u, v]$, if $u'$ and $v'$ have already been connected before, an
 
 During this process, we maintain a variable $\textit{cnt}$, which represents the length of the shortest path from city $0$ to city $n - 1$. Initially, $\textit{cnt} = n - 1$. Each time we set the next city number for cities in $[\textit{nxt}[u], \textit{v})$ to $0$, $\textit{cnt}$ decreases by $1$.
 
-Time complexity is $O(n + q)$, and space complexity is $O(n)$. Here, $n$ and $q$ are the number of cities and the number of queries, respectively.
+The time complexity is $O(n + q)$, and the space complexity is $O(n)$, where $n$ and $q$ are the number of cities and the number of queries, respectively.
 
 <!-- tabs:start -->
 

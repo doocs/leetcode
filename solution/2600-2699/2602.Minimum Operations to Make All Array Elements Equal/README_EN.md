@@ -99,7 +99,7 @@ Similarly, we can find the index $i$ of the first element in the array $nums$ th
 
 Finally, add these two total operation counts together to get the minimum number of operations to change all elements in the array $nums$ to $queries[i]$, that is, $ans[i]=s[n]-s[i]-(n-i)\times queries[i]+queries[i]\times i-s[i]$.
 
-Time complexity $O(n \times \log n)$, space complexity $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

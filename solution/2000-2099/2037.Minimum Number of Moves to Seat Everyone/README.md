@@ -102,7 +102,7 @@ tags:
 
 将两个数组分别排序，然后遍历两个数组，计算每个学生的座位与其实际座位的距离，将所有距离相加即为答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `seats` 和 `students` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `seats` 和 `students` 的长度。
 
 <!-- tabs:start -->
 

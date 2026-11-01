@@ -110,7 +110,7 @@ Then, we update $f$ to $g$ and continue calculating the phone numbers of the nex
 
 Finally, we sum all the elements in $f$ and take the result modulo $10^9 + 7$ to get the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the phone number. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the set of digits, and in this problem $|\Sigma| = 10$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the phone number, and $\Sigma$ is the set of digits, and in this problem $|\Sigma| = 10$.
 
 <!-- tabs:start -->
 

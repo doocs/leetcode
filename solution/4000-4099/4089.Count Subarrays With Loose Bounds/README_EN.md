@@ -79,7 +79,7 @@ A loose-bound subarray is one in which every element belongs to $[\textit{minK},
 
 Let $l$ be the left endpoint of the current valid segment, initially $0$. Scan the right endpoint $r$ from left to right. If $\textit{nums}[r]<\textit{minK}$ or $\textit{nums}[r]>\textit{maxK}$, set $l=r+1$. Otherwise every element of $\textit{nums}[l..r]$ lies inside the bounds, so every subarray that ends at $r$ and starts at or after $l$ is valid. There are $r-l+1$ of them, and that count is added to the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

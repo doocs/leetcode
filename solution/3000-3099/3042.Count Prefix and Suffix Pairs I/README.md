@@ -96,7 +96,7 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 
 我们可以枚举所有的下标对 $(i, j)$，其中 $i \lt j$，然后判断 `words[i]` 是否是 `words[j]` 的前缀和后缀，若是则计数加一。
 
-时间复杂度 $O(n^2 \times m)$，其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
+时间复杂度 $O(n^2m)$。其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
 
@@ -209,7 +209,7 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 我们可以使用字典树来存储所有的字符对，然后对于每个字符串 $s$，我们在字典树中查找所有的字符对 $(s[i], s[m - i - 1])$，并将其计数加到答案中。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
+时间复杂度 $O(nm)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
 

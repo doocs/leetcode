@@ -80,7 +80,7 @@ tags:
 
 We enumerate each row as the bottom of the rectangle. For the current row, if both column $i$ and column $j$ are $1$, then we use a hash table to find out how many of the previous rows have both columns $i$ and $j$ as $1$. This is the number of rectangles with $(i, j)$ as the bottom right corner, and we add this number to the answer. Then we add $(i, j)$ to the hash table and continue to enumerate the next pair $(i, j)$.
 
-The time complexity is $O(m \times n^2)$, and the space complexity is $O(n^2)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(n^2)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

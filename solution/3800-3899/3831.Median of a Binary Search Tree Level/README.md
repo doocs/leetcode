@@ -109,7 +109,7 @@ tags:
 
 我们初始化一个空列表 $\text{nums}$ 来存储指定层级的节点值，并调用 $\text{dfs}(root, 0)$ 来开始遍历。最后，我们检查 $\text{nums}$ 是否为空，如果为空则返回 -1，否则返回 $\text{nums}$ 中间位置的值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是树中节点的数量。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数量。
 
 <!-- tabs:start -->
 
@@ -314,7 +314,7 @@ function levelMedian(root: TreeNode | null, level: number): number {
 
 $\textit{nums}$ 为空时返回 $-1$，否则返回中间位置的值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是树中节点的数量。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数量。
 
 <!-- tabs:start -->
 

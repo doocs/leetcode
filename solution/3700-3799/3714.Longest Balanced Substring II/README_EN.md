@@ -102,7 +102,7 @@ For $\text{calc3}(s)$, we also use prefix sum and hash table to calculate the lo
 
 Finally, we calculate the values of $\text{calc1}(s)$, $\text{calc2}(s, 'a', 'b')$, $\text{calc2}(s, 'b', 'c')$, $\text{calc2}(s, 'a', 'c')$, and $\text{calc3}(s)$ respectively, and return their maximum value.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

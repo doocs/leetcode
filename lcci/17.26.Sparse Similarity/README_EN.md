@@ -79,7 +79,7 @@ Two documents have similarity greater than $0$ exactly when they share at least 
 
 While walking through $cnt$, the similarity is the ratio of the intersection to the union. Floating-point division can fall slightly short of the true value, so we add $10^{-9}$ before formatting the result to four decimal places. Each inverted list is already sorted by id, so the smaller id is the first component of the key.
 
-The time complexity is $O(m \times n^2)$ and the space complexity is $O(S)$, where $n$ is the number of documents, $m$ is the maximum document length, and $S$ is the total number of words. At most $1000$ pairs have similarity greater than $0$, and the inner loops run once per element of those intersections, so the running time on the given inputs is below this bound.
+The time complexity is $O(mn^2)$, and the space complexity is $O(S)$, where $n$ is the number of documents, $m$ is the maximum document length, and $S$ is the total number of words. At most $1000$ pairs have similarity greater than $0$, and the inner loops run once per element of those intersections, so the running time on the given inputs is below this bound.
 
 <!-- tabs:start -->
 

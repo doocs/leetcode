@@ -104,7 +104,7 @@ The calculation logic of function $dfs(i, j)$ is as follows:
 
 Finally, we return $dfs(0, 0)$. Note that the answer is taken in modulo operation.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
 
 <!-- tabs:start -->
 
@@ -302,7 +302,7 @@ Consider $f[i][j]$, where $i \gt 0$, $j \gt 0$. We can choose not to select the 
 
 Finally, we return $f[m][n]$. Note the mod operation of the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
 
 <!-- tabs:start -->
 
@@ -443,7 +443,7 @@ When $i = m$, every character of $target$ has been chosen, so the value is $1$. 
 
 For the remaining states, let $i$ run from $m - 1$ down to $0$ and $j$ from $n - 1$ down to $0$. Skipping column $j$ contributes $f[i][j + 1]$. Taking it contributes $f[i + 1][j + 1] \times cnt[j][target[i] - 'a']$. Add the two contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here $m$ is the length of $target$, and $n$ is the length of each string in $words$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ is the length of $target$, and $n$ is the length of each string in $words$.
 
 <!-- tabs:start -->
 

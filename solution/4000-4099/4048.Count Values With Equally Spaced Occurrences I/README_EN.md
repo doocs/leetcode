@@ -104,7 +104,7 @@ We use a hash table to record all indices where each integer appears. Traverse $
 
 Then iterate over each index list $\textit{pos}$ in the hash table. If $\textit{pos}$ has length $3$ and $\textit{pos}[0] + \textit{pos}[2] = 2 \times \textit{pos}[1]$ (the three occurrences are equally spaced), the integer is special and we increment the answer by $1$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

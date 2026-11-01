@@ -81,7 +81,7 @@ tags:
 
 接下来，我们枚举子字符串的右端点 $j$，判断此时 $word[k..j]$ 是否合法，如果不合法，那么我们更新 $i = k + 1$。接下来更新答案 $ans = \max(ans, j - i + 1)$。
 
-时间复杂度 $O(n \times \max(|forbidden[i]|^2) + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别表示字符串 $word$ 和 $forbidden$ 的长度。
+时间复杂度 $O(n \max(|forbidden[i]|^2) + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别表示字符串 $word$ 和 $forbidden$ 的长度。
 
 <!-- tabs:start -->
 

@@ -69,7 +69,7 @@ For the current position $(i, j)$, it can be transferred from three positions: $
 
 Finally, if $f[0][0] \lt 0$, it means there is no path to reach the endpoint, return $[0, 0]$. Otherwise, return $[f[0][0], g[0][0]]$. Note that the result needs to be taken modulo $10^9 + 7$.
 
-Time complexity $O(n^2)$, space complexity $O(n^2)$. Where $n$ is the side length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the array.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ Then, we perform BFS on $q_1$ and $q_2$ respectively. In each BFS, we dequeue a 
 
 Finally, we traverse the entire matrix to find cells that are marked as visited in both $vis_1$ and $vis_2$. These cells are our answer.
 
-The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

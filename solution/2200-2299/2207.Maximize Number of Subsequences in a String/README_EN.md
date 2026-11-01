@@ -87,7 +87,7 @@ Then, traverse the string $\textit{text}$. For the current character $c$:
 
 After the traversal, since we can insert one character, if we add $\textit{pattern}[0]$ at the beginning of the string, we can get $y$ $\textit{pattern}$ subsequences. If we add $\textit{pattern}[1]$ at the end of the string, we can get $x$ $\textit{pattern}$ subsequences. Therefore, we add the larger value of $x$ and $y$ to the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{text}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{text}$.
 
 <!-- tabs:start -->
 

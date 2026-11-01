@@ -114,7 +114,7 @@ tags:
 
 最后，我们只需要判断 $[d, e, f]$ 是否等于 $\textit{target}$ 即可。如果等于，返回 $\textit{true}$，否则返回 $\textit{false}$。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{triplets}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{triplets}$ 的长度。
 
 <!-- tabs:start -->
 

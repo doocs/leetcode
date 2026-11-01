@@ -100,7 +100,7 @@ Next, we traverse the list starting from the dummy node $\textit{dummy}$. If the
 
 Finally, we return the next node of the dummy node $\textit{dummy}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $m$ is the length of the list $\textit{head}$.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $m$ is the length of the list $\textit{head}$.
 
 <!-- tabs:start -->
 

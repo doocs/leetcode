@@ -96,7 +96,7 @@ The problem asks us to transform the string $s$ into the lexicographically small
 
 Next, we only need to compare whether the two middle characters $s[m]$ and $s[m-1]$ are equal. If they are equal, we find the first character $s[i]$ in the second half that is not equal to $s[m]$, use a pointer $j$ to point to $m$, and then swap $s[i]$ and $s[j]$. If we can't find such a character $s[i]$, it means that the string $s$ cannot be transformed into a non-palindrome string, return `"1"`. Otherwise, perform the swap operation, move $i$ and $j$ to the right, compare whether $s[j]$ and $s[n-j-1]$ are equal, if they are equal, continue to perform the swap operation until $i$ exceeds the length of the string.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

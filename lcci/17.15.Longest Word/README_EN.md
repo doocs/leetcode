@@ -68,7 +68,7 @@ The execution logic of the function $\textit{dfs}$ is as follows:
 
 If no word meets the condition, return an empty string.
 
-The time complexity is $O(m \times n \times \log n + n \times 2^M)$, and the space complexity is $O(m \times n)$. Here, $n$ and $m$ are the length of the word list and the average length of the words, respectively, and $M$ is the length of the longest word.
+The time complexity is $O(mn \log n + n 2^M)$, and the space complexity is $O(mn)$, where $n$ and $m$ are the length of the word list and the average length of the words, respectively, and $M$ is the length of the longest word.
 
 <!-- tabs:start -->
 

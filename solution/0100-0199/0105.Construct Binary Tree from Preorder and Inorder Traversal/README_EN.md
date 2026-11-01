@@ -80,7 +80,7 @@ The execution process of the function $dfs(i, j, n)$ is as follows:
 - Recursively construct the left subtree $l = dfs(i + 1, j, k - j)$ and the right subtree $r = dfs(i + 1 + k - j, k + 1, n - k + j - 1)$.
 - Finally, return the binary tree with $v$ as the root node and $l$ and $r$ as the left and right subtrees, respectively.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

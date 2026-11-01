@@ -129,7 +129,7 @@ $$
 
 Finally, we return $f[n - 1][k][0]$, which is the maximum profit after at most $k$ transactions and not holding any stock at the end of $n$ days.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the length of the array $\textit{prices}$ and $k$ is the maximum number of transactions.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $\textit{prices}$ and $k$ is the maximum number of transactions.
 
 <!-- tabs:start -->
 

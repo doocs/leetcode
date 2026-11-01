@@ -85,7 +85,7 @@ We can sort the events by their start times, and then preprocess the maximum val
 
 Then we enumerate each event. For each event, we use binary search to find the first event whose start time is greater than the end time of the current event, denoted as $\textit{idx}$. The maximum value starting from the current event is $f[\textit{idx}]$ plus the value of the current event, which is the maximum value that can be obtained by choosing the current event as the first event. We take the maximum value among all these values.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of events.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of events.
 
 <!-- tabs:start -->
 

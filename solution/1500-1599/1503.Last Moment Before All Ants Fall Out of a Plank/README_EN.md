@@ -92,7 +92,7 @@ The key point of the problem is that when two ants meet and then turn around, it
 
 Note that the lengths of the $\textit{left}$ and $\textit{right}$ arrays may be $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the plank. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the plank.
 
 <!-- tabs:start -->
 

@@ -88,7 +88,7 @@ The recurrence formula is as follows:
 
 Note that initially setting $f[1]$ to a negative maximum value ensures that updating the answer is valid.
 
-The time complexity is $O(n \times |\Sigma|^2)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. The space complexity is $O(1)$.
+The time complexity is $O(n|\Sigma|^2)$, and the space complexity is $O(1)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set.
 
 <!-- tabs:start -->
 

@@ -82,7 +82,7 @@ Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and perform ano
 
 Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return `true`.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -235,7 +235,7 @@ Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and search once
 
 Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return `true`.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

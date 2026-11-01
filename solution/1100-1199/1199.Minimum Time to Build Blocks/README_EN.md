@@ -92,7 +92,7 @@ We might as well use reverse thinking, not splitting workers, but merging blocks
 
 In order to let the blocks with long time consumption participate in the merge as little as possible, we can greedily select the two blocks with the smallest time consumption for merging each time. Therefore, we can maintain a min heap, take out the two smallest blocks for merging each time, until there is only one block left. The build time of the last remaining block is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of blocks.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of blocks.
 
 <!-- tabs:start -->
 

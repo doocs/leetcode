@@ -66,7 +66,7 @@ tags:
 
 Traverse the string `sentence`, use an array or hash table to record the letters that have appeared, and finally check whether there are $26$ letters in the array or hash table.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string `sentence`, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string `sentence`, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 
@@ -192,7 +192,7 @@ We can also use an integer $mask$ to record the letters that have appeared, wher
 
 Finally, check whether there are $26$ $1$s in the binary representation of $mask$, that is, check whether $mask$ is equal to $2^{26} - 1$. If so, return `true`, otherwise return `false`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string `sentence`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `sentence`.
 
 <!-- tabs:start -->
 

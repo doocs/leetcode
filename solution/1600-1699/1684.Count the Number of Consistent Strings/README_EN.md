@@ -79,7 +79,7 @@ tags:
 
 A straightforward approach is to use a hash table or array $s$ to record the characters in `allowed`. Then iterate over the `words` array, for each string $w$, determine whether it is composed of characters in `allowed`. If so, increment the answer.
 
-The time complexity is $O(m)$, and the space complexity is $O(C)$. Here, $m$ is the total length of all strings, and $C$ is the size of the character set `allowed`. In this problem, $C \leq 26$.
+The time complexity is $O(m)$, and the space complexity is $O(C)$, where $m$ is the total length of all strings, and $C$ is the size of the character set `allowed`. In this problem, $C \leq 26$.
 
 <!-- tabs:start -->
 
@@ -254,7 +254,7 @@ We simply define a function $f(w)$ that can convert a string $w$ into an integer
 
 Back to the problem, to determine whether a string $w$ is composed of characters in `allowed`, we can check whether the result of the bitwise OR operation between $f(allowed)$ and $f(w)$ is equal to $f(allowed)$. If so, increment the answer.
 
-The time complexity is $O(m)$, where $m$ is the total length of all strings. The space complexity is $O(1)$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the total length of all strings.
 
 <!-- tabs:start -->
 

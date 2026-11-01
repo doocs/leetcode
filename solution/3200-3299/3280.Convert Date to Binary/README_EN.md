@@ -78,7 +78,7 @@ tags:
 
 We first split the string $\textit{date}$ by `-`, then convert each part to its binary representation, and finally join these three parts with `-`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{date}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{date}$.
 
 <!-- tabs:start -->
 

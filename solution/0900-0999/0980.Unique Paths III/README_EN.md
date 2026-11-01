@@ -100,7 +100,7 @@ If the current cell is not the end point, we enumerate the four adjacent cells o
 
 Finally, we return the path number from the starting point, that is, $dfs(x, y, 1)$.
 
-The time complexity is $O(3^{m \times n})$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(3^{mn})$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

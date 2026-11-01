@@ -91,7 +91,7 @@ We use two pointers to maintain a range $s[j..i]$ such that there is at most one
 
 We use $cnt$ to record the number of pairs of adjacent characters that are equal in the range. If $cnt > 1$, then we need to move the left pointer $j$ until $cnt \le 1$. Each time, we update the answer as $ans = \max(ans, i - j + 1)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -205,7 +205,7 @@ Since the problem only requires us to find the length of the longest semi-repeti
 
 Finally, the answer is $n - l$, where $n$ is the length of the string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

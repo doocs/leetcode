@@ -104,7 +104,7 @@ Then, for each query $[u, v]$, we add $v$ to the list of reachable cities from $
 
 Finally, we return the answer array.
 
-The time complexity is $O(q \times (n + q))$, and the space complexity is $O(n + q)$. Here, $n$ and $q$ are the number of cities and the number of queries, respectively.
+The time complexity is $O(q(n + q))$, and the space complexity is $O(n + q)$, where $n$ and $q$ are the number of cities and the number of queries, respectively.
 
 <!-- tabs:start -->
 

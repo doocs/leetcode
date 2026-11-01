@@ -101,7 +101,7 @@ tags:
 
 最后返回答案即可。
 
-时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。
+时间复杂度 $O(mn \log(mn))$，空间复杂度 $O(mn)$。
 
 <!-- tabs:start -->
 

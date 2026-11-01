@@ -88,7 +88,7 @@ We can split the string $s$ into several words by spaces. Then, for each word, c
 
 If the traversal ends, it means that the numbers in the string are strictly increasing, so return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

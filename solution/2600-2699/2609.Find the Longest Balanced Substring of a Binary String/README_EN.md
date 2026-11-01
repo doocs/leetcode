@@ -78,7 +78,7 @@ tags:
 
 Since the range of $n$ is small, we can enumerate all substrings $s[i..j]$ to check if it is a balanced string. If so, update the answer.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -288,7 +288,7 @@ Traverse the string $s$, for the current character $c$:
 
 After the traversal is complete, we can get the length of the longest balanced substring.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

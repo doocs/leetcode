@@ -136,7 +136,7 @@ using a sentinel while no meeting has been processed. When handling meeting $i$,
 
 Then set $\textit{preMax}[i+1]=\max(\textit{preMax}[i], f[i]-\textit{end}_i)$. Two meetings with the same end time overlap, so the binary search does not chain them.
 
-The time complexity is $O(n\log n)$ and the space complexity is $O(n)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

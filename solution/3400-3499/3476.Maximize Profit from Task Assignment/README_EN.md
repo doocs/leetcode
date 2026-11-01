@@ -108,7 +108,7 @@ Then, we iterate through the workers. For each worker, we find the corresponding
 
 Finally, we add the maximum profit from the remaining tasks to the result.
 
-The time complexity is $O((n + m) \times \log m)$, and the space complexity is $O(m)$. Where $n$ and $m$ are the number of workers and tasks, respectively.
+The time complexity is $O((n + m) \log m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the number of workers and tasks, respectively.
 
 <!-- tabs:start -->
 

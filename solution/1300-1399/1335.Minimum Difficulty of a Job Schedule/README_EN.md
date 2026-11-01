@@ -90,7 +90,7 @@ $$
 
 The final answer is $f[n][d]$.
 
-The time complexity is $O(n^2 \times d)$, and the space complexity is $O(n \times d)$. Here $n$ and $d$ are the number of jobs and the number of days respectively.
+The time complexity is $O(n^2d)$, and the space complexity is $O(nd)$, where $n$ and $d$ are the number of jobs and the number of days respectively.
 
 <!-- tabs:start -->
 

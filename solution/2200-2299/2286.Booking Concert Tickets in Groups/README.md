@@ -125,9 +125,9 @@ bms.scatter(5, 1); // 返回 False
 
 - 初始化的时间复杂度为 $O(n)$。
 - `gather(k, maxRow)` 的时间复杂度为 $O(\log n)$。
-- `scatter(k, maxRow)` 的时间复杂度为 $O((n + q) \times \log n)$。
+- `scatter(k, maxRow)` 的时间复杂度为 $O((n + q) \log n)$。
 
-整体时间复杂度为 $O(n + q \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别为行数和操作数。
+时间复杂度 $O(n + q \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别为行数和操作数。
 
 <!-- tabs:start -->
 

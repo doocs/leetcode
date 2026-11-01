@@ -75,7 +75,7 @@ We can enumerate any two strings $s$ and $t$ in the list of strings. Since $s$ a
 
 The final number of similar string groups is the number of connected components in the union-find structure.
 
-Time complexity is $O(n^2 \times (m + \alpha(n)))$, and space complexity is $O(n)$. Here, $n$ and $m$ are the length of the list of strings and the length of the strings, respectively, and $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
+The time complexity is $O(n^2(m + \alpha(n)))$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the list of strings and the length of the strings, respectively, and $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
 
 <!-- tabs:start -->
 

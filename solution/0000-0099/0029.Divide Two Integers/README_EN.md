@@ -75,7 +75,7 @@ Division is essentially subtraction. The problem requires us to calculate the in
 
 It should be noted that since the problem explicitly requires that only 32-bit signed integers can be used at most, the divisor and dividend need to be converted to negative numbers for calculation. Because converting to positive numbers may cause overflow, such as when the dividend is `INT32_MIN`, it will be greater than `INT32_MAX` when converted to a positive number.
 
-Assuming the dividend is $a$ and the divisor is $b$, the time complexity is $O(\log a \times \log b)$, and the space complexity is $O(1)$.
+Assuming the dividend is $a$ and the divisor is $b$, the time complexity is $O(\log a \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

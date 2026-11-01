@@ -77,7 +77,7 @@ First, we define a helper function $\textit{reverse}$ to reverse a linked list. 
 
 Next, we traverse the linked list, processing $k$ nodes at a time. If the remaining nodes are fewer than $k$, we do not perform the reversal. Otherwise, we extract $k$ nodes and call the $\textit{reverse}$ function to reverse these $k$ nodes. Then, we connect the reversed linked list back to the original linked list. We continue to process the next $k$ nodes until the entire linked list is traversed.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

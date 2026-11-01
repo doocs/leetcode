@@ -86,7 +86,7 @@ We consider moving all the '1's to the rightmost side. We use a variable $cnt$ t
 
 We traverse the string from right to left. If the current position is '1', then we increment $cnt$ by one, and add $n - i - cnt$ to $ans$, where $n$ is the length of the string. Finally, we return $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

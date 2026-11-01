@@ -58,7 +58,7 @@ difficulty: Medium
 >
 > Hashing that sorted string clusters the original words automatically.
 >
-> For each $s$, append it to $d[''.join(sorted(s))]$ and emit the value lists. One $O(k\log k)$ sort per word buys a hash insert.
+> For each $s$, append it to $d[''.join(sorted(s))]$ and emit the value lists. One $O(k \log k)$ sort per word buys a hash insert.
 
 <!-- thinking:end -->
 
@@ -76,7 +76,7 @@ Take `strs = ["eat", "tea", "tan", "ate", "nat", "bat"]` as an example. At the e
 
 Finally, return the `value` list of the hash table.
 
-The time complexity is $O(n\times k\times \log k)$, where $n$ and $k$ are the length of the string array and the maximum length of the string, respectively.
+The time complexity is $O(nk \log k)$, where $n$ and $k$ are the length of the string array and the maximum length of the string, respectively.
 
 <!-- tabs:start -->
 
@@ -210,7 +210,7 @@ class Solution {
 
 > **Thinking**
 >
-> With a tiny alphabet the sort key can become a frequency tuple, dropping the $O(k\log k)$ factor.
+> With a tiny alphabet the sort key can become a frequency tuple, dropping the $O(k \log k)$ factor.
 >
 > A length-$26$ count (or a tuple built from it) is the key; grouping is unchanged and each word is $O(k+C)$.
 
@@ -218,7 +218,7 @@ class Solution {
 
 We can also change the sorting part in Solution 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and the string $s$ as `value` to store in the hash table.
 
-The time complexity is $O(n\times (k + C))$. Where $n$ and $k$ are the length of the string array and the maximum length of the string, respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n(k + C))$, where $n$ and $k$ are the length of the string array and the maximum length of the string, respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

@@ -75,7 +75,7 @@ According to the problem description, we can create an index array $idx$ of leng
 
 We can also create an array $arr$ of length $n$, where each element is a tuple $(heights[i], i)$. Then we sort $arr$ in descending order by height. Finally, we traverse each element $(heights[i], i)$ in the sorted $arr$ and add $names[i]$ to the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the arrays $names$ and $heights$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays $names$ and $heights$.
 
 <!-- tabs:start -->
 

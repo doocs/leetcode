@@ -114,7 +114,7 @@ We observe that at each step, we want to select the largest number among those t
 
 We first sort an index array $\textit{idx}$ of length $n$ in ascending order by their corresponding thresholds. Then, we use a sorted set or priority queue (max heap) to maintain the numbers that currently satisfy the condition. At each step, we add all numbers whose thresholds are less than or equal to the current step number into the sorted set or priority queue, and then select the largest number among them to add to the total sum. If the sorted set or priority queue is empty at this point, it means there are no numbers that satisfy the condition, and we end the process.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

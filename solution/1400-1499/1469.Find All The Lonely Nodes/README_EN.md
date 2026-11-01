@@ -83,7 +83,7 @@ We can use Depth-First Search (DFS) to traverse the entire tree. We design a fun
 3. If the right child of the current node is null, then the left child of the current node is a lone child, and we add its value to the answer array.
 4. Recursively traverse the left and right children of the current node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

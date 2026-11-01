@@ -77,7 +77,7 @@ tags:
 
 If $n$ is negative, we need to find the first position greater than $x$ and insert $x$ at that position. If $n$ is positive, we need to find the first position less than $x$ and insert $x$ at that position.
 
-The time complexity is $O(m)$, where $m$ is the length of $n$. The space complexity is $O(1)$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the length of $n$.
 
 <!-- tabs:start -->
 

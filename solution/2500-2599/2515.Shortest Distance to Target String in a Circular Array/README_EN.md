@@ -90,7 +90,7 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 
 We traverse the array $\textit{words}$$,$ find the words equal to $\textit{target}$, and compute their distance $t$ from $\textit{startIndex}$. The shortest distance in this case is $\min(t, n - t)$, so we only need to keep updating the minimum value.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

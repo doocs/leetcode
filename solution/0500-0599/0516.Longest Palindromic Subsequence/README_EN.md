@@ -71,7 +71,7 @@ Since the value of $f[i][j]$ is related to $f[i + 1][j - 1]$, $f[i + 1][j]$, and
 
 The answer is $f[0][n - 1]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ tags:
 
 最后返回 $pre$ 中的第 $k$ 个数（下标 $k-1$）即可。
 
-时间复杂度 $O(m \times n \times k \times \log (n \times k))$，空间复杂度 $O(n \times k)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(mnk \log (nk))$，空间复杂度 $O(nk)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 

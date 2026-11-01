@@ -92,7 +92,7 @@ tags:
 
 我们可以遍历数组 $\textit{nums}$，统计其中偶数的个数 $\textit{even}$。然后我们将数组的前 $\textit{even}$ 个元素置为 $0$，剩余的元素置为 $1$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

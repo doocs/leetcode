@@ -213,7 +213,7 @@ that is, $s[L]$ lies in the closed interval $[s[R] - \textit{goal} - k + 1,\, s[
 
 Enumerate the prefix sums $v = s[R]$ from left to right. Among the prefix sums already inserted, query how many fall in $[a, b]$ and subtract that from the answer, then insert $v$. For discretization we sort $s$ and locate Binary Indexed Tree indices by binary search.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

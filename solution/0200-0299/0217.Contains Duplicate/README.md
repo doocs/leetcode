@@ -85,7 +85,7 @@ tags:
 
 否则，遍历结束，返回 `false`。
 
-时间复杂度 $O(n \times \log n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -243,7 +243,7 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 > **思考**
 >
-> 排序改变相对次序且为 $O(n\log n)$。只需判定是否出现过，哈希表一次扫描即可。
+> 排序改变相对次序且为 $O(n \log n)$。只需判定是否出现过，哈希表一次扫描即可。
 >
 > 元素第二次进入集合则存在重复。
 

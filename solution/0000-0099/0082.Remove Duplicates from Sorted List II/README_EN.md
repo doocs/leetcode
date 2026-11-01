@@ -72,7 +72,7 @@ When the node value pointed by $cur$ is the same as the node value pointed by $c
 
 Finally, return $dummy.next$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

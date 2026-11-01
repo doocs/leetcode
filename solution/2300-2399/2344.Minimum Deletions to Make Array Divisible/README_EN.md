@@ -79,7 +79,7 @@ There is no way to delete elements from nums to allow this.</pre>
 
 If an element can divide every value in `numsDivide`, it is a divisor of their GCD $x$. Compute $x$, sort `nums`, and return the index of the first divisor of $x$.
 
-The time complexity is $O(m + \log M + n \times \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
+The time complexity is $O(m + \log M + n \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
 
 <!-- tabs:start -->
 

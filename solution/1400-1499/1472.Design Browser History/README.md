@@ -93,7 +93,7 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 
 调用 $\text{forward}(steps)$ 时，我们将 $\textit{stk2}$ 的栈顶元素弹出并加入 $\textit{stk1}$，重复这一操作 $steps$ 次，直到 $\textit{stk2}$ 为空或者 $steps$ 为 $0$。最后返回 $\textit{stk1}$ 的栈顶元素。时间复杂度 $O(\textit{steps})$。
 
-空间复杂度 $O(n)$，其中 $n$ 是浏览历史记录的长度。
+空间复杂度 $O(n)$。其中 $n$ 是浏览历史记录的长度。
 
 <!-- tabs:start -->
 

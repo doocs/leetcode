@@ -115,7 +115,7 @@ tags:
 >
 > 马要轮流吃光至多 $15$ 个兵，Alice 最大化总步、Bob 最小化。棋盘 $50\times 50$，对每个兵做一次 BFS 得到马步距离；吃兵顺序是 $15!$ 量级，需状态压缩博弈。
 >
-> $\textit{dfs}(last,state,k)$： $last$ 为上一个被吃的兵（初值为马的位置）， $state$ 为剩余兵集合， $k$ 为是否 Alice。Alice 取最大、Bob 取最小，边权用预处理的 $dist[last][x][y]$。记忆化后状态 $O(n\cdot 2^n)$。
+> $\textit{dfs}(last,state,k)$： $last$ 为上一个被吃的兵（初值为马的位置）， $state$ 为剩余兵集合， $k$ 为是否 Alice。Alice 取最大、Bob 取最小，边权用预处理的 $dist[last][x][y]$。记忆化后状态 $O(n 2^n)$。
 
 <!-- thinking:end -->
 
@@ -131,7 +131,7 @@ tags:
 
 为了避免重复计算，我们使用记忆化搜索，即使用哈希表记录已经计算过的状态。
 
-时间复杂度 $O(n \times m^2 + 2^n \times n^2)$，空间复杂度 $O(n \times m^2 + 2^n \times n)$。其中 $n$ 和 $m$ 分别为兵的数量和棋盘的大小。
+时间复杂度 $O(nm^2 + 2^n n^2)$，空间复杂度 $O(nm^2 + 2^n n)$。其中 $n$ 和 $m$ 分别为兵的数量和棋盘的大小。
 
 <!-- tabs:start -->
 

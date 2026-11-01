@@ -77,7 +77,7 @@ tags:
 
 We can enumerate each position $i$ of a binary string of length $n$, and for each position $i$, we can enumerate the possible value $j$ it can take. If $j$ is $0$, then we need to check if its previous position is $1$. If it is $1$, we can continue to recurse further; otherwise, it is invalid. If $j$ is $1$, then we directly recurse further.
 
-The time complexity is $O(n \times 2^n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer array, the space complexity is $O(n)$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

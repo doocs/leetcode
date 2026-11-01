@@ -98,7 +98,7 @@ We observe the state transition equation and find that for each $i$, we need to 
 
 We calculate from back to front, maintain a monotonically increasing queue $q$, and the queue stores the index. If the head element of $q$ is greater than $i \times 2 + 1$, it means that the elements after $i$ will not be used, so we dequeue the head element. If $i$ is not greater than $(n - 1) / 2$, then we can add $prices[q[0] - 1]$ to $prices[i - 1]$, and then add $i$ to the tail of the queue. If the price of the fruit corresponding to the tail element of $q$ is greater than or equal to $prices[i - 1]$, then we dequeue the tail element until the price of the fruit corresponding to the tail element is less than $prices[i - 1]$ or the queue is empty, and then add $i$ to the tail of the queue.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $prices$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 
 We enumerate all $l$ in the range $[0,..n-1]$. If $nums[l]$ satisfies $nums[l] \bmod 2 = 0$ and $nums[l] \leq threshold$, then we start from $l+1$ to find the largest $r$ that meets the condition. At this time, the length of the longest odd-even subarray with $nums[l]$ as the left endpoint is $r - l$. We take the maximum of all $r - l$ as the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -204,7 +204,7 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 
 We notice that the problem actually divides the array into several disjoint subarrays that meet the condition. We only need to find the longest one among these subarrays. Therefore, when enumerating $l$ and $r$, we don't need to backtrack, we just need to traverse from left to right once.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

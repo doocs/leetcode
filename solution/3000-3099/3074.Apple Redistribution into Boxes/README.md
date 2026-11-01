@@ -79,7 +79,7 @@ tags:
 
 为了使得需要的箱子数量尽可能少，我们应该优先使用容量大的箱子。因此，我们可以对箱子按照容量从大到小排序，然后依次使用箱子，直到所有的苹果都被分装完，返回此时使用的箱子数量。
 
-时间复杂度 $O(m \times \log m + n)$，空间复杂度 $O(\log m)$。其中 $m$ 和 $n$ 分别是数组 $\textit{capacity}$ 和 $\textit{apple}$ 的长度。
+时间复杂度 $O(m \log m + n)$，空间复杂度 $O(\log m)$。其中 $m$ 和 $n$ 分别是数组 $\textit{capacity}$ 和 $\textit{apple}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -78,7 +78,7 @@ According to the problem description, we need to find the index $i$ of the first
 
 Therefore, we can traverse the array from left to right to find the index $i$ of the first prime number, then traverse the array from right to left to find the index $j$ of the last prime number. The answer is $j - i$.
 
-The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \sqrt{M})$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

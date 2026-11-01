@@ -128,7 +128,7 @@ $$
 
 The final answer is $f[n][k]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
 
 <!-- tabs:start -->
 
@@ -258,7 +258,7 @@ function sumOfPower(nums: number[], k: number): number {
 
 In the state transition equation from Solution 1, the value of $f[i][j]$ only depends on $f[i-1][j]$ and $f[i-1][j-x]$. Therefore, we can optimize the first dimension of the space, reducing the space complexity to $O(k)$.
 
-Time complexity is $O(n \times k)$, and space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
+The time complexity is $O(nk)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
 
 <!-- tabs:start -->
 

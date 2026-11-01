@@ -86,7 +86,7 @@ We note that the range of elements in the set given by the problem is $[1, 1000]
 
 Therefore, we can use an ordered set to simulate this. Let's denote the ordered set as $s$, and the elements in the set as $s_1, s_2, \cdots, s_n$, where $n$ is the number of elements in the ordered set. In this problem, $n \le 1000$.
 
-During initialization, we add all elements in $[1, 1000]$ to the ordered set. The time complexity is $O(n \times \log n)$.
+During initialization, we add all elements in $[1, 1000]$ to the ordered set. The time complexity is $O(n \log n)$.
 
 In the `popSmallest` operation, we just need to pop the first element from the ordered set. The time complexity for a single operation is $O(\log n)$.
 

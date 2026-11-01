@@ -94,7 +94,7 @@ So the answer would be 5.</pre>
 
 We can use binary search to find the right boundary of each block. Specifically, we traverse the array from left to right. For each index $i$, we use binary search to find the smallest index $j$ such that all elements between $[i,j)$ are equal to $nums[i]$. Then we update $i$ to $j$ and continue to traverse the array until $i$ is greater than or equal to the length of the array.
 
-The time complexity is $O(m \times \log n)$, where $m$ is the number of different elements in the array $num$, and $n$ is the length of the array $num$. The space complexity is $O(1)$.
+The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ is the number of different elements in the array $num$, and $n$ is the length of the array $num$.
 
 <!-- tabs:start -->
 
@@ -251,7 +251,7 @@ function countBlocks(nums: BigArray | null): number {
 
 We can use the divide and conquer method to calculate the answer. Specifically, we divide the array into two subarrays, recursively calculate the answer for each subarray, and then merge the answers. If the last element of the first subarray is equal to the first element of the second subarray, then we need to subtract one from the answer.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $num$.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $num$.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ tags:
 
 我们可以使用记忆化搜索的方式，避免重复计算。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为数组 $a$ 和 $b$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为数组 $a$ 和 $b$ 的长度。
 
 <!-- tabs:start -->
 
@@ -247,7 +247,7 @@ function maxScore(a: number[], b: number[]): number {
 
 我们从 $j = n - 1$ 往前计算到 $0$。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为数组 $a$ 和 $b$ 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为数组 $a$ 和 $b$ 的长度。
 
 <!-- tabs:start -->
 

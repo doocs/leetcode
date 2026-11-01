@@ -73,7 +73,7 @@ We can iterate through the matrix, find the top-left corner of each battleship, 
 
 After the iteration ends, return the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

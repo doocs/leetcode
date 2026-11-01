@@ -89,7 +89,7 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 
 We can sort the strings in the $\textit{nums}$ array in descending order as integers, and then take the $k$-th element. Alternatively, we can use the quickselect algorithm to find the $k$-th largest integer.
 
-The time complexity is $O(n \times \log n)$ or $O(n)$, where $n$ is the length of the $\textit{nums}$ array. The space complexity is $O(\log n)$ or $O(1)$.
+The time complexity is $O(n \log n)$ or $O(n)$, and the space complexity is $O(\log n)$ or $O(1)$, where $n$ is the length of the $\textit{nums}$ array.
 
 <!-- tabs:start -->
 

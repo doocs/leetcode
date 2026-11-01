@@ -102,7 +102,7 @@ Similarly, we can maintain a priority queue for each row $i$ and perform a simil
 
 Finally, we can obtain the shortest distance from the coordinate $(0, 0)$ to the coordinate $(m - 1, n - 1)$, that is, $dist[m - 1][n - 1]$, which is the answer.
 
-The time complexity is $O(m \times n \times \log (m \times n))$ and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

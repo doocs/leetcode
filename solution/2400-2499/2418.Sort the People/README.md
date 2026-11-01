@@ -75,7 +75,7 @@ tags:
 
 我们也可以创建一个长度为 $n$ 的数组 $arr$，数组中每个元素是一个二元组 $(heights[i], i)$，然后我们对 $arr$ 按照身高降序排序。最后遍历排序后的 $arr$ 中的每个元素 $(heights[i], i)$，将 $names[i]$ 加入答案数组即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $names$ 和 $heights$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $names$ 和 $heights$ 的长度。
 
 <!-- tabs:start -->
 

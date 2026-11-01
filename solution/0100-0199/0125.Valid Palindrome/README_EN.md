@@ -81,7 +81,7 @@ We use two pointers $i$ and $j$ to point to the two ends of the string $s$, and 
 
 At the end of the loop, return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

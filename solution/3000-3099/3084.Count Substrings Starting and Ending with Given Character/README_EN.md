@@ -76,7 +76,7 @@ Each character $c$ can form a substring on its own, so there are $cnt$ substring
 
 Therefore, the answer is $cnt + \frac{cnt \times (cnt - 1)}{2}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -101,7 +101,7 @@ Next, we traverse the state of each row in the hash table. For each row, we try 
 
 After the traversal, we get the final answer.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$. Where $m$ is the length of $reservedSeats$.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the length of $reservedSeats$.
 
 <!-- tabs:start -->
 

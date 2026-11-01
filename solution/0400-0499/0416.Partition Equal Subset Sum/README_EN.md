@@ -77,7 +77,7 @@ $$
 
 The final answer is $f[n][m]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are half of the total sum of the array and the length of the array, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are half of the total sum of the array and the length of the array, respectively.
 
 <!-- tabs:start -->
 
@@ -271,7 +271,7 @@ var canPartition = function (nums) {
 
 We notice that in Solution 1, $f[i][j]$ is only related to $f[i - 1][\cdot]$. Therefore, we can compress the two-dimensional array into a one-dimensional array.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(m)$. Where $n$ is the length of the array, and $m$ is half of the total sum of the array.
+The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is the length of the array, and $m$ is half of the total sum of the array.
 
 <!-- tabs:start -->
 

@@ -95,7 +95,7 @@ Then, we sort the array $\textit{nums}$ with the sorting key being the tuple $(f
 
 Finally, we return the sorted array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

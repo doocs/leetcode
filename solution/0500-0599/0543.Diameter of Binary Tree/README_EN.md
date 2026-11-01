@@ -68,7 +68,7 @@ tags:
 
 We can enumerate each node of the binary tree, and for each node, calculate the maximum depth of its left and right subtrees, $\textit{l}$ and $\textit{r}$, respectively. The diameter of the node is $\textit{l} + \textit{r}$. The maximum diameter among all nodes is the diameter of the binary tree.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

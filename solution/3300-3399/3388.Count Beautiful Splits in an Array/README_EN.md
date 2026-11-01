@@ -95,7 +95,7 @@ Finally, we enumerate the ending position $i$ of the first subarray (excluding p
 
 After enumerating, the answer is the number of beautiful splits.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

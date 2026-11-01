@@ -67,7 +67,7 @@ Define a 2D array $\textit{ans}$ to store the spiral matrix. Use $i$ and $j$ to 
 
 Starting from $1$, fill each position in the matrix sequentially. After filling a position, calculate the row and column indices of the next position. If the next position is out of bounds or has already been filled, change the direction and then calculate the row and column indices of the next position.
 
-The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
 

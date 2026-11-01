@@ -91,7 +91,7 @@ tags:
 
 我们首先对数组 $\textit{nums}$ 进行排序。然后计算数组中前 $k$ 个元素的和以及后 $k$ 个元素的和，最后返回两者的差值。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

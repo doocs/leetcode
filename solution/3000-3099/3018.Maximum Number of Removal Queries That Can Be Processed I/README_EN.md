@@ -115,7 +115,7 @@ Consider $f[i][j]$:
 
 The final answer is $\max\limits_{0 \le i < n} f[i][i] + (nums[i] \ge queries[f[i][i]])$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

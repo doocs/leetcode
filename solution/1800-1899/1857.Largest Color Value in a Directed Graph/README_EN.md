@@ -93,7 +93,7 @@ The answer is the maximum value in the $dp$ array.
 
 If there is a cycle in the graph, it is impossible to visit all nodes, so return $-1$.
 
-The time complexity is $O((n + m) \times |\Sigma|)$, and the space complexity is $O(m + n \times |\Sigma|)$. Here, $|\Sigma|$ is the size of the alphabet (26 in this case), and $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O((n + m)|\Sigma|)$, and the space complexity is $O(m + n|\Sigma|)$, where $|\Sigma|$ is the size of the alphabet (26 in this case), and $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

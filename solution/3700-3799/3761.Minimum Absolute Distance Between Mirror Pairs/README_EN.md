@@ -110,7 +110,7 @@ Next, we iterate through the array $\textit{nums}$. For each index $i$ and its c
 
 Finally, if the answer $\textit{ans}$ is still equal to $n + 1$, it means no mirror pair exists, and we return $-1$; otherwise, we return the answer $\textit{ans}$.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array. The space complexity is $O(n)$, which is used to store the hash table $\textit{pos}$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

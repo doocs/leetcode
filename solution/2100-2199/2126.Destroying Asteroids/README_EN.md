@@ -83,7 +83,7 @@ According to the problem description, we can sort the asteroids by mass in ascen
 
 If all asteroids can be destroyed, return `true`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the number of asteroids.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of asteroids.
 
 <!-- tabs:start -->
 

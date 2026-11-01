@@ -91,7 +91,7 @@ We notice that the length of the array $nums$ does not exceed $200$, so we can e
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -221,7 +221,7 @@ We can use a hash table or array to record the occurrence count of each number i
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

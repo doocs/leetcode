@@ -90,7 +90,7 @@ We use a variable $r$ to record the current longest prefix of uploaded videos, a
 
 Each time a video is uploaded, we set `s[video]` to `true`, then loop to check whether `s[r + 1]` is `true`. If it is, we update $r$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of videos.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the total number of videos.
 
 <!-- tabs:start -->
 

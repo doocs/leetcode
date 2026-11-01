@@ -104,7 +104,7 @@ $$
 
 接下来，遍历每个查询 $queries[i] = (x, y)$，对于当前查询，我们循环将 $nums$ 中所有大于等于 $x$ 的元素的 $nums_2$ 的值插入到树状数组中，树状数组维护的是离散化后的 $nums_2$ 的区间中 $nums_1 + nums_2$ 的最大值。那么我们只需要在树状数组中查询大于等于离散化后的 $y$ 区间对应的最大值即可。注意，由于树状数组维护的是前缀最大值，所以我们在实现上，可以将 $nums_2$ 反序插入到树状数组中。
 
-时间复杂度 $O((n + m) \times \log n + m \times \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $nums$ 的长度，而 $m$ 是数组 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $nums$ 的长度，而 $m$ 是数组 $queries$ 的长度。
 
 相似题目：
 
@@ -436,12 +436,7 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 对于每个查询 $query_j$，靠二分查找在栈中找到第一个 $\textit{nums2}[i] \geq y_j$ 的数对，其对应的 $\textit{nums1}[i] + \textit{nums2}[i]$ 即为答案。
 
-#### 复杂度解析
-
-$n$ 是数组 $nums1$ 的长度， $m$ 是数组 $queries$ 的长度。
-
-- 时间复杂度： $O((n + m) \times \log n + m \times \log m)$。
-- 空间复杂度： $O(n + m)$。
+时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $nums1$ 的长度，而 $m$ 是数组 $queries$ 的长度。
 
 <!-- tabs:start -->
 

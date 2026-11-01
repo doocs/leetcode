@@ -89,7 +89,7 @@ Next, we start the BFS search. Each time we take out a node $(i, c)$ from the qu
 
 After the search is over, return the answer array.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

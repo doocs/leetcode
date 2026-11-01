@@ -76,7 +76,7 @@ In each iteration, we calculate the middle position $\textit{mid}=(l+r)/2$, then
 
 The loop ends when $l<r$, at this point $\textit{nums}[l]$ is the target value we are looking for. If $\textit{nums}[l]=\textit{target}$, return $l$; otherwise, return $-1$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

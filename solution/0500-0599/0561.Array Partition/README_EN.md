@@ -71,7 +71,7 @@ For a pair of numbers $(a, b)$, we can assume $a \leq b$, then $\min(a, b) = a$.
 
 Therefore, we can sort the array $nums$, then divide every two adjacent numbers into a group, and add the first number of each group.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

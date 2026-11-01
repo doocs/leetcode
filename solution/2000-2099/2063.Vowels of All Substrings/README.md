@@ -96,7 +96,7 @@ tags:
 
 我们可以枚举字符串的每个字符 $\textit{word}[i]$，如果 $\textit{word}[i]$ 是元音字母，那么 $\textit{word}[i]$ 一共在 $(i + 1) \times (n - i)$ 个子字符串中出现，将这些子字符串的个数累加即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{word}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{word}$ 的长度。
 
 <!-- tabs:start -->
 

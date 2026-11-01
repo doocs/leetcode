@@ -99,7 +99,7 @@ tags:
 
 这样我们就可以通过二分查找找到第 $k$ 小的乘积。
 
-时间复杂度 $O(m \times \log n \times \log M)$，其中 $m$ 和 $n$ 分别为 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 为 $\textit{nums1}$ 和 $\textit{nums2}$ 中的最大值的绝对值。
+时间复杂度 $O(m \log n \log M)$。其中 $m$ 和 $n$ 分别为 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 为 $\textit{nums1}$ 和 $\textit{nums2}$ 中的最大值的绝对值。
 
 <!-- tabs:start -->
 

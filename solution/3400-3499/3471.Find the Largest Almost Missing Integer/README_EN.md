@@ -114,7 +114,7 @@ If $1 < k < n$, only $\textit{nums}[0]$ and $\textit{nums}[n-1]$ can be the almo
 
 If no almost missing integer exists, return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ First, we preprocess the suffix OR value array $suf$ of the array $nums$, where 
 
 Next, we traverse the array $nums$ from left to right, and maintain the current prefix OR value $pre$. For the current position $i$, we perform $k$ times of bitwise left shift on $nums[i]$, i.e., $nums[i] \times 2^k$, and perform bitwise OR operation with $pre$ to obtain the intermediate result. Then, we perform bitwise OR operation with $suf[i + 1]$ to obtain the maximum OR value with $nums[i]$ as the last number. By enumerating all possible positions $i$, we can obtain the final answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

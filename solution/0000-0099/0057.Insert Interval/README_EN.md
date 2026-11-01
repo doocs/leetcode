@@ -73,7 +73,7 @@ tags:
 
 We can first add the new interval `newInterval` to the interval list `intervals`, and then merge according to the regular method of interval merging.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 
@@ -282,7 +282,7 @@ We can traverse the interval list `intervals`, let the current interval be `inte
 
 After the traversal, if the new interval has not been added, then add the new interval to the answer.
 
-The time complexity is $O(n)$, where $n$ is the number of intervals. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

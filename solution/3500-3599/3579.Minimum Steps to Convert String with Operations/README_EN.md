@@ -159,7 +159,7 @@ We can use a helper function $\text{calc}(l, r, \text{rev})$ to compute the mini
 
 Next, we need to implement the $\text{calc}(l, r, \text{rev})$ function. We use a 2D array $cnt$ to record the pairing status of characters between $\textit{word1}$ and $\textit{word2}$. For each character pair $(a, b)$, if $a \neq b$, we check whether $cnt[b][a] > 0$. If so, we can pair them and reduce one operation; otherwise, we need to add one operation and increment $cnt[a][b]$ by $1$.
 
-The time complexity is $O(n^3 + |\Sigma|^2)$ and the space complexity is $O(n + |\Sigma|^2)$, where $n$ is the length of the string and $|\Sigma|$ is the size of the character set (which is $26$ in this problem).
+The time complexity is $O(n^3 + |\Sigma|^2)$, and the space complexity is $O(n + |\Sigma|^2)$, where $n$ is the length of the string and $|\Sigma|$ is the size of the character set (which is $26$ in this problem).
 
 <!-- tabs:start -->
 

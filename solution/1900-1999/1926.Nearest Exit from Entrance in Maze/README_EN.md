@@ -99,7 +99,7 @@ Specifically, we define a queue $q$, initially adding $\textit{entrance}$ to the
 
 If we finish the traversal without finding an empty cell on the boundary, we return $-1$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the maze, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the maze, respectively.
 
 <!-- tabs:start -->
 

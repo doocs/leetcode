@@ -96,7 +96,7 @@ For each number $nums[j]$, we find the first element $nums[k]$ in the ordered li
 
 Then, we add the unbalanced number of the current subarray to the answer, and continue the iteration until we finish iterating over all subarrays.
 
-The time complexity is $O(n^2 \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

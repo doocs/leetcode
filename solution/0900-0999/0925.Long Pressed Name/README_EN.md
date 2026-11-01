@@ -65,7 +65,7 @@ tags:
 
 We use two pointers $i$ and $j$ to point to the first character of the strings `typed` and `name` respectively, and then start traversing. If `typed[j]` is not equal to `name[i]`, it means the two strings do not match, and we directly return `False`. Otherwise, we find the next position of the continuous identical characters, denoted as $x$ and $y$ respectively. If $x - i > y - j$, it means the number of characters in `typed` is less than the number of characters in `name`, and we directly return `False`. Otherwise, we update $i$ and $j$ to $x$ and $y$ respectively, continue traversing, until $i$ and $j$ have traversed `name` and `typed` respectively, and return `True`.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings `name` and `typed` respectively. The space complexity is $O(1)`.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the strings `name` and `typed` respectively.
 
 <!-- tabs:start -->
 

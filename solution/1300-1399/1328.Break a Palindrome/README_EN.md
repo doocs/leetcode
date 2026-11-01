@@ -70,7 +70,7 @@ First, we check if the length of the string is $1$. If it is, we directly return
 
 Otherwise, we traverse the first half of the string from left to right, find the first character that is not `'a'`, and change it to `'a'`. If no such character exists, we change the last character to `'b'`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

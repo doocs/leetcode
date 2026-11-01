@@ -86,7 +86,7 @@ Each time, we extract the top of the heap and insert two new situations: one is 
 
 Since the array is sorted in ascending order, this method can traverse all subarray sums in order without omission.
 
-The time complexity is $O(n \times \log n + k \times \log k)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(n)$.
+The time complexity is $O(n \log n + k \log k)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -70,7 +70,7 @@ tags:
 >
 > The black pixels form an axis-aligned rectangle; we need its area. Flood-fill from the given black cell or a full scan works, but a linear pass over every cell is heavy when $m$ and $n$ are large.
 >
-> Whether a row (column) contains a black pixel is monotone in the row (column) index, and the known cell $(x,y)$ lies inside the rectangle. Binary-search the four borders: test whether the mid row/column contains a `'1'`. The bounds close in $O((m+n)\log(mn))$ time, and the area is height times width.
+> Whether a row (column) contains a black pixel is monotone in the row (column) index, and the known cell $(x,y)$ lies inside the rectangle. Binary-search the four borders: test whether the mid row/column contains a `'1'`. The bounds close in $O((m+n) \log(mn))$ time, and the area is height times width.
 
 <!-- thinking:end -->
 

@@ -76,7 +76,7 @@ tags:
 
 > **Thinking**
 >
-> Every stamp must sit on empty cells only, and every empty cell must be covered at least once. Marking each legal placement cell by cell is $O(mn\cdot hw)$ and too slow.
+> Every stamp must sit on empty cells only, and every empty cell must be covered at least once. Marking each legal placement cell by cell is $O(mn hw)$ and too slow.
 >
 > A 2-D prefix sum tests an $h\times w$ block in $O(1)$; successful placements are recorded in a 2-D difference array, which is then reconstructed to test coverage of every empty cell.
 >
@@ -101,7 +101,7 @@ $$
 
 Finally, we perform a prefix sum operation on the two-dimensional difference array $d$ to find out the number of times each cell is covered by a stamp. If a cell is not occupied and the number of times it is covered by a stamp is $0$, then we cannot place a stamp at this cell, so we need to return $\texttt{false}$. If all "unoccupied cells" are successfully covered by stamps, return $\texttt{true}$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the height and width of the two-dimensional matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the height and width of the two-dimensional matrix, respectively.
 
 <!-- tabs:start -->
 

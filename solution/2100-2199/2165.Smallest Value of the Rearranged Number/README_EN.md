@@ -76,7 +76,7 @@ If $\textit{num}$ is negative, the digits should be arranged in descending order
 
 If $\textit{num}$ is positive, we first find the first non-zero digit and place it in the first position, then arrange the remaining digits in ascending order.
 
-The time complexity is $O(\log n)$, where $n$ is the size of the number $\textit{num}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the size of the number $\textit{num}$.
 
 <!-- tabs:start -->
 

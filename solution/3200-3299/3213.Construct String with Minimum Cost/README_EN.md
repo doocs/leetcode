@@ -91,7 +91,7 @@ tags:
 >
 > We concatenate $\textit{words}$ to form $\textit{target}$ at minimum cost; $n$ and the total word length are both $5\times 10^4$. A DP that tries every word at every position is too heavy.
 >
-> There are only $O(\sqrt{L})$ distinct word lengths. Hash each word to its minimum cost, let $f[i]$ be the cheapest way to build the first $i$ characters, and try only those lengths $j$, testing $\textit{target}[i-j+1..i]$ in $O(1)$ via the prefix hash. Transfers become $O(n\sqrt{L})$.
+> There are only $O(\sqrt{L})$ distinct word lengths. Hash each word to its minimum cost, let $f[i]$ be the cheapest way to build the first $i$ characters, and try only those lengths $j$, testing $\textit{target}[i-j+1..i]$ in $O(1)$ via the prefix hash. Transfers become $O(n \sqrt{L})$.
 
 <!-- thinking:end -->
 
@@ -105,7 +105,7 @@ $$
 
 where $\textit{cost}[k]$ represents the minimum cost of a word of length $j$ whose hash value matches $\textit{target}[i - j + 1, i]$.
 
-The time complexity is $O(n \times \sqrt{L})$, and the space complexity is $O(n)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the array $\textit{words}$.
+The time complexity is $O(n \sqrt{L})$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the array $\textit{words}$.
 
 <!-- tabs:start -->
 

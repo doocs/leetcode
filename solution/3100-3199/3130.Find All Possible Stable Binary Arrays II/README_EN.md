@@ -90,7 +90,7 @@ tags:
 >
 > The definition matches part I, but $zero$ and $one$ are larger, so backtracking is impossible. Stability still depends only on remaining counts and the next bit.
 >
-> Overflow is again subtracted as the branch that writes $limit+1$ equal bits. The state space stays $O(zero\cdot one)$.
+> Overflow is again subtracted as the branch that writes $limit+1$ equal bits. The state space stays $O(zero one)$.
 >
 > Reuse memoized $dfs(i,j,k)$, reduce modulo $10^9+7$, and clear the cache before returning.
 
@@ -344,7 +344,7 @@ The state transition equation is as follows:
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
 
-The time complexity is $O(zero \times one)$, and the space complexity is $O(zero \times one)$.
+The time complexity is $O(zero one)$, and the space complexity is $O(zero one)$.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ We traverse the three arrays, use a hash table $cnt$ to count the total play cou
 
 Then, we traverse the hash table $cnt$ to find the maximum play count $mx$; then we traverse the hash table $cnt$ again to find the creators with a play count of $mx$, and add them to the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of videos.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of videos.
 
 <!-- tabs:start -->
 

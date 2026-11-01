@@ -100,7 +100,7 @@ We denote the sum of the number of stage tasks of all projects as $s$, and the m
 
 If $mx > rest + 1$, then we cannot complete all stage tasks, and at most we can complete $rest \times 2 + 1$ stage tasks. Otherwise, we can complete all stage tasks, the number is $s$.
 
-The time complexity is $O(n)$, where $n$ is the number of projects. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of projects.
 
 <!-- tabs:start -->
 

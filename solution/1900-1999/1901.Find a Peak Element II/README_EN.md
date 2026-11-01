@@ -69,17 +69,17 @@ tags:
 
 > **Thinking**
 >
-> Scanning every cell against its four neighbors finds a peak in $O(mn)$, but the required bound is $O(n\log m)$ or $O(m\log n)$.
+> Scanning every cell against its four neighbors finds a peak in $O(mn)$, but the required bound is $O(n \log m)$ or $O(m \log n)$.
 >
 > Let $mat[i][j]$ be the maximum of row $i$. Comparing it with $mat[i+1][j]$ tells which half must contain a peak: a drop keeps the upper half, a rise keeps the lower half. If that half had no peak, the row-max at the border would contradict the sentinel $-1$ outside the matrix.
 >
-> We therefore binary-search the row index, each time taking the max column $j$ of the mid row and shrinking by that vertical comparison, for $O(n\log m)$ time.
+> We therefore binary-search the row index, each time taking the max column $j$ of the mid row and shrinking by that vertical comparison, for $O(n \log m)$ time.
 
 <!-- thinking:end -->
 
 Let $m$ and $n$ be the number of rows and columns of the matrix, respectively.
 
-The problem asks us to find a peak, and the time complexity should be $O(m \times \log n)$ or $O(n \times \log m)$. Therefore, we can consider using binary search.
+The problem asks us to find a peak, and the time complexity should be $O(m \log n)$ or $O(n \log m)$. Therefore, we can consider using binary search.
 
 We consider the maximum value of the $i$-th row, and denote its index as $j$.
 
@@ -95,7 +95,7 @@ Therefore, we can use binary search to find the peak.
 
 We perform binary search on the rows of the matrix, initially with the search boundaries $l = 0$, $r = m - 1$. Each time, we find the middle row $mid$ and find the index $j$ of the maximum value of this row. If $mat[mid][j] > mat[mid + 1][j]$, then we search for the peak in the rows $[0,..mid]$, i.e., update $r = mid$. Otherwise, we search for the peak in the rows $[mid + 1,..m - 1]$, i.e., update $l = mid + 1$. When $l = r$, we find the position $[l, j_l]$ of the peak, where $j_l$ is the index of the maximum value of the $l$-th row.
 
-The time complexity is $O(n \times \log m)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The time complexity of binary search is $O(\log m)$, and each time we perform binary search, we need to traverse all elements of the $mid$-th row, with a time complexity of $O(n)$. The space complexity is $O(1)$.
+The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The time complexity of binary search is $O(\log m)$, and each time we perform binary search, we need to traverse all elements of the $mid$-th row, with a time complexity of $O(n)$.
 
 <!-- tabs:start -->
 

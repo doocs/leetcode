@@ -75,7 +75,7 @@ The in-order successor node of a binary search tree node $p$ satisfies:
 
 Therefore, for the current node $root$, if $root.val > p.val$, then $root$ could be the in-order successor of $p$. We record $root$ as $ans$ and then search the left subtree, i.e., $root = root.left$. If $root.val \leq p.val$, then $root$ cannot be the in-order successor of $p$, and we search the right subtree, i.e., $root = root.right$.
 
-The time complexity is $O(h)$, where $h$ is the height of the binary search tree. The space complexity is $O(1)$.
+The time complexity is $O(h)$, and the space complexity is $O(1)$, where $h$ is the height of the binary search tree.
 
 <!-- tabs:start -->
 

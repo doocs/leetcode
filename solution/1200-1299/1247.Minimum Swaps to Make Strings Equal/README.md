@@ -88,7 +88,7 @@ tags:
 
 如果 $xy + yx$ 为奇数，则无法完成交换，返回 $-1$。如果 $xy + yx$ 为偶数，则需要交换的次数为 $\left \lfloor \frac{x}{2} \right \rfloor$ + $\left \lfloor \frac{y}{2} \right \rfloor$ + $xy \bmod{2}$ + $yx \bmod{2}$。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $s_1$ 和 $s_2$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s_1$ 和 $s_2$ 的长度。
 
 <!-- tabs:start -->
 

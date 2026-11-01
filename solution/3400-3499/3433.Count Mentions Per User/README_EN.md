@@ -152,7 +152,7 @@ We traverse the event list and handle each event based on its type:
 
 Finally, if `lazy` is greater than 0, we add `lazy` to the mention count of all users.
 
-The time complexity is $O(n + m \times \log m \log M + L)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the total number of users and events, respectively, while $M$ and $L$ are the maximum value of the timestamps and the total length of all mentioned strings, respectively.
+The time complexity is $O(n + m \log m \log M + L)$, and the space complexity is $O(n)$, where $n$ and $m$ are the total number of users and events, respectively, while $M$ and $L$ are the maximum value of the timestamps and the total length of all mentioned strings, respectively.
 
 <!-- tabs:start -->
 

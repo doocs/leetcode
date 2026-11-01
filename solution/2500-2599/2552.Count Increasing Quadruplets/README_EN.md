@@ -86,7 +86,7 @@ We can use two two-dimensional arrays $f$ and $g$ to record these two pieces of 
 
 Therefore, the answer is the sum of all $f[j][k] \times g[j][k]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

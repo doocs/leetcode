@@ -89,7 +89,7 @@ We can use a hash table or an array `cnt` to count the frequency of each number 
 
 Then we enumerate each number in `cnt` from small to large. If the frequency of a number is greater than $0$, we add it to the answer array.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(M)$. Where $n$ and $m$ are the lengths of the two arrays respectively; and $M$ is the maximum value in the two arrays, in this problem, $M = 1000$.
+The time complexity is $O(n + m)$, and the space complexity is $O(M)$, where $n$ and $m$ are the lengths of the two arrays respectively; and $M$ is the maximum value in the two arrays, in this problem, $M = 1000$.
 
 <!-- tabs:start -->
 

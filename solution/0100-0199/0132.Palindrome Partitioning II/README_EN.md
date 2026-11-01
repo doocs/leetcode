@@ -79,7 +79,7 @@ $$
 
 The answer is $f[n]$, where $n$ is the length of the string $s$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

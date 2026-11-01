@@ -87,7 +87,7 @@ We define $f$ as the maximum sum of the alternating subarray ending with $nums[i
 
 Next, we traverse the array $nums$. For position $i$, we need to maintain the values of $f$ and $g$, i.e., $f = \max(g, 0) + nums[i]$, and $g = f - nums[i]$. The answer is the maximum value among all $f$ and $g$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -99,7 +99,7 @@ tags:
 
 最后，返回答案数组即可。
 
-时间复杂度 $O(m + q)$，其中 $m$ 和 $q$ 分别为数组 $\textit{lamps}$ 和 $\textit{queries}$ 的长度。
+时间复杂度 $O(m + q)$。其中 $m$ 和 $q$ 分别为数组 $\textit{lamps}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

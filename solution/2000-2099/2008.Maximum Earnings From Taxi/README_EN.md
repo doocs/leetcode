@@ -96,7 +96,7 @@ Where $j$ is the smallest index that satisfies $start_j \ge end_i$, which can be
 
 In this process, we can use memoization search to save the answer of each state to avoid repeated calculations.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $rides$.
 
 <!-- tabs:start -->
 
@@ -275,7 +275,7 @@ $$
 
 Where $j$ is the largest index that satisfies $end_j \le start_i$, which can be obtained by binary search.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $rides$.
 
 Similar problems:
 
@@ -425,7 +425,7 @@ $$
 
 Where $j$ is the smallest index that satisfies $start_j \ge end_i$. Because $j > i$, $f[j]$ is already filled.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the length of $rides$.
 
 <!-- tabs:start -->
 

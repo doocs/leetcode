@@ -67,7 +67,7 @@ We define a function $check(s, t)$ to determine whether string $s$ is a subseque
 
 We initialize the answer string $ans$ as an empty string. Then, we iterate through each string $t$ in the array $dictionary$. If $t$ is a subsequence of $s$, and the length of $t$ is greater than the length of $ans$, or the length of $t$ is equal to the length of $ans$ but $t$ is lexicographically smaller than $ans$, then we update $ans$ to $t$.
 
-The time complexity is $O(d \times (m + n))$, where $d$ is the length of the string list, and $m$ and $n$ are the lengths of string $s$ and the average length of strings in the list, respectively. The space complexity is $O(1)$.
+The time complexity is $O(d(m + n))$, and the space complexity is $O(1)$, where $d$ is the length of the string list, and $m$ and $n$ are the lengths of string $s$ and the average length of strings in the list, respectively.
 
 <!-- tabs:start -->
 

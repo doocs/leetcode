@@ -118,7 +118,7 @@ $$
 
 最后，我们返回 $f[m - 1][j][\textit{target}]$，其中 $j \in [1,..n]$，如果所有的 $f[m - 1][j][\textit{target}]$ 的值都为 $\infty$，那么返回 $-1$。
 
-时间复杂度 $O(m \times n^2 \times \textit{target})$，空间复杂度 $O(m \times n \times \textit{target})$。其中 $m$, $n$, $\textit{target}$ 分别为房子的数量，颜色的数量，街区的数量。
+时间复杂度 $O(mn^2 \textit{target})$，空间复杂度 $O(mn \textit{target})$。其中 $m$, $n$, $\textit{target}$ 分别为房子的数量，颜色的数量，街区的数量。
 
 <!-- tabs:start -->
 

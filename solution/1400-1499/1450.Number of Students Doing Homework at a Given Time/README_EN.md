@@ -73,7 +73,7 @@ We can directly traverse the two arrays. For each student, we check if $\textit{
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the number of students. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of students.
 
 <!-- tabs:start -->
 

@@ -66,7 +66,7 @@ tags:
 
 We enumerate each integer $x$ in the range $[low, high]$, and check whether it is a palindromic number. If it is, then the answer $ans$ is increased by $1$.
 
-The time complexity is $O(n \times \log m)$, and the space complexity is $O(\log m)$. Here, $n$ is the number of integers in the range $[low, high]$, and $m$ is the maximum integer given in the problem.
+The time complexity is $O(n \log m)$, and the space complexity is $O(\log m)$, where $n$ is the number of integers in the range $[low, high]$, and $m$ is the maximum integer given in the problem.
 
 <!-- tabs:start -->
 

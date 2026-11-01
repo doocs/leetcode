@@ -122,7 +122,7 @@ In each step, we take out the first element $(d, x, y)$ in the queue, at this ti
 
 Finally, when the queue is empty, we can get the answer.
 
-The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Where $n$ is the number of special paths.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n^2)$, where $n$ is the number of special paths.
 
 <!-- tabs:start -->
 

@@ -106,7 +106,7 @@ Next, for each query $[k, m]$, we first use binary search to find the index $r$ 
 
 In the second binary search process mentioned above, we need to judge whether $prices[mid] < 2k - prices[n - (m - mid)]$, where $right$ represents the number of chocolates that should be chosen on the right. If this inequality holds, it means that choosing the chocolate at position $mid$ has a lower relative loss, so we update $l = mid + 1$. Otherwise, it means that the chocolate at position $mid$ has a higher relative loss, so we update $r = mid$.
 
-The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $prices$ and $queries$, respectively.
+The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $prices$ and $queries$, respectively.
 
 <!-- tabs:start -->
 

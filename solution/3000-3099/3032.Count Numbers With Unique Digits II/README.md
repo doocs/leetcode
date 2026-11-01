@@ -87,7 +87,7 @@ tags:
 
 答案为 $dfs(0, 0, true)$。
 
-时间复杂度 $O(m \times 2^{10} \times 10)$，空间复杂度 $O(m \times 2^{10})$。其中 $m$ 为 $b$ 的位数。
+时间复杂度 $O(10m 2^{10})$，空间复杂度 $O(m 2^{10})$。其中 $m$ 为 $b$ 的位数。
 
 <!-- tabs:start -->
 
@@ -313,7 +313,7 @@ function numberCount(a: number, b: number): number {
 
 由于 $1 \le a \le b \le 1000$，可以直接枚举区间 $[a, b]$ 中的每个整数，判断其各位数字是否互不相同。
 
-时间复杂度 $O((b - a + 1) \times \log b)$，空间复杂度 $O(1)$。
+时间复杂度 $O((b - a + 1) \log b)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

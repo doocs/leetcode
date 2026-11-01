@@ -94,7 +94,7 @@ If no such partition line is found, we traverse each column from left to right, 
 
 If no such partition line is found, we return `false`.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$, as only constant extra space is used.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

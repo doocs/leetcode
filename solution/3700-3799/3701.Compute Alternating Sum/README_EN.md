@@ -85,7 +85,7 @@ We can directly traverse the array $\textit{nums}$. For each index $i$, if $i$ i
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

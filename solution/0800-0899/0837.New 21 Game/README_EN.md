@@ -88,7 +88,7 @@ The calculation method of function $dfs(i)$ is as follows:
 
 Here we can use memoized search to accelerate the calculation.
 
-The time complexity of the above method is $O(k \times \textit{maxPts})$, which will exceed the time limit, so we need to optimize it.
+The time complexity of the above method is $O(k \textit{maxPts})$, which will exceed the time limit, so we need to optimize it.
 
 When $i \lt k$, the following equation holds:
 
@@ -151,7 +151,7 @@ dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i 
 \end{aligned}
 $$
 
-Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
+The time complexity is $O(k + \textit{maxPts})$, and the space complexity is $O(k + \textit{maxPts})$, where $k$ is the maximum score.
 
 <!-- tabs:start -->
 
@@ -300,7 +300,7 @@ When $i = k - 1$, we have $f[i] = \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
 
 When $i \lt k - 1$, we have $f[i] = f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}$.
 
-Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
+The time complexity is $O(k + \textit{maxPts})$, and the space complexity is $O(k + \textit{maxPts})$, where $k$ is the maximum score.
 
 <!-- tabs:start -->
 
@@ -429,7 +429,7 @@ The value of $f[i]$ is as follows:
 
 Every state depends only on a larger score, so fill from $k - 2$ down to $0$. When $k = 0$ no draw has started, and the answer is $1$.
 
-The time complexity of the above method is $O(k \times \textit{maxPts})$, which will exceed the time limit, so we need to optimize it.
+The time complexity of the above method is $O(k \textit{maxPts})$, which will exceed the time limit, so we need to optimize it.
 
 When $i \lt k$, the following equation holds:
 
@@ -492,7 +492,7 @@ f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}, & i < k - 
 \end{aligned}
 $$
 
-Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
+The time complexity is $O(k + \textit{maxPts})$, and the space complexity is $O(k + \textit{maxPts})$, where $k$ is the maximum score.
 
 <!-- tabs:start -->
 

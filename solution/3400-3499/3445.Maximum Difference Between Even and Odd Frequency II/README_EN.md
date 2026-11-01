@@ -126,7 +126,7 @@ $$
 
 In this way, we can compute the maximum frequency difference for the current window each time $r$ moves to the right.
 
-The time complexity is $O(n \times |\Sigma|^2)$, where $n$ is the length of $s$ and $|\Sigma|$ is the alphabet size (5 in this problem). The space complexity is $O(1)$.
+The time complexity is $O(n|\Sigma|^2)$, and the space complexity is $O(1)$, where $n$ is the length of $s$ and $|\Sigma|$ is the alphabet size (5 in this problem).
 
 <!-- tabs:start -->
 

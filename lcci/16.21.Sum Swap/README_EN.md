@@ -65,7 +65,7 @@ We first calculate the sum of the two arrays, and then calculate the difference 
 
 If $diff$ is even, we can traverse one of the arrays. Suppose the current element being traversed is $a$, then we need to find an element $b$ in the other array such that $a - b = diff / 2$, i.e., $b = a - diff / 2$. We can use a hash table to quickly check whether $b$ exists. If it exists, it means that we have found a pair of elements that meet the conditions, and we can return them directly.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the lengths of the two arrays.
+The time complexity is $O(m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the two arrays.
 
 <!-- tabs:start -->
 

@@ -69,7 +69,7 @@ tags:
 
 我们可以直接模拟题目描述的过程，从左到右遍历数组 $\textit{nums}$，每次取出两个数 $\textit{freq}$ 和 $\textit{val}$，然后将 $\textit{val}$ 重复 $\textit{freq}$ 次，将这 $\textit{freq}$ 个 $\textit{val}$ 加入答案数组即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。我们只需要遍历一次数组 $\textit{nums}$ 即可。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。我们只需要遍历一次数组 $\textit{nums}$ 即可。
 
 <!-- tabs:start -->
 

@@ -90,7 +90,7 @@ Then, we iterate through the string $s$. If the current character is $1$, then w
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ If the total time $s$ of the selected courses exceeds the end time $last$ of the
 
 Finally, the number of elements in the priority queue is the maximum number of courses we can take.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of courses.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of courses.
 
 <!-- tabs:start -->
 

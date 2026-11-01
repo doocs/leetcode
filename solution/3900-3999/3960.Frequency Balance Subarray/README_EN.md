@@ -110,7 +110,7 @@ When either of the following conditions is satisfied, update the answer $\textit
 
 After the enumeration ends, return the answer $\textit{ans}$.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

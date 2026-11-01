@@ -86,7 +86,7 @@ Traverse each string $p$ in the array $\textit{patterns}$ and check if it is a s
 
 After traversing, return the answer.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the lengths of $\textit{patterns}$ and $\textit{word}$, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of $\textit{patterns}$ and $\textit{word}$, respectively.
 
 <!-- tabs:start -->
 

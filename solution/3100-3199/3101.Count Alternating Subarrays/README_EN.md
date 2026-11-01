@@ -88,7 +88,7 @@ Next, we start to traverse the array from the second element. For each position 
 
 Then, we add the value of $s$ to the answer and continue to traverse the next position of the array until the entire array is traversed.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

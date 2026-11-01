@@ -97,7 +97,7 @@ Next, we traverse the array $colsum$ from left to right. For the current element
 
 At the end of the traversal, if both $upper$ and $lower$ are $0$, then we return $ans$; otherwise, we return an empty array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $colsum$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $colsum$.
 
 <!-- tabs:start -->
 

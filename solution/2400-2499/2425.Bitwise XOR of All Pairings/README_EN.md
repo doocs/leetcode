@@ -80,7 +80,7 @@ Similarly, we can know the final XOR result of the `nums2` array.
 
 Finally, XOR the two results again to get the final result.
 
-The time complexity is $O(m+n)$. Where $m$ and $n$ are the lengths of the `nums1` and `nums2` arrays, respectively.
+The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the `nums1` and `nums2` arrays, respectively.
 
 <!-- tabs:start -->
 

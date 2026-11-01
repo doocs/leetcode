@@ -80,7 +80,7 @@ tags:
 
 因此，最终的答案就是 $\max(\textit{nums}) - \min(\textit{nums}) - 2 \times k$ 和 $0$ 之间的较大值。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

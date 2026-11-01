@@ -74,7 +74,7 @@ tags:
 
 遍历结束后，我们返回答案即可。
 
-时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的元素的最大值。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的元素的最大值。
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ We define the left boundary of the binary search as $l=0$ and the right boundary
 
 The key to the problem is to determine if a water volume $v$ meets the condition. We can iterate through all buckets, and for each bucket, if its water volume is greater than $v$, then we need to pour out $x-v$ water volume; if its water volume is less than $v$, then we need to pour in $(v-x)\times\frac{100}{100-\textit{loss}}$ water volume. If the total volume poured out is greater than or equal to the volume poured in, then $v$ meets the condition.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and the maximum value of the array $buckets$, respectively. The time complexity of binary search is $O(\log M)$, and each binary search iteration requires traversing the array $buckets$, with a time complexity of $O(n)$. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length and the maximum value of the array $buckets$, respectively. The time complexity of binary search is $O(\log M)$, and each binary search iteration requires traversing the array $buckets$, with a time complexity of $O(n)$.
 
 <!-- tabs:start -->
 

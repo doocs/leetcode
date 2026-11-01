@@ -82,7 +82,7 @@ tags:
 
 First, we scan from left to right and remove the extra right parentheses. Then, we scan from right to left and remove the extra left parentheses.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 Similar problems:
 

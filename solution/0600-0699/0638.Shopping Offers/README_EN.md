@@ -98,7 +98,7 @@ The calculation method of the function $\textit{dfs}(cur)$ is as follows:
 
 To avoid repeated calculations, we use a hash table $\textit{f}$ to record the minimum cost corresponding to each state $\textit{cur}$.
 
-The time complexity is $O(n \times k \times m^n)$, where $n$ represents the types of items, and $k$ and $m$ respectively represent the number of bundles and the maximum demand for each type of item. The space complexity is $O(n \times m^n)$.
+The time complexity is $O(nkm^n)$, and the space complexity is $O(nm^n)$, where $n$ represents the types of items, and $k$ and $m$ respectively represent the number of bundles and the maximum demand for each type of item.
 
 <!-- tabs:start -->
 

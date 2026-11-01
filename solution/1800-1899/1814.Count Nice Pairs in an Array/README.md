@@ -67,7 +67,7 @@ tags:
 
 > **思考**
 >
-> 好数对满足 $nums[i]+rev(nums[j])=nums[j]+rev(nums[i])$。直接枚举 $(i,j)$ 再计算翻转，时间为 $O(n^2\log M)$。 $n\le 10^5$，无法通过。
+> 好数对满足 $nums[i]+rev(nums[j])=nums[j]+rev(nums[i])$。直接枚举 $(i,j)$ 再计算翻转，时间为 $O(n^2 \log M)$。 $n\le 10^5$，无法通过。
 >
 > 移项后条件变为 $nums[i]-rev(nums[i])=nums[j]-rev(nums[j])$。对每个数计算该差值并计数，答案即各差值出现次数的组合数 $C(v,2)$，再对 $10^9+7$ 取模。
 
@@ -79,7 +79,7 @@ tags:
 
 注意答案的取模操作。
 
-时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。空间复杂度 $O(n)$。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。
 
 <!-- tabs:start -->
 

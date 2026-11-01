@@ -94,7 +94,7 @@ Next, we define another pointer $q$, initially $q = p$, pointing to the first el
 
 If all the above conditions are satisfied, it means the array is trionic, and we return $\text{true}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant extra space.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

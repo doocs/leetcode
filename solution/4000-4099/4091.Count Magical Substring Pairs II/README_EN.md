@@ -249,7 +249,7 @@ For each $k\in[1,26]$, run one two-pointer scan. Move the right endpoint $r$ fro
 
 The array computed on $s$ counts substrings that end at a given index. Reverse $s$ and compute the array again. A substring of the reversed string that ends at index $n-2-j$ corresponds to a substring of $s$ that starts at index $j+1$ and extends to the right. For each split $j$, iterate over the distinct count $k$, multiply the two sides' counts of substrings with exactly $k$ distinct characters, and add the product to the answer.
 
-The time complexity is $O(|\Sigma|\cdot n)$ and the space complexity is $O(|\Sigma|\cdot n)$, where $n$ is the length of the string and $|\Sigma|=26$.
+The time complexity is $O(|\Sigma|n)$, and the space complexity is $O(|\Sigma|n)$, where $n$ is the length of the string and $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

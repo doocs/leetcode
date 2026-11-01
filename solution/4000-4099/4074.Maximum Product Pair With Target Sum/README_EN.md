@@ -161,7 +161,7 @@ source: Biweekly Contest 193 Q1
 
 Use a hash map $\textit{pos}$ to store the latest index of each value. Scan $\textit{nums}[i]=x$ from left to right and set $y=\textit{target}-x$. If $x\neq y$, $y$ has already occurred, and $x\cdot y$ is greater than the best product so far, update the answer and place the larger value first so that $\textit{nums}[i]>\textit{nums}[j]$. If no valid pair is found, the answer stays $[-1,-1]$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

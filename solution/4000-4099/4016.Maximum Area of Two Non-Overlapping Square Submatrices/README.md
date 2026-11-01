@@ -139,7 +139,7 @@ tags:
 
 最后返回 $\max(\textit{calc}(\textit{mat}), \textit{calc}(\textit{mat}^\top))$ 即可。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 

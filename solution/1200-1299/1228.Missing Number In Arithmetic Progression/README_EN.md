@@ -71,7 +71,7 @@ Since the array given in the problem is an arithmetic series with one missing nu
 
 Thus, the missing number is $\frac{(a_1 + a_n)(n + 1)}{2} - \sum_{i = 0}^n a_i$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -156,7 +156,7 @@ Traverse the array, and if $a_i \neq a_{i - 1} + d$, then return $a_{i - 1} + d$
 
 If the traversal completes without finding the missing number, it means all numbers in the array are equal. In this case, directly return the first number of the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

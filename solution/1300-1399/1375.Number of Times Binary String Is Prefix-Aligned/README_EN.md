@@ -80,7 +80,7 @@ We can traverse the array $flips$, keeping track of the maximum value $mx$ of th
 
 After the traversal is finished, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $flips$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $flips$.
 
 <!-- tabs:start -->
 

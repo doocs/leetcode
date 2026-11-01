@@ -98,7 +98,7 @@ Next, we construct the answer array $\textit{ans}$. First, add the header row $\
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n + m \times \log m + k \times \log k + m \times k)$, and the space complexity is $O(n + m + k)$. Here, $n$ is the length of the array $\textit{orders}$, while $m$ and $k$ represent the number of dish types and the number of tables, respectively.
+The time complexity is $O(n + m \log m + k \log k + mk)$, and the space complexity is $O(n + m + k)$, where $n$ is the length of the array $\textit{orders}$, while $m$ and $k$ represent the number of dish types and the number of tables, respectively.
 
 <!-- tabs:start -->
 

@@ -101,7 +101,7 @@ First, we build the graph as an adjacency list, then perform a depth-first searc
 
 The answer is the result of $\text{dfs}(\text{source})$.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively. The space complexity is $O(n + m)$, used to store the graph's adjacency list and state array.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

@@ -113,7 +113,7 @@ tags:
 
 那么当下标 $i$ 位于 $[\textit{first2}, \textit{last1})$ 或者 $[\textit{first3}, \textit{last2})]$ 时，对应的 $\textit{locked}[i]$ 必须为 $0$，否则我们需要一次操作。因此，我们只需要遍历数组 $\textit{locked}$，统计不满足条件的下标即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

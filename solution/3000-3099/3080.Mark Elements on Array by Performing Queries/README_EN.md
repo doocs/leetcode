@@ -105,7 +105,7 @@ Next, we traverse the array $queries$. For each query $[index, k]$, we first che
 
 After traversing all the queries, we get the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

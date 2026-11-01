@@ -75,7 +75,7 @@ According to the problem description, rabbits that give the same answer may belo
 
 Therefore, we use a hash map $\textit{cnt}$ to record the number of occurrences of each answer. For each answer $x$ and its occurrence $v$, we calculate the minimum number of rabbits based on the principle that each color has $x + 1$ rabbits, and add it to the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{answers}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{answers}$.
 
 <!-- tabs:start -->
 

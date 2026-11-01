@@ -83,7 +83,7 @@ We can maintain a variable $mx$ to represent the maximum value of $\text{nums}[i
 
 After the traversal, the result is the maximum total score.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 

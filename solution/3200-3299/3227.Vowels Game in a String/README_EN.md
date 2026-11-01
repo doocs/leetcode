@@ -101,7 +101,7 @@ If $k$ is even, then Little Red can remove $k - 1$ vowels, leaving one vowel in 
 
 In conclusion, if the string contains vowels, then Little Red wins; otherwise, Little Ming wins.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

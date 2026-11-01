@@ -96,7 +96,7 @@ Then we enumerate all substrings of length $sub$ in $s$, and judge whether the s
 
 At the end of the enumeration, it means that $sub$ cannot be obtained by replacing any substring in $s$, so return `false`.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$. Here, $m$ and $n$ are the lengths of the strings $s$ and $sub$ respectively, and $C$ is the size of the character set.
+The time complexity is $O(mn)$, and the space complexity is $O(C^2)$, where $m$ and $n$ are the lengths of the strings $s$ and $sub$ respectively, and $C$ is the size of the character set.
 
 <!-- tabs:start -->
 
@@ -214,7 +214,7 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$.
+The time complexity is $O(mn)$, and the space complexity is $O(C^2)$.
 
 <!-- tabs:start -->
 

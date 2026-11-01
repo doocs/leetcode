@@ -167,7 +167,7 @@ tags:
 >
 > Enumerate the deleted index (and the case of deleting nothing), build prefix and suffix GCDs of the remaining array, count equal splits, and keep the maximum.
 >
-> One scoring pass is $O(n\log M)$, so the total $O(n^2\log M)$ time is acceptable.
+> One scoring pass is $O(n \log M)$, so the total $O(n^2 \log M)$ time is acceptable.
 
 <!-- thinking:end -->
 
@@ -175,7 +175,7 @@ Since the array length satisfies $n \leq 1000$, we can enumerate the index of th
 
 For an array $\textit{arr}$ of length $m$, we precompute the prefix GCD array $\textit{pre}$ and the suffix GCD array $\textit{suf}$, where $\textit{pre}[i] = \gcd(\textit{arr}[0..i])$ and $\textit{suf}[i] = \gcd(\textit{arr}[i..m - 1])$. A split position $i$ is valid if and only if $\textit{pre}[i] = \textit{suf}[i + 1]$, so the score of $\textit{arr}$ is the number of indices satisfying this condition.
 
-The time complexity is $O(n^2 \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n^2 \log M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

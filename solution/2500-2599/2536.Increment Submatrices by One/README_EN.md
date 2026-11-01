@@ -92,7 +92,7 @@ $$
 \textit{mat}[i][j] = \textit{diff}[i][j] + (\textit{mat}[i-1][j] \text{ if } i > 0 \text{ else } 0) + (\textit{mat}[i][j-1] \text{ if } j > 0 \text{ else } 0) - (\textit{mat}[i-1][j-1] \text{ if } i > 0 \text{ and } j > 0 \text{ else } 0)
 $$
 
-The time complexity is $O(m + n^2)$, where $m$ and $n$ are the length of $\textit{queries}$ and the given $n$, respectively. Ignoring the space consumed by the answer, the space complexity is $O(1)$.
+The time complexity is $O(m + n^2)$, and the space complexity is $O(1)$, where $m$ and $n$ are the length of $\textit{queries}$ and the given $n$, respectively.
 
 <!-- tabs:start -->
 

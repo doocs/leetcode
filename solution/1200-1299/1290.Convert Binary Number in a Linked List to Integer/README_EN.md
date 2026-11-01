@@ -69,7 +69,7 @@ We use a variable $\textit{ans}$ to record the current decimal value, with an in
 
 Traverse the linked list. For each node, left-shift $\textit{ans}$ by one bit, then perform a bitwise OR with the current node's value. After traversal, $\textit{ans}$ is the decimal value.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ Then for the current right endpoint $j$ with prefix sum $s$, we can calculate th
 
 After the enumeration is complete, return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

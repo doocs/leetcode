@@ -94,7 +94,7 @@ tags:
 >
 > 题意与 I 相同，但 $zero$、 $one$ 更大，朴素回溯不可行。稳定约束仍只与剩余个数及下一位有关。
 >
-> 超限项同样是减去「连续 $limit+1$ 个相同位」的那一支，状态量仍为 $O(zero\cdot one)$。
+> 超限项同样是减去「连续 $limit+1$ 个相同位」的那一支，状态量仍为 $O(zero one)$。
 >
 > 因此沿用 $dfs(i,j,k)$ 记忆化，答案对 $10^9+7$ 取模，并在返回前清空缓存以免占用额外空间。
 
@@ -112,7 +112,7 @@ tags:
 
 为了避免重复计算，我们使用记忆化搜索的方法。
 
-时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。
+时间复杂度 $O(zero one)$，空间复杂度 $O(zero one)$。
 
 <!-- tabs:start -->
 
@@ -353,7 +353,7 @@ impl Solution {
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。
 
-时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。
+时间复杂度 $O(zero one)$，空间复杂度 $O(zero one)$。
 
 <!-- tabs:start -->
 

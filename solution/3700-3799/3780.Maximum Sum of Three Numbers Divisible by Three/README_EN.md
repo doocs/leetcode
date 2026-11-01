@@ -88,7 +88,7 @@ Next, we enumerate the cases of selecting one element each from $\textit{g}[a]$ 
 
 For each combination of $(a, b)$, we try to take out the largest element from both $\textit{g}[a]$ and $\textit{g}[b]$, then take out the largest element from $\textit{g}[c]$, calculate the sum of these three elements, and update the answer.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(n)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -75,7 +75,7 @@ difficulty: Easy
 
 We perform a bitwise XOR operation on A and B. The number of $1$s in the result is the number of bits that need to be changed.
 
-The time complexity is $O(\log n)$, where $n$ is the maximum value of A and B. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the maximum value of A and B.
 
 <!-- tabs:start -->
 

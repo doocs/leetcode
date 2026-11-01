@@ -107,7 +107,7 @@ Then, we iterate through all attribute hash tables. For each pair of attribute h
 
 Finally, we use Depth-First Search (DFS) to compute the number of connected components in the graph $\textit{g}$.
 
-The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$, where $n$ is the length of the attribute arrays and $m$ is the number of elements in an attribute array.
+The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$ is the length of the attribute arrays and $m$ is the number of elements in an attribute array.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ We first use an array $d$ of length 10 to record the rotated digits correspondin
 
 Then, we traverse each digit $v$ of the number $x$. If $v$ is not a valid digit, it means $x$ is not a good number, and we directly return $\textit{false}$. Otherwise, we add the rotated digit $d[v]$ corresponding to the digit $v$ to $y$. Finally, we check whether $x$ and $y$ are equal. If they are not equal, it means $x$ is a good number, and we return $\textit{true}$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the given number. The space complexity is $O(1)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the given number.
 
 Similar problems:
 
@@ -275,7 +275,7 @@ Otherwise, we get the current digit $up$. If $\textit{limit}$ is $\textit{true}$
 
 Next, we iterate over $[0, ..up]$. If $j$ is a valid digit $[0, 1, 8]$, we recursively call $\textit{dfs}(i + 1, \textit{ok}, \textit{limit} \land j = \textit{up})$; if $j$ is a valid digit $[2, 5, 6, 9]$, we recursively call $\textit{dfs}(i + 1, 1, \textit{limit} \land j = \textit{up})$. We sum all the results of the recursive calls and return.
 
-The time complexity is $O(\log n \times D)$, and the space complexity is $O(\log n)$. Here, $D = 10$.
+The time complexity is $O(D \log n)$, and the space complexity is $O(\log n)$, where $D = 10$.
 
 Similar problems:
 

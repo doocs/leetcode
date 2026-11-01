@@ -93,7 +93,7 @@ We traverse each query $(x, j)$ in ascending order and perform the following ope
 
 After the above process is over, we return the answer array $ans$.
 
-The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
 
 <!-- tabs:start -->
 

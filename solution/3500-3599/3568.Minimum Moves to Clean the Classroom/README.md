@@ -135,7 +135,7 @@ tags:
 
 如果我们在 BFS 中找到了一个状态，其中已收集的垃圾掩码为 0（表示所有垃圾都已收集），则返回当前的移动次数。如果 BFS 完成后仍未找到这样的状态，则返回 -1。
 
-时间复杂度 $O(m \times n \times \textit{energy} \times 2^{\textit{count}})$，空间复杂度 $O(m \times n \times \textit{energy} \times 2^{\textit{count}})$，其中 $m$ 和 $n$ 分别是网格的行数和列数，而 $\textit{count}$ 是垃圾单元格的数量。
+时间复杂度 $O(mn \textit{energy} 2^{\textit{count}})$，空间复杂度 $O(mn \textit{energy} 2^{\textit{count}})$。其中 $m$ 和 $n$ 分别是网格的行数和列数，而 $\textit{count}$ 是垃圾单元格的数量。
 
 <!-- tabs:start -->
 

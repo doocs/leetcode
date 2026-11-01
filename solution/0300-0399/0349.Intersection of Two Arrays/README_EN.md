@@ -67,7 +67,7 @@ First, we use a hash table or an array $s$ of length $1001$ to record the elemen
 
 After the iteration is finished, we return the answer array.
 
-The time complexity is $O(n+m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$, respectively.
+The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$, respectively.
 
 <!-- tabs:start -->
 

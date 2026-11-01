@@ -84,7 +84,7 @@ Iterate through the array $\textit{hours}$. For each hour $x$, we can find the n
 
 After iterating through the array $\textit{hours}$, we can obtain the number of index pairs that meet the problem requirements.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{hours}$. The space complexity is $O(C)$, where $C=24$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the array $\textit{hours}$, and $C=24$.
 
 <!-- tabs:start -->
 

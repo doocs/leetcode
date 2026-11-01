@@ -90,7 +90,7 @@ By analogy, we can find a rule, that is, we should choose the $k$ dishes with th
 
 In implementation, we can first sort the satisfaction of all dishes, and then start choosing from the dish with the highest satisfaction. Each time we add the satisfaction of the current dish, if the result of the addition is less than or equal to $0$, then we no longer choose the dishes behind, otherwise, we choose this dish.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -114,7 +114,7 @@ We traverse the string $s$, extracting substrings of length $m$ each time, and u
 
 Finally, we check whether all values in the hash table $\textit{cnt}$ are $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

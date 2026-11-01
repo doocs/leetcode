@@ -59,7 +59,7 @@ comments: true
 
 因此，我们只需要遍历每堆力扣币 $x_i$，计算每堆力扣币拿完的最少次数 $\left \lceil x_i/2 \right \rceil$，然后累加即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $coins$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $coins$ 的长度。
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ We maintain two binary indexed trees, one records the number of elements smaller
 
 We traverse the array, and for the current position, if the number of elements smaller than the current position on the left is greater than or equal to $k$, and the number of elements smaller than the current position on the right is greater than or equal to $k$, then the current position is a `k-big`, and we increment the answer by one.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

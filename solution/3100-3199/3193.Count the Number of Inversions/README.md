@@ -142,7 +142,7 @@ $$
 
 由于题目要求 $[0..\textit{end}_i]$ 的逆序对数量为 $\textit{cnt}_i$，因此，当我们计算 $i = \textit{end}_i$ 时，我们只需要计算 $f[i][\textit{cnt}_i]$ 即可。其余的 $f[i][..]$ 都为 $0$。
 
-时间复杂度 $O(n \times m \times \min(n, m))$，空间复杂度 $O(n \times m)$。其中 $m$ 是逆序对数量的最大值。本题中 $m \le 400$。
+时间复杂度 $O(nm \min(n, m))$，空间复杂度 $O(nm)$。其中 $m$ 是逆序对数量的最大值。本题中 $m \le 400$。
 
 <!-- tabs:start -->
 

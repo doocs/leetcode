@@ -82,7 +82,7 @@ If two arrays are equal after sorting, then they can be made equal by reversing 
 
 Therefore, we only need to sort the two arrays and then check if the sorted arrays are equal.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 
@@ -217,7 +217,7 @@ We note that the range of the array elements given in the problem is $1 \sim 100
 
 We can also use only one array `cnt`. We traverse the arrays `target` and `arr`. For `target[i]`, we increment `cnt[target[i]]`, and for `arr[i]`, we decrement `cnt[arr[i]]`. In the end, we check if all elements in the array `cnt` are $0$.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array `arr`, and $M$ is the range of the array elements. In this problem, $M = 1001$.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array `arr`, and $M$ is the range of the array elements. In this problem, $M = 1001$.
 
 <!-- tabs:start -->
 

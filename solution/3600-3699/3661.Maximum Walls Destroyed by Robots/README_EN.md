@@ -134,7 +134,7 @@ If choosing to fire **right**, we need to calculate the right range $[\text{robo
 
 The return value of the function is the maximum number of walls that can be destroyed by the two firing directions.
 
-Time complexity $O(n \times \log n + m \times \log m)$, space complexity $O(n)$. Where $n$ and $m$ are the numbers of robots and walls respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the numbers of robots and walls respectively.
 
 <!-- tabs:start -->
 
@@ -423,7 +423,7 @@ If it fires **right**, the range is $[\text{robot}[i][0], \text{right}]$. Binary
 
 $f[i][j]$ is the larger of those two totals.
 
-Time complexity $O(n \times \log n + m \times \log m + n \times \log m)$, space complexity $O(n)$. Where $n$ and $m$ are the numbers of robots and walls respectively.
+The time complexity is $O(n \log n + m \log m + n \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the numbers of robots and walls respectively.
 
 <!-- tabs:start -->
 

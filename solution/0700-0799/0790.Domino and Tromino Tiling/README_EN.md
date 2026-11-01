@@ -91,7 +91,7 @@ We can see that the state transition equations only involve the previous column'
 
 Note that the values of the states can be very large, so we need to take modulo $10^9 + 7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the number of columns of the board.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of columns of the board.
 
 <!-- tabs:start -->
 

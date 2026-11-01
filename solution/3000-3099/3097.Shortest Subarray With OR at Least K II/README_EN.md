@@ -99,7 +99,7 @@ In each step, we move $j$ to the right by one position, and update $s$ and $cnt$
 
 Finally, we return the minimum length. If there is no subarray that meets the conditions, we return $-1$.
 
-The time complexity is $O(n \times \log M)$ and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array and the maximum value of the elements in the array, respectively.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array and the maximum value of the elements in the array, respectively.
 
 Similar Problems:
 

@@ -75,7 +75,7 @@ The answer is the sum of divisors of 21 only.
 
 We can perform factor decomposition on each number. If the number of factors is $4$, then this number meets the requirements of the problem, and we can add its factors to the answer.
 
-The time complexity is $O(n \times \sqrt{n})$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

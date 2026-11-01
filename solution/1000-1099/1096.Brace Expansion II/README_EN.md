@@ -110,7 +110,7 @@ Otherwise search left from $j$ for the matching `{` at index $i$. The prefix $\t
 
 Sort $s$ in lexicographical order to obtain the answer.
 
-The time complexity is $O(3^{n/6})$ and the space complexity is $O(n \times 3^{n/7})$, where $n$ is the length of $\textit{expression}$. The worst-case time comes from a nested three-way union such as $\{\ldots\{a,b,c\},a,b\}$: every extra $6$ characters multiplies the recursion tree by about $3$, and the total length of the strings processed is $\Theta(3^{n/6})$. Concatenating copies of $\{a,b,c\}$ produces $\Theta(3^{n/7})$ words of length $O(n)$. The deduplicated set occupies $O(n \times 3^{n/7})$ space, and sorting it costs $O(n^2 \times 3^{n/7})$, which is within the time bound above. The recursion depth is $O(n)$, so the strings on the stack use $O(n^2)$ extra space.
+The time complexity is $O(3^{n/6})$, and the space complexity is $O(n 3^{n/7})$, where $n$ is the length of $\textit{expression}$. The worst-case time comes from a nested three-way union such as $\{\ldots\{a,b,c\},a,b\}$: every extra $6$ characters multiplies the recursion tree by about $3$, and the total length of the strings processed is $\Theta(3^{n/6})$. Concatenating copies of $\{a,b,c\}$ produces $\Theta(3^{n/7})$ words of length $O(n)$. The deduplicated set occupies $O(n 3^{n/7})$ space, and sorting it costs $O(n^2 3^{n/7})$, which is within the time bound above. The recursion depth is $O(n)$, so the strings on the stack use $O(n^2)$ extra space.
 
 <!-- tabs:start -->
 
@@ -297,7 +297,7 @@ $\textit{term}(i)$ parses a concatenation of factors, starting from $\{\varepsil
 
 Sort the set returned by $\textit{expr}(0)$. Each subexpression is parsed once, so the suffix is no longer copied and rescanned on every branch.
 
-The time complexity is $O(n^2 \times 3^{n/7})$ and the space complexity is $O(n \times 3^{n/7})$, where $n$ is the length of the expression. The worst case is a concatenation of `{a,b,c}` groups, which produces $\Theta(3^{n/7})$ words of length $O(n)$. Building them costs $O(n \times 3^{n/7})$ and sorting them costs $O(n^2 \times 3^{n/7})$. A nested three-way union keeps every intermediate set at size $O(1)$, so that input takes only $O(n)$ time.
+The time complexity is $O(n^2 3^{n/7})$, and the space complexity is $O(n 3^{n/7})$, where $n$ is the length of the expression. The worst case is a concatenation of `{a,b,c}` groups, which produces $\Theta(3^{n/7})$ words of length $O(n)$. Building them costs $O(n 3^{n/7})$ and sorting them costs $O(n^2 3^{n/7})$. A nested three-way union keeps every intermediate set at size $O(1)$, so that input takes only $O(n)$ time.
 
 <!-- tabs:start -->
 

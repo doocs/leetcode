@@ -106,7 +106,7 @@ $$
 
 The final answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of types of coins and the total amount, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of types of coins and the total amount, respectively.
 
 <!-- tabs:start -->
 
@@ -229,7 +229,7 @@ function change(amount: number, coins: number[]): number {
 
 <!-- thinking:end -->
 
-We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$. The time complexity remains $O(mn)$.
 
 <!-- tabs:start -->
 

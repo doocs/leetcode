@@ -82,7 +82,7 @@ tags:
 
 We can directly traverse the array, count the number of positive and negative integers $a$ and $b$, and return the larger of $a$ and $b$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -222,7 +222,7 @@ int maximumCount(int* nums, int numsSize) {
 
 Since the array is sorted in non-decreasing order, we can use binary search to find the index $i$ of the first element that is greater than or equal to $1$, and the index $j$ of the first element that is greater than or equal to $0$. The number of positive integers is $a = n - i$, and the number of negative integers is $b = j$. We return the larger of $a$ and $b$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

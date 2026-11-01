@@ -74,7 +74,7 @@ Next, we traverse the linked list. If the value of the current node is already i
 
 After the traversal, we return the head of the linked list.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

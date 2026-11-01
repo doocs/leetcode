@@ -90,7 +90,7 @@ We use two pointers $i$ and $j$ pointing to the end of two arrays, and a pointer
 
 Every time we compare the two elements at the end of the two arrays, and move the larger one to the end of the merged array. Then we move the pointer one step forward, and repeat this process until the two pointers reach the start of the arrays.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of two arrays. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of two arrays.
 
 <!-- tabs:start -->
 

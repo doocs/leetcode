@@ -278,7 +278,7 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 - `-1`：表示当前状态下无法划分为 $k$ 个子集；
 - `1`：表示当前状态下可以划分为 $k$ 个子集。
 
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。对于每个状态，我们需要遍历数组 $\textit{nums}$，时间复杂度为 $O(n)$；状态总数为 $2^n$，因此总的时间复杂度为 $O(n\times 2^n)$。
+时间复杂度 $O(n 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。对于每个状态，我们需要遍历数组 $\textit{nums}$，时间复杂度为 $O(n)$；状态总数为 $2^n$，因此总的时间复杂度为 $O(n 2^n)$。
 
 <!-- tabs:start -->
 
@@ -509,7 +509,7 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 最后，我们返回 $f[2^n - 1]$ 即可。
 
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

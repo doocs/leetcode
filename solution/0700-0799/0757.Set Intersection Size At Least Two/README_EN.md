@@ -108,7 +108,7 @@ Then we process the sorted intervals $[a, b]$ one by one, and discuss three case
 
 Finally, return the total number of points placed, $\textit{ans}$.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

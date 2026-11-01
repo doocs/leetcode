@@ -91,7 +91,7 @@ First, we use a hash table $d$ to record the indices of each number in the array
 
 Finally, we return $\textit{nums}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{nums}$ and the operation array $\textit{operations}$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array $\textit{nums}$ and the operation array $\textit{operations}$, respectively.
 
 <!-- tabs:start -->
 

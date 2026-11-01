@@ -78,7 +78,7 @@ In $\textit{dfs}(i)$, if $i \geq n$, it means all positions have been filled, an
 
 Otherwise, we enumerate the numbers $j$ that can be placed in the current position. If $j$ has not been used and $j$ has a different parity from the last number in the current permutation, we can place $j$ in the current position and continue to recursively fill the next position.
 
-The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the length of the permutation.
+The time complexity is $O(nn!)$, and the space complexity is $O(n)$, where $n$ is the length of the permutation.
 
 <!-- tabs:start -->
 

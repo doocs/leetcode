@@ -87,7 +87,7 @@ Traverse the string $\textit{s}$. For each character $\textit{c}$, increment the
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma|=26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{s}$, and $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

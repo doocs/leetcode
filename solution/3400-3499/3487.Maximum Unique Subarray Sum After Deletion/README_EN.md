@@ -99,7 +99,7 @@ We first find the maximum value $\textit{mx}$ in the array. If $\textit{mx} \leq
 
 If $\textit{mx} > 0$, then we need to find all distinct positive integers in the array such that their sum is maximized. We can use a hash table $\textit{s}$ to record all distinct positive integers, and then iterate through the array, adding up all distinct positive integers.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

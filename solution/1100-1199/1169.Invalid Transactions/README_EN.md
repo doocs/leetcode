@@ -88,7 +88,7 @@ We traverse the transaction list. For each transaction, we first add it to the h
 
 Finally, we traverse the transaction numbers in the answer and add the corresponding transactions to the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the transaction list.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the transaction list.
 
 <!-- tabs:start -->
 

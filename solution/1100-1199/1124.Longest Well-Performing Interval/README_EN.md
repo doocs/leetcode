@@ -81,7 +81,7 @@ Next, we traverse the `hours` array, for each index $i$:
 
 After the traversal, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the `hours` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `hours` array.
 
 <!-- tabs:start -->
 

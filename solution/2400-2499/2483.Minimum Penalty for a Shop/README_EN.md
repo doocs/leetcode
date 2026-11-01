@@ -96,7 +96,7 @@ Next, we enumerate the shop closing at hour $j$ ($1 \leq j \leq n$). If $\textit
 
 After the traversal ends, we return the answer variable $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{customers}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{customers}$.
 
 <!-- tabs:start -->
 

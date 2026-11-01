@@ -82,7 +82,7 @@ Then enumerate all triplets $(i, j, k)$, where $i \lt j \lt k$. If $\textit{g}[i
 
 After enumerating all triplets, if the answer is still $+\infty$, it means there is no connected trio in the graph, return $-1$. Otherwise, return the answer.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

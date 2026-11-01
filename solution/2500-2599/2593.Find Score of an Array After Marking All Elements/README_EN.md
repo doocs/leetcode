@@ -91,7 +91,7 @@ Each time we take out the smallest element $(x, i)$ from the queue, we add $x$ t
 
 Finally, return the answer.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -282,7 +282,7 @@ We traverse the index array $idx$, and for each index $i$ in the array, if $vis[
 
 Finally, return the answer.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

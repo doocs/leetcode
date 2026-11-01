@@ -64,7 +64,7 @@ tags:
 
 We can split the string $\textit{s}$ into an array of words $\textit{words}$ by spaces, then reverse each word and concatenate them back into a string.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

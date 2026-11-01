@@ -87,7 +87,7 @@ If there exists a subarray ending at $\textit{nums}[i]$ such that removing this 
 
 Therefore, if there exists a $target = (cur - k + p) \bmod p$, we can update the answer to $\min(ans, i - j)$. Then, we update $last[cur]$ to $i$. We continue traversing the array $\textit{nums}$ until the end to get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

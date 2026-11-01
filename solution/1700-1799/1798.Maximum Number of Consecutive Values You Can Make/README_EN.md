@@ -91,7 +91,7 @@ We traverse the array, for the current element $v$, if $v > ans$, it means that 
 
 Finally, we return $ans$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

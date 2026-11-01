@@ -76,7 +76,7 @@ Then we define a pointer $i$ pointing to the first element of the array $nums$. 
 
 Finally, we return the value of the pointer $i$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

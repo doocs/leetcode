@@ -101,7 +101,7 @@ We also need a 2D array to store the distance for each cell, initialized to infi
 
 During the BFS process, we check whether each cell is the destination. If it is, we return its distance. If the queue is empty and the destination has not been reached, we return -1.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

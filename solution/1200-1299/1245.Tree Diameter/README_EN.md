@@ -75,7 +75,7 @@ tags:
 
 First, we arbitrarily select a node and start a depth-first search (DFS) from this node to find the farthest node from it, denoted as node $a$. Then, we start another DFS from node $a$ to find the farthest node from node $a$, denoted as node $b$. It can be proven that the path between node $a$ and node $b$ is the diameter of the tree.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 Similar problems:
 
@@ -253,7 +253,7 @@ We start at node $0$ and use an explicit stack to find the farthest node $a$, th
 
 Each stack frame is $(i, fa, t)$: the walk has reached node $i$ from parent $fa$ after $t$ edges. When the frame is popped, a larger $t$ replaces the farthest node and the answer, and every neighbor other than the parent is pushed at distance $t + 1$. The tree has no cycle, so each node is pushed once. Which tied endpoint is recorded does not change the length found by the second search.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 Similar problems:
 

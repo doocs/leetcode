@@ -94,7 +94,7 @@ Next, we define the left boundary of the binary search as $l = 1$, and the right
 
 Finally, return the left boundary $l$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -279,7 +279,7 @@ We can also use two pointers to maintain a sliding window, where all elements in
 
 Initially, we set the left pointer $j$ to point to the first element of the array, and the right pointer $i$ also points to the first element of the array. Next, we move the right pointer $i$ each time, changing all elements in the window to $nums[i]$. At this time, the number of operations to be increased is $(nums[i] - nums[i - 1]) \times (i - j)$. If this number of operations exceeds $k$, then we need to move the left pointer $j$ until the number of operations for the elements in the window does not exceed $k$. Then, we update the answer to the maximum length of the window.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

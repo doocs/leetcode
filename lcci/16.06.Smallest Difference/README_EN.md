@@ -55,7 +55,7 @@ difficulty: Medium
 
 We can sort the array $b$, and for each element $x$ in array $a$, perform a binary search in array $b$ to find the element $y$ closest to $x$. Then, the absolute difference between $x$ and $y$ is the absolute difference between $x$ and the closest element in $b$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of array $b$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of array $b$.
 
 <!-- tabs:start -->
 
@@ -239,7 +239,7 @@ class Solution {
 
 We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintain the current positions in the two arrays. Initially, $i$ and $j$ point to the beginning of arrays $a$ and $b$, respectively. At each step, we calculate the absolute difference between $a[i]$ and $b[j]$, and update the answer. If one of the elements pointed to by $i$ and $j$ is smaller than the other, we move the pointer pointing to the smaller element forward by one step. The traversal ends when at least one of the pointers goes beyond the array range.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of arrays $a$ and $b$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of arrays $a$ and $b$.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ tags:
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -192,7 +192,7 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 > **思考**
 >
-> 每个 $x$ 一次二分共 $O(n\log n)$。两端相向是同一单调性：和偏小则左端右移以增大，和达到 $k$ 则右端左移。
+> 每个 $x$ 一次二分共 $O(n \log n)$。两端相向是同一单调性：和偏小则左端右移以增大，和达到 $k$ 则右端左移。
 >
 > 双指针一次扫完所有互异下标对的帕累托前沿，常数更小。
 
@@ -204,7 +204,7 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 

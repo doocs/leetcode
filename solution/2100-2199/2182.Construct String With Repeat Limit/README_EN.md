@@ -85,7 +85,7 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
 
 First, we use an array $cnt$ of length $26$ to count the number of occurrences of each character in string $s$. Then, we enumerate the $i$th letter of the alphabet in descending order, each time taking out at most $\min(cnt[i], repeatLimit)$ of letter $i$. If after taking them out $cnt[i]$ is still greater than $0$, we continue to take the $j$th letter of the alphabet, where $j$ is the largest index satisfying $j < i$ and $cnt[j] > 0$, until all letters are taken.
 
-The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of string $s$, and $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

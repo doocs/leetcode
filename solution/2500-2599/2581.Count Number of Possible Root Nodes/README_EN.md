@@ -115,7 +115,7 @@ Therefore, the problem becomes to count the number of edges in $guesses$ in each
 
 Assume that we are currently traversing node $i$ and $cnt$ represents the number of edges in $guesses$ with $i$ as the root node. Then, for each adjacent node $j$ of $i$, we need to calculate the number of edges in $guesses$ with $j$ as the root node. If $(i, j)$ is in $guesses$, then there is no edge $(i, j)$ in the tree with $j$ as the root node, so $cnt$ should decrease by $1$. If $(j, i)$ is in $guesses$, then there is an extra edge $(i, j)$ in the tree with $j$ as the root node, so $cnt$ should increase by $1$. That is, $f[j] = f[i] + (j, i) \in guesses - (i, j) \in guesses$. Where $f[i]$ represents the number of edges in $guesses$ with $i$ as the root node.
 
-The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
 
 <!-- tabs:start -->
 
@@ -388,7 +388,7 @@ Turn $edges$ into an adjacency list $g$, and store $guesses$ in a hash map $gs$.
 
 The second stack reroots the tree. Each frame stores a node, its parent, and the number of correct guesses when that node is the root. It starts with $(0,-1,cnt)$. When node $i$ is popped, add $1$ to the answer if the stored count is at least $k$. For a neighbor $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child, so the count passed to $j$ is $c-gs[(i,j)]+gs[(j,i)]$.
 
-The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
 
 <!-- tabs:start -->
 

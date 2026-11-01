@@ -273,7 +273,7 @@ var countComponents = function (n, edges) {
 
 最后我们返回连通分量的数目。
 
-时间复杂度 $O(n + m \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数和边数，而 $\alpha(n)$ 是 Ackermann 函数的反函数，可以看作是一个很小的常数。
+时间复杂度 $O(n + m \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数和边数，而 $\alpha(n)$ 是 Ackermann 函数的反函数，可以看作是一个很小的常数。
 
 <!-- tabs:start -->
 

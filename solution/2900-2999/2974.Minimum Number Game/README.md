@@ -77,7 +77,7 @@ tags:
 
 我们可以将数组 $\textit{nums}$ 中的元素依次放入一个小根堆中，每次从小根堆中取出两个元素 $a$ 和 $b$，然后依次将 $b$ 和 $a$ 放入答案数组中，直到小根堆为空。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -234,7 +234,7 @@ impl Solution {
 
 我们可以将数组 $\textit{nums}$ 排序，然后遍历数组，每次交换相邻的两个元素，直到遍历结束，返回交换后的数组。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

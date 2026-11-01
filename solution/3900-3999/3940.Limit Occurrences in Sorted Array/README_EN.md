@@ -106,7 +106,7 @@ If $cnt \le k$, the occurrence limit is not exceeded, so we keep this element by
 
 Finally, return the first $l$ elements, i.e., $nums[:l]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, since only constant extra space is used.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

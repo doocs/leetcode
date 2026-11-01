@@ -74,7 +74,7 @@ Therefore, we return the maximum number which is 3 floors.
 
 We can sort the special floors in ascending order, then calculate the number of floors between each pair of adjacent special floors. Finally, we calculate the number of floors between the first special floor and $\textit{bottom}$, as well as the number of floors between the last special floor and $\textit{top}$. The maximum of these floor counts is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{special}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{special}$.
 
 <!-- tabs:start -->
 

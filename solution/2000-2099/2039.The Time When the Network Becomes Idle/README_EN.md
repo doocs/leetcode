@@ -117,7 +117,7 @@ First, we construct an undirected graph $g$ based on the 2D array $edges$, where
 
 Then, we can use breadth-first search (BFS) to find the shortest distance $d_i$ from each node $i$ to the main server. The earliest time that node $i$ can receive a reply after sending a message is $2 \times d_i$. Since each data server $i$ resends a message every $patience[i]$ seconds, the last time that each data server sends a message is $(2 \times d_i - 1) / patience[i] \times patience[i]$. Therefore, the latest time that the network becomes idle is $(2 \times d_i - 1) / patience[i] \times patience[i] + 2 \times d_i$, plus 1 second for processing time. We find the latest of these times, which is the earliest time that the computer network becomes idle.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

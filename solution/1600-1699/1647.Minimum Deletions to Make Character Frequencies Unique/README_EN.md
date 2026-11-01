@@ -88,7 +88,7 @@ Next, we traverse each element $v$ in the array $\textit{cnt}$. If the current $
 
 After traversing, we return the answer.
 
-The time complexity is $O(n + |\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the alphabet. In this problem, $|\Sigma| = 26$.
+The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the alphabet. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
@@ -206,7 +206,7 @@ func minDeletions(s string) (ans int) {
 
 Count frequencies and sort them in descending order. Walking adjacent frequencies, decrement the current one until it is strictly smaller than the previous.
 
-The time complexity is $O(n + |\Sigma| \times \log |\Sigma| + n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of $s$.
+The time complexity is $O(n + |\Sigma| \log |\Sigma| + n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 

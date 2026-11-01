@@ -90,7 +90,7 @@ tags:
 
 We can traverse the array $\textit{nums}$ and count the number of even elements $\textit{even}$. Then, we set the first $\textit{even}$ elements of the array to $0$ and the remaining elements to $1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -328,7 +328,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 >
 > 分桶要同时挂起所有词。也可预处理 $s$ 中每个字母的下标列表，对每个词在列表上二分找下一个更大下标。
 >
-> 单次判断 $O(|w|\log n)$，实现更简单，不必维护队列。
+> 单次判断 $O(|w| \log n)$，实现更简单，不必维护队列。
 
 <!-- thinking:end -->
 
@@ -340,7 +340,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 1. 遍历字符串 $w$ 中的每个字符 $c$，在 $d[c]$ 中二分查找第一个大于 $i$ 的位置 $j$，如果不存在，则说明 $w$ 不是 $s$ 的子序列，直接跳出循环；否则，将 $i$ 更新为 $d[c][j]$，继续遍历下一个字符。
 1. 如果遍历完 $w$ 中的所有字符，说明 $w$ 是 $s$ 的子序列。
 
-时间复杂度 $O(\sum_{i=0}^{m-1} |w_i| \times \log n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
+时间复杂度 $O(\log n \sum_{i=0}^{m-1} |w_i|)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
 
 <!-- tabs:start -->
 

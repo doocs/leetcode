@@ -80,7 +80,7 @@ Why? Consider the following: we first adjust the positions of a couple to their 
 
 Thus, we only need to traverse the array once, use union-find to determine how many permutation cycles there are. Suppose there are $x$ cycles, and the size of each cycle (in terms of couple pairs) is $y_1, y_2, \cdots, y_x$. The number of swaps required is $y_1-1 + y_2-1 + \cdots + y_x-1 = y_1 + y_2 + \cdots + y_x - x = n - x$.
 
-The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$, where $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
 
 <!-- tabs:start -->
 

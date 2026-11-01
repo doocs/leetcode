@@ -131,7 +131,7 @@ The specific steps are as follows:
     1. Move the left pointer one step to the right and the right pointer one step to the left.
 1. Finally, calculate the calories burned from the previous block to the middle block and add it to $\text{ans}$.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

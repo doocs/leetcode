@@ -83,7 +83,7 @@ tags:
 
 我们直接将 $\textit{score}$ 按照第 $k$ 列的分数从大到小排序，然后返回即可。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(\log m)$。其中 $m$ 为 $\textit{score}$ 的行数。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(\log m)$。其中 $m$ 为 $\textit{score}$ 的行数。
 
 <!-- tabs:start -->
 

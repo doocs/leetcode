@@ -128,7 +128,7 @@ class Solution {
 >
 > A full sort wastes work when $k\ll n$.
 >
-> A max-heap of size $k$ keeps the current $k$ smallest while scanning the rest, in $O(n\log k)$.
+> A max-heap of size $k$ keeps the current $k$ smallest while scanning the rest, in $O(n \log k)$.
 
 <!-- thinking:end -->
 

@@ -87,7 +87,7 @@ tags:
 
 我们可以从小到大枚举 $j$，找出前面有多少个数满足 $nums[i] \leq nums[j] + diff$，这样就可以求出数对数目。我们可以使用树状数组来维护前缀和，这样就可以在 $O(\log n)$ 的时间内求出前面有多少个数满足 $nums[i] \leq nums[j] + diff$。
 
-时间复杂度 $O(n \times \log n)$。
+时间复杂度 $O(n \log n)$。
 
 <!-- tabs:start -->
 

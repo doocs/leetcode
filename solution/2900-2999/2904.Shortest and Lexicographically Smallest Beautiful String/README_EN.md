@@ -99,7 +99,7 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 
 We can enumerate all substrings $s[i: j]$, where $i \lt j$, and check if they are beautiful substrings. If so, we update the answer.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -291,7 +291,7 @@ We first move pointer $j$ to the right, add $s[j]$ to the sliding window, and up
 
 When $cnt$ equals $k$, we have found a beautiful substring. We compare it with the current answer and update the answer if necessary.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

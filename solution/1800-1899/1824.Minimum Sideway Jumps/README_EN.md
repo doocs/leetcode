@@ -99,7 +99,7 @@ For each position $i$ from $1$ to $n$, we can enumerate the current lane $j$ of 
 
 In the code implementation, we can optimize the first dimension of space and only use an array $f$ of length $3$ for maintenance.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $obstacles$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $obstacles$.
 
 <!-- tabs:start -->
 

@@ -100,7 +100,7 @@ tags:
 
 我们分别计算行和列的翻转次数，记为 $\textit{cnt1}$ 和 $\textit{cnt2}$，最后取二者的最小值即可。
 
-时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵 $\textit{grid}$ 的行数和列数。
+时间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是矩阵 $\textit{grid}$ 的行数和列数。
 
 <!-- tabs:start -->
 

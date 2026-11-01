@@ -101,7 +101,7 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 
 > **Thinking**
 >
-> The tracker must insert attractions while answering queries in strictly increasing rank order. Sorting the whole list on every query costs about $O(n\log n)$ each time and is too heavy under a long operation sequence.
+> The tracker must insert attractions while answering queries in strictly increasing rank order. Sorting the whole list on every query costs about $O(n \log n)$ each time and is too heavy under a long operation sequence.
 >
 > Query indices only increase, and the comparison key is $(-\textit{score},\textit{name})$, so a single ordered sequence with direct index access suffices.
 >

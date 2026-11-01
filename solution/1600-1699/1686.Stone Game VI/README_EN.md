@@ -104,7 +104,7 @@ The optimal strategy for picking stones is to maximize one's own score while mak
 
 Next, we let Alice and Bob pick stones alternately according to the order of $vals$. Alice picks the stones at even positions in $vals$, and Bob picks the stones at odd positions in $vals$. Finally, we compare the scores of Alice and Bob and return the corresponding result.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays `aliceValues` and `bobValues`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays `aliceValues` and `bobValues`.
 
 <!-- tabs:start -->
 

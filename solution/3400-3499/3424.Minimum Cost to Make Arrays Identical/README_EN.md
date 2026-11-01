@@ -94,7 +94,7 @@ tags:
 
 If splitting the array is not allowed, we can directly calculate the sum of absolute differences between the two arrays as the total cost $c_1$. If splitting is allowed, we can divide the array $\textit{arr}$ into $n$ subarrays of length 1, then rearrange them in any order, and compare with array $\textit{brr}$, calculating the sum of absolute differences as the total cost $c_2$. To minimize $c_2$, we can sort both arrays and then calculate the sum of absolute differences. The final result is $\min(c_1, c_2 + k)$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

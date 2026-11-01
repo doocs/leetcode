@@ -82,7 +82,7 @@ First, we sort the array and then enumerate the first element $\textit{nums}[i]$
 
 After enumerating all $i$, we get the number of triplets that meet the condition.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

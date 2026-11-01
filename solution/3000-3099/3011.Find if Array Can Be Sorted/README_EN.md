@@ -87,7 +87,7 @@ Note that there may be other sequences of operations which also sort the array.
 
 We can use two pointers to divide the array $\textit{nums}$ into several subarrays, each subarray containing elements with the same number of $1$s in their binary representation. For each subarray, we only need to focus on its maximum and minimum values. If the minimum value is less than the maximum value of the previous subarray, then it is impossible to make the array ordered by swapping.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

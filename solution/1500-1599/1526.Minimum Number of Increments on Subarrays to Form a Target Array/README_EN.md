@@ -93,7 +93,7 @@ The final answer is $f[n-1]$.
 
 We notice that $f[i]$ only depends on $f[i-1]$, so we can maintain the operation count using just one variable.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $target$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $target$.
 
 Similar problems:
 

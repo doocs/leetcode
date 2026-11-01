@@ -86,7 +86,7 @@ For letter logs, we need to sort them according to the problem requirements, i.e
 
 For digit logs, we only need to maintain their original relative order.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of logs.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of logs.
 
 <!-- tabs:start -->
 

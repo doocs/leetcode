@@ -96,7 +96,7 @@ Next, we can enumerate each position $i$ and $j$ in the string from large to sma
 
 If every position in the string meets the above conditions, then we can construct the corresponding string and return it.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

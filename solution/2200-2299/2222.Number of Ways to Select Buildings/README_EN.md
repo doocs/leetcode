@@ -89,7 +89,7 @@ According to the problem description, we need to choose $3$ buildings, and two a
 
 We can enumerate the middle building, assuming it is $x$, then the types of buildings on the left and right sides can only be $x \oplus 1$, where $\oplus$ denotes the XOR operation. Therefore, we can use two arrays $l$ and $r$ to record the number of building types on the left and right sides, respectively. Then, we enumerate the middle building and calculate the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

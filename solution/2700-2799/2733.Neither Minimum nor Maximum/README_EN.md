@@ -76,7 +76,7 @@ tags:
 
 First, we find the minimum and maximum values in the array, denoted as $mi$ and $mx$ respectively. Then, we traverse the array and find the first number that is not equal to $mi$ and not equal to $mx$, and return it.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -134,7 +134,7 @@ For the horizontal case, we design a function $\textit{calc}(\textit{mat})$:
 
 Finally, return $\max(\textit{calc}(\textit{mat}), \textit{calc}(\textit{mat}^\top))$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

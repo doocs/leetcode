@@ -110,7 +110,7 @@ Next, we traverse the $rains$ array. For each rainy day $i$, if $rainy[rains[i]]
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $rains$ array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $rains$ array.
 
 <!-- tabs:start -->
 

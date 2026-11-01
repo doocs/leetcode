@@ -113,7 +113,7 @@ We can use binary enumeration to first enumerate the sums of all subarrays in th
 
 Note that we cannot select all elements from both the left and right parts simultaneously, as this would leave subarray $B$ empty, which does not meet the problem requirements. In implementation, we only need to consider $n-1$ elements of the array.
 
-The time complexity is $O(n \times 2^{\frac{n}{2}})$, and the space complexity is $O(2^{\frac{n}{2}})$.
+The time complexity is $O(n 2^{\frac{n}{2}})$, and the space complexity is $O(2^{\frac{n}{2}})$.
 
 <!-- tabs:start -->
 

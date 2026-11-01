@@ -177,7 +177,7 @@ Observe that every entry of the prefix GCD sequence divides the previous one, so
 
 Therefore only the indices where the prefix GCD changes or the suffix GCD changes are worth enumerating, and there are at most $O(\log M)$ of them. We call $\textit{mark}$ once forward and once backward to collect the candidate indices, then compute the score with $\textit{calc}$ after removing each candidate, and take the maximum together with the score of the untouched array.
 
-The time complexity is $O(n \times \log^2 M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n \log^2 M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

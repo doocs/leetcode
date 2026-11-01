@@ -82,7 +82,7 @@ We traverse each element in the array and count how many times $\textit{digit}$ 
 
 Finally, return the answer.
 
-The time complexity is $O(n \times \log_{10} M)$, and the space complexity is $O(1)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
+The time complexity is $O(n \log_{10} M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

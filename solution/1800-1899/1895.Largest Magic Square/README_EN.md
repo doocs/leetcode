@@ -75,7 +75,7 @@ We define $\text{rowsum}[i][j]$ as the sum of elements in the $i$-th row up to t
 
 We enumerate all possible submatrices and check if they are magic squares. For each submatrix, we calculate the sum of each row, each column, and both diagonals to determine if they are all equal.
 
-The time complexity is $O(m \times n \times \min(m, n)^2)$, and the space complexity is $O(m \times n)$.
+The time complexity is $O(mn \min(m, n)^2)$, and the space complexity is $O(mn)$.
 
 <!-- tabs:start -->
 

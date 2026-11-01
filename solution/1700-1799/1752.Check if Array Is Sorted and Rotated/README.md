@@ -84,7 +84,7 @@ tags:
 
 注意，数组 $\textit{nums}$ 最后一个元素的下一个元素是数组 $\textit{nums}$ 的第一个元素。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

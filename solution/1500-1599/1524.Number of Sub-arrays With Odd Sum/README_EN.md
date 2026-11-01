@@ -86,7 +86,7 @@ Traverse the array $\textit{arr}$, for each element $x$ encountered, add the val
 
 After the traversal, we get the answer. Note the modulo operation for the answer.
 
-Time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

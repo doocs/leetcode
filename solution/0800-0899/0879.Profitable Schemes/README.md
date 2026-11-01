@@ -90,7 +90,7 @@ tags:
 
 为了避免重复计算，我们可以使用记忆化搜索的方法，用一个三维数组 $f$ 记录所有的 $dfs(i, j, k)$ 的结果。当我们计算出 $dfs(i, j, k)$ 的值后，我们将其存入 $f[i][j][k]$ 中。调用 $dfs(i, j, k)$ 时，如果 $f[i][j][k]$ 已经被计算过，我们直接返回 $f[i][j][k]$ 即可。
 
-时间复杂度 $O(m \times n \times minProfit)$，空间复杂度 $O(m \times n \times minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
+时间复杂度 $O(mn minProfit)$，空间复杂度 $O(mn minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
 
 <!-- tabs:start -->
 
@@ -244,7 +244,7 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 最终的答案即为 $f[m][n][minProfit]$。
 
-时间复杂度 $O(m \times n \times minProfit)$，空间复杂度 $O(m \times n \times minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
+时间复杂度 $O(mn minProfit)$，空间复杂度 $O(mn minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
 
 <!-- tabs:start -->
 

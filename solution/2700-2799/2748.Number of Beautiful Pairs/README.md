@@ -87,7 +87,7 @@ i = 0 和 j = 2 ：nums[0] 的第一个数字是 1 ，nums[2] 的最后一个数
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(n \times (k + \log M))$，空间复杂度 $O(k + \log M)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 和 $M$ 分别表示数组 $\textit{nums}$ 中的数字的种类以及最大值。
+时间复杂度 $O(n(k + \log M))$，空间复杂度 $O(k + \log M)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 和 $M$ 分别表示数组 $\textit{nums}$ 中的数字的种类以及最大值。
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ We can also change the implementation logic of the function $dfs(i, s)$ to anoth
 
 In the main function, we just need to call the function $dfs(0, target)$ to get the answer.
 
-The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 Similar problems:
 
@@ -364,7 +364,7 @@ public class Solution {
 
 We can also change the implementation logic of the function $dfs(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $dfs(i + 1, s - candidates[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $dfs(j, s)$, where $j$ is the index of the first number that is different from the current number.
 
-The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 <!-- tabs:start -->
 

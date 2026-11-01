@@ -88,7 +88,7 @@ tags:
 
 因此，我们将所有数字以 $(i, j, \textit{nums}[i][j])$ 的形式存进 $\textit{arr}$，然后按照前两项排序。最后返回 $\textit{arr}$ 所有元素下标为 $2$ 的值组成的数组即可。
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 $\textit{nums}$ 中元素的个数。空间复杂度 $O(n)$。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 中元素的个数。
 
 <!-- tabs:start -->
 

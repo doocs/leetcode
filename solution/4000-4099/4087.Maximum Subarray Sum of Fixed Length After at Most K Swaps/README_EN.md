@@ -100,7 +100,7 @@ Fix the window starting at index $i$. Write the inside values in non-decreasing 
 
 Because $b_j-a_j$ is non-increasing, the positive terms form a prefix. The number of swaps actually used is the smaller of that prefix length and $\min(k,\textit{length},n-\textit{length})$. Adding the corresponding gains to the original window sum gives the best sum for that starting index, and the answer is the maximum over all starting indices.
 
-The time complexity is $O(n^2 \log n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

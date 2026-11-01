@@ -69,7 +69,7 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 
 > **Thinking**
 >
-> Return the $k$ most frequent words, breaking ties lexicographically. A heap is $O(n\log k)$, but a full sort is fine here.
+> Return the $k$ most frequent words, breaking ties lexicographically. A heap is $O(n \log k)$, but a full sort is fine here.
 >
 > Count, sort keys by $(-count, word)$, and take the first $k$.
 
@@ -79,7 +79,7 @@ We can use a hash table $\textit{cnt}$ to record the frequency of each word. The
 
 Finally, we take the first $k$ keys.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of words.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of words.
 
 <!-- tabs:start -->
 

@@ -328,7 +328,7 @@ function minCostConnectPoints(points: number[][]): number {
 
 我们先将所有边按照长度由小到大进行排序，循环遍历每条边，逐个加入到图中，当所有点达到一个连通状态时，退出循环，返回此时的总费用即可。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为边的数量，本题中 $m = n^2$。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(m)$。其中 $m$ 为边的数量，本题中 $m = n^2$。
 
 <!-- tabs:start -->
 

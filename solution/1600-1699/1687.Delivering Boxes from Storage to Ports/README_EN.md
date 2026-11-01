@@ -128,7 +128,7 @@ Where $\sum_{k = j + 1}^i \textit{cost}(k)$ represents the number of trips requi
 
 For example, suppose we take out boxes $1, 2, 3$ and need to deliver them to docks $4, 4, 5$. We first go from the warehouse to dock $4$, then from dock $4$ to dock $5$, and finally from dock $5$ back to the warehouse. It can be seen that it takes $2$ trips to go from the warehouse to the dock and from the dock back to the warehouse. The number of trips from dock to dock depends on whether the two adjacent docks are the same. If they are not the same, the number of trips will increase by $1$, otherwise it remains the same. Therefore, we can calculate the number of trips between docks using prefix sums, and add two trips for the start and end, to calculate the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the number of boxes. This approach exceeds the time limit under the given constraints.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of boxes. This approach exceeds the time limit under the given constraints.
 
 <!-- tabs:start -->
 
@@ -269,7 +269,7 @@ $$
 
 In fact, we are looking for a $j$ in the window $[i-maxBoxes,..i-1]$ that minimizes the value of $f[j] - cs[j]$. To find the minimum value in a sliding window, a common method is to use a monotonic queue, which can get the minimum value that meets the condition in $O(1)$ time.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes in the problem.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of boxes in the problem.
 
 <!-- tabs:start -->
 

@@ -88,7 +88,7 @@ In our implementation, we can use an array $vis$ of length $2010$ to record whet
 
 Finally, we return $ans$.
 
-The time complexity is $O(n \times \log n + n \times m)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the lengths of $tasks$ and $vis$ array, respectively. In this problem, $m = 2010$.
+The time complexity is $O(n \log n + nm)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $tasks$ and $vis$ array, respectively. In this problem, $m = 2010$.
 
 <!-- tabs:start -->
 

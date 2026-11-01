@@ -80,7 +80,7 @@ We traverse each row in the matrix. For each element in each row, we calculate i
 
 After traversing all rows, each element in the array $ans$ is the width of the corresponding column.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(\log M)$. Where $m$ and $n$ are the number of rows and columns in the matrix respectively, and $M$ is the absolute value of the maximum element in the matrix.
+The time complexity is $O(mn)$, and the space complexity is $O(\log M)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively, and $M$ is the absolute value of the maximum element in the matrix.
 
 <!-- tabs:start -->
 

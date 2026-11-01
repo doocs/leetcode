@@ -102,7 +102,7 @@ tags:
 
 我们维护一个变量 $\textit{s}$ 表示 $\textit{l}$ 中元素的和。初始时，我们将前 $k$ 个元素加入到窗口中，并且更新有序集合 $\textit{l}$ 和 $\textit{r}$，并且计算 $\textit{s}$ 的值。如果 $\textit{l}$ 的大小小于 $x$，并且 $\textit{r}$ 不为空，我们就循环将 $\textit{r}$ 中的最大元素移动到 $\textit{l}$ 中，直到 $\textit{l}$ 的大小等于 $x$，过程中更新 $\textit{s}$ 的值。如果 $\textit{l}$ 的大小大于 $x$，我们就循环将 $\textit{l}$ 中的最小元素移动到 $\textit{r}$ 中，直到 $\textit{l}$ 的大小等于 $x$，过程中更新 $\textit{s}$ 的值。此时，我们就可以计算出当前窗口的 $\textit{x-sum}$，添加到答案数组中。然后我们将窗口的左边界元素移出，更新 $\textit{cnt}$，并且更新有序集合 $\textit{l}$ 和 $\textit{r}$，以及 $\textit{s}$ 的值。继续遍历数组，直到遍历结束。
 
-时间复杂度 $O(n \times \log k)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log k)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 相似题目：
 

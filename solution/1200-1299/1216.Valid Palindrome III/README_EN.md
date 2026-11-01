@@ -77,7 +77,7 @@ If $s[i] \neq s[j]$, then we have $f[i][j] = \max(f[i+1][j], f[i][j-1])$, since 
 
 Finally, we check whether there exists $f[i][j] + k \geq n$, where $n$ is the length of the string $s$. If so, it means that we can remove at most $k$ characters to make the remaining string a palindrome.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

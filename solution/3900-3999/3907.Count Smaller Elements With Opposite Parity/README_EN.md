@@ -93,13 +93,13 @@ difficulty: Medium
 >
 > Walking right-to-left makes the right side the unseen set. Two sorted lists store evens and odds; $\textit{bisect\_left}$ on the opposite list answers the query, then the current value is inserted into its own list.
 >
-> Each query and insert is logarithmic, so the total is $O(n\log n)$.
+> Each query and insert is logarithmic, so the total is $O(n \log n)$.
 
 <!-- thinking:end -->
 
 We can use two ordered lists (or Binary Indexed Trees) to separately maintain even and odd elements. For each element, we query the number of smaller elements in the other list, and then add the current element to its corresponding list.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

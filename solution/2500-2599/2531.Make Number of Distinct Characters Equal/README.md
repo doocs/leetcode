@@ -87,7 +87,7 @@ tags:
 
 如果我们枚举完所有的字符都没有找到合适的方案，那么我们就返回 $\text{false}$。
 
-时间复杂度 $O(m + n + |\Sigma|^2)$，其中 $m$ 和 $n$ 分别是字符串 $\textit{word1}$ 和 $\textit{word2}$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为小写字母，所以 $|\Sigma| = 26$。
+时间复杂度 $O(m + n + |\Sigma|^2)$。其中 $m$ 和 $n$ 分别是字符串 $\textit{word1}$ 和 $\textit{word2}$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为小写字母，所以 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 

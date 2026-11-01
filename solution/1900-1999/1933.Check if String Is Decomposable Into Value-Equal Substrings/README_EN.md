@@ -85,7 +85,7 @@ We traverse the string $s$, using two pointers $i$ and $j$ to count the length o
 
 After the traversal, check whether a substring of length $2$ has appeared. If not, return `false`, otherwise return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

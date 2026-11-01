@@ -112,7 +112,7 @@ We can use Depth-First Search (DFS) to traverse the tree and compute the entire 
 
 Then, we use string hashing to compute the hash values of both $\textit{dfsStr}$ and the reverse of $\textit{dfsStr}$ to check if it is a palindrome.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -386,7 +386,7 @@ An explicit stack walks the tree in postorder. When a node is left, its characte
 
 Then, we use string hashing to compute the hash values of both $\textit{dfsStr}$ and the reverse of $\textit{dfsStr}$ to check whether each interval is a palindrome.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

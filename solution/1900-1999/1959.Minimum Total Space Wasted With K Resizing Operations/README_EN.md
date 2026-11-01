@@ -99,7 +99,7 @@ $$ \textit{f}[i][j] = \min(\textit{f}[i][j], \textit{f}[h][j - 1] + \textit{g}[h
 
 The final answer is $\textit{f}[n][k]$.
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times (n + k))$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2k)$, and the space complexity is $O(n(n + k))$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -83,7 +83,7 @@ Considering that each time we call $\text{seat}()$, we need to find the seat wit
 
 Additionally, we use two hash tables $\textit{left}$ and $\textit{right}$ to maintain the left and right neighbors of each occupied seat, making it easier to merge two seat intervals when calling $\text{leave}(p)$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of seats in the exam room.
+The time complexity is $O(\log n)$, and the space complexity is $O(n)$, where $n$ is the number of seats in the exam room.
 
 <!-- tabs:start -->
 

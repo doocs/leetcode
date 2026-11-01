@@ -79,7 +79,7 @@ Traverse each character in the string $s$. For each character $c$, convert it to
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -119,7 +119,7 @@ Then we traverse the array $d$ within the range $[0, n - 1]$, accumulating the p
 
 After traversing, return $\textit{true}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{nums}$ and the number of queries, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array $\textit{nums}$ and the number of queries, respectively.
 
 <!-- tabs:start -->
 

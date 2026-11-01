@@ -70,7 +70,7 @@ Traverse the string $s$, for each character $c$, if $c$ is not in the stack, we 
 
 Finally, concatenate the elements in the stack into a string and return it as the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

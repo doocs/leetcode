@@ -82,7 +82,7 @@ We can see that the altitude of each point can be calculated through the prefix 
 
 > In fact, the $gain$ array in the problem is a difference array. The prefix sum of the difference array gives the original altitude array. Then find the maximum value of the original altitude array.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `gain`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `gain`.
 
 <!-- tabs:start -->
 

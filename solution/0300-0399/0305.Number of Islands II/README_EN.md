@@ -82,7 +82,7 @@ We use a two-dimensional array $grid$ to represent a map, where $0$ and $1$ repr
 
 Next, we traverse each position $(i, j)$ in the array $positions$. If $grid[i][j]$ is $1$, it means that this position is already land, and we directly add $cnt$ to the answer; otherwise, we change the value of $grid[i][j]$ to $1$, and increase the value of $cnt$ by $1$. Then, we traverse the four directions of up, down, left, and right of this position. If a certain direction is $1$, and this position does not belong to the same connected component as $(i, j)$, then we merge this position with $(i, j)$, and decrease the value of $cnt$ by $1$. After traversing the four directions of up, down, left, and right of this position, we add $cnt$ to the answer.
 
-The time complexity is $O(k \times \alpha(m \times n))$ or $O(k \times \log(m \times n))$, where $k$ is the length of $positions$, and $\alpha$ is the inverse function of the Ackermann function. In this problem, $\alpha(m \times n)$ can be considered as a very small constant.
+The time complexity is $O(k \alpha(mn))$ or $O(k \log(mn))$, where $k$ is the length of $positions$, and $\alpha$ is the inverse function of the Ackermann function. In this problem, $\alpha(m \times n)$ can be considered as a very small constant.
 
 <!-- tabs:start -->
 

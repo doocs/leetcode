@@ -105,7 +105,7 @@ Next, we traverse each fruit $x$. For the current fruit, we traverse all the bas
 
 After traversing, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{fruits}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{fruits}$.
 
 <!-- tabs:start -->
 

@@ -172,7 +172,7 @@ We observe that the range of numbers given in the problem is only $[1, 5000]$. T
 
 Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $\textit{p}$, denoted as $\textit{p}[i]$, as well as the first palindromic number less than $x$, denoted as $\textit{p}[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $\textit{nums}$, and $M$ is the number of preprocessed binary palindromic numbers.
+The time complexity is $O(n \log M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the number of preprocessed binary palindromic numbers.
 
 <!-- tabs:start -->
 

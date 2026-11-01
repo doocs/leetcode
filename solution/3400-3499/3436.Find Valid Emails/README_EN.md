@@ -105,7 +105,7 @@ Each row contains a user&#39;s unique ID and email address.
 
 We can use a regular expression with `REGEXP` to match valid email addresses.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the input string.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the input string.
 
 <!-- tabs:start -->
 

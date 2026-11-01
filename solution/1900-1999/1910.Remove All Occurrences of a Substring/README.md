@@ -86,7 +86,7 @@ tags:
 
 我们循环判断 $s$ 中是否存在字符串 $part$，是则进行一次替换，继续循环此操作，直至 $s$ 中不存在字符串 $part$，返回此时的 $s$ 作为答案字符串。
 
-时间复杂度 $O(n^2 + n \times m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是字符串 $s$ 和字符串 $part$ 的长度。
+时间复杂度 $O(n^2 + nm)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是字符串 $s$ 和字符串 $part$ 的长度。
 
 <!-- tabs:start -->
 
@@ -174,7 +174,7 @@ function removeOccurrences(s: string, part: string): string {
 
 这样做与方法一等价：任意时刻 $st$ 中都不含 $\textit{part}$，下一次能匹配上的 $\textit{part}$ 必然以当前字符结尾，也就是剩余字符串中最左侧的一次出现。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是 $s$ 和 $\textit{part}$ 的长度。
+时间复杂度 $O(nm)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是 $s$ 和 $\textit{part}$ 的长度。
 
 <!-- tabs:start -->
 

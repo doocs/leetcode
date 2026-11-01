@@ -71,7 +71,7 @@ Let the lengths of $low$ and $high$ be $a$ and $b$ respectively.
 
 Next, we traverse all lengths in the range $[a,..b]$. For each length $n$, we get all strobogrammatic numbers $dfs(n)$, and then check whether they are in the range $[low, high]$. If they are, we increment the answer.
 
-The time complexity is $O(2^{n+2} \times \log n)$.
+The time complexity is $O(2^{n+2} \log n)$.
 
 Similar problems:
 

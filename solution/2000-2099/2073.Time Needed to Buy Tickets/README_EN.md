@@ -97,7 +97,7 @@ According to the problem description, when the $k^{th}$ person finishes buying t
 
 Therefore, we can traverse the entire queue. For the $i^{th}$ person, if $i \leq k$, the time to buy tickets is $\min(\textit{tickets}[i], \textit{tickets}[k])$; otherwise, the time to buy tickets is $\min(\textit{tickets}[i], \textit{tickets}[k] - 1)$. We sum the buying time for all people to get the result.
 
-The time complexity is $O(n)$, where $n$ is the length of the queue. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the queue.
 
 <!-- tabs:start -->
 

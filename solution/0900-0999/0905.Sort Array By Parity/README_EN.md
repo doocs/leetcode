@@ -69,7 +69,7 @@ We use two pointers $i$ and $j$ to point to the beginning and end of the array r
 
 Finally, return the array $nums$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

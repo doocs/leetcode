@@ -108,7 +108,7 @@ $$
 f[i][j]=g[i-minLength][j-1]
 $$
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Where $n$ and $k$ are the length of the string $s$ and the number of sections to be divided, respectively.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the length of the string $s$ and the number of sections to be divided, respectively.
 
 <!-- tabs:start -->
 

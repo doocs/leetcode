@@ -85,7 +85,7 @@ Next, we traverse the array $\textit{edges}$. For each node $i$ and its outgoing
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{edges}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{edges}$.
 
 <!-- tabs:start -->
 

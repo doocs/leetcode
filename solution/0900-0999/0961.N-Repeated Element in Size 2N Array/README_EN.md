@@ -68,7 +68,7 @@ Since the array $\textit{nums}$ has a total of $2n$ elements, with $n + 1$ disti
 
 Therefore, we only need to iterate through the array $\textit{nums}$ and use a hash table $s$ to record the elements we've encountered. When we encounter an element $x$, if $x$ already exists in the hash table $s$, it means $x$ is the repeated element, and we can directly return $x$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -184,7 +184,7 @@ Therefore, we iterate through the array $\textit{nums}$ starting from index $2$.
 
 If we don't find the repeated element in the above process, then the repeated element must be $\textit{nums}[0]$, and we can directly return $\textit{nums}[0]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

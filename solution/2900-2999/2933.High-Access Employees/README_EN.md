@@ -97,7 +97,7 @@ For each employee, we sort all their access times in ascending order. Then we tr
 
 Finally, we return the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of access records.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of access records.
 
 <!-- tabs:start -->
 

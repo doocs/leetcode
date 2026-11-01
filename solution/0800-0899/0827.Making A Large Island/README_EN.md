@@ -83,7 +83,7 @@ First, we traverse the entire matrix. For each position $grid[i][j] = 1$ and $p[
 
 Then, we traverse the entire matrix again. For each position $grid[i][j] = 0$, we find the connected components of the four positions above, below, left, and right of it, add up the sizes of these connected components, and add $1$ for the current position, to get the maximum island area after changing the current position to $1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the sides of the matrix.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the sides of the matrix.
 
 <!-- tabs:start -->
 

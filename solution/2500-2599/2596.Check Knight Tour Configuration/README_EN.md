@@ -76,7 +76,7 @@ We first use an array $\textit{pos}$ to record the coordinates of each cell visi
 
 Otherwise, after the traversal, return $\textit{true}$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the chessboard.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the chessboard.
 
 <!-- tabs:start -->
 

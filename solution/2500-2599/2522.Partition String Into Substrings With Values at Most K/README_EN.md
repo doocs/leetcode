@@ -102,7 +102,7 @@ Finally, if $dfs(0) = \infty$, it means there is no good partition, return $-1$.
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

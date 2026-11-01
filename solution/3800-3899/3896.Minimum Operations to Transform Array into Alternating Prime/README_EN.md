@@ -130,7 +130,7 @@ Then we traverse each element in the array:
 
 Finally, return the answer.
 
-The time complexity is $O(n \times \log P)$, and the space complexity is $O(P)$. Here, $n$ and $P$ are the length of the array and the length of the preprocessed prime list, respectively.
+The time complexity is $O(n \log P)$, and the space complexity is $O(P)$, where $n$ and $P$ are the length of the array and the length of the preprocessed prime list, respectively.
 
 <!-- tabs:start -->
 

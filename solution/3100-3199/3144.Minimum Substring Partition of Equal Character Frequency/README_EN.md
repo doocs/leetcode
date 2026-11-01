@@ -91,7 +91,7 @@ Then we enumerate $j$ from $i$ to $n-1$, representing the end position of the cu
 
 To avoid repeated calculations, we use memoized search.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -303,7 +303,7 @@ function minimumSubstringsInPartition(s: string): number {
 
 We can optimize Solution 1 by not maintaining the $\textit{freq}$ hash table. Instead, we only need to maintain a hash table $\textit{cnt}$, which represents the frequency of each character in the current substring. Additionally, we maintain two variables $k$ and $m$ to represent the number of distinct characters in the current substring and the maximum frequency of any character, respectively. For a substring $s[i..j]$, if $j-i+1 = m \times k$, then this substring is a balanced substring.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -495,7 +495,7 @@ Next, we enumerate $i$ from $0$ to $n-1$. For each $i$, we maintain a hash table
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -639,7 +639,7 @@ function minimumSubstringsInPartition(s: string): number {
 
 Let $f[i]$ be the minimum number of substrings starting at index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, keep a hash table $\textit{cnt}$ of character frequencies in the current piece and a hash table $\textit{freq}$ of how often each frequency occurs. Enumerate the right endpoint $j$ from $i$ to $n-1$, append $s[j]$, and update both tables. If $\textit{freq}$ has size $1$, then $s[i..j]$ is balanced and $f[i]$ is updated with $1+f[j+1]$. Every character can stand alone, so $n-i$ is a valid upper bound. The answer is $f[0]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -810,7 +810,7 @@ function minimumSubstringsInPartition(s: string): number {
 
 The $\textit{freq}$ table in Solution 1 can be dropped. Keep only the character counts $\textit{cnt}$, the number of distinct letters $k$, and the maximum frequency $m$. $f[i]$ is still the fewest pieces starting at index $i$, with $f[n]=0$. Scan the start index from the right and extend $j$ to the right. If $j-i+1 = m \times k$, then $s[i..j]$ is balanced and $f[i]$ is updated with $1+f[j+1]$. The answer is $f[0]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

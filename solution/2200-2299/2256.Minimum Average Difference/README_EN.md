@@ -88,7 +88,7 @@ We directly traverse the array $nums$. For each index $i$, we maintain the sum o
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -108,7 +108,7 @@ Treat the current array as a state, and the target state is $[0, 1, \ldots, n - 
 
 For convenience of deduplication, encode each permutation as an integer in base $8$ (every element lies in $[0, 7]$).
 
-The time complexity is $O(n! \cdot m \cdot n)$, and the space complexity is $O(n! \cdot n)$. Here, $n$ is the length of the array, and $m$ is the length of $\textit{pre}$.
+The time complexity is $O(n!mn)$, and the space complexity is $O(n!n)$, where $n$ is the length of the array, and $m$ is the length of $\textit{pre}$.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ We traverse each string. For the current string $words[i]$ we are traversing, we
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string array $words$, and $L$ is the sum of the lengths of all strings in the string array.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$, where $n$ is the length of the string array $words$, and $L$ is the sum of the lengths of all strings in the string array.
 
 <!-- tabs:start -->
 

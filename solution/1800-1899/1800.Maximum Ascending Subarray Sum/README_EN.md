@@ -80,7 +80,7 @@ If the current element is the first element of the array, or the current element
 
 After the traversal, return the maximum sum of the ascending subarray $ans$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

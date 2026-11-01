@@ -112,7 +112,7 @@ tags:
 
 最后，我们返回 $\textit{f}(k) - \textit{f}(k + 1)$。
 
-时间复杂度 $O(n)$，其中 $n$ 是字符串 $\textit{word}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $\textit{word}$ 的长度。
 
 <!-- tabs:start -->
 

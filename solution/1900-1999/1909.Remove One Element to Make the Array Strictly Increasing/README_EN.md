@@ -82,7 +82,7 @@ No resulting array is strictly increasing, so return false.</pre>
 
 We can traverse the array to find the first position $i$ where $\textit{nums}[i] < \textit{nums}[i+1]$ is not satisfied. Then, we check if the array is strictly increasing after removing either $i$ or $i+1$. If it is, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

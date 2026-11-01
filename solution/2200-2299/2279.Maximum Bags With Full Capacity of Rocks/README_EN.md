@@ -83,7 +83,7 @@ Note that we did not use all of the additional rocks.
 
 First, we calculate the remaining capacity of each bag, then sort the remaining capacities. Next, we traverse the remaining capacities from smallest to largest, putting the extra stones into the bags until the extra stones are used up or the remaining capacities of the bags are exhausted. Finally, we return the number of bags at this point.
 
-Time complexity is $O(n \times \log n)$, and space complexity is $O(\log n)$. Here, $n$ is the number of bags.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of bags.
 
 <!-- tabs:start -->
 

@@ -92,7 +92,7 @@ Therefore, the minimum number of operations is $\textit{s} - \textit{n} \times \
 
 $|\textit{nums}[i]|$ reaches $10^9$ and $n$ reaches $10^5$, so both $\textit{s}$ and $n \times \textit{mi}$ may fall outside a 32-bit integer. The problem guarantees that their difference still fits, so the sum is computed with a 64-bit integer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

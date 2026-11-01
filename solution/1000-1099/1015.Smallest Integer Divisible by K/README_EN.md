@@ -81,7 +81,7 @@ We observe that the positive integer $n$ starts with an initial value of $1$, an
 
 We start from $n = 1$ and calculate $n \bmod k$ each time until $n \bmod k = 0$. At this point, $n$ is the smallest positive integer we are looking for, and its length is the number of digits in $n$. Otherwise, we update $n = (n \times 10 + 1) \bmod k$. If after looping $k$ times we still haven't found $n \bmod k = 0$, it means no such $n$ exists, and we return $-1$.
 
-The time complexity is $O(k)$ and the space complexity is $O(1)$, where $k$ is the given positive integer.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the given positive integer.
 
 <!-- tabs:start -->
 

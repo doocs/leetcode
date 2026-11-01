@@ -85,7 +85,7 @@ We use a hash table to store all the points, then enumerate three points $p_1 = 
 
 Finally, if a rectangle that satisfies the conditions is found, return the minimum area among them. Otherwise, return $0$.
 
-The time complexity is $O(n^3)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{points}$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 

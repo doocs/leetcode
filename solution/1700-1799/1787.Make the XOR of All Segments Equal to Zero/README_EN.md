@@ -99,7 +99,7 @@ When transitioning states, there are two choices: one is to modify all the numbe
 
 The final answer is $f[0]$.
 
-The time complexity is $O(2^{C}\times k + n)$. Where $n$ is the length of the array `nums`, and $C$ is the maximum number of bits in the binary representation of the elements in `nums`, in this problem $C=10$.
+The time complexity is $O(2^{C} k + n)$, where $n$ is the length of the array `nums`, and $C$ is the maximum number of bits in the binary representation of the elements in `nums`, in this problem $C=10$.
 
 <!-- tabs:start -->
 

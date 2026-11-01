@@ -78,7 +78,7 @@ Other possible ways to select elements to have trailing zeroes in the binary rep
 
 According to the problem statement, if there are two or more elements in the array whose bitwise OR operation results in trailing zeros, then there must be at least two even numbers in the array. Therefore, we can count the number of even numbers in the array. If the count of even numbers is greater than or equal to $2$, then return `true`, otherwise return `false`.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

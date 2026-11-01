@@ -116,7 +116,7 @@ Otherwise scan each outgoing edge $(v, w)$. The next run length is $\textit{nxt}
 
 If the heap empties before the destination is reached, return $-1$.
 
-The time complexity is $O(k(n + m)\log (nk))$, and the space complexity is $O(nk + m)$, where $n$ and $m$ are the number of nodes and edges.
+The time complexity is $O(k(n + m) \log (nk))$, and the space complexity is $O(nk + m)$, where $n$ and $m$ are the number of nodes and edges.
 
 <!-- tabs:start -->
 

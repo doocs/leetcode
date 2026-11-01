@@ -170,7 +170,7 @@ Notice that the number of nodes in the problem does not exceed $13$, so we can e
 
 Specifically, we can use an integer $sub$ to represent the subset $s$, where the $i$-th bit of $sub$ is $1$ if node $i$ is in the subset, and $0$ otherwise. For each subset, we first compute the sum of its node values. If the sum is odd, we skip this subset; otherwise, we use DFS to check whether the induced subgraph is connected. We can use an integer $vis$ to represent the visited nodes: initially, the $i$-th bit of $vis$ is $1$ if node $i$ is not in the subset, and $0$ if node $i$ is in the subset. We start DFS from any node in subset $s$, visit all its adjacent nodes, and mark visited nodes in $vis$ as $1$. Finally, if all bits in $vis$ are $1$, it means the induced subgraph of subset $s$ is connected, so we increment the answer by $1$.
 
-The time complexity is $O(2^n \times (n + m))$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(2^n(n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

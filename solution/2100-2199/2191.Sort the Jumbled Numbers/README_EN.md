@@ -89,7 +89,7 @@ Thus, the sorted array is [338,38,991].
 
 We traverse each element $nums[i]$ in the array $nums$, store its mapped value $y$ and index $i$ into the array $arr$, then sort the array $arr$. Finally, we extract the index $i$ from the sorted array $arr$, convert it to the element $nums[i]$ in the original array $nums$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ tags:
 
 We can use a hash table $\textit{cnt}$ to record the number of occurrences of each run length. We traverse the string $s$, and for each run, we calculate its length $m$ and increment $\textit{cnt}[m]$ by $1$. Finally, the answer is the maximum value in $\textit{cnt}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

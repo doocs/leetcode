@@ -84,7 +84,7 @@ tags:
 
 最后返回左边界即可。
 
-时间复杂度 $O(n \times \log(m \times k))$，其中 $n$ 和 $k$ 分别是数组 $time$ 的长度和 $totalTrips$，而 $m$ 是数组 $time$ 中的最小值。空间复杂度 $O(1)$。
+时间复杂度 $O(n \log(mk))$，空间复杂度 $O(1)$。其中 $n$ 和 $k$ 分别是数组 $time$ 的长度和 $totalTrips$，而 $m$ 是数组 $time$ 中的最小值。
 
 <!-- tabs:start -->
 

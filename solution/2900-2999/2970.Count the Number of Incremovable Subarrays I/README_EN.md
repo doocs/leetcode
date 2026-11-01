@@ -106,7 +106,7 @@ There are $i + 2$ situations in total, so for this situation, the number of remo
 
 Next, consider the second situation, that is, the remaining elements include the suffix of the array $nums$. We can use a pointer $j$ to point to the first element of the increasing suffix of the array $nums$. We enumerate $j$ as the first element of the increasing suffix in the range $[n - 1,...,1]$. Each time, we need to move the pointer $i$ to make $nums[i] \lt nums[j]$, then the number of removed increasing subarrays increases by $i + 2$. When $nums[j - 1] \ge nums[j]$, we stop enumerating because the suffix is not strictly increasing at this time.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -96,7 +96,7 @@ The increment cost of two letters is the shorter arc $\min(d, 26-d)$ on the lett
 
 For each $k$, the candidate answer is $k$ plus the increment cost of the corresponding $c$. We take the minimum.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

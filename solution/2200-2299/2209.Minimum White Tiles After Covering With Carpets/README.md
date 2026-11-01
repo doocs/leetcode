@@ -96,7 +96,7 @@ tags:
 
 记忆化搜索即可。
 
-时间复杂度 $O(n\times m)$，空间复杂度 $O(n\times m)$。其中 $n$ 和 $m$ 分别为字符串 $\textit{floor}$ 的长度和 $\textit{numCarpets}$ 的值。
+时间复杂度 $O(nm)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别为字符串 $\textit{floor}$ 的长度和 $\textit{numCarpets}$ 的值。
 
 <!-- tabs:start -->
 
@@ -353,7 +353,7 @@ impl Solution {
 - 若 $j = 0$，没有地毯可用， $f[i][j] = s[n] - s[i]$。
 - 否则这一块是白砖。不铺地毯会露出它，代价为 $1 + f[i + 1][j]$；铺一条长度为 $L$ 的地毯则跳到下标 $i + L$，地毯数变为 $j - 1$。当 $i + L \le n$ 时，这一支是 $f[i + L][j - 1]$，否则已经越出数组，代价为 $0$。 $f[i][j]$ 取两者的较小值。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为字符串 $\textit{floor}$ 的长度和 $\textit{numCarpets}$ 的值。
+时间复杂度 $O(nm)$，空间复杂度 $O(nm)$。其中 $n$ 和 $m$ 分别为字符串 $\textit{floor}$ 的长度和 $\textit{numCarpets}$ 的值。
 
 <!-- tabs:start -->
 

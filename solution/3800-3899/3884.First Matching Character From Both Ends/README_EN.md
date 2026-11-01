@@ -99,7 +99,7 @@ tags:
 
 We iterate over the first half of the string $s$. For each index $i$, we check whether the characters at position $i$ and position $n - i - 1$ are equal. If they are, we return index $i$. If no such index is found after the iteration, we return -1.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

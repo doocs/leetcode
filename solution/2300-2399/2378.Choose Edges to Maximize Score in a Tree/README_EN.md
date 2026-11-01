@@ -97,7 +97,7 @@ We can observe the following for the current node $i$:
 
 We call the function $dfs(0)$, and the second value returned is the answer, which is the sum of the weights of selected edges when the edge between the root node and its parent node is not selected.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -240,7 +240,7 @@ For the current node $i$:
 
 The root has no parent edge, so the answer is the root's $b$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

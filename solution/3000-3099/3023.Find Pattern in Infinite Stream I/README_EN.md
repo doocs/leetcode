@@ -89,7 +89,7 @@ We notice that the length of the array $pattern$ does not exceed $100$, therefor
 
 Next, we traverse the data stream, also maintaining two $64$-bit integers $x$ and $y$ to represent the binary numbers of the current window of the length of $pattern$. If the current length reaches the window length, we compare whether $a$ and $x$ are equal, and whether $b$ and $y$ are equal. If they are, we return the index of the current data stream.
 
-The time complexity is $O(n + m)$, where $n$ and $m$ are the number of elements in the data stream and $pattern$ respectively. The space complexity is $O(1)$.
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$ and $m$ are the number of elements in the data stream and $pattern$ respectively.
 
 <!-- tabs:start -->
 

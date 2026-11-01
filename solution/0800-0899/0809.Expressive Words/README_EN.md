@@ -89,7 +89,7 @@ If the characters pointed to by $i$ and $j$ are different, then $t$ cannot be ex
 
 If both $i$ and $j$ reach the end of the strings, then $t$ can be expanded to obtain $s$, and we return $\textit{true}$. Otherwise, we return $\textit{false}$.
 
-The time complexity is $O(n \times m + \sum_{i=0}^{m-1} w_i)$, where $n$ and $m$ are the lengths of the string $s$ and the array $\textit{words}$, respectively, and $w_i$ is the length of the $i$-th word in the array $\textit{words}$.
+The time complexity is $O(nm + \sum_{i=0}^{m-1} w_i)$, where $n$ and $m$ are the lengths of the string $s$ and the array $\textit{words}$, respectively, and $w_i$ is the length of the $i$-th word in the array $\textit{words}$.
 
 <!-- tabs:start -->
 

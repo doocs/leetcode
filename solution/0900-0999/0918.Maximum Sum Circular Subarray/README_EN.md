@@ -98,7 +98,7 @@ Next, we only need to traverse the array $nums$. For the current element $x$ we 
 
 After the traversal, we return the maximum value of $ans$ and $s - smi$ as the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

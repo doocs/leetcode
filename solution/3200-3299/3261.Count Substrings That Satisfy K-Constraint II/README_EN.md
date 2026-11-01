@@ -96,7 +96,7 @@ When we move the window to the right, if the number of $0$s and $1$s in the wind
 
 Finally, for each query $[l, r]$, we first find the first position $p$ to the right of $l$ that does not satisfy the $k$ constraint, which is $p = \min(r + 1, d[l])$. All substrings in the range $[l, p - 1]$ satisfy the $k$ constraint, and the number of such substrings is $(1 + p - l) \times (p - l) / 2$. Then, we calculate the number of substrings that satisfy the $k$ constraint with the right boundary in the range $[p, r]$, which is $\textit{pre}[r + 1] - \textit{pre}[p]$. Finally, we add the two results together.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the string $s$ and the query array $\textit{queries}$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the string $s$ and the query array $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

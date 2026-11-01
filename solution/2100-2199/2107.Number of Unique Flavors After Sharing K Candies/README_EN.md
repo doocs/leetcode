@@ -93,7 +93,7 @@ Next, we traverse the candies in the range $[k,..n-1]$, add the current candy $c
 
 After traversing all the candies, we can get the maximum number of unique flavors of candies that can be retained.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of candies.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of candies.
 
 <!-- tabs:start -->
 

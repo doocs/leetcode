@@ -109,7 +109,7 @@ tags:
 
 问题可以转换为求解 $C_{n}^{k}$，我们可以通过公式 $C_{n}^{k} = C_{n-1}^{k-1} + C_{n-1}^{k}$ 递推求解。
 
-时间复杂度 $O((h + v) \times h)$，空间复杂度 $O((h + v) \times h)$。其中 $h$ 和 $v$ 分别为 $destination[1]$ 和 $destination[0]$。
+时间复杂度 $O((h + v)h)$，空间复杂度 $O((h + v)h)$。其中 $h$ 和 $v$ 分别为 $destination[1]$ 和 $destination[0]$。
 
 <!-- tabs:start -->
 

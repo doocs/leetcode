@@ -94,7 +94,7 @@ We design a function $\textit{f}(c)$, which represents the longest length of con
 
 We iterate through the string $\textit{answerKey}$, using a variable $\textit{cnt}$ to record the number of characters $c$ within the current window. When $\textit{cnt} > k$, we move the left pointer of the window one position to the right. After the iteration ends, the length of the window is the maximum length of consecutive characters.
 
-Time complexity is $O(n)$, where $n$ is the length of the string. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 Similar problems:
 

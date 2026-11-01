@@ -84,7 +84,7 @@ tags:
 
 We can use the simulation method. For the $i^{th}$ character of the string, we replace it with the character at position $(i + k) \bmod n$ of the string.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

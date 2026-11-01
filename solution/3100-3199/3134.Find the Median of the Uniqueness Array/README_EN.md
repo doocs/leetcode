@@ -105,7 +105,7 @@ Since the longer the subarray, the more different elements it contains, we can u
 
 We enumerate $r$. For each $r$, we add $\textit{nums}[r]$ to the window and update $\textit{cnt}[\textit{nums}[r]]$. If the number of different elements in the window exceeds $mx$, we need to move $l$ to the right until the number of different elements in the window does not exceed $mx$. At this point, the subarrays with the right endpoint $r$ and left endpoints in the range $[l, .., r]$ all meet the condition, and there are $r - l + 1$ such subarrays. We accumulate this count into $k$. If $k$ is greater than or equal to $\frac{m + 1}{2}$, it means that the number of elements in the uniqueness array less than or equal to $\textit{mid}$ is greater than or equal to $\frac{m + 1}{2}$, and we return $\text{true}$; otherwise, we return $\text{false}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

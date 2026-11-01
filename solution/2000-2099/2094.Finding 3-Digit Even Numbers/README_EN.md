@@ -94,7 +94,7 @@ Then, we enumerate all even numbers in the range $[100, 1000)$, checking if each
 
 Finally, we return the answer array.
 
-The time complexity is $O(k \times 10^k)$, where $k$ is the number of digits of the target even number, which is $3$ in this problem. Ignoring the space consumed by the answer, the space complexity is $O(1)$.
+The time complexity is $O(k 10^k)$, and the space complexity is $O(1)$, where $k$ is the number of digits of the target even number, which is $3$ in this problem.
 
 <!-- tabs:start -->
 

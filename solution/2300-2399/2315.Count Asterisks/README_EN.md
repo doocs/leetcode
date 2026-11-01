@@ -82,7 +82,7 @@ Traverse the string $s$. If we encounter `*`, we decide whether to count based o
 
 Finally, return the count result.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

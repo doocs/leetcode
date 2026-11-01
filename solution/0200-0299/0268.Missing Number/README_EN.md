@@ -113,7 +113,7 @@ The XOR operation has the following properties:
 
 Therefore, we can traverse the array, perform XOR operation between each element and the numbers $[0,..n]$, and the final result will be the missing number.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -251,7 +251,7 @@ class Solution {
 
 We can also solve this problem using mathematics. By calculating the sum of $[0,..n]$, subtracting the sum of all numbers in the array, we can obtain the missing number.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

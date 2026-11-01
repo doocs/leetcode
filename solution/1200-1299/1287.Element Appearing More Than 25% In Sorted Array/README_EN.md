@@ -60,7 +60,7 @@ tags:
 
 We traverse the array $\textit{arr}$ from the beginning. For each element $\textit{arr}[i]$, we check if $\textit{arr}[i]$ is equal to $\textit{arr}[i + \left\lfloor \frac{n}{4} \right\rfloor]$, where $n$ is the length of the array. If they are equal, then $\textit{arr}[i]$ is the element we are looking for, and we return it directly.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

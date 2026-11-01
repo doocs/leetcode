@@ -89,7 +89,7 @@ Then we traverse the array from left to right. When we encounter a ghost, i.e., 
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{team}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{team}$.
 
 <!-- tabs:start -->
 

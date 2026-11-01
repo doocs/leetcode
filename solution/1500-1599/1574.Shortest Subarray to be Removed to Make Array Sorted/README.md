@@ -95,7 +95,7 @@ tags:
 
 接下来，我们枚举左侧前缀的最右端点 $l$，对于每个 $l$，我们可以通过二分查找，在 $\textit{nums}[j..n-1]$ 中找到第一个大于等于 $\textit{nums}[l]$ 的位置，记为 $r$，此时我们可以删除 $\textit{nums}[l+1..r-1]$，并且更新答案 $\textit{ans} = \min(\textit{ans}, r - l - 1)$。继续枚举 $l$，最终得到答案。
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -233,7 +233,7 @@ func findLengthOfShortestSubarray(arr []int) int {
 
 接下来，我们枚举左侧前缀的最右端点 $l$，对于每个 $l$，我们直接利用双指针找到第一个大于等于 $\textit{nums}[l]$ 的位置，记为 $r$，此时我们可以删除 $\textit{nums}[l+1..r-1]$，并且更新答案 $\textit{ans} = \min(\textit{ans}, r - l - 1)$。继续枚举 $l$，最终得到答案。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 

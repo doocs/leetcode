@@ -99,7 +99,7 @@ Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$.
 
 In this process, we can use memoization search to save the answer of each state to avoid repeated calculations.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+The time complexity is $O(n \log n)$, where $n$ is the number of jobs.
 
 <!-- tabs:start -->
 
@@ -289,7 +289,7 @@ $$
 
 Where $j$ is the largest index that satisfies $endTime[j] \leq startTime[i]$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+The time complexity is $O(n \log n)$, where $n$ is the number of jobs.
 
 Similar problems:
 
@@ -499,7 +499,7 @@ $$
 
 Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$. Because $j > i$, $f[j]$ is already filled.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+The time complexity is $O(n \log n)$, where $n$ is the number of jobs.
 
 <!-- tabs:start -->
 

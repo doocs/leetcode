@@ -92,7 +92,7 @@ Traverse the string $s$: for each position $i$, push the corresponding number $\
 
 After the traversal, the accumulated sum is the maximum score.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

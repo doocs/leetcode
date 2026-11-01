@@ -104,7 +104,7 @@ We use two variables $a$ and $b$ to represent the amount of water Alice and Bob 
 
 When $i < j$, we judge whether Alice and Bob have enough water to water the plants. If not, we refill the watering cans. Then we update the amount of water $a$ and $b$, and move the pointers $i$ and $j$. Finally, we need to judge whether $i$ and $j$ are equal. If they are equal, we need to judge whether $\max(a, b)$ is less than the amount of water the plant needs. If it is less, we need to refill the watering cans again.
 
-The time complexity is $O(n)$, where $n$ is the length of the plant array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the plant array.
 
 <!-- tabs:start -->
 

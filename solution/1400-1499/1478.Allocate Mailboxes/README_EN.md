@@ -86,7 +86,7 @@ $$
 g[i][j] = g[i + 1][j - 1] + \textit{houses}[j] - \textit{houses}[i]
 $$
 
-The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n^2)$, where $n$ is the number of houses.
+The time complexity is $O(n^2k)$, and the space complexity is $O(n^2)$, where $n$ is the number of houses.
 
 <!-- tabs:start -->
 

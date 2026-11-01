@@ -88,7 +88,7 @@ tags:
 
 最后，我们返回 $ans$ 即可。
 
-时间复杂度 $O(n \times \log n + n \times m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $tasks$ 的长度和 $vis$ 数组的长度。本题中 $m = 2010$。
+时间复杂度 $O(n \log n + nm)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $tasks$ 的长度和 $vis$ 数组的长度。本题中 $m = 2010$。
 
 <!-- tabs:start -->
 

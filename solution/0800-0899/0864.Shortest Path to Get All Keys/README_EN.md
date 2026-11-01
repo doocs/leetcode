@@ -119,7 +119,7 @@ Here, $(x, y)$ must first be within the grid range, i.e., $0 \leq x < m$ and $0 
 
 If the search ends and we have not collected all keys, return $-1$.
 
-The time complexity is $O(m \times n \times 2^k)$, and the space complexity is $O(m \times n \times 2^k)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively, and $k$ is the number of keys.
+The time complexity is $O(mn 2^k)$, and the space complexity is $O(mn 2^k)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively, and $k$ is the number of keys.
 
 <!-- tabs:start -->
 

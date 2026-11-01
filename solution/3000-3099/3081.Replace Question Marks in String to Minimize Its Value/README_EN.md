@@ -106,7 +106,7 @@ According to the problem, we can find that if a letter $c$ appears $v$ times, th
 
 Therefore, we can use a priority queue to maintain the occurrence times of each letter, take out the letter with the least occurrence times each time, record it in the array $t$, then increase its occurrence times by one, and put it back into the priority queue. Finally, we sort the array $t$, and then traverse the string $s$, replacing each question mark with the letters in the array $t$ in turn.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

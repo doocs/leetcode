@@ -84,7 +84,7 @@ We define the left boundary of the binary search as $l = 1$, and the right bound
 
 Finally, return the left boundary.
 
-The time complexity is $O(n \times \log(m \times k))$, where $n$ and $k$ are the length of the array $time$ and $totalTrips$ respectively, and $m$ is the minimum value in the array $time$. The space complexity is $O(1)$.
+The time complexity is $O(n \log(mk))$, and the space complexity is $O(1)$, where $n$ and $k$ are the length of the array $time$ and $totalTrips$ respectively, and $m$ is the minimum value in the array $time$.
 
 <!-- tabs:start -->
 

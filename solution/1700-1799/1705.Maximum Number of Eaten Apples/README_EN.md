@@ -83,7 +83,7 @@ We can greedily choose the apples that are closest to rotting among the unrotten
 
 Therefore, we can use a priority queue (min-heap) to store the rotting time of the apples and the corresponding number of apples. Each time, we take out the apples with the smallest rotting time from the priority queue, then decrement their quantity by one. If the quantity is not zero after decrementing, we put them back into the priority queue. If the apples have already rotted, we remove them from the priority queue.
 
-The time complexity is $O(n \times \log n + M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{days}$, and $M = \max(\textit{days})$.
+The time complexity is $O(n \log n + M)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{days}$, and $M = \max(\textit{days})$.
 
 <!-- tabs:start -->
 

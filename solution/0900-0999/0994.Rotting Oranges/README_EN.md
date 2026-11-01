@@ -85,7 +85,7 @@ Next, we perform a breadth-first search. In each round of the search, we let all
 
 Finally, if the number of fresh oranges is $0$, we return the current round number, otherwise, we return $-1$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

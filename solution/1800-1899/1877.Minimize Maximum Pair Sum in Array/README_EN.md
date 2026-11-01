@@ -86,7 +86,7 @@ To minimize the maximum pair sum in the array, we can pair the smallest number w
 
 Therefore, we can first sort the array, then use two pointers to point to the two ends of the array. Calculate the sum of the numbers pointed to by the two pointers, update the maximum pair sum, then move the left pointer one step to the right and the right pointer one step to the left. Continue this process until the two pointers meet, and we will get the minimum maximum pair sum.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

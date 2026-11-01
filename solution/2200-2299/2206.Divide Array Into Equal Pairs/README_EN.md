@@ -82,7 +82,7 @@ According to the problem description, as long as each element in the array appea
 
 Therefore, we can use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each element, then traverse $\textit{cnt}$. If any element appears an odd number of times, return $\textit{false}$; otherwise, return $\textit{true}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -122,7 +122,7 @@ where $x$ represents the current element's value.
 
 We traverse the array $\textit{nums}$ and update $f_0$ and $f_1$ according to the above state transition equations. Finally, we return $f_0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ The problem is reduced to calculating the number of swaps needed to convert the 
 
 We define a function $\text{calc}(c)$, which represents the number of swaps needed to convert the string $\textit{s}$ into an alternating string starting with character $c$. We traverse the string $\textit{s}$, and for each position $i$, if the parity of $i$ is different from $c$, we need to swap the character at this position, incrementing the counter by $1$. Since each swap makes two positions have the same character, the final number of swaps is half of the counter.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

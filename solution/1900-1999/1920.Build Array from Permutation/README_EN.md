@@ -75,7 +75,7 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 We can directly simulate the process described in the problem by constructing a new array $\textit{ans}$. For each $i$, let $\textit{ans}[i] = \textit{nums}[\textit{nums}[i]]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

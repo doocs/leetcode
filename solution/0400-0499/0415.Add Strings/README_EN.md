@@ -76,7 +76,7 @@ We use two pointers $i$ and $j$ to point to the end of the two strings respectiv
 
 Finally, reverse the answer string and return it.
 
-The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of the two strings respectively. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.
+The time complexity is $O(\max(m, n))$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the two strings respectively.
 
 The following code also implements string subtraction, refer to the `subStrings(num1, num2)` function.
 

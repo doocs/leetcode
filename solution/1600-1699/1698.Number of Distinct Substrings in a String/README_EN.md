@@ -68,7 +68,7 @@ tags:
 
 Enumerate all substrings and use a hash table to record the count of different substrings.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -156,7 +156,7 @@ Generally, we take BASE=131 or BASE=13331, at which point the probability of col
 
 Except for extremely specially constructed data, the above hash algorithm is unlikely to cause collisions. In general, the above hash algorithm can appear in the standard answer of the problem. We can also take some appropriate BASE and MOD values (such as large prime numbers), perform several groups of hash operations, and only consider the original strings equal when the results are all the same, making it even more difficult to construct data that causes this hash to produce errors.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

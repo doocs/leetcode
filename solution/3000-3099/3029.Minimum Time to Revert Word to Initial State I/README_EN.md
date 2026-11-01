@@ -98,7 +98,7 @@ If there are multiple operations, let's assume $i$ is the number of operations, 
 
 Therefore, we can enumerate the number of operations and check whether `word[k*i:]` is a prefix of `word`. If it is, then return $i$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of `word`.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of `word`.
 
 <!-- tabs:start -->
 
@@ -195,7 +195,7 @@ function minimumTimeToInitialState(word: string, k: number): number {
 
 Based on Solution 1, we can also use string hashing to determine whether two strings are equal.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of `word`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of `word`.
 
 <!-- tabs:start -->
 

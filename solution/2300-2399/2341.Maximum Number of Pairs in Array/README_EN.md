@@ -94,7 +94,7 @@ The remaining count is the length of the array $\textit{nums}$ minus the number 
 
 The answer is $[s, n - s \times 2]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the array $\textit{nums}$, and $C$ is the range of numbers in the array $\textit{nums}$, which is $101$ in this problem.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the array $\textit{nums}$, and $C$ is the range of numbers in the array $\textit{nums}$, which is $101$ in this problem.
 
 <!-- tabs:start -->
 

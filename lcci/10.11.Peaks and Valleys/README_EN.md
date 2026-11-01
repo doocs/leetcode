@@ -49,7 +49,7 @@ difficulty: Medium
 
 We first sort the array, and then traverse the array and swap the elements at even indices with their next element.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

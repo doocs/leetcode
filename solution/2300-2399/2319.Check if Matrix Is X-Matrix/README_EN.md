@@ -77,7 +77,7 @@ Thus, grid is not an X-Matrix.
 
 We can directly traverse the matrix and check if each element satisfies the conditions of an $X$ matrix. If any element does not satisfy the conditions, return $\textit{false}$ immediately. If all elements satisfy the conditions after traversal, return $\textit{true}$.
 
-The time complexity is $O(n^2)$, where $n$ is the number of rows or columns of the matrix. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the number of rows or columns of the matrix.
 
 <!-- tabs:start -->
 

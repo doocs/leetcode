@@ -80,7 +80,7 @@ First, we sort the array $nums$. Then, for each $j$, we use binary search in the
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

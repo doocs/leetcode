@@ -97,7 +97,7 @@ After the traversal, if the counter is less than or equal to $k$ and the sign of
 
 The final answer is the result of $\textit{check}(\textit{nums}[0], k)$ or $\textit{check}(-\textit{nums}[0], k)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

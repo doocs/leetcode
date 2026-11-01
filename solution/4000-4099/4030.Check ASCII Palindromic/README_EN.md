@@ -87,7 +87,7 @@ tags:
 
 Following the problem statement, we replace each character of $s$ with the $8$-bit binary representation of its ASCII value (including leading zeros), concatenate them in order to obtain a binary string $t$, and then check whether $t$ is a palindrome.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 

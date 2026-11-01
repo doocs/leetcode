@@ -86,7 +86,7 @@ The final answer is $f[n]$.
 
 We notice that the value of $f[i]$ is only related to $f[i - 1]$, so we can use a variable instead of an array to reduce the space complexity.
 
-The time complexity is $O(n)$, where $n$ is the number of orders. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of orders.
 
 <!-- tabs:start -->
 

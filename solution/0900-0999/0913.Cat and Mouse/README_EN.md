@@ -114,7 +114,7 @@ For the second update logic, we need to record the degree of each state. Initial
 
 When all states have been updated, the result of the initial state is the final result.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of nodes in the graph.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes in the graph.
 
 <!-- tabs:start -->
 

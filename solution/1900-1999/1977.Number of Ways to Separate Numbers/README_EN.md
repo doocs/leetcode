@@ -84,7 +84,7 @@ For $dp[i][j]$, the end of the previous number should be $i-j$. We can enumerate
 
 However, when $k = j$, we need to compare the sizes of the two numbers of the same length. If the previous number is larger than the current number, this situation is invalid, and we should not add it to $dp[i][j]$. Otherwise, we can add it to $dp[i][j]$. Here, we can preprocess the "longest common prefix" in $O(n^2)$ time, and then compare the sizes of two numbers of the same length in $O(1)$ time.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the string `num`.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string `num`.
 
 <!-- tabs:start -->
 

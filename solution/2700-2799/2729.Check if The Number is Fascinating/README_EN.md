@@ -74,7 +74,7 @@ tags:
 
 According to the problem description, we concatenate $n$, $2 \times n$, and $3 \times n$ into a string $s$, and then check whether $s$ contains each digit from $1$ to $9$ exactly once and does not contain any $0$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given integer.
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

@@ -118,7 +118,7 @@ We traverse the string $s$ from the beginning. For the current character $s[i]$,
 
 After the traversal, we return $s$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space complexity of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

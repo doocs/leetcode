@@ -221,7 +221,7 @@ Then, we iterate over each key-value pair $(c, v)$ in $\textit{freq}$, where $c$
 
 Finally, we return the sum of absolute differences over all distinct mirror pairs.
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the set of distinct characters in string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $\Sigma$ is the set of distinct characters in string $s$.
 
 <!-- tabs:start -->
 

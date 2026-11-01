@@ -68,7 +68,7 @@ tags:
 
 最后，我们判断 $\textit{s}$ 是否等于 $\textit{num}$ 即可。
 
-时间复杂度 $O(\sqrt{n})$，其中 $n$ 为 $\textit{num}$ 的大小。空间复杂度 $O(1)$。
+时间复杂度 $O(\sqrt{n})$，空间复杂度 $O(1)$。其中 $n$ 为 $\textit{num}$ 的大小。
 
 <!-- tabs:start -->
 

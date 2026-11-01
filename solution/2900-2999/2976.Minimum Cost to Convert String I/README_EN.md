@@ -97,7 +97,7 @@ Then, we use the Floyd algorithm to calculate the minimum cost between any two n
 
 After the traversal ends, we return the answer.
 
-The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$. Where $m$ and $n$ are the lengths of the arrays $original$ and $source$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
+The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$, where $m$ and $n$ are the lengths of the arrays $original$ and $source$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

@@ -85,7 +85,7 @@ The problem can be interpreted as determining whether it is possible to move fro
 
 Since the number of blocked points is small, the maximum area that can be blocked is no more than $|blocked|^2 / 2$. Therefore, we can perform a depth-first search (DFS) starting from both the source and the target points. The search continues until either the target point is reached or the number of visited points exceeds $|blocked|^2 / 2$. If either condition is satisfied, return $\textit{true}$. Otherwise, return $\textit{false}$.
 
-Time complexity is $O(m)$, and space complexity is $O(m)$, where $m$ is the size of the blocked region. In this problem, $m \leq |blocked|^2 / 2 = 200^2 / 2 = 20000$.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the size of the blocked region. In this problem, $m \leq |blocked|^2 / 2 = 200^2 / 2 = 20000$.
 
 <!-- tabs:start -->
 

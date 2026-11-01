@@ -105,7 +105,7 @@ Thus the resulting integer is 6.</p>
 
 We can simulate the process described in the problem.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

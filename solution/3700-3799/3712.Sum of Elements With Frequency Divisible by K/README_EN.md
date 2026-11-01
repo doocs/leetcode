@@ -105,7 +105,7 @@ We use a hash table $\textit{cnt}$ to record the frequency of each number. We tr
 
 Then, we traverse the hash table $\textit{cnt}$. For each element $x$, if its frequency $\textit{cnt}[x]$ is divisible by $k$, we add $x$ multiplied by its frequency to the result.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(m)$, where $m$ is the number of distinct elements in the array.
+The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ is the length of the array, and $m$ is the number of distinct elements in the array.
 
 <!-- tabs:start -->
 

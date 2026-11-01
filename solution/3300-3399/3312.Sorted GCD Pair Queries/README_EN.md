@@ -118,7 +118,7 @@ The above steps require us to traverse $i$ from large to small so that when calc
 
 Finally, we calculate the prefix sum of the array $\textit{cntG}$, and for each query, we can use binary search to find the index of the first element in the array $\textit{cntG}$ that is greater than $\textit{queries}[i]$, which is the answer.
 
-The time complexity is $O(n + (M + q) \times \log M)$, and the space complexity is $O(M)$. Here, $n$ and $M$ represent the length and the maximum value of the array $\textit{nums}$, respectively, and $q$ represents the number of queries.
+The time complexity is $O(n + (M + q) \log M)$, and the space complexity is $O(M)$, where $n$ and $M$ represent the length and the maximum value of the array $\textit{nums}$, respectively, and $q$ represents the number of queries.
 
 <!-- tabs:start -->
 

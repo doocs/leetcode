@@ -95,7 +95,7 @@ tags:
 
 答案为上下走的总代价与左右走的总代价之和。
 
-时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是 $rowCosts$ 和 $colCosts$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是 $rowCosts$ 和 $colCosts$ 的长度。
 
 <!-- tabs:start -->
 

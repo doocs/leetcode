@@ -92,7 +92,7 @@ Specifically, we can use a queue $\textit{q}$ to store the friends at the curren
 
 Next, we use a hash table $\textit{cnt}$ to count the videos watched by these friends and their frequencies. Finally, sort the key-value pairs in the hash table in ascending order by frequency, and if frequencies are the same, sort by video name in ascending order. Return the sorted list of video names.
 
-Time complexity is $O(n + m + v \times \log v)$, and space complexity is $O(n + v)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{watchedVideos}$ and $\textit{friends}$, respectively, and $v$ is the total number of videos watched by all friends.
+The time complexity is $O(n + m + v \log v)$, and the space complexity is $O(n + v)$, where $n$ and $m$ are the lengths of the arrays $\textit{watchedVideos}$ and $\textit{friends}$, respectively, and $v$ is the total number of videos watched by all friends.
 
 <!-- tabs:start -->
 

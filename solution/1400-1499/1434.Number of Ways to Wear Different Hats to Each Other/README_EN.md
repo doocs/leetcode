@@ -102,7 +102,7 @@ where $like[i]$ denotes the set of people who like the $i$-th hat.
 
 The final answer is $f[m][2^n - 1]$, and the answer may be very large, so we need to take it modulo $10^9 + 7$.
 
-Time complexity $O(m \times 2^n \times n)$, space complexity $O(m \times 2^n)$. Here $m$ is the maximum number of hats, which is no more than $40$ in this problem; and $n$ is the number of people, which is no more than $10$ in this problem.
+The time complexity is $O(mn 2^n)$, and the space complexity is $O(m 2^n)$, where $m$ is the maximum number of hats, which is no more than $40$ in this problem; and $n$ is the number of people, which is no more than $10$ in this problem.
 
 <!-- tabs:start -->
 

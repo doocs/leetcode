@@ -130,7 +130,7 @@ $$
 
 最终答案为 $f[n][k]$。
 
-时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
+时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
 
 <!-- tabs:start -->
 
@@ -260,7 +260,7 @@ function sumOfPower(nums: number[], k: number): number {
 
 方法一中的状态转移方程中， $f[i][j]$ 的值只与 $f[i-1][j]$ 和 $f[i-1][j-x]$ 有关，因此我们可以优化第一维空间，从而将空间复杂度优化为 $O(k)$。
 
-时间复杂度 $O(n \times k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
+时间复杂度 $O(nk)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
 
 <!-- tabs:start -->
 

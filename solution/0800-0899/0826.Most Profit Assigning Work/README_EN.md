@@ -83,7 +83,7 @@ We can sort the jobs in ascending order of ability, and then sort the jobs in as
 
 Then we traverse the workers. For each worker, we find the job with the maximum profit that he can complete, and then add this profit to the answer.
 
-The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays `profit` and `worker` respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays `profit` and `worker` respectively.
 
 <!-- tabs:start -->
 
@@ -221,7 +221,7 @@ Next, we iterate from $1$ to $m$, and for each $i$, we update $f[i] = \max(f[i],
 
 Finally, we iterate over the workers, and for each worker $w$, we add $f[w]$ to the answer.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the `profit` array, and $M$ is the maximum value in the `difficulty` array.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the `profit` array, and $M$ is the maximum value in the `difficulty` array.
 
 <!-- tabs:start -->
 

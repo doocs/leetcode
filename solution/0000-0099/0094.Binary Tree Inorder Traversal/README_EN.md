@@ -90,7 +90,7 @@ tags:
 
 We first recursively traverse the left subtree, then visit the root node, and finally recursively traverse the right subtree.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree, and the space complexity mainly depends on the stack space of the recursive call.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree, and the space complexity mainly depends on the stack space of the recursive call.
 
 <!-- tabs:start -->
 
@@ -339,7 +339,7 @@ The non-recursive approach is as follows:
 3. When the left node is null, pop and process the top element of the stack.
 4. Repeat steps 2-3.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree, and the space complexity mainly depends on the stack space.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree, and the space complexity mainly depends on the stack space.
 
 <!-- tabs:start -->
 
@@ -602,7 +602,7 @@ Traverse the binary tree nodes,
     - If the right subtree of the predecessor node `prev` is not null, **add the current node value to the result list `ans`**, then point the right subtree of the predecessor node to null (i.e., disconnect `prev` and `root`), and update the current node to `root.right`.
 3. Repeat the above steps until the binary tree node is null, and the traversal ends.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

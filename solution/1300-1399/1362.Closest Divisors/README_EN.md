@@ -72,7 +72,7 @@ We design a function $f(x)$ that returns two numbers whose product equals $x$ an
 
 Next, we only need to calculate $f(num + 1)$ and $f(num + 2)$ respectively, and then compare the return values of the two functions. We return the one with the smaller absolute difference.
 
-The time complexity is $O(\sqrt{num})$, and the space complexity is $O(1)$. Where $num$ is the given integer.
+The time complexity is $O(\sqrt{num})$, and the space complexity is $O(1)$, where $num$ is the given integer.
 
 <!-- tabs:start -->
 

@@ -60,7 +60,7 @@ We sort the meetings based on their start times, and then iterate through the so
 
 If no overlap is found by the end of the iteration, we return `true`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of meetings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of meetings.
 
 <!-- tabs:start -->
 

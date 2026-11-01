@@ -81,7 +81,7 @@ num1 和 num2 的二进制表示分别是 0001 和 1100 。
 
 根据题目描述，我们先求出 $\textit{nums2}$ 的置位数 $\textit{cnt}$，然后从高位到低位枚举 $\textit{num1}$ 的每一位，如果该位为 $1$，则将 $x$ 的对应位设为 $1$，并将 $\textit{cnt}$ 减 $1$，直到 $\textit{cnt}$ 为 $0$。如果此时 $\textit{cnt}$ 仍不为 $0$，则从低位开始将 $\textit{num1}$ 的每一位为 $0$ 的位置设为 $1$，并将 $\textit{cnt}$ 减 $1$，直到 $\textit{cnt}$ 为 $0$。
 
-时间复杂度 $O(\log n)$，其中 $n$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。
 
 <!-- tabs:start -->
 

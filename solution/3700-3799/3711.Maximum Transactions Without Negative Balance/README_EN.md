@@ -99,7 +99,7 @@ Then we traverse each transaction amount $x$:
 
 After traversal is complete, the answer $\textit{ans}$ is the maximum number of transactions that can be performed.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the number of transactions. The space complexity is $O(n)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of transactions.
 
 <!-- tabs:start -->
 

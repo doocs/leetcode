@@ -76,7 +76,7 @@ We can use a hash table $\textit{cnt}$ to count the occurrences of each element 
 
 After the iteration is finished, we return the answer array.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

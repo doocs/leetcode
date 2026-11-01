@@ -107,7 +107,7 @@ We traverse the plants. For each plant:
 
 Finally, return the total number of steps.
 
-The time complexity is $O(n)$, where $n$ is the number of plants. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of plants.
 
 <!-- tabs:start -->
 

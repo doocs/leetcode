@@ -127,7 +127,7 @@ The execution process of the function $dfs(i, j, a)$ is as follows:
 
 To avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, j, a)$ in a hash table.
 
-The time complexity is $O(n \times m \times \log M)$, and the space complexity is $O(n \times m \times \log M)$. Where $n$ and $m$ are the lengths of the arrays $nums$ and $andValues$ respectively; and $M$ is the maximum value in the array $nums$, in this problem $M \leq 10^5$.
+The time complexity is $O(nm \log M)$, and the space complexity is $O(nm \log M)$, where $n$ and $m$ are the lengths of the arrays $nums$ and $andValues$ respectively; and $M$ is the maximum value in the array $nums$, in this problem $M \leq 10^5$.
 
 <!-- tabs:start -->
 
@@ -349,7 +349,7 @@ When handling $nums[i]$, consider every state $(j, a)$:
 
 Keep the smaller cost for the same state. If $(m, -1)$ is absent, return $-1$.
 
-The time complexity is $O(n \times m \times \log M)$, and the space complexity is $O(m \times \log M)$. Here $n$ and $m$ are the lengths of $nums$ and $andValues$, and $M$ is the maximum value in $nums$, with $M \leq 10^5$ in this problem. Subarray ANDs that share a right endpoint change at most $O(\log M)$ times, so each layer has $O(m \times \log M)$ states.
+The time complexity is $O(nm \log M)$, and the space complexity is $O(m \log M)$, where $n$ and $m$ are the lengths of $nums$ and $andValues$, and $M$ is the maximum value in $nums$, with $M \leq 10^5$ in this problem. Subarray ANDs that share a right endpoint change at most $O(\log M)$ times, so each layer has $O(m \log M)$ states.
 
 <!-- tabs:start -->
 

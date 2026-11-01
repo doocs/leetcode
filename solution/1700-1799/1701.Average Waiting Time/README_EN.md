@@ -92,7 +92,7 @@ If the current time `t` is less than or equal to the customer's arrival time `cu
 
 Otherwise, it means that the chef is cooking, so the customer needs to wait for the chef to finish the previous dishes before starting to cook their own dishes. The time to complete this dish is $t = t + customers[i][1]$, and the customer's waiting time is $t - customers[i][0]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the customer array `customers`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the customer array `customers`.
 
 <!-- tabs:start -->
 

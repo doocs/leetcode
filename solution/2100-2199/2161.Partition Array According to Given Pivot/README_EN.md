@@ -87,7 +87,7 @@ The relative ordering of the elements less than and greater than pivot is also m
 
 We can traverse the array $\textit{nums}$, sequentially finding all elements less than $\textit{pivot}$, all elements equal to $\textit{pivot}$, and all elements greater than $\textit{pivot}$, then concatenate them in the order required by the problem.
 
-Time complexity $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

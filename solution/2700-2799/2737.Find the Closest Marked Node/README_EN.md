@@ -100,7 +100,7 @@ Then, we can use Dijkstra's algorithm to find the shortest distance from the sta
 
 Finally, we traverse all the marked nodes and find the marked node with the smallest distance. If the distance is positive infinity, we return $-1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

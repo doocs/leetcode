@@ -95,7 +95,7 @@ We notice that the index pairs have transitivity, i.e., if $a$ and $b$ can be sw
 
 Finally, we traverse the string. For the character at the current position, we replace it with the smallest character in the connected component, then remove this character from the connected component, and continue to traverse the string.
 
-The time complexity is $O(n \times \log n + m \times \alpha(m))$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the length of the string and the number of index pairs, respectively, and $\alpha$ is the inverse Ackermann function.
+The time complexity is $O(n \log n + m \alpha(m))$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the string and the number of index pairs, respectively, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
 

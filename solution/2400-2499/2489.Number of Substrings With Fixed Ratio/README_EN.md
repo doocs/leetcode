@@ -100,7 +100,7 @@ When we iterate to index $j$, we only need to count how many indices $i$ satisfy
 
 The hash table initially only has one key-value pair $(0, 1)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

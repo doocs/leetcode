@@ -82,7 +82,7 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 
 调用 $\text{book}(start, end)$ 方法时，我们在有序集合中查找第一个结束时间大于 $\textit{start}$ 的日程安排，如果存在并且其开始时间小于 $\textit{end}$，则说明存在重复预订，返回 $\text{false}$；否则，将 $\textit{end}$ 作为键，将 $\textit{start}$ 作为值插入有序集合中，返回 $\text{true}$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为日程安排的数量。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为日程安排的数量。
 
 <!-- tabs:start -->
 

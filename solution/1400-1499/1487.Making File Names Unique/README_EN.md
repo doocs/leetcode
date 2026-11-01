@@ -95,7 +95,7 @@ After traversing all file names, we obtain the answer array.
 
 > In the code implementation below, we directly modify the $names$ array without using an extra answer array.
 
-The complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all file names in the $names$ array.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all file names in the $names$ array.
 
 <!-- tabs:start -->
 

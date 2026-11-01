@@ -86,7 +86,7 @@ The problem is essentially finding the maximum length of the inverse pairs. We c
 
 Next, we traverse the keys of the hash table in descending order of the numbers. We maintain a number $k$ to keep track of the smallest index that has appeared so far. For the current number $x$, we can get a maximum inverse pair length of $d[x][|d[x]|-1]-k + 1$, where $|d[x]|$ represents the length of the array $d[x]$, i.e., the number of times the number $x$ appears in the original array. We update the answer accordingly. Then, we update $k$ to $d[x][0]$, which is the index where the number $x$ first appears in the original array. We continue to traverse the keys of the hash table until all keys are traversed.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

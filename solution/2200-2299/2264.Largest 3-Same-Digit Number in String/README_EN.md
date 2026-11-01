@@ -89,7 +89,7 @@ We can enumerate each digit $i$ from large to small, where $0 \le i \le 9$, and 
 
 If we have enumerated all the possible values of $i$ and still haven't found a substring that satisfies the condition, we return an empty string.
 
-The time complexity is $O(10 \times n)$, where $n$ is the length of the string $num$. The space complexity is $O(1)$.
+The time complexity is $O(10n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $num$.
 
 <!-- tabs:start -->
 

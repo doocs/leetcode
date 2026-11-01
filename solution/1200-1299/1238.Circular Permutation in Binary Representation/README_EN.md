@@ -87,7 +87,7 @@ int gray(x) {
 
 We can directly convert the integers $[0,..2^n - 1]$ into the corresponding Gray code array, then find the position of $start$ in the Gray code array, cut the Gray code array from this position, and then append the cut part to the front of the Gray code array to get the arrangement required by the problem.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the integer given in the problem.
+The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 
@@ -194,7 +194,7 @@ Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only 
 
 Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $gray(i) \oplus start$ to get the Gray code arrangement with $start$ as the first term.
 
-The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

@@ -129,7 +129,7 @@ tags:
 
 为了避免重复计算，我们使用记忆化搜索的方法，将 $dfs(i, j, a)$ 的结果存储在一个哈希表中。
 
-时间复杂度 $O(n \times m \times \log M)$，空间复杂度 $O(n \times m \times \log M)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $andValues$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。
+时间复杂度 $O(nm \log M)$，空间复杂度 $O(nm \log M)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $andValues$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。
 
 <!-- tabs:start -->
 
@@ -351,7 +351,7 @@ function minimumValueSum(nums: number[], andValues: number[]): number {
 
 同一状态只保留更小的代价。若不存在 $(m, -1)$，返回 $-1$。
 
-时间复杂度 $O(n \times m \times \log M)$，空间复杂度 $O(m \times \log M)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $andValues$ 的长度，而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。固定右端点时，不同起点的按位与至多变化 $O(\log M)$ 次，所以每一层的状态数是 $O(m \times \log M)$。
+时间复杂度 $O(nm \log M)$，空间复杂度 $O(m \log M)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $andValues$ 的长度，而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。固定右端点时，不同起点的按位与至多变化 $O(\log M)$ 次，所以每一层的状态数是 $O(m \log M)$。
 
 <!-- tabs:start -->
 

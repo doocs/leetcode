@@ -104,7 +104,7 @@ tags:
 
 最终答案即为 $\min\{f[i][n - 1]\}$，其中 $i \in [0, \textit{maxTime}]$。如果答案为 $+\infty$，则返回 $-1$。
 
-时间复杂度 $O(\textit{maxTime} \times (m + n))$，其中 $m$ 和 $n$ 分别是边的数量和城市的数量。空间复杂度 $O(\textit{maxTime} \times n)$。
+时间复杂度 $O(\textit{maxTime}(m + n))$，空间复杂度 $O(\textit{maxTime} n)$。其中 $m$ 和 $n$ 分别是边的数量和城市的数量。
 
 <!-- tabs:start -->
 

@@ -99,7 +99,7 @@ tags:
 
 最终答案是 $\textit{check}(\textit{nums}[0], k)$ 或 $\textit{check}(-\textit{nums}[0], k)$ 的结果。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 

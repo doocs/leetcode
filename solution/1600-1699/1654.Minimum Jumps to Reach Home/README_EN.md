@@ -106,7 +106,7 @@ Note that we need to judge whether the next state is legal, that is, the positio
 
 If the queue is empty, it means that the target position cannot be reached, return $-1$.
 
-The time complexity is $O(M)$, and the space complexity is $O(M)$. Here, $M$ is the right boundary, and in this problem, $M \leq 6000$.
+The time complexity is $O(M)$, and the space complexity is $O(M)$, where $M$ is the right boundary, and in this problem, $M \leq 6000$.
 
 <!-- tabs:start -->
 

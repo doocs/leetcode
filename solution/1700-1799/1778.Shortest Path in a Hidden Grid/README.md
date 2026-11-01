@@ -123,7 +123,7 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 
 如果找不到终点，那么直接返回 $-1$。否则，我们可以通过 BFS，求出最短路。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 相似题目：
 

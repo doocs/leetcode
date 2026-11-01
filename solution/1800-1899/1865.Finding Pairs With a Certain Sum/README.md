@@ -97,7 +97,7 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 
 在调用 $\text{count}$ 方法时，我们只需要遍历数组 $\textit{nums1}$，对于每个元素 $x$，计算 $\textit{cnt}[\textit{tot} - x]$ 的值之和即可。
 
-时间复杂度 $O(n \times q)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $q$ 是调用 $\text{count}$ 方法的次数。
+时间复杂度 $O(nq)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $q$ 是调用 $\text{count}$ 方法的次数。
 
 <!-- tabs:start -->
 

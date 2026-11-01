@@ -105,7 +105,7 @@ Then we initialize the answer to $3$, since we can always form an arithmetic sub
 
 Finally, return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

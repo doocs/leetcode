@@ -80,7 +80,7 @@ First, sort the array $\textit{nums}$. Then, for a given maximum difference $x$,
 
 To check whether $p$ such pairs exist with maximum difference at most $x$, we can use a greedy approach. Traverse the sorted array $\textit{nums}$ from left to right. For the current index $i$, if the difference between $\textit{nums}[i+1]$ and $\textit{nums}[i]$ does not exceed $x$, we can form a pair with $i$ and $i+1$, increment the pair count $cnt$, and increase $i$ by $2$. Otherwise, increase $i$ by $1$. After traversing, if $cnt \geq p$, then such $p$ pairs exist; otherwise, they do not.
 
-The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length of $\textit{nums}$ and $m$ is the difference between the maximum and minimum values in $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n(\log n + \log m))$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$ and $m$ is the difference between the maximum and minimum values in $\textit{nums}$.
 
 <!-- tabs:start -->
 

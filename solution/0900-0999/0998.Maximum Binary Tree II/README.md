@@ -308,7 +308,7 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 
 最后返回 $root$。
 
-时间复杂度 $O(n)$，其中 $n$ 是树的节点数。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
 

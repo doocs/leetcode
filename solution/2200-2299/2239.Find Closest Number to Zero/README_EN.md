@@ -71,7 +71,7 @@ We define a variable $\textit{d}$ to record the current minimum distance, initia
 
 After the traversal, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

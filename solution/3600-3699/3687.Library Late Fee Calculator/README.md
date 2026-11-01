@@ -102,7 +102,7 @@ $$
 
 然后我们对数组 $\textit{daysLate}$ 中的每个元素 $x$ 计算 $\text{f}(x)$ 并累加得到总罚款。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{daysLate}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{daysLate}$ 的长度。
 
 <!-- tabs:start -->
 

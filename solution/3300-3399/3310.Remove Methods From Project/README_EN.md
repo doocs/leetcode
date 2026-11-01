@@ -107,7 +107,7 @@ tags:
 
 We can start from $k$ and find all suspicious methods, recording them in the array $\textit{suspicious}$. Then, we traverse from $0$ to $n-1$, starting from all non-suspicious methods, and mark all reachable methods as non-suspicious. Finally, we return all non-suspicious methods.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ represent the number of methods and the number of call relationships, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ represent the number of methods and the number of call relationships, respectively.
 
 <!-- tabs:start -->
 
@@ -380,7 +380,7 @@ function remainingMethods(n: number, k: number, invocations: number[][]): number
 
 An explicit stack starts from $k$ and follows directed call edges, recording suspicious methods in $\textit{suspicious}$ and marking a node when it is pushed. We then scan from $0$ to $n - 1$. From each non-suspicious method, another explicit stack follows undirected edges and marks every reachable method as non-suspicious. Finally, we return all non-suspicious methods.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ represent the number of methods and the number of call relationships, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ represent the number of methods and the number of call relationships, respectively.
 
 <!-- tabs:start -->
 

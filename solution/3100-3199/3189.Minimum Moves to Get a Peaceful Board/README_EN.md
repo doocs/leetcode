@@ -78,7 +78,7 @@ tags:
 
 We can sort all the cars by their x-coordinates, and then allocate the cars to each row in order, calculating the sum of distances from each car to its target position. Then, sort all the cars by their y-coordinates and use the same method to calculate the sum of distances from each car to its target position. Finally, the sum of these two distances is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of cars.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of cars.
 
 <!-- tabs:start -->
 

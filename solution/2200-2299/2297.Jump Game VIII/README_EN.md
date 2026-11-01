@@ -87,7 +87,7 @@ According to the problem description, we need to find the next position $j$ wher
 
 Then we use dynamic programming to find the minimum cost. Let $f[i]$ represent the minimum cost to jump to index $i$. Initially, $f[0] = 0$ and the rest $f[i] = \infty$. We enumerate the indices $i$ from small to large. For each $i$, we enumerate each index $j$ in $g[i]$ and perform the state transition $f[j] = \min(f[j], f[i] + \textit{costs}[j])$. The answer is $f[n - 1]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

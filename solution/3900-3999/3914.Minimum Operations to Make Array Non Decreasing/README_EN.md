@@ -94,7 +94,7 @@ tags:
 
 We can traverse the array from left to right and calculate the difference between each pair of adjacent elements. If the current element is smaller than the previous one, we need to increase the current element so that it is at least equal to the previous element. The amount to increase is the difference between the previous element and the current element.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

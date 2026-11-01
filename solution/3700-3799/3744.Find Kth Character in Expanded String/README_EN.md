@@ -94,7 +94,7 @@ Otherwise, the $k$-th character is in the expanded part of the current word. We 
     - Increase $\textit{cur}$ by $i + 1$.
     - If $k < \textit{cur}$, it means the $k$-th character is $\textit{w}[i]$, and we return this character.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

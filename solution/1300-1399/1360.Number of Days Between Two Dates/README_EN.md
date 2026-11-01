@@ -61,7 +61,7 @@ Then, we define another function `calcDays(date)` to calculate the number of day
 
 Finally, we only need to return the absolute value of `calcDays(date1) - calcDays(date2)`.
 
-The time complexity is $O(y + m)$, where $y$ represents the number of years from the given date to `1971-01-01`, and $m$ represents the number of months of the given date. The space complexity is $O(1)$.
+The time complexity is $O(y + m)$, and the space complexity is $O(1)$, where $y$ represents the number of years from the given date to `1971-01-01`, and $m$ represents the number of months of the given date.
 
 <!-- tabs:start -->
 

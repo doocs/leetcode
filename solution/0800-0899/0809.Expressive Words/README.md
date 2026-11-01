@@ -77,7 +77,7 @@ words = ["hello", "hi", "helo"]
 
 如果 $i$ 和 $j$ 都到达了字符串的末尾，那么 $t$ 可以通过扩张得到 $s$，返回 $\textit{true}$，否则返回 $\textit{false}$。
 
-时间复杂度 $O(n \times m + \sum_{i=0}^{m-1} w_i)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和数组 $\textit{words}$ 的长度，而 $w_i$ 为数组 $\textit{words}$ 中第 $i$ 个单词的长度。
+时间复杂度 $O(nm + \sum_{i=0}^{m-1} w_i)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 和数组 $\textit{words}$ 的长度，而 $w_i$ 为数组 $\textit{words}$ 中第 $i$ 个单词的长度。
 
 <!-- tabs:start -->
 

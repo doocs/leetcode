@@ -150,7 +150,7 @@ We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of nu
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in $nums$, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in $nums$, respectively.
 
 <!-- tabs:start -->
 

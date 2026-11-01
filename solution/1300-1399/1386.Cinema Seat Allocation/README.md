@@ -103,7 +103,7 @@ tags:
 
 遍历结束后，我们就得到了最终的答案。
 
-时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 是 $reservedSeats$ 的长度。
+时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 是 $reservedSeats$ 的长度。
 
 <!-- tabs:start -->
 

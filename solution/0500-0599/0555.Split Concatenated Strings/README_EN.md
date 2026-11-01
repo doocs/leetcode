@@ -81,7 +81,7 @@ Then we enumerate each position $i$ in the string array `strs` as a split point,
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string array `strs`.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string array `strs`.
 
 <!-- tabs:start -->
 

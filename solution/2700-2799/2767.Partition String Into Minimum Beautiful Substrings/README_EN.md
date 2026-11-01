@@ -103,7 +103,7 @@ In order to avoid repeated calculation, we can use the method of memory search.
 
 In the main function, we first preprocess all the powers of $5$, and then call $dfs(0)$. If the return value is infinite, it means that the string $s$ cannot be divided into beautiful substrings, and the answer returns $-1$, otherwise, return the value of $dfs(0)$.
 
-Time complexity $O(n^2)$, space complexity $O(n)$. Where $n$ is the length of string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

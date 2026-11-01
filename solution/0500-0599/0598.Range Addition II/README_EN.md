@@ -76,7 +76,7 @@ We notice that the intersection of all operation submatrices is the submatrix wh
 
 Note that if the operation array is empty, the number of maximum integers in the matrix is $m \times n$.
 
-The time complexity is $O(k)$, where $k$ is the length of the operation array $\textit{ops}$. The space complexity is $O(1)$.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the length of the operation array $\textit{ops}$.
 
 <!-- tabs:start -->
 

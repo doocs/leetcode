@@ -95,7 +95,7 @@ Next, we traverse each opponent. For the $i$-th opponent, let their energy be $d
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the number of opponents. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of opponents.
 
 <!-- tabs:start -->
 

@@ -122,7 +122,7 @@ Where:
 
 These values can be obtained through preprocessing. And we can use the method of memoization to avoid repeated calculations.
 
-The time complexity is $O(3^{2n} \times (m \times ic \times ec + n))$, and the space complexity is $O(3^{2n} + 3^n \times m \times ic \times ec)$. Where $ic$ and $ec$ represent the number of introverted and extroverted people, respectively.
+The time complexity is $O(3^{2n}(m ic ec + n))$, and the space complexity is $O(3^{2n} + 3^n m ic ec)$, where $ic$ and $ec$ represent the number of introverted and extroverted people, respectively.
 
 <!-- tabs:start -->
 
@@ -496,7 +496,7 @@ Next, we enumerate the state $i$ of the current grid cell, where $i \in [0, 3)$.
 
 Similar to Solution 1, we can also use the method of memoization to avoid repeated calculations.
 
-The time complexity is $O(3^{n+1} \times m \times n \times ic \times ec)$, and the space complexity is $O(3^n \times m \times n \times ic \times ec)$. Where $ic$ and $ec$ represent the number of introverted and extroverted people, respectively.
+The time complexity is $O(3^{n+1} mn ic ec)$, and the space complexity is $O(3^n mn ic ec)$, where $ic$ and $ec$ represent the number of introverted and extroverted people, respectively.
 
 <!-- tabs:start -->
 

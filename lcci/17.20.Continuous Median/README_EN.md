@@ -58,7 +58,7 @@ findMedian() -&gt; 2
 
 > **Thinking**
 >
-> Median of a stream. Sorting each time is $O(n\log n)$; a balanced BST works but is heavy.
+> Median of a stream. Sorting each time is $O(n \log n)$; a balanced BST works but is heavy.
 >
 > The median is the max of the lower half and the min of the upper half — two heaps.
 >

@@ -92,7 +92,7 @@ First, we calculate the hash value of the last $k$ characters of the string, and
 
 Finally, return the answer string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

@@ -143,7 +143,7 @@ y_1 r_2 + y_2 r_1 < (r_1 + r_2) \times \textit{yCorner}
 \end{cases}
 $$
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of circles.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of circles.
 
 <!-- tabs:start -->
 

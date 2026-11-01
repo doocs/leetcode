@@ -79,7 +79,7 @@ Traverse the array $\textit{arr}$, and for each element $x$, update $f[x]$ to be
 
 After the traversal, return the maximum value in $f$ as the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

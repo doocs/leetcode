@@ -75,7 +75,7 @@ We first judge whether the string $s$ is empty or an empty list. If so, simply r
 
 After the traversal is over, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -402,7 +402,7 @@ We first judge whether the string $s$ is an integer. If so, we simply return a `
 
 After the traversal is over, return the top `NestedInteger` of the stack.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

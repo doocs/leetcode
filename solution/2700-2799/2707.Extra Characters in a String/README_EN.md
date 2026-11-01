@@ -88,7 +88,7 @@ where $i \ge 1$, and $j \in [0, i - 1]$ and $s[j..i)$ is in the hash table $ss$.
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n^3 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary.
+The time complexity is $O(n^3 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary.
 
 <!-- tabs:start -->
 
@@ -266,7 +266,7 @@ Specifically, we first insert each word in the dictionary into the trie $root$ i
 
 When $i \ge 1$, the $i$th character $s[i - 1]$ can be an extra character, in which case $f[i] = f[i - 1] + 1$. We can also enumerate the index $j$ in reverse order in the range $[0..i-1]$, and determine whether $s[j..i)$ is in the trie $root$. If it exists, then we can take $s[j..i)$ as a word, in which case $f[i] = f[j]$.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L \times |\Sigma|)$. Here, $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary. Additionally, $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L|\Sigma|)$, where $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary. Additionally, $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

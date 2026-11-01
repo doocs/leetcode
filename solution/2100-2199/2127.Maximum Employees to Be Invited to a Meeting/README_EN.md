@@ -110,7 +110,7 @@ In addition, for the size of the cycle equal to $2$, that is, there are two empl
 
 Therefore, the problem is actually equivalent to finding the length of the maximum cycle in the graph, and all cycles of length $2$ plus their longest chain. The maximum of these two can be found. To find the longest chain to the cycle of length $2$, we can use topological sorting.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `favorite`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `favorite`.
 
 <!-- tabs:start -->
 

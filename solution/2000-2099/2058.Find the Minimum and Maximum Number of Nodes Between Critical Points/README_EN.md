@@ -90,7 +90,7 @@ Note that the last node is not considered a local maxima because it does not hav
 
 Based on the problem description, we need to find the positions of the first and last critical points in the linked list, $\textit{first}$ and $\textit{last}$, respectively. This allows us to calculate the maximum distance $\textit{maxDistance} = \textit{last} - \textit{first}$. For the minimum distance $\textit{minDistance}$, we need to traverse the linked list, calculate the distance between two adjacent critical points, and take the minimum value.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

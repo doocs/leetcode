@@ -99,7 +99,7 @@ tags:
 
 First, we calculate the sum of the first two elements, denoted as $s$. Then we traverse the array, taking two elements at a time. If their sum is not equal to $s$, we stop the traversal. Finally, we return the number of operations performed.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

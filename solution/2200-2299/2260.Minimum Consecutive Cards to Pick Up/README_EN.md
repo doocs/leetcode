@@ -68,7 +68,7 @@ tags:
 
 We initialize the answer as $+\infty$. We traverse the array, and for each number $x$, if $\textit{last}[x]$ exists, it means $x$ has a matching pair of cards. In this case, we update the answer to $\textit{ans} = \min(\textit{ans}, i - \textit{last}[x] + 1)$. Finally, if the answer is $+\infty$, we return $-1$; otherwise, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -102,7 +102,7 @@ For odd days, we can choose the largest $\textit{odd}$ pizzas and the smallest $
 
 For even days, among the remaining pizzas, we greedily choose the largest two pizzas and the smallest two pizzas each time, with the increased weight being $\sum_{i = n - \textit{odd} - 2}^{n - \textit{odd} - 2 \times \textit{even}} \textit{pizzas}[i]$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{pizzas}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{pizzas}$.
 
 <!-- tabs:start -->
 

@@ -81,7 +81,7 @@ tags:
 
 接下来，将数组 `nums` 排序，然后从头到尾遍历数组 `nums`，找到第一个是最大公约数 $x$ 的因子的元素，返回当前元素下标即可。
 
-时间复杂度 $O(m + \log M + n \times \log n)$，其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
+时间复杂度 $O(m + \log M + n \log n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
 
 <!-- tabs:start -->
 

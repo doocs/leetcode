@@ -111,7 +111,7 @@ Then, we use BFS to propagate the secret. For all participants at the current ti
 
 When all meetings are processed, we traverse the $\textit{vis}$ array, add the IDs of all people who know the secret to the result list, and return it.
 
-The time complexity is $O(m \times \log m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of meetings and the number of experts, respectively.
+The time complexity is $O(m \log m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of meetings and the number of experts, respectively.
 
 <!-- tabs:start -->
 

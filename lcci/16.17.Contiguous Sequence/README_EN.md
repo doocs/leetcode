@@ -69,7 +69,7 @@ where $f[0] = nums[0]$.
 
 The answer is $\max\limits_{i=0}^{n-1}f[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 We notice that $f[i]$ only depends on $f[i-1]$, so we can use a variable $f$ to represent $f[i-1]$, thus reducing the space complexity to $O(1)$.
 

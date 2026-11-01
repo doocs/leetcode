@@ -102,7 +102,7 @@ tags:
 
 最后将 $cnt$ 作为函数 $f(s)$ 的返回值。
 
-时间复杂度 $O(n \times \log S)$，其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $S$ 为数组 $\textit{nums}$ 中所有元素之和。空间复杂度 $O(1)$。
+时间复杂度 $O(n \log S)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $S$ 为数组 $\textit{nums}$ 中所有元素之和。
 
 <!-- tabs:start -->
 

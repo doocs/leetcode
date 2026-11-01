@@ -101,7 +101,7 @@ Repeat the above steps until a null pointer is returned or the last character of
 
 If we search to the end of the prefix, it means the trie contains the prefix. Additionally, if the `isEnd` of the node corresponding to the end of the prefix is true, it means the trie contains the string.
 
-The time complexity for inserting a string is $O(m \times |\Sigma|)$, and the time complexity for searching a prefix is $O(m)$, where $m$ is the length of the string and $|\Sigma|$ is the size of the character set (26 in this problem). The space complexity is $O(q \times m \times |\Sigma|)$, where $q$ is the number of inserted strings.
+The time complexity for inserting a string is $O(m|\Sigma|)$, and the time complexity for searching a prefix is $O(m)$, where $m$ is the length of the string and $|\Sigma|$ is the size of the character set (26 in this problem). The space complexity is $O(qm|\Sigma|)$, where $q$ is the number of inserted strings.
 
 <!-- tabs:start -->
 

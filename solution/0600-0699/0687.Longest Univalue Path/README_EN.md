@@ -78,7 +78,7 @@ Finally, the $\textit{dfs}(root)$ function returns the longest univalue path len
 
 In the main function, we call $\textit{dfs}(root)$ to get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

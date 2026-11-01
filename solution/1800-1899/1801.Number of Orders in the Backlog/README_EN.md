@@ -98,7 +98,7 @@ Next, we traverse the order array `orders`, and simulate according to the proble
 
 After the traversal, we add the order quantities in `buy` and `sell`, which is the final backlog of orders. Note that the answer may be very large, so we need to take the modulus of $10^9 + 7$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of `orders`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of `orders`.
 
 <!-- tabs:start -->
 

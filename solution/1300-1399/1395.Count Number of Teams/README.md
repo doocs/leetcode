@@ -226,7 +226,7 @@ function numTeams(rating: number[]): number {
 
 我们可以用两个树状数组分别维护数组 $rating$ 中每个元素的左边比它小的元素的个数 $l$，右边比它大的元素的个数 $r$，然后统计以该元素为中间元素的作战单位的个数为 $l \times r + (i - l) \times (n - i - 1 - r)$，累加到答案中即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $rating$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $rating$ 的长度。
 
 <!-- tabs:start -->
 

@@ -72,7 +72,7 @@ We traverse each element $x$ in the array $\textit{nums}$. For the current eleme
 
 After the traversal is complete, we return the answer.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -119,7 +119,7 @@ For the request time list $g[u]$ of user $u$, we first sort it. Then, we use a d
 
 Finally, return the answer $\textit{ans}$.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the number of requests. Each request is visited once, sorting takes $O(n \log n)$ time, and the operations on the hash table and deque take $O(n)$ time.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of requests. Each request is visited once, sorting takes $O(n \log n)$ time, and the operations on the hash table and deque take $O(n)$ time.
 
 <!-- tabs:start -->
 

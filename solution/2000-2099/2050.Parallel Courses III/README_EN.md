@@ -109,7 +109,7 @@ When $q$ is not empty, take out the head node $i$ in turn, traverse each node $j
 
 Finally, return $ans$.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Where $m$ is the length of the array $relations$.
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ is the length of the array $relations$.
 
 <!-- tabs:start -->
 

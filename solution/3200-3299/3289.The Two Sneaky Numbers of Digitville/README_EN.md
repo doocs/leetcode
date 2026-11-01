@@ -94,7 +94,7 @@ Traverse the array $\textit{nums}$, and when a number appears for the second tim
 
 After the traversal, return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -220,7 +220,7 @@ Next, we can find certain characteristics of these two numbers through $xx$ and 
 1. Find the position of the lowest bit or highest bit with value $1$ in the binary representation of $xx$, denoted as $k$. This position indicates that the two numbers differ at this bit.
 2. Based on the value of the $k$-th bit, divide the numbers in array $\textit{nums}$ and the integers from $0$ to $n - 1$ into two groups: one group with $0$ at the $k$-th bit, and another group with $1$ at the $k$-th bit. Then perform XOR operations on these two groups separately, and the results are the two duplicate numbers.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

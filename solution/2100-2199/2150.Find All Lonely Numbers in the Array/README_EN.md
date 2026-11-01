@@ -82,7 +82,7 @@ We use a hash table $\textit{cnt}$ to record the occurrence count of each number
 
 After finishing the iteration, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

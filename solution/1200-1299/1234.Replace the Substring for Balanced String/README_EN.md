@@ -85,7 +85,7 @@ Next, we traverse the string $s$ from left to right. Each time we encounter a ch
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, in this problem $C = 4$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $s$; and $C$ is the size of the character set, in this problem $C = 4$.
 
 <!-- tabs:start -->
 

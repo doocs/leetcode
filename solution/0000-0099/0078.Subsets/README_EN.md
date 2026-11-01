@@ -70,7 +70,7 @@ We design a function $dfs(i)$, which represents starting the search from the $i$
 
 In the main function, we call $dfs(0)$, i.e., start searching all subsets from the first element of the array. Finally, return the answer array $ans$.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
 
 <!-- tabs:start -->
 
@@ -222,7 +222,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Method 1 expands choose/skip on the call stack. $n$ is tiny, so each subset can be a mask in $[0,2^n)$: bit $i$ includes $nums[i]$. No recursion; the same $O(n \times 2^n)$ work.
+> Method 1 expands choose/skip on the call stack. $n$ is tiny, so each subset can be a mask in $[0,2^n)$: bit $i$ includes $nums[i]$. No recursion; the same $O(n 2^n)$ work.
 
 <!-- thinking:end -->
 
@@ -230,7 +230,7 @@ We can also use the method of binary enumeration to get all subsets.
 
 We can use $2^n$ binary numbers to represent all subsets of $n$ elements. For the current binary number $mask$, if the $i$th bit is $1$, it means that the $i$th element is selected, otherwise it means that the $i$th element is not selected.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
 
 <!-- tabs:start -->
 

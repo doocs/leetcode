@@ -107,7 +107,7 @@ Therefore, we only need to find the maximum value $mx$ of $k_1 \times x + k_2 \t
 
 In the code implementation, we define an array of length 5, $dirs=[1, -1, -1, 1, 1]$. Each time we take two adjacent elements of the array as the values of $k_1$ and $k_2$, which can cover all cases of $k_1, k_2 \in \{-1, 1\}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 Similar problems:
 

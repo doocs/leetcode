@@ -81,7 +81,7 @@ tags:
 
 We notice that the length of the array $nums$ is no more than $200$. Therefore, we can directly enumerate $i$, $j$, $k$, and check whether they meet the conditions. If they do, we increment the count of the triplet.
 
-The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -193,7 +193,7 @@ We can first store the elements of $nums$ in a hash table or array $vis$. Then, 
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

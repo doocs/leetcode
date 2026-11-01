@@ -108,7 +108,7 @@ Next, we traverse the first $n - 1$ elements. Each time, we add the current elem
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

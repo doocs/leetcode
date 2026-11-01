@@ -94,7 +94,7 @@ where $i \backslash j$ represents changing the $j$-th bit of $i$ to $0$.
 
 After calculating $f[i][j]$, we judge whether the number of cities passed is $k+1$, that is, whether the number of $1$s in the binary representation of $i$ is $k+1$. If so, we update the answer as $ans = \max(ans, f[i][j])$.
 
-The time complexity is $O(2^n \times n^2)$, and the space complexity is $O(2^n \times n)$, where $n$ represents the number of cities.
+The time complexity is $O(2^n n^2)$, and the space complexity is $O(2^n n)$, where $n$ represents the number of cities.
 
 <!-- tabs:start -->
 

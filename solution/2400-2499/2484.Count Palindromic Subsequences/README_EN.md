@@ -80,7 +80,7 @@ Two of them (both equal to &quot;10301&quot;) are palindromic.
 
 <!-- thinking:end -->
 
-The time complexity is $O(100 \times n)$, and the space complexity is $O(100 \times n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(100n)$, and the space complexity is $O(100n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

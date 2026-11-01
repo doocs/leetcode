@@ -97,7 +97,7 @@ tags:
 
 接下来，我们遍历每个查询 $queries[i] = (l, r)$，对于当前查询，如果 $j \gt r$，那么我们循环将 $heights[j]$ 插入树状数组中。树状数组维护的是后缀高度（离散化后的高度）的下标的最小值。然后，我们判断是否满足 $l = r$ 或者 $heights[l] \lt heights[r]$，如果满足，那么当前查询的答案就是 $r$，否则，我们在树状数组中查询 $heights[l]$ 的下标的最小值，即为当前查询的答案。
 
-时间复杂度 $O((n + m) \times \log n + m \times \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为 $heights$ 和 $queries$ 的长度。
+时间复杂度 $O((n + m) \log n + m \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为 $heights$ 和 $queries$ 的长度。
 
 相似题目：
 

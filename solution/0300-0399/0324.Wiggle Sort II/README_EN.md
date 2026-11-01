@@ -186,7 +186,7 @@ var wiggleSort = function (nums) {
 
 > **Thinking**
 >
-> Method 1 sorts in $O(n\log n)$ and uses an extra array. Values lie in $[0,5000]$: count-sort, then emit large values onto odd indices first and even indices next. Peaks get large numbers in linear time.
+> Method 1 sorts in $O(n \log n)$ and uses an extra array. Values lie in $[0,5000]$: count-sort, then emit large values onto odd indices first and even indices next. Peaks get large numbers in linear time.
 
 <!-- thinking:end -->
 

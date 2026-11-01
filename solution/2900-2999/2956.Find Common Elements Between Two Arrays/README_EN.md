@@ -102,7 +102,7 @@ Then, we traverse each element $x$ in the array $nums1$. If $x$ has appeared in 
 
 Finally, we return the array $ans$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$ respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$ respectively.
 
 <!-- tabs:start -->
 

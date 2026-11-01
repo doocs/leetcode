@@ -113,7 +113,7 @@ If the $i$th number is selected, if the $i-1$th number and the $i$th number are 
 
 The final answer is $\max(f[n][k][0], f[n][k][1])$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

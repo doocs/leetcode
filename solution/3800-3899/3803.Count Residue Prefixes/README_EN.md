@@ -105,7 +105,7 @@ We use a hash table $\textit{st}$ to record the set of distinct characters that 
 
 After the iteration, we return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

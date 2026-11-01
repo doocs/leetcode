@@ -86,7 +86,7 @@ In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add
 
 In the main function, we just need to call the function $dfs(0, target)$ to get the answer.
 
-The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 Similar problems:
 
@@ -310,7 +310,7 @@ public class Solution {
 
 We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.
 
-The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n n)$.
 
 <!-- tabs:start -->
 

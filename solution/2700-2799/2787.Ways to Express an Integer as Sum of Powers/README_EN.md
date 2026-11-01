@@ -86,7 +86,7 @@ $$
 
 Note that the answer can be very large, so we need to take modulo $10^9 + 7$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the given integer in the
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the given integer in the problem.
 
 <!-- tabs:start -->
 

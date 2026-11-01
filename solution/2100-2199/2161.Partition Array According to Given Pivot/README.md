@@ -89,7 +89,7 @@ tags:
 
 我们可以遍历数组 $\textit{nums}$，按顺序找出所有小于 $\textit{pivot}$ 的元素，所有等于 $\textit{pivot}$ 的元素，以及所有大于 $\textit{pivot}$ 的元素，然后将它们按照题目要求的顺序拼接起来。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

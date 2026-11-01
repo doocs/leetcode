@@ -73,7 +73,7 @@ Traverse the string $s$. For the current character $c$, update $f[c]$ to $\sum_{
 
 Finally, the answer is $\sum_{i=0}^{25} f[i]$ modulo $10^9 + 7$.
 
-The time complexity is $O(n \times C)$, and the space complexity is $O(C)$, where $n$ is the length of $s$ and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(nC)$, and the space complexity is $O(C)$, where $n$ is the length of $s$ and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

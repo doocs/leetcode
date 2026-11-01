@@ -94,7 +94,7 @@ tags:
 
 如果 $j=m$，说明所有谷物都被吃完了，返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(n \times \log n + m \times \log m + (m + n) \times \log U)$，空间复杂度 $O(\log m + \log n)$。其中 $n$ 和 $m$ 分别为鸡和谷物的数量，而 $U$ 为所有鸡和谷物的位置的最大值。
+时间复杂度 $O(n \log n + m \log m + (m + n) \log U)$，空间复杂度 $O(\log m + \log n)$。其中 $n$ 和 $m$ 分别为鸡和谷物的数量，而 $U$ 为所有鸡和谷物的位置的最大值。
 
 <!-- tabs:start -->
 

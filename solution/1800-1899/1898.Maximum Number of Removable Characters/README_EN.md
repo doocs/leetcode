@@ -93,7 +93,7 @@ We define the left boundary of the binary search as $l = 0$ and the right bounda
 
 After the binary search ends, we return the left boundary $l$.
 
-The time complexity is $O(k \times \log k)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$, and $k$ is the length of $\textit{removable}$.
+The time complexity is $O(k \log k)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$, and $k$ is the length of $\textit{removable}$.
 
 <!-- tabs:start -->
 

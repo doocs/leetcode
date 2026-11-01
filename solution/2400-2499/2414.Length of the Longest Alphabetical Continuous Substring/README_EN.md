@@ -73,7 +73,7 @@ Next, we start traversing the string $s$ from the character at index $1$. For ea
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

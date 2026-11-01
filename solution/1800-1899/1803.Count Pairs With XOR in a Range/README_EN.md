@@ -101,7 +101,7 @@ With the above two functions, we can solve this problem.
 
 We traverse the array `nums`. For each number $x$, we first search in the Trie for the count of numbers that have an XOR value with $x$ less than $high+1$, and then search in the Trie for the count of pairs that have an XOR value with $x$ less than $low$, and add the difference between the two counts to the answer. Then insert $x$ into the Trie. Continue to traverse the next number $x$ until the array `nums` is traversed. Finally, return the answer.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums`. In this problem, we directly take $\log M = 16$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums`. In this problem, we directly take $\log M = 16$.
 
 <!-- tabs:start -->
 

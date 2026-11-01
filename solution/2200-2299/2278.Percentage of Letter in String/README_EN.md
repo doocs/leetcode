@@ -66,7 +66,7 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 
 We can traverse the string $\textit{s}$ and count the number of characters that are equal to $\textit{letter}$. Then, we calculate the percentage using the formula $\textit{count} \times 100 \, / \, \textit{len}(\textit{s})$.
 
-Time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 

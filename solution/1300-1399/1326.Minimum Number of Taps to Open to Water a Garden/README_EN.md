@@ -94,7 +94,7 @@ We traverse all positions in the range $[0, \ldots, n-1]$. For the current posit
 
 After the traversal, we return $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the garden.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the garden.
 
 Similar problems:
 

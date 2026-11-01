@@ -85,7 +85,7 @@ The problem is converted to determining whether two strings are anagrams. We def
 
 In the function $\textit{check}(s, t)$, we first check if the lengths of $s$ and $t$ are equal. If they are not, we return $\text{true}$. Otherwise, we use an array $\textit{cnt}$ of length $26$ to count the occurrences of each character in $s$, then traverse each character in $t$ and decrement $\textit{cnt}[c]$ by $1$. If $\textit{cnt}[c]$ is less than $0$, we return $\text{true}$. If we traverse all characters in $t$ without issues, it means $s$ and $t$ are anagrams, and we return $\text{false}$.
 
-The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$. Here, $L$ is the length of the array $\textit{words}$, and $\Sigma$ is the character set, which is lowercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$, where $L$ is the length of the array $\textit{words}$, and $\Sigma$ is the character set, which is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

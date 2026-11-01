@@ -74,7 +74,7 @@ We observe the operation in the problem, and find that if the parity of the two 
 
 Therefore, we can count the occurrence times of the characters at odd indices and even indices in the two strings. If the counting results of the two strings are the same, then we can make the two strings equal through the operation.
 
-The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $\Sigma$ is the character set.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ is the character set.
 
 Similar problems:
 

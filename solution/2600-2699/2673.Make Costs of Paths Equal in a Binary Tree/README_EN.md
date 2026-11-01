@@ -95,7 +95,7 @@ We can start from the bottom of the tree and calculate the number of increments 
 
 Finally, return the total number of increments.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

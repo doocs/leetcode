@@ -110,7 +110,7 @@ We first combine each employee's start and end times into an interval array, $\t
 
 For each employee $i$, we use binary search to compute how many employees have end times not earlier than employee $i$'s start time, and how many employees have start times not later than employee $i$'s end time. The difference between these two counts is the number of employees whose intervals overlap with employee $i$. We iterate through all employees, compute the overlap count for each one, and take the maximum as the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of employees.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of employees.
 
 <!-- tabs:start -->
 

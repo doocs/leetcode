@@ -105,7 +105,7 @@ tags:
 
 因此，如果数组 $\textit{nums}$ 元素个数为奇数，那么答案就是数组 $\textit{nums}$ 所有元素的总和 $s$，减去数组 $\textit{nums}$ 中的最小值 $\textit{mi}$；如果数组 $\textit{nums}$ 元素个数为偶数，那么答案就是数组 $\textit{nums}$ 所有元素的总和 $s$，减去数组连续两个元素之和的最小值。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

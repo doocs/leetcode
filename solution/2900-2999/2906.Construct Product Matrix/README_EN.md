@@ -85,7 +85,7 @@ Next, we start traversing from the top left corner of the matrix. For each posit
 
 After the traversal, we return the result matrix $p$.
 
-The time complexity is $O(n \times m)$, where $n$ and $m$ are the number of rows and columns in the matrix, respectively. Ignoring the space occupied by the result matrix, the space complexity is $O(1)$.
+The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

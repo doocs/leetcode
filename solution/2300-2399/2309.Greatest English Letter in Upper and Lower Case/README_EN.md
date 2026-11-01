@@ -82,7 +82,7 @@ First, we use a hash table $ss$ to record all the letters that appear in the str
 
 At the end of the enumeration, if no letter that meets the conditions is found, we return an empty string.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ and $C$ are the length of the string $s$ and the size of the character set, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ and $C$ are the length of the string $s$ and the size of the character set, respectively.
 
 <!-- tabs:start -->
 
@@ -234,7 +234,7 @@ Then we perform a bitwise AND operation on $mask1$ and $mask2$. The $i$-th bit o
 
 Next, we just need to get the position of the highest $1$ in the binary representation of $mask$, and convert it to the corresponding uppercase letter. If all binary bits are not $1$, it means that there is no letter that appears in both uppercase and lowercase, so we return an empty string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

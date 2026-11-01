@@ -79,7 +79,7 @@ Since there is only one element in nums, the triangular sum is the value of that
 
 We can directly simulate the operations described in the problem. Perform $n - 1$ rounds of operations on the array $\textit{nums}$, updating the array $\textit{nums}$ according to the rules described in the problem for each round. Finally, return the only remaining element in the array $\textit{nums}$.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

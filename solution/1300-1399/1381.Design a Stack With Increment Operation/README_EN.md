@@ -88,7 +88,7 @@ When calling $pop()$, if $i \leq 0$, it means the stack is empty, so we return $
 
 When calling $increment(k, val)$, if $i > 0$, we add $val$ to $add[\min(i, k) - 1]$.
 
-The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the maximum capacity of the stack.
+The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the maximum capacity of the stack.
 
 <!-- tabs:start -->
 

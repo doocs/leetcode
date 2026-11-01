@@ -111,7 +111,7 @@ We use $\textit{first2}$ and $\textit{first3}$ to represent the first occurrence
 
 When the index $i$ is in the range $[\textit{first2}, \textit{last1})$ or $[\textit{first3}, \textit{last2})]$, the corresponding $\textit{locked}[i]$ must be $0$, otherwise, we need one operation. Therefore, we only need to traverse the array $\textit{locked}$ and count the indices that do not meet the condition.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

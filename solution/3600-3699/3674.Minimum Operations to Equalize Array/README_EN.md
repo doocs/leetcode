@@ -80,7 +80,7 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 
 If all elements in $\textit{nums}$ are equal, no operations are needed; otherwise, we can select the entire array as a subarray and perform one operation.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

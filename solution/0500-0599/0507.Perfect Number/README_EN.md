@@ -67,7 +67,7 @@ Next, we enumerate all positive divisors of $\textit{num}$ starting from 2. If $
 
 Finally, we check if $\textit{s}$ is equal to $\textit{num}$.
 
-The time complexity is $O(\sqrt{n})$, where $n$ is the value of $\textit{num}$. The space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$, where $n$ is the value of $\textit{num}$.
 
 <!-- tabs:start -->
 

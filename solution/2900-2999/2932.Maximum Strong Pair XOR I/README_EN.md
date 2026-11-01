@@ -89,7 +89,7 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 
 We can enumerate each pair of numbers $(x, y)$ in the array. If $|x - y| \leq \min(x, y)$, then this pair is a strong pair. We can calculate the XOR value of this pair and update the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -198,7 +198,7 @@ Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute valu
 
 Therefore, we sort the array $nums$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
 

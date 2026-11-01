@@ -73,7 +73,7 @@ Then, we traverse the matrix. For each $1$, we check whether there is only one $
 
 After the traversal, we return the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix $\textit{mat}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{mat}$, respectively.
 
 <!-- tabs:start -->
 

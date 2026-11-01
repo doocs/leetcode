@@ -176,7 +176,7 @@ After sorting into non-decreasing order, every value equal to $target$ occupies 
 
 Scan $\textit{nums}$ once and store the two counts in $\textit{less}$ and $\textit{equal}$. The answer is every integer in $[\textit{less}, \textit{less} + \textit{equal})$. The range is empty when $\textit{equal} = 0$.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -148,7 +148,7 @@ tags:
 
 We can simulate the reverse degree of each character in the string. For each character, calculate its position in the reverse alphabet, multiply it by its position in the string, and then sum up all the results.
 
-Time complexity is $O(n)$, where $n$ is the length of the string. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

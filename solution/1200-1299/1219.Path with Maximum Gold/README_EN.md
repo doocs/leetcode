@@ -89,7 +89,7 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 
 We can enumerate each cell as the starting point, and then start a depth-first search from the starting point. During the search process, whenever we encounter a non-zero cell, we turn it into zero and continue the search. When we can no longer continue the search, we calculate the total amount of gold in the current path, then turn the current cell back into a non-zero cell, thus performing backtracking.
 
-The time complexity is $O(m \times n \times 3^k)$, where $k$ is the maximum length of each path. Since each cell can only be visited once at most, the time complexity will not exceed $O(m \times n \times 3^k)$. The space complexity is $O(m \times n)$.
+The time complexity is $O(mn 3^k)$, and the space complexity is $O(mn)$, where $k$ is the maximum length of each path. Since each cell can only be visited once at most, the time complexity will not exceed $O(mn 3^k)$.
 
 <!-- tabs:start -->
 

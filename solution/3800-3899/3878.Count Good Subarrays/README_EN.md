@@ -137,7 +137,7 @@ $$
 
 That is, every element in the subarray must be a subset of $\textit{nums}[i]$ (in terms of bits). We can use a monotonic stack to find the left boundary $l[i]$ and right boundary $r[i]$ for each element $\textit{nums}[i]$, such that all elements in the interval $(l[i], r[i])$ satisfy the above condition, while $\textit{nums}[l[i]]$ and $\textit{nums}[r[i]]$ do not. The number of subarrays with $\textit{nums}[i]$ as the bitwise OR result is then $(i - l[i]) \cdot (r[i] - i)$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

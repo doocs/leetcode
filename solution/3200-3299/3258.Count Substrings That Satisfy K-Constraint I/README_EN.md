@@ -99,7 +99,7 @@ When we move the window to the right, if the number of $0$s and $1$s in the wind
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -74,7 +74,7 @@ tags:
 
 We directly compare each row and column of the matrix $grid$. If they are equal, then it is a pair of equal row-column pairs, and we increment the answer by one.
 
-The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in the matrix $grid$. The space complexity is $O(1)$.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the number of rows or columns in the matrix $grid$.
 
 <!-- tabs:start -->
 

@@ -90,7 +90,7 @@ Next, we iterate through each cell as a starting point. If the cell is 0 or 1, w
 
 If the DFS successfully finds a complete path, we return that path. If a complete path cannot be found, we backtrack, undo the visit mark for the current cell, and try other directions.
 
-The time complexity is $O(m^2 \times n^2)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(m^2n^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

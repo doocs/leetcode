@@ -87,7 +87,7 @@ Each time, we find the unvisited node $t$ with the smallest distance, and then p
 
 Finally, we return the maximum value in $\textit{dist}$ as the answer. If the answer is $+\infty$, it means there are unreachable nodes, and we return $-1$.
 
-The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -267,7 +267,7 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 
 > **Thinking**
 >
-> Solution 1 scans all nodes to pick the next vertex; that is wasteful on a sparse graph. A heap pops the current best in $O(m\log m)$.
+> Solution 1 scans all nodes to pick the next vertex; that is wasteful on a sparse graph. A heap pops the current best in $O(m \log m)$.
 >
 > Store an adjacency list. Pop $(d,u)$; skip stale distances; otherwise relax neighbors onto the heap. The answer is still the max finite distance.
 
@@ -281,7 +281,7 @@ We define a priority queue $\textit{pq}$, where each element is $(\textit{d}, u)
 
 Finally, we return the maximum value in $\textit{dist}$ as the answer. If the answer is $+\infty$, it means there are unreachable nodes, and we return $-1$.
 
-The time complexity is $O(m \times \log m + n)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(m \log m + n)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

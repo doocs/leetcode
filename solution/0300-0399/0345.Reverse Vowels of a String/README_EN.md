@@ -71,7 +71,7 @@ We can use two pointers $i$ and $j$, initially pointing to the start and end of 
 
 In each loop, we check whether the character at $i$ is a vowel. If it's not, we move $i$ forward. Similarly, we check whether the character at $j$ is a vowel. If it's not, we move $j$ backward. If $i < j$ at this point, then both characters at $i$ and $j$ are vowels, so we swap these two characters. Then, we move $i$ forward and $j$ backward. We continue the above operations until $i \ge j$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the size of the character set.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ is the size of the character set.
 
 <!-- tabs:start -->
 

@@ -64,7 +64,7 @@ tags:
 
 > **Thinking**
 >
-> Sorting and scanning runs is $O(n\log n)$; the problem asks for $O(n)$. $n \le 10^5$. Put the values in a hash set. From each $x$ still in the set, walk right until the run breaks, store that length at the start, and let earlier starts concatenate. Each number enters and leaves the set once.
+> Sorting and scanning runs is $O(n \log n)$; the problem asks for $O(n)$. $n \le 10^5$. Put the values in a hash set. From each $x$ still in the set, walk right until the run breaks, store that length at the start, and let earlier starts concatenate. Each number enters and leaves the set once.
 
 <!-- thinking:end -->
 
@@ -74,7 +74,7 @@ Next, we iterate through each element $x$ in the array, using a temporary variab
 
 After the iteration, we return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -249,7 +249,7 @@ var longestConsecutive = function (nums) {
 
 Similar to Solution 1, we use a hash table $\textit{s}$ to store all the elements in the array and a variable $\textit{ans}$ to record the length of the longest consecutive sequence. However, we no longer use a hash table $\textit{d}$ to record the length of the consecutive sequence each element $x$ belongs to. During the iteration, we skip elements where $x-1$ is also in the hash table $\textit{s}$. If $x-1$ is in the hash table $\textit{s}$, then $x$ is definitely not the start of a consecutive sequence, so we can directly skip $x$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

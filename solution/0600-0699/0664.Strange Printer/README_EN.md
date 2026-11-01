@@ -83,7 +83,7 @@ $$
 
 We can enumerate $i$ from large to small and $j$ from small to large, so that we can ensure that $f[i][j-1]$, $f[i][k]$ and $f[k+1][j]$ have been calculated when we calculate $f[i][j]$.
 
-The time complexity is $O(n^3)$ and the space complexity is $O(n^2)$. Where $n$ is the length of string $s$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

@@ -105,7 +105,7 @@ Then, we perform topological sorting. In each step of the topological sorting, w
 
 After the topological sorting is over, if every position of the target string $target$ has been covered, then the answer array $ans$ stores the answer we are looking for. Otherwise, the target string $target$ cannot be covered, and we return an empty array.
 
-The time complexity is $O(n \times (n - m + 1))$, and the space complexity is $O(n \times (n - m + 1))$. Here, $n$ and $m$ are the lengths of the target string $target$ and the stamp, respectively.
+The time complexity is $O(n(n - m + 1))$, and the space complexity is $O(n(n - m + 1))$, where $n$ and $m$ are the lengths of the target string $target$ and the stamp, respectively.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ We can use a priority queue (max-heap) to maintain the maximum value in the slid
 
 First, add the first $k-1$ elements to the priority queue. Then, starting from the $k$-th element, add the new element to the priority queue and check if the top element of the heap is out of the window. If it is, remove the top element. Then, add the top element of the heap to the result array.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -201,7 +201,7 @@ To find the maximum value in a sliding window, a common method is to use a monot
 
 We can maintain a queue $q$ that is monotonically decreasing from the front to the back, storing the indices of the elements. As we traverse the array $\textit{nums}$, for the current element $\textit{nums}[i]$, we first check if the front element of the queue is out of the window. If it is, we remove the front element. Then, we compare the current element $\textit{nums}[i]$ with the elements at the back of the queue. If the elements at the back are less than or equal to the current element, we remove them until the element at the back is greater than the current element or the queue is empty. Then, we add the index of the current element to the queue. At this point, the front element of the queue is the maximum value of the current sliding window. Note that we add the front element of the queue to the result array when the index $i$ is greater than or equal to $k-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

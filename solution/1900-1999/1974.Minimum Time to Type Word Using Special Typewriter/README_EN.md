@@ -106,7 +106,7 @@ We initialize the answer variable $\textit{ans}$ to the length of the string, in
 
 Next, we traverse the string. For each character, we calculate the minimum distance between the current character and the previous character, and add this distance to the answer. Then we update the current character to the previous character and continue traversing.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

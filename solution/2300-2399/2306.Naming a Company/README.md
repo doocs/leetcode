@@ -97,7 +97,7 @@ tags:
 
 最终答案即为 $\textit{ans}$。
 
-时间复杂度 $O(n \times m \times |\Sigma|)$，空间复杂度 $O(|\Sigma|^2)$。其中 $n$ 和 $m$ 分别是 $\textit{ideas}$ 中字符串的个数和字符串的最大长度，而 $|\Sigma|$ 是字符串中出现的字符集，本题中 $|\Sigma| \leq 26$。
+时间复杂度 $O(nm|\Sigma|)$，空间复杂度 $O(|\Sigma|^2)$。其中 $n$ 和 $m$ 分别是 $\textit{ideas}$ 中字符串的个数和字符串的最大长度，而 $|\Sigma|$ 是字符串中出现的字符集，本题中 $|\Sigma| \leq 26$。
 
 <!-- tabs:start -->
 

@@ -117,7 +117,7 @@ tags:
 
 否则，我们可以枚举当前数字分配给奇数位的数字个数 $l$，那么偶数位的数字个数就是 $r = \textit{cnt}[i] - l$，我们需要满足 $0 \leq r \leq b$ 且 $l \times i \leq j$，然后我们计算出当前的方案数 $t = C_a^l \times C_b^r \times \text{dfs}(i + 1, j - l \times i, a - l, b - r)$，最后答案就是所有方案数之和。
 
-时间复杂度 $O(|\Sigma| \times n^2 \times (n + |\Sigma|))$，其中 $|\Sigma|$ 表示数字的种类数，本题中 $|\Sigma| = 10$。空间复杂度 $O(n^2 \times |\Sigma|^2)$。
+时间复杂度 $O(|\Sigma|n^2(n + |\Sigma|))$，空间复杂度 $O(n^2|\Sigma|^2)$。其中 $|\Sigma|$ 表示数字的种类数，本题中 $|\Sigma| = 10$。
 
 <!-- tabs:start -->
 

@@ -93,7 +93,7 @@ It can be proven, that 11 is the maximum answer that we can achieve.
 
 We notice that to make the final score maximum, we should make each choice as large as possible. Therefore, we select the largest element $x$ in the array for the first time, $x+1$ for the second time, $x+2$ for the third time, and so on, until the $k$th time we select $x+k-1$. This way of selection ensures that the element selected each time is the largest in the current array, so the final score is also the largest. The answer is $k$ $x$ sum plus $0+1+2+\cdots+(k-1)$, that is, $k \times x + (k - 1) \times k / 2$.
 
-Time complexity is $O(n)$, where $n$ is the length of the array. Space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -88,7 +88,7 @@ If $\textit{finalSum}$ is odd, it cannot be split into the sum of several distin
 
 Otherwise, we can greedily split $\textit{finalSum}$ in the order of $2, 4, 6, \cdots$, until $\textit{finalSum}$ can no longer be split into a different positive even integer. At this point, we add the remaining $\textit{finalSum}$ to the last positive even integer.
 
-The time complexity is $O(\sqrt{\textit{finalSum}})$, and ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(\sqrt{\textit{finalSum}})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

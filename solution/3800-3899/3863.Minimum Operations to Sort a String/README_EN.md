@@ -108,7 +108,7 @@ Otherwise, if some character in the middle of the string equals $mn$ or $mx$, we
 
 Finally, if none of the above cases apply, we need one operation on the substring containing both $mn$ and $mx$, followed by one more operation on the remaining substring, so we return 3.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ For this problem, we can treat each cell as a node in a graph, and the absolute 
 
 We first construct a set of edges, then sort them in ascending order of edge weight, and add edges one by one until the top-left node and the bottom-right node are connected. At this point, the weight of the edge is the minimum physical consumption value required by the problem.
 
-The time complexity is $O(m \times n \times \log(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively.
 
 <!-- tabs:start -->
 
@@ -462,7 +462,7 @@ We notice that if the maximum physical consumption value of a path is $x$, then 
 
 We define the left boundary of the binary search as $l=0$, and the right boundary as $r=10^6$. Each time we take $mid=(l+r)/2$, then use BFS to determine whether there is a path from the top-left corner to the bottom-right corner, so that the absolute difference in height between adjacent nodes on the path is not greater than $mid$. If it exists, it means that $mid$ may still be the minimum physical consumption value that meets the conditions, so we set $r=mid$, otherwise we set $l=mid+1$.
 
-The time complexity is $O(m \times n \times \log M)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively, and $M$ is the maximum value in the two-dimensional array. In this problem, $M=10^6$.
+The time complexity is $O(mn \log M)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively, and $M$ is the maximum value in the two-dimensional array. In this problem, $M=10^6$.
 
 <!-- tabs:start -->
 
@@ -698,7 +698,7 @@ We can use the Dijkstra algorithm to solve the shortest path problem, and use a 
 
 We use a priority queue (heap) to store nodes, and each time we take out the node with the smallest weight from the priority queue (heap), then update the weights of its adjacent nodes. If the weight of an adjacent node changes, then we add this node to the priority queue (heap). When the priority queue (heap) is empty, it means that we have found the shortest path.
 
-The time complexity is $O(m \times n \times \log(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively.
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively.
 
 <!-- tabs:start -->
 

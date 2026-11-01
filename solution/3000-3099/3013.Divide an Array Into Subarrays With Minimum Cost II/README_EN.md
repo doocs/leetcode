@@ -98,7 +98,7 @@ Next, we traverse $\textit{nums}$ starting from $\textit{dist}+2$. For each elem
 
 The final answer is $\textit{ans}$.
 
-The time complexity is $O(n \times \log \textit{dist})$, and the space complexity is $O(\textit{dist})$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log \textit{dist})$, and the space complexity is $O(\textit{dist})$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

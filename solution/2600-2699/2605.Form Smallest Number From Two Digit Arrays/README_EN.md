@@ -66,7 +66,7 @@ Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>
 
 We observe that if there are the same numbers in the arrays $nums1$ and $nums2$, then the minimum of the same numbers is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$.
 
 <!-- tabs:start -->
 
@@ -204,7 +204,7 @@ impl Solution {
 
 We can use a hash table or array to record the numbers in the arrays $nums1$ and $nums2$, and then enumerate $1 \sim 9$. If $i$ appears in both arrays, then $i$ is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively; and $C$ is the range of the numbers in the arrays $nums1$ and $nums2$, and the range in this problem is $C = 10$.
+The time complexity is $O(m + n)$, and the space complexity is $O(C)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively; and $C$ is the range of the numbers in the arrays $nums1$ and $nums2$, and the range in this problem is $C = 10$.
 
 <!-- tabs:start -->
 
@@ -401,7 +401,7 @@ If the number $mask$ obtained by performing a bitwise AND operation on $mask1$ a
 
 Otherwise, we extract the position of the last $1$ in $mask1$ and $mask2$ respectively, and denote them as $a$ and $b$, respectively. Then the smallest number is $min(a \times 10 + b, b \times 10 + a)$.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively.
 
 <!-- tabs:start -->
 

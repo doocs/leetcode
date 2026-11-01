@@ -73,7 +73,7 @@ We enumerate each number in $[1,..n]$, calculate its sum of digits $s$, then inc
 
 Finally, we return $ans$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
 
 <!-- tabs:start -->
 

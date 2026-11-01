@@ -71,7 +71,7 @@ If $n > 1$, we can enumerate the number of nodes $i$ in the left subtree, then t
 
 This process can be optimized with memoization search to avoid repeated calculations.
 
-The time complexity is $O(\frac{2^n}{\sqrt{n}})$, and the space complexity is $O(\frac{2^n}{\sqrt{n}})$. Where $n$ is the number of nodes.
+The time complexity is $O(\frac{2^n}{\sqrt{n}})$, and the space complexity is $O(\frac{2^n}{\sqrt{n}})$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

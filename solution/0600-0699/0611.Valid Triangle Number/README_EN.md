@@ -78,7 +78,7 @@ If we arrange the sides in ascending order, i.e., $a \leq b \leq c$, then obviou
 
 We enumerate $i$ in the range $[0, n - 3]$, enumerate $j$ in the range $[i + 1, n - 2]$, and perform binary search in the range $[j + 1, n - 1]$ to find the first index $left$ that is greater than or equal to $nums[i] + nums[j]$. Then, the values of $k$ in the range $[j + 1, left - 1]$ satisfy the condition, and we add them to the result $\textit{ans}$.
 
-The time complexity is $O(n^2\log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

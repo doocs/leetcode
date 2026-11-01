@@ -72,7 +72,7 @@ tags:
 
 Enumerate each index as the left end and extend to the right. Stop at the first value that does not divide $k$. While extending, the running LCM stays a divisor of $k$; count the positions where it equals $k$.
 
-The time complexity is $O(n^2)$. Here, $n$ is the length of the array.
+The time complexity is $O(n^2)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

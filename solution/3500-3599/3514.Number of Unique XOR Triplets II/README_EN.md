@@ -92,7 +92,7 @@ Let $M = \max(\textit{nums})$. The XOR of any two non-negative integers at most 
 
 First enumerate all pairs $(a, b)$ and mark $a \oplus b$ in array $\textit{st}$. Then enumerate every appeared pairwise XOR value $\textit{ab}$ and each third element $c$, and mark $\textit{ab} \oplus c$ in array $s$. Finally count the number of non-zero entries in $s$.
 
-The time complexity is $O(n^2 + M \cdot n)$, and the space complexity is $O(M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
+The time complexity is $O(n^2 + Mn)$, and the space complexity is $O(M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

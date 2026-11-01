@@ -91,7 +91,7 @@ $$
 
 The answer is the maximum value of all $f[i][j]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 Similar problems:
 

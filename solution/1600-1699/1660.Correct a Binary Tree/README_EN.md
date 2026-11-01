@@ -93,7 +93,7 @@ We design a function `dfs(root)` to handle the subtree with `root` as the root. 
 
 Finally, we return `dfs(root)`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

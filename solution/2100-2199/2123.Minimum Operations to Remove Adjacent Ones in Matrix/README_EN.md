@@ -93,7 +93,7 @@ Then, the problem can be transformed into finding the minimum vertex cover of a 
 
 The core idea of the Hungarian algorithm is to continuously search for augmenting paths starting from unmatched vertices until no augmenting path exists, which yields the maximum matching.
 
-The time complexity is $O(m \times n)$, where $n$ and $m$ are the number of $1$s in the matrix and the number of edges, respectively.
+The time complexity is $O(mn)$, where $n$ and $m$ are the number of $1$s in the matrix and the number of edges, respectively.
 
 <!-- tabs:start -->
 

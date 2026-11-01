@@ -65,7 +65,7 @@ We use a pointer $cur$ to traverse the linked list. If the element corresponding
 
 After the traversal ends, return the head node of the linked list.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

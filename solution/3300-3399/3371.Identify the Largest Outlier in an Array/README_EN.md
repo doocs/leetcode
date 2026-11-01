@@ -100,7 +100,7 @@ Next, we enumerate each element $x$ in the array $\textit{nums}$ as a possible o
 
 After enumerating all elements, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -129,7 +129,7 @@ First, we compute the longest common prefix lengths for all adjacent string pair
 
 In this way, after removing each string, we can quickly compute the longest common prefix length between adjacent string pairs.
 
-The time complexity is $O(L + n \times \log n)$, and the space complexity is $O(n)$, where $L$ is the total length of all strings and $n$ is the number of strings.
+The time complexity is $O(L + n \log n)$, and the space complexity is $O(n)$, where $L$ is the total length of all strings and $n$ is the number of strings.
 
 <!-- tabs:start -->
 

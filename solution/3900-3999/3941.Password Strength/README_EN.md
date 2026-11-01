@@ -101,7 +101,7 @@ Then, we iterate through each character in $\textit{st}$ and compute the passwor
 
 Finally, return the computed password strength.
 
-The time complexity is $O(n)$, where $n$ is the length of the input string. The space complexity is $O(m)$, where $m$ is the number of distinct characters in the input string.
+The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ is the length of the input string, and $m$ is the number of distinct characters in the input string.
 
 <!-- tabs:start -->
 

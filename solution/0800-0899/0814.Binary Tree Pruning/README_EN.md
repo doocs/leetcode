@@ -76,7 +76,7 @@ First, we check if the current node is null. If it is, we directly return the nu
 
 Otherwise, we recursively prune the left and right subtrees and reassign the pruned subtrees to the current node's left and right children. Then, we check if the current node's value is 0 and both its left and right children are null. If so, we return the null node; otherwise, we return the current node.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

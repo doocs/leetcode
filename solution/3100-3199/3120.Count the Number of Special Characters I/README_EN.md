@@ -91,7 +91,7 @@ We use a hash table or array $s$ to record the characters that appear in the str
 
 Finally, return the count of special characters.
 
-The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $word$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $word$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
 
 <!-- tabs:start -->
 

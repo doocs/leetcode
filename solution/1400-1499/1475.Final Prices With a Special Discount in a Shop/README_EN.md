@@ -81,7 +81,7 @@ The problem is essentially to find the first element on the right side that is s
 
 We traverse the array $\textit{prices}$ in reverse order, using the monotonic stack to find the nearest smaller element on the left side of the current element, and then calculate the discount.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

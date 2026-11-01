@@ -92,7 +92,7 @@ The final answer is $\min_{0 \leq j < n} \{f[m - 1][j]\}$.
 
 Since each transition only needs the state of the previous row, we can use a rolling array to optimize the space complexity to $O(n)$.
 
-The time complexity is $O(m \times n^2)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn^2)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

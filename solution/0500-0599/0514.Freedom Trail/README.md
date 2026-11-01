@@ -94,7 +94,7 @@ tags:
 
 最后，我们返回 $\min_{0 \leq j \lt n} f[m - 1][j]$ 即可。
 
-时间复杂度 $O(m \times n^2)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是字符串 $key$ 和 $ring$ 的长度。
+时间复杂度 $O(mn^2)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别是字符串 $key$ 和 $ring$ 的长度。
 
 <!-- tabs:start -->
 

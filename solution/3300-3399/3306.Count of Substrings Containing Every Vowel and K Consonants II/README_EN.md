@@ -110,7 +110,7 @@ Traverse the string. If the current character is a vowel, add it to the hash tab
 
 Finally, we return $\textit{f}(k) - \textit{f}(k + 1)$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

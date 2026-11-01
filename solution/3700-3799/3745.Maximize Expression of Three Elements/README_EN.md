@@ -79,7 +79,7 @@ According to the problem description, we need to choose three elements $a$, $b$,
 
 We only need to traverse the array to find the largest two elements $a$ and $b$ and the smallest element $c$. Then we can calculate the value of the expression.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

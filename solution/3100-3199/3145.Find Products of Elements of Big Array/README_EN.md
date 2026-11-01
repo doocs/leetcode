@@ -155,7 +155,7 @@ Next, for any number, we consider how to calculate the number of strong arrays a
 
 Finally, based on the value of $\textit{power}$, we use the fast exponentiation method to calculate the result of $2^{\textit{power}} \bmod \textit{mod}$.
 
-The time complexity is $O(q \times \log M)$, and the space complexity is $O(\log M)$. Here, $q$ is the number of queries, and $M$ is the upper bound of the number, with $M \le 10^{15}$ in this problem.
+The time complexity is $O(q \log M)$, and the space complexity is $O(\log M)$, where $q$ is the number of queries, and $M$ is the upper bound of the number, with $M \le 10^{15}$ in this problem.
 
 <!-- tabs:start -->
 

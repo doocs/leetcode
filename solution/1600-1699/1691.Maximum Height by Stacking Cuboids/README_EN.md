@@ -106,7 +106,7 @@ where $h[i]$ represents the height of box $i$.
 
 The final answer is the maximum value of $f[i]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of boxes.
 
 <!-- tabs:start -->
 

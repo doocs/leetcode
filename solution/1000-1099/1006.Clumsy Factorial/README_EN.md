@@ -96,7 +96,7 @@ Next, we update $k = (k + 1) \mod 4$.
 
 Finally, the sum of the elements in the stack is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the integer $N$ given in the problem.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the integer $N$ given in the problem.
 
 <!-- tabs:start -->
 

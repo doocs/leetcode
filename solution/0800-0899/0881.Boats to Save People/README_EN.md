@@ -76,7 +76,7 @@ tags:
 
 After sorting, use two pointers to point to the beginning and end of the array respectively. Each time, compare the sum of the elements pointed to by the two pointers with `limit`. If it is less than or equal to `limit`, then both pointers move one step towards the middle. Otherwise, only the right pointer moves. Accumulate the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `people`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `people`.
 
 <!-- tabs:start -->
 

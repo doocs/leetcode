@@ -67,7 +67,7 @@ We can concatenate the two numbers of each domino in order of size to form a two
 
 Then we traverse all the dominoes, using an array $cnt$ of length $100$ to record the number of occurrences of each two-digit number. For each domino, the two-digit number we concatenate is $x$, then the answer will increase by $cnt[x]$, and then we add $1$ to the value of $cnt[x]$. Continue to traverse the next domino, and we can count the number of all equivalent domino pairs.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the number of dominoes, and $C$ is the maximum number of two-digit numbers concatenated in the dominoes, which is $100$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the number of dominoes, and $C$ is the maximum number of two-digit numbers concatenated in the dominoes, which is $100$.
 
 <!-- tabs:start -->
 

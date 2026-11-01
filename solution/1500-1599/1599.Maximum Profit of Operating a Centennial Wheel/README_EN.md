@@ -99,7 +99,7 @@ The profit was never positive, so return -1.
 
 We directly simulate the rotation process of the Ferris wheel. Each time it rotates, we add up the waiting customers and the newly arrived customers, then at most $4$ people get on the ride, update the number of waiting customers and profit, and record the maximum profit and its corresponding number of rotations.
 
-The time complexity is $O(n)$, where $n$ is the length of the `customers` array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the `customers` array.
 
 <!-- tabs:start -->
 

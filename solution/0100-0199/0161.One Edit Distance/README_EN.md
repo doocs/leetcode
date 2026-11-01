@@ -78,7 +78,7 @@ Otherwise, iterate through $s$ and $t$, if $s[i]$ is not equal to $t[i]$:
 
 If the iteration ends, it means that all the characters of $s$ and $t$ that have been iterated are equal, at this time it needs to satisfy $m=n+1$.
 
-The time complexity is $O(m)$, where $m$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the length of string $s$.
 
 <!-- tabs:start -->
 

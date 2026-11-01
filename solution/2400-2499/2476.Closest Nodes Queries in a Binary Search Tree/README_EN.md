@@ -82,7 +82,7 @@ tags:
 
 Since the problem provides a binary search tree, we can obtain a sorted array through in-order traversal. Then for each query, we can find the maximum value less than or equal to the query value and the minimum value greater than or equal to the query value through binary search.
 
-The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the binary search tree and the number of queries, respectively.
+The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the number of nodes in the binary search tree and the number of queries, respectively.
 
 <!-- tabs:start -->
 

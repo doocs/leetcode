@@ -90,7 +90,7 @@ tags:
 
 遍历结束，返回答案即可。
 
-时间复杂度 $O(n + |\Sigma| \times \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $|\Sigma|$ 为字母集的大小。本题中 $|\Sigma|=26$。
+时间复杂度 $O(n + |\Sigma| \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $|\Sigma|$ 为字母集的大小。本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -208,7 +208,7 @@ func minDeletions(s string) (ans int) {
 
 同样先统计并倒序排序出现次数。从前往后看相邻频次，若当前频次不小于前一个，就逐次减 $1$，直到严格更小。
 
-时间复杂度 $O(n + |\Sigma| \times \log |\Sigma| + n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度。
+时间复杂度 $O(n + |\Sigma| \log |\Sigma| + n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 

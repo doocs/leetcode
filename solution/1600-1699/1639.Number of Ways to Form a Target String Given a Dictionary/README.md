@@ -122,7 +122,7 @@ tags:
 
 最后，我们返回 $dfs(0, 0)$ 即可。注意答案的取模操作。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
 
 <!-- tabs:start -->
 
@@ -320,7 +320,7 @@ function numWays(words: string[], target: string): number {
 
 最后，我们返回 $f[m][n]$ 即可。注意答案的取模操作。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
 
 <!-- tabs:start -->
 
@@ -461,7 +461,7 @@ func numWays(words []string, target string) int {
 
 对于其余状态，按 $i$ 从 $m - 1$ 降到 $0$、 $j$ 从 $n - 1$ 降到 $0$ 计算。不选择第 $j$ 列时，方案数为 $f[i][j + 1]$；选择第 $j$ 列时，方案数为 $f[i + 1][j + 1] \times cnt[j][target[i] - 'a']$。两者相加后对 $10^9 + 7$ 取模，得到 $f[i][j]$。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
 
 <!-- tabs:start -->
 

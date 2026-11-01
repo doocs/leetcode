@@ -74,7 +74,7 @@ While traversing $nums$:
 - If all numbers appear $mx$ and $mx-1$ times, and only one number appears $mx$ times, then we can delete one occurrence of the number that appears $mx$ times. The remaining numbers will all have a count of $mx-1$, which meets the condition.
 - If, except for one number, all other numbers appear $mx$ times, then we can delete the number that appears once. The remaining numbers will all have a count of $mx$, which meets the condition.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $nums$ array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $nums$ array.
 
 <!-- tabs:start -->
 

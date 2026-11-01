@@ -76,7 +76,7 @@ We use a hash table $g$ to store which people are in each group size $groupSize$
 
 Since the range of $n$ in the problem is small, we can also directly create an array of size $n+1$ to store the data, which is more efficient.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$. Here, $n$ is the length of $groupSizes$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $groupSizes$.
 
 <!-- tabs:start -->
 

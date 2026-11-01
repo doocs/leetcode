@@ -78,7 +78,7 @@ The maximum number is 9969.
 
 We convert the number to a string, then traverse the string from left to right to find the first occurrence of $6$, replace it with $9$, and then return the integer corresponding to the converted string.
 
-Time complexity $O(\log \textit{num})$, space complexity $O(\log \textit{num})$. Where $\textit{num}$ is the given integer.
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(\log \textit{num})$, where $\textit{num}$ is the given integer.
 
 <!-- tabs:start -->
 

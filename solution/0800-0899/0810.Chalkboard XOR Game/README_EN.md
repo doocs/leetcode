@@ -123,7 +123,7 @@ If the length is odd, then after Alice erases a number, the remaining numbers ar
 
 In conclusion, Alice can win when the length of $\textit{nums}$ is even or the XOR result of all numbers in $\textit{nums}$ is $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

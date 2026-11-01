@@ -85,7 +85,7 @@ We can use a hash table or a two-dimensional array $st$ to store all substrings 
 
 Then we traverse the string $s$. For each substring of length $2$, we check whether it has appeared in $st$. If it has, we return `true`. Otherwise, we return `false` after the traversal.
 
-The time complexity is $O(n)$ and the space complexity is $O(|\Sigma|^2)$. Here, $n$ is the length of the string $s$, and $\Sigma$ is the character set of the string $s$. In this problem, $\Sigma$ consists of lowercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|^2)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set of the string $s$. In this problem, $\Sigma$ consists of lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

@@ -188,7 +188,7 @@ We record every `'0'` run as $(\textit{start}, \textit{len})$ and build a sparse
 
 Add the best gain to the global `'1'` count. If no trade is possible, the gain is $0$.
 
-Time complexity is $O(n \log n + q)$, and space complexity is $O(n \log n)$, where $n$ is the length of $s$ and $q$ is the number of queries.
+The time complexity is $O(n \log n + q)$, and the space complexity is $O(n \log n)$, where $n$ is the length of $s$ and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

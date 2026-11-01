@@ -78,7 +78,7 @@ tags:
 
 We can use two pointers $i$ and $j$ to find each word, add it to the result list, then reverse the result list, and finally concatenate it into a string.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -287,7 +287,7 @@ public class Solution {
 
 We can use the built-in string split function to split the string into a list of words by spaces, then reverse the list, and finally concatenate it into a string.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

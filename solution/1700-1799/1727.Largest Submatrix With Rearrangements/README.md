@@ -101,7 +101,7 @@ tags:
 
 对于矩阵的某一行，我们记第 $k$ 大元素的值为 $\text{val}_k$，其中 $k \geq 1$，那么该行至少有 $k$ 个元素不小于 $\text{val}_k$，组成的全 $1$ 子矩阵面积为 $\text{val}_k \times k$。从大到小遍历矩阵该行的每个元素，取 $\text{val}_k \times k$ 的最大值，更新答案。
 
-时间复杂度 $O(m \times n \times \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(mn \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 

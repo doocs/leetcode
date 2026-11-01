@@ -88,7 +88,7 @@ We can define an array $d$ to record the leftmost special array position for eac
 
 Finally, we traverse each query and check whether $d[to] <= from$ holds.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -196,7 +196,7 @@ function circularPermutation(n: number, start: number): number[] {
 
 因此，我们也可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的 $gray(i) \oplus start$，即可得到首项为 $start$ 的格雷码排列。
 
-时间复杂度 $O(2^n)$，其中 $n$ 为题目给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(2^n)$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的整数。
 
 <!-- tabs:start -->
 

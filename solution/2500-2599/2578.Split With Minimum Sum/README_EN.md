@@ -87,7 +87,7 @@ First, we use a hash table or array $cnt$ to count the occurrences of each digit
 
 Next, we enumerate all the digits $i$ in $nums$, and alternately allocate the digits in $cnt$ to $num1$ and $num2$ in ascending order, recording them in an array $ans$ of length $2$. Finally, we return the sum of the two numbers in $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the number of digits in $num$; and $C$ is the number of different digits in $num$, in this problem, $C \leq 10$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the number of digits in $num$; and $C$ is the number of different digits in $num$, in this problem, $C \leq 10$.
 
 <!-- tabs:start -->
 
@@ -253,7 +253,7 @@ impl Solution {
 
 We can convert $num$ to a string or character array, then sort it, and then alternately allocate the digits in the sorted array to $num1$ and $num2$ in ascending order. Finally, we return the sum of $num1$ and $num2$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of digits in $num$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of digits in $num$.
 
 <!-- tabs:start -->
 

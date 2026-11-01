@@ -95,7 +95,7 @@ Next, we iterate through all tasks. For the $j$-th task, we first remove all ser
 
 After iterating through all tasks, we obtain the answer array $\textit{ans}$.
 
-The time complexity is $O((n + m) \log n)$, where $n$ is the number of servers and $m$ is the number of tasks. The space complexity is $O(n)$. Here, $n$ and $m$ are the number of servers and tasks, respectively.
+The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$, where $n$ is the number of servers and $m$ is the number of tasks, and $n$ and $m$ are the number of servers and tasks, respectively.
 
 Similar problems:
 

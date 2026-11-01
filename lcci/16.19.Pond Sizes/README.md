@@ -56,7 +56,7 @@ difficulty: 中等
 
 最后，我们对答案数组进行排序，即可得到最终答案。
 
-时间复杂度 $O(m \times n \times \log (m \times n))，空间复杂度 O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵 $land$ 的行数和列数。
+时间复杂度 $O(mn \log (mn)))$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为矩阵 $land$ 的行数和列数。
 
 <!-- tabs:start -->
 

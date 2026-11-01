@@ -90,7 +90,7 @@ tags:
 
 当 $\textit{num1}$ 或 $\textit{num2}$ 有一个为 $0$ 时，停止循环，返回操作数。
 
-时间复杂度 $O(m)$，其中 $m$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。空间复杂度 $O(1)$。
+时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。
 
 <!-- tabs:start -->
 
@@ -237,7 +237,7 @@ var countOperations = function (num1, num2) {
 
 如果按照方法一的模拟过程，我们会发现，如果 $\textit{num1}$ 远大于 $\textit{num2}$，那么每次操作我们都会减少 $\textit{num1}$ 的值，这样会导致操作数过多。我们可以优化这个过程，每次操作时，我们可以直接将 $\textit{num1}$ 除以 $\textit{num2}$ 的商加到答案中，然后将 $\textit{num1}$ 对 $\textit{num2}$ 取余，这样可以减少操作数。
 
-时间复杂度 $O(\log m)$，其中 $m$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。空间复杂度 $O(1)$。
+时间复杂度 $O(\log m)$，空间复杂度 $O(1)$。其中 $m$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。
 
 <!-- tabs:start -->
 

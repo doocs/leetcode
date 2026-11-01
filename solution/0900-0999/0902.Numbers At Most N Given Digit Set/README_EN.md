@@ -115,7 +115,7 @@ Then, we enumerate the current digit $j$ in the range $[0, \textit{up}]$. If $j$
 
 Finally, we return $\textit{dfs}(0, \text{true}, \text{true})$.
 
-The time complexity is $O(\log n \times D)$, and the space complexity is $O(\log n)$. Here, $D = 10$.
+The time complexity is $O(D \log n)$, and the space complexity is $O(\log n)$, where $D = 10$.
 
 Similar problems:
 

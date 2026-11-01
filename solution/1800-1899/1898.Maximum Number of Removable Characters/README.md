@@ -95,7 +95,7 @@ tags:
 
 二分查找结束后，返回左边界 $l$ 即可。
 
-时间复杂度 $O(k \times \log k)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度，而 $k$ 是 $\textit{removable}$ 的长度。
+时间复杂度 $O(k \log k)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度，而 $k$ 是 $\textit{removable}$ 的长度。
 
 <!-- tabs:start -->
 

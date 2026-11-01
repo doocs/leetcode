@@ -127,7 +127,7 @@ We first add all required edges into the Union-Find and record the minimum stren
 
 Next, we perform binary search in the range $[1, mn]$. We define a function $\text{check}(lim)$ to check whether there exists a spanning tree with stability at least $lim$. In the $\text{check}$ function, we first add all edges with strength no less than $lim$ into the Union-Find. Then we try to use the upgrade count to connect the remaining edges, with the condition that the edge strength is at least $lim/2$ (since upgrading doubles the strength). If the final number of connected components in the Union-Find is $1$, a spanning tree satisfying the condition exists.
 
-The time complexity is $O((m \times \alpha(n) + n) \times \log M)$, and the space complexity is $O(n)$. Here, $m$ is the number of edges, $n$ is the number of nodes, and $M$ is the maximum edge strength.
+The time complexity is $O((m \alpha(n) + n) \log M)$, and the space complexity is $O(n)$, where $m$ is the number of edges, $n$ is the number of nodes, and $M$ is the maximum edge strength.
 
 <!-- tabs:start -->
 

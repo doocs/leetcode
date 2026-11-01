@@ -146,7 +146,7 @@ Next, we iterate over each element $c$ in the array $commands$:
 
 Finally, return the answer $ans$.
 
-The time complexity is $O(C \times n + m)$ and the space complexity is $O(m)$, where $C$ is the maximum number of steps per move, and $n$ and $m$ are the lengths of the arrays $commands$ and $obstacles$, respectively.
+The time complexity is $O(Cn + m)$, and the space complexity is $O(m)$, where $C$ is the maximum number of steps per move, and $n$ and $m$ are the lengths of the arrays $commands$ and $obstacles$, respectively.
 
 <!-- tabs:start -->
 

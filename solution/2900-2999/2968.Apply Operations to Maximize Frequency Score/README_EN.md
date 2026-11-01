@@ -110,7 +110,7 @@ $$
 
 We can use the prefix sum array $s$ to calculate $\sum_{k = i}^{j} nums[k]$, so as to calculate $left$ and $right$ in $O(1)$ time.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

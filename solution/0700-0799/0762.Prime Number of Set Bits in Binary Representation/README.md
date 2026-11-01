@@ -86,7 +86,7 @@ tags:
 
 我们枚举 $[\textit{left},.. \textit{right}]$ 范围内的每个数，统计其二进制中 $1$ 的个数，然后判断该个数是否为质数，如果是，答案加一。
 
-时间复杂度 $O(n\times \log m)$。其中 $n = \textit{right} - \textit{left} + 1$，而 $m$ 为 $[\textit{left},.. \textit{right}]$ 范围内的最大数。
+时间复杂度 $O(n \log m)$。其中 $n = \textit{right} - \textit{left} + 1$，而 $m$ 为 $[\textit{left},.. \textit{right}]$ 范围内的最大数。
 
 <!-- tabs:start -->
 

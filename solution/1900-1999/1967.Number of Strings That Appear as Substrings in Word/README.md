@@ -88,7 +88,7 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 
 遍历结束后，返回答案。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 $\textit{patterns}$ 和 $\textit{word}$ 的长度。
+时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 $\textit{patterns}$ 和 $\textit{word}$ 的长度。
 
 <!-- tabs:start -->
 

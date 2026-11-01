@@ -105,7 +105,7 @@ tags:
 
 最终的答案是 $dfs(0, maxAmount, maxCoupons)$。
 
-时间复杂度 $O(n \times maxAmount \times maxCoupons)$。其中 $n$ 是水果的数量。
+时间复杂度 $O(n maxAmount maxCoupons)$。其中 $n$ 是水果的数量。
 
 <!-- tabs:start -->
 

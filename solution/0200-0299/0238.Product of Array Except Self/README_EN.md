@@ -68,7 +68,7 @@ Next, we traverse the array from right to left. For the $i$-th element, we updat
 
 After the traversal, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

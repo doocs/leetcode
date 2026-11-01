@@ -80,7 +80,7 @@ To satisfy the problem's requirement, there can be at most one element in array 
 
 Note that the next element after the last element of array $\textit{nums}$ is the first element of array $\textit{nums}$.
 
-The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

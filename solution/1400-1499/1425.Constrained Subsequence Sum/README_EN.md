@@ -94,7 +94,7 @@ We traverse $i$ from $0$ to $n - 1$. For each $i$, we perform the following oper
 
 The final answer is $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

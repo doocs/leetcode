@@ -79,7 +79,7 @@ We can use the two pointers method, where pointer $j$ points to the target strin
 
 After the traversal ends, return the subsequence count.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the strings `source` and `target` respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the strings `source` and `target` respectively.
 
 <!-- tabs:start -->
 

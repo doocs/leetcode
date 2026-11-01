@@ -107,7 +107,7 @@ We use pointer $j$ to point to the current character:
 
 After traversing the string, return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ We use a hash table to record all indices where each integer appears. Traverse $
 
 Then iterate over each index list $\textit{pos}$ in the hash table. Skip it if its length is less than $3$. Otherwise let $d = \textit{pos}[1] - \textit{pos}[0]$ and check whether every adjacent gap equals $d$. If so, the integer is special and we increment the answer by $1$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

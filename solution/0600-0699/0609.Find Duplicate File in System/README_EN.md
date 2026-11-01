@@ -90,7 +90,7 @@ Next, we iterate over $\textit{paths}$. For each path, we split it into the dire
 
 Finally, we return all values in hash table $d$ that have more than one file path.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{paths}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{paths}$.
 
 <!-- tabs:start -->
 

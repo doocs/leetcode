@@ -108,7 +108,7 @@ tags:
 
 我们可以使用一个数组 $\textit{cnt}$ 来统计每个字符的出现频率。然后我们对这个数组进行排序，最后返回前 $26 - k$ 个元素的和。
 
-时间复杂度 $O(|\Sigma| \times \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$，其中 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma| = 26$。
+时间复杂度 $O(|\Sigma| \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 

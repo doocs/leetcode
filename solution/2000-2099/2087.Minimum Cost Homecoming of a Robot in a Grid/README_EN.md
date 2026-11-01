@@ -91,7 +91,7 @@ Similarly, if $y_0 < y_1$, the robot needs to move right, passing through column
 
 The answer is the sum of the vertical movement cost and the horizontal movement cost.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of $rowCosts$ and $colCosts$, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $rowCosts$ and $colCosts$, respectively.
 
 <!-- tabs:start -->
 

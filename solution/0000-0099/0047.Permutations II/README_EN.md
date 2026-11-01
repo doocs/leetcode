@@ -74,7 +74,7 @@ Then, we design a function $\textit{dfs}(i)$, which represents the current numbe
 
 In the main function, we first sort the array, then call $\textit{dfs}(0)$ to start filling from the 0th position, and finally return the answer array.
 
-The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. We need to perform $n!$ enumerations, and each enumeration requires $O(n)$ time to check for duplicates. Additionally, we need a marker array to mark whether each position has been used, so the space complexity is $O(n)$.
+The time complexity is $O(nn!)$, and the space complexity is $O(n)$, where $n$ is the length of the array. We need to perform $n!$ enumerations, and each enumeration requires $O(n)$ time to check for duplicates. Additionally, we need a marker array to mark whether each position has been used, so the space complexity is $O(n)$.
 
 Similar problems:
 

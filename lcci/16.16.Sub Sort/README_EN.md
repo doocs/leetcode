@@ -54,7 +54,7 @@ Similarly, we traverse the array $array$ from right to left, and use $mi$ to rec
 
 Finally, return $[left, right]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $array$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $array$.
 
 <!-- tabs:start -->
 

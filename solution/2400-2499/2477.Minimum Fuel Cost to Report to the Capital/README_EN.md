@@ -106,7 +106,7 @@ Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass th
 
 We start a depth-first search from node $0$, using a variable $sz$ to count the number of nodes in the subtree with the current node as the root. Initially, $sz = 1$, representing the current node itself. Then we traverse all the child nodes of the current node. For each child node $b$, we recursively calculate the number of nodes $t$ in the subtree with $b$ as the root, and add $t$ to $sz$, and then we add $\lceil \frac{t}{seats} \rceil$ to the answer. Finally, return $sz$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -313,7 +313,7 @@ Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass th
 
 An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, the subtree size $t$ of child $b$ is known: add $\lceil t/seats\rceil$ to the answer and add $t$ to the current node. The node itself starts as $1$ person. The root has no edge leading further up.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

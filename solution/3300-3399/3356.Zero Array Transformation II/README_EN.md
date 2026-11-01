@@ -132,7 +132,7 @@ During the binary search, if $\text{check}(k)$ returns $\text{true}$, it means t
 
 Finally, we check whether $l > m$. If so, return -1; otherwise, return $l$.
 
-The time complexity is $O((n + m) \times \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array $\textit{nums}$ and $\textit{queries}$, respectively.
+The time complexity is $O((n + m) \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

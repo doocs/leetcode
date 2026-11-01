@@ -76,7 +76,7 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 
 By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted is the number of binary digits in $i$.
 
-The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -215,7 +215,7 @@ public class Solution {
 
 In Solution 1, we need to calculate the number of binary digits of $i$ each time, which adds some extra computation. We can use a variable $\textit{shift}$ to record the current number of bits to shift. When $i$ is a power of $2$, $\textit{shift}$ needs to be incremented by $1$.
 
-The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

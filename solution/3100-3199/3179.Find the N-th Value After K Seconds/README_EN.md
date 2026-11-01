@@ -141,7 +141,7 @@ We define an array $a$ of length $n$ and initialize all elements to $1$. Then we
 
 Finally, we return $a[n - 1]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $a$.
+The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ is the length of the array $a$.
 
 <!-- tabs:start -->
 

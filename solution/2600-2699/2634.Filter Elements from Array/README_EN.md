@@ -83,7 +83,7 @@ Falsey values such as 0 should be filtered out
 
 We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $arr$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 

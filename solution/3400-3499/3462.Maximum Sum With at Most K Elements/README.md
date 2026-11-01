@@ -103,7 +103,7 @@ tags:
 
 最后，将 $\textit{pq}$ 中的元素相加即可。
 
-时间复杂度 $O(n \times m \times (\log m + \log k))$，空间复杂度 $O(k)$。其中 $n$ 和 $m$ 分别为矩阵 $\textit{grid}$ 的行数和列数。
+时间复杂度 $O(nm(\log m + \log k))$，空间复杂度 $O(k)$。其中 $n$ 和 $m$ 分别为矩阵 $\textit{grid}$ 的行数和列数。
 
 <!-- tabs:start -->
 

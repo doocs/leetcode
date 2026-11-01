@@ -111,7 +111,7 @@ tags:
 
 最终答案为 $\min_{j=0}^{op1} \min_{k=0}^{op2} f[n][j][k]$，如果为 $+\infty$，则输出 $-1$。
 
-时间复杂度 $O(n \times \textit{op1} \times \textit{op2})$，空间复杂度 $O(n \times \textit{op1} \times \textit{op2})$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \textit{op1} \textit{op2})$，空间复杂度 $O(n \textit{op1} \textit{op2})$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

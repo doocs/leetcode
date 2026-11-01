@@ -99,7 +99,7 @@ Then, we perform the following steps:
 5. If a new array state $\textit{nxt}$ has not been visited, add it to the queue and the visited set.
 6. Repeat the above steps until the target array is found or the queue is empty.
 
-The time complexity is $O(n! \times n^4)$, and the space complexity is $O(n! \times n)$, where $n$ is the length of the array.
+The time complexity is $O(n!n^4)$, and the space complexity is $O(n!n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -100,7 +100,7 @@ tags:
 
 The problem essentially asks for the result of the sum of the array elements modulo $k$. Therefore, we only need to iterate through the array, calculate the sum of all elements, and then take the modulo $k$. Finally, return this result.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

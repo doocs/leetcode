@@ -95,7 +95,7 @@ Thus, we return 1.
 
 We can use a hash table $s$ to record all the excavated cells, then traverse all the workpieces, and check whether all parts of the workpiece are in the hash table. If so, we can extract the workpiece, and the answer is increased by one.
 
-The time complexity is $O(m + k)$, and the space complexity is $O(k)$. Here, $m$ is the number of workpieces, and $k$ is the number of excavated cells.
+The time complexity is $O(m + k)$, and the space complexity is $O(k)$, where $m$ is the number of workpieces, and $k$ is the number of excavated cells.
 
 <!-- tabs:start -->
 

@@ -70,7 +70,7 @@ tags:
 
 <!-- thinking:end -->
 
-时间复杂度 O(nlogn)。
+时间复杂度 $O(n \log n)$。
 
 <!-- tabs:start -->
 

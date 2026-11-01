@@ -93,7 +93,7 @@ In the binary search details, the subarray split must satisfy $s[j] \geq s[i]$ a
 
 Finally, return the number of schemes modulo $10^9+7$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

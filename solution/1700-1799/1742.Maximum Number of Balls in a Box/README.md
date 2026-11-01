@@ -89,7 +89,7 @@ tags:
 
 答案就是数组 $\textit{cnt}$ 中的最大值。
 
-时间复杂度 $O(n \times \log_{10}m)$。其中 $n = \textit{highLimit} - \textit{lowLimit} + 1$，而 $m = \textit{highLimit}$。
+时间复杂度 $O(n \log_{10}m)$。其中 $n = \textit{highLimit} - \textit{lowLimit} + 1$，而 $m = \textit{highLimit}$。
 
 <!-- tabs:start -->
 

@@ -107,7 +107,7 @@ We can use a variable $x$ to record the vertical distance, a variable $y$ to rec
 
 Then the final Manhattan distance is $|x| + |y| + z$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{moves}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{moves}$.
 
 <!-- tabs:start -->
 

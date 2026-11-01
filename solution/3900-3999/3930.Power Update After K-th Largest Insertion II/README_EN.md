@@ -154,11 +154,11 @@ tags:
 
 > **Thinking**
 >
-> Sorting after every insertion to read the $k$-th largest is $O(n\log n)$ per query and is awkward at total length $2\times 10^4$. We need a structure that inserts and then selects by rank.
+> Sorting after every insertion to read the $k$-th largest is $O(n \log n)$ per query and is awkward at total length $2\times 10^4$. We need a structure that inserts and then selects by rank.
 >
 > A sorted list holds every current value; after inserting $val$, $sl[-k]$ is the $k$-th largest, and $p$ becomes $p^x\bmod(10^9+7)$.
 >
-> Insertions and modular exponentiation are logarithmic, for a total of $O((n+m)\log(n+m))$.
+> Insertions and modular exponentiation are logarithmic, for a total of $O((n+m) \log(n+m))$.
 
 <!-- thinking:end -->
 

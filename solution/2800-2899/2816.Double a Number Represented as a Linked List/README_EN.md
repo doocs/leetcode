@@ -67,7 +67,7 @@ tags:
 
 First, we reverse the linked list, then simulate the multiplication operation, and finally reverse the linked list back.
 
-Time complexity is $O(n)$, where $n$ is the length of the linked list. Ignoring the space taken by the answer linked list, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

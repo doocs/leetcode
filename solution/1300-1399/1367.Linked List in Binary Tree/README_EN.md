@@ -88,7 +88,7 @@ We design a recursive function $dfs(head, root)$, which indicates whether the li
 
 In the main function, we call $dfs(head, root)$ for each node of the binary tree. As long as one returns `true`, it means that the linked list is a subpath of the binary tree, return `true`; if all nodes return `false`, it means that the linked list is not a subpath of the binary tree, return `false`.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

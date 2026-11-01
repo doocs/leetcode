@@ -91,7 +91,7 @@ For subsequent elements $x$, we can greedily change it to $\min(x + k, \max(x - 
 
 After traversing the array, we obtain the maximum number of distinct elements.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

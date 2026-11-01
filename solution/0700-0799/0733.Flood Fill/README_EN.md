@@ -94,7 +94,7 @@ tags:
 
 We denote the initial pixel's color as $\textit{oc}$. If $\textit{oc}$ is not equal to the target color $\textit{color}$, we start a depth-first search from $(\textit{sr}, \textit{sc})$ to change the color of all eligible pixels to the target color.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
 
 <!-- tabs:start -->
 
@@ -300,7 +300,7 @@ We first check if the initial pixel's color is equal to the target color. If it 
 
 Specifically, we define a queue $\textit{q}$ and add the initial pixel $(\textit{sr}, \textit{sc})$ to the queue. Then, we continuously take pixels $(i, j)$ from the queue, change their color to the target color, and add the pixels in the four directions (up, down, left, right) that have the same original color as the initial pixel to the queue. When the queue is empty, we have completed the flood fill.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ We first sort the robots by position in ascending order, storing the sorted robo
 
 Finally, we return the health values of all robots with health greater than 0.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of robots.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of robots.
 
 <!-- tabs:start -->
 

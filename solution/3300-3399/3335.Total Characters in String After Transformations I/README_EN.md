@@ -142,7 +142,7 @@ The answer is $f[t][0] + f[t][1] + \ldots + f[t][25]$.
 
 Since the answer can be very large, we take the result modulo $10^9 + 7$.
 
-The time complexity is $O(t \times |\Sigma|)$, and the space complexity is $O(t \times |\Sigma|)$, where $|\Sigma|$ is the size of the alphabet.
+The time complexity is $O(t|\Sigma|)$, and the space complexity is $O(t|\Sigma|)$, where $|\Sigma|$ is the size of the alphabet.
 
 <!-- tabs:start -->
 

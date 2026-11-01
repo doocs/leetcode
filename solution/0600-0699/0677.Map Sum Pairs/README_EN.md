@@ -90,7 +90,7 @@ When querying the prefix sum, we start from the root node of the trie and traver
 
 In terms of time complexity, the time complexity of inserting a key-value pair is $O(n)$, where $n$ is the length of the key. The time complexity of querying the prefix sum is $O(m)$, where $m$ is the length of the prefix.
 
-The space complexity is $O(n \times m \times C)$, where $n$ and $m$ are the number of keys and the maximum length of the keys, respectively; and $C$ is the size of the character set, which is $26$ in this problem.
+The space complexity is $O(nmC)$, where $n$ and $m$ are the number of keys and the maximum length of the keys, respectively; and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

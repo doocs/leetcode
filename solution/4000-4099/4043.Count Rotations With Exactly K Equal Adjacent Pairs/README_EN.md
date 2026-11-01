@@ -107,7 +107,7 @@ Then start from the original string and cyclically shift it left by one characte
 
 All indices are taken modulo $n$. Thus $\textit{score}$ can be updated in $O(1)$ time, and we count the cyclic rotations whose score equals $k$.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

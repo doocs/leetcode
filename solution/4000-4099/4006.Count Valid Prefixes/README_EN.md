@@ -91,7 +91,7 @@ A string can be rearranged into an alternating string if and only if the counts 
 
 Therefore, we traverse the string $s$ and maintain a variable $t$ equal to the number of `'1'`s minus the number of `'0'`s in the current prefix (increment by one on `'1'`, decrement by one on `'0'`). If $|t| \leq 1$, the current prefix is valid, and we add one to the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

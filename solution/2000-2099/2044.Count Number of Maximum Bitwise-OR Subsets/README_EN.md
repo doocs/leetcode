@@ -267,7 +267,7 @@ We can use binary enumeration to count the bitwise OR results of all subsets. Fo
 
 We can iterate through all possible $\textit{mask}$ values from $0$ to $2^n - 1$. For each $\textit{mask}$, we can calculate the bitwise OR result of the corresponding subset and update the maximum value $\textit{mx}$ and answer $\textit{ans}$.
 
-The time complexity is $O(2^n \cdot n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

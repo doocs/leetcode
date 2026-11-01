@@ -79,7 +79,7 @@ Perform `extraStudents` operations, each time taking a class from the top of the
 
 Finally, we sum up the pass rates of all classes, and then divide by the number of classes to get the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of classes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of classes.
 
 <!-- tabs:start -->
 

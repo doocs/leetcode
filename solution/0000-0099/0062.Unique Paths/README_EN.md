@@ -87,7 +87,7 @@ $$
 
 The final answer is $f[m - 1][n - 1]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -259,7 +259,7 @@ var uniquePaths = function (m, n) {
 
 <!-- thinking:end -->
 
-Fill the first row and first column with $1$, then only compute interior cells $f[i][j] = f[i-1][j] + f[i][j-1]$. Time and space stay $O(m \times n)$.
+Fill the first row and first column with $1$, then only compute interior cells $f[i][j] = f[i-1][j] + f[i][j-1]$. Time and space stay $O(mn)$.
 
 <!-- tabs:start -->
 
@@ -386,7 +386,7 @@ var uniquePaths = function (m, n) {
 
 <!-- thinking:end -->
 
-$f[i][j]$ depends only on the previous row and the left cell, so a 1D array of length $n$ is enough. The time complexity is $O(m \times n)$ and the space complexity is $O(n)$.
+$f[i][j]$ depends only on the previous row and the left cell, so a 1D array of length $n$ is enough. The time complexity is $O(mn)$ and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

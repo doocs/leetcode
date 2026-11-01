@@ -107,7 +107,7 @@ If $k=1$, we check if $j$ is equal to the length of $b$. If it is, then Alice wi
 
 If $k=0$, we check if $i$ is equal to the length of $a$. If it is, then Bob wins and we return $false$. Otherwise, we check if the first letter of $a[i]$ is equal to the first letter of $w$. If it is, we check if $a[i]$ is greater than $w$, or if the first letter of $a[i]$ is one greater than the first letter of $w$. If either of these conditions is true, then Alice can play the $i$-th word. We set $w=a[i]$ and toggle $k$. Otherwise, Alice cannot play the $i$-th word, so we increment $i$.
 
-The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively. We only need to traverse the arrays once. The space complexity is $O(1)$.
+The time complexity is $O(m+n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively.
 
 <!-- tabs:start -->
 

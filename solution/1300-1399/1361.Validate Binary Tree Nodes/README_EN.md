@@ -83,7 +83,7 @@ We can traverse each node $i$ and its corresponding left and right children $l$,
 
 After the traversal, we check whether the number of connected components in the union-find set is $1$. If it is, we return `true`, otherwise, we return `false`.
 
-The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Where $n$ is the number of nodes, and $\alpha(n)$ is the inverse Ackermann function, which is less than $5$.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of nodes, and $\alpha(n)$ is the inverse Ackermann function, which is less than $5$.
 
 <!-- tabs:start -->
 
@@ -232,7 +232,7 @@ Next, we perform a breadth-first search starting from the root. During the trave
 
 After the traversal, we check whether the number of visited nodes equals $n$. If so, all nodes form exactly one valid binary tree and we return `true`; otherwise, we return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

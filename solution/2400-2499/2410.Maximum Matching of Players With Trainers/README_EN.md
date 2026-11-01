@@ -82,7 +82,7 @@ Sort players and trainers by ability in non-decreasing order. Pointers $i$ and $
 
 Start from the weakest player. While the trainer's capacity is below the player's ability, move $j$ right until a trainer is strong enough or none remain. If the trainers run out, every later player is at least as strong, so matching stops and the answer is $i$, the number already matched. Otherwise this pair matches and both pointers move forward by one. If every player is matched, return the number of players.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\max(\log m, \log n))$, where $m$ and $n$ are the numbers of players and trainers, respectively.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\max(\log m, \log n))$, where $m$ and $n$ are the numbers of players and trainers, respectively.
 
 <!-- tabs:start -->
 
@@ -229,7 +229,7 @@ Sort players and trainers by ability in non-decreasing order. Pointer $j$ marks 
 
 Go through the trainers from weakest to strongest. If some player is still unmatched and that player's ability does not exceed the trainer's capacity, count one match and increment $j$. Otherwise this trainer cannot match any remaining player and is skipped. After the scan, $j$ is the maximum number of matches.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\max(\log m, \log n))$, where $m$ and $n$ are the numbers of players and trainers, respectively.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\max(\log m, \log n))$, where $m$ and $n$ are the numbers of players and trainers, respectively.
 
 <!-- tabs:start -->
 

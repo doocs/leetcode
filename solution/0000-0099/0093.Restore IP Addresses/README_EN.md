@@ -80,7 +80,7 @@ If $i$ is greater than or equal to the length of string $s$, it means that we ha
 
 If $i$ is less than the length of string $s$, it means that we still need to splice a segment of the IP address. At this point, we need to determine the value of this segment of the IP address. If the value is greater than $255$, or the current position $i$ is $0$ and the value of several positions after $i$ is greater than $0$, it means that it does not meet the requirements, so we return directly. Otherwise, add it to the IP address list, and continue to search for the next segment of the IP address.
 
-The time complexity is $O(n \times 3^4)$, and the space complexity is $O(n)$. Here, $n$ is the length of string $s$.
+The time complexity is $O(3^4 n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 

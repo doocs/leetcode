@@ -86,7 +86,7 @@ According to the problem description, we can simulate the process of each query,
 
 There is an optimization point here. If a node and its corresponding subtree have been queried an even number of times, the node value will not change. Therefore, we can record the number of queries for each node, and only reverse the nodes and their subtrees that have been queried an odd number of times.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

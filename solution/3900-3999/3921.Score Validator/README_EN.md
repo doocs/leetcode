@@ -185,7 +185,7 @@ First, we initialize two variables $\textit{score}$ and $\textit{counter}$, repr
 
 After processing all events or when the counter reaches 10, we return an array containing the final values of $\textit{score}$ and $\textit{counter}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{events}$. The space complexity is $O(1)$, as we only use a constant amount of extra space.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{events}$.
 
 <!-- tabs:start -->
 

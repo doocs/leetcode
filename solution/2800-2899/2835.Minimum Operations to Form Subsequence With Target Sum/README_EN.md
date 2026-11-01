@@ -96,7 +96,7 @@ Next, starting from the low bit of $target$, for the $i$th bit of $target$, if t
 
 Note that if $j < i$, actually two lower bits of $1$ can be combined into a higher bit of $1$. Therefore, if $j < i$, we add $\frac{cnt[j]}{2}$ to $cnt[j+1]$, and take $cnt[j]$ modulo $2$, then let $j = j + 1$, and continue the above operation.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
 

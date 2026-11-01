@@ -138,7 +138,7 @@ $$
 
 那么 $mx = \max f[i][j]$，最终答案为 $m + n - 2 \times mx$。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为字符串 `initial` 和 `target` 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为字符串 `initial` 和 `target` 的长度。
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ The execution process of the function $dfs(i, j)$ is as follows:
 
 During the process, we can use memoization search to avoid repeated calculations.
 
-The time complexity is $O(steps \times steps)$, and the space complexity is $O(steps \times steps)$. Where $steps$ is the number of steps given in the problem.
+The time complexity is $O(steps^2)$, and the space complexity is $O(steps^2)$, where $steps$ is the number of steps given in the problem.
 
 <!-- tabs:start -->
 

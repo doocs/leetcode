@@ -211,10 +211,7 @@ Logic for `min_stack` processing is similar, but inequality (1) must change into
 
 At the end of each iteration $i$, we add current `subarrays_max_sum` and `subarrays_min_sum` to global total `subarrays_max_min_sum`.
 
-### Complexity Analysis
-
-- **Time Complexity:** $O(n)$, where $n$ is length of $nums$. Each element is pushed and popped at most 4 times in total among two deques.
-- **Space Complexity:** $O(n)$ to store deques and state variables.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $nums$. Each element is pushed and popped at most $4$ times in total among the two deques.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ Next, we push $\textit{heights}[i]$ onto the stack and continue to the next pers
 
 After traversing, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{heights}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{heights}$.
 
 <!-- tabs:start -->
 

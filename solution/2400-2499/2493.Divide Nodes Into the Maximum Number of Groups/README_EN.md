@@ -93,7 +93,7 @@ During the BFS process, we use a queue $q$ to store the nodes currently traverse
 
 During the traversal, if we find that the $dist[b]$ of a certain node $b$ is $0$, it means that $b$ has not been traversed yet. We set the distance of $b$ to $dist[a] + 1$, update $mx$, and add $b$ to the queue $q$. If the distance of $b$ has been updated, we check whether the distance between $b$ and $a$ is $1$. If not, it means that the problem requirements cannot be met, so we directly return $-1$.
 
-The time complexity is $O(n \times (n + m))$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges respectively.
+The time complexity is $O(n(n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges respectively.
 
 <!-- tabs:start -->
 

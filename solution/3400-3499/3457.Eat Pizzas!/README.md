@@ -104,7 +104,7 @@ tags:
 
 考虑偶数天，我们在剩余的披萨中，每次贪心地选择最大的两个披萨，以及最小的两个披萨，增加的重量为 $\sum_{i = n - \textit{odd} - 2}^{n - \textit{odd} - 2 \times \textit{even}} \textit{pizzas}[i]$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{pizzas}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{pizzas}$ 的长度。
 
 <!-- tabs:start -->
 

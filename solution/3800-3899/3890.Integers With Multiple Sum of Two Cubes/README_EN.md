@@ -97,7 +97,7 @@ We observe that when $a$ or $b$ is greater than $1000$, the expression $a^3 + b^
 
 We preprocess all good integers and store them in an array $\textit{GOOD}$. For each query, we use binary search to find the index $idx$ of the first integer in $\textit{GOOD}$ that is greater than $n$, then return the first $idx$ integers in $\textit{GOOD}$.
 
-The time complexity is $O(m^2 + k \log k)$, where $m = 1000$ is the enumeration range and $k$ is the number of good integers. The space complexity is $O(k)$.
+The time complexity is $O(m^2 + k \log k)$, and the space complexity is $O(k)$, where $m = 1000$ is the enumeration range and $k$ is the number of good integers.
 
 <!-- tabs:start -->
 

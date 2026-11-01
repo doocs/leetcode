@@ -88,7 +88,7 @@ $$
 
 where $\textit{answers}[i]$ is the answer to the $i$-th query. Since the query results can be very large, we need to take modulo $10^9 + 7$ for each answer.
 
-The time complexity is $O(m \times \log n)$, where $m$ is the length of the array $\textit{queries}$. Ignoring the space consumption of the answer, the space complexity is $O(\log n)$.
+The time complexity is $O(m \log n)$, and the space complexity is $O(\log n)$, where $m$ is the length of the array $\textit{queries}$.
 
 <!-- tabs:start -->
 

@@ -103,7 +103,7 @@ Then we check if both queues $q[0]$ and $q[1]$ are not empty. If both are not em
 
 Next, we increment the time $t$ by $1$ and continue traversing the array $\textit{arrival}$ until all people have passed through the door.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of the array $\textit{arrival}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the array $\textit{arrival}$.
 
 <!-- tabs:start -->
 

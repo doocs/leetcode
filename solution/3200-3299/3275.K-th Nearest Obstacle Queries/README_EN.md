@@ -103,7 +103,7 @@ Traverse $\textit{queries}$, and for each query, calculate the sum of the absolu
 
 After the traversal, return the answer array.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{queries}$.
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{queries}$.
 
 <!-- tabs:start -->
 

@@ -137,7 +137,7 @@ Next, we iterate through $s$ again. For each index $i$, if $s[i]$ is 'F', we nee
 
 Finally, we concatenate the characters in $ans$ into a string and return it.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(n + m)$.
+The time complexity is $O(nm)$, and the space complexity is $O(n + m)$.
 
 <!-- tabs:start -->
 

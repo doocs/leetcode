@@ -349,7 +349,7 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 
 > **Thinking**
 >
-> Each max query in method 1 is linear. A segment tree answers range maxima in $O(\log n)$, so the same recursion becomes $O(n\log n)$.
+> Each max query in method 1 is linear. A segment tree answers range maxima in $O(\log n)$, so the same recursion becomes $O(n \log n)$.
 
 <!-- thinking:end -->
 

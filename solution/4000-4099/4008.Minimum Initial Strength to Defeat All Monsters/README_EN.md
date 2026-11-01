@@ -117,7 +117,7 @@ Next, we binary search the initial strength $v$. For a given $v$, we simulate th
 
 A larger initial strength never makes it harder to defeat all monsters, so feasibility is monotonic in $v$, and we can binary search the minimum feasible initial strength. The upper bound of the search is set to $10^{15}$ (the total strength of all monsters is at most $5 \times 10^4 \times 10^9 = 5 \times 10^{13}$).
 
-The time complexity is $O((n + m) \times \log M)$, and the space complexity is $O(n)$, where $n$ is the number of monsters, $m$ is the number of boosts, and $M = 10^{15}$ is the upper bound of the binary search.
+The time complexity is $O((n + m) \log M)$, and the space complexity is $O(n)$, where $n$ is the number of monsters, $m$ is the number of boosts, and $M = 10^{15}$ is the upper bound of the binary search.
 
 <!-- tabs:start -->
 

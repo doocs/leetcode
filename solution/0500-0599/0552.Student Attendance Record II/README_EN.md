@@ -94,7 +94,7 @@ Each step replaces the table by the three choices:
 
 Write the new values into a fresh table so the previous day is not overwritten. Take every sum modulo $10^9+7$.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -92,7 +92,7 @@ The calculation process of the function $dfs(i, j)$ is as follows:
 
 During the process, we can use memoization search to avoid repeated calculations.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $s$ and $p$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $s$ and $p$ respectively.
 
 <!-- tabs:start -->
 
@@ -449,7 +449,7 @@ Similar to Solution 1, we can discuss different cases.
 - If $p[j - 1]$ is `'*'`, we can choose to match $0$ $s[i - 1]$ characters, which is $f[i][j] = f[i][j - 2]$. If $s[i - 1]$ matches $p[j - 2]$, we can choose to match $1$ $s[i - 1]$ character, which is $f[i][j] = f[i][j] \lor f[i - 1][j]$.
 - If $p[j - 1]$ is not `'*'`, then if $s[i - 1]$ matches $p[j - 1]$, it is $f[i][j] = f[i - 1][j - 1]$. Otherwise, the match fails.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $s$ and $p$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $s$ and $p$ respectively.
 
 <!-- tabs:start -->
 

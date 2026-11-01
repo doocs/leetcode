@@ -136,7 +136,7 @@ tags:
 
 最后，我们返回数组 $\textit{nums}$ 即可。
 
-时间复杂度 $O((n + k) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O((n + k) \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

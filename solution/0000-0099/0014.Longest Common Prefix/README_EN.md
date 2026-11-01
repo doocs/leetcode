@@ -70,7 +70,7 @@ We use the first string $strs[0]$ as a benchmark, and compare whether the $i$-th
 
 If the traversal ends, it means that the first $i$ characters of all strings are the same, and we return $strs[0]$.
 
-The time complexity is $O(n \times m)$, where $n$ and $m$ are the length of the string array and the minimum length of the strings, respectively. The space complexity is $O(1)$.
+The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the length of the string array and the minimum length of the strings, respectively.
 
 <!-- tabs:start -->
 

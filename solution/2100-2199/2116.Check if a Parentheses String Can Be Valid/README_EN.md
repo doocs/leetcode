@@ -112,7 +112,7 @@ The second pass goes from right to left, checking if all `')'` parentheses can b
 
 If both passes complete successfully, it means all parentheses can be matched, and the string $s$ is a valid parentheses string. Return $\textit{true}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 Similar problems:
 

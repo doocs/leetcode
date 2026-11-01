@@ -75,7 +75,7 @@ In total, there is only one magic square inside the given grid.
 
 We directly enumerate the top-left coordinates $(i, j)$ of each $3 \times 3$ submatrix, then check whether the submatrix satisfies the "magic square" property. If so, we increment the answer by one. After the enumeration, we return the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

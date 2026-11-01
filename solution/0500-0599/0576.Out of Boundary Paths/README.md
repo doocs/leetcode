@@ -72,7 +72,7 @@ tags:
 
 为了避免重复计算，我们可以使用记忆化搜索。
 
-时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n \times k)$。其中 $m$ 和 $n$ 分别是网格的行数和列数，而 $k$ 是可以移动的步数，本题中 $k = \textit{maxMove} \leq 50$。
+时间复杂度 $O(mnk)$，空间复杂度 $O(mnk)$。其中 $m$ 和 $n$ 分别是网格的行数和列数，而 $k$ 是可以移动的步数，本题中 $k = \textit{maxMove} \leq 50$。
 
 <!-- tabs:start -->
 

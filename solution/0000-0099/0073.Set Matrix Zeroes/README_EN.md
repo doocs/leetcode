@@ -77,7 +77,7 @@ We use arrays `rows` and `cols` to mark the rows and columns to be cleared.
 
 Then traverse the matrix again, and clear the elements in the rows and columns marked in `rows` and `cols`.
 
-The time complexity is $O(m\times n)$, and the space complexity is $O(m+n)$. Where $m$ and $n$ are the number of rows and columns of the matrix respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m+n)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
 <!-- tabs:start -->
 
@@ -307,7 +307,7 @@ In the first method, we use an additional array to mark the rows and columns to 
 
 Since the first row and the first column are used to mark, their values ​​may change due to the mark, so we need additional variables $i0$, $j0$ to mark whether the first row and the first column need to be cleared.
 
-The time complexity is $O(m\times n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the number of rows and columns of the matrix respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
 <!-- tabs:start -->
 

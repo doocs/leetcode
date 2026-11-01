@@ -90,7 +90,7 @@ We traverse each letter $c$ in the string `croakOfFrogs`, find the index $i$ cor
 
 After traversing, if $x=0$, it means that all frogs have completed their croaks, and we return $ans$. Otherwise, we return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string `croakOfFrogs`, and $C$ is the size of the character set, in this problem $C=26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string `croakOfFrogs`, and $C$ is the size of the character set, in this problem $C=26$.
 
 <!-- tabs:start -->
 

@@ -95,7 +95,7 @@ Therefore, we can traverse each row of the matrix and convert each row into an "
 
 In this way, we only need to use a hash table to count each converted row. If the hash table contains only one element at the end, it means we can remove all $1$s from the matrix by flipping rows or columns.
 
-The time complexity is $O(mn)$ and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 Related problem:
 

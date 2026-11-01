@@ -55,7 +55,7 @@ difficulty: Medium
 >
 > Rows and columns increase; find $target$. A full scan is $O(mn)$. Each row is sorted, so it admits binary search.
 >
-> $bisect\_left$ on every row returns on a hit. Column monotonicity is unused; the cost is $O(m\log n)$.
+> $bisect\_left$ on every row returns on a hit. Column monotonicity is unused; the cost is $O(m \log n)$.
 >
 > The implementation walks rows and searches, in $O(1)$ extra space, which is short when $m$ is modest.
 
@@ -65,7 +65,7 @@ Since all elements in each row are sorted in ascending order, we can use binary 
 
 If all rows have been searched and the target value has not been found, it means the target value does not exist, so we return `false`.
 
-The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -285,7 +285,7 @@ Here, we start searching from the bottom left corner and move towards the top ri
 
 If the search ends and the `target` is still not found, return `false`.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

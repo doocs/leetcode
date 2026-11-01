@@ -216,7 +216,7 @@ Let $s$ be the prefix sum array of $\textit{arr}$. The element sum of the subarr
 
 We enumerate $R$ and need to quickly count the number of indices $L$ to the left of $R$ that satisfy $s[L] \le s[R]$. This can be maintained with a Binary Indexed Tree: we first discretize all values in $s$ (sort and deduplicate), then traverse $s$ from left to right. For each value $v = s[R]$, we query the number of inserted elements not greater than $v$ from the Binary Indexed Tree and add it to the answer, then insert $v$ into the tree.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

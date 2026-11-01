@@ -99,7 +99,7 @@ The segment tree divides the entire interval into multiple non-contiguous sub-in
 
 Since the data range in the problem is large, we can use a dynamically opened segment tree. A dynamically opened segment tree means that we only open nodes when needed, rather than opening all nodes at the beginning, which saves space.
 
-In terms of time complexity, each operation has a time complexity of $O(\log n)$. The space complexity is $O(m \times \log n)$, where $m$ is the number of operations and $n$ is the data range.
+In terms of time complexity, each operation has a time complexity of $O(\log n)$. The space complexity is $O(m \log n)$, where $m$ is the number of operations and $n$ is the data range.
 
 <!-- tabs:start -->
 

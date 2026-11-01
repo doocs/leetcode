@@ -127,7 +127,7 @@ Next, we iterate over all points and union those that share the same $x$ coordin
 
 Finally, we count the number of points in each set and find the sizes of the two largest sets. Since we can add one new point to connect these two sets, the final answer is the sum of the sizes of the two largest sets plus $1$.
 
-The time complexity is $O(n \alpha(n))$, where $n$ is the number of points and $\alpha$ is the inverse Ackermann function. The space complexity is $O(n)$.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of points and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
 

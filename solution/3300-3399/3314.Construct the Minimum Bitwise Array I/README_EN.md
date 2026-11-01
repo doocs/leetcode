@@ -95,7 +95,7 @@ If $\text{nums[i]}$ is odd, suppose $\text{nums[i]} = \text{0b1101101}$. Since $
 
 By traversing all elements in $\text{nums}$, we can obtain the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $\text{nums}$ and the maximum value in the array, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array $\text{nums}$ and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

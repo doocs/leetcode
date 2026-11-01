@@ -88,7 +88,7 @@ The fast and slow pointer technique is a common method used to solve problems re
 
 Then, we move the slow pointer one position backward and the fast pointer two positions backward each time, until the fast pointer reaches the end of the list. At this point, the node next to the node pointed by the slow pointer is the middle node of the list. We can remove the middle node by setting the $\textit{next}$ pointer of the node pointed by the slow pointer to point to the next next node.
 
-The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list.
 
 <!-- tabs:start -->
 

@@ -92,7 +92,7 @@ Finally, we sum all the results from the recursive calls to the next level, whic
 
 The answer is $\textit{dfs}(n - 1, 0, \textit{True})$.
 
-The time complexity is $O(n \times 2^D \times D)$, and the space complexity is $O(n \times 2^D)$. Here, $n$ is the length of the number $n$, and $D = 10$.
+The time complexity is $O(nD 2^D)$, and the space complexity is $O(n 2^D)$, where $n$ is the length of the number $n$, and $D = 10$.
 
 Similar Problems:
 

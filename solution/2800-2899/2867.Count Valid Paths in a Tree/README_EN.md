@@ -101,7 +101,7 @@ Then, we enumerate all prime numbers $i$ in the range of $[1, n]$, considering a
 
 Since $i$ is already a prime number, if $i$ is an endpoint of the path, we only need to accumulate the sizes of all connected components adjacent to node $i$. If $i$ is a middle point on the path, we need to accumulate the product of the sizes of any two adjacent connected components.
 
-The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes, and $\alpha$ is the inverse function of the Ackermann function.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of nodes, and $\alpha$ is the inverse function of the Ackermann function.
 
 <!-- tabs:start -->
 
@@ -534,7 +534,7 @@ function countPaths(n: number, edges: number[][]): number {
 
 Build the tree and DFS from the root. Each subtree returns the number of paths with zero or one prime, and a prime node multiplies contributions from adjacent subtrees.
 
-The time complexity is $O(n \log \log n)$ and the space complexity is $O(n)$.
+The time complexity is $O(n \log \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

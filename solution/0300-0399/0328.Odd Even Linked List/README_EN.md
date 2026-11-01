@@ -70,7 +70,7 @@ We traverse the list, set pointer $a$ to point to the next node of $b$, i.e., $a
 
 Finally, we set the tail node $a$ of the odd nodes to point to the head node $c$ of the even nodes, i.e., $a.next = c$, then return the head node $head$ of the list.
 
-The time complexity is $O(n)$, where $n$ is the length of the list, and we need to traverse the list once. The space complexity is $O(1)$. We only need to maintain a limited number of pointers.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list, and we need to traverse the list once.
 
 <!-- tabs:start -->
 

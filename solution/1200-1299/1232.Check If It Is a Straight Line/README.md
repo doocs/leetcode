@@ -70,7 +70,7 @@ tags:
 
 <!-- thinking:end -->
 
-时间复杂度 $O(n)$，其中 $n$ 表示 `coordinates` 数组的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示 `coordinates` 数组的长度。
 
 <!-- tabs:start -->
 

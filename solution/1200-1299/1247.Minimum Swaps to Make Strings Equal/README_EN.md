@@ -82,7 +82,7 @@ If $s_1[i] = s_2[i]$, no swap is needed, and we can skip to the next character. 
 
 If $xy + yx$ is odd, it is impossible to complete the swaps, and we return $-1$. If $xy + yx$ is even, the number of swaps needed is $\left \lfloor \frac{xy}{2} \right \rfloor + \left \lfloor \frac{yx}{2} \right \rfloor + xy \bmod{2} + yx \bmod{2}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the strings $s_1$ and $s_2$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the strings $s_1$ and $s_2$.
 
 <!-- tabs:start -->
 

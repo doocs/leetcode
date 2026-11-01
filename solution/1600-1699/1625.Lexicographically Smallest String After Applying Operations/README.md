@@ -278,7 +278,7 @@ function findLexSmallestString(s: string, a: number, b: number): string {
 
 所以，我们直接枚举所有的字符串状态，取字典序最小的状态即可。
 
-时间复杂度 $O(n^2 \times 10^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(10^2 n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 

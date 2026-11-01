@@ -90,7 +90,7 @@ class Node {
 
 We use a hash table $vis$ to record all nodes on the path from node $p$ to the root node. Then we start from node $q$ and traverse towards the root node. If we encounter a node that exists in the hash table $vis$, then this node is the nearest common ancestor of $p$ and $q$, and we can return it directly.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -255,7 +255,7 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 We can use two pointers $a$ and $b$ to point to nodes $p$ and $q$ respectively, and then traverse towards the root node. When $a$ and $b$ meet, it is the nearest common ancestor of $p$ and $q$. Otherwise, if pointer $a$ traverses to the root node, then we let it point to node $q$, and do the same for pointer $b$. In this way, when the two pointers meet, it is the nearest common ancestor of $p$ and $q$.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

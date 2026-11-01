@@ -67,7 +67,7 @@ We define two pointers $\textit{fast}$ and $\textit{slow}$, both initially point
 
 The fast pointer $\textit{fast}$ moves two steps at a time, while the slow pointer $\textit{slow}$ moves one step at a time. When the fast pointer reaches the end of the linked list, the node pointed to by the slow pointer is the middle node.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

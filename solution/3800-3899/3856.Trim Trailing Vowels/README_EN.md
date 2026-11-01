@@ -92,7 +92,7 @@ tags:
 
 We traverse the string from the end in reverse order until we encounter the first non-vowel character. Then we return the substring from the beginning of the string up to that position.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

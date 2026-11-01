@@ -104,7 +104,7 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 
 We can enumerate $z$ and its multiples, and use union-find to connect them. In this way, for each query $[a, b]$, we only need to determine whether $a$ and $b$ are in the same connected component.
 
-The time complexity is $O(n \times \log n \times (\alpha(n) + q))$, and the space complexity is $O(n)$. Here, $n$ and $q$ are the number of nodes and queries, respectively, and $\alpha$ is the inverse function of the Ackermann function.
+The time complexity is $O(n(\alpha(n) + q) \log n)$, and the space complexity is $O(n)$, where $n$ and $q$ are the number of nodes and queries, respectively, and $\alpha$ is the inverse function of the Ackermann function.
 
 <!-- tabs:start -->
 

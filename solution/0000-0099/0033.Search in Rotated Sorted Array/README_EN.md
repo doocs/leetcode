@@ -81,7 +81,7 @@ Therefore, we can determine whether $target$ is in this part based on the sorted
 
 The termination condition for binary search is $left \geq right$. If at the end we find that $nums[left]$ is not equal to $target$, it means that there is no element with a value of $target$ in the array, and we return $-1$. Otherwise, we return the index $left$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -83,7 +83,7 @@ The recursive process of the function `dfs(root)` is as follows:
 
 Finally, return the maximum value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -64,7 +64,7 @@ tags:
 
 Traverse the three arrays, count the occurrence of each number, then traverse any one of the arrays. If the count of a number is $3$, add it to the result array.
 
-The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the length of the array and the range of numbers in the array, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ and $m$ are the length of the array and the range of numbers in the array, respectively.
 
 <!-- tabs:start -->
 
@@ -183,13 +183,13 @@ class Solution {
 
 > **Thinking**
 >
-> Counting needs an array proportional to the value range. The arrays are already sorted, so we binary-search each $arr1$ value in $arr2$ and $arr3$. Extra space becomes constant; time becomes $O(n\log n)$.
+> Counting needs an array proportional to the value range. The arrays are already sorted, so we binary-search each $arr1$ value in $arr2$ and $arr3$. Extra space becomes constant; time becomes $O(n \log n)$.
 
 <!-- thinking:end -->
 
 Traverse the first array. For each number, use binary search to find this number in the second and third arrays. If found in both, add this number to the result array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

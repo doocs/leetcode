@@ -90,7 +90,7 @@ tags:
 
 否则，我们可以贪心地按照 $2, 4, 6, \cdots$ 的顺序拆分 $\textit{finalSum}$，直到 $\textit{finalSum}$ 无法再拆分出一个不同的正偶数为止，此时我们将剩余的 $\textit{finalSum}$ 加到最后一个正偶数上即可。
 
-时间复杂度 $O(\sqrt{\textit{finalSum}})$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(\sqrt{\textit{finalSum}})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

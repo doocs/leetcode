@@ -147,7 +147,7 @@ Thus, after the simulation, for the remaining $k$ operations, the smallest $k \b
 
 Finally, we multiply each element in the array by the corresponding number of multiplication operations and take the result modulo $10^9 + 7$. This can be calculated using fast exponentiation.
 
-The time complexity is $O(n \times \log n \times \log M + n \times \log k)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
+The time complexity is $O(n \log n \log M + n \log k)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

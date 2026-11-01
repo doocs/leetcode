@@ -93,7 +93,7 @@ Iterate through the array $nums$. For the current number $nums[i]$ we're iterati
 
 After the iteration, return the answer.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

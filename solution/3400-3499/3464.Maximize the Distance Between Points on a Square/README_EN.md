@@ -128,7 +128,7 @@ During the binary search, for a given minimum distance $\textit{lo}$, we use a $
 - Then, greedily perform $k-1$ jumps, each time using binary search to quickly locate the next point that is at least $\textit{lo}$ away from the current position.
 - If it is possible to select $k$ points within the $\textit{end}$ limit, then the distance $\textit{lo}$ is feasible.
 
-The time complexity is $O(n \log (\text{side}) \cdot n \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the $\textit{points}$ array.
+The time complexity is $O(n^2 \log(\text{side}) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{points}$ array.
 
 <!-- tabs:start -->
 

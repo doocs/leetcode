@@ -134,7 +134,7 @@ We can use a min-heap to maintain the elements in the array $\textit{nums}$. Eac
 
 Finally, we return the array $\textit{nums}$.
 
-The time complexity is $O((n + k) \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O((n + k) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

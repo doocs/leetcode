@@ -96,7 +96,7 @@ We can sort $queries$ in descending order of $r_i$, and use a pointer $j$ to poi
 
 Next, we traverse each query $queries[i] = (l, r)$. For the current query, if $j > r$, then we loop to insert $heights[j]$ into the binary indexed tree. The binary indexed tree maintains the minimum index of the suffix height (after discretization). Then, we judge whether $l = r$ or $heights[l] < heights[r]$. If it is, then the answer to the current query is $r$. Otherwise, we query the minimum index of $heights[l]$ in the binary indexed tree, which is the answer to the current query.
 
-The time complexity is $O((n + m) \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of $heights$ and $queries$ respectively.
+The time complexity is $O((n + m) \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $heights$ and $queries$ respectively.
 
 Similar problems:
 

@@ -87,7 +87,7 @@ To minimize the time required to process all tasks, the four tasks with the long
 
 Therefore, we sort the processors by their idle time and sort the tasks by their processing time. Then, we assign the four tasks with the longest processing time to the processor that becomes idle earliest, and calculate the maximum end time.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of tasks.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of tasks.
 
 <!-- tabs:start -->
 

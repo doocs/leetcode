@@ -85,7 +85,7 @@ $$
 
 初始时 $f[0][0] = 1$，最终的答案即为 $f[n][target]$。
 
-时间复杂度 $O(n \times k \times target)$，空间复杂度 $O(n \times target)$。
+时间复杂度 $O(nk target)$，空间复杂度 $O(n target)$。
 
 <!-- tabs:start -->
 
@@ -222,7 +222,7 @@ impl Solution {
 
 > **思考**
 >
-> 方法一的 $f[i]$ 只依赖 $f[i-1]$。用两个一维数组滚动，空间从 $O(n\times target)$ 降为 $O(target)$，转移不变。
+> 方法一的 $f[i]$ 只依赖 $f[i-1]$。用两个一维数组滚动，空间从 $O(n target)$ 降为 $O(target)$，转移不变。
 
 <!-- thinking:end -->
 

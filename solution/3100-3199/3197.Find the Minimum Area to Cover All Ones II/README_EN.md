@@ -104,7 +104,7 @@ We can enumerate the positions of the two dividing lines, which have $6$ possibi
 
 We can use a function $\textit{f}(i_1, j_1, i_2, j_2)$ to calculate the minimum rectangular area containing all $1$s from $(i_1, j_1)$ to $(i_2, j_2)$.
 
-The time complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the rectangle, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m^2n^2)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the rectangle, respectively.
 
 <!-- tabs:start -->
 

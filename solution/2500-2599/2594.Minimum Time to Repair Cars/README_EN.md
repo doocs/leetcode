@@ -85,7 +85,7 @@ We define the left and right boundaries of the binary search as $left=0$, $right
 
 Finally, we return the left boundary.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(1)$. Here, $n$ is the number of mechanics, and $M$ is the upper bound of the binary search.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the number of mechanics, and $M$ is the upper bound of the binary search.
 
 <!-- tabs:start -->
 

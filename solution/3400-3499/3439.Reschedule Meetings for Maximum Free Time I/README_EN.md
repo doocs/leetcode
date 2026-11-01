@@ -287,7 +287,7 @@ impl Solution {
 
 In Solution 1, we used an array to store the lengths of the free intervals. In fact, we do not need to store the entire array; we can use a function $f(i)$ to represent the length of the $i$-th free interval. This way, we can save space.
 
-The time complexity is $O(n)$, where $n$ is the number of meetings. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of meetings.
 
 <!-- tabs:start -->
 

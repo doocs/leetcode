@@ -104,7 +104,7 @@ We can first traverse each subsequence `seq`. For each pair of adjacent elements
 
 When the number of nodes in the queue is equal to $1$, we take out the head node $i$, remove $i$ from the graph, and decrease the in-degree of all adjacent nodes of $i$ by $1$. If the in-degree of the adjacent nodes becomes $0$ after decreasing, add these nodes to the queue. Repeat the above operation until the length of the queue is not $1$. At this point, check whether the queue is empty. If it is not empty, it means there are multiple shortest supersequences, return `false`; if it is empty, it means there is only one shortest supersequence, return `true`.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

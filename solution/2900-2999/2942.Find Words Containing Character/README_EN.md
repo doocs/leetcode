@@ -81,7 +81,7 @@ We directly traverse each string `words[i]` in the string array `words`. If `x` 
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the array `words`. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the sum of the lengths of all strings in the array `words`.
 
 <!-- tabs:start -->
 

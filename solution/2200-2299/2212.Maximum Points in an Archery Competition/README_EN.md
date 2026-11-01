@@ -102,7 +102,7 @@ We enumerate $\textit{Bob}$'s scoring schemes in the range $[1, 2^m)$, where $m$
 
 Then, we calculate $\textit{Bob}$'s scoring scheme based on $\textit{st}$. If there are any remaining arrows, we allocate the remaining arrows to the first region, which is the region with index $0$.
 
-The time complexity is $O(2^m \times m)$, where $m$ is the length of $\textit{aliceArrows}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(2^m m)$, and the space complexity is $O(1)$, where $m$ is the length of $\textit{aliceArrows}$.
 
 <!-- tabs:start -->
 

@@ -113,7 +113,7 @@ $$
 
 Finally, we return $f[m][2^n - 1]$.
 
-The time complexity is $O(m \times n \times 2^n)$ and the space complexity is $O(m \times 2^n)$, where $m$ and $n$ are the number of points in the first group and the second group, respectively.
+The time complexity is $O(mn 2^n)$, and the space complexity is $O(m 2^n)$, where $m$ and $n$ are the number of points in the first group and the second group, respectively.
 
 <!-- tabs:start -->
 
@@ -288,7 +288,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Layer $i$ reads only layer $i-1$ and values already filled in the same layer, so two rolling arrays drop the memory from $O(m\cdot 2^n)$ to $O(2^n)$ without changing the recurrence.
+> Layer $i$ reads only layer $i-1$ and values already filled in the same layer, so two rolling arrays drop the memory from $O(m 2^n)$ to $O(2^n)$ without changing the recurrence.
 
 <!-- thinking:end -->
 

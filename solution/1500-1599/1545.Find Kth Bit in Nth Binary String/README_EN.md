@@ -93,7 +93,7 @@ The calculation process of the function $dfs(n, k)$ is as follows:
 - If $k \times 2 < 2^n - 1$, it means that $k$ is in the first half, and the answer is $dfs(n - 1, k)$;
 - Otherwise, the answer is $dfs(n - 1, 2^n - k) \oplus 1$, where $\oplus$ represents the XOR operation.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the given $n$ in the problem.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the given $n$ in the problem.
 
 <!-- tabs:start -->
 

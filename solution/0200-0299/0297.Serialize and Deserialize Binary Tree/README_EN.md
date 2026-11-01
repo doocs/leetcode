@@ -71,7 +71,7 @@ We can use level order traversal to serialize the binary tree. Starting from the
 
 During deserialization, we split the serialized string by the delimiter to get a string array, and then add the elements in the string array to the queue in order. The elements in the queue are the nodes of the binary tree. We dequeue the elements from the queue one by one. If the element is not `#`, we convert it to an integer and use it as the value of the node, and then add the node to the queue; otherwise, we set it to `null`. Finally, we return the root node.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

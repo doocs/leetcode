@@ -79,7 +79,7 @@ Next, we traverse the prefix sum array $s$. For each element $s[i]$, we can find
 
 Finally, if $ans \leq n$, it means that there exists a subarray that satisfies the condition, return $ans$, otherwise return $0$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -282,7 +282,7 @@ Next, the pointer $i$ starts to move to the right from $0$, moving one step each
 
 Finally, if $ans \leq n$, it means that there exists a subarray that satisfies the condition, return $ans$, otherwise return $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -90,7 +90,7 @@ $$
 
 where $n$ is the length of the array. We add up the digit differences of all digits and divide by $2$ to get the answer.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(C)$, where $n$ and $m$ are the length of the array and the number of digits in the numbers, respectively; and $C$ is a constant, in this problem $C = 10$.
+The time complexity is $O(nm)$, and the space complexity is $O(C)$, where $n$ and $m$ are the length of the array and the number of digits in the numbers, respectively; and $C$ is a constant, in this problem $C = 10$.
 
 <!-- tabs:start -->
 

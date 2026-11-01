@@ -110,7 +110,7 @@ Iterate through the $x$ workers with the highest strength in ascending order. Le
 
 If the smallest required strength task $task[i]$ among the current available tasks is less than or equal to $workers[j]$, then worker $j$ can complete task $task[i]$ without using a pill. Otherwise, the current worker must use a pill. If there are pills remaining, use one pill and complete the task with the highest required strength among the current available tasks. Otherwise, return `false`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of tasks.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of tasks.
 
 <!-- tabs:start -->
 

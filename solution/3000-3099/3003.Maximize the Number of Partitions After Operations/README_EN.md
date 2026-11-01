@@ -121,7 +121,7 @@ The execution logic of function $\textit{dfs}(i, \textit{cur}, t)$ is as follows
 4. If $t > 0$, it means we can still modify a character once. We try to change the current character $s[i]$ to any lowercase letter (26 choices in total). For each choice, calculate the updated character set $\textit{nxt} = \textit{cur} \mid (1 \ll j)$, and based on whether it exceeds $k$ distinct characters, choose the corresponding recursive call method to update the maximum partition count.
 5. Use a hash table to cache already computed states to avoid redundant calculations.
 
-The time complexity is $O(n \times |\Sigma| \times k)$ and the space complexity is $O(n \times |\Sigma| \times k)$, where $n$ is the length of string $s$, and $|\Sigma|$ is the size of the character set.
+The time complexity is $O(n|\Sigma|k)$, and the space complexity is $O(n|\Sigma|k)$, where $n$ is the length of string $s$, and $|\Sigma|$ is the size of the character set.
 
 <!-- tabs:start -->
 
@@ -350,7 +350,7 @@ First mark the states reachable at every index, starting from $(0, 1)$. Let $v =
 
 Then let $i$ run from $n - 1$ down to $0$ and evaluate the same transitions. At $i = n$ the string is finished and the value is $1$. A transition that cuts the open segment adds $1$ to the successor's value.
 
-The time complexity is $O(n \times |\Sigma| \times k)$, and the space complexity is $O(n \times |\Sigma| \times k)$, where $n$ is the length of $s$ and $|\Sigma|$ is the alphabet size.
+The time complexity is $O(n|\Sigma|k)$, and the space complexity is $O(n|\Sigma|k)$, where $n$ is the length of $s$ and $|\Sigma|$ is the alphabet size.
 
 <!-- tabs:start -->
 

@@ -74,7 +74,7 @@ We create an array $cnt$ of length $n^2 + 1$ to count the frequency of each numb
 
 Next, we traverse $i \in [1, n^2]$. If $cnt[i] = 2$, then $i$ is the duplicated number, and we set the first element of the answer to $i$. If $cnt[i] = 0$, then $i$ is the missing number, and we set the second element of the answer to $i$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the matrix.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
 

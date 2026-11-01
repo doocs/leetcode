@@ -112,7 +112,7 @@ We can enumerate the right endpoint $r$. For each $r$, we calculate the left end
 
 When we enumerate the right endpoint $r$, we can query the hash table $\text{cnt}$ to get the number of left endpoints that meet the condition, that is, the number of occurrences of the key-value pair $(\text{capacity}[r], s[r])$, and add it to the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

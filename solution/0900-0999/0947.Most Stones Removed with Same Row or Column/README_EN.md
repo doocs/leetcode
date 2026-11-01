@@ -87,7 +87,7 @@ Stones [0,0] and [1,1] cannot be removed since they do not share a row/column wi
 
 We can use a union-find data structure to maintain the relationships between stones. If two stones are in the same row or column, we consider them to be connected and use the union-find to link them together. In the end, we count how many connected components there are in the union-find, which corresponds to the number of stones that can remain. Therefore, the total number of stones that can be removed is the total number of stones minus the number of stones that can remain. We can also record the number of successful unions during the merge process, which equals the number of stones that can be removed.
 
-The time complexity is $O(n^2 \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of stones.
+The time complexity is $O(n^2 \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 
@@ -365,7 +365,7 @@ We iterate through each stone, merging its x-coordinate with its y-coordinate.
 
 Finally, we iterate through all the stones again, putting the root node of each stone's x-coordinate into a set. The number of elements in this set represents the number of stones that can remain. Therefore, the total number of stones that can be removed is the total number of stones minus the number of stones that can remain.
 
-The time complexity is $O(n \times \alpha(m))$, and the space complexity is $O(m)$. Here, $n$ and $m$ represent the number of stones and the maximum value of the coordinates, respectively.
+The time complexity is $O(n \alpha(m))$, and the space complexity is $O(m)$, where $n$ and $m$ represent the number of stones and the maximum value of the coordinates, respectively.
 
 <!-- tabs:start -->
 
@@ -634,7 +634,7 @@ Connect stones that share a row or a column. Each connected component can keep o
 
 Start a BFS from every unvisited stone to mark its component.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of stones.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 

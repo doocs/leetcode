@@ -86,7 +86,7 @@ After sorting, we iterate through the array $\textit{nums}$, and for each number
 
 After the loop, if no issues were encountered, it means we can divide the array into subarrays of length $\textit{k}$, and we return $\text{true}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -241,7 +241,7 @@ Then, we repeatedly extract the smallest value $x$ from the ordered set and enum
 
 If we can successfully divide the array into subarrays of length $\textit{k}$, we return $\text{true}$ after completing the traversal.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

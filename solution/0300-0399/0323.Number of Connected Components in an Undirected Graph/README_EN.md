@@ -70,7 +70,7 @@ First, we construct an adjacency list $g$ based on the given edges, where $g[i]$
 
 Then we traverse all nodes. For each node, we use DFS to traverse all its adjacent nodes and mark them as visited until all its adjacent nodes have been visited. In this way, we have found a connected component, and the answer is incremented by one. Then we continue to traverse the next unvisited node until all nodes have been visited.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -267,7 +267,7 @@ First, we initialize a union-find set, then traverse all the edges. For each edg
 
 Finally, we return the number of connected components.
 
-The time complexity is $O(n + m \times \alpha(n))$, and the space complexity is $O(n)$. Where $n$ and $m$ are the number of nodes and edges, respectively, and $\alpha(n)$ is the inverse of the Ackermann function, which can be regarded as a very small constant.
+The time complexity is $O(n + m \alpha(n))$, and the space complexity is $O(n)$, where $n$ and $m$ are the number of nodes and edges, respectively, and $\alpha(n)$ is the inverse of the Ackermann function, which can be regarded as a very small constant.
 
 <!-- tabs:start -->
 
@@ -521,7 +521,7 @@ Similar to Solution 1, we first construct an adjacency list $g$ based on the giv
 
 After traversing all nodes, we get the number of connected components in the graph.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -708,7 +708,7 @@ Build an adjacency list $g$ from the given edges. $g[i]$ holds every neighbor of
 
 Scan the nodes. When node $i$ is still unvisited, increment the answer, push $i$, and mark it visited. While the stack is not empty, pop node $u$ and push every neighbor that has not been visited, marking it at the same time. That search covers the component of $i$. Continue with the next unvisited node until every node has been seen. The order of the neighbors does not change the number of components.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

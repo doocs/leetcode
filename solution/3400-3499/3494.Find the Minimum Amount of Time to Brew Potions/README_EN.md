@@ -149,7 +149,7 @@ Since the brewing process requires that the potion must be immediately passed to
 
 Finally, $f[n-1]$ is the minimum total time required to complete brewing all potions.
 
-The time complexity is $O(n \times m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the number of wizards and potions respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ and $m$ are the number of wizards and potions respectively.
 
 <!-- tabs:start -->
 

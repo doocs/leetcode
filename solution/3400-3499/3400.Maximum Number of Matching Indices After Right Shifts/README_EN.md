@@ -81,7 +81,7 @@ tags:
 
 We can enumerate the number of right shifts $k$, where $0 \leq k < n$. For each $k$, we can calculate the number of matching indices between the array $\textit{nums1}$ after right shifting $k$ times and $\textit{nums2}$. The maximum value is taken as the answer.
 
-The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums1}$.
 
 <!-- tabs:start -->
 

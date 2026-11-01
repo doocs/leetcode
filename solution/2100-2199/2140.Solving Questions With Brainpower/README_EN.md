@@ -268,7 +268,7 @@ $$
 
 We calculate the values of $f$ from back to front, and finally return $f[0]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of problems.
 
 <!-- tabs:start -->
 
@@ -404,7 +404,7 @@ $$
 
 We calculate the values of $f$ from back to front, and finally return $f[0]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of problems.
 
 <!-- tabs:start -->
 

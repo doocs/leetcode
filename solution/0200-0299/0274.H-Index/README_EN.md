@@ -65,7 +65,7 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 We can sort the array `citations` in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $citations[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
 
-Time complexity $O(n \times \log n)$, space complexity $O(\log n)$. Here $n$ is the length of the array `citations`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `citations`.
 
 <!-- tabs:start -->
 
@@ -178,7 +178,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Sorting is $O(n\log n)$. $h\le n$, so cap citations at $n$, count, and accumulate from high to low until $s\ge h$.
+> Sorting is $O(n \log n)$. $h\le n$, so cap citations at $n$, count, and accumulate from high to low until $s\ge h$.
 
 <!-- thinking:end -->
 
@@ -186,7 +186,7 @@ We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number 
 
 Then we enumerate the value $h$ from large to small, and add the element value of $cnt$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.
 
-Time complexity $O(n)$, space complexity $O(n)$. Here $n$ is the length of the array `citations`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `citations`.
 
 <!-- tabs:start -->
 
@@ -304,7 +304,7 @@ We notice that if there is a $h$ value that satisfies at least $h$ papers are ci
 
 We define the left boundary of binary search $l=0$ and the right boundary $r=n$. Each time we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$, where $\lfloor x \rfloor$ represents floor $x$. Then we count the number of elements in array `citations` that are greater than or equal to $mid$, and denote it as $s$. If $s \geq mid$, it means that at least $mid$ papers are cited at least $mid$ times. In this case, we change the left boundary $l$ to $mid$. Otherwise, we change the right boundary $r$ to $mid-1$. When the left boundary $l$ is equal to the right boundary $r$, we find the largest $h$ value, which is $l$ or $r$.
 
-Time complexity $O(n \times \log n)$, where $n$ is the length of array `citations`. Space complexity $O(1)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of array `citations`.
 
 <!-- tabs:start -->
 

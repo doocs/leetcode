@@ -86,7 +86,7 @@ Then, we enumerate the bitwise AND result $xy$, and enumerate $z$. If $xy \& z =
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2 + n \times M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $nums$; and $M$ is the maximum value in the array $nums$, with $M \leq 2^{16}$ in this problem.
+The time complexity is $O(n^2 + nM)$, and the space complexity is $O(M)$, where $n$ is the length of the array $nums$; and $M$ is the maximum value in the array $nums$, with $M \leq 2^{16}$ in this problem.
 
 <!-- tabs:start -->
 

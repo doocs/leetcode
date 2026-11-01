@@ -97,7 +97,7 @@ Here, $j$ is the index of the first event whose start time is greater than the e
 
 Since the calculation of $\text{dfs}(i, k)$ involves calls to $\text{dfs}(i + 1, k)$ and $\text{dfs}(j, k - 1)$, we can use memoization to store the computed values and avoid redundant calculations.
 
-The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
+The time complexity is $O(n \log n + nk)$, and the space complexity is $O(nk)$, where $n$ is the number of events.
 
 <!-- tabs:start -->
 
@@ -333,7 +333,7 @@ $$
 
 Here, $h$ is the last event whose end time is less than the start time of the $i$-th event, which can be found by binary search.
 
-The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
+The time complexity is $O(n \log n + nk)$, and the space complexity is $O(nk)$, where $n$ is the number of events.
 
 Related problems:
 
@@ -532,7 +532,7 @@ $$
 
 Here, $j$ is the index of the first event whose start time is greater than the end time of the $i$-th event. Because $j > i$, $f[j]$ is already filled.
 
-The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
+The time complexity is $O(n \log n + nk)$, and the space complexity is $O(nk)$, where $n$ is the number of events.
 
 <!-- tabs:start -->
 

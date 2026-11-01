@@ -74,7 +74,7 @@ tags:
 
 Since the array $nums$ is already sorted, we can use the binary search method to find the insertion position of the target value $target$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -251,7 +251,7 @@ class Solution {
 
 We can also directly use the built-in function for binary search.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

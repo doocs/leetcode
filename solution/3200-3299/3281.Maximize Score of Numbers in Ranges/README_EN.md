@@ -90,7 +90,7 @@ We define a function $\text{check}(mi)$ to determine whether the condition is sa
 - We traverse the $\textit{start}$ array. If $\textit{last} + \textit{mi} > \textit{st} + d$, it means we cannot select the integer $\textit{st}$, and we return $\text{false}$. Otherwise, we update $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$.
 - If we traverse the entire $\textit{start}$ array and all conditions are satisfied, we return $\text{true}$.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and the maximum value of the $\textit{start}$ array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length and the maximum value of the $\textit{start}$ array, respectively.
 
 <!-- tabs:start -->
 

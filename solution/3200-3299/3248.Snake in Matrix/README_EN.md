@@ -201,7 +201,7 @@ tags:
 
 We can use two variables $x$ and $y$ to represent the position of the snake. Initially, $x = y = 0$. Then, we traverse $\textit{commands}$ and update the values of $x$ and $y$ based on the current command. Finally, we return $x \times n + y$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{commands}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{commands}$.
 
 <!-- tabs:start -->
 

@@ -196,7 +196,7 @@ A reflection that crosses the border has no successor and is dropped. The proble
 
 Compute cells in increasing row order, and from left to right inside a row. Each cell depends only on the left neighbor and the cell above, both of which are already filled.
 
-The time complexity is $O(mn)$ and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns.
 
 <!-- tabs:start -->
 
@@ -398,7 +398,7 @@ Scanning a row from left to right, read $r = f[j][0]$ and $d = f[j + 1][1]$ befo
 
 Initialize $f[1] = (1, 1)$, so the origin reads an inflow of $1$ from above. Return $f[n][0]$.
 
-The time complexity is $O(mn)$ and the space complexity is $O(n)$, where $m$ and $n$ are the number of rows and columns.
+The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of rows and columns.
 
 <!-- tabs:start -->
 

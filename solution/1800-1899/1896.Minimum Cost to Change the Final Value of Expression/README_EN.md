@@ -111,7 +111,7 @@ Let the two sides be $(v_1,c_1)$ and $(v_2,c_2)$.
 
 After the expression is reduced, the top $\textit{cost}$ is the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the expression.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the expression.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ The initial state is $f[0][j] = f[0][j-1] + s_2[j-1]$, $f[i][0] = f[i-1][0] + s_
 
 Finally, return $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $s_1$ and $s_2$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $s_1$ and $s_2$ respectively.
 
 Similar problems:
 

@@ -101,7 +101,7 @@ tags:
 
 我们可以使用记忆化搜索来优化这个过程，即使用一个数组 $f$ 记录每个下标的 $\text{dfs}$ 值，避免重复计算。
 
-时间复杂度 $O(n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{arr}$ 的长度。
+时间复杂度 $O(nd)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -342,7 +342,7 @@ impl Solution {
 
 最终的答案即为 $\max_{0 \leq i \lt n} f[i]$。
 
-时间复杂度 $O(n \log n + n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n \log n + nd)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -547,7 +547,7 @@ impl Solution {
 
 答案为所有 $f[i]$ 的最大值。
 
-时间复杂度 $O(n \log n + n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{arr}$ 的长度。
+时间复杂度 $O(n \log n + nd)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{arr}$ 的长度。
 
 <!-- tabs:start -->
 

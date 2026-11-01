@@ -67,7 +67,7 @@ We can multiply `threshold` by $k$, so that we can directly compare the sum with
 
 We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$. If $s$ is greater than or equal to `threshold`, we increment the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `arr`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `arr`.
 
 <!-- tabs:start -->
 

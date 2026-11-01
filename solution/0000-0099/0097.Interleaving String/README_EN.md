@@ -102,7 +102,7 @@ Otherwise, we return `false`.
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.
 
 <!-- tabs:start -->
 
@@ -406,7 +406,7 @@ where $f[0][0] = \textit{true}$ indicates that an empty string is an interleavin
 
 The answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.
 
 <!-- tabs:start -->
 
@@ -583,7 +583,7 @@ public class Solution {
 
 <!-- thinking:end -->
 
-We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$. Therefore, we can use a rolling array to reduce the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$. Therefore, we can use a rolling array to reduce the space complexity to $O(n)$. The time complexity remains $O(mn)$.
 
 <!-- tabs:start -->
 

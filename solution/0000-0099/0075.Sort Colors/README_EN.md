@@ -90,7 +90,7 @@ When $k < j$, we perform the following operations:
 
 After the traversal, the elements in the array are divided into three parts: $[0,i]$, $[i+1,j-1]$ and $[j,n-1]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. Only one traversal of the array is needed. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array. Only one traversal of the array is needed.
 
 <!-- tabs:start -->
 

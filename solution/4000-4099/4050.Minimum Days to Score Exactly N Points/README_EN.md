@@ -114,7 +114,7 @@ The $j + 1$ accounts for the $j$ earning days plus one skip. $f[0] = -1$ cancels
 
 Since $n \le 10^5$, we precompute up to the limit and answer each query in $O(1)$. The largest useful $j$ is about $\sqrt{2n}$.
 
-The time complexity is $O(n \times \sqrt{n})$ for preprocessing, and the space complexity is $O(n)$. Each query is $O(1)$.
+The time complexity is $O(n \sqrt{n})$ for preprocessing, and the space complexity is $O(n)$. Each query is $O(1)$.
 
 <!-- tabs:start -->
 

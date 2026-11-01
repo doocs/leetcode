@@ -69,7 +69,7 @@ We notice that if there are at least $x$ papers with citation counts greater tha
 
 Therefore, we use binary search to enumerate $h$ and obtain the maximum $h$ that satisfies the condition. Since we need to satisfy that $h$ papers are cited at least $h$ times, we have $citations[n - mid] \ge mid$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $citations$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $citations$.
 
 <!-- tabs:start -->
 

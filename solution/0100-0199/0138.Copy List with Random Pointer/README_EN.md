@@ -88,7 +88,7 @@ We can define a dummy head node $\textit{dummy}$ and use a pointer $\textit{tail
 
 Next, we traverse the linked list again and use the mappings stored in the hash table to connect the $\textit{random}$ pointers of the copied nodes.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 
@@ -362,7 +362,7 @@ In Solution 1, we used an additional hash table to store the mapping between the
 2. Traverse the linked list again, and set the $\textit{random}$ pointer of the new node based on the $\textit{random}$ pointer of the original node.
 3. Finally, split the linked list into the original linked list and the copied linked list.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. Ignoring the space occupied by the answer linked list, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ Since $f[i][j]$ is only related to $f[i - 1][j]$, we can use a rolling array to 
 
 Finally, we traverse the $f$ array to find the smallest absolute difference.
 
-The time complexity is $O(m^2 \times n \times C)$ and the space complexity is $O(m \times C)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively, and $C$ is the maximum value of the matrix elements.
+The time complexity is $O(m^2nC)$, and the space complexity is $O(mC)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively, and $C$ is the maximum value of the matrix elements.
 
 <!-- tabs:start -->
 

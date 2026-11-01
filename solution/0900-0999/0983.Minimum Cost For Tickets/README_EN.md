@@ -94,7 +94,7 @@ The execution process of the function $\textit{dfs(i)}$ is as follows:
 
 To avoid repeated calculations, we use memoization search to save the results that have already been calculated.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of trips.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ represents the number of trips.
 
 <!-- tabs:start -->
 
@@ -268,7 +268,7 @@ We can calculate the value of $f[i]$ in increasing order of the dates in the $\t
 
 The final answer is $f[m]$.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ represents the last day of travel.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ represents the last day of travel.
 
 <!-- tabs:start -->
 

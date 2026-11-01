@@ -91,7 +91,7 @@ In the simulation process, we use two variables $i$ and $p$ to represent the cur
 
 Finally, we iterate through the array `vis` and add the numbers of friends who have not received the ball to the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of friends.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of friends.
 
 <!-- tabs:start -->
 

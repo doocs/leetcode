@@ -91,7 +91,7 @@ tags:
 
 模拟结束后，遍历矩阵，统计奇数的个数。
 
-时间复杂度 $O(k \times (m + n) + m \times n)$，空间复杂度 $O(m \times n)$。其中 $k$ 为 $\textit{indices}$ 的长度。
+时间复杂度 $O(k(m + n) + mn)$，空间复杂度 $O(mn)$。其中 $k$ 为 $\textit{indices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -209,7 +209,7 @@ func oddCells(m int, n int, indices [][]int) int {
 
 操作结束后，可以算出 $(i, j)$ 位置的计数为 $\textit{row}[i]+\textit{col}[j]$。遍历矩阵，统计奇数的个数。
 
-时间复杂度 $O(k + m \times n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\textit{indices}$ 的长度。
+时间复杂度 $O(k + mn)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\textit{indices}$ 的长度。
 
 <!-- tabs:start -->
 

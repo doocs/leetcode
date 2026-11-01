@@ -97,7 +97,7 @@ $$
 \textit{mat}[i][j] = \textit{diff}[i][j] + (\textit{mat}[i-1][j] \text{ if } i > 0 \text{ else } 0) + (\textit{mat}[i][j-1] \text{ if } j > 0 \text{ else } 0) - (\textit{mat}[i-1][j-1] \text{ if } i > 0 \text{ and } j > 0 \text{ else } 0)
 $$
 
-时间复杂度 $O(m + n^2)$，其中 $m$ 和 $n$ 分别是 $\textit{queries}$ 的长度和给定的 $n$。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(m + n^2)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是 $\textit{queries}$ 的长度和给定的 $n$。
 
 <!-- tabs:start -->
 

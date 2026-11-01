@@ -81,7 +81,7 @@ The visit order of preorder traversal is "root, left subtree, right subtree". Af
 
 Therefore, for the current node, if its left child node is not null, we find the rightmost node of the left subtree as the predecessor node, and then assign the right child node of the current node to the right child node of the predecessor node. Then assign the left child node of the current node to the right child node of the current node, and set the left child node of the current node to null. Then take the right child node of the current node as the next node and continue processing until all nodes are processed.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the tree. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 

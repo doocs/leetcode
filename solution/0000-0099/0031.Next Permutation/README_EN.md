@@ -88,7 +88,7 @@ We first traverse the array from back to front and find the first position $i$ w
 
 Then traverse the array from back to front again and find the first position $j$ where $nums[j] \gt nums[i]$. Swap $nums[i]$ and $nums[j]$, and then reverse the elements from $nums[i + 1]$ to $nums[n - 1]$, the next permutation can be obtained.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

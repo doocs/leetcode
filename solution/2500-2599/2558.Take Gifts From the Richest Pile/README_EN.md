@@ -86,7 +86,7 @@ We can store the array $gifts$ in a max heap, and then loop $k$ times, each time
 
 Finally, we add up all the elements in the heap as the answer.
 
-The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $gifts$.
+The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $gifts$.
 
 <!-- tabs:start -->
 

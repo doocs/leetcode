@@ -85,7 +85,7 @@ Then we traverse the matrix again, for each position:
 - If it is '.', replace it with 'O';
 - Otherwise, if it is 'O', replace it with 'X'.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -390,7 +390,7 @@ We can also use a union-find set, connecting each 'O' on the matrix boundary wit
 
 Then we traverse this matrix, for each position, if it is 'O' and it is not connected to the super node, then we replace it with 'X'.
 
-The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively, and $\alpha$ is the inverse Ackermann function.
+The time complexity is $O(mn \alpha(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
 

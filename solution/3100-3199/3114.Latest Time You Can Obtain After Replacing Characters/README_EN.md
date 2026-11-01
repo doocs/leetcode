@@ -79,7 +79,7 @@ tags:
 
 We can enumerate all times from large to small, where the hour $h$ ranges from $11$ to $0$, and the minute $m$ ranges from $59$ to $0$. For each time $t$, we check whether each digit of $t$ matches the corresponding digit in $s$ (if the corresponding digit in $s$ is not "?"). If it does, then we have found the answer and return $t$.
 
-The time complexity is $O(h \times m)$, where $h = 12$ and $m = 60$. The space complexity is $O(1)$.
+The time complexity is $O(hm)$, and the space complexity is $O(1)$, where $h = 12$ and $m = 60$.
 
 <!-- tabs:start -->
 

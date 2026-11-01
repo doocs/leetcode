@@ -232,7 +232,7 @@ Otherwise, we traverse the string $s$ in reverse order and handle each character
 3. If $s[i]$ is '%', we update $k$ to $m - 1 - k$.
 4. Otherwise, $s[i]$ is a letter. We decrease $m$ by $1$. If $k = m$, it means we have found the $k$-th character, so we return $s[i]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

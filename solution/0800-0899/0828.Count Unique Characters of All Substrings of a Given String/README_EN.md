@@ -87,7 +87,7 @@ We use a hash table or an array $d$ of length $26$, to store the positions of ea
 
 For each character $c_i$, we iterate through each position $p$ in $d[c_i]$, find the adjacent positions $l$ on the left and $r$ on the right, then the number of substrings that meet the requirements by expanding from position $p$ to both sides is $(p - l) \times (r - p)$. We perform this operation for each character, add up the contributions of all characters, and get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

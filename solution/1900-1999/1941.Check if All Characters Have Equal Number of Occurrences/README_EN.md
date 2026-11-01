@@ -71,7 +71,7 @@ We use a hash table or an array of length $26$ called $\textit{cnt}$ to record t
 
 Next, we traverse each value in $\textit{cnt}$ and check if all non-zero values are equal.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $s$, and $\Sigma$ is the size of the character set. In this problem, the character set consists of lowercase English letters, so $|\Sigma|=26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the size of the character set. In this problem, the character set consists of lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

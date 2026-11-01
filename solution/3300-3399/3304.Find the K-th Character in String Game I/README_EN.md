@@ -92,7 +92,7 @@ We can use an array $\textit{word}$ to store the string after each operation. Wh
 
 Finally, return $\textit{word}[k - 1]$.
 
-The time complexity is $O(k)$, and the space complexity is $O(k)$. Here, $k$ is the input parameter.
+The time complexity is $O(k)$, and the space complexity is $O(k)$, where $k$ is the input parameter.
 
 <!-- tabs:start -->
 

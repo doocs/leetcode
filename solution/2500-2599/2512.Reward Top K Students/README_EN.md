@@ -92,7 +92,7 @@ Then, we traverse the $report$ and for each student, we store their score in an 
 
 Finally, we sort the array $arr$ in descending order by score, and if the scores are the same, we sort by ID in ascending order. Then, we take the IDs of the top $k$ students.
 
-The time complexity is $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$, and the space complexity is $O((|ps|+|ns|) \times |s| + n)$. Here, $n$ is the number of students, $|ps|$ and $|ns|$ are the number of positive and negative words, respectively, and $|s|$ is the average length of a word.
+The time complexity is $O(n \log n + (|ps| + |ns| + n)|s|)$, and the space complexity is $O((|ps|+|ns|)|s| + n)$, where $n$ is the number of students, $|ps|$ and $|ns|$ are the number of positive and negative words, respectively, and $|s|$ is the average length of a word.
 
 <!-- tabs:start -->
 

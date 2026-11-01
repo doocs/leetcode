@@ -104,7 +104,7 @@ Define two methods for the prefix tree:
 
 We traverse all strings, inserting each string into the prefix tree. Then we traverse all strings again, calling the `search` method for each string and summing up the occurrence counts of each prefix.
 
-Time complexity is $O(L)$, and space complexity is $O(L)$, where $L$ is the total length of all strings.
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total length of all strings.
 
 <!-- tabs:start -->
 

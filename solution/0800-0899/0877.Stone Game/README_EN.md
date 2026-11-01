@@ -88,7 +88,7 @@ Finally, we only need to check whether $dfs(0, n - 1) \gt 0$.
 
 To avoid redundant computation, we can use memoization: we use an array $f$ to record all values of $dfs(i, j)$, so that when the function is called again, we can directly retrieve the answer from $f$ without recomputing.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
 
 <!-- tabs:start -->
 
@@ -255,7 +255,7 @@ Therefore, the final state transition equation is $f[i][j] = \max(piles[i] - f[i
 
 Finally, we only need to check whether $f[0][n - 1] \gt 0$.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
 
 Similar problems:
 

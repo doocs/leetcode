@@ -92,7 +92,7 @@ We use a variable $cnt$ to record the number of fish in the current cell, and th
 
 In the main function, we traverse all the cells $(i, j)$. If the current cell is a water cell, we call the $dfs(i, j)$ function, take the maximum value of the return value as the answer, and return it.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. where $m$ and $n$ are the number of rows and columns of the grid graph respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid graph respectively.
 
 <!-- tabs:start -->
 

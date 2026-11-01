@@ -90,7 +90,7 @@ tags:
 
 我们首先对数组 $\textit{nums}$ 进行排序，然后从数组的第二个元素开始遍历，如果当前元素和前一个元素不相等，那么我们就将 $\textit{cnt}$ 加一，表示我们需要将当前元素减小到最小值的操作次数。然后我们将 $\textit{ans}$ 加上 $\textit{cnt}$，继续遍历下一个元素。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

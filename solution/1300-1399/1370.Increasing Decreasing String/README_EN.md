@@ -84,7 +84,7 @@ First, we use a hash table or an array $cnt$ of length $26$ to count the number 
 
 Then, we enumerate the letters $[a,...,z]$. For the current enumerated letter $c$, if $cnt[c] > 0$, we append the letter $c$ to the end of the answer string and decrease $cnt[c]$ by one. We repeat this step until $cnt[c] = 0$. Then we enumerate the letters $[z,...,a]$ in reverse order and perform similar operations. If the length of the answer string equals the length of $s$, then we have completed all the concatenation operations.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $\Sigma$ is the character set. In this problem, the character set is all lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set. In this problem, the character set is all lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

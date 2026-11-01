@@ -347,7 +347,7 @@ Another approach:
 
 In the main function, we call $dfs(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.
 
-The time complexity is $O(C_{9}^k \times k)$, and the space complexity is $O(k)$.
+The time complexity is $O(kC_9^k)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -573,7 +573,7 @@ We can use a binary integer of length $9$ to represent the selection of numbers 
 
 We enumerate binary integers in the range of $[0, 2^9)$. For the currently enumerated binary integer $mask$, if the number of $1$s in the binary representation of $mask$ is $k$, and the sum of the numbers corresponding to $1$ in the binary representation of $mask$ is $n$, it means that the number selection scheme corresponding to $mask$ is a group of answers. We can add the number selection scheme corresponding to $mask$ to the answer.
 
-The time complexity is $O(2^9 \times 9)$, and the space complexity is $O(k)$.
+The time complexity is $O(2^9 \cdot 9)$, and the space complexity is $O(k)$.
 
 Similar problems:
 

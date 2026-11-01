@@ -81,7 +81,7 @@ tags:
 
 最后我们返回 $letters[l \bmod n]$ 即可。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是 $\textit{letters}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是 $\textit{letters}$ 的长度。
 
 <!-- tabs:start -->
 

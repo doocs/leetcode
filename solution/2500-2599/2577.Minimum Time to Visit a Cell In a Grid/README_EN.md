@@ -105,7 +105,7 @@ We use a priority queue (min heap) to maintain the cells that can currently move
 
 Each time we take out the cell $(t, i, j)$ that can arrive the earliest from the priority queue. If $(i, j)$ is $(m - 1, n - 1)$, then we directly return $t$. Otherwise, we traverse the four adjacent cells $(x, y)$ of $(i, j)$, which are up, down, left, and right. If $t + 1 < grid[x][y]$, then the time $nt = grid[x][y] + (grid[x][y] - (t + 1)) \bmod 2$ to move to $(x, y)$. At this time, we can repeatedly move to extend the time to no less than $grid[x][y]$, depending on the parity of the distance between $t + 1$ and $grid[x][y]$. Otherwise, the time $nt = t + 1$ to move to $(x, y)$. If $nt < dist[x][y]$, then we update $dist[x][y] = nt$, and add $(nt, x, y)$ to the priority queue.
 
-The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

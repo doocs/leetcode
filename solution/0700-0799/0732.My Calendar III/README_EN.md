@@ -93,7 +93,7 @@ For this problem, the segment tree nodes maintain the following information:
 
 Since the time range is $10^9$, which is very large, we use dynamic node creation.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of bookings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of bookings.
 
 <!-- tabs:start -->
 

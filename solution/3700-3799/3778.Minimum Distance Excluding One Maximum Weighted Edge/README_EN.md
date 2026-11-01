@@ -115,7 +115,7 @@ If we haven't used the opportunity yet $\textit{used} = 0$, we calculate the pat
 
 After the traversal ends, we return $\textit{dist}[n-1][1]$ as the answer.
 
-The time complexity is $O(m \times \log n)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(m \log n)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

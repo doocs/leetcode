@@ -77,7 +77,7 @@ tags:
 
 We directly sort $\textit{score}$ in descending order based on the scores in the $k$-th column, and then return the result.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(\log m)$. Here, $m$ is the number of rows in $\textit{score}$.
+The time complexity is $O(m \log m)$, and the space complexity is $O(\log m)$, where $m$ is the number of rows in $\textit{score}$.
 
 <!-- tabs:start -->
 

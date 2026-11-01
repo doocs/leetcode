@@ -70,7 +70,7 @@ tags:
 
 Traverse the two arrays. If the elements pointed to by the two pointers are equal, return that element. If the elements pointed to by the two pointers are not equal, move the pointer pointing to the smaller element to the right by one bit until an equal element is found or the array is traversed.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two arrays respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the two arrays respectively.
 
 <!-- tabs:start -->
 

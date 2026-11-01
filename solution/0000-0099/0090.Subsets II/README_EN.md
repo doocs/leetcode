@@ -67,7 +67,7 @@ If $i < n$, add the $i$-th element to the subset, execute $\textit{dfs}(i + 1)$,
 
 Finally, we only need to call $\textit{dfs}(0)$ and return the answer array.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -322,7 +322,7 @@ Next, we enumerate a binary number $\textit{mask}$ in the range $[0, 2^n)$, wher
 
 After the enumeration, we return the answer array.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

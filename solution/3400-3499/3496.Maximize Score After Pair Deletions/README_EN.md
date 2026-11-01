@@ -103,7 +103,7 @@ To maximize the score after deletions, we should minimize the remaining elements
 
 Thus, if the array $\textit{nums}$ has an odd number of elements, the answer is the sum of all elements $s$ in the array $\textit{nums}$ minus the minimum value $\textit{mi}$ in $\textit{nums}$; if the array $\textit{nums}$ has an even number of elements, the answer is the sum of all elements $s$ in the array $\textit{nums}$ minus the minimum sum of any two consecutive elements.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

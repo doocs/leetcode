@@ -70,7 +70,7 @@ We can sort the intervals in ascending order by their left endpoints, and if the
 
 After sorting, we can traverse the intervals. If the right endpoint of the current interval is greater than the previous right endpoint, it means the current interval is not covered, and we increment the answer by one.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

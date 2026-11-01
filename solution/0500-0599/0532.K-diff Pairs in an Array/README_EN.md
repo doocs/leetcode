@@ -90,7 +90,7 @@ We traverse the array $\textit{nums}$. For the current number $x$, we use a hash
 
 Finally, we return the size of $\textit{ans}$ as the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

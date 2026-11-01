@@ -90,7 +90,7 @@ tags:
 
 最后返回排序后的第 $k$ 个数字。
 
-时间复杂度 $O(n \times \log n \times M)$，空间复杂度 $O(n)$。其中 $n$ 是区间 $[\textit{lo}, \textit{hi}]$ 内的数字个数，而 $M$ 是 $f(x)$ 的最大值，本题中 $M$ 最大为 $178$。
+时间复杂度 $O(nM \log n)$，空间复杂度 $O(n)$。其中 $n$ 是区间 $[\textit{lo}, \textit{hi}]$ 内的数字个数，而 $M$ 是 $f(x)$ 的最大值，本题中 $M$ 最大为 $178$。
 
 <!-- tabs:start -->
 

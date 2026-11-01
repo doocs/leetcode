@@ -90,7 +90,7 @@ We can use an array $\textit{data}$ of length $n + 1$ to simulate this stream, w
 
 When inserting a new $(\textit{idKey}, \textit{value})$ pair, we update $\textit{data}[\textit{idKey}]$ to $\textit{value}$. Then, starting from $\textit{ptr}$, we sequentially add $\textit{data}[\textit{ptr}]$ to the answer until $\textit{data}[\textit{ptr}]$ is empty.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the data stream.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the data stream.
 
 <!-- tabs:start -->
 

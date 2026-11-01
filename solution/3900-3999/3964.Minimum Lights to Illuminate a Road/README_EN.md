@@ -103,7 +103,7 @@ Then, we compute the prefix sum of $d$ to obtain the illumination status at each
 
 Finally, we traverse $d$, find the length of each consecutive segment of $0$s, and if the length is $k$, we need to install $\lceil \frac{k + 2}{3} \rceil$ lights. We accumulate the answer accordingly.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of street lights.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of street lights.
 
 <!-- tabs:start -->
 

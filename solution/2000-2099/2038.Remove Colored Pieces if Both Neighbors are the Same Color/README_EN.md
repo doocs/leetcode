@@ -108,7 +108,7 @@ We count the number of times that the string `colors` contains three consecutive
 
 Finally, we check whether $a$ is greater than $b$. If it is, we return `true`. Otherwise, we return `false`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string `colors`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `colors`.
 
 <!-- tabs:start -->
 

@@ -87,7 +87,7 @@ tags:
 
 Enumerate candidate prefixes $t$ from the shorter string length downward, and check whether repeating $t$ can produce $\textit{str1}$ and $\textit{str2}$. The first valid $t$ is the longest gcd string.
 
-The time complexity is $O((m + n) \times \min(m, n))$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two strings.
+The time complexity is $O((m + n) \min(m, n))$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two strings.
 
 <!-- tabs:start -->
 

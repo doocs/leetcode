@@ -110,7 +110,7 @@ where $j$ satisfies $arr[j] \le arr[i]$.
 
 We can use a Binary Indexed Tree to maintain the maximum value of the prefix, i.e., for each $arr[i]$, we maintain the maximum value of $f[i]$ in the prefix $arr[0..i]$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

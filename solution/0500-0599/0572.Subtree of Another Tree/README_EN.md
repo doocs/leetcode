@@ -70,7 +70,7 @@ We define a helper function $\textit{same}(p, q)$ to determine whether the tree 
 
 In the $\textit{isSubtree}(\textit{root}, \textit{subRoot})$ function, we first check if $\textit{root}$ is null. If it is, we return $\text{false}$. Otherwise, we check if $\textit{root}$ and $\textit{subRoot}$ are identical. If they are, we return $\text{true}$. Otherwise, we recursively check if the left or right subtree of $\textit{root}$ contains $\textit{subRoot}$.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the trees $root$ and $subRoot$, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ and $m$ are the number of nodes in the trees $root$ and $subRoot$, respectively.
 
 <!-- tabs:start -->
 

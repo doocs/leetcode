@@ -172,7 +172,7 @@ Next, we traverse the sorted array $nums$, the indexes of the two adjacent eleme
 
 After the traversal is over, return the number of operations $ans$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
 

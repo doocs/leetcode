@@ -88,7 +88,7 @@ For $f[i]$, where $i \geq 1$, we enumerate $j$ in the range $[0, i)$, if $nums[j
 
 Finally, we return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

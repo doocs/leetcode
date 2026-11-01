@@ -86,7 +86,7 @@ We convert the integer $n$ to binary, starting from the lowest bit:
 
 Finally, we also need to check whether the current number of consecutive 1s is 1. If it is, it means that we can eliminate 1 through one operation; if it is greater than 1, we can eliminate the consecutive 1s through two operations.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the given integer in the problem.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given integer in the problem.
 
 <!-- tabs:start -->
 

@@ -82,7 +82,7 @@ $$
 
 Next, we only need to traverse $\textit{s1}$. If $f[i][n] \gt 0$, update the starting position and length of the shortest substring. Finally, return the shortest substring.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively.
 
 <!-- tabs:start -->
 

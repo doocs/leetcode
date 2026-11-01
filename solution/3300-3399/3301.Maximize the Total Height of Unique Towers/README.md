@@ -103,7 +103,7 @@ tags:
 
 最后返回答案即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{maximumHeight}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{maximumHeight}$ 的长度。
 
 <!-- tabs:start -->
 

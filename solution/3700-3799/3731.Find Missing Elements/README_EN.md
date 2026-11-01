@@ -92,7 +92,7 @@ We first find the minimum and maximum values in the array $\textit{nums}$, denot
 
 Next, we iterate through the interval $[\textit{mn} + 1, \textit{mx} - 1]$. For each integer $x$, if $x$ is not in the hash table, we add it to the answer list.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

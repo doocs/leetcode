@@ -73,7 +73,7 @@ Hence, we return false.
 
 Traverse each row and column of the matrix, using a hash table to record whether each number has appeared. If any number appears more than once in a row or column, return `false`; otherwise, return `true`
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the size of the matrix.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the size of the matrix.
 
 <!-- tabs:start -->
 

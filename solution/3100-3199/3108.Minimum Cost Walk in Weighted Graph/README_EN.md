@@ -105,7 +105,7 @@ Specifically, we traverse each edge $(u, v, w)$ and merge $u$ and $v$. Then, we 
 
 Finally, for each query $(s, t)$, we first judge whether $s$ equals $t$. If they are equal, the answer is $0$. Otherwise, we judge whether $s$ and $t$ are in the same connected component. If they are in the same connected component, the answer is the $g$ value of the root node of the connected component of this query. Otherwise, the answer is $-1$.
 
-The time complexity is $O((n + m + q) \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$, $m$, and $q$ represent the number of nodes, edges, and queries, respectively, and $\alpha(n)$ represents the inverse function of the Ackermann function.
+The time complexity is $O((n + m + q) \alpha(n))$, and the space complexity is $O(n)$, where $n$, $m$, and $q$ represent the number of nodes, edges, and queries, respectively, and $\alpha(n)$ represents the inverse function of the Ackermann function.
 
 <!-- tabs:start -->
 

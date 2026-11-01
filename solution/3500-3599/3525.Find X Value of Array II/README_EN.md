@@ -157,7 +157,7 @@ Prefixes lying entirely in $L$ copy $L.\textit{cnt}$. Prefixes that take all of 
 
 After a point update, query $\textit{cnt}[x]$ on $[start+1, n]$ (1-indexed). Merges during a query must combine left then right.
 
-The time complexity is $O((n + q) \times k \times \log n)$ and the space complexity is $O(n \times k)$, where $n$ is the array length and $q$ is the number of queries.
+The time complexity is $O((n + q)k \log n)$, and the space complexity is $O(nk)$, where $n$ is the array length and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

@@ -124,7 +124,7 @@ $$
 
 这些值都可以通过预处理得到。并且，我们可以使用记忆化搜索的方法，避免重复计算。
 
-时间复杂度 $O(3^{2n} \times (m \times ic \times ec + n))$，空间复杂度 $O(3^{2n} + 3^n \times m \times ic \times ec)$。其中 $ic$ 和 $ec$ 分别表示内向的人和外向的人的个数。
+时间复杂度 $O(3^{2n}(m ic ec + n))$，空间复杂度 $O(3^{2n} + 3^n m ic ec)$。其中 $ic$ 和 $ec$ 分别表示内向的人和外向的人的个数。
 
 <!-- tabs:start -->
 
@@ -498,7 +498,7 @@ function getMaxGridHappiness(
 
 与方法一类似，我们也可以使用记忆化搜索的方法，避免重复计算。
 
-时间复杂度 $O(3^{n+1} \times m \times n \times ic \times ec)$，空间复杂度 $O(3^n \times m \times n \times ic \times ec)$。其中 $ic$ 和 $ec$ 分别表示内向的人和外向的人的个数。
+时间复杂度 $O(3^{n+1} mn ic ec)$，空间复杂度 $O(3^n mn ic ec)$。其中 $ic$ 和 $ec$ 分别表示内向的人和外向的人的个数。
 
 <!-- tabs:start -->
 

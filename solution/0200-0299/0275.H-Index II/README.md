@@ -70,7 +70,7 @@ tags:
 
 因此，我们二分枚举 $h$，获取满足条件的最大 $h$。由于要满足 $h$ 篇论文至少被引用 $h$ 次，因此 $citations[n - mid] \ge mid$。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是数组 $citations$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $citations$ 的长度。
 
 <!-- tabs:start -->
 

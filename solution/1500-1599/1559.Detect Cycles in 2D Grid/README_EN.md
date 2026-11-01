@@ -91,7 +91,7 @@ tags:
 
 We can traverse each cell in the 2D grid. For each cell, if the cell $grid[i][j]$ has not been visited, we start a breadth-first search (BFS) from that cell. During the search, we need to record the parent node of each cell and the coordinates of the previous cell. If the value of the next cell is the same as the current cell, and it is not the previous cell, and it has already been visited, then it indicates the presence of a cycle, and we return $\textit{true}$. After traversing all cells, if no cycle is found, we return $\textit{false}$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D grid, respectively.
 
 <!-- tabs:start -->
 
@@ -385,7 +385,7 @@ var containsCycle = function (grid) {
 
 We can traverse each cell in the 2D grid. For each cell, if the cell $grid[i][j]$ has not been visited, we start a depth-first search (DFS) from that cell. During the search, we need to record the parent node of each cell and the coordinates of the previous cell. If the value of the next cell is the same as the current cell, and it is not the previous cell, and it has already been visited, then it indicates the presence of a cycle, and we return $\textit{true}$. After traversing all cells, if no cycle is found, we return $\textit{false}$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the 2D grid, respectively.
 
 <!-- tabs:start -->
 

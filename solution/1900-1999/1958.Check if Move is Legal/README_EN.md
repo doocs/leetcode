@@ -79,7 +79,7 @@ We enumerate all possible directions. For each direction $(a, b)$, we start from
 
 If no good line segments are found after the enumeration, we return $\textit{false}$.
 
-The time complexity is $O(m + n)$, where $m$ is the number of rows and $n$ is the number of columns in $\textit{board}$, with $m = n = 8$ in this problem. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ is the number of rows and $n$ is the number of columns in $\textit{board}$, with $m = n = 8$ in this problem.
 
 <!-- tabs:start -->
 

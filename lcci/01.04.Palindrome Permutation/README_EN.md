@@ -49,7 +49,7 @@ difficulty: Easy
 
 We use a hash table $cnt$ to store the occurrence count of each character. If more than $1$ character has an odd count, then it is not a palindrome permutation.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -185,7 +185,7 @@ We use a hash table $vis$ to store whether each character has appeared. If it ha
 
 Finally, we check whether the number of characters in the hash table is less than $2$. If it is, then it is a palindrome permutation.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

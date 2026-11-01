@@ -172,7 +172,7 @@ tags:
 
 对于每次查询，我们将 $val_i$ 插入到 $r$ 中，然后将 $r$ 中最小的元素移动到 $l$ 中，直到 $r$ 中的元素个数等于 $k_i$。此时， $r$ 中最小的元素就是当前 $nums$ 中第 $k_i$ 个最大的元素，我们利用快速幂算法将 $p$ 更新为 $p^x \bmod (10^9 + 7)$，并将更新后的 $p$ 加入答案数组中。
 
-时间复杂度 $O((n + m) \log (n + m))$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
+时间复杂度 $O((n + m) \log (n + m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -493,7 +493,7 @@ func powerUpdate(nums []int, p int, queries [][]int) []int {
 
 我们用一个有序列表 $\textit{sl}$ 来维护当前的数组 $nums$。对于每次查询，我们将 $val_i$ 插入到 $\textit{sl}$ 中，然后找到 $\textit{sl}$ 中第 $k_i$ 个最大的元素 $x$，利用快速幂算法将 $p$ 更新为 $p^x \bmod (10^9 + 7)$，并将更新后的 $p$ 加入答案数组中。
 
-时间复杂度 $O((n + m) \log (n + m))$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
+时间复杂度 $O((n + m) \log (n + m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

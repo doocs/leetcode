@@ -77,7 +77,7 @@ We first convert $\textit{edges}$ into an adjacency list $g$, then use DFS to de
 
 During the process, we use an array $\textit{vis}$ to record the vertices that have already been visited to avoid revisiting them.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -284,7 +284,7 @@ Next, we continuously take vertices $i$ from the queue. If $i = \textit{destinat
 
 Finally, if the queue is empty, it means there is no path from $\textit{source}$ to $\textit{destination}$, and we return $\textit{false}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -499,7 +499,7 @@ Union-Find is a tree-like data structure that, as the name suggests, is used to 
 
 For this problem, we can use the Union-Find set to merge the edges in `edges`, and then determine whether `source` and `destination` are in the same set.
 
-The time complexity is $O(n \log n + m)$ or $O(n \alpha(n) + m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n \log n + m)$ or $O(n \alpha(n) + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -800,7 +800,7 @@ impl Solution {
 
 We first convert $\textit{edges}$ into an adjacency list $g$. If $\textit{source}$ is $\textit{destination}$, we return $\textit{true}$ immediately. Otherwise an explicit stack starts at the source: a vertex is recorded in $\textit{vis}$ when it is pushed, a neighbor that is the destination returns $\textit{true}$, and only unmarked neighbors are pushed. An empty stack means there is no path.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

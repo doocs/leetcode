@@ -72,7 +72,7 @@ We start from the integer $1$. If $1$ is expressible, it must appear in the arra
 
 Therefore, we can enumerate the powers of $2$. If the currently enumerated $2^i$ is not in the array `nums`, then $2^i$ is the smallest unexpressible integer.
 
-The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array `nums` and the maximum value in the array `nums`, respectively.
+The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the array `nums` and the maximum value in the array `nums`, respectively.
 
 <!-- tabs:start -->
 

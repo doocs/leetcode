@@ -74,7 +74,7 @@ To determine whether it is a tree, the following two conditions must be met:
 
 We can use a union-find set to determine whether there is a cycle. We traverse the edges, if two nodes are already in the same set, it means there is a cycle. Otherwise, we merge the two nodes into the same set. Then we decrease the number of connected components by one, and finally check whether the number of connected components is $1$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

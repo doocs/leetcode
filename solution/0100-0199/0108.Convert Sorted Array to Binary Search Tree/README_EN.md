@@ -78,7 +78,7 @@ The execution process of the function $\textit{dfs}(l, r)$ is as follows:
 
 The answer is the return value of the function $\textit{dfs}(0, n - 1)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

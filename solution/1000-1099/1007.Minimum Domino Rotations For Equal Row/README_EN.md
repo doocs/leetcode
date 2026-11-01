@@ -83,7 +83,7 @@ The calculation method of function $f(x)$ is as follows:
 
 We use two variables $cnt1$ and $cnt2$ to count the number of occurrences of $x$ in $tops$ and $bottoms$, respectively. We subtract the maximum value of $cnt1$ and $cnt2$ from $n$, which is the minimum number of rotations required to make all values equal to $x$. Note that if there are no values equal to $x$ in $tops$ and $bottoms$, the value of $f(x)$ is a very large number, which we represent as $n+1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

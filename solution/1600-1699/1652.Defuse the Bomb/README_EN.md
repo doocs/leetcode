@@ -101,7 +101,7 @@ $$
 ans[i] = \sum_{j=i+k}^{i-1} code[(j+n) \bmod n]
 $$
 
-The time complexity is $O(n \times |k|)$, ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n|k|)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -252,7 +252,7 @@ If $k$ is a positive number, then the value at position $i$ is the sum of the va
 
 If $k$ is a negative number, then the value at position $i$ is the sum of the values at the $|k|$ positions before position $i$, i.e., $ans[i] = s[i + n] - s[i + k + n]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the `code` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `code` array.
 
 <!-- tabs:start -->
 

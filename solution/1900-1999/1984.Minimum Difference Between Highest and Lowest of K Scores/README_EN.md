@@ -80,7 +80,7 @@ We can sort the students' scores in ascending order, then use a sliding window o
 
 Why do we take the scores of $k$ consecutive students? Because if they are not consecutive, the difference between the maximum and minimum values may remain the same or increase, but it will definitely not decrease. Therefore, we only need to consider the scores of $k$ consecutive students after sorting.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of students.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of students.
 
 <!-- tabs:start -->
 

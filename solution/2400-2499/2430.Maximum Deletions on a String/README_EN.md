@@ -103,7 +103,7 @@ Here we need to quickly determine whether $s[i..i+j]$ is equal to $s[i+j..i+j+j]
 
 To avoid repeated calculations, we can use memoization search and use an array $f$ to record the value of the function $dfs(i)$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -285,7 +285,7 @@ We can change the memoization search in Solution 1 to dynamic programming. Defin
 
 We can enumerate $i$ from back to front. For each $i$, we enumerate the length of the string $j$, where $1 \leq j \leq (n-1)/2$. If $s[i..i+j] = s[i+j..i+j+j]$, we can delete $s[i..i+j]$, then $f[i]=max(f[i], f[i+j]+1)$. We need to enumerate all $j$ to find the maximum value of $f[i]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

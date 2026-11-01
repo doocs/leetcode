@@ -82,7 +82,7 @@ Next, we enumerate the right endpoint $i$ of the first substring and the right e
 
 After enumerating all partitioning schemes, if no valid partitioning scheme is found, return $\textit{false}$.
 
-Time complexity is $O(n^2)$, and space complexity is $O(n^2)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

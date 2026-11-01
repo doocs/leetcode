@@ -104,7 +104,7 @@ The specific steps are as follows:
 5. **Calculate Target Area**: The target area is half of the total area.
 6. **Scan Event Points Again**: Traverse the event point list again, calculating the cumulative area. When the cumulative area reaches the target area, calculate and return the corresponding $y$ coordinate.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of squares.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of squares.
 
 <!-- tabs:start -->
 

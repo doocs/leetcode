@@ -115,7 +115,7 @@ Here, $(n - x_0)$ represents the number of choices for the highest digit (exclud
 
 Finally, we sum up all the permutation counts to get the final result.
 
-Time complexity is $O(10^m \times n \times \log n)$, and space complexity is $O(10^m \times n)$, where $m = \lfloor \frac{n - 1}{2} \rfloor$.
+The time complexity is $O(10^m n \log n)$, and the space complexity is $O(10^m n)$, where $m = \lfloor \frac{n - 1}{2} \rfloor$.
 
 <!-- tabs:start -->
 

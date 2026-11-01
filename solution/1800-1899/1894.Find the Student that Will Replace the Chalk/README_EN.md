@@ -91,7 +91,7 @@ Since the students' answers are conducted in rounds, we can add up the chalk nee
 
 Next, we just need to simulate the last round. Initially, the remaining number of chalks is $k$, and the student with the number $0$ starts to answer the question. When the remaining number of chalks is less than the current student needs, the current student needs to replenish the chalk, and we directly return the current student's number $i$. Otherwise, we subtract the chalk needed by the current student from the remaining chalk, and add one to the current student's number $i$ for the next simulation.
 
-The time complexity is $O(n)$, where $n$ is the number of students. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of students.
 
 <!-- tabs:start -->
 

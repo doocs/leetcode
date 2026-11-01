@@ -84,7 +84,7 @@ There is 1 distinct prime factor so we return 1.
 
 For each element in the array, first perform prime factorization on it, and then add the decomposed prime factors to the hash table. Finally, return the size of the hash table.
 
-The time complexity is $O(n \times \sqrt{m})$, and the space complexity is $O(\frac{m}{\log m})$. Where $n$ and $m$ are the length of the array and the maximum value in the array, respectively.
+The time complexity is $O(n \sqrt{m})$, and the space complexity is $O(\frac{m}{\log m})$, where $n$ and $m$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ Then, we update the answer with $root.val + left + right$. Finally, the function
 
 In the main function, we call $dfs(root)$ to get the maximum path sum of each node, and the maximum value among them is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

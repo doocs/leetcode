@@ -106,7 +106,7 @@ Bob 会获胜。
 
 然后我们按照 $vals$ 的顺序，让 Alice 和 Bob 交替选取石头。Alice 选取 $vals$ 中的偶数位置的石头，Bob 选取 $vals$ 中的奇数位置的石头。最后比较 Alice 和 Bob 的得分，返回对应的结果。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
 
 <!-- tabs:start -->
 

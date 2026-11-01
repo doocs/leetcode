@@ -74,7 +74,7 @@ From s[4] = &#39;c&#39; to s[5] = &#39;C&#39;, there is no change of key as caps
 
 We can traverse the string, each time checking whether the lowercase form of the current character is the same as the lowercase form of the previous character. If they are different, it means that the key has been changed, and we can increment the answer accordingly.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

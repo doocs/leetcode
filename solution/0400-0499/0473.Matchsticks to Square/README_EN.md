@@ -248,7 +248,7 @@ impl Solution {
 >
 > Side-by-side backtracking still repeats partitions. A bit mask of used sticks plus the current side sum $t$ is enough: a legal stick updates $t\gets (t+v)\bmod s$. After sorting, $t+v>s$ cuts the rest of the loop.
 >
-> Memoizing $(\textit{mask},t)$ folds duplicate partitions into $O(n\,2^n)$.
+> Memoizing $(\textit{mask},t)$ folds duplicate partitions into $O(n 2^n)$.
 
 <!-- thinking:end -->
 

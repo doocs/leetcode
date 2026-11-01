@@ -117,7 +117,7 @@ $$
 
 An integer that already has $d$ digits and does not exceed $x$ has no leading zero, so the two writings match. The search therefore returns $F(x)$.
 
-The time complexity is $O(\log r)$ and the space complexity is $O(\log r)$.
+The time complexity is $O(\log r)$, and the space complexity is $O(\log r)$.
 
 <!-- tabs:start -->
 

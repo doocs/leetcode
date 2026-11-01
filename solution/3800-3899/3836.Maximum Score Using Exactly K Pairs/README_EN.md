@@ -141,7 +141,7 @@ The first case represents not selecting the $i$-th element of $\textit{nums1}$, 
 
 Finally, we need to return $f[n][m][K]$.
 
-The time complexity is $O(m \times n \times K)$ and the space complexity is $O(m \times n \times K)$, where $n$ and $m$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ respectively, and $K$ is $k$ in the problem.
+The time complexity is $O(mnK)$, and the space complexity is $O(mnK)$, where $n$ and $m$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ respectively, and $K$ is $k$ in the problem.
 
 <!-- tabs:start -->
 

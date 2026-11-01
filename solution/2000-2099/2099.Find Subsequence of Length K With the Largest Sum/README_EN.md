@@ -85,7 +85,7 @@ First, we create an index array $\textit{idx}$, where each element is an index o
 
 After sorting, we take the last $k$ elements of the index array $\textit{idx}$. These $k$ elements correspond to the largest $k$ elements in the array $\textit{nums}$. Then, we sort these $k$ indices to get the order of the largest $k$ elements in the array $\textit{nums}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

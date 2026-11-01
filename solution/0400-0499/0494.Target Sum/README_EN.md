@@ -102,7 +102,7 @@ This selection is based on the premise that $j \geq \textit{nums}[i - 1]$.
 
 The final answer is $f[m][n]$, where $m$ is the length of the array $\textit{nums}$, and $n = \frac{s - \textit{target}}{2}$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$.
 
 <!-- tabs:start -->
 
@@ -303,7 +303,7 @@ var findTargetSumWays = function (nums, target) {
 
 We can observe that in the state transition equation of Solution 1, the value of $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i - 1][j - \textit{nums}[i - 1]]$. Therefore, we can eliminate the first dimension of the space and use only a one-dimensional array.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(n)$.
+The time complexity is $O(mn)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

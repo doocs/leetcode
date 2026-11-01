@@ -81,7 +81,7 @@ Consider $i \in [1, n)$, if $s[i] = 0$, then we need to determine whether there 
 
 The final answer is $f[n-1]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

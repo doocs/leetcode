@@ -93,7 +93,7 @@ Next, we enumerate each character `c`. Suppose the position where `c` first appe
 
 Finally, return the answer.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

@@ -75,7 +75,7 @@ We directly traverse the array words, and for each string w, we check if s start
 
 After the traversal, we return the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the array words and the string s, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the array words and the string s, respectively.
 
 <!-- tabs:start -->
 

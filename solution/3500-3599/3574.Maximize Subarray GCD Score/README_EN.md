@@ -115,7 +115,7 @@ Since each number can be doubled at most once, the GCD of a subarray can be mult
 
 Thus, we can preprocess the number of factors of $2$ for each number, and when enumerating subarrays, maintain the current subarray's GCD, the minimum number of factors of $2$, and the number of times this minimum occurs.
 
-The time complexity is $O(n^2 \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

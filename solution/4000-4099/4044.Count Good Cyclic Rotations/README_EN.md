@@ -163,7 +163,7 @@ Let $n$ be the length of the array and $m = n / 2$. First compute the sum $l$ of
 
 Then start from the original array and cyclically shift it left by one position, $n - 1$ times in total. On the $i$-th shift ($i$ starts from $0$), the first half loses $\textit{nums}[i]$ and gains $\textit{nums}[(i + m) \bmod n]$, while the second half does the opposite. Update $l$ and $r$ in $O(1)$ time, and increment the answer whenever $l > r$.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

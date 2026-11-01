@@ -62,7 +62,7 @@ We define $f[i]$ as the maximum height with the $i$-th box at the bottom. For $f
 
 The answer is the maximum value in $f$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of boxes.
 
 <!-- tabs:start -->
 

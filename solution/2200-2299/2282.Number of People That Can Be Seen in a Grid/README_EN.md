@@ -97,7 +97,7 @@ After processing this way, we can get the number of people each person can see f
 
 Similarly, we can process each column to get the number of people each person can see for each column. Finally, we add the answers for each row and each column to get the final answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(\max(m, n))$. Where $m$ and $n$ are the number of rows and columns of the array $heights$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(\max(m, n))$, where $m$ and $n$ are the number of rows and columns of the array $heights$, respectively.
 
 Similar problems:
 

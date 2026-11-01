@@ -109,7 +109,7 @@ For the array $\textit{nums}$, we first sort it, then iterate through the array.
 
 After finding the lengths of the longest consecutive increasing subsequences in $\textit{hBars}$ and $\textit{vBars}$, we take the minimum of the two as the side length of the square, and then calculate the area of the square.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hBars}$ or $\textit{vBars}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hBars}$ or $\textit{vBars}$.
 
 <!-- tabs:start -->
 

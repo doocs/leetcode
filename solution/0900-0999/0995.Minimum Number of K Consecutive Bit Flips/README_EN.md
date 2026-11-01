@@ -88,7 +88,7 @@ Suppose we need to process position $i$, and the elements to the left of positio
 
 In this way, when we have processed all the elements in the array, we can return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -258,7 +258,7 @@ Next, we traverse the array from left to right. For each position $i$, if $i \ge
 
 By processing all elements in the array in this manner, we can return the answer upon completion.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

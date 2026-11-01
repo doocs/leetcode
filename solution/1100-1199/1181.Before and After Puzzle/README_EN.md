@@ -93,7 +93,7 @@ Next, we enumerate all $(i, j)$, where $i, j \in [0, n)$ and $i \neq j$. If $ps[
 
 Finally, we convert the hash table $s$ into an array and sort it to get the answer.
 
-The time complexity is $O(n^2 \times m \times (\log n + \log m))$, and the space complexity is $O(n^2 \times m)$. Here, $n$ and $m$ represent the length of the `phrases` array and the average length of each phrase, respectively.
+The time complexity is $O(n^2m(\log n + \log m))$, and the space complexity is $O(n^2m)$, where $n$ and $m$ represent the length of the `phrases` array and the average length of each phrase, respectively.
 
 <!-- tabs:start -->
 

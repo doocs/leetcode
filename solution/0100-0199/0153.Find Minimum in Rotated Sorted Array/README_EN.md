@@ -87,7 +87,7 @@ First, we define two pointers $l$ and $r$ pointing to the start and end of the a
 
 In each iteration, we calculate the middle position $mid$ and compare $nums[mid]$ with $nums[n-1]$. If $nums[mid]$ is greater than $nums[n-1]$, the minimum value is to the right of $mid$, so we update $l$ to $mid + 1$. Otherwise, the minimum value is at $mid$ or to its left, so we update $r$ to $mid$. When the loop ends, pointer $l$ will point to the minimum value, and we return $nums[l]$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -91,7 +91,7 @@ It can be proven that 3 is the minimum number of operations needed.
 
 First, we traverse the binary tree using BFS to find the node values at each level. Then, we sort the node values at each level. If the sorted node values are different from the original node values, it means that we need to swap elements. The number of swaps is the number of operations needed at that level.
 
-The time complexity is $O(n \times \log n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n \log n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

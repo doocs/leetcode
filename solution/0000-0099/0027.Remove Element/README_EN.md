@@ -103,7 +103,7 @@ Traverse the array $nums$, if the current element $x$ is not equal to $val$, the
 
 Finally, return $k$.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

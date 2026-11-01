@@ -91,7 +91,7 @@ Therefore, the k-beauty is 2.
 
 We can convert $num$ to a string $s$, then enumerate all substrings of $s$ with length $k$, convert them to an integer $t$, and check if $t$ is divisible by $num$. If it is, we increment the answer.
 
-The time complexity is $O(\log num \times k)$, and the space complexity is $O(\log num + k)$.
+The time complexity is $O(k \log num)$, and the space complexity is $O(\log num + k)$.
 
 <!-- tabs:start -->
 

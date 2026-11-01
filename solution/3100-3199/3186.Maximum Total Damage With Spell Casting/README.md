@@ -98,7 +98,7 @@ tags:
 
 答案即为 $\textit{dfs}(0)$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{power}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{power}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -345,7 +345,7 @@ $$
 f[i] = \max(f[i + \textit{cnt}[x]],\ x \times \textit{cnt}[x] + f[\textit{nxt}[i]])
 $$
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{power}$ 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{power}$ 的长度。
 
 <!-- tabs:start -->
 

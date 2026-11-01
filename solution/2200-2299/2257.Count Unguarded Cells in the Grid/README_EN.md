@@ -84,7 +84,7 @@ Next, we traverse all guard positions, simulate in four directions from that pos
 
 Finally, we traverse $g$ and count the number of cells with a value of $0$, which is the answer.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 

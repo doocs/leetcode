@@ -55,7 +55,7 @@ After the traversal, we point the tail node of the `left` list to the first vali
 
 Finally, we return the first valid node of the `left` list.
 
-The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list.
 
 <!-- tabs:start -->
 

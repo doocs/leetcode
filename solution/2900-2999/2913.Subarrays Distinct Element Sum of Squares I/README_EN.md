@@ -89,7 +89,7 @@ We can enumerate the left endpoint index $i$ of the subarray, and for each $i$, 
 
 After the enumeration, we return the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

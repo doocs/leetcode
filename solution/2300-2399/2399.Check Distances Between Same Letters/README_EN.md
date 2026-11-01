@@ -82,7 +82,7 @@ Because distance[0] = 1, s is not a well-spaced string.
 
 We can use a hash table $d$ to record the indices of each letter's occurrences. Then, traverse the hash table and check if the difference between the indices of each letter equals the corresponding value in the `distance` array. If any discrepancy is found, return `false`. If the traversal completes without discrepancies, return `true`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which in this case is the set of lowercase letters.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $\Sigma$ is the character set, which in this case is the set of lowercase letters.
 
 <!-- tabs:start -->
 

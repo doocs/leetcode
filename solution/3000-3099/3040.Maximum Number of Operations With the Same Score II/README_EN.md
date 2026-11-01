@@ -97,7 +97,7 @@ We design a function $dfs(i, j)$, which represents the maximum number of operati
 
 Finally, we calculate the maximum number of operations for the three cases separately, and return the maximum value.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

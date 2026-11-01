@@ -105,7 +105,7 @@ $$
 
 Finally, we need to consider that the answer may be very large and need to be modulo $10^9 + 7$. Therefore, we need to preprocess the factorial and multiplicative inverse.
 
-The time complexity is $O(m)$, where $m$ is the length of the array $sick$. Ignoring the space consumption of the preprocessing array, the space complexity is $O(m)$.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the length of the array $sick$.
 
 <!-- tabs:start -->
 

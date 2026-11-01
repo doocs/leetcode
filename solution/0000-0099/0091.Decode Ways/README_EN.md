@@ -112,7 +112,7 @@ Consider how $f[i]$ transitions.
 - If the $i$th character (i.e., $s[i-1]$) forms a code on its own, it corresponds to one decoding method, i.e., $f[i]=f[i-1]$. The premise is $s[i-1] \neq 0$.
 - If the string formed by the $i-1$th character and the $i$th character is within the range $[1,26]$, then they can be treated as a whole, corresponding to one decoding method, i.e., $f[i] = f[i] + f[i-2]$. The premise is $s[i-2] \neq 0$, and $s[i-2]s[i-1]$ is within the range $[1,26]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

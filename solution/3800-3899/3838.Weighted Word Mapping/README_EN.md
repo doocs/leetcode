@@ -111,7 +111,7 @@ tags:
 
 We iterate through each word $w$ in $\textit{words}$, calculate its weight $s$, which is the sum of the weights of all characters in the word. Then we calculate $s$ modulo 26, map the result to a lowercase English letter, and finally concatenate all the mapped characters and return.
 
-The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words in $\textit{words}$. The space complexity is $O(W)$, where $W$ is the length of $\textit{words}$.
+The time complexity is $O(L)$, and the space complexity is $O(W)$, where $L$ is the sum of the lengths of all words in $\textit{words}$, and $W$ is the length of $\textit{words}$.
 
 <!-- tabs:start -->
 

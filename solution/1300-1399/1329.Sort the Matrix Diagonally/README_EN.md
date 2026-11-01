@@ -70,7 +70,7 @@ Specifically, we denote the number of rows in the matrix as $m$ and the number o
 
 Finally, we fill the sorted elements of each diagonal back into the original matrix.
 
-The time complexity is $O(m \times n \times \log \min(m, n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn \log \min(m, n))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

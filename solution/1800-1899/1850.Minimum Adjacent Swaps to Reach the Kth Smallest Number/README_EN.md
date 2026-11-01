@@ -121,7 +121,7 @@ If there are identical digits in $num$, we can use an array $d$ to record the in
 
 Finally, we can directly use a double loop to calculate the number of inversion pairs, or we can optimize it with a Binary Indexed Tree.
 
-The time complexity is $O(n \times (k + n))$, and the space complexity is $O(n)$. Where $n$ is the length of $num$.
+The time complexity is $O(n(k + n))$, and the space complexity is $O(n)$, where $n$ is the length of $num$.
 
 <!-- tabs:start -->
 

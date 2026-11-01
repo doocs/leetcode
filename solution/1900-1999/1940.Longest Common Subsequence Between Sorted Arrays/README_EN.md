@@ -86,7 +86,7 @@ Therefore, we can traverse each array in $\textit{arrays}$ and count the number 
 
 After the traversal, return the answer array.
 
-The time complexity is $O(M + N)$, and the space complexity is $O(M)$. Here, $M$ is the range of elements, and in this problem, $M = 101$, and $N$ is the total number of elements in the arrays.
+The time complexity is $O(M + N)$, and the space complexity is $O(M)$, where $M$ is the range of elements, and in this problem, $M = 101$, and $N$ is the total number of elements in the arrays.
 
 <!-- tabs:start -->
 

@@ -76,13 +76,13 @@ tags:
 >
 > Apples may be bought in any city; travel is charged $(k+1)$ times the distance (the extra $k$ is the return). From each start, Dijkstra updates $\textit{appleCost}[u]+dist[u]\cdot(k+1)$ along the way.
 >
-> Heap Dijkstra is $O(m\log n)$ per source on a sparse graph.
+> Heap Dijkstra is $O(m \log n)$ per source on a sparse graph.
 
 <!-- thinking:end -->
 
 We enumerate the starting point, and for each starting point, we use Dijkstra's algorithm to find the shortest distance to all other points, and update the minimum value accordingly.
 
-The time complexity is $O(n \times m \times \log m)$, where $n$ and $m$ are the number of cities and roads, respectively.
+The time complexity is $O(nm \log m)$, where $n$ and $m$ are the number of cities and roads, respectively.
 
 <!-- tabs:start -->
 

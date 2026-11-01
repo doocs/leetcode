@@ -130,7 +130,7 @@ We maintain $\textit{pref}(u)$ with an Euler tour and an XOR binary indexed tree
 
 When the character of node $u$ changes, let $\delta$ be the XOR of the old and new masks, and XOR $\delta$ at $\textit{tin}[u]$ and $\textit{tout}[u]$. The LCA is precomputed with binary lifting and each query takes $O(\log n)$.
 
-The time complexity is $O((n + q) \log n)$ and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of operations.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of operations.
 
 <!-- tabs:start -->
 

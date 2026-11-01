@@ -75,7 +75,7 @@ In one operation, we can update $\textit{nums}[i]$ to $\textit{nums}[i] \text{ A
 
 The problem requires us to find the maximum bitwise XOR sum of all elements in $\textit{nums}$. For a binary bit, as long as there is an element in $\textit{nums}$ with the corresponding binary bit set to $1$, the contribution of this binary bit to the maximum bitwise XOR sum is $1$. Therefore, the answer is the result of the bitwise OR operation of all elements in $\textit{nums}$.
 
-The time complexity is $O(n)$, where $n$ is the length of $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -68,7 +68,7 @@ We define a function $check(s, t)$ to determine whether string $s$ is a subseque
 
 To determine if string $s$ is unique, we only need to take string $s$ itself and compare it with other strings in the list. If there exists a string for which $s$ is a subsequence, then $s$ is not unique. Otherwise, string $s$ is unique. We take the longest string among all unique strings.
 
-The time complexity is $O(n^2 \times m)$, where $n$ is the length of the list of strings, and $m$ is the average length of the strings. The space complexity is $O(1)$.
+The time complexity is $O(n^2m)$, and the space complexity is $O(1)$, where $n$ is the length of the list of strings, and $m$ is the average length of the strings.
 
 <!-- tabs:start -->
 

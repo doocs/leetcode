@@ -92,7 +92,7 @@ For each element $nums[i]$ in the array $nums$, we need to find a prime $p[j]$ s
 
 If all the elements in $nums$ are processed, it means that it can be strictly increased by subtraction operations, return `true`.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(n)$. where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

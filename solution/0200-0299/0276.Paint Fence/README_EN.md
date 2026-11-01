@@ -88,7 +88,7 @@ $$
 
 The final answer is $f[n - 1] + g[n - 1]$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of fence posts.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of fence posts.
 
 <!-- tabs:start -->
 

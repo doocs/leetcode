@@ -89,7 +89,7 @@ tags:
 
 遍历结束后，由于我们可以插入一个字符，因此，如果我们在字符串开头加上 $\textit{pattern}[0]$，那么可以得到 $y$ 个 $\textit{pattern}$ 子序列；如果我们在字符串结尾加上 $\textit{pattern}[1]$，那么可以得到 $x$ 个 $\textit{pattern}$ 子序列。因此，我们将答案加上 $x$ 和 $y$ 中的较大值即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{text}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{text}$ 的长度。
 
 <!-- tabs:start -->
 

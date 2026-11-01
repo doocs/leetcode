@@ -97,7 +97,7 @@ Modify the smallest number to $nums[1]$ and the largest number to $nums[n - 2]$,
 Modify the largest two numbers to $nums[n - 3]$, then the maximum score is $nums[n - 3] - nums[0]$.
 Finally, we return the minimum score of the above three modifications.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 Similar problems:
 

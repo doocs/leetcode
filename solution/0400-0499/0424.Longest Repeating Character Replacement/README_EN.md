@@ -74,7 +74,7 @@ We iterate through the string, updating the right boundary `r` of the window eac
 
 Finally, the answer is $n - l$, where $n$ is the length of the string.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, the character set is uppercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, the character set is uppercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

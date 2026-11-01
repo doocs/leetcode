@@ -92,7 +92,7 @@ We traverse the array $\textit{nums}$. For the current number $x$ being traverse
 
 If the middle position is not found by the end of the traversal, return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar Problems:
 

@@ -110,7 +110,7 @@ We can transform each string into a unified form. Specifically, we convert the f
 
 Finally, we iterate through the hash table, calculate the combination number $\frac{v(v-1)}{2}$ for each string's occurrence count $v$, and add it to the answer.
 
-The time complexity is $O(n \times m)$ and the space complexity is $O(n \times m)$, where $n$ is the length of the string array and $m$ is the length of the strings.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ is the length of the string array and $m$ is the length of the strings.
 
 <!-- tabs:start -->
 

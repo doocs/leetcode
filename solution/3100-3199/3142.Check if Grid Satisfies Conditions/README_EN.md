@@ -100,7 +100,7 @@ tags:
 
 We can iterate through each cell and determine whether it meets the conditions specified in the problem. If there is a cell that does not meet the conditions, we return `false`, otherwise, we return `true`.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix `grid` respectively. The space complexity is $O(1)`.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix `grid` respectively.
 
 <!-- tabs:start -->
 

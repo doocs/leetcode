@@ -76,7 +76,7 @@ We can enumerate each element $nums[i]$ in $nums$ as the minimum value of the su
 
 It should be noted that the answer can only be updated when the left and right boundaries $left[i]$ and $right[i]$ satisfy $left[i]+1 \leq k \leq right[i]-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -306,10 +306,7 @@ By maintaining the minimum value within current window, we can find maximum scor
 
 5. Return `max_score` once the for loop terminates.
 
-**Complexity Analysis:**
-
-- **Time Complexity**: $O(n)$, where $n$ is length of array `nums`. Each element is scanned at most once.
-- **Space Complexity**: $O(1)$, as it only requires a constant amount of extra space for two pointers, window minimum value and global maximum score.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 

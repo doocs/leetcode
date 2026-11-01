@@ -85,7 +85,7 @@ The key point is to judge whether for a given $\frac{s}{k}$, it is possible to d
 
 Here we use the `dfs` function to judge. We recursively traverse from top to bottom to calculate the value of each subtree. If the sum of the subtree values is exactly $\frac{s}{k}$, it means that the division is successful at this time. We set the value to $0$ and return it to the upper level, indicating that this subtree can be disconnected from the parent node. If the sum of the subtree values is greater than $\frac{s}{k}$, it means that the division fails at this time. We return $-1$, indicating that it cannot be divided.
 
-The time complexity is $O(n \times \sqrt{s})$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
+The time complexity is $O(n \sqrt{s})$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
 
 <!-- tabs:start -->
 
@@ -303,7 +303,7 @@ The key point is to judge whether for a given $\frac{s}{k}$, it is possible to d
 
 An explicit stack performs that check in postorder. When a node is left, add its weight to the child sums that were not cut: a sum equal to $\frac{s}{k}$ is stored as $0$, so the subtree can be disconnected from its parent; a smaller sum is left for the parent; a larger sum means the division fails. The division succeeds when the root remainder is $0$.
 
-The time complexity is $O(n \times \sqrt{s})$ and the space complexity is $O(n)$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
+The time complexity is $O(n \sqrt{s})$, and the space complexity is $O(n)$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
 
 <!-- tabs:start -->
 

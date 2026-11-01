@@ -94,7 +94,7 @@ Finally, we return the answer.
 
 To avoid repeated calculations, we can use memoization and pruning to optimize the enumeration efficiency.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{stoneValue}$.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{stoneValue}$.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ tags:
 
 接下来，采用自定义排序，将 `features` 中的单词按照出现次数从大到小排序，如果出现次数相同，则按照出现的下标从小到大排序。
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 为 `features` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 为 `features` 的长度。
 
 <!-- tabs:start -->
 

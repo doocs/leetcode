@@ -103,7 +103,7 @@ Considering `f[i][j]`, if there exists a subset `k` in `j` such that `s[k] <= ar
 
 The answer is `f[n-1][2^m-1]`.
 
-The time complexity is `O(n * 3^m)`, and the space complexity is `O(n * 2^m)`. Here, `n` is the number of different integers in the array `nums`, and `m` is the length of the array `quantity`.
+The time complexity is $O(n 3^m)$, and the space complexity is $O(n 2^m)$, where $n$ is the number of different integers in the array `nums`, and $m$ is the length of the array `quantity`.
 
 <!-- tabs:start -->
 

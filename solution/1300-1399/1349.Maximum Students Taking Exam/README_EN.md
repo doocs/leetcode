@@ -115,7 +115,7 @@ Finally, we return $ans$ as the return value of the function.
 
 To avoid repeated calculations, we can use memoization search to save the return value of the function $dfs(seat, i)$ in a two-dimensional array $f$, where $f[seat][i]$ represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $seat$.
 
-The time complexity is $O(4^n \times n \times m)$, and the space complexity is $O(2^n \times m)$. Where $m$ and $n$ are the number of rows and columns of the seats, respectively.
+The time complexity is $O(4^n nm)$, and the space complexity is $O(2^n m)$, where $m$ and $n$ are the number of rows and columns of the seats, respectively.
 
 <!-- tabs:start -->
 

@@ -74,7 +74,7 @@ We use two pointers $i$ and $j$ to maintain a sliding window, such that in the s
 
 Therefore, we enumerate the left endpoint $i$, use the pointer $j$ to maintain the right endpoint, use a variable $cnt$ to record the number of elements equal to $mx$ in the current window. When $cnt$ is greater than or equal to $k$, we have found a subarray that meets the condition, and we increase the answer by $n - (j - 1)$. Then we update $cnt$ and continue to enumerate the next left endpoint.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

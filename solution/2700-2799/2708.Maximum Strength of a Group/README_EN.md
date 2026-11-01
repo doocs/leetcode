@@ -74,7 +74,7 @@ The problem is actually to find the maximum product of all subsets. Since the le
 
 We enumerate all subsets in the range of $[1, 2^n)$, and for each subset, we calculate its product, and finally return the maximum value.
 
-The time complexity is $O(2^n \times n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -195,7 +195,7 @@ First, we can sort the array. Based on the characteristics of the array, we can 
 - If there are two or more elements in the array, and $nums[1] = nums[n - 1] = 0$, then the maximum strength value is $0$.
 - Otherwise, we traverse the array from small to large. If the current element is less than $0$ and the next element is also less than $0$, then we multiply these two elements and accumulate the product into the answer. Otherwise, if the current element is less than or equal to $0$, we skip it directly. If the current element is greater than $0$, we multiply this element into the answer. Finally, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

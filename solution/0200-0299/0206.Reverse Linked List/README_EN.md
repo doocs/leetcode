@@ -71,7 +71,7 @@ tags:
 
 We create a dummy node $\textit{dummy}$, then traverse the linked list and insert each node after the $\textit{dummy}$ node. After traversal, return $\textit{dummy.next}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 
@@ -314,7 +314,7 @@ public class Solution {
 
 We recursively reverse all nodes from the second node to the end of the list, then attach the $head$ to the end of the reversed list.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

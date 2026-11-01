@@ -102,7 +102,7 @@ Similarly, if the current finger 2 is at position $b$, we enumerate the position
 
 Finally, we enumerate the positions of finger 1 and finger 2 at the last position and take the minimum value as the answer.
 
-The time complexity is $O(n \times |\Sigma|^2)$, and the space complexity is $O(n \times |\Sigma|^2)$. Here, $n$ is the length of the string $\textit{word}$, and $|\Sigma|$ is the size of the alphabet, which is $26$ in this problem.
+The time complexity is $O(n|\Sigma|^2)$, and the space complexity is $O(n|\Sigma|^2)$, where $n$ is the length of the string $\textit{word}$, and $|\Sigma|$ is the size of the alphabet, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

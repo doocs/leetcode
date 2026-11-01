@@ -76,7 +76,7 @@ Specifically, we can use a variable $k$ to represent the current digit position,
 
 In the end, we obtain an integer without any zeros.
 
-The time complexity is $O(d)$, where $d$ is the number of digits in $n$. The space complexity is $O(1)$.
+The time complexity is $O(d)$, and the space complexity is $O(1)$, where $d$ is the number of digits in $n$.
 
 <!-- tabs:start -->
 

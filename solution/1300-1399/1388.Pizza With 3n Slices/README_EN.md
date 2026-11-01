@@ -98,7 +98,7 @@ $$
 
 Finally, return $f[m][n]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array $slices$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $slices$.
 
 <!-- tabs:start -->
 

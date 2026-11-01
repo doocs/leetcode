@@ -107,7 +107,7 @@ ABBBB<strong><em>B</em></strong>BBAA -&gt; ABBBBBBAA
 
 最后判断 $a$ 是否大于 $b$，是则返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 `colors` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `colors` 的长度。
 
 <!-- tabs:start -->
 

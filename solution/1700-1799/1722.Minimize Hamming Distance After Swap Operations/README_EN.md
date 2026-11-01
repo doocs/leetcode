@@ -90,7 +90,7 @@ We can consider each index as a node, and the element corresponding to each inde
 
 After obtaining each connected component, we use a two-dimensional hash table $cnt$ to count the number of occurrences of each element in each connected component. Finally, for each element in the array `target`, if its occurrence count in the corresponding connected component is greater than 0, we decrease its count by 1, otherwise, we increase the answer by 1.
 
-The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the length of the array, and $\alpha$ is the inverse Ackermann function.
+The time complexity is $O(n \log n)$ or $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the length of the array, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
 

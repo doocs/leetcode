@@ -114,7 +114,7 @@ Next, we iterate through each number $x$ in the array $\textit{target}$:
 
 After the iteration, we return the answer array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{target}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{target}$.
 
 <!-- tabs:start -->
 

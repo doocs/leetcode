@@ -137,7 +137,7 @@ tags:
 
 函数的返回值为两种发射方向所能摧毁墙壁数量的最大值。
 
-时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是机器人和墙壁的数量。
+时间复杂度 $O(n \log n + m \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是机器人和墙壁的数量。
 
 <!-- tabs:start -->
 
@@ -426,7 +426,7 @@ function maxWalls(robots: number[], distance: number[], walls: number[]): number
 
 $f[i][j]$ 取这两种发射方向所能摧毁墙壁数量的最大值。
 
-时间复杂度 $O(n \times \log n + m \times \log m + n \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是机器人和墙壁的数量。
+时间复杂度 $O(n \log n + m \log m + n \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是机器人和墙壁的数量。
 
 <!-- tabs:start -->
 

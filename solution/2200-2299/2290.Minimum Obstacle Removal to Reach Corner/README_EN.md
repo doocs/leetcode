@@ -90,7 +90,7 @@ In an undirected graph with edge weights of only $0$ and $1$, we can use a doubl
 
 > If the weight of an edge is $0$, then the newly expanded node has the same weight as the current front node, and it can obviously be used as the starting point for the next expansion.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 Similar problems:
 

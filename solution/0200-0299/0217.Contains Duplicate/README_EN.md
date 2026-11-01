@@ -84,7 +84,7 @@ Then, we traverse the array. If there are two adjacent elements that are the sam
 
 Otherwise, when the traversal ends, we return `false`.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 
@@ -242,7 +242,7 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 > **Thinking**
 >
-> Sorting is $O(n\log n)$ and reorders the array. Membership alone can be tracked with a hash set in one pass.
+> Sorting is $O(n \log n)$ and reorders the array. Membership alone can be tracked with a hash set in one pass.
 >
 > A value that is already in the set is a duplicate.
 

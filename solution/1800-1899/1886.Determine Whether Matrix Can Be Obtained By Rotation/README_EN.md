@@ -77,7 +77,7 @@ We observe the rotation pattern of the matrix and find that for an element $\tex
 
 Therefore, we can use an integer $\textit{ok}$ to record the current rotation state, initialized to $0b1111$, indicating that all four rotation states are possible. For each element in the matrix, we compare whether its position under different rotation states matches the corresponding element in the target matrix. If they are not equal, we remove that rotation state from $\textit{ok}$. Finally, if $\textit{ok}$ is not zero, it means at least one rotation state can make the matrix consistent with the target matrix, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-The time complexity is $O(n^2)$, where $n$ is the size of the matrix. The space complexity is $O(1)$.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the size of the matrix.
 
 <!-- tabs:start -->
 

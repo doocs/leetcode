@@ -103,8 +103,7 @@ $$
 
 where $k$ represents the maximum value of the array, i.e., $\textit{maxValue}$.
 
-- **Time Complexity**: $O(m \times \log^2 m)$
-- **Space Complexity**: $O(m \times \log m)$
+The time complexity is $O(m \log^2 m)$, and the space complexity is $O(m \log m)$.
 
 <!-- tabs:start -->
 

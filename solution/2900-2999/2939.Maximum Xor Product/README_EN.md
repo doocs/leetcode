@@ -88,7 +88,7 @@ If $x = y$, then we can set the current bit of $ax$ and $bx$ to $1$ at the same 
 
 Finally, we return $ax \times bx \bmod (10^9 + 7)$ as the answer.
 
-The time complexity is $O(n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

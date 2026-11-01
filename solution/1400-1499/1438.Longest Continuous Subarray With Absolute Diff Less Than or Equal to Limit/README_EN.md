@@ -107,7 +107,7 @@ Therefore, the size of the longest subarray is 2.</p>
 
 We can enumerate each position as the right endpoint of the subarray, and find the leftmost left endpoint corresponding to it, such that the difference between the maximum and minimum values in the interval does not exceed $limit$. During the process, we use an ordered set to maintain the maximum and minimum values within the window.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 
@@ -843,7 +843,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 >
 > Method 1 shrinks per right end. Length is monotone: if some window of length $mid$ is valid, shorter ones exist. Binary-search the length and test a candidate with two monotonic queues.
 >
-> The time is still $O(n\log n)$; the longest-window search becomes a decision problem.
+> The time is still $O(n \log n)$; the longest-window search becomes a decision problem.
 
 <!-- thinking:end -->
 
@@ -851,7 +851,7 @@ We notice that if a subarray of length $k$ satisfies the condition, then a subar
 
 We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each $mid = \frac{l + r + 1}{2}$, we check whether there exists a subarray of length $mid$ that satisfies the condition. If it exists, we update $l = mid$, otherwise we update $r = mid - 1$. The problem is transformed into whether there exists a subarray of length $mid$ in the array that satisfies the condition, which is actually to find the difference between the maximum and minimum values in the sliding window does not exceed $limit$. We can use two monotonic queues to maintain the maximum and minimum values in the window respectively.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -1242,7 +1242,7 @@ If the difference between the elements at the front of the maximum value deque a
 
 The answer is $n - l$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

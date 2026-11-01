@@ -78,7 +78,7 @@ According to the problem description, we can subtract $k$ from the maximum value
 
 Therefore, the final answer is the larger value between $\max(\textit{nums}) - \min(\textit{nums}) - 2 \times k$ and $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

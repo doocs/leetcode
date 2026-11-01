@@ -94,7 +94,7 @@ tags:
 
 We can use a hash table to count the frequency of each character, and then use two pointers to traverse the `compressed` string, adding the frequency of each character to the hash table. Finally, we concatenate the characters and frequencies into a string in alphabetical order.
 
-The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string `compressed`, and $|\Sigma|$ is the size of the character set. Here, the character set is lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string `compressed`, and $|\Sigma|$ is the size of the character set. Here, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

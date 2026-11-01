@@ -77,7 +77,7 @@ From the problem description, we know that each query is independent and the res
 
 Next, we use a binary trie to maintain the elements in $nums$. We use a pointer $j$ to record the current elements in the trie, initially $j=0$. For each query $[x_i, m_i]$, we continuously insert elements from $nums$ into the trie until $nums[j] > m_i$. At this point, we can query all elements not exceeding $m_i$ in the trie, and we take the XOR value of the element with the maximum XOR value with $x_i$ as the answer.
 
-The time complexity is $O(m \times \log m + n \times (\log n + \log M))$, and the space complexity is $O(n \times \log M)$. Where $m$ and $n$ are the lengths of the arrays $nums$ and $queries$ respectively, and $M$ is the maximum value in the array $nums$. In this problem, $M \le 10^9$.
+The time complexity is $O(m \log m + n(\log n + \log M))$, and the space complexity is $O(n \log M)$, where $m$ and $n$ are the lengths of the arrays $nums$ and $queries$ respectively, and $M$ is the maximum value in the array $nums$. In this problem, $M \le 10^9$.
 
 <!-- tabs:start -->
 

@@ -129,7 +129,7 @@ Where $x$ and $y$ are the integer identifiers of $source[i..j]$ and $target[i..j
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(m^3 + n^2 + m \times n)$, and the space complexity is $O(m^2 + m \times n + n)$. Where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
 
 <!-- tabs:start -->
 
@@ -726,7 +726,7 @@ Let $f[i]$ be the minimum cost of turning $source[i..]$ into $target[i..]$, with
 
 The answer is $f[0]$. If it is at least the preset upper bound, return $-1$.
 
-The time complexity is $O(m^3 + n^2 + m \times n)$, and the space complexity is $O(m^2 + m \times n + n)$. Here, $m$ and $n$ are the lengths of `original` and $source$, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of `original` and $source$, respectively.
 
 <!-- tabs:start -->
 

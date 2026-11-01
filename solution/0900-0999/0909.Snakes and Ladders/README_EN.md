@@ -103,7 +103,7 @@ If the square corresponding to $y$ has a snake or ladder, we need to move to the
 
 If we ultimately cannot reach the endpoint, we return $-1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the side of the board.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the side of the board.
 
 <!-- tabs:start -->
 

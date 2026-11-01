@@ -93,7 +93,7 @@ The lexicographically smallest array obtainable through swapping is thus the one
 
 We first pair each element in $\textit{nums}$ with its index to form an array of tuples, then sort by element value. We then traverse the sorted tuple array, identify the range of each subarray, sort the elements within each subarray by their original indices, and fill them back into the corresponding positions to obtain the final result.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

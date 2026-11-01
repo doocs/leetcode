@@ -91,7 +91,7 @@ We traverse the array $\textit{prices}$ from left to right. For each position $i
 
 After the traversal ends, we return the answer variable $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{prices}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

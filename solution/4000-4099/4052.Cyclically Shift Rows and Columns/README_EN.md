@@ -107,7 +107,7 @@ $$
 \textit{ans}[(i - \textit{colShift}[j] + n) \bmod n][j]
 $$
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the side length of the grid.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the side length of the grid.
 
 <!-- tabs:start -->
 

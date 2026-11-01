@@ -86,7 +86,7 @@ The execution process of the function $\textit{dfs}$ is as follows:
 
 We initialize the answer $\textit{ans}$ to $0$, then call the $\textit{dfs}$ function, and finally return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -101,7 +101,7 @@ $$
 
 Finally, we enumerate $i$ in the range $[k, n - k]$. For each $i$, we enumerate $x$ and $y$, where $0 \leq x, y < 2^7$. If both $f[i][k][x]$ and $g[i][k][y]$ are true, we update the answer $\text{ans} = \max(\text{ans}, x \oplus y)$.
 
-The time complexity is $O(n \times m \times k)$, and the space complexity is $O(n \times m \times k)$, where $n$ is the length of the array, and $m = 2^7$.
+The time complexity is $O(nmk)$, and the space complexity is $O(nmk)$, where $n$ is the length of the array, and $m = 2^7$.
 
 <!-- tabs:start -->
 

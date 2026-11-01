@@ -95,7 +95,7 @@ $$
 
 In the initialization method, we preprocess the prefix sum array $s$, and in the query method, we directly return the result of the above formula.
 
-The time complexity for initializing is $O(m \times n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(m \times n)$.
+The time complexity for initializing is $O(mn)$, and the time complexity for querying is $O(1)$. The space complexity is $O(mn)$.
 
 <!-- tabs:start -->
 

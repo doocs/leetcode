@@ -105,7 +105,7 @@ They must satisfy `(da + db + carry) % 10 == digit_n[pos]`. After that, `aliveA`
 
 We append one extra leading digit `0` to $n$ so the last carry is fully handled. The answer is `dp[last][0][0][0]`.
 
-Time complexity is $O(L \cdot 9^2)$ and space complexity is $O(1)$, where $L$ is the number of digits of $n$.
+The time complexity is $O(9^2 L)$, and the space complexity is $O(1)$, where $L$ is the number of digits of $n$.
 
 <!-- tabs:start -->
 

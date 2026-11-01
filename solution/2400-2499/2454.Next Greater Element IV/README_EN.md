@@ -94,7 +94,7 @@ We can convert the elements in the array into pairs $(x, i)$, where $x$ is the v
 
 Next, we traverse the sorted array, maintaining an ordered set that stores the indices of the elements. When we traverse to the element $(x, i)$, the indices of all elements greater than $x$ are already in the ordered set. We only need to find the index $j$ of the next element after $i$ in the ordered set, then the element corresponding to $j$ is the second largest element of $x$. Then, we add $i$ to the ordered set. Continue to traverse the next element.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -874,11 +874,7 @@ As we iterate through the array `nums`, for current element $nums[k]$, have thes
 
 4. Push current element $nums[k]$ into `stackOne` for future comparisons.
 
-Our time complexity is $O(n)$, where $n$ is the length of the array nums.
-
-This is because each element is pushed and popped across two stacks for at most 4 times in total.
-
-Space complexity is $O(n)$, as all elements must be stored across two stacks.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`. Each element is pushed and popped across the two stacks at most $4$ times in total.
 
 <!-- tabs:start -->
 

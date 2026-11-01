@@ -71,7 +71,7 @@ We traverse the string $s$. If the current character is a digit, we convert it t
 
 After the traversal, we return $b$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -241,7 +241,7 @@ We traverse the string $s$. If the current character is a digit, we convert it t
 
 Finally, we traverse $mask$ from high to low, find the second bit that is $1$, and the corresponding number is the second largest number. If there is no second largest number, return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

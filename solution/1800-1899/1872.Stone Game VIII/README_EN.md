@@ -117,7 +117,7 @@ Finally, we can get the score difference between Alice and Bob as $dfs(1)$, that
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $stones$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $stones$.
 
 <!-- tabs:start -->
 
@@ -278,7 +278,7 @@ Finally, we can get the score difference between Alice and Bob as $f[1]$, that i
 
 We notice that $f[i]$ is only related to $f[i+1]$, so we only need to use a variable $f$ to represent $f[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $stones$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $stones$.
 
 <!-- tabs:start -->
 
@@ -379,7 +379,7 @@ $$
 f[i] = \max(f[i + 1], s[i] - f[i + 1])
 $$
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $stones$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $stones$.
 
 <!-- tabs:start -->
 

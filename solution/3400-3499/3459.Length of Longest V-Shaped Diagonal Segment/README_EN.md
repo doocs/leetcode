@@ -141,7 +141,7 @@ After the traversal, we return the answer.
 
 To avoid repeated calculations, we use memoization to cache intermediate results.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

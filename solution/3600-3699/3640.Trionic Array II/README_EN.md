@@ -114,7 +114,7 @@ After calculating the sum of this trionic subarray, we update the answer. Then w
 
 After the traversal is complete, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant-level extra space.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

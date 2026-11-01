@@ -117,7 +117,7 @@ $$
 
 Finally, we return the answer $\textit{ans}$.
 
-The time complexity is $O(m \times (m + n))$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of strings $s$ and $t$, respectively.
+The time complexity is $O(m(m + n))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of strings $s$ and $t$, respectively.
 
 <!-- tabs:start -->
 

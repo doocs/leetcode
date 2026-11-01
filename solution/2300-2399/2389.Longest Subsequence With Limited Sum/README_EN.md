@@ -78,7 +78,7 @@ According to the problem description, for each $\textit{queries[i]}$, we need to
 
 Therefore, we can first sort the array $\textit{nums}$ in ascending order, and then for each $\textit{queries[i]}$, we can use binary search to find the smallest index $j$ such that $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$. At this point, $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
 
-The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$ or $O(\log n)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
+The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$ or $O(\log n)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 
@@ -242,7 +242,7 @@ We traverse the index array $idx$, and for each index $i$ in it, we iteratively 
 
 After traversing the index array $idx$, we obtain the answer array $ans$, where $ans[i]$ is the length of the subsequence that satisfies $queries[i]$.
 
-The time complexity is $O(n \times \log n + m)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the lengths of the arrays $nums$ and $queries$, respectively.
+The time complexity is $O(n \log n + m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the arrays $nums$ and $queries$, respectively.
 
 <!-- tabs:start -->
 

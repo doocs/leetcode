@@ -75,7 +75,7 @@ We directly simulate the encryption process by defining a function $encrypt(x)$,
 
 We can obtain each digit of $x$ by continuously taking the modulus and integer division of $x$ by $10$, and find the maximum digit, denoted as $mx$. During the loop, we can also use a variable $p$ to record the base number of $mx$, i.e., $p = 1, 11, 111, \cdots$. Finally, return $mx \times p$.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the length of the array, and $M$ is the maximum value in the array. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

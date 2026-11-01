@@ -133,7 +133,7 @@ $$
 
 为了避免重复计算，我们可以使用记忆化搜索。
 
-时间复杂度 $O(m^3 + n^2 + m \times n)$，空间复杂度 $O(m^2 + m \times n + n)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度。
+时间复杂度 $O(m^3 + n^2 + mn)$，空间复杂度 $O(m^2 + mn + n)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度。
 
 <!-- tabs:start -->
 
@@ -730,7 +730,7 @@ impl Solution {
 
 答案为 $f[0]$。若它不小于预先设定的上界，返回 $-1$。
 
-时间复杂度 $O(m^3 + n^2 + m \times n)$，空间复杂度 $O(m^2 + m \times n + n)$。其中 $m$ 和 $n$ 分别是数组 `original` 和 $source$ 的长度。
+时间复杂度 $O(m^3 + n^2 + mn)$，空间复杂度 $O(m^2 + mn + n)$。其中 $m$ 和 $n$ 分别是数组 `original` 和 $source$ 的长度。
 
 <!-- tabs:start -->
 

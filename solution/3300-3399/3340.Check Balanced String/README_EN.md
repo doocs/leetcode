@@ -82,7 +82,7 @@ tags:
 
 We can use an array $f$ of length $2$ to record the sum of numbers at even indices and odd indices. Then, we traverse the string $\textit{nums}$ and add the numbers to the corresponding positions based on the parity of the indices. Finally, we check whether $f[0]$ is equal to $f[1]$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{nums}$.
 
 <!-- tabs:start -->
 

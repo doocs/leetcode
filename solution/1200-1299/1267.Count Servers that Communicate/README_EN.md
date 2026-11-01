@@ -87,7 +87,7 @@ We can count the number of servers in each row and each column, then traverse ea
 
 After the traversal, we return the result.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

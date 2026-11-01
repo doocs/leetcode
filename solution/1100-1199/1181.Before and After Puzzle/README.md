@@ -97,7 +97,7 @@ tags:
 
 最后，我们将哈希表 $s$ 转化为数组并排序，即可得到答案。
 
-时间复杂度 $O(n^2 \times m \times (\log n + \log m))$，空间复杂度 $O(n^2 \times m)$。其中 $n$ 和 $m$ 分别表示数组 $phrases$ 的长度和每个短语的平均长度。
+时间复杂度 $O(n^2m(\log n + \log m))$，空间复杂度 $O(n^2m)$。其中 $n$ 和 $m$ 分别表示数组 $phrases$ 的长度和每个短语的平均长度。
 
 <!-- tabs:start -->
 

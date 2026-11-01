@@ -89,7 +89,7 @@ tags:
 
 We can use Breadth-First Search (BFS) to traverse the binary tree level by level, record the sum of the node values at each level, and find the level with the smallest sum of node values, then return the level number.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

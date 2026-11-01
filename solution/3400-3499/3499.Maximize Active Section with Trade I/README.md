@@ -133,7 +133,7 @@ tags:
 
 每一次，我们统计当前连续相同字符的数量 $\textit{cnt}$，如果当前字符为 `'1'`，则将 $\textit{cnt}$ 加入到答案中；如果当前字符为 `'0'`，则将 $\textit{mx}$ 更新为 $\textit{mx} = \max(\textit{mx}, \textit{pre} + \textit{cnt})$，并将 $\textit{pre}$ 更新为 $\textit{cnt}$。最后，我们将答案加上 $\textit{mx}$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{s}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{s}$ 的长度。
 
 <!-- tabs:start -->
 

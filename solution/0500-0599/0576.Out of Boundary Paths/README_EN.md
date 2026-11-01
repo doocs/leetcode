@@ -70,7 +70,7 @@ In the main function, we call $\textit{dfs}(startRow, startColumn, maxMove)$, wh
 
 To avoid redundant calculations, we can use memoization.
 
-The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n \times k)$. Here, $m$ and $n$ are the number of rows and columns of the grid, and $k$ is the number of steps that can be moved, with $k = \textit{maxMove} \leq 50$.
+The time complexity is $O(mnk)$, and the space complexity is $O(mnk)$, where $m$ and $n$ are the number of rows and columns of the grid, and $k$ is the number of steps that can be moved, with $k = \textit{maxMove} \leq 50$.
 
 <!-- tabs:start -->
 

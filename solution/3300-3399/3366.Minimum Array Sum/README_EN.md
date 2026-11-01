@@ -108,7 +108,7 @@ Consider how to transition the state for $f[i][j][k]$. We can enumerate the $i$-
 
 The final answer is $\min_{j=0}^{op1} \min_{k=0}^{op2} f[n][j][k]$. If it is $+\infty$, then output $-1$.
 
-The time complexity is $O(n \times \textit{op1} \times \textit{op2})$, and the space complexity is $O(n \times \textit{op1} \times \textit{op2})$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \textit{op1} \textit{op2})$, and the space complexity is $O(n \textit{op1} \textit{op2})$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

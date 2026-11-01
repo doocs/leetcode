@@ -109,7 +109,7 @@ We can use a stack to simulate the process of merging adjacent equal elements.
 
 Define a stack $\textit{stk}$ to store the current processed array elements. Traverse each element $x$ of the input array $\textit{nums}$ and push it onto the stack. Then check if the top two elements of the stack are equal. If they are equal, pop them and push their sum back onto the stack. Repeat this process until the top two elements of the stack are no longer equal. Finally, the elements in the stack are the final merged array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(n)$, which is used to store the elements in the stack.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

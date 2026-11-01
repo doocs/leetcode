@@ -101,7 +101,7 @@ In this way, we obtain the upper bound on the maximum height for each constraine
 
 The problem asks for the height of the tallest building. We can enumerate the buildings between two adjacent constraints $i$ and $i+1$. To maximize the height, the height should first increase and then decrease. Suppose the maximum height is $t$, then $t - r_i[1] + t - r_{i+1}[1] \leq r_{i+1}[0] - r_i[0]$, i.e., $t \leq \frac{r_i[1] + r_{i+1}[1] + r_{i+1}[0] - r_{i}[0]}{2}$. We take the maximum value of all such $t$.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the number of constraints.
+The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where $m$ is the number of constraints.
 
 <!-- tabs:start -->
 

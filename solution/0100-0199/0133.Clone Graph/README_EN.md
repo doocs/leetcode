@@ -110,7 +110,7 @@ We define the function $\text{dfs}(node)$, which returns the copy of the $\texti
 
 In the main function, we return $\text{dfs}(node)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

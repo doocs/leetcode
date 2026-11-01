@@ -73,7 +73,7 @@ We traverse the indices $i$ in the range $[0, n)$. Each time, we take $\textit{n
 
 After the traversal is complete, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

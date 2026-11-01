@@ -101,7 +101,7 @@ If the current height $x$ is greater than $mx - 1$, update $x$ to $mx - 1$. If $
 
 Finally, return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{maximumHeight}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{maximumHeight}$.
 
 <!-- tabs:start -->
 

@@ -115,7 +115,7 @@ The final answer is $f[n][w1][w2]$, where $n$ is the number of items.
 
 We notice that the state transition equation only depends on the previous layer's state, so we can compress the three-dimensional DP array into a two-dimensional DP array. When enumerating $j$ and $k$, we use reverse traversal.
 
-Time complexity $O(n \times w1 \times w2)$, space complexity $O(w1 \times w2)$. Where $n$ is the length of the array $\textit{weights}$.
+The time complexity is $O(nw1w2)$, and the space complexity is $O(w1w2)$, where $n$ is the length of the array $\textit{weights}$.
 
 <!-- tabs:start -->
 

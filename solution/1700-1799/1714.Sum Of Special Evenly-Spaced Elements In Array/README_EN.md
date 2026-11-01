@@ -70,7 +70,7 @@ tags:
 >
 > Large strides are short and can be summed on the fly; small strides are long and should be precomputed. Split at $\sqrt{n}$.
 >
-> $\textit{suf}[i][j]$ is the suffix sum from $j$ with stride $i$. Look it up when $y\le\sqrt{n}$; otherwise scan. The total is $O((n+q)\sqrt{n})$.
+> $\textit{suf}[i][j]$ is the suffix sum from $j$ with stride $i$. Look it up when $y\le\sqrt{n}$; otherwise scan. The total is $O((n+q) \sqrt{n})$.
 
 <!-- thinking:end -->
 
@@ -83,7 +83,7 @@ We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix
 - If $y \le \sqrt{n}$, then we can directly query $suf[y][x]$;
 - If $y > \sqrt{n}$, then we can directly brute force the solution.
 
-The time complexity is $O((n + m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
+The time complexity is $O((n + m) \sqrt{n})$, and the space complexity is $O(n \sqrt{n})$, where $n$ is the length of the array, and $m$ is the number of queries.
 
 <!-- tabs:start -->
 

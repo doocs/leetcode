@@ -81,7 +81,7 @@ We can traverse the array $nums$, maintain a window of size $k$, use a hash tabl
 
 After the traversal ends, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

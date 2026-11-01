@@ -82,7 +82,7 @@ According to the problem, we should choose as many units as possible. Therefore,
 
 Then we traverse `boxTypes` from front to back, choose up to `truckSize` boxes, and accumulate the number of units.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the two-dimensional array `boxTypes`.
+The time complexity is $O(n \log n)$, where $n$ is the length of the two-dimensional array `boxTypes`.
 
 <!-- tabs:start -->
 
@@ -205,7 +205,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 spends $O(n\log n)$ on sorting. Units per box are at most $1000$, so a counting array can store box counts by that value.
+> Solution 1 spends $O(n \log n)$ on sorting. Units per box are at most $1000$, so a counting array can store box counts by that value.
 >
 > Scan from $1000$ down to $1$ and load in the same greedy order, now in linear time.
 

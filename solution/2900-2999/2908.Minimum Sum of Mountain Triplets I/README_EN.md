@@ -91,7 +91,7 @@ Next, we enumerate the middle element $nums[i]$ of the mountain triplet from lef
 
 Finally, if $ans$ is still the initial value, it means that there is no mountain triplet, and we return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

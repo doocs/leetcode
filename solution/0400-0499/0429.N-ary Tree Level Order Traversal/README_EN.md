@@ -79,7 +79,7 @@ When the queue is not empty, we loop through the following operations:
 
 Finally, return the result list $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the N-ary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
 
@@ -300,7 +300,7 @@ Next, we traverse all child nodes of $root$. For each child node, we call $dfs(c
 
 In the main function, we call $dfs(root, 0)$ and return $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the N-ary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
 

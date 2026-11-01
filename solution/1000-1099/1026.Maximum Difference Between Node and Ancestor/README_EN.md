@@ -83,7 +83,7 @@ The logic of the function $dfs(root, mi, mx)$ is as follows:
 
 In the main function, we call $dfs(root, root.val, root.val)$, and finally return $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

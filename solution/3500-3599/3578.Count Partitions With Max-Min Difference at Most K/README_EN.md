@@ -102,7 +102,7 @@ Each time we add a new element, we insert it into the ordered set and check the 
 
 The answer is $f[n]$, where $n$ is the length of the array.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

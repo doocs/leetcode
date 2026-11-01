@@ -97,7 +97,7 @@ Otherwise, we let the left pointer $j = i + 1$, and the right pointer $k = n - 1
 
 After the enumeration is over, we can get the answer to the triplet.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. The $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

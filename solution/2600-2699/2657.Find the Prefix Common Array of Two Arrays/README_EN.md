@@ -82,7 +82,7 @@ Traverse arrays $A$ and $B$, increment the occurrence times of $A[i]$ in $cnt1$,
 
 After the traversal, return the answer array $ans$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of arrays $A$ and $B$.
 
 <!-- tabs:start -->
 
@@ -228,7 +228,7 @@ If at the current position, the element $A[i]$ has appeared twice (i.e., it has 
 
 After the traversal, return the answer array $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of arrays $A$ and $B$.
 
 <!-- tabs:start -->
 
@@ -373,7 +373,7 @@ impl Solution {
 
 Since the elements of arrays $A$ and $B$ are in the range $[1, n]$ and do not exceed $50$, we can use an integer $x$ and an integer $y$ to represent the occurrence of each element in arrays $A$ and $B$, respectively. Specifically, we use the $i$-th bit of integer $x$ to indicate whether element $i$ has appeared in array $A$, and the $i$-th bit of integer $y$ to indicate whether element $i$ has appeared in array $B$.
 
-The time complexity of this solution is $O(n)$, where $n$ is the length of arrays $A$ and $B$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays $A$ and $B$.
 
 <!-- tabs:start -->
 

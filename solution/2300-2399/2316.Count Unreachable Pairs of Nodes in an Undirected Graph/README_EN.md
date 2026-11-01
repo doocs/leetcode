@@ -77,7 +77,7 @@ For any two nodes in an undirected graph, if there is a path between them, then 
 
 Therefore, we can use depth-first search to find the number of nodes $t$ in each connected component, and then multiply the current number of nodes $t$ in the connected component by the number of nodes $s$ in all previous connected components to obtain the number of unreachable node pairs in the current connected component, which is $s \times t$. Then, we add $t$ to $s$ and continue to search for the next connected component until all connected components have been searched, and we can obtain the final answer.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -307,7 +307,7 @@ For any two nodes in an undirected graph, if there is a path between them, then 
 
 An explicit stack finds the number of nodes $t$ in each connected component. Starting from an unvisited node, we mark a node when pushing it, count it when popping it, and push only unmarked neighbors. Multiply $t$ by the number of nodes $s$ in all previous components to obtain the unreachable pairs $s \times t$, then add $t$ to $s$. Repeat until every node has been visited.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

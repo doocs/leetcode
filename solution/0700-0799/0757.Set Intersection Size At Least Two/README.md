@@ -110,7 +110,7 @@ tags:
 
 最终返回总共放置的点数 $\textit{ans}$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为区间的数量。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为区间的数量。
 
 <!-- tabs:start -->
 

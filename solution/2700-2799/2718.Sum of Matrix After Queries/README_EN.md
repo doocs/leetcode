@@ -85,7 +85,7 @@ For each query $(t, i, v)$:
 
 Finally, return the answer.
 
-The time complexity is $O(m)$, and the space complexity is $O(n)$. Here, $m$ represents the number of queries.
+The time complexity is $O(m)$, and the space complexity is $O(n)$, where $m$ represents the number of queries.
 
 <!-- tabs:start -->
 

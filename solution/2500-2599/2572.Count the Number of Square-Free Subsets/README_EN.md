@@ -90,7 +90,7 @@ We enumerate a number $x$ in the range $[2,..30]$. If $x$ is not in $nums$, or $
 
 Note that we did not start enumerating from the number $1$, because we can choose any number of number $1$ and add it to the subset without square numbers. Or we can only choose any number of number $1$ and not add it to the subset without square numbers. Both situations are legal. So the answer is $(\sum_{i=0}^{2^{10}-1} f[i]) - 1$.
 
-The time complexity is $O(n + C \times M)$, and the space complexity is $O(M)$. Where $n$ is the length of $nums$; and $C$ and $M$ are the range of $nums[i]$ and the number of states in the problem, in this problem, $C=30$, $M=2^{10}$.
+The time complexity is $O(n + CM)$, and the space complexity is $O(M)$, where $n$ is the length of $nums$; and $C$ and $M$ are the range of $nums[i]$ and the number of states in the problem, in this problem, $C=30$, $M=2^{10}$.
 
 Similar problems:
 

@@ -78,7 +78,7 @@ We traverse the array $\textit{height}$ in reverse order for each element $v$, c
 
 After the traversal, return $\textit{ans}$ in reverse order.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

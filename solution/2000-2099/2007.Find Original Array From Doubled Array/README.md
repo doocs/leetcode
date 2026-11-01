@@ -86,7 +86,7 @@ tags:
 
 遍历结束后，返回答案数组即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 为数组 `changed` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `changed` 的长度。
 
 <!-- tabs:start -->
 

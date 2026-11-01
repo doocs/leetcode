@@ -74,7 +74,7 @@ We can preprocess the array $\textit{arr}$ to find the maximum subarray sum endi
 
 If we do not delete any element, then the maximum subarray sum is the maximum value in $\textit{left}[i]$ or $\textit{right}[i]$; if we delete an element, we can enumerate each position $i$ in $[1..n-2]$, calculate the value of $\textit{left}[i-1] + \textit{right}[i+1]$, and take the maximum value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

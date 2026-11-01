@@ -71,7 +71,7 @@ First, if $low$ is $0$, we need to add $0$ to the answer.
 
 Next, we create a queue $q$ and add $1 \sim 9$ to the queue. Then, we repeatedly take out elements from the queue. Let the current element be $v$. If $v$ is greater than $high$, we stop searching. If $v$ is in the range $[low, high]$, we add $v$ to the answer. Then, we need to record the last digit of $v$ as $x$. If $x \gt 0$, we add $v \times 10 + x - 1$ to the queue. If $x \lt 9$, we add $v \times 10 + x + 1$ to the queue. Repeat the above steps until the queue is empty.
 
-The time complexity is $O(10 \times 2^{\log M})$, and the space complexity is $O(2^{\log M})$, where $M$ is the number of digits in $high$.
+The time complexity is $O(2^{\log M})$, and the space complexity is $O(2^{\log M})$, where $M$ is the number of digits in $high$.
 
 <!-- tabs:start -->
 

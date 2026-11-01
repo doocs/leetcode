@@ -83,7 +83,7 @@ We traverse the array $\textit{nums}$ and use a variable $\textit{cnt}$ to recor
 
 After the traversal, we return the answer.
 
-Time complexity $O(n)$, where $n$ is the length of the array $\textit{nums}$. Space complexity $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

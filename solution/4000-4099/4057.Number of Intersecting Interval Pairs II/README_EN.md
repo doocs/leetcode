@@ -107,7 +107,7 @@ Sort all left endpoints and all right endpoints in ascending order. Enumerate ea
 
 Each disjoint pair is counted exactly once: the interval with the smaller right endpoint is charged when we scan the other interval's left endpoint. The answer may exceed the 32-bit integer range, so we use 64-bit integers.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

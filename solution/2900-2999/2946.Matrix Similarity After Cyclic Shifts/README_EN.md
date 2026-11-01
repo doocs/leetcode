@@ -113,7 +113,7 @@ For even-indexed rows, we shift elements to the left by $k$ positions, so elemen
 
 If at any point during the traversal we find that an element's position after the cyclic shift differs from the original, we return $\text{false}$. If all elements remain the same after the full traversal, we return $\text{true}$.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

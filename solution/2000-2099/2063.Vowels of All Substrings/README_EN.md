@@ -88,7 +88,7 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 
 We can enumerate each character $\textit{word}[i]$ in the string. If $\textit{word}[i]$ is a vowel, then $\textit{word}[i]$ appears in $(i + 1) \times (n - i)$ substrings. We sum up the counts of these substrings.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

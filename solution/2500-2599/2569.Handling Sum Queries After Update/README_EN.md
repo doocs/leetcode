@@ -108,7 +108,7 @@ When executing operation $2$, we update $s = s + p \times query(1, 1, n)$.
 
 When executing operation $3$, we just need to add $s$ to the answer array.
 
-The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays `nums1` and `queries` respectively.
+The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of arrays `nums1` and `queries` respectively.
 
 <!-- tabs:start -->
 

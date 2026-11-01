@@ -105,7 +105,7 @@ Finally, we only need to check if $\textit{dfs}(0, n - 1) \geq 0$.
 
 To avoid repeated calculations, we can use memoization. We use an array $f$ to record all the values of $\textit{dfs}(i, j)$. When the function is called again, we can directly retrieve the answer from $f$ without recalculating it.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -268,7 +268,7 @@ Therefore, the state transition equation is $f[i][j] = \max(\textit{nums}[i] - f
 
 Finally, we only need to check if $f[0][n - 1] \geq 0$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problem:
 

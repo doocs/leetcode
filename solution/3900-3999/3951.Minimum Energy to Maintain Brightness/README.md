@@ -120,7 +120,7 @@ tags:
    $$\text{能量} = \lceil \frac{\textit{brightness}}{3} \rceil \times m$$
 3. **累加求和**：将所有不相交区间的能量累加即为最终答案 $\textit{ans}$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
 
 <!-- tabs:start -->
 

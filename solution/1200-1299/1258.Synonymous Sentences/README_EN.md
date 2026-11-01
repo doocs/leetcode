@@ -81,7 +81,7 @@ If $i$ is greater than or equal to the length of `sentence`, it means that we ha
 
 Finally, return the answer array.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of words.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of words.
 
 <!-- tabs:start -->
 

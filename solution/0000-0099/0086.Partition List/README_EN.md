@@ -66,7 +66,7 @@ tags:
 
 We create two linked lists $l$ and $r$, one to store nodes less than $x$ and the other to store nodes greater than or equal to $x$. Then we concatenate them.
 
-The time complexity is $O(n)$, where $n$ is the length of the original linked list. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the original linked list.
 
 <!-- tabs:start -->
 

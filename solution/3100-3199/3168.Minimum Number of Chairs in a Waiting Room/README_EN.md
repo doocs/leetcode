@@ -221,7 +221,7 @@ We use a variable `cnt` to record the current number of chairs needed, and a var
 
 After the traversal, we return `cnt`.
 
-The time complexity is $O(n)$, where $n$ is the length of the string `s`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `s`.
 
 <!-- tabs:start -->
 

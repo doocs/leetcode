@@ -77,7 +77,7 @@ First, we use an array or hash table `cnt` to count the occurrence of each numbe
 
 Therefore, we find the greatest common divisor $g$ of the occurrence of all numbers, and then check whether it is greater than or equal to $2$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n + \log M)$. Where $n$ and $M$ are the length of the array `deck` and the maximum value in the array `deck`, respectively.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n + \log M)$, where $n$ and $M$ are the length of the array `deck` and the maximum value in the array `deck`, respectively.
 
 <!-- tabs:start -->
 
