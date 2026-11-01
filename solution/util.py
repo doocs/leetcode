@@ -5,22 +5,47 @@ import re
 import time
 import requests
 import yaml
-from typing import Tuple, List
+from typing import Optional, Tuple, List
 from urllib.parse import quote, unquote
 
 # Windows maps a brief sharing violation (Defender / indexer / editor) to EINVAL.
 _TRANSIENT_WRITE_ERRNOS = {errno.EINVAL, errno.EACCES, errno.EPERM, errno.EBUSY}
-_TRANSIENT_WINERRORS = {5, 32, 33}  # ACCESS_DENIED, SHARING_VIOLATION, LOCK_VIOLATION
+# ACCESS_DENIED (5), SHARING_VIOLATION (32), LOCK_VIOLATION (33), USER_MAPPED_FILE (1224)
+_TRANSIENT_WINERRORS = {5, 32, 33, 1224}
 
 
-def write_text(path: str, content: str, retries: int = 6) -> None:
-    """Write UTF-8 text, retrying Windows file locks."""
+class _IndentDumper(yaml.SafeDumper):
+    def increase_indent(self, flow=False, indentless=False):
+        return super().increase_indent(flow, False)
+
+
+def dump_yaml_metadata(metadata: dict) -> str:
+    yaml_metadata = yaml.dump(
+        metadata,
+        Dumper=_IndentDumper,
+        default_flow_style=False,
+        allow_unicode=True,
+        indent=4,
+    )
+    return f"---\n{yaml_metadata}---"
+
+
+def write_text(path: str, content: str, retries: int = 6) -> bool:
+    """Write UTF-8 text if changed, retrying Windows file locks. Returns True if written."""
+    normalized = content.replace("\r\n", "\n")
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                if f.read() == normalized:
+                    return False
+        except OSError:
+            pass
     last_err = None
     for attempt in range(retries):
         try:
             with open(path, "w", encoding="utf-8", newline="\n") as f:
-                f.write(content)
-            return
+                f.write(normalized)
+            return True
         except OSError as e:
             last_err = e
             transient = (
@@ -311,13 +336,11 @@ def load_contest_result() -> List[dict]:
 
 
 def save_result(data: List[dict]):
-    with open("./result.json", "w", encoding="utf-8") as f:
-        f.write(json.dumps(data))
+    write_text("./result.json", json.dumps(data))
 
 
 def save_contest_result(data: List[dict]):
-    with open("./contest.json", "w", encoding="utf-8") as f:
-        f.write(json.dumps(data))
+    write_text("./contest.json", json.dumps(data))
 
 
 def select_templates(category):
@@ -330,141 +353,206 @@ def select_templates(category):
     return [problem_readme_cn, problem_readme_en]
 
 
+_IMAGE_SRC_RE = re.compile('src="(.*?)"')
+
+
+def _extract_md_table_rows(text: str) -> List[List[str]]:
+    rows = []
+    in_table = False
+    for line in text.splitlines():
+        if line.startswith("| ---"):
+            in_table = True
+            continue
+        if in_table:
+            if not line.startswith("|"):
+                break
+            rows.append([c.strip() for c in line.strip().strip("|").split("|")])
+    return rows
+
+
+def _replace_cdn_images(text: str, relative_path_cn: str) -> str:
+    prefix = "https://fastly.jsdelivr.net/gh/doocs/leetcode@main" + str(
+        relative_path_cn
+    ).replace("README.md", "images/")
+    for url in _IMAGE_SRC_RE.findall(text) or []:
+        image_name = (
+            os.path.basename(url).replace(".PNG", ".png").replace(".JPG", ".jpg")
+        )
+        text = text.replace(url, prefix + image_name)
+    return text
+
+
+def _preserve_formatted_description(orig_text: str, raw_desc: str) -> str:
+    start_tag = "<!-- description:start -->"
+    end_tag = "<!-- description:end -->"
+    if start_tag in orig_text and end_tag in orig_text:
+        orig_desc = orig_text[
+            orig_text.index(start_tag) + len(start_tag) : orig_text.index(end_tag)
+        ].strip()
+        if re.sub(r"\s+", " ", orig_desc) == re.sub(r"\s+", " ", raw_desc):
+            return orig_desc
+    return raw_desc
+
+
+def _build_metadata_section(
+    tags: List[str], category: str, difficulty_str: str, rating, source: str
+) -> str:
+    cat = category.title() if category and category[0].islower() else category
+    metadata = {
+        "tags": tags or [cat],
+        "difficulty": difficulty_str,
+        "rating": rating,
+        "comments": True,
+        "source": source,
+    }
+    if (not tags and not cat) or metadata["tags"] == ["Algorithms"]:
+        metadata.pop("tags")
+    if not rating:
+        metadata.pop("rating")
+    if not source:
+        metadata.pop("source")
+    return dump_yaml_metadata(metadata)
+
+
+def _render_problem_readmes(
+    item: dict, orig_cn: Optional[str] = None, orig_en: Optional[str] = None
+) -> Tuple[str, str]:
+    """Render CN and EN problem README contents, preserving existing solutions."""
+    front_id = str(item["frontend_question_id"])
+    paid_only = " 🔒" if item["paid_only"] else ""
+    category = item["category"]
+    tpl_cn, tpl_en = select_templates(category)
+
+    rating_item = rating_dict.get(front_id)
+    rating = int(rating_item.get("Rating", 0)) if rating_item else ""
+    source_cn = (
+        f'{rating_item.get("ContestID_zh")} {rating_item.get("ProblemIndex")}'
+        if rating_item
+        else ""
+    )
+    source_en = (
+        f'{rating_item.get("ContestID_en")} {rating_item.get("ProblemIndex")}'
+        if rating_item
+        else ""
+    )
+
+    cat_cn = category_dict.get(category, category)
+    meta_cn = _build_metadata_section(
+        item["tags_cn"], cat_cn, item["difficulty_cn"], rating, source_cn
+    )
+    tags_en = normalize_tags_en(item.get("tags_en") or [])
+    item["tags_en"] = tags_en
+    meta_en = _build_metadata_section(
+        tags_en, category, item["difficulty_en"], rating, source_en
+    )
+
+    raw_desc_cn = _replace_cdn_images(
+        (item["content_cn"] or "")
+        .replace("\r\n", "\n")
+        .replace("leetcode-cn.com", "leetcode.cn")
+        .strip(),
+        item["relative_path_cn"],
+    )
+    raw_desc_en = _replace_cdn_images(
+        (item["content_en"] or "").replace("\r\n", "\n").strip(),
+        item["relative_path_cn"],
+    )
+
+    if orig_cn is not None:
+        orig_cn_norm = _replace_cdn_images(
+            orig_cn.replace("leetcode-cn.com", "leetcode.cn"),
+            item["relative_path_cn"],
+        )
+        desc_cn = _preserve_formatted_description(orig_cn_norm, raw_desc_cn)
+    else:
+        orig_cn_norm = None
+        desc_cn = raw_desc_cn
+
+    if orig_en is not None:
+        orig_en_norm = _replace_cdn_images(orig_en, item["relative_path_cn"])
+        desc_en = _preserve_formatted_description(orig_en_norm, raw_desc_en)
+    else:
+        orig_en_norm = None
+        desc_en = raw_desc_en
+
+    title_cn = re.sub(r" +", " ", item["title_cn"].strip()) + paid_only
+    title_en = re.sub(r" +", " ", item["title_en"].strip()) + paid_only
+
+    rendered_cn = tpl_cn.format(
+        meta_cn,
+        int(front_id),
+        title_cn,
+        item["url_cn"],
+        item["relative_path_en"],
+        desc_cn,
+    )
+    rendered_en = tpl_en.format(
+        meta_en,
+        int(front_id),
+        title_en,
+        item["url_en"],
+        item["relative_path_cn"],
+        desc_en,
+    )
+
+    if orig_cn_norm is not None:
+        rendered_cn = (
+            rendered_cn[: rendered_cn.index("## 解法")]
+            + orig_cn_norm[orig_cn_norm.index("## 解法") :]
+        )
+    if orig_en_norm is not None:
+        rendered_en = (
+            rendered_en[: rendered_en.index("## Solutions")]
+            + orig_en_norm[orig_en_norm.index("## Solutions") :]
+        )
+    return rendered_cn, rendered_en
+
+
+def _build_md_table(rows: List[List[str]], header: str) -> Tuple[str, List[List[str]]]:
+    items = []
+    normalized_rows = []
+    for row in sorted(rows, key=lambda x: x[0]):
+        normalized_rows.append([str(c).strip() for c in row[:5]])
+        items.append(
+            f"\n|  {row[0]}  |  {row[1]}  |  {row[2]}  |  {row[3]}  |  {row[4]}  |"
+        )
+    return header + "".join(items), normalized_rows
+
+
 def generate_readme(result):
-    md_table_cn = [item["md_table_row_cn"] for item in result]
-    md_table_en = [item["md_table_row_en"] for item in result]
-
-    # generate README.md
-    items = []
-    table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
-    for item in sorted(md_table_cn, key=lambda x: x[0]):
-        items.append(
-            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
-        )
-    table_cn += "".join(items)
-
-    # generate README_EN.md
-    items = []
-    table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
-    for item in sorted(md_table_en, key=lambda x: x[0]):
-        items.append(
-            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
-        )
-    table_en += "".join(items)
-
-    with open("./README.md", "w", encoding="utf-8") as f:
-        f.write(readme_cn.format(table_cn))
-    with open("./README_EN.md", "w", encoding="utf-8") as f:
-        f.write(readme_en.format(table_en))
+    table_cn, _ = _build_md_table(
+        [item["md_table_row_cn"] for item in result],
+        "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |",
+    )
+    table_en, _ = _build_md_table(
+        [item["md_table_row_en"] for item in result],
+        "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |",
+    )
+    write_text("./README.md", readme_cn.format(table_cn))
+    write_text("./README_EN.md", readme_en.format(table_en))
 
 
-def generate_question_readme(result):
+def generate_question_readme(result) -> List[str]:
+    written: List[str] = []
     for item in result:
         if not item["content_cn"] and not item["content_en"]:
             print(f"Skip {item['frontend_question_id']} {item['title_cn']}")
             continue
         path = (
             f'./{item["sub_folder"]}/{item["frontend_question_id"]}.{item["title_en"]}'
-        )
-        path = path.replace(":", " ")
+        ).replace(":", " ")
         if os.path.isdir(path):
             continue
         os.makedirs(path)
 
-        # choose the readme template
-        category = item["category"]
-        readme_template_cn, readme_template_en = select_templates(category)
-        paid_only = " 🔒" if item["paid_only"] else ""
-        rating_item = rating_dict.get(str(item["frontend_question_id"]))
-        rating = rating_item.get("Rating", 0) if rating_item else ""
-        source = (
-            rating_item.get("ContestID_zh") + " " + rating_item.get("ProblemIndex")
-            if rating_item
-            else ""
-        )
-        # 生成 metadata
-        """
-        ---
-        tags:
-          - 数组
-          - 哈希表
-        difficulty: 简单
-        rating: 1234
-        comments: true
-        ---
-        """
-        cat = category_dict.get(category, category)
-        cat = cat.title() if cat and cat[0].islower() else cat
-        metadata = {
-            "tags": item["tags_cn"] or [cat],
-            "difficulty": item["difficulty_cn"],
-            "rating": rating,
-            "comments": True,
-            "source": source,
-        }
-        if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
-            metadata.pop("tags")
-        if not rating:
-            metadata.pop("rating")
-        if not source:
-            metadata.pop("source")
-        yaml_metadata = yaml.dump(
-            metadata, default_flow_style=False, allow_unicode=True
-        )
-        metadata_section = f"---\n{yaml_metadata}---"
-
-        # generate lc-cn problem readme
-        with open(f"{path}/README.md", "w", encoding="utf-8") as f1:
-            f1.write(
-                readme_template_cn.format(
-                    metadata_section,
-                    int(item["frontend_question_id"]),
-                    item["title_cn"].strip() + paid_only,
-                    item["url_cn"],
-                    item["relative_path_en"],
-                    item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
-                )
-            )
-
-        source = (
-            rating_item.get("ContestID_en") + " " + rating_item.get("ProblemIndex")
-            if rating_item
-            else ""
-        )
-
-        cat = category.title() if category and category[0].islower() else category
-        tags_en = normalize_tags_en(item.get("tags_en") or [])
-        item["tags_en"] = tags_en
-        metadata = {
-            "tags": tags_en or [cat],
-            "difficulty": item["difficulty_en"],
-            "rating": rating,
-            "comments": True,
-            "source": source,
-        }
-        if not tags_en or metadata["tags"] == ["Algorithms"]:
-            metadata.pop("tags")
-        if not rating:
-            metadata.pop("rating")
-        if not source:
-            metadata.pop("source")
-        yaml_metadata = yaml.dump(
-            metadata, default_flow_style=False, allow_unicode=True
-        )
-        metadata_section = f"---\n{yaml_metadata}---"
-
-        # generate lc-en problem readme
-        with open(f"{path}/README_EN.md", "w", encoding="utf-8") as f2:
-            f2.write(
-                readme_template_en.format(
-                    metadata_section,
-                    int(item["frontend_question_id"]),
-                    item["title_en"].strip() + paid_only,
-                    item["url_en"],
-                    item["relative_path_cn"],
-                    item["content_en"],
-                )
-            )
+        cn_content, en_content = _render_problem_readmes(item)
+        path_cn = f"{path}/README.md"
+        path_en = f"{path}/README_EN.md"
+        if write_text(path_cn, cn_content):
+            written.append(os.path.abspath(path_cn))
+        if write_text(path_en, en_content):
+            written.append(os.path.abspath(path_en))
+    return written
 
 
 def generate_category_summary(result, category=""):
@@ -488,10 +576,7 @@ def generate_category_summary(result, category=""):
                 data = m.get(int(sub[:4]))
                 if not data or (category and data["category"].lower() != category):
                     continue
-                sub_cn = sub
-                if data:
-                    sub_cn = sub[:5] + data["title_cn"]
-
+                sub_cn = sub[:5] + data["title_cn"] if data else sub
                 summary_cn += (
                     f"  - [{sub_cn}](/{sub_category}solution/{file}/{enc}/README.md)\n"
                 )
@@ -499,193 +584,88 @@ def generate_category_summary(result, category=""):
                     f"  - [{sub}](/{sub_category}solution/{file}/{enc}/README_EN.md)\n"
                 )
 
-    # generate summary.md
-    with open(f"./{sub_category}summary.md", "w", encoding="utf-8") as f:
-        f.write(summary_cn)
-
-    # generate summary_en.md
-    with open(f"./{sub_category}summary_en.md", "w", encoding="utf-8") as f:
-        f.write(summary_en)
+    write_text(f"./{sub_category}summary.md", summary_cn)
+    write_text(f"./{sub_category}summary_en.md", summary_en)
 
 
-def generate_category_readme(result, category=""):
-    md_table_cn = [item["md_table_row_cn"] for item in result]
-    md_table_en = [item["md_table_row_en"] for item in result]
-    m = {int(item["frontend_question_id"]): item for item in result}
+def generate_category_readme(result, category="") -> List[str]:
+    written: List[str] = []
+    filtered = [item for item in result if not category or item["category"] == category]
+    table_cn, rows_cn = _build_md_table(
+        [item["md_table_row_cn"] for item in filtered],
+        "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |",
+    )
+    table_en, rows_en = _build_md_table(
+        [item["md_table_row_en"] for item in filtered],
+        "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |",
+    )
 
-    # generate README.md
-    items = []
-    table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
-    for item in sorted(md_table_cn, key=lambda x: x[0]):
-        if category and m[int(item[0])]["category"] != category:
-            continue
-        items.append(
-            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
-        )
-    table_cn += "".join(items)
-
-    # generate README_EN.md
-    items = []
-    table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
-    for item in sorted(md_table_en, key=lambda x: x[0]):
-        if category and m[int(item[0])]["category"] != category:
-            continue
-        items.append(
-            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
-        )
-    table_en += "".join(items)
     path_prefix = category.upper() + "_" if category else ""
-    with open(f"./{path_prefix}README.md", "w", encoding="utf-8") as f:
-        f.write(
+    for path, rows, content in (
+        (
+            f"./{path_prefix}README.md",
+            rows_cn,
             category_readme_cn.format(
                 category_dict.get(category, category), category.upper(), table_cn
-            )
-        )
-    with open(f"./{path_prefix}README_EN.md", "w", encoding="utf-8") as f:
-        f.write(category_readme_en.format(category, category.upper(), table_en))
+            ),
+        ),
+        (
+            f"./{path_prefix}README_EN.md",
+            rows_en,
+            category_readme_en.format(category, category.upper(), table_en),
+        ),
+    ):
+        need_write = True
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    need_write = _extract_md_table_rows(f.read()) != rows
+            except OSError:
+                pass
+        if need_write and write_text(path, content):
+            written.append(os.path.abspath(path))
+    return written
 
 
-def refresh(result):
+def refresh(result) -> List[str]:
     """update problems"""
-    pattern = re.compile('src="(.*?)"')
+    written: List[str] = []
     for question in result:
-        front_question_id = question["frontend_question_id"]
-        print(front_question_id)
-        paid_only = " 🔒" if question["paid_only"] else ""
-
+        print(question["frontend_question_id"])
         path_cn = unquote(str(question["relative_path_cn"]).replace("/solution", "."))
         path_en = unquote(str(question["relative_path_en"]).replace("/solution", "."))
 
         try:
             with open(path_cn, "r", encoding="utf-8") as f1:
-                cn_content = f1.read()
+                orig_cn = f1.read()
         except Exception as e:
             print(f"Failed to open {path_cn}: {e}")
             continue
         try:
             with open(path_en, "r", encoding="utf-8") as f2:
-                en_content = f2.read()
+                orig_en = f2.read()
         except Exception as e:
             print(f"Failed to open {path_en}: {e}")
             continue
 
-        category = question["category"]
+        cn_content, en_content = _render_problem_readmes(question, orig_cn, orig_en)
 
-        readme_template_cn, readme_template_en = select_templates(category)
-        rating_item = rating_dict.get(str(front_question_id))
-        rating = int(rating_item.get("Rating", 0)) if rating_item else ""
-        source = (
-            rating_item.get("ContestID_zh") + " " + rating_item.get("ProblemIndex")
-            if rating_item
-            else ""
-        )
-        cat = category_dict.get(category, category)
-        cat = cat.title() if cat and cat[0].islower() else cat
-        metadata = {
-            "tags": question["tags_cn"] or [cat],
-            "difficulty": question["difficulty_cn"],
-            "rating": rating,
-            "comments": True,
-            "source": source,
-        }
+        if cn_content != orig_cn:
+            try:
+                if write_text(path_cn, cn_content):
+                    written.append(os.path.abspath(path_cn))
+            except OSError as e:
+                print(f"Failed to write {path_cn}: {e}")
+                continue
 
-        if (not question["tags_cn"] and not cat) or metadata["tags"] == ["Algorithms"]:
-            metadata.pop("tags")
-        if not rating:
-            metadata.pop("rating")
-        if not source:
-            metadata.pop("source")
-        yaml_metadata = yaml.dump(
-            metadata, default_flow_style=False, allow_unicode=True
-        )
-        metadata_section = f"---\n{yaml_metadata}---"
-        readme_template_cn = readme_template_cn.format(
-            metadata_section,
-            int(question["frontend_question_id"]),
-            question["title_cn"].strip() + paid_only,
-            question["url_cn"],
-            question["relative_path_en"],
-            question["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
-        )
-        cn_content = (
-            readme_template_cn[: readme_template_cn.index("## 解法")]
-            + cn_content[cn_content.index("## 解法") :]
-        )
-
-        source = (
-            rating_item.get("ContestID_en") + " " + rating_item.get("ProblemIndex")
-            if rating_item
-            else ""
-        )
-
-        cat = category.title() if category and category[0].islower() else category
-        tags_en = normalize_tags_en(question.get("tags_en") or [])
-        question["tags_en"] = tags_en
-        metadata = {
-            "tags": tags_en or [cat],
-            "difficulty": question["difficulty_en"],
-            "rating": rating,
-            "comments": True,
-            "source": source,
-        }
-        if (not tags_en and not [category]) or metadata["tags"] == ["Algorithms"]:
-            metadata.pop("tags")
-        if not rating:
-            metadata.pop("rating")
-        if not source:
-            metadata.pop("source")
-        yaml_metadata = yaml.dump(
-            metadata, default_flow_style=False, allow_unicode=True
-        )
-        metadata_section = f"---\n{yaml_metadata}---"
-        readme_template_en = readme_template_en.format(
-            metadata_section,
-            int(question["frontend_question_id"]),
-            question["title_en"].strip() + paid_only,
-            question["url_en"],
-            question["relative_path_cn"],
-            question["content_en"],
-        )
-        en_content = (
-            readme_template_en[: readme_template_en.index("## Solutions")]
-            + en_content[en_content.index("## Solutions") :]
-        )
-
-        # replace image url to cdn link
-        for url in pattern.findall(cn_content) or []:
-            image_name = (
-                os.path.basename(url).replace(".PNG", ".png").replace(".JPG", ".jpg")
-            )
-            new_url = (
-                "https://fastly.jsdelivr.net/gh/doocs/leetcode@main"
-                + str(question["relative_path_cn"]).replace("README.md", "images/")
-                + image_name
-            )
-            cn_content = cn_content.replace(url, new_url)
-
-        cn_content = cn_content.replace("leetcode-cn.com", "leetcode.cn")
-        try:
-            write_text(path_cn, cn_content)
-        except OSError as e:
-            print(f"Failed to write {path_cn}: {e}")
-            continue
-
-        for url in pattern.findall(en_content) or []:
-            image_name = (
-                os.path.basename(url).replace(".PNG", ".png").replace(".JPG", ".jpg")
-            )
-            new_url = (
-                "https://fastly.jsdelivr.net/gh/doocs/leetcode@main"
-                + str(question["relative_path_cn"]).replace("README.md", "images/")
-                + image_name
-            )
-            en_content = en_content.replace(url, new_url)
-
-        try:
-            write_text(path_en, en_content)
-        except OSError as e:
-            print(f"Failed to write {path_en}: {e}")
-            continue
+        if en_content != orig_en:
+            try:
+                if write_text(path_en, en_content):
+                    written.append(os.path.abspath(path_en))
+            except OSError as e:
+                print(f"Failed to write {path_en}: {e}")
+                continue
+    return written
 
 
 def generate_contest_readme(result: List):
@@ -694,8 +674,6 @@ def generate_contest_readme(result: List):
     content_en = "\n\n".join(c[2] for c in result)
     metadata_section = "---\ncomments: true\n---"
     content_cn = contest_readme_cn.format(metadata_section, content_cn)
-    with open("./CONTEST_README.md", "w", encoding="utf-8") as f:
-        f.write(content_cn)
+    write_text("./CONTEST_README.md", content_cn)
     content_en = contest_readme_en.format(metadata_section, content_en)
-    with open("./CONTEST_README_EN.md", "w", encoding="utf-8") as f:
-        f.write(content_en)
+    write_text("./CONTEST_README_EN.md", content_en)
