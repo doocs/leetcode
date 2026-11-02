@@ -63,8 +63,6 @@ func beautifulIndices(s string, a string, b string, k int) []int {
 	kmp(a, a_len, lps_a, &a_index)
 	kmp(b, b_len, lps_b, &b_index)
 
-	// fmt.Println(a_index, b_index)
-
 	i := 0
 	j := 0
 

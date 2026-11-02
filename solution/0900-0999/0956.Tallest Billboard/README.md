@@ -256,16 +256,16 @@ function tallestBillboard(rods: number[]): number {
 对于第 $i$ 根钢筋，我们可以不选择它，此时 $f[i][j]=f[i-1][j]$；也可以选择它，此时有三种情况：
 
 1. 放置在原本高度较高的一边，即满足 $j \geq \textit{rods}[i-1]$，此时 $f[i][j] = \max(f[i][j], f[i-1][j-\textit{rods}[i-1]])$；
-1. 放置在原本高度较低的一遍，如果满足 $j + \textit{rods}[i-1] \leq s$，此时 $f[i][j] = \max(f[i][j], f[i-1][j+\textit{rods}[i-1]] + \textit{rods}[i-1])$；如果满足 $j \lt \textit{rods}[i-1]$，此时 $f[i][j] = \max(f[i][j], f[i-1][\textit{rods}[i-1]-j] + \textit{rods}[i-1]-j)$。
+1. 放置在原本高度较低的一边，如果满足 $j + \textit{rods}[i-1] \leq s$，此时 $f[i][j] = \max(f[i][j], f[i-1][j+\textit{rods}[i-1]] + \textit{rods}[i-1])$；如果满足 $j \lt \textit{rods}[i-1]$，此时 $f[i][j] = \max(f[i][j], f[i-1][\textit{rods}[i-1]-j] + \textit{rods}[i-1]-j)$。
 
 综上，我们可以得到状态转移方程：
 
 $$
 \begin{aligned}
 f[i][j] &= f[i-1][j] \\
-f[i][j] &= max(f[i][j], f[i-1][j-rods[i-1]]) & \textit{if } j \geq rods[i-1] \\
-f[i][j] &= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) & \textit{if } j + rods[i-1] \leq s \\
-f[i][j] &= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) & \textit{if } j \lt rods[i-1]
+f[i][j] &= \max(f[i][j], f[i-1][j-\textit{rods}[i-1]]) & \textit{if } j \geq \textit{rods}[i-1] \\
+f[i][j] &= \max(f[i][j], f[i-1][j+\textit{rods}[i-1]] + \textit{rods}[i-1]) & \textit{if } j + \textit{rods}[i-1] \leq s \\
+f[i][j] &= \max(f[i][j], f[i-1][\textit{rods}[i-1]-j] + \textit{rods}[i-1]-j) & \textit{if } j \lt \textit{rods}[i-1]
 \end{aligned}
 $$
 

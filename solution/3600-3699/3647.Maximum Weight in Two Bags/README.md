@@ -117,7 +117,7 @@ $$
 
 我们注意到状态转移方程中只依赖于前一层的状态，因此可以将三维 DP 数组压缩为二维 DP 数组。在枚举 $j$ 和 $k$ 时，我们采用倒序遍历的方式。
 
-时间复杂度 $O(\textit{nw1w2})$，空间复杂度 $O(\textit{w1w2})$。其中 $n$ 是数组 $\textit{weights}$ 的长度。
+时间复杂度 $O(n \times \textit{w1} \times \textit{w2})$，空间复杂度 $O(\textit{w1} \times \textit{w2})$。其中 $n$ 是数组 $\textit{weights}$ 的长度。
 
 <!-- tabs:start -->
 

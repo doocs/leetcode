@@ -100,7 +100,7 @@ Each row of this table contains the ID and name of a product.
 >
 > We need products whose names contain three consecutive digits. A hand-rolled scan easily misses boundaries between digits and letters or string ends.
 >
-> A single regular expression covers those cases. The pattern $(^|[^0-9])[0-9]{3}([^0-9]|$)$ matches an isolated run of three digits without treating a longer digit block as several overlapping hits in an uncontrolled way.
+> A single regular expression covers those cases. The pattern `(^|[^0-9])[0-9]{3}([^0-9]|$)` matches an isolated run of three digits without treating a longer digit block as several overlapping hits in an uncontrolled way.
 >
 > We filter the frame with that pattern and sort by $\textit{product\_id}$ to match the required order.
 

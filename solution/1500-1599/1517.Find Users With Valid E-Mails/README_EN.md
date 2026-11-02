@@ -90,7 +90,7 @@ The mail of user 7 starts with a period.
 >
 > A valid address must start with a letter, continue with letters, digits, underscores, dots, or hyphens, and end with $\texttt{@leetcode.com}$. Hand-written character checks branch heavily and miss edge cases, while the rule is a regular language.
 >
-> The pattern $\texttt{^[A-Za-z][A-Za-z0-9_.-]*@leetcode\\.com$}$ matches the whole string. In SQL a case-sensitive suffix check guards the domain; the Pandas path applies the same full-string match to the $mail$ column.
+> The pattern `^[A-Za-z][A-Za-z0-9_.-]*@leetcode\.com$` matches the whole string. In SQL a case-sensitive suffix check guards the domain; the Pandas path applies the same full-string match to the $\textit{mail}$ column.
 
 <!-- thinking:end -->
 

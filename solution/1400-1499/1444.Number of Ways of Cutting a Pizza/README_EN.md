@@ -84,7 +84,7 @@ tags:
 We can use a 2D prefix sum to quickly calculate the number of apples in each sub-rectangle. Define $s[i][j]$ to represent the number of apples in the sub-rectangle that includes the first $i$ rows and the first $j$ columns. Then $s[i][j]$ can be derived from the number of apples in the three sub-rectangles $s[i-1][j]$, $s[i][j-1]$, and $s[i-1][j-1]$. The specific calculation method is as follows:
 
 $$
-s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + (\textit{pizza}[i-1][j-1] == 'A')
+s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + (\textit{pizza}[i-1][j-1] = \text{'A'})
 $$
 
 Here, $\textit{pizza}[i-1][j-1]$ represents the character at the $i$-th row and $j$-th column in the rectangle. If it is an apple, it is $1$; otherwise, it is $0$.

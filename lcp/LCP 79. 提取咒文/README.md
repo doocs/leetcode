@@ -63,7 +63,7 @@ difficulty: 中等
 
 <!-- thinking:end -->
 
-时间复杂度 $O(\textit{mnl})$，空间复杂度 $O(\textit{mnl})$。
+时间复杂度 $O(mnl)$，空间复杂度 $O(mnl)$。
 
 <!-- tabs:start -->
 

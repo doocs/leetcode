@@ -99,7 +99,7 @@ tags:
 
 - 如果 $\textit{pos}$ 超过了数字的长度，说明已经处理完所有位数，如果 $\textit{diff} = 0$，则说明当前数字是平衡整数，返回 $1$，否则返回 $0$。
 - 计算当前位的上界 $up$，如果受到限制，则为数字的当前位，否则为 $9$。
-- 遍历当前位可以取的所有数字 $i$，对于每个数字 $i$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if pos \% 2 == 0 else -1}), \textit{lim} \&\& i == up)$，累加结果。
+- 遍历当前位可以取的所有数字 $i$，对于每个数字 $i$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if } \textit{pos} \bmod 2 = 0 \text{ else } -1), \textit{lim} \land i = up)$，累加结果。
 - 返回累加的结果。
 
 我们首先计算区间 $[1, \textit{low} - 1]$ 内的平衡整数数量 $a$，然后计算区间 $[1, \textit{high}]$ 内的平衡整数数量 $b$，最后返回 $b - a$。

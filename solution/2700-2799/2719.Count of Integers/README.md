@@ -79,7 +79,7 @@ tags:
 
 对于 $[1,..r]$ 的答案，我们可以使用数位 DP 来求解。我们设计一个函数 $\textit{dfs}(\textit{pos}, s, \textit{limit})$ 表示当前处理到第 $\textit{pos}$ 位，数位和为 $s$，当前数是否有上界限制 $\textit{limit}$ 的方案数。其中 $\textit{pos}$ 从高到低枚举。
 
-对于 $\textit{dfs}(\textit{pos}, s, \textit{limit})$，我们可以枚举当前数位 $i$ 的值，然后递归计算 $\textit{dfs}(\textit{pos}+1, s+i, \textit{limit} \bigcap i==up)$，其中 $up$ 表示当前数位的上界。如果 $\textit{limit}$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。如果 $\textit{pos}$ 大于等于 $\textit{num}$ 的长度，那么我们就可以判断 $s$ 是否在 $[\textit{min\_sum},..\textit{max\_sum}]$ 的范围内，如果在就返回 $1$，否则返回 $0$。
+对于 $\textit{dfs}(\textit{pos}, s, \textit{limit})$，我们可以枚举当前数位 $i$ 的值，然后递归计算 $\textit{dfs}(\textit{pos}+1, s+i, \textit{limit} \land i = up)$，其中 $up$ 表示当前数位的上界。如果 $\textit{limit}$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。如果 $\textit{pos}$ 大于等于 $\textit{num}$ 的长度，那么我们就可以判断 $s$ 是否在 $[\textit{min\_sum},..\textit{max\_sum}]$ 的范围内，如果在就返回 $1$，否则返回 $0$。
 
 时间复杂度 $O(10\textit{nmax\_sum})$，空间复杂度 $O(\textit{nmax\_sum})$。其中 $n$ 表示 $\textit{num}$ 的长度。
 

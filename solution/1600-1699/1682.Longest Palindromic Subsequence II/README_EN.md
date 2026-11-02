@@ -76,7 +76,7 @@ We design a function $\textit{dfs}(i, j, x)$ to represent the length of the long
 
 The calculation process of the function $\textit{dfs}(i, j, x)$ is as follows:
 
-- If $i >= j$, then $\textit{dfs}(i, j, x) = 0$;
+- If $i \ge j$, then $\textit{dfs}(i, j, x) = 0$;
 - If $s[i] = s[j]$ and $s[i] \neq x$, then $\textit{dfs}(i, j, x) = \textit{dfs}(i + 1, j - 1, s[i]) + 2$;
 - If $s[i] \neq s[j]$, then $\textit{dfs}(i, j, x) = \max(\textit{dfs}(i + 1, j, x), \textit{dfs}(i, j - 1, x))$.
 

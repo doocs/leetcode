@@ -198,11 +198,11 @@ tags:
 
 <!-- thinking:end -->
 
-Let's denote $m$ and $n$ as the number of rows and columns in the matrix `board`, and $r$ and $c$ as the number of rows and columns in the matrix `pattern`.
+Let's denote $m$ and $n$ as the number of rows and columns in the matrix $\textit{board}$, and $r$ and $c$ as the number of rows and columns in the matrix $\textit{pattern}$.
 
-We can enumerate each possible sub-matrix's top-left position $(i, j)$ in the `board` from small to large, and then determine whether the $r \times c$ sub-matrix with $(i, j)$ as the top-left corner matches `pattern`. If we find a matching sub-matrix, we return $(i, j)$. Otherwise, we return $(-1, -1)$.
+We can enumerate each possible sub-matrix's top-left position $(i, j)$ in the $\textit{board}$ from small to large, and then determine whether the $r \times c$ sub-matrix with $(i, j)$ as the top-left corner matches $\textit{pattern}$. If we find a matching sub-matrix, we return $(i, j)$. Otherwise, we return $(-1, -1)$.
 
-The time complexity is $O(\textit{mnrc})$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the number of rows and columns in the matrix `board`, and $r$ and $c$ are the number of rows and columns in the matrix `pattern`, and $\Sigma$ is the character set. In this problem, $\Sigma$ includes numbers and lowercase letters, so $|\Sigma| \leq 36$.
+The time complexity is $O(mnrc)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the number of rows and columns in the matrix $\textit{board}$, and $r$ and $c$ are the number of rows and columns in the matrix $\textit{pattern}$, and $\Sigma$ is the character set. In this problem, $\Sigma$ includes numbers and lowercase letters, so $|\Sigma| \leq 36$.
 
 <!-- tabs:start -->
 

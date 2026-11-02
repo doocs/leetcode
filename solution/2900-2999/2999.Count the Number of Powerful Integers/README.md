@@ -103,7 +103,7 @@ $$
 2. 设计一个函数 $\textit{dfs}(\textit{pos}, \textit{lim})$，表示从第 $\textit{pos}$ 位开始搜索，当前的限制条件为 $\textit{lim}$。
 3. 如果最大的数字位数小于 $s$ 的长度，返回 0。
 4. 如果当前剩余的数字位数等于 $s$ 的长度，判断当前的数字是否满足条件，返回 1 或 0。
-5. 否则，我们计算当前位的上限 $up = \min(\textit{lim} ? t[\textit{pos}] : 9, \textit{limit})$。然后遍历当前位的数字 $i$，从 0 到 $up$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == t[\textit{pos}])$，将结果累加到答案中。
+5. 否则，我们计算当前位的上限 $up = \min(\textit{lim} ? t[\textit{pos}] : 9, \textit{limit})$。然后遍历当前位的数字 $i$，从 0 到 $up$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i = t[\textit{pos}])$，将结果累加到答案中。
 6. 如果当前的 $\textit{lim}$ 为 false，则将当前的答案存入缓存中，避免重复计算。
 7. 最后返回答案。
 

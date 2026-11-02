@@ -91,7 +91,7 @@ We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ e
 
 Let's denote $m = \left\lfloor \frac{\textit{target}}{2} \right\rfloor$.
 
-If $x <= m$, then the numbers we can choose are $1, 2, \cdots, n$, so the sum of the array is $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$.
+If $x \le m$, then the numbers we can choose are $1, 2, \cdots, n$, so the sum of the array is $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$.
 
 If $x > m$, then the numbers we can choose are $1, 2, \cdots, m$, a total of $m$ numbers, and $n - m$ numbers starting from $\textit{target}$, so the sum of the array is $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(\textit{target} + \textit{target} + n - m - 1)(n-m)}{2} \right\rfloor$.
 
