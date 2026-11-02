@@ -126,7 +126,7 @@ tags:
 
 <!-- thinking:end -->
 
-We design a function `dfs(i, j, jump)`, which represents the number of ways to reach the $k$th step when currently at the $i$th step, having performed $j$ operation 1's and `jump` operation 2's. The answer is `dfs(1, 0, 0)`.
+We design a function `dfs(i, j, jump)`, which represents the number of ways to reach the $k$th step when currently at the $i$th step, having performed $j$ operation 1's and $\textit{jump}$ operation 2's. The answer is `dfs(1, 0, 0)`.
 
 The calculation process of the function `dfs(i, j, jump)` is as follows:
 

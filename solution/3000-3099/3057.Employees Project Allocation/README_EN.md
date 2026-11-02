@@ -108,7 +108,7 @@ Result table orderd by employee_id, project_id in ascending order.
 
 <!-- thinking:end -->
 
-First, we join the `Project` table and the `Employees` table based on `employee_id`, then group by `team` to calculate the average workload of each team, and record it in the temporary table `T`.
+First, we join the `Project` table and the `Employees` table based on `employee_id`, then group by $\textit{team}$ to calculate the average workload of each team, and record it in the temporary table `T`.
 
 Then, we join the `Project` table and the `Employees` table again, and also join the `T` table, to find employees whose workload is greater than the average workload of the team. Finally, we sort by `employee_id` and `project_id`.
 

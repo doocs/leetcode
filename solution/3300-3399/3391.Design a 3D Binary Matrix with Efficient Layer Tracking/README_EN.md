@@ -106,7 +106,7 @@ When calling the `unsetCell` method, we first check if $(x, y, z)$ has already b
 
 When calling the `largestMatrix` method, we return the second value of the first element in $sl$. If $sl$ is empty, we return $n - 1$.
 
-In terms of time complexity, the `setCell` and `unsetCell` methods both have a time complexity of $O(\log n)$, and the `largestMatrix` method has a time complexity of $O(1)$. The space complexity is $O(n^3)$.
+In terms of time complexity, the $\textit{setCell}$ and $\textit{unsetCell}$ methods both have a time complexity of $O(\log n)$, and the $\textit{largestMatrix}$ method has a time complexity of $O(1)$. The space complexity is $O(n^3)$.
 
 <!-- tabs:start -->
 

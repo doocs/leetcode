@@ -88,7 +88,7 @@ User 14 did not login in 2020, so we do not include them in the result table.
 
 <!-- thinking:end -->
 
-We can first filter out the login records in 2020, and then group by `user_id`, and use the `max` function to calculate the maximum login time for each user.
+We can first filter out the login records in 2020, and then group by $\textit{user\_id}$, and use the `max` function to calculate the maximum login time for each user.
 
 <!-- tabs:start -->
 

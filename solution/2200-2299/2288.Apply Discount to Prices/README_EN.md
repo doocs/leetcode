@@ -85,7 +85,7 @@ Each of them is replaced by &quot;$0.00&quot;.
 
 We can split the sentence into an array of words by spaces, then iterate through the array of words. For each word, if it represents a price, we update it to the price after applying the discount. Finally, we concatenate the updated array of words into a space-separated string.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `sentence`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{sentence}$.
 
 <!-- tabs:start -->
 

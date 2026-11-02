@@ -91,7 +91,7 @@ We notice that the range of elements in the array `nums` is $[1, 100]$. Therefor
 
 Finally, we add up the numbers of all single-factor triples.
 
-The time complexity is $O(M^3)$, and the space complexity is $O(M)$, where $M$ is the range of elements in the array `nums`.
+The time complexity is $O(M^3)$, and the space complexity is $O(M)$, where $M$ is the range of elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

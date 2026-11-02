@@ -119,15 +119,15 @@ Matches table:
 
 <!-- thinking:end -->
 
-We can join the `Teams` table and the `Matches` table using a left join, where the join condition is `team_id = host_team OR team_id = guest_team`, to obtain all the match information for each team.
+We can join the $\textit{Teams}$ table and the $\textit{Matches}$ table using a left join, where the join condition is `team_id = host_team OR team_id = guest_team`, to obtain all the match information for each team.
 
-Next, we group by `team_id` and use a `CASE` expression to calculate the points for each team according to the following rules:
+Next, we group by $\textit{team\_id}$ and use a $\textit{CASE}$ expression to calculate the points for each team according to the following rules:
 
 - If the team is the host team and has more goals than the guest team, add $3$ points to the team's score.
 - If the team is the guest team and has more goals than the host team, add $3$ points to the team's score.
 - If the host team and the guest team have the same number of goals, add $1$ point to the team's score.
 
-Finally, we sort the result by points in descending order, and if the points are the same, we sort by `team_id` in ascending order.
+Finally, we sort the result by points in descending order, and if the points are the same, we sort by $\textit{team\_id}$ in ascending order.
 
 <!-- tabs:start -->
 

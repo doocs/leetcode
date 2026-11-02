@@ -91,7 +91,7 @@ We use a priority queue (min heap) to maintain the smallest cell value that we h
 
 For each query `queries[i]`, we judge whether the minimum value of the current priority queue is less than `queries[i]`. If it is, we pop the current minimum value, increment the counter `cnt`, and add the four cells above, below, left, and right of the current cell to the priority queue, noting to check whether they have been visited. Repeat the above operation until the minimum value of the current priority queue is greater than or equal to `queries[i]`, at which point `cnt` is the answer to the current query.
 
-The time complexity is $O(k \log k + mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, and $k$ is the number of queries. We need to sort the `queries` array, which has a time complexity of $O(k \log k)$. Each cell in the matrix will be visited at most once, and the time complexity of each enqueue and dequeue operation is $O(\log(mn))$. Therefore, the total time complexity is $O(k \log k + mn \log(mn))$.
+The time complexity is $O(k \log k + mn \log(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, and $k$ is the number of queries. We need to sort the $\textit{queries}$ array, which has a time complexity of $O(k \log k)$. Each cell in the matrix will be visited at most once, and the time complexity of each enqueue and dequeue operation is $O(\log(mn))$. Therefore, the total time complexity is $O(k \log k + mn \log(mn))$.
 
 <!-- tabs:start -->
 

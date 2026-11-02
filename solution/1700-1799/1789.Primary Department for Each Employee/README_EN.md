@@ -92,7 +92,7 @@ Employee table:
 
 <!-- thinking:end -->
 
-We can first query all employees who already have a direct department, and then query all employees who belong to only one department. Finally, we can merge the two results using `UNION`.
+We can first query all employees who already have a direct department, and then query all employees who belong to only one department. Finally, we can merge the two results using $\textit{UNION}$.
 
 <!-- tabs:start -->
 

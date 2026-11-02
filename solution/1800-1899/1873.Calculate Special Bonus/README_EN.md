@@ -86,7 +86,7 @@ The rest of the employees get a 100% bonus.
 
 <!-- thinking:end -->
 
-We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
+We can use the $\textit{IF}$ statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by $\textit{employee\_id}$.
 
 <!-- tabs:start -->
 

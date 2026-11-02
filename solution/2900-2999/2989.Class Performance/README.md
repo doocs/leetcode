@@ -88,7 +88,7 @@ student_id 321 拥有最高分为 230，而 student_id 896 拥有最低分为 11
 
 <!-- thinking:end -->
 
-我们可以使用 `MAX` 和 `MIN` 函数来分别获取 `assignment1`、`assignment2`、`assignment3` 的和的最大值和最小值，然后相减即可。
+我们可以使用 $\textit{MAX}$ 和 $\textit{MIN}$ 函数来分别获取 $\textit{assignment1}$、 $\textit{assignment2}$、 $\textit{assignment3}$ 的和的最大值和最小值，然后相减即可。
 
 <!-- tabs:start -->
 

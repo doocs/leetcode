@@ -117,7 +117,7 @@ For each cell, we can start from it, generate a number along one of the 8 direct
 
 Finally, we traverse the hash table to find the prime number with the highest frequency. If there are multiple prime numbers with the highest frequency, we return the largest one.
 
-The time complexity is $O(mn \max(m, n) {10}^{\frac{\max(m, n)}{2}})$, and the space complexity is $O(mn \max(m, n))$, where $m$ and $n$ are the number of rows and columns of `mat`, respectively.
+The time complexity is $O(mn \max(m, n) {10}^{\frac{\max(m, n)}{2}})$, and the space complexity is $O(mn \max(m, n))$, where $m$ and $n$ are the number of rows and columns of $\textit{mat}$, respectively.
 
 <!-- tabs:start -->
 

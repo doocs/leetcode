@@ -144,7 +144,7 @@ Since Peru is the only country where the average call duration is greater than t
 
 <!-- thinking:end -->
 
-We can use an equi-join to join the `Person` table and the `Calls` table on the condition of `Person.id = Calls.caller_id` or `Person.id = Calls.callee_id`, and then join the result with the `Country` table on the condition of `left(phone_number, 3) = country_code`. After that, we can group by country and calculate the average call duration for each country. Finally, we can use a subquery to find the countries whose average call duration is greater than the global average call duration.
+We can use an equi-join to join the $\textit{Person}$ table and the $\textit{Calls}$ table on the condition of `Person.id = Calls.caller_id` or `Person.id = Calls.callee_id`, and then join the result with the $\textit{Country}$ table on the condition of `left(phone_number, 3) = country_code`. After that, we can group by country and calculate the average call duration for each country. Finally, we can use a subquery to find the countries whose average call duration is greater than the global average call duration.
 
 <!-- tabs:start -->
 

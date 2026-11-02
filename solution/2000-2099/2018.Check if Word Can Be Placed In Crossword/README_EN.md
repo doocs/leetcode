@@ -82,28 +82,28 @@ tags:
 >
 > With $mn \le 2 \times 10^5$, the word must occupy a `#`-bounded slot, forward or backward. Trying four directions from each cell is linear in the grid size times $|\textit{word}|$.
 >
-> A start must sit on a border or beside `#`. `check` also requires the cell past the word to be off-board or `#`, and letters to match or be spaces.
+> A start must sit on a border or beside `#`. $\textit{check}$ also requires the cell past the word to be off-board or `#`, and letters to match or be spaces.
 >
 > Any successful direction returns true.
 
 <!-- thinking:end -->
 
-We can enumerate each position $(i, j)$ in the matrix, and judge whether we can place the word `word` from left to right or from right to left, or from top to bottom or from bottom to top, starting from this position.
+We can enumerate each position $(i, j)$ in the matrix, and judge whether we can place the word $\textit{word}$ from left to right or from right to left, or from top to bottom or from bottom to top, starting from this position.
 
 The following conditions must be met for this position to be used as a starting point:
 
-1. If the word `word` is to be placed from left to right, then this position must be the left boundary, or the cell `board[i][j - 1]` to the left of this position is `'#'`.
-2. If the word `word` is to be placed from right to left, then this position must be the right boundary, or the cell `board[i][j + 1]` to the right of this position is `'#'`.
-3. If the word `word` is to be placed from top to bottom, then this position must be the upper boundary, or the cell `board[i - 1][j]` above this position is `'#'`.
-4. If the word `word` is to be placed from bottom to top, then this position must be the lower boundary, or the cell `board[i + 1][j]` below this position is `'#'`.
+1. If the word $\textit{word}$ is to be placed from left to right, then this position must be the left boundary, or the cell `board[i][j - 1]` to the left of this position is `'#'`.
+2. If the word $\textit{word}$ is to be placed from right to left, then this position must be the right boundary, or the cell `board[i][j + 1]` to the right of this position is `'#'`.
+3. If the word $\textit{word}$ is to be placed from top to bottom, then this position must be the upper boundary, or the cell `board[i - 1][j]` above this position is `'#'`.
+4. If the word $\textit{word}$ is to be placed from bottom to top, then this position must be the lower boundary, or the cell `board[i + 1][j]` below this position is `'#'`.
 
-Under the above conditions, we can start from this position and judge whether the word `word` can be placed. We design a function $\textit{check}(i, j, a, b)$, which represents whether it is legal to place the word `word` from the position $(i, j)$ in the direction $(a, b)$. If it is legal, return `true`, otherwise return `false`.
+Under the above conditions, we can start from this position and judge whether the word $\textit{word}$ can be placed. We design a function $\textit{check}(i, j, a, b)$, which represents whether it is legal to place the word $\textit{word}$ from the position $(i, j)$ in the direction $(a, b)$. If it is legal, return `true`, otherwise return `false`.
 
 The implementation of the function $\textit{check}(i, j, a, b)$ is as follows:
 
-We first get the other boundary position $(x, y)$ in the current direction, i.e., $(x, y) = (i + a \times k, j + b \times k)$, where $k$ is the length of the word `word`. If $(x, y)$ is in the matrix and the cell at $(x, y)$ is not `'#'`, it means that the other boundary position in the current direction is not `'#'`, so the word `word` cannot be placed, and `false` is returned.
+We first get the other boundary position $(x, y)$ in the current direction, i.e., $(x, y) = (i + a \times k, j + b \times k)$, where $k$ is the length of the word $\textit{word}$. If $(x, y)$ is in the matrix and the cell at $(x, y)$ is not `'#'`, it means that the other boundary position in the current direction is not `'#'`, so the word $\textit{word}$ cannot be placed, and `false` is returned.
 
-Otherwise, we start from the position $(i, j)$ and traverse the word `word` in the direction $(a, b)$. If we encounter a cell `board[i][j]` that is not a space or not the current character of the word `word`, it means that the word `word` cannot be placed, and `false` is returned. If the word `word` is traversed, it means that the word `word` can be placed, and `true` is returned.
+Otherwise, we start from the position $(i, j)$ and traverse the word $\textit{word}$ in the direction $(a, b)$. If we encounter a cell `board[i][j]` that is not a space or not the current character of the word $\textit{word}$, it means that the word $\textit{word}$ cannot be placed, and `false` is returned. If the word $\textit{word}$ is traversed, it means that the word $\textit{word}$ can be placed, and `true` is returned.
 
 The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 

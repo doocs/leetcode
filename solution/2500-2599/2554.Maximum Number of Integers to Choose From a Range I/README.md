@@ -85,9 +85,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们用变量 $s$ 表示当前已经选择的整数的和，用变量 $\textit{ans}$ 表示当前已经选择的整数的个数。将数组 `banned` 转换为哈希表，方便判断某个整数是否不可选。
+我们用变量 $s$ 表示当前已经选择的整数的和，用变量 $\textit{ans}$ 表示当前已经选择的整数的个数。将数组 $\textit{banned}$ 转换为哈希表，方便判断某个整数是否不可选。
 
-接下来，我们从 $1$ 开始枚举整数 $i$，如果 $s + i \leq \textit{maxSum}$ 且 $i$ 不在 `banned` 中，那么我们就可以选择整数 $i$，并将 $s$ 和 $\textit{ans}$ 分别加上 $i$ 和 $1$。
+接下来，我们从 $1$ 开始枚举整数 $i$，如果 $s + i \leq \textit{maxSum}$ 且 $i$ 不在 $\textit{banned}$ 中，那么我们就可以选择整数 $i$，并将 $s$ 和 $\textit{ans}$ 分别加上 $i$ 和 $1$。
 
 最终，我们返回 $\textit{ans}$ 即可。
 
@@ -265,7 +265,7 @@ int maxCount(int* banned, int bannedSize, int n, int maxSum) {
 
 接下来，我们枚举数组 `banned` 中的每两个相邻元素 $i$ 和 $j$，那么可选的整数范围就是 $[i + 1, j - 1]$。二分枚举我们在此区间内能够选择的元素个数，找到最大的可选元素个数，然后将其加到 $\textit{ans}$ 中。同时在 `maxSum` 中减去这些元素的和。如果 `maxSum` 小于 $0$，那么我们跳出循环。返回答案即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `banned` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{banned}$ 的长度。
 
 相似题目：
 

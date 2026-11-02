@@ -94,9 +94,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们遍历 `brackets`，对于每个税级，计算该税级的税额，然后累加即可。
+我们遍历 $\textit{brackets}$，对于每个税级，计算该税级的税额，然后累加即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `brackets` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 $\textit{brackets}$ 的长度。
 
 <!-- tabs:start -->
 

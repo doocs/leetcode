@@ -98,9 +98,9 @@ The result is ordered by book_id in ascending order</div>
 
 <!-- thinking:end -->
 
-We directly filter out books where `rating` is `NULL`, then sort them in ascending order by `book_id`.
+We directly filter out books where $\textit{rating}$ is `NULL`, then sort them in ascending order by $\textit{book\_id}$.
 
-Note that the result set should only include the fields `book_id`, `title`, `author`, and `published_year`.
+Note that the result set should only include the fields $\textit{book\_id}$, `title`, `author`, and `published_year`.
 
 <!-- tabs:start -->
 

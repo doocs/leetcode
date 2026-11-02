@@ -78,7 +78,7 @@ tags:
 
 <!-- thinking:end -->
 
-遍历 `arr`，在 `pieces` 中找到首元素等于当前 `arr[i]` 的数组项，如果找不到，直接返回 `false`。
+遍历 $\textit{arr}$，在 $\textit{pieces}$ 中找到首元素等于当前 `arr[i]` 的数组项，如果找不到，直接返回 `false`。
 
 如果找到了，我们记数组项为 `pieces[k]`，然后继续往后遍历 `arr[i]` 和 `pieces[k]`，直至 `pieces[k]` 遍历完或者元素不等。
 
@@ -277,11 +277,11 @@ var canFormArray = function (arr, pieces) {
 
 创建一个哈希表，键为 `pieces` 中每个数组项的首元素，值为数组项。
 
-遍历 `arr`，如果当前元素在哈希表中不存在，直接返回 `false`；否则，取出哈希表中对应的数组项，判断其与 `arr` 中的元素是否相等，如果不相等，直接返回 `false`。
+遍历 $\textit{arr}$，如果当前元素在哈希表中不存在，直接返回 `false`；否则，取出哈希表中对应的数组项，判断其与 $\textit{arr}$ 中的元素是否相等，如果不相等，直接返回 `false`。
 
 否则，遍历结束，返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `arr` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

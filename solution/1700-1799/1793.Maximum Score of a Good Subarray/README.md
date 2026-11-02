@@ -305,7 +305,7 @@ function maximumScore(nums: number[], k: number): number {
 
 5. 循环结束后，`max_score` 即为答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -93,7 +93,7 @@ Output table is ordered by user_id in increasing order.
 
 <!-- thinking:end -->
 
-First, we use the `LAG` window function to find the end time of the previous session of the same type for each user, denoted as `prev_session_end`. Then we use the `TIMESTAMPDIFF` function to calculate the time difference between the start time of the current session and the end time of the previous session. If the time difference is less than or equal to 12 hours, then this user meets the requirements of the problem.
+First, we use the `LAG` window function to find the end time of the previous session of the same type for each user, denoted as $\textit{prev\_session\_end}$. Then we use the `TIMESTAMPDIFF` function to calculate the time difference between the start time of the current session and the end time of the previous session. If the time difference is less than or equal to 12 hours, then this user meets the requirements of the problem.
 
 <!-- tabs:start -->
 

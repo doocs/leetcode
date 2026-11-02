@@ -75,7 +75,7 @@ Therefore, we can first preprocess the minimum value of the array suffix and rec
 
 Then, we traverse the array from front to back, maintaining the maximum value `mx` of the array prefix. When we traverse to a certain position, if the maximum value of the array prefix is less than or equal to the minimum value of the array suffix, then the current position is the dividing point of the partition, and we can return it directly.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

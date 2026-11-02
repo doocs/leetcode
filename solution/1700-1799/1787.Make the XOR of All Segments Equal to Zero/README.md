@@ -77,7 +77,7 @@ tags:
 
 <!-- thinking:end -->
 
-注意到数组 `nums` 在修改之后，任意长度为 $k$ 的区间异或结果都等于 $0$，那么对于任意的 $i$，都有：
+注意到数组 $\textit{nums}$ 在修改之后，任意长度为 $k$ 的区间异或结果都等于 $0$，那么对于任意的 $i$，都有：
 
 $$
 \textit{nums}[i] \oplus \textit{nums}[i+1] \oplus ... \oplus \textit{nums}[i+k-1] = 0
@@ -89,7 +89,7 @@ $$
 \textit{nums}[i+1] \oplus \textit{nums}[i+2] \oplus ... \oplus \textit{nums}[i+k] = 0
 $$
 
-结合上面两个等式以及异或运算的性质，可以得到 $\textit{nums}[i] \oplus \textit{nums}[i+k] = 0$，即 $\textit{nums}[i]=\textit{nums}[i+k]$，我们发现，修改后的数组 `nums` 中的元素是以周期为 $k$ 的循环，对模 $k$ 同余的一组数必然只能取固定值，同时需要满足前 $k$ 个数异或结果为 $0$。
+结合上面两个等式以及异或运算的性质，可以得到 $\textit{nums}[i] \oplus \textit{nums}[i+k] = 0$，即 $\textit{nums}[i]=\textit{nums}[i+k]$，我们发现，修改后的数组 $\textit{nums}$ 中的元素是以周期为 $k$ 的循环，对模 $k$ 同余的一组数必然只能取固定值，同时需要满足前 $k$ 个数异或结果为 $0$。
 
 我们先对每一组 $i$ 进行计数，每一组的元素个数为 $\textit{size}[i]$，每一组值为 $v$ 的元素个数为 $\textit{cnt}[i][v]$。
 
@@ -101,7 +101,7 @@ $$
 
 最终答案为 $f[0]$。
 
-时间复杂度 $O(2^{C} k + n)$。其中 $n$ 是数组 `nums` 的长度，而 $C$ 为 `nums` 中元素二进制表示的最大位数，本题中 $C=10$。
+时间复杂度 $O(2^{C} k + n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $C$ 为 $\textit{nums}$ 中元素二进制表示的最大位数，本题中 $C=10$。
 
 <!-- tabs:start -->
 

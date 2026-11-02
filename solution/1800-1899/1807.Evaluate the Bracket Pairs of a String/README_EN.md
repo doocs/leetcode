@@ -101,11 +101,11 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 
 <!-- thinking:end -->
 
-First, we use a hash table $d$ to record the key-value pairs in `knowledge`.
+First, we use a hash table $d$ to record the key-value pairs in $\textit{knowledge}$.
 
 Then we traverse the string $s$. If the current character is an open parenthesis `'('`, we start traversing from the current position until we encounter a close parenthesis `')'`. At this point, the string within the parentheses is the key. We look for the corresponding value of this key in the hash table $d$. If found, we replace the value within the parentheses with it, otherwise, we replace it with `'?'`.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(L)$, where $n$ and $m$ are the lengths of the string $s$ and the list `knowledge` respectively, and $L$ is the sum of the lengths of all strings in `knowledge`.
+The time complexity is $O(n + m)$, and the space complexity is $O(L)$, where $n$ and $m$ are the lengths of the string $s$ and the list $\textit{knowledge}$ respectively, and $L$ is the sum of the lengths of all strings in $\textit{knowledge}$.
 
 <!-- tabs:start -->
 

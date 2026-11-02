@@ -109,7 +109,7 @@ According to the problem description, for $0 < i < n - 1$, if it satisfies $\tex
 
 For operation $1$, i.e., updating $\textit{nums}[\textit{idx}]$ to $\textit{val}$, it will only affect the values at positions $\textit{idx} - 1$, $\textit{idx}$, and $\textit{idx} + 1$, so we only need to update these three positions. Specifically, we can first remove the peak elements at these three positions, then update the value of $\textit{nums}[\textit{idx}]$, and finally add back the peak elements at these three positions.
 
-The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n)$, where $n$ and $q$ are the lengths of the array `nums` and the query array `queries`, respectively.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n)$, where $n$ and $q$ are the lengths of the array $\textit{nums}$ and the query array $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

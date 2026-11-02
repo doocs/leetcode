@@ -85,7 +85,7 @@ The blue arrows show how we can find originalText from encodedText.
 
 > **Thinking**
 >
-> The plaintext was written by rows and read along diagonals. The column count follows from the length and `rows`, so we replay those diagonals. Each character is visited once for $n \le 10^6$.
+> The plaintext was written by rows and read along diagonals. The column count follows from the length and $\textit{rows}$, so we replay those diagonals. Each character is visited once for $n \le 10^6$.
 >
 > Start at every top-row column, walk down-right, then `rstrip` the guaranteed trailing spaces.
 

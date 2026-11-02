@@ -110,13 +110,13 @@ Hence, the answer is -1.
 
 We notice that if we can mark all indices within $t$ seconds, then we can also mark all indices within $t' \geq t$ seconds. Therefore, we can use binary search to find the earliest seconds.
 
-We define the left and right boundaries of binary search as $l = 1$ and $r = m + 1$, where $m$ is the length of the array `changeIndices`. For each $t = \frac{l + r}{2}$, we check whether we can mark all indices within $t$ seconds. If we can, we move the right boundary to $t$, otherwise we move the left boundary to $t + 1$. Finally, we judge whether the left boundary is greater than $m$, if it is, return $-1$, otherwise return the left boundary.
+We define the left and right boundaries of binary search as $l = 1$ and $r = m + 1$, where $m$ is the length of the array $\textit{changeIndices}$. For each $t = \frac{l + r}{2}$, we check whether we can mark all indices within $t$ seconds. If we can, we move the right boundary to $t$, otherwise we move the left boundary to $t + 1$. Finally, we judge whether the left boundary is greater than $m$, if it is, return $-1$, otherwise return the left boundary.
 
 The key to the problem is how to judge whether we can mark all indices within $t$ seconds. We can use an array $\textit{last}$ to record the latest time each index needs to be marked, use a variable $\textit{decrement}$ to record the current number of times that can be reduced, and use a variable $\textit{marked}$ to record the number of indices that have been marked.
 
-We traverse the first $t$ elements of the array `changeIndices`, for each element $i$, if $\textit{last}[i] = s$, then we need to check whether $\textit{decrement}$ is greater than or equal to $\textit{nums}[i - 1]$, if it is, we subtract $\textit{nums}[i - 1]$ from $\textit{decrement}$, and add one to $\textit{marked}$; otherwise, we return `False`. If $\textit{last}[i] \neq s$, then we can temporarily not mark the index, so we add one to $\textit{decrement}$. Finally, we check whether $\textit{marked}$ is equal to $n$, if it is, we return `True`, otherwise return `False`.
+We traverse the first $t$ elements of the array $\textit{changeIndices}$, for each element $i$, if $\textit{last}[i] = s$, then we need to check whether $\textit{decrement}$ is greater than or equal to $\textit{nums}[i - 1]$, if it is, we subtract $\textit{nums}[i - 1]$ from $\textit{decrement}$, and add one to $\textit{marked}$; otherwise, we return `False`. If $\textit{last}[i] \neq s$, then we can temporarily not mark the index, so we add one to $\textit{decrement}$. Finally, we check whether $\textit{marked}$ is equal to $n$, if it is, we return `True`, otherwise return `False`.
 
-The time complexity is $O(m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of `nums` and `changeIndices` respectively.
+The time complexity is $O(m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $\textit{nums}$ and $\textit{changeIndices}$ respectively.
 
 <!-- tabs:start -->
 

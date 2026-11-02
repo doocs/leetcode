@@ -124,7 +124,7 @@ Age 表：
 
 <!-- thinking:end -->
 
-我们可以通过等值连接，将 `Activities` 表和 `Age` 表按照 `user_id` 进行连接，然后再按照 `age_bucket` 进行分组，最后计算每个年龄段的发送和打开的百分比。
+我们可以通过等值连接，将 `Activities` 表和 `Age` 表按照 `user_id` 进行连接，然后再按照 $\textit{age\_bucket}$ 进行分组，最后计算每个年龄段的发送和打开的百分比。
 
 <!-- tabs:start -->
 

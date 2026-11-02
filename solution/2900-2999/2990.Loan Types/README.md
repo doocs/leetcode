@@ -86,7 +86,7 @@ Loans table:
 
 <!-- thinking:end -->
 
-我们可以对 `Loans` 表按照 `user_id` 进行分组，找出既包含 `Refinance` 又包含 `Mortgage` 的用户，然后按照 `user_id` 进行排序。
+我们可以对 `Loans` 表按照 `user_id` 进行分组，找出既包含 $\textit{Refinance}$ 又包含 `Mortgage` 的用户，然后按照 `user_id` 进行排序。
 
 <!-- tabs:start -->
 

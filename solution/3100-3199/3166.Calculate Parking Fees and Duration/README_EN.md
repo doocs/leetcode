@@ -113,9 +113,9 @@ Each row of this table contains the ID of the parking lot, the ID of the car, th
 
 <!-- thinking:end -->
 
-We can first group by `car_id` and `lot_id` to calculate the parking duration for each car in each parking lot. Then, we use the `ROW_NUMBER()` function to rank the parking duration of each car in each parking lot to find the parking lot where each car has the longest parking duration.
+We can first group by $\textit{car\_id}$ and $\textit{lot\_id}$ to calculate the parking duration for each car in each parking lot. Then, we use the `ROW_NUMBER()` function to rank the parking duration of each car in each parking lot to find the parking lot where each car has the longest parking duration.
 
-Finally, we can group by `car_id` to calculate the total parking fee, average hourly fee, and the parking lot with the longest parking duration for each car.
+Finally, we can group by $\textit{car\_id}$ to calculate the total parking fee, average hourly fee, and the parking lot with the longest parking duration for each car.
 
 <!-- tabs:start -->
 

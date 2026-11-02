@@ -100,7 +100,7 @@ We can use the prefix sum method to calculate $\sum_{i=1}^{k} b_i$ and $\sum_{i=
 
 Then we enumerate $x$, calculate the above four prefix sums, get the total cost mentioned above, and take the minimum value.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array `nums`. The main time complexity comes from sorting.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$. The main time complexity comes from sorting.
 
 <!-- tabs:start -->
 
@@ -284,7 +284,7 @@ impl Solution {
 
 We can also consider $b_i$ as the occurrence times of $a_i$, then the index of the median is $\frac{\sum_{i=1}^{n} b_i}{2}$. Changing all numbers to the median is definitely optimal.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array `nums`. The main time complexity comes from sorting.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$. The main time complexity comes from sorting.
 
 Similar problems:
 

@@ -75,7 +75,7 @@ Each time we take the smallest super ugly number $x$ from the queue, multiply $x
 
 Since the problem guarantees that the $n$th super ugly number is within the range of a 32-bit signed integer, before we put the product into the queue, we can first check whether the product exceeds $2^{31} - 1$. If it does, there is no need to put the product into the queue. In addition, the Euler sieve can be used for optimization.
 
-The time complexity is $O(nm \log (nm))$, and the space complexity is $O(nm)$, where $m$ and $n$ are the length of the array `primes` and the given integer $n$ respectively.
+The time complexity is $O(nm \log (nm))$, and the space complexity is $O(nm)$, where $m$ and $n$ are the length of the array $\textit{primes}$ and the given integer $n$ respectively.
 
 <!-- tabs:start -->
 

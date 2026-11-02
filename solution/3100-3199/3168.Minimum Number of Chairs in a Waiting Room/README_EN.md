@@ -217,11 +217,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use a variable `cnt` to record the current number of chairs needed, and a variable `left` to record the current number of remaining empty chairs. We traverse the string `s`. If the current character is 'E', then if there are remaining empty chairs, we directly use one empty chair, otherwise we need to add a chair; if the current character is 'L', then the number of remaining empty chairs increases by one.
+We use a variable $\textit{cnt}$ to record the current number of chairs needed, and a variable $\textit{left}$ to record the current number of remaining empty chairs. We traverse the string `s`. If the current character is 'E', then if there are remaining empty chairs, we directly use one empty chair, otherwise we need to add a chair; if the current character is 'L', then the number of remaining empty chairs increases by one.
 
-After the traversal, we return `cnt`.
+After the traversal, we return $\textit{cnt}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `s`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

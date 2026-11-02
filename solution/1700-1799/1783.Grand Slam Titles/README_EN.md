@@ -106,7 +106,7 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 
 <!-- thinking:end -->
 
-We can use `UNION ALL` to merge all player IDs who won Grand Slam titles into a table `T`, then use an equi-join `JOIN` to join `T` table with `Players` table on `player_id`, and finally use `GROUP BY` and `COUNT` to count the number of Grand Slam titles won by each player.
+We can use `UNION ALL` to merge all player IDs who won Grand Slam titles into a table `T`, then use an equi-join `JOIN` to join `T` table with $\textit{Players}$ table on `player_id`, and finally use `GROUP BY` and $\textit{COUNT}$ to count the number of Grand Slam titles won by each player.
 
 <!-- tabs:start -->
 

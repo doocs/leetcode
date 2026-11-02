@@ -101,7 +101,7 @@ Each row of this table contains the state name and the city name within that sta
 
 <!-- thinking:end -->
 
-We can first group by the `state` field, then sort the `city` field within each group, and finally use the `GROUP_CONCAT` function to concatenate the sorted city names into a comma-separated string.
+We can first group by the $\textit{state}$ field, then sort the `city` field within each group, and finally use the `GROUP_CONCAT` function to concatenate the sorted city names into a comma-separated string.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ We start traversing the string `word` from index $1$. If `word[i]` and `word[i -
 
 Finally, we return the recorded number of operations.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `word`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

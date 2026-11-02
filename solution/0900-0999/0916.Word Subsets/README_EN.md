@@ -80,11 +80,11 @@ tags:
 
 <!-- thinking:end -->
 
-Traverse each word `b` in `words2`, count the maximum occurrence of each letter, and record it as `cnt`.
+Traverse each word `b` in $\textit{words2}$, count the maximum occurrence of each letter, and record it as $\textit{cnt}$.
 
-Then traverse each word `a` in `words1`, count the occurrence of each letter, and record it as `t`. If the occurrence of each letter in `cnt` is not greater than the occurrence in `t`, then `a` is a universal word, and add it to the answer.
+Then traverse each word `a` in `words1`, count the occurrence of each letter, and record it as `t`. If the occurrence of each letter in $\textit{cnt}$ is not greater than the occurrence in `t`, then `a` is a universal word, and add it to the answer.
 
-The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words in `words1` and `words2`.
+The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words in $\textit{words1}$ and $\textit{words2}$.
 
 <!-- tabs:start -->
 

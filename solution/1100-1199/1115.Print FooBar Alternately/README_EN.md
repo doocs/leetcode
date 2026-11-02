@@ -79,7 +79,7 @@ class FooBar {
 
 > **Thinking**
 >
-> Two threads must alternate exactly $n$ times. Semaphores $f$ and $b$ start at $1$ and $0$ so `foo` runs first; each print releases the other and withholds itself until the next turn. $n$ rounds produce `foobar` repeated $n$ times.
+> Two threads must alternate exactly $n$ times. Semaphores $f$ and $b$ start at $1$ and $0$ so $\textit{foo}$ runs first; each print releases the other and withholds itself until the next turn. $n$ rounds produce `foobar` repeated $n$ times.
 
 <!-- thinking:end -->
 

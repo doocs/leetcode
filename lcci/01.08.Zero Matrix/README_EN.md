@@ -97,9 +97,9 @@ difficulty: Medium
 
 <!-- thinking:end -->
 
-We use arrays `rows` and `cols` to mark the rows and columns to be zeroed.
+We use arrays $\textit{rows}$ and $\textit{cols}$ to mark the rows and columns to be zeroed.
 
-Then we traverse the matrix again, zeroing the elements corresponding to the rows and columns marked in `rows` and `cols`.
+Then we traverse the matrix again, zeroing the elements corresponding to the rows and columns marked in $\textit{rows}$ and $\textit{cols}$.
 
 The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

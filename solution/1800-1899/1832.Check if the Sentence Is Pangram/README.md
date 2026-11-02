@@ -70,7 +70,7 @@ tags:
 
 遍历字符串 `sentence`，用数组或哈希表记录出现过的字母，最后判断数组或哈希表中是否有 $26$ 个字母即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 `sentence` 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $\textit{sentence}$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -196,7 +196,7 @@ bool checkIfPangram(char* sentence) {
 
 最后判断 $\textit{mask}$ 的二进制表示中是否有 $26$ 个 $1$，也即判断 $\textit{mask}$ 是否等于 $2^{26} - 1$。若是，返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `sentence` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{sentence}$ 的长度。
 
 <!-- tabs:start -->
 

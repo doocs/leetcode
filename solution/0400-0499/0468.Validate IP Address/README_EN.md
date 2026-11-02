@@ -103,7 +103,7 @@ The implementation of the function `isIPv6` is as follows:
 
 Finally, we call the `isIPv4` and `isIPv6` functions to determine if `queryIP` is a valid IPv4 address or IPv6 address. If it is neither, we return `Neither`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `queryIP`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{queryIP}$.
 
 <!-- tabs:start -->
 

@@ -104,7 +104,7 @@ $$
 
 那么答案为 $f$ 的最高位的位置。
 
-时间复杂度 $O(n \times M / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
+时间复杂度 $O(n \times M / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 $\textit{rewardValues}$ 的长度，而 $M$ 是数组 $\textit{rewardValues}$ 中的最大值的两倍。整数 $w = 32$ 或 $64$。
 
 <!-- tabs:start -->
 

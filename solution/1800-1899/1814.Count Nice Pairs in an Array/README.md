@@ -79,7 +79,7 @@ tags:
 
 注意答案的取模操作。
 
-时间复杂度 $O(n \log M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。
+时间复杂度 $O(n \log M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 

@@ -65,7 +65,7 @@ tags:
 
 <!-- thinking:end -->
 
-We traverse the string $s$, and use a variable `sign` to record the operator before each number. For the first number, its previous operator is considered as a plus sign. Each time we traverse to the end of a number, we decide the calculation method based on `sign`:
+We traverse the string $s$, and use a variable $\textit{sign}$ to record the operator before each number. For the first number, its previous operator is considered as a plus sign. Each time we traverse to the end of a number, we decide the calculation method based on $\textit{sign}$:
 
 - Plus sign: push the number into the stack;
 - Minus sign: push the opposite number into the stack;

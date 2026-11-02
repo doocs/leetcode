@@ -79,7 +79,7 @@ We can enumerate each point in `points` as the boomerang's point $i$, and then u
 
 If there are $x$ points with equal distance to $i$, then we can arbitrarily select two of them as the boomerang's $j$ and $k$. The number of schemes is $A_x^2 = x \times (x - 1)$. Therefore, for each value $x$ in the hash table, we calculate and accumulate $A_x^2$, which gives us the total number of boomerangs that meet the problem's requirements.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array `points`.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 

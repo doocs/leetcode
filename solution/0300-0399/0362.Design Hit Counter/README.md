@@ -85,9 +85,9 @@ counter.getHits(301); // 在时刻 301 统计过去 5 分钟内的敲击次数�
 
 <!-- thinking:end -->
 
-由于 `timestamp` 是单调递增的，我们可以使用一个数组 `ts` 来存储所有的 `timestamp`，然后在 `getHits` 方法中使用二分查找找到第一个大于等于 `timestamp - 300 + 1` 的位置，然后返回 `ts` 的长度减去这个位置即可。
+由于 $\textit{timestamp}$ 是单调递增的，我们可以使用一个数组 `ts` 来存储所有的 $\textit{timestamp}$，然后在 `getHits` 方法中使用二分查找找到第一个大于等于 `timestamp - 300 + 1` 的位置，然后返回 `ts` 的长度减去这个位置即可。
 
-时间复杂度方面，`hit` 方法的时间复杂度为 $O(1)$，`getHits` 方法的时间复杂度为 $O(\log n)$。其中 $n$ 为 `ts` 的长度。
+时间复杂度方面， $\textit{hit}$ 方法的时间复杂度为 $O(1)$， $\textit{getHits}$ 方法的时间复杂度为 $O(\log n)$。其中 $n$ 为 $\textit{ts}$ 的长度。
 
 <!-- tabs:start -->
 

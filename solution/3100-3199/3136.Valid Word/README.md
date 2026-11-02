@@ -104,9 +104,9 @@ tags:
 
 我们首先判断字符串的长度是否小于 3，如果是则返回 `false`。
 
-然后我们遍历字符串，判断每个字符是否是字母或数字，如果不是则返回 `false`。否则我们判断该字符是否是元音字母，如果是则将 `has_vowel` 置为 `true`，否则将 `has_consonant` 置为 `true`。
+然后我们遍历字符串，判断每个字符是否是字母或数字，如果不是则返回 `false`。否则我们判断该字符是否是元音字母，如果是则将 $\textit{has\_vowel}$ 置为 `true`，否则将 $\textit{has\_consonant}$ 置为 `true`。
 
-最后，如果 `has_vowel` 和 `has_consonant` 都为 `true`，则返回 `true`，否则返回 `false`。
+最后，如果 $\textit{has\_vowel}$ 和 $\textit{has\_consonant}$ 都为 `true`，则返回 `true`，否则返回 `false`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
 

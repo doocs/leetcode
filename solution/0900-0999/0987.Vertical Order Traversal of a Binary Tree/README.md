@@ -337,17 +337,17 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 
 题目要求最终结果按照列从左到右输出，因此得维护：
 
-- `leftmostCol`：当前记录的最左列
+- $\textit{leftmostCol}$：当前记录的最左列
 - `rightmostCol`：当前记录的最右列
 
 同时使用双端队列 `columnsValues` 存储各列对应的节点值。
 
 当访问到新的列时：
 
-- 若列号小于 `leftmostCol`，则在双端队列左侧插入新的列容器；
+- 若列号小于 $\textit{leftmostCol}$，则在双端队列左侧插入新的列容器；
 - 若列号大于 `rightmostCol`，则在双端队列右侧插入新的列容器。
 
-对于任意列号 `col`，其在 `columnsValues` 中对应的索引为：
+对于任意列号 $\textit{col}$，其在 `columnsValues` 中对应的索引为：
 
 $$
 \textit{col} - \textit{leftmostCol}

@@ -92,13 +92,13 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 
 <!-- thinking:end -->
 
-Let's assume that if we can restore `word` to its initial state with only one operation, it means that `word[k:]` is a prefix of `word`, i.e., `word[k:] == word[:n-k]`.
+Let's assume that if we can restore $\textit{word}$ to its initial state with only one operation, it means that `word[k:]` is a prefix of $\textit{word}$, i.e., `word[k:] == word[:n-k]`.
 
-If there are multiple operations, let's assume $i$ is the number of operations, then it means that `word[k*i:]` is a prefix of `word`, i.e., `word[k*i:] == word[:n-k*i]`.
+If there are multiple operations, let's assume $i$ is the number of operations, then it means that `word[k*i:]` is a prefix of $\textit{word}$, i.e., `word[k*i:] == word[:n-k*i]`.
 
-Therefore, we can enumerate the number of operations and check whether `word[k*i:]` is a prefix of `word`. If it is, then return $i$.
+Therefore, we can enumerate the number of operations and check whether `word[k*i:]` is a prefix of $\textit{word}$. If it is, then return $i$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of `word`.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{word}$.
 
 <!-- tabs:start -->
 
@@ -195,7 +195,7 @@ function minimumTimeToInitialState(word: string, k: number): number {
 
 Based on Solution 1, we can also use string hashing to determine whether two strings are equal.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of `word`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{word}$.
 
 <!-- tabs:start -->
 

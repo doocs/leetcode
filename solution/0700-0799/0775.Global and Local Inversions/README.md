@@ -88,7 +88,7 @@ tags:
 
 遍历结束后，返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -181,7 +181,7 @@ func isIdealPermutation(nums []int) bool {
 
 对于本题，我们定义一个变量 $\textit{cnt}$ 记录局部倒置的数量与全局倒置的数量之差。如果遍历过程中， $\textit{cnt}$ 的值小于 $0$，则说明全局倒置的数量大于局部倒置的数量，返回 `false` 即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -82,7 +82,7 @@ Products 表：
 
 <!-- thinking:end -->
 
-我们直接筛选出 `low_fats` 为 `Y` 且 `recyclable` 为 `Y` 的产品编号即可。
+我们直接筛选出 $\textit{low\_fats}$ 为 `Y` 且 $\textit{recyclable}$ 为 `Y` 的产品编号即可。
 
 <!-- tabs:start -->
 

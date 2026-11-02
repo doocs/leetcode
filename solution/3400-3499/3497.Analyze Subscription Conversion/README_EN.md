@@ -153,9 +153,9 @@ Each row represents a user&#39;s activity on a specific date.
 
 <!-- thinking:end -->
 
-First, we filter the data in the table to exclude all records where `activity_type` is equal to `cancelled`. Then, we group the remaining data by `user_id` and `activity_type`, calculate the duration `duration` for each group, and store the results in table `T`.
+First, we filter the data in the table to exclude all records where `activity_type` is equal to $\textit{cancelled}$. Then, we group the remaining data by $\textit{user\_id}$ and `activity_type`, calculate the duration `duration` for each group, and store the results in table `T`.
 
-Next, we filter table `T` to extract records where `activity_type` is `free_trial` and `paid`, storing them in tables `F` and `P`, respectively. Finally, we perform an equi-join on these two tables using `user_id`, filter the required fields as per the problem statement, and sort the results to produce the final output.
+Next, we filter table `T` to extract records where `activity_type` is `free_trial` and `paid`, storing them in tables `F` and `P`, respectively. Finally, we perform an equi-join on these two tables using $\textit{user\_id}$, filter the required fields as per the problem statement, and sort the results to produce the final output.
 
 <!-- tabs:start -->
 

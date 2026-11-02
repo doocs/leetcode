@@ -85,7 +85,7 @@ Then the value of $sa$ is ${\textstyle \sum_{j=1}^{k}} \textit{len}(s_j)$, which
 
 Therefore, the number of characters that can be filled in all segments is $\textit{limit}\times k - (sa + sb + sc)$. If this value is greater than or equal to $n$, it means that the string can be divided into $k$ segments, and we can directly construct the answer and return it.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `message`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{message}$.
 
 <!-- tabs:start -->
 

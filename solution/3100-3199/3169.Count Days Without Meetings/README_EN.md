@@ -91,9 +91,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can sort all the meetings by their start time, and use a variable `last` to record the latest end time of the previous meetings.
+We can sort all the meetings by their start time, and use a variable $\textit{last}$ to record the latest end time of the previous meetings.
 
-Then we traverse all the meetings. For each meeting $(st, ed)$, if `last < st`, it means that the time period from `last` to `st` is a time period when employees can work and no meetings are scheduled. We add this time period to the answer. Then we update `last = max(last, ed)`.
+Then we traverse all the meetings. For each meeting $(st, ed)$, if `last < st`, it means that the time period from $\textit{last}$ to `st` is a time period when employees can work and no meetings are scheduled. We add this time period to the answer. Then we update `last = max(last, ed)`.
 
 Finally, if `last < days`, it means that there is a time period after the end of the last meeting when employees can work and no meetings are scheduled. We add this time period to the answer.
 

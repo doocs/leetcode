@@ -96,19 +96,19 @@ First, we perform a DFS traversal to determine the depth of each node, which we 
 
 Then we design a function $\textit{dfs}(\textit{root}, \textit{depth}, \textit{rest})$, where:
 
-- `root` represents the current node;
-- `depth` represents the depth of the current node;
-- `rest` represents the height of the tree after deleting the current node.
+- $\textit{root}$ represents the current node;
+- $\textit{depth}$ represents the depth of the current node;
+- $\textit{rest}$ represents the height of the tree after deleting the current node.
 
 The function's computation logic is as follows:
 
-If the node is null, return directly. Otherwise, we increment `depth` by $1$, and then store `rest` in `res`.
+If the node is null, return directly. Otherwise, we increment $\textit{depth}$ by $1$, and then store $\textit{rest}$ in $\textit{res}$.
 
 Next, we recursively traverse the left and right subtrees.
 
-Before recursing into the left subtree, we calculate the depth from the root node to the deepest node in the current node's right subtree, i.e., $\textit{depth}+d[\textit{root}.\textit{right}]$, and then compare it with `rest`, taking the larger value as the `rest` for the left subtree.
+Before recursing into the left subtree, we calculate the depth from the root node to the deepest node in the current node's right subtree, i.e., $\textit{depth}+d[\textit{root}.\textit{right}]$, and then compare it with $\textit{rest}$, taking the larger value as the $\textit{rest}$ for the left subtree.
 
-Before recursing into the right subtree, we calculate the depth from the root node to the deepest node in the current node's left subtree, i.e., $\textit{depth}+d[\textit{root}.\textit{left}]$, and then compare it with `rest`, taking the larger value as the `rest` for the right subtree.
+Before recursing into the right subtree, we calculate the depth from the root node to the deepest node in the current node's left subtree, i.e., $\textit{depth}+d[\textit{root}.\textit{left}]$, and then compare it with $\textit{rest}$, taking the larger value as the $\textit{rest}$ for the right subtree.
 
 Finally, we return the result values corresponding to each query node.
 

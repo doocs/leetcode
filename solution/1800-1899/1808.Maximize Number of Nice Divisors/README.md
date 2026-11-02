@@ -77,14 +77,14 @@ tags:
 
 我们可以将 $n$ 进行质因数分解，即 $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$，其中 $a_i$ 为质因子，而 $k_i$ 为质因子 $a_i$ 的指数。由于 $n$ 的质因子个数不超过 $\textit{primeFactors}$ 个，因此 $k_1 + k_2 + \cdots + k_m \leq \textit{primeFactors}$。
 
-而根据题意描述，我们知道 $n$ 的好因子要满足能被所有的质因子整除，也即是说 $n$ 的好因子需要包含 $a_1 \times a_2 \times \cdots \times a_m$ 作为因数。那么好因子的个数 $k= k_1 \times k_2 \times \cdots \times k_m$，即 $k$ 为 $k_1, k_2, \cdots, k_m$ 的乘积。要最大化好因子的个数，也即是说我们要将 `primeFactors` 拆分成 $k_1, k_2, \cdots, k_m$，使得 $k_1 \times k_2 \times \cdots \times k_m$ 最大。因此问题转换为：将整数 `primeFactors` 拆分成若干个整数的乘积，使得乘积最大。
+而根据题意描述，我们知道 $n$ 的好因子要满足能被所有的质因子整除，也即是说 $n$ 的好因子需要包含 $a_1 \times a_2 \times \cdots \times a_m$ 作为因数。那么好因子的个数 $k= k_1 \times k_2 \times \cdots \times k_m$，即 $k$ 为 $k_1, k_2, \cdots, k_m$ 的乘积。要最大化好因子的个数，也即是说我们要将 $\textit{primeFactors}$ 拆分成 $k_1, k_2, \cdots, k_m$，使得 $k_1 \times k_2 \times \cdots \times k_m$ 最大。因此问题转换为：将整数 $\textit{primeFactors}$ 拆分成若干个整数的乘积，使得乘积最大。
 
 接下来，我们只需要分情况讨论。
 
-- 如果 $\textit{primeFactors} \lt 4$，那么直接返回 `primeFactors` 即可。
-- 如果 $\textit{primeFactors}$ 为 $3$ 的倍数，那么我们将 `primeFactors` 拆分成 $3$ 的倍数个 $3$，即 $3^{\frac{\textit{primeFactors}}{3}}$。
-- 如果 $\textit{primeFactors}$ 除以 $3$ 余 $1$，那么我们将 `primeFactors` 拆分成 $\frac{\textit{primeFactors}}{3} - 1$ 个 $3$，再乘以 $4$，即 $3^{\frac{\textit{primeFactors}}{3} - 1} \times 4$。
-- 如果 $\textit{primeFactors}$ 除以 $3$ 余 $2$，那么我们将 `primeFactors` 拆分成 $\frac{\textit{primeFactors}}{3}$ 个 $3$，再乘以 $2$，即 $3^{\frac{\textit{primeFactors}}{3}} \times 2$。
+- 如果 $\textit{primeFactors} \lt 4$，那么直接返回 $\textit{primeFactors}$ 即可。
+- 如果 $\textit{primeFactors}$ 为 $3$ 的倍数，那么我们将 $\textit{primeFactors}$ 拆分成 $3$ 的倍数个 $3$，即 $3^{\frac{\textit{primeFactors}}{3}}$。
+- 如果 $\textit{primeFactors}$ 除以 $3$ 余 $1$，那么我们将 $\textit{primeFactors}$ 拆分成 $\frac{\textit{primeFactors}}{3} - 1$ 个 $3$，再乘以 $4$，即 $3^{\frac{\textit{primeFactors}}{3} - 1} \times 4$。
+- 如果 $\textit{primeFactors}$ 除以 $3$ 余 $2$，那么我们将 $\textit{primeFactors}$ 拆分成 $\frac{\textit{primeFactors}}{3}$ 个 $3$，再乘以 $2$，即 $3^{\frac{\textit{primeFactors}}{3}} \times 2$。
 
 以上过程中，我们利用快速幂取模求解。
 

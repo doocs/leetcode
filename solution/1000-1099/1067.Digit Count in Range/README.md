@@ -84,14 +84,14 @@ $$
 
 其中：
 
-- `pos` 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此，`pos` 的初始值为 `len`；
-- `cnt` 表示当前数字中包含 $d$ 的个数；
-- `lead` 表示当前数字是否有前导零，如果有前导零，则 `lead` 为 `true`，否则为 `false`，初始化为 `true`；
-- `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1,..9]$，否则，只能选择 $[0,..a[\textit{pos}]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
+- $\textit{pos}$ 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此， $\textit{pos}$ 的初始值为 $\textit{len}$；
+- $\textit{cnt}$ 表示当前数字中包含 $d$ 的个数；
+- $\textit{lead}$ 表示当前数字是否有前导零，如果有前导零，则 $\textit{lead}$ 为 `true`，否则为 `false`，初始化为 `true`；
+- $\textit{limit}$ 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1,..9]$，否则，只能选择 $[0,..a[\textit{pos}]]$。如果 $\textit{limit}$ 为 `true` 且已经取到了能取到的最大值，那么下一个 $\textit{limit}$ 同样为 `true`；如果 $\textit{limit}$ 为 `true` 但是还没有取到最大值，或者 $\textit{limit}$ 为 `false`，那么下一个 $\textit{limit}$ 为 `false`。
 
 关于函数的实现细节，可以参考下面的代码。
 
-时间复杂度 $O(\log m + \log n)$。其中 $m$, $n$ 分别为题目中的 `low` 和 `high`。
+时间复杂度 $O(\log m + \log n)$。其中 $m$, $n$ 分别为题目中的 $\textit{low}$ 和 $\textit{high}$。
 
 相似题目：
 

@@ -121,11 +121,11 @@ tags:
 
 <!-- thinking:end -->
 
-Let's assume that the lengths of the strings `initial` and `target` are $m$ and $n$, respectively.
+Let's assume that the lengths of the strings $\textit{initial}$ and $\textit{target}$ are $m$ and $n$, respectively.
 
-According to the problem description, we only need to find the length $mx$ of the longest common substring of `initial` and `target`. Then, we can delete $m - mx$ characters from `initial` and add $n - mx$ characters to transform `initial` into `target`. Therefore, the answer is $m + n - 2 \times mx$.
+According to the problem description, we only need to find the length $mx$ of the longest common substring of $\textit{initial}$ and $\textit{target}$. Then, we can delete $m - mx$ characters from $\textit{initial}$ and add $n - mx$ characters to transform $\textit{initial}$ into $\textit{target}$. Therefore, the answer is $m + n - 2 \times mx$.
 
-We can use dynamic programming to find the length $mx$ of the longest common substring of `initial` and `target`. We define a two-dimensional array $f$, where $f[i][j]$ represents the length of the longest common substring ending with `initial[i - 1]` and `target[j - 1]`. Then, we can get the state transition equation:
+We can use dynamic programming to find the length $mx$ of the longest common substring of $\textit{initial}$ and $\textit{target}$. We define a two-dimensional array $f$, where $f[i][j]$ represents the length of the longest common substring ending with `initial[i - 1]` and `target[j - 1]`. Then, we can get the state transition equation:
 
 $$
 f[i][j] = \begin{cases}
@@ -136,7 +136,7 @@ $$
 
 Then $mx = \max f[i][j]$, and the final answer is $m + n - 2 \times mx$.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings `initial` and `target`, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings $\textit{initial}$ and $\textit{target}$, respectively.
 
 <!-- tabs:start -->
 

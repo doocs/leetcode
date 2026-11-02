@@ -81,9 +81,9 @@ tags:
 
 根据题意，我们应该选择尽可能多的单元数，因此，我们先对 `boxTypes` 按照单元数从大到小的顺序排列。
 
-然后从前往后遍历 `boxTypes`，选择最多 `truckSize` 个箱子，累加单元数。
+然后从前往后遍历 `boxTypes`，选择最多 $\textit{truckSize}$ 个箱子，累加单元数。
 
-时间复杂度 $O(n \log n)$。其中 $n$ 表示二维数组 `boxTypes` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 表示二维数组 $\textit{boxTypes}$ 的长度。
 
 <!-- tabs:start -->
 

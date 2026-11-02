@@ -186,14 +186,14 @@ function minAddToMakeValid(s: string): number {
 
 Solution 1 uses a stack to implement parenthesis matching, but we can also directly implement it through counting.
 
-Define a variable `cnt` to represent the current number of left parentheses to be matched, and a variable `ans` to record the answer. Initially, both variables are set to $0$.
+Define a variable $\textit{cnt}$ to represent the current number of left parentheses to be matched, and a variable $\textit{ans}$ to record the answer. Initially, both variables are set to $0$.
 
 Iterate through each character $c$ in the string $s$:
 
-- If $c$ is a left parenthesis, increase the value of `cnt` by $1$;
-- If $c$ is a right parenthesis, at this point if $\textit{cnt} > 0$, it means that there are left parentheses that can be matched, so decrease the value of `cnt` by $1$; otherwise, it means that the current right parenthesis cannot be matched, so increase the value of `ans` by $1$.
+- If $c$ is a left parenthesis, increase the value of $\textit{cnt}$ by $1$;
+- If $c$ is a right parenthesis, at this point if $\textit{cnt} > 0$, it means that there are left parentheses that can be matched, so decrease the value of $\textit{cnt}$ by $1$; otherwise, it means that the current right parenthesis cannot be matched, so increase the value of $\textit{ans}$ by $1$.
 
-After the iteration ends, add the value of `cnt` to `ans`, which is the answer.
+After the iteration ends, add the value of $\textit{cnt}$ to $\textit{ans}$, which is the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

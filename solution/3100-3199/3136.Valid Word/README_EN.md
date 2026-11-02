@@ -104,9 +104,9 @@ tags:
 
 First, we check if the length of the string is less than 3. If it is, we return `false`.
 
-Next, we iterate through the string, checking if each character is a letter or a number. If it's not, we return `false`. Otherwise, we check if the character is a vowel. If it is, we set `has_vowel` to `true`. If it's not, we set `has_consonant` to `true`.
+Next, we iterate through the string, checking if each character is a letter or a number. If it's not, we return `false`. Otherwise, we check if the character is a vowel. If it is, we set $\textit{has\_vowel}$ to `true`. If it's not, we set $\textit{has\_consonant}$ to `true`.
 
-Finally, if both `has_vowel` and `has_consonant` are `true`, we return `true`. Otherwise, we return `false`.
+Finally, if both $\textit{has\_vowel}$ and $\textit{has\_consonant}$ are `true`, we return `true`. Otherwise, we return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 

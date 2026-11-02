@@ -114,10 +114,10 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 根据题目描述，我们可以发现，王位继承顺序实际上是一个多叉树的前序遍历。我们可以使用一个哈希表 $g$ 存储每个人的孩子，使用一个集合 $\textit{dead}$ 存储已经去世的人。
 
 - 调用 `birth(parentName, childName)` 时，我们将 `childName` 添加到 `parentName` 的孩子列表中。
-- 调用 `death(name)` 时，我们将 `name` 添加到 `dead` 集合中。
+- 调用 `death(name)` 时，我们将 `name` 添加到 $\textit{dead}$ 集合中。
 - 调用 `getInheritanceOrder()` 时，我们从国王开始进行深度优先搜索，如果当前节点 `x` 没有去世，我们将 `x` 添加到答案列表中，然后递归地遍历 `x` 的所有孩子。
 
-时间复杂度方面，`birth` 和 `death` 的时间复杂度均为 $O(1)$，`getInheritanceOrder` 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 是节点数量。
+时间复杂度方面， $\textit{birth}$ 和 $\textit{death}$ 的时间复杂度均为 $O(1)$， $\textit{getInheritanceOrder}$ 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
 
@@ -416,7 +416,7 @@ public class ThroneInheritance {
 - 调用 `death(name)` 时，将 `name` 加入 $\textit{dead}$。
 - 调用 `getInheritanceOrder()` 时，栈里最初只有国王。弹出 `x` 后，若 `x` 不在 $\textit{dead}$ 中就写入答案，再把 `x` 的孩子从最后一个到第一个压入栈，从而保持出生顺序。
 
-时间复杂度方面，`birth` 和 `death` 的时间复杂度均为 $O(1)$，`getInheritanceOrder` 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 是节点数量。
+时间复杂度方面， $\textit{birth}$ 和 $\textit{death}$ 的时间复杂度均为 $O(1)$， $\textit{getInheritanceOrder}$ 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
 

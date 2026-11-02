@@ -75,7 +75,7 @@ We split the string `preorder` into an array by commas, then traverse the array.
 
 Finally, we check whether the length of the array is $1$ and whether the only element in the array is `'#'`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `preorder`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{preorder}$.
 
 <!-- tabs:start -->
 

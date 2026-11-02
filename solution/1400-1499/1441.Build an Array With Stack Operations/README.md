@@ -100,7 +100,7 @@ tags:
 
 > **思考**
 >
-> 流是 $1,2,\ldots,n$，`target` 严格递增。对 `target` 中未出现的数必须 `Push` 再立刻 `Pop`，出现的数只 `Push`。
+> 流是 $1,2,\ldots,n$， $\textit{target}$ 严格递增。对 $\textit{target}$ 中未出现的数必须 $\textit{Push}$ 再立刻 $\textit{Pop}$，出现的数只 $\textit{Push}$。
 >
 > 用指针 $\textit{cur}$ 表示下一个读入的数，对每个目标值 $x$，先把空隙填成 Push/Pop，再 Push $x$。 $n\le 100$，模拟即可。
 

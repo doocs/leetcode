@@ -62,7 +62,7 @@ tags:
 >
 > Ask whether $\textit{subRoot}$ equals some subtree of $\textit{root}$. Comparing at every node is $O(mn)$ in the worst case and fits the limits.
 >
-> `same` walks two trees together. The outer DFS invokes `same` at each node and returns on the first hit. Compare the root first so mismatches exit early.
+> $\textit{same}$ walks two trees together. The outer DFS invokes $\textit{same}$ at each node and returns on the first hit. Compare the root first so mismatches exit early.
 
 <!-- thinking:end -->
 

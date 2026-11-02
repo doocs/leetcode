@@ -61,7 +61,7 @@ tags:
 >
 > The minimum pairwise difference on a general tree needs all pairs. In a BST, inorder is sorted, so the minimum lies between adjacent values.
 >
-> Walk inorder, keep the predecessor, and update with `val - pre`. Seed `pre` at $-\infty$ so the first node is skipped. One inorder pass suffices.
+> Walk inorder, keep the predecessor, and update with `val - pre`. Seed $\textit{pre}$ at $-\infty$ so the first node is skipped. One inorder pass suffices.
 
 <!-- thinking:end -->
 

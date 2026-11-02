@@ -254,7 +254,7 @@ function decrypt(code: number[], k: number): number[] {
 
 若 $k$ 为负数，那么 $i$ 位置的值为 $i$ 位置前 $|k|$ 个位置的值之和，即 $\textit{ans}[i] = s[i + n] - s[i + k + n]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `code` 数组的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{code}$ 数组的长度。
 
 <!-- tabs:start -->
 

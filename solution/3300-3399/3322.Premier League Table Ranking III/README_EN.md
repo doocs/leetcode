@@ -147,7 +147,7 @@ This table contains season id, team id, team name, matches played, wins, draws, 
 
 We can use the window function `RANK()` to rank the teams by grouping them by season and sorting based on points, goal difference, and team name.
 
-Finally, we just need to sort by `season_id`, `position`, and `team_name`.
+Finally, we just need to sort by $\textit{season\_id}$, `position`, and `team_name`.
 
 <!-- tabs:start -->
 

@@ -83,11 +83,11 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 
 > **Thinking**
 >
-> At most $5000$ calls and coordinates in $[0,1000]$. Enumerating all triples per `count` is clumsy. An axis-aligned square is fixed by one horizontal side.
+> At most $5000$ calls and coordinates in $[0,1000]$. Enumerating all triples per $\textit{count}$ is clumsy. An axis-aligned square is fixed by one horizontal side.
 >
 > Store frequencies in $\textit{cnt}[x][y]$. For query $(x_1,y_1)$, enumerate existing $x_2 \ne x_1$ with side $d=x_2-x_1$; the other two vertices of the upper/lower squares follow.
 >
-> The product of the three frequencies is the count. `add` is $O(1)$; `count` is linear in distinct $x$.
+> The product of the three frequencies is the count. $\textit{add}$ is $O(1)$; $\textit{count}$ is linear in distinct $x$.
 
 <!-- thinking:end -->
 

@@ -86,7 +86,7 @@ Employees 表:
 
 <!-- thinking:end -->
 
-我们可以使用 `IF` 语句来判断奖金的计算方式，然后使用 `ORDER BY` 将结果按照 `employee_id` 排序。
+我们可以使用 $\textit{IF}$ 语句来判断奖金的计算方式，然后使用 `ORDER BY` 将结果按照 $\textit{employee\_id}$ 排序。
 
 <!-- tabs:start -->
 

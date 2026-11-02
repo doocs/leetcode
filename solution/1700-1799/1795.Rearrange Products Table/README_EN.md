@@ -84,7 +84,7 @@ Product 1 is available in store1 with price 70 and store3 with price 80. The pro
 
 <!-- thinking:end -->
 
-We can select the products and prices for each store, and then use the `UNION` operator to combine the results.
+We can select the products and prices for each store, and then use the $\textit{UNION}$ operator to combine the results.
 
 <!-- tabs:start -->
 

@@ -82,7 +82,7 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 
 <!-- thinking:end -->
 
-Since `timestamp` is monotonically increasing, we can use an array `ts` to store all `timestamp`s. Then in the `getHits` method, we use binary search to find the first position that is greater than or equal to `timestamp - 300 + 1`, and then return the length of `ts` minus this position.
+Since $\textit{timestamp}$ is monotonically increasing, we can use an array `ts` to store all $\textit{timestamp}$s. Then in the `getHits` method, we use binary search to find the first position that is greater than or equal to `timestamp - 300 + 1`, and then return the length of `ts` minus this position.
 
 In terms of time complexity, the time complexity of the `hit` method is $O(1)$, and the time complexity of the `getHits` method is $O(\log n)$. Where $n$ is the length of `ts`.
 

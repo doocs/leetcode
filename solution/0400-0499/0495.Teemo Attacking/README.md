@@ -78,11 +78,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们先考虑最后一次攻击，此次攻击一定可以使得艾希处于中毒状态，所以总中毒时间至少为 `duration`。
+我们先考虑最后一次攻击，此次攻击一定可以使得艾希处于中毒状态，所以总中毒时间至少为 $\textit{duration}$。
 
 接下来，我们考虑前 $n-1$ 次攻击，每一次攻击的中毒持续时间为 $\min(\textit{duration}, \textit{timeSeries}[i] - \textit{timeSeries}[i-1])$，其中 $i$ 从 1 开始。我们将这些中毒持续时间累加起来，即为总中毒时间。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `timeSeries` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{timeSeries}$ 的长度。
 
 <!-- tabs:start -->
 

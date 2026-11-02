@@ -77,7 +77,7 @@ Another possible subsequence is [4, 3].
 >
 > Maximum sum with original order means the $k$ largest values, then sorted by index. $n \le 1000$, so sort indices by value.
 >
-> Keep the last $k$ indices and emit `nums` in increasing index order.
+> Keep the last $k$ indices and emit $\textit{nums}$ in increasing index order.
 
 <!-- thinking:end -->
 

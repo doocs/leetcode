@@ -92,15 +92,15 @@ Note that if there are multiple sub-intervals with the same starting point, it i
 
 Therefore, we can preprocess all sub-intervals. For each position $i$, calculate the largest right endpoint among all sub-intervals starting at $i$, and record it in the array $\textit{last}[i]$.
 
-We define a variable `mx` to represent the farthest position that can currently be reached, a variable `ans` to represent the current minimum number of sub-intervals needed, and a variable `pre` to represent the right endpoint of the last used sub-interval.
+We define a variable `mx` to represent the farthest position that can currently be reached, a variable `ans` to represent the current minimum number of sub-intervals needed, and a variable $\textit{pre}$ to represent the right endpoint of the last used sub-interval.
 
 Next, we start enumerating all positions $i$ from $0$, using $\textit{last}[i]$ to update `mx`. If after updating, $mx = i$, it means that the next position cannot be covered, so the task cannot be completed, return $-1$.
 
-At the same time, we record the right endpoint `pre` of the last used sub-interval. If $\textit{pre} = i$, it means that a new sub-interval needs to be used, so we add $1$ to `ans` and update `pre` to `mx`.
+At the same time, we record the right endpoint $\textit{pre}$ of the last used sub-interval. If $\textit{pre} = i$, it means that a new sub-interval needs to be used, so we add $1$ to `ans` and update $\textit{pre}$ to `mx`.
 
 After the traversal is over, return `ans`.
 
-The time complexity is $O(n+m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the `clips` array and the value of `time`, respectively.
+The time complexity is $O(n+m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of the $\textit{clips}$ array and the value of $\textit{time}$, respectively.
 
 Similar problems:
 

@@ -91,7 +91,7 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
 
 <!-- thinking:end -->
 
-We use a hash table `cnt` to record the number of matches each player has lost.
+We use a hash table $\textit{cnt}$ to record the number of matches each player has lost.
 
 Then we traverse the hash table, put the players who lost 0 matches into `ans[0]`, and put the players who lost 1 match into `ans[1]`.
 

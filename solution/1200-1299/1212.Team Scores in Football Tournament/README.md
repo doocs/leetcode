@@ -120,15 +120,15 @@ Teams </code>table:
 
 <!-- thinking:end -->
 
-我们可以通过左连接，将 `Teams` 表和 `Matches` 表连接起来，连接的条件为 `team_id = host_team OR team_id = guest_team`，这样就可以得到每个球队的所有比赛信息。
+我们可以通过左连接，将 $\textit{Teams}$ 表和 $\textit{Matches}$ 表连接起来，连接的条件为 `team_id = host_team OR team_id = guest_team`，这样就可以得到每个球队的所有比赛信息。
 
-接下来，我们按照 `team_id` 分组，然后使用 `CASE` 表达式计算每个球队的积分，计算规则如下：
+接下来，我们按照 $\textit{team\_id}$ 分组，然后使用 $\textit{CASE}$ 表达式计算每个球队的积分，计算规则如下：
 
 - 如果球队是主队，且主队进球数大于客队进球数，则积分加 $3$ 分；
 - 如果球队是客队，且客队进球数大于主队进球数，则积分加 $3$ 分；
 - 如果主队和客队进球数相同，则积分加 $1$ 分；
 
-最后，我们按照积分降序排序，如果积分相同，则按照 `team_id` 升序排序。
+最后，我们按照积分降序排序，如果积分相同，则按照 $\textit{team\_id}$ 升序排序。
 
 <!-- tabs:start -->
 

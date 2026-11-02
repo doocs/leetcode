@@ -112,7 +112,7 @@ So, we only return the information of Student 2.
 >
 > A quiet student is never the unique highest or lowest score in any exam they took. Ranking both ends per exam is simpler than filtering extrema exam by exam.
 >
-> `RANK()` over each `exam_id` in both directions marks the min and max. After joining `Student`, keep people whose count of rank $1$ in either direction is zero.
+> `RANK()` over each `exam_id` in both directions marks the min and max. After joining $\textit{Student}$, keep people whose count of rank $1$ in either direction is zero.
 
 <!-- thinking:end -->
 

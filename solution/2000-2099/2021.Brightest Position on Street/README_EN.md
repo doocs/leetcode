@@ -101,7 +101,7 @@ Then we traverse each position in ascending order, calculate the brightness $s$ 
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of `lights`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{lights}$.
 
 <!-- tabs:start -->
 

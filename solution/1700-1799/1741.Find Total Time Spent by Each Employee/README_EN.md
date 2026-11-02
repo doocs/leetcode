@@ -88,7 +88,7 @@ Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, 
 
 <!-- thinking:end -->
 
-We can first group by `emp_id` and `event_day`, and then calculate the total time for each group. The total time is equal to the sum of the differences between `out_time` and `in_time` for each record in the group.
+We can first group by $\textit{emp\_id}$ and $\textit{event\_day}$, and then calculate the total time for each group. The total time is equal to the sum of the differences between $\textit{out\_time}$ and $\textit{in\_time}$ for each record in the group.
 
 <!-- tabs:start -->
 

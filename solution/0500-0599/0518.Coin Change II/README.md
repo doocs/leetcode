@@ -228,7 +228,7 @@ function change(amount: number, coins: number[]): number {
 
 > **思考**
 >
-> 二维表中 $f[i][j]$ 只依赖上一行的 $j$ 与本行的 $j-x$。压缩成一维后，对每枚硬币从 $x$ 扫到 `amount`，正序累加即可复用本硬币已更新的状态。
+> 二维表中 $f[i][j]$ 只依赖上一行的 $j$ 与本行的 $j-x$。压缩成一维后，对每枚硬币从 $x$ 扫到 $\textit{amount}$，正序累加即可复用本硬币已更新的状态。
 >
 > 空间降为 $O(\textit{amount})$，转移次数不变。
 

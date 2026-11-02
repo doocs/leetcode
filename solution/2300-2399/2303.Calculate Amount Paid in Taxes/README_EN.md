@@ -96,7 +96,7 @@ You have no income to tax, so you have to pay a total of $0 in taxes.
 
 We traverse `brackets`, and for each tax bracket, we calculate the tax amount for that bracket, then accumulate it.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of `brackets`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{brackets}$.
 
 <!-- tabs:start -->
 

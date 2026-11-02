@@ -80,7 +80,7 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 
 > **Thinking**
 >
-> `visit` drops forward history; `back`/`forward` walk a timeline. $\textit{stk1}$ holds the path to the current page, $\textit{stk2}$ the forward pages. A visit pushes onto $\textit{stk1}$ and clears $\textit{stk2}$; back pops onto $\textit{stk2}$, forward pops back.
+> $\textit{visit}$ drops forward history; $\textit{back}$/$\textit{forward}$ walk a timeline. $\textit{stk1}$ holds the path to the current page, $\textit{stk2}$ the forward pages. A visit pushes onto $\textit{stk1}$ and clears $\textit{stk2}$; back pops onto $\textit{stk2}$, forward pops back.
 
 <!-- thinking:end -->
 

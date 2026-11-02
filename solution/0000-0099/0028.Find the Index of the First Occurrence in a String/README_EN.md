@@ -70,9 +70,9 @@ The first occurrence is at index 0, so we return 0.
 
 <!-- thinking:end -->
 
-We compare the string `needle` with each character of the string `haystack` as the starting point. If we find a matching index, we return it directly.
+We compare the string $\textit{needle}$ with each character of the string $\textit{haystack}$ as the starting point. If we find a matching index, we return it directly.
 
-Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O((n-m)m)$, and the space complexity is $O(1)$.
+Assuming the length of the string $\textit{haystack}$ is $n$ and the length of the string $\textit{needle}$ is $m$, the time complexity is $O((n-m)m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -265,7 +265,7 @@ class Solution {
 
 The [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) essentially uses a sliding window combined with a hash function to compare the hashes of fixed-length strings, which can reduce the time complexity of comparing whether two strings are the same to $O(1)$.
 
-Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O(n+m)$, and the space complexity is $O(1)$.
+Assuming the length of the string $\textit{haystack}$ is $n$ and the length of the string $\textit{needle}$ is $m$, the time complexity is $O(n+m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

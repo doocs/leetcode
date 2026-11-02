@@ -81,11 +81,11 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 
 We define a priority queue (min-heap) $q$ to store all the available seat numbers. Initially, we add all seat numbers from $1$ to $n$ into $q$.
 
-When calling the `reserve` method, we pop the top element from $q$, which is the smallest available seat number.
+When calling the $\textit{reserve}$ method, we pop the top element from $q$, which is the smallest available seat number.
 
-When calling the `unreserve` method, we add the seat number back into $q$.
+When calling the $\textit{unreserve}$ method, we add the seat number back into $q$.
 
-In terms of time complexity, the initialization time complexity is $O(n)$ or $O(n \log n)$, and the time complexity of the `reserve` and `unreserve` methods is both $O(\log n)$. The space complexity is $O(n)$.
+In terms of time complexity, the initialization time complexity is $O(n)$ or $O(n \log n)$, and the time complexity of the $\textit{reserve}$ and $\textit{unreserve}$ methods is both $O(\log n)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

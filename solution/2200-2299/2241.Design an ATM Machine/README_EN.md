@@ -95,9 +95,9 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 
 We use an array $d$ to record the denominations of the bills and an array $\textit{cnt}$ to record the number of bills for each denomination.
 
-For the `deposit` operation, we simply add the number of bills to the corresponding denomination. The time complexity is $O(1)$.
+For the $\textit{deposit}$ operation, we simply add the number of bills to the corresponding denomination. The time complexity is $O(1)$.
 
-For the `withdraw` operation, we enumerate the bills from largest to smallest denomination, taking out as many bills as possible without exceeding $\textit{amount}$. We then subtract the total value of the withdrawn bills from $\textit{amount}$. If $\textit{amount}$ is still greater than $0$ at the end, it means we cannot withdraw the requested amount, and we return $-1$. Otherwise, we return the number of withdrawn bills. The time complexity is $O(1)$.
+For the $\textit{withdraw}$ operation, we enumerate the bills from largest to smallest denomination, taking out as many bills as possible without exceeding $\textit{amount}$. We then subtract the total value of the withdrawn bills from $\textit{amount}$. If $\textit{amount}$ is still greater than $0$ at the end, it means we cannot withdraw the requested amount, and we return $-1$. Otherwise, we return the number of withdrawn bills. The time complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -169,12 +169,12 @@ tags:
 
 <!-- thinking:end -->
 
-Key observation: an edge exists between two nodes if the absolute difference of their values is at most `maxDiff`. After sorting nodes by value, greedily jumping from a smaller-value node to the largest reachable value at each step yields the shortest path.
+Key observation: an edge exists between two nodes if the absolute difference of their values is at most $\textit{maxDiff}$. After sorting nodes by value, greedily jumping from a smaller-value node to the largest reachable value at each step yields the shortest path.
 
 The preprocessing steps are as follows:
 
 1. Sort `(nums[i], i)` pairs by value;
-2. Use two pointers: for each sorted position `l`, find the rightmost position `r` such that `pairs[r].first - pairs[l].first <= maxDiff`. Set `f[i][0] = j`, meaning from node `i`, one jump reaches node `j`, the largest-value node within `maxDiff`;
+2. Use two pointers: for each sorted position `l`, find the rightmost position `r` such that `pairs[r].first - pairs[l].first <= maxDiff`. Set `f[i][0] = j`, meaning from node `i`, one jump reaches node `j`, the largest-value node within $\textit{maxDiff}$;
 3. Build a binary lifting table `f[i][k]`, representing the node reached after $2^k$ jumps from node `i`.
 
 For each query, assume `nums[u] <= nums[v]`:

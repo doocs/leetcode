@@ -81,11 +81,11 @@ tags:
 
 根据题目描述：
 
-- 操作 $1$ 是把数组 `nums1` 的下标区间 $[l,..r]$ 的所有数反转，即把 $0$ 变成 $1$，把 $1$ 变成 $0$。
-- 操作 $3$ 是求数组 `nums2` 的所有数之和。
-- 操作 $2$ 是把数组 `nums2` 的所有数之和加上 $p$ 乘以数组 `nums1` 所有数之和，即 $\textit{sum}(\textit{nums2}) = \textit{sum}(\textit{nums2}) + p * \textit{sum}(\textit{nums1})$。
+- 操作 $1$ 是把数组 $\textit{nums1}$ 的下标区间 $[l,..r]$ 的所有数反转，即把 $0$ 变成 $1$，把 $1$ 变成 $0$。
+- 操作 $3$ 是求数组 $\textit{nums2}$ 的所有数之和。
+- 操作 $2$ 是把数组 $\textit{nums2}$ 的所有数之和加上 $p$ 乘以数组 $\textit{nums1}$ 所有数之和，即 $\textit{sum}(\textit{nums2}) = \textit{sum}(\textit{nums2}) + p * \textit{sum}(\textit{nums1})$。
 
-因此，我们实际上只需要维护数组 `nums1` 的区间和即可，我们可以通过线段树来实现。
+因此，我们实际上只需要维护数组 $\textit{nums1}$ 的区间和即可，我们可以通过线段树来实现。
 
 我们定义线段树的每个节点为 `Node`，每个节点包含如下属性：
 
@@ -102,7 +102,7 @@ tags:
 - `modify(u, l, r)`：修改区间和，本题中是反转区间中的每个数，那么区间和 $s = r - l + 1 - s$。
 - `query(u, l, r)`：查询区间和。
 
-我们先算出数组 `nums2` 的所有数之和，记为 $s$。
+我们先算出数组 $\textit{nums2}$ 的所有数之和，记为 $s$。
 
 执行操作 $1$ 时，我们只需要调用 `modify(1, l + 1, r + 1)` 即可。
 
@@ -110,7 +110,7 @@ tags:
 
 执行操作 $3$ 时，我们只需要将 $s$ 加入答案数组即可。
 
-时间复杂度 $O(n + m \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `queries` 的长度。
+时间复杂度 $O(n + m \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums1}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

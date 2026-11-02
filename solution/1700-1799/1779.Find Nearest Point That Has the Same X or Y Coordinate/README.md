@@ -74,9 +74,9 @@ tags:
 
 <!-- thinking:end -->
 
-直接遍历 `points` 数组，对于 $\textit{points}[i]$，如果 $\textit{points}[i][0] = x$ 或者 $\textit{points}[i][1] = y$，则说明 $\textit{points}[i]$ 是有效点，计算曼哈顿距离，更新最小距离和最小距离的下标。
+直接遍历 $\textit{points}$ 数组，对于 $\textit{points}[i]$，如果 $\textit{points}[i][0] = x$ 或者 $\textit{points}[i][1] = y$，则说明 $\textit{points}[i]$ 是有效点，计算曼哈顿距离，更新最小距离和最小距离的下标。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `points` 数组的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 $\textit{points}$ 数组的长度。
 
 <!-- tabs:start -->
 

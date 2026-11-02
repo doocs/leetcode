@@ -70,13 +70,13 @@ For each node, we define three states:
 - `b`: The current node does not have a camera, but is monitored by its children
 - `c`: The current node does not have a camera and is not monitored by its children
 
-Next, we design a function $\textit{dfs}(\textit{root})$, which will return an array of length 3, representing the minimum number of cameras in the subtree rooted at `root` for the three states. The answer is $\min(\textit{dfs}(\textit{root})[0], \textit{dfs}(\textit{root})[1])$.
+Next, we design a function $\textit{dfs}(\textit{root})$, which will return an array of length 3, representing the minimum number of cameras in the subtree rooted at $\textit{root}$ for the three states. The answer is $\min(\textit{dfs}(\textit{root})[0], \textit{dfs}(\textit{root})[1])$.
 
 The calculation process of the function $\textit{dfs}(\textit{root})$ is as follows:
 
-If `root` is null, return $[\textit{inf}, 0, 0]$, where `inf` represents a very large number, used to indicate an impossible situation.
+If $\textit{root}$ is null, return $[\textit{inf}, 0, 0]$, where $\textit{inf}$ represents a very large number, used to indicate an impossible situation.
 
-Otherwise, we recursively calculate the left and right subtrees of `root`, obtaining $[la, lb, lc]$ and $[ra, rb, rc]$ respectively.
+Otherwise, we recursively calculate the left and right subtrees of $\textit{root}$, obtaining $[la, lb, lc]$ and $[ra, rb, rc]$ respectively.
 
 - If the current node has a camera, then its left and right children must be in a monitored state, i.e., $a = \min(la, lb, lc) + \min(ra, rb, rc) + 1$.
 - If the current node does not have a camera but is monitored by its children, then one or both of the children must have a camera, i.e., $b = \min(la + rb, lb + ra, la + ra)$.

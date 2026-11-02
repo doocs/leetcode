@@ -87,7 +87,7 @@ First, we preprocess the prefix sum array $s$ of the array $\textit{nums}$, wher
 
 Since all elements of the array $\textit{nums}$ are non-negative integers, the prefix sum array $s$ is a monotonically increasing array.
 
-We enumerate the index $i$ that the `left` subarray can reach in the range $[0,..n-2)$, and then use the monotonically increasing characteristic of the prefix sum array to find the reasonable range of the `mid` subarray split by binary search, denoted as $[j, k)$, and accumulate the number of schemes $k-j$.
+We enumerate the index $i$ that the $\textit{left}$ subarray can reach in the range $[0,..n-2)$, and then use the monotonically increasing characteristic of the prefix sum array to find the reasonable range of the $\textit{mid}$ subarray split by binary search, denoted as $[j, k)$, and accumulate the number of schemes $k-j$.
 
 In the binary search details, the subarray split must satisfy $s[j] \geq s[i]$ and $s[n - 1] - s[k] \geq s[k] - s[i]$. That is, $s[j] \geq s[i]$ and $s[k] \leq \frac{s[n - 1] + s[i]}{2}$.
 

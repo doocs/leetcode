@@ -84,7 +84,7 @@ Specifically, there are several cases:
 
 We try both concatenation orders and return the shorter one (if the lengths are equal, either is acceptable).
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the maximum length of `s1` and `s2`.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the maximum length of $\textit{s1}$ and $\textit{s2}$.
 
 <!-- tabs:start -->
 

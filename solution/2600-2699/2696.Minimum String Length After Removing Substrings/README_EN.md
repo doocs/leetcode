@@ -68,7 +68,7 @@ It can be shown that it is the minimum length that we can obtain.</pre>
 
 > **Thinking**
 >
-> `AB` and `CD` may be deleted and can cascade. Repeated `replace` is quadratic in the worst case. The rule matches parentheses: pop when the top and the current character form one of those pairs, otherwise push.
+> $\textit{AB}$ and $\textit{CD}$ may be deleted and can cascade. Repeated `replace` is quadratic in the worst case. The rule matches parentheses: pop when the top and the current character form one of those pairs, otherwise push.
 >
 > A dummy empty top avoids an empty-stack test; the leftover length minus one is the answer.
 

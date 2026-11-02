@@ -75,16 +75,16 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 
 We use a hash table `cnt` to store the count of each number.
 
-When the `add` method is called, we increment the count of the number `number`.
+When the $\textit{add}$ method is called, we increment the count of the number `number`.
 
-When the `find` method is called, we iterate over the hash table `cnt`. For each key `x`, we check if `value - x` is also a key in the hash table `cnt`. If it is, we check if `x` is equal to `value - x`. If they are not equal, it means we have found a pair of numbers whose sum is `value`, and we return `true`. If they are equal, we check if the count of `x` is greater than `1`. If it is, it means we have found a pair of numbers whose sum is `value`, and we return `true`. If it is less than or equal to `1`, it means we have not found a pair of numbers whose sum is `value`, and we continue to iterate over the hash table `cnt`. If we have not found a pair after the iteration, we return `false`.
+When the $\textit{find}$ method is called, we iterate over the hash table `cnt`. For each key `x`, we check if `value - x` is also a key in the hash table `cnt`. If it is, we check if `x` is equal to `value - x`. If they are not equal, it means we have found a pair of numbers whose sum is $\textit{value}$, and we return `true`. If they are equal, we check if the count of `x` is greater than `1`. If it is, it means we have found a pair of numbers whose sum is $\textit{value}$, and we return `true`. If it is less than or equal to `1`, it means we have not found a pair of numbers whose sum is $\textit{value}$, and we continue to iterate over the hash table `cnt`. If we have not found a pair after the iteration, we return `false`.
 
 Time complexity:
 
-- The time complexity of the `add` method is $O(1)$.
-- The time complexity of the `find` method is $O(n)$.
+- The time complexity of the $\textit{add}$ method is $O(1)$.
+- The time complexity of the $\textit{find}$ method is $O(n)$.
 
-The space complexity is $O(n)$, where $n$ is the size of the hash table `cnt`.
+The space complexity is $O(n)$, where $n$ is the size of the hash table $\textit{cnt}$.
 
 <!-- tabs:start -->
 

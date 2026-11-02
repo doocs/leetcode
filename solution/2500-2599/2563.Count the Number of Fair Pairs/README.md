@@ -76,9 +76,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们先对数组 `nums` 按照升序排序，然后枚举 `nums[i]`，对于每个 `nums[i]`，我们通过二分查找找到 `nums[j]` 的下界 `j`，即第一个满足 `nums[j] >= lower - nums[i]` 的下标，然后再通过二分查找找到 `nums[k]` 的下界 `k`，即第一个满足 `nums[k] >= upper - nums[i] + 1` 的下标，那么 `[j, k)` 即为 `nums[j]` 满足 `lower <= nums[i] + nums[j] <= upper` 的下标范围，这些下标对应的 `nums[j]` 的个数即为 `k - j`，将其累加到答案中即可。注意 $j \gt i$。
+我们先对数组 $\textit{nums}$ 按照升序排序，然后枚举 `nums[i]`，对于每个 `nums[i]`，我们通过二分查找找到 `nums[j]` 的下界 `j`，即第一个满足 `nums[j] >= lower - nums[i]` 的下标，然后再通过二分查找找到 `nums[k]` 的下界 `k`，即第一个满足 `nums[k] >= upper - nums[i] + 1` 的下标，那么 `[j, k)` 即为 `nums[j]` 满足 `lower <= nums[i] + nums[j] <= upper` 的下标范围，这些下标对应的 `nums[j]` 的个数即为 `k - j`，将其累加到答案中即可。注意 $j \gt i$。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

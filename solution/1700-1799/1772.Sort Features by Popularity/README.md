@@ -75,11 +75,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们遍历 `responses`，对于 `responses[i]` 中的每个单词，我们用一个哈希表 `vis` 暂存。接下来将 `vis` 中的单词记录到哈希表 `cnt` 中，记录每个单词出现的次数。
+我们遍历 `responses`，对于 `responses[i]` 中的每个单词，我们用一个哈希表 `vis` 暂存。接下来将 `vis` 中的单词记录到哈希表 $\textit{cnt}$ 中，记录每个单词出现的次数。
 
-接下来，采用自定义排序，将 `features` 中的单词按照出现次数从大到小排序，如果出现次数相同，则按照出现的下标从小到大排序。
+接下来，采用自定义排序，将 $\textit{features}$ 中的单词按照出现次数从大到小排序，如果出现次数相同，则按照出现的下标从小到大排序。
 
-时间复杂度 $O(n \log n)$。其中 $n$ 为 `features` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 为 $\textit{features}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -71,7 +71,7 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 
 > **Thinking**
 >
-> `set` timestamps are strictly increasing, so each key's history is already sorted. `get` wants the latest value at a time $\le$ the query. A linear scan is too slow over $2\times 10^5$ calls. Store $(\textit{timestamp},\textit{value})$ lists per key and binary-search the upper bound.
+> $\textit{set}$ timestamps are strictly increasing, so each key's history is already sorted. $\textit{get}$ wants the latest value at a time $\le$ the query. A linear scan is too slow over $2\times 10^5$ calls. Store $(\textit{timestamp},\textit{value})$ lists per key and binary-search the upper bound.
 
 <!-- thinking:end -->
 

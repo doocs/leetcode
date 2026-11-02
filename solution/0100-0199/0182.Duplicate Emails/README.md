@@ -76,7 +76,7 @@ Person 表:
 
 <!-- thinking:end -->
 
-我们可以使用 `GROUP BY` 语句，按照 `email` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于 $1$ 的 `email`。
+我们可以使用 `GROUP BY` 语句，按照 $\textit{email}$ 字段进行分组，然后使用 $\textit{HAVING}$ 语句，筛选出现次数大于 $1$ 的 $\textit{email}$。
 
 <!-- tabs:start -->
 

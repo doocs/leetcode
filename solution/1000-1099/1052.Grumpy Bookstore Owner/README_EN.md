@@ -81,13 +81,13 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, we only need to count the number of customers when the boss is not angry $\textit{tot}$, and add the maximum number of customers when the boss is angry within a sliding window of size `minutes` $mx$.
+According to the problem description, we only need to count the number of customers when the boss is not angry $\textit{tot}$, and add the maximum number of customers when the boss is angry within a sliding window of size $\textit{minutes}$ $mx$.
 
-We define a variable $\textit{cnt}$ to record the number of customers when the boss is angry within the sliding window, the initial value is the number of customers when the boss is angry in the first `minutes`. Then we traverse the array, each time we move the sliding window, we update the value of $\textit{cnt}$, and at the same time update the value of $mx$.
+We define a variable $\textit{cnt}$ to record the number of customers when the boss is angry within the sliding window, the initial value is the number of customers when the boss is angry in the first $\textit{minutes}$. Then we traverse the array, each time we move the sliding window, we update the value of $\textit{cnt}$, and at the same time update the value of $mx$.
 
 Finally, return $\textit{tot} + mx$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `customers`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{customers}$.
 
 <!-- tabs:start -->
 

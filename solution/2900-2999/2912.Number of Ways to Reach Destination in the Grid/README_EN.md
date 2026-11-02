@@ -89,10 +89,10 @@ tags:
 
 We define the following states:
 
-- $f[0]$ represents the number of ways to move from `source` to `source` itself;
-- $f[1]$ represents the number of ways to move from `source` to another row in the same column;
-- $f[2]$ represents the number of ways to move from `source` to another column in the same row;
-- $f[3]$ represents the number of ways to move from `source` to another row and another column.
+- $f[0]$ represents the number of ways to move from $\textit{source}$ to $\textit{source}$ itself;
+- $f[1]$ represents the number of ways to move from $\textit{source}$ to another row in the same column;
+- $f[2]$ represents the number of ways to move from $\textit{source}$ to another column in the same row;
+- $f[3]$ represents the number of ways to move from $\textit{source}$ to another row and another column.
 
 Initially, $f[0] = 1$, and the other states are all $0$.
 
@@ -107,7 +107,7 @@ g[3] &= f[1] + f[2] + (n - 2) \times f[3] + (m - 2) \times f[3]
 \end{aligned}
 $$
 
-We loop $k$ times, and finally check whether `source` and `dest` are in the same row or column, and return the corresponding state.
+We loop $k$ times, and finally check whether $\textit{source}$ and $\textit{dest}$ are in the same row or column, and return the corresponding state.
 
 The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the number of moves.
 

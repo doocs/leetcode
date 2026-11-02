@@ -91,13 +91,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$。
+我们先预处理出数组 $\textit{nums}$ 的异或和 $xs$，即 $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$。
 
-接下来，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，我们需要找到一个数 $k$，使得 $xs \oplus k$ 的值尽可能大，并且 $k \lt 2^{\textit{maximumBit}}$。
+接下来，我们从后往前枚举数组 $\textit{nums}$ 中的每个元素 $x$，当前的异或和为 $xs$，我们需要找到一个数 $k$，使得 $xs \oplus k$ 的值尽可能大，并且 $k \lt 2^{\textit{maximumBit}}$。
 
 也即是说，我们从 $xs$ 的第 $\textit{maximumBit} - 1$ 位开始，往低位枚举，如果 $xs$ 的某一位为 $0$，那么我们就将 $k$ 的对应位设置为 $1$，否则我们就将 $k$ 的对应位设置为 $0$。这样，最终得到的 $k$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
 
-时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `maximumBit` 的值。
+时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{maximumBit}$ 的值。
 
 <!-- tabs:start -->
 
@@ -294,11 +294,11 @@ public class Solution {
 
 <!-- thinking:end -->
 
-与方法一类似，我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$。
+与方法一类似，我们先预处理出数组 $\textit{nums}$ 的异或和 $xs$，即 $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$。
 
-接下来，我们算出 $2^{\textit{maximumBit}} - 1$，即 $2^{\textit{maximumBit}}$ 减去 $1$，记为 $\textit{mask}$。然后，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，那么 $k=xs \oplus \textit{mask}$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
+接下来，我们算出 $2^{\textit{maximumBit}} - 1$，即 $2^{\textit{maximumBit}}$ 减去 $1$，记为 $\textit{mask}$。然后，我们从后往前枚举数组 $\textit{nums}$ 中的每个元素 $x$，当前的异或和为 $xs$，那么 $k=xs \oplus \textit{mask}$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ Same with other integers chosen by the first player, the second player will alwa
 
 First, we check if the sum of all selectable integers is less than the target value. If so, it means that we cannot win no matter what, so we directly return `false`.
 
-Then, we design a function `dfs(mask, s)`, where `mask` represents the current state of the selected integers, and `s` represents the current cumulative sum. The return value of the function is whether the current player can win.
+Then, we design a function `dfs(mask, s)`, where $\textit{mask}$ represents the current state of the selected integers, and `s` represents the current cumulative sum. The return value of the function is whether the current player can win.
 
 The execution process of the function `dfs(mask, s)` is as follows:
 
@@ -94,9 +94,9 @@ We iterate through each integer `i` from `1` to `maxChoosableInteger`. If `i` ha
 
 If no choice can make the current player win, then the current player is losing, return `false`.
 
-To avoid repeated calculations, we use a hash table `f` to record the calculated states, where the key is `mask`, and the value is whether the current player can win.
+To avoid repeated calculations, we use a hash table `f` to record the calculated states, where the key is $\textit{mask}$, and the value is whether the current player can win.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$ is `maxChoosableInteger`.
+The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$ is $\textit{maxChoosableInteger}$.
 
 <!-- tabs:start -->
 

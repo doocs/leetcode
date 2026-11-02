@@ -102,7 +102,7 @@ Therefore, we use a priority queue (max heap) to maintain the maximum value of t
 
 When the top element of the heap is an odd number, the operation stops.
 
-The time complexity is $O(n \log n \log m)$, where $n$ and $m$ are the length of the array `nums` and the maximum element of the array, respectively. Since the maximum element in the array is divided by $2$ at most $O(\log m)$ times, all elements are divided by $2$ at most $O(n \log m)$ times. Each time the heap is popped and put into operation, the time complexity is $O(\log n)$. Therefore, the total time complexity is $O(n \log n \log m)$.
+The time complexity is $O(n \log n \log m)$, where $n$ and $m$ are the length of the array $\textit{nums}$ and the maximum element of the array, respectively. Since the maximum element in the array is divided by $2$ at most $O(\log m)$ times, all elements are divided by $2$ at most $O(n \log m)$ times. Each time the heap is popped and put into operation, the time complexity is $O(\log n)$. Therefore, the total time complexity is $O(n \log n \log m)$.
 
 <!-- tabs:start -->
 

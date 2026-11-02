@@ -85,7 +85,7 @@ tags:
 
 因此，所有分段剩余可填充的字符数为 $\textit{limit}\times k - (sa + sb + sc)$，如果该值大于等于 $n$ 则说明可以将字符串划分成 $k$ 段，直接构造答案返回即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `message` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $\textit{message}$ 的长度。
 
 <!-- tabs:start -->
 

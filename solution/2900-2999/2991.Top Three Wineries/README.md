@@ -99,7 +99,7 @@ Wineries table:
 
 <!-- thinking:end -->
 
-我们可以先对 `Wineries` 表按照 `country` 和 `winery` 进行分组，计算每个分组的总得分 `points`，然后再利用窗口函数 `RANK()` 将数据再按照 `country` 进行分组，按照 `points` 降序、`winery` 升序进行排序，并且用 `CONCAT()` 函数将 `winery` 和 `points` 进行拼接，得到如下形式的数据，记为 `T` 表：
+我们可以先对 `Wineries` 表按照 `country` 和 $\textit{winery}$ 进行分组，计算每个分组的总得分 $\textit{points}$，然后再利用窗口函数 `RANK()` 将数据再按照 `country` 进行分组，按照 $\textit{points}$ 降序、 $\textit{winery}$ 升序进行排序，并且用 `CONCAT()` 函数将 $\textit{winery}$ 和 $\textit{points}$ 进行拼接，得到如下形式的数据，记为 `T` 表：
 
 | country   | winery               | rk  |
 | --------- | -------------------- | --- |

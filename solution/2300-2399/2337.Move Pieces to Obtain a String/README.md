@@ -94,7 +94,7 @@ tags:
 
 如果双指针均遍历到末尾，返回 `true`。
 
-时间复杂度 $O(n)$。其中 $n$ 表示字符串 `start` 或 `target` 的长度。
+时间复杂度 $O(n)$。其中 $n$ 表示字符串 $\textit{start}$ 或 $\textit{target}$ 的长度。
 
 相似题目：
 

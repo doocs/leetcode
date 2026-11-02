@@ -73,13 +73,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们注意到，题目中要把所有大于 `value` 的值变成 `value`，并且求和，因此我们可以考虑先对数组 `arr` 进行排序，然后求出前缀和数组 $s$，其中 $s[i]$ 表示数组前 $i$ 个元素之和。
+我们注意到，题目中要把所有大于 $\textit{value}$ 的值变成 $\textit{value}$，并且求和，因此我们可以考虑先对数组 $\textit{arr}$ 进行排序，然后求出前缀和数组 $s$，其中 $s[i]$ 表示数组前 $i$ 个元素之和。
 
-接下来，我们可以从小到大枚举所有 `value` 值，对于每个 `value`，我们可以通过二分查找找到数组中第一个大于 `value` 的元素的下标 $i$，此时数组中大于 `value` 的元素个数为 $n - i$，因此数组中小于等于 `value` 的元素个数为 $i$，此时数组中小于等于 `value` 的元素之和为 $s[i]$，数组中大于 `value` 的元素之和为 $(n - i) \times \textit{value}$，因此数组中所有元素之和为 $s[i] + (n - i) \times \textit{value}$。如果 $s[i] + (n - i) \times \textit{value}$ 与 `target` 的差的绝对值小于当前的最小差值 `diff`，则更新 `diff` 和 `ans`。
+接下来，我们可以从小到大枚举所有 $\textit{value}$ 值，对于每个 $\textit{value}$，我们可以通过二分查找找到数组中第一个大于 $\textit{value}$ 的元素的下标 $i$，此时数组中大于 $\textit{value}$ 的元素个数为 $n - i$，因此数组中小于等于 $\textit{value}$ 的元素个数为 $i$，此时数组中小于等于 $\textit{value}$ 的元素之和为 $s[i]$，数组中大于 $\textit{value}$ 的元素之和为 $(n - i) \times \textit{value}$，因此数组中所有元素之和为 $s[i] + (n - i) \times \textit{value}$。如果 $s[i] + (n - i) \times \textit{value}$ 与 $\textit{target}$ 的差的绝对值小于当前的最小差值 `diff`，则更新 `diff` 和 `ans`。
 
-枚举完所有 `value` 后，即可得到最终答案 `ans`。
+枚举完所有 $\textit{value}$ 后，即可得到最终答案 `ans`。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `arr` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -94,7 +94,7 @@ tags:
 >
 > At most four pieces on an $8 \times 8$ board, each with $\le 8$ directions. The tree is large but DFS works: assign each piece a ray and a stop time, then reject collisions with earlier pieces.
 >
-> `dist[i][x][y]` is the transit time and `end` the stop. A stop needs earlier pieces gone; a pass forbids the same time-cell or a finished piece sitting there.
+> `dist[i][x][y]` is the transit time and $\textit{end}$ the stop. A stop needs earlier pieces gone; a pass forbids the same time-cell or a finished piece sitting there.
 >
 > Each complete assignment increments the answer.
 

@@ -87,13 +87,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define two hash tables or arrays `first` and `last` to store the positions where each letter first appears and last appears respectively.
+We define two hash tables or arrays $\textit{first}$ and $\textit{last}$ to store the positions where each letter first appears and last appears respectively.
 
-Then we traverse the string `word`, updating `first` and `last`.
+Then we traverse the string $\textit{word}$, updating $\textit{first}$ and $\textit{last}$.
 
 Finally, we traverse all lowercase and uppercase letters. If `last[a]` exists and `first[b]` exists and `last[a] < first[b]`, it means that the letter `a` is a special letter, and we increment the answer by one.
 
-The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string `word`, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $\textit{word}$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,7 @@ Products table:
 
 <!-- thinking:end -->
 
-我们可以筛选出每个商店的产品和价格，然后使用 `UNION` 合并即可。
+我们可以筛选出每个商店的产品和价格，然后使用 $\textit{UNION}$ 合并即可。
 
 <!-- tabs:start -->
 

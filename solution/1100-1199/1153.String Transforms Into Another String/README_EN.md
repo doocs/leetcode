@@ -76,7 +76,7 @@ Otherwise, we use an array or hash table `d` to record the letter each letter in
 
 After the traversal, return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string `str1`, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $\textit{str1}$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

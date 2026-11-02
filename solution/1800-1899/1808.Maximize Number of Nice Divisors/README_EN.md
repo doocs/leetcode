@@ -73,16 +73,16 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 <!-- thinking:end -->
 
-We can factorize $n$ into prime factors, i.e., $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$, where $a_i$ is a prime factor and $k_i$ is the exponent of the prime factor $a_i$. Since the number of prime factors of $n$ does not exceed `primeFactors`, we have $k_1 + k_2 + \cdots + k_m \leq \textit{primeFactors}$.
+We can factorize $n$ into prime factors, i.e., $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$, where $a_i$ is a prime factor and $k_i$ is the exponent of the prime factor $a_i$. Since the number of prime factors of $n$ does not exceed $\textit{primeFactors}$, we have $k_1 + k_2 + \cdots + k_m \leq \textit{primeFactors}$.
 
-According to the problem description, we know that a good factor of $n$ must be divisible by all prime factors, which means that a good factor of $n$ needs to include $a_1 \times a_2 \times \cdots \times a_m$ as a factor. Then the number of good factors $k= k_1 \times k_2 \times \cdots \times k_m$, i.e., $k$ is the product of $k_1, k_2, \cdots, k_m$. To maximize the number of good factors, we need to split `primeFactors` into $k_1, k_2, \cdots, k_m$ to make $k_1 \times k_2 \times \cdots \times k_m$ the largest. Therefore, the problem is transformed into: split the integer `primeFactors` into the product of several integers to maximize the product.
+According to the problem description, we know that a good factor of $n$ must be divisible by all prime factors, which means that a good factor of $n$ needs to include $a_1 \times a_2 \times \cdots \times a_m$ as a factor. Then the number of good factors $k= k_1 \times k_2 \times \cdots \times k_m$, i.e., $k$ is the product of $k_1, k_2, \cdots, k_m$. To maximize the number of good factors, we need to split $\textit{primeFactors}$ into $k_1, k_2, \cdots, k_m$ to make $k_1 \times k_2 \times \cdots \times k_m$ the largest. Therefore, the problem is transformed into: split the integer $\textit{primeFactors}$ into the product of several integers to maximize the product.
 
 Next, we just need to discuss different cases.
 
-- If $\textit{primeFactors} \lt 4$, then directly return `primeFactors`.
-- If $\textit{primeFactors}$ is a multiple of $3$, then we split `primeFactors` into multiples of $3$, i.e., $3^{\frac{\textit{primeFactors}}{3}}$.
-- If $\textit{primeFactors}$ modulo $3$ equals $1$, then we split `primeFactors` into $\frac{\textit{primeFactors}}{3} - 1$ multiples of $3$, and then multiply by $4$, i.e., $3^{\frac{\textit{primeFactors}}{3} - 1} \times 4$.
-- If $\textit{primeFactors}$ modulo $3$ equals $2$, then we split `primeFactors` into $\frac{\textit{primeFactors}}{3}$ multiples of $3$, and then multiply by $2$, i.e., $3^{\frac{\textit{primeFactors}}{3}} \times 2$.
+- If $\textit{primeFactors} \lt 4$, then directly return $\textit{primeFactors}$.
+- If $\textit{primeFactors}$ is a multiple of $3$, then we split $\textit{primeFactors}$ into multiples of $3$, i.e., $3^{\frac{\textit{primeFactors}}{3}}$.
+- If $\textit{primeFactors}$ modulo $3$ equals $1$, then we split $\textit{primeFactors}$ into $\frac{\textit{primeFactors}}{3} - 1$ multiples of $3$, and then multiply by $4$, i.e., $3^{\frac{\textit{primeFactors}}{3} - 1} \times 4$.
+- If $\textit{primeFactors}$ modulo $3$ equals $2$, then we split $\textit{primeFactors}$ into $\frac{\textit{primeFactors}}{3}$ multiples of $3$, and then multiply by $2$, i.e., $3^{\frac{\textit{primeFactors}}{3}} \times 2$.
 
 In the above process, we use fast power to calculate the modulus.
 

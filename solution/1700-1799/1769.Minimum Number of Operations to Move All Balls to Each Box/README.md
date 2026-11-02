@@ -74,7 +74,7 @@ tags:
 
 我们可以预处理出每个位置 $i$ 左边的小球移动到 $i$ 的操作数，记为 $\textit{left}[i]$；每个位置 $i$ 右边的小球移动到 $i$ 的操作数，记为 $\textit{right}[i]$。那么答案数组的第 $i$ 个元素就是 $\textit{left}[i] + \textit{right}[i]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `boxes` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{boxes}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -285,7 +285,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 方法一中 $\textit{left}[i]$ 和 $\textit{right}[i]$ 只依赖前一个位置，因此可以去掉这两个数组，从左到右、再从右到左各扫一遍，把结果累加到答案数组 $\textit{ans}$ 上。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 $\textit{boxes}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -478,7 +478,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 先收集所有小球的位置，再对每个盒子 $i$ 枚举每个小球 $j$，将 $|i - j|$ 累加到 $\textit{ans}[i]$。
 
-时间复杂度 $O(nm)$，空间复杂度 $O(m)$。其中 $n$ 为 `boxes` 的长度，而 $m$ 为小球个数。
+时间复杂度 $O(nm)$，空间复杂度 $O(m)$。其中 $n$ 为 $\textit{boxes}$ 的长度，而 $m$ 为小球个数。
 
 <!-- tabs:start -->
 

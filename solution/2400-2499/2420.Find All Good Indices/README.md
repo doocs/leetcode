@@ -79,9 +79,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们定义两个数组 `decr` 和 `incr`，分别表示从左到右和从右到左的非递增和非递减的最长子数组长度。
+我们定义两个数组 $\textit{decr}$ 和 $\textit{incr}$，分别表示从左到右和从右到左的非递增和非递减的最长子数组长度。
 
-遍历数组，更新 `decr` 和 `incr` 数组。
+遍历数组，更新 $\textit{decr}$ 和 $\textit{incr}$ 数组。
 
 然后顺序遍历下标 $i$（其中 $k\le i \lt n - k$），若 $\textit{decr}[i] \geq k$ 并且 $\textit{incr}[i] \geq k$，则 $i$ 为好下标。
 

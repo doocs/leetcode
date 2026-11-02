@@ -55,7 +55,7 @@ difficulty: Medium
 
 We enumerate two points $(x_1, y_1)$ and $(x_2, y_2)$ that have different coordinates and use them to fix a line. For each index $k$, the point lies on that line when $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$. A copy of either endpoint makes both sides zero, so it is included. We record the size of this set and its two smallest indices. The answer is updated when the size is strictly larger, or the size is equal and the index pair is smaller. If every point has the same coordinates, there is no distinct pair and the answer is $[0, 1]$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array `points`.
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 
@@ -281,7 +281,7 @@ class Solution {
 
 We enumerate an anchor $(x_1, y_1)$ and hash the direction from it to every later point. A point that coincides with the anchor has no slope; we record it separately and add it to every line through the anchor. For the other points, reduce $(dx, dy)$ by their greatest common divisor, then fold opposite directions onto one key so that $dx > 0$, or $dy > 0$ when $dx = 0$. Points that share a key are collinear with the anchor and with those copies. The number of points on the line is $1$ plus the size of that bucket plus the number of copies, and the second index is the smallest index among them. Anchors are scanned in increasing index order, and the answer is updated only when the count is strictly larger, or the count is equal and the index pair is smaller.
 
-The time complexity is $O(n^2 \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the array `points` and the maximum difference between all horizontal and vertical coordinates in the array `points`, respectively.
+The time complexity is $O(n^2 \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the length of the array $\textit{points}$ and the maximum difference between all horizontal and vertical coordinates in the array $\textit{points}$, respectively.
 
 <!-- tabs:start -->
 

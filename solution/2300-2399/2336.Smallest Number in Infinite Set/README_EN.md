@@ -88,9 +88,9 @@ Therefore, we can use an ordered set to simulate this. Let's denote the ordered 
 
 During initialization, we add all elements in $[1, 1000]$ to the ordered set. The time complexity is $O(n \log n)$.
 
-In the `popSmallest` operation, we just need to pop the first element from the ordered set. The time complexity for a single operation is $O(\log n)$.
+In the $\textit{popSmallest}$ operation, we just need to pop the first element from the ordered set. The time complexity for a single operation is $O(\log n)$.
 
-In the `addBack` operation, we just need to add the element back to the ordered set. The time complexity for a single operation is $O(\log n)$.
+In the $\textit{addBack}$ operation, we just need to add the element back to the ordered set. The time complexity for a single operation is $O(\log n)$.
 
 The space complexity is $O(n)$.
 

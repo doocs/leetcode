@@ -157,7 +157,7 @@ Each row includes a trip&#39;s ID, the vehicle used, the distance covered (in mi
 
 <!-- thinking:end -->
 
-We can use equi-join to join the `Drivers` table with the `Vehicles` table on `driver_id`, and then join with the `Trips` table on `vehicle_id`. Next, we group by `fuel_type` and `driver_id` to calculate each driver's average rating, total mileage, and total accident count. Then, using the `RANK()` window function, we rank the drivers of each fuel type in descending order of rating, descending order of total mileage, and ascending order of total accident count. Finally, we filter out the driver ranked 1 for each fuel type.
+We can use equi-join to join the $\textit{Drivers}$ table with the $\textit{Vehicles}$ table on $\textit{driver\_id}$, and then join with the $\textit{Trips}$ table on `vehicle_id`. Next, we group by `fuel_type` and $\textit{driver\_id}$ to calculate each driver's average rating, total mileage, and total accident count. Then, using the `RANK()` window function, we rank the drivers of each fuel type in descending order of rating, descending order of total mileage, and ascending order of total accident count. Finally, we filter out the driver ranked 1 for each fuel type.
 
 <!-- tabs:start -->
 

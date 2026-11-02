@@ -74,7 +74,7 @@ Person table:
 
 <!-- thinking:end -->
 
-We can use the `GROUP BY` statement to group the data by the `email` field, and then use the `HAVING` statement to filter out the `email` addresses that appear more than once.
+We can use the `GROUP BY` statement to group the data by the $\textit{email}$ field, and then use the $\textit{HAVING}$ statement to filter out the $\textit{email}$ addresses that appear more than once.
 
 <!-- tabs:start -->
 

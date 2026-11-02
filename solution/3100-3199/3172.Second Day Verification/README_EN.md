@@ -120,7 +120,7 @@ Each row of this table contains the text ID, email ID, signup action, and action
 
 <!-- thinking:end -->
 
-We can join the two tables and then use the `DATEDIFF` function to calculate whether the difference between the registration date and the operation date is equal to 1, and whether the registration operation is `Verified`, to filter out the user IDs that meet the conditions.
+We can join the two tables and then use the $\textit{DATEDIFF}$ function to calculate whether the difference between the registration date and the operation date is equal to 1, and whether the registration operation is `Verified`, to filter out the user IDs that meet the conditions.
 
 <!-- tabs:start -->
 

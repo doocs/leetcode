@@ -81,7 +81,7 @@ Followers 表：
 
 <!-- thinking:end -->
 
-我们可以直接对 `Followers` 表按照 `user_id` 进行分组，然后使用 `COUNT` 函数统计每个用户的关注者数量即可。
+我们可以直接对 $\textit{Followers}$ 表按照 $\textit{user\_id}$ 进行分组，然后使用 $\textit{COUNT}$ 函数统计每个用户的关注者数量即可。
 
 <!-- tabs:start -->
 

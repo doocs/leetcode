@@ -79,7 +79,7 @@ For each element, we enumerate the powers of two $s$ as the sum of two numbers f
 
 After the traversal ends, return the answer.
 
-The time complexity is $O(n \log M)$, where $n$ is the length of the array `deliciousness`, and $M$ is the upper limit of the elements. For this problem, the upper limit $M=2^{20}$.
+The time complexity is $O(n \log M)$, where $n$ is the length of the array $\textit{deliciousness}$, and $M$ is the upper limit of the elements. For this problem, the upper limit $M=2^{20}$.
 
 We can also use a hash table $\textit{cnt}$ to count the number of occurrences of each element in the array first.
 

@@ -98,7 +98,7 @@ Output table is ordered by tweet_id in ascending order.</div>
 
 <!-- thinking:end -->
 
-`CHAR_LENGTH()` counts characters, so a tweet longer than $140$ characters is invalid. The number of `@` and `#` is the `LENGTH()` difference after `REPLACE()`. Connect the three conditions with `OR`, keep the matching `tweet_id` values, and sort them in ascending order.
+`CHAR_LENGTH()` counts characters, so a tweet longer than $140$ characters is invalid. The number of `@` and `#` is the `LENGTH()` difference after `REPLACE()`. Connect the three conditions with `OR`, keep the matching $\textit{tweet\_id}$ values, and sort them in ascending order.
 
 <!-- tabs:start -->
 

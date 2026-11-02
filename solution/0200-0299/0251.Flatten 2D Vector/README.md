@@ -87,9 +87,9 @@ vector2D.hasNext(); // return False
 
 接下来，我们设计一个函数 $\textit{forward}()$，用于将 $i$ 和 $j$ 向后移动，直到指向一个非空的元素。
 
-每次调用 `next` 方法时，我们先调用 $\textit{forward}()$，然后返回当前指向的元素，最后将 $j$ 向后移动一位。
+每次调用 $\textit{next}$ 方法时，我们先调用 $\textit{forward}()$，然后返回当前指向的元素，最后将 $j$ 向后移动一位。
 
-每次调用 `hasNext` 方法时，我们先调用 $\textit{forward}()$，然后判断 $i$ 是否小于二维向量的行数，如果是，则返回 `true`，否则返回 `false`。
+每次调用 $\textit{hasNext}$ 方法时，我们先调用 $\textit{forward}()$，然后判断 $i$ 是否小于二维向量的行数，如果是，则返回 `true`，否则返回 `false`。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

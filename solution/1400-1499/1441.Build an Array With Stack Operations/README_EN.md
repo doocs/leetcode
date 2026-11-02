@@ -98,7 +98,7 @@ The answers that read integer 3 from the stream are not accepted.
 
 > **Thinking**
 >
-> The stream is $1,2,\ldots,n$ and `target` is strictly increasing. Numbers missing from `target` need `Push` then `Pop`; numbers in `target` need only `Push`.
+> The stream is $1,2,\ldots,n$ and $\textit{target}$ is strictly increasing. Numbers missing from $\textit{target}$ need $\textit{Push}$ then $\textit{Pop}$; numbers in $\textit{target}$ need only $\textit{Push}$.
 >
 > A pointer $\textit{cur}$ is the next streamed value. For each target $x$, emit Push/Pop for the gap, then Push $x$. $n\le 100$.
 

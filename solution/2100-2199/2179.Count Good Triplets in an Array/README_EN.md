@@ -78,19 +78,19 @@ Out of those triplets, only the triplet (0,1,3) satisfies pos2<sub>x</sub> &lt; 
 
 <!-- thinking:end -->
 
-For this problem, we first use `pos` to record the position of each number in `nums2`, and then process each element in `nums1` sequentially.
+For this problem, we first use `pos` to record the position of each number in $\textit{nums2}$, and then process each element in $\textit{nums1}$ sequentially.
 
-Consider the number of good triplets **with the current number as the middle number**. The first number must have already been traversed and must appear earlier than the current number in `nums2`. The third number must not yet have been traversed and must appear later than the current number in `nums2`.
+Consider the number of good triplets **with the current number as the middle number**. The first number must have already been traversed and must appear earlier than the current number in $\textit{nums2}$. The third number must not yet have been traversed and must appear later than the current number in $\textit{nums2}$.
 
 Take `nums1 = [4,0,1,3,2]` and `nums2 = [4,1,0,2,3]` as an example. Consider the traversal process:
 
-1. First, process `4`. At this point, the state of `nums2` is `[4,X,X,X,X]`. The number of values before `4` is `0`, and the number of values after `4` is `4`. Therefore, `4` as the middle number forms `0` good triplets.
-2. Next, process `0`. The state of `nums2` becomes `[4,X,0,X,X]`. The number of values before `0` is `1`, and the number of values after `0` is `2`. Therefore, `0` as the middle number forms `2` good triplets.
-3. Next, process `1`. The state of `nums2` becomes `[4,1,0,X,X]`. The number of values before `1` is `1`, and the number of values after `1` is `2`. Therefore, `1` as the middle number forms `2` good triplets.
+1. First, process `4`. At this point, the state of $\textit{nums2}$ is `[4,X,X,X,X]`. The number of values before `4` is `0`, and the number of values after `4` is `4`. Therefore, `4` as the middle number forms `0` good triplets.
+2. Next, process `0`. The state of $\textit{nums2}$ becomes `[4,X,0,X,X]`. The number of values before `0` is `1`, and the number of values after `0` is `2`. Therefore, `0` as the middle number forms `2` good triplets.
+3. Next, process `1`. The state of $\textit{nums2}$ becomes `[4,1,0,X,X]`. The number of values before `1` is `1`, and the number of values after `1` is `2`. Therefore, `1` as the middle number forms `2` good triplets.
 4. ...
-5. Finally, process `2`. The state of `nums2` becomes `[4,1,0,2,3]`. The number of values before `2` is `4`, and the number of values after `2` is `0`. Therefore, `2` as the middle number forms `0` good triplets.
+5. Finally, process `2`. The state of $\textit{nums2}$ becomes `[4,1,0,2,3]`. The number of values before `2` is `4`, and the number of values after `2` is `0`. Therefore, `2` as the middle number forms `0` good triplets.
 
-We can use a **Binary Indexed Tree (Fenwick Tree)** to update the occurrence of numbers at each position in `nums2`, and quickly calculate the number of `1`s to the left of each number and the number of `0`s to the right of each number.
+We can use a **Binary Indexed Tree (Fenwick Tree)** to update the occurrence of numbers at each position in $\textit{nums2}$, and quickly calculate the number of `1`s to the left of each number and the number of `0`s to the right of each number.
 
 A Binary Indexed Tree, also known as a Fenwick Tree, efficiently supports the following operations:
 
