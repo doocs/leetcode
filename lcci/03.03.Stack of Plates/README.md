@@ -46,7 +46,7 @@ difficulty: 中等
 >
 > 把「若干有界栈」直接建成栈的列表： $\textit{stk}[-1]$ 为当前叠。
 >
-> `push` 在末叠满时追加空列表再压入；`pop` 委托 `popAt` 最后一叠；`popAt` 弹出指定叠，空则从列表删除以免留下空洞。 $\textit{cap}=0$ 时拒绝一切压入。
+> $\textit{push}$ 在末叠满时追加空列表再压入； $\textit{pop}$ 委托 $\textit{popAt}$ 最后一叠； $\textit{popAt}$ 弹出指定叠，空则从列表删除以免留下空洞。 $\textit{cap}=0$ 时拒绝一切压入。
 
 <!-- thinking:end -->
 

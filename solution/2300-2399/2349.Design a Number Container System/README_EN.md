@@ -85,9 +85,9 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 
 We use a hash table $d$ to record the mapping relationship between indices and numbers, and another hash table $g$ to record the set of indices corresponding to each number. Here, we can use an ordered set to store the indices, which allows us to conveniently find the smallest index.
 
-When calling the `change` method, we first check if the index already exists. If it does, we remove the original number from its corresponding index set and then add the new number to the corresponding index set. The time complexity is $O(\log n)$.
+When calling the $\textit{change}$ method, we first check if the index already exists. If it does, we remove the original number from its corresponding index set and then add the new number to the corresponding index set. The time complexity is $O(\log n)$.
 
-When calling the `find` method, we simply return the first element of the index set corresponding to the number. The time complexity is $O(1)$.
+When calling the $\textit{find}$ method, we simply return the first element of the index set corresponding to the number. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of numbers.
 

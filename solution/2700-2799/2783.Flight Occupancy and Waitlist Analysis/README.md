@@ -106,7 +106,7 @@ Passengers table:
 
 <!-- thinking:end -->
 
-我们可以使用左连接将 `Flights` 和 `Passengers` 表连接起来，然后按照 `flight_id` 分组，统计每个航班的乘客数量。
+我们可以使用左连接将 `Flights` 和 `Passengers` 表连接起来，然后按照 $\textit{flight\_id}$ 分组，统计每个航班的乘客数量。
 
 对于每个航班，我们可以使用 `count(passenger_id)` 统计乘客数量，取 `capacity` 和 `count(passenger_id)` 的最小值作为已预订的乘客数量，取 `count(passenger_id) - capacity` 和 $0$ 的最大值作为等待名单上的乘客数量。
 

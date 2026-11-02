@@ -102,7 +102,7 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 <!-- thinking:end -->
 
-按 `query_name` 分组，用 `AVG(rating / position)` 计算 `quality`，用 `AVG(rating < 3)` 计算劣质查询占比，再以 `ROUND` 保留两位小数。`WHERE query_name IS NOT NULL` 用来去掉空查询名。
+按 $\textit{query\_name}$ 分组，用 `AVG(rating / position)` 计算 `quality`，用 `AVG(rating < 3)` 计算劣质查询占比，再以 $\textit{ROUND}$ 保留两位小数。`WHERE query_name IS NOT NULL` 用来去掉空查询名。
 
 <!-- tabs:start -->
 
@@ -135,7 +135,7 @@ GROUP BY 1;
 
 <!-- thinking:end -->
 
-同样按 `query_name` 分组并去掉空查询名。`quality` 用 `CAST` 做小数除法；劣质查询占比改用 `CASE` 计数再除以总行数。
+同样按 `query_name` 分组并去掉空查询名。`quality` 用 $\textit{CAST}$ 做小数除法；劣质查询占比改用 $\textit{CASE}$ 计数再除以总行数。
 
 <!-- tabs:start -->
 

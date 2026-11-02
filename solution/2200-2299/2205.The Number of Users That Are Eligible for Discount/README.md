@@ -87,7 +87,7 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 
 <!-- thinking:end -->
 
-注意需要判断的是单次购买金额是否大于等于 `minAmount`，而不是累计购买金额是否大于等于 `minAmount`。
+注意需要判断的是单次购买金额是否大于等于 $\textit{minAmount}$，而不是累计购买金额是否大于等于 $\textit{minAmount}$。
 
 <!-- tabs:start -->
 

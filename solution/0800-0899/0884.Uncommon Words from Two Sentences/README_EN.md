@@ -76,7 +76,7 @@ According to the problem description, as long as a word appears once, it meets t
 
 Then we traverse the hash table, and take out all strings that appear only once.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of strings `s1` and `s2`, respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively.
 
 <!-- tabs:start -->
 

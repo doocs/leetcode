@@ -122,7 +122,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们首先将 `employee_id` 的 `start_time` 和 `end_time` 合并到一个新的表 `T` 中，然后使用 `LEAD` 函数计算出每个员工的下一个任务的开始时间，接着我们将 `T` 表和 `Tasks` 表连接起来，计算出每个员工的并发任务数，最后按照 `employee_id` 分组，计算出每个员工的总任务时间和最大并发任务数。
+我们首先将 `employee_id` 的 $\textit{start\_time}$ 和 $\textit{end\_time}$ 合并到一个新的表 `T` 中，然后使用 `LEAD` 函数计算出每个员工的下一个任务的开始时间，接着我们将 `T` 表和 `Tasks` 表连接起来，计算出每个员工的并发任务数，最后按照 `employee_id` 分组，计算出每个员工的总任务时间和最大并发任务数。
 
 相似题目：
 

@@ -77,9 +77,9 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 
 <!-- thinking:end -->
 
-We define two arrays `decr` and `incr`, which represent the longest non-increasing and non-decreasing subarray lengths from left to right and from right to left, respectively.
+We define two arrays $\textit{decr}$ and $\textit{incr}$, which represent the longest non-increasing and non-decreasing subarray lengths from left to right and from right to left, respectively.
 
-We traverse the array, updating the `decr` and `incr` arrays.
+We traverse the array, updating the $\textit{decr}$ and $\textit{incr}$ arrays.
 
 Then we sequentially traverse the index $i$ (where $k\le i \lt n - k$), if $\textit{decr}[i] \geq k$ and $\textit{incr}[i] \geq k$, then $i$ is a good index.
 

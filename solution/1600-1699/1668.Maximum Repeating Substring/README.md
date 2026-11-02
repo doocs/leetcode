@@ -75,9 +75,9 @@ tags:
 
 <!-- thinking:end -->
 
-注意到字符串长度不超过 $100$，我们直接从大到小枚举 `word` 的重复次数 $k$，判断 `word` 重复该次数后是否是 `sequence` 的子串，是则直接返回当前的重复次数 $k$。
+注意到字符串长度不超过 $100$，我们直接从大到小枚举 $\textit{word}$ 的重复次数 $k$，判断 $\textit{word}$ 重复该次数后是否是 $\textit{sequence}$ 的子串，是则直接返回当前的重复次数 $k$。
 
-时间复杂度 $O(n^2)$。其中 $n$ 为 `sequence` 的长度。
+时间复杂度 $O(n^2)$。其中 $n$ 为 $\textit{sequence}$ 的长度。
 
 <!-- tabs:start -->
 

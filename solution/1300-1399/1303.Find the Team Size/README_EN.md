@@ -85,7 +85,7 @@ Employees with Id 5,6 are part of a team with team_id = 9.
 
 <!-- thinking:end -->
 
-We can first count the number of people in each team and record it in the `T` table. Then, we can use an equi-join to join the `Employee` table and the `T` table based on `team_id`, and obtain the total number of people in each team.
+We can first count the number of people in each team and record it in the `T` table. Then, we can use an equi-join to join the `Employee` table and the `T` table based on $\textit{team\_id}$, and obtain the total number of people in each team.
 
 <!-- tabs:start -->
 
@@ -120,7 +120,7 @@ JOIN T USING (team_id);
 
 <!-- thinking:end -->
 
-We can also use a left join to join the `Employee` table with itself based on `team_id`, and then group by `employee_id` to count the total number of people in each team that the employee belongs to.
+We can also use a left join to join the $\textit{Employee}$ table with itself based on $\textit{team\_id}$, and then group by $\textit{employee\_id}$ to count the total number of people in each team that the employee belongs to.
 
 <!-- tabs:start -->
 

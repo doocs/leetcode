@@ -148,7 +148,7 @@ tags:
 
 我们可以使用窗口函数 `RANK()`，将球队按照赛季分组，按照积分、净胜球和球队名称的顺序进行排名。
 
-最后，我们只需要按照 `season_id`、`position` 和 `team_name` 进行排序即可。
+最后，我们只需要按照 $\textit{season\_id}$、 $\textit{position}$ 和 `team_name` 进行排序即可。
 
 <!-- tabs:start -->
 

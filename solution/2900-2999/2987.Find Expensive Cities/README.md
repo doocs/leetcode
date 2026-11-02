@@ -91,7 +91,7 @@ Listings table:
 
 <!-- thinking:end -->
 
-我们将 `Listings` 表按照 `city` 分组，然后计算每个城市的平均房价，最后筛选出平均房价大于全国平均房价的城市即可。
+我们将 `Listings` 表按照 $\textit{city}$ 分组，然后计算每个城市的平均房价，最后筛选出平均房价大于全国平均房价的城市即可。
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ We can traverse each string $x$ in `details` and convert the $12$th and $13$th c
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of `details`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{details}$.
 
 <!-- tabs:start -->
 

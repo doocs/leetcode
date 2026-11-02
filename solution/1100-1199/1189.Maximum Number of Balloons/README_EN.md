@@ -80,7 +80,7 @@ We count the frequency of each letter in the string `text`, and then divide the 
 
 Next, we traverse each letter in the word `balon`, and find the minimum frequency of each letter in the string `text`. This minimum frequency is the maximum number of times the word `balloon` can appear in the string `text`.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string `text`, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string $\textit{text}$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 

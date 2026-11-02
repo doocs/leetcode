@@ -73,7 +73,7 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以先将新区间 `newInterval` 加入到区间列表 `intervals` 中，然后按照区间合并的常规方法进行合并。
+我们可以先将新区间 $\textit{newInterval}$ 加入到区间列表 `intervals` 中，然后按照区间合并的常规方法进行合并。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
 
@@ -276,7 +276,7 @@ public class Solution {
 
 <!-- thinking:end -->
 
-我们可以遍历区间列表 `intervals`，记当前区间为 `interval`，对于每个区间有三种情况：
+我们可以遍历区间列表 `intervals`，记当前区间为 $\textit{interval}$，对于每个区间有三种情况：
 
 - 当前区间在新区间的右侧，即 $\textit{newInterval}[1] \lt \textit{interval}[0]$，此时如果新区间还没有被加入，那么将新区间加入到答案中，然后将当前区间加入到答案中。
 - 当前区间在新区间的左侧，即 $\textit{interval}[1] \lt \textit{newInterval}[0]$，此时将当前区间加入到答案中。

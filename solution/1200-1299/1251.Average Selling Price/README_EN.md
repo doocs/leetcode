@@ -109,7 +109,7 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 
 <!-- thinking:end -->
 
-We can use a left join to join the `Prices` table and the `UnitsSold` table on `product_id`, and the condition that `purchase_date` is between `start_date` and `end_date`. Then, we can use `GROUP BY` to group by `product_id` for aggregation, and use the `AVG` function to calculate the average price. Note that if a product has no sales records, the `AVG` function will return `NULL`, so we can use the `IFNULL` function to convert it to $0$.
+We can use a left join to join the $\textit{Prices}$ table and the $\textit{UnitsSold}$ table on `product_id`, and the condition that `purchase_date` is between `start_date` and `end_date`. Then, we can use `GROUP BY` to group by `product_id` for aggregation, and use the `AVG` function to calculate the average price. Note that if a product has no sales records, the `AVG` function will return `NULL`, so we can use the $\textit{IFNULL}$ function to convert it to $0$.
 
 <!-- tabs:start -->
 

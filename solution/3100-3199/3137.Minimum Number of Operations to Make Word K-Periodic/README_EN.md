@@ -123,9 +123,9 @@ font-size: 0.85rem;
 
 <!-- thinking:end -->
 
-We can divide the string `word` into substrings of length $k$, then count the occurrence of each substring, and finally return $n/k$ minus the count of the most frequently occurring substring.
+We can divide the string $\textit{word}$ into substrings of length $k$, then count the occurrence of each substring, and finally return $n/k$ minus the count of the most frequently occurring substring.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `word`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 

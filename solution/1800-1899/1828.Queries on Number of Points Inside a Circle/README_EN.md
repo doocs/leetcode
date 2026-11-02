@@ -83,7 +83,7 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 
 Enumerate all the circles $(x, y, r)$. For each circle, calculate the number of points within the circle to get the answer.
 
-The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays `queries` and `points` respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $\textit{queries}$ and $\textit{points}$ respectively.
 
 <!-- tabs:start -->
 

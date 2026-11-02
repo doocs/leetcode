@@ -88,11 +88,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们贪心地枚举 `nums` 中每一个数 $\textit{nums}[j]$ 作为子数组的开始，判断其是否与当前 $\textit{groups}[i]$ 匹配，是则将指针 $i$ 往后移一位，将指针 $j$ 往后移动 $\textit{groups}[i].\textit{length}$ 位，否则将指针 $j$ 往后移动一位。
+我们贪心地枚举 $\textit{nums}$ 中每一个数 $\textit{nums}[j]$ 作为子数组的开始，判断其是否与当前 $\textit{groups}[i]$ 匹配，是则将指针 $i$ 往后移一位，将指针 $j$ 往后移动 $\textit{groups}[i].\textit{length}$ 位，否则将指针 $j$ 往后移动一位。
 
 如果 $i$ 走到了 $\textit{groups}.\textit{length}$，说明所有的子数组都匹配上了，返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 `groups` 和 `nums` 的长度。
+时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 $\textit{groups}$ 和 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

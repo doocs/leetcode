@@ -154,9 +154,9 @@ activity_duration 是用户当天在平台上花费的分钟数。
 
 <!-- thinking:end -->
 
-我们首先将表中的数据进行筛选，找出所有 `activity_type` 不等于 `cancelled` 的数据，将数据按照 `user_id` 和 `activity_type` 进行分组，求得每组的时长 `duration`，记录在表 `T` 中。
+我们首先将表中的数据进行筛选，找出所有 `activity_type` 不等于 $\textit{cancelled}$ 的数据，将数据按照 $\textit{user\_id}$ 和 `activity_type` 进行分组，求得每组的时长 `duration`，记录在表 `T` 中。
 
-接下来，我们从表 `T` 中筛选出 `activity_type` 为 `free_trial` 和 `paid` 的记录，分别记录在表 `F` 和 `P` 中，最后将这两张表按照 `user_id` 进行等值连接，并按照题目要求筛选出对应的字段并排序，得到最终结果。
+接下来，我们从表 `T` 中筛选出 `activity_type` 为 `free_trial` 和 `paid` 的记录，分别记录在表 `F` 和 `P` 中，最后将这两张表按照 $\textit{user\_id}$ 进行等值连接，并按照题目要求筛选出对应的字段并排序，得到最终结果。
 
 <!-- tabs:start -->
 

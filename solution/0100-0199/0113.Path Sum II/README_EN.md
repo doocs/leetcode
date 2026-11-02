@@ -74,7 +74,7 @@ tags:
 
 <!-- thinking:end -->
 
-We start from the root node, recursively traverse all paths from the root node to the leaf nodes, and record the path sum. When we traverse to a leaf node, if the current path sum equals `targetSum`, then we add this path to the answer.
+We start from the root node, recursively traverse all paths from the root node to the leaf nodes, and record the path sum. When we traverse to a leaf node, if the current path sum equals $\textit{targetSum}$, then we add this path to the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

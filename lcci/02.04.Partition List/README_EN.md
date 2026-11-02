@@ -45,15 +45,15 @@ difficulty: Medium
 
 <!-- thinking:end -->
 
-We create two lists, `left` and `right`, to store nodes that are less than `x` and nodes that are greater than or equal to `x`, respectively.
+We create two lists, $\textit{left}$ and $\textit{right}$, to store nodes that are less than `x` and nodes that are greater than or equal to `x`, respectively.
 
-Then we use two pointers `p1` and `p2` to point to the last node of `left` and `right` respectively, initially both `p1` and `p2` point to a dummy head node.
+Then we use two pointers $\textit{p1}$ and $\textit{p2}$ to point to the last node of $\textit{left}$ and $\textit{right}$ respectively, initially both $\textit{p1}$ and $\textit{p2}$ point to a dummy head node.
 
-Next, we traverse the list `head`. If the value of the current node is less than `x`, we add the current node to the end of the `left` list, i.e., `p1.next = head`, and then set `p1 = p1.next`; otherwise, we add the current node to the end of the `right` list, i.e., `p2.next = head`, and then set `p2 = p2.next`.
+Next, we traverse the list `head`. If the value of the current node is less than `x`, we add the current node to the end of the $\textit{left}$ list, i.e., `p1.next = head`, and then set `p1 = p1.next`; otherwise, we add the current node to the end of the $\textit{right}$ list, i.e., `p2.next = head`, and then set `p2 = p2.next`.
 
-After the traversal, we point the tail node of the `left` list to the first valid node of the `right` list, i.e., `p1.next = right.next`, and then point the tail node of the `right` list to a null node, i.e., `p2.next = null`.
+After the traversal, we point the tail node of the $\textit{left}$ list to the first valid node of the $\textit{right}$ list, i.e., `p1.next = right.next`, and then point the tail node of the $\textit{right}$ list to a null node, i.e., `p2.next = null`.
 
-Finally, we return the first valid node of the `left` list.
+Finally, we return the first valid node of the $\textit{left}$ list.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the list.
 

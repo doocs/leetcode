@@ -88,7 +88,7 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 >
 > $\textit{maxTime} \le 100$ and edge times $\ge 10$, so a walk from $0$ has at most about $10$ edges; degree $\le 4$ keeps the tree small. Value is collected on the first visit; edges may be reused.
 >
-> DFS tracks node, time, and value, updating the answer whenever it returns to $0$. `vis` is set on first entry and cleared on backtrack so revisits add nothing.
+> DFS tracks node, time, and value, updating the answer whenever it returns to $0$. $\textit{vis}$ is set on first entry and cleared on backtrack so revisits add nothing.
 
 <!-- thinking:end -->
 

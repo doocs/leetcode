@@ -71,7 +71,7 @@ tags:
 >
 > Killing a process kills its whole descendant tree. The parent arrays should become an adjacency list first.
 >
-> $g[p]$ stores children of $p$. DFS or BFS from `kill` gathers every reachable id. Each process is entered once.
+> $g[p]$ stores children of $p$. DFS or BFS from $\textit{kill}$ gathers every reachable id. Each process is entered once.
 
 <!-- thinking:end -->
 

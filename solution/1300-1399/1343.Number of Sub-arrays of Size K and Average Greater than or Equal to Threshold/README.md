@@ -67,11 +67,11 @@ tags:
 
 <!-- thinking:end -->
 
-不妨将 `threshold` 乘以 $k$，这样我们就可以直接比较窗口内的和与 `threshold` 的大小关系。
+不妨将 $\textit{threshold}$ 乘以 $k$，这样我们就可以直接比较窗口内的和与 $\textit{threshold}$ 的大小关系。
 
-我们维护一个长度为 $k$ 的滑动窗口，每次计算窗口内的和 $s$，如果 $s$ 大于等于 `threshold`，则答案加一。
+我们维护一个长度为 $k$ 的滑动窗口，每次计算窗口内的和 $s$，如果 $s$ 大于等于 $\textit{threshold}$，则答案加一。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `arr` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

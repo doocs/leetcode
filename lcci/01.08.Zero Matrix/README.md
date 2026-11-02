@@ -69,9 +69,9 @@ difficulty: 中等
 
 <!-- thinking:end -->
 
-我们分别用数组 `rows` 和 `cols` 标记待清零的行和列。
+我们分别用数组 $\textit{rows}$ 和 $\textit{cols}$ 标记待清零的行和列。
 
-然后再遍历一遍矩阵，将 `rows` 和 `cols` 中标记的行和列对应的元素清零。
+然后再遍历一遍矩阵，将 $\textit{rows}$ 和 $\textit{cols}$ 中标记的行和列对应的元素清零。
 
 时间复杂度 $O(mn)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 

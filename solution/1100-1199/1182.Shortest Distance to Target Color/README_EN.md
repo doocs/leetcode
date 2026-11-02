@@ -75,7 +75,7 @@ We can preprocess the distance from each position to the nearest color $1$, $2$,
 
 Then for each query $(i, c)$, the minimum distance is $d = \min(i - \textit{left}[i + 1][c - 1], \textit{right}[i][c - 1] - i)$. If $d > n$, there is no solution, and the answer to this query is $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `colors`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{colors}$.
 
 <!-- tabs:start -->
 

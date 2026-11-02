@@ -83,7 +83,7 @@ During the traversal, we directly calculate `f1`, `f2`, `f3`, `f4`. We consider 
 
 Finally, return `f4`.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the `prices` array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the $\textit{prices}$ array.
 
 <!-- tabs:start -->
 

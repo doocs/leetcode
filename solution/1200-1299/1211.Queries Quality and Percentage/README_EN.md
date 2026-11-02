@@ -101,7 +101,7 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 <!-- thinking:end -->
 
-Group by `query_name`, compute `quality` with `AVG(rating / position)`, and compute the poor-query rate with `AVG(rating < 3)`. Round both values to two decimal places, and drop null query names with `WHERE query_name IS NOT NULL`.
+Group by $\textit{query\_name}$, compute `quality` with `AVG(rating / position)`, and compute the poor-query rate with `AVG(rating < 3)`. Round both values to two decimal places, and drop null query names with `WHERE query_name IS NOT NULL`.
 
 <!-- tabs:start -->
 
@@ -134,7 +134,7 @@ GROUP BY 1;
 
 <!-- thinking:end -->
 
-The grouping is the same, and null query names are still dropped. `quality` uses `CAST` so the division is decimal, and the poor-query rate is counted with a `CASE` expression.
+The grouping is the same, and null query names are still dropped. `quality` uses $\textit{CAST}$ so the division is decimal, and the poor-query rate is counted with a $\textit{CASE}$ expression.
 
 <!-- tabs:start -->
 

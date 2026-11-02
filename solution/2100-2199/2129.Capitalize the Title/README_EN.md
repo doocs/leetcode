@@ -87,7 +87,7 @@ The remaining words have a length of at least 3, so the first letter of each rem
 
 Directly simulate the process. Split the string by spaces to get each word, then convert each word to the appropriate case as per the problem statement. Finally, join the words with spaces.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `title`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{title}$.
 
 <!-- tabs:start -->
 

@@ -223,7 +223,7 @@ function change(amount: number, coins: number[]): number {
 
 > **Thinking**
 >
-> $f[i][j]$ depends only on the previous row at $j$ and the current row at $j-x$. A one-dimensional array, updated forward from $x$ to `amount` for each coin, reuses the same coin's new states.
+> $f[i][j]$ depends only on the previous row at $j$ and the current row at $j-x$. A one-dimensional array, updated forward from $x$ to $\textit{amount}$ for each coin, reuses the same coin's new states.
 >
 > Space drops to $O(\textit{amount})$; the number of transitions is unchanged.
 

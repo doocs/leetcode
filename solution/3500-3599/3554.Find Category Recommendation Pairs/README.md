@@ -182,7 +182,7 @@ product_id 是这张表的唯一主键。
 
 <!-- thinking:end -->
 
-我们先将表 `ProductPurchases` 和表 `ProductInfo` 按照 `product_id` 进行连接，得到由 `user_id` 和 `category` 组成的表 `user_category`。接着，我们在 `user_category` 表中自连接，得到每个用户购买的所有类别对。最后，我们对这些类别对进行分组，统计每个类别对的用户数量，并筛选出用户数量大于等于 3 的类别对。
+我们先将表 `ProductPurchases` 和表 `ProductInfo` 按照 $\textit{product\_id}$ 进行连接，得到由 $\textit{user\_id}$ 和 $\textit{category}$ 组成的表 `user_category`。接着，我们在 `user_category` 表中自连接，得到每个用户购买的所有类别对。最后，我们对这些类别对进行分组，统计每个类别对的用户数量，并筛选出用户数量大于等于 3 的类别对。
 
 最后，我们按照用户数量降序、`category1` 升序、`category2` 升序的顺序进行排序，得到最终结果。
 

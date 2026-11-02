@@ -198,11 +198,11 @@ private:
 
 <!-- thinking:end -->
 
-We notice that the query operations in this problem are performed in strictly increasing order. Therefore, we can use a method similar to the median in the data stream. We define two priority queues `good` and `bad`. `good` is a min-heap, storing the current best attractions, and `bad` is a max-heap, storing the current $i$-th best attraction.
+We notice that the query operations in this problem are performed in strictly increasing order. Therefore, we can use a method similar to the median in the data stream. We define two priority queues $\textit{good}$ and $\textit{bad}$. $\textit{good}$ is a min-heap, storing the current best attractions, and $\textit{bad}$ is a max-heap, storing the current $i$-th best attraction.
 
-Each time the `add` method is called, we add the attraction's rating and name to `good`, and then add the worst attraction in `good` to `bad`.
+Each time the `add` method is called, we add the attraction's rating and name to $\textit{good}$, and then add the worst attraction in $\textit{good}$ to $\textit{bad}$.
 
-Each time the `get` method is called, we add the best attraction in `bad` to `good`, and then return the worst attraction in `good`.
+Each time the `get` method is called, we add the best attraction in $\textit{bad}$ to $\textit{good}$, and then return the worst attraction in $\textit{good}$.
 
 The time complexity of each operation is $O(\log n)$, where $n$ is the number of added attractions. The space complexity is $O(n)$.
 

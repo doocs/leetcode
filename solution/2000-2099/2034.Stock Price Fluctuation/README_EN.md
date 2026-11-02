@@ -100,16 +100,16 @@ We define the following data structures or variables:
 
 - `d`: a hash table that stores the timestamp and the corresponding price;
 - `ls`: an ordered set that stores all prices;
-- `last`: the timestamp of the last update.
+- $\textit{last}$: the timestamp of the last update.
 
 Then, we can perform the following operations:
 
-- `update(timestamp, price)`: update the price corresponding to the timestamp `timestamp` to `price`. If `timestamp` already exists, we need to first remove its corresponding price from the ordered set, and then update it to `price`. Otherwise, we directly update it to `price`. Then, we need to update `last` to `max(last, timestamp)`. The time complexity is $O(\log n)$.
-- `current()`: return the price corresponding to `last`. The time complexity is $O(1)$.
+- `update(timestamp, price)`: update the price corresponding to the timestamp $\textit{timestamp}$ to $\textit{price}$. If $\textit{timestamp}$ already exists, we need to first remove its corresponding price from the ordered set, and then update it to $\textit{price}$. Otherwise, we directly update it to $\textit{price}$. Then, we need to update $\textit{last}$ to `max(last, timestamp)`. The time complexity is $O(\log n)$.
+- `current()`: return the price corresponding to $\textit{last}$. The time complexity is $O(1)$.
 - `maximum()`: return the maximum value in the ordered set. The time complexity is $O(\log n)$.
 - `minimum()`: return the minimum value in the ordered set. The time complexity is $O(\log n)$.
 
-The space complexity is $O(n)$, where $n$ is the number of `update` operations.
+The space complexity is $O(n)$, where $n$ is the number of $\textit{update}$ operations.
 
 <!-- tabs:start -->
 

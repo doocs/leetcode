@@ -104,7 +104,7 @@ For each `getBill` call:
 2. Traverse the purchased product IDs and quantities, calculating the total bill $x = \sum_j d[\textit{product}[j]] \times \textit{amount}[j]$;
 3. If $i = 0$, the current customer is the $n$-th customer and the entire bill receives a discount; return $x - \dfrac{\textit{discount} \times x}{100}$. Otherwise, return $x$ directly.
 
-The time complexity of initialization is $O(n)$, where $n$ is the number of product types. Each `getBill` call takes $O(m)$ time, where $m$ is the number of product types in the current purchase. The space complexity is $O(n)$.
+The time complexity of initialization is $O(n)$, where $n$ is the number of product types. Each $\textit{getBill}$ call takes $O(m)$ time, where $m$ is the number of product types in the current purchase. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

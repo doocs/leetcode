@@ -79,7 +79,7 @@ trie.search(&quot;app&quot;);     // return True
 Each node in the trie contains two parts:
 
 1. An array of pointers to child nodes `children`. For this problem, the array length is 26, representing the number of lowercase English letters. `children[0]` corresponds to lowercase letter 'a', ..., and `children[25]` corresponds to lowercase letter 'z'.
-2. A boolean field `isEnd` indicating whether the node is the end of a string.
+2. A boolean field $\textit{isEnd}$ indicating whether the node is the end of a string.
 
 ### 1. Insert a String
 
@@ -99,7 +99,7 @@ We start from the root of the trie and search for the prefix. For the child node
 
 Repeat the above steps until a null pointer is returned or the last character of the prefix is searched.
 
-If we search to the end of the prefix, it means the trie contains the prefix. Additionally, if the `isEnd` of the node corresponding to the end of the prefix is true, it means the trie contains the string.
+If we search to the end of the prefix, it means the trie contains the prefix. Additionally, if the $\textit{isEnd}$ of the node corresponding to the end of the prefix is true, it means the trie contains the string.
 
 The time complexity for inserting a string is $O(m|\Sigma|)$, and the time complexity for searching a prefix is $O(m)$, where $m$ is the length of the string and $|\Sigma|$ is the size of the character set (26 in this problem). The space complexity is $O(qm|\Sigma|)$, where $q$ is the number of inserted strings.
 

@@ -82,7 +82,7 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 
 > **Thinking**
 >
-> Form distinct three-digit even numbers from `digits` without a leading zero. There are only $450$ such evens, so enumerate them and test frequencies rather than permuting the input.
+> Form distinct three-digit even numbers from $\textit{digits}$ without a leading zero. There are only $450$ such evens, so enumerate them and test frequencies rather than permuting the input.
 >
 > Count digits $0..9$, then split each even in $[100,998]$ and compare counts.
 

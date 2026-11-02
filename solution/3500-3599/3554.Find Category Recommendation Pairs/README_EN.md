@@ -181,7 +181,7 @@ Each row assigns a category and price to a product.
 
 <!-- thinking:end -->
 
-First, we join the `ProductPurchases` table and the `ProductInfo` table on `product_id` to obtain a `user_category` table consisting of `user_id` and `category`. Next, we self-join the `user_category` table to get all category pairs purchased by each user. Finally, we group these category pairs, count the number of users for each pair, and filter out the pairs with at least 3 users.
+First, we join the `ProductPurchases` table and the `ProductInfo` table on `product_id` to obtain a `user_category` table consisting of $\textit{user\_id}$ and $\textit{category}$. Next, we self-join the `user_category` table to get all category pairs purchased by each user. Finally, we group these category pairs, count the number of users for each pair, and filter out the pairs with at least 3 users.
 
 Lastly, we sort the final result by customer count in descending order, then by `category1` in ascending order, and then by `category2` in ascending order.
 

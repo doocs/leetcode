@@ -89,13 +89,13 @@ tags:
 
 <!-- thinking:end -->
 
-First, we preprocess the XOR sum $xs$ of the array `nums`, i.e., $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$.
+First, we preprocess the XOR sum $xs$ of the array $\textit{nums}$, i.e., $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$.
 
-Next, we enumerate each element $x$ in the array `nums` from back to front. The current XOR sum is $xs$. We need to find a number $k$ such that the value of $xs \oplus k$ is as large as possible, and $k \lt 2^{\textit{maximumBit}}$.
+Next, we enumerate each element $x$ in the array $\textit{nums}$ from back to front. The current XOR sum is $xs$. We need to find a number $k$ such that the value of $xs \oplus k$ is as large as possible, and $k \lt 2^{\textit{maximumBit}}$.
 
 That is to say, we start from the $\textit{maximumBit} - 1$ bit of $xs$ and enumerate to the lower bit. If a bit of $xs$ is $0$, then we set the corresponding bit of $k$ to $1$. Otherwise, we set the corresponding bit of $k$ to $0$. In this way, the final $k$ is the answer to each query. Then, we update $xs$ to $xs \oplus x$ and continue to enumerate the next element.
 
-The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the values of the array `nums` and `maximumBit` respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the values of the array $\textit{nums}$ and $\textit{maximumBit}$ respectively.
 
 <!-- tabs:start -->
 
@@ -292,11 +292,11 @@ public class Solution {
 
 <!-- thinking:end -->
 
-Similar to Solution 1, we first preprocess the XOR sum $xs$ of the array `nums`, i.e., $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$.
+Similar to Solution 1, we first preprocess the XOR sum $xs$ of the array $\textit{nums}$, i.e., $xs=\textit{nums}[0] \oplus \textit{nums}[1] \oplus \cdots \oplus \textit{nums}[n-1]$.
 
-Next, we calculate $2^{\textit{maximumBit}} - 1$, which is $2^{\textit{maximumBit}}$ minus $1$, denoted as $\textit{mask}$. Then, we enumerate each element $x$ in the array `nums` from back to front. The current XOR sum is $xs$, then $k=xs \oplus \textit{mask}$ is the answer to each query. Then, we update $xs$ to $xs \oplus x$ and continue to enumerate the next element.
+Next, we calculate $2^{\textit{maximumBit}} - 1$, which is $2^{\textit{maximumBit}}$ minus $1$, denoted as $\textit{mask}$. Then, we enumerate each element $x$ in the array $\textit{nums}$ from back to front. The current XOR sum is $xs$, then $k=xs \oplus \textit{mask}$ is the answer to each query. Then, we update $xs$ to $xs \oplus x$ and continue to enumerate the next element.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

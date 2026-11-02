@@ -672,7 +672,7 @@ class Fancy {
 
 Every `addAll` and `multAll` applies to all numbers that exist at that moment, and a number appended later is not affected by earlier updates. Therefore the pending multiply and add for every current number can be described by two global variables: multiply by $a$, then add $b$. Initially $a=1$ and $b=0$.
 
-The array `nums` does not store the current true values. It stores the values before multiplying by $a$ and adding $b$, so that at any time
+The array $\textit{nums}$ does not store the current true values. It stores the values before multiplying by $a$ and adding $b$, so that at any time
 
 $$
 \text{true value} = (a \times \textit{nums}[i] + b) \bmod (10^9+7)
@@ -687,7 +687,7 @@ The operations then become:
 
 Here $a^{-1}$ is the modular inverse of $a$ modulo $10^9+7$. The modulus is prime, so Fermat’s little theorem gives $a^{-1} \equiv a^{\textit{MOD}-2} \pmod{\textit{MOD}}$.
 
-All operations except the inverse in `append` run in $O(1)$ time; the inverse is $O(\log \textit{MOD})$. The space complexity is $O(n)$.
+All operations except the inverse in $\textit{append}$ run in $O(1)$ time; the inverse is $O(\log \textit{MOD})$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

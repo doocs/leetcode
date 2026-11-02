@@ -111,7 +111,7 @@ tags:
 
 而对于操作 $1$，即把 $\textit{nums}[\textit{idx}]$ 更新为 $\textit{val}$，只会影响到 $\textit{idx} - 1$, $\textit{idx}$, $\textit{idx} + 1$ 这三个位置的值，因此我们只需要更新这三个位置即可。具体地，我们可以先把这三个位置的峰值元素去掉，然后更新 $\textit{nums}[\textit{idx}]$ 的值，最后再把这三个位置的峰值元素加回来。
 
-时间复杂度 $O((n + q) \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是数组 `nums` 的长度和查询数组 `queries` 的长度。
+时间复杂度 $O((n + q) \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是数组 $\textit{nums}$ 的长度和查询数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

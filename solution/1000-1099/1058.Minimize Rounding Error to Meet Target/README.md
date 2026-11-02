@@ -81,11 +81,11 @@ tags:
 
 遍历价格数组 `prices`，先将每个价格 $p$ 向下舍入，累加到 `mi` 中，同时将每个价格的小数点部分添加到数组 `arr` 中。
 
-遍历结束后，判断 `target` 是否在 `mi` 和 `mi + arr.length` 之间，如果不在，直接返回 `"-1"`。
+遍历结束后，判断 $\textit{target}$ 是否在 `mi` 和 `mi + arr.length` 之间，如果不在，直接返回 `"-1"`。
 
 接下来，我们计算 `target - mi`，即需要向上入的价格个数，然后将 `arr` 从大到小排序，从前往后遍历，将前 `target - mi` 个价格向上入，其余价格向下舍入，累计到 `ans` 中。
 
-时间复杂度 $O(n \log n)$。其中 $n$ 为 `prices` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 为 $\textit{prices}$ 的长度。
 
 <!-- tabs:start -->
 

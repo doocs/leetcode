@@ -73,7 +73,7 @@ tags:
 
 We can use the idea of prefix sum, maintaining a variable $s$, which represents the difference between the number of "tiring days" and "non-tiring days" from index $0$ to the current index. If $s$ is greater than $0$, it means that the segment from index $0$ to the current index is a "well-performing time period". In addition, we use a hash table $\textit{pos}$ to record the first occurrence index of each $s$.
 
-Next, we traverse the `hours` array, for each index $i$:
+Next, we traverse the $\textit{hours}$ array, for each index $i$:
 
 - If $\textit{hours}[i] > 8$, we increment $s$ by $1$, otherwise we decrement $s$ by $1$.
 - If $s > 0$, it means that the segment from index $0$ to the current index $i$ is a "well-performing time period", we update the result $\textit{ans} = i + 1$. Otherwise, if $s - 1$ is in the hash table $\textit{pos}$, let $j = \textit{pos}[s - 1]$, it means that the segment from index $j + 1$ to the current index $i$ is a "well-performing time period", we update the result $\textit{ans} = \max(\textit{ans}, i - j)$.
@@ -81,7 +81,7 @@ Next, we traverse the `hours` array, for each index $i$:
 
 After the traversal, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `hours` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{hours}$ array.
 
 <!-- tabs:start -->
 

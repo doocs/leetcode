@@ -68,7 +68,7 @@ tags:
 >
 > Each sentence word should be replaced by the shortest dictionary root. Testing every root on every word repeats prefixes.
 >
-> Insert roots into a trie and walk each word until the first `is_end`; that prefix is the shortest root.
+> Insert roots into a trie and walk each word until the first $\textit{is\_end}$; that prefix is the shortest root.
 
 <!-- thinking:end -->
 

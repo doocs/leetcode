@@ -108,7 +108,7 @@ matrix3D.largestMatrix(); // 返回 3。0 到 3 的对应值都有相同数量�
 
 调用 `largestMatrix` 方法时，我们返回 $sl$ 中第一个元素的第二个值，如果 $sl$ 为空，则返回 $n - 1$。
 
-时间复杂度方面，`setCell` 和 `unsetCell` 方法的时间复杂度均为 $O(\log n)$，`largestMatrix` 方法的时间复杂度为 $O(1)$。空间复杂度 $O(n^3)$。
+时间复杂度方面， $\textit{setCell}$ 和 $\textit{unsetCell}$ 方法的时间复杂度均为 $O(\log n)$， $\textit{largestMatrix}$ 方法的时间复杂度为 $O(1)$。空间复杂度 $O(n^3)$。
 
 <!-- tabs:start -->
 

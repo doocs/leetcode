@@ -99,9 +99,9 @@ book_id 是这张表的唯一主键。
 
 <!-- thinking:end -->
 
-我们直接筛选出 `rating` 为 `NULL` 的书籍，然后按照 `book_id` 升序排序即可。
+我们直接筛选出 $\textit{rating}$ 为 `NULL` 的书籍，然后按照 $\textit{book\_id}$ 升序排序即可。
 
-注意，结果集中只包含 `book_id`、`title`、`author` 和 `published_year` 四个字段。
+注意，结果集中只包含 $\textit{book\_id}$、`title`、`author` 和 `published_year` 四个字段。
 
 <!-- tabs:start -->
 

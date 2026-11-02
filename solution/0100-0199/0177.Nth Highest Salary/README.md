@@ -91,7 +91,7 @@ n = 2
 
 <!-- thinking:end -->
 
-我们可以先对 `salary` 进行降序排序，然后使用 `LIMIT` 语句获取第 $n$ 高的工资。
+我们可以先对 `salary` 进行降序排序，然后使用 $\textit{LIMIT}$ 语句获取第 $n$ 高的工资。
 
 <!-- tabs:start -->
 

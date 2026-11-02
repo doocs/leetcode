@@ -78,11 +78,11 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 
 <!-- thinking:end -->
 
-We iterate through the array `words`, for each string `w`, we determine if it is a palindrome. If it is, then we return `w`; otherwise, we continue to iterate.
+We iterate through the array $\textit{words}$, for each string `w`, we determine if it is a palindrome. If it is, then we return `w`; otherwise, we continue to iterate.
 
 To determine if a string is a palindrome, we can use two pointers, one pointing to the start and the other to the end of the string, moving towards the center, and checking if the corresponding characters are equal. If, after traversing the entire string, no unequal characters are found, then the string is a palindrome.
 
-The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the sum of the lengths of all strings in the array `words`.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the sum of the lengths of all strings in the array $\textit{words}$.
 
 <!-- tabs:start -->
 

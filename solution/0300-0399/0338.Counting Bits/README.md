@@ -79,7 +79,7 @@ tags:
 >
 > 求 $0\ldots n$ 每个数的二进制 $1$ 的个数。对每个 $i$ 单独数位需 $O(\log i)$。 $n$ 最大 $10^5$，线性带对数可过，但可再快。
 >
-> 直接对每个 $i$ 调用 `bit_count`（或反复 `lowbit`）即可得到答案数组。
+> 直接对每个 $i$ 调用 `bit_count`（或反复 $\textit{lowbit}$）即可得到答案数组。
 
 <!-- thinking:end -->
 

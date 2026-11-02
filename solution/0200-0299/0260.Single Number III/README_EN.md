@@ -77,7 +77,7 @@ The XOR operation has the following properties:
 
 Since all numbers in the array appear twice except for two numbers, we can perform XOR operation on all numbers in the array to get the XOR result of the two numbers that only appear once.
 
-Since these two numbers are not equal, there is at least one bit that is 1 in the XOR result. We can use the `lowbit` operation to find the lowest bit of 1 in the XOR result, and divide all numbers in the array into two groups based on whether this bit is 1 or not. This way, the two numbers that only appear once are separated into different groups.
+Since these two numbers are not equal, there is at least one bit that is 1 in the XOR result. We can use the $\textit{lowbit}$ operation to find the lowest bit of 1 in the XOR result, and divide all numbers in the array into two groups based on whether this bit is 1 or not. This way, the two numbers that only appear once are separated into different groups.
 
 Perform XOR operation on each group separately to obtain the two numbers $a$ and $b$ that only appear once.
 

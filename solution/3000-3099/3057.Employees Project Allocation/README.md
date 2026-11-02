@@ -109,9 +109,9 @@ Employees 表：
 
 <!-- thinking:end -->
 
-我们先根据 `employee_id` 连接 `Project` 表和 `Employees` 表，然后再根据 `team` 分组统计每个团队的平均工作量，记录在临时表 `T` 中。
+我们先根据 $\textit{employee\_id}$ 连接 `Project` 表和 `Employees` 表，然后再根据 $\textit{team}$ 分组统计每个团队的平均工作量，记录在临时表 `T` 中。
 
-然后，我们再次连接 `Project` 表和 `Employees` 表，同时连接 `T` 表，找出工作量大于团队平均工作量的员工，并且按照 `employee_id` 和 `project_id` 排序。
+然后，我们再次连接 `Project` 表和 `Employees` 表，同时连接 `T` 表，找出工作量大于团队平均工作量的员工，并且按照 $\textit{employee\_id}$ 和 `project_id` 排序。
 
 <!-- tabs:start -->
 

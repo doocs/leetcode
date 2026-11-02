@@ -78,7 +78,7 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 
 <!-- thinking:end -->
 
-The problem requires that after each letter of the input `searchWord`, recommend up to three products from the `products` array that have the same prefix as `searchWord`. If there are more than three products with the same prefix that can be recommended, return the three with the smallest lexicographic order.
+The problem requires that after each letter of the input $\textit{searchWord}$, recommend up to three products from the `products` array that have the same prefix as $\textit{searchWord}$. If there are more than three products with the same prefix that can be recommended, return the three with the smallest lexicographic order.
 
 To find products with the same prefix, we can use a trie; to return the three products with the smallest lexicographic order, we can first sort the `products` array, and then store the indices of the sorted array in the trie.
 
@@ -89,7 +89,7 @@ Each node of the trie maintains the following information:
 
 During the search, we start from the root node of the trie, find the index array corresponding to each prefix, and store it in the result array. Finally, we only need to map each index in the index array to the `products` array.
 
-The time complexity is $O(L \log n + m)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the `products` array, and $n$ and $m$ are the lengths of the `products` array and `searchWord`, respectively.
+The time complexity is $O(L \log n + m)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the $\textit{products}$ array, and $n$ and $m$ are the lengths of the $\textit{products}$ array and $\textit{searchWord}$, respectively.
 
 <!-- tabs:start -->
 

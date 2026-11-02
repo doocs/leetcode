@@ -85,7 +85,7 @@ Output table is ordered by user_id in ascending order.
 
 <!-- thinking:end -->
 
-We can group the `Loans` table by `user_id` to find users who have both `Refinance` and `Mortgage`. Then, sort the results by `user_id`.
+We can group the `Loans` table by `user_id` to find users who have both $\textit{Refinance}$ and `Mortgage`. Then, sort the results by `user_id`.
 
 <!-- tabs:start -->
 

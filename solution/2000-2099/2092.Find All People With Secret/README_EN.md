@@ -95,7 +95,7 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 >
 > The secret spreads along same-time meeting components. Both $n$ and the meeting count are $10^5$. Sort by time; each timestamp is a temporary graph, BFS only from people who already know.
 >
-> Later times do not look backward. `vis` stays true once set.
+> Later times do not look backward. $\textit{vis}$ stays true once set.
 
 <!-- thinking:end -->
 

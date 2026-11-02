@@ -94,9 +94,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can preprocess to get the greatest common divisor of any two numbers in the array `nums`, stored in the two-dimensional array $g$, where $g[i][j]$ represents the greatest common divisor of $\textit{nums}[i]$ and $\textit{nums}[j]$.
+We can preprocess to get the greatest common divisor of any two numbers in the array $\textit{nums}$, stored in the two-dimensional array $g$, where $g[i][j]$ represents the greatest common divisor of $\textit{nums}[i]$ and $\textit{nums}[j]$.
 
-Then define $f[k]$ to represent the maximum score that can be obtained when the state after the current operation is $k$. Suppose $m$ is the number of elements in the array `nums`, then there are a total of $2^m$ states, that is, the range of $k$ is $[0, 2^m - 1]$.
+Then define $f[k]$ to represent the maximum score that can be obtained when the state after the current operation is $k$. Suppose $m$ is the number of elements in the array $\textit{nums}$, then there are a total of $2^m$ states, that is, the range of $k$ is $[0, 2^m - 1]$.
 
 Enumerate all states from small to large, for each state $k$, first determine whether the number of $1$s in the binary bits of this state $\textit{cnt}$ is even, if so, perform the following operations:
 
@@ -104,7 +104,7 @@ Enumerate the positions where the binary bits in $k$ are 1, suppose they are $i$
 
 The final answer is $f[2^m - 1]$.
 
-The time complexity is $O(2^m m^2)$, and the space complexity is $O(2^m)$, where $m$ is the number of elements in the array `nums`.
+The time complexity is $O(2^m m^2)$, and the space complexity is $O(2^m)$, where $m$ is the number of elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

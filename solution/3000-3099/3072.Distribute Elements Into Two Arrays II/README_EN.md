@@ -104,7 +104,7 @@ We can use two binary indexed trees `tree1` and `tree2` to maintain the number o
 
 Since the range of numbers given in the problem is very large, we need to discretize these numbers. We can sort these numbers and remove duplicates, then use binary search to find the position of each number in the sorted array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -73,11 +73,11 @@ tags:
 
 <!-- thinking:end -->
 
-We traverse `responses`, and for each word in `responses[i]`, we temporarily store it in a hash table `vis`. Next, we record the words in `vis` into the hash table `cnt`, recording the number of times each word appears.
+We traverse `responses`, and for each word in `responses[i]`, we temporarily store it in a hash table `vis`. Next, we record the words in `vis` into the hash table $\textit{cnt}$, recording the number of times each word appears.
 
-Next, we use custom sorting to sort the words in `features` in descending order of occurrence. If the number of occurrences is the same, we sort them in ascending order of the index where they appear.
+Next, we use custom sorting to sort the words in $\textit{features}$ in descending order of occurrence. If the number of occurrences is the same, we sort them in ascending order of the index where they appear.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of `features`.
+The time complexity is $O(n \log n)$, where $n$ is the length of $\textit{features}$.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ Moreover, for array XOR counting problems, we can usually use a "0-1 Trie" to so
 The definition of the Trie node is as follows:
 
 - `children[0]` and `children[1]` represent the left and right child nodes of the current node, respectively;
-- `cnt` represents the number of numbers ending with the current node.
+- $\textit{cnt}$ represents the number of numbers ending with the current node.
 
 In the Trie, we also define the following two functions:
 
@@ -101,7 +101,7 @@ With the above two functions, we can solve this problem.
 
 We traverse the array `nums`. For each number $x$, we first search in the Trie for the count of numbers that have an XOR value with $x$ less than $\textit{high}+1$, and then search in the Trie for the count of pairs that have an XOR value with $x$ less than $\textit{low}$, and add the difference between the two counts to the answer. Then insert $x$ into the Trie. Continue to traverse the next number $x$ until the array `nums` is traversed. Finally, return the answer.
 
-The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums`. In this problem, we directly take $\log M = 16$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(n \log M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$. In this problem, we directly take $\log M = 16$.
 
 <!-- tabs:start -->
 

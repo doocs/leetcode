@@ -81,7 +81,7 @@ tags:
 
 Note that the array is sorted in non-decreasing order, so for each `numbers[i]`, we can find the position of `target - numbers[i]` by binary search, and return $[i + 1, j + 1]$ if it exists.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `numbers`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{numbers}$.
 
 <!-- tabs:start -->
 
@@ -252,7 +252,7 @@ var twoSum = function (numbers, target) {
 
 We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $\textit{numbers}[i] + \textit{numbers}[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `numbers`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{numbers}$.
 
 <!-- tabs:start -->
 

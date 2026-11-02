@@ -66,7 +66,7 @@ We can use two pointers `low` and `high` to represent the current minimum and ma
 
 Finally, we add `low` to the result array and return the result array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `s`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

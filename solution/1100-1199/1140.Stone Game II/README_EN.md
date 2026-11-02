@@ -98,7 +98,7 @@ To avoid repeated calculations, we can use memoization search.
 
 Finally, we return $\textit{dfs}(0, 1)$ as the answer.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array `piles`.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{piles}$.
 
 <!-- tabs:start -->
 

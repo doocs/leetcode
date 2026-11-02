@@ -65,7 +65,7 @@ tags:
 
 <!-- thinking:end -->
 
-题目要我们统计数组 `nums` 中，最大值在区间 $[\textit{left}, \textit{right}]$ 范围内的子数组个数。
+题目要我们统计数组 $\textit{nums}$ 中，最大值在区间 $[\textit{left}, \textit{right}]$ 范围内的子数组个数。
 
 对于区间 $[\textit{left},..\textit{right}]$ 问题，我们可以考虑将其转换为 $[0,..\textit{right}]$ 然后再减去 $[0,..\textit{left}-1]$ 的问题。也就是说，所有最大元素不超过 $\textit{right}$ 的子数组个数，减去所有最大元素不超过 $\textit{left}-1$ 的子数组个数，剩下的就是最大元素在区间 $[\textit{left},..\textit{right}]$ 范围内的子数组个数，即题目要求的结果。
 
@@ -73,13 +73,13 @@ $$
 \textit{ans} = \sum_{i=0}^{\textit{right}} \textit{ans}_i -  \sum_{i=0}^{\textit{left}-1} \textit{ans}_i
 $$
 
-对于本题，我们设计一个函数 $f(x)$，表示数组 `nums` 中，最大值不超过 $x$ 的子数组个数。那么答案为 $f(\textit{right}) - f(\textit{left}-1)$。函数 $f(x)$ 的执行逻辑如下：
+对于本题，我们设计一个函数 $f(x)$，表示数组 $\textit{nums}$ 中，最大值不超过 $x$ 的子数组个数。那么答案为 $f(\textit{right}) - f(\textit{left}-1)$。函数 $f(x)$ 的执行逻辑如下：
 
 - 用变量 $\textit{cnt}$ 记录最大值不超过 $x$ 的子数组的个数，用 $t$ 记录当前子数组的长度。
-- 遍历数组 `nums`，对于每个元素 $\textit{nums}[i]$，如果 $\textit{nums}[i] \leq x$，则当前子数组的长度加一，即 $t=t+1$，否则当前子数组的长度重置为 0，即 $t=0$。然后将当前子数组的长度加到 $\textit{cnt}$ 中，即 $\textit{cnt} = \textit{cnt} + t$。
+- 遍历数组 $\textit{nums}$，对于每个元素 $\textit{nums}[i]$，如果 $\textit{nums}[i] \leq x$，则当前子数组的长度加一，即 $t=t+1$，否则当前子数组的长度重置为 0，即 $t=0$。然后将当前子数组的长度加到 $\textit{cnt}$ 中，即 $\textit{cnt} = \textit{cnt} + t$。
 - 遍历结束，将 $\textit{cnt}$ 返回即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

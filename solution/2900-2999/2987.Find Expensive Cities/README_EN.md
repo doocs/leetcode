@@ -91,7 +91,7 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 
 <!-- thinking:end -->
 
-We group the `Listings` table by `city`, then calculate the average house price for each city, and finally filter out the cities where the average house price is greater than the national average house price.
+We group the `Listings` table by $\textit{city}$, then calculate the average house price for each city, and finally filter out the cities where the average house price is greater than the national average house price.
 
 <!-- tabs:start -->
 

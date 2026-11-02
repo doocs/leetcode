@@ -81,12 +81,12 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 We use a hash table $d$ to store key-value pairs and a trie $t$ to store the prefix sums of the key-value pairs. Each node in the trie contains two pieces of information:
 
-- `val`: the total sum of the values of the key-value pairs with this node as the prefix
+- $\textit{val}$: the total sum of the values of the key-value pairs with this node as the prefix
 - `children`: an array of length $26$ that stores the child nodes of this node
 
-When inserting a key-value pair $(\textit{key}, \textit{val})$, we first check if the key exists in the hash table. If it does, the `val` of each node in the trie needs to subtract the original value of the key and then add the new value. If it does not exist, the `val` of each node in the trie needs to add the new value.
+When inserting a key-value pair $(\textit{key}, \textit{val})$, we first check if the key exists in the hash table. If it does, the $\textit{val}$ of each node in the trie needs to subtract the original value of the key and then add the new value. If it does not exist, the $\textit{val}$ of each node in the trie needs to add the new value.
 
-When querying the prefix sum, we start from the root node of the trie and traverse the prefix string. If the current node's child nodes do not contain the character, it means the prefix does not exist in the trie, and we return $0$. Otherwise, we continue to traverse the next character until we finish traversing the prefix string and return the `val` of the current node.
+When querying the prefix sum, we start from the root node of the trie and traverse the prefix string. If the current node's child nodes do not contain the character, it means the prefix does not exist in the trie, and we return $0$. Otherwise, we continue to traverse the next character until we finish traversing the prefix string and return the $\textit{val}$ of the current node.
 
 In terms of time complexity, the time complexity of inserting a key-value pair is $O(n)$, where $n$ is the length of the key. The time complexity of querying the prefix sum is $O(m)$, where $m$ is the length of the prefix.
 

@@ -79,7 +79,7 @@ After the iteration, we can get the answer.
 
 In the code implementation, we can also initialize $\textit{cnt}$ to $0$, and when resetting $\textit{cnt}$, we directly set $\textit{cnt}$ to $0$. When adding to the answer, we directly add $\textit{cnt}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

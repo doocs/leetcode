@@ -59,7 +59,7 @@ wordsFrequency.get("pen"); //返回1
 
 调用 `get` 函数时，我们只需要返回 $\textit{cnt}$ 中对应的单词的出现次数即可。
 
-时间复杂度方面，初始化哈希表 $\textit{cnt}$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $\textit{book}$ 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
+时间复杂度方面，初始化哈希表 $\textit{cnt}$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $\textit{book}$ 的长度。 $\textit{get}$ 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 

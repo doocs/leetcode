@@ -88,13 +88,13 @@ tags:
 
 我们用变量 `tot` 记录顾客的总等待时间，用变量 `t` 记录做完每个顾客的订单的时间，初始值均为 $0$。
 
-遍历顾客数组 `customers`，对于每个顾客：
+遍历顾客数组 $\textit{customers}$，对于每个顾客：
 
 如果当前时间 `t` 小于等于顾客的到达时间 `customers[i][0]`，说明厨师没有在做菜，那么厨师可以立即开始做菜，做完这道菜的时间为 $t = \textit{customers}[i][0] + \textit{customers}[i][1]$，顾客的等待时间为 `customers[i][1]`。
 
 否则，说明厨师正在做菜，那么顾客需要等待厨师做完此前的菜，才能开始做自己的菜，做完这道菜的时间为 $t = t + \textit{customers}[i][1]$，顾客的等待时间为 $t - \textit{customers}[i][0]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为顾客数组 `customers` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为顾客数组 $\textit{customers}$ 的长度。
 
 <!-- tabs:start -->
 

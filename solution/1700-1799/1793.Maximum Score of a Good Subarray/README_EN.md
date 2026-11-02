@@ -306,7 +306,7 @@ By maintaining the minimum value within current window, we can find maximum scor
 
 5. Return `max_score` once the for loop terminates.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -61,7 +61,7 @@ difficulty: Medium
 
 <!-- thinking:end -->
 
-Since all elements in each row are sorted in ascending order, we can use binary search to find the first element that is greater than or equal to `target` for each row, and then check if this element is equal to `target`. If it equals `target`, it means the target value has been found, and we directly return `true`. If it does not equal `target`, it means all elements in this row are less than `target`, and we should continue to search the next row.
+Since all elements in each row are sorted in ascending order, we can use binary search to find the first element that is greater than or equal to $\textit{target}$ for each row, and then check if this element is equal to $\textit{target}$. If it equals $\textit{target}$, it means the target value has been found, and we directly return `true`. If it does not equal $\textit{target}$, it means all elements in this row are less than $\textit{target}$, and we should continue to search the next row.
 
 If all rows have been searched and the target value has not been found, it means the target value does not exist, so we return `false`.
 
@@ -277,13 +277,13 @@ class Solution {
 
 <!-- thinking:end -->
 
-Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
+Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with $\textit{target}$:
 
 - If $\textit{matrix}[i][j] = \textit{target}$, it means the target value has been found, and we directly return `true`.
-- If $\textit{matrix}[i][j] > \textit{target}$, it means all elements in this column from the current position upwards are greater than `target`, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
-- If $\textit{matrix}[i][j] < \textit{target}$, it means all elements in this row from the current position to the right are less than `target`, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
+- If $\textit{matrix}[i][j] > \textit{target}$, it means all elements in this column from the current position upwards are greater than $\textit{target}$, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
+- If $\textit{matrix}[i][j] < \textit{target}$, it means all elements in this row from the current position to the right are less than $\textit{target}$, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
 
-If the search ends and the `target` is still not found, return `false`.
+If the search ends and the $\textit{target}$ is still not found, return `false`.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 

@@ -87,7 +87,7 @@ The second (add x y) evaluates as 3+2 = 5.
 >
 > $\textit{let}$ binds names and inner scopes shadow outer ones, so each variable keeps a stack of values that must be popped after the form. $\textit{add}$/$\textit{mult}$ just evaluate two subexpressions.
 >
-> $\textit{eval}$ branches on the current token: a bare name or integer, or a parenthesized `let`/`add`/`mult`. Bindings go through $\textit{scope}$ as push/pop. One scan evaluates the expression.
+> $\textit{eval}$ branches on the current token: a bare name or integer, or a parenthesized $\textit{let}$/$\textit{add}$/$\textit{mult}$. Bindings go through $\textit{scope}$ as push/pop. One scan evaluates the expression.
 
 <!-- thinking:end -->
 

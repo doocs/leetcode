@@ -52,7 +52,7 @@ tags:
 >
 > All elements appear in adjacent pairs except one singleton, and we must find it in $O(\log n)$.
 >
-> Pairs occupy even-odd indices. If `mid` still matches `mid ⊕ 1`, the singleton is to the right; otherwise it lies on the left (including `mid`). XOR avoids separate even/odd cases.
+> Pairs occupy even-odd indices. If $\textit{mid}$ still matches `mid ⊕ 1`, the singleton is to the right; otherwise it lies on the left (including $\textit{mid}$). XOR avoids separate even/odd cases.
 
 <!-- thinking:end -->
 

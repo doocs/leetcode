@@ -70,7 +70,7 @@ Simulate according to the problem's requirements.
 
 Traverse the array, find the maximum and minimum values, and accumulate the sum. Then calculate the average value after removing the maximum and minimum values.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `salary`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{salary}$.
 
 <!-- tabs:start -->
 

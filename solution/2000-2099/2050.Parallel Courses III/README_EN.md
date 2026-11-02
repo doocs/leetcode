@@ -88,7 +88,7 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 
 > **Thinking**
 >
-> Courses have prerequisites and durations; the finish time is the heaviest path in the DAG. With $n \le 5 \times 10^4$ we cannot list paths. Sources start immediately and finish in their own `time`.
+> Courses have prerequisites and durations; the finish time is the heaviest path in the DAG. With $n \le 5 \times 10^4$ we cannot list paths. Sources start immediately and finish in their own $\textit{time}$.
 >
 > In topological order, $f[j] = \max(f[j], f[i]+\textit{time}[j])$ once every predecessor $i$ is done. The answer is the maximum $f$.
 >

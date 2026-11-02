@@ -98,9 +98,9 @@ The data range of the problem is not large, so we can directly use an array to s
 
 During initialization, set each element in the array to $0$, indicating it's free.
 
-When the `allocate` method is called, traverse the array, find `size` consecutive free memory units, set them to `mID`, and return the first index.
+When the `allocate` method is called, traverse the array, find $\textit{size}$ consecutive free memory units, set them to $\textit{mID}$, and return the first index.
 
-When the `free` method is called, traverse the array, set all memory units equal to `mID` to $0$, indicating they are free.
+When the `free` method is called, traverse the array, set all memory units equal to $\textit{mID}$ to $0$, indicating they are free.
 
 The time complexity is $O(nq)$, and the space complexity is $O(n)$, where $n$ and $q$ are the size of the memory space and the number of method calls, respectively.
 
@@ -336,11 +336,11 @@ class Allocator {
 
 <!-- thinking:end -->
 
-We can use an ordered set to maintain the start and end indices of all allocated memory units, where the start index is the key and the end index is the value. Additionally, we use a hash table to maintain the `mID` and its corresponding start index of the memory unit.
+We can use an ordered set to maintain the start and end indices of all allocated memory units, where the start index is the key and the end index is the value. Additionally, we use a hash table to maintain the $\textit{mID}$ and its corresponding start index of the memory unit.
 
-When the `allocate` method is called, we traverse the ordered set, find the first free interval with a length greater than or equal to `size`, allocate it to `mID`, and update the ordered set. Then we add the `mID` and its corresponding start index of the memory unit to the hash table.
+When the `allocate` method is called, we traverse the ordered set, find the first free interval with a length greater than or equal to `size`, allocate it to $\textit{mID}$, and update the ordered set. Then we add the $\textit{mID}$ and its corresponding start index of the memory unit to the hash table.
 
-When the `free` method is called, we find the start index of the memory unit corresponding to `mID` from the hash table, then delete it from the ordered set, and then delete `mID` from the hash table.
+When the `free` method is called, we find the start index of the memory unit corresponding to $\textit{mID}$ from the hash table, then delete it from the ordered set, and then delete $\textit{mID}$ from the hash table.
 
 The time complexity is $O(q \log n)$, and the space complexity is $O(n)$, where $n$ and $q$ are the size of the memory space and the number of method calls, respectively.
 

@@ -82,13 +82,13 @@ phoneDirectory.check(2);   // 数字 2 重新可用，返回 true。
 
 我们可以使用一个哈希集合 `available` 来存储未被分配的电话号码，初始时，哈希表中存储的是 `[0, 1, 2, ..., maxNumbers - 1]`。
 
-调用 `get` 方法时，我们从 `available` 中取出一个未被分配的电话号码，如果 `available` 为空，则返回 `-1`。时间复杂度 $O(1)$。
+调用 $\textit{get}$ 方法时，我们从 $\textit{available}$ 中取出一个未被分配的电话号码，如果 $\textit{available}$ 为空，则返回 `-1`。时间复杂度 $O(1)$。
 
-调用 `check` 方法时，我们只需要判断 `number` 是否在 `available` 中即可。时间复杂度 $O(1)$。
+调用 $\textit{check}$ 方法时，我们只需要判断 $\textit{number}$ 是否在 $\textit{available}$ 中即可。时间复杂度 $O(1)$。
 
-调用 `release` 方法时，我们将 `number` 添加到 `available` 中。时间复杂度 $O(1)$。
+调用 $\textit{release}$ 方法时，我们将 $\textit{number}$ 添加到 $\textit{available}$ 中。时间复杂度 $O(1)$。
 
-空间复杂度 $O(n)$。其中 $n$ 是 `maxNumbers` 的值。
+空间复杂度 $O(n)$。其中 $n$ 是 $\textit{maxNumbers}$ 的值。
 
 <!-- tabs:start -->
 

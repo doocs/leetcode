@@ -80,13 +80,13 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 
 We can use a hash set `available` to store unallocated phone numbers. Initially, the hash set contains `[0, 1, 2, ..., maxNumbers - 1]`.
 
-When the `get` method is called, we take an unallocated phone number from `available`. If `available` is empty, we return `-1`. The time complexity is $O(1)$.
+When the $\textit{get}$ method is called, we take an unallocated phone number from $\textit{available}$. If $\textit{available}$ is empty, we return `-1`. The time complexity is $O(1)$.
 
-When the `check` method is called, we just need to check whether `number` is in `available`. The time complexity is $O(1)$.
+When the $\textit{check}$ method is called, we just need to check whether $\textit{number}$ is in $\textit{available}$. The time complexity is $O(1)$.
 
-When the `release` method is called, we add `number` to `available`. The time complexity is $O(1)$.
+When the $\textit{release}$ method is called, we add $\textit{number}$ to $\textit{available}$. The time complexity is $O(1)$.
 
-The space complexity is $O(n)$, where $n$ is the value of `maxNumbers`.
+The space complexity is $O(n)$, where $n$ is the value of $\textit{maxNumbers}$.
 
 <!-- tabs:start -->
 

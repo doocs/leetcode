@@ -85,7 +85,7 @@ Next, we traverse each interval:
 - If the left endpoint of the current interval is greater than the top element of the heap, it means the current interval can be added to the group where the top element of the heap is located. We directly pop the top element of the heap, and then put the right endpoint of the current interval into the heap.
 - Otherwise, it means there is currently no group that can accommodate the current interval, so we create a new group and put the right endpoint of the current interval into the heap.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `intervals`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{intervals}$.
 
 <!-- tabs:start -->
 

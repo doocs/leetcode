@@ -71,11 +71,11 @@ tags:
 
 We can directly simulate the operations described in the problem.
 
-In the implementation, we use two pointers $p$ and $q$, both initially pointing to the head node of `list1`.
+In the implementation, we use two pointers $p$ and $q$, both initially pointing to the head node of $\textit{list1}$.
 
-Then we move pointers $p$ and $q$ forward, until pointer $p$ points to the node before the $a$-th node in `list1`, and pointer $q$ points to the $b$-th node in `list1`. At this point, we set the `next` pointer of $p$ to the head node of `list2`, and set the `next` pointer of the tail node of `list2` to the node pointed to by the `next` pointer of $q$. This completes the operation required by the problem.
+Then we move pointers $p$ and $q$ forward, until pointer $p$ points to the node before the $a$-th node in $\textit{list1}$, and pointer $q$ points to the $b$-th node in $\textit{list1}$. At this point, we set the $\textit{next}$ pointer of $p$ to the head node of $\textit{list2}$, and set the $\textit{next}$ pointer of the tail node of $\textit{list2}$ to the node pointed to by the $\textit{next}$ pointer of $q$. This completes the operation required by the problem.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of `list1` and `list2` respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of $\textit{list1}$ and $\textit{list2}$ respectively.
 
 <!-- tabs:start -->
 

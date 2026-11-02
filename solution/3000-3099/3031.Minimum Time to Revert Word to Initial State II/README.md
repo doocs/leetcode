@@ -97,13 +97,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们不妨假设，如果只操作一次，就能使得 `word` 恢复到初始状态，那么意味着 `word[k:]` 是 `word` 的前缀，即 `word[k:] == word[:n-k]`。
+我们不妨假设，如果只操作一次，就能使得 $\textit{word}$ 恢复到初始状态，那么意味着 `word[k:]` 是 $\textit{word}$ 的前缀，即 `word[k:] == word[:n-k]`。
 
-如果有多次操作，不妨设 $i$ 为操作次数，那么意味着 `word[k*i:]` 是 `word` 的前缀，即 `word[k*i:] == word[:n-k*i]`。
+如果有多次操作，不妨设 $i$ 为操作次数，那么意味着 `word[k*i:]` 是 $\textit{word}$ 的前缀，即 `word[k*i:] == word[:n-k*i]`。
 
 因此，我们可以枚举操作次数，利用字符串哈希来判断两个字符串是否相等。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `word` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{word}$ 的长度。
 
 <!-- tabs:start -->
 

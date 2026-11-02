@@ -93,7 +93,7 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 - `renew` 操作时，如果 `tokenId` 不在哈希表 $d$ 中，或者 `currentTime >= d[tokenId]`，则忽略该操作；否则，更新 `d[tokenId]` 为 `currentTime + timeToLive`。
 - `countUnexpiredTokens` 操作时，遍历哈希表 $d$，统计未过期的 `tokenId` 个数。
 
-时间复杂度方面，`generate` 和 `renew` 操作的时间复杂度均为 $O(1)$，`countUnexpiredTokens` 操作的时间复杂度为 $O(n)$，其中 $n$ 为哈希表 $d$ 的键值对个数。
+时间复杂度方面， $\textit{generate}$ 和 $\textit{renew}$ 操作的时间复杂度均为 $O(1)$， $\textit{countUnexpiredTokens}$ 操作的时间复杂度为 $O(n)$，其中 $n$ 为哈希表 $d$ 的键值对个数。
 
 空间复杂度 $O(n)$。其中 $n$ 为哈希表 $d$ 的键值对个数。
 

@@ -85,9 +85,9 @@ tags:
 
 <!-- thinking:end -->
 
-将数组 `nums` 排序后，遍历数组，找出所有等于 `target` 的元素的下标，将其加入结果数组中。
+将数组 `nums` 排序后，遍历数组，找出所有等于 $\textit{target}$ 的元素的下标，将其加入结果数组中。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

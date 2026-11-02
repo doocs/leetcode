@@ -79,13 +79,13 @@ Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, r
 
 For two integers, the parity of the number of $1$s in the XOR result depends on the parity of the number of $1$s in the binary representations of the two integers.
 
-We can use three arrays `cnt1`, `cnt2`, `cnt3` to record the parity of the number of $1$s in the binary representations of each number in arrays `a`, `b`, `c`, respectively.
+We can use three arrays $\textit{cnt1}$, $\textit{cnt2}$, $\textit{cnt3}$ to record the parity of the number of $1$s in the binary representations of each number in arrays `a`, `b`, `c`, respectively.
 
 Then, we enumerate the parity of the number of $1$s in the binary representations of each number in the three arrays within the range $[0, 1]$. If the sum of the parity of the number of $1$s in the binary representations of three numbers is even, then the number of $1$s in the XOR result of these three numbers is also even. At this time, we multiply the combination of these three numbers and accumulate it into the answer.
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays `a`, `b`, `c`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays $a$, $b$, $c$.
 
 <!-- tabs:start -->
 

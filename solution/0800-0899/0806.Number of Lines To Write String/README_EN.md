@@ -77,11 +77,11 @@ There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
 
 <!-- thinking:end -->
 
-We define two variables `lines` and `last`, representing the number of lines and the width of the last line, respectively. Initially, `lines = 1` and `last = 0`.
+We define two variables `lines` and $\textit{last}$, representing the number of lines and the width of the last line, respectively. Initially, `lines = 1` and `last = 0`.
 
-We iterate through the string $s$. For each character $c$, we calculate its width $w$. If $\textit{last} + w \leq 100$, we add $w$ to `last`. Otherwise, we increment `lines` by one and reset `last` to $w$.
+We iterate through the string $s$. For each character $c$, we calculate its width $w$. If $\textit{last} + w \leq 100$, we add $w$ to $\textit{last}$. Otherwise, we increment `lines` by one and reset $\textit{last}$ to $w$.
 
-Finally, we return an array consisting of `lines` and `last`.
+Finally, we return an array consisting of `lines` and $\textit{last}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 

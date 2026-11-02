@@ -82,7 +82,7 @@ The column name in Excel is a representation in base 26. For example, "AB" repre
 
 Therefore, we can iterate through the string `columnTitle`, convert each character to its corresponding value, and then calculate the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string `columnTitle`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $\textit{columnTitle}$.
 
 <!-- tabs:start -->
 

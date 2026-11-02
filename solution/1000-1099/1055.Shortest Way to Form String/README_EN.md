@@ -75,11 +75,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use the two pointers method, where pointer $j$ points to the target string `target`. Then we traverse the source string `source` with pointer $i$ pointing to the source string `source`. If $\textit{source}[i] = \textit{target}[j]$, then both $i$ and $j$ move one step forward, otherwise only pointer $i$ moves. When both pointers $i$ and $j$ reach the end of the string, if no equal character is found, return $-1$, otherwise the subsequence count increases by one, and then set pointer $i$ to $0$ and continue to traverse.
+We can use the two pointers method, where pointer $j$ points to the target string $\textit{target}$. Then we traverse the source string $\textit{source}$ with pointer $i$ pointing to the source string $\textit{source}$. If $\textit{source}[i] = \textit{target}[j]$, then both $i$ and $j$ move one step forward, otherwise only pointer $i$ moves. When both pointers $i$ and $j$ reach the end of the string, if no equal character is found, return $-1$, otherwise the subsequence count increases by one, and then set pointer $i$ to $0$ and continue to traverse.
 
 After the traversal ends, return the subsequence count.
 
-The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the strings `source` and `target` respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the strings $\textit{source}$ and $\textit{target}$ respectively.
 
 <!-- tabs:start -->
 

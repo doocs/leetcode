@@ -87,9 +87,9 @@ tags:
 
 <!-- thinking:end -->
 
-遍历数组 `nums`，对于每个 $i$，枚举所有 $j$，如果 $i \neq j$ 且 $\textit{nums}[i] + \textit{nums}[j] = \textit{target}$，则答案加一。
+遍历数组 $\textit{nums}$，对于每个 $i$，枚举所有 $j$，如果 $i \neq j$ 且 $\textit{nums}[i] + \textit{nums}[j] = \textit{target}$，则答案加一。
 
-时间复杂度 $O(n^2m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。
+时间复杂度 $O(n^2m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和字符串 $\textit{target}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -174,9 +174,9 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 <!-- thinking:end -->
 
-我们可以用哈希表统计数组 `nums` 中每个字符串出现的次数，然后遍历字符串 `target` 的所有前缀和后缀，如果前缀和后缀都在哈希表中，则答案加上它们出现的次数的乘积。
+我们可以用哈希表统计数组 `nums` 中每个字符串出现的次数，然后遍历字符串 $\textit{target}$ 的所有前缀和后缀，如果前缀和后缀都在哈希表中，则答案加上它们出现的次数的乘积。
 
-时间复杂度 $O(n + m^2)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。
+时间复杂度 $O(n + m^2)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和字符串 $\textit{target}$ 的长度。
 
 <!-- tabs:start -->
 

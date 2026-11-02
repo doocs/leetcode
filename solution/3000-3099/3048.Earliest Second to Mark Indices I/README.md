@@ -112,13 +112,13 @@ tags:
 
 我们注意到，如果我们能够在 $t$ 秒内标记所有下标，那么我们也能在 $t' \geq t$ 秒内标记所有下标。因此，我们可以使用二分查找的方法找到最早的秒数。
 
-我们定义二分查找的左右边界分别为 $l = 1$ 和 $r = m + 1$，其中 $m$ 是数组 `changeIndices` 的长度。对于每一个 $t = \frac{l + r}{2}$，我们检查是否能在 $t$ 秒内标记所有下标。如果能，我们将右边界移动到 $t$，否则我们将左边界移动到 $t + 1$。最终，我们判定左边界是否大于 $m$，如果是则返回 $-1$，否则返回左边界。
+我们定义二分查找的左右边界分别为 $l = 1$ 和 $r = m + 1$，其中 $m$ 是数组 $\textit{changeIndices}$ 的长度。对于每一个 $t = \frac{l + r}{2}$，我们检查是否能在 $t$ 秒内标记所有下标。如果能，我们将右边界移动到 $t$，否则我们将左边界移动到 $t + 1$。最终，我们判定左边界是否大于 $m$，如果是则返回 $-1$，否则返回左边界。
 
 题目的关键在于如何判断是否能在 $t$ 秒内标记所有下标。我们可以使用一个数组 $\textit{last}$ 记录每一个下标最晚需要被标记的时间，用一个变量 $\textit{decrement}$ 记录当前可以减少的次数，用一个变量 $\textit{marked}$ 记录已经被标记的下标的数量。
 
-我们遍历数组 `changeIndices` 的前 $t$ 个元素，对于每一个元素 $i$，如果 $\textit{last}[i] = s$，那么我们需要检查 $\textit{decrement}$ 是否大于等于 $\textit{nums}[i - 1]$，如果是，我们将 $\textit{decrement}$ 减去 $\textit{nums}[i - 1]$，并且将 $\textit{marked}$ 加一；否则，我们返回 `False`。如果 $\textit{last}[i] \neq s$，那么我们可以暂时不标记下标，因此将 $\textit{decrement}$ 加一。最后，我们检查 $\textit{marked}$ 是否等于 $n$，如果是，我们返回 `True`，否则返回 `False`。
+我们遍历数组 $\textit{changeIndices}$ 的前 $t$ 个元素，对于每一个元素 $i$，如果 $\textit{last}[i] = s$，那么我们需要检查 $\textit{decrement}$ 是否大于等于 $\textit{nums}[i - 1]$，如果是，我们将 $\textit{decrement}$ 减去 $\textit{nums}[i - 1]$，并且将 $\textit{marked}$ 加一；否则，我们返回 `False`。如果 $\textit{last}[i] \neq s$，那么我们可以暂时不标记下标，因此将 $\textit{decrement}$ 加一。最后，我们检查 $\textit{marked}$ 是否等于 $n$，如果是，我们返回 `True`，否则返回 `False`。
 
-时间复杂度 $O(m \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `changeIndices` 的长度。
+时间复杂度 $O(m \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{changeIndices}$ 的长度。
 
 <!-- tabs:start -->
 

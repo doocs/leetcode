@@ -116,7 +116,7 @@ Total number of oranges = 15 + 25 + 8 + 28 + 15 + 15 + 17 = 123
 
 <!-- thinking:end -->
 
-We can perform a left join on the `Boxes` table and the `Chests` table based on `chest_id`, and then calculate the total number of apples and oranges respectively. Note that if a box does not contain any small boxes, then the corresponding `chest_id` will be `null`. In this case, we need to consider the number of apples and oranges in the small boxes within that box to be 0.
+We can perform a left join on the $\textit{Boxes}$ table and the $\textit{Chests}$ table based on $\textit{chest\_id}$, and then calculate the total number of apples and oranges respectively. Note that if a box does not contain any small boxes, then the corresponding $\textit{chest\_id}$ will be `null`. In this case, we need to consider the number of apples and oranges in the small boxes within that box to be 0.
 
 <!-- tabs:start -->
 

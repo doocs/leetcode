@@ -123,11 +123,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们不妨假设字符串 `initial` 和 `target` 的长度分别为 $m$ 和 $n$。
+我们不妨假设字符串 $\textit{initial}$ 和 $\textit{target}$ 的长度分别为 $m$ 和 $n$。
 
-根据题目描述，我们只需要求出 `initial` 和 `target` 的最长公共子串的长度 $mx$，那么我们可以从 `initial` 中删除 $m - mx$ 个字符，然后再添加 $n - mx$ 个字符，即可将 `initial` 转换为 `target`，因此答案为 $m + n - 2 \times mx$。
+根据题目描述，我们只需要求出 $\textit{initial}$ 和 $\textit{target}$ 的最长公共子串的长度 $mx$，那么我们可以从 $\textit{initial}$ 中删除 $m - mx$ 个字符，然后再添加 $n - mx$ 个字符，即可将 $\textit{initial}$ 转换为 $\textit{target}$，因此答案为 $m + n - 2 \times mx$。
 
-我们可以使用动态规划的方法求出 `initial` 和 `target` 的最长公共子串的长度 $mx$。我们定义一个二维数组 $f$，其中 $f[i][j]$ 表示以 `initial[i - 1]` 和 `target[j - 1]` 结尾的最长公共子串的长度。那么我们可以得到状态转移方程：
+我们可以使用动态规划的方法求出 $\textit{initial}$ 和 $\textit{target}$ 的最长公共子串的长度 $mx$。我们定义一个二维数组 $f$，其中 $f[i][j]$ 表示以 `initial[i - 1]` 和 `target[j - 1]` 结尾的最长公共子串的长度。那么我们可以得到状态转移方程：
 
 $$
 f[i][j] = \begin{cases}
@@ -138,7 +138,7 @@ $$
 
 那么 $mx = \max f[i][j]$，最终答案为 $m + n - 2 \times mx$。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为字符串 `initial` 和 `target` 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 分别为字符串 $\textit{initial}$ 和 $\textit{target}$ 的长度。
 
 <!-- tabs:start -->
 

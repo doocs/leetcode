@@ -85,7 +85,7 @@ tags:
 
 我们用指针 $i$ 遍历数组 $\textit{forts}$，指针 $j$ 从 $i$ 的下一个位置开始遍历，直到遇到第一个非 $0$ 的位置，即 $\textit{forts}[j] \neq 0$。如果 $\textit{forts}[i] + \textit{forts}[j] = 0$，那么我们可以将军队在 $i$ 和 $j$ 之间移动，摧毁 $j - i - 1$ 个敌人城堡。我们用变量 $\textit{ans}$ 记录最多可以摧毁的敌人城堡数目即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `forts` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{forts}$ 的长度。
 
 <!-- tabs:start -->
 

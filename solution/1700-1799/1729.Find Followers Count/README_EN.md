@@ -81,7 +81,7 @@ The followers of 2 are {0,1}
 
 <!-- thinking:end -->
 
-We can directly group the `Followers` table by `user_id`, and use the `COUNT` function to count the number of followers for each user.
+We can directly group the $\textit{Followers}$ table by $\textit{user\_id}$, and use the $\textit{COUNT}$ function to count the number of followers for each user.
 
 <!-- tabs:start -->
 

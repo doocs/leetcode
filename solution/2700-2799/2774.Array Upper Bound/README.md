@@ -124,7 +124,7 @@ Array.prototype.upperBound = function (target: number) {
 
 <!-- thinking:end -->
 
-直接调用 `lastIndexOf` 从右向左扫描，返回目标值的最后一次下标；不存在则返回 $-1$。
+直接调用 $\textit{lastIndexOf}$ 从右向左扫描，返回目标值的最后一次下标；不存在则返回 $-1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 

@@ -84,7 +84,7 @@ But the second continuation byte does not start with 10, so it is invalid.
 >
 > Validate a UTF-8 byte stream given as integers. The leading prefix dictates how many `10xxxxxx` bytes follow. One pass is enough.
 >
-> `cnt` is remaining continuation bytes, which must be `10xxxxxx`. Otherwise decode a 1–4-byte header and set `cnt`. Fail on a bad prefix; success requires `cnt=0` at the end.
+> $\textit{cnt}$ is remaining continuation bytes, which must be `10xxxxxx`. Otherwise decode a 1–4-byte header and set $\textit{cnt}$. Fail on a bad prefix; success requires `cnt=0` at the end.
 
 <!-- thinking:end -->
 
@@ -101,7 +101,7 @@ For each integer $v$ in the array:
 
 Finally, if $\textit{cnt} = 0$, return `true`, otherwise return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `data`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{data}$.
 
 <!-- tabs:start -->
 

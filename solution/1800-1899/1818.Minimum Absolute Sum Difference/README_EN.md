@@ -93,13 +93,13 @@ This yields an absolute sum difference of <code>|10-9| + |10-3| + |4-5| + |4-1| 
 
 <!-- thinking:end -->
 
-According to the problem, we can first calculate the absolute difference sum of `nums1` and `nums2` without any replacements, denoted as $s$.
+According to the problem, we can first calculate the absolute difference sum of $\textit{nums1}$ and $\textit{nums2}$ without any replacements, denoted as $s$.
 
-Next, we enumerate each element $\textit{nums1}[i]$ in `nums1`, replacing it with the element closest to $\textit{nums2}[i]$ that also exists in `nums1`. Therefore, before the enumeration, we can make a copy of `nums1`, resulting in the array `nums`, and sort `nums`. Then, we perform a binary search in `nums` for the element closest to $\textit{nums2}[i]$, denoted as $\textit{nums}[j]$, and calculate $|\textit{nums1}[i] - \textit{nums2}[i]| - |\textit{nums}[j] - \textit{nums2}[i]|$, updating the maximum value of the difference $mx$.
+Next, we enumerate each element $\textit{nums1}[i]$ in $\textit{nums1}$, replacing it with the element closest to $\textit{nums2}[i]$ that also exists in $\textit{nums1}$. Therefore, before the enumeration, we can make a copy of $\textit{nums1}$, resulting in the array $\textit{nums}$, and sort $\textit{nums}$. Then, we perform a binary search in $\textit{nums}$ for the element closest to $\textit{nums2}[i]$, denoted as $\textit{nums}[j]$, and calculate $|\textit{nums1}[i] - \textit{nums2}[i]| - |\textit{nums}[j] - \textit{nums2}[i]|$, updating the maximum value of the difference $mx$.
 
 Finally, we subtract $mx$ from $s$, which is the answer. Note the modulus operation.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums1`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums1}$.
 
 <!-- tabs:start -->
 

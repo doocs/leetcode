@@ -75,7 +75,7 @@ tags:
 
 <!-- thinking:end -->
 
-Notice that after modifying the array `nums`, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:
+Notice that after modifying the array $\textit{nums}$, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:
 
 $$
 \textit{nums}[i] \oplus \textit{nums}[i+1] \oplus ... \oplus \textit{nums}[i+k-1] = 0
@@ -87,7 +87,7 @@ $$
 \textit{nums}[i+1] \oplus \textit{nums}[i+2] \oplus ... \oplus \textit{nums}[i+k] = 0
 $$
 
-Combining the two equations and the properties of XOR operation, we can get $\textit{nums}[i] \oplus \textit{nums}[i+k] = 0$, which means $\textit{nums}[i]=\textit{nums}[i+k]$. We find that the elements in the modified array `nums` are cyclic with a period of $k$. The numbers congruent modulo $k$ can only take a fixed value, and the XOR result of the first $k$ numbers must be $0$.
+Combining the two equations and the properties of XOR operation, we can get $\textit{nums}[i] \oplus \textit{nums}[i+k] = 0$, which means $\textit{nums}[i]=\textit{nums}[i+k]$. We find that the elements in the modified array $\textit{nums}$ are cyclic with a period of $k$. The numbers congruent modulo $k$ can only take a fixed value, and the XOR result of the first $k$ numbers must be $0$.
 
 First, we count each group $i$, the number of elements in each group is $\textit{size}[i]$, and the number of elements with value $v$ in each group is $\textit{cnt}[i][v]$.
 
@@ -99,7 +99,7 @@ When transitioning states, there are two choices: one is to modify all the numbe
 
 The final answer is $f[0]$.
 
-The time complexity is $O(2^{C} k + n)$, where $n$ is the length of the array `nums`, and $C$ is the maximum number of bits in the binary representation of the elements in `nums`, in this problem $C=10$.
+The time complexity is $O(2^{C} k + n)$, where $n$ is the length of the array $\textit{nums}$, and $C$ is the maximum number of bits in the binary representation of the elements in $\textit{nums}$, in this problem $C=10$.
 
 <!-- tabs:start -->
 

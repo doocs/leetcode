@@ -75,13 +75,13 @@ tags:
 - `b`：当前节点无摄像头，但被子节点监控
 - `c`：当前节点无摄像头，也没被子节点监控
 
-接下来，我们设计一个函数 $\textit{dfs}(\textit{root})$，它将返回一个长度为 3 的数组，表示以 `root` 为根的子树中，三种状态下的最小摄像头数量。那么答案就是 $\min(\textit{dfs}(\textit{root})[0], \textit{dfs}(\textit{root})[1])$。
+接下来，我们设计一个函数 $\textit{dfs}(\textit{root})$，它将返回一个长度为 3 的数组，表示以 $\textit{root}$ 为根的子树中，三种状态下的最小摄像头数量。那么答案就是 $\min(\textit{dfs}(\textit{root})[0], \textit{dfs}(\textit{root})[1])$。
 
 函数 $\textit{dfs}(\textit{root})$ 的计算过程如下：
 
-如果 `root` 为空，则返回 $[\textit{inf}, 0, 0]$，其中 `inf` 表示一个很大的数，它用于表示不可能的情况。
+如果 $\textit{root}$ 为空，则返回 $[\textit{inf}, 0, 0]$，其中 $\textit{inf}$ 表示一个很大的数，它用于表示不可能的情况。
 
-否则，我们递归计算 `root` 的左右子树，分别得到 $[la, lb, lc]$ 和 $[ra, rb, rc]$。
+否则，我们递归计算 $\textit{root}$ 的左右子树，分别得到 $[la, lb, lc]$ 和 $[ra, rb, rc]$。
 
 - 如果当前节点有摄像头，那么它的左右节点必须都是被监控的状态，即 $a = \min(la, lb, lc) + \min(ra, rb, rc) + 1$。
 - 如果当前节点无摄像头，但被子节点监控，那么子节点可以是其中之一或者两个都有摄像头，即 $b = \min(la + rb, lb + ra, la + ra)$。

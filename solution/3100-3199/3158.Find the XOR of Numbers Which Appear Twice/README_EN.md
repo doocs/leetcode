@@ -95,7 +95,7 @@ Next, we traverse the array `nums`. When a number appears twice, we perform an X
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums` or the number of distinct numbers in the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$ or the number of distinct numbers in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

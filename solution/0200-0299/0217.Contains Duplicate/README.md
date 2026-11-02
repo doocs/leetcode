@@ -85,7 +85,7 @@ tags:
 
 否则，遍历结束，返回 `false`。
 
-时间复杂度 $O(n \log n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -251,7 +251,7 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 遍历数组，将出现过的元素记录在哈希表 $s$ 中。若元素第二次出现时，说明数组中存在重复元素，直接返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

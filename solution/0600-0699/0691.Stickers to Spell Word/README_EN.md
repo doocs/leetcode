@@ -80,11 +80,11 @@ We cannot form the target &quot;basicbasic&quot; from cutting letters from the g
 
 <!-- thinking:end -->
 
-We notice that the length of the string `target` does not exceed 15. We can use a binary number of length 15 to represent whether each character of `target` has been spelled out. If the $i$th bit is 1, it means that the $i$th character of `target` has been spelled out; otherwise, it has not been spelled out.
+We notice that the length of the string $\textit{target}$ does not exceed 15. We can use a binary number of length 15 to represent whether each character of $\textit{target}$ has been spelled out. If the $i$th bit is 1, it means that the $i$th character of $\textit{target}$ has been spelled out; otherwise, it has not been spelled out.
 
-We define an initial state 0, which means that all characters have not been spelled out. Then we use the Breadth-First Search (BFS) method, starting from the initial state. Each time we search, we enumerate all the stickers. For each sticker, we try to spell out each character of `target`. If we spell out a character, we set the $i$th bit of the corresponding binary number to 1, indicating that the character has been spelled out. Then we continue to search until we spell out all the characters of `target`.
+We define an initial state 0, which means that all characters have not been spelled out. Then we use the Breadth-First Search (BFS) method, starting from the initial state. Each time we search, we enumerate all the stickers. For each sticker, we try to spell out each character of $\textit{target}$. If we spell out a character, we set the $i$th bit of the corresponding binary number to 1, indicating that the character has been spelled out. Then we continue to search until we spell out all the characters of $\textit{target}$.
 
-The time complexity is $O(2^n m(l + n))$, and the space complexity is $O(2^n)$, where $n$ is the length of the string `target`, and $m$ and $l$ are the number of stickers and the average length of the stickers, respectively.
+The time complexity is $O(2^n m(l + n))$, and the space complexity is $O(2^n)$, where $n$ is the length of the string $\textit{target}$, and $m$ and $l$ are the number of stickers and the average length of the stickers, respectively.
 
 <!-- tabs:start -->
 

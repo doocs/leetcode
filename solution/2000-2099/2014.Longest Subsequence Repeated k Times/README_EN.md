@@ -86,7 +86,7 @@ tags:
 >
 > With short candidates, BFS from short to long makes the last success the longest, and appending letters in order makes it lexicographically largest among that length.
 >
-> The queue starts from `""` and appends letters with count $\ge k$; `check` matches $t$ in $s$ for $k$ rounds.
+> The queue starts from `""` and appends letters with count $\ge k$; $\textit{check}$ matches $t$ in $s$ for $k$ rounds.
 
 <!-- thinking:end -->
 

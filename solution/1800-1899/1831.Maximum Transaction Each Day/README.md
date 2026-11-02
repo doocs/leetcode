@@ -90,7 +90,7 @@ Transactions table:
 
 <!-- thinking:end -->
 
-我们可以使用窗口函数 `RANK`，按照每天的交易金额 `amount` 降序排列，然后选择排名为 $1$ 的交易。
+我们可以使用窗口函数 $\textit{RANK}$，按照每天的交易金额 $\textit{amount}$ 降序排列，然后选择排名为 $1$ 的交易。
 
 <!-- tabs:start -->
 

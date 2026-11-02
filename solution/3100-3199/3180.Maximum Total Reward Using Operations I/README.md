@@ -86,19 +86,19 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以对奖励值数组 `rewardValues` 进行排序，然后使用记忆化搜索的方法求解最大总奖励。
+我们可以对奖励值数组 $\textit{rewardValues}$ 进行排序，然后使用记忆化搜索的方法求解最大总奖励。
 
 我们定义一个函数 $\textit{dfs}(x)$，表示当前总奖励为 $x$ 时，能够获得的最大总奖励。那么答案为 $\textit{dfs}(0)$。
 
 函数 $\textit{dfs}(x)$ 的执行过程如下：
 
-1. 二分查找数组 `rewardValues` 中第一个大于 $x$ 的元素的下标 $i$；
-2. 遍历数组 `rewardValues` 中从下标 $i$ 开始的元素，对于每个元素 $v$，计算 $v + \textit{dfs}(x + v)$ 的最大值。
+1. 二分查找数组 $\textit{rewardValues}$ 中第一个大于 $x$ 的元素的下标 $i$；
+2. 遍历数组 $\textit{rewardValues}$ 中从下标 $i$ 开始的元素，对于每个元素 $v$，计算 $v + \textit{dfs}(x + v)$ 的最大值。
 3. 将结果返回。
 
 为了避免重复计算，我们使用记忆化数组 `f` 记录已经计算过的结果。
 
-时间复杂度 $O(n(\log n + M))$，空间复杂度 $O(M)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。
+时间复杂度 $O(n(\log n + M))$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{rewardValues}$ 的长度，而 $M$ 是数组 $\textit{rewardValues}$ 中的最大值的两倍。
 
 <!-- tabs:start -->
 
@@ -265,7 +265,7 @@ $$
 
 由于 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i - 1][j - v]$ 有关，我们可以优化掉第一维，只使用一个一维数组进行状态转移。
 
-时间复杂度 $O(n \times M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。
+时间复杂度 $O(n \times M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{rewardValues}$ 的长度，而 $M$ 是数组 $\textit{rewardValues}$ 中的最大值的两倍。
 
 <!-- tabs:start -->
 
@@ -418,7 +418,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 那么答案为 $f$ 的最高位的位置。
 
-时间复杂度 $O(n \times M / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
+时间复杂度 $O(n \times M / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 $\textit{rewardValues}$ 的长度，而 $M$ 是数组 $\textit{rewardValues}$ 中的最大值的两倍。整数 $w = 32$ 或 $64$。
 
 <!-- tabs:start -->
 

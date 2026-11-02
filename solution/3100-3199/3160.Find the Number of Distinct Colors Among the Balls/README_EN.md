@@ -98,13 +98,13 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table `g` to record the color of each ball, and another hash table `cnt` to record the count of each color.
+We use a hash table `g` to record the color of each ball, and another hash table $\textit{cnt}$ to record the count of each color.
 
-Next, we traverse the array `queries`. For each query $(x, y)$, we increase the count of color $y$ by $1$, then check whether ball $x$ has been colored. If it has, we decrease the count of the color of ball $x$ by $1$. If the count drops to $0$, we remove it from the hash table `cnt`. Then, we update the color of ball $x$ to $y$, and add the current size of the hash table `cnt` to the answer array.
+Next, we traverse the array `queries`. For each query $(x, y)$, we increase the count of color $y$ by $1$, then check whether ball $x$ has been colored. If it has, we decrease the count of the color of ball $x$ by $1$. If the count drops to $0$, we remove it from the hash table $\textit{cnt}$. Then, we update the color of ball $x$ to $y$, and add the current size of the hash table $\textit{cnt}$ to the answer array.
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the length of the array `queries`.
+The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is the length of the array $\textit{queries}$.
 
 <!-- tabs:start -->
 

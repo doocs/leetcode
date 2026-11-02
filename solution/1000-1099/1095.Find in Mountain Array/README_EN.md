@@ -82,7 +82,7 @@ tags:
 
 > **Thinking**
 >
-> The mountain is available only through `get`, and $n\le 10^4$ requires logarithmic queries. Find the peak, then binary-search the increasing left and the decreasing right.
+> The mountain is available only through $\textit{get}$, and $n\le 10^4$ requires logarithmic queries. Find the peak, then binary-search the increasing left and the decreasing right.
 >
 > Comparing $\textit{get}(\textit{mid})$ with $\textit{get}(\textit{mid}+1)$ locates the peak. `search` uses $k=\pm 1$ so the same lower-bound loop works on both sides.
 >

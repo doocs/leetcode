@@ -83,7 +83,7 @@ Hence, there are 2 subarrays in nums that match the pattern.
 
 We can enumerate all subarrays of array `nums` with a length of $m + 1$, and then check whether they match the pattern array `pattern`. If they do, we increment the answer by one.
 
-The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the arrays `nums` and `pattern` respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{pattern}$ respectively.
 
 <!-- tabs:start -->
 

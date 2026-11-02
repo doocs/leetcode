@@ -100,7 +100,7 @@ tags:
 
 利用拓扑排序，找到一个合法的 `row` 序列和 `col` 序列，然后根据这两个序列构造出矩阵。
 
-时间复杂度 $O(m+n+k)$。其中 $m$ 和 $n$ 分别为 `rowConditions` 和 `colConditions` 的长度，而 $k$ 为题目中给定的正整数。
+时间复杂度 $O(m+n+k)$。其中 $m$ 和 $n$ 分别为 $\textit{rowConditions}$ 和 $\textit{colConditions}$ 的长度，而 $k$ 为题目中给定的正整数。
 
 <!-- tabs:start -->
 

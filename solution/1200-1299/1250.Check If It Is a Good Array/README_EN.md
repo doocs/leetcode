@@ -87,7 +87,7 @@ Therefore, we only need to determine whether there exist $i$ coprime numbers in 
 
 So we transform the problem into: determining whether the greatest common divisor of all numbers in the array `nums` is $1$. We can do this by traversing the array `nums` and finding the greatest common divisor of all numbers in the array `nums`.
 
-The time complexity is $O(n + \log m)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`, and $m$ is the maximum value in the array `nums`.
+The time complexity is $O(n + \log m)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$, and $m$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

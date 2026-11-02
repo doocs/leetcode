@@ -110,7 +110,7 @@ Otherwise, we sort the corresponding counts, and then compare whether the counts
 
 At the end of the traversal, return `true`.
 
-The time complexity is $O(m + n + C \log C)$, and the space complexity is $O(C)$, where $m$ and $n$ are the lengths of the strings `word1` and `word2` respectively, and $C$ is the number of letter types. In this problem, $C=26$.
+The time complexity is $O(m + n + C \log C)$, and the space complexity is $O(C)$, where $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$ respectively, and $C$ is the number of letter types. In this problem, $C=26$.
 
 <!-- tabs:start -->
 

@@ -90,7 +90,7 @@ tags:
 >
 > $\textit{let}$ 会引入绑定且内层覆盖外层，求值结束后必须撤销，因此每个变量用栈保存历史值。 $\textit{add}$/$\textit{mult}$ 则是对两个子表达式求值后运算。
 >
-> 递归函数 $\textit{eval}$ 看当前记号：非括号则解析变量或整数；否则按 `let`/`add`/`mult` 分派，解析变量名与嵌套 $\textit{eval}$，在 $\textit{let}$ 的绑定表 $\textit{scope}$ 上入栈出栈。一次扫描完成。
+> 递归函数 $\textit{eval}$ 看当前记号：非括号则解析变量或整数；否则按 $\textit{let}$/$\textit{add}$/$\textit{mult}$ 分派，解析变量名与嵌套 $\textit{eval}$，在 $\textit{let}$ 的绑定表 $\textit{scope}$ 上入栈出栈。一次扫描完成。
 
 <!-- thinking:end -->
 

@@ -76,13 +76,13 @@ tags:
 
 <!-- thinking:end -->
 
-Since `letters` is sorted in non-decreasing order, we can use binary search to find the smallest character that is larger than `target`.
+Since $\textit{letters}$ is sorted in non-decreasing order, we can use binary search to find the smallest character that is larger than $\textit{target}$.
 
 We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each binary search, we calculate the middle position $\textit{mid} = (l + r) / 2$. If $\textit{letters}[\textit{mid}] > \textit{target}$, it means we need to continue searching in the left half, so we set $r = \textit{mid}$. Otherwise, we need to continue searching in the right half, so we set $l = \textit{mid} + 1$.
 
 Finally, we return $\textit{letters}[l \mod n]$.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of `letters`.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{letters}$.
 
 <!-- tabs:start -->
 

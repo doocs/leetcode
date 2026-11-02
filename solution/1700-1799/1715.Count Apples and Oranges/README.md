@@ -116,7 +116,7 @@ Chests 表：
 
 <!-- thinking:end -->
 
-我们可以将 `Boxes` 表和 `Chests` 表按照 `chest_id` 进行左连接，然后分别求出苹果和橘子的总个数。注意，如果某个箱子中没有小盒子，那么对应的 `chest_id` 为 `null`，此时我们需要认为该箱子中的小盒子中苹果和橘子的个数为 0。
+我们可以将 $\textit{Boxes}$ 表和 $\textit{Chests}$ 表按照 $\textit{chest\_id}$ 进行左连接，然后分别求出苹果和橘子的总个数。注意，如果某个箱子中没有小盒子，那么对应的 $\textit{chest\_id}$ 为 `null`，此时我们需要认为该箱子中的小盒子中苹果和橘子的个数为 0。
 
 <!-- tabs:start -->
 

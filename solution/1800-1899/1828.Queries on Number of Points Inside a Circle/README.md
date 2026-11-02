@@ -80,7 +80,7 @@ queries[0] 是绿色的圆，queries[1] 是红色的圆，queries[2] 是蓝色�
 
 枚举所有的圆点 $(x, y, r)$，对于每个圆点，计算在圆内的点的个数，即可得到答案。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为数组 `queries` 的长度和 `points` 的长度。
+时间复杂度 $O(mn)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为数组 $\textit{queries}$ 的长度和 $\textit{points}$ 的长度。
 
 <!-- tabs:start -->
 

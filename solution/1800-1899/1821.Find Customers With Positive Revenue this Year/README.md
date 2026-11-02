@@ -88,7 +88,7 @@ Customers
 
 <!-- thinking:end -->
 
-我们可以直接使用 `WHERE` 子句来筛选出 `year` 为 `2021` 且 `revenue` 大于 $0$ 的客户。
+我们可以直接使用 $\textit{WHERE}$ 子句来筛选出 $\textit{year}$ 为 `2021` 且 $\textit{revenue}$ 大于 $0$ 的客户。
 
 <!-- tabs:start -->
 

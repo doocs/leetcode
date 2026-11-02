@@ -114,7 +114,7 @@ As we can see, users with IDs 30 and 96 visited the mall one time without making
 
 <!-- thinking:end -->
 
-We can use a subquery to first find all `visit_id`s that have not made any transactions, and then group by `customer_id` to count the number of times each customer has not made any transactions.
+We can use a subquery to first find all $\textit{visit\_id}$s that have not made any transactions, and then group by `customer_id` to count the number of times each customer has not made any transactions.
 
 <!-- tabs:start -->
 
@@ -144,7 +144,7 @@ GROUP BY 1;
 
 <!-- thinking:end -->
 
-We can also use a left join to join the `Visits` table and the `Transactions` table on `visit_id`, and then filter out the records where `amount` is `NULL`. After that, we can group by `customer_id` to count the number of times each customer has not made any transactions.
+We can also use a left join to join the $\textit{Visits}$ table and the $\textit{Transactions}$ table on `visit_id`, and then filter out the records where $\textit{amount}$ is `NULL`. After that, we can group by `customer_id` to count the number of times each customer has not made any transactions.
 
 <!-- tabs:start -->
 

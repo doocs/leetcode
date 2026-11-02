@@ -83,7 +83,7 @@ tags:
 
 然后我们遍历工人，对于每个工人，我们找出他能完成的工作中收益最大的那个，然后将这个收益加到答案中。
 
-时间复杂度 $O(n \log n + m \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `profit` 和 `worker` 的长度。
+时间复杂度 $O(n \log n + m \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{profit}$ 和 $\textit{worker}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -221,7 +221,7 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 
 最后，我们遍历工人，对于每个工人 $w$，我们将 $f[\min(w, m)]$ 加到答案中。
 
-时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 `profit` 的长度，而 $M$ 是数组 `difficulty` 中的最大值。
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{profit}$ 的长度，而 $M$ 是数组 $\textit{difficulty}$ 中的最大值。
 
 <!-- tabs:start -->
 

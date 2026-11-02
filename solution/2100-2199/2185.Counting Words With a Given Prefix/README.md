@@ -73,7 +73,7 @@ tags:
 
 根据题目描述，我们遍历字符串数组 `words` 中的每个字符串 $w$，判断其是否以 $\textit{pref}$ 作为前缀，如果是，则答案加一。
 
-时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是字符串数组 `words` 和字符串 $\textit{pref}$ 的长度。
+时间复杂度 $O(nm)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是字符串数组 $\textit{words}$ 和字符串 $\textit{pref}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -185,18 +185,18 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 定义前缀树的每个节点结构如下：
 
 - `children`：长度为 $26$ 的数组，用于存储当前节点的所有子节点，其中 `children[i]` 表示当前节点的子节点；
-- `cnt`：所有以当前节点为前缀的字符串的数量。
+- $\textit{cnt}$：所有以当前节点为前缀的字符串的数量。
 
 另外，我们还需要定义两个函数：
 
 - 其中一个函数 $\textit{insert}(w)$ 用于将字符串 $w$ 插入前缀树中；
-- 另一个函数 $\textit{search}(\textit{pref})$ 用于查询以字符串 $\textit{pref}$ 作为前缀的字符串的数量。查询时，我们从前缀树的根节点开始，遍历字符串 $\textit{pref}$，如果当前节点的子节点中不存在 $\textit{pref}[i]$，则说明 $\textit{pref}$ 不是任何字符串的前缀，直接返回 $0$。否则，我们继续遍历 $\textit{pref}$ 的下一个字符，直到遍历完 $\textit{pref}$，返回当前节点的 `cnt` 即可。
+- 另一个函数 $\textit{search}(\textit{pref})$ 用于查询以字符串 $\textit{pref}$ 作为前缀的字符串的数量。查询时，我们从前缀树的根节点开始，遍历字符串 $\textit{pref}$，如果当前节点的子节点中不存在 $\textit{pref}[i]$，则说明 $\textit{pref}$ 不是任何字符串的前缀，直接返回 $0$。否则，我们继续遍历 $\textit{pref}$ 的下一个字符，直到遍历完 $\textit{pref}$，返回当前节点的 $\textit{cnt}$ 即可。
 
 有了上述函数，我们就可以查询答案了。
 
 遍历字符串数组 `words`，对于每个字符串 $w$，调用 $\textit{insert}(w)$ 函数将其插入前缀树中。最后调用 $\textit{search}(\textit{pref})$ 函数作为答案返回即可。
 
-时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是字符串数组 `words` 中所有字符串的长度之和。
+时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是字符串数组 $\textit{words}$ 中所有字符串的长度之和。
 
 <!-- tabs:start -->
 

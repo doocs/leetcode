@@ -83,7 +83,7 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 然后在 `next` 和 `hasNext` 中进行操作。
 
-初始化的时间复杂度为 $O(n)$，其余操作的时间复杂度为 $O(1)$。其中 $n$ 为 `compressedString` 的长度。
+初始化的时间复杂度为 $O(n)$，其余操作的时间复杂度为 $O(1)$。其中 $n$ 为 $\textit{compressedString}$ 的长度。
 
 <!-- tabs:start -->
 

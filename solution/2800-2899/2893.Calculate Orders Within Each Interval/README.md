@@ -118,7 +118,7 @@ ORDER BY 1;
 
 > **思考**
 >
-> 窗口函数仍要扫描前缀。`minute` 连续时可用 $\lfloor(\textit{minute}+5)/6\rfloor$ 直接分组，组内 `SUM` 即为该区间订单数，写法更短。
+> 窗口函数仍要扫描前缀。 $\textit{minute}$ 连续时可用 $\lfloor(\textit{minute}+5)/6\rfloor$ 直接分组，组内 `SUM` 即为该区间订单数，写法更短。
 
 <!-- thinking:end -->
 

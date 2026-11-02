@@ -466,7 +466,7 @@ Use a queue for insertion order and one ordered set for the current window of le
 
 Unlike method 1, which partitions the window into three sets, this approach keeps a single ordered sequence.
 
-Each `addElement` call takes $O(\log m)$ time, and each `calculateMKAverage` call takes $O(1)$ time. The space complexity is $O(m)$.
+Each $\textit{addElement}$ call takes $O(\log m)$ time, and each $\textit{calculateMKAverage}$ call takes $O(1)$ time. The space complexity is $O(m)$.
 
 In Java, C++, and Go, $\textit{num}\le 10^5$, so a Fenwick tree of frequencies supports rank and $k$-th queries in logarithmic time and matches the ordered-set operations.
 

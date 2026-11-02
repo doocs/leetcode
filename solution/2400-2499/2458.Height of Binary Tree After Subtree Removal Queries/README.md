@@ -102,19 +102,19 @@ tags:
 
 然后我们设计一个函数 $\textit{dfs}(\textit{root}, \textit{depth}, \textit{rest})$，其中：
 
-- `root` 表示当前节点；
-- `depth` 表示当前节点的深度；
-- `rest` 表示删除当前节点后，树的高度。
+- $\textit{root}$ 表示当前节点；
+- $\textit{depth}$ 表示当前节点的深度；
+- $\textit{rest}$ 表示删除当前节点后，树的高度。
 
 函数的计算逻辑如下：
 
-如果节点为空，直接返回。否则，我们将 `depth` 加 $1$，然后将 `rest` 保存在 `res` 中。
+如果节点为空，直接返回。否则，我们将 $\textit{depth}$ 加 $1$，然后将 $\textit{rest}$ 保存在 $\textit{res}$ 中。
 
 接着递归遍历左右子树。
 
-递归左子树前，我们计算从根节点到当前节点右子树最深节点的就，即 $\textit{depth}+d[\textit{root}.\textit{right}]$，然后将其与 `rest` 比较，取较大值作为左子树的 `rest`。
+递归左子树前，我们计算从根节点到当前节点右子树最深节点的就，即 $\textit{depth}+d[\textit{root}.\textit{right}]$，然后将其与 $\textit{rest}$ 比较，取较大值作为左子树的 $\textit{rest}$。
 
-递归右子树前，我们计算从根节点到当前节点左子树最深节点的就，即 $\textit{depth}+d[\textit{root}.\textit{left}]$，然后将其与 `rest` 比较，取较大值作为右子树的 `rest`。
+递归右子树前，我们计算从根节点到当前节点左子树最深节点的就，即 $\textit{depth}+d[\textit{root}.\textit{left}]$，然后将其与 $\textit{rest}$ 比较，取较大值作为右子树的 $\textit{rest}$。
 
 最后返回每个查询节点对应的结果值即可。
 

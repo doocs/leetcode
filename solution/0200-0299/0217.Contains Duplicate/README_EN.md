@@ -84,7 +84,7 @@ Then, we traverse the array. If there are two adjacent elements that are the sam
 
 Otherwise, when the traversal ends, we return `false`.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -250,7 +250,7 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 We traverse the array and record the elements that have appeared in the hash table $s$. If an element appears for the second time, it means that there are duplicate elements in the array, and we directly return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

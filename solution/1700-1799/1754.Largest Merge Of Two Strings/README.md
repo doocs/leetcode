@@ -90,11 +90,11 @@ tags:
 
 <!-- thinking:end -->
 
-我们用指针 $i$ 和 $j$ 分别指向字符串 `word1` 和 `word2` 的第一个字符。然后循环，每次比较 $\textit{word1}[i:]$ 和 $\textit{word2}[j:]$ 的大小，如果 $\textit{word1}[i:]$ 比 $\textit{word2}[j:]$ 大，那么我们就将 $\textit{word1}[i]$ 加入答案，否则我们就将 $\textit{word2}[j]$ 加入答案。循环，直至 $i$ 到达字符串 `word1` 的末尾，或者 $j$ 到达字符串 `word2` 的末尾。
+我们用指针 $i$ 和 $j$ 分别指向字符串 $\textit{word1}$ 和 $\textit{word2}$ 的第一个字符。然后循环，每次比较 $\textit{word1}[i:]$ 和 $\textit{word2}[j:]$ 的大小，如果 $\textit{word1}[i:]$ 比 $\textit{word2}[j:]$ 大，那么我们就将 $\textit{word1}[i]$ 加入答案，否则我们就将 $\textit{word2}[j]$ 加入答案。循环，直至 $i$ 到达字符串 $\textit{word1}$ 的末尾，或者 $j$ 到达字符串 $\textit{word2}$ 的末尾。
 
 然后我们将剩余的字符串加入答案即可。
 
-时间复杂度 $O(n^2)$。其中 $n$ 是字符串 `word1` 和 `word2` 的长度之和。
+时间复杂度 $O(n^2)$。其中 $n$ 是字符串 $\textit{word1}$ 和 $\textit{word2}$ 的长度之和。
 
 <!-- tabs:start -->
 

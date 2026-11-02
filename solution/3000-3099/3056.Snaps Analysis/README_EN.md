@@ -123,7 +123,7 @@ All percentages in output table rounded to the two decimal places.
 
 <!-- thinking:end -->
 
-We can perform an equi-join to connect the `Activities` table and the `Age` table based on `user_id`. Then, group by `age_bucket` and finally calculate the percentage of sends and opens for each age group.
+We can perform an equi-join to connect the `Activities` table and the `Age` table based on `user_id`. Then, group by $\textit{age\_bucket}$ and finally calculate the percentage of sends and opens for each age group.
 
 <!-- tabs:start -->
 

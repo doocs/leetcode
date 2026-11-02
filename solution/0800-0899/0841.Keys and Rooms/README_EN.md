@@ -75,7 +75,7 @@ Since we were able to visit every room, we return true.
 
 <!-- thinking:end -->
 
-We can use the Depth-First Search (DFS) method to traverse the entire graph, count the number of reachable nodes, and use an array `vis` to mark whether the current node has been visited to prevent repeated visits.
+We can use the Depth-First Search (DFS) method to traverse the entire graph, count the number of reachable nodes, and use an array $\textit{vis}$ to mark whether the current node has been visited to prevent repeated visits.
 
 Finally, we count the number of visited nodes. If it is the same as the total number of nodes, it means that all nodes can be visited; otherwise, there are nodes that cannot be reached.
 

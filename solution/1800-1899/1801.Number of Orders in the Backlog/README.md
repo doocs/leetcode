@@ -95,13 +95,13 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以使用优先队列（大小根堆）维护当前的积压订单，其中大根堆 `buy` 维护积压的采购订单，小根堆 `sell` 维护积压的销售订单。堆中每个元素是一个二元组 $(\textit{price}, \textit{amount})$，表示价格为 `price` 的订单数量为 `amount`。
+我们可以使用优先队列（大小根堆）维护当前的积压订单，其中大根堆 `buy` 维护积压的采购订单，小根堆 `sell` 维护积压的销售订单。堆中每个元素是一个二元组 $(\textit{price}, \textit{amount})$，表示价格为 $\textit{price}$ 的订单数量为 $\textit{amount}$。
 
 接下来，我们遍历订单数组 `orders` ，根据题意模拟即可。
 
 遍历结束后，我们将 `buy` 和 `sell` 中的订单数量相加，即为最终的积压订单数量。注意答案可能很大，需要对 $10^9 + 7$ 取模。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是 `orders` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是 $\textit{orders}$ 的长度。
 
 <!-- tabs:start -->
 

@@ -68,9 +68,9 @@ difficulty: Medium
 
 We can use a list of stacks $\textit{stk}$ to simulate this process, initially $\textit{stk}$ is empty.
 
-- When the `push` method is called, if $\textit{cap}$ is 0, return directly. Otherwise, if $\textit{stk}$ is empty or the length of the last stack in $\textit{stk}$ is greater than or equal to $\textit{cap}$, then create a new stack. Then add the element $\textit{val}$ to the last stack in $\textit{stk}$. The time complexity is $O(1)$.
-- When the `pop` method is called, return the result of `popAt(|stk| - 1)`. The time complexity is $O(1)$.
-- When the `popAt` method is called, if $\textit{index}$ is not in the range $[0, |\textit{stk}|)$, return -1. Otherwise, return the top element of $\textit{stk}[\textit{index}]$ and pop it out. If $\textit{stk}[\textit{index}]$ is empty after popping, remove it from $\textit{stk}$. The time complexity is $O(1)$.
+- When the $\textit{push}$ method is called, if $\textit{cap}$ is 0, return directly. Otherwise, if $\textit{stk}$ is empty or the length of the last stack in $\textit{stk}$ is greater than or equal to $\textit{cap}$, then create a new stack. Then add the element $\textit{val}$ to the last stack in $\textit{stk}$. The time complexity is $O(1)$.
+- When the $\textit{pop}$ method is called, return the result of `popAt(|stk| - 1)`. The time complexity is $O(1)$.
+- When the $\textit{popAt}$ method is called, if $\textit{index}$ is not in the range $[0, |\textit{stk}|)$, return -1. Otherwise, return the top element of $\textit{stk}[\textit{index}]$ and pop it out. If $\textit{stk}[\textit{index}]$ is empty after popping, remove it from $\textit{stk}$. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of elements.
 

@@ -75,13 +75,13 @@ difficulty: Medium
 
 We define a stack $\textit{stk}$ for storing elements.
 
-In the `push` operation, we define an auxiliary stack $t$ for storing elements in $\textit{stk}$ that are smaller than the current element. We pop all elements smaller than the current element from $\textit{stk}$ and store them in $t$, then push the current element into $\textit{stk}$, and finally pop all elements from $t$ and push them back into $\textit{stk}$. The time complexity is $O(n)$.
+In the $\textit{push}$ operation, we define an auxiliary stack $t$ for storing elements in $\textit{stk}$ that are smaller than the current element. We pop all elements smaller than the current element from $\textit{stk}$ and store them in $t$, then push the current element into $\textit{stk}$, and finally pop all elements from $t$ and push them back into $\textit{stk}$. The time complexity is $O(n)$.
 
-In the `pop` operation, we just need to check if $\textit{stk}$ is empty. If it's not, we pop the top element. The time complexity is $O(1)$.
+In the $\textit{pop}$ operation, we just need to check if $\textit{stk}$ is empty. If it's not, we pop the top element. The time complexity is $O(1)$.
 
-In the `peek` operation, we just need to check if $\textit{stk}$ is empty. If it is, we return -1, otherwise, we return the top element. The time complexity is $O(1)$.
+In the $\textit{peek}$ operation, we just need to check if $\textit{stk}$ is empty. If it is, we return -1, otherwise, we return the top element. The time complexity is $O(1)$.
 
-In the `isEmpty` operation, we just need to check if $\textit{stk}$ is empty. The time complexity is $O(1)$.
+In the $\textit{isEmpty}$ operation, we just need to check if $\textit{stk}$ is empty. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of elements in the stack.
 

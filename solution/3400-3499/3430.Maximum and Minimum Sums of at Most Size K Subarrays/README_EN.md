@@ -200,7 +200,7 @@ Taking `max_stack` as an example:
 
 - While `max_stack` is not empty and `max_stack` top value $\leq \textit{nums}[i]$ (1):
     - Current $\textit{nums}[i]$ will replace this top element as the new maximum for all subarrays this top element previously "served."
-    - We take over the `prev_shares` (which is the count) from this popped element.
+    - We take over the $\textit{prev\_shares}$ (which is the count) from this popped element.
     - Net increase to `subarrays_max_sum` is calculated as $(\textit{nums}[i] - \textit{prev\_num}) \times \textit{prev\_shares}$.
 - After while-loop, we add $\textit{nums}[i]$'s own contribution, as a single-element subarray, to `subarrays_max_sum`,
   and push $\textit{nums}[i]$ onto `max_stack` with its cumulative `count` and index.

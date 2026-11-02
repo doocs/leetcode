@@ -80,7 +80,7 @@ tags:
 
 Treat all initially pushed dominoes (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
 
-We define $\textit{time}[i]$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\textit{force}[i]$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.
+We define $\textit{time}[i]$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\textit{force}[i]$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their $\textit{time}$ to 0.
 
 When dequeuing index _i_, if $\textit{force}[i]$ contains only one direction, the domino will fall in that direction $f$. Let the index of the next domino be:
 

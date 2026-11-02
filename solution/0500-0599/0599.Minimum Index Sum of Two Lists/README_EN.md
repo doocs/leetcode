@@ -80,7 +80,7 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 >
 > Among common strings, keep those with the smallest index sum. Scanning the other list for every common string is $O(nm)$.
 >
-> Map `list2` from string to index, then scan `list1` for sums. Keep the current minimum: append on a tie, reset on a smaller sum. One hash build and one linear scan.
+> Map $\textit{list2}$ from string to index, then scan $\textit{list1}$ for sums. Keep the current minimum: append on a tie, reset on a smaller sum. One hash build and one linear scan.
 
 <!-- thinking:end -->
 

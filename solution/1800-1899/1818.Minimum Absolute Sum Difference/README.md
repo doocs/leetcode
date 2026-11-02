@@ -94,13 +94,13 @@ tags:
 
 <!-- thinking:end -->
 
-根据题意，我们可以先计算出在不进行替换的情况下，`nums1` 和 `nums2` 的绝对差值和，记为 $s$。
+根据题意，我们可以先计算出在不进行替换的情况下， $\textit{nums1}$ 和 $\textit{nums2}$ 的绝对差值和，记为 $s$。
 
-接下来，我们枚举 `nums1` 中的每个元素 $\textit{nums1}[i]$，将其替换为与 $\textit{nums2}[i]$ 最接近的元素，并且这个最接近的元素在 `nums1` 中。因此，我们可以在枚举之前，先复制一份 `nums1`，得到数组 `nums`，并将 `nums` 排序。接下来，就在 `nums` 中二分查找与 $\textit{nums2}[i]$ 最接近的元素，记为 $\textit{nums}[j]$，并计算 $|\textit{nums1}[i] - \textit{nums2}[i]| - |\textit{nums}[j] - \textit{nums2}[i]|$，更新差值 $mx$ 的最大值。
+接下来，我们枚举 $\textit{nums1}$ 中的每个元素 $\textit{nums1}[i]$，将其替换为与 $\textit{nums2}[i]$ 最接近的元素，并且这个最接近的元素在 $\textit{nums1}$ 中。因此，我们可以在枚举之前，先复制一份 $\textit{nums1}$，得到数组 $\textit{nums}$，并将 $\textit{nums}$ 排序。接下来，就在 $\textit{nums}$ 中二分查找与 $\textit{nums2}[i]$ 最接近的元素，记为 $\textit{nums}[j]$，并计算 $|\textit{nums1}[i] - \textit{nums2}[i]| - |\textit{nums}[j] - \textit{nums2}[i]|$，更新差值 $mx$ 的最大值。
 
 最后，我们将 $s$ 减去 $mx$，即为答案。注意取模操作。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums1` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums1}$ 的长度。
 
 <!-- tabs:start -->
 

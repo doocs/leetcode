@@ -64,9 +64,9 @@ tags:
 
 <!-- thinking:end -->
 
-我们可以先对数组 `citations` 按照元素值从大到小进行排序。然后我们从大到小枚举 $h$ 值，如果某个 $h$ 值满足 $\textit{citations}[h-1] \geq h$，则说明有至少 $h$ 篇论文分别被引用了至少 $h$ 次，直接返回 $h$ 即可。如果没有找到这样的 $h$ 值，说明所有的论文都没有被引用，返回 $0$。
+我们可以先对数组 $\textit{citations}$ 按照元素值从大到小进行排序。然后我们从大到小枚举 $h$ 值，如果某个 $h$ 值满足 $\textit{citations}[h-1] \geq h$，则说明有至少 $h$ 篇论文分别被引用了至少 $h$ 次，直接返回 $h$ 即可。如果没有找到这样的 $h$ 值，说明所有的论文都没有被引用，返回 $0$。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `citations` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{citations}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -187,7 +187,7 @@ impl Solution {
 
 接下来，我们从大到小枚举 $h$ 值，将 $\textit{cnt}$ 中下标为 $h$ 的元素值加到变量 $s$ 中，其中 $s$ 表示引用次数大于等于 $h$ 的论文篇数。如果 $s \geq h$，说明至少有 $h$ 篇论文分别被引用了至少 $h$ 次，直接返回 $h$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `citations` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{citations}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -305,7 +305,7 @@ function hIndex(citations: number[]): number {
 
 我们定义二分查找的左边界 $l=0$，右边界 $r=n$。每次我们取 $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$，其中 $\lfloor x \rfloor$ 表示对 $x$ 向下取整。然后我们统计数组 `citations` 中大于等于 $\textit{mid}$ 的元素的个数，记为 $s$。如果 $s \geq \textit{mid}$，说明至少有 $\textit{mid}$ 篇论文至少被引用 $\textit{mid}$ 次，此时我们将左边界 $l$ 变为 $\textit{mid}$，否则我们将右边界 $r$ 变为 $\textit{mid}-1$。当左边界 $l$ 等于右边界 $r$ 时，我们找到了最大的 $h$ 值，即为 $l$ 或 $r$。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `citations` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{citations}$ 的长度。
 
 <!-- tabs:start -->
 

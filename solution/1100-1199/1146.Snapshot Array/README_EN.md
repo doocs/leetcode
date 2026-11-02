@@ -73,11 +73,11 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 We maintain an array of length `length`. Each element in the array is a list, which is used to store the value set each time and the corresponding snapshot ID.
 
-When the `set` method is called, we add the value and snapshot ID to the list at the corresponding index. The time complexity is $O(1)$.
+When the $\textit{set}$ method is called, we add the value and snapshot ID to the list at the corresponding index. The time complexity is $O(1)$.
 
-When the `snap` method is called, we first increment the snapshot ID, then return the snapshot ID minus one. The time complexity is $O(1)$.
+When the $\textit{snap}$ method is called, we first increment the snapshot ID, then return the snapshot ID minus one. The time complexity is $O(1)$.
 
-When the `get` method is called, we use binary search to find the first snapshot ID greater than `snap_id` at the corresponding position, and then return the previous value. If it cannot be found, return 0. The time complexity is $O(\log n)$.
+When the $\textit{get}$ method is called, we use binary search to find the first snapshot ID greater than $\textit{snap\_id}$ at the corresponding position, and then return the previous value. If it cannot be found, return 0. The time complexity is $O(\log n)$.
 
 The space complexity is $O(n)$.
 

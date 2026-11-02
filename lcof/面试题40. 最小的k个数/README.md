@@ -55,7 +55,7 @@ difficulty: 简单
 
 我们可以直接对数组 `arr` 按从小到大排序，然后取前 $k$ 个数即可。
 
-时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `arr` 的长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

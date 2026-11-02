@@ -77,17 +77,17 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 <!-- thinking:end -->
 
-We define an answer array `ans`, initially containing only `beginWord`. Then we define an array `vis` to mark whether the words in `wordList` have been visited.
+We define an answer array $\textit{ans}$, initially containing only `beginWord`. Then we define an array $\textit{vis}$ to mark whether the words in `wordList` have been visited.
 
-Next, we design a function `dfs(s)`, which represents whether we can successfully convert `s` to `endWord` starting from `s`. If successful, return `True`, otherwise return `False`.
+Next, we design a function `dfs(s)`, which represents whether we can successfully convert `s` to $\textit{endWord}$ starting from `s`. If successful, return `True`, otherwise return `False`.
 
 The specific implementation of the function `dfs(s)` is as follows:
 
-1. If `s` equals `endWord`, the conversion is successful, return `True`;
-2. Otherwise, we traverse each word `t` in `wordList`. If `t` has not been visited and there is only one different character between `s` and `t`, then we mark `t` as visited, add `t` to `ans`, and then recursively call `dfs(t)`. If `True` is returned, the conversion is successful, we return `True`, otherwise we remove `t` from `ans` and continue to traverse the next word;
+1. If `s` equals $\textit{endWord}$, the conversion is successful, return `True`;
+2. Otherwise, we traverse each word `t` in `wordList`. If `t` has not been visited and there is only one different character between `s` and `t`, then we mark `t` as visited, add `t` to $\textit{ans}$, and then recursively call `dfs(t)`. If `True` is returned, the conversion is successful, we return `True`, otherwise we remove `t` from $\textit{ans}$ and continue to traverse the next word;
 3. If all the words in `wordList` have been traversed and no convertible word is found, the conversion fails, we return `False`.
 
-Finally, we call `dfs(beginWord)`. If `True` is returned, the conversion is successful, we return `ans`, otherwise return an empty array.
+Finally, we call `dfs(beginWord)`. If `True` is returned, the conversion is successful, we return $\textit{ans}$, otherwise return an empty array.
 
 <!-- tabs:start -->
 

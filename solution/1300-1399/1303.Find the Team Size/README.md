@@ -86,7 +86,7 @@ ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 
 <!-- thinking:end -->
 
-我们可以先统计出每个团队的人数，记录在 `T` 表中，然后我们将 `Employee` 表与 `T` 表按照 `team_id` 进行等值连接，即可得到每个员工所在团队的总人数。
+我们可以先统计出每个团队的人数，记录在 `T` 表中，然后我们将 `Employee` 表与 `T` 表按照 $\textit{team\_id}$ 进行等值连接，即可得到每个员工所在团队的总人数。
 
 <!-- tabs:start -->
 
@@ -121,7 +121,7 @@ JOIN T USING (team_id);
 
 <!-- thinking:end -->
 
-我们也可以使用左连接，将 `Employee` 表按照 `team_id` 进行自连接，然后按照 `employee_id` 进行分组，统计每个员工所在团队的总人数。
+我们也可以使用左连接，将 $\textit{Employee}$ 表按照 $\textit{team\_id}$ 进行自连接，然后按照 $\textit{employee\_id}$ 进行分组，统计每个员工所在团队的总人数。
 
 <!-- tabs:start -->
 

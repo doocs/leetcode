@@ -85,16 +85,16 @@ tags:
 
 <!-- thinking:end -->
 
-我们设计一个函数 $\textit{dfs}(i, j)$，表示从 `nums` 数组头部第 $i$ 个元素开始，从 `nums` 数组尾部第 $j$ 个元素开始，能够获得的最大分数。那么答案就是 $\textit{dfs}(0, 0)$。
+我们设计一个函数 $\textit{dfs}(i, j)$，表示从 $\textit{nums}$ 数组头部第 $i$ 个元素开始，从 $\textit{nums}$ 数组尾部第 $j$ 个元素开始，能够获得的最大分数。那么答案就是 $\textit{dfs}(0, 0)$。
 
 函数 $\textit{dfs}(i, j)$ 的计算过程如下：
 
 - 如果 $i \geq m$ 或者 $j \geq m$，或者 $i + j \geq m$，说明已经没有元素可以选择了，返回 $0$。
-- 否则，我们可以选择 `nums` 数组头部第 $i$ 个元素，那么能够获取的最大分数为 $\textit{nums}[i] \times \textit{multipliers}[i + j] + \textit{dfs}(i + 1, j)$；或者我们可以选择 `nums` 数组尾部第 $j$ 个元素，那么能够获取的最大分数为 $\textit{nums}[n - j - 1] \times \textit{multipliers}[i + j] + \textit{dfs}(i, j + 1)$。我们取两者的最大值作为 $\textit{dfs}(i, j)$ 的返回值。
+- 否则，我们可以选择 $\textit{nums}$ 数组头部第 $i$ 个元素，那么能够获取的最大分数为 $\textit{nums}[i] \times \textit{multipliers}[i + j] + \textit{dfs}(i + 1, j)$；或者我们可以选择 $\textit{nums}$ 数组尾部第 $j$ 个元素，那么能够获取的最大分数为 $\textit{nums}[n - j - 1] \times \textit{multipliers}[i + j] + \textit{dfs}(i, j + 1)$。我们取两者的最大值作为 $\textit{dfs}(i, j)$ 的返回值。
 
 我们可以使用记忆化搜索来实现上述递归过程，其中 `f` 数组用于存储函数 $\textit{dfs}(i, j)$ 的返回值，防止重复计算。
 
-时间复杂度 $O(m^2)$，空间复杂度 $O(m^2)$。其中 $m$ 为 `multipliers` 数组的长度。
+时间复杂度 $O(m^2)$，空间复杂度 $O(m^2)$。其中 $m$ 为 $\textit{multipliers}$ 数组的长度。
 
 <!-- tabs:start -->
 
@@ -251,11 +251,11 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 
 我们用 $f[i][j]$ 表示取数组 $\textit{nums}$ 的前 $i$ 个元素，以及取数组 $\textit{nums}$ 的后 $j$ 个元素，能够获得的最大分数。初始时 $f[0][0] = 0$，其余元素均为 $-\infty$。答案为 $\max_{0 \leq i \leq m} f[i][m-i]$。
 
-考虑 $f[i][j]$，那么当前我们可以选择 `nums` 数组头部的第 $i$ 个元素，或者选择 `nums` 数组尾部的第 $j$ 个元素。如果选择了 `nums` 数组头部的第 $i$ 个元素，那么能够获得的最大分数为 $f[i-1][j] + \textit{nums}[i-1] \times \textit{multipliers}[i+j-1]$；如果选择了 `nums` 数组尾部的第 $j$ 个元素，那么能够获得的最大分数为 $f[i][j-1] + \textit{nums}[n-j] \times \textit{multipliers}[i+j-1]$。我们取两者的最大值作为 $f[i][j]$ 的值。如果 $i + j = m$，我们我们更新答案 $\textit{ans} = \max(\textit{ans}, f[i][j])$。
+考虑 $f[i][j]$，那么当前我们可以选择 $\textit{nums}$ 数组头部的第 $i$ 个元素，或者选择 $\textit{nums}$ 数组尾部的第 $j$ 个元素。如果选择了 $\textit{nums}$ 数组头部的第 $i$ 个元素，那么能够获得的最大分数为 $f[i-1][j] + \textit{nums}[i-1] \times \textit{multipliers}[i+j-1]$；如果选择了 $\textit{nums}$ 数组尾部的第 $j$ 个元素，那么能够获得的最大分数为 $f[i][j-1] + \textit{nums}[n-j] \times \textit{multipliers}[i+j-1]$。我们取两者的最大值作为 $f[i][j]$ 的值。如果 $i + j = m$，我们我们更新答案 $\textit{ans} = \max(\textit{ans}, f[i][j])$。
 
 最后返回答案 $\textit{ans}$ 即可。
 
-时间复杂度 $O(m^2)$，空间复杂度 $O(m^2)$。其中 $m$ 为 `multipliers` 数组的长度。
+时间复杂度 $O(m^2)$，空间复杂度 $O(m^2)$。其中 $m$ 为 $\textit{multipliers}$ 数组的长度。
 
 <!-- tabs:start -->
 

@@ -121,7 +121,7 @@ Array.prototype.upperBound = function (target: number) {
 
 <!-- thinking:end -->
 
-Call `lastIndexOf` to scan from right to left and return the last index of the target, or $-1$ if it does not exist.
+Call $\textit{lastIndexOf}$ to scan from right to left and return the last index of the target, or $-1$ if it does not exist.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 

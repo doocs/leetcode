@@ -121,7 +121,7 @@ signup_action 是 ('Verified', 'Not Verified') 的枚举类型。
 
 <!-- thinking:end -->
 
-我们可以通过内连接两个表，然后根据 `DATEDIFF` 函数计算出注册日期和操作日期的差值是否等于 1，以及注册操作是否为 `Verified`，来筛选出满足条件的用户 ID。
+我们可以通过内连接两个表，然后根据 $\textit{DATEDIFF}$ 函数计算出注册日期和操作日期的差值是否等于 1，以及注册操作是否为 `Verified`，来筛选出满足条件的用户 ID。
 
 <!-- tabs:start -->
 

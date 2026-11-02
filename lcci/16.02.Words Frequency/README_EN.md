@@ -73,7 +73,7 @@ We use a hash table $\textit{cnt}$ to count the number of occurrences of each wo
 
 When calling the `get` function, we only need to return the number of occurrences of the corresponding word in $\textit{cnt}$.
 
-In terms of time complexity, the time complexity of initializing the hash table $\textit{cnt}$ is $O(n)$, where $n$ is the length of $\textit{book}$. The time complexity of the `get` function is $O(1)$. The space complexity is $O(n)$.
+In terms of time complexity, the time complexity of initializing the hash table $\textit{cnt}$ is $O(n)$, where $n$ is the length of $\textit{book}$. The time complexity of the $\textit{get}$ function is $O(1)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

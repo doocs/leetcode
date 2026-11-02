@@ -67,9 +67,9 @@ The basic steps are as follows:
 
 Where:
 
-- `pos` represents the number of digits, starting from the least significant digit or the first digit, usually depending on the digit construction property of the problem. For this problem, we choose to start from the most significant digit, so the initial value of `pos` is `len`.
-- `cnt` represents the number of $2$s in the current number.
-- `limit` represents the restriction on the digits that can be filled. If there is no restriction, you can choose $[0,1,..9]$, otherwise, you can only choose $[0,..a[\textit{pos}]]$. If `limit` is `true` and the maximum value has been reached, then the next `limit` is also `true`. If `limit` is `true` but the maximum value has not been reached, or if `limit` is `false`, then the next `limit` is `false`.
+- $\textit{pos}$ represents the number of digits, starting from the least significant digit or the first digit, usually depending on the digit construction property of the problem. For this problem, we choose to start from the most significant digit, so the initial value of $\textit{pos}$ is $\textit{len}$.
+- $\textit{cnt}$ represents the number of $2$s in the current number.
+- $\textit{limit}$ represents the restriction on the digits that can be filled. If there is no restriction, you can choose $[0,1,..9]$, otherwise, you can only choose $[0,..a[\textit{pos}]]$. If $\textit{limit}$ is `true` and the maximum value has been reached, then the next $\textit{limit}$ is also `true`. If $\textit{limit}$ is `true` but the maximum value has not been reached, or if $\textit{limit}$ is `false`, then the next $\textit{limit}$ is `false`.
 
 For details on the implementation of the function, please refer to the code below.
 

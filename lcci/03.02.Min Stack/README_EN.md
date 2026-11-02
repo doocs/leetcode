@@ -51,7 +51,7 @@ minStack.getMin();   --&gt; return -2.</pre>
 >
 > The minimum of each prefix is known at push time and rolls back on pop, so a second stack can store the running minimum in lockstep.
 >
-> `mins` starts with $+\infty$; each `push` records $\min(\textit{mins}[-1], \textit{val})$, and `pop` pops both stacks. `getMin` reads the top of `mins` in $O(1)$.
+> $\textit{mins}$ starts with $+\infty$; each `push` records $\min(\textit{mins}[-1], \textit{val})$, and `pop` pops both stacks. `getMin` reads the top of $\textit{mins}$ in $O(1)$.
 
 <!-- thinking:end -->
 

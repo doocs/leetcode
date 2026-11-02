@@ -129,7 +129,7 @@ Where $x$ and $y$ are the integer identifiers of $\textit{source}[i..j]$ and $\t
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of the arrays $\textit{original}$ and $\textit{source}$, respectively.
 
 <!-- tabs:start -->
 
@@ -726,7 +726,7 @@ Let $f[i]$ be the minimum cost of turning $\textit{source}[i..]$ into $\textit{t
 
 The answer is $f[0]$. If it is at least the preset upper bound, return $-1$.
 
-The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of `original` and $\textit{source}$, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of $\textit{original}$ and $\textit{source}$, respectively.
 
 <!-- tabs:start -->
 

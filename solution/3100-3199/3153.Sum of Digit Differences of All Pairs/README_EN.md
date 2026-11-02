@@ -82,7 +82,7 @@ All the integers in the array are the same. So the total sum of digit difference
 
 <!-- thinking:end -->
 
-First, we get the number of digits $m$ in the array. Then for each digit, we count the occurrence of each number at this digit in the array `nums`, denoted as `cnt`. Therefore, the sum of the digit differences of all number pairs at this digit is:
+First, we get the number of digits $m$ in the array. Then for each digit, we count the occurrence of each number at this digit in the array `nums`, denoted as $\textit{cnt}$. Therefore, the sum of the digit differences of all number pairs at this digit is:
 
 $$
 \sum_{v \in \textit{cnt}} v \times (n - v)

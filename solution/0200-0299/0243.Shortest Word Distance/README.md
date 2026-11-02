@@ -61,9 +61,9 @@ tags:
 
 <!-- thinking:end -->
 
-遍历数组 `wordsDict`，找到 `word1` 和 `word2` 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
+遍历数组 `wordsDict`，找到 $\textit{word1}$ 和 $\textit{word2}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `wordsDict` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{wordsDict}$ 的长度。
 
 <!-- tabs:start -->
 

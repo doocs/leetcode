@@ -69,7 +69,7 @@ queue.empty(); // return false</pre>
 
 We use two stacks, where `stk1` is used for enqueue, and another stack `stk2` is used for dequeue.
 
-When enqueueing, we directly push the element into `stk1`. The time complexity is $O(1)$.
+When enqueueing, we directly push the element into $\textit{stk1}$. The time complexity is $O(1)$.
 
 When dequeueing, we first check whether `stk2` is empty. If it is empty, we pop all elements from `stk1` and push them into `stk2`, and then pop an element from `stk2`. If `stk2` is not empty, we directly pop an element from `stk2`. The amortized time complexity is $O(1)$.
 

@@ -66,7 +66,7 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 <!-- thinking:end -->
 
-Let's denote the length of the array `nums` as $n$. According to the problem description, we can add a $1$ to both ends of the array `nums`, denoted as `arr`.
+Let's denote the length of the array `nums` as $n$. According to the problem description, we can add a $1$ to both ends of the array `nums`, denoted as $\textit{arr}$.
 
 Then, we define $f[i][j]$ as the maximum number of coins we can get by bursting all the balloons in the interval $[i, j]$. Therefore, the answer is $f[0][n+1]$.
 
@@ -80,7 +80,7 @@ In implementation, since the state transition equation of $f[i][j]$ involves $f[
 
 Finally, we return $f[0][n+1]$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

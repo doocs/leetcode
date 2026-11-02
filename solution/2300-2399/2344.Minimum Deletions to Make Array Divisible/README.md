@@ -77,11 +77,11 @@ tags:
 
 <!-- thinking:end -->
 
-如果一个元素能整除数组 `numsDivide` 所有元素，那么这个元素是所有 $\textit{numsDivide}[i]$ 的最大公约数 $x$ 的因子。因此，我们可以先求出 `numsDivide` 的最大公约数 $x$。
+如果一个元素能整除数组 $\textit{numsDivide}$ 所有元素，那么这个元素是所有 $\textit{numsDivide}[i]$ 的最大公约数 $x$ 的因子。因此，我们可以先求出 $\textit{numsDivide}$ 的最大公约数 $x$。
 
-接下来，将数组 `nums` 排序，然后从头到尾遍历数组 `nums`，找到第一个是最大公约数 $x$ 的因子的元素，返回当前元素下标即可。
+接下来，将数组 $\textit{nums}$ 排序，然后从头到尾遍历数组 $\textit{nums}$，找到第一个是最大公约数 $x$ 的因子的元素，返回当前元素下标即可。
 
-时间复杂度 $O(m + \log M + n \log n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
+时间复杂度 $O(m + \log M + n \log n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{numsDivide}$ 的长度，而 $M$ 是数组 $\textit{numsDivide}$ 中的最大值。
 
 <!-- tabs:start -->
 
@@ -188,7 +188,7 @@ func gcd(a, b int) int {
 
 求出 `numsDivide` 的最大公约数 $x$ 后，直接遍历 `nums` 找到能整除 $x$ 的最小元素 $y$，再统计小于 $y$ 的元素个数。无需排序。
 
-时间复杂度 $O(m + \log M + n)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
+时间复杂度 $O(m + \log M + n)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{numsDivide}$ 的长度，而 $M$ 是数组 $\textit{numsDivide}$ 中的最大值。
 
 <!-- tabs:start -->
 

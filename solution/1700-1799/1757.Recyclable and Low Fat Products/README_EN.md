@@ -80,7 +80,7 @@ Products table:
 
 <!-- thinking:end -->
 
-We can directly filter the product IDs where `low_fats` is `Y` and `recyclable` is `Y`.
+We can directly filter the product IDs where $\textit{low\_fats}$ is `Y` and $\textit{recyclable}$ is `Y`.
 
 <!-- tabs:start -->
 

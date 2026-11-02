@@ -71,7 +71,7 @@ $$
 dp[i] = \min(dp[i - 1] + \textit{cost}[i - 1], dp[i - 2] + \textit{cost}[i - 2])
 $$
 
-最终结果为 `dp[n]`。其中 $n$ 表示 `cost` 数组的长度。
+最终结果为 `dp[n]`。其中 $n$ 表示 $\textit{cost}$ 数组的长度。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
