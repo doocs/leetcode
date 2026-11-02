@@ -119,7 +119,6 @@ taskManager.execTop(); // 返回 5 。执行用户 5 的任务 105 。</div>
 
 ```python
 class TaskManager:
-
     def __init__(self, tasks: List[List[int]]):
         self.d = {}
         self.st = SortedList()

@@ -102,7 +102,6 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Spreadsheet:
-
     def __init__(self, rows: int):
         self.d = {}
 
@@ -294,9 +293,7 @@ struct Spreadsheet {
 
 impl Spreadsheet {
     fn new(_rows: i32) -> Self {
-        Spreadsheet {
-            d: HashMap::new(),
-        }
+        Spreadsheet { d: HashMap::new() }
     }
 
     fn set_cell(&mut self, cell: String, value: i32) {

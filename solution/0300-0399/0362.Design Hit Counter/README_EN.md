@@ -155,7 +155,6 @@ class HitCounter {
 class HitCounter {
 public:
     HitCounter() {
-
     }
 
     void hit(int timestamp) {

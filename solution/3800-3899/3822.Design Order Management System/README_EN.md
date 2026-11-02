@@ -430,7 +430,6 @@ struct OrderManagementSystem {
 }
 
 impl OrderManagementSystem {
-
     fn new() -> Self {
         Self {
             orders: HashMap::new(),
@@ -448,7 +447,8 @@ impl OrderManagementSystem {
 
     fn modify_order(&mut self, order_id: i32, new_price: i32) {
         if let Some((order_type, old_price)) = self.orders.get(&order_id).cloned() {
-            self.orders.insert(order_id, (order_type.clone(), new_price));
+            self.orders
+                .insert(order_id, (order_type.clone(), new_price));
 
             if let Some(v) = self.t.get_mut(&(order_type.clone(), old_price)) {
                 if let Some(pos) = v.iter().position(|&x| x == order_id) {
@@ -481,7 +481,7 @@ impl OrderManagementSystem {
     }
 }
 
-/**
+/*
  * Your OrderManagementSystem object will be instantiated and called as such:
  * let obj = OrderManagementSystem::new();
  * obj.add_order(orderId, orderType, price);

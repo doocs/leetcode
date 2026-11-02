@@ -98,7 +98,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class OrderedStream:
-
     def __init__(self, n: int):
         self.ptr = 1
         self.data = [None] * (n + 1)

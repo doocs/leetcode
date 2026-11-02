@@ -119,7 +119,7 @@ tags:
 ```python
 class Solution:
     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
-        meetings.sort()
+        meetings.sort(key=lambda x: x[0])
         busy = []
         idle = list(range(n))
         heapify(idle)
@@ -127,17 +127,17 @@ class Solution:
         for s, e in meetings:
             while busy and busy[0][0] <= s:
                 heappush(idle, heappop(busy)[1])
+            i = 0
             if idle:
                 i = heappop(idle)
-                cnt[i] += 1
                 heappush(busy, (e, i))
             else:
-                a, i = heappop(busy)
-                cnt[i] += 1
-                heappush(busy, (a + e - s, i))
+                time_end, i = heappop(busy)
+                heappush(busy, (time_end + e - s, i))
+            cnt[i] += 1
         ans = 0
-        for i, v in enumerate(cnt):
-            if cnt[ans] < v:
+        for i in range(n):
+            if cnt[ans] < cnt[i]:
                 ans = i
         return ans
 ```

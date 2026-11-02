@@ -124,8 +124,8 @@ class Codec:
         """Encodes a list of strings to a single string."""
         ans = []
         for s in strs:
-            ans.append('{:4}'.format(len(s)) + s)
-        return ''.join(ans)
+            ans.append("{:4}".format(len(s)) + s)
+        return "".join(ans)
 
     def decode(self, s: str) -> List[str]:
         """Decodes a single string to a list of strings."""

@@ -363,13 +363,6 @@ class CQueue {
         return stk2.isEmpty ? -1 : stk2.removeLast()
     }
 }
-
-/**
- * Your CQueue object will be instantiated and called as such:
- * let obj = CQueue();
- * obj.appendTail(value);
- * let param_2 = obj.DeleteHead();
- */
 ```
 
 <!-- tabs:end -->

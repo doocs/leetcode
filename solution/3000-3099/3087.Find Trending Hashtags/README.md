@@ -124,24 +124,14 @@ import pandas as pd
 
 
 def find_trending_hashtags(tweets: pd.DataFrame) -> pd.DataFrame:
-    # 过滤数据框以获取特定日期的数据
     tweets = tweets[tweets["tweet_date"].dt.strftime("%Y%m") == "202402"]
-
-    # 提取 Hashtag
     tweets["hashtag"] = "#" + tweets["tweet"].str.extract(r"#(\w+)")
-
-    # 统计 Hashtag 出现次数
     hashtag_counts = tweets["hashtag"].value_counts().reset_index()
     hashtag_counts.columns = ["hashtag", "hashtag_count"]
-
-    # 根据出现次数降序排序 Hashtag
     hashtag_counts = hashtag_counts.sort_values(
         by=["hashtag_count", "hashtag"], ascending=[False, False]
     )
-
-    # 返回前三个热门 Hashtag
     top_3_hashtags = hashtag_counts.head(3)
-
     return top_3_hashtags
 ```
 

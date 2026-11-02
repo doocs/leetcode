@@ -216,11 +216,10 @@ class ParkingSystem {
 
 ```rust
 struct ParkingSystem {
-    cnt: [i32; 4]
+    cnt: [i32; 4],
 }
 
 impl ParkingSystem {
-
     fn new(big: i32, medium: i32, small: i32) -> Self {
         ParkingSystem {
             cnt: [0, big, medium, small],

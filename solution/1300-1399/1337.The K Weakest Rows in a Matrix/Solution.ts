@@ -2,7 +2,6 @@ function kWeakestRows(mat: number[][], k: number): number[] {
     let n = mat.length;
     let sumMap = mat.map((d, i) => [d.reduce((a, c) => a + c, 0), i]);
     let ans = [];
-    // 冒泡排序
     for (let i = 0; i < k; i++) {
         for (let j = i; j < n; j++) {
             if (

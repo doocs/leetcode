@@ -129,8 +129,8 @@ class Solution {
 
         for (int[] e : roads) {
             int a = e[0], b = e[1], w = e[2];
-            g[a].add(new int[]{b, w});
-            g[b].add(new int[]{a, w});
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
         }
 
         ans = Integer.MAX_VALUE;
@@ -159,8 +159,8 @@ class Solution {
 class Solution {
 public:
     int minScore(int n, vector<vector<int>>& roads) {
-        vector<vector<pair<int,int>>> g(n + 1);
-        for (auto &e : roads) {
+        vector<vector<pair<int, int>>> g(n + 1);
+        for (auto& e : roads) {
             int a = e[0], b = e[1], w = e[2];
             g[a].push_back({b, w});
             g[b].push_back({a, w});
@@ -171,7 +171,7 @@ public:
 
         auto dfs = [&](this auto&& dfs, int a) -> void {
             vis[a] = true;
-            for (auto &[b, w] : g[a]) {
+            for (auto& [b, w] : g[a]) {
                 ans = min(ans, w);
                 if (!vis[b]) {
                     dfs(b);
@@ -263,12 +263,7 @@ impl Solution {
         let mut vis = vec![false; n + 1];
         let mut ans = i32::MAX;
 
-        fn dfs(
-            a: usize,
-            g: &Vec<Vec<(usize, i32)>>,
-            vis: &mut Vec<bool>,
-            ans: &mut i32,
-        ) {
+        fn dfs(a: usize, g: &Vec<Vec<(usize, i32)>>, vis: &mut Vec<bool>, ans: &mut i32) {
             vis[a] = true;
 
             for &(b, w) in &g[a] {

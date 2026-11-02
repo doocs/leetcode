@@ -335,10 +335,8 @@ size = [1] * n
 
 def find(x):
     if p[x] != x:
-        # 路径压缩
         p[x] = find(p[x])
     return p[x]
-
 
 def union(a, b):
     pa, pb = find(a), find(b)
@@ -360,7 +358,6 @@ for (int i = 0; i < n; ++i) {
 
 int find(int x) {
     if (p[x] != x) {
-        // 路径压缩
         p[x] = find(p[x]);
     }
     return p[x];
@@ -385,7 +382,6 @@ vector<int> size(n, 1);
 
 int find(int x) {
     if (p[x] != x) {
-        // 路径压缩
         p[x] = find(p[x]);
     }
     return p[x];
@@ -411,7 +407,6 @@ for i := range p {
 
 func find(x int) int {
     if p[x] != x {
-        // 路径压缩
         p[x] = find(p[x])
     }
     return p[x]

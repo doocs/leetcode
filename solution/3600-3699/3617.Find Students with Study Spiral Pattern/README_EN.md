@@ -222,9 +222,8 @@ WITH
             COUNT(*) AS session_count,
             COUNT(DISTINCT r.subject) AS cycle_length,
             SUM(r.hours_studied) AS total_hours
-        FROM
-            ranked_sessions r
-            JOIN contiguous_students c ON c.student_id = r.student_id
+        FROM ranked_sessions r
+        JOIN contiguous_students c ON c.student_id = r.student_id
         GROUP BY r.student_id
         HAVING
             cycle_length >= 3
@@ -237,17 +236,15 @@ SELECT
     s.major,
     st.cycle_length,
     st.total_hours AS total_study_hours
-FROM
-    student_stats st
-    JOIN students s ON s.student_id = st.student_id
+FROM student_stats st
+JOIN students s ON s.student_id = st.student_id
 WHERE
     NOT EXISTS (
         SELECT 1
-        FROM
-            ranked_sessions cur
-            JOIN ranked_sessions cyc
-                ON cyc.student_id = cur.student_id
-                AND cyc.session_index = (cur.session_index - 1) % st.cycle_length + 1
+        FROM ranked_sessions cur
+        JOIN ranked_sessions cyc
+            ON cyc.student_id = cur.student_id
+            AND cyc.session_index = (cur.session_index - 1) % st.cycle_length + 1
         WHERE cur.student_id = st.student_id AND NOT (cur.subject <=> cyc.subject)
     )
 ORDER BY st.cycle_length DESC, st.total_hours DESC;

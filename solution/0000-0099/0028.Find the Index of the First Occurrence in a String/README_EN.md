@@ -376,12 +376,9 @@ func strStr(haystack string, needle string) int {
 		if right-left+1 < m {
 			continue
 		}
-		// 此时 left~right 的长度已经为 needle 的长度 m 了，只需要比对 sha 值与 target 是否一致即可
-		// 为避免 hash 冲突，还需要确保 haystack[left:right+1] 与 needle 相同
 		if sha == target && haystack[left:right+1] == needle {
 			return left
 		}
-		// 未匹配成功，left 右移一位
 		sha = (sha - (int(haystack[left])*multi)%mod + mod) % mod
 		left++
 	}

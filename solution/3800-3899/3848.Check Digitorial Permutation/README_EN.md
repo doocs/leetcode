@@ -102,6 +102,7 @@ def f(x: int) -> int:
         return 1
     return x * f(x - 1)
 
+
 class Solution:
     def isDigitorialPermutation(self, n: int) -> bool:
         x, y = 0, n

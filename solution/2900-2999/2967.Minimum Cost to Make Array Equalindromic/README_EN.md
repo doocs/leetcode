@@ -310,8 +310,8 @@ function minimumCost(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn minimum_cost(nums: Vec<i32>) -> i64 {
-        use std::sync::Once;
         use std::cmp::min;
+        use std::sync::Once;
 
         static INIT: Once = Once::new();
         static mut PS: Vec<i64> = Vec::new();
@@ -347,9 +347,7 @@ impl Solution {
             }
         };
 
-        let f = |x: i64| -> i64 {
-            nums.iter().map(|&v| (v as i64 - x).abs()).sum()
-        };
+        let f = |x: i64| -> i64 { nums.iter().map(|&v| (v as i64 - x).abs()).sum() };
 
         let mut ans = i64::MAX;
 

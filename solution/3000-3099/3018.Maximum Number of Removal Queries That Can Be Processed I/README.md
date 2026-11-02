@@ -298,13 +298,15 @@ impl Solution {
                 if i > 0 {
                     let idx = f[i - 1][j] as usize;
                     if idx < m {
-                        f[i][j] = f[i][j].max(f[i - 1][j] + if nums[i - 1] >= queries[idx] { 1 } else { 0 });
+                        f[i][j] = f[i][j]
+                            .max(f[i - 1][j] + if nums[i - 1] >= queries[idx] { 1 } else { 0 });
                     }
                 }
                 if j + 1 < n {
                     let idx = f[i][j + 1] as usize;
                     if idx < m {
-                        f[i][j] = f[i][j].max(f[i][j + 1] + if nums[j + 1] >= queries[idx] { 1 } else { 0 });
+                        f[i][j] = f[i][j]
+                            .max(f[i][j + 1] + if nums[j + 1] >= queries[idx] { 1 } else { 0 });
                     }
                 }
                 if f[i][j] as usize == m {

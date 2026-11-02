@@ -97,7 +97,6 @@ The space complexity is $O(n)$, where $n$ is the number of numbers.
 
 ```python
 class NumberContainers:
-
     def __init__(self):
         self.d = {}
         self.g = defaultdict(SortedSet)
@@ -757,7 +756,7 @@ class TreeSet<T = number> {
 #### Rust
 
 ```rust
-use std::collections::{HashMap, BTreeSet};
+use std::collections::{BTreeSet, HashMap};
 
 struct NumberContainers {
     d: HashMap<i32, i32>,
@@ -783,7 +782,10 @@ impl NumberContainers {
             }
         }
         self.d.insert(index, number);
-        self.g.entry(number).or_insert_with(BTreeSet::new).insert(index);
+        self.g
+            .entry(number)
+            .or_insert_with(BTreeSet::new)
+            .insert(index);
     }
 
     fn find(&self, number: i32) -> i32 {

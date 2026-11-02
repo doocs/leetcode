@@ -308,8 +308,8 @@ function minimumDifference(nums: number[]): number {
 #### Rust
 
 ```rust
-use std::collections::BinaryHeap;
 use std::cmp::Reverse;
+use std::collections::BinaryHeap;
 
 impl Solution {
     pub fn minimum_difference(nums: Vec<i32>) -> i64 {

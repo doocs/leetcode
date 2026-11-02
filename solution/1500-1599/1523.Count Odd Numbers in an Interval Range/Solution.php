@@ -5,6 +5,6 @@ class Solution {
      * @return Integer
      */
     function countOdds($low, $high) {
-        return ($high + 1 >> 1) - ($low >> 1);
+        return (($high + 1) >> 1) - ($low >> 1);
     }
 }

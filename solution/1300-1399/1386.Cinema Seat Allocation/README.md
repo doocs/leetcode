@@ -235,16 +235,10 @@ impl Solution {
             let col = e[1];
             let mask = 1 << (10 - col);
 
-            d.entry(row)
-                .and_modify(|x| *x |= mask)
-                .or_insert(mask);
+            d.entry(row).and_modify(|x| *x |= mask).or_insert(mask);
         }
 
-        let masks = [
-            0b0111100000,
-            0b0000011110,
-            0b0001111000,
-        ];
+        let masks = [0b0111100000, 0b0000011110, 0b0001111000];
 
         let mut ans = (n - d.len() as i32) * 2;
 

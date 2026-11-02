@@ -89,10 +89,8 @@ class Solution:
                     -1 if j >= l2 else index[w2[j]],
                 )
                 if i1 > i2:
-                    # 说明不是按字典序排序，直接返回False
                     return False
                 if i1 < i2:
-                    # 说明当前两单词是按字典序排序，无需再往下进行循环比较
                     break
         return True
 ```
@@ -114,11 +112,9 @@ class Solution {
                 int i1 = j >= l1 ? -1 : index[w1.charAt(j) - 'a'];
                 int i2 = j >= l2 ? -1 : index[w2.charAt(j) - 'a'];
                 if (i1 > i2) {
-                    // 说明不是按字典序排序，直接返回False
                     return false;
                 }
                 if (i1 < i2) {
-                    // 说明当前两单词是按字典序排序，无需再往下进行循环比较
                     break;
                 }
             }

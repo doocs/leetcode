@@ -313,13 +313,16 @@ impl Solution {
             d[i] = d[i].min(d[i + n]);
         }
 
-        queries.iter().map(|&query| {
-            if d[query as usize] >= n as i32 {
-                -1
-            } else {
-                d[query as usize]
-            }
-        }).collect()
+        queries
+            .iter()
+            .map(|&query| {
+                if d[query as usize] >= n as i32 {
+                    -1
+                } else {
+                    d[query as usize]
+                }
+            })
+            .collect()
     }
 }
 ```

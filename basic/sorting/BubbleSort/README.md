@@ -21,7 +21,6 @@ def bubbleSort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 
-# 改进版本
 def bubbleSort(arr):
     n = len(arr)
     for i in range(n - 1):
@@ -198,13 +197,11 @@ public class Program {
         int numchange = 0;
         for (int initial = 0; initial < nums.Length - numchange; initial++) {
             WriteLine($"{initial} start ");
-            // 记录此值 用于迭代开始位置
             bool changelog = false;
             for (int second_sortnum = initial; second_sortnum < nums.Length - 1; second_sortnum++) {
                 if (nums[second_sortnum] > nums[second_sortnum + 1]) {
                     swap(ref nums[second_sortnum], ref nums[second_sortnum + 1]);
                     if (!changelog) {
-                        // 记录转换的位置，让initial开始位置从转换位置前开始
                         initial = ((second_sortnum - 2) > 0) ? (second_sortnum - 2) : -1;
                         numchange += 1;
                     }

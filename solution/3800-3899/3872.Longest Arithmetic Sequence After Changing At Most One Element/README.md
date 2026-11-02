@@ -142,7 +142,7 @@ class Solution:
             if i + 1 < n:
                 ans = max(ans, g[i + 1] + 1)
             if 0 < i < n - 1:
-                diff = nums[i + 1] - nums[i -1]
+                diff = nums[i + 1] - nums[i - 1]
                 if diff % 2 == 0:
                     diff //= 2
                     k = 3

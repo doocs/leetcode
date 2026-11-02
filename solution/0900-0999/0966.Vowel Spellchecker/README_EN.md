@@ -336,7 +336,7 @@ function spellchecker(wordlist: string[], queries: string[]): string[] {
 #### Rust
 
 ```rust
-use std::collections::{HashSet, HashMap};
+use std::collections::{HashMap, HashSet};
 
 impl Solution {
     pub fn spellchecker(wordlist: Vec<String>, queries: Vec<String>) -> Vec<String> {

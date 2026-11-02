@@ -102,15 +102,15 @@ WITH
     ),
     t AS (
         SELECT
-            caller_id user_id,
+            caller_id AS user_id,
             FIRST_VALUE(recipient_id) OVER (
                 PARTITION BY DATE_FORMAT(call_time, '%Y-%m-%d'), caller_id
                 ORDER BY call_time ASC
-            ) first,
+            ) AS first,
             FIRST_VALUE(recipient_id) OVER (
                 PARTITION BY DATE_FORMAT(call_time, '%Y-%m-%d'), caller_id
                 ORDER BY call_time DESC
-            ) last
+            ) AS last
         FROM s
     )
 SELECT DISTINCT user_id

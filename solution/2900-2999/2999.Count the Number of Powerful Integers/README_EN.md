@@ -331,14 +331,7 @@ impl Solution {
             let t_bytes: Vec<u8> = t.bytes().collect();
             let mut f = [-1_i64; 20];
 
-            fn dfs(
-                pos: usize,
-                lim: bool,
-                t: &[u8],
-                s: &str,
-                limit: i32,
-                f: &mut [i64; 20],
-            ) -> i64 {
+            fn dfs(pos: usize, lim: bool, t: &[u8], s: &str, limit: i32, f: &mut [i64; 20]) -> i64 {
                 if t.len() < s.len() {
                     return 0;
                 }

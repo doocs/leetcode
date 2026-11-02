@@ -140,8 +140,8 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 ```python
 pos = {}
 keys = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm']
-for (i, row) in enumerate(keys):
-    for (j, key) in enumerate(row):
+for i, row in enumerate(keys):
+    for j, key in enumerate(row):
         pos[key] = (i, j)
 
 

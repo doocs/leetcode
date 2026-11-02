@@ -108,7 +108,6 @@ In terms of time complexity, the above operations all have a time complexity of 
 
 ```python
 class MyCircularQueue:
-
     def __init__(self, k: int):
         self.q = [0] * k
         self.size = 0

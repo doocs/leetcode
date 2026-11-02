@@ -243,7 +243,11 @@ impl Solution {
             let pj = fruits[j][0];
             let fj = fruits[j][1];
             s += fj;
-            while i <= j && pj - fruits[i][0] + std::cmp::min((start_pos - fruits[i][0]).abs(), (start_pos - pj).abs()) > k {
+            while i <= j
+                && pj - fruits[i][0]
+                    + std::cmp::min((start_pos - fruits[i][0]).abs(), (start_pos - pj).abs())
+                    > k
+            {
                 s -= fruits[i][1];
                 i += 1;
             }

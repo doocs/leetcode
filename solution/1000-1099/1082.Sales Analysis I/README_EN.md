@@ -117,11 +117,12 @@ SELECT seller_id
 FROM Sales
 GROUP BY seller_id
 HAVING
-    SUM(price) >= ALL(
-        SELECT SUM(price)
-        FROM Sales
-        GROUP BY seller_id
-    );
+    SUM(price) >=
+        ALL (
+            SELECT SUM(price)
+            FROM Sales
+            GROUP BY seller_id
+        );
 ```
 
 <!-- tabs:end -->

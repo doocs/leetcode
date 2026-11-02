@@ -139,7 +139,6 @@ The space complexity is $O(n)$, where $n$ is the number of added numbers.
 
 ```python
 class StatisticsTracker:
-
     def __init__(self):
         self.q = deque()
         self.s = 0

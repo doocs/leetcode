@@ -209,7 +209,11 @@ function minAvailableDuration(slots1: number[][], slots2: number[][], duration: 
 
 ```rust
 impl Solution {
-    pub fn min_available_duration(mut slots1: Vec<Vec<i32>>, mut slots2: Vec<Vec<i32>>, duration: i32) -> Vec<i32> {
+    pub fn min_available_duration(
+        mut slots1: Vec<Vec<i32>>,
+        mut slots2: Vec<Vec<i32>>,
+        duration: i32,
+    ) -> Vec<i32> {
         slots1.sort_by_key(|slot| slot[0]);
         slots2.sort_by_key(|slot| slot[0]);
 

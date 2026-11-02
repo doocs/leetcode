@@ -126,32 +126,26 @@ class Solution:
         if not poly1 or not poly2:
             return []
 
-        # 1. 计算目标长度
         m = len(poly1) + len(poly2) - 1
         n = 1
         while n < m:
             n <<= 1
 
-        # 2. 填充到长度 n
         fa = list(map(complex, poly1)) + [0j] * (n - len(poly1))
         fb = list(map(complex, poly2)) + [0j] * (n - len(poly2))
 
-        # 3. FFT 正变换
         self._fft(fa, invert=False)
         self._fft(fb, invert=False)
 
-        # 4. 逐点相乘
         for i in range(n):
             fa[i] *= fb[i]
 
-        # 5. 逆变换并取整
         self._fft(fa, invert=True)
         return [int(round(fa[i].real)) for i in range(m)]
 
     def _fft(self, a: List[complex], invert: bool) -> None:
         n = len(a)
 
-        # 位反转重排
         j = 0
         for i in range(1, n):
             bit = n >> 1
@@ -162,7 +156,6 @@ class Solution:
             if i < j:
                 a[i], a[j] = a[j], a[i]
 
-        # 分治蝶形
         len_ = 2
         while len_ <= n:
             ang = 2 * math.pi / len_ * (-1 if invert else 1)
@@ -178,7 +171,6 @@ class Solution:
                     w *= wlen
             len_ <<= 1
 
-        # 逆变换需除以 n
         if invert:
             for i in range(n):
                 a[i] /= n

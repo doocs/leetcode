@@ -275,7 +275,7 @@ function countPartitions(nums: number[], k: number): number {
 #### Rust
 
 ```rust
- use std::collections::BTreeMap;
+use std::collections::BTreeMap;
 
 impl Solution {
     pub fn count_partitions(nums: Vec<i32>, k: i32) -> i32 {

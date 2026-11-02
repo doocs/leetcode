@@ -124,7 +124,6 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 
 ```python
 class FoodRatings:
-
     def __init__(self, foods: List[str], cuisines: List[str], ratings: List[int]):
         self.d = defaultdict(SortedList)
         self.g = {}

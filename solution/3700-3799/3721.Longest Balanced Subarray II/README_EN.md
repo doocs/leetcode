@@ -124,6 +124,7 @@ class Solution:
 
         class Node:
             __slots__ = ("l", "r", "mn", "mx", "lazy")
+
             def __init__(self):
                 self.l = self.r = 0
                 self.mn = self.mx = 0

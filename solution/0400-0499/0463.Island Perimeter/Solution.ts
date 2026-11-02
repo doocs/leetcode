@@ -17,7 +17,6 @@ function islandPerimeter(grid: number[][]): number {
             if (cur != left) ++ans;
         }
     }
-    // 最后一行， 最后一列
     for (let i = 0; i < m; ++i) {
         if (grid[i][n - 1] == 1) ++ans;
     }

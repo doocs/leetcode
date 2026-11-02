@@ -126,9 +126,8 @@ Finally, we group by `id` and `g` to count the number of logins for each user. I
 WITH
     T AS (
         SELECT DISTINCT *
-        FROM
-            Logins
-            JOIN Accounts USING (id)
+        FROM Logins
+        JOIN Accounts USING (id)
     ),
     P AS (
         SELECT

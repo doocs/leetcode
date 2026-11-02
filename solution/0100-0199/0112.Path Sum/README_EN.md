@@ -254,7 +254,6 @@ impl Solution {
             None => false,
             Some(node) => {
                 let mut node = node.borrow_mut();
-                // 确定叶结点身份
                 if node.left.is_none() && node.right.is_none() {
                     return target_sum - node.val == 0;
                 }

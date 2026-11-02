@@ -114,8 +114,8 @@ class Solution:
 ```java
 class Solution {
     public int countHillValley(int[] nums) {
-        int ans = 0;
-        for (int i = 1, j = 0; i < nums.length - 1; ++i) {
+        int ans = 0, j = 0;
+        for (int i = 1; i < nums.length - 1; ++i) {
             if (nums[i] == nums[i + 1]) {
                 continue;
             }

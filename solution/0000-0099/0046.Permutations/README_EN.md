@@ -225,7 +225,7 @@ impl Solution {
             t: &mut Vec<i32>,
             vis: &mut Vec<bool>,
             ans: &mut Vec<Vec<i32>>,
-            i: usize
+            i: usize,
         ) {
             if i == n {
                 ans.push(t.clone());

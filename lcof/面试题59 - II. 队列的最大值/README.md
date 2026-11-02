@@ -458,14 +458,6 @@ class MaxQueue {
         return ans
     }
 }
-
-/**
- * Your MaxQueue object will be instantiated and called as such:
- * let obj = MaxQueue();
- * let param_1 = obj.max_value();
- * obj.push_back(value);
- * let param_3 = obj.pop_front();
- */
 ```
 
 <!-- tabs:end -->

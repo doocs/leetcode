@@ -343,7 +343,11 @@ impl Solution {
                 l = mid + 1;
             }
         }
-        if l > m { -1 } else { l as i32 }
+        if l > m {
+            -1
+        } else {
+            l as i32
+        }
     }
 }
 ```

@@ -292,7 +292,11 @@ impl Solution {
                 i += 1;
             }
         }
-        if ans > n as i32 { -1 } else { ans }
+        if ans > n as i32 {
+            -1
+        } else {
+            ans
+        }
     }
 }
 ```

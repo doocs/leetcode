@@ -192,6 +192,9 @@ class Solution:
 #### Java
 
 ```java
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 class Solution {
     public long minCost(int m, int n, int[][] penalty) {
         long[][][] dist = new long[m][n][2];

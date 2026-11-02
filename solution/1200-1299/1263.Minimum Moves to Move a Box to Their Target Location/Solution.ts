@@ -47,7 +47,6 @@ function minPushBox(grid: string[][]): number {
     return -1;
 }
 
-/* 以下是双向列队模板类 */
 class CircularDeque<T> {
     prev: CircularDeque<T> | null;
     next: CircularDeque<T> | null;

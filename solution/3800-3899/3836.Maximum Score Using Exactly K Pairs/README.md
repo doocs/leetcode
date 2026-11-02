@@ -164,7 +164,10 @@ class Solution:
                     if j > 0:
                         f[i][j][k] = max(f[i][j][k], f[i][j - 1][k])
                     if i > 0 and j > 0 and k > 0:
-                        f[i][j][k] = max(f[i][j][k], f[i - 1][j - 1][k - 1] + nums1[i - 1] * nums2[j - 1])
+                        f[i][j][k] = max(
+                            f[i][j][k],
+                            f[i - 1][j - 1][k - 1] + nums1[i - 1] * nums2[j - 1],
+                        )
         return f[n][m][K]
 ```
 

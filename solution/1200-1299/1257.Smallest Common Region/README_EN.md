@@ -227,7 +227,11 @@ function findSmallestRegion(regions: string[][], region1: string, region2: strin
 use std::collections::{HashMap, HashSet};
 
 impl Solution {
-    pub fn find_smallest_region(regions: Vec<Vec<String>>, region1: String, region2: String) -> String {
+    pub fn find_smallest_region(
+        regions: Vec<Vec<String>>,
+        region1: String,
+        region2: String,
+    ) -> String {
         let mut g: HashMap<String, String> = HashMap::new();
 
         for r in &regions {

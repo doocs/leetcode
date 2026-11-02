@@ -92,7 +92,6 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # 第一次买入，第一次卖出，第二次买入，第二次卖出
         f1, f2, f3, f4 = -prices[0], 0, -prices[0], 0
         for price in prices[1:]:
             f1 = max(f1, -price)
@@ -107,7 +106,6 @@ class Solution:
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        // 第一次买入，第一次卖出，第二次买入，第二次卖出
         int f1 = -prices[0], f2 = 0, f3 = -prices[0], f4 = 0;
         for (int i = 1; i < prices.length; ++i) {
             f1 = Math.max(f1, -prices[i]);

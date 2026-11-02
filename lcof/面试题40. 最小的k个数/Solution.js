@@ -4,10 +4,8 @@
  * @return {number[]}
  */
 var getLeastNumbers = function (arr, k) {
-    // 排序
     // return arr.sort((a,b)=>a-b).slice(0,k)
     // ==========================================
-    // 快排思想
     let left = 0;
     let right = arr.length - 1;
     while (left < right) {

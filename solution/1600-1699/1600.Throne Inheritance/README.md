@@ -255,24 +255,20 @@ private:
 type ThroneInheritance struct {
 	king string
 	dead map[string]bool
-	g map[string][]string
+	g    map[string][]string
 }
-
 
 func Constructor(kingName string) ThroneInheritance {
 	return ThroneInheritance{kingName, map[string]bool{}, map[string][]string{}}
 }
 
-
-func (this *ThroneInheritance) Birth(parentName string, childName string)  {
+func (this *ThroneInheritance) Birth(parentName string, childName string) {
 	this.g[parentName] = append(this.g[parentName], childName)
 }
 
-
-func (this *ThroneInheritance) Death(name string)  {
+func (this *ThroneInheritance) Death(name string) {
 	this.dead[name] = true
 }
-
 
 func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
 	var dfs func(string)
@@ -287,7 +283,6 @@ func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
 	dfs(this.king)
 	return
 }
-
 
 /**
  * Your ThroneInheritance object will be instantiated and called as such:

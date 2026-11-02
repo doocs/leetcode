@@ -196,7 +196,7 @@ function minKBitFlips(nums: number[], k: number): number {
     let [ans, s] = [0, 0];
     for (let i = 0; i < n; ++i) {
         s += d[i];
-        if (s % 2 === nums[i]) {
+        if (s % 2 === nums[i] % 2) {
             if (i + k > n) {
                 return -1;
             }

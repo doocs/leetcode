@@ -228,13 +228,7 @@ impl Solution {
 
         let mut memo = vec![vec![-1; 25]; n];
 
-        fn dfs(
-            i: usize,
-            k: usize,
-            n: usize,
-            bytes: &[u8],
-            memo: &mut Vec<Vec<i32>>,
-        ) -> i32 {
+        fn dfs(i: usize, k: usize, n: usize, bytes: &[u8], memo: &mut Vec<Vec<i32>>) -> i32 {
             if i == n {
                 return if k == 0 { 0 } else { n as i32 };
             }

@@ -381,9 +381,6 @@ public:
             ll right = queries[i][1];
             ll mod = queries[i][2];
             ll power = f(right + 1) - f(left);
-            if (power < 0) {
-                power += mod;
-            }
             ans[i] = static_cast<int>(qpow(2, power, mod));
         }
         return ans;

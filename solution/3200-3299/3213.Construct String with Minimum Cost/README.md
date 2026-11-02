@@ -427,8 +427,8 @@ function minimumCost(target: string, words: string[], costs: number[]): number {
 #### Rust
 
 ```rust
-use std::collections::{HashMap, BTreeSet};
 use std::cmp::min;
+use std::collections::{BTreeSet, HashMap};
 
 struct Hashing {
     p: Vec<i64>,
@@ -493,7 +493,11 @@ impl Solution {
             }
         }
 
-        if f[n] >= inf { -1 } else { f[n] }
+        if f[n] >= inf {
+            -1
+        } else {
+            f[n]
+        }
     }
 }
 ```

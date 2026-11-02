@@ -240,30 +240,30 @@ $$
 
 ```python
 class Solution:
-	def minRotations(self, s: str) -> int:
-		ans = pre = 0
-		for cur in map(int, s):
-			diff = abs(cur - pre)
-			ans += min(diff, 10 - diff)
-			pre = cur
-		return ans
+    def minRotations(self, s: str) -> int:
+        ans = pre = 0
+        for cur in map(int, s):
+            diff = abs(cur - pre)
+            ans += min(diff, 10 - diff)
+            pre = cur
+        return ans
 ```
 
 #### Java
 
 ```java
 class Solution {
-	public int minRotations(String s) {
-		int ans = 0;
-		int pre = 0;
-		for (int i = 0; i < s.length(); ++i) {
-			int cur = s.charAt(i) - '0';
-			int diff = Math.abs(cur - pre);
-			ans += Math.min(diff, 10 - diff);
-			pre = cur;
-		}
-		return ans;
-	}
+    public int minRotations(String s) {
+        int ans = 0;
+        int pre = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int cur = s.charAt(i) - '0';
+            int diff = Math.abs(cur - pre);
+            ans += Math.min(diff, 10 - diff);
+            pre = cur;
+        }
+        return ans;
+    }
 }
 ```
 
@@ -272,17 +272,17 @@ class Solution {
 ```cpp
 class Solution {
 public:
-	int minRotations(string s) {
-		int ans = 0;
-		int pre = 0;
-		for (int i = 0; i < s.size(); ++i) {
-			int cur = s[i] - '0';
-			int diff = abs(cur - pre);
-			ans += min(diff, 10 - diff);
-			pre = cur;
-		}
-		return ans;
-	}
+    int minRotations(string s) {
+        int ans = 0;
+        int pre = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            int cur = s[i] - '0';
+            int diff = abs(cur - pre);
+            ans += min(diff, 10 - diff);
+            pre = cur;
+        }
+        return ans;
+    }
 };
 ```
 

@@ -116,7 +116,6 @@ matrix3D.largestMatrix(); // 返回 3。0 到 3 的对应值都有相同数量�
 
 ```python
 class matrix3D:
-
     def __init__(self, n: int):
         self.g = [[[0] * n for _ in range(n)] for _ in range(n)]
         self.cnt = [0] * n

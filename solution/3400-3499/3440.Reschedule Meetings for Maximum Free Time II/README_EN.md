@@ -368,7 +368,11 @@ impl Solution {
         let mut ans = 0;
         for i in 0..n {
             let l = if i == 0 { 0 } else { end_time[i - 1] };
-            let r = if i == n - 1 { event_time } else { start_time[i + 1] };
+            let r = if i == n - 1 {
+                event_time
+            } else {
+                start_time[i + 1]
+            };
             let w = end_time[i] - start_time[i];
             ans = ans.max(r - l - w);
 

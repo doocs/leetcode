@@ -474,7 +474,6 @@ public class Codec {
 #### Swift
 
 ```swift
-
 /* public class TreeNode {
 *     var val: Int
 *     var left: TreeNode?
@@ -534,10 +533,6 @@ public class Codec {
         return root
     }
 }
-// Your Codec object will be instantiated and called as such:
-// let codec = Codec()
-// let serializedData = codec.serialize(root)
-// let deserializedTree = codec.deserialize(serializedData)
 ```
 
 <!-- tabs:end -->

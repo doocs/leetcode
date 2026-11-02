@@ -433,46 +433,26 @@ impl Solution {
 
         for i1 in 0..m - 1 {
             for i2 in i1 + 1..m - 1 {
-                ans = ans.min(
-                    f(0, 0, i1, n - 1)
-                    + f(i1 + 1, 0, i2, n - 1)
-                    + f(i2 + 1, 0, m - 1, n - 1),
-                );
+                ans = ans
+                    .min(f(0, 0, i1, n - 1) + f(i1 + 1, 0, i2, n - 1) + f(i2 + 1, 0, m - 1, n - 1));
             }
         }
 
         for j1 in 0..n - 1 {
             for j2 in j1 + 1..n - 1 {
-                ans = ans.min(
-                    f(0, 0, m - 1, j1)
-                    + f(0, j1 + 1, m - 1, j2)
-                    + f(0, j2 + 1, m - 1, n - 1),
-                );
+                ans = ans
+                    .min(f(0, 0, m - 1, j1) + f(0, j1 + 1, m - 1, j2) + f(0, j2 + 1, m - 1, n - 1));
             }
         }
 
         for i in 0..m - 1 {
             for j in 0..n - 1 {
-                ans = ans.min(
-                    f(0, 0, i, j)
-                    + f(0, j + 1, i, n - 1)
-                    + f(i + 1, 0, m - 1, n - 1),
-                );
-                ans = ans.min(
-                    f(0, 0, i, n - 1)
-                    + f(i + 1, 0, m - 1, j)
-                    + f(i + 1, j + 1, m - 1, n - 1),
-                );
-                ans = ans.min(
-                    f(0, 0, i, j)
-                    + f(i + 1, 0, m - 1, j)
-                    + f(0, j + 1, m - 1, n - 1),
-                );
-                ans = ans.min(
-                    f(0, 0, m - 1, j)
-                    + f(0, j + 1, i, n - 1)
-                    + f(i + 1, j + 1, m - 1, n - 1),
-                );
+                ans = ans.min(f(0, 0, i, j) + f(0, j + 1, i, n - 1) + f(i + 1, 0, m - 1, n - 1));
+                ans = ans
+                    .min(f(0, 0, i, n - 1) + f(i + 1, 0, m - 1, j) + f(i + 1, j + 1, m - 1, n - 1));
+                ans = ans.min(f(0, 0, i, j) + f(i + 1, 0, m - 1, j) + f(0, j + 1, m - 1, n - 1));
+                ans = ans
+                    .min(f(0, 0, m - 1, j) + f(0, j + 1, i, n - 1) + f(i + 1, j + 1, m - 1, n - 1));
             }
         }
 

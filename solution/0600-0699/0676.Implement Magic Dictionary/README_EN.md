@@ -494,9 +494,7 @@ struct MagicDictionary {
 
 impl MagicDictionary {
     fn new() -> Self {
-        MagicDictionary {
-            trie: Trie::new(),
-        }
+        MagicDictionary { trie: Trie::new() }
     }
 
     fn build_dict(&mut self, dictionary: Vec<String>) {
