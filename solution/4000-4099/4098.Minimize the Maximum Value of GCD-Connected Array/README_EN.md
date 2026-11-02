@@ -92,32 +92,157 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $n$ and $\textit{value}$ can be up to $10^9$, so we cannot construct the array element by element and instead need closed-form bounds for the endpoints.
+>
+> Consecutive elements satisfy $\textit{nums}[i] < \textit{nums}[i + 1]$ and $\gcd(\textit{nums}[i], \textit{nums}[i + 1]) > 1$. Since the greatest common divisor divides their difference, any two adjacent elements must differ by at least $2$. Moreover, any element directly adjacent to $\textit{nums}[\textit{index}] = \textit{value}$ must share a factor greater than $1$ with $\textit{value}$, so their difference is at least the smallest prime factor $p$ of $\textit{value}$.
+>
+> Observe that whether $\textit{value}$ is even ($p = 2$) or odd ($p$ is also odd), both $\textit{value} - p$ and $\textit{value} + p$ are always even. Once we land on an even number, every remaining step only needs to change by $2$ so that all subsequent numbers stay even (giving adjacent pairs a $\gcd$ of at least $2$), achieving the theoretical minimum step size. This lets us directly verify whether positive integers fit on the left and compute the minimum possible value of $\textit{nums}[n - 1]$ on the right.
+
+<!-- thinking:end -->
+
+If $\textit{value} = 1$, since $\gcd(1, x) = 1$ for any positive integer $x$, no valid array exists and we return $-1$.
+
+When $\textit{value} > 1$, we find the smallest prime factor $p$ of $\textit{value}$ by trial division. Because the greatest common divisor of any two adjacent elements is greater than $1$, the difference between any two adjacent elements is at least $2$, and the difference between $\textit{nums}[\textit{index}] = \textit{value}$ and its immediate neighbors is at least $p$. Since $\textit{value}$ and its smallest prime factor $p$ always have the same parity, both $\textit{value} - p$ and $\textit{value} + p$ are even. Thus, all other adjacent elements can simply differ by $2$ while remaining even (which guarantees their $\gcd$ is at least $2 > 1$):
+
+- To the left of $\textit{index}$, to make $\textit{nums}[0]$ as large as possible, we set $\textit{nums}[\textit{index} - 1] = \textit{value} - p$ and decrease by $2$ at each step to the left, giving $\textit{nums}[0] = \textit{value} - p - (\textit{index} - 1) \times 2$. If this value is at most $0$ (note that when $\textit{index} = 0$, $\textit{value} - p + 2 \ge 2 > 0$ always holds), we cannot place valid positive integers on the left, so we return $-1$.
+- To the right of $\textit{index}$, if $\textit{index} = n - 1$, the maximum element is simply $\textit{value}$. Otherwise, we set $\textit{nums}[\textit{index} + 1] = \textit{value} + p$ and increase by $2$ at each subsequent step, yielding the minimum possible value $\textit{value} + p + (n - 2 - \textit{index}) \times 2$ for $\textit{nums}[n - 1]$.
+
+The time complexity is $O(\sqrt{\textit{value}})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minimumMaxValue(self, n: int, index: int, value: int) -> int:
+        if value == 1:
+            return -1
+        p = value
+        for x in range(2, isqrt(value) + 1):
+            if value % x == 0:
+                p = x
+                break
+        if value - p - (index - 1) * 2 <= 0:
+            return -1
+        if index == n - 1:
+            return value
+        return value + p + (n - 2 - index) * 2
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long minimumMaxValue(int n, int index, int value) {
+        if (value == 1) {
+            return -1;
+        }
 
+        long p = value;
+        for (long x = 2; x * x <= value; x++) {
+            if (value % x == 0) {
+                p = x;
+                break;
+            }
+        }
+
+        if ((long) value - p - ((long) index - 1) * 2 <= 0) {
+            return -1;
+        }
+        if (index == n - 1) {
+            return value;
+        }
+        return (long) value + p + ((long) n - 2 - index) * 2;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minimumMaxValue(int n, int index, int value) {
+        if (value == 1) {
+            return -1;
+        }
 
+        long long p = value;
+        for (long long x = 2; x * x <= value; ++x) {
+            if (value % x == 0) {
+                p = x;
+                break;
+            }
+        }
+
+        if ((long long) value - p - ((long long) index - 1) * 2 <= 0) {
+            return -1;
+        }
+        if (index == n - 1) {
+            return value;
+        }
+        return (long long) value + p + ((long long) n - 2 - index) * 2;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minimumMaxValue(n int, index int, value int) int64 {
+	if value == 1 {
+		return -1
+	}
 
+	p := int64(value)
+	for x := int64(2); x*x <= int64(value); x++ {
+		if int64(value)%x == 0 {
+			p = x
+			break
+		}
+	}
+
+	if int64(value)-p-(int64(index)-1)*2 <= 0 {
+		return -1
+	}
+	if index == n-1 {
+		return int64(value)
+	}
+	return int64(value) + p + (int64(n)-2-int64(index))*2
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumMaxValue(n: number, index: number, value: number): number {
+    if (value === 1) {
+        return -1;
+    }
+
+    let p = value;
+    for (let x = 2; x * x <= value; x++) {
+        if (value % x === 0) {
+            p = x;
+            break;
+        }
+    }
+
+    if (value - p - (index - 1) * 2 <= 0) {
+        return -1;
+    }
+    if (index === n - 1) {
+        return value;
+    }
+    return value + p + (n - 2 - index) * 2;
+}
 ```
 
 <!-- tabs:end -->

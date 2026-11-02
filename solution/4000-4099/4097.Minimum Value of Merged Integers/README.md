@@ -86,32 +86,84 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组长度不超过 $100$，每个数至多有 $4$ 位十进制数字，合并后的数至多 $8$ 位，都在标准整数范围内。直接按题意把相邻的一对数转成字符串拼接后再转回整数，取所有合并结果的最小值即可。
+
+<!-- thinking:end -->
+
+我们以步长 $2$ 遍历数组 $\textit{nums}$，每次将 $\textit{nums}[i]$ 和 $\textit{nums}[i + 1]$ 转换为字符串拼接后再转回整数，维护所有合并结果的最小值并返回。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minMergedInteger(self, nums: list[int]) -> int:
+        return min(int(str(nums[i]) + str(nums[i + 1])) for i in range(0, len(nums), 2))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minMergedInteger(int[] nums) {
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i += 2) {
+            int v = Integer.parseInt(String.valueOf(nums[i]) + nums[i + 1]);
+            ans = Math.min(ans, v);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minMergedInteger(vector<int>& nums) {
+        int ans = INT_MAX;
+        for (int i = 0; i < (int) nums.size(); i += 2) {
+            int v = stoi(to_string(nums[i]) + to_string(nums[i + 1]));
+            ans = min(ans, v);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minMergedInteger(nums []int) int {
+	ans := math.MaxInt32
+	for i := 0; i < len(nums); i += 2 {
+		v, _ := strconv.Atoi(strconv.Itoa(nums[i]) + strconv.Itoa(nums[i+1]))
+		ans = min(ans, v)
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minMergedInteger(nums: number[]): number {
+    let ans = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < nums.length; i += 2) {
+        ans = Math.min(ans, Number(String(nums[i]) + nums[i + 1]));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

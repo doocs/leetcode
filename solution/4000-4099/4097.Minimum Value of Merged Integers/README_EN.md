@@ -84,32 +84,84 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array length is at most $100$ and each element has at most $4$ decimal digits, so every merged number has at most $8$ digits and fits in a standard integer. We can directly convert each adjacent pair to strings, concatenate them, parse the result back as an integer, and take the minimum over all pairs.
+
+<!-- thinking:end -->
+
+We iterate through the array $\textit{nums}$ with a step of $2$. At each step, we convert $\textit{nums}[i]$ and $\textit{nums}[i + 1]$ to strings, concatenate them, and parse the concatenated string back into an integer, maintaining and returning the minimum value among all merged results.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minMergedInteger(self, nums: list[int]) -> int:
+        return min(int(str(nums[i]) + str(nums[i + 1])) for i in range(0, len(nums), 2))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minMergedInteger(int[] nums) {
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i += 2) {
+            int v = Integer.parseInt(String.valueOf(nums[i]) + nums[i + 1]);
+            ans = Math.min(ans, v);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minMergedInteger(vector<int>& nums) {
+        int ans = INT_MAX;
+        for (int i = 0; i < (int) nums.size(); i += 2) {
+            int v = stoi(to_string(nums[i]) + to_string(nums[i + 1]));
+            ans = min(ans, v);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minMergedInteger(nums []int) int {
+	ans := math.MaxInt32
+	for i := 0; i < len(nums); i += 2 {
+		v, _ := strconv.Atoi(strconv.Itoa(nums[i]) + strconv.Itoa(nums[i+1]))
+		ans = min(ans, v)
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minMergedInteger(nums: number[]): number {
+    let ans = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < nums.length; i += 2) {
+        ans = Math.min(ans, Number(String(nums[i]) + nums[i + 1]));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
