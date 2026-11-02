@@ -96,7 +96,7 @@ The execution logic of the function is as follows:
 
 - If $\textit{pos}$ exceeds the length of the number, it means all digits have been processed. If $\textit{diff} = 0$, the current number is a balanced integer, return $1$; otherwise, return $0$.
 - Calculate the upper bound $up$ for the current digit. If constrained, it equals the current digit of the number; otherwise, it is $9$.
-- Iterate through all possible digits $i$ for the current position. For each digit $i$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if pos \% 2 == 0 else -1}), \textit{lim} \&\& i == up)$, and accumulate the results.
+- Iterate through all possible digits $i$ for the current position. For each digit $i$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{diff} + i \times (\text{1 if } \textit{pos} \bmod 2 = 0 \text{ else } -1), \textit{lim} \land i = up)$, and accumulate the results.
 - Return the accumulated result.
 
 We first calculate the number of balanced integers $a$ in the range $[1, \textit{low} - 1]$, then calculate the number of balanced integers $b$ in the range $[1, \textit{high}]$, and finally return $b - a$.

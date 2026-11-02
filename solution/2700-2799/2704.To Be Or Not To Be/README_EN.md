@@ -61,7 +61,7 @@ tags:
 >
 > The assertion object must throw the prescribed errors on the equal and unequal paths and return $\textit{true}$ on success. Two free-standing helpers would duplicate the comparison.
 >
-> A closure keeps the expected value $\textit{val}$ and returns $\{\textit{toBe}, \textit{notToBe}\}$: the former throws Not Equal on $!==$, the latter throws Equal on $===$. All state needed for chaining lives in that closure.
+> A closure keeps the expected value $\textit{val}$ and returns $\{\textit{toBe}, \textit{notToBe}\}$: the former throws Not Equal on `!==`, the latter throws Equal on `===`. All state needed for chaining lives in that closure.
 
 <!-- thinking:end -->
 

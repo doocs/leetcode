@@ -92,7 +92,7 @@ nums = [1,3,4] 是美丽数组。
 
 我们不妨记 $m = \left\lfloor \frac{\textit{target}}{2} \right\rfloor$。
 
-如果 $x <= m$，那么我们可以选择的数有 $1, 2, \cdots, n$，所以数组的和为 $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$。
+如果 $x \le m$，那么我们可以选择的数有 $1, 2, \cdots, n$，所以数组的和为 $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$。
 
 如果 $x > m$，那么我们可以选择的数有 $1, 2, \cdots, m$，共 $m$ 个数，以及 $n - m$ 个从 $\textit{target}$ 开始的数，所以数组的和为 $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(\textit{target} + \textit{target} + n - m - 1)(n-m)}{2} \right\rfloor$。
 

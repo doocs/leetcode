@@ -90,7 +90,7 @@ $$
 f[i][j] = \begin{cases}
 i, & \textit{if } j = 0 \\
 j, & \textit{if } i = 0 \\
-f[i - 1][j - 1], & \textit{if } word1[i - 1] = word2[j - 1] \\
+f[i - 1][j - 1], & \textit{if } \textit{word1}[i - 1] = \textit{word2}[j - 1] \\
 \min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \textit{otherwise}
 \end{cases}
 $$

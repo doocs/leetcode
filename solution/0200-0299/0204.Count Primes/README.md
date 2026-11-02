@@ -77,7 +77,7 @@ tags:
 
 设 $\textit{primes}[i]$ 表示数 $i$ 是不是质数，如果是质数则为 $\textit{true}$，否则为 $\textit{false}$。
 
-我们在 $[2,n]$ 范围内顺序遍历每个数 $i$，如果这个数为质数（ $\textit{primes}[i]==\textit{true}$），质数个数增 1，然后将其所有的倍数 $j$ 都标记为合数（除了该质数本身），即 $\textit{primes}[j]=\textit{false}$，这样在运行结束的时候我们即能知道质数的个数。
+我们在 $[2,n]$ 范围内顺序遍历每个数 $i$，如果这个数为质数（ $\textit{primes}[i] = \textit{true}$），质数个数增 1，然后将其所有的倍数 $j$ 都标记为合数（除了该质数本身），即 $\textit{primes}[j]=\textit{false}$，这样在运行结束的时候我们即能知道质数的个数。
 
 时间复杂度 $O(n \log \log n)$。
 

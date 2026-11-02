@@ -77,7 +77,7 @@ The problem is actually asking for the number of integers in the range $[\textit
 
 For the answer to $[1,..r]$, we can use digit DP to solve it. We design a function $\textit{dfs}(\textit{pos}, s, \textit{limit})$, which represents the number of schemes when we are currently processing the $\textit{pos}$th digit, the digit sum is $s$, and whether the current number has an upper limit $\textit{limit}$. Here, $\textit{pos}$ is enumerated from high to low.
 
-For $\textit{dfs}(\textit{pos}, s, \textit{limit})$, we can enumerate the value of the current digit $i$, and then recursively calculate $\textit{dfs}(\textit{pos}+1, s+i, \textit{limit} \bigcap i==up)$, where $up$ represents the upper limit of the current digit. If $\textit{limit}$ is true, then $up$ is the upper limit of the current digit, otherwise $up$ is $9$. If $\textit{pos}$ is greater than or equal to the length of $\textit{num}$, then we can judge whether $s$ is in the range $[\textit{min\_sum},..\textit{max\_sum}]$. If it is, return $1$, otherwise return $0$.
+For $\textit{dfs}(\textit{pos}, s, \textit{limit})$, we can enumerate the value of the current digit $i$, and then recursively calculate $\textit{dfs}(\textit{pos}+1, s+i, \textit{limit} \land i = up)$, where $up$ represents the upper limit of the current digit. If $\textit{limit}$ is true, then $up$ is the upper limit of the current digit, otherwise $up$ is $9$. If $\textit{pos}$ is greater than or equal to the length of $\textit{num}$, then we can judge whether $s$ is in the range $[\textit{min\_sum},..\textit{max\_sum}]$. If it is, return $1$, otherwise return $0$.
 
 The time complexity is $O(10\textit{nmax\_sum})$, and the space complexity is $O(\textit{nmax\_sum})$, where $n$ represents the length of $\textit{num}$.
 

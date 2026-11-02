@@ -101,7 +101,7 @@ The basic steps are as follows:
 2. Design a function $\textit{dfs}(\textit{pos}, \textit{lim})$, which represents the count of valid numbers starting from the $\textit{pos}$-th digit, with the current restriction condition $\textit{lim}$.
 3. If the maximum number of digits is less than the length of $s$, return 0.
 4. If the remaining number of digits equals the length of $s$, check if the current number satisfies the condition and return 1 or 0.
-5. Otherwise, calculate the upper limit of the current digit as $up = \min(\textit{lim} ? t[\textit{pos}] : 9, \textit{limit})$. Then iterate through the digits $i$ from 0 to $up$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == t[\textit{pos}])$, and accumulate the results.
+5. Otherwise, calculate the upper limit of the current digit as $up = \min(\textit{lim} ? t[\textit{pos}] : 9, \textit{limit})$. Then iterate through the digits $i$ from 0 to $up$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i = t[\textit{pos}])$, and accumulate the results.
 6. If $\textit{lim}$ is false, store the current result in the cache to avoid redundant calculations.
 7. Finally, return the result.
 

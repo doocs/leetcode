@@ -87,7 +87,7 @@ Calculate the in-degree of each node and perform a topological sort.
 
 Define a 2D array $dp$, where $dp[i][j]$ represents the number of nodes with color $j$ on the path from the start node to node $i$.
 
-From node $i$, traverse all outgoing edges $i \to j$, and update $dp[j][k] = \max(dp[j][k], dp[i][k] + (c == k))$, where $c$ is the color of node $j$.
+From node $i$, traverse all outgoing edges $i \to j$, and update $dp[j][k] = \max(dp[j][k], dp[i][k] + (c = k))$, where $c$ is the color of node $j$.
 
 The answer is the maximum value in the $dp$ array.
 

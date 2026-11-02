@@ -63,7 +63,7 @@ tags:
 
 > **Thinking**
 >
-> The longest proper prefix that is also a suffix. Comparing every length from short to long is quadratic for $n \le 10^5$. Starting from the longest proper prefix, $s[:-i]==s[i:]$ yields that prefix as soon as it holds; otherwise the answer is empty.
+> The longest proper prefix that is also a suffix. Comparing every length from short to long is quadratic for $n \le 10^5$. Starting from the longest proper prefix, $s[:-i] = s[i:]$ yields that prefix as soon as it holds; otherwise the answer is empty.
 
 <!-- thinking:end -->
 
