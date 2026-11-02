@@ -300,17 +300,16 @@ var addTwoNumbers = function (l1, l2) {
 
 ```swift
 /**
-* Definition for singly-linked list.
-*    class ListNode {
-*        var val: Int
-*        var next: ListNode?
-*        init(_ val: Int) {
-*            self.val = val
-*            self.next = nil
-*        }
-*    }
-*/
-
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
 class Solution {
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         var carry = 0

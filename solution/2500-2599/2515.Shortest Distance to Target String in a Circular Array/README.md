@@ -198,7 +198,11 @@ impl Solution {
                 ans = ans.min(t.min(n - t));
             }
         }
-        if ans == n { -1 } else { ans }
+        if ans == n {
+            -1
+        } else {
+            ans
+        }
     }
 }
 ```

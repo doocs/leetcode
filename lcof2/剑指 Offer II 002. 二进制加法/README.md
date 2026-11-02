@@ -78,7 +78,7 @@ class Solution:
             carry, v = divmod(carry, 2)
             ans.append(str(v))
             i, j = i - 1, j - 1
-        return ''.join(ans[::-1])
+        return "".join(ans[::-1])
 ```
 
 #### Java

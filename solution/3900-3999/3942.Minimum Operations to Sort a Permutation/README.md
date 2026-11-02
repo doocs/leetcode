@@ -135,10 +135,8 @@ class Solution:
     def minOperations(self, nums: List[int]) -> int:
         n = len(nums)
 
-        # 找到 0 的位置
         zero = nums.index(0)
 
-        # 检查从 0 开始，按 step 方向是否递增
         def check(step: int) -> bool:
             for i in range(1, n):
                 prev = (zero + (i - 1) * step) % n
@@ -169,7 +167,6 @@ class Solution {
     public int minOperations(int[] nums) {
         int n = nums.length;
 
-        // 找到 0 的位置
         int zero = 0;
         for (int i = 0; i < n; i++) {
             if (nums[i] == 0) {
@@ -180,8 +177,7 @@ class Solution {
 
         int finalZero = zero;
 
-        // 检查从 0 开始，按 step 方向是否递增
-        java.util.function.IntPredicate check = step -> {
+        IntPredicate check = step -> {
             for (int i = 1; i < n; i++) {
                 int prev = (finalZero + (i - 1) * step + n) % n;
                 int curr = (finalZero + i * step + n) % n;
@@ -235,21 +231,13 @@ public:
 
         int ans = INT_MAX;
 
-        // 从 0 开始向右是递增的
         if (check(1)) {
-            // 直接旋转
             ans = min(ans, zero);
-
-            // 先翻转，再旋转，再翻转回来
             ans = min(ans, n - zero + 2);
         }
 
-        // 从 0 开始向左是递增的
         if (check(-1)) {
-            // 先旋转，再翻转
             ans = min(ans, zero + 2);
-
-            // 直接反向旋转
             ans = min(ans, n - zero);
         }
 
@@ -264,7 +252,6 @@ public:
 func minOperations(nums []int) int {
 	n := len(nums)
 
-	// 找到 0 的位置
 	zero := 0
 	for i, x := range nums {
 		if x == 0 {
@@ -273,7 +260,6 @@ func minOperations(nums []int) int {
 		}
 	}
 
-	// 检查从 0 开始，按 step 方向是否递增
 	check := func(step int) bool {
 		for i := 1; i < n; i++ {
 			prev := (zero + (i-1)*step + n) % n
@@ -313,10 +299,8 @@ func minOperations(nums []int) int {
 function minOperations(nums: number[]): number {
     const n = nums.length;
 
-    // 找到 0 的位置
     const zero = nums.indexOf(0);
 
-    // 检查从 0 开始，按 step 方向是否递增
     const check = (step: number): boolean => {
         for (let i = 1; i < n; i++) {
             const prev = (zero + (i - 1) * step + n) % n;

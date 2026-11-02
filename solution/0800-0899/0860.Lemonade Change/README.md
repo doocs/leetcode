@@ -236,7 +236,7 @@ function lemonadeChange(bills: number[]): boolean {
 #### JavaScript
 
 ```js
-function lemonadeChange(bills) {
+export function lemonadeChange(bills) {
     let [five, ten] = [0, 0];
     for (const x of bills) {
         switch (x) {

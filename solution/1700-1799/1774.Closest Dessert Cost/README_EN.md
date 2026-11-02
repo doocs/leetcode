@@ -125,11 +125,8 @@ class Solution:
         arr.sort()
         d = ans = inf
 
-        # 选择一种冰激淋基料
         for x in baseCosts:
-            # 枚举子集和
             for y in arr:
-                # 二分查找
                 i = bisect_left(arr, target - x - y)
                 for j in (i, i - 1):
                     if 0 <= j < len(arr):
@@ -154,11 +151,8 @@ class Solution {
         Collections.sort(arr);
         int d = inf, ans = inf;
 
-        // 选择一种冰激淋基料
         for (int x : baseCosts) {
-            // 枚举子集和
             for (int y : arr) {
-                // 二分查找
                 int i = search(target - x - y);
                 for (int j : new int[] {i, i - 1}) {
                     if (j >= 0 && j < arr.size()) {
@@ -217,11 +211,8 @@ public:
         dfs(0, 0);
         sort(arr.begin(), arr.end());
         int d = inf, ans = inf;
-        // 选择一种冰激淋基料
         for (int x : baseCosts) {
-            // 枚举子集和
             for (int y : arr) {
-                // 二分查找
                 int i = lower_bound(arr.begin(), arr.end(), target - x - y) - arr.begin();
                 for (int j = i - 1; j < i + 1; ++j) {
                     if (j >= 0 && j < arr.size()) {
@@ -257,11 +248,8 @@ func closestCost(baseCosts []int, toppingCosts []int, target int) int {
 	sort.Ints(arr)
 	const inf = 1 << 30
 	ans, d := inf, inf
-	// 选择一种冰激淋基料
 	for _, x := range baseCosts {
-		// 枚举子集和
 		for _, y := range arr {
-			// 二分查找
 			i := sort.SearchInts(arr, target-x-y)
 			for j := i - 1; j < i+1; j++ {
 				if j >= 0 && j < len(arr) {

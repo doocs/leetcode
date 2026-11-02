@@ -617,7 +617,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
                 } else if (node.left == null && node.right == null) {
                     parent[direction] = null;
                 } else {
-                    // 旋到根节点
                     if (
                         node.right == null ||
                         TreapNode.getFac(node.left) > TreapNode.getFac(node.right)
@@ -1087,12 +1086,7 @@ impl Solution {
     }
 }
 
-fn l2r(
-    l: &mut BTreeMap<i32, i32>,
-    r: &mut BTreeMap<i32, i32>,
-    s: &mut i64,
-    size: &mut usize,
-) {
+fn l2r(l: &mut BTreeMap<i32, i32>, r: &mut BTreeMap<i32, i32>, s: &mut i64, size: &mut usize) {
     let x = *l.iter().next_back().unwrap().0;
     *s -= x as i64;
 
@@ -1107,12 +1101,7 @@ fn l2r(
     *r.entry(x).or_insert(0) += 1;
 }
 
-fn r2l(
-    l: &mut BTreeMap<i32, i32>,
-    r: &mut BTreeMap<i32, i32>,
-    s: &mut i64,
-    size: &mut usize,
-) {
+fn r2l(l: &mut BTreeMap<i32, i32>, r: &mut BTreeMap<i32, i32>, s: &mut i64, size: &mut usize) {
     let x = *r.iter().next().unwrap().0;
 
     if let Some(v) = r.get_mut(&x) {

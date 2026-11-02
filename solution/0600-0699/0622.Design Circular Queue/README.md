@@ -99,7 +99,6 @@ circularQueue.Rear(); &nbsp;// 返回 4</pre>
 
 ```python
 class MyCircularQueue:
-
     def __init__(self, k: int):
         self.q = [0] * k
         self.size = 0

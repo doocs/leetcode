@@ -134,7 +134,7 @@ class Solution {
         }
         double ans = 0;
         for (int j = i + 1; j < n; ++j) {
-            ans = Math.max(ans, (s[j] - s[i]) * 1.0 /(j - i) + dfs(j, k - 1));
+            ans = Math.max(ans, (s[j] - s[i]) * 1.0 / (j - i) + dfs(j, k - 1));
         }
         return f[i][k] = ans;
     }

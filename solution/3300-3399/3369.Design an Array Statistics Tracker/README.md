@@ -141,7 +141,6 @@ statisticsTracker.getMode(); // return 5</div>
 
 ```python
 class StatisticsTracker:
-
     def __init__(self):
         self.q = deque()
         self.s = 0

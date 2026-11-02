@@ -260,7 +260,11 @@ impl Solution {
             }
         }
 
-        if ans == inf { -1 } else { ans }
+        if ans == inf {
+            -1
+        } else {
+            ans
+        }
     }
 }
 ```

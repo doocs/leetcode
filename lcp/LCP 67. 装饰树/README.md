@@ -213,6 +213,7 @@ func expandBinaryTree(root *TreeNode) *TreeNode {
 *     var val: Int
 *     var left: TreeNode?
 *     var right: TreeNode?
+
 *     init() { self.val = 0; self.left = nil; self.right = nil }
 *     init(_ val: Int) { self.val = val; self.left = nil; self.right = nil }
 *     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
@@ -240,10 +241,10 @@ class Solution {
         if let rightChild = rightChild {
             root.right = TreeNode(-1, nil, rightChild)
         }
+
         return root
     }
 }
-
 ```
 
 <!-- tabs:end -->

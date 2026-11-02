@@ -233,7 +233,11 @@ impl Solution {
         };
 
         let ans = f(tops[0]).min(f(bottoms[0]));
-        if ans > n { -1 } else { ans }
+        if ans > n {
+            -1
+        } else {
+            ans
+        }
     }
 }
 ```

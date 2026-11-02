@@ -104,7 +104,6 @@ spreadsheet.getValue("=A1+B2"); // 返回 15 (0+15)</div>
 
 ```python
 class Spreadsheet:
-
     def __init__(self, rows: int):
         self.d = {}
 
@@ -296,9 +295,7 @@ struct Spreadsheet {
 
 impl Spreadsheet {
     fn new(_rows: i32) -> Self {
-        Spreadsheet {
-            d: HashMap::new(),
-        }
+        Spreadsheet { d: HashMap::new() }
     }
 
     fn set_cell(&mut self, cell: String, value: i32) {

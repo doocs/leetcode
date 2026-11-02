@@ -223,7 +223,11 @@ impl Solution {
         for i in n / 2..n {
             b += (bytes[i] - b'0') as i32;
         }
-        if a == b { 1 } else { 0 }
+        if a == b {
+            1
+        } else {
+            0
+        }
     }
 }
 ```

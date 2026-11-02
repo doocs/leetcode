@@ -302,7 +302,10 @@ fn main() -> io::Result<()> {
 
     let mut nums = String::new();
     io::stdin().read_line(&mut nums)?;
-    let mut nums: Vec<i32> = nums.split_whitespace().map(|s| s.parse().unwrap()).collect();
+    let mut nums: Vec<i32> = nums
+        .split_whitespace()
+        .map(|s| s.parse().unwrap())
+        .collect();
 
     if n > 0 {
         merge_sort(&mut nums, 0, n - 1);

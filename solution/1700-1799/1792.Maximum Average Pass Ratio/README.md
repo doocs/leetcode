@@ -270,7 +270,11 @@ impl Solution {
         for c in classes {
             let a = c[0];
             let b = c[1];
-            pq.push(Node { gain: calc_gain(a, b), a, b });
+            pq.push(Node {
+                gain: calc_gain(a, b),
+                a,
+                b,
+            });
         }
 
         let mut extra = extra_students;

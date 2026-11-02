@@ -257,9 +257,9 @@ function deepestLeavesSum(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 
 impl Solution {
     pub fn deepest_leaves_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {

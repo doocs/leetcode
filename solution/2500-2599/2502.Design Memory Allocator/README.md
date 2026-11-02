@@ -112,7 +112,6 @@ loc.freeMemory(7); // 释放 mID 为 7 的所有内存单元。内存数组保�
 
 ```python
 class Allocator:
-
     def __init__(self, n: int):
         self.m = [0] * n
 

@@ -113,8 +113,7 @@ WITH
             ) AS prev_session_end
         FROM Sessions
     )
-SELECT DISTINCT
-    user_id
+SELECT DISTINCT user_id
 FROM T
 WHERE session_start <= DATE_ADD(prev_session_end, INTERVAL 12 HOUR);
 ```

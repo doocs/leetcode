@@ -110,7 +110,6 @@ The time complexity is $O(nq)$, and the space complexity is $O(n)$, where $n$ an
 
 ```python
 class Allocator:
-
     def __init__(self, n: int):
         self.m = [0] * n
 

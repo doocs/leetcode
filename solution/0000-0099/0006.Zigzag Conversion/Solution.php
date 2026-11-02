@@ -9,7 +9,7 @@ class Solution {
             return $s;
         }
 
-        $g = array_fill(0, $numRows, "");
+        $g = array_fill(0, $numRows, '');
         $i = 0;
         $k = -1;
 
@@ -24,6 +24,6 @@ class Solution {
 
             $i += $k;
         }
-        return implode("", $g);
+        return implode('', $g);
     }
 }

@@ -246,52 +246,52 @@ $$
 
 ```python
 class Solution:
-	def minRotations(self, n: int, s: str) -> int:
-		def dist(a: str, b: str) -> int:
-			d = abs(ord(a) - ord(b))
-			return min(d, 10 - d)
+    def minRotations(self, n: int, s: str) -> int:
+        def dist(a: str, b: str) -> int:
+            d = abs(ord(a) - ord(b))
+            return min(d, 10 - d)
 
-		total = sum(dist(a, b) for a, b in pairwise(s))
+        total = sum(dist(a, b) for a, b in pairwise(s))
 
-		first = s[0]
-		last = s[-1]
-		to_first = dist("0", first)
-		ans = total + dist("0", last)
+        first = s[0]
+        last = s[-1]
+        to_first = dist("0", first)
+        ans = total + dist("0", last)
 
-		for pre, cur in pairwise(s):
-			ans = min(ans, total - dist(pre, cur) + to_first + dist(pre, last))
+        for pre, cur in pairwise(s):
+            ans = min(ans, total - dist(pre, cur) + to_first + dist(pre, last))
 
-		return ans
+        return ans
 ```
 
 #### Java
 
 ```java
 class Solution {
-	public int minRotations(int n, String s) {
-		int total = 0;
-		for (int i = 1; i < n; ++i) {
-			int diff = Math.abs(s.charAt(i) - s.charAt(i - 1));
-			total += Math.min(diff, 10 - diff);
-		}
+    public int minRotations(int n, String s) {
+        int total = 0;
+        for (int i = 1; i < n; ++i) {
+            int diff = Math.abs(s.charAt(i) - s.charAt(i - 1));
+            total += Math.min(diff, 10 - diff);
+        }
 
-		char first = s.charAt(0);
-		char last = s.charAt(n - 1);
-		int toFirst = Math.min(first - '0', 10 - (first - '0'));
-		int ans = total + Math.min(last - '0', 10 - (last - '0'));
+        char first = s.charAt(0);
+        char last = s.charAt(n - 1);
+        int toFirst = Math.min(first - '0', 10 - (first - '0'));
+        int ans = total + Math.min(last - '0', 10 - (last - '0'));
 
-		for (int i = 1; i < n; ++i) {
-			char pre = s.charAt(i - 1);
-			char cur = s.charAt(i);
-			int diff = Math.abs(pre - cur);
-			int edge = Math.min(diff, 10 - diff);
-			diff = Math.abs(pre - last);
-			int toLast = Math.min(diff, 10 - diff);
-			ans = Math.min(ans, total - edge + toFirst + toLast);
-		}
+        for (int i = 1; i < n; ++i) {
+            char pre = s.charAt(i - 1);
+            char cur = s.charAt(i);
+            int diff = Math.abs(pre - cur);
+            int edge = Math.min(diff, 10 - diff);
+            diff = Math.abs(pre - last);
+            int toLast = Math.min(diff, 10 - diff);
+            ans = Math.min(ans, total - edge + toFirst + toLast);
+        }
 
-		return ans;
-	}
+        return ans;
+    }
 }
 ```
 
@@ -300,30 +300,30 @@ class Solution {
 ```cpp
 class Solution {
 public:
-	int minRotations(int n, string s) {
-		int total = 0;
-		for (int i = 1; i < n; ++i) {
-			int diff = abs(s[i] - s[i - 1]);
-			total += min(diff, 10 - diff);
-		}
+    int minRotations(int n, string s) {
+        int total = 0;
+        for (int i = 1; i < n; ++i) {
+            int diff = abs(s[i] - s[i - 1]);
+            total += min(diff, 10 - diff);
+        }
 
-		char first = s[0];
-		char last = s[n - 1];
-		int toFirst = min(first - '0', 10 - (first - '0'));
-		int ans = total + min(last - '0', 10 - (last - '0'));
+        char first = s[0];
+        char last = s[n - 1];
+        int toFirst = min(first - '0', 10 - (first - '0'));
+        int ans = total + min(last - '0', 10 - (last - '0'));
 
-		for (int i = 1; i < n; ++i) {
-			char pre = s[i - 1];
-			char cur = s[i];
-			int diff = abs(pre - cur);
-			int edge = min(diff, 10 - diff);
-			diff = abs(pre - last);
-			int toLast = min(diff, 10 - diff);
-			ans = min(ans, total - edge + toFirst + toLast);
-		}
+        for (int i = 1; i < n; ++i) {
+            char pre = s[i - 1];
+            char cur = s[i];
+            int diff = abs(pre - cur);
+            int edge = min(diff, 10 - diff);
+            diff = abs(pre - last);
+            int toLast = min(diff, 10 - diff);
+            ans = min(ans, total - edge + toFirst + toLast);
+        }
 
-		return ans;
-	}
+        return ans;
+    }
 };
 ```
 

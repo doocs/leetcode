@@ -319,7 +319,7 @@ impl Solution {
 #### C#
 
 ```cs
-public class Solution {
+﻿public class Solution {
     public string FractionToDecimal(int numerator, int denominator) {
         if (numerator == 0) {
             return "0";

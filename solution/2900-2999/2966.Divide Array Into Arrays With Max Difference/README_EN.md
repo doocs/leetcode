@@ -213,7 +213,7 @@ impl Solution {
                 return vec![];
             }
 
-            let t = &nums[i..i+3];
+            let t = &nums[i..i + 3];
             if t[2] - t[0] > k {
                 return vec![];
             }

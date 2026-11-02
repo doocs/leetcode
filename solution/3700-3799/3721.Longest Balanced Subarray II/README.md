@@ -127,9 +127,9 @@ class Solution:
     def longestBalanced(self, nums: List[int]) -> int:
         n = len(nums)
 
-        # 线段树节点
         class Node:
             __slots__ = ("l", "r", "mn", "mx", "lazy")
+
             def __init__(self):
                 self.l = self.r = 0
                 self.mn = self.mx = 0
@@ -137,7 +137,6 @@ class Solution:
 
         tr = [Node() for _ in range((n + 1) * 4)]
 
-        # 建树，维护前缀和区间 [0, n]
         def build(u: int, l: int, r: int):
             tr[u].l, tr[u].r = l, r
             tr[u].mn = tr[u].mx = tr[u].lazy = 0
@@ -153,7 +152,7 @@ class Solution:
             tr[u].lazy += v
 
         def pushdown(u: int):
-            if tr[u].lazy != 0:
+            if tr[u].lazy:
                 apply(u << 1, tr[u].lazy)
                 apply(u << 1 | 1, tr[u].lazy)
                 tr[u].lazy = 0
@@ -162,7 +161,6 @@ class Solution:
             tr[u].mn = min(tr[u << 1].mn, tr[u << 1 | 1].mn)
             tr[u].mx = max(tr[u << 1].mx, tr[u << 1 | 1].mx)
 
-        # 区间加
         def modify(u: int, l: int, r: int, v: int):
             if tr[u].l >= l and tr[u].r <= r:
                 apply(u, v)
@@ -175,7 +173,6 @@ class Solution:
                 modify(u << 1 | 1, l, r, v)
             pushup(u)
 
-        # 线段树上二分，找最小 pos 使前缀和 == target
         def query(u: int, target: int) -> int:
             if tr[u].l == tr[u].r:
                 return tr[u].l
@@ -208,26 +205,28 @@ class Solution:
 ```java
 /**
  *
- * 思路：
- * - 将「不同奇数」视为 +1，「不同偶数」视为 -1
- * - 用前缀和表示当前子数组内奇偶平衡状态
- * - 由于相同数值只能算一次，需要在数值重复出现时撤销旧贡献
- * - 使用线段树维护前缀和的最小值 / 最大值，并支持区间加
- * - 通过线段树上二分，找到最早等于当前前缀和的位置
+ * Idea:
+ * - Treat each distinct odd number as +1, and each distinct even number as -1
+ * - Maintain prefix sums representing the balance
+ * - When a number appears again, remove its previous contribution
+ * - Use a segment tree to maintain min/max prefix sums with range add
+ * - Binary search on the segment tree to find the earliest equal prefix sum
  */
 class Solution {
 
     /**
-     * 线段树节点
+     * Segment tree node
      */
     static class Node {
-        int l, r; // 区间范围
-        int mn, mx; // 区间前缀和最小值 / 最大值
-        int lazy; // 懒标记：区间整体加
+        int l, r; // segment range
+        int mn, mx; // minimum / maximum prefix sum
+        int lazy; // lazy propagation (range add)
     }
 
     /**
-     * 支持区间加 + 按值二分查位置的线段树
+     * Segment tree supporting:
+     * - range add
+     * - find the smallest index with a given prefix sum
      */
     static class SegmentTree {
         Node[] tr;
@@ -240,7 +239,7 @@ class Solution {
             build(1, 0, n);
         }
 
-        // 建树，初始前缀和均为 0
+        // Build an empty tree with all prefix sums = 0
         void build(int u, int l, int r) {
             tr[u].l = l;
             tr[u].r = r;
@@ -252,7 +251,7 @@ class Solution {
             build(u << 1 | 1, mid + 1, r);
         }
 
-        // 区间 [l, r] 全部加 v
+        // Add value v to all prefix sums in [l, r]
         void modify(int u, int l, int r, int v) {
             if (tr[u].l >= l && tr[u].r <= r) {
                 apply(u, v);
@@ -265,7 +264,8 @@ class Solution {
             pushup(u);
         }
 
-        // 线段树上二分：查找最小位置 pos，使前缀和 == target
+        // Binary search on the segment tree
+        // Find the smallest index where prefix sum == target
         int query(int u, int target) {
             if (tr[u].l == tr[u].r) {
                 return tr[u].l;
@@ -279,20 +279,20 @@ class Solution {
             return query(right, target);
         }
 
-        // 应用懒标记
+        // Apply range add
         void apply(int u, int v) {
             tr[u].mn += v;
             tr[u].mx += v;
             tr[u].lazy += v;
         }
 
-        // 向上更新
+        // Update from children
         void pushup(int u) {
             tr[u].mn = Math.min(tr[u << 1].mn, tr[u << 1 | 1].mn);
             tr[u].mx = Math.max(tr[u << 1].mx, tr[u << 1 | 1].mx);
         }
 
-        // 懒标记下推
+        // Push lazy tag down
         void pushdown(int u) {
             if (tr[u].lazy != 0) {
                 apply(u << 1, tr[u].lazy);
@@ -306,29 +306,29 @@ class Solution {
         int n = nums.length;
         SegmentTree st = new SegmentTree(n);
 
-        // last[x] 表示 x 最近一次出现的位置
+        // last[x] = last position where value x appeared
         Map<Integer, Integer> last = new HashMap<>();
 
-        int now = 0; // 当前前缀和
-        int ans = 0; // 最终答案
+        int now = 0; // current prefix sum
+        int ans = 0; // answer
 
-        // 枚举子数组右端点
+        // Enumerate the right endpoint
         for (int i = 1; i <= n; i++) {
             int x = nums[i - 1];
             int det = (x & 1) == 1 ? 1 : -1;
 
-            // 如果之前出现过，撤销旧贡献
+            // Remove previous contribution if x appeared before
             if (last.containsKey(x)) {
                 st.modify(1, last.get(x), n, -det);
                 now -= det;
             }
 
-            // 添加新贡献
+            // Add current contribution
             last.put(x, i);
             st.modify(1, i, n, det);
             now += det;
 
-            // 查找最早前缀和等于 now 的位置
+            // Find earliest position with the same prefix sum
             int pos = st.query(1, now);
             ans = Math.max(ans, i - pos);
         }
@@ -341,6 +341,14 @@ class Solution {
 #### C++
 
 ```cpp
+/*
+ * Segment tree node.
+ * It maintains:
+ *  - [l, r] : the covered index range
+ *  - mn     : minimum prefix sum in this range
+ *  - mx     : maximum prefix sum in this range
+ *  - lazy   : lazy propagation value (range add)
+ */
 class Node {
 public:
     int l = 0, r = 0;
@@ -348,17 +356,25 @@ public:
     int lazy = 0;
 };
 
+/*
+ * Segment Tree that supports:
+ *  1. Range add
+ *  2. Query the smallest index whose prefix sum equals a given value
+ */
 class SegmentTree {
 public:
     SegmentTree(int n) {
         tr.resize(n << 2);
-        for (int i = 0; i < tr.size(); ++i) {
+        for (int i = 0; i < (int) tr.size(); ++i) {
             tr[i] = new Node();
         }
+        // Build the tree on range [0, n]
         build(1, 0, n);
     }
 
-    // 区间 [l, r] 全部 +v
+    /*
+     * Add value v to all prefix sums in range [l, r]
+     */
     void modify(int u, int l, int r, int v) {
         if (tr[u]->l >= l && tr[u]->r <= r) {
             apply(u, v);
@@ -371,7 +387,14 @@ public:
         pushup(u);
     }
 
-    // 线段树上二分：找最小 pos 使前缀和 == target
+    /*
+     * Binary search on the segment tree.
+     * Find the smallest index pos such that prefix_sum[pos] == target.
+     *
+     * The key observation:
+     * If target is within [mn, mx] of a segment, then such a position
+     * must exist inside this segment.
+     */
     int query(int u, int target) {
         if (tr[u]->l == tr[u]->r) {
             return tr[u]->l;
@@ -387,6 +410,10 @@ public:
 private:
     vector<Node*> tr;
 
+    /*
+     * Build an empty segment tree.
+     * Initial prefix sums are all zero.
+     */
     void build(int u, int l, int r) {
         tr[u]->l = l;
         tr[u]->r = r;
@@ -398,17 +425,26 @@ private:
         build(u << 1 | 1, mid + 1, r);
     }
 
+    /*
+     * Apply a range add to node u.
+     */
     void apply(int u, int v) {
         tr[u]->mn += v;
         tr[u]->mx += v;
         tr[u]->lazy += v;
     }
 
+    /*
+     * Push information from children to parent.
+     */
     void pushup(int u) {
         tr[u]->mn = min(tr[u << 1]->mn, tr[u << 1 | 1]->mn);
         tr[u]->mx = max(tr[u << 1]->mx, tr[u << 1 | 1]->mx);
     }
 
+    /*
+     * Push lazy tag down to children.
+     */
     void pushdown(int u) {
         if (tr[u]->lazy != 0) {
             apply(u << 1, tr[u]->lazy);
@@ -424,29 +460,54 @@ public:
         int n = nums.size();
         SegmentTree st(n);
 
+        /*
+         * last[x] = the most recent position where value x appeared
+         */
         unordered_map<int, int> last;
-        int now = 0, ans = 0;
 
-        // 枚举子数组右端点
+        int now = 0; // current prefix sum
+        int ans = 0; // answer
+
+        /*
+         * Enumerate the right endpoint of the subarray
+         */
         for (int i = 1; i <= n; ++i) {
             int x = nums[i - 1];
+
+            /*
+             * Contribution of x:
+             *  +1 if x is odd
+             *  -1 if x is even
+             */
             int det = (x & 1) ? 1 : -1;
 
-            // 如果该值之前出现过，移除旧贡献
+            /*
+             * If x appeared before, remove its previous contribution
+             */
             if (last.count(x)) {
                 st.modify(1, last[x], n, -det);
                 now -= det;
             }
 
-            // 添加当前贡献
+            /*
+             * Add current contribution of x
+             */
             last[x] = i;
             st.modify(1, i, n, det);
             now += det;
 
-            // 查找最小 pos，使前缀和 == now
+            /*
+             * Find the smallest position pos such that
+             * prefix_sum[pos] == now
+             */
             int pos = st.query(1, now);
+
+            /*
+             * Update the maximum balanced subarray length
+             */
             ans = max(ans, i - pos);
         }
+
         return ans;
     }
 };
@@ -455,19 +516,19 @@ public:
 #### Go
 
 ```go
-// 线段树节点
+// Segment tree node
 type Node struct {
-	l, r   int // 区间范围
-	mn, mx int // 当前区间内前缀和最小值 / 最大值
-	lazy   int // 懒标记：区间整体加
+	l, r   int // segment range
+	mn, mx int // minimum / maximum prefix sum
+	lazy   int // lazy propagation (range add)
 }
 
-// 线段树
+// Segment tree
 type SegmentTree struct {
 	tr []Node
 }
 
-// 构造线段树，维护区间 [0, n]
+// Build a segment tree for range [0, n]
 func NewSegmentTree(n int) *SegmentTree {
 	st := &SegmentTree{
 		tr: make([]Node, n<<2),
@@ -476,7 +537,7 @@ func NewSegmentTree(n int) *SegmentTree {
 	return st
 }
 
-// 建树：初始所有前缀和为 0
+// Initialize all prefix sums to 0
 func (st *SegmentTree) build(u, l, r int) {
 	st.tr[u] = Node{l: l, r: r, mn: 0, mx: 0, lazy: 0}
 	if l == r {
@@ -487,7 +548,7 @@ func (st *SegmentTree) build(u, l, r int) {
 	st.build(u<<1|1, mid+1, r)
 }
 
-// 区间 [l, r] 整体加 v
+// Add v to all prefix sums in [l, r]
 func (st *SegmentTree) modify(u, l, r, v int) {
 	if st.tr[u].l >= l && st.tr[u].r <= r {
 		st.apply(u, v)
@@ -504,7 +565,8 @@ func (st *SegmentTree) modify(u, l, r, v int) {
 	st.pushup(u)
 }
 
-// 线段树二分：找到最小位置 pos，使前缀和 == target
+// Binary search on the segment tree
+// Find the smallest index where prefix sum == target
 func (st *SegmentTree) query(u, target int) int {
 	if st.tr[u].l == st.tr[u].r {
 		return st.tr[u].l
@@ -517,20 +579,20 @@ func (st *SegmentTree) query(u, target int) int {
 	return st.query(right, target)
 }
 
-// 应用懒标记
+// Apply range addition
 func (st *SegmentTree) apply(u, v int) {
 	st.tr[u].mn += v
 	st.tr[u].mx += v
 	st.tr[u].lazy += v
 }
 
-// 向上更新
+// Update from children
 func (st *SegmentTree) pushup(u int) {
 	st.tr[u].mn = min(st.tr[u<<1].mn, st.tr[u<<1|1].mn)
 	st.tr[u].mx = max(st.tr[u<<1].mx, st.tr[u<<1|1].mx)
 }
 
-// 懒标记下推
+// Push lazy value down
 func (st *SegmentTree) pushdown(u int) {
 	if st.tr[u].lazy != 0 {
 		v := st.tr[u].lazy
@@ -540,18 +602,18 @@ func (st *SegmentTree) pushdown(u int) {
 	}
 }
 
-// 主函数
+// Main function
 func longestBalanced(nums []int) int {
 	n := len(nums)
 	st := NewSegmentTree(n)
 
-	// 记录每个值最近一次出现的位置
+	// last[x] = last position where value x appeared
 	last := make(map[int]int)
 
-	now := 0 // 当前前缀和
-	ans := 0 // 最终答案
+	now := 0 // current prefix sum
+	ans := 0 // answer
 
-	// 枚举右端点
+	// Enumerate right endpoint
 	for i := 1; i <= n; i++ {
 		x := nums[i-1]
 		det := -1
@@ -559,18 +621,18 @@ func longestBalanced(nums []int) int {
 			det = 1
 		}
 
-		// 若之前出现过，撤销旧贡献
+		// Remove previous contribution if x appeared before
 		if pos, ok := last[x]; ok {
 			st.modify(1, pos, n, -det)
 			now -= det
 		}
 
-		// 添加新贡献
+		// Add current contribution
 		last[x] = i
 		st.modify(1, i, n, det)
 		now += det
 
-		// 查找最早前缀和等于 now 的位置
+		// Find earliest position with same prefix sum
 		pos := st.query(1, now)
 		ans = max(ans, i-pos)
 	}

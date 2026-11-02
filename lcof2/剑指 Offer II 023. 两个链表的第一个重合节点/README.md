@@ -142,8 +142,8 @@ class Solution:
  *     }
  * }
  */
-public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+class Solution {
+    ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode a = headA, b = headB;
         while (a != b) {
             a = a == null ? headB : a.next;
@@ -191,15 +191,15 @@ public:
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	a, b := headA, headB
 	for a != b {
-		if a == nil {
-			a = headB
-		} else {
+		if a != nil {
 			a = a.Next
-		}
-		if b == nil {
-			b = headA
 		} else {
+			a = headB
+		}
+		if b != nil {
 			b = b.Next
+		} else {
+			b = headA
 		}
 	}
 	return a

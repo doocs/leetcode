@@ -130,9 +130,8 @@ id = 7 的用户 Jonathon 在不同的 6 天内登录了 7 次, , 6 天中有 5 
 WITH
     T AS (
         SELECT DISTINCT *
-        FROM
-            Logins
-            JOIN Accounts USING (id)
+        FROM Logins
+        JOIN Accounts USING (id)
     ),
     P AS (
         SELECT

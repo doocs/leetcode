@@ -245,11 +245,12 @@ import pandas as pd
 def find_inventory_imbalance(
     stores: pd.DataFrame, inventory: pd.DataFrame
 ) -> pd.DataFrame:
-    # 首先筛选出至少有3个产品的店铺
+    # Step 1: Identify stores with at least 3 products
     store_counts = inventory["store_id"].value_counts()
     valid_stores = store_counts[store_counts >= 3].index
 
-    # 找出每个店铺最贵的产品
+    # Step 2: Find most expensive product for each valid store
+    # Sort by price (descending) then quantity (descending) and take first record per store
     most_expensive = (
         inventory[inventory["store_id"].isin(valid_stores)]
         .sort_values(["store_id", "price", "quantity"], ascending=[True, False, False])
@@ -258,7 +259,8 @@ def find_inventory_imbalance(
         .reset_index()
     )
 
-    # 找出每个店铺最便宜的产品
+    # Step 3: Find cheapest product for each store
+    # Sort by price (ascending) then quantity (descending) and take first record per store
     cheapest = (
         inventory.sort_values(
             ["store_id", "price", "quantity"], ascending=[True, True, False]
@@ -268,23 +270,23 @@ def find_inventory_imbalance(
         .reset_index()
     )
 
-    # 合并结果
+    # Step 4: Merge the two datasets on store_id
     merged = pd.merge(
         most_expensive, cheapest, on="store_id", suffixes=("_most", "_cheap")
     )
 
-    # 筛选出最贵产品数量 < 最便宜产品数量的记录
+    # Step 5: Filter for cases where cheapest product has higher quantity than most expensive
     result = merged[merged["quantity_most"] < merged["quantity_cheap"]].copy()
 
-    # 计算不平衡比例
+    # Step 6: Calculate imbalance ratio (cheapest quantity / most expensive quantity)
     result["imbalance_ratio"] = (
         result["quantity_cheap"] / result["quantity_most"]
     ).round(2)
 
-    # 合并店铺信息
+    # Step 7: Merge with store information to get store names and locations
     result = pd.merge(result, stores, on="store_id")
 
-    # 选择并重命名列
+    # Step 8: Select and rename columns for final output
     result = result[
         [
             "store_id",
@@ -301,7 +303,7 @@ def find_inventory_imbalance(
         }
     )
 
-    # 按要求排序
+    # Step 9: Sort by imbalance ratio (descending) then store name (ascending)
     result = result.sort_values(
         ["imbalance_ratio", "store_name"], ascending=[False, True]
     ).reset_index(drop=True)

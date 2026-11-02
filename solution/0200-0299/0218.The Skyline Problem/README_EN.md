@@ -174,21 +174,17 @@ func getSkyline(buildings [][]int) [][]int {
 	sort.Ints(lines)
 	city, n := 0, len(buildings)
 	for _, line := range lines {
-		// 将所有符合条件的矩形加入队列
 		for ; city < n && buildings[city][0] <= line && buildings[city][1] > line; city++ {
 			v := Matrix{left: buildings[city][0], right: buildings[city][1], height: buildings[city][2]}
 			heap.Push(pq, v)
 		}
-		// 从队列移除不符合条件的矩形
 		for pq.Len() > 0 && pq.Top().right <= line {
 			heap.Pop(pq)
 		}
 		high := 0
-		// 队列为空说明是最右侧建筑物的终点，其轮廓点为 (line, 0)
 		if pq.Len() != 0 {
 			high = pq.Top().height
 		}
-		// 如果该点高度和前一个轮廓点一样的话，直接忽略
 		if len(skys) > 0 && skys[len(skys)-1][1] == high {
 			continue
 		}

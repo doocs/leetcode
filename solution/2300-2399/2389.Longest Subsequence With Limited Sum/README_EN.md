@@ -169,12 +169,13 @@ impl Solution {
             nums[i] += nums[i - 1];
         }
 
-        queries.iter().map(|&q| {
-            match nums.binary_search(&q) {
+        queries
+            .iter()
+            .map(|&q| match nums.binary_search(&q) {
                 Ok(idx) => idx as i32 + 1,
                 Err(idx) => idx as i32,
-            }
-        }).collect()
+            })
+            .collect()
     }
 }
 ```

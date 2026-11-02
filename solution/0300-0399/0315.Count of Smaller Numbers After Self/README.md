@@ -853,7 +853,6 @@ func merge(arr []Pair, low, mid, high int) {
 		tmp[idx] = arr[right]
 		idx, right = idx+1, right+1
 	}
-	// 排序
 	for i := low; i <= high; i++ {
 		arr[i] = tmp[i]
 	}

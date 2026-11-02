@@ -8,7 +8,6 @@ def bubbleSort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 
-# 改进版本
 def bubbleSort(arr):
     n = len(arr)
     for i in range(n - 1):

@@ -164,19 +164,21 @@ class AuctionSystem {
 
         users.get(userId).put(itemId, bidAmount);
 
-        items.computeIfAbsent(itemId, k -> new TreeSet<>(
-            (a, b) -> a[0] != b[0] ? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1])
-        ));
+        items.computeIfAbsent(itemId,
+            k
+            -> new TreeSet<>(
+                (a, b)
+                    -> a[0] != b[0] ? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1])));
 
-        items.get(itemId).add(new int[]{bidAmount, userId});
+        items.get(itemId).add(new int[] {bidAmount, userId});
     }
 
     public void updateBid(int userId, int itemId, int newAmount) {
         int oldAmount = users.get(userId).get(itemId);
         TreeSet<int[]> set = items.get(itemId);
 
-        set.remove(new int[]{oldAmount, userId});
-        set.add(new int[]{newAmount, userId});
+        set.remove(new int[] {oldAmount, userId});
+        set.add(new int[] {newAmount, userId});
 
         users.get(userId).put(itemId, newAmount);
     }
@@ -185,7 +187,7 @@ class AuctionSystem {
         int oldAmount = users.get(userId).get(itemId);
         TreeSet<int[]> set = items.get(itemId);
 
-        set.remove(new int[]{oldAmount, userId});
+        set.remove(new int[] {oldAmount, userId});
         users.get(userId).remove(itemId);
     }
 

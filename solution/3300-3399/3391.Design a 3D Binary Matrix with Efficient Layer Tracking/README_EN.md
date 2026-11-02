@@ -114,7 +114,6 @@ In terms of time complexity, the $\textit{setCell}$ and $\textit{unsetCell}$ met
 
 ```python
 class matrix3D:
-
     def __init__(self, n: int):
         self.g = [[[0] * n for _ in range(n)] for _ in range(n)]
         self.cnt = [0] * n

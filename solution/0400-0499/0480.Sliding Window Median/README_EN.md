@@ -886,7 +886,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
                 } else if (node.left == null && node.right == null) {
                     parent[direction] = null;
                 } else {
-                    // 旋到根节点
                     if (
                         node.right == null ||
                         TreapNode.getFac(node.left) > TreapNode.getFac(node.right)

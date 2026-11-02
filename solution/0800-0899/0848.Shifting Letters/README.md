@@ -95,9 +95,9 @@ class Solution:
         s = list(s)
         for i in range(n - 1, -1, -1):
             t += shifts[i]
-            j = (ord(s[i]) - ord('a') + t) % 26
+            j = (ord(s[i]) - ord("a") + t) % 26
             s[i] = ascii_lowercase[j]
-        return ''.join(s)
+        return "".join(s)
 ```
 
 #### Java

@@ -315,7 +315,9 @@ impl Solution {
             let mut t = Vec::new();
             loop {
                 t.push(grid[i][j]);
-                if i == 0 { break; }
+                if i == 0 {
+                    break;
+                }
                 i -= 1;
                 j -= 1;
             }
@@ -324,7 +326,9 @@ impl Solution {
             let mut j = n - 1;
             loop {
                 grid[i][j] = t.pop().unwrap();
-                if i == 0 { break; }
+                if i == 0 {
+                    break;
+                }
                 i -= 1;
                 j -= 1;
             }

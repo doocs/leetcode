@@ -382,7 +382,7 @@ impl Solution {
             nums: &Vec<i32>,
             s: i32,
             s1: i32,
-            ans: &mut i32
+            ans: &mut i32,
         ) -> i32 {
             let mut res = nums[i];
             for &j in &g[i] {

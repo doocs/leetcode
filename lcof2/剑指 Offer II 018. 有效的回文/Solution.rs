@@ -13,7 +13,6 @@ impl Solution {
             if ss[l].to_ascii_lowercase() != ss[r].to_ascii_lowercase() {
                 return false;
             }
-            // 防止 usize 破界
             if r == 0 {
                 return true;
             }

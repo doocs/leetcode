@@ -112,7 +112,6 @@ class Node:
 
 
 class LRUCache:
-
     def __init__(self, capacity: int):
         self.size = 0
         self.capacity = capacity

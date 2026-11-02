@@ -117,7 +117,6 @@ For time complexity, initialization requires $O(n \log n)$ time, where $n$ is th
 
 ```python
 class TaskManager:
-
     def __init__(self, tasks: List[List[int]]):
         self.d = {}
         self.st = SortedList()

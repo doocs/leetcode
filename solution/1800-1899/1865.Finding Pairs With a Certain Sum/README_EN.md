@@ -103,7 +103,6 @@ The time complexity is $O(nq)$, and the space complexity is $O(m)$, where $n$ an
 
 ```python
 class FindSumPairs:
-
     def __init__(self, nums1: List[int], nums2: List[int]):
         self.cnt = Counter(nums2)
         self.nums1 = nums1

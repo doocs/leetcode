@@ -268,7 +268,7 @@ class Solution {
         this.k = k;
 
         UnionFind uf = new UnionFind(n);
-        int mn = (int)1e6;
+        int mn = (int) 1e6;
 
         for (int[] e : edges) {
             int u = e[0], v = e[1], s = e[2], must = e[3];

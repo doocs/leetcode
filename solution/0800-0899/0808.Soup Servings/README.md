@@ -277,7 +277,11 @@ impl Solution {
                 return F[i as usize][j as usize];
             }
 
-            let ans = 0.25 * (Self::dfs(i - 4, j) + Self::dfs(i - 3, j - 1) + Self::dfs(i - 2, j - 2) + Self::dfs(i - 1, j - 3));
+            let ans = 0.25
+                * (Self::dfs(i - 4, j)
+                    + Self::dfs(i - 3, j - 1)
+                    + Self::dfs(i - 2, j - 2)
+                    + Self::dfs(i - 1, j - 3));
             F[i as usize][j as usize] = ans;
             ans
         }

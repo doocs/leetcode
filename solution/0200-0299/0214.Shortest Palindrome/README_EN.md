@@ -194,7 +194,7 @@ impl Solution {
 #### C#
 
 ```cs
-public class Solution {
+﻿public class Solution {
     public string ShortestPalindrome(string s) {
         int baseValue = 131;
         int mul = 1;

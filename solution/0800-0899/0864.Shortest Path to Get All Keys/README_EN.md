@@ -129,9 +129,7 @@ The time complexity is $O(mn 2^k)$, and the space complexity is $O(mn 2^k)$, whe
 class Solution:
     def shortestPathAllKeys(self, grid: List[str]) -> int:
         m, n = len(grid), len(grid[0])
-        # Find the starting point (si, sj)
         si, sj = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '@')
-        # Count the number of keys
         k = sum(v.islower() for row in grid for v in row)
         dirs = (-1, 0, 1, 0, -1)
         q = deque([(si, sj, 0)])
@@ -140,33 +138,25 @@ class Solution:
         while q:
             for _ in range(len(q)):
                 i, j, state = q.popleft()
-                # If all keys are found, return the current step count
                 if state == (1 << k) - 1:
                     return ans
 
-                # Search in the four directions
                 for a, b in pairwise(dirs):
                     x, y = i + a, j + b
                     nxt = state
-                    # Within boundary limits
                     if 0 <= x < m and 0 <= y < n:
                         c = grid[x][y]
-                        # It's a wall, or it's a lock but we don't have the key for it
                         if (
                             c == '#'
                             or c.isupper()
                             and (state & (1 << (ord(c) - ord('A')))) == 0
                         ):
                             continue
-                        # It's a key
                         if c.islower():
-                            # Update the state
                             nxt |= 1 << (ord(c) - ord('a'))
-                        # If this state has not been visited, enqueue it
                         if (x, y, nxt) not in vis:
                             vis.add((x, y, nxt))
                             q.append((x, y, nxt))
-            # Increment the step count
             ans += 1
         return -1
 ```
@@ -185,10 +175,8 @@ class Solution {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i].charAt(j);
                 if (Character.isLowerCase(c)) {
-                    // Count the number of keys
                     ++k;
                 } else if (c == '@') {
-                    // Starting point
                     si = i;
                     sj = j;
                 }
@@ -203,28 +191,21 @@ class Solution {
             for (int t = q.size(); t > 0; --t) {
                 var p = q.poll();
                 int i = p[0], j = p[1], state = p[2];
-                // If all keys are found, return the current step count
                 if (state == (1 << k) - 1) {
                     return ans;
                 }
-                // Search in the four directions
                 for (int h = 0; h < 4; ++h) {
                     int x = i + dirs[h], y = j + dirs[h + 1];
-                    // Within boundary limits
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x].charAt(y);
-                        // It's a wall, or it's a lock without the corresponding key
                         if (c == '#'
                             || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
                             continue;
                         }
                         int nxt = state;
-                        // If it's a key
                         if (Character.isLowerCase(c)) {
-                            // Update the state
                             nxt |= 1 << (c - 'a');
                         }
-                        // If this state has not been visited, enqueue it
                         if (!vis[x][y][nxt]) {
                             vis[x][y][nxt] = true;
                             q.offer(new int[] {x, y, nxt});
@@ -232,7 +213,6 @@ class Solution {
                     }
                 }
             }
-            // Increment the step count
             ++ans;
         }
         return -1;
@@ -254,9 +234,7 @@ public:
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i][j];
-                // Count the number of keys
                 if (islower(c)) ++k;
-                // Starting point
                 else if (c == '@')
                     si = i, sj = j;
             }
@@ -269,20 +247,14 @@ public:
             for (int t = q.size(); t; --t) {
                 auto [i, j, state] = q.front();
                 q.pop();
-                // If all keys are found, return the current step count
                 if (state == (1 << k) - 1) return ans;
-                // Search in the four directions
                 for (int h = 0; h < 4; ++h) {
                     int x = i + dirs[h], y = j + dirs[h + 1];
-                    // Within boundary limits
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x][y];
-                        // It's a wall, or it's a lock without the corresponding key
                         if (c == '#' || (isupper(c) && (state >> (c - 'A') & 1) == 0)) continue;
                         int nxt = state;
-                        // If it's a key, update the state
                         if (islower(c)) nxt |= 1 << (c - 'a');
-                        // If this state has not been visited, enqueue it
                         if (!vis[x][y][nxt]) {
                             vis[x][y][nxt] = true;
                             q.push({x, y, nxt});
@@ -290,7 +262,6 @@ public:
                     }
                 }
             }
-            // Increment the step count
             ++ans;
         }
         return -1;
@@ -307,10 +278,8 @@ func shortestPathAllKeys(grid []string) int {
 	for i, row := range grid {
 		for j, c := range row {
 			if c >= 'a' && c <= 'z' {
-				// Count the number of keys
 				k++
 			} else if c == '@' {
-				// Starting point
 				si, sj = i, j
 			}
 		}
@@ -325,26 +294,20 @@ func shortestPathAllKeys(grid []string) int {
 			p := q[0]
 			q = q[1:]
 			i, j, state := p.i, p.j, p.state
-			// If all keys are found, return the current step count
 			if state == 1<<k-1 {
 				return ans
 			}
-			// Search in the four directions
 			for h := 0; h < 4; h++ {
 				x, y := i+dirs[h], j+dirs[h+1]
-				// Within boundary limits
 				if x >= 0 && x < m && y >= 0 && y < n {
 					c := grid[x][y]
-					// It's a wall, or it's a lock without the corresponding key
 					if c == '#' || (c >= 'A' && c <= 'Z' && (state>>(c-'A')&1 == 0)) {
 						continue
 					}
 					nxt := state
-					// If it's a key, update the state
 					if c >= 'a' && c <= 'z' {
 						nxt |= 1 << (c - 'a')
 					}
-					// If this state has not been visited, enqueue it
 					if !vis[tuple{x, y, nxt}] {
 						vis[tuple{x, y, nxt}] = true
 						q = append(q, tuple{x, y, nxt})
@@ -352,7 +315,6 @@ func shortestPathAllKeys(grid []string) int {
 				}
 			}
 		}
-		// Increment the step count
 		ans++
 	}
 	return -1

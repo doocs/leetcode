@@ -321,7 +321,10 @@ use std::i32::{MAX, MIN};
 
 impl Solution {
     pub fn max_difference(S: String, k: i32) -> i32 {
-        let s: Vec<usize> = S.chars().map(|c| c.to_digit(10).unwrap() as usize).collect();
+        let s: Vec<usize> = S
+            .chars()
+            .map(|c| c.to_digit(10).unwrap() as usize)
+            .collect();
         let k = k as usize;
         let mut ans = MIN;
 

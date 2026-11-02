@@ -395,10 +395,7 @@ impl Solution {
 
                 let parity = (l % 2) as usize;
 
-                let vals: Vec<i32> = ts[parity]
-                    .range(l..=r)
-                    .cloned()
-                    .collect();
+                let vals: Vec<i32> = ts[parity].range(l..=r).cloned().collect();
 
                 for v in vals {
                     q.push_back(v);

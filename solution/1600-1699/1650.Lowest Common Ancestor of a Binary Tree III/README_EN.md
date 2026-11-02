@@ -192,7 +192,7 @@ public:
  * }
  */
 
-func lowestCommonAncestor(p *Node, q *Node) *Node {
+ func lowestCommonAncestor(p *Node, q *Node) *Node {
 	vis := map[*Node]bool{}
 	for node := p; node != nil; node = node.Parent {
 		vis[node] = true

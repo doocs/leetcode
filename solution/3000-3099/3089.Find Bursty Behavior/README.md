@@ -118,11 +118,10 @@ post_id 是这张表的主键（有不同值的列）。
 WITH
     P AS (
         SELECT p1.user_id AS user_id, COUNT(1) AS cnt
-        FROM
-            Posts AS p1
-            JOIN Posts AS p2
-                ON p1.user_id = p2.user_id
-                AND p2.post_date BETWEEN p1.post_date AND DATE_ADD(p1.post_date, INTERVAL 6 DAY)
+        FROM Posts AS p1
+        JOIN Posts AS p2
+            ON p1.user_id = p2.user_id
+            AND p2.post_date BETWEEN p1.post_date AND DATE_ADD(p1.post_date, INTERVAL 6 DAY)
         GROUP BY p1.user_id, p1.post_id
     ),
     T AS (
@@ -132,9 +131,8 @@ WITH
         GROUP BY 1
     )
 SELECT user_id, MAX(cnt) AS max_7day_posts, avg_weekly_posts
-FROM
-    P
-    JOIN T USING (user_id)
+FROM P
+JOIN T USING (user_id)
 GROUP BY 1
 HAVING max_7day_posts >= avg_weekly_posts * 2
 ORDER BY 1;
@@ -147,45 +145,37 @@ import pandas as pd
 
 
 def find_bursty_behavior(posts: pd.DataFrame) -> pd.DataFrame:
-    # 子查询 P
-    p1 = pd.merge(
-        posts, posts, on="user_id", suffixes=("_1", "_2")
-    )  # 合并帖子表自身，根据用户ID
+    # Subquery P
+    p1 = pd.merge(posts, posts, on="user_id", suffixes=("_1", "_2"))
     p1 = p1[
         p1["post_date_2"].between(
             p1["post_date_1"], p1["post_date_1"] + pd.Timedelta(days=6)
         )
-    ]  # 筛选出相邻 7 天内的帖子
-    p1 = (
-        p1.groupby(["user_id", "post_id_1"]).size().reset_index(name="cnt")
-    )  # 统计每个用户在相邻 7 天内的帖子数
+    ]
+    p1 = p1.groupby(["user_id", "post_id_1"]).size().reset_index(name="cnt")
 
-    # 子查询 T
+    # Subquery T
     t = posts[
         (posts["post_date"] >= "2024-02-01") & (posts["post_date"] <= "2024-02-28")
-    ]  # 筛选出 2024 年 2 月份的帖子
-    t = (
-        t.groupby("user_id").size().div(4).reset_index(name="avg_weekly_posts")
-    )  # 计算每个用户平均每周的帖子数
+    ]
+    t = t.groupby("user_id").size().div(4).reset_index(name="avg_weekly_posts")
 
-    # 连接 P 和 T
-    merged_df = pd.merge(p1, t, on="user_id", how="inner")  # 内连接 P 和 T
+    # Joining P and T
+    merged_df = pd.merge(p1, t, on="user_id", how="inner")
 
-    # 过滤
-    filtered_df = merged_df[
-        merged_df["cnt"] >= merged_df["avg_weekly_posts"] * 2
-    ]  # 过滤出满足条件的行
+    # Filtering
+    filtered_df = merged_df[merged_df["cnt"] >= merged_df["avg_weekly_posts"] * 2]
 
-    # 聚合
+    # Aggregating
     result_df = (
         filtered_df.groupby("user_id")
         .agg({"cnt": "max", "avg_weekly_posts": "first"})
         .reset_index()
-    )  # 对满足条件的行按用户ID聚合
-    result_df.columns = ["user_id", "max_7day_posts", "avg_weekly_posts"]  # 重命名列名
+    )
+    result_df.columns = ["user_id", "max_7day_posts", "avg_weekly_posts"]
 
-    # 排序
-    result_df.sort_values(by="user_id", inplace=True)  # 按用户ID排序
+    # Sorting
+    result_df.sort_values(by="user_id", inplace=True)
 
     return result_df
 ```

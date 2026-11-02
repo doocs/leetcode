@@ -91,15 +91,13 @@ class Solution:
         m, n = len(grid), len(grid[0])
         dirs = (-1, 0, 1, 0, -1)
         for j in range(n):
-            if grid[0][j]:
-                dfs(0, j)
-            if grid[m - 1][j]:
-                dfs(m - 1, j)
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    dfs(i, j)
         for i in range(m):
-            if grid[i][0]:
-                dfs(i, 0)
-            if grid[i][n - 1]:
-                dfs(i, n - 1)
+            for j in (0, n - 1):
+                if grid[i][j]:
+                    dfs(i, j)
         return sum(sum(row) for row in grid)
 ```
 
@@ -113,19 +111,17 @@ class Solution {
         this.grid = grid;
         int m = grid.length, n = grid[0].length;
         for (int j = 0; j < n; j++) {
-            if (grid[0][j] == 1) {
-                dfs(0, j);
-            }
-            if (grid[m - 1][j] == 1) {
-                dfs(m - 1, j);
+            for (int i : List.of(0, m - 1)) {
+                if (grid[i][j] == 1) {
+                    dfs(i, j);
+                }
             }
         }
         for (int i = 0; i < m; i++) {
-            if (grid[i][0] == 1) {
-                dfs(i, 0);
-            }
-            if (grid[i][n - 1] == 1) {
-                dfs(i, n - 1);
+            for (int j : List.of(0, n - 1)) {
+                if (grid[i][j] == 1) {
+                    dfs(i, j);
+                }
             }
         }
         int ans = 0;
@@ -157,28 +153,33 @@ class Solution {
 public:
     int numEnclaves(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        int dirs[5] = {-1, 0, 1, 0, -1};
+        const int dirs[5] = {-1, 0, 1, 0, -1};
         function<void(int, int)> dfs = [&](int i, int j) {
             grid[i][j] = 0;
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y]) {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
                     dfs(x, y);
                 }
             }
         };
+        for (int j = 0; j < n; ++j) {
+            for (int i : {0, m - 1}) {
+                if (grid[i][j] == 1) {
+                    dfs(i, j);
+                }
+            }
+        }
         for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] && (i == 0 || i == m - 1 || j == 0 || j == n - 1)) {
+            for (int j : {0, n - 1}) {
+                if (grid[i][j] == 1) {
                     dfs(i, j);
                 }
             }
         }
         int ans = 0;
-        for (auto& row : grid) {
-            for (auto& v : row) {
-                ans += v;
-            }
+        for (const auto& row : grid) {
+            ans += accumulate(row.begin(), row.end(), 0);
         }
         return ans;
     }
@@ -201,16 +202,23 @@ func numEnclaves(grid [][]int) (ans int) {
 			}
 		}
 	}
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 1 && (i == 0 || i == m-1 || j == 0 || j == n-1) {
+	for j := 0; j < n; j++ {
+		for _, i := range [2]int{0, m - 1} {
+			if grid[i][j] == 1 {
+				dfs(i, j)
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for _, j := range [2]int{0, n - 1} {
+			if grid[i][j] == 1 {
 				dfs(i, j)
 			}
 		}
 	}
 	for _, row := range grid {
-		for _, v := range row {
-			ans += v
+		for _, x := range row {
+			ans += x
 		}
 	}
 	return
@@ -221,9 +229,8 @@ func numEnclaves(grid [][]int) (ans int) {
 
 ```ts
 function numEnclaves(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    const dirs = [-1, 0, 1, 0, -1];
+    const [m, n] = [grid.length, grid[0].length];
+    const dirs: number[] = [-1, 0, 1, 0, -1];
     const dfs = (i: number, j: number) => {
         grid[i][j] = 0;
         for (let k = 0; k < 4; ++k) {
@@ -234,20 +241,21 @@ function numEnclaves(grid: number[][]): number {
             }
         }
     };
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] === 1 && (i === 0 || i === m - 1 || j === 0 || j === n - 1)) {
+    for (let j = 0; j < n; ++j) {
+        for (let i of [0, m - 1]) {
+            if (grid[i][j] === 1) {
                 dfs(i, j);
             }
         }
     }
-    let ans = 0;
-    for (const row of grid) {
-        for (const v of row) {
-            ans += v;
+    for (let i = 0; i < m; ++i) {
+        for (let j of [0, n - 1]) {
+            if (grid[i][j] === 1) {
+                dfs(i, j);
+            }
         }
     }
-    return ans;
+    return grid.flat().reduce((acc, cur) => acc + cur, 0);
 }
 ```
 
@@ -255,40 +263,42 @@ function numEnclaves(grid: number[][]): number {
 
 ```rust
 impl Solution {
-    fn dfs(grid: &mut Vec<Vec<i32>>, y: usize, x: usize) {
-        if y >= grid.len() || x >= grid[0].len() || grid[y][x] == 0 {
-            return;
-        }
-        grid[y][x] = 0;
-        Solution::dfs(grid, y + 1, x);
-        Solution::dfs(grid, y, x + 1);
-        if y != 0 {
-            Solution::dfs(grid, y - 1, x);
-        }
-        if x != 0 {
-            Solution::dfs(grid, y, x - 1);
-        }
-    }
     pub fn num_enclaves(mut grid: Vec<Vec<i32>>) -> i32 {
-        let mut res = 0;
         let m = grid.len();
         let n = grid[0].len();
-        for i in 0..m {
-            Solution::dfs(&mut grid, i, 0);
-            Solution::dfs(&mut grid, i, n - 1);
-        }
-        for i in 0..n {
-            Solution::dfs(&mut grid, 0, i);
-            Solution::dfs(&mut grid, m - 1, i);
-        }
-        for i in 1..m - 1 {
-            for j in 1..n - 1 {
-                if grid[i][j] == 1 {
-                    res += 1;
+        let dirs = [-1, 0, 1, 0, -1];
+
+        fn dfs(grid: &mut Vec<Vec<i32>>, i: usize, j: usize, dirs: &[i32; 5]) {
+            grid[i][j] = 0;
+            for k in 0..4 {
+                let (x, y) = (i as i32 + dirs[k], j as i32 + dirs[k + 1]);
+                if let Some(row) = grid.get_mut(x as usize) {
+                    if let Some(&mut 1) = row.get_mut(y as usize) {
+                        dfs(grid, x as usize, y as usize, dirs);
+                    }
                 }
             }
         }
-        res
+
+        for j in 0..n {
+            if grid[0][j] == 1 {
+                dfs(&mut grid, 0, j, &dirs);
+            }
+            if grid[m - 1][j] == 1 {
+                dfs(&mut grid, m - 1, j, &dirs);
+            }
+        }
+
+        for i in 0..m {
+            if grid[i][0] == 1 {
+                dfs(&mut grid, i, 0, &dirs);
+            }
+            if grid[i][n - 1] == 1 {
+                dfs(&mut grid, i, n - 1, &dirs);
+            }
+        }
+
+        grid.into_iter().flatten().filter(|&x| x == 1).count() as i32
     }
 }
 ```

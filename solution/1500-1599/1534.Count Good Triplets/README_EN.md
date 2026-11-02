@@ -203,7 +203,10 @@ impl Solution {
         for i in 0..n {
             for j in i + 1..n {
                 for k in j + 1..n {
-                    if (arr[i] - arr[j]).abs() <= a && (arr[j] - arr[k]).abs() <= b && (arr[i] - arr[k]).abs() <= c {
+                    if (arr[i] - arr[j]).abs() <= a
+                        && (arr[j] - arr[k]).abs() <= b
+                        && (arr[i] - arr[k]).abs() <= c
+                    {
                         ans += 1;
                     }
                 }

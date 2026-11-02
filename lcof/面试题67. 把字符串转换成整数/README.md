@@ -102,7 +102,6 @@ class Solution:
         i = 0
         while str[i] == ' ':
             i += 1
-            # 仅包含空格
             if i == n:
                 return 0
         sign = -1 if str[i] == '-' else 1
@@ -110,11 +109,9 @@ class Solution:
             i += 1
         res, flag = 0, (2**31 - 1) // 10
         while i < n:
-            # 非数字，跳出循环体
             if not str[i].isdigit():
                 break
             c = int(str[i])
-            # 溢出判断
             if res > flag or (res == flag and c > 7):
                 return 2**31 - 1 if sign > 0 else -(2**31)
             res = res * 10 + c
@@ -132,7 +129,6 @@ class Solution {
         if (n == 0) return 0;
         int i = 0;
         while (str.charAt(i) == ' ') {
-            // 仅包含空格
             if (++i == n) return 0;
         }
         int sign = 1;
@@ -140,9 +136,7 @@ class Solution {
         if (str.charAt(i) == '-' || str.charAt(i) == '+') ++i;
         int res = 0, flag = Integer.MAX_VALUE / 10;
         for (; i < n; ++i) {
-            // 非数字，跳出循环体
             if (str.charAt(i) < '0' || str.charAt(i) > '9') break;
-            // 溢出判断
             if (res > flag || (res == flag) && str.charAt(i) > '7')
                 return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             res = res * 10 + (str.charAt(i) - '0');
@@ -163,13 +157,11 @@ public:
         if (length == 0) {
             return 0;
         }
-        // 删除首部空格
         while (str[i] == ' ') {
             if (++i == length) {
                 return 0;
             }
         }
-        // 若有负号则标识符号位
         if (str[i] == '-') {
             sign = -1;
         }
@@ -180,11 +172,9 @@ public:
             if (str[j] < '0' || str[j] > '9') {
                 break;
             }
-            // res>214748364越界；res=214748364且str[j] > '7'越界
             if (res > bndry || res == bndry && str[j] > '7') {
                 return sign == 1 ? INT_MAX : INT_MIN;
             }
-            // 从左向右遍历数字并更新结果
             res = res * 10 + (str[j] - '0');
         }
         return sign * res;
@@ -198,32 +188,26 @@ public:
 func strToInt(str string) int {
 	n, sign, i, x := len(str), 1, 0, 0
 
-	// 去除开头的空格
 	for i < n && str[i] == ' ' {
 		i++
 	}
 
-	// 如果只有空格
 	if i == n {
 		return 0
 	}
 
-	// 负数
 	if str[i] == '-' {
 		sign = -1
 	}
 
-	// 跳过符号
 	if str[i] == '-' || str[i] == '+' {
 		i++
 	}
 
-	// 如果符号后紧跟的不是数字
 	if i == n || str[i] < '0' || str[i] > '9' {
 		return 0
 	}
 
-	// golang 在 64 位平台下 int 就是 int64，所以不用对 x 进行特殊处理
 	for ; i < n && str[i] >= '0' && str[i] <= '9'; i++ {
 		x = x*10 + int(str[i]) - '0'
 		if x > math.MaxInt32 {

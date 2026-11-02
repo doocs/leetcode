@@ -240,7 +240,11 @@ impl Solution {
             }
         }
 
-        if dfs(n, k) == 0 { '0' } else { '1' }
+        if dfs(n, k) == 0 {
+            '0'
+        } else {
+            '1'
+        }
     }
 }
 ```

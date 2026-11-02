@@ -123,7 +123,6 @@ The time complexity of each operation is $O(\log n)$, where $n$ is the number of
 
 ```python
 class SORTracker:
-
     def __init__(self):
         self.sl = SortedList()
         self.i = -1

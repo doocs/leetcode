@@ -93,7 +93,6 @@ myCalendarTwo.book(25, 55); // 返回 True，能够预定该日程，因为时�
 
 ```python
 class MyCalendarTwo:
-
     def __init__(self):
         self.sd = SortedDict()
 

@@ -12,14 +12,12 @@
 
 function sortList(head: ListNode | null): ListNode | null {
     if (head == null || head.next == null) return head;
-    // 快慢指针定位中点
     let slow: ListNode = head,
         fast: ListNode = head.next;
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    // 归并排序
     let mid: ListNode = slow.next;
     slow.next = null;
     let l1: ListNode = sortList(head);

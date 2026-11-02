@@ -242,7 +242,8 @@ impl Solution {
                 if i == 0 || j == 0 {
                     f[i][j] = 1;
                 } else {
-                    f[i][j] = std::cmp::min(f[i - 1][j - 1], std::cmp::min(f[i - 1][j], f[i][j - 1])) + 1;
+                    f[i][j] =
+                        std::cmp::min(f[i - 1][j - 1], std::cmp::min(f[i - 1][j], f[i][j - 1])) + 1;
                 }
                 ans += f[i][j];
             }

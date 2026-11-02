@@ -159,8 +159,8 @@ class Solution {
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int u = e[0], v = e[1], w = e[2];
-            g[u].add(new int[]{v, w});
-            g[v].add(new int[]{u, w});
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
         }
 
         long inf = Long.MAX_VALUE / 4;
@@ -172,7 +172,7 @@ class Solution {
         dist[0][0] = 0;
 
         PriorityQueue<long[]> pq = new PriorityQueue<>(Comparator.comparingLong(a -> a[0]));
-        pq.add(new long[]{0, 0, 0});
+        pq.add(new long[] {0, 0, 0});
 
         while (!pq.isEmpty()) {
             long[] t = pq.poll();
@@ -192,14 +192,14 @@ class Solution {
                 long nxt = cur + w;
                 if (nxt < dist[v][used]) {
                     dist[v][used] = nxt;
-                    pq.add(new long[]{nxt, v, used});
+                    pq.add(new long[] {nxt, v, used});
                 }
 
                 if (used == 0) {
                     nxt = cur;
                     if (nxt < dist[v][1]) {
                         dist[v][1] = nxt;
-                        pq.add(new long[]{nxt, v, 1});
+                        pq.add(new long[] {nxt, v, 1});
                     }
                 }
             }

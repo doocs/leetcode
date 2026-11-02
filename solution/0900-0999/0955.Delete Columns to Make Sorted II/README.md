@@ -172,14 +172,14 @@ public:
         vector<bool> st(n - 1, false);
         int ans = 0;
         for (int j = 0; j < m; ++j) {
-            bool mustDel = false;
+            bool must_del = false;
             for (int i = 0; i < n - 1; ++i) {
                 if (!st[i] && strs[i][j] > strs[i + 1][j]) {
-                    mustDel = true;
+                    must_del = true;
                     break;
                 }
             }
-            if (mustDel) {
+            if (must_del) {
                 ++ans;
             } else {
                 for (int i = 0; i < n - 1; ++i) {

@@ -1,6 +1,5 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        // 第一次买入，第一次卖出，第二次买入，第二次卖出
         int f1 = -prices[0], f2 = 0, f3 = -prices[0], f4 = 0;
         for (int i = 1; i < prices.length; ++i) {
             f1 = Math.max(f1, -prices[i]);

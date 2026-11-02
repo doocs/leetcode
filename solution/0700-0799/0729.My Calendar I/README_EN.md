@@ -88,7 +88,6 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class MyCalendar:
-
     def __init__(self):
         self.sd = SortedDict()
 

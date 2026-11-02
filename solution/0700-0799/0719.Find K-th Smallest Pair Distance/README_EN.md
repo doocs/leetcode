@@ -215,7 +215,6 @@ function smallestDistancePair(nums: number[], k: number): number {
         let count = 0,
             i = 0;
         for (let j = 0; j < n; j++) {
-            // 索引[i, j]距离nums[j]的距离<=mid
             while (nums[j] - nums[i] > mid) {
                 i++;
             }

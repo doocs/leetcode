@@ -156,6 +156,9 @@ class Solution:
             dp = ndp
 
         return dp[0][0][0]
+
+    def countPairs(self, n: int) -> int:
+        return self.countNoZeroPairs(n)
 ```
 
 #### Java
@@ -236,6 +239,10 @@ class Solution {
         }
 
         return dp[0][0][0];
+    }
+
+    public long countPairs(long n) {
+        return countNoZeroPairs(n);
     }
 }
 ```
@@ -326,6 +333,10 @@ public:
 
         return dp[0][0][0];
     }
+
+    long long countPairs(long long n) {
+        return countNoZeroPairs(n);
+    }
 };
 ```
 
@@ -412,6 +423,10 @@ func countNoZeroPairs(n int64) int64 {
 	}
 
 	return dp[0][0][0]
+}
+
+func countPairs(n int64) int64 {
+	return countNoZeroPairs(n)
 }
 ```
 

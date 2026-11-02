@@ -232,7 +232,7 @@ impl Solution {
         }
         f[i][j] = std::cmp::max(
             nums[i] - Self::dfs(nums, f, i + 1, j),
-            nums[j] - Self::dfs(nums, f, i, j - 1)
+            nums[j] - Self::dfs(nums, f, i, j - 1),
         );
         f[i][j]
     }

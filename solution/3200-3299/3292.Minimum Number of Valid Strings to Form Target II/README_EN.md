@@ -493,8 +493,8 @@ function minValidStrings(words: string[], target: string): number {
 #### Rust
 
 ```rust
-use std::collections::HashSet;
 use std::cmp::max;
+use std::collections::HashSet;
 
 struct Hashing {
     p: Vec<i64>,

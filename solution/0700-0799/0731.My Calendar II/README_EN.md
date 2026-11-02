@@ -91,7 +91,6 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class MyCalendarTwo:
-
     def __init__(self):
         self.sd = SortedDict()
 

@@ -232,7 +232,8 @@ impl Solution {
             }
         }
 
-        ratings.iter()
+        ratings
+            .iter()
             .enumerate()
             .map(|(i, _)| left[i].max(right[i]) as i32)
             .sum()

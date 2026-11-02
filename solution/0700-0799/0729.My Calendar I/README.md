@@ -90,7 +90,6 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 
 ```python
 class MyCalendar:
-
     def __init__(self):
         self.sd = SortedDict()
 

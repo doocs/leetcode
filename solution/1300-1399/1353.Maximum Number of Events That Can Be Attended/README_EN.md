@@ -251,8 +251,8 @@ function maxEvents(events: number[][]): number {
 #### Rust
 
 ```rust
-use std::collections::{BinaryHeap, HashMap};
 use std::cmp::Reverse;
+use std::collections::{BinaryHeap, HashMap};
 
 impl Solution {
     pub fn max_events(events: Vec<Vec<i32>>) -> i32 {

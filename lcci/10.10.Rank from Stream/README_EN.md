@@ -140,7 +140,6 @@ class StreamRank {
     private BinaryIndexedTree tree = new BinaryIndexedTree(50010);
 
     public StreamRank() {
-
     }
 
     public void track(int x) {

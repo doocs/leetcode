@@ -144,7 +144,7 @@ class Solution {
         boolean[] mark = new boolean[n];
         int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[]{nums[i], i};
+            arr[i] = new int[] {nums[i], i};
         }
         Arrays.sort(arr, (a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
         int m = queries.length;

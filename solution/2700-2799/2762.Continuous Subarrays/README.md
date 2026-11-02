@@ -186,6 +186,7 @@ func continuousSubarrays(nums []int) (ans int64) {
 		}
 		ans += int64(j - i + 1)
 	}
+	return
 }
 ```
 
