@@ -94,7 +94,7 @@ The problem is essentially equivalent to determining whether any substring of le
 
 Therefore, we use an array $\textit{pos}$ of length 10 to record the indices of each digit in string $s$, where $\textit{pos}[i]$ represents the list of indices where digit $i$ appears, sorted in ascending order.
 
-Next, we iterate through string $t$. For each character $t[i]$ in $t$, we convert it to the digit $x$. We check if $\textit{pos}[x]$ is empty. If it is, it means that the digit in $t$ does not exist in $s$, so we return `false`. Otherwise, to swap the character at the first index of $\textit{pos}[x]$ to index $i$, all indices of digits less than $x$ must be greater than or equal to the first index of $pos[x]. If this condition is not met, we return `false`. Otherwise, we pop the first index from $pos[x]$ and continue iterating through string $t$.
+Next, we iterate through string $t$. For each character $t[i]$ in $t$, we convert it to the digit $x$. We check if $\textit{pos}[x]$ is empty. If it is, it means that the digit in $t$ does not exist in $s$, so we return `false`. Otherwise, to swap the character at the first index of $\textit{pos}[x]$ to index $i$, all indices of digits less than $x$ must be greater than or equal to the first index of $\textit{pos}[x]$. If this condition is not met, we return `false`. Otherwise, we pop the first index from $\textit{pos}[x]$ and continue iterating through string $t$.
 
 After the iteration, we return `true`.
 

@@ -76,7 +76,7 @@ gen.next().value // 1
 
 > **Thinking**
 >
-> The generator should yield $0!$ or $1!$ through $n!$ on demand; precomputing every factorial is unnecessary. We keep a running product, multiply by the next factor, and yield. When $n=0$, we yield $0!=1$ once.
+> The generator should yield $0!$ or $1!$ through $n!$ on demand; precomputing every factorial is unnecessary. We keep a running product, multiply by the next factor, and yield. When $n=0$, we yield $0! = 1$ once.
 
 <!-- thinking:end -->
 
