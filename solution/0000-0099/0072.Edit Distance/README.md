@@ -90,10 +90,10 @@ exection -&gt; execution (插入 'u')
 
 $$
 f[i][j] = \begin{cases}
-i, & \textit{if } j = 0 \\
-j, & \textit{if } i = 0 \\
-f[i - 1][j - 1], & \textit{if } \textit{word1}[i - 1] = \textit{word2}[j - 1] \\
-\min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \textit{otherwise}
+i, & \text{if } j = 0 \\
+j, & \text{if } i = 0 \\
+f[i - 1][j - 1], & \text{if } \textit{word1}[i - 1] = \textit{word2}[j - 1] \\
+\min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \text{otherwise}
 \end{cases}
 $$
 

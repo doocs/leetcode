@@ -95,7 +95,7 @@ tags:
 二维偏序是这样一类问题：给定若干个点对 $(a_1, b_1)$, $(a_2, b_2)$, $\cdots$, $(a_n, b_n)$，并定义某种偏序关系，现在给定点 $(a_i, b_i)$，求满足偏序关系的点对 $(a_j, b_j)$ 中的数量/最值。即：
 
 $$
-\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { \textit{def} }}{=} a_{j} \lesseqgtr a_{i} \text { \textit{and} } b_{j} \lesseqgtr b_{i}
+\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text{def}}{=} a_{j} \lesseqgtr a_{i} \text{ and } b_{j} \lesseqgtr b_{i}
 $$
 
 二维偏序的一般解决方法是排序一维，用数据结构处理第二维（这种数据结构一般是树状数组）。

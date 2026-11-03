@@ -285,8 +285,8 @@ We enumerate $i$ in the range $[1,..n]$, and enumerate $j$ in the range $[1,..i]
 $$
 f[i]=
 \begin{cases}
-\textit{true}, & \textit{if } \exists j \in [1,..i], j^2 \leq i \textit{ and } f[i-j^2] = \textit{false}\\
-\textit{false}, & \textit{otherwise}
+\textit{true}, & \text{if } \exists j \in [1,..i], j^2 \leq i \text{ and } f[i-j^2] = \textit{false}\\
+\textit{false}, & \text{otherwise}
 \end{cases}
 $$
 

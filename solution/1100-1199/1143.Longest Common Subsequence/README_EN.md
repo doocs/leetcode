@@ -83,8 +83,8 @@ If the $i$th character of $\textit{text1}$ and the $j$th character of $\textit{t
 $$
 f[i][j] =
 \begin{cases}
-f[i - 1][j - 1] + 1, & \textit{if } \textit{text1}[i - 1] = \textit{text2}[j - 1] \\
-\max(f[i - 1][j], f[i][j - 1]), & \textit{if } \textit{text1}[i - 1] \neq \textit{text2}[j - 1]
+f[i - 1][j - 1] + 1, & \text{if } \textit{text1}[i - 1] = \textit{text2}[j - 1] \\
+\max(f[i - 1][j], f[i][j - 1]), & \text{if } \textit{text1}[i - 1] \neq \textit{text2}[j - 1]
 \end{cases}
 $$
 

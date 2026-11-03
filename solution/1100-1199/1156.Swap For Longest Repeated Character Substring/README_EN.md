@@ -68,7 +68,7 @@ tags:
 
 > **Thinking**
 >
-> With one swap, the longest run is either a block extended by a distant same character, or two same-character blocks separated by one other character. Two pointers take each run length $l$ and the run $r$ after one skip; the candidate is $\min(l+r+1,\textit{global count of that character})$ so we never invent a character.
+> With one swap, the longest run is either a block extended by a distant same character, or two same-character blocks separated by one other character. Two pointers take each run length $l$ and the run $r$ after one skip; the candidate is $\min(l+r+1,\text{global count of that character})$ so we never invent a character.
 
 <!-- thinking:end -->
 

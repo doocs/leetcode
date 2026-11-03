@@ -74,7 +74,7 @@ Next, we define $f[i]$ to represent the minimum number of cuts needed for the su
 Next, we consider how to transition the state for $f[i]$. We can enumerate the previous cut point $j$. If the substring $s[j..i]$ is a palindrome, then $f[i]$ can be transitioned from $f[j]$. If $j = 0$, it means that $s[0..i]$ itself is a palindrome, and no cuts are needed, i.e., $f[i] = 0$. Therefore, the state transition equation is as follows:
 
 $$
-f[i] = \min_{0 \leq j \leq i} \begin{cases} f[j-1] + 1, & if\ g[j][i] = \textit{True} \\ 0, & if\ g[0][i] = \textit{True} \end{cases}
+f[i] = \min_{0 \leq j \leq i} \begin{cases} f[j-1] + 1, & \text{if }g[j][i] = \textit{True} \\ 0, & \text{if }g[0][i] = \textit{True} \end{cases}
 $$
 
 The answer is $f[n]$, where $n$ is the length of the string $s$.

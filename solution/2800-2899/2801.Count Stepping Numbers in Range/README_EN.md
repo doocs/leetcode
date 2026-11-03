@@ -79,8 +79,8 @@ If $\textit{pos}$ exceeds the length of $\textit{num}$, it means that we have pr
 
 Otherwise, we calculate the upper limit $up$ of the current digit, and then enumerate the digit $i$ in the range $[0,..up]$:
 
-- If $i=0$ and $\textit{lead}$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $\textit{dfs}(\textit{pos}+1,\textit{pre}, \textit{true}, \textit{limit}\ \textit{and}\ i=up)$ and add it to the answer.
-- Otherwise, if $\textit{pre}$ is $-1$, or the absolute difference between $i$ and $\textit{pre}$ is $1$, it means that the current number is a valid stepping number. We recursively calculate the value of $\textit{dfs}(\textit{pos}+1,i, \textit{false}, \textit{limit}\ \textit{and}\ i=up)$ and add it to the answer.
+- If $i=0$ and $\textit{lead}$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $\textit{dfs}(\textit{pos}+1,\textit{pre}, \textit{true}, \textit{limit}\ \text{and}\ i=up)$ and add it to the answer.
+- Otherwise, if $\textit{pre}$ is $-1$, or the absolute difference between $i$ and $\textit{pre}$ is $1$, it means that the current number is a valid stepping number. We recursively calculate the value of $\textit{dfs}(\textit{pos}+1,i, \textit{false}, \textit{limit}\ \text{and}\ i=up)$ and add it to the answer.
 
 Finally, we return the answer.
 

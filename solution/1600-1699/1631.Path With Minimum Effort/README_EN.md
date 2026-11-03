@@ -686,7 +686,7 @@ function minimumEffortPath(heights: number[][]): number {
 
 > **Thinking**
 >
-> The first two methods sort globally or search repeatedly. Treating a move as the new bottleneck $\max(\textit{so far}, \lvert \Delta h \rvert)$ is a shortest-path problem with $\max$ instead of $+$.
+> The first two methods sort globally or search repeatedly. Treating a move as the new bottleneck $\max(\text{so far}, \lvert \Delta h \rvert)$ is a shortest-path problem with $\max$ instead of $+$.
 >
 > Dijkstra with a heap stores the best bottleneck $\textit{dist}$ to each cell and relaxes four neighbors; the bottom-right entry is the answer.
 
