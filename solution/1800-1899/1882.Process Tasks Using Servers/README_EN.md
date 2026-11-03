@@ -85,7 +85,7 @@ tags:
 >
 > Tasks arrive at times $0,1,2,\ldots$. A free server with the smallest weight (then smallest index) is chosen; if none is free we wait for the earliest one. Scanning all servers per task is too slow.
 >
-> An idle heap stores $(\textit{weight},\textit{index})$; a busy heap stores $(\textit{free time},\textit{weight},\textit{index})$. At task $j$ move finished servers back, or if none are idle take the earliest busy server and chain the new task onto it. A chained free time is a sum of task lengths and reaches $4\times 10^{10}$, so that field is a 64-bit integer.
+> An idle heap stores $(\textit{weight},\textit{index})$; a busy heap stores $(\text{free time},\textit{weight},\textit{index})$. At task $j$ move finished servers back, or if none are idle take the earliest busy server and chain the new task onto it. A chained free time is a sum of task lengths and reaches $4\times 10^{10}$, so that field is a 64-bit integer.
 
 <!-- thinking:end -->
 

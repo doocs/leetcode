@@ -97,8 +97,8 @@ If $\textit{pos}$ exceeds the length of $\textit{num}$, it means that we have pr
 
 Otherwise, we calculate the upper limit $up$ of the current digit, and then enumerate the digit $i$ in the range $[0,..up]$:
 
-- If $i=0$ and $\textit{lead}$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $\textit{dfs}(\textit{pos} + 1, \textit{mod}, \textit{diff}, 1, \textit{limit}\ \textit{and}\ i=up)$ and add it to the answer.
-- Otherwise, we update the value of $\textit{diff}$ according to the parity of $i$, and then recursively calculate the value of $\textit{dfs}(\textit{pos} + 1, (\textit{mod} \times 10 + i) \bmod k, \textit{diff}, 0, \textit{limit}\ \textit{and}\ i=up)$ and add it to the answer.
+- If $i=0$ and $\textit{lead}$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $\textit{dfs}(\textit{pos} + 1, \textit{mod}, \textit{diff}, 1, \textit{limit}\ \text{and}\ i=up)$ and add it to the answer.
+- Otherwise, we update the value of $\textit{diff}$ according to the parity of $i$, and then recursively calculate the value of $\textit{dfs}(\textit{pos} + 1, (\textit{mod} \times 10 + i) \bmod k, \textit{diff}, 0, \textit{limit}\ \text{and}\ i=up)$ and add it to the answer.
 
 Finally, we return the answer.
 

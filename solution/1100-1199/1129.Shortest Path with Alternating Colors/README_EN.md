@@ -66,7 +66,7 @@ tags:
 
 > **Thinking**
 >
-> Edges are red or blue and consecutive edges must differ, so a node may be visited twice with different incoming colors. The state is $(\textit{node},\textit{last color})$. BFS from $0$ with both virtual colors; the first time a node is reached is the shortest path.
+> Edges are red or blue and consecutive edges must differ, so a node may be visited twice with different incoming colors. The state is $(\textit{node},\text{last color})$. BFS from $0$ with both virtual colors; the first time a node is reached is the shortest path.
 >
 > Adjacency is stored by color and the color is flipped on each hop so same-color edges are never taken.
 

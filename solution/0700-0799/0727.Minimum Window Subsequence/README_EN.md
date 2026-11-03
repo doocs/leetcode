@@ -74,8 +74,8 @@ We can derive the state transition equation:
 
 $$
 f[i][j] = \begin{cases}
-i, & j = 1 \textit{ and } \textit{s1}[i-1] = \textit{s2}[j] \\
-f[i - 1][j - 1], & j > 1 \textit{ and } \textit{s1}[i-1] = \textit{s2}[j-1] \\
+i, & j = 1 \text{ and } \textit{s1}[i-1] = \textit{s2}[j] \\
+f[i - 1][j - 1], & j > 1 \text{ and } \textit{s1}[i-1] = \textit{s2}[j-1] \\
 f[i - 1][j], & \textit{s1}[i-1] \ne \textit{s2}[j-1]
 \end{cases}
 $$

@@ -95,7 +95,7 @@ tags:
 $$
 f[i][j] = \begin{cases}
 1 & i = 0, j = 0 \\
-f[i - 1][j] + f[i][j - 1] & \textit{otherwise}
+f[i - 1][j] + f[i][j - 1] & \text{otherwise}
 \end{cases}
 $$
 

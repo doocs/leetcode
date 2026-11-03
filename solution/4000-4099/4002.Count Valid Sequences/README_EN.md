@@ -165,7 +165,7 @@ The number of ordered ways to write $n$ as a sum of $k$ positive integers is $\b
 Therefore the answer is:
 
 $$
-\binom{n-1}{k-1} - \textit{(number of all-odd sequences)}
+\binom{n-1}{k-1} - \text{(number of all-odd sequences)}
 $$
 
 If every number is odd, write the $i$-th number as $2a_i + 1$ ($a_i \ge 0$). Then:

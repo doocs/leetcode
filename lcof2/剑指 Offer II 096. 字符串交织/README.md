@@ -366,9 +366,9 @@ class Solution {
 
 $$
 f[i][j] = \begin{cases}
-f[i - 1][j] & \textit{if } s_1[i - 1] = s_3[i + j - 1] \\
-\textit{or } f[i][j - 1] & \textit{if } s_2[j - 1] = s_3[i + j - 1] \\
-\textit{false} & \textit{otherwise}
+f[i - 1][j] & \text{if } s_1[i - 1] = s_3[i + j - 1] \\
+\text{or } f[i][j - 1] & \text{if } s_2[j - 1] = s_3[i + j - 1] \\
+\textit{false} & \text{otherwise}
 \end{cases}
 $$
 

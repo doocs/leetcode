@@ -91,8 +91,8 @@ tags:
 
 $$
 \textit{dfs}(i, j) = \begin{cases}
-0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + \max_{i \leq t \leq k} \{\textit{arr}[t]\} \max_{k < t \leq j} \{\textit{arr}[t]\}\}, & \textit{if } i < j
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + \max_{i \leq t \leq k} \{\textit{arr}[t]\} \max_{k < t \leq j} \{\textit{arr}[t]\}\}, & \text{if } i < j
 \end{cases}
 $$
 
@@ -100,8 +100,8 @@ $$
 
 $$
 \textit{dfs}(i, j) = \begin{cases}
-0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
 \end{cases}
 $$
 
@@ -288,8 +288,8 @@ function mctFromLeafValues(arr: number[]): number {
 
 $$
 f[i][j] = \begin{cases}
-0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
 \end{cases}
 $$
 

@@ -72,7 +72,7 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 >
 > We should always sell a color that currently has the largest stock. $\textit{orders}$ can be $10^9$, so selling one by one is impossible; sell a whole plateau of tied maxima at once.
 >
-> After sorting stock decreasingly, the gap down to the next distinct height is one batch whose size is $(\textit{count of that height})\times(\textit{gap})$. If that exceeds remaining orders, sum an arithmetic series for full rounds plus a remainder.
+> After sorting stock decreasingly, the gap down to the next distinct height is one batch whose size is $(\text{count of that height})\times(\textit{gap})$. If that exceeds remaining orders, sum an arithmetic series for full rounds plus a remainder.
 >
 > Lower the peak to the next height and repeat until orders run out, modulo $10^9+7$.
 

@@ -99,8 +99,8 @@ tags:
 
 否则，我们计算得到当前数位的上界 $up$，然后在 $[0,..up]$ 范围内枚举当前数位的数字 $i$：
 
-- 如果 $i=0$ 且 $\textit{lead}$ 为真，说明当前数字只包含前导零，我们递归计算 $\textit{dfs}(\textit{pos} + 1, \textit{mod}, \textit{diff}, 1, \textit{limit}\ \textit{and}\ i=up)$ 的值并累加到答案中；
-- 否则，我们根据 $i$ 的奇偶性更新 $\textit{diff}$ 的值，然后递归计算 $\textit{dfs}(\textit{pos} + 1, (\textit{mod} \times 10 + i) \bmod k, \textit{diff}, 0, \textit{limit}\ \textit{and}\ i=up)$ 的值并累加到答案中。
+- 如果 $i=0$ 且 $\textit{lead}$ 为真，说明当前数字只包含前导零，我们递归计算 $\textit{dfs}(\textit{pos} + 1, \textit{mod}, \textit{diff}, 1, \textit{limit}\ \text{and}\ i=up)$ 的值并累加到答案中；
+- 否则，我们根据 $i$ 的奇偶性更新 $\textit{diff}$ 的值，然后递归计算 $\textit{dfs}(\textit{pos} + 1, (\textit{mod} \times 10 + i) \bmod k, \textit{diff}, 0, \textit{limit}\ \text{and}\ i=up)$ 的值并累加到答案中。
 
 最终我们返回答案。
 

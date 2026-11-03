@@ -125,7 +125,7 @@ $$
 \textit{dfs}(i) = \begin{cases}
 0, & i \geq |\textit{source}| \\
 \textit{dfs}(i + 1), & \textit{source}[i] = \textit{target}[i] \\
-\min_{i \leq j < |\textit{source}|} \{ \textit{dfs}(j + 1) + g[x][y] \}, & \textit{otherwise}
+\min_{i \leq j < |\textit{source}|} \{ \textit{dfs}(j + 1) + g[x][y] \}, & \text{otherwise}
 \end{cases}
 $$
 

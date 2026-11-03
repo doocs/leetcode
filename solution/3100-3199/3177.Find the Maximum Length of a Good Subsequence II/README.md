@@ -86,8 +86,8 @@ tags:
 $$
 f[i][h]=
 \begin{cases}
-\max(f[i][h], f[j][h] + 1), & \textit{if } \textit{nums}[i] = \textit{nums}[j], \\
-\max(f[i][h], f[j][h - 1] + 1), & \textit{if } h > 0.
+\max(f[i][h], f[j][h] + 1), & \text{if } \textit{nums}[i] = \textit{nums}[j], \\
+\max(f[i][h], f[j][h - 1] + 1), & \text{if } h > 0.
 \end{cases}
 $$
 

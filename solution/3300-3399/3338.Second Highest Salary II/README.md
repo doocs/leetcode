@@ -123,7 +123,7 @@ emp_id 是这张表的唯一主键。
 >
 > 每个部门要找出工资第二高的全部员工。并列工资应占同一名次，故用密集排名而非行号。
 >
-> 按部门对 $\textit{salary}$ 降序做 $\textit{dense rank}$，筛 $rk=2$，再按 $\textit{emp\_id}$ 排序。
+> 按部门对 $\textit{salary}$ 降序做 $\text{dense rank}$，筛 $rk=2$，再按 $\textit{emp\_id}$ 排序。
 >
 > 这样同一部门若有多人并列第二，都会出现在结果中。
 

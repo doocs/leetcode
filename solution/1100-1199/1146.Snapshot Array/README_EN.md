@@ -67,7 +67,7 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 > **Thinking**
 >
-> Copying the whole array on every `snap` costs space proportional to length times snapshot count. Each index stores a history of $(\textit{snap id},\textit{value})$; `set` appends the current id. `get` binary-searches the last change with id $\le \textit{snap\_id}$, or $0$ if none.
+> Copying the whole array on every `snap` costs space proportional to length times snapshot count. Each index stores a history of $(\text{snap id},\textit{value})$; `set` appends the current id. `get` binary-searches the last change with id $\le \textit{snap\_id}$, or $0$ if none.
 
 <!-- thinking:end -->
 

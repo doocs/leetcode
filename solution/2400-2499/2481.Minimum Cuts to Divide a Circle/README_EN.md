@@ -81,8 +81,8 @@ In summary, we can get:
 
 $$
 \textit{ans} = \begin{cases}
-n, & n \gt 1 \textit{ and } n \textit{ is odd} \\
-\frac{n}{2}, & n \textit{ is even} \\
+n, & n \gt 1 \text{ and } n \text{ is odd} \\
+\frac{n}{2}, & n \text{ is even} \\
 \end{cases}
 $$
 

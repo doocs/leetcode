@@ -220,8 +220,8 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 $$
 f[i]=
 \begin{cases}
-f[i-1]+\textit{heights}[i],&\textit{if } \textit{heights}[i]\geq \textit{heights}[i-1]\\
-\textit{heights}[i]\times(i-j)+f[j],&\textit{if } \textit{heights}[i]<\textit{heights}[i-1]
+f[i-1]+\textit{heights}[i],&\text{if } \textit{heights}[i]\geq \textit{heights}[i-1]\\
+\textit{heights}[i]\times(i-j)+f[j],&\text{if } \textit{heights}[i]<\textit{heights}[i-1]
 \end{cases}
 $$
 
