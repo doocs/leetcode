@@ -322,7 +322,7 @@ var averageOfLevels = function (root) {
 
 > **思考**
 >
-> BFS 需要队列。DFS 按深度累加 $(和, 个数)$，最后再相除，不显式分层，结果相同。
+> BFS 需要队列。DFS 按深度累加 $(\text{和}, \text{个数})$，最后再相除，不显式分层，结果相同。
 
 <!-- thinking:end -->
 

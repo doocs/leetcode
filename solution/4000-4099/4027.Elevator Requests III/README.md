@@ -114,7 +114,7 @@ tags:
 >
 > 楼层编号可达 $10^9$，请求却只有 $m\le 16$ 个，旅行商规模刚好允许状压。到达时间是下界：早到必须等待。
 >
-> 定义 $f[S][j]$ 为已处理集合 $S$、最后处理请求 $j$ 的最早时刻。从空集出发时，耗时为 $\max(|\textit{start}-\textit{floor}_j|,\textit{arrival}_j)$；否则枚举上一个请求 $j_0$，用 $\max(f[S\setminus\{j\}][j_0]+距离,\textit{arrival}_j)$ 转移。
+> 定义 $f[S][j]$ 为已处理集合 $S$、最后处理请求 $j$ 的最早时刻。从空集出发时，耗时为 $\max(|\textit{start}-\textit{floor}_j|,\textit{arrival}_j)$；否则枚举上一个请求 $j_0$，用 $\max(f[S\setminus\{j\}][j_0]+\text{距离},\textit{arrival}_j)$ 转移。
 >
 > 全集上最后一维的最小值即处理完全部请求的最短时间。
 

@@ -63,16 +63,16 @@ difficulty: 中等
 
 $$
 \textit{down}[i][j] = \begin{cases}
-\textit{down}[i + 1][j] + 1, & \textit{matrix}[i][j] = 0 \textit{ 且 } i + 1 < n \\
-1, & \textit{matrix}[i][j] = 0 \textit{ 且 } i + 1 = n \\
+\textit{down}[i + 1][j] + 1, & \textit{matrix}[i][j] = 0 \text{ 且 } i + 1 < n \\
+1, & \textit{matrix}[i][j] = 0 \text{ 且 } i + 1 = n \\
 0, & \textit{matrix}[i][j] = 1
 \end{cases}
 $$
 
 $$
 \textit{right}[i][j] = \begin{cases}
-\textit{right}[i][j + 1] + 1, & \textit{matrix}[i][j] = 0 \textit{ 且 } j + 1 < n \\
-1, & \textit{matrix}[i][j] = 0 \textit{ 且 } j + 1 = n \\
+\textit{right}[i][j + 1] + 1, & \textit{matrix}[i][j] = 0 \text{ 且 } j + 1 < n \\
+1, & \textit{matrix}[i][j] = 0 \text{ 且 } j + 1 = n \\
 0, & \textit{matrix}[i][j] = 1
 \end{cases}
 $$
