@@ -251,7 +251,7 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 
 我们用 $f[i][j]$ 表示取数组 $\textit{nums}$ 的前 $i$ 个元素，以及取数组 $\textit{nums}$ 的后 $j$ 个元素，能够获得的最大分数。初始时 $f[0][0] = 0$，其余元素均为 $-\infty$。答案为 $\max_{0 \leq i \leq m} f[i][m-i]$。
 
-考虑 $f[i][j]$，那么当前我们可以选择 $\textit{nums}$ 数组头部的第 $i$ 个元素，或者选择 $\textit{nums}$ 数组尾部的第 $j$ 个元素。如果选择了 $\textit{nums}$ 数组头部的第 $i$ 个元素，那么能够获得的最大分数为 $f[i-1][j] + \textit{nums}[i-1] \times \textit{multipliers}[i+j-1]$；如果选择了 $\textit{nums}$ 数组尾部的第 $j$ 个元素，那么能够获得的最大分数为 $f[i][j-1] + \textit{nums}[n-j] \times \textit{multipliers}[i+j-1]$。我们取两者的最大值作为 $f[i][j]$ 的值。如果 $i + j = m$，我们我们更新答案 $\textit{ans} = \max(\textit{ans}, f[i][j])$。
+考虑 $f[i][j]$，那么当前我们可以选择 $\textit{nums}$ 数组头部的第 $i$ 个元素，或者选择 $\textit{nums}$ 数组尾部的第 $j$ 个元素。如果选择了 $\textit{nums}$ 数组头部的第 $i$ 个元素，那么能够获得的最大分数为 $f[i-1][j] + \textit{nums}[i-1] \times \textit{multipliers}[i+j-1]$；如果选择了 $\textit{nums}$ 数组尾部的第 $j$ 个元素，那么能够获得的最大分数为 $f[i][j-1] + \textit{nums}[n-j] \times \textit{multipliers}[i+j-1]$。我们取两者的最大值作为 $f[i][j]$ 的值。如果 $i + j = m$，我们更新答案 $\textit{ans} = \max(\textit{ans}, f[i][j])$。
 
 最后返回答案 $\textit{ans}$ 即可。
 

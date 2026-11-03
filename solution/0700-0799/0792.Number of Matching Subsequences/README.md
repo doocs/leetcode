@@ -208,7 +208,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 > **思考**
 >
-> 方法一切片后缀会产生新串。改为存 $(词下标,已匹配长度)$，语义相同、少分配。
+> 方法一切片后缀会产生新串。改为存 $(\text{词下标},\text{已匹配长度})$，语义相同、少分配。
 
 <!-- thinking:end -->
 

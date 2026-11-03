@@ -218,7 +218,7 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 
 <!-- thinking:end -->
 
-我们维护一个长度为 $k$ 的滑动窗口，窗口内元素之和记为 $s$。如果 $s \lt \textit{lower}$，则分数减 $1$；如果 $ s \gt \textit{upper}$，则分数加 $1$。
+我们维护一个长度为 $k$ 的滑动窗口，窗口内元素之和记为 $s$。如果 $s \lt \textit{lower}$，则分数减 $1$；如果 $s \gt \textit{upper}$，则分数加 $1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{calories}$ 的长度。
 

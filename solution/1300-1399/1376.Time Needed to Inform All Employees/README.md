@@ -253,7 +253,7 @@ public class Solution {
 >
 > 员工 $i$ 通知完整棵下属树的时间，等于他自己的通知耗时加上直接下属中最慢的那一棵。叶子没有下属，时间是 $0$。这个值只依赖子节点已经算完的结果。
 >
-> 显式栈从 $\textit{headID}$ 出发，按 $(员工, 状态)$ 做后序。进入时先压出栈标记再压下属，离开时取 $\textit{informTime}[i] + \textit{time}[j]$ 的最大值。负责人的时间就是答案。
+> 显式栈从 $\textit{headID}$ 出发，按 $(\text{员工}, \text{状态})$ 做后序。进入时先压出栈标记再压下属，离开时取 $\textit{informTime}[i] + \textit{time}[j]$ 的最大值。负责人的时间就是答案。
 
 <!-- thinking:end -->
 

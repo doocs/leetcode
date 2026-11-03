@@ -89,8 +89,8 @@ tags:
 
 $$
 \textit{ans} = \begin{cases}
-n, & n \gt 1 \textit{ 且 } n \textit{ 为奇数} \\
-\frac{n}{2}, & n \textit{ 为其它} \\
+n, & n \gt 1 \text{ 且 } n \text{ 为奇数} \\
+\frac{n}{2}, & n \text{ 为其它} \\
 \end{cases}
 $$
 

@@ -159,7 +159,7 @@ ORDER BY s1.tx;
 
 > **思考**
 >
-> 方法一用窗口函数标月，再按月差连接。也可以按账户与 $\textit{YYYYMM}$ 分组，用 $\textit{HAVING}$ 筛出超限月份，再判断 $(\textit{account\_id},\textit{下月})$ 是否仍在该集合中，语义更贴近「连续两个超限月」。
+> 方法一用窗口函数标月，再按月差连接。也可以按账户与 $\textit{YYYYMM}$ 分组，用 $\textit{HAVING}$ 筛出超限月份，再判断 $(\textit{account\_id},\text{下月})$ 是否仍在该集合中，语义更贴近「连续两个超限月」。
 
 <!-- thinking:end -->
 

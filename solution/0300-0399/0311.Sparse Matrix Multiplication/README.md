@@ -176,7 +176,7 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 
 > **思考**
 >
-> 方法一仍会把零与任意数相乘。将两矩阵压成每行非零 $(列,值)$ 列表后，只对非零对累加 $\textit{ans}[i][j]\mathrel{+}=x\cdot y$。零元不再进入内层，常数显著下降，最坏仍为 $O(mnk)$。
+> 方法一仍会把零与任意数相乘。将两矩阵压成每行非零 $(\text{列},\text{值})$ 列表后，只对非零对累加 $\textit{ans}[i][j]\mathrel{+}=x\cdot y$。零元不再进入内层，常数显著下降，最坏仍为 $O(mnk)$。
 
 <!-- thinking:end -->
 
