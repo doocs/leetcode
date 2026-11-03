@@ -58,7 +58,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Greedy + State Compression + Memorized Search
+### Solution 1: Greedy + State Compression + Memoization Search
 
 <!-- thinking:start -->
 
@@ -81,7 +81,7 @@ The implementation logic of the function $\textit{dfs}(\textit{state}, \textit{m
 
 We enumerate each remainder $i$ from $1$ to $\textit{batchSize}-1$. If the quantity of the remainder $i$ is not $0$, we can subtract $1$ from the quantity of the remainder $i$, add $i$ to the current prefix remainder and take modulo $\textit{batchSize}$, then recursively call the function $\textit{dfs}$ to find the optimal solution of the sub-state, and take the maximum value. Finally, check whether $\textit{mod}$ is $0$. If it is $0$, we return after adding $1$ to the maximum value, otherwise we directly return the maximum value.
 
-During the process, we can use memorized search to avoid repeated calculation of states.
+During the process, we can use memoization search to avoid repeated calculation of states.
 
 The time complexity does not exceed $O(10^7)$, and the space complexity does not exceed $O(10^6)$.
 
@@ -233,7 +233,7 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 
 <!-- solution:start -->
 
-### Solution 2: Memorized Search (Group Permutation)
+### Solution 2: Memoization Search (Group Permutation)
 
 <!-- thinking:start -->
 

@@ -272,7 +272,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Method 1 expands with an explicit stack in depth-first order. A queue expands level by level with the same visited marks: the source is enqueued, and a dequeued vertex that is the destination succeeds. Unvisited neighbors are enqueued. An empty queue means the destination is unreachable.
+> Method 1 expands in depth-first order by recursion. A queue expands level by level with the same visited marks: the source is enqueued, and a dequeued vertex that is the destination succeeds. Unvisited neighbors are enqueued. An empty queue means the destination is unreachable.
 
 <!-- thinking:end -->
 

@@ -60,7 +60,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memorization Search
+### Solution 1: Memoization Search
 
 <!-- thinking:start -->
 
@@ -80,7 +80,7 @@ The calculation process of the function $\textit{dfs}(i, j, x)$ is as follows:
 - If $s[i] = s[j]$ and $s[i] \neq x$, then $\textit{dfs}(i, j, x) = \textit{dfs}(i + 1, j - 1, s[i]) + 2$;
 - If $s[i] \neq s[j]$, then $\textit{dfs}(i, j, x) = \max(\textit{dfs}(i + 1, j, x), \textit{dfs}(i, j - 1, x))$.
 
-During the process, we can use memorization search to avoid repeated calculations.
+During the process, we can use memoization search to avoid repeated calculations.
 
 The time complexity is $O(n^2C)$, where $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
 

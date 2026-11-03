@@ -77,7 +77,7 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 
 <!-- solution:start -->
 
-### Solution 1: Memorized Search
+### Solution 1: Memoization Search
 
 <!-- thinking:start -->
 

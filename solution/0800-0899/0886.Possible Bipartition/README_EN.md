@@ -271,7 +271,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 already colors the graph with an explicit stack. Union-find does not store colors. It merges people who must share a group: everyone disliked by one person should share a group, and none of them may share that person's group. If that person is already in the same set as a neighbor, the partition fails; otherwise those neighbors are merged under one representative.
+> Solution 1 colors the graph by recursion. A chain of dislikes uses a call depth equal to the number of people. Union-find does not store colors. It merges people who must share a group: everyone disliked by one person should share a group, and none of them may share that person's group. If that person is already in the same set as a neighbor, the partition fails; otherwise those neighbors are merged under one representative.
 
 <!-- thinking:end -->
 

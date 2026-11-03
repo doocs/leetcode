@@ -324,7 +324,7 @@ var minScore = function (n, roads) {
 
 > **Thinking**
 >
-> Method 1 already finds that minimum with an explicit stack. The same visited set also works with a queue and expands the component layer by layer.
+> Method 1 walks the component of city $1$ by recursion and keeps the minimum edge weight. A chain of roads uses a call depth equal to the node count. The same visited set also works with a queue and expands the component layer by layer.
 
 <!-- thinking:end -->
 

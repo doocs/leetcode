@@ -246,7 +246,7 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 > **Thinking**
 >
-> Method 1 already walks with an explicit stack. The same visited set also works with a queue and counts reachable nodes layer by layer.
+> Method 1 counts nodes reachable from $0$ by recursion and skips restricted nodes. A chain uses a call depth equal to the node count. The same visited set also works with a queue and counts reachable nodes layer by layer.
 
 <!-- thinking:end -->
 

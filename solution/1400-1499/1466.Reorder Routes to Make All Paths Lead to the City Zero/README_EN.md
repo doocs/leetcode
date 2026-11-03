@@ -244,7 +244,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Method 1 already walks the same adjacency list with an explicit stack. BFS leaves $0$ level by level and adds the edge cost the first time a neighbor is seen, so the visit order differs from the stack.
+> Method 1 walks the same adjacency list by recursion and counts edges that must be reversed. A chain of roads uses a call depth equal to the node count. BFS leaves $0$ level by level and adds the edge cost the first time a neighbor is seen, so the visit order differs from the recursion.
 
 <!-- thinking:end -->
 

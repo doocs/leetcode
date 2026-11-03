@@ -66,7 +66,7 @@ The score difference is 18 - 12 = 6.
 
 <!-- solution:start -->
 
-### Solution 1: Memorization Search
+### Solution 1: Memoization Search
 
 <!-- thinking:start -->
 
@@ -87,7 +87,7 @@ The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 - If $i > j$, it means there are no stones currently, so return $0$;
 - Otherwise, the first player has two choices, which are to remove $\textit{stones}[i]$ or $\textit{stones}[j]$, and then calculate the score difference, i.e., $a = s[j + 1] - s[i + 1] - \textit{dfs}(i + 1, j)$ and $b = s[j] - s[i] - \textit{dfs}(i, j - 1)$. We take the larger of the two as the return value of $\textit{dfs}(i, j)$.
 
-During the process, we use memorization search, i.e., use an array $f$ to record the return value of the function $\textit{dfs}(i, j)$, to avoid repeated calculations.
+During the process, we use memoization search, i.e., use an array $f$ to record the return value of the function $\textit{dfs}(i, j)$, to avoid repeated calculations.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 

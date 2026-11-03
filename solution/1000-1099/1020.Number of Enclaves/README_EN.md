@@ -315,7 +315,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 already floods from the border with an explicit stack. Connectivity does not depend on search order, so a queue can clear the same cells by layers.
+> Solution 1 floods from the border by recursion. A long border-connected path exhausts the call stack. Connectivity does not depend on search order, so a queue can clear the same cells by layers.
 >
 > Pop a cell and mark each neighboring $1$. After the borders are processed, the remaining $1$s are still the enclaves.
 

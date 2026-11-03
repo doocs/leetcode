@@ -68,7 +68,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memorization Search
+### Solution 1: Memoization Search
 
 <!-- thinking:start -->
 
@@ -90,7 +90,7 @@ Otherwise, we can consider adding any lowercase letter other than 'l', 'e', 't' 
 
 We can also consider adding 'l' at the current position, and the number of schemes obtained at this time is $\textit{dfs}(i - 1, \min(1, l + 1), e, t)$. Similarly, the number of schemes for adding 'e' and 't' are $\textit{dfs}(i - 1, l, \min(2, e + 1), t)$ and $\textit{dfs}(i - 1, l, e, \min(1, t + 1))$ respectively. Add them up and take the modulus of $10^9 + 7$ to get the value of $\textit{dfs}(i, l, e, t)$.
 
-To avoid repeated calculations, we can use memorization search.
+To avoid repeated calculations, we can use memoization search.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 

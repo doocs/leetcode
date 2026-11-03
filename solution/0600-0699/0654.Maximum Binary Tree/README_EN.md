@@ -1229,7 +1229,7 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 
 > **Thinking**
 >
-> Solution 1 already builds the tree with an explicit stack, but each maximum is still a linear scan. A segment tree answers a range maximum in $O(\log n)$. The left interval can still form a chain of length $n$, so those two child intervals go on the same explicit stack. The total time is $O(n \log n)$.
+> Solution 1 builds the tree by recursion, but each maximum is still a linear scan. A segment tree answers a range maximum in $O(\log n)$. The left interval can still form a chain of length $n$, so those two child intervals go on the same explicit stack. The total time is $O(n \log n)$.
 
 <!-- thinking:end -->
 

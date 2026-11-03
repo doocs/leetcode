@@ -60,7 +60,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memorization
+### Solution 1: Memoization
 
 <!-- thinking:start -->
 

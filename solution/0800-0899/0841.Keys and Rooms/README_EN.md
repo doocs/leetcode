@@ -230,7 +230,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Solution 1 follows keys with an explicit stack. The same reachability is a queue: start at $0$ and enqueue a room when a key to it is found and that room is still unvisited. The visited marks still drop duplicate keys, and the answer still compares the visited count with $n$.
+> Solution 1 follows keys by recursion. A chain of rooms uses a call depth equal to the room count. The same reachability is a queue: start at $0$ and enqueue a room when a key to it is found and that room is still unvisited. The visited marks still drop duplicate keys, and the answer still compares the visited count with $n$.
 
 <!-- thinking:end -->
 

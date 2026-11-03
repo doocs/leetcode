@@ -290,13 +290,11 @@ int* preorder(struct Node* root, int* returnSize) {
 
 > **Thinking**
 >
-> Solution 1 already walks preorder with an explicit stack, pushing children from right to left so the leftmost child pops first.
->
-> This section is the same walk. Pop a node, record it, then push its children in reverse. The order matches the preorder definition.
+> Solution 1 walks preorder by recursion, so a right spine uses a call depth equal to the node count. An explicit stack holds the nodes still to visit: push the right child before the left, and the pop order stays root, left, right.
 
 <!-- thinking:end -->
 
-This section uses the same explicit stack.
+This section uses an explicit stack.
 
 We use a stack to help us get the pre-order traversal. We first push the root node into the stack. Since the pre-order traversal is root, left subtree, right subtree, and the characteristic of the stack is first in last out, we first add the node's value to the answer, then push each of the node's children into the stack in the order from right to left. We continue this process until the stack is empty.
 

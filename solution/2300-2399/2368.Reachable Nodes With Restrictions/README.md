@@ -245,7 +245,7 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 > **思考**
 >
-> 方法一已经用显式栈做深度优先。同一套访问集合也可以改成队列，按层统计可达结点。
+> 方法一从 $0$ 递归统计可达结点，并跳过受限结点。图是一条链时，调用深度等于结点数。同一套访问集合也可以改成队列，按层统计可达结点。
 
 <!-- thinking:end -->
 
