@@ -96,7 +96,7 @@ tags:
 
 <!-- thinking:end -->
 
-We split the two sentences into two word arrays `words1` and `words2` by spaces. Let the lengths of `words1` and `words2` be $m$ and $n$, respectively, and assume that $m \ge nn.
+We split the two sentences into two word arrays `words1` and `words2` by spaces. Let the lengths of `words1` and `words2` be $m$ and $n$, respectively, and assume that $m \ge n$.
 
 We use two pointers $i$ and $j$, initially $i = j = 0$. Next, we loop to check whether `words1[i]` is equal to `words2[i]`, and if so, pointer $i$ continues to move right; then we loop to check whether `words1[m - 1 - j]` is equal to `words2[n - 1 - j]`, and if so, pointer $j$ continues to move right.
 

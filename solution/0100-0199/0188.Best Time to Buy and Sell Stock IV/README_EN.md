@@ -280,7 +280,7 @@ public class Solution {
 
 We can also use dynamic programming to define $f[i][j][k]$ as the maximum profit that can be obtained when completing at most j transactions (here we define the number of transactions as the number of purchases), and holding the stock with the current state k on the i-th day. The initial value of $f[i][j][k]$ is 0. The answer is $f[n - 1][k][0]$.
 
-When $i = 0$, the stock price is $\textit{prices}[0]$. For any $j$ \in [1, k]$, we \textit{have} $f[0][j][1] = -prices[0]$, which means buying the stock on the 0-th day with a profit of $-prices[0]$.
+When $i = 0$, the stock price is $\textit{prices}[0]$. For any $j \in [1, k]$, we have $f[0][j][1] = -\textit{prices}[0]$, which means buying the stock on the 0-th day with a profit of $-\textit{prices}[0]$.
 
 When $i > 0$:
 

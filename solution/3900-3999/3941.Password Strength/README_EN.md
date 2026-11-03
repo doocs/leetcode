@@ -97,7 +97,7 @@ Then, we iterate through each character in $st$ and compute the password strengt
 - If the character is a lowercase letter ('a' to 'z'), add 1 point.
 - If the character is an uppercase letter ('A' to 'Z'), add 2 points.
 - If the character is a digit ('0' to '9'), add 3 points.
-- If the character is a special character (from the set "!@#$"), add 5 points.
+- If the character is a special character (from the set `"!@#$"`), add 5 points.
 
 Finally, return the computed password strength.
 

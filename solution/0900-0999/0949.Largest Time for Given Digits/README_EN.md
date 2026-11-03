@@ -103,7 +103,7 @@ class Solution:
 
 > **Thinking**
 >
-> Enumerating times is constant work; we may instead permute the four indices, build an hour and a minute, and keep the maximum legal value. $4!=24$ permutations are equally affordable.
+> Enumerating times is constant work; we may instead permute the four indices, build an hour and a minute, and keep the maximum legal value. $4! = 24$ permutations are equally affordable.
 
 <!-- thinking:end -->
 

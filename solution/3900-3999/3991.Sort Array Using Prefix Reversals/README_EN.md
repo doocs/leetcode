@@ -94,11 +94,11 @@ tags:
 
 > **Thinking**
 >
-> $n\le 8$ gives at most $8!=40320$ permutations, and the allowed prefix flips are few, so BFS on the permutation is the minimum step count.
+> $n\le 8$ gives at most $8! = 40320$ permutations, and the allowed prefix flips are few, so BFS on the permutation is the minimum step count.
 >
 > The target is $(0,1,\ldots,n-1)$. From the start tuple, reverse each prefix in $\textit{pre}$; unvisited states are enqueued. Hitting the target is optimal; an empty queue is impossible.
 >
-> Dedup with tuples or an base-$8$ integer.
+> Dedup with tuples or a base-$8$ integer.
 
 <!-- thinking:end -->
 

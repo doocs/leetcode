@@ -103,7 +103,12 @@ The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
 - If $i < 0$ or $j < 0$, return $0$.
 - If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.
 - If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.
-- If $k = 0$, we consider the case where the previous number is $0$, $\textit{dfs}(i - 1, j, 0)$, and the case where the previous number is $1$, $\textit{dfs}(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
+- If $k = 0$, we consider the case where the previous number is $0$, $\textit{dfs}(i - 1, j, 0)$, and the case where the previous number is $1$, $\textit{dfs}(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the case where the $(\textit{limit} + 1)$-th number from the end is $1$ is not allowed, so we subtract this case: $\textit{dfs}(i - \textit{limit} - 1, j, 1)$.
+- If $k = 1$, we consider the case where the previous number is $0$, $\textit{dfs}(i, j - 1, 0)$, and the case where the previous number is $1$, $\textit{dfs}(i, j - 1, 1)$. If the previous number is $1$, it may cause more than $\textit{limit}$ $1$s in the subarray, i.e., the case where the $(\textit{limit} + 1)$-th number from the end is $0$ is not allowed, so we subtract this case: $\textit{dfs}(i, j - \textit{limit} - 1, 0)$.
+
+To avoid repeated computation, we use memoized search.
+
+The time complexity is $O(\textit{zero} \textit{one})$, and the space complexity is $O(\textit{zero} \textit{one})$.
 
 <!-- tabs:start -->
 

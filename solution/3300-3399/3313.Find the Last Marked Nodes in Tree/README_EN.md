@@ -117,7 +117,7 @@ Then, starting from node $a$, we perform another depth-first search to find the 
 
 Next, we perform a depth-first search starting from node $b$ to calculate the distance from each node to node $b$, denoted as $\textit{dist3}$.
 
-For each node $i$, if $\textit{dist2}[i] > $\textit{dist3}[i]$, then the distance from node $a$ to \textit{node} $i$ is greater, so node $a$ is the last marked node; otherwise, node $b$ is the last marked node.
+For each node $i$, if $\textit{dist2}[i] > \textit{dist3}[i]$, then the distance from node $a$ to node $i$ is greater, so node $a$ is the last marked node; otherwise, node $b$ is the last marked node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
