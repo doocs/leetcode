@@ -60,7 +60,7 @@ It can be proven that no other way is possible, so we return 3.</pre>
 
 <!-- solution:start -->
 
-### Solution 1: Memorization Search
+### Solution 1: Memoization Search
 
 <!-- thinking:start -->
 
@@ -83,7 +83,7 @@ The calculation method of the function $\textit{dfs}(i, j)$ is as follows:
     - Move one step to the right, the current distance from the target position is $\textit{abs}(i - 1)$, and there are $j - 1$ steps left. The number of methods is $\textit{dfs}(\textit{abs}(i - 1), j - 1)$;
 - Finally, return the result of the sum of the two methods modulo $10^9 + 7$.
 
-To avoid repeated calculations, we use memorization search, that is, we use a two-dimensional array $f$ to record the result of the function $\textit{dfs}(i, j)$. When the function $\textit{dfs}(i, j)$ is called, if $f[i][j]$ is not $-1$, return $f[i][j]$ directly, otherwise calculate the value of $f[i][j]$, and return $f[i][j]$.
+To avoid repeated calculations, we use memoization search, that is, we use a two-dimensional array $f$ to record the result of the function $\textit{dfs}(i, j)$. When the function $\textit{dfs}(i, j)$ is called, if $f[i][j]$ is not $-1$, return $f[i][j]$ directly, otherwise calculate the value of $f[i][j]$, and return $f[i][j]$.
 
 The time complexity is $O(k^2)$, and the space complexity is $O(k^2)$, where $k$ is the number of steps given in the problem.
 

@@ -252,13 +252,11 @@ function postorder(root: Node | null): number[] {
 
 > **Thinking**
 >
-> Solution 1 already records the root and pushes children from left to right, then reverses the list into postorder.
->
-> This section is the same walk. Pop a node, record it, push children left to right, and reverse the answer.
+> Solution 1 produces postorder by recursion, so the call depth equals the height. An explicit stack records the root and pushes children from left to right, which yields root, right, left; reversing that list is left, right, root.
 
 <!-- thinking:end -->
 
-This section uses the same explicit stack.
+This section uses an explicit stack.
 
 We use a stack to help us get the post-order traversal. We first push the root node into the stack. Since the post-order traversal is left subtree, right subtree, root, and the characteristic of the stack is first in last out, we first add the node's value to the answer, then push each of the node's children into the stack in the order from left to right. This way, we can get the traversal result of root, right subtree, left subtree. Finally, we reverse the answer to get the post-order traversal result.
 

@@ -324,7 +324,7 @@ public class Solution {
 
 > **Thinking**
 >
-> Solution 1 already clears each component with an explicit stack. The same 4-connectivity can be expanded with a queue.
+> Solution 1 clears each component by recursion. A long island uses a call depth equal to its cell count. The same 4-connectivity can be expanded with a queue.
 >
 > The scan order matches Solution 1. The extra space is still the size of the frontier.
 

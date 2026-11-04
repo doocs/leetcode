@@ -511,7 +511,7 @@ function countComponents(n: number, edges: number[][]): number {
 
 > **Thinking**
 >
-> Solution 1 expands each component with an explicit stack. A queue expands the same component in breadth-first order, and each new search still increments the count. Time stays $O(n + m)$.
+> Solution 1 expands each component by recursion. A queue expands the same component in breadth-first order, and each new search still increments the count. Time stays $O(n + m)$.
 
 <!-- thinking:end -->
 

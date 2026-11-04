@@ -71,7 +71,7 @@ The total number of paths is 2 + 1 = 3.
 
 <!-- solution:start -->
 
-### Solution 1: DFS + Memorization
+### Solution 1: DFS + Memoization
 
 <!-- thinking:start -->
 
