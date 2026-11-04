@@ -69,7 +69,7 @@ tags:
 >
 > Build an object from parallel key and value arrays, stringify keys, and keep the first value on a duplicate. $\textit{Object}.\textit{fromEntries}$ would let a later pair overwrite.
 >
-> Walk the indices: stringify the key and write the value only when that key is still $\textit{undefined}$ on the object.
+> Walk the indices: stringify the key and write the value only when the object does not already have that key.
 
 <!-- thinking:end -->
 
@@ -82,11 +82,21 @@ function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
     const ans: Record<string, any> = {};
     for (let i = 0; i < keysArr.length; ++i) {
         const k = String(keysArr[i]);
-        if (ans[k] === undefined) {
-            ans[k] = valuesArr[i];
+        if (Object.prototype.hasOwnProperty.call(ans, k)) {
+            continue;
         }
+        set(ans, k, valuesArr[i]);
     }
     return ans;
+}
+
+function set(target: object, key: string, value: any) {
+    Object.defineProperty(target, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    });
 }
 ```
 
@@ -102,12 +112,22 @@ var createObject = function (keysArr, valuesArr) {
     const ans = {};
     for (let i = 0; i < keysArr.length; ++i) {
         const k = keysArr[i] + '';
-        if (ans[k] === undefined) {
-            ans[k] = valuesArr[i];
+        if (Object.prototype.hasOwnProperty.call(ans, k)) {
+            continue;
         }
+        set(ans, k, valuesArr[i]);
     }
     return ans;
 };
+
+function set(target, key, value) {
+    Object.defineProperty(target, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    });
+}
 ```
 
 <!-- tabs:end -->

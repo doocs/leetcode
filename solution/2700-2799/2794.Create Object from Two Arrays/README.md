@@ -84,11 +84,21 @@ function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
     const ans: Record<string, any> = {};
     for (let i = 0; i < keysArr.length; ++i) {
         const k = String(keysArr[i]);
-        if (ans[k] === undefined) {
-            ans[k] = valuesArr[i];
+        if (Object.prototype.hasOwnProperty.call(ans, k)) {
+            continue;
         }
+        set(ans, k, valuesArr[i]);
     }
     return ans;
+}
+
+function set(target: object, key: string, value: any) {
+    Object.defineProperty(target, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    });
 }
 ```
 
@@ -104,12 +114,22 @@ var createObject = function (keysArr, valuesArr) {
     const ans = {};
     for (let i = 0; i < keysArr.length; ++i) {
         const k = keysArr[i] + '';
-        if (ans[k] === undefined) {
-            ans[k] = valuesArr[i];
+        if (Object.prototype.hasOwnProperty.call(ans, k)) {
+            continue;
         }
+        set(ans, k, valuesArr[i]);
     }
     return ans;
 };
+
+function set(target, key, value) {
+    Object.defineProperty(target, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    });
+}
 ```
 
 <!-- tabs:end -->

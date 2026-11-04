@@ -161,7 +161,12 @@ function jsonParse(str: string): any {
             const key = parseString();
             i++;
             const value = parseValue();
-            obj[key] = value;
+            Object.defineProperty(obj, key, {
+                value,
+                writable: true,
+                enumerable: true,
+                configurable: true,
+            });
         }
         return obj;
     };
