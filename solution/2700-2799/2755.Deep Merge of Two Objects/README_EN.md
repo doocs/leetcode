@@ -104,10 +104,28 @@ function deepMerge(obj1: any, obj2: any): any {
     if (isArr(obj1) !== isArr(obj2)) {
         return obj2;
     }
-    for (const key in obj2) {
-        obj1[key] = deepMerge(obj1[key], obj2[key]);
+    for (const key of Object.keys(obj2)) {
+        const merged = deepMerge(own(obj1, key), own(obj2, key));
+        if (isArr(obj1)) {
+            obj1[key] = merged;
+        } else {
+            set(obj1, key, merged);
+        }
     }
     return obj1;
+}
+
+function own(target: object, key: string) {
+    return Object.getOwnPropertyDescriptor(target, key)?.value;
+}
+
+function set(target: object, key: string, value: any) {
+    Object.defineProperty(target, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    });
 }
 
 /**

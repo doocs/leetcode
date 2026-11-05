@@ -9,8 +9,17 @@ function compactObject(obj: Obj): Obj {
     }
     return Object.entries(obj).reduce((acc, [key, value]) => {
         if (value) {
-            acc[key] = compactObject(value);
+            set(acc, key, compactObject(value));
         }
         return acc;
     }, {} as Obj);
+}
+
+function set(target: Obj, key: string, value: any) {
+    Object.defineProperty(target, key, {
+        value,
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    });
 }
