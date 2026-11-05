@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793878379,
+  "cache_date": 1793879146,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -31106,7 +31106,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1793878562
     },
     "solution/2600-2699/2632.Curry/README.md": {
       "authors": [
@@ -32337,7 +32337,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1793878562
     },
     "solution/2700-2799/2701.Consecutive Transactions with Increasing Amounts/README.md": {
       "authors": [
@@ -32410,7 +32410,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/79012058?v=4"
         }
       ],
-      "retrieved": 1793535784
+      "retrieved": 1793878562
     },
     "solution/2700-2799/2706.Buy Two Chocolates/README.md": {
       "authors": [
@@ -33273,7 +33273,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1793878562
     },
     "solution/2700-2799/2756.Query Batching/README.md": {
       "authors": [
@@ -33323,7 +33323,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1793878562
     },
     "solution/0200-0299/0276.Paint Fence/README.md": {
       "authors": [
@@ -33908,7 +33908,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1793878562
     },
     "solution/2700-2799/2795.Parallel Execution of Promises for Individual Results Retrieval/README.md": {
       "authors": [
@@ -34404,19 +34404,19 @@
     "solution/2800-2899/2822.Inversion of Object/README.md": {
       "authors": [
         {
-          "login": "dajiaohuang",
-          "name": "dajiaohuang",
-          "url": "https://github.com/dajiaohuang",
-          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
         }
       ],
-      "retrieved": 1791078335
+      "retrieved": 1793878562
     },
     "solution/2800-2899/2823.Deep Object Filter/README.md": {
       "authors": [
@@ -34433,7 +34433,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1793878562
     },
     "solution/2800-2899/2824.Count Pairs Whose Sum is Less than Target/README.md": {
       "authors": [
@@ -98731,7 +98731,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1793878563
     },
     "solution/2600-2699/2632.Curry/README_EN.md": {
       "authors": [
@@ -99944,7 +99944,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1793878563
     },
     "solution/2700-2799/2701.Consecutive Transactions with Increasing Amounts/README_EN.md": {
       "authors": [
@@ -100011,7 +100011,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/79012058?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1793878563
     },
     "solution/2700-2799/2706.Buy Two Chocolates/README_EN.md": {
       "authors": [
@@ -100874,7 +100874,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1793878563
     },
     "solution/2700-2799/2756.Query Batching/README_EN.md": {
       "authors": [
@@ -100930,7 +100930,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1793878563
     },
     "solution/0200-0299/0276.Paint Fence/README_EN.md": {
       "authors": [
@@ -101509,7 +101509,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1793878563
     },
     "solution/2700-2799/2795.Parallel Execution of Promises for Individual Results Retrieval/README_EN.md": {
       "authors": [
@@ -101993,19 +101993,19 @@
     "solution/2800-2899/2822.Inversion of Object/README_EN.md": {
       "authors": [
         {
-          "login": "dajiaohuang",
-          "name": "dajiaohuang",
-          "url": "https://github.com/dajiaohuang",
-          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "dajiaohuang",
+          "name": "dajiaohuang",
+          "url": "https://github.com/dajiaohuang",
+          "avatar": "https://avatars.githubusercontent.com/u/108231307?v=4"
         }
       ],
-      "retrieved": 1791078333
+      "retrieved": 1793878563
     },
     "solution/2800-2899/2823.Deep Object Filter/README_EN.md": {
       "authors": [
@@ -102022,7 +102022,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1793878563
     },
     "solution/2800-2899/2824.Count Pairs Whose Sum is Less than Target/README_EN.md": {
       "authors": [
