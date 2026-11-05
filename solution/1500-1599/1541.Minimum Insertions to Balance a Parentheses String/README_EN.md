@@ -88,6 +88,8 @@ tags:
 
 <!-- thinking:end -->
 
+The greedy strategy is the same as above; the Rust version only changes the scanning mechanics: a `Peekable` iterator consumes the matching second `')'` with `next_if_eq`, so no explicit index bounds check is needed.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -224,6 +226,33 @@ function minInsertions(s: string): number {
     }
     ans += x << 1;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_insertions(s: String) -> i32 {
+        let mut ans = 0;
+        let mut x = 0;
+        let mut chars = s.bytes().peekable();
+        while let Some(c) = chars.next() {
+            if c == b'(' {
+                x += 1;
+            } else {
+                if chars.next_if_eq(&b')').is_none() {
+                    ans += 1;
+                }
+                if x == 0 {
+                    ans += 1;
+                } else {
+                    x -= 1;
+                }
+            }
+        }
+        ans + x * 2
+    }
 }
 ```
 
