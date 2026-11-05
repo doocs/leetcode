@@ -195,6 +195,8 @@ Iterate through each character $c$ in the string $s$:
 
 After the iteration ends, add the value of $\textit{cnt}$ to $\textit{ans}$, which is the answer.
 
+The Rust version uses `fold` over the bytes with $(\textit{ans}, \textit{cnt})$ as the state, so no explicit loop is needed; the greedy counting strategy is the same as above.
+
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
@@ -293,6 +295,25 @@ function minAddToMakeValid(s: string): number {
     }
     ans += cnt;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_add_to_make_valid(s: String) -> i32 {
+        let (ans, cnt) = s.bytes().fold((0, 0), |(ans, cnt), c| {
+            if c == b'(' {
+                (ans, cnt + 1)
+            } else if cnt > 0 {
+                (ans, cnt - 1)
+            } else {
+                (ans + 1, cnt)
+            }
+        });
+        ans + cnt
+    }
 }
 ```
 

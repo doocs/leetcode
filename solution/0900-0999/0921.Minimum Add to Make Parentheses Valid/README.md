@@ -197,6 +197,8 @@ function minAddToMakeValid(s: string): number {
 
 遍历结束后，将 $\textit{cnt}$ 的值加到 $\textit{ans}$ 中，即为答案。
 
+Rust 实现使用 `fold`，把 $(\textit{ans}, \textit{cnt})$ 作为状态元组在字节序列上折叠完成遍历，省去了显式循环；贪心计数策略与上述相同。
+
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
@@ -295,6 +297,25 @@ function minAddToMakeValid(s: string): number {
     }
     ans += cnt;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_add_to_make_valid(s: String) -> i32 {
+        let (ans, cnt) = s.bytes().fold((0, 0), |(ans, cnt), c| {
+            if c == b'(' {
+                (ans, cnt + 1)
+            } else if cnt > 0 {
+                (ans, cnt - 1)
+            } else {
+                (ans + 1, cnt)
+            }
+        });
+        ans + cnt
+    }
 }
 ```
 
