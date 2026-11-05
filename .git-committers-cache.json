@@ -1,5 +1,5 @@
 {
-  "cache_date": 1793792568,
+  "cache_date": 1793878379,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -10567,6 +10567,12 @@
     "solution/1500-1599/1541.Minimum Insertions to Balance a Parentheses String/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -10579,7 +10585,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
         }
       ],
-      "retrieved": 1793662546
+      "retrieved": 1793877968
     },
     "solution/1500-1599/1542.Find Longest Awesome Substring/README.md": {
       "authors": [
@@ -25647,13 +25653,19 @@
     "solution/2300-2399/2333.Minimum Sum of Squared Difference/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1793877968
     },
     "solution/2300-2399/2334.Subarray With Elements Greater Than Varying Threshold/README.md": {
       "authors": [
@@ -35582,13 +35594,19 @@
     "solution/2800-2899/2897.Apply Operations on Array to Maximize Sum of Squares/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1793877968
     },
     "solution/2800-2899/2898.Maximum Linear Stock Score/README.md": {
       "authors": [
@@ -35905,13 +35923,19 @@
     "solution/2900-2999/2913.Subarrays Distinct Element Sum of Squares I/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1793877968
     },
     "solution/2900-2999/2914.Minimum Number of Changes to Make Binary String Beautiful/README.md": {
       "authors": [
@@ -56577,6 +56601,12 @@
     "solution/0900-0999/0921.Minimum Add to Make Parentheses Valid/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -56589,7 +56619,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1793659938
+      "retrieved": 1793877968
     },
     "solution/0900-0999/0922.Sort Array By Parity II/README.md": {
       "authors": [
@@ -78078,6 +78108,12 @@
     "solution/1500-1599/1541.Minimum Insertions to Balance a Parentheses String/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -78090,7 +78126,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
         }
       ],
-      "retrieved": 1793662531
+      "retrieved": 1793877956
     },
     "solution/1500-1599/1542.Find Longest Awesome Substring/README_EN.md": {
       "authors": [
@@ -93320,13 +93356,19 @@
     "solution/2300-2399/2333.Minimum Sum of Squared Difference/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1793877956
     },
     "solution/2300-2399/2334.Subarray With Elements Greater Than Varying Threshold/README_EN.md": {
       "authors": [
@@ -103111,13 +103153,19 @@
     "solution/2800-2899/2897.Apply Operations on Array to Maximize Sum of Squares/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1793877956
     },
     "solution/2800-2899/2898.Maximum Linear Stock Score/README_EN.md": {
       "authors": [
@@ -103422,13 +103470,19 @@
     "solution/2900-2999/2913.Subarrays Distinct Element Sum of Squares I/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1793877956
     },
     "solution/2900-2999/2914.Minimum Number of Changes to Make Binary String Beautiful/README_EN.md": {
       "authors": [
@@ -123860,6 +123914,12 @@
     "solution/0900-0999/0921.Minimum Add to Make Parentheses Valid/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -123872,7 +123932,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1793659941
+      "retrieved": 1793877956
     },
     "solution/0900-0999/0922.Sort Array By Parity II/README_EN.md": {
       "authors": [
