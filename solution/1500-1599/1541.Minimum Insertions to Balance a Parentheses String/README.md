@@ -108,6 +108,8 @@ tags:
 
 遍历结束后，如果 $x = 0$，说明字符串已经平衡，返回插入次数；否则，说明字符串中有待匹配的左括号，我们需要再插入 $2 \times x$ 个右括号，使得字符串变成平衡字符串，返回插入次数。
 
+贪心策略与上述相同，Rust 实现只改变了扫描方式：用 `Peekable` 迭代器配合 `next_if_eq` 直接消费与当前右括号配对的第二个右括号，省去了下标越界判断。
+
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
@@ -246,6 +248,33 @@ function minInsertions(s: string): number {
     }
     ans += x << 1;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_insertions(s: String) -> i32 {
+        let mut ans = 0;
+        let mut x = 0;
+        let mut chars = s.bytes().peekable();
+        while let Some(c) = chars.next() {
+            if c == b'(' {
+                x += 1;
+            } else {
+                if chars.next_if_eq(&b')').is_none() {
+                    ans += 1;
+                }
+                if x == 0 {
+                    ans += 1;
+                } else {
+                    x -= 1;
+                }
+            }
+        }
+        ans + x * 2
+    }
 }
 ```
 
