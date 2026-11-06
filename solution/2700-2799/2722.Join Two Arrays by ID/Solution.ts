@@ -9,7 +9,7 @@ function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
             d[x.id] = x;
         }
     });
-    return Object.values(d);
+    return Object.values(d).sort((a, b) => a.id - b.id);
 }
 
 type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
