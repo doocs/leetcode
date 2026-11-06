@@ -404,7 +404,7 @@ class Codec {
     constructor() {}
 
     // Encodes an n-ary tree to a binary tree.
-    serialize(root: _Node | null): TreeNode | null {
+    encode(root: _Node | null): TreeNode | null {
         if (root === null) {
             return null;
         }
@@ -412,11 +412,11 @@ class Codec {
         if (root.children.length === 0) {
             return node;
         }
-        let left: TreeNode | null = this.serialize(root.children[0]);
+        let left: TreeNode | null = this.encode(root.children[0]);
         node.left = left;
         for (let i = 1; i < root.children.length; i++) {
             if (left) {
-                left.right = this.serialize(root.children[i]);
+                left.right = this.encode(root.children[i]);
                 left = left.right;
             }
         }
@@ -424,7 +424,7 @@ class Codec {
     }
 
     // Decodes your binary tree back to an n-ary tree.
-    deserialize(root: TreeNode | null): _Node | null {
+    decode(root: TreeNode | null): _Node | null {
         if (root === null) {
             return null;
         }
@@ -434,7 +434,7 @@ class Codec {
         }
         let left: TreeNode | null = root.left;
         while (left !== null) {
-            node.children.push(this.deserialize(left));
+            node.children.push(this.decode(left));
             left = left.right;
         }
         return node;
@@ -443,7 +443,7 @@ class Codec {
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
-// codec.deserialize(codec.serialize(root));
+// codec.decode(codec.encode(root));
 ```
 
 <!-- tabs:end -->
