@@ -330,9 +330,14 @@ class Solution:
     def numEnclaves(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
+        for j in range(n):
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    q.append((i, j))
+                    grid[i][j] = 0
         for i in range(m):
-            for j in range(n):
-                if grid[i][j] and (i == 0 or i == m - 1 or j == 0 or j == n - 1):
+            for j in (0, n - 1):
+                if grid[i][j]:
                     q.append((i, j))
                     grid[i][j] = 0
         dirs = (-1, 0, 1, 0, -1)
@@ -340,10 +345,10 @@ class Solution:
             i, j = q.popleft()
             for a, b in pairwise(dirs):
                 x, y = i + a, j + b
-                if x >= 0 and x < m and y >= 0 and y < n and grid[x][y]:
+                if 0 <= x < m and 0 <= y < n and grid[x][y]:
                     q.append((x, y))
                     grid[x][y] = 0
-        return sum(v for row in grid for v in row)
+        return sum(sum(row) for row in grid)
 ```
 
 #### Java
@@ -354,19 +359,28 @@ class Solution {
         int m = grid.length;
         int n = grid[0].length;
         Deque<int[]> q = new ArrayDeque<>();
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1 && (i == 0 || i == m - 1 || j == 0 || j == n - 1)) {
+        for (int j = 0; j < n; ++j) {
+            for (int i : List.of(0, m - 1)) {
+                if (grid[i][j] == 1) {
                     q.offer(new int[] {i, j});
                     grid[i][j] = 0;
                 }
             }
         }
-        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int i = 0; i < m; ++i) {
+            for (int j : List.of(0, n - 1)) {
+                if (grid[i][j] == 1) {
+                    q.offer(new int[] {i, j});
+                    grid[i][j] = 0;
+                }
+            }
+        }
+        final int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
-            var p = q.poll();
+            int[] p = q.poll();
+            int i = p[0], j = p[1];
             for (int k = 0; k < 4; ++k) {
-                int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
+                int x = i + dirs[k], y = j + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
                     q.offer(new int[] {x, y});
                     grid[x][y] = 0;
@@ -375,8 +389,8 @@ class Solution {
         }
         int ans = 0;
         for (var row : grid) {
-            for (var v : row) {
-                ans += v;
+            for (int x : row) {
+                ans += x;
             }
         }
         return ans;
@@ -393,9 +407,17 @@ public:
         int m = grid.size(), n = grid[0].size();
         int dirs[5] = {-1, 0, 1, 0, -1};
         queue<pair<int, int>> q;
+        for (int j = 0; j < n; ++j) {
+            for (int i : {0, m - 1}) {
+                if (grid[i][j] == 1) {
+                    q.emplace(i, j);
+                    grid[i][j] = 0;
+                }
+            }
+        }
         for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] && (i == 0 || i == m - 1 || j == 0 || j == n - 1)) {
+            for (int j : {0, n - 1}) {
+                if (grid[i][j] == 1) {
                     q.emplace(i, j);
                     grid[i][j] = 0;
                 }
@@ -406,17 +428,15 @@ public:
             q.pop();
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y]) {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
                     q.emplace(x, y);
                     grid[x][y] = 0;
                 }
             }
         }
         int ans = 0;
-        for (auto& row : grid) {
-            for (auto& v : row) {
-                ans += v;
-            }
+        for (const auto& row : grid) {
+            ans += accumulate(row.begin(), row.end(), 0);
         }
         return ans;
     }
@@ -430,19 +450,27 @@ func numEnclaves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	dirs := [5]int{-1, 0, 1, 0, -1}
 	q := [][2]int{}
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 1 && (i == 0 || i == m-1 || j == 0 || j == n-1) {
+	for j := 0; j < n; j++ {
+		for _, i := range []int{0, m - 1} {
+			if grid[i][j] == 1 {
+				q = append(q, [2]int{i, j})
+				grid[i][j] = 0
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for _, j := range []int{0, n - 1} {
+			if grid[i][j] == 1 {
 				q = append(q, [2]int{i, j})
 				grid[i][j] = 0
 			}
 		}
 	}
 	for len(q) > 0 {
-		p := q[0]
+		i, j := q[0][0], q[0][1]
 		q = q[1:]
 		for k := 0; k < 4; k++ {
-			x, y := p[0]+dirs[k], p[1]+dirs[k+1]
+			x, y := i+dirs[k], j+dirs[k+1]
 			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
 				q = append(q, [2]int{x, y})
 				grid[x][y] = 0
@@ -450,8 +478,8 @@ func numEnclaves(grid [][]int) (ans int) {
 		}
 	}
 	for _, row := range grid {
-		for _, v := range row {
-			ans += v
+		for _, x := range row {
+			ans += x
 		}
 	}
 	return
