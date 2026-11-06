@@ -107,9 +107,9 @@ arr2 = [
 
 > **Thinking**
 >
-> Merge two object arrays on $id$, with $\textit{arr2}$ winning on conflicts. Nested pairing is slow on large inputs and still needs a sort.
+> Merge two object arrays on $id$, with $\textit{arr2}$ winning on conflicts. Nested pairing is slow on large inputs.
 >
-> Index $\textit{arr1}$ by $id$, then scan $\textit{arr2}$: $\textit{Object}.\textit{assign}$ into an existing record or insert a new one. $\textit{Object}.\textit{values}$ yields the rows; integer keys keep them ordered.
+> Index $\textit{arr1}$ by $id$, then scan $\textit{arr2}$: $\textit{Object}.\textit{assign}$ into an existing record or insert a new one. $\textit{Object}.\textit{values}$ only sorts array indexes. Negative ids and other non-index keys stay in insertion order, so the rows are sorted by $id$ before returning.
 
 <!-- thinking:end -->
 
@@ -129,7 +129,7 @@ function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
             d[x.id] = x;
         }
     });
-    return Object.values(d);
+    return Object.values(d).sort((a, b) => a.id - b.id);
 }
 
 type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };

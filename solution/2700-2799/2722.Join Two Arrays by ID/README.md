@@ -109,9 +109,9 @@ arr2 = [
 
 > **思考**
 >
-> 按 $id$ 合并两个对象数组，同 $id$ 时 $\textit{arr2}$ 覆盖 $\textit{arr1}$ 的字段。嵌套循环配对在长度较大时偏慢，且需要再排序。
+> 按 $id$ 合并两个对象数组，同 $id$ 时 $\textit{arr2}$ 覆盖 $\textit{arr1}$ 的字段。嵌套循环配对在长度较大时偏慢。
 >
-> 先把 $\textit{arr1}$ 收入以 $id$ 为键的映射，再遍历 $\textit{arr2}$：已有则 $\textit{Object}.\textit{assign}$ 覆盖，否则新开一项。最后取映射的值列表，引擎按整数键的顺序给出结果。
+> 先把 $\textit{arr1}$ 收入以 $id$ 为键的映射，再遍历 $\textit{arr2}$：已有则 $\textit{Object}.\textit{assign}$ 覆盖，否则新开一项。$\textit{Object}.\textit{values}$ 只会把数组下标按数值提前，负数等非下标键仍保持插入顺序，因此取出值列表后还要按 $id$ 排序。
 
 <!-- thinking:end -->
 
@@ -131,7 +131,7 @@ function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
             d[x.id] = x;
         }
     });
-    return Object.values(d);
+    return Object.values(d).sort((a, b) => a.id - b.id);
 }
 
 type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
