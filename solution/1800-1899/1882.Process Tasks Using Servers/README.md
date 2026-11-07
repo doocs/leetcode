@@ -94,6 +94,8 @@ tags:
 
 遍历结束后，我们得到了答案数组 $\textit{ans}$。
 
+Rust 实现使用 `BinaryHeap` 配合 `Reverse` 模拟小根堆，空闲堆存放 $(\textit{weight}, \textit{index})$ 二元组，忙碌堆存放 $(\textit{free\_time}, \textit{weight}, \textit{index})$ 三元组，堆顶弹出顺序与上述一致。
+
 时间复杂度 $O((n + m) \log n)$。其中 $n$ 为服务器的数量， $m$ 为任务的数量。空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为服务器和任务的数量。
 
 相似题目：
@@ -306,6 +308,43 @@ function assignTasks(servers: number[], tasks: number[]): number[] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn assign_tasks(servers: Vec<i32>, tasks: Vec<i32>) -> Vec<i32> {
+        use std::cmp::Reverse;
+        use std::collections::BinaryHeap;
+
+        let mut idle: BinaryHeap<Reverse<(i32, usize)>> = BinaryHeap::new();
+        for (i, &x) in servers.iter().enumerate() {
+            idle.push(Reverse((x, i)));
+        }
+        let mut busy: BinaryHeap<Reverse<(i64, i32, usize)>> = BinaryHeap::new();
+        let mut ans = vec![0; tasks.len()];
+        for (j, &t) in tasks.iter().enumerate() {
+            let t = i64::from(t);
+            while let Some(&Reverse((w, s, i))) = busy.peek() {
+                if w > j as i64 {
+                    break;
+                }
+                busy.pop();
+                idle.push(Reverse((s, i)));
+            }
+            if let Some(Reverse((s, i))) = idle.pop() {
+                ans[j] = i as i32;
+                busy.push(Reverse((j as i64 + t, s, i)));
+            } else {
+                let Reverse((w, s, i)) = busy.pop().unwrap();
+                ans[j] = i as i32;
+                busy.push(Reverse((w + t, s, i)));
+            }
+        }
+        ans
+    }
 }
 ```
 
