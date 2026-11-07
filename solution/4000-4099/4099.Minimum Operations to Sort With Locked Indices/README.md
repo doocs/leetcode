@@ -105,32 +105,304 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：树状数组 + 贪心
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只允许交换相邻元素来将排列还原为递增顺序，最少交换次数始终等于排列的逆序对数；而要统计全部逆序对，如果双重循环枚举需要 $O(n^2)$，进阶要求提示我们应当做到 $O(n \log n)$。
+>
+> 解锁操作并不会减少所需的相邻交换次数，它只决定哪些下标可以参与相邻交换。由于 $\textit{nums}$ 是 $1 \sim n$ 的排列，每当某个前缀 $[0..i]$ 的最大值恰好等于 $i + 1$ 时，前缀与后缀中的元素便不再需要跨过分界点 $i$ 进行交换，数组由此被切分为若干个极小的独立区间 $[j..i]$。若区间长度为 $1$，唯一的元素已在目标位置上，无需参与交换；若区间长度大于 $1$，区间无法再细分，即对于任意 $p \in [j, i - 1]$，前缀 $[j..p]$ 与后缀 $[p + 1..i]$ 之间必定有元素需要跨过分界 $(p, p + 1)$，因此整个区间 $[j..i]$ 内的所有下标都必须处于解锁状态。
+>
+> 据此，我们先倒序遍历 $\textit{nums}$，用树状数组在 $O(n \log n)$ 时间内统计逆序对总数 $\textit{inv}$；随后正序遍历并维护前缀最大值 $mx$，每当 $mx = i + 1$ 就结算当前极小区间，若 $i > j$ 则将该区间内 $\textit{locked}$ 的和累加到所需解锁次数 $\textit{cnt}$ 中。
+
+<!-- thinking:end -->
+
+我们可以将总操作次数拆分为**最少交换次数**和**最少解锁次数**两部分分别计算：
+
+1. **最少交换次数**：每次操作只能交换相邻的两个元素，将数组还原为严格递增顺序所需的最少相邻交换次数等于数组 $\textit{nums}$ 的**逆序对**数量 $\textit{inv}$。我们可以倒序遍历数组 $\textit{nums}$，利用树状数组统计每个元素右侧比它小的元素个数，从而在 $O(n \log n)$ 时间内求出 $\textit{inv}$。
+2. **最少解锁次数**：由于 $\textit{nums}$ 是 $[1, n]$ 的一个排列，当我们从左到右遍历数组并维护前缀最大值 $mx$ 时，一旦在下标 $i$ 处满足 $mx = i + 1$，说明前缀 $\textit{nums}[0..i]$ 恰好包含了 $[1, i + 1]$ 中的所有整数。这意味着前缀 $[0..i]$ 与后缀 $[i + 1..n - 1]$ 之间没有任何元素需要跨界交换。因此，整个数组可以被划分为若干个极小的独立区间 $[j..i]$：
+    - 若 $i = j$（区间长度为 $1$），则 $\textit{nums}[i] = i + 1$ 已经在正确的位置上，无需与任何元素交换，因此下标 $i$ 即使被锁定也无需解锁。
+    - 若 $i > j$（区间长度大于 $1$），由于该区间是极小的，对于任意 $p \in [j, i - 1]$，前缀 $[0..p]$ 的最大值都严格大于 $p + 1$，必然有元素需要在 $p$ 和 $p + 1$ 之间发生交换。因此，区间 $[j..i]$ 内的所有下标都必须参与交换，其中所有满足 $\textit{locked}[p] = 1$ 的下标都必须被解锁。
+
+遍历结束后，如果累计需要解锁的下标数量 $\textit{cnt} > k$，则无法完成排序，返回 $-1$；否则返回 $\textit{cnt} + \textit{inv}$。
+
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    __slots__ = "n", "c"
 
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x: int, delta: int) -> None:
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class Solution:
+    def minOperations(self, nums: list[int], locked: list[int], k: int) -> int:
+        n = len(nums)
+        bit = BinaryIndexedTree(n)
+        inv = 0
+        for x in reversed(nums):
+            inv += bit.query(x - 1)
+            bit.update(x, 1)
+
+        cnt = mx = j = 0
+        for i, x in enumerate(nums):
+            mx = max(mx, x)
+            if mx == i + 1:
+                if i > j:
+                    cnt += sum(locked[j : i + 1])
+                j = i + 1
+
+        return -1 if cnt > k else cnt + inv
 ```
 
 #### Java
 
 ```java
+class BinaryIndexedTree {
+    private final int n;
+    private final int[] c;
 
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        this.c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class Solution {
+    public int minOperations(int[] nums, int[] locked, int k) {
+        int n = nums.length;
+        BinaryIndexedTree bit = new BinaryIndexedTree(n);
+        int inv = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            inv += bit.query(nums[i] - 1);
+            bit.update(nums[i], 1);
+        }
+
+        int cnt = 0, mx = 0, j = 0;
+        for (int i = 0; i < n; ++i) {
+            mx = Math.max(mx, nums[i]);
+            if (mx == i + 1) {
+                if (i > j) {
+                    for (int p = j; p <= i; ++p) {
+                        cnt += locked[p];
+                    }
+                }
+                j = i + 1;
+            }
+        }
+
+        return cnt > k ? -1 : cnt + inv;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class BinaryIndexedTree {
+    int n;
+    vector<int> c;
 
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+};
+
+class Solution {
+public:
+    int minOperations(vector<int>& nums, vector<int>& locked, int k) {
+        int n = nums.size();
+        BinaryIndexedTree bit(n);
+        int inv = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            inv += bit.query(nums[i] - 1);
+            bit.update(nums[i], 1);
+        }
+
+        int cnt = 0, mx = 0, j = 0;
+        for (int i = 0; i < n; ++i) {
+            mx = max(mx, nums[i]);
+            if (mx == i + 1) {
+                if (i > j) {
+                    for (int p = j; p <= i; ++p) {
+                        cnt += locked[p];
+                    }
+                }
+                j = i + 1;
+            }
+        }
+
+        return cnt > k ? -1 : cnt + inv;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
 
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{
+		n: n,
+		c: make([]int, n+1),
+	}
+}
+
+func (bit *BinaryIndexedTree) update(x int, delta int) {
+	for x <= bit.n {
+		bit.c[x] += delta
+		x += x & -x
+	}
+}
+
+func (bit *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += bit.c[x]
+		x -= x & -x
+	}
+	return s
+}
+
+func minOperations(nums []int, locked []int, k int) int {
+	n := len(nums)
+	bit := NewBinaryIndexedTree(n)
+	inv := 0
+	for i := n - 1; i >= 0; i-- {
+		inv += bit.query(nums[i] - 1)
+		bit.update(nums[i], 1)
+	}
+
+	cnt, mx, j := 0, 0, 0
+	for i, x := range nums {
+		mx = max(mx, x)
+		if mx == i+1 {
+			if i > j {
+				for p := j; p <= i; p++ {
+					cnt += locked[p]
+				}
+			}
+			j = i + 1
+		}
+	}
+
+	if cnt > k {
+		return -1
+	}
+	return cnt + inv
+}
+```
+
+#### TypeScript
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = new Array(n + 1).fill(0);
+    }
+
+    update(x: number, delta: number): void {
+        while (x <= this.n) {
+            this.c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+function minOperations(nums: number[], locked: number[], k: number): number {
+    const n = nums.length;
+    const bit = new BinaryIndexedTree(n);
+    let inv = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        inv += bit.query(nums[i] - 1);
+        bit.update(nums[i], 1);
+    }
+
+    let [cnt, mx, j] = [0, 0, 0];
+    for (let i = 0; i < n; ++i) {
+        mx = Math.max(mx, nums[i]);
+        if (mx === i + 1) {
+            if (i > j) {
+                for (let p = j; p <= i; ++p) {
+                    cnt += locked[p];
+                }
+            }
+            j = i + 1;
+        }
+    }
+
+    return cnt > k ? -1 : cnt + inv;
+}
 ```
 
 <!-- tabs:end -->
