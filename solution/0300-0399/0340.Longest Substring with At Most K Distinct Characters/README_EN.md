@@ -55,23 +55,21 @@ tags:
 
 > **Thinking**
 >
-> Enumerating each starting position, then extending to the right while counting distinct characters, takes $O(n^2)$ time. To avoid repeated enumeration, we can maintain character counts in a sliding window using a hash table.
+> Enumerating each starting position and extending to the right while counting distinct characters takes $O(n^2)$ time, which times out for $n \le 5 \times 10^4$. Since the number of distinct characters is monotonically non-decreasing as the interval expands, we can maintain character counts in a sliding window using a hash table $\textit{cnt}$, with $l$ recording the left boundary.
 >
-> Since only the maximum length is required, we only try to increase the best length found so far by $1$. After adding the right character, if the number of distinct characters exceeds $k$, the length cannot grow in this iteration, so we move the left boundary once to preserve the previous length. The window may temporarily be invalid, but its length always equals the optimum for the processed prefix.
+> Since only the maximum valid substring length is required, the window length only needs to be monotonically non-decreasing: after adding the right character, if the number of distinct characters exceeds $k$, the window length cannot grow in this step, so we only move the left boundary $l$ one position to the right to preserve the previous length rather than shrinking in a loop until valid. After the traversal, the window length $n - l$ is the answer.
 
 <!-- thinking:end -->
 
-We maintain a sliding window whose length never decreases, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $l$ to denote the left boundary of the window.
+We can use the idea of a sliding window, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $l$ to denote the left boundary of the window.
 
-Iterate through the string, incrementing the count of the character at the right boundary by $1$. If the number of distinct characters in the hash table exceeds $k$, decrement the count of the character at the left boundary, delete it when its count becomes $0$, and move $l$ one position to the right. This uses a single `if`, moving the left boundary at most once per iteration, so the window length either increases by $1$ or stays the same, even though the window may still contain more than $k$ distinct characters.
+Iterate through the string $s$, adding the character at the right boundary to the hash table $\textit{cnt}$ each time. If the number of distinct characters in the hash table exceeds $k$, remove one occurrence of the character at the left boundary from the hash table, and move the left boundary $l$ one position to the right.
 
-We prove that after each iteration, the window length equals the longest valid substring length in the processed prefix. Suppose both the previous window length and the previous optimum are $L$. After adding one character, the optimum is at most $L+1$, since removing the last character from any valid substring ending at the new character leaves a valid substring. The current window is the unique substring of length $L+1$ ending at the new character: if it is valid, both the optimum and the window length increase to $L+1$; otherwise, the optimum remains $L$, and moving the left boundary once also keeps the window length at $L$. By induction from the empty prefix, the final $n-l$ is the answer, where $n$ is the string length.
+Note that in the process above, we do not need to loop to move the left boundary $l$ to the right; instead, we move it to the right by one position directly. This is because the problem asks for the maximum length of a valid substring, so the length of the window will only increase and never decrease.
 
-For example, with the string `eceba` and $k=2$, the windows after each iteration are `e`, `ec`, `ece`, `ceb`, and `eba`, with lengths $1,2,3,3,3$. Although the last two windows are invalid, their length still records the length $3$ of the valid substring `ece`. When $k=0$, each added character is immediately removed, giving an answer of $0$.
+Finally, return the length of the string $n$ minus the left boundary $l$.
 
-Assuming hash table operations take $O(1)$ time on average, the time complexity is $O(n)$. The hash table uses $O(\min(n, |\Sigma|))$ space, where $\Sigma$ denotes the character set; for a fixed character set, it uses $O(1)$ space.
-
-The space cannot generally be bounded by $O(k)$: for example, with $k=1$, first read $m$ copies of one character, followed by $m$ distinct characters different from the first one. The final window contains $m$ distinct characters. In addition, `toCharArray()` in the Java implementation requires $O(n)$ extra space.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set.
 
 <!-- tabs:start -->
 
