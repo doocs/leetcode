@@ -1,5 +1,5 @@
 {
-  "cache_date": 1794117179,
+  "cache_date": 1794117743,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -17533,13 +17533,19 @@
     "solution/1800-1899/1882.Process Tasks Using Servers/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793713400
+      "retrieved": 1794117333
     },
     "solution/1800-1899/1883.Minimum Skips to Arrive at Meeting On Time/README.md": {
       "authors": [
@@ -85206,13 +85212,19 @@
     "solution/1800-1899/1882.Process Tasks Using Servers/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1793749075
+      "retrieved": 1794117358
     },
     "solution/1800-1899/1883.Minimum Skips to Arrive at Meeting On Time/README_EN.md": {
       "authors": [
