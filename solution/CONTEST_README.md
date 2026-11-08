@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 527 场周赛(2026-11-08 10:30, 90 分钟) 参赛人数 970
+
+- [4106. 找出两个字符串的不匹配片段](/solution/4100-4199/4106.Find%20Mismatched%20Segments%20Between%20Two%20Strings/README.md)
+- [4107. 统计有效后缀排序的数量 I](/solution/4100-4199/4107.Count%20Valid%20Suffix%20Sorts%20I/README.md)
+- [4108. 使红色节点连通的最小代价](/solution/4100-4199/4108.Minimum%20Cost%20to%20Make%20Red%20Nodes%20Connected/README.md)
+- [4109. 统计有效后缀排序的数量 II](/solution/4100-4199/4109.Count%20Valid%20Suffix%20Sorts%20II/README.md)
+
 #### 第 195 场双周赛(2026-11-07 22:30, 90 分钟) 参赛人数 638
 
 - [4102. 统计有效子字符串 I](/solution/4100-4199/4102.Count%20Valid%20Substrings%20I/README.md)
