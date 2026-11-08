@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: 中等
-rating: 1864
+rating: 1768
 source: 第 108 场双周赛 Q3
 tags:
     - 哈希表

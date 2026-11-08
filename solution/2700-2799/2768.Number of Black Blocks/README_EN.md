@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: Medium
-rating: 2175
+rating: 1988
 source: Biweekly Contest 108 Q4
 tags:
     - Array

@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 195 场双周赛(2026-11-07 22:30, 90 分钟) 参赛人数 638
+
+- [4102. 统计有效子字符串 I](/solution/4100-4199/4102.Count%20Valid%20Substrings%20I/README.md)
+- [4103. 按类型和颜色删除元素](/solution/4100-4199/4103.Remove%20Elements%20by%20Type%20and%20Color/README.md)
+- [4104. 统计有效子字符串 II](/solution/4100-4199/4104.Count%20Valid%20Substrings%20II/README.md)
+- [4105. 重复字符串匹配 II](/solution/4100-4199/4105.Repeated%20String%20Match%20II/README.md)
+
 #### 第 526 场周赛(2026-11-01 10:30, 90 分钟) 参赛人数 972
 
 - [4097. 合并整数后的最小值](/solution/4000-4099/4097.Minimum%20Value%20of%20Merged%20Integers/README.md)

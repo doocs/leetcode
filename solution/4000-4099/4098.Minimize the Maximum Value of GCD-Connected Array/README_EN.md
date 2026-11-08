@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1729
+source: Weekly Contest 526 Q2
 ---
 
 <!-- problem:start -->

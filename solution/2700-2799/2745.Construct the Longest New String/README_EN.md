@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: Medium
-rating: 1607
+rating: 1578
 source: Biweekly Contest 107 Q2
 tags:
     - Greedy

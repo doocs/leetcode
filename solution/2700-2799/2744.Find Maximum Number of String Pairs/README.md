@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: 简单
-rating: 1405
+rating: 1419
 source: 第 107 场双周赛 Q1
 tags:
     - 数组
