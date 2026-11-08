@@ -55,19 +55,21 @@ tags:
 
 > **Thinking**
 >
-> Longest substring with at most $k$ distinct characters. Checking every pair of ends is $O(n^2)$. Distinctness grows with the right end and shrinks when the left advances, so a sliding window works.
+> Enumerating each starting position and extending to the right while counting distinct characters takes $O(n^2)$ time, which times out for $n \le 5 \times 10^4$. Since the number of distinct characters is monotonically non-decreasing as the interval expands, we can maintain character counts in a sliding window using a hash table $\textit{cnt}$, with $l$ recording the left boundary.
 >
-> Admit the right character; while the map has more than $k$ keys, drop the left. The window is always the longest legal suffix of the prefix, and the length is $n-l$.
+> Since only the maximum valid substring length is required, the window length only needs to be monotonically non-decreasing: after adding the right character, if the number of distinct characters exceeds $k$, the window length cannot grow in this step, so we only move the left boundary $l$ one position to the right to preserve the previous length rather than shrinking in a loop until valid. After the traversal, the window length $n - l$ is the answer.
 
 <!-- thinking:end -->
 
 We can use the idea of a sliding window, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $l$ to denote the left boundary of the window.
 
-Iterate through the string, adding the character at the right boundary to the hash table each time. If the number of distinct characters in the hash table exceeds $k$, remove the character at the left boundary from the hash table, then update the left boundary $l$.
+Iterate through the string $s$, adding the character at the right boundary to the hash table $\textit{cnt}$ each time. If the number of distinct characters in the hash table exceeds $k$, remove one occurrence of the character at the left boundary from the hash table, and move the left boundary $l$ one position to the right.
 
-Finally, return the length of the string minus the length of the left boundary.
+Note that in the process above, we do not need to loop to move the left boundary $l$ to the right; instead, we move it to the right by one position directly. This is because the problem asks for the maximum length of a valid substring, so the length of the window will only increase and never decrease.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the string.
+Finally, return the length of the string $n$ minus the left boundary $l$.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set.
 
 <!-- tabs:start -->
 
