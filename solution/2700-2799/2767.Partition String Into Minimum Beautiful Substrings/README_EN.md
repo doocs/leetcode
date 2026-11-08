@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: Medium
-rating: 1864
+rating: 1768
 source: Biweekly Contest 108 Q3
 tags:
     - Hash Table

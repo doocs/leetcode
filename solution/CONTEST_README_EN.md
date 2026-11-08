@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 195
+
+- [4102. Count Valid Substrings I](/solution/4100-4199/4102.Count%20Valid%20Substrings%20I/README_EN.md)
+- [4103. Remove Elements by Type and Color](/solution/4100-4199/4103.Remove%20Elements%20by%20Type%20and%20Color/README_EN.md)
+- [4104. Count Valid Substrings II](/solution/4100-4199/4104.Count%20Valid%20Substrings%20II/README_EN.md)
+- [4105. Repeated String Match II](/solution/4100-4199/4105.Repeated%20String%20Match%20II/README_EN.md)
+
 #### Weekly Contest 526
 
 - [4097. Minimum Value of Merged Integers](/solution/4000-4099/4097.Minimum%20Value%20of%20Merged%20Integers/README_EN.md)

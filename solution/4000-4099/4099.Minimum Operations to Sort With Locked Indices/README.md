@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1828
+source: 第 526 场周赛 Q3
 ---
 
 <!-- problem:start -->

@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: Easy
-rating: 1405
+rating: 1419
 source: Biweekly Contest 107 Q1
 tags:
     - Array

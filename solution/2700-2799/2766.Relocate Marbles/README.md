@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: 中等
-rating: 1613
+rating: 1539
 source: 第 108 场双周赛 Q2
 tags:
     - 数组

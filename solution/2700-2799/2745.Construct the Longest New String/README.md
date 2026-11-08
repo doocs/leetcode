@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: 中等
-rating: 1607
+rating: 1578
 source: 第 107 场双周赛 Q2
 tags:
     - 贪心
