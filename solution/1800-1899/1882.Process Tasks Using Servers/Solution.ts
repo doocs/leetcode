@@ -1,30 +1,37 @@
 function assignTasks(servers: number[], tasks: number[]): number[] {
-    const idle = new PriorityQueue({
-        compare: (a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]),
+    const busy = new MinPriorityQueue<[number, number]>({
+        compare: (a, b) => {
+            if (a[0] !== b[0]) return a[0] - b[0];
+            return a[1] - b[1];
+        },
     });
-    const busy = new PriorityQueue({
-        compare: (a, b) =>
-            a[0] === b[0] ? (a[1] === b[1] ? a[2] - b[2] : a[1] - b[1]) : a[0] - b[0],
+    const idle = new MinPriorityQueue<[number, number]>({
+        compare: (a, b) => {
+            if (a[0] !== b[0]) return a[0] - b[0];
+            return a[1] - b[1];
+        },
     });
-    for (let i = 0; i < servers.length; ++i) {
+    for (let i = 0; i < servers.length; i++) {
         idle.enqueue([servers[i], i]);
     }
+    let currentTime: number = 0;
     const ans: number[] = [];
-    for (let j = 0; j < tasks.length; ++j) {
-        const t = tasks[j];
-        while (busy.size() > 0 && busy.front()![0] <= j) {
-            const [_, s, i] = busy.dequeue()!;
-            idle.enqueue([s, i]);
+    const release = (): void => {
+        while (!busy.isEmpty() && busy.front()![0] <= currentTime) {
+            const [, idx] = busy.dequeue()!;
+            idle.enqueue([servers[idx], idx]);
         }
-        if (idle.size() > 0) {
-            const [s, i] = idle.dequeue()!;
-            busy.enqueue([j + t, s, i]);
-            ans.push(i);
-        } else {
-            const [w, s, i] = busy.dequeue()!;
-            busy.enqueue([w + t, s, i]);
-            ans.push(i);
+    };
+    for (let i = 0; i < tasks.length; i++) {
+        currentTime = Math.max(currentTime, i);
+        release();
+        if (idle.isEmpty()) {
+            currentTime = busy.front()![0];
+            release();
         }
+        const [, idx] = idle.dequeue()!;
+        ans.push(idx);
+        busy.enqueue([currentTime + tasks[i], idx]);
     }
     return ans;
 }
