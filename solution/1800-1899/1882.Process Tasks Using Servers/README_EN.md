@@ -95,6 +95,8 @@ Next, we iterate through all tasks. For the $j$-th task, we first remove all ser
 
 After iterating through all tasks, we obtain the answer array $\textit{ans}$.
 
+The Rust version uses `BinaryHeap` with `Reverse` to emulate the min-heaps: the idle heap holds $(\textit{weight}, \textit{index})$ pairs and the busy heap holds $(\textit{free\_time}, \textit{weight}, \textit{index})$ triples, so the pop order matches the description above.
+
 The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$, where $n$ is the number of servers and $m$ is the number of tasks, and $n$ and $m$ are the number of servers and tasks, respectively.
 
 Similar problems:
@@ -307,6 +309,43 @@ function assignTasks(servers: number[], tasks: number[]): number[] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn assign_tasks(servers: Vec<i32>, tasks: Vec<i32>) -> Vec<i32> {
+        use std::cmp::Reverse;
+        use std::collections::BinaryHeap;
+
+        let mut idle: BinaryHeap<Reverse<(i32, usize)>> = BinaryHeap::new();
+        for (i, &x) in servers.iter().enumerate() {
+            idle.push(Reverse((x, i)));
+        }
+        let mut busy: BinaryHeap<Reverse<(i64, i32, usize)>> = BinaryHeap::new();
+        let mut ans = vec![0; tasks.len()];
+        for (j, &t) in tasks.iter().enumerate() {
+            let t = i64::from(t);
+            while let Some(&Reverse((w, s, i))) = busy.peek() {
+                if w > j as i64 {
+                    break;
+                }
+                busy.pop();
+                idle.push(Reverse((s, i)));
+            }
+            if let Some(Reverse((s, i))) = idle.pop() {
+                ans[j] = i as i32;
+                busy.push(Reverse((j as i64 + t, s, i)));
+            } else {
+                let Reverse((w, s, i)) = busy.pop().unwrap();
+                ans[j] = i as i32;
+                busy.push(Reverse((w + t, s, i)));
+            }
+        }
+        ans
+    }
 }
 ```
 
