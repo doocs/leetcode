@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 527
+
+- [4106. Find Mismatched Segments Between Two Strings](/solution/4100-4199/4106.Find%20Mismatched%20Segments%20Between%20Two%20Strings/README_EN.md)
+- [4107. Count Valid Suffix Sorts I](/solution/4100-4199/4107.Count%20Valid%20Suffix%20Sorts%20I/README_EN.md)
+- [4108. Minimum Cost to Make Red Nodes Connected](/solution/4100-4199/4108.Minimum%20Cost%20to%20Make%20Red%20Nodes%20Connected/README_EN.md)
+- [4109. Count Valid Suffix Sorts II](/solution/4100-4199/4109.Count%20Valid%20Suffix%20Sorts%20II/README_EN.md)
+
 #### Biweekly Contest 195
 
 - [4102. Count Valid Substrings I](/solution/4100-4199/4102.Count%20Valid%20Substrings%20I/README_EN.md)
