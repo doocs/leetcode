@@ -1,5 +1,5 @@
 {
-  "cache_date": 1794144569,
+  "cache_date": 1794145351,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -17533,6 +17533,12 @@
     "solution/1800-1899/1882.Process Tasks Using Servers/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -17545,7 +17551,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794117333
+      "retrieved": 1794144753
     },
     "solution/1800-1899/1883.Minimum Skips to Arrive at Meeting On Time/README.md": {
       "authors": [
@@ -43176,6 +43182,12 @@
     "solution/0300-0399/0340.Longest Substring with At Most K Distinct Characters/README.md": {
       "authors": [
         {
+          "login": "y4ho0",
+          "name": "y4ho0",
+          "url": "https://github.com/y4ho0",
+          "avatar": "https://avatars.githubusercontent.com/u/119646314?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -43188,7 +43200,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1793576651
+      "retrieved": 1794144753
     },
     "solution/3400-3499/3400.Maximum Number of Matching Indices After Right Shifts/README.md": {
       "authors": [
@@ -85212,6 +85224,12 @@
     "solution/1800-1899/1882.Process Tasks Using Servers/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -85224,7 +85242,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794117358
+      "retrieved": 1794144751
     },
     "solution/1800-1899/1883.Minimum Skips to Arrive at Meeting On Time/README_EN.md": {
       "authors": [
@@ -110627,6 +110645,12 @@
     "solution/0300-0399/0340.Longest Substring with At Most K Distinct Characters/README_EN.md": {
       "authors": [
         {
+          "login": "y4ho0",
+          "name": "y4ho0",
+          "url": "https://github.com/y4ho0",
+          "avatar": "https://avatars.githubusercontent.com/u/119646314?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -110639,7 +110663,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1794144751
     },
     "solution/3400-3499/3400.Maximum Number of Matching Indices After Right Shifts/README_EN.md": {
       "authors": [
