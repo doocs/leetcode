@@ -278,39 +278,31 @@ func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retu
 
 ```ts
 function assignTasks(servers: number[], tasks: number[]): number[] {
-    const busy = new MinPriorityQueue<[number, number]>({
-        compare: (a, b) => {
-            if (a[0] !== b[0]) return a[0] - b[0];
-            return a[1] - b[1];
-        },
-    });
-    const idle = new MinPriorityQueue<[number, number]>({
-        compare: (a, b) => {
-            if (a[0] !== b[0]) return a[0] - b[0];
-            return a[1] - b[1];
-        },
-    });
-    for (let i = 0; i < servers.length; i++) {
+    const idle = new PriorityQueue<[number, number]>((a, b) =>
+        a[0] === b[0] ? a[1] - b[1] : a[0] - b[0],
+    );
+    const busy = new PriorityQueue<[number, number, number]>((a, b) =>
+        a[0] === b[0] ? (a[1] === b[1] ? a[2] - b[2] : a[1] - b[1]) : a[0] - b[0],
+    );
+    for (let i = 0; i < servers.length; ++i) {
         idle.enqueue([servers[i], i]);
     }
-    let currentTime: number = 0;
     const ans: number[] = [];
-    const release = (): void => {
-        while (!busy.isEmpty() && busy.front()![0] <= currentTime) {
-            const [, idx] = busy.dequeue()!;
-            idle.enqueue([servers[idx], idx]);
+    for (let j = 0; j < tasks.length; ++j) {
+        const t = tasks[j];
+        while (!busy.isEmpty() && busy.front()![0] <= j) {
+            const [_, s, i] = busy.dequeue()!;
+            idle.enqueue([s, i]);
         }
-    };
-    for (let i = 0; i < tasks.length; i++) {
-        currentTime = Math.max(currentTime, i);
-        release();
-        if (idle.isEmpty()) {
-            currentTime = busy.front()![0];
-            release();
+        if (!idle.isEmpty()) {
+            const [s, i] = idle.dequeue()!;
+            busy.enqueue([j + t, s, i]);
+            ans.push(i);
+        } else {
+            const [w, s, i] = busy.dequeue()!;
+            busy.enqueue([w + t, s, i]);
+            ans.push(i);
         }
-        const [, idx] = idle.dequeue()!;
-        ans.push(idx);
-        busy.enqueue([currentTime + tasks[i], idx]);
     }
     return ans;
 }
