@@ -1,5 +1,5 @@
 class Solution:
-    def maxCoins(self, lane1: List[int], lane2: List[int]) -> int:
+    def maxCoins(self, lane1: list[int], lane2: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= n:

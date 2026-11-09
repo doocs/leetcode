@@ -79,7 +79,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def beautifulBouquet(self, flowers: List[int], cnt: int) -> int:
+    def beautifulBouquet(self, flowers: list[int], cnt: int) -> int:
         mod = 10**9 + 7
         d = Counter()
         ans = j = 0

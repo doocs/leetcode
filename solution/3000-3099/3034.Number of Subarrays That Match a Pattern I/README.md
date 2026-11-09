@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
+    def countMatchingSubarrays(self, nums: list[int], pattern: list[int]) -> int:
         def f(a: int, b: int) -> int:
             return 0 if a == b else (1 if a < b else -1)
 

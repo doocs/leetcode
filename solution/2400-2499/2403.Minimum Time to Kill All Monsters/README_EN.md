@@ -118,7 +118,7 @@ The time complexity is $O(2^n n)$, and the space complexity is $O(2^n)$, where $
 
 ```python
 class Solution:
-    def minimumTime(self, power: List[int]) -> int:
+    def minimumTime(self, power: list[int]) -> int:
         @cache
         def dfs(mask: int) -> int:
             if mask == 0:
@@ -293,7 +293,7 @@ The time complexity is $O(2^n n)$, and the space complexity is $O(2^n)$, where $
 
 ```python
 class Solution:
-    def minimumTime(self, power: List[int]) -> int:
+    def minimumTime(self, power: list[int]) -> int:
         n = len(power)
         f = [inf] * (1 << n)
         f[0] = 0

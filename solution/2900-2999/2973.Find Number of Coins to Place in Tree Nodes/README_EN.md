@@ -125,8 +125,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
-        def dfs(a: int, fa: int) -> List[int]:
+    def placedCoins(self, edges: list[list[int]], cost: list[int]) -> list[int]:
+        def dfs(a: int, fa: int) -> list[int]:
             res = [cost[a]]
             for b in g[a]:
                 if b != fa:
@@ -348,7 +348,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
+    def placedCoins(self, edges: list[list[int]], cost: list[int]) -> list[int]:
         n = len(cost)
         g = [[] for _ in range(n)]
         for a, b in edges:

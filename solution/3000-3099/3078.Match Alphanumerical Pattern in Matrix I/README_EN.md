@@ -210,7 +210,7 @@ The time complexity is $O(mnrc)$, and the space complexity is $O(|\Sigma|)$, whe
 
 ```python
 class Solution:
-    def findPattern(self, board: List[List[int]], pattern: List[str]) -> List[int]:
+    def findPattern(self, board: list[list[int]], pattern: list[str]) -> list[int]:
         def check(i: int, j: int) -> bool:
             d1 = {}
             d2 = {}

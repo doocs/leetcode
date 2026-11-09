@@ -112,7 +112,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
+    def mergeTriplets(self, triplets: list[list[int]], target: list[int]) -> bool:
         x, y, z = target
         d = e = f = 0
         for a, b, c in triplets:

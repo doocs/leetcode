@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumNumberOfStringPairs(self, words: List[str]) -> int:
+    def maximumNumberOfStringPairs(self, words: list[str]) -> int:
         cnt = Counter()
         ans = 0
         for w in words:

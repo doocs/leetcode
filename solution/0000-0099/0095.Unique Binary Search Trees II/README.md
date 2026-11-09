@@ -88,8 +88,8 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
-        def dfs(i: int, j: int) -> List[Optional[TreeNode]]:
+    def generateTrees(self, n: int) -> list[Optional[TreeNode]]:
+        def dfs(i: int, j: int) -> list[Optional[TreeNode]]:
             if i > j:
                 return [None]
             ans = []

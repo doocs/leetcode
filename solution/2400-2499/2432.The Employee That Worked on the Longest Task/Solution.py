@@ -1,5 +1,5 @@
 class Solution:
-    def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
+    def hardestWorker(self, n: int, logs: list[list[int]]) -> int:
         last = mx = ans = 0
         for uid, t in logs:
             t -= last

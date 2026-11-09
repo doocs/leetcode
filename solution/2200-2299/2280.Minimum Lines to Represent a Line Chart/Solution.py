@@ -1,5 +1,5 @@
 class Solution:
-    def minimumLines(self, stockPrices: List[List[int]]) -> int:
+    def minimumLines(self, stockPrices: list[list[int]]) -> int:
         stockPrices.sort()
         dx, dy = 0, 1
         ans = 0

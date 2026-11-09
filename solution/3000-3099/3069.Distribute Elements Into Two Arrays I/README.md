@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def resultArray(self, nums: List[int]) -> List[int]:
+    def resultArray(self, nums: list[int]) -> list[int]:
         arr1 = [nums[0]]
         arr2 = [nums[1]]
         for x in nums[2:]:

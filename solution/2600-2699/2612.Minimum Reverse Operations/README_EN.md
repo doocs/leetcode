@@ -137,8 +137,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def minReverseOperations(
-        self, n: int, p: int, banned: List[int], k: int
-    ) -> List[int]:
+        self, n: int, p: int, banned: list[int], k: int
+    ) -> list[int]:
         ans = [-1] * n
         ans[p] = 0
         ts = [SortedSet() for _ in range(2)]

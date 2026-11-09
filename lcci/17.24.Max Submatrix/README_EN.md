@@ -67,7 +67,7 @@ difficulty: Hard
 
 ```python
 class Solution:
-    def getMaxMatrix(self, matrix: List[List[int]]) -> List[int]:
+    def getMaxMatrix(self, matrix: list[list[int]]) -> list[int]:
         m, n = len(matrix), len(matrix[0])
         s = [[0] * n for _ in range(m + 1)]
         for i in range(m):

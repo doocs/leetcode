@@ -90,7 +90,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where 
 
 ```python
 class Solution:
-    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+    def threeSumSmaller(self, nums: list[int], target: int) -> int:
         nums.sort()
         ans, n = 0, len(nums)
         for i in range(n - 2):

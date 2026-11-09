@@ -76,7 +76,7 @@ tags:
 
 ```python
 class Solution:
-    def isReflected(self, points: List[List[int]]) -> bool:
+    def isReflected(self, points: list[list[int]]) -> bool:
         min_x, max_x = inf, -inf
         point_set = set()
         for x, y in points:

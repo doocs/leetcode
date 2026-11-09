@@ -83,7 +83,7 @@ The time complexity is $O(nm \log (nm))$, and the space complexity is $O(nm)$, w
 
 ```python
 class Solution:
-    def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
+    def nthSuperUglyNumber(self, n: int, primes: list[int]) -> int:
         q = [1]
         x = 0
         mx = (1 << 31) - 1

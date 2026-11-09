@@ -95,7 +95,7 @@ i = 0 和 j = 2 ：nums[0] 的第一个数字是 1 ，nums[2] 的最后一个数
 
 ```python
 class Solution:
-    def countBeautifulPairs(self, nums: List[int]) -> int:
+    def countBeautifulPairs(self, nums: list[int]) -> int:
         cnt = [0] * 10
         ans = 0
         for x in nums:

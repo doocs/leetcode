@@ -1,5 +1,5 @@
 class Solution:
-    def minSumOfLengths(self, arr: List[int], target: int) -> int:
+    def minSumOfLengths(self, arr: list[int], target: int) -> int:
         d = {0: 0}
         s, n = 0, len(arr)
         f = [inf] * (n + 1)

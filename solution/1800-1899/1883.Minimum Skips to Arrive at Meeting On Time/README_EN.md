@@ -113,7 +113,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+    def minSkips(self, dist: list[int], speed: int, hoursBefore: int) -> int:
         n = len(dist)
         f = [[inf] * (n + 1) for _ in range(n + 1)]
         f[0][0] = 0

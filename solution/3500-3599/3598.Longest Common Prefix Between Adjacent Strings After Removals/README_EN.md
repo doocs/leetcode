@@ -137,7 +137,7 @@ The time complexity is $O(L + n \log n)$, and the space complexity is $O(n)$, wh
 
 ```python
 class Solution:
-    def longestCommonPrefix(self, words: List[str]) -> List[int]:
+    def longestCommonPrefix(self, words: list[str]) -> list[int]:
         @cache
         def calc(s: str, t: str) -> int:
             k = 0

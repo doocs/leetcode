@@ -104,7 +104,7 @@ tags:
 ```python
 class Solution:
     def shiftDistance(
-        self, s: str, t: str, nextCost: List[int], previousCost: List[int]
+        self, s: str, t: str, nextCost: list[int], previousCost: list[int]
     ) -> int:
         m = 26
         s1 = [0] * (m << 1 | 1)

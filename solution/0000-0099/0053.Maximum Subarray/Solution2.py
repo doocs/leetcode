@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums: list[int]) -> int:
         def crossMaxSub(nums, left, mid, right):
             lsum = rsum = 0
             lmx = rmx = -inf

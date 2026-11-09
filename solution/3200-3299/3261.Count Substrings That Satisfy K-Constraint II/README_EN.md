@@ -105,8 +105,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 ```python
 class Solution:
     def countKConstraintSubstrings(
-        self, s: str, k: int, queries: List[List[int]]
-    ) -> List[int]:
+        self, s: str, k: int, queries: list[list[int]]
+    ) -> list[int]:
         cnt = [0, 0]
         i, n = 0, len(s)
         d = [n] * n

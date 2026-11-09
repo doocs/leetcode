@@ -121,7 +121,7 @@ The time complexity is $O(2^n(n^3 + m))$, and the space complexity is $O(n^2)$, 
 
 ```python
 class Solution:
-    def numberOfSets(self, n: int, maxDistance: int, roads: List[List[int]]) -> int:
+    def numberOfSets(self, n: int, maxDistance: int, roads: list[list[int]]) -> int:
         ans = 0
         for mask in range(1 << n):
             g = [[inf] * n for _ in range(n)]

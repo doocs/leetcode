@@ -111,7 +111,7 @@ The time complexity is $O(n 3^m)$, and the space complexity is $O(n 2^m)$, where
 
 ```python
 class Solution:
-    def canDistribute(self, nums: List[int], quantity: List[int]) -> bool:
+    def canDistribute(self, nums: list[int], quantity: list[int]) -> bool:
         m = len(quantity)
         s = [0] * (1 << m)
         for i in range(1, 1 << m):

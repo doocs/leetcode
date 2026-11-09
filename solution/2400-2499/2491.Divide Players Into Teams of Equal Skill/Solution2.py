@@ -1,5 +1,5 @@
 class Solution:
-    def dividePlayers(self, skill: List[int]) -> int:
+    def dividePlayers(self, skill: list[int]) -> int:
         s = sum(skill)
         m = len(skill) >> 1
         if s % m:

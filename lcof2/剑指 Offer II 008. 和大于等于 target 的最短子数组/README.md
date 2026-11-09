@@ -90,7 +90,7 @@ comments: true
 
 ```python
 class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
         ans = inf
         s = i = 0
         for j, x in enumerate(nums):

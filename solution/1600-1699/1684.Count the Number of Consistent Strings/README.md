@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+    def countConsistentStrings(self, allowed: str, words: list[str]) -> int:
         s = set(allowed)
         return sum(all(c in s for c in w) for w in words)
 ```
@@ -264,7 +264,7 @@ int countConsistentStrings(char* allowed, char** words, int wordsSize) {
 
 ```python
 class Solution:
-    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+    def countConsistentStrings(self, allowed: str, words: list[str]) -> int:
         def f(w):
             return reduce(or_, (1 << (ord(c) - ord('a')) for c in w))
 

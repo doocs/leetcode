@@ -121,7 +121,7 @@ tags:
 
 ```python
 class Solution:
-    def findSafeWalk(self, grid: List[List[int]], health: int) -> bool:
+    def findSafeWalk(self, grid: list[list[int]], health: int) -> bool:
         m, n = len(grid), len(grid[0])
         dist = [[inf] * n for _ in range(m)]
         dist[0][0] = grid[0][0]

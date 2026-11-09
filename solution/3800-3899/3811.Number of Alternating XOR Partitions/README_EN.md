@@ -155,7 +155,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def alternatingXOR(self, nums: List[int], target1: int, target2: int) -> int:
+    def alternatingXOR(self, nums: list[int], target1: int, target2: int) -> int:
         cnt1 = defaultdict(int)
         cnt2 = defaultdict(int)
         cnt2[0] = 1

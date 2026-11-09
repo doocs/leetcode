@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         @cache
         def dfs(i):
             if i == n:
@@ -330,7 +330,7 @@ func countRestrictedPaths(n int, edges [][]int) int {
 
 ```python
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         g = defaultdict(list)
         for u, v, w in edges:
             g[u].append((v, w))
@@ -437,7 +437,7 @@ class Solution {
 
 ```python
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         g = defaultdict(list)
         for u, v, w in edges:
             g[u].append((v, w))

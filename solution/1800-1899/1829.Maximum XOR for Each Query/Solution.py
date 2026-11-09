@@ -1,5 +1,5 @@
 class Solution:
-    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+    def getMaximumXor(self, nums: list[int], maximumBit: int) -> list[int]:
         ans = []
         xs = reduce(xor, nums)
         for x in nums[::-1]:

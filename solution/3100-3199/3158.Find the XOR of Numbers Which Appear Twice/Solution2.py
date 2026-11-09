@@ -1,5 +1,5 @@
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         ans = mask = 0
         for x in nums:
             if mask >> x & 1:

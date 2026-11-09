@@ -17,7 +17,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def numTeams(self, rating: List[int]) -> int:
+    def numTeams(self, rating: list[int]) -> int:
         nums = sorted(set(rating))
         m = len(nums)
         tree1 = BinaryIndexedTree(m)

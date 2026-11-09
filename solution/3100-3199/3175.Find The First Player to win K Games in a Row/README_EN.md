@@ -121,7 +121,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def findWinningPlayer(self, skills: List[int], k: int) -> int:
+    def findWinningPlayer(self, skills: list[int], k: int) -> int:
         n = len(skills)
         k = min(k, n - 1)
         i = cnt = 0

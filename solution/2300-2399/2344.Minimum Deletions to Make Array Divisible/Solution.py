@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
+    def minOperations(self, nums: list[int], numsDivide: list[int]) -> int:
         x = numsDivide[0]
         for v in numsDivide[1:]:
             x = gcd(x, v)

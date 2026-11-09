@@ -64,7 +64,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
+    def hanota(self, A: list[int], B: list[int], C: list[int]) -> None:
         def dfs(n, a, b, c):
             if n == 1:
                 c.append(a.pop())
@@ -219,7 +219,7 @@ class Solution {
 
 ```python
 class Solution:
-    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
+    def hanota(self, A: list[int], B: list[int], C: list[int]) -> None:
         stk = [(len(A), A, B, C)]
         while stk:
             n, a, b, c = stk.pop()

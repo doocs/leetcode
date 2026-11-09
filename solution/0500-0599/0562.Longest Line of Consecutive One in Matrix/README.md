@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def longestLine(self, mat: List[List[int]]) -> int:
+    def longestLine(self, mat: list[list[int]]) -> int:
         m, n = len(mat), len(mat[0])
         a = [[0] * (n + 2) for _ in range(m + 2)]
         b = [[0] * (n + 2) for _ in range(m + 2)]

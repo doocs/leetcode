@@ -1,6 +1,6 @@
 class Solution:
     def closestCost(
-        self, baseCosts: List[int], toppingCosts: List[int], target: int
+        self, baseCosts: list[int], toppingCosts: list[int], target: int
     ) -> int:
         def dfs(i, t):
             if i >= len(toppingCosts):

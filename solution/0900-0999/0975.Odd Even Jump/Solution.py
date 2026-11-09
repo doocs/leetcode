@@ -1,5 +1,5 @@
 class Solution:
-    def oddEvenJumps(self, arr: List[int]) -> int:
+    def oddEvenJumps(self, arr: list[int]) -> int:
         @cache
         def dfs(i: int, k: int) -> bool:
             if i == n - 1:

@@ -74,7 +74,7 @@ difficulty: 中等
 
 
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[int]:
+    def levelOrder(self, root: TreeNode) -> list[int]:
         ans = []
         if root is None:
             return ans

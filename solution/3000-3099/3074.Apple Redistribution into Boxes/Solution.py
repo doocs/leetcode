@@ -1,5 +1,5 @@
 class Solution:
-    def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
+    def minimumBoxes(self, apple: list[int], capacity: list[int]) -> int:
         capacity.sort(reverse=True)
         s = sum(apple)
         for i, c in enumerate(capacity, 1):

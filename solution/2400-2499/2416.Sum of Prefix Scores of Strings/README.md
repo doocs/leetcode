@@ -142,7 +142,7 @@ class Trie:
 
 
 class Solution:
-    def sumPrefixScores(self, words: List[str]) -> List[int]:
+    def sumPrefixScores(self, words: list[str]) -> list[int]:
         trie = Trie()
         for w in words:
             trie.insert(w)

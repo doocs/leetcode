@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfFlooredPairs(self, nums: List[int]) -> int:
+    def sumOfFlooredPairs(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         cnt = Counter(nums)
         mx = max(nums)

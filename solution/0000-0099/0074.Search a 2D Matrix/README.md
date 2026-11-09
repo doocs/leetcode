@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
         left, right = 0, m * n - 1
         while left < right:
@@ -269,7 +269,7 @@ var searchMatrix = function (matrix, target) {
 
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
         i, j = m - 1, 0
         while i >= 0 and j < n:

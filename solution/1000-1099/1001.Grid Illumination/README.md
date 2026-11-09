@@ -108,8 +108,8 @@ tags:
 ```python
 class Solution:
     def gridIllumination(
-        self, n: int, lamps: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, n: int, lamps: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         s = {(i, j) for i, j in lamps}
         row, col, diag1, diag2 = Counter(), Counter(), Counter(), Counter()
         for i, j in s:

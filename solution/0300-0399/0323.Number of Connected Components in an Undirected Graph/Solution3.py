@@ -1,5 +1,5 @@
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

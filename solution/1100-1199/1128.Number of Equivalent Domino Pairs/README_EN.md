@@ -75,7 +75,7 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is 
 
 ```python
 class Solution:
-    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+    def numEquivDominoPairs(self, dominoes: list[list[int]]) -> int:
         cnt = Counter()
         ans = 0
         for a, b in dominoes:

@@ -91,7 +91,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def getGoodIndices(self, variables: List[List[int]], target: int) -> List[int]:
+    def getGoodIndices(self, variables: list[list[int]], target: int) -> list[int]:
         return [
             i
             for i, (a, b, c, m) in enumerate(variables)

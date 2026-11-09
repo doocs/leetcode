@@ -86,7 +86,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minMoves(self, rooks: List[List[int]]) -> int:
+    def minMoves(self, rooks: list[list[int]]) -> int:
         rooks.sort()
         ans = sum(abs(x - i) for i, (x, _) in enumerate(rooks))
         rooks.sort(key=lambda x: x[1])

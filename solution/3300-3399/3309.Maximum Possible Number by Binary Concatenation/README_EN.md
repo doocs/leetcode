@@ -88,7 +88,7 @@ The time complexity is $O(\log M)$, and the space complexity is $O(1)$, where $M
 
 ```python
 class Solution:
-    def maxGoodNumber(self, nums: List[int]) -> int:
+    def maxGoodNumber(self, nums: list[int]) -> int:
         ans = 0
         for arr in permutations(nums):
             num = int("".join(bin(i)[2:] for i in arr), 2)

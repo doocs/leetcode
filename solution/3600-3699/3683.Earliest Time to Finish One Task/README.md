@@ -85,7 +85,7 @@ source: 第 467 场周赛 Q1
 
 ```python
 class Solution:
-    def earliestTime(self, tasks: List[List[int]]) -> int:
+    def earliestTime(self, tasks: list[list[int]]) -> int:
         return min(s + t for s, t in tasks)
 ```
 

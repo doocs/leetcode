@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, nums: List[int], k: int) -> int:
+    def minCost(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

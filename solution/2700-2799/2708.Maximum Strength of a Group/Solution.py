@@ -1,5 +1,5 @@
 class Solution:
-    def maxStrength(self, nums: List[int]) -> int:
+    def maxStrength(self, nums: list[int]) -> int:
         ans = -inf
         for i in range(1, 1 << len(nums)):
             t = 1

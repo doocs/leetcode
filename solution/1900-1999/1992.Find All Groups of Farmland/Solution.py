@@ -1,5 +1,5 @@
 class Solution:
-    def findFarmland(self, land: List[List[int]]) -> List[List[int]]:
+    def findFarmland(self, land: list[list[int]]) -> list[list[int]]:
         m, n = len(land), len(land[0])
         ans = []
         for i in range(m):

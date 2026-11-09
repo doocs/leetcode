@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def uniqueXorTriplets(self, nums: List[int]) -> int:
+    def uniqueXorTriplets(self, nums: list[int]) -> int:
         mx = max(nums) << 1
         st = [False] * mx
         for a in nums:

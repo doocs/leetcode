@@ -1,5 +1,5 @@
 class Solution:
-    def maxProfit(self, workers: List[int], tasks: List[List[int]]) -> int:
+    def maxProfit(self, workers: list[int], tasks: list[list[int]]) -> int:
         d = defaultdict(SortedList)
         for skill, profit in tasks:
             d[skill].add(profit)

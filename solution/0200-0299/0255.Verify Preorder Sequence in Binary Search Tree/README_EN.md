@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def verifyPreorder(self, preorder: List[int]) -> bool:
+    def verifyPreorder(self, preorder: list[int]) -> bool:
         stk = []
         last = -inf
         for x in preorder:

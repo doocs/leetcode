@@ -99,7 +99,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums: list[int]) -> int:
         ans = f = nums[0]
         for x in nums[1:]:
             f = max(f, 0) + x
@@ -241,7 +241,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums: list[int]) -> int:
         def crossMaxSub(nums, left, mid, right):
             lsum = rsum = 0
             lmx = rmx = -inf

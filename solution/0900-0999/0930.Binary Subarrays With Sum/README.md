@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+    def numSubarraysWithSum(self, nums: list[int], goal: int) -> int:
         cnt = Counter({0: 1})
         ans = s = 0
         for v in nums:
@@ -193,7 +193,7 @@ var numSubarraysWithSum = function (nums, goal) {
 
 ```python
 class Solution:
-    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+    def numSubarraysWithSum(self, nums: list[int], goal: int) -> int:
         i1 = i2 = s1 = s2 = j = ans = 0
         n = len(nums)
         while j < n:

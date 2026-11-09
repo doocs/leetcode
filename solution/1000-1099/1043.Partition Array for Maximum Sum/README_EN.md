@@ -94,7 +94,7 @@ The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ is
 
 ```python
 class Solution:
-    def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
+    def maxSumAfterPartitioning(self, arr: list[int], k: int) -> int:
         n = len(arr)
         f = [0] * (n + 1)
         for i in range(1, n + 1):

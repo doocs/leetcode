@@ -1,5 +1,5 @@
 class Solution:
-    def countSubMultisets(self, nums: List[int], l: int, r: int) -> int:
+    def countSubMultisets(self, nums: list[int], l: int, r: int) -> int:
         kMod = 1_000_000_007
         # dp[i] := # of submultisets of nums with sum i
         dp = [1] + [0] * r

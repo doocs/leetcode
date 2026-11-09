@@ -1,5 +1,5 @@
 class Solution:
-    def isTrionic(self, nums: List[int]) -> bool:
+    def isTrionic(self, nums: list[int]) -> bool:
         n = len(nums)
         p = 0
         while p < n - 2 and nums[p] < nums[p + 1]:

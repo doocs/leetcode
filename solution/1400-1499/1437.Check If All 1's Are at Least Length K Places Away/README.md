@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def kLengthApart(self, nums: List[int], k: int) -> bool:
+    def kLengthApart(self, nums: list[int], k: int) -> bool:
         j = -inf
         for i, x in enumerate(nums):
             if x:

@@ -1,5 +1,5 @@
 class Solution:
-    def splitArray(self, nums: List[int]) -> int:
+    def splitArray(self, nums: list[int]) -> int:
         s = list(accumulate(nums))
         n = len(nums)
         f = [True] * n

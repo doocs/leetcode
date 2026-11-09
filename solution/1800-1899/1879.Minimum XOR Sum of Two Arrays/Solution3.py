@@ -1,5 +1,5 @@
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [inf] * (1 << n)
         f[0] = 0

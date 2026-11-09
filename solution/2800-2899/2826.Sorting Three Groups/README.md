@@ -89,7 +89,7 @@ nums 已是非递减顺序的。
 
 ```python
 class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
+    def minimumOperations(self, nums: list[int]) -> int:
         f = [0] * 3
         for x in nums:
             g = [0] * 3

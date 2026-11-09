@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def minPathSum(self, grid: List[List[int]]) -> int:
+    def minPathSum(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[0] * n for _ in range(m)]
         f[0][0] = grid[0][0]

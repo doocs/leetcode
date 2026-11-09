@@ -114,7 +114,7 @@ The time complexity is $O(n + m + 4^{\frac{\textit{maxTime}}{\min(\textit{time}_
 ```python
 class Solution:
     def maximalPathQuality(
-        self, values: List[int], edges: List[List[int]], maxTime: int
+        self, values: list[int], edges: list[list[int]], maxTime: int
     ) -> int:
         def dfs(u: int, cost: int, value: int):
             if u == 0:

@@ -1,5 +1,5 @@
 class Solution:
-    def canBeIncreasing(self, nums: List[int]) -> bool:
+    def canBeIncreasing(self, nums: list[int]) -> bool:
         def check(k: int) -> bool:
             pre = -inf
             for i, x in enumerate(nums):

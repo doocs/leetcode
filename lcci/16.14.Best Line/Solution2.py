@@ -1,5 +1,5 @@
 class Solution:
-    def bestLine(self, points: List[List[int]]) -> List[int]:
+    def bestLine(self, points: list[list[int]]) -> list[int]:
         def gcd(a, b):
             return a if b == 0 else gcd(b, a % b)
 

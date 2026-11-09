@@ -81,7 +81,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+    def minFallingPathSum(self, matrix: list[list[int]]) -> int:
         n = len(matrix)
         f = [0] * n
         for row in matrix:

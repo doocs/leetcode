@@ -97,7 +97,7 @@ The time complexity is $O((m + n) \log n)$, and the space complexity is $O(\log 
 
 ```python
 class Solution:
-    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+    def findTheDistanceValue(self, arr1: list[int], arr2: list[int], d: int) -> int:
         arr2.sort()
         ans = 0
         for x in arr1:

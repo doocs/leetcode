@@ -90,7 +90,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minMaxGame(self, nums: List[int]) -> int:
+    def minMaxGame(self, nums: list[int]) -> int:
         n = len(nums)
         while n > 1:
             n >>= 1

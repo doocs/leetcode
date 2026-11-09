@@ -131,7 +131,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minimumEffort(self, tasks: List[List[int]]) -> int:
+    def minimumEffort(self, tasks: list[list[int]]) -> int:
         ans = cur = 0
         for a, m in sorted(tasks, key=lambda x: x[0] - x[1]):
             if cur < m:

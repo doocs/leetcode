@@ -91,7 +91,7 @@ comments: true
 
 ```python
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         ans = []
         n = len(candidates)
 

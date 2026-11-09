@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
+    def countGoodTriplets(self, arr: list[int], a: int, b: int, c: int) -> int:
         ans, n = 0, len(arr)
         for i in range(n):
             for j in range(i + 1, n):

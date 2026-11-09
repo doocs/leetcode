@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def findMaximumLength(self, nums: List[int]) -> int:
+    def findMaximumLength(self, nums: list[int]) -> int:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         f = [0] * (n + 1)

@@ -89,7 +89,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 
 class Solution:
-    def listOfDepth(self, tree: TreeNode) -> List[ListNode]:
+    def listOfDepth(self, tree: TreeNode) -> list[ListNode]:
         ans = []
         q = deque([tree])
         while q:

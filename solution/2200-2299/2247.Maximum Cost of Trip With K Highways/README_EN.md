@@ -102,7 +102,7 @@ The time complexity is $O(2^n n^2)$, and the space complexity is $O(2^n n)$, whe
 
 ```python
 class Solution:
-    def maximumCost(self, n: int, highways: List[List[int]], k: int) -> int:
+    def maximumCost(self, n: int, highways: list[list[int]], k: int) -> int:
         if k >= n:
             return -1
         g = defaultdict(list)

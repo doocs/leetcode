@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def gcdSort(self, nums: List[int]) -> bool:
+    def gcdSort(self, nums: list[int]) -> bool:
         n = 10**5 + 10
         p = list(range(n))
         f = defaultdict(list)

@@ -1,5 +1,5 @@
 class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
+    def letterCombinations(self, digits: str) -> list[str]:
         if not digits:
             return []
         d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]

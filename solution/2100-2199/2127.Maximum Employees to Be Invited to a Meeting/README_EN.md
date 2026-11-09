@@ -118,8 +118,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumInvitations(self, favorite: List[int]) -> int:
-        def max_cycle(fa: List[int]) -> int:
+    def maximumInvitations(self, favorite: list[int]) -> int:
+        def max_cycle(fa: list[int]) -> int:
             n = len(fa)
             vis = [False] * n
             ans = 0
@@ -138,7 +138,7 @@ class Solution:
                         break
             return ans
 
-        def topological_sort(fa: List[int]) -> int:
+        def topological_sort(fa: list[int]) -> int:
             n = len(fa)
             indeg = [0] * n
             dist = [1] * n

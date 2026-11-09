@@ -94,7 +94,7 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 ```python
 class Solution:
     def maxArea(
-        self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]
+        self, h: int, w: int, horizontalCuts: list[int], verticalCuts: list[int]
     ) -> int:
         horizontalCuts.extend([0, h])
         verticalCuts.extend([0, w])

@@ -1,5 +1,5 @@
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         def dfs(a: int, fa: int) -> int:
             return sum(c + dfs(b, a) for b, c in g[a] if b != fa)
 

@@ -1,5 +1,5 @@
 class Solution:
-    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+    def minimizeConcatenatedLength(self, words: list[str]) -> int:
         n = len(words)
         f = [[[0] * 26 for _ in range(26)] for _ in range(n + 1)]
         for i in range(n - 1, 0, -1):

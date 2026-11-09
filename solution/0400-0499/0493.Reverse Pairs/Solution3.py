@@ -46,7 +46,7 @@ class SegmentTree:
 
 
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         s = set()
         for num in nums:
             s.add(num)

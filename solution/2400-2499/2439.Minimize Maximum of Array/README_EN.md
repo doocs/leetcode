@@ -94,7 +94,7 @@ The time complexity is $O(n \log M)$, where $n$ is the length of the array, and 
 
 ```python
 class Solution:
-    def minimizeArrayValue(self, nums: List[int]) -> int:
+    def minimizeArrayValue(self, nums: list[int]) -> int:
         def check(mx):
             d = 0
             for x in nums[:0:-1]:

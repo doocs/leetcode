@@ -17,7 +17,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def createSortedArray(self, instructions: List[int]) -> int:
+    def createSortedArray(self, instructions: list[int]) -> int:
         m = max(instructions)
         tree = BinaryIndexedTree(m)
         ans = 0

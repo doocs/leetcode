@@ -85,7 +85,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
+    def imageSmoother(self, img: list[list[int]]) -> list[list[int]]:
         m, n = len(img), len(img[0])
         ans = [[0] * n for _ in range(m)]
         for i in range(m):

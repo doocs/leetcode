@@ -1,5 +1,5 @@
 class Solution:
-    def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
+    def miceAndCheese(self, reward1: list[int], reward2: list[int], k: int) -> int:
         for i, x in enumerate(reward2):
             reward1[i] -= x
         reward1.sort(reverse=True)

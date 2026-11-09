@@ -1,5 +1,5 @@
 class Solution:
-    def movesToMakeZigzag(self, nums: List[int]) -> int:
+    def movesToMakeZigzag(self, nums: list[int]) -> int:
         ans = [0, 0]
         n = len(nums)
         for i in range(2):

@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def circularArrayLoop(self, nums: List[int]) -> bool:
+    def circularArrayLoop(self, nums: list[int]) -> bool:
         n = len(nums)
 
         def next(i):

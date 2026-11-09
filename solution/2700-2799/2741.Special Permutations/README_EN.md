@@ -95,7 +95,7 @@ The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n 2^n)$, whe
 
 ```python
 class Solution:
-    def specialPerm(self, nums: List[int]) -> int:
+    def specialPerm(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         n = len(nums)
         m = 1 << n

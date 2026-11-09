@@ -128,7 +128,7 @@ tags:
 ```python
 class Solution:
     def rootCount(
-        self, edges: List[List[int]], guesses: List[List[int]], k: int
+        self, edges: list[list[int]], guesses: list[list[int]], k: int
     ) -> int:
         def dfs1(i, fa):
             nonlocal cnt
@@ -405,7 +405,7 @@ function rootCount(edges: number[][], guesses: number[][], k: number): number {
 ```python
 class Solution:
     def rootCount(
-        self, edges: List[List[int]], guesses: List[List[int]], k: int
+        self, edges: list[list[int]], guesses: list[list[int]], k: int
     ) -> int:
         g = defaultdict(list)
         for a, b in edges:

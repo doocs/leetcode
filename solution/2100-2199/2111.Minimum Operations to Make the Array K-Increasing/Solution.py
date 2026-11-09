@@ -1,5 +1,5 @@
 class Solution:
-    def kIncreasing(self, arr: List[int], k: int) -> int:
+    def kIncreasing(self, arr: list[int], k: int) -> int:
         def lis(arr):
             t = []
             for x in arr:

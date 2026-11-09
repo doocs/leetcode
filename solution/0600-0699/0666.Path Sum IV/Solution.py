@@ -1,5 +1,5 @@
 class Solution:
-    def pathSum(self, nums: List[int]) -> int:
+    def pathSum(self, nums: list[int]) -> int:
         def dfs(node, t):
             if node not in mp:
                 return

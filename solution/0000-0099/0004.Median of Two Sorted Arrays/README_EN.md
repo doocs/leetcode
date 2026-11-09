@@ -93,7 +93,7 @@ The time complexity is $O(\log(m + n))$, and the space complexity is $O(\log(m +
 
 ```python
 class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
         def f(i: int, j: int, k: int) -> int:
             if i >= m:
                 return nums2[j + k - 1]

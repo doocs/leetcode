@@ -1,5 +1,5 @@
 class Solution:
-    def maxProfit(self, prices: List[int], strategy: List[int], k: int) -> int:
+    def maxProfit(self, prices: list[int], strategy: list[int], k: int) -> int:
         n = len(prices)
         s = [0] * (n + 1)
         t = [0] * (n + 1)

@@ -80,7 +80,7 @@ and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because
 
 ```python
 class Solution:
-    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+    def mostCommonWord(self, paragraph: str, banned: list[str]) -> str:
         s = set(banned)
         p = Counter(re.findall('[a-z]+', paragraph.lower()))
         return next(word for word, _ in p.most_common() if word not in s)

@@ -90,7 +90,7 @@ i = 2：1，2 和 3 是两个数组的前缀公共元素，所以 C[2] = 3 。
 
 ```python
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         cnt1 = Counter()
         cnt2 = Counter()
@@ -236,7 +236,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         vis = [1] * (len(A) + 1)
         s = 0
@@ -381,7 +381,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         x = y = 0
         for a, b in zip(A, B):

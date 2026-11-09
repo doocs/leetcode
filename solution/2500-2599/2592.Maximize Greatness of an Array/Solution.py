@@ -1,5 +1,5 @@
 class Solution:
-    def maximizeGreatness(self, nums: List[int]) -> int:
+    def maximizeGreatness(self, nums: list[int]) -> int:
         nums.sort()
         i = 0
         for x in nums:

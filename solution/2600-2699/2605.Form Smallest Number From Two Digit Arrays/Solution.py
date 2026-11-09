@@ -1,5 +1,5 @@
 class Solution:
-    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+    def minNumber(self, nums1: list[int], nums2: list[int]) -> int:
         ans = 100
         for a in nums1:
             for b in nums2:

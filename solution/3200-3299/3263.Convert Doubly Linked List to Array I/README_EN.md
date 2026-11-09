@@ -94,7 +94,7 @@ class Node:
 
 
 class Solution:
-    def toArray(self, root: "Optional[Node]") -> List[int]:
+    def toArray(self, root: "Optional[Node]") -> list[int]:
         ans = []
         while root:
             ans.append(root.val)

@@ -84,7 +84,7 @@ The time complexity is $O(n)$, as in the worst case where all elements in the ar
 
 ```python
 class Solution:
-    def findMin(self, nums: List[int]) -> int:
+    def findMin(self, nums: list[int]) -> int:
         l, r = 0, len(nums) - 1
         while l < r:
             mid = (l + r) >> 1

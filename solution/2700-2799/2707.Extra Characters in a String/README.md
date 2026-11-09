@@ -95,7 +95,7 @@ $$
 
 ```python
 class Solution:
-    def minExtraChar(self, s: str, dictionary: List[str]) -> int:
+    def minExtraChar(self, s: str, dictionary: list[str]) -> int:
         ss = set(dictionary)
         n = len(s)
         f = [0] * (n + 1)
@@ -276,12 +276,12 @@ class Node:
     __slots__ = ['children', 'is_end']
 
     def __init__(self):
-        self.children: List[Node | None] = [None] * 26
+        self.children: list[Node | None] = [None] * 26
         self.is_end = False
 
 
 class Solution:
-    def minExtraChar(self, s: str, dictionary: List[str]) -> int:
+    def minExtraChar(self, s: str, dictionary: list[str]) -> int:
         root = Node()
         for w in dictionary:
             node = root

@@ -131,7 +131,7 @@ tags:
 
 ```python
 class Solution:
-    def shortestPath(self, n: int, edges: List[List[int]], labels: str, k: int) -> int:
+    def shortestPath(self, n: int, edges: list[list[int]], labels: str, k: int) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))

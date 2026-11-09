@@ -11,7 +11,7 @@ class CustomFunction:
 
 
 class Solution:
-    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> list[list[int]]:
         ans = []
         for x in range(1, z + 1):
             y = 1 + bisect_left(

@@ -106,11 +106,11 @@ C -&gt; 2
 class Solution:
     def watchedVideosByFriends(
         self,
-        watchedVideos: List[List[str]],
-        friends: List[List[int]],
+        watchedVideos: list[list[str]],
+        friends: list[list[int]],
         id: int,
         level: int,
-    ) -> List[str]:
+    ) -> list[str]:
         q = deque([id])
         vis = {id}
         for _ in range(level):

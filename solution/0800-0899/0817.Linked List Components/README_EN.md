@@ -80,7 +80,7 @@ tags:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def numComponents(self, head: Optional[ListNode], nums: List[int]) -> int:
+    def numComponents(self, head: Optional[ListNode], nums: list[int]) -> int:
         ans = 0
         s = set(nums)
         while head:

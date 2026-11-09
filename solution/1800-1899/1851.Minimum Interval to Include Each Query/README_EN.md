@@ -101,7 +101,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+    def minInterval(self, intervals: list[list[int]], queries: list[int]) -> list[int]:
         n, m = len(intervals), len(queries)
         intervals.sort()
         queries = sorted((x, i) for i, x in enumerate(queries))

@@ -116,7 +116,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def colorRed(self, n: int) -> List[List[int]]:
+    def colorRed(self, n: int) -> list[list[int]]:
         ans = [[1, 1]]
         k = 0
         for i in range(n, 1, -1):

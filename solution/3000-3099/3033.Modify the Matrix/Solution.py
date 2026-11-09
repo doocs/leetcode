@@ -1,5 +1,5 @@
 class Solution:
-    def modifiedMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
+    def modifiedMatrix(self, matrix: list[list[int]]) -> list[list[int]]:
         m, n = len(matrix), len(matrix[0])
         for j in range(n):
             mx = max(matrix[i][j] for i in range(m))

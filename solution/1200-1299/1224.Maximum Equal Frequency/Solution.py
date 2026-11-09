@@ -1,5 +1,5 @@
 class Solution:
-    def maxEqualFreq(self, nums: List[int]) -> int:
+    def maxEqualFreq(self, nums: list[int]) -> int:
         cnt = Counter()
         ccnt = Counter()
         ans = mx = 0

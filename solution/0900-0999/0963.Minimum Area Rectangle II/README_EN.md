@@ -93,7 +93,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minAreaFreeRect(self, points: List[List[int]]) -> float:
+    def minAreaFreeRect(self, points: list[list[int]]) -> float:
         s = {(x, y) for x, y in points}
         n = len(points)
         ans = inf

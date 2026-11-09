@@ -88,7 +88,7 @@ $$
 
 ```python
 class Solution:
-    def probabilityOfHeads(self, prob: List[float], target: int) -> float:
+    def probabilityOfHeads(self, prob: list[float], target: int) -> float:
         n = len(prob)
         f = [[0] * (target + 1) for _ in range(n + 1)]
         f[0][0] = 1
@@ -209,7 +209,7 @@ $f[i][j]$ 只与上一行有关。内层对 $j$ 从大到小更新，空间复�
 
 ```python
 class Solution:
-    def probabilityOfHeads(self, prob: List[float], target: int) -> float:
+    def probabilityOfHeads(self, prob: list[float], target: int) -> float:
         f = [0] * (target + 1)
         f[0] = 1
         for p in prob:

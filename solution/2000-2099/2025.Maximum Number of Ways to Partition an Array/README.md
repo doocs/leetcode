@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def waysToPartition(self, nums: List[int], k: int) -> int:
+    def waysToPartition(self, nums: list[int], k: int) -> int:
         n = len(nums)
         s = [nums[0]] * n
         right = defaultdict(int)

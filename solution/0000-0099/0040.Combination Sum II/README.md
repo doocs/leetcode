@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 ans.append(t[:])
@@ -368,7 +368,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 ans.append(t[:])

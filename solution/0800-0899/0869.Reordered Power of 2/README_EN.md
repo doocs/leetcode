@@ -78,7 +78,7 @@ The time complexity is $O(\log^2 M)$, and the space complexity is $O(\log M)$, w
 ```python
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
-        def f(x: int) -> List[int]:
+        def f(x: int) -> list[int]:
             cnt = [0] * 10
             while x:
                 x, v = divmod(x, 10)

@@ -112,7 +112,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def zigzagTraversal(self, grid: List[List[int]]) -> List[int]:
+    def zigzagTraversal(self, grid: list[list[int]]) -> list[int]:
         ok = True
         ans = []
         for i, row in enumerate(grid):

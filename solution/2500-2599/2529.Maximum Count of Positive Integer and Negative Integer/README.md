@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumCount(self, nums: List[int]) -> int:
+    def maximumCount(self, nums: list[int]) -> int:
         a = sum(x > 0 for x in nums)
         b = sum(x < 0 for x in nums)
         return max(a, b)
@@ -233,7 +233,7 @@ int maximumCount(int* nums, int numsSize) {
 
 ```python
 class Solution:
-    def maximumCount(self, nums: List[int]) -> int:
+    def maximumCount(self, nums: list[int]) -> int:
         a = len(nums) - bisect_left(nums, 1)
         b = bisect_left(nums, 0)
         return max(a, b)

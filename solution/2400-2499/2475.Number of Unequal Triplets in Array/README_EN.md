@@ -88,7 +88,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def unequalTriplets(self, nums: List[int]) -> int:
+    def unequalTriplets(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         for i in range(n):
@@ -229,7 +229,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def unequalTriplets(self, nums: List[int]) -> int:
+    def unequalTriplets(self, nums: list[int]) -> int:
         nums.sort()
         ans, n = 0, len(nums)
         for j in range(1, n - 1):
@@ -384,7 +384,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def unequalTriplets(self, nums: List[int]) -> int:
+    def unequalTriplets(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         n = len(nums)
         ans = a = 0

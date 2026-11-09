@@ -92,7 +92,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minCostToMoveChips(self, position: List[int]) -> int:
+    def minCostToMoveChips(self, position: list[int]) -> int:
         a = sum(p % 2 for p in position)
         b = len(position) - a
         return min(a, b)

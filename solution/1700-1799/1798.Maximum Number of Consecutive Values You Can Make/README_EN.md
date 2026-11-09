@@ -99,7 +99,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def getMaximumConsecutive(self, coins: List[int]) -> int:
+    def getMaximumConsecutive(self, coins: list[int]) -> int:
         ans = 1
         for v in sorted(coins):
             if v > ans:

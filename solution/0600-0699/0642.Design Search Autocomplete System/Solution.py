@@ -25,13 +25,13 @@ class Trie:
 
 
 class AutocompleteSystem:
-    def __init__(self, sentences: List[str], times: List[int]):
+    def __init__(self, sentences: list[str], times: list[int]):
         self.trie = Trie()
         for a, b in zip(sentences, times):
             self.trie.insert(a, b)
         self.t = []
 
-    def input(self, c: str) -> List[str]:
+    def input(self, c: str) -> list[str]:
         def dfs(node):
             if node is None:
                 return

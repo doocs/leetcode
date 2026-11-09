@@ -1,5 +1,5 @@
 class Solution:
-    def leastInterval(self, tasks: List[str], n: int) -> int:
+    def leastInterval(self, tasks: list[str], n: int) -> int:
         cnt = Counter(tasks)
         x = max(cnt.values())
         s = sum(v == x for v in cnt.values())

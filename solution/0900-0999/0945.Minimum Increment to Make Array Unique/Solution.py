@@ -1,5 +1,5 @@
 class Solution:
-    def minIncrementForUnique(self, nums: List[int]) -> int:
+    def minIncrementForUnique(self, nums: list[int]) -> int:
         nums.sort()
         ans, y = 0, -1
         for x in nums:

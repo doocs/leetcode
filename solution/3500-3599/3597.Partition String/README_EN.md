@@ -216,7 +216,7 @@ The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def partitionString(self, s: str) -> List[str]:
+    def partitionString(self, s: str) -> list[str]:
         vis = set()
         ans = []
         t = ""
@@ -343,7 +343,7 @@ class Hashing:
     __slots__ = ["mod", "h", "p"]
 
     def __init__(
-        self, s: Union[str, List[str]], base: int = 13331, mod: int = 998244353
+        self, s: Union[str, list[str]], base: int = 13331, mod: int = 998244353
     ):
         self.mod = mod
         self.h = [0] * (len(s) + 1)
@@ -357,7 +357,7 @@ class Hashing:
 
 
 class Solution:
-    def partitionString(self, s: str) -> List[str]:
+    def partitionString(self, s: str) -> list[str]:
         hashing = Hashing(s)
         vis = set()
         l = 1

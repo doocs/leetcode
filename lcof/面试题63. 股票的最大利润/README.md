@@ -65,7 +65,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         mi, ans = inf, 0
         for x in prices:
             ans = max(ans, x - mi)

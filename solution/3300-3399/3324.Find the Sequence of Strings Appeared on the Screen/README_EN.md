@@ -99,7 +99,7 @@ The time complexity is $O(n^2|\Sigma|)$, where $n$ is the length of the target s
 
 ```python
 class Solution:
-    def stringSequence(self, target: str) -> List[str]:
+    def stringSequence(self, target: str) -> list[str]:
         ans = []
         for c in target:
             s = ans[-1] if ans else ""

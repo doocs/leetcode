@@ -1,5 +1,5 @@
 class Solution:
-    def maximumMinutes(self, grid: List[List[int]]) -> int:
+    def maximumMinutes(self, grid: list[list[int]]) -> int:
         def spread(q: Deque[int]) -> Deque[int]:
             nq = deque()
             while q:

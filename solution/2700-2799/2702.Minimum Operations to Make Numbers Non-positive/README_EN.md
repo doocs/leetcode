@@ -83,7 +83,7 @@ We define the left boundary of the binary search as $l=0$, and the right boundar
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], x: int, y: int) -> int:
+    def minOperations(self, nums: list[int], x: int, y: int) -> int:
         def check(t: int) -> bool:
             cnt = 0
             for v in nums:

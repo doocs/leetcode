@@ -1,5 +1,5 @@
 class Solution:
-    def dividePlayers(self, skill: List[int]) -> int:
+    def dividePlayers(self, skill: list[int]) -> int:
         skill.sort()
         t = skill[0] + skill[-1]
         i, j = 0, len(skill) - 1

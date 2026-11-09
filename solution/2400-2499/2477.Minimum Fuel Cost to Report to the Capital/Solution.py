@@ -1,5 +1,5 @@
 class Solution:
-    def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
+    def minimumFuelCost(self, roads: list[list[int]], seats: int) -> int:
         def dfs(a: int, fa: int) -> int:
             nonlocal ans
             sz = 1

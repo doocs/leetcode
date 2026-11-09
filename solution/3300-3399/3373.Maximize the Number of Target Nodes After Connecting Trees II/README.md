@@ -116,9 +116,9 @@ tags:
 ```python
 class Solution:
     def maxTargetNodes(
-        self, edges1: List[List[int]], edges2: List[List[int]]
-    ) -> List[int]:
-        def build(edges: List[List[int]]) -> List[List[int]]:
+        self, edges1: list[list[int]], edges2: list[list[int]]
+    ) -> list[int]:
+        def build(edges: list[list[int]]) -> list[list[int]]:
             n = len(edges) + 1
             g = [[] for _ in range(n)]
             for a, b in edges:
@@ -127,7 +127,7 @@ class Solution:
             return g
 
         def dfs(
-            g: List[List[int]], a: int, fa: int, c: List[int], d: int, cnt: List[int]
+            g: list[list[int]], a: int, fa: int, c: list[int], d: int, cnt: list[int]
         ):
             c[a] = d
             cnt[d] += 1
@@ -467,9 +467,9 @@ public class Solution {
 ```python
 class Solution:
     def maxTargetNodes(
-        self, edges1: List[List[int]], edges2: List[List[int]]
-    ) -> List[int]:
-        def build(edges: List[List[int]]) -> List[List[int]]:
+        self, edges1: list[list[int]], edges2: list[list[int]]
+    ) -> list[int]:
+        def build(edges: list[list[int]]) -> list[list[int]]:
             n = len(edges) + 1
             g = [[] for _ in range(n)]
             for a, b in edges:
@@ -477,7 +477,7 @@ class Solution:
                 g[b].append(a)
             return g
 
-        def dfs(g: List[List[int]], c: List[int], cnt: List[int]) -> None:
+        def dfs(g: list[list[int]], c: list[int], cnt: list[int]) -> None:
             stk = [(0, -1, 0)]
             while stk:
                 a, fa, d = stk.pop()

@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def busyStudent(
-        self, startTime: List[int], endTime: List[int], queryTime: int
+        self, startTime: list[int], endTime: list[int], queryTime: int
     ) -> int:
         return sum(x <= queryTime <= y for x, y in zip(startTime, endTime))
 ```

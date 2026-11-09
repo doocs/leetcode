@@ -1,5 +1,5 @@
 class Solution:
-    def arraySign(self, nums: List[int]) -> int:
+    def arraySign(self, nums: list[int]) -> int:
         ans = 1
         for v in nums:
             if v == 0:

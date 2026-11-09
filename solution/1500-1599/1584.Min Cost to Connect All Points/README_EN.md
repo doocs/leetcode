@@ -81,7 +81,7 @@ Notice that there is a unique path between every pair of points.
 
 ```python
 class Solution:
-    def minCostConnectPoints(self, points: List[List[int]]) -> int:
+    def minCostConnectPoints(self, points: list[list[int]]) -> int:
         n = len(points)
         g = [[0] * n for _ in range(n)]
         dist = [inf] * n
@@ -301,7 +301,7 @@ function minCostConnectPoints(points: number[][]): number {
 
 ```python
 class Solution:
-    def minCostConnectPoints(self, points: List[List[int]]) -> int:
+    def minCostConnectPoints(self, points: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

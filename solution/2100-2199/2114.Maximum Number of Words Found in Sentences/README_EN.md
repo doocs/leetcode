@@ -87,7 +87,7 @@ The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is 
 
 ```python
 class Solution:
-    def mostWordsFound(self, sentences: List[str]) -> int:
+    def mostWordsFound(self, sentences: list[str]) -> int:
         return 1 + max(s.count(' ') for s in sentences)
 ```
 

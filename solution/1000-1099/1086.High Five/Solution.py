@@ -1,5 +1,5 @@
 class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+    def highFive(self, items: list[list[int]]) -> list[list[int]]:
         d = defaultdict(list)
         m = 0
         for i, x in items:

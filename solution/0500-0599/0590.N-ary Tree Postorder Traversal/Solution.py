@@ -8,7 +8,7 @@ class Node:
 
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root: 'Node') -> list[int]:
         def dfs(root):
             if root is None:
                 return

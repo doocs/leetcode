@@ -101,7 +101,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def continuousSubarrays(self, nums: List[int]) -> int:
+    def continuousSubarrays(self, nums: list[int]) -> int:
         ans = i = 0
         sl = SortedList()
         for x in nums:

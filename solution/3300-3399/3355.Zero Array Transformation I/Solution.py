@@ -1,5 +1,5 @@
 class Solution:
-    def isZeroArray(self, nums: List[int], queries: List[List[int]]) -> bool:
+    def isZeroArray(self, nums: list[int], queries: list[list[int]]) -> bool:
         d = [0] * (len(nums) + 1)
         for l, r in queries:
             d[l] += 1

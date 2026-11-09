@@ -1,5 +1,5 @@
 class Solution:
-    def countBeautifulPairs(self, nums: List[int]) -> int:
+    def countBeautifulPairs(self, nums: list[int]) -> int:
         cnt = [0] * 10
         ans = 0
         for x in nums:

@@ -83,7 +83,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def maxDistance(self, grid: List[List[int]]) -> int:
+    def maxDistance(self, grid: list[list[int]]) -> int:
         n = len(grid)
         q = deque((i, j) for i in range(n) for j in range(n) if grid[i][j])
         ans = -1

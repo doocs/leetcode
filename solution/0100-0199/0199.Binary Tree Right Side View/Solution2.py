@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root: Optional[TreeNode], depth: int) -> None:
             if root is None:
                 return

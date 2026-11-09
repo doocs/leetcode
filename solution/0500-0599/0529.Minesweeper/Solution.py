@@ -1,5 +1,5 @@
 class Solution:
-    def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
+    def updateBoard(self, board: list[list[str]], click: list[int]) -> list[list[str]]:
         def dfs(i: int, j: int):
             cnt = 0
             for x in range(i - 1, i + 2):

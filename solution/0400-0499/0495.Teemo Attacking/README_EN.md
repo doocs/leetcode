@@ -79,7 +79,7 @@ Ashe is poisoned for seconds 1, 2, and 3, which is 3 seconds in total.</pre>
 
 ```python
 class Solution:
-    def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
+    def findPoisonedDuration(self, timeSeries: list[int], duration: int) -> int:
         ans = duration
         for a, b in pairwise(timeSeries):
             ans += min(duration, b - a)

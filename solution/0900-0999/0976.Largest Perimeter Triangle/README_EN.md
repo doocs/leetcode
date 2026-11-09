@@ -79,7 +79,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def largestPerimeter(self, nums: List[int]) -> int:
+    def largestPerimeter(self, nums: list[int]) -> int:
         nums.sort()
         for i in range(len(nums) - 1, 1, -1):
             if (c := nums[i - 1] + nums[i - 2]) > nums[i]:

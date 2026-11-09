@@ -1,5 +1,5 @@
 class Solution:
-    def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
+    def minimumValueSum(self, nums: list[int], andValues: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, a: int) -> int:
             if n - i < m - j:

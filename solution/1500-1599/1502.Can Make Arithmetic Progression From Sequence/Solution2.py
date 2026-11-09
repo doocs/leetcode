@@ -1,5 +1,5 @@
 class Solution:
-    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+    def canMakeArithmeticProgression(self, arr: list[int]) -> bool:
         a = min(arr)
         b = max(arr)
         n = len(arr)

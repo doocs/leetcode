@@ -94,8 +94,8 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def generateAbbreviations(self, word: str) -> List[str]:
-        def dfs(i: int) -> List[str]:
+    def generateAbbreviations(self, word: str) -> list[str]:
+        def dfs(i: int) -> list[str]:
             if i >= n:
                 return [""]
             ans = [word[i] + s for s in dfs(i + 1)]
@@ -247,7 +247,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def generateAbbreviations(self, word: str) -> List[str]:
+    def generateAbbreviations(self, word: str) -> list[str]:
         n = len(word)
         ans = []
         for i in range(1 << n):

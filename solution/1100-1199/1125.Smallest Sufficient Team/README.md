@@ -107,8 +107,8 @@ tags:
 ```python
 class Solution:
     def smallestSufficientTeam(
-        self, req_skills: List[str], people: List[List[str]]
-    ) -> List[int]:
+        self, req_skills: list[str], people: list[list[str]]
+    ) -> list[int]:
         d = {s: i for i, s in enumerate(req_skills)}
         m, n = len(req_skills), len(people)
         p = [0] * n

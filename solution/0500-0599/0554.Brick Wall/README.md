@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def leastBricks(self, wall: List[List[int]]) -> int:
+    def leastBricks(self, wall: list[list[int]]) -> int:
         cnt = Counter()
         for row in wall:
             s = 0

@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
+    def minimizedMaximum(self, n: int, quantities: list[int]) -> int:
         def check(x):
             return sum((v + x - 1) // x for v in quantities) <= n
 

@@ -87,7 +87,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minimalKSum(self, nums: List[int], k: int) -> int:
+    def minimalKSum(self, nums: list[int], k: int) -> int:
         nums.extend([0, 2 * 10**9])
         nums.sort()
         ans = 0

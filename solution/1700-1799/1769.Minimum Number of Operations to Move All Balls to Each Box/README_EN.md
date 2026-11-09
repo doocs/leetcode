@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
+    def minOperations(self, boxes: str) -> list[int]:
         n = len(boxes)
         left = [0] * n
         right = [0] * n
@@ -293,7 +293,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
+    def minOperations(self, boxes: str) -> list[int]:
         n = len(boxes)
         ans = [0] * n
         cnt = 0

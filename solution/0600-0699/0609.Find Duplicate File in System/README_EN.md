@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findDuplicate(self, paths: List[str]) -> List[List[str]]:
+    def findDuplicate(self, paths: list[str]) -> list[list[str]]:
         d = defaultdict(list)
         for p in paths:
             ps = p.split()

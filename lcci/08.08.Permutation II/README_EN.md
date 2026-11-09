@@ -73,7 +73,7 @@ The time complexity is $O(nn!)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def permutation(self, S: str) -> List[str]:
+    def permutation(self, S: str) -> list[str]:
         def dfs(i: int):
             if i >= n:
                 ans.append("".join(t))

@@ -77,7 +77,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+    def maxNonOverlapping(self, nums: list[int], target: int) -> int:
         ans = 0
         i, n = 0, len(nums)
         while i < n:

@@ -1,6 +1,6 @@
 class Solution:
     def sequenceReconstruction(
-        self, nums: List[int], sequences: List[List[int]]
+        self, nums: list[int], sequences: list[list[int]]
     ) -> bool:
         n = len(nums)
         g = [[] for _ in range(n)]

@@ -1,5 +1,5 @@
 class Solution:
-    def maxHeight(self, cuboids: List[List[int]]) -> int:
+    def maxHeight(self, cuboids: list[list[int]]) -> int:
         for c in cuboids:
             c.sort()
         cuboids.sort()

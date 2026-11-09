@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, grid: List[List[int]], x: int) -> int:
+    def minOperations(self, grid: list[list[int]], x: int) -> int:
         nums = []
         mod = grid[0][0] % x
         for row in grid:

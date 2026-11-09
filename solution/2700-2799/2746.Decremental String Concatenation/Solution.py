@@ -1,5 +1,5 @@
 class Solution:
-    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+    def minimizeConcatenatedLength(self, words: list[str]) -> int:
         @cache
         def dfs(i: int, a: str, b: str) -> int:
             if i >= len(words):

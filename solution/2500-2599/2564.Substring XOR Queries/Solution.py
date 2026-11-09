@@ -1,5 +1,5 @@
 class Solution:
-    def substringXorQueries(self, s: str, queries: List[List[int]]) -> List[List[int]]:
+    def substringXorQueries(self, s: str, queries: list[list[int]]) -> list[list[int]]:
         d = {}
         n = len(s)
         for i in range(n):

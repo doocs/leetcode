@@ -98,7 +98,7 @@ Thus, no day is a good day to rob the bank, so return an empty list.
 
 ```python
 class Solution:
-    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+    def goodDaysToRobBank(self, security: list[int], time: int) -> list[int]:
         n = len(security)
         if n <= time * 2:
             return []

@@ -91,7 +91,7 @@ mountain[2] 也不可能是峰值，因为它不严格大于 mountain[3] 和 mou
 
 ```python
 class Solution:
-    def findPeaks(self, mountain: List[int]) -> List[int]:
+    def findPeaks(self, mountain: list[int]) -> list[int]:
         return [
             i
             for i in range(1, len(mountain) - 1)

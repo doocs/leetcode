@@ -1,5 +1,5 @@
 class Solution:
-    def minMoves(self, classroom: List[str], energy: int) -> int:
+    def minMoves(self, classroom: list[str], energy: int) -> int:
         m, n = len(classroom), len(classroom[0])
         d = [[0] * n for _ in range(m)]
         x = y = cnt = 0

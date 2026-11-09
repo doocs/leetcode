@@ -92,7 +92,7 @@ tags:
 class Solution:
     def splitListToParts(
         self, head: Optional[ListNode], k: int
-    ) -> List[Optional[ListNode]]:
+    ) -> list[Optional[ListNode]]:
         n = 0
         cur = head
         while cur:

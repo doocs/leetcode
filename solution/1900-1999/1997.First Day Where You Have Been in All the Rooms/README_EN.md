@@ -109,7 +109,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
+    def firstDayBeenInAllRooms(self, nextVisit: list[int]) -> int:
         n = len(nextVisit)
         f = [0] * n
         mod = 10**9 + 7

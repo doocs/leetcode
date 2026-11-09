@@ -88,7 +88,7 @@ The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, whe
 
 ```python
 class Solution:
-    def minSwapsCouples(self, row: List[int]) -> int:
+    def minSwapsCouples(self, row: list[int]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

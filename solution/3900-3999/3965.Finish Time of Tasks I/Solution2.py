@@ -1,5 +1,5 @@
 class Solution:
-    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+    def finishTime(self, n: int, edges: list[list[int]], baseTime: list[int]) -> int:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)

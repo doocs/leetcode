@@ -140,8 +140,8 @@ tags:
 ```python
 class Solution:
     def minimumFlips(
-        self, n: int, edges: List[List[int]], start: str, target: str
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], start: str, target: str
+    ) -> list[int]:
         g = [[] for _ in range(n)]
         for i, (a, b) in enumerate(edges):
             g[a].append((b, i))
@@ -330,8 +330,8 @@ function minimumFlips(n: number, edges: number[][], start: string, target: strin
 ```python
 class Solution:
     def minimumFlips(
-        self, n: int, edges: List[List[int]], start: str, target: str
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], start: str, target: str
+    ) -> list[int]:
         g = [[] for _ in range(n)]
         for i, (a, b) in enumerate(edges):
             g[a].append((b, i))

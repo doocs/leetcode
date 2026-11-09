@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def canEat(self, candiesCount: List[int], queries: List[List[int]]) -> List[bool]:
+    def canEat(self, candiesCount: list[int], queries: list[list[int]]) -> list[bool]:
         s = list(accumulate(candiesCount, initial=0))
         ans = []
         for t, day, mx in queries:

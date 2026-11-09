@@ -99,7 +99,7 @@ tags:
 ```python
 class Solution:
     def profitableSchemes(
-        self, n: int, minProfit: int, group: List[int], profit: List[int]
+        self, n: int, minProfit: int, group: list[int], profit: list[int]
     ) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
@@ -253,7 +253,7 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 ```python
 class Solution:
     def profitableSchemes(
-        self, n: int, minProfit: int, group: List[int], profit: List[int]
+        self, n: int, minProfit: int, group: list[int], profit: list[int]
     ) -> int:
         mod = 10**9 + 7
         m = len(group)

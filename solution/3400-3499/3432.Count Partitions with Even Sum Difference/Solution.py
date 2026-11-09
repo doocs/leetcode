@@ -1,5 +1,5 @@
 class Solution:
-    def countPartitions(self, nums: List[int]) -> int:
+    def countPartitions(self, nums: list[int]) -> int:
         l, r = 0, sum(nums)
         ans = 0
         for x in nums[:-1]:

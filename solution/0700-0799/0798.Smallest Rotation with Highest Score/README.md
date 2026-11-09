@@ -87,7 +87,7 @@ nums 无论怎么变化总是有 3 分。
 
 ```python
 class Solution:
-    def bestRotation(self, nums: List[int]) -> int:
+    def bestRotation(self, nums: list[int]) -> int:
         n = len(nums)
         mx, ans = -1, n
         d = [0] * n

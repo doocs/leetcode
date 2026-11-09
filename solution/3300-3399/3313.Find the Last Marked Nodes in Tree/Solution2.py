@@ -1,6 +1,6 @@
 class Solution:
-    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
-        def dfs(start: int, dist: List[int]) -> None:
+    def lastMarkedNodes(self, edges: list[list[int]]) -> list[int]:
+        def dfs(start: int, dist: list[int]) -> None:
             stk = [(start, -1)]
             while stk:
                 i, fa = stk.pop()

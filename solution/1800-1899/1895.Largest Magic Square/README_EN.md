@@ -83,7 +83,7 @@ The time complexity is $O(mn \min(m, n)^2)$, and the space complexity is $O(mn)$
 
 ```python
 class Solution:
-    def largestMagicSquare(self, grid: List[List[int]]) -> int:
+    def largestMagicSquare(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         rowsum = [[0] * (n + 1) for _ in range(m + 1)]
         colsum = [[0] * (n + 1) for _ in range(m + 1)]

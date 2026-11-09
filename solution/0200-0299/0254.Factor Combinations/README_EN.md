@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def getFactors(self, n: int) -> List[List[int]]:
+    def getFactors(self, n: int) -> list[list[int]]:
         def dfs(n, i):
             if t:
                 ans.append(t + [n])

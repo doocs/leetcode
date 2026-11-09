@@ -1,5 +1,5 @@
 class Solution:
-    def findLatestStep(self, arr: List[int], m: int) -> int:
+    def findLatestStep(self, arr: list[int], m: int) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

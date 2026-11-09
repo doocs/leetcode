@@ -90,7 +90,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def smallestRangeII(self, nums: List[int], k: int) -> int:
+    def smallestRangeII(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans = nums[-1] - nums[0]
         for i in range(1, len(nums)):

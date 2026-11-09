@@ -79,7 +79,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums: list[int]) -> list[list[int]]:
         def dfs(u, t):
             if u == len(nums):
                 ans.append(t[:])
@@ -282,7 +282,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums: list[int]) -> list[list[int]]:
         ans = []
         for mask in range(1 << len(nums)):
             t = []

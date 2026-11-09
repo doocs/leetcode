@@ -3,7 +3,7 @@ def max(a: int, b: int) -> int:
 
 
 class Solution:
-    def stoneGameV(self, stoneValue: List[int]) -> int:
+    def stoneGameV(self, stoneValue: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= j:

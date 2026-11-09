@@ -112,7 +112,7 @@ for (int i = 0; i &lt; len; i++) {
 
 ```python
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def removeDuplicates(self, nums: list[int]) -> int:
         k = 0
         for x in nums:
             if k < 2 or x != nums[k - 2]:

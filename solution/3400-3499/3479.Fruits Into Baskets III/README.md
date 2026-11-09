@@ -154,7 +154,7 @@ class SegmentTree:
 
 
 class Solution:
-    def numOfUnplacedFruits(self, fruits: List[int], baskets: List[int]) -> int:
+    def numOfUnplacedFruits(self, fruits: list[int], baskets: list[int]) -> int:
         tree = SegmentTree(baskets)
         n = len(baskets)
         ans = 0

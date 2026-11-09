@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTime(self, power: List[int]) -> int:
+    def minimumTime(self, power: list[int]) -> int:
         @cache
         def dfs(mask: int) -> int:
             if mask == 0:

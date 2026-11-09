@@ -1,5 +1,5 @@
 class Solution:
-    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+    def getLeastNumbers(self, arr: list[int], k: int) -> list[int]:
         h = []
         for x in arr:
             heappush(h, -x)

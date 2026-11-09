@@ -125,7 +125,7 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 ```python
 class MovieRentingSystem:
 
-    def __init__(self, n: int, entries: List[List[int]]):
+    def __init__(self, n: int, entries: list[list[int]]):
         self.available = defaultdict(lambda: SortedList())
         self.price_map = {}
         for shop, movie, price in entries:
@@ -133,7 +133,7 @@ class MovieRentingSystem:
             self.price_map[self.f(shop, movie)] = price
         self.rented = SortedList()
 
-    def search(self, movie: int) -> List[int]:
+    def search(self, movie: int) -> list[int]:
         return [shop for _, shop in self.available[movie][:5]]
 
     def rent(self, shop: int, movie: int) -> None:
@@ -146,7 +146,7 @@ class MovieRentingSystem:
         self.rented.remove((price, shop, movie))
         self.available[movie].add((price, shop))
 
-    def report(self) -> List[List[int]]:
+    def report(self) -> list[list[int]]:
         return [[shop, movie] for _, shop, movie in self.rented[:5]]
 
     def f(self, shop: int, movie: int) -> int:

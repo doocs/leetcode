@@ -95,7 +95,7 @@ The time complexity is $O(mn \log n)$, and the space complexity is $O(m)$, where
 
 ```python
 class Solution:
-    def removeSubfolders(self, folder: List[str]) -> List[str]:
+    def removeSubfolders(self, folder: list[str]) -> list[str]:
         folder.sort()
         ans = [folder[0]]
         for f in folder[1:]:
@@ -236,7 +236,7 @@ class Trie:
 
 
 class Solution:
-    def removeSubfolders(self, folder: List[str]) -> List[str]:
+    def removeSubfolders(self, folder: list[str]) -> list[str]:
         trie = Trie()
         for i, f in enumerate(folder):
             trie.insert(i, f)

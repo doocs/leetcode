@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def countBadPairs(self, nums: List[int]) -> int:
+    def countBadPairs(self, nums: list[int]) -> int:
         cnt = Counter()
         ans = 0
         for i, x in enumerate(nums):

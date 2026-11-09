@@ -133,7 +133,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def canSplitArray(self, nums: List[int], m: int) -> bool:
+    def canSplitArray(self, nums: list[int], m: int) -> bool:
         @cache
         def dfs(i: int, j: int) -> bool:
             if i == j:

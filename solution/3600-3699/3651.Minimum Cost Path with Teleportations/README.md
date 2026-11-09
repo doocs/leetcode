@@ -195,7 +195,7 @@ $$f[t][i][j] = \min(f[t][i][j], f[t][i][j-1] + \textit{grid}[i][j])$$
 
 ```python
 class Solution:
-    def minCost(self, grid: List[List[int]], k: int) -> int:
+    def minCost(self, grid: list[list[int]], k: int) -> int:
         m, n = len(grid), len(grid[0])
         f = [[[inf] * n for _ in range(m)] for _ in range(k + 1)]
         f[0][0][0] = 0

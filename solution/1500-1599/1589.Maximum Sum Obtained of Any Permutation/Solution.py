@@ -1,5 +1,5 @@
 class Solution:
-    def maxSumRangeQuery(self, nums: List[int], requests: List[List[int]]) -> int:
+    def maxSumRangeQuery(self, nums: list[int], requests: list[list[int]]) -> int:
         n = len(nums)
         d = [0] * n
         for l, r in requests:

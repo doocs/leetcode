@@ -19,7 +19,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+    def longestObstacleCourseAtEachPosition(self, obstacles: list[int]) -> list[int]:
         nums = sorted(set(obstacles))
         n = len(nums)
         tree = BinaryIndexedTree(n)

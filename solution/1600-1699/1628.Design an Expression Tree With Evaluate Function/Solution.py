@@ -44,7 +44,7 @@ and returns the expression tree represnting it as a Node.
 
 
 class TreeBuilder(object):
-    def buildTree(self, postfix: List[str]) -> 'Node':
+    def buildTree(self, postfix: list[str]) -> 'Node':
         stk = []
         for s in postfix:
             node = MyNode(s)

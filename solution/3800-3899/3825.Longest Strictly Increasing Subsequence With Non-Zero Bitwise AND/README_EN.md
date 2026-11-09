@@ -96,8 +96,8 @@ The time complexity is $O(n \log n \log M)$, and the space complexity is $O(n)$,
 
 ```python
 class Solution:
-    def longestSubsequence(self, nums: List[int]) -> int:
-        def lis(arr: List[int]) -> int:
+    def longestSubsequence(self, nums: list[int]) -> int:
+        def lis(arr: list[int]) -> int:
             g = []
             for x in arr:
                 j = bisect_left(g, x)

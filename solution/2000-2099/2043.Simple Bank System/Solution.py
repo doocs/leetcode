@@ -1,5 +1,5 @@
 class Bank:
-    def __init__(self, balance: List[int]):
+    def __init__(self, balance: list[int]):
         self.balance = balance
         self.n = len(balance)
 

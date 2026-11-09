@@ -105,7 +105,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def maxOperations(self, nums: List[int]) -> int:
+    def maxOperations(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, s: int) -> int:
             if j - i < 1:

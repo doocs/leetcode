@@ -86,7 +86,7 @@ $$
 
 ```python
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False
@@ -280,7 +280,7 @@ var canPartition = function (nums) {
 
 ```python
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False

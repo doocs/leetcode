@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def swimInWater(self, grid: List[List[int]]) -> int:
+    def swimInWater(self, grid: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

@@ -81,7 +81,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m
 
 ```python
 class Solution:
-    def numSpecial(self, mat: List[List[int]]) -> int:
+    def numSpecial(self, mat: list[list[int]]) -> int:
         rows = [0] * len(mat)
         cols = [0] * len(mat[0])
         for i, row in enumerate(mat):

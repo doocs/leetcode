@@ -1,6 +1,6 @@
 class Solution:
-    def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
-        def cal(nums: List[int], cnt: Counter) -> int:
+    def numTriplets(self, nums1: list[int], nums2: list[int]) -> int:
+        def cal(nums: list[int], cnt: Counter) -> int:
             ans = 0
             for x in nums:
                 for y, v1 in cnt.items():

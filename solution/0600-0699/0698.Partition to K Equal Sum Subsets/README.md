@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         def dfs(i: int) -> bool:
             if i == len(nums):
                 return True
@@ -286,7 +286,7 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 ```python
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         @cache
         def dfs(state, t):
             if state == mask:
@@ -517,7 +517,7 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 ```python
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         s = sum(nums)
         if s % k:
             return False

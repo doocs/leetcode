@@ -1,5 +1,5 @@
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: list[list[str]], word: str) -> bool:
         def dfs(i, j, k):
             if k == len(word):
                 return True

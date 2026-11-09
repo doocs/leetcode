@@ -162,7 +162,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maxFreeTime(
-        self, eventTime: int, startTime: List[int], endTime: List[int]
+        self, eventTime: int, startTime: list[int], endTime: list[int]
     ) -> int:
         n = len(startTime)
         pre = [0] * n

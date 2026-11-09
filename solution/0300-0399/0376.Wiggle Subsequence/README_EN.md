@@ -96,7 +96,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def wiggleMaxLength(self, nums: List[int]) -> int:
+    def wiggleMaxLength(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 1
         f = [1] * n

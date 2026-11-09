@@ -98,7 +98,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
+    def validWordSquare(self, words: list[str]) -> bool:
         m = len(words)
         for i, w in enumerate(words):
             for j, c in enumerate(w):

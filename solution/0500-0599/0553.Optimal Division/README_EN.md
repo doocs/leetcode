@@ -87,7 +87,7 @@ It can be shown that after trying all possibilities, we cannot get an expression
 
 ```python
 class Solution:
-    def optimalDivision(self, nums: List[int]) -> str:
+    def optimalDivision(self, nums: list[int]) -> str:
         n = len(nums)
         if n == 1:
             return str(nums[0])

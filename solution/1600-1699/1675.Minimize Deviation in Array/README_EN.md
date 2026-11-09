@@ -110,7 +110,7 @@ The time complexity is $O(n \log n \log m)$, where $n$ and $m$ are the length of
 
 ```python
 class Solution:
-    def minimumDeviation(self, nums: List[int]) -> int:
+    def minimumDeviation(self, nums: list[int]) -> int:
         h = []
         mi = inf
         for v in nums:

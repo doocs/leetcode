@@ -105,8 +105,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def mostPopularCreator(
-        self, creators: List[str], ids: List[str], views: List[int]
-    ) -> List[List[str]]:
+        self, creators: list[str], ids: list[str], views: list[int]
+    ) -> list[list[str]]:
         cnt = defaultdict(int)
         d = defaultdict(int)
         for k, (c, i, v) in enumerate(zip(creators, ids, views)):

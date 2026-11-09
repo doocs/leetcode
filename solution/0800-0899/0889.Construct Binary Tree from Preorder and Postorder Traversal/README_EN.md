@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.right = right
 class Solution:
     def constructFromPrePost(
-        self, preorder: List[int], postorder: List[int]
+        self, preorder: list[int], postorder: list[int]
     ) -> Optional[TreeNode]:
         def dfs(a: int, b: int, c: int, d: int) -> Optional[TreeNode]:
             if a > b:
@@ -328,7 +328,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.right = right
 class Solution:
     def constructFromPrePost(
-        self, preorder: List[int], postorder: List[int]
+        self, preorder: list[int], postorder: list[int]
     ) -> Optional[TreeNode]:
         def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
             if n <= 0:

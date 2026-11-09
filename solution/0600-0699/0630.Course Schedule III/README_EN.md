@@ -92,7 +92,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def scheduleCourse(self, courses: List[List[int]]) -> int:
+    def scheduleCourse(self, courses: list[list[int]]) -> int:
         courses.sort(key=lambda x: x[1])
         pq = []
         s = 0

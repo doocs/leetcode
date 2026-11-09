@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def findDuplicates(self, nums: List[int]) -> List[int]:
+    def findDuplicates(self, nums: list[int]) -> list[int]:
         for i in range(len(nums)):
             while nums[i] != nums[nums[i] - 1]:
                 nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i] - 1]

@@ -139,7 +139,7 @@ The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where 
 
 ```python
 class Solution:
-    def findCrossingTime(self, n: int, k: int, time: List[List[int]]) -> int:
+    def findCrossingTime(self, n: int, k: int, time: list[list[int]]) -> int:
         time.sort(key=lambda x: x[0] + x[2])
         cur = 0
         wait_in_left, wait_in_right = [], []

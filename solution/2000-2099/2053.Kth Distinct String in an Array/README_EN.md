@@ -94,7 +94,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Solution:
-    def kthDistinct(self, arr: List[str], k: int) -> str:
+    def kthDistinct(self, arr: list[str], k: int) -> str:
         cnt = Counter(arr)
         for s in arr:
             if cnt[s] == 1:

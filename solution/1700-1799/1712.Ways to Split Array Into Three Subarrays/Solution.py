@@ -1,5 +1,5 @@
 class Solution:
-    def waysToSplit(self, nums: List[int]) -> int:
+    def waysToSplit(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         s = list(accumulate(nums))
         ans, n = 0, len(nums)

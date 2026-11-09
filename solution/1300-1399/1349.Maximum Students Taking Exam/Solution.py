@@ -1,6 +1,6 @@
 class Solution:
-    def maxStudents(self, seats: List[List[str]]) -> int:
-        def f(seat: List[str]) -> int:
+    def maxStudents(self, seats: list[list[str]]) -> int:
+        def f(seat: list[str]) -> int:
             mask = 0
             for i, c in enumerate(seat):
                 if c == '.':

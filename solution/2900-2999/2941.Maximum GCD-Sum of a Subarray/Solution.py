@@ -1,5 +1,5 @@
 class Solution:
-    def maxGcdSum(self, nums: List[int], k: int) -> int:
+    def maxGcdSum(self, nums: list[int], k: int) -> int:
         s = list(accumulate(nums, initial=0))
         f = []
         ans = 0

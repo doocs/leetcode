@@ -167,7 +167,7 @@ class MedianCost:
 
 
 class Solution:
-    def minOperations(self, nums: List[int], x: int, k: int) -> int:
+    def minOperations(self, nums: list[int], x: int, k: int) -> int:
         n = len(nums)
         f = [[inf] * (k + 1) for _ in range(n + 1)]
         f[0][0] = 0

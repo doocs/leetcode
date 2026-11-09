@@ -93,7 +93,7 @@ Second 7: Fill up a hot cup.
 
 ```python
 class Solution:
-    def fillCups(self, amount: List[int]) -> int:
+    def fillCups(self, amount: list[int]) -> int:
         ans = 0
         while sum(amount):
             amount.sort()
@@ -204,7 +204,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def fillCups(self, amount: List[int]) -> int:
+    def fillCups(self, amount: list[int]) -> int:
         amount.sort()
         if amount[0] + amount[1] <= amount[2]:
             return amount[2]

@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def getFood(self, grid: List[List[str]]) -> int:
+    def getFood(self, grid: list[list[str]]) -> int:
         m, n = len(grid), len(grid[0])
         i, j = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '*')
         q = deque([(i, j)])

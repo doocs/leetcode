@@ -1,5 +1,5 @@
 class Solution:
-    def dicesProbability(self, n: int) -> List[float]:
+    def dicesProbability(self, n: int) -> list[float]:
         f = [[0] * (6 * n + 1) for _ in range(n + 1)]
         for j in range(1, 7):
             f[1][j] = 1

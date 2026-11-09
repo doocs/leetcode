@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def solveQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+    def solveQueries(self, nums: list[int], queries: list[int]) -> list[int]:
         n = len(nums)
         m = n << 1
         d = [m] * m

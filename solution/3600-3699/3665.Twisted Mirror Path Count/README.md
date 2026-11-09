@@ -207,7 +207,7 @@ $$
 
 ```python
 class Solution:
-    def uniquePaths(self, grid: List[List[int]]) -> int:
+    def uniquePaths(self, grid: list[list[int]]) -> int:
         mod = 10**9 + 7
         m, n = len(grid), len(grid[0])
         f = [[[0, 0] for _ in range(n)] for _ in range(m)]
@@ -409,7 +409,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def uniquePaths(self, grid: List[List[int]]) -> int:
+    def uniquePaths(self, grid: list[list[int]]) -> int:
         mod = 10**9 + 7
         n = len(grid[0])
         f = [[0, 0] for _ in range(n + 1)]

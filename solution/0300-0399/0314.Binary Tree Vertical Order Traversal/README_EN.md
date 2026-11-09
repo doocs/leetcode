@@ -88,7 +88,7 @@ The time complexity is $O(n \log \log n)$, and the space complexity is $O(n)$, w
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         def dfs(root, depth, offset):
             if root is None:
                 return
@@ -270,7 +270,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         if root is None:
             return []
         q = deque([(root, 0)])

@@ -144,7 +144,7 @@ class RideSharingSystem:
         self.drivers.add((self.t, driverId))
         self.t += 1
 
-    def matchDriverWithRider(self) -> List[int]:
+    def matchDriverWithRider(self) -> list[int]:
         if len(self.riders) < 1 or len(self.drivers) < 1:
             return [-1, -1]
         return [self.drivers.pop(0)[1], self.riders.pop(0)[1]]

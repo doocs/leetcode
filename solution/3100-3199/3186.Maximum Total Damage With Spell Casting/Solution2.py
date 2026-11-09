@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTotalDamage(self, power: List[int]) -> int:
+    def maximumTotalDamage(self, power: list[int]) -> int:
         n = len(power)
         cnt = Counter(power)
         power.sort()

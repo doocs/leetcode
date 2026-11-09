@@ -1,5 +1,5 @@
 class Solution:
-    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+    def dieSimulator(self, n: int, rollMax: list[int]) -> int:
         mod = 10**9 + 7
         f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
         for j in range(7):

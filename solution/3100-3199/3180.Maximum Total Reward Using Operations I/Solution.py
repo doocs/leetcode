@@ -1,5 +1,5 @@
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             i = bisect_right(rewardValues, x)

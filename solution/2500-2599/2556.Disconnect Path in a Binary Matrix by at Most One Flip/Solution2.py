@@ -1,5 +1,5 @@
 class Solution:
-    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+    def isPossibleToCutPath(self, grid: list[list[int]]) -> bool:
         def dfs() -> bool:
             stk = [(0, 0)]
             while stk:

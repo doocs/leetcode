@@ -1,6 +1,6 @@
 class Solution:
-    def maxSizeSlices(self, slices: List[int]) -> int:
-        def g(nums: List[int]) -> int:
+    def maxSizeSlices(self, slices: list[int]) -> int:
+        def g(nums: list[int]) -> int:
             m = len(nums)
             f = [[0] * (n + 1) for _ in range(m + 1)]
             for i in range(1, m + 1):

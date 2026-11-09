@@ -100,7 +100,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def sortByAbsoluteValue(self, nums: List[int]) -> List[int]:
+    def sortByAbsoluteValue(self, nums: list[int]) -> list[int]:
         return sorted(nums, key=lambda x: abs(x))
 ```
 

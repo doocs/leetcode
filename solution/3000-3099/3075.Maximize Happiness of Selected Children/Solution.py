@@ -1,5 +1,5 @@
 class Solution:
-    def maximumHappinessSum(self, happiness: List[int], k: int) -> int:
+    def maximumHappinessSum(self, happiness: list[int], k: int) -> int:
         happiness.sort(reverse=True)
         ans = 0
         for i, x in enumerate(happiness[:k]):

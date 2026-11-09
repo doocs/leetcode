@@ -84,7 +84,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def smallestRange(self, nums: List[List[int]]) -> List[int]:
+    def smallestRange(self, nums: list[list[int]]) -> list[int]:
         t = [(x, i) for i, v in enumerate(nums) for x in v]
         t.sort()
         cnt = Counter()

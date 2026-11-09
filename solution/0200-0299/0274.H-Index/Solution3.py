@@ -1,5 +1,5 @@
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         l, r = 0, len(citations)
         while l < r:
             mid = (l + r + 1) >> 1

@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
+    def stoneGameII(self, piles: list[int]) -> int:
         @cache
         def dfs(i, m):
             if m * 2 >= n - i:
@@ -257,7 +257,7 @@ function stoneGameII(piles: number[]): number {
 
 ```python
 class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
+    def stoneGameII(self, piles: list[int]) -> int:
         @cache
         def dfs(i: int, m: int = 1) -> int:
             if i >= len(piles):

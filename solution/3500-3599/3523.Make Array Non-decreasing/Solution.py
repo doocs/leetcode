@@ -1,5 +1,5 @@
 class Solution:
-    def maximumPossibleSize(self, nums: List[int]) -> int:
+    def maximumPossibleSize(self, nums: list[int]) -> int:
         ans = mx = 0
         for x in nums:
             if mx <= x:

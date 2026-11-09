@@ -1,5 +1,5 @@
 class Solution:
-    def maximumDetonation(self, bombs: List[List[int]]) -> int:
+    def maximumDetonation(self, bombs: list[list[int]]) -> int:
         n = len(bombs)
         g = [[] for _ in range(n)]
         for i in range(n - 1):

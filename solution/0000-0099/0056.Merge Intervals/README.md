@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         intervals.sort()
         ans = []
         st, ed = intervals[0]
@@ -323,7 +323,7 @@ class Solution {
 
 ```python
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         intervals.sort()
         ans = [intervals[0]]
         for s, e in intervals[1:]:

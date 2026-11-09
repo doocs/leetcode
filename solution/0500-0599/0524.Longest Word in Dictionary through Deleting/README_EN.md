@@ -75,7 +75,7 @@ The time complexity is $O(d(m + n))$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def findLongestWord(self, s: str, dictionary: List[str]) -> str:
+    def findLongestWord(self, s: str, dictionary: list[str]) -> str:
         def check(s: str, t: str) -> bool:
             m, n = len(s), len(t)
             i = j = 0

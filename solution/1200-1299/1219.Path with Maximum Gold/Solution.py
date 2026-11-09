@@ -1,5 +1,5 @@
 class Solution:
-    def getMaximumGold(self, grid: List[List[int]]) -> int:
+    def getMaximumGold(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> int:
             if not (0 <= i < m and 0 <= j < n and grid[i][j]):
                 return 0

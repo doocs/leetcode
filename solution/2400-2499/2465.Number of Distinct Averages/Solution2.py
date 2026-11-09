@@ -1,5 +1,5 @@
 class Solution:
-    def distinctAverages(self, nums: List[int]) -> int:
+    def distinctAverages(self, nums: list[int]) -> int:
         nums.sort()
         ans = 0
         cnt = Counter()

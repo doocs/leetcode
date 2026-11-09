@@ -86,7 +86,7 @@ difficulty: 中等
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pathSum(self, root: TreeNode, target: int) -> List[List[int]]:
+    def pathSum(self, root: TreeNode, target: int) -> list[list[int]]:
         def dfs(root, s):
             if root is None:
                 return

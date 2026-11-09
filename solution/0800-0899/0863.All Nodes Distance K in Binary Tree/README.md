@@ -97,7 +97,7 @@ tags:
 
 
 class Solution:
-    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> list[int]:
         def dfs(root, fa):
             if root is None:
                 return

@@ -88,7 +88,7 @@ The time complexity is $O(n(\log n + \log m))$, and the space complexity is $O(1
 
 ```python
 class Solution:
-    def minimizeMax(self, nums: List[int], p: int) -> int:
+    def minimizeMax(self, nums: list[int], p: int) -> int:
         def check(diff: int) -> bool:
             cnt = i = 0
             while i < len(nums) - 1:

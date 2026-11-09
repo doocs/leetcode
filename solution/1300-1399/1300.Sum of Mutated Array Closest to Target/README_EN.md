@@ -88,7 +88,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findBestValue(self, arr: List[int], target: int) -> int:
+    def findBestValue(self, arr: list[int], target: int) -> int:
         arr.sort()
         s = list(accumulate(arr, initial=0))
         ans, diff = 0, inf

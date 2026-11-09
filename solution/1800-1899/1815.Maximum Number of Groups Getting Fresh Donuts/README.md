@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+    def maxHappyGroups(self, batchSize: int, groups: list[int]) -> int:
         @cache
         def dfs(state, mod):
             res = 0
@@ -257,7 +257,7 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 
 ```python
 class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+    def maxHappyGroups(self, batchSize: int, groups: list[int]) -> int:
         @cache
         def dfs(state, x):
             if state == mask:

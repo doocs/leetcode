@@ -1,5 +1,5 @@
 class Solution:
-    def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
+    def findingUsersActiveMinutes(self, logs: list[list[int]], k: int) -> list[int]:
         d = defaultdict(set)
         for i, t in logs:
             d[i].add(t)

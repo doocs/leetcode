@@ -1,5 +1,5 @@
 class Solution:
-    def minExtraChar(self, s: str, dictionary: List[str]) -> int:
+    def minExtraChar(self, s: str, dictionary: list[str]) -> int:
         ss = set(dictionary)
         n = len(s)
         f = [0] * (n + 1)

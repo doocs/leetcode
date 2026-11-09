@@ -1,5 +1,5 @@
 class Solution:
-    def maximumEvenSplit(self, finalSum: int) -> List[int]:
+    def maximumEvenSplit(self, finalSum: int) -> list[int]:
         if finalSum & 1:
             return []
         ans = []

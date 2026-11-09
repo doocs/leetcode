@@ -1,5 +1,5 @@
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         def dfs(a: int):
             vis[a] = True
             nonlocal ans

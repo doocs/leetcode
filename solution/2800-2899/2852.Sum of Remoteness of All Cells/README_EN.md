@@ -100,7 +100,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def sumRemoteness(self, grid: List[List[int]]) -> int:
+    def sumRemoteness(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> (int, int):
             s, t = grid[i][j], 1
             grid[i][j] = 0

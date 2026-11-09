@@ -1,5 +1,5 @@
 class Solution:
-    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+    def lengthOfLongestSubsequence(self, nums: list[int], target: int) -> int:
         f = [0] + [-inf] * target
         for x in nums:
             for j in range(target, x - 1, -1):

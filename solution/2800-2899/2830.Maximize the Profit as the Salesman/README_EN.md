@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maximizeTheProfit(self, n: int, offers: List[List[int]]) -> int:
+    def maximizeTheProfit(self, n: int, offers: list[list[int]]) -> int:
         offers.sort(key=lambda x: x[1])
         f = [0] * (len(offers) + 1)
         g = [x[1] for x in offers]

@@ -127,7 +127,7 @@ The time complexity is $O(mn 2^k)$, and the space complexity is $O(mn 2^k)$, whe
 
 ```python
 class Solution:
-    def shortestPathAllKeys(self, grid: List[str]) -> int:
+    def shortestPathAllKeys(self, grid: list[str]) -> int:
         m, n = len(grid), len(grid[0])
         si, sj = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '@')
         k = sum(v.islower() for row in grid for v in row)

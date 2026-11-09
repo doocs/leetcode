@@ -1,5 +1,5 @@
 class Solution:
-    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+    def sumOddLengthSubarrays(self, arr: list[int]) -> int:
         n = len(arr)
         f = [0] * n
         g = [0] * n

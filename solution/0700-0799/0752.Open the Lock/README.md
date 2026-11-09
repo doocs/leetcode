@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         def next(s):
             res = []
             s = list(s)
@@ -370,7 +370,7 @@ def extend(m1, m2, q):
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         def next(s):
             res = []
             s = list(s)
@@ -660,7 +660,7 @@ A\* 算法主要思想如下：
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         def next(s):
             res = []
             s = list(s)

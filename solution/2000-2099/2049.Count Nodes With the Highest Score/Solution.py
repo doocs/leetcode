@@ -1,5 +1,5 @@
 class Solution:
-    def countHighestScoreNodes(self, parents: List[int]) -> int:
+    def countHighestScoreNodes(self, parents: list[int]) -> int:
         def dfs(i: int, fa: int):
             cnt = score = 1
             for j in g[i]:

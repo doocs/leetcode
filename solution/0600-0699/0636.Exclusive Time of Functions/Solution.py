@@ -1,5 +1,5 @@
 class Solution:
-    def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
+    def exclusiveTime(self, n: int, logs: list[str]) -> list[int]:
         stk = []
         ans = [0] * n
         pre = 0

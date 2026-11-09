@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def diagonalPrime(self, nums: List[List[int]]) -> int:
+    def diagonalPrime(self, nums: list[list[int]]) -> int:
         def is_prime(x: int) -> bool:
             if x < 2:
                 return False

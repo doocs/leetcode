@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumNumberOfStringPairs(self, words: List[str]) -> int:
+    def maximumNumberOfStringPairs(self, words: list[str]) -> int:
         cnt = Counter()
         ans = 0
         for w in words:

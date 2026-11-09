@@ -61,7 +61,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def exchange(self, nums: List[int]) -> List[int]:
+    def exchange(self, nums: list[int]) -> list[int]:
         j = 0
         for i, x in enumerate(nums):
             if x & 1:

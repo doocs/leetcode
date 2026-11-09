@@ -84,7 +84,7 @@ i=3, nums[i] = 2, 两相邻元素平均值为 (6+0) / 2 = 3
 
 ```python
 class Solution:
-    def rearrangeArray(self, nums: List[int]) -> List[int]:
+    def rearrangeArray(self, nums: list[int]) -> list[int]:
         nums.sort()
         n = len(nums)
         m = (n + 1) // 2

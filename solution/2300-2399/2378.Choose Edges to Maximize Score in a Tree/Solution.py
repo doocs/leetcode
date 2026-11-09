@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, edges: List[List[int]]) -> int:
+    def maxScore(self, edges: list[list[int]]) -> int:
         def dfs(i):
             a = b = t = 0
             for j, w in g[i]:

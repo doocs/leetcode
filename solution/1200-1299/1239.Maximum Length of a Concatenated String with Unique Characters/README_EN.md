@@ -101,7 +101,7 @@ The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$, where
 
 ```python
 class Solution:
-    def maxLength(self, arr: List[str]) -> int:
+    def maxLength(self, arr: list[str]) -> int:
         s = [0]
         for t in arr:
             x = 0

@@ -77,7 +77,7 @@ The time complexity is $O(N)$, and the space complexity is $O(1000)$, where $N$ 
 
 ```python
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = [0] * 1001
         for arr in nums:
             for x in arr:
@@ -215,7 +215,7 @@ class Solution {
 
 ```python
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = Counter()
         ans = []
         for arr in nums:

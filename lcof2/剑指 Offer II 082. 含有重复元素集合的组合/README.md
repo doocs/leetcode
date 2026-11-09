@@ -76,7 +76,7 @@ comments: true
 
 ```python
 class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
         def dfs(u, s, t):
             if s > target:
                 return

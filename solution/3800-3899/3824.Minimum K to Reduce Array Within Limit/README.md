@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumK(self, nums: List[int]) -> int:
+    def minimumK(self, nums: list[int]) -> int:
         def check(k: int) -> bool:
             t = 0
             for x in nums:

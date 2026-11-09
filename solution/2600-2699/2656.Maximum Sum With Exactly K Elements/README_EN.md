@@ -101,7 +101,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximizeSum(self, nums: List[int], k: int) -> int:
+    def maximizeSum(self, nums: list[int], k: int) -> int:
         x = max(nums)
         return k * x + k * (k - 1) // 2
 ```

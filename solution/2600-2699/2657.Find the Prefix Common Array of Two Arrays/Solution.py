@@ -1,5 +1,5 @@
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         cnt1 = Counter()
         cnt2 = Counter()

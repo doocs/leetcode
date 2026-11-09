@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+    def maxSlidingWindow(self, nums: list[int], k: int) -> list[int]:
         q = [(-v, i) for i, v in enumerate(nums[: k - 1])]
         heapify(q)
         ans = []
@@ -211,7 +211,7 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 ```python
 class Solution:
-    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+    def maxSlidingWindow(self, nums: list[int], k: int) -> list[int]:
         q = deque()
         ans = []
         for i, x in enumerate(nums):

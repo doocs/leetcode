@@ -1,5 +1,5 @@
 class Solution:
-    def lenOfVDiagonal(self, grid: List[List[int]]) -> int:
+    def lenOfVDiagonal(self, grid: list[list[int]]) -> int:
         @cache
         def dfs(i: int, j: int, k: int, cnt: int) -> int:
             x, y = i + dirs[k], j + dirs[k + 1]

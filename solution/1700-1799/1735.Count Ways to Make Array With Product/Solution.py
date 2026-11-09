@@ -25,7 +25,7 @@ def comb(n, k):
 
 
 class Solution:
-    def waysToFillArray(self, queries: List[List[int]]) -> List[int]:
+    def waysToFillArray(self, queries: list[list[int]]) -> list[int]:
         ans = []
         for n, k in queries:
             t = 1

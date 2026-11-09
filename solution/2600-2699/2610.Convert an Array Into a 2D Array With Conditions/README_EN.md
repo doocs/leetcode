@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findMatrix(self, nums: List[int]) -> List[List[int]]:
+    def findMatrix(self, nums: list[int]) -> list[list[int]]:
         cnt = Counter(nums)
         ans = []
         for x, v in cnt.items():

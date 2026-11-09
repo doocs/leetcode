@@ -1,7 +1,7 @@
 class Solution:
     def countPairsOfConnectableServers(
-        self, edges: List[List[int]], signalSpeed: int
-    ) -> List[int]:
+        self, edges: list[list[int]], signalSpeed: int
+    ) -> list[int]:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b, w in edges:

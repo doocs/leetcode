@@ -85,7 +85,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+    def minEatingSpeed(self, piles: list[int], h: int) -> int:
         def check(k: int) -> bool:
             return sum((x + k - 1) // k for x in piles) <= h
 

@@ -1,5 +1,5 @@
 class Solution:
-    def maximumLength(self, nums: List[int], k: int) -> int:
+    def maximumLength(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [[1] * (k + 1) for _ in range(n)]
         ans = 0

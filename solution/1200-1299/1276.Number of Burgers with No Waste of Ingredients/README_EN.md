@@ -103,7 +103,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> List[int]:
+    def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> list[int]:
         k = 4 * cheeseSlices - tomatoSlices
         y = k // 2
         x = cheeseSlices - y

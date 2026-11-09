@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def isPreorder(self, nodes: List[List[int]]) -> bool:
+    def isPreorder(self, nodes: list[list[int]]) -> bool:
         def dfs(i: int) -> int:
             nonlocal k
             if i != nodes[k][0]:

@@ -86,7 +86,7 @@ $$
 
 ```python
 class Solution:
-    def maximumGap(self, nums: List[int]) -> int:
+    def maximumGap(self, nums: list[int]) -> int:
         n = len(nums)
         if n < 2:
             return 0

@@ -1,5 +1,5 @@
 class Solution:
-    def countPairs(self, words: List[str]) -> int:
+    def countPairs(self, words: list[str]) -> int:
         cnt = defaultdict(int)
         for s in words:
             t = list(s)

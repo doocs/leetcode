@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def subsequenceSumOr(self, nums: List[int]) -> int:
+    def subsequenceSumOr(self, nums: list[int]) -> int:
         cnt = [0] * 64
         ans = 0
         for v in nums:

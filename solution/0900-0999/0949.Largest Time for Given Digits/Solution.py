@@ -1,5 +1,5 @@
 class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
+    def largestTimeFromDigits(self, arr: list[int]) -> str:
         cnt = [0] * 10
         for v in arr:
             cnt[v] += 1

@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def catchMaximumAmountofPeople(self, team: List[int], dist: int) -> int:
+    def catchMaximumAmountofPeople(self, team: list[int], dist: int) -> int:
         ans = j = 0
         n = len(team)
         for i, x in enumerate(team):

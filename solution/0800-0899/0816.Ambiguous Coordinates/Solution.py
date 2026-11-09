@@ -1,5 +1,5 @@
 class Solution:
-    def ambiguousCoordinates(self, s: str) -> List[str]:
+    def ambiguousCoordinates(self, s: str) -> list[str]:
         def f(i, j):
             res = []
             for k in range(1, j - i + 1):

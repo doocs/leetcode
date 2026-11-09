@@ -114,7 +114,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minRemoval(self, nums: List[int], k: int) -> int:
+    def minRemoval(self, nums: list[int], k: int) -> int:
         nums.sort()
         cnt = 0
         for i, x in enumerate(nums):
@@ -256,7 +256,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minRemoval(self, nums: List[int], k: int) -> int:
+    def minRemoval(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans = n = len(nums)
         r = 0

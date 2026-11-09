@@ -1,5 +1,5 @@
 class Solution:
-    def closedIsland(self, grid: List[List[int]]) -> int:
+    def closedIsland(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> int:
             res = int(0 < i < m - 1 and 0 < j < n - 1)
             grid[i][j] = 1

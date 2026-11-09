@@ -95,7 +95,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minSubarray(self, nums: List[int], p: int) -> int:
+    def minSubarray(self, nums: list[int], p: int) -> int:
         k = sum(nums) % p
         if k == 0:
             return 0

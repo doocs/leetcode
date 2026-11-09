@@ -1,5 +1,5 @@
 class Solution:
-    def lengthAfterTransformations(self, s: str, t: int, nums: List[int]) -> int:
+    def lengthAfterTransformations(self, s: str, t: int, nums: list[int]) -> int:
         mod = 10**9 + 7
         m = 26
 
@@ -12,7 +12,7 @@ class Solution:
             for j in range(1, x + 1):
                 matrix[i][(i + j) % m] = 1
 
-        def matmul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+        def matmul(a: list[list[int]], b: list[list[int]]) -> list[list[int]]:
             n, p, q = len(a), len(b), len(b[0])
             res = [[0] * q for _ in range(n)]
             for i in range(n):
@@ -22,7 +22,7 @@ class Solution:
                             res[i][j] = (res[i][j] + a[i][k] * b[k][j]) % mod
             return res
 
-        def matpow(mat: List[List[int]], power: int) -> List[List[int]]:
+        def matpow(mat: list[list[int]], power: int) -> list[list[int]]:
             res = [[int(i == j) for j in range(m)] for i in range(m)]
             while power:
                 if power % 2:

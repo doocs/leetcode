@@ -1,7 +1,7 @@
 class Solution:
     def findDisappearedNumbers(
-        self, nums: List[int], lower: int, upper: int
-    ) -> List[List[int]]:
+        self, nums: list[int], lower: int, upper: int
+    ) -> list[list[int]]:
         ans = []
         prev = lower - 1
         for x in sorted(set(nums)):

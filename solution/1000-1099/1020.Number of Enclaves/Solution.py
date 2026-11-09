@@ -1,5 +1,5 @@
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int):
             grid[i][j] = 0
             for a, b in pairwise(dirs):

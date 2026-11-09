@@ -1,5 +1,5 @@
 # The read4 API is already defined for you.
-# def read4(buf4: List[str]) -> int:
+# def read4(buf4: list[str]) -> int:
 
 
 class Solution:
@@ -7,7 +7,7 @@ class Solution:
         self.buf4 = [None] * 4
         self.i = self.size = 0
 
-    def read(self, buf: List[str], n: int) -> int:
+    def read(self, buf: list[str], n: int) -> int:
         j = 0
         while j < n:
             if self.i == self.size:

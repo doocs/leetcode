@@ -1,5 +1,5 @@
 class Solution:
-    def maxLength(self, ribbons: List[int], k: int) -> int:
+    def maxLength(self, ribbons: list[int], k: int) -> int:
         left, right = 0, max(ribbons)
         while left < right:
             mid = (left + right + 1) >> 1

@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGameIII(self, stoneValue: List[int]) -> str:
+    def stoneGameIII(self, stoneValue: list[int]) -> str:
         n = len(stoneValue)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

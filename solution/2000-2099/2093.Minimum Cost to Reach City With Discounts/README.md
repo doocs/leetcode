@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumCost(self, n: int, highways: List[List[int]], discounts: int) -> int:
+    def minimumCost(self, n: int, highways: list[list[int]], discounts: int) -> int:
         g = defaultdict(list)
         for a, b, c in highways:
             g[a].append((b, c))

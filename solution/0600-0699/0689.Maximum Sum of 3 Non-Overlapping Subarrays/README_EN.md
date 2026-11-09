@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+    def maxSumOfThreeSubarrays(self, nums: list[int], k: int) -> list[int]:
         s = s1 = s2 = s3 = 0
         mx1 = mx12 = 0
         idx1, idx12 = 0, ()
@@ -294,7 +294,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+    def maxSumOfThreeSubarrays(self, nums: list[int], k: int) -> list[int]:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         pre = [[] for _ in range(n)]

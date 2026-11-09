@@ -118,8 +118,8 @@ The time complexity is $O(mn^2)$, and the space complexity is $O(mn)$, where $m$
 ```python
 class Solution:
     def mostSimilar(
-        self, n: int, roads: List[List[int]], names: List[str], targetPath: List[str]
-    ) -> List[int]:
+        self, n: int, roads: list[list[int]], names: list[str], targetPath: list[str]
+    ) -> list[int]:
         g = [[] for _ in range(n)]
         for a, b in roads:
             g[a].append(b)

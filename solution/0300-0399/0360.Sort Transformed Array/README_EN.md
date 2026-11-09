@@ -71,8 +71,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def sortTransformedArray(
-        self, nums: List[int], a: int, b: int, c: int
-    ) -> List[int]:
+        self, nums: list[int], a: int, b: int, c: int
+    ) -> list[int]:
         def f(x: int) -> int:
             return a * x * x + b * x + c
 

@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def minScore(self, grid: List[List[int]]) -> List[List[int]]:
+    def minScore(self, grid: list[list[int]]) -> list[list[int]]:
         m, n = len(grid), len(grid[0])
         nums = [(v, i, j) for i, row in enumerate(grid) for j, v in enumerate(row)]
         nums.sort()

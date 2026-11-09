@@ -86,7 +86,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxFrequencyScore(self, nums: List[int], k: int) -> int:
+    def maxFrequencyScore(self, nums: list[int], k: int) -> int:
         mod = 10**9 + 7
         cnt = Counter(nums[:k])
         ans = cur = sum(pow(k, v, mod) for k, v in cnt.items()) % mod

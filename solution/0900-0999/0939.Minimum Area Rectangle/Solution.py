@@ -1,5 +1,5 @@
 class Solution:
-    def minAreaRect(self, points: List[List[int]]) -> int:
+    def minAreaRect(self, points: list[list[int]]) -> int:
         d = defaultdict(list)
         for x, y in points:
             d[x].append(y)

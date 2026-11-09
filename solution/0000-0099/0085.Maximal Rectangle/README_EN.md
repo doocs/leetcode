@@ -99,7 +99,7 @@ The time complexity is $O(mn)$, where $m$ is the number of rows in $\textit{matr
 
 ```python
 class Solution:
-    def maximalRectangle(self, matrix: List[List[str]]) -> int:
+    def maximalRectangle(self, matrix: list[list[str]]) -> int:
         heights = [0] * len(matrix[0])
         ans = 0
         for row in matrix:
@@ -111,7 +111,7 @@ class Solution:
             ans = max(ans, self.largestRectangleArea(heights))
         return ans
 
-    def largestRectangleArea(self, heights: List[int]) -> int:
+    def largestRectangleArea(self, heights: list[int]) -> int:
         n = len(heights)
         stk = []
         left = [-1] * n

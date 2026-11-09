@@ -217,7 +217,7 @@ tags:
 
 ```python
 class Solution:
-    def countSequences(self, nums: List[int], k: int) -> int:
+    def countSequences(self, nums: list[int], k: int) -> int:
         @cache
         def dfs(i: int, p: int, q: int) -> int:
             if i == n:

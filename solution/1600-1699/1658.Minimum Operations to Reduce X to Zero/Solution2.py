@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], x: int) -> int:
+    def minOperations(self, nums: list[int], x: int) -> int:
         s = sum(nums) - x
         j = t = 0
         mx = -1

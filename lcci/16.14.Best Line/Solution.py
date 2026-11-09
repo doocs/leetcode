@@ -1,5 +1,5 @@
 class Solution:
-    def bestLine(self, points: List[List[int]]) -> List[int]:
+    def bestLine(self, points: list[list[int]]) -> list[int]:
         n = len(points)
         mx = 0
         x, y = 0, 1

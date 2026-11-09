@@ -93,7 +93,7 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def findContentChildren(self, g: List[int], s: List[int]) -> int:
+    def findContentChildren(self, g: list[int], s: list[int]) -> int:
         g.sort()
         s.sort()
         j = 0

@@ -170,7 +170,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def getMaxFunctionValue(self, receiver: List[int], k: int) -> int:
+    def getMaxFunctionValue(self, receiver: list[int], k: int) -> int:
         n, m = len(receiver), k.bit_length()
         f = [[0] * m for _ in range(n)]
         g = [[0] * m for _ in range(n)]

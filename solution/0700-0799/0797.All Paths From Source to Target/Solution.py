@@ -1,5 +1,5 @@
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         n = len(graph)
         q = deque([[0]])
         ans = []

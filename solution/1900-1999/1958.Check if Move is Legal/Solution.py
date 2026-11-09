@@ -1,6 +1,6 @@
 class Solution:
     def checkMove(
-        self, board: List[List[str]], rMove: int, cMove: int, color: str
+        self, board: list[list[str]], rMove: int, cMove: int, color: str
     ) -> bool:
         for a in range(-1, 2):
             for b in range(-1, 2):

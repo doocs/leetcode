@@ -55,7 +55,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def smallestDifference(self, a: List[int], b: List[int]) -> int:
+    def smallestDifference(self, a: list[int], b: list[int]) -> int:
         b.sort()
         ans = inf
         n = len(b)
@@ -239,7 +239,7 @@ class Solution {
 
 ```python
 class Solution:
-    def smallestDifference(self, a: List[int], b: List[int]) -> int:
+    def smallestDifference(self, a: list[int], b: list[int]) -> int:
         a.sort()
         b.sort()
         i = j = 0

@@ -87,7 +87,7 @@ The time complexity is $O((n + m)|w|)$, and the space complexity is $O(m|w|)$, w
 
 ```python
 class Solution:
-    def reportSpam(self, message: List[str], bannedWords: List[str]) -> bool:
+    def reportSpam(self, message: list[str], bannedWords: list[str]) -> bool:
         s = set(bannedWords)
         return sum(w in s for w in message) >= 2
 ```

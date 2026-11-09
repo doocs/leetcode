@@ -115,7 +115,7 @@ tags:
 
 ```python
 class Solution:
-    def threeEqualParts(self, arr: List[int]) -> List[int]:
+    def threeEqualParts(self, arr: list[int]) -> list[int]:
         def find(x):
             s = 0
             for i, v in enumerate(arr):

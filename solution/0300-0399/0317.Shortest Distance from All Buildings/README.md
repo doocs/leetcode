@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def shortestDistance(self, grid: List[List[int]]) -> int:
+    def shortestDistance(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
         total = 0

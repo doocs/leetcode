@@ -85,7 +85,7 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 
 ```python
 class Solution:
-    def maxRotateFunction(self, nums: List[int]) -> int:
+    def maxRotateFunction(self, nums: list[int]) -> int:
         f = sum(i * v for i, v in enumerate(nums))
         n, s = len(nums), sum(nums)
         ans = f

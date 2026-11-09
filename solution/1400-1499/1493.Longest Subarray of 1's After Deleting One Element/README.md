@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         n = len(nums)
         left = [0] * (n + 1)
         right = [0] * (n + 1)
@@ -266,7 +266,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         ans = 0
         cnt = j = 0
         for i, x in enumerate(nums):
@@ -399,7 +399,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         cnt = l = 0
         for x in nums:
             cnt += x ^ 1

@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def makesquare(self, matchsticks: List[int]) -> bool:
+    def makesquare(self, matchsticks: list[int]) -> bool:
         def dfs(u):
             if u == len(matchsticks):
                 return True
@@ -258,7 +258,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def makesquare(self, matchsticks: List[int]) -> bool:
+    def makesquare(self, matchsticks: list[int]) -> bool:
         @cache
         def dfs(state, t):
             if state == (1 << len(matchsticks)) - 1:

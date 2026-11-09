@@ -85,7 +85,7 @@ The time complexity is $O(m \log m)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minimumCost(self, n: int, connections: List[List[int]]) -> int:
+    def minimumCost(self, n: int, connections: list[list[int]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

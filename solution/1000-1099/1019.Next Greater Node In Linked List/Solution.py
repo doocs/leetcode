@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def nextLargerNodes(self, head: Optional[ListNode]) -> List[int]:
+    def nextLargerNodes(self, head: Optional[ListNode]) -> list[int]:
         nums = []
         while head:
             nums.append(head.val)

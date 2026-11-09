@@ -1,5 +1,5 @@
 class Solution:
-    def minFallingPathSum(self, grid: List[List[int]]) -> int:
+    def minFallingPathSum(self, grid: list[list[int]]) -> int:
         n = len(grid)
         f = [0] * n
         for row in grid:

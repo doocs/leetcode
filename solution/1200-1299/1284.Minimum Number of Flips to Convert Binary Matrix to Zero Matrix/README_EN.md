@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def minFlips(self, mat: List[List[int]]) -> int:
+    def minFlips(self, mat: list[list[int]]) -> int:
         m, n = len(mat), len(mat[0])
         state = sum(1 << (i * n + j) for i in range(m) for j in range(n) if mat[i][j])
         q = deque([state])

@@ -114,7 +114,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def maxHeight(self, cuboids: List[List[int]]) -> int:
+    def maxHeight(self, cuboids: list[list[int]]) -> int:
         for c in cuboids:
             c.sort()
         cuboids.sort()

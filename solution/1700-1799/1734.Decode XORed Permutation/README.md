@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def decode(self, encoded: List[int]) -> List[int]:
+    def decode(self, encoded: list[int]) -> list[int]:
         n = len(encoded) + 1
         a = b = 0
         for i in range(0, n - 1, 2):

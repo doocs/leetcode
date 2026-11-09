@@ -1,5 +1,5 @@
 class Solution:
-    def validSequence(self, word1: str, word2: str) -> List[int]:
+    def validSequence(self, word1: str, word2: str) -> list[int]:
         m, n = len(word1), len(word2)
         suf = [0] * (m + 1)
         suf[m] = n

@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def alertNames(self, keyName: List[str], keyTime: List[str]) -> List[str]:
+    def alertNames(self, keyName: list[str], keyTime: list[str]) -> list[str]:
         d = defaultdict(list)
         for name, t in zip(keyName, keyTime):
             t = int(t[:2]) * 60 + int(t[3:])

@@ -1,5 +1,5 @@
 class Solution:
-    def sumSubseqWidths(self, nums: List[int]) -> int:
+    def sumSubseqWidths(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         nums.sort()
         ans, p = 0, 1

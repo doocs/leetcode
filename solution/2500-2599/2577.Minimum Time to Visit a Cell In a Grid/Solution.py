@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTime(self, grid: List[List[int]]) -> int:
+    def minimumTime(self, grid: list[list[int]]) -> int:
         if grid[0][1] > 1 and grid[1][0] > 1:
             return -1
         m, n = len(grid), len(grid[0])

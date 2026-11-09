@@ -86,7 +86,7 @@ The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$ o
 
 ```python
 class Solution:
-    def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+    def answerQueries(self, nums: list[int], queries: list[int]) -> list[int]:
         nums.sort()
         s = list(accumulate(nums))
         return [bisect_right(s, q) for q in queries]
@@ -251,7 +251,7 @@ The time complexity is $O(n \log n + m)$, and the space complexity is $O(m)$, wh
 
 ```python
 class Solution:
-    def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+    def answerQueries(self, nums: list[int], queries: list[int]) -> list[int]:
         nums.sort()
         m = len(queries)
         ans = [0] * m

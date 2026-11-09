@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
+    def stoneGame(self, piles: list[int]) -> bool:
         n = len(piles)
         f = [[0] * n for _ in range(n)]
         for i, x in enumerate(piles):

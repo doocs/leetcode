@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def findStrobogrammatic(self, n: int) -> List[str]:
+    def findStrobogrammatic(self, n: int) -> list[str]:
         def dfs(u):
             if u == 0:
                 return ['']

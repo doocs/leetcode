@@ -113,7 +113,7 @@ tags:
 
 ```python
 class Solution:
-    def countPartitions(self, nums: List[int], k: int) -> int:
+    def countPartitions(self, nums: list[int], k: int) -> int:
         mod = 10**9 + 7
         sl = SortedList()
         n = len(nums)

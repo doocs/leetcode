@@ -63,7 +63,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findClosest(self, words: List[str], word1: str, word2: str) -> int:
+    def findClosest(self, words: list[str], word1: str, word2: str) -> int:
         i, j = inf, -inf
         ans = inf
         for k, w in enumerate(words):
@@ -234,7 +234,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findClosest(self, words: List[str], word1: str, word2: str) -> int:
+    def findClosest(self, words: list[str], word1: str, word2: str) -> int:
         d = defaultdict(list)
         for i, w in enumerate(words):
             d[w].append(i)

@@ -93,7 +93,7 @@ Bob 可以移除下标 2 的蓝色气球。这将花费 3 秒。
 
 ```python
 class Solution:
-    def minCost(self, colors: str, neededTime: List[int]) -> int:
+    def minCost(self, colors: str, neededTime: list[int]) -> int:
         ans = i = 0
         n = len(colors)
         while i < n:

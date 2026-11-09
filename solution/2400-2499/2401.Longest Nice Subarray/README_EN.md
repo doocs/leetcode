@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestNiceSubarray(self, nums: List[int]) -> int:
+    def longestNiceSubarray(self, nums: list[int]) -> int:
         ans = mask = l = 0
         for r, x in enumerate(nums):
             while mask & x:

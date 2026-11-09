@@ -94,7 +94,7 @@ The time complexity is $O(n^2k)$, and the space complexity is $O(n^2)$, where $n
 
 ```python
 class Solution:
-    def minDistance(self, houses: List[int], k: int) -> int:
+    def minDistance(self, houses: list[int], k: int) -> int:
         houses.sort()
         n = len(houses)
         g = [[0] * n for _ in range(n)]

@@ -1,7 +1,7 @@
 class Solution:
     def twoOutOfThree(
-        self, nums1: List[int], nums2: List[int], nums3: List[int]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], nums3: list[int]
+    ) -> list[int]:
         mask = defaultdict(int)
         for i, nums in enumerate((nums1, nums2, nums3)):
             for x in nums:

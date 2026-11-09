@@ -23,8 +23,8 @@ class UnionFind:
 
 class Solution:
     def minimumCost(
-        self, n: int, edges: List[List[int]], query: List[List[int]]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], query: list[list[int]]
+    ) -> list[int]:
         g = [-1] * n
         uf = UnionFind(n)
         for u, v, _ in edges:

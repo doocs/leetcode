@@ -98,7 +98,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def isPossible(self, n: int, edges: List[List[int]]) -> bool:
+    def isPossible(self, n: int, edges: list[list[int]]) -> bool:
         g = defaultdict(set)
         for a, b in edges:
             g[a].add(b)

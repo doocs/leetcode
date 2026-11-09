@@ -122,7 +122,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumEnergy(self, energy: List[int], k: int) -> int:
+    def maximumEnergy(self, energy: list[int], k: int) -> int:
         ans = -inf
         n = len(energy)
         for i in range(n - k, n):

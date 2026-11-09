@@ -1,6 +1,6 @@
 class Solution:
     def findSmallestRegion(
-        self, regions: List[List[str]], region1: str, region2: str
+        self, regions: list[list[str]], region1: str, region2: str
     ) -> str:
         g = {}
         for r in regions:

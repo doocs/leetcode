@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(nums):

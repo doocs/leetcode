@@ -95,7 +95,7 @@ nums 可取得的最大总分是 -3 。
 
 ```python
 class Solution:
-    def maximumSumScore(self, nums: List[int]) -> int:
+    def maximumSumScore(self, nums: list[int]) -> int:
         l, r = 0, sum(nums)
         ans = -inf
         for x in nums:

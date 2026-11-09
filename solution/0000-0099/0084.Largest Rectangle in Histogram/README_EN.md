@@ -85,7 +85,7 @@ for i in range(n):
 
 ```python
 class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
+    def largestRectangleArea(self, heights: list[int]) -> int:
         n = len(heights)
         stk = []
         left = [-1] * n

@@ -92,7 +92,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def tictactoe(self, board: List[str]) -> str:
+    def tictactoe(self, board: list[str]) -> str:
         n = len(board)
         rows = [0] * n
         cols = [0] * n

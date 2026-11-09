@@ -1,5 +1,5 @@
 class Solution:
-    def shipWithinDays(self, weights: List[int], days: int) -> int:
+    def shipWithinDays(self, weights: list[int], days: int) -> int:
         def check(mx):
             ws, cnt = 0, 1
             for w in weights:

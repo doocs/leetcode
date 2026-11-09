@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         ans = n = len(nums)
         nums = sorted(set(nums))
         for i, v in enumerate(nums):
@@ -283,7 +283,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         n = len(nums)
         nums = sorted(set(nums))
         ans, j = n, 0

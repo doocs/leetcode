@@ -90,7 +90,7 @@ The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is 
 
 ```python
 class Solution:
-    def firstPalindrome(self, words: List[str]) -> str:
+    def firstPalindrome(self, words: list[str]) -> str:
         return next((w for w in words if w == w[::-1]), "")
 ```
 

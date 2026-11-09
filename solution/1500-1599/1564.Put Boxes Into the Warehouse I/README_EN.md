@@ -96,7 +96,7 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 
 ```python
 class Solution:
-    def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
+    def maxBoxesInWarehouse(self, boxes: list[int], warehouse: list[int]) -> int:
         n = len(warehouse)
         left = [warehouse[0]] * n
         for i in range(1, n):

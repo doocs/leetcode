@@ -1,5 +1,5 @@
 class Solution:
-    def firstCompleteIndex(self, arr: List[int], mat: List[List[int]]) -> int:
+    def firstCompleteIndex(self, arr: list[int], mat: list[list[int]]) -> int:
         m, n = len(mat), len(mat[0])
         idx = {}
         for i in range(m):

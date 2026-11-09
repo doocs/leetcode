@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def closestPrimes(self, left: int, right: int) -> List[int]:
+    def closestPrimes(self, left: int, right: int) -> list[int]:
         cnt = 0
         st = [False] * (right + 1)
         prime = [0] * (right + 1)

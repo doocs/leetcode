@@ -83,7 +83,7 @@ The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$, where 
 
 ```python
 class Solution:
-    def makeEqual(self, words: List[str]) -> bool:
+    def makeEqual(self, words: list[str]) -> bool:
         cnt = Counter()
         for w in words:
             for c in w:

@@ -1,5 +1,5 @@
 class Solution:
-    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+    def getSneakyNumbers(self, nums: list[int]) -> list[int]:
         n = len(nums) - 2
         xx = nums[n] ^ nums[n + 1]
         for i in range(n):

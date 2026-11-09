@@ -1,5 +1,5 @@
 class Solution:
-    def minCosts(self, cost: List[int]) -> List[int]:
+    def minCosts(self, cost: list[int]) -> list[int]:
         n = len(cost)
         ans = [0] * n
         mi = cost[0]

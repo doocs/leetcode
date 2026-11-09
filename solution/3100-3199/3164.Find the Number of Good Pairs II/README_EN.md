@@ -88,7 +88,7 @@ The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is 
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def numberOfPairs(self, nums1: list[int], nums2: list[int], k: int) -> int:
         cnt1 = Counter(x // k for x in nums1 if x % k == 0)
         if not cnt1:
             return 0

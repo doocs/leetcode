@@ -96,7 +96,7 @@ comments: true
 
 ```python
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         ans = []
 
         def dfs(i, path):

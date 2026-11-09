@@ -84,7 +84,7 @@ The time complexity is $O(n)$, where $n$ represents the length of $\textit{arr}$
 
 ```python
 class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
+    def maxChunksToSorted(self, arr: list[int]) -> int:
         stk = []
         for v in arr:
             if not stk or v >= stk[-1]:

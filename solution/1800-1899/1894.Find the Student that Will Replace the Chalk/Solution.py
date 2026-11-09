@@ -1,5 +1,5 @@
 class Solution:
-    def chalkReplacer(self, chalk: List[int], k: int) -> int:
+    def chalkReplacer(self, chalk: list[int], k: int) -> int:
         s = sum(chalk)
         k %= s
         for i, x in enumerate(chalk):

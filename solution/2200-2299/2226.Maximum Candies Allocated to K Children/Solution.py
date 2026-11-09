@@ -1,5 +1,5 @@
 class Solution:
-    def maximumCandies(self, candies: List[int], k: int) -> int:
+    def maximumCandies(self, candies: list[int], k: int) -> int:
         l, r = 0, max(candies)
         while l < r:
             mid = (l + r + 1) >> 1

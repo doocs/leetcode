@@ -100,7 +100,7 @@ So, answer[2] = 1.
 
 ```python
 class Solution:
-    def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
+    def minEdgeReversals(self, n: int, edges: list[list[int]]) -> list[int]:
         ans = [0] * n
         g = [[] for _ in range(n)]
         for x, y in edges:
@@ -301,7 +301,7 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 
 ```python
 class Solution:
-    def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
+    def minEdgeReversals(self, n: int, edges: list[list[int]]) -> list[int]:
         ans = [0] * n
         g = [[] for _ in range(n)]
         for x, y in edges:

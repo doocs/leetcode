@@ -87,7 +87,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def numberOfBoomerangs(self, points: List[List[int]]) -> int:
+    def numberOfBoomerangs(self, points: list[list[int]]) -> int:
         ans = 0
         for p1 in points:
             cnt = Counter()
@@ -193,7 +193,7 @@ function numberOfBoomerangs(points: number[][]): number {
 
 ```python
 class Solution:
-    def numberOfBoomerangs(self, points: List[List[int]]) -> int:
+    def numberOfBoomerangs(self, points: list[list[int]]) -> int:
         ans = 0
         for p1 in points:
             cnt = Counter()

@@ -95,7 +95,7 @@ The time complexity is $O(n + \log m)$, and the space complexity is $O(1)$, wher
 
 ```python
 class Solution:
-    def isGoodArray(self, nums: List[int]) -> bool:
+    def isGoodArray(self, nums: list[int]) -> bool:
         return reduce(gcd, nums) == 1
 ```
 

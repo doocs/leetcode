@@ -102,7 +102,7 @@ The time complexity is $O(n \sqrt{M})$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def checkPrimeFrequency(self, nums: List[int]) -> bool:
+    def checkPrimeFrequency(self, nums: list[int]) -> bool:
         def is_prime(x: int) -> bool:
             if x < 2:
                 return False

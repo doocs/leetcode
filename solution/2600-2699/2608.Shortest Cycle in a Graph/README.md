@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
+    def findShortestCycle(self, n: int, edges: list[list[int]]) -> int:
         def bfs(u: int, v: int) -> int:
             dist = [inf] * n
             dist[u] = 0
@@ -296,7 +296,7 @@ function findShortestCycle(n: number, edges: number[][]): number {
 
 ```python
 class Solution:
-    def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
+    def findShortestCycle(self, n: int, edges: list[list[int]]) -> int:
         def bfs(u: int) -> int:
             dist = [-1] * n
             dist[u] = 0

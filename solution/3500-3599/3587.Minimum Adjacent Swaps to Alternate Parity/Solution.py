@@ -1,5 +1,5 @@
 class Solution:
-    def minSwaps(self, nums: List[int]) -> int:
+    def minSwaps(self, nums: list[int]) -> int:
         def calc(k: int) -> int:
             return sum(abs(i - j) for i, j in zip(range(0, len(nums), 2), pos[k]))
 

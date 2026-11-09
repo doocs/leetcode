@@ -89,7 +89,7 @@ comments: true
 
 ```python
 class Solution:
-    def robot(self, command: str, obstacles: List[List[int]], x: int, y: int) -> bool:
+    def robot(self, command: str, obstacles: list[list[int]], x: int, y: int) -> bool:
         vis = {(0, 0)}
         i = j = 0
         for c in command:

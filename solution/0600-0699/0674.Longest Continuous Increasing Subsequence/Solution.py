@@ -1,5 +1,5 @@
 class Solution:
-    def findLengthOfLCIS(self, nums: List[int]) -> int:
+    def findLengthOfLCIS(self, nums: list[int]) -> int:
         ans = cnt = 1
         for i, x in enumerate(nums[1:]):
             if nums[i] < x:

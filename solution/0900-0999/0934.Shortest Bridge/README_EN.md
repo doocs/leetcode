@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def shortestBridge(self, grid: List[List[int]]) -> int:
+    def shortestBridge(self, grid: list[list[int]]) -> int:
         def dfs(i, j):
             q.append((i, j))
             grid[i][j] = 2

@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def removeOnes(self, grid: List[List[int]]) -> int:
+    def removeOnes(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         state = sum(1 << (i * n + j) for i in range(m) for j in range(n) if grid[i][j])
         q = deque([state])

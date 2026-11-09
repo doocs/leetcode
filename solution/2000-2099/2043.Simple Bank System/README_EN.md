@@ -105,7 +105,7 @@ Each operation has a time complexity of $O(1)$, so the overall time complexity i
 
 ```python
 class Bank:
-    def __init__(self, balance: List[int]):
+    def __init__(self, balance: list[int]):
         self.balance = balance
         self.n = len(balance)
 

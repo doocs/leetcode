@@ -89,7 +89,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def finalPrices(self, prices: List[int]) -> List[int]:
+    def finalPrices(self, prices: list[int]) -> list[int]:
         stk = []
         for i in reversed(range(len(prices))):
             x = prices[i]

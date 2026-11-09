@@ -129,7 +129,7 @@ class Node:
 
 
 class Solution:
-    def construct(self, grid: List[List[int]]) -> 'Node':
+    def construct(self, grid: list[list[int]]) -> 'Node':
         def dfs(a, b, c, d):
             zero = one = 0
             for i in range(a, c + 1):

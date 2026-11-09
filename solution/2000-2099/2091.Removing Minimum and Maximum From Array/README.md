@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumDeletions(self, nums: List[int]) -> int:
+    def minimumDeletions(self, nums: list[int]) -> int:
         mi = mx = 0
         for i, num in enumerate(nums):
             if num < nums[mi]:

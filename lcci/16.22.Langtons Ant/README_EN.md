@@ -100,7 +100,7 @@ The time complexity is $O(K)$, and the space complexity is $O(K)$, where $K$ is 
 
 ```python
 class Solution:
-    def printKMoves(self, K: int) -> List[str]:
+    def printKMoves(self, K: int) -> list[str]:
         x1 = y1 = x2 = y2 = 0
         dirs = (0, 1, 0, -1, 0)
         d = "RDLU"

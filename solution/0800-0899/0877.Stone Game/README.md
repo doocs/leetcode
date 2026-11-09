@@ -98,7 +98,7 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 ```python
 class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
+    def stoneGame(self, piles: list[int]) -> bool:
         @cache
         def dfs(i: int, j: int) -> int:
             if i > j:
@@ -269,7 +269,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
+    def stoneGame(self, piles: list[int]) -> bool:
         n = len(piles)
         f = [[0] * n for _ in range(n)]
         for i, x in enumerate(piles):

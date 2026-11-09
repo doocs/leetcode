@@ -91,7 +91,7 @@ nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) /
 
 ```python
 class Solution:
-    def largestSumOfAverages(self, nums: List[int], k: int) -> float:
+    def largestSumOfAverages(self, nums: list[int], k: int) -> float:
         @cache
         def dfs(i: int, k: int) -> float:
             if i == n:
@@ -276,7 +276,7 @@ function largestSumOfAverages(nums: number[], k: number): number {
 
 ```python
 class Solution:
-    def largestSumOfAverages(self, nums: List[int], k: int) -> float:
+    def largestSumOfAverages(self, nums: list[int], k: int) -> float:
         n = len(nums)
         f = [[0] * (k + 1) for _ in range(n + 1)]
         s = list(accumulate(nums, initial=0))

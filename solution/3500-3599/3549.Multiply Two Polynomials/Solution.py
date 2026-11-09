@@ -1,5 +1,5 @@
 class Solution:
-    def multiply(self, poly1: List[int], poly2: List[int]) -> List[int]:
+    def multiply(self, poly1: list[int], poly2: list[int]) -> list[int]:
         if not poly1 or not poly2:
             return []
 
@@ -20,7 +20,7 @@ class Solution:
         self._fft(fa, invert=True)
         return [int(round(fa[i].real)) for i in range(m)]
 
-    def _fft(self, a: List[complex], invert: bool) -> None:
+    def _fft(self, a: list[complex], invert: bool) -> None:
         n = len(a)
 
         j = 0

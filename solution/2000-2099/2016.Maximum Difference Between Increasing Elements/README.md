@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumDifference(self, nums: List[int]) -> int:
+    def maximumDifference(self, nums: list[int]) -> int:
         mi = inf
         ans = -1
         for x in nums:

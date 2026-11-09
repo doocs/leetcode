@@ -100,7 +100,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+    def countDistinct(self, nums: list[int], k: int, p: int) -> int:
         s = set()
         n = len(nums)
         base1, base2 = 131, 13331
@@ -246,7 +246,7 @@ Enumerate every subarray and store a joined string in a set. The time and space 
 
 ```python
 class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+    def countDistinct(self, nums: list[int], k: int, p: int) -> int:
         n = len(nums)
         s = set()
         for i in range(n):

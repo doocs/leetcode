@@ -108,7 +108,7 @@ cae</pre>
 
 ```python
 class Solution:
-    def minDeletionSize(self, strs: List[str]) -> int:
+    def minDeletionSize(self, strs: list[str]) -> int:
         m, n = len(strs[0]), len(strs)
         ans = 0
         for j in range(m):

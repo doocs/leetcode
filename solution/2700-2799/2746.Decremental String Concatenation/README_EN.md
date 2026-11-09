@@ -118,7 +118,7 @@ The time complexity is $O(n \times C^2)$, and the space complexity is $O(n \time
 
 ```python
 class Solution:
-    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+    def minimizeConcatenatedLength(self, words: list[str]) -> int:
         @cache
         def dfs(i: int, a: str, b: str) -> int:
             if i >= len(words):
@@ -281,7 +281,7 @@ The time complexity is $O(n|\Sigma|^2)$, and the space complexity is $O(n|\Sigma
 
 ```python
 class Solution:
-    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+    def minimizeConcatenatedLength(self, words: list[str]) -> int:
         n = len(words)
         f = [[[0] * 26 for _ in range(26)] for _ in range(n + 1)]
         for i in range(n - 1, 0, -1):

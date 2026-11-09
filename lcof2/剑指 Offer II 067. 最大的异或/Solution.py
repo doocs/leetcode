@@ -1,5 +1,5 @@
 class Solution:
-    def findMaximumXOR(self, nums: List[int]) -> int:
+    def findMaximumXOR(self, nums: list[int]) -> int:
         max = 0
         mask = 0
         for i in range(30, -1, -1):

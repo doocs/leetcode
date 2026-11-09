@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def bestCoordinate(self, towers: List[List[int]], radius: int) -> List[int]:
+    def bestCoordinate(self, towers: list[list[int]], radius: int) -> list[int]:
         mx = 0
         ans = [0, 0]
         for i in range(51):

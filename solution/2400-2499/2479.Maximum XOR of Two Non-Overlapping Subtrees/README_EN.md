@@ -114,7 +114,7 @@ class Trie:
 
 
 class Solution:
-    def maxXor(self, n: int, edges: List[List[int]], values: List[int]) -> int:
+    def maxXor(self, n: int, edges: list[list[int]], values: list[int]) -> int:
         def dfs1(i, fa):
             t = values[i]
             for j in g[i]:
@@ -437,7 +437,7 @@ class Trie:
 
 
 class Solution:
-    def maxXor(self, n: int, edges: List[List[int]], values: List[int]) -> int:
+    def maxXor(self, n: int, edges: list[list[int]], values: list[int]) -> int:
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)

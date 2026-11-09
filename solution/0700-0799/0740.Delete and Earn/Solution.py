@@ -1,5 +1,5 @@
 class Solution:
-    def deleteAndEarn(self, nums: List[int]) -> int:
+    def deleteAndEarn(self, nums: list[int]) -> int:
         mx = -inf
         for num in nums:
             mx = max(mx, num)

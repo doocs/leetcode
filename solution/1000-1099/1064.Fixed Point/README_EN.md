@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def fixedPoint(self, arr: List[int]) -> int:
+    def fixedPoint(self, arr: list[int]) -> int:
         left, right = 0, len(arr) - 1
         while left < right:
             mid = (left + right) >> 1

@@ -110,7 +110,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfArrays(self, differences: List[int], lower: int, upper: int) -> int:
+    def numberOfArrays(self, differences: list[int], lower: int, upper: int) -> int:
         x = mi = mx = 0
         for d in differences:
             x += d

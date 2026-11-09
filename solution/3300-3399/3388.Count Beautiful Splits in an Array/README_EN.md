@@ -103,7 +103,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def beautifulSplits(self, nums: List[int]) -> int:
+    def beautifulSplits(self, nums: list[int]) -> int:
         n = len(nums)
         lcp = [[0] * (n + 1) for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):

@@ -108,8 +108,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 ```python
 class Solution:
     def checkIfPrerequisite(
-        self, n: int, prerequisites: List[List[int]], queries: List[List[int]]
-    ) -> List[bool]:
+        self, n: int, prerequisites: list[list[int]], queries: list[list[int]]
+    ) -> list[bool]:
         f = [[False] * n for _ in range(n)]
         for a, b in prerequisites:
             f[a][b] = True
@@ -250,8 +250,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 ```python
 class Solution:
     def checkIfPrerequisite(
-        self, n: int, prerequisites: List[List[int]], queries: List[List[int]]
-    ) -> List[bool]:
+        self, n: int, prerequisites: list[list[int]], queries: list[list[int]]
+    ) -> list[bool]:
         f = [[False] * n for _ in range(n)]
         g = [[] for _ in range(n)]
         indeg = [0] * n

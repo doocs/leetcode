@@ -88,8 +88,8 @@ comments: true
 ```python
 class Solution:
     def getTriggerTime(
-        self, increase: List[List[int]], requirements: List[List[int]]
-    ) -> List[int]:
+        self, increase: list[list[int]], requirements: list[list[int]]
+    ) -> list[int]:
         increase.insert(0, [0, 0, 0])
         m, n = len(increase), len(requirements)
         for i in range(1, m):

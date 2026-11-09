@@ -116,7 +116,7 @@ The time complexity is $O(n \textit{op1} \textit{op2})$, and the space complexit
 
 ```python
 class Solution:
-    def minArraySum(self, nums: List[int], d: int, op1: int, op2: int) -> int:
+    def minArraySum(self, nums: list[int], d: int, op1: int, op2: int) -> int:
         n = len(nums)
         f = [[[inf] * (op2 + 1) for _ in range(op1 + 1)] for _ in range(n + 1)]
         f[0][0][0] = 0

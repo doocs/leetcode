@@ -88,7 +88,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
+    def maxIncreaseKeepingSkyline(self, grid: list[list[int]]) -> int:
         row_max = [max(row) for row in grid]
         col_max = [max(col) for col in zip(*grid)]
         return sum(

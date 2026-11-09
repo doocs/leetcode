@@ -87,7 +87,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+    def topKFrequent(self, words: list[str], k: int) -> list[str]:
         cnt = Counter(words)
         return sorted(cnt, key=lambda x: (-cnt[x], x))[:k]
 ```

@@ -114,7 +114,7 @@ $$
 
 ```python
 class Solution:
-    def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
+    def kthLargestValue(self, matrix: list[list[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])
         s = [[0] * (n + 1) for _ in range(m + 1)]
         ans = []

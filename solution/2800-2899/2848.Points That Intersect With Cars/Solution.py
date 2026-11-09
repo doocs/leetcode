@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfPoints(self, nums: List[List[int]]) -> int:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
         m = 102
         d = [0] * m
         for start, end in nums:

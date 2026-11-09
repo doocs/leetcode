@@ -76,7 +76,7 @@ The time complexity is $O(n 2^n)$, where $n$ is the length of the string $s$. Fo
 
 ```python
 class Solution:
-    def letterCasePermutation(self, s: str) -> List[str]:
+    def letterCasePermutation(self, s: str) -> list[str]:
         def dfs(i: int) -> None:
             if i >= len(t):
                 ans.append("".join(t))
@@ -246,7 +246,7 @@ The time complexity is $O(n 2^n)$, where $n$ is the length of the string $s$. Fo
 
 ```python
 class Solution:
-    def letterCasePermutation(self, s: str) -> List[str]:
+    def letterCasePermutation(self, s: str) -> list[str]:
         ans = []
         n = sum(c.isalpha() for c in s)
         for i in range(1 << n):

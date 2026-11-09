@@ -97,7 +97,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Solution:
-    def numUniqueEmails(self, emails: List[str]) -> int:
+    def numUniqueEmails(self, emails: list[str]) -> int:
         s = set()
         for email in emails:
             local, domain = email.split("@")

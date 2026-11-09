@@ -22,7 +22,7 @@ class UnionFind:
 
 
 class Solution:
-    def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
+    def maximumSafenessFactor(self, grid: list[list[int]]) -> int:
         n = len(grid)
         if grid[0][0] or grid[n - 1][n - 1]:
             return 0

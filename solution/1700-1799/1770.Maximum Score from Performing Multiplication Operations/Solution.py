@@ -1,5 +1,5 @@
 class Solution:
-    def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+    def maximumScore(self, nums: list[int], multipliers: list[int]) -> int:
         @cache
         def f(i, j, k):
             if k >= m or i >= n or j < 0:

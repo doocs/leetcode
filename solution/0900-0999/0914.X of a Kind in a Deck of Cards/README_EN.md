@@ -85,7 +85,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(n + \log M)
 
 ```python
 class Solution:
-    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+    def hasGroupsSizeX(self, deck: list[int]) -> bool:
         cnt = Counter(deck)
         return reduce(gcd, cnt.values()) >= 2
 ```

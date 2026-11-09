@@ -93,7 +93,7 @@ Kruskal 算法的基本思想是，每次从边集中选择一条最小的边，
 
 ```python
 class Solution:
-    def minimumCost(self, n: int, connections: List[List[int]]) -> int:
+    def minimumCost(self, n: int, connections: list[list[int]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

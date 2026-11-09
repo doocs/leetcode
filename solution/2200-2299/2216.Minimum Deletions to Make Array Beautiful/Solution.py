@@ -1,5 +1,5 @@
 class Solution:
-    def minDeletion(self, nums: List[int]) -> int:
+    def minDeletion(self, nums: list[int]) -> int:
         n = len(nums)
         i = ans = 0
         while i < n - 1:

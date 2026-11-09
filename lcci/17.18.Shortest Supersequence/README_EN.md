@@ -69,7 +69,7 @@ small = [4]
 
 ```python
 class Solution:
-    def shortestSeq(self, big: List[int], small: List[int]) -> List[int]:
+    def shortestSeq(self, big: list[int], small: list[int]) -> list[int]:
         need = Counter(small)
         window = Counter()
         cnt, j, k, mi = len(small), 0, -1, inf

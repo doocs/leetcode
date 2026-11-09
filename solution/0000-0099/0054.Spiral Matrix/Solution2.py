@@ -1,5 +1,5 @@
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         m, n = len(matrix), len(matrix[0])
         dirs = (0, 1, 0, -1, 0)
         i = j = k = 0

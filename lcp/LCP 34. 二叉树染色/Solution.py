@@ -8,7 +8,7 @@
 
 class Solution:
     def maxValue(self, root: TreeNode, k: int) -> int:
-        def dfs(root: TreeNode) -> List[int]:
+        def dfs(root: TreeNode) -> list[int]:
             ans = [0] * (k + 1)
             if root is None:
                 return ans

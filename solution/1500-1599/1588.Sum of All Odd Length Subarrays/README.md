@@ -109,7 +109,7 @@ tags:
 
 ```python
 class Solution:
-    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+    def sumOddLengthSubarrays(self, arr: list[int]) -> int:
         n = len(arr)
         f = [0] * n
         g = [0] * n
@@ -259,7 +259,7 @@ int sumOddLengthSubarrays(int* arr, int arrSize) {
 
 ```python
 class Solution:
-    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+    def sumOddLengthSubarrays(self, arr: list[int]) -> int:
         ans, f, g = arr[0], arr[0], 0
         for i in range(1, len(arr)):
             ff = g + arr[i] * (i // 2 + 1)

@@ -88,7 +88,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
         arr = sorted(nums)
         return [bisect_left(arr, x) for x in nums]
 ```
@@ -202,7 +202,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 
 ```python
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
         cnt = [0] * 102
         for x in nums:
             cnt[x + 1] += 1

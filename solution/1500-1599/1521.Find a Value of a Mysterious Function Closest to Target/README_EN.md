@@ -96,7 +96,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def closestToTarget(self, arr: List[int], target: int) -> int:
+    def closestToTarget(self, arr: list[int], target: int) -> int:
         ans = abs(arr[0] - target)
         s = {arr[0]}
         for x in arr:

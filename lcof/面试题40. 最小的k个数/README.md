@@ -63,7 +63,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+    def getLeastNumbers(self, arr: list[int], k: int) -> list[int]:
         arr.sort()
         return arr[:k]
 ```
@@ -254,7 +254,7 @@ class Solution {
 
 ```python
 class Solution:
-    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+    def getLeastNumbers(self, arr: list[int], k: int) -> list[int]:
         h = []
         for x in arr:
             heappush(h, -x)
@@ -364,7 +364,7 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 ```python
 class Solution:
-    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+    def getLeastNumbers(self, arr: list[int], k: int) -> list[int]:
         def quick_sort(l, r):
             i, j = l, r
             while i < j:

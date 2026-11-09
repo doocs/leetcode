@@ -88,7 +88,7 @@ The time complexity is $O((n + m)C)$, and the space complexity is $O(n \times C)
 
 ```python
 class Solution:
-    def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
+    def canMakePaliQueries(self, s: str, queries: list[list[int]]) -> list[bool]:
         n = len(s)
         ss = [[0] * 26 for _ in range(n + 1)]
         for i, c in enumerate(s, 1):

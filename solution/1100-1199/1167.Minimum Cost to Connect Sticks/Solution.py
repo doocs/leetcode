@@ -1,5 +1,5 @@
 class Solution:
-    def connectSticks(self, sticks: List[int]) -> int:
+    def connectSticks(self, sticks: list[int]) -> int:
         heapify(sticks)
         ans = 0
         while len(sticks) > 1:

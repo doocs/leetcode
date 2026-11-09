@@ -1,5 +1,5 @@
 class Solution:
-    def maxPoints(self, points: List[List[int]]) -> int:
+    def maxPoints(self, points: list[list[int]]) -> int:
         n = len(points)
         ans = 1
         for i in range(n):

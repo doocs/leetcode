@@ -127,7 +127,7 @@ tags:
 
 ```python
 class Solution:
-    def maxGCDScore(self, nums: List[int], k: int) -> int:
+    def maxGCDScore(self, nums: list[int], k: int) -> int:
         n = len(nums)
         cnt = [0] * n
         for i, x in enumerate(nums):

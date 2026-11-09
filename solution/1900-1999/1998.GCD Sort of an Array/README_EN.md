@@ -94,7 +94,7 @@ We can sort [10,5,9,3,15] by performing the following operations:
 
 ```python
 class Solution:
-    def gcdSort(self, nums: List[int]) -> bool:
+    def gcdSort(self, nums: list[int]) -> bool:
         n = 10**5 + 10
         p = list(range(n))
         f = defaultdict(list)

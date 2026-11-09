@@ -119,8 +119,8 @@ tags:
 ```python
 class Solution:
     def countSubgraphsForEachDiameter(
-        self, n: int, edges: List[List[int]]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]]
+    ) -> list[int]:
         def dfs(u: int, d: int = 0):
             nonlocal mx, nxt, msk
             if mx < d:
@@ -378,8 +378,8 @@ function numberOfLeadingZeros(i: number): number {
 ```python
 class Solution:
     def countSubgraphsForEachDiameter(
-        self, n: int, edges: List[List[int]]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]]
+    ) -> list[int]:
         def bfs(u: int) -> int:
             d = -1
             q = deque([u])

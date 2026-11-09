@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def slidingPuzzle(self, board: List[List[int]]) -> int:
+    def slidingPuzzle(self, board: list[list[int]]) -> int:
         t = [None] * 6
 
         def gets():
@@ -345,7 +345,7 @@ public:
 
 ```python
 class Solution:
-    def slidingPuzzle(self, board: List[List[int]]) -> int:
+    def slidingPuzzle(self, board: list[list[int]]) -> int:
         m, n = 2, 3
         seq = []
         start, end = '', '123450'

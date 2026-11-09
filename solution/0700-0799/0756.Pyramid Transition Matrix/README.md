@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
+    def pyramidTransition(self, bottom: str, allowed: list[str]) -> bool:
         @cache
         def dfs(s: str) -> bool:
             if len(s) == 1:

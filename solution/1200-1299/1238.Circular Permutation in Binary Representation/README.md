@@ -97,7 +97,7 @@ int gray(x) {
 
 ```python
 class Solution:
-    def circularPermutation(self, n: int, start: int) -> List[int]:
+    def circularPermutation(self, n: int, start: int) -> list[int]:
         g = [i ^ (i >> 1) for i in range(1 << n)]
         j = g.index(start)
         return g[j:] + g[:j]
@@ -204,7 +204,7 @@ function circularPermutation(n: number, start: number): number[] {
 
 ```python
 class Solution:
-    def circularPermutation(self, n: int, start: int) -> List[int]:
+    def circularPermutation(self, n: int, start: int) -> list[int]:
         return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
 

@@ -110,7 +110,7 @@ tags:
 
 ```python
 class Solution:
-    def minSpeedOnTime(self, dist: List[int], hour: float) -> int:
+    def minSpeedOnTime(self, dist: list[int], hour: float) -> int:
         def check(v: int) -> bool:
             s = 0
             for i, d in enumerate(dist):

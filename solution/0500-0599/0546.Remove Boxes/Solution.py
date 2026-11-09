@@ -1,5 +1,5 @@
 class Solution:
-    def removeBoxes(self, boxes: List[int]) -> int:
+    def removeBoxes(self, boxes: list[int]) -> int:
         @cache
         def dfs(i, j, k):
             if i > j:

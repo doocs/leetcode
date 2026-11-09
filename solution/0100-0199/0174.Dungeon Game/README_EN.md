@@ -87,7 +87,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
+    def calculateMinimumHP(self, dungeon: list[list[int]]) -> int:
         m, n = len(dungeon), len(dungeon[0])
         dp = [[inf] * (n + 1) for _ in range(m + 1)]
         dp[m][n - 1] = dp[m - 1][n] = 1

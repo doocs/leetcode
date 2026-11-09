@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+    def bstFromPreorder(self, preorder: list[int]) -> Optional[TreeNode]:
         def dfs(i: int, j: int) -> Optional[TreeNode]:
             if i > j:
                 return None

@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def shiftingLetters(self, s: str, shifts: List[int]) -> str:
+    def shiftingLetters(self, s: str, shifts: list[int]) -> str:
         n, t = len(s), 0
         s = list(s)
         for i in range(n - 1, -1, -1):

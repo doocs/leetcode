@@ -1,5 +1,5 @@
 class Solution:
-    def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
+    def findBlackPixel(self, picture: list[list[str]], target: int) -> int:
         rows = [0] * len(picture)
         g = defaultdict(list)
         for i, row in enumerate(picture):

@@ -1,5 +1,5 @@
 class Solution:
-    def findPrimePairs(self, n: int) -> List[List[int]]:
+    def findPrimePairs(self, n: int) -> list[list[int]]:
         primes = [True] * n
         for i in range(2, n):
             if primes[i]:

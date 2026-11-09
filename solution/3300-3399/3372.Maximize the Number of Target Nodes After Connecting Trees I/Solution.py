@@ -1,8 +1,8 @@
 class Solution:
     def maxTargetNodes(
-        self, edges1: List[List[int]], edges2: List[List[int]], k: int
-    ) -> List[int]:
-        def build(edges: List[List[int]]) -> List[List[int]]:
+        self, edges1: list[list[int]], edges2: list[list[int]], k: int
+    ) -> list[int]:
+        def build(edges: list[list[int]]) -> list[list[int]]:
             n = len(edges) + 1
             g = [[] for _ in range(n)]
             for a, b in edges:
@@ -10,7 +10,7 @@ class Solution:
                 g[b].append(a)
             return g
 
-        def dfs(g: List[List[int]], a: int, fa: int, d: int) -> int:
+        def dfs(g: list[list[int]], a: int, fa: int, d: int) -> int:
             if d < 0:
                 return 0
             cnt = 1

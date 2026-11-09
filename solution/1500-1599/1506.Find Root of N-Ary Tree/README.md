@@ -123,7 +123,7 @@ class Node:
 
 
 class Solution:
-    def findRoot(self, tree: List['Node']) -> 'Node':
+    def findRoot(self, tree: list['Node']) -> 'Node':
         x = 0
         for node in tree:
             x ^= node.val

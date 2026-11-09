@@ -111,7 +111,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(1)$, where $n$
 
 ```python
 class Solution:
-    def subsetXORSum(self, nums: List[int]) -> int:
+    def subsetXORSum(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(1 << n):
             s = 0
@@ -281,7 +281,7 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def subsetXORSum(self, nums: List[int]) -> int:
+    def subsetXORSum(self, nums: list[int]) -> int:
         def dfs(i: int, s: int):
             nonlocal ans
             if i >= len(nums):

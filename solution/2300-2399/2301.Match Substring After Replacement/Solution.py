@@ -1,5 +1,5 @@
 class Solution:
-    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
+    def matchReplacement(self, s: str, sub: str, mappings: list[list[str]]) -> bool:
         d = defaultdict(set)
         for a, b in mappings:
             d[a].add(b)

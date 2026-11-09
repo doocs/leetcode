@@ -100,7 +100,7 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 
 ```python
 class Solution:
-    def assignBikes(self, workers: List[List[int]], bikes: List[List[int]]) -> int:
+    def assignBikes(self, workers: list[list[int]], bikes: list[list[int]]) -> int:
         n, m = len(workers), len(bikes)
         f = [[inf] * (1 << m) for _ in range(n + 1)]
         f[0][0] = 0

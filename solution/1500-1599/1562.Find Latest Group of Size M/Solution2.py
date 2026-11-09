@@ -1,5 +1,5 @@
 class Solution:
-    def findLatestStep(self, arr: List[int], m: int) -> int:
+    def findLatestStep(self, arr: list[int], m: int) -> int:
         n = len(arr)
         if m == n:
             return n

@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         count = Counter(nums)
         ans = 0
         for c in count.values():

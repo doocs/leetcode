@@ -109,7 +109,7 @@ for (int i = 0; i &lt; k; i++) {
 
 ```python
 class Solution:
-    def removeElement(self, nums: List[int], val: int) -> int:
+    def removeElement(self, nums: list[int], val: int) -> int:
         k = 0
         for x in nums:
             if x != val:

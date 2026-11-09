@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def numSubseq(self, nums: List[int], target: int) -> int:
+    def numSubseq(self, nums: list[int], target: int) -> int:
         mod = 10**9 + 7
         nums.sort()
         n = len(nums)

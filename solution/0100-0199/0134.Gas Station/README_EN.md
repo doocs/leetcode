@@ -86,7 +86,7 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 
 ```python
 class Solution:
-    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+    def canCompleteCircuit(self, gas: list[int], cost: list[int]) -> int:
         n = len(gas)
         i = j = n - 1
         cnt = s = 0

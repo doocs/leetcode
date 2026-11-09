@@ -88,7 +88,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+    def bstFromPreorder(self, preorder: list[int]) -> Optional[TreeNode]:
         def dfs(i: int, j: int) -> Optional[TreeNode]:
             if i > j:
                 return None

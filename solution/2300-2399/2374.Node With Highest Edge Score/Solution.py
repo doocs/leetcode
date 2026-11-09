@@ -1,5 +1,5 @@
 class Solution:
-    def edgeScore(self, edges: List[int]) -> int:
+    def edgeScore(self, edges: list[int]) -> int:
         ans = 0
         cnt = [0] * len(edges)
         for i, j in enumerate(edges):

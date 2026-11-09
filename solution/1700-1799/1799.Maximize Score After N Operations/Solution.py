@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         m = len(nums)
         f = [0] * (1 << m)
         g = [[0] * m for _ in range(m)]

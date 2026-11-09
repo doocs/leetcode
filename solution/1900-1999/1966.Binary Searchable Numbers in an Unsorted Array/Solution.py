@@ -1,5 +1,5 @@
 class Solution:
-    def binarySearchableNumbers(self, nums: List[int]) -> int:
+    def binarySearchableNumbers(self, nums: list[int]) -> int:
         n = len(nums)
         ok = [1] * n
         mx, mi = -1000000, 1000000

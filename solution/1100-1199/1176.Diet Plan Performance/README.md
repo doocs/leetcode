@@ -96,7 +96,7 @@ tags:
 ```python
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         s = list(accumulate(calories, initial=0))
         ans, n = 0, len(calories)
@@ -229,7 +229,7 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 ```python
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         def check(s):
             if s < lower:

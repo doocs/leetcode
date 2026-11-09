@@ -123,7 +123,7 @@ tags:
 
 ```python
 class Solution:
-    def assignElements(self, groups: List[int], elements: List[int]) -> List[int]:
+    def assignElements(self, groups: list[int], elements: list[int]) -> list[int]:
         mx = max(groups)
         d = [-1] * (mx + 1)
         for j, x in enumerate(elements):

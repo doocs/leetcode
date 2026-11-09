@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumDifference(self, nums: List[int]) -> int:
+    def maximumDifference(self, nums: list[int]) -> int:
         mi = inf
         ans = -1
         for x in nums:

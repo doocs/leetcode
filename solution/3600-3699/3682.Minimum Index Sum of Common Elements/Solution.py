@@ -1,5 +1,5 @@
 class Solution:
-    def minimumSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumSum(self, nums1: list[int], nums2: list[int]) -> int:
         d = {}
         for i, x in enumerate(nums2):
             if x not in d:

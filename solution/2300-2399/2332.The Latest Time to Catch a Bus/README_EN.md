@@ -105,7 +105,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 ```python
 class Solution:
     def latestTimeCatchTheBus(
-        self, buses: List[int], passengers: List[int], capacity: int
+        self, buses: list[int], passengers: list[int], capacity: int
     ) -> int:
         buses.sort()
         passengers.sort()

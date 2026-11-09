@@ -1,5 +1,5 @@
 class Solution:
-    def tourOfKnight(self, m: int, n: int, r: int, c: int) -> List[List[int]]:
+    def tourOfKnight(self, m: int, n: int, r: int, c: int) -> list[list[int]]:
         def dfs(i: int, j: int):
             nonlocal ok
             if g[i][j] == m * n - 1:

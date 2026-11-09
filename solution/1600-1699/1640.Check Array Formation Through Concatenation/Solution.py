@@ -1,5 +1,5 @@
 class Solution:
-    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+    def canFormArray(self, arr: list[int], pieces: list[list[int]]) -> bool:
         i = 0
         while i < len(arr):
             k = 0

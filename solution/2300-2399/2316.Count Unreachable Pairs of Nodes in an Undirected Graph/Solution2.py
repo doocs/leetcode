@@ -1,5 +1,5 @@
 class Solution:
-    def countPairs(self, n: int, edges: List[List[int]]) -> int:
+    def countPairs(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if vis[i]:
                 return 0

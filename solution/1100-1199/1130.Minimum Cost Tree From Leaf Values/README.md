@@ -115,7 +115,7 @@ $$
 
 ```python
 class Solution:
-    def mctFromLeafValues(self, arr: List[int]) -> int:
+    def mctFromLeafValues(self, arr: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> Tuple:
             if i == j:
@@ -303,7 +303,7 @@ $$
 
 ```python
 class Solution:
-    def mctFromLeafValues(self, arr: List[int]) -> int:
+    def mctFromLeafValues(self, arr: list[int]) -> int:
         n = len(arr)
         f = [[0] * n for _ in range(n)]
         g = [[0] * n for _ in range(n)]

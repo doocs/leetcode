@@ -1,6 +1,6 @@
 class Solution:
     def maxProfitAssignment(
-        self, difficulty: List[int], profit: List[int], worker: List[int]
+        self, difficulty: list[int], profit: list[int], worker: list[int]
     ) -> int:
         m = max(difficulty)
         f = [0] * (m + 1)

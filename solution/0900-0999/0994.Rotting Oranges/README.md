@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def orangesRotting(self, grid: List[List[int]]) -> int:
+    def orangesRotting(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         cnt = 0
         q = deque()

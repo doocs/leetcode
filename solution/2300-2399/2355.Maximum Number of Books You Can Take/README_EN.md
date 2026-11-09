@@ -106,7 +106,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumBooks(self, books: List[int]) -> int:
+    def maximumBooks(self, books: list[int]) -> int:
         nums = [v - i for i, v in enumerate(books)]
         n = len(nums)
         left = [-1] * n

@@ -25,7 +25,7 @@ class Trie:
 
 
 class Solution:
-    def replaceWords(self, dictionary: List[str], sentence: str) -> str:
+    def replaceWords(self, dictionary: list[str], sentence: str) -> str:
         trie = Trie()
         for w in dictionary:
             trie.insert(w)

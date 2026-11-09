@@ -120,7 +120,7 @@ tags:
 
 ```python
 class Solution:
-    def braceExpansionII(self, expression: str) -> List[str]:
+    def braceExpansionII(self, expression: str) -> list[str]:
         def dfs(exp):
             j = exp.find('}')
             if j == -1:
@@ -307,7 +307,7 @@ $\textit{term}(i)$ 解析若干个因子的连接，初始集合为 $\{\varepsil
 
 ```python
 class Solution:
-    def braceExpansionII(self, expression: str) -> List[str]:
+    def braceExpansionII(self, expression: str) -> list[str]:
         def expr(i: int):
             res, i = term(i)
             while i < len(expression) and expression[i] == ',':

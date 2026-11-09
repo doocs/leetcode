@@ -1,6 +1,6 @@
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
-        def f(x: int) -> List[int]:
+        def f(x: int) -> list[int]:
             cnt = [0] * 10
             while x:
                 x, v = divmod(x, 10)

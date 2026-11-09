@@ -80,7 +80,7 @@ comments: true
 
 ```python
 class Solution:
-    def maxProduct(self, words: List[str]) -> int:
+    def maxProduct(self, words: list[str]) -> int:
         mask = [0] * len(words)
         for i, w in enumerate(words):
             for c in w:

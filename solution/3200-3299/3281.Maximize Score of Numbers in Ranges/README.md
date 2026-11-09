@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def maxPossibleScore(self, start: List[int], d: int) -> int:
+    def maxPossibleScore(self, start: list[int], d: int) -> int:
         def check(mi: int) -> bool:
             last = -inf
             for st in start:

@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
+    def numberOfCleanRooms(self, room: list[list[int]]) -> int:
         dirs = (0, 1, 0, -1, 0)
         i = j = k = 0
         ans = 0

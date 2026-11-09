@@ -1,5 +1,5 @@
 class Solution:
-    def maximumProfit(self, prices: List[int], k: int) -> int:
+    def maximumProfit(self, prices: list[int], k: int) -> int:
         n = len(prices)
         f = [[[0] * 3 for _ in range(k + 1)] for _ in range(n)]
         for j in range(1, k + 1):

@@ -78,7 +78,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minSubsequence(self, nums: List[int]) -> List[int]:
+    def minSubsequence(self, nums: list[int]) -> list[int]:
         ans = []
         s, t = sum(nums), 0
         for x in sorted(nums, reverse=True):

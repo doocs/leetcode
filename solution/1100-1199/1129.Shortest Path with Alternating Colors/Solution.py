@@ -1,7 +1,7 @@
 class Solution:
     def shortestAlternatingPaths(
-        self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]
-    ) -> List[int]:
+        self, n: int, redEdges: list[list[int]], blueEdges: list[list[int]]
+    ) -> list[int]:
         g = [defaultdict(list), defaultdict(list)]
         for i, j in redEdges:
             g[0][i].append(j)

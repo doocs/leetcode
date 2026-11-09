@@ -96,7 +96,7 @@ answer[7] = 7，
 
 ```python
 class Solution:
-    def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
+    def loudAndRich(self, richer: list[list[int]], quiet: list[int]) -> list[int]:
         def dfs(i: int):
             if ans[i] != -1:
                 return

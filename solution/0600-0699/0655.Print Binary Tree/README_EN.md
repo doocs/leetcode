@@ -90,7 +90,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
+    def printTree(self, root: Optional[TreeNode]) -> list[list[str]]:
         def height(root):
             if root is None:
                 return -1
@@ -385,7 +385,7 @@ impl Solution {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
+    def printTree(self, root: Optional[TreeNode]) -> list[list[str]]:
         def height(root):
             q = deque([root])
             h = -1

@@ -90,7 +90,7 @@ The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum.
 
 ```python
 class Solution:
-    def minAbsDifference(self, nums: List[int], goal: int) -> int:
+    def minAbsDifference(self, nums: list[int], goal: int) -> int:
         n = len(nums)
         left = set()
         right = set()
@@ -114,7 +114,7 @@ class Solution:
 
         return result
 
-    def getSubSeqSum(self, i: int, curr: int, arr: List[int], result: Set[int]):
+    def getSubSeqSum(self, i: int, curr: int, arr: list[int], result: Set[int]):
         if i == len(arr):
             result.add(curr)
             return
@@ -297,7 +297,7 @@ func abs(x int) int {
 
 ```python
 class Solution:
-    def minAbsDifference(self, nums: List[int], goal: int) -> int:
+    def minAbsDifference(self, nums: list[int], goal: int) -> int:
         def dfs(arr, res, i, s):
             if i == len(arr):
                 res.add(s)

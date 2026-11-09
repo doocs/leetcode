@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def maxDistance(self, position: List[int], m: int) -> int:
+    def maxDistance(self, position: list[int], m: int) -> int:
         def check(f: int) -> bool:
             prev = -inf
             cnt = 0

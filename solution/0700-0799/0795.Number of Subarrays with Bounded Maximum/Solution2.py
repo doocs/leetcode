@@ -1,5 +1,5 @@
 class Solution:
-    def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
+    def numSubarrayBoundedMax(self, nums: list[int], left: int, right: int) -> int:
         n = len(nums)
         l, r = [-1] * n, [n] * n
         stk = []

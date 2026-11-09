@@ -92,7 +92,7 @@ The time complexity is $O(n \sqrt{m})$, and the space complexity is $O(\frac{m}{
 
 ```python
 class Solution:
-    def distinctPrimeFactors(self, nums: List[int]) -> int:
+    def distinctPrimeFactors(self, nums: list[int]) -> int:
         s = set()
         for n in nums:
             i = 2

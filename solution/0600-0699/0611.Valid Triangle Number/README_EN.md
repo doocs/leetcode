@@ -86,7 +86,7 @@ The time complexity is $O(n^2 \log n)$, and the space complexity is $O(\log n)$,
 
 ```python
 class Solution:
-    def triangleNumber(self, nums: List[int]) -> int:
+    def triangleNumber(self, nums: list[int]) -> int:
         nums.sort()
         ans, n = 0, len(nums)
         for i in range(n - 2):

@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def countInterestingSubarrays(self, nums: List[int], modulo: int, k: int) -> int:
+    def countInterestingSubarrays(self, nums: list[int], modulo: int, k: int) -> int:
         arr = [int(x % modulo == k) for x in nums]
         cnt = Counter()
         cnt[0] = 1

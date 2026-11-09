@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def missingNumber(self, arr: List[int]) -> int:
+    def missingNumber(self, arr: list[int]) -> int:
         return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
 ```
 
@@ -166,7 +166,7 @@ function missingNumber(arr: number[]): number {
 
 ```python
 class Solution:
-    def missingNumber(self, arr: List[int]) -> int:
+    def missingNumber(self, arr: list[int]) -> int:
         n = len(arr)
         d = (arr[-1] - arr[0]) // n
         for i in range(1, n):

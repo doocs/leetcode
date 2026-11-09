@@ -78,7 +78,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def bestSeqAtIndex(self, height: List[int], weight: List[int]) -> int:
+    def bestSeqAtIndex(self, height: list[int], weight: list[int]) -> int:
         arr = list(zip(height, weight))
         arr.sort(key=lambda x: (x[0], -x[1]))
         alls = sorted({w for _, w in arr})

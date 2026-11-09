@@ -10,7 +10,7 @@ class Solution:
     def getDirections(
         self, root: Optional[TreeNode], startValue: int, destValue: int
     ) -> str:
-        def dfs(start: Optional[TreeNode], x: int, path: List[str]) -> bool:
+        def dfs(start: Optional[TreeNode], x: int, path: list[str]) -> bool:
             stk = [(start, 0)]
             while stk:
                 node, state = stk.pop()
@@ -30,8 +30,8 @@ class Solution:
                     path.pop()
             return False
 
-        path_to_start: List[str] = []
-        path_to_dest: List[str] = []
+        path_to_start: list[str] = []
+        path_to_dest: list[str] = []
         dfs(root, startValue, path_to_start)
         dfs(root, destValue, path_to_dest)
         i = 0

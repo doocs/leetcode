@@ -109,7 +109,7 @@ $$
 
 ```python
 class Solution:
-    def ways(self, pizza: List[str], k: int) -> int:
+    def ways(self, pizza: list[str], k: int) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if k == 0:

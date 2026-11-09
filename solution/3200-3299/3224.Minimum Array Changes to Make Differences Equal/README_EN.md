@@ -128,7 +128,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def minChanges(self, nums: List[int], k: int) -> int:
+    def minChanges(self, nums: list[int], k: int) -> int:
         d = [0] * (k + 2)
         n = len(nums)
         for i in range(n // 2):

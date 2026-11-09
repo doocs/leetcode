@@ -119,7 +119,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def maxTaskAssign(
-        self, tasks: List[int], workers: List[int], pills: int, strength: int
+        self, tasks: list[int], workers: list[int], pills: int, strength: int
     ) -> int:
         def check(x):
             i = 0

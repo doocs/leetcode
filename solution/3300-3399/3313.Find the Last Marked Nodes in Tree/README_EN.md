@@ -127,8 +127,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
-        def dfs(i: int, fa: int, dist: List[int]):
+    def lastMarkedNodes(self, edges: list[list[int]]) -> list[int]:
+        def dfs(i: int, fa: int, dist: list[int]):
             for j in g[i]:
                 if j != fa:
                     dist[j] = dist[i] + 1
@@ -429,8 +429,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
-        def dfs(start: int, dist: List[int]) -> None:
+    def lastMarkedNodes(self, edges: list[list[int]]) -> list[int]:
+        def dfs(start: int, dist: list[int]) -> None:
             stk = [(start, -1)]
             while stk:
                 i, fa = stk.pop()

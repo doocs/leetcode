@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def numDistinctIslands2(self, grid: List[List[int]]) -> int:
+    def numDistinctIslands2(self, grid: list[list[int]]) -> int:
         def dfs(i, j, shape):
             shape.append([i, j])
             grid[i][j] = 0

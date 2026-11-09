@@ -1,5 +1,5 @@
 class Solution:
-    def maxNumOfMarkedIndices(self, nums: List[int]) -> int:
+    def maxNumOfMarkedIndices(self, nums: list[int]) -> int:
         nums.sort()
         i, n = 0, len(nums)
         for x in nums[(n + 1) // 2 :]:

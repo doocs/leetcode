@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def generatePossibleNextMoves(self, currentState: str) -> List[str]:
+    def generatePossibleNextMoves(self, currentState: str) -> list[str]:
         s = list(currentState)
         ans = []
         for i, (a, b) in enumerate(pairwise(s)):

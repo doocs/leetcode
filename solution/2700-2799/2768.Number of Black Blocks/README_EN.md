@@ -100,8 +100,8 @@ The time complexity is $O(l)$, and the space complexity is $O(l)$, where $l$ is 
 ```python
 class Solution:
     def countBlackBlocks(
-        self, m: int, n: int, coordinates: List[List[int]]
-    ) -> List[int]:
+        self, m: int, n: int, coordinates: list[list[int]]
+    ) -> list[int]:
         cnt = Counter()
         for x, y in coordinates:
             for a, b in pairwise((0, 0, -1, -1, 0)):

@@ -112,7 +112,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def replaceNonCoprimes(self, nums: List[int]) -> List[int]:
+    def replaceNonCoprimes(self, nums: list[int]) -> list[int]:
         stk = []
         for x in nums:
             stk.append(x)

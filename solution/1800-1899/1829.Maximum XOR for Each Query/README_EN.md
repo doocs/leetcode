@@ -103,7 +103,7 @@ The time complexity is $O(nm)$, and the space complexity is $O(1)$, where $n$ an
 
 ```python
 class Solution:
-    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+    def getMaximumXor(self, nums: list[int], maximumBit: int) -> list[int]:
         ans = []
         xs = reduce(xor, nums)
         for x in nums[::-1]:
@@ -304,7 +304,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+    def getMaximumXor(self, nums: list[int], maximumBit: int) -> list[int]:
         ans = []
         xs = reduce(xor, nums)
         mask = (1 << maximumBit) - 1

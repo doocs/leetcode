@@ -38,10 +38,10 @@
 #        """
 #        @return the nested list that this NestedInteger holds, if it holds a nested list
 #        Return None if this NestedInteger holds a single integer
-#        :rtype List[NestedInteger]
+#        :rtype list[NestedInteger]
 #        """
 class Solution:
-    def depthSumInverse(self, nestedList: List[NestedInteger]) -> int:
+    def depthSumInverse(self, nestedList: list[NestedInteger]) -> int:
         def dfs(x, d):
             nonlocal maxDepth, s, ws
             maxDepth = max(maxDepth, d)

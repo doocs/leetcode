@@ -117,7 +117,7 @@ tags:
 
 ```python
 class Solution:
-    def distanceToCycle(self, n: int, edges: List[List[int]]) -> List[int]:
+    def distanceToCycle(self, n: int, edges: list[list[int]]) -> list[int]:
         g = defaultdict(set)
         for a, b in edges:
             g[a].add(b)

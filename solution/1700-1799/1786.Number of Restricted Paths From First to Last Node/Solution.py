@@ -1,5 +1,5 @@
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         @cache
         def dfs(i):
             if i == n:

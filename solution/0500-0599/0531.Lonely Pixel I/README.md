@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def findLonelyPixel(self, picture: List[List[str]]) -> int:
+    def findLonelyPixel(self, picture: list[list[str]]) -> int:
         rows = [0] * len(picture)
         cols = [0] * len(picture[0])
         for i, row in enumerate(picture):

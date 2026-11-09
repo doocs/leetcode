@@ -96,7 +96,7 @@ The time complexity is $O(n \log M + m)$, and the space complexity is $O(n \log 
 
 ```python
 class Solution:
-    def substringXorQueries(self, s: str, queries: List[List[int]]) -> List[List[int]]:
+    def substringXorQueries(self, s: str, queries: list[list[int]]) -> list[list[int]]:
         d = {}
         n = len(s)
         for i in range(n):

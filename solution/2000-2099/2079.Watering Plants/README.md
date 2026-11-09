@@ -116,7 +116,7 @@ tags:
 
 ```python
 class Solution:
-    def wateringPlants(self, plants: List[int], capacity: int) -> int:
+    def wateringPlants(self, plants: list[int], capacity: int) -> int:
         ans, water = 0, capacity
         for i, p in enumerate(plants):
             if water >= p:

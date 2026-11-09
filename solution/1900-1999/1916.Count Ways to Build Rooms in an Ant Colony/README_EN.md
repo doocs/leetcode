@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def waysToBuildRooms(self, prevRoom: List[int]) -> int:
+    def waysToBuildRooms(self, prevRoom: list[int]) -> int:
         modulo = 10**9 + 7
         ingoing = defaultdict(set)
         outgoing = defaultdict(set)

@@ -1,5 +1,5 @@
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         n = len(nums)
         left = [0] * (n + 1)
         right = [0] * (n + 1)

@@ -1,5 +1,5 @@
 class Solution:
-    def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
+    def minimumFuelCost(self, roads: list[list[int]], seats: int) -> int:
         n = len(roads) + 1
         g = [[] for _ in range(n)]
         for a, b in roads:

@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is 
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], k: int) -> int:
+    def minOperations(self, nums: list[int], k: int) -> int:
         is_added = [False] * k
         count = 0
         n = len(nums)

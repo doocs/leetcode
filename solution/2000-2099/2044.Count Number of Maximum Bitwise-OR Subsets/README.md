@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def countMaxOrSubsets(self, nums: List[int]) -> int:
+    def countMaxOrSubsets(self, nums: list[int]) -> int:
         def dfs(i, t):
             nonlocal ans, mx
             if i == len(nums):
@@ -277,7 +277,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def countMaxOrSubsets(self, nums: List[int]) -> int:
+    def countMaxOrSubsets(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         mx = 0

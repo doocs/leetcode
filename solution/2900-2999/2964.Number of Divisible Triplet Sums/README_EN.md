@@ -80,7 +80,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def divisibleTripletCount(self, nums: List[int], d: int) -> int:
+    def divisibleTripletCount(self, nums: list[int], d: int) -> int:
         cnt = defaultdict(int)
         ans, n = 0, len(nums)
         for j in range(n):

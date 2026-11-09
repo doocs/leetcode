@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
+    def getSumAbsoluteDifferences(self, nums: list[int]) -> list[int]:
         ans = []
         s, t = sum(nums), 0
         for i, x in enumerate(nums):

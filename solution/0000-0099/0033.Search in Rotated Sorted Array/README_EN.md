@@ -89,7 +89,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
+    def search(self, nums: list[int], target: int) -> int:
         n = len(nums)
         left, right = 0, n - 1
         while left < right:

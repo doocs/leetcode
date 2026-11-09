@@ -73,7 +73,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def kLengthApart(self, nums: List[int], k: int) -> bool:
+    def kLengthApart(self, nums: list[int], k: int) -> bool:
         j = -inf
         for i, x in enumerate(nums):
             if x:

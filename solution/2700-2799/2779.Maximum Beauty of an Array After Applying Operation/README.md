@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumBeauty(self, nums: List[int], k: int) -> int:
+    def maximumBeauty(self, nums: list[int], k: int) -> int:
         m = max(nums) + k * 2 + 2
         d = [0] * m
         for x in nums:

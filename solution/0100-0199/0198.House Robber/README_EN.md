@@ -81,7 +81,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(nums):
@@ -266,7 +266,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         f[1] = nums[0]
@@ -391,7 +391,7 @@ We notice that when $i \gt 2$, $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. 
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         f = g = 0
         for x in nums:
             f, g = max(f, g), f + x

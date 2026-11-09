@@ -71,7 +71,7 @@ difficulty: 困难
 
 ```python
 class Solution:
-    def evolutionaryRecord(self, parents: List[int]) -> str:
+    def evolutionaryRecord(self, parents: list[int]) -> str:
         def dfs(i: int) -> str:
             t = sorted(dfs(j) for j in g[i])
             return "0" + "".join(t) + "1"

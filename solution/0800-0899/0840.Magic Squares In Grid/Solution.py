@@ -1,5 +1,5 @@
 class Solution:
-    def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
+    def numMagicSquaresInside(self, grid: list[list[int]]) -> int:
         def check(i: int, j: int) -> int:
             if i + 3 > m or j + 3 > n:
                 return 0

@@ -149,7 +149,7 @@ tags:
 
 ```python
 class Solution:
-    def specialTriplets(self, nums: List[int]) -> int:
+    def specialTriplets(self, nums: list[int]) -> int:
         left = Counter()
         right = Counter(nums)
         ans = 0

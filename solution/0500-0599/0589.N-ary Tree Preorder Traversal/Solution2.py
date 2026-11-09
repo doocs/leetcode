@@ -8,7 +8,7 @@ class Node:
 
 
 class Solution:
-    def preorder(self, root: 'Node') -> List[int]:
+    def preorder(self, root: 'Node') -> list[int]:
         ans = []
         if root is None:
             return ans

@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def equationsPossible(self, equations: List[str]) -> bool:
+    def equationsPossible(self, equations: list[str]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

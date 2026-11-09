@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def maxBuilding(self, n: int, restrictions: List[List[int]]) -> int:
+    def maxBuilding(self, n: int, restrictions: list[list[int]]) -> int:
         r = restrictions
         r.append([1, 0])
         r.sort()

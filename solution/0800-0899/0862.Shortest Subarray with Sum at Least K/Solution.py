@@ -1,5 +1,5 @@
 class Solution:
-    def shortestSubarray(self, nums: List[int], k: int) -> int:
+    def shortestSubarray(self, nums: list[int], k: int) -> int:
         s = list(accumulate(nums, initial=0))
         q = deque()
         ans = inf

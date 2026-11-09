@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minimumAddedInteger(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumAddedInteger(self, nums1: list[int], nums2: list[int]) -> int:
         def f(x: int) -> bool:
             i = j = cnt = 0
             while i < len(nums1) and j < len(nums2):

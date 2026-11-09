@@ -1,5 +1,5 @@
 class Solution:
-    def maximumWhiteTiles(self, tiles: List[List[int]], carpetLen: int) -> int:
+    def maximumWhiteTiles(self, tiles: list[list[int]], carpetLen: int) -> int:
         tiles.sort()
         n = len(tiles)
         s = ans = j = 0

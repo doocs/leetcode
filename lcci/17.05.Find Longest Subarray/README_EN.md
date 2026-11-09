@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findLongestSubarray(self, array: List[str]) -> List[str]:
+    def findLongestSubarray(self, array: list[str]) -> list[str]:
         vis = {0: -1}
         s = mx = k = 0
         for i, x in enumerate(array):

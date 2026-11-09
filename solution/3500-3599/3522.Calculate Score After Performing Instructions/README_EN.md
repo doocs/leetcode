@@ -153,7 +153,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def calculateScore(self, instructions: List[str], values: List[int]) -> int:
+    def calculateScore(self, instructions: list[str], values: list[int]) -> int:
         n = len(values)
         vis = [False] * n
         ans = i = 0

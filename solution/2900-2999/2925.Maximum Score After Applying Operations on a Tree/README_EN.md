@@ -110,7 +110,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maximumScoreAfterOperations(
-        self, edges: List[List[int]], values: List[int]
+        self, edges: list[list[int]], values: list[int]
     ) -> int:
         def dfs(i: int, fa: int = -1) -> (int, int):
             a = b = 0
@@ -301,7 +301,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maximumScoreAfterOperations(
-        self, edges: List[List[int]], values: List[int]
+        self, edges: list[list[int]], values: list[int]
     ) -> int:
         n = len(values)
         g = [[] for _ in range(n)]

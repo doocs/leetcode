@@ -1,5 +1,5 @@
 class Solution:
-    def minNumber(self, nums: List[int]) -> str:
+    def minNumber(self, nums: list[int]) -> str:
         def cmp(a, b):
             x, y = a + b, b + a
             return -1 if x < y else 1

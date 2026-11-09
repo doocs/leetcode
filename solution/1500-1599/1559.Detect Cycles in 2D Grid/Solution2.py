@@ -1,5 +1,5 @@
 class Solution:
-    def containsCycle(self, grid: List[List[str]]) -> bool:
+    def containsCycle(self, grid: list[list[str]]) -> bool:
         def dfs(x: int, y: int, px: int, py: int) -> bool:
             vis[x][y] = True
             for dx, dy in pairwise(dirs):

@@ -125,7 +125,7 @@ $$
 
 ```python
 class Solution:
-    def maxWeight(self, weights: List[int], w1: int, w2: int) -> int:
+    def maxWeight(self, weights: list[int], w1: int, w2: int) -> int:
         f = [[0] * (w2 + 1) for _ in range(w1 + 1)]
         max = lambda a, b: a if a > b else b
         for x in weights:

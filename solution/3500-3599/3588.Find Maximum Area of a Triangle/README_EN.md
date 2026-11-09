@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxArea(self, coords: List[List[int]]) -> int:
+    def maxArea(self, coords: list[list[int]]) -> int:
         def calc() -> int:
             mn, mx = inf, 0
             f = {}

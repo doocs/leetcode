@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int], fee: int) -> int:
+    def maxProfit(self, prices: list[int], fee: int) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(prices):
@@ -258,7 +258,7 @@ function maxProfit(prices: number[], fee: number): number {
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int], fee: int) -> int:
+    def maxProfit(self, prices: list[int], fee: int) -> int:
         n = len(prices)
         f = [[0] * 2 for _ in range(n)]
         f[0][1] = -prices[0]
@@ -360,7 +360,7 @@ $f[i]$ 只与上一天有关，用两个变量滚动即可，空间复杂度 $O(
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int], fee: int) -> int:
+    def maxProfit(self, prices: list[int], fee: int) -> int:
         f0, f1 = 0, -prices[0]
         for x in prices[1:]:
             f0, f1 = max(f0, f1 + x - fee), max(f1, f0 - x)
@@ -469,7 +469,7 @@ $$
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int], fee: int) -> int:
+    def maxProfit(self, prices: list[int], fee: int) -> int:
         n = len(prices)
         f = [[0] * 2 for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):

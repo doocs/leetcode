@@ -154,7 +154,7 @@ The time complexity is $O(C \times n + m)$, and the space complexity is $O(m)$, 
 
 ```python
 class Solution:
-    def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
+    def robotSim(self, commands: list[int], obstacles: list[list[int]]) -> int:
         dirs = (0, 1, 0, -1, 0)
         s = {(x, y) for x, y in obstacles}
         ans = k = 0

@@ -78,7 +78,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def dominantIndex(self, nums: List[int]) -> int:
+    def dominantIndex(self, nums: list[int]) -> int:
         x, y = nlargest(2, nums)
         return nums.index(x) if x >= 2 * y else -1
 ```

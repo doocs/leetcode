@@ -82,7 +82,7 @@ Do not solve it with built-in functions (i.e., like <code>__builtin_popcount</co
 
 ```python
 class Solution:
-    def countBits(self, n: int) -> List[int]:
+    def countBits(self, n: int) -> list[int]:
         return [i.bit_count() for i in range(n + 1)]
 ```
 
@@ -170,7 +170,7 @@ function bitCount(n: number): number {
 
 ```python
 class Solution:
-    def countBits(self, n: int) -> List[int]:
+    def countBits(self, n: int) -> list[int]:
         ans = [0] * (n + 1)
         for i in range(1, n + 1):
             ans[i] = ans[i & (i - 1)] + 1

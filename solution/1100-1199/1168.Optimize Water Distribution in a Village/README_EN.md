@@ -103,7 +103,7 @@ The time complexity is $O((m + n) \log (m + n))$, and the space complexity is $O
 ```python
 class Solution:
     def minCostToSupplyWater(
-        self, n: int, wells: List[int], pipes: List[List[int]]
+        self, n: int, wells: list[int], pipes: list[list[int]]
     ) -> int:
         def find(x: int) -> int:
             if p[x] != x:
@@ -385,7 +385,7 @@ class UnionFind:
 
 class Solution:
     def minCostToSupplyWater(
-        self, n: int, wells: List[int], pipes: List[List[int]]
+        self, n: int, wells: list[int], pipes: list[list[int]]
     ) -> int:
         for i, w in enumerate(wells, 1):
             pipes.append([0, i, w])

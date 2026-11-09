@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, edges: List[List[int]]) -> int:
+    def maxScore(self, edges: list[list[int]]) -> int:
         n = len(edges)
         g = [[] for _ in range(n)]
         for i, (p, w) in enumerate(edges[1:], 1):

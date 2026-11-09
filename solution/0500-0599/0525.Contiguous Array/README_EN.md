@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findMaxLength(self, nums: List[int]) -> int:
+    def findMaxLength(self, nums: list[int]) -> int:
         d = {0: -1}
         ans = s = 0
         for i, x in enumerate(nums):

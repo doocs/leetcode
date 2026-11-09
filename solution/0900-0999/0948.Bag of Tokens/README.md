@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
+    def bagOfTokensScore(self, tokens: list[int], power: int) -> int:
         tokens.sort()
         ans = score = 0
         i, j = 0, len(tokens) - 1

@@ -1,5 +1,5 @@
 class Solution:
-    def eatenApples(self, apples: List[int], days: List[int]) -> int:
+    def eatenApples(self, apples: list[int], days: list[int]) -> int:
         n = len(days)
         i = ans = 0
         q = []

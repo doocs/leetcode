@@ -1,5 +1,5 @@
 class Solution:
-    def maxIntersectionCount(self, y: List[int]) -> int:
+    def maxIntersectionCount(self, y: list[int]) -> int:
         n = len(y)
         line = defaultdict(int)
         for i in range(1, n):

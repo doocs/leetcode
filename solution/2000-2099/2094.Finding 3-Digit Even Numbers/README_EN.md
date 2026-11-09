@@ -102,7 +102,7 @@ The time complexity is $O(k 10^k)$, and the space complexity is $O(1)$, where $k
 
 ```python
 class Solution:
-    def findEvenNumbers(self, digits: List[int]) -> List[int]:
+    def findEvenNumbers(self, digits: list[int]) -> list[int]:
         cnt = Counter(digits)
         ans = []
         for x in range(100, 1000, 2):

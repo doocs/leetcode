@@ -92,7 +92,7 @@ because the wheels of the lock become stuck after the display becomes the dead e
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         def next(s):
             res = []
             s = list(s)
@@ -332,7 +332,7 @@ function openLock(deadends: string[], target: string): number {
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         def next(s):
             res = []
             s = list(s)
@@ -614,7 +614,7 @@ func openLock(deadends []string, target string) int {
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         def next(s):
             res = []
             s = list(s)

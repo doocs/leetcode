@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
+    def getLonelyNodes(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root: Optional[TreeNode]):
             if root is None or root.left == root.right:
                 return

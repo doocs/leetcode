@@ -1,5 +1,5 @@
 class Solution:
-    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+    def subarraysWithMoreZerosThanOnes(self, nums: list[int]) -> int:
         sl = SortedList([0])
         mod = 10**9 + 7
         ans = s = 0

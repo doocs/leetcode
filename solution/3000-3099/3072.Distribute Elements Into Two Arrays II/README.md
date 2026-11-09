@@ -134,7 +134,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def resultArray(self, nums: List[int]) -> List[int]:
+    def resultArray(self, nums: list[int]) -> list[int]:
         st = sorted(set(nums))
         m = len(st)
         tree1 = BinaryIndexedTree(m + 1)

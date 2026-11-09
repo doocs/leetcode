@@ -85,7 +85,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def dfs(i: int):
             vis[i] = True
             for j, x in enumerate(isConnected[i]):
@@ -275,7 +275,7 @@ The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

@@ -1,5 +1,5 @@
 class Solution:
-    def minimumPairRemoval(self, nums: List[int]) -> int:
+    def minimumPairRemoval(self, nums: list[int]) -> int:
         n = len(nums)
         sl = SortedList()
         idx = SortedList(range(n))

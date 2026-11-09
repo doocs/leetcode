@@ -209,7 +209,7 @@ def f(i: int) -> int:
 
 
 class Solution:
-    def findProductsOfElements(self, queries: List[List[int]]) -> List[int]:
+    def findProductsOfElements(self, queries: list[list[int]]) -> list[int]:
         return [pow(2, f(right + 1) - f(left), mod) for left, right, mod in queries]
 ```
 

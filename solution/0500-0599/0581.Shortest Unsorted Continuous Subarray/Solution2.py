@@ -1,5 +1,5 @@
 class Solution:
-    def findUnsortedSubarray(self, nums: List[int]) -> int:
+    def findUnsortedSubarray(self, nums: list[int]) -> int:
         mi, mx = inf, -inf
         l = r = -1
         n = len(nums)

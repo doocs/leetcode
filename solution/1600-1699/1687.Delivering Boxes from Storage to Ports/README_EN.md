@@ -137,7 +137,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 ```python
 class Solution:
     def boxDelivering(
-        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+        self, boxes: list[list[int]], portsCount: int, maxBoxes: int, maxWeight: int
     ) -> int:
         n = len(boxes)
         ws = list(accumulate((box[1] for box in boxes), initial=0))
@@ -278,7 +278,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def boxDelivering(
-        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+        self, boxes: list[list[int]], portsCount: int, maxBoxes: int, maxWeight: int
     ) -> int:
         n = len(boxes)
         ws = list(accumulate((box[1] for box in boxes), initial=0))

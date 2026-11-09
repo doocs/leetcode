@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def countDays(self, days: int, meetings: List[List[int]]) -> int:
+    def countDays(self, days: int, meetings: list[list[int]]) -> int:
         meetings.sort()
         ans = last = 0
         for st, ed in meetings:

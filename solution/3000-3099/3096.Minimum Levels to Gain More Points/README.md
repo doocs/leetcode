@@ -128,7 +128,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumLevels(self, possible: List[int]) -> int:
+    def minimumLevels(self, possible: list[int]) -> int:
         s = sum(-1 if x == 0 else 1 for x in possible)
         t = 0
         for i, x in enumerate(possible[:-1], 1):

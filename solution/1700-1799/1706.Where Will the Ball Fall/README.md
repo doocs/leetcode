@@ -112,7 +112,7 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 
 ```python
 class Solution:
-    def findBall(self, grid: List[List[int]]) -> List[int]:
+    def findBall(self, grid: list[list[int]]) -> list[int]:
         def dfs(i: int, j: int) -> int:
             if i == m:
                 return j

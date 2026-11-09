@@ -88,7 +88,7 @@ class Solution:
         self.total = m * n
         self.mp = {}
 
-    def flip(self) -> List[int]:
+    def flip(self) -> list[int]:
         self.total -= 1
         x = random.randint(0, self.total)
         idx = self.mp.get(x, x)

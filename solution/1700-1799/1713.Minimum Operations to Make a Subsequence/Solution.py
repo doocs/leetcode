@@ -19,7 +19,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def minOperations(self, target: List[int], arr: List[int]) -> int:
+    def minOperations(self, target: list[int], arr: list[int]) -> int:
         d = {x: i for i, x in enumerate(target, 1)}
         nums = [d[x] for x in arr if x in d]
         m = len(target)

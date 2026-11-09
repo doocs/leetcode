@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         def dfs(i: int):
             if i in vis:
                 return
@@ -253,7 +253,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         vis = set()
         q = deque([0])
         while q:
@@ -390,7 +390,7 @@ function canVisitAllRooms(rooms: number[][]): boolean {
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         n = len(rooms)
         vis = [False] * n
         stk = [0]

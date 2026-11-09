@@ -1,5 +1,5 @@
 class Solution:
-    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+    def maxTaxiEarnings(self, n: int, rides: list[list[int]]) -> int:
         rides.sort()
         m = len(rides)
         f = [0] * (m + 1)

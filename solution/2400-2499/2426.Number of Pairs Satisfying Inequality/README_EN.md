@@ -117,7 +117,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def numberOfPairs(self, nums1: List[int], nums2: List[int], diff: int) -> int:
+    def numberOfPairs(self, nums1: list[int], nums2: list[int], diff: int) -> int:
         tree = BinaryIndexedTree(10**5)
         ans = 0
         for a, b in zip(nums1, nums2):

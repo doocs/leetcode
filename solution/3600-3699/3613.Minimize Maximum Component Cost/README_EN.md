@@ -110,7 +110,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minCost(self, n: int, edges: List[List[int]], k: int) -> int:
+    def minCost(self, n: int, edges: list[list[int]], k: int) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], sum: int) -> int:
+    def minOperations(self, nums: list[int], sum: int) -> int:
         inf = 10**9
         f = [0] + [inf] * sum
 

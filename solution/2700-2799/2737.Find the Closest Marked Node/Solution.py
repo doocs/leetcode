@@ -1,6 +1,6 @@
 class Solution:
     def minimumDistance(
-        self, n: int, edges: List[List[int]], s: int, marked: List[int]
+        self, n: int, edges: list[list[int]], s: int, marked: list[int]
     ) -> int:
         g = [[inf] * n for _ in range(n)]
         for u, v, w in edges:

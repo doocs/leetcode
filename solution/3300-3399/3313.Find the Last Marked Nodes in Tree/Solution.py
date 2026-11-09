@@ -1,6 +1,6 @@
 class Solution:
-    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
-        def dfs(i: int, fa: int, dist: List[int]):
+    def lastMarkedNodes(self, edges: list[list[int]]) -> list[int]:
+        def dfs(i: int, fa: int, dist: list[int]):
             for j in g[i]:
                 if j != fa:
                     dist[j] = dist[i] + 1

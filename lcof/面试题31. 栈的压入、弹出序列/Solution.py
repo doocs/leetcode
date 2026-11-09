@@ -1,5 +1,5 @@
 class Solution:
-    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+    def validateStackSequences(self, pushed: list[int], popped: list[int]) -> bool:
         j, stk = 0, []
         for v in pushed:
             stk.append(v)

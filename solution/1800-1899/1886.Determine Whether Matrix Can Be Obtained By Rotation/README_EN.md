@@ -85,7 +85,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
+    def findRotation(self, mat: list[list[int]], target: list[list[int]]) -> bool:
         n = len(mat)
         ok = 0b1111
         for i in range(n):

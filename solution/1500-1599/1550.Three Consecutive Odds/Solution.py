@@ -1,5 +1,5 @@
 class Solution:
-    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+    def threeConsecutiveOdds(self, arr: list[int]) -> bool:
         cnt = 0
         for x in arr:
             if x & 1:

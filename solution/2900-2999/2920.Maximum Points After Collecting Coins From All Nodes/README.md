@@ -114,7 +114,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+    def maximumPoints(self, edges: list[list[int]], coins: list[int], k: int) -> int:
         @cache
         def dfs(i: int, fa: int, j: int) -> int:
             a = (coins[i] >> j) - k
@@ -324,7 +324,7 @@ $f[i][j]$ 取这两种方法的较大值。答案是 $f[0][0]$。
 
 ```python
 class Solution:
-    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+    def maximumPoints(self, edges: list[list[int]], coins: list[int], k: int) -> int:
         n = len(coins)
         g = [[] for _ in range(n)]
         for a, b in edges:

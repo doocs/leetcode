@@ -98,7 +98,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+    def maximalNetworkRank(self, n: int, roads: list[list[int]]) -> int:
         g = [[0] * n for _ in range(n)]
         cnt = [0] * n
         for a, b in roads:

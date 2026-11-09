@@ -94,7 +94,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
+    def sumIndicesWithKSetBits(self, nums: list[int], k: int) -> int:
         return sum(x for i, x in enumerate(nums) if i.bit_count() == k)
 ```
 

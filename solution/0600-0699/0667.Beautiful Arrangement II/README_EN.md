@@ -72,7 +72,7 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 
 ```python
 class Solution:
-    def constructArray(self, n: int, k: int) -> List[int]:
+    def constructArray(self, n: int, k: int) -> list[int]:
         l, r = 1, n
         ans = []
         for i in range(k):

@@ -1,5 +1,5 @@
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         n = len(citations)
         cnt = [0] * (n + 1)
         for x in citations:

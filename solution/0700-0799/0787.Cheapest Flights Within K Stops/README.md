@@ -99,7 +99,7 @@ n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
 ```python
 class Solution:
     def findCheapestPrice(
-        self, n: int, flights: List[List[int]], src: int, dst: int, k: int
+        self, n: int, flights: list[list[int]], src: int, dst: int, k: int
     ) -> int:
         INF = 0x3F3F3F3F
         dist = [INF] * n
@@ -206,7 +206,7 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 ```python
 class Solution:
     def findCheapestPrice(
-        self, n: int, flights: List[List[int]], src: int, dst: int, k: int
+        self, n: int, flights: list[list[int]], src: int, dst: int, k: int
     ) -> int:
         @cache
         def dfs(u, k):

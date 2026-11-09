@@ -232,7 +232,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+    def minOperations(self, nums1: list[int], nums2: list[int]) -> int:
         ans = 1
         ok = False
         d = inf

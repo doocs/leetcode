@@ -1,5 +1,5 @@
 class Solution:
-    def transformArray(self, nums: List[int]) -> List[int]:
+    def transformArray(self, nums: list[int]) -> list[int]:
         even = sum(x % 2 == 0 for x in nums)
         for i in range(even):
             nums[i] = 0

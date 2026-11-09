@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+    def countStudents(self, students: list[int], sandwiches: list[int]) -> int:
         cnt = Counter(students)
         for v in sandwiches:
             if cnt[v] == 0:

@@ -93,7 +93,7 @@ Roll in four directions until hitting a wall, and DFS every stoppable cell from 
 ```python
 class Solution:
     def hasPath(
-        self, maze: List[List[int]], start: List[int], destination: List[int]
+        self, maze: list[list[int]], start: list[int], destination: list[int]
     ) -> bool:
         def dfs(i, j):
             if vis[i][j]:
@@ -253,7 +253,7 @@ Roll in four directions and BFS the stoppable cells until the destination is rea
 ```python
 class Solution:
     def hasPath(
-        self, maze: List[List[int]], start: List[int], destination: List[int]
+        self, maze: list[list[int]], start: list[int], destination: list[int]
     ) -> bool:
         m, n = len(maze), len(maze[0])
         q = deque([start])

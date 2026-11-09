@@ -79,7 +79,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(m)$, where $n$
 
 ```python
 class Solution:
-    def numberOfPoints(self, nums: List[List[int]]) -> int:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
         m = 102
         d = [0] * m
         for start, end in nums:
@@ -199,7 +199,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def numberOfPoints(self, nums: List[List[int]]) -> int:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
         d = defaultdict(int)
         for start, end in nums:
             d[start] += 1

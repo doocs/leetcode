@@ -117,7 +117,7 @@ tags:
 
 ```python
 class Solution:
-    def colorRed(self, n: int) -> List[List[int]]:
+    def colorRed(self, n: int) -> list[list[int]]:
         ans = [[1, 1]]
         k = 0
         for i in range(n, 1, -1):

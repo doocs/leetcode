@@ -85,7 +85,7 @@ There is no valid split.
 
 ```python
 class Solution:
-    def findValidSplit(self, nums: List[int]) -> int:
+    def findValidSplit(self, nums: list[int]) -> int:
         first = {}
         n = len(nums)
         last = list(range(n))

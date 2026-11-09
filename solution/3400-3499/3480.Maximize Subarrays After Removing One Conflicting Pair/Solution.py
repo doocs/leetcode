@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubarrays(self, n: int, conflictingPairs: List[List[int]]) -> int:
+    def maxSubarrays(self, n: int, conflictingPairs: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b in conflictingPairs:
             if a > b:

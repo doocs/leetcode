@@ -94,7 +94,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minimumMountainRemovals(self, nums: List[int]) -> int:
+    def minimumMountainRemovals(self, nums: list[int]) -> int:
         n = len(nums)
         left = [1] * n
         right = [1] * n

@@ -92,7 +92,7 @@ There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&qu
 
 ```python
 class Solution:
-    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+    def uniqueMorseRepresentations(self, words: list[str]) -> int:
         codes = [
             ".-",
             "-...",

@@ -46,7 +46,7 @@ class SegmentTree:
 
 
 class Solution:
-    def countSmaller(self, nums: List[int]) -> List[int]:
+    def countSmaller(self, nums: list[int]) -> list[int]:
         s = sorted(set(nums))
         m = {v: i for i, v in enumerate(s, 1)}
         tree = SegmentTree(len(s))

@@ -130,7 +130,7 @@ tags:
 
 ```python
 class Solution:
-    def numWays(self, words: List[str], target: str) -> int:
+    def numWays(self, words: list[str], target: str) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= m:
@@ -328,7 +328,7 @@ function numWays(words: string[], target: string): number {
 
 ```python
 class Solution:
-    def numWays(self, words: List[str], target: str) -> int:
+    def numWays(self, words: list[str], target: str) -> int:
         m, n = len(target), len(words[0])
         cnt = [[0] * 26 for _ in range(n)]
         for w in words:
@@ -469,7 +469,7 @@ func numWays(words []string, target string) int {
 
 ```python
 class Solution:
-    def numWays(self, words: List[str], target: str) -> int:
+    def numWays(self, words: list[str], target: str) -> int:
         m, n = len(target), len(words[0])
         cnt = [[0] * 26 for _ in range(n)]
         for w in words:

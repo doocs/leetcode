@@ -70,7 +70,7 @@ tags:
 
 ```python
 class Solution:
-    def maxKilledEnemies(self, grid: List[List[str]]) -> int:
+    def maxKilledEnemies(self, grid: list[list[str]]) -> int:
         m, n = len(grid), len(grid[0])
         g = [[0] * n for _ in range(m)]
         for i in range(m):

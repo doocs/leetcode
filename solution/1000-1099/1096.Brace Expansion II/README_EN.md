@@ -118,7 +118,7 @@ The time complexity is $O(3^{n/6})$, and the space complexity is $O(n 3^{n/7})$,
 
 ```python
 class Solution:
-    def braceExpansionII(self, expression: str) -> List[str]:
+    def braceExpansionII(self, expression: str) -> list[str]:
         def dfs(exp):
             j = exp.find('}')
             if j == -1:
@@ -305,7 +305,7 @@ The time complexity is $O(n^2 3^{n/7})$, and the space complexity is $O(n 3^{n/7
 
 ```python
 class Solution:
-    def braceExpansionII(self, expression: str) -> List[str]:
+    def braceExpansionII(self, expression: str) -> list[str]:
         def expr(i: int):
             res, i = term(i)
             while i < len(expression) and expression[i] == ',':

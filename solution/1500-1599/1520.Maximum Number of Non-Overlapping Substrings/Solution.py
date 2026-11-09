@@ -1,5 +1,5 @@
 class Solution:
-    def maxNumOfSubstrings(self, s: str) -> List[str]:
+    def maxNumOfSubstrings(self, s: str) -> list[str]:
         first, last = {}, {}
         for i, c in enumerate(s):
             if c not in first:

@@ -1,5 +1,5 @@
 class Solution:
-    def wordsTyping(self, sentence: List[str], rows: int, cols: int) -> int:
+    def wordsTyping(self, sentence: list[str], rows: int, cols: int) -> int:
         s = " ".join(sentence) + " "
         m = len(s)
         cur = 0

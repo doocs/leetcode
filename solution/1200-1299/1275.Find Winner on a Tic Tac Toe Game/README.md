@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def tictactoe(self, moves: List[List[int]]) -> str:
+    def tictactoe(self, moves: list[list[int]]) -> str:
         n = len(moves)
         cnt = [0] * 8
         for k in range(n - 1, -1, -2):

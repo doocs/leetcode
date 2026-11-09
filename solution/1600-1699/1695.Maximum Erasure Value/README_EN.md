@@ -80,7 +80,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+    def maximumUniqueSubarray(self, nums: list[int]) -> int:
         d = [0] * (max(nums) + 1)
         s = list(accumulate(nums, initial=0))
         ans = j = 0
@@ -237,7 +237,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+    def maximumUniqueSubarray(self, nums: list[int]) -> int:
         vis = set()
         ans = s = i = 0
         for x in nums:

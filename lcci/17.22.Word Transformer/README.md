@@ -78,8 +78,8 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 ```python
 class Solution:
     def findLadders(
-        self, beginWord: str, endWord: str, wordList: List[str]
-    ) -> List[str]:
+        self, beginWord: str, endWord: str, wordList: list[str]
+    ) -> list[str]:
         def check(s: str, t: str) -> bool:
             return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 

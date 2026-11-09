@@ -1,5 +1,5 @@
 class Solution:
-    def deleteTreeNodes(self, nodes: int, parent: List[int], value: List[int]) -> int:
+    def deleteTreeNodes(self, nodes: int, parent: list[int], value: list[int]) -> int:
         def dfs(i):
             s, m = value[i], 1
             for j in g[i]:

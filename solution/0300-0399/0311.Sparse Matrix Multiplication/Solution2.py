@@ -1,6 +1,6 @@
 class Solution:
-    def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
-        def f(mat: List[List[int]]) -> List[List[int]]:
+    def multiply(self, mat1: list[list[int]], mat2: list[list[int]]) -> list[list[int]]:
+        def f(mat: list[list[int]]) -> list[list[int]]:
             g = [[] for _ in range(len(mat))]
             for i, row in enumerate(mat):
                 for j, x in enumerate(row):

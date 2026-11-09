@@ -72,7 +72,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def fizzBuzz(self, n: int) -> List[str]:
+    def fizzBuzz(self, n: int) -> list[str]:
         ans = []
         for i in range(1, n + 1):
             if i % 15 == 0:

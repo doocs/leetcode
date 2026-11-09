@@ -94,15 +94,15 @@ The time complexity is $O(m^2 + n^2 + m + n)$, and the space complexity is $O(m^
 
 ```python
 class Solution:
-    def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
-        def count(nums: List[int]) -> Counter:
+    def numTriplets(self, nums1: list[int], nums2: list[int]) -> int:
+        def count(nums: list[int]) -> Counter:
             cnt = Counter()
             for j in range(len(nums)):
                 for k in range(j + 1, len(nums)):
                     cnt[nums[j] * nums[k]] += 1
             return cnt
 
-        def cal(nums: List[int], cnt: Counter) -> int:
+        def cal(nums: list[int], cnt: Counter) -> int:
             return sum(cnt[x * x] for x in nums)
 
         cnt1 = count(nums1)
@@ -254,8 +254,8 @@ The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m
 
 ```python
 class Solution:
-    def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
-        def cal(nums: List[int], cnt: Counter) -> int:
+    def numTriplets(self, nums1: list[int], nums2: list[int]) -> int:
+        def cal(nums: list[int], cnt: Counter) -> int:
             ans = 0
             for x in nums:
                 for y, v1 in cnt.items():

@@ -1,5 +1,5 @@
 class Solution:
-    def getDescentPeriods(self, prices: List[int]) -> int:
+    def getDescentPeriods(self, prices: list[int]) -> int:
         ans = 0
         i, n = 0, len(prices)
         while i < n:

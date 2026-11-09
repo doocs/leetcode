@@ -128,7 +128,7 @@ MOUSE_WIN, CAT_WIN, TIE = 1, 2, 0
 
 
 class Solution:
-    def catMouseGame(self, graph: List[List[int]]) -> int:
+    def catMouseGame(self, graph: list[list[int]]) -> int:
         def get_prev_states(state):
             m, c, t = state
             pt = t ^ 1

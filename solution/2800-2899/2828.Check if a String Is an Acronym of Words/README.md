@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def isAcronym(self, words: List[str], s: str) -> bool:
+    def isAcronym(self, words: list[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
 ```
 
@@ -187,7 +187,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def isAcronym(self, words: List[str], s: str) -> bool:
+    def isAcronym(self, words: list[str], s: str) -> bool:
         return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
 

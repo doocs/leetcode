@@ -99,7 +99,7 @@ $$
 
 ```python
 class Solution:
-    def maxResult(self, nums: List[int], k: int) -> int:
+    def maxResult(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [0] * n
         q = deque([0])

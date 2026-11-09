@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def largestDivisibleSubset(self, nums: List[int]) -> List[int]:
+    def largestDivisibleSubset(self, nums: list[int]) -> list[int]:
         nums.sort()
         n = len(nums)
         f = [1] * n

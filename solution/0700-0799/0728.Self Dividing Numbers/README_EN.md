@@ -74,7 +74,7 @@ The time complexity is $O(n \log_{10} M)$, where $n$ is the number of elements i
 
 ```python
 class Solution:
-    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+    def selfDividingNumbers(self, left: int, right: int) -> list[int]:
         def check(x: int) -> bool:
             y = x
             while y:

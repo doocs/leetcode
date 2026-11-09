@@ -112,7 +112,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumRefill(self, plants: List[int], capacityA: int, capacityB: int) -> int:
+    def minimumRefill(self, plants: list[int], capacityA: int, capacityB: int) -> int:
         a, b = capacityA, capacityB
         ans = 0
         i, j = 0, len(plants) - 1

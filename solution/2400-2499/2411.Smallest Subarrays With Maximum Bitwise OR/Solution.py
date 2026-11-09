@@ -1,5 +1,5 @@
 class Solution:
-    def smallestSubarrays(self, nums: List[int]) -> List[int]:
+    def smallestSubarrays(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [1] * n
         f = [-1] * 32

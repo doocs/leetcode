@@ -93,13 +93,13 @@ solution.pick(); // return [0, 0]
 
 ```python
 class Solution:
-    def __init__(self, rects: List[List[int]]):
+    def __init__(self, rects: list[list[int]]):
         self.rects = rects
         self.s = [0] * len(rects)
         for i, (x1, y1, x2, y2) in enumerate(rects):
             self.s[i] = self.s[i - 1] + (x2 - x1 + 1) * (y2 - y1 + 1)
 
-    def pick(self) -> List[int]:
+    def pick(self) -> list[int]:
         v = random.randint(1, self.s[-1])
         idx = bisect_left(self.s, v)
         x1, y1, x2, y2 = self.rects[idx]

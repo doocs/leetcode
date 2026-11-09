@@ -139,7 +139,7 @@ class Trie:
 
 
 class Solution:
-    def countPairs(self, nums: List[int], low: int, high: int) -> int:
+    def countPairs(self, nums: list[int], low: int, high: int) -> int:
         ans = 0
         tree = Trie()
         for x in nums:

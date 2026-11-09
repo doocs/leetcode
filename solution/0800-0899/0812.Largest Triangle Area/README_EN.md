@@ -77,7 +77,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def largestTriangleArea(self, points: List[List[int]]) -> float:
+    def largestTriangleArea(self, points: list[list[int]]) -> float:
         ans = 0
         for x1, y1 in points:
             for x2, y2 in points:

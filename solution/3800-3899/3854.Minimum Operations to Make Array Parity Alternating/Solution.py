@@ -1,6 +1,6 @@
 class Solution:
-    def makeParityAlternating(self, nums: List[int]) -> List[int]:
-        def f(k: int) -> List[int]:
+    def makeParityAlternating(self, nums: list[int]) -> list[int]:
+        def f(k: int) -> list[int]:
             cnt = 0
             a, b = inf, -inf
             for i, x in enumerate(nums):

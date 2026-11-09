@@ -121,7 +121,7 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 ```python
 class Solution:
-    def minMoves(self, nums: List[int], limit: int) -> int:
+    def minMoves(self, nums: list[int], limit: int) -> int:
         d = [0] * (2 * limit + 2)
         n = len(nums)
         for i in range(n // 2):

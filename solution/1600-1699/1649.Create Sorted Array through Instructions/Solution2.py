@@ -46,7 +46,7 @@ class SegmentTree:
 
 
 class Solution:
-    def createSortedArray(self, instructions: List[int]) -> int:
+    def createSortedArray(self, instructions: list[int]) -> int:
         n = max(instructions)
         tree = SegmentTree(n)
         ans = 0

@@ -111,7 +111,7 @@ The time complexity is $O(n(\log n + \log^5 M))$, and the space complexity is $O
 
 ```python
 class Solution:
-    def countPairs(self, nums: List[int]) -> int:
+    def countPairs(self, nums: list[int]) -> int:
         nums.sort()
         ans = 0
         cnt = defaultdict(int)

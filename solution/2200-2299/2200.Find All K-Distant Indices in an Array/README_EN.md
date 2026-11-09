@@ -86,7 +86,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
+    def findKDistantIndices(self, nums: list[int], key: int, k: int) -> list[int]:
         ans = []
         n = len(nums)
         for i in range(n):
@@ -227,7 +227,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
+    def findKDistantIndices(self, nums: list[int], key: int, k: int) -> list[int]:
         idx = [i for i, x in enumerate(nums) if x == key]
         ans = []
         for i in range(len(nums)):
@@ -414,7 +414,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
+    def findKDistantIndices(self, nums: list[int], key: int, k: int) -> list[int]:
         ans = []
         j, n = 0, len(nums)
         for i in range(n):

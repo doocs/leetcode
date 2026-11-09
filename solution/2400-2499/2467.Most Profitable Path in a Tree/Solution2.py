@@ -1,6 +1,6 @@
 class Solution:
     def mostProfitablePath(
-        self, edges: List[List[int]], bob: int, amount: List[int]
+        self, edges: list[list[int]], bob: int, amount: list[int]
     ) -> int:
         n = len(edges) + 1
         g = defaultdict(list)

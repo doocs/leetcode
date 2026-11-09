@@ -98,7 +98,7 @@ class Node:
 
 
 class Solution:
-    def levelOrder(self, root: 'Node') -> List[List[int]]:
+    def levelOrder(self, root: 'Node') -> list[list[int]]:
         ans = []
         if root is None:
             return ans
@@ -319,7 +319,7 @@ class Node:
 
 
 class Solution:
-    def levelOrder(self, root: 'Node') -> List[List[int]]:
+    def levelOrder(self, root: 'Node') -> list[list[int]]:
         def dfs(root, i):
             if root is None:
                 return

@@ -1,5 +1,5 @@
 class Solution:
-    def countPairs(self, coordinates: List[List[int]], k: int) -> int:
+    def countPairs(self, coordinates: list[list[int]], k: int) -> int:
         cnt = Counter()
         ans = 0
         for x2, y2 in coordinates:

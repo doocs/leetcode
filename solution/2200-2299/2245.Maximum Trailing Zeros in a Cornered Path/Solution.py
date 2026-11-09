@@ -1,5 +1,5 @@
 class Solution:
-    def maxTrailingZeros(self, grid: List[List[int]]) -> int:
+    def maxTrailingZeros(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         r2 = [[0] * (n + 1) for _ in range(m + 1)]
         c2 = [[0] * (n + 1) for _ in range(m + 1)]

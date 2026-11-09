@@ -1,6 +1,6 @@
 class Trie:
     def __init__(self):
-        self.children: List[Trie | None] = [None] * 26
+        self.children: list[Trie | None] = [None] * 26
         self.val: int = 0
 
     def insert(self, w: str, x: int):

@@ -1,5 +1,5 @@
 class Solution:
-    def countPartitions(self, nums: List[int], k: int) -> int:
+    def countPartitions(self, nums: list[int], k: int) -> int:
         if sum(nums) < k * 2:
             return 0
         mod = 10**9 + 7

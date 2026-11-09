@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def anagramMappings(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def anagramMappings(self, nums1: list[int], nums2: list[int]) -> list[int]:
         d = {x: i for i, x in enumerate(nums2)}
         return [d[x] for x in nums1]
 ```

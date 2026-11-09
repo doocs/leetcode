@@ -1,5 +1,5 @@
 class Solution:
-    def countGoodNodes(self, edges: List[List[int]]) -> int:
+    def countGoodNodes(self, edges: list[list[int]]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b in edges:

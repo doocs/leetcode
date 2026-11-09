@@ -110,7 +110,7 @@ tags:
 
 ```python
 class Solution:
-    def getLargestOutlier(self, nums: List[int]) -> int:
+    def getLargestOutlier(self, nums: list[int]) -> int:
         s = sum(nums)
         cnt = Counter(nums)
         ans = -inf

@@ -1,5 +1,5 @@
 class Solution:
-    def buttonWithLongestTime(self, events: List[List[int]]) -> int:
+    def buttonWithLongestTime(self, events: list[list[int]]) -> int:
         ans, t = events[0]
         for (_, t1), (i, t2) in pairwise(events):
             d = t2 - t1

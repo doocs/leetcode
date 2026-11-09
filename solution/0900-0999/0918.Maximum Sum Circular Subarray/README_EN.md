@@ -106,7 +106,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+    def maxSubarraySumCircular(self, nums: list[int]) -> int:
         pmi, pmx = 0, -inf
         ans, s, smi = -inf, 0, inf
         for x in nums:

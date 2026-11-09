@@ -94,7 +94,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         g = [[0] * n for _ in range(n)]

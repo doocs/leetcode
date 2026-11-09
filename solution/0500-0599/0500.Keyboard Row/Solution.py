@@ -1,5 +1,5 @@
 class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
+    def findWords(self, words: list[str]) -> list[str]:
         s1 = set('qwertyuiop')
         s2 = set('asdfghjkl')
         s3 = set('zxcvbnm')

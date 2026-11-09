@@ -102,7 +102,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numberOfSubmatrices(self, grid: List[List[str]]) -> int:
+    def numberOfSubmatrices(self, grid: list[list[str]]) -> int:
         m, n = len(grid), len(grid[0])
         s = [[[0] * 2 for _ in range(n + 1)] for _ in range(m + 1)]
         ans = 0

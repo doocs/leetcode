@@ -126,7 +126,7 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 
 ```python
 class LockingTree:
-    def __init__(self, parent: List[int]):
+    def __init__(self, parent: list[int]):
         n = len(parent)
         self.locked = [-1] * n
         self.parent = parent
@@ -501,7 +501,7 @@ class LockingTree {
 
 ```python
 class LockingTree:
-    def __init__(self, parent: List[int]):
+    def __init__(self, parent: list[int]):
         n = len(parent)
         self.locked = [-1] * n
         self.parent = parent

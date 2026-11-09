@@ -112,7 +112,7 @@ tags:
 
 ```python
 class Solution:
-    def minWastedSpace(self, packages: List[int], boxes: List[List[int]]) -> int:
+    def minWastedSpace(self, packages: list[int], boxes: list[list[int]]) -> int:
         mod = 10**9 + 7
         ans = inf
         packages.sort()

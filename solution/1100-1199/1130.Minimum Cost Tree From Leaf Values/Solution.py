@@ -1,5 +1,5 @@
 class Solution:
-    def mctFromLeafValues(self, arr: List[int]) -> int:
+    def mctFromLeafValues(self, arr: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> Tuple:
             if i == j:

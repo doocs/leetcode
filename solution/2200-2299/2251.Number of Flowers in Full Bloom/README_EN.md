@@ -85,8 +85,8 @@ The time complexity is $O((m + n) \log n)$, and the space complexity is $O(n)$, 
 ```python
 class Solution:
     def fullBloomFlowers(
-        self, flowers: List[List[int]], people: List[int]
-    ) -> List[int]:
+        self, flowers: list[list[int]], people: list[int]
+    ) -> list[int]:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
         return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
@@ -291,8 +291,8 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 ```python
 class Solution:
     def fullBloomFlowers(
-        self, flowers: List[List[int]], people: List[int]
-    ) -> List[int]:
+        self, flowers: list[list[int]], people: list[int]
+    ) -> list[int]:
         d = defaultdict(int)
         for st, ed in flowers:
             d[st] += 1

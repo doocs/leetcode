@@ -1,5 +1,5 @@
 class Solution:
-    def maxEnergyBoost(self, energyDrinkA: List[int], energyDrinkB: List[int]) -> int:
+    def maxEnergyBoost(self, energyDrinkA: list[int], energyDrinkB: list[int]) -> int:
         n = len(energyDrinkA)
         f = [[0] * 2 for _ in range(n)]
         f[0][0] = energyDrinkA[0]

@@ -1,5 +1,5 @@
 class Solution:
-    def brightestPosition(self, lights: List[List[int]]) -> int:
+    def brightestPosition(self, lights: list[list[int]]) -> int:
         d = defaultdict(int)
         for i, j in lights:
             l, r = i - j, i + j

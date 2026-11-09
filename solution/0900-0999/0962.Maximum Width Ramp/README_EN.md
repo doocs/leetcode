@@ -77,7 +77,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ rep
 
 ```python
 class Solution:
-    def maxWidthRamp(self, nums: List[int]) -> int:
+    def maxWidthRamp(self, nums: list[int]) -> int:
         stk = []
         for i, v in enumerate(nums):
             if not stk or nums[stk[-1]] > v:

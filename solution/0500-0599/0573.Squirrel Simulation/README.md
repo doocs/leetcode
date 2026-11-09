@@ -95,9 +95,9 @@ class Solution:
         self,
         height: int,
         width: int,
-        tree: List[int],
-        squirrel: List[int],
-        nuts: List[List[int]],
+        tree: list[int],
+        squirrel: list[int],
+        nuts: list[list[int]],
     ) -> int:
         tr, tc = tree
         sr, sc = squirrel

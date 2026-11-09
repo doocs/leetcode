@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def equalPairs(self, grid: List[List[int]]) -> int:
+    def equalPairs(self, grid: list[list[int]]) -> int:
         n = len(grid)
         ans = 0
         for i in range(n):

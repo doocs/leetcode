@@ -1,5 +1,5 @@
 class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
         max_q = []
         for i, (x, y) in enumerate(points):
             dist = math.hypot(x, y)

@@ -123,8 +123,8 @@ The time complexity is $O(4^n nm)$, and the space complexity is $O(2^n m)$, wher
 
 ```python
 class Solution:
-    def maxStudents(self, seats: List[List[str]]) -> int:
-        def f(seat: List[str]) -> int:
+    def maxStudents(self, seats: list[list[str]]) -> int:
+        def f(seat: list[str]) -> int:
             mask = 0
             for i, c in enumerate(seat):
                 if c == '.':

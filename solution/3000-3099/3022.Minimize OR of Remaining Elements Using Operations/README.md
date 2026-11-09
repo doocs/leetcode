@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def minOrAfterOperations(self, nums: List[int], k: int) -> int:
+    def minOrAfterOperations(self, nums: list[int], k: int) -> int:
         ans = 0
         rans = 0
         for i in range(29, -1, -1):

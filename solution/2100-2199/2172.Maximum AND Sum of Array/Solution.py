@@ -1,5 +1,5 @@
 class Solution:
-    def maximumANDSum(self, nums: List[int], numSlots: int) -> int:
+    def maximumANDSum(self, nums: list[int], numSlots: int) -> int:
         n = len(nums)
         m = numSlots << 1
         f = [0] * (1 << m)

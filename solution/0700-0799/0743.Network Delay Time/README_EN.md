@@ -95,7 +95,7 @@ The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$, where
 
 ```python
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+    def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         g = [[inf] * n for _ in range(n)]
         for u, v, w in times:
             g[u - 1][v - 1] = w
@@ -289,7 +289,7 @@ The time complexity is $O(m \log m + n)$, and the space complexity is $O(n + m)$
 
 ```python
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+    def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in times:
             g[u - 1].append((v - 1, w))

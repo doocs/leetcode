@@ -103,8 +103,8 @@ tags:
 #         self.right = right
 class Solution:
     def closestNodes(
-        self, root: Optional[TreeNode], queries: List[int]
-    ) -> List[List[int]]:
+        self, root: Optional[TreeNode], queries: list[int]
+    ) -> list[list[int]]:
         def dfs(root: Optional[TreeNode]):
             if root is None:
                 return

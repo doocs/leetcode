@@ -1,5 +1,5 @@
 class Solution:
-    def minNumberOfSeconds(self, mountainHeight: int, workerTimes: List[int]) -> int:
+    def minNumberOfSeconds(self, mountainHeight: int, workerTimes: list[int]) -> int:
         def check(t: int) -> bool:
             h = 0
             for wt in workerTimes:

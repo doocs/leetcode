@@ -121,7 +121,7 @@ class Trie:
 
 
 class Solution:
-    def wordsAbbreviation(self, words: List[str]) -> List[str]:
+    def wordsAbbreviation(self, words: list[str]) -> list[str]:
         tries = {}
         for w in words:
             m = len(w)

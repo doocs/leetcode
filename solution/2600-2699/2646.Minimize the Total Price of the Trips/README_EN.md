@@ -107,7 +107,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ is
 ```python
 class Solution:
     def minimumTotalPrice(
-        self, n: int, edges: List[List[int]], price: List[int], trips: List[List[int]]
+        self, n: int, edges: list[list[int]], price: list[int], trips: list[list[int]]
     ) -> int:
         def dfs(i: int, fa: int, k: int) -> bool:
             cnt[i] += 1

@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def minIncrementForUnique(self, nums: List[int]) -> int:
+    def minIncrementForUnique(self, nums: list[int]) -> int:
         nums.sort()
         ans, y = 0, -1
         for x in nums:
@@ -184,7 +184,7 @@ function minIncrementForUnique(nums: number[]): number {
 
 ```python
 class Solution:
-    def minIncrementForUnique(self, nums: List[int]) -> int:
+    def minIncrementForUnique(self, nums: list[int]) -> int:
         m = max(nums) + len(nums)
         cnt = Counter(nums)
         ans = 0

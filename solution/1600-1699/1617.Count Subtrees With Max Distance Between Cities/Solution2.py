@@ -1,7 +1,7 @@
 class Solution:
     def countSubgraphsForEachDiameter(
-        self, n: int, edges: List[List[int]]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]]
+    ) -> list[int]:
         def bfs(u: int) -> int:
             d = -1
             q = deque([u])

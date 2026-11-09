@@ -216,7 +216,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfRightTriangles(self, grid: List[List[int]]) -> int:
+    def numberOfRightTriangles(self, grid: list[list[int]]) -> int:
         rows = [0] * len(grid)
         cols = [0] * len(grid[0])
         for i, row in enumerate(grid):

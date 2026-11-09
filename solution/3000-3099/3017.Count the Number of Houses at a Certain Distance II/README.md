@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
+    def countOfPairs(self, n: int, x: int, y: int) -> list[int]:
         if abs(x - y) <= 1:
             return [2 * x for x in reversed(range(n))]
         cycle_len = abs(x - y) + 1

@@ -130,7 +130,7 @@ tags:
 
 ```python
 class Solution:
-    def minArrivalsToDiscard(self, arrivals: List[int], w: int, m: int) -> int:
+    def minArrivalsToDiscard(self, arrivals: list[int], w: int, m: int) -> int:
         cnt = Counter()
         n = len(arrivals)
         marked = [0] * n

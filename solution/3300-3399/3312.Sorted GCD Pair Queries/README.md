@@ -129,7 +129,7 @@ tags:
 
 ```python
 class Solution:
-    def gcdValues(self, nums: List[int], queries: List[int]) -> List[int]:
+    def gcdValues(self, nums: list[int], queries: list[int]) -> list[int]:
         mx = max(nums)
         cnt = Counter(nums)
         cnt_g = [0] * (mx + 1)

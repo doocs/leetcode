@@ -71,7 +71,7 @@ difficulty: Easy
 
 ```python
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
+    def majorityElement(self, nums: list[int]) -> int:
         cnt = m = 0
         for v in nums:
             if cnt == 0:

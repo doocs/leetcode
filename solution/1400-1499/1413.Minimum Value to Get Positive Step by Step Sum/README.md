@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def minStartValue(self, nums: List[int]) -> int:
+    def minStartValue(self, nums: list[int]) -> int:
         s, t = 0, inf
         for num in nums:
             s += num
@@ -199,7 +199,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minStartValue(self, nums: List[int]) -> int:
+    def minStartValue(self, nums: list[int]) -> int:
         s = list(accumulate(nums))
         return 1 if min(s) >= 0 else abs(min(s)) + 1
 ```

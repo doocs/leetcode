@@ -89,7 +89,7 @@ The problem is essentially finding the shortest path from the initial state to t
 
 ```python
 class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
+    def minimumMoves(self, grid: list[list[int]]) -> int:
         q = deque([tuple(tuple(row) for row in grid)])
         vis = set(q)
         ans = 0
@@ -415,7 +415,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $
 
 ```python
 class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
+    def minimumMoves(self, grid: list[list[int]]) -> int:
         def cal(a: tuple, b: tuple) -> int:
             return abs(a[0] - b[0]) + abs(a[1] - b[1])
 

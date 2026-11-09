@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfEncryptedInt(self, nums: List[int]) -> int:
+    def sumOfEncryptedInt(self, nums: list[int]) -> int:
         def encrypt(x: int) -> int:
             mx = p = 0
             while x:

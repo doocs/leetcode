@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfGoodPartitions(self, nums: List[int]) -> int:
+    def numberOfGoodPartitions(self, nums: list[int]) -> int:
         last = {x: i for i, x in enumerate(nums)}
         mod = 10**9 + 7
         j, k = -1, 0

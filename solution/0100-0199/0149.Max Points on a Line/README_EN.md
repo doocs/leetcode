@@ -69,7 +69,7 @@ tags:
 
 ```python
 class Solution:
-    def maxPoints(self, points: List[List[int]]) -> int:
+    def maxPoints(self, points: list[list[int]]) -> int:
         n = len(points)
         ans = 1
         for i in range(n):
@@ -221,7 +221,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def maxPoints(self, points: List[List[int]]) -> int:
+    def maxPoints(self, points: list[list[int]]) -> int:
         def gcd(a, b):
             return a if b == 0 else gcd(b, a % b)
 

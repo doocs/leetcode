@@ -87,7 +87,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
+    def numberOfEmployeesWhoMetTarget(self, hours: list[int], target: int) -> int:
         return sum(x >= target for x in hours)
 ```
 

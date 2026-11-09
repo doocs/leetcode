@@ -72,7 +72,7 @@ The time complexity is $O(n 2^n|\Sigma|)$, and the space complexity is $O(2^n)$,
 
 ```python
 class Solution:
-    def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
+    def numsSameConsecDiff(self, n: int, k: int) -> list[int]:
         def dfs(x: int):
             if x >= boundary:
                 ans.append(x)

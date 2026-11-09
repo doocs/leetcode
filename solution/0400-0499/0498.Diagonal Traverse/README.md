@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+    def findDiagonalOrder(self, mat: list[list[int]]) -> list[int]:
         m, n = len(mat), len(mat[0])
         ans = []
         for k in range(m + n - 1):

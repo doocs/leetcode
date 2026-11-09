@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumBeauty(self, flowers: List[int]) -> int:
+    def maximumBeauty(self, flowers: list[int]) -> int:
         s = [0] * (len(flowers) + 1)
         d = {}
         ans = -inf

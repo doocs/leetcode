@@ -91,7 +91,7 @@ The time complexity does not exceed $O(10^7)$, and the space complexity does not
 
 ```python
 class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+    def maxHappyGroups(self, batchSize: int, groups: list[int]) -> int:
         @cache
         def dfs(state, mod):
             res = 0
@@ -255,7 +255,7 @@ The time complexity is $O(2^m m)$, and the space complexity is $O(2^m)$, where $
 
 ```python
 class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+    def maxHappyGroups(self, batchSize: int, groups: list[int]) -> int:
         @cache
         def dfs(state, x):
             if state == mask:

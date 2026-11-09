@@ -108,7 +108,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def numberOfWeeks(self, milestones: List[int]) -> int:
+    def numberOfWeeks(self, milestones: list[int]) -> int:
         mx, s = max(milestones), sum(milestones)
         rest = s - mx
         return rest * 2 + 1 if mx > rest + 1 else s

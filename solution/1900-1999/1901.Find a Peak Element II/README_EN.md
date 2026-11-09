@@ -103,7 +103,7 @@ The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def findPeakGrid(self, mat: List[List[int]]) -> List[int]:
+    def findPeakGrid(self, mat: list[list[int]]) -> list[int]:
         l, r = 0, len(mat) - 1
         while l < r:
             mid = (l + r) >> 1

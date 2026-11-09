@@ -1,6 +1,6 @@
 class Solution:
     def validateBinaryTreeNodes(
-        self, n: int, leftChild: List[int], rightChild: List[int]
+        self, n: int, leftChild: list[int], rightChild: list[int]
     ) -> bool:
         def find(x: int) -> int:
             if p[x] != x:

@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def longestSquareStreak(self, nums: List[int]) -> int:
+    def longestSquareStreak(self, nums: list[int]) -> int:
         s = set(nums)
         ans = -1
         for x in nums:
@@ -260,7 +260,7 @@ var longestSquareStreak = function (nums) {
 
 ```python
 class Solution:
-    def longestSquareStreak(self, nums: List[int]) -> int:
+    def longestSquareStreak(self, nums: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             if x not in s:

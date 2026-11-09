@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def pathsWithMaxScore(self, board: List[str]) -> List[int]:
+    def pathsWithMaxScore(self, board: list[str]) -> list[int]:
         def update(i, j, x, y):
             if x >= n or y >= n or f[x][y] == -1 or board[i][j] in "XS":
                 return

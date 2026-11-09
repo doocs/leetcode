@@ -1,5 +1,5 @@
 class Solution:
-    def slowestKey(self, releaseTimes: List[int], keysPressed: str) -> str:
+    def slowestKey(self, releaseTimes: list[int], keysPressed: str) -> str:
         ans = keysPressed[0]
         mx = releaseTimes[0]
         for i in range(1, len(keysPressed)):

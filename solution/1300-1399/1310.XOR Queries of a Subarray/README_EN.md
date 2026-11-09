@@ -96,7 +96,7 @@ The time complexity is $O(n+m)$, and the space complexity is $O(n)$, where $n$ a
 
 ```python
 class Solution:
-    def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
+    def xorQueries(self, arr: list[int], queries: list[list[int]]) -> list[int]:
         s = list(accumulate(arr, xor, initial=0))
         return [s[r + 1] ^ s[l] for l, r in queries]
 ```

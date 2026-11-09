@@ -88,7 +88,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+    def arrayRankTransform(self, arr: list[int]) -> list[int]:
         t = sorted(set(arr))
         return [bisect_right(t, x) for x in arr]
 ```

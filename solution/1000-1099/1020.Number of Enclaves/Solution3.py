@@ -1,5 +1,5 @@
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = 0

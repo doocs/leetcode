@@ -103,7 +103,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findMinMoves(self, machines: List[int]) -> int:
+    def findMinMoves(self, machines: list[int]) -> int:
         n = len(machines)
         k, mod = divmod(sum(machines), n)
         if mod:

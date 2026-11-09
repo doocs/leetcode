@@ -75,7 +75,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def temperatureTrend(self, temperatureA: List[int], temperatureB: List[int]) -> int:
+    def temperatureTrend(self, temperatureA: list[int], temperatureB: list[int]) -> int:
         ans = f = 0
         for (a1, b1), (a2, b2) in pairwise(zip(temperatureA, temperatureB)):
             x, y = a2 - a1, b2 - b1

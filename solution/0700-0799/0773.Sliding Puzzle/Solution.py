@@ -1,5 +1,5 @@
 class Solution:
-    def slidingPuzzle(self, board: List[List[int]]) -> int:
+    def slidingPuzzle(self, board: list[list[int]]) -> int:
         t = [None] * 6
 
         def gets():

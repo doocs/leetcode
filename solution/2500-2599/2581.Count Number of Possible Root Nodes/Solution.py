@@ -1,6 +1,6 @@
 class Solution:
     def rootCount(
-        self, edges: List[List[int]], guesses: List[List[int]], k: int
+        self, edges: list[list[int]], guesses: list[list[int]], k: int
     ) -> int:
         def dfs1(i, fa):
             nonlocal cnt

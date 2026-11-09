@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def trapRainWater(self, heightMap: List[List[int]]) -> int:
+    def trapRainWater(self, heightMap: list[list[int]]) -> int:
         m, n = len(heightMap), len(heightMap[0])
         vis = [[False] * n for _ in range(m)]
         pq = []

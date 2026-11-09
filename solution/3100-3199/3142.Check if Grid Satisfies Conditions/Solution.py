@@ -1,5 +1,5 @@
 class Solution:
-    def satisfiesConditions(self, grid: List[List[int]]) -> bool:
+    def satisfiesConditions(self, grid: list[list[int]]) -> bool:
         m, n = len(grid), len(grid[0])
         for i, row in enumerate(grid):
             for j, x in enumerate(row):

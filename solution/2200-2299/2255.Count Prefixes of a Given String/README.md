@@ -83,7 +83,7 @@ words 中是 s = "abc" 前缀的字符串为：
 
 ```python
 class Solution:
-    def countPrefixes(self, words: List[str], s: str) -> int:
+    def countPrefixes(self, words: list[str], s: str) -> int:
         return sum(s.startswith(w) for w in words)
 ```
 

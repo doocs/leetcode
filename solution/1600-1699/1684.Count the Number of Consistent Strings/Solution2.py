@@ -1,5 +1,5 @@
 class Solution:
-    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+    def countConsistentStrings(self, allowed: str, words: list[str]) -> int:
         def f(w):
             return reduce(or_, (1 << (ord(c) - ord('a')) for c in w))
 

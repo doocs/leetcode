@@ -103,7 +103,7 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 
 ```python
 class Solution:
-    def countSubranges(self, nums1: List[int], nums2: List[int]) -> int:
+    def countSubranges(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums1)
         s1, s2 = sum(nums1), sum(nums2)
         f = [[0] * (s1 + s2 + 1) for _ in range(n)]

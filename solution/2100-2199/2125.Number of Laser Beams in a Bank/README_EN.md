@@ -100,7 +100,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def numberOfBeams(self, bank: List[str]) -> int:
+    def numberOfBeams(self, bank: list[str]) -> int:
         ans = pre = 0
         for row in bank:
             if (cur := row.count("1")) > 0:

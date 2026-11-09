@@ -57,7 +57,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
+    def findRepeatNumber(self, nums: list[int]) -> int:
         for a, b in pairwise(sorted(nums)):
             if a == b:
                 return a
@@ -250,7 +250,7 @@ class Solution {
 
 ```python
 class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
+    def findRepeatNumber(self, nums: list[int]) -> int:
         vis = set()
         for v in nums:
             if v in vis:
@@ -332,7 +332,7 @@ func findRepeatNumber(nums []int) int {
 
 ```python
 class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
+    def findRepeatNumber(self, nums: list[int]) -> int:
         for i, v in enumerate(nums):
             while v != i:
                 if nums[v] == v:

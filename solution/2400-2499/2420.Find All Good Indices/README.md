@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def goodIndices(self, nums: List[int], k: int) -> List[int]:
+    def goodIndices(self, nums: list[int], k: int) -> list[int]:
         n = len(nums)
         decr = [1] * (n + 1)
         incr = [1] * (n + 1)

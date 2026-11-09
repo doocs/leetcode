@@ -1,5 +1,5 @@
 class Solution:
-    def minFlips(self, grid: List[List[int]]) -> int:
+    def minFlips(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         cnt1 = cnt2 = 0
         for row in grid:

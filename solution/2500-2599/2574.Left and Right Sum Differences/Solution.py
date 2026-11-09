@@ -1,5 +1,5 @@
 class Solution:
-    def leftRightDifference(self, nums: List[int]) -> List[int]:
+    def leftRightDifference(self, nums: list[int]) -> list[int]:
         l, r = 0, sum(nums)
         ans = []
         for x in nums:

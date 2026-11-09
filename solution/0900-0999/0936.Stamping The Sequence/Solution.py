@@ -1,5 +1,5 @@
 class Solution:
-    def movesToStamp(self, stamp: str, target: str) -> List[int]:
+    def movesToStamp(self, stamp: str, target: str) -> list[int]:
         m, n = len(stamp), len(target)
         indeg = [m] * (n - m + 1)
         q = deque()

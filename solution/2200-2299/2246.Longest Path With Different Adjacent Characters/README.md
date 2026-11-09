@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def longestPath(self, parent: List[int], s: str) -> int:
+    def longestPath(self, parent: list[int], s: str) -> int:
         def dfs(i: int) -> int:
             mx = 0
             nonlocal ans
@@ -265,7 +265,7 @@ function longestPath(parent: number[], s: string): number {
 
 ```python
 class Solution:
-    def longestPath(self, parent: List[int], s: str) -> int:
+    def longestPath(self, parent: list[int], s: str) -> int:
         n = len(parent)
         g = [[] for _ in range(n)]
         for i in range(1, n):

@@ -1,5 +1,5 @@
 class Solution:
-    def lateFee(self, daysLate: List[int]) -> int:
+    def lateFee(self, daysLate: list[int]) -> int:
         def f(x: int) -> int:
             if x == 1:
                 return 1

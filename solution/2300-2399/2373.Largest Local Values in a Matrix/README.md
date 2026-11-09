@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def largestLocal(self, grid: List[List[int]]) -> List[List[int]]:
+    def largestLocal(self, grid: list[list[int]]) -> list[list[int]]:
         n = len(grid)
         ans = [[0] * (n - 2) for _ in range(n - 2)]
         for i in range(n - 2):

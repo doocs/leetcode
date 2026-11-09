@@ -129,7 +129,7 @@ tags:
 
 ```python
 class Solution:
-    def maxStudentsOnBench(self, students: List[List[int]]) -> int:
+    def maxStudentsOnBench(self, students: list[list[int]]) -> int:
         if not students:
             return 0
         d = defaultdict(set)

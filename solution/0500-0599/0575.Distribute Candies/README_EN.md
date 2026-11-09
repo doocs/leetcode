@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def distributeCandies(self, candyType: List[int]) -> int:
+    def distributeCandies(self, candyType: list[int]) -> int:
         return min(len(candyType) >> 1, len(set(candyType)))
 ```
 

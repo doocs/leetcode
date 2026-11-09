@@ -1,5 +1,5 @@
 class Solution:
-    def minimumSeconds(self, land: List[List[str]]) -> int:
+    def minimumSeconds(self, land: list[list[str]]) -> int:
         m, n = len(land), len(land[0])
         vis = [[False] * n for _ in range(m)]
         g = [[inf] * n for _ in range(m)]

@@ -1,5 +1,5 @@
 class Solution:
-    def maximumSegmentSum(self, nums: List[int], removeQueries: List[int]) -> List[int]:
+    def maximumSegmentSum(self, nums: list[int], removeQueries: list[int]) -> list[int]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

@@ -89,7 +89,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findMode(self, root: TreeNode) -> List[int]:
+    def findMode(self, root: TreeNode) -> list[int]:
         def dfs(root):
             if root is None:
                 return
@@ -319,7 +319,7 @@ public class Solution {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findMode(self, root: TreeNode) -> List[int]:
+    def findMode(self, root: TreeNode) -> list[int]:
         prev = None
         mx = cnt = 0
         ans = []

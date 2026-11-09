@@ -1,5 +1,5 @@
 class Solution:
-    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+    def flipAndInvertImage(self, image: list[list[int]]) -> list[list[int]]:
         n = len(image)
         for row in image:
             i, j = 0, n - 1

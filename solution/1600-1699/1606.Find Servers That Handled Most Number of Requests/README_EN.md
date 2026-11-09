@@ -103,7 +103,7 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 
 ```python
 class Solution:
-    def busiestServers(self, k: int, arrival: List[int], load: List[int]) -> List[int]:
+    def busiestServers(self, k: int, arrival: list[int], load: list[int]) -> list[int]:
         free = SortedList(range(k))
         busy = []
         cnt = [0] * k

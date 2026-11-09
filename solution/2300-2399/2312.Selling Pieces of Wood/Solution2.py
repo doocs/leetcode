@@ -1,5 +1,5 @@
 class Solution:
-    def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
+    def sellingWood(self, m: int, n: int, prices: list[list[int]]) -> int:
         d = defaultdict(dict)
         for h, w, p in prices:
             d[h][w] = p

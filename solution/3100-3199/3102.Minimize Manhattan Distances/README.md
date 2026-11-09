@@ -114,7 +114,7 @@ $$
 
 ```python
 class Solution:
-    def minimumDistance(self, points: List[List[int]]) -> int:
+    def minimumDistance(self, points: list[list[int]]) -> int:
         sl1 = SortedList()
         sl2 = SortedList()
         for x, y in points:

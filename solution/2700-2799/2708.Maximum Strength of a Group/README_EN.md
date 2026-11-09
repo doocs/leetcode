@@ -82,7 +82,7 @@ The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$
 
 ```python
 class Solution:
-    def maxStrength(self, nums: List[int]) -> int:
+    def maxStrength(self, nums: list[int]) -> int:
         ans = -inf
         for i in range(1, 1 << len(nums)):
             t = 1
@@ -203,7 +203,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxStrength(self, nums: List[int]) -> int:
+    def maxStrength(self, nums: list[int]) -> int:
         nums.sort()
         n = len(nums)
         if n == 1:

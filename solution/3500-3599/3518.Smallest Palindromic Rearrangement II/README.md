@@ -135,7 +135,7 @@ class Solution:
         half = [v // 2 for v in freq]
         half_len = sum(half)
 
-        def count_permutations(counts: List[int]) -> int:
+        def count_permutations(counts: list[int]) -> int:
             remaining = sum(counts)
             perms = 1
             for count in counts:

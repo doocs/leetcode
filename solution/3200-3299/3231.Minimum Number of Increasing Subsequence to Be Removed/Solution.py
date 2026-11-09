@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         g = []
         for x in nums:
             l, r = 0, len(g)

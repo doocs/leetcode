@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def buildWall(self, height: int, width: int, bricks: List[int]) -> int:
+    def buildWall(self, height: int, width: int, bricks: list[int]) -> int:
         def dfs(v):
             if v > width:
                 return

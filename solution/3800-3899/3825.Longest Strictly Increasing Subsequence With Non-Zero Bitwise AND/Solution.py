@@ -1,6 +1,6 @@
 class Solution:
-    def longestSubsequence(self, nums: List[int]) -> int:
-        def lis(arr: List[int]) -> int:
+    def longestSubsequence(self, nums: list[int]) -> int:
+        def lis(arr: list[int]) -> int:
             g = []
             for x in arr:
                 j = bisect_left(g, x)

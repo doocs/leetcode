@@ -1,5 +1,5 @@
 class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
+    def findErrorNums(self, nums: list[int]) -> list[int]:
         cnt = Counter(nums)
         n = len(nums)
         ans = [0] * 2

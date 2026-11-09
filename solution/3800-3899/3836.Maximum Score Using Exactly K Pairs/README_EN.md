@@ -149,7 +149,7 @@ The time complexity is $O(mn \times K)$, and the space complexity is $O(mn \time
 
 ```python
 class Solution:
-    def maxScore(self, nums1: List[int], nums2: List[int], K: int) -> int:
+    def maxScore(self, nums1: list[int], nums2: list[int], K: int) -> int:
         n, m = len(nums1), len(nums2)
         f = [[[-inf] * (K + 1) for _ in range(m + 1)] for _ in range(n + 1)]
         f[0][0][0] = 0

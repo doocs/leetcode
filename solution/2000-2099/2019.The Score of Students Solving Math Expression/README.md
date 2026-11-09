@@ -140,7 +140,7 @@ $$
 
 ```python
 class Solution:
-    def scoreOfStudents(self, s: str, answers: List[int]) -> int:
+    def scoreOfStudents(self, s: str, answers: list[int]) -> int:
         def cal(s: str) -> int:
             res, pre = 0, int(s[0])
             for i in range(1, n, 2):

@@ -106,7 +106,7 @@ The time complexity is $O(mn)$, where $m$ and $n$ are the number of rows and col
 
 ```python
 class Solution:
-    def minFlips(self, grid: List[List[int]]) -> int:
+    def minFlips(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         cnt1 = cnt2 = 0
         for row in grid:

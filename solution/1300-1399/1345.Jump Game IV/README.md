@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def minJumps(self, arr: List[int]) -> int:
+    def minJumps(self, arr: list[int]) -> int:
         g = defaultdict(list)
         for i, x in enumerate(arr):
             g[x].append(i)

@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumRightShifts(self, nums: List[int]) -> int:
+    def minimumRightShifts(self, nums: list[int]) -> int:
         n = len(nums)
         i = 1
         while i < n and nums[i - 1] < nums[i]:

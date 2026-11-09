@@ -1,5 +1,5 @@
 class Solution:
-    def countIslands(self, grid: List[List[int]], k: int) -> int:
+    def countIslands(self, grid: list[list[int]], k: int) -> int:
         def dfs(i: int, j: int) -> int:
             s = grid[i][j]
             grid[i][j] = 0

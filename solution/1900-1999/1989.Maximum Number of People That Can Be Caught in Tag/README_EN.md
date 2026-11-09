@@ -97,7 +97,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def catchMaximumAmountofPeople(self, team: List[int], dist: int) -> int:
+    def catchMaximumAmountofPeople(self, team: list[int], dist: int) -> int:
         ans = j = 0
         n = len(team)
         for i, x in enumerate(team):

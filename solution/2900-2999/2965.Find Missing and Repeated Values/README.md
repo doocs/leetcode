@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+    def findMissingAndRepeatedValues(self, grid: list[list[int]]) -> list[int]:
         n = len(grid)
         cnt = [0] * (n * n + 1)
         for row in grid:

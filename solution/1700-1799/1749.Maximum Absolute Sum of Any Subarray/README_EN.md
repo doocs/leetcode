@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxAbsoluteSum(self, nums: List[int]) -> int:
+    def maxAbsoluteSum(self, nums: list[int]) -> int:
         f = g = 0
         ans = 0
         for x in nums:

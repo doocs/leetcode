@@ -1,5 +1,5 @@
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

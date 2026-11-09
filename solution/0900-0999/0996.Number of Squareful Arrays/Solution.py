@@ -1,5 +1,5 @@
 class Solution:
-    def numSquarefulPerms(self, nums: List[int]) -> int:
+    def numSquarefulPerms(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0] * n for _ in range(1 << n)]
         for j in range(n):

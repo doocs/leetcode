@@ -87,7 +87,7 @@ The time complexity is $O(mn^2)$, and the space complexity is $O(S)$, where $n$ 
 
 ```python
 class Solution:
-    def computeSimilarities(self, docs: List[List[int]]) -> List[str]:
+    def computeSimilarities(self, docs: list[list[int]]) -> list[str]:
         eps = 1e-9
         d = defaultdict(list)
         for i, v in enumerate(docs):

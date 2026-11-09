@@ -1,5 +1,5 @@
 class Solution:
-    def snakesAndLadders(self, board: List[List[int]]) -> int:
+    def snakesAndLadders(self, board: list[list[int]]) -> int:
         n = len(board)
         q = deque([1])
         vis = {1}

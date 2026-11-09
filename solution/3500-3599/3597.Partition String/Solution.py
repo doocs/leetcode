@@ -1,5 +1,5 @@
 class Solution:
-    def partitionString(self, s: str) -> List[str]:
+    def partitionString(self, s: str) -> list[str]:
         vis = set()
         ans = []
         t = ""

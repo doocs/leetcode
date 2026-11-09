@@ -1,5 +1,5 @@
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= len(prices):

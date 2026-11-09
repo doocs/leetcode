@@ -1,8 +1,8 @@
 class Solution:
     def maximizeSquareArea(
-        self, m: int, n: int, hFences: List[int], vFences: List[int]
+        self, m: int, n: int, hFences: list[int], vFences: list[int]
     ) -> int:
-        def f(nums: List[int], k: int) -> Set[int]:
+        def f(nums: list[int], k: int) -> Set[int]:
             nums.extend([1, k])
             nums.sort()
             return {b - a for a, b in combinations(nums, 2)}

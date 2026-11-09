@@ -1,5 +1,5 @@
 class Solution:
-    def canMouseWin(self, grid: List[str], catJump: int, mouseJump: int) -> bool:
+    def canMouseWin(self, grid: list[str], catJump: int, mouseJump: int) -> bool:
         m, n = len(grid), len(grid[0])
         cat_start = mouse_start = food = 0
         dirs = (-1, 0, 1, 0, -1)
@@ -32,8 +32,8 @@ class Solution:
 
     def calc(
         self,
-        g_mouse: List[List[int]],
-        g_cat: List[List[int]],
+        g_mouse: list[list[int]],
+        g_cat: list[list[int]],
         mouse_start: int,
         cat_start: int,
         hole: int,

@@ -65,7 +65,7 @@ difficulty: Hard
 
 ```python
 class Solution:
-    def missingTwo(self, nums: List[int]) -> List[int]:
+    def missingTwo(self, nums: list[int]) -> list[int]:
         n = len(nums) + 2
         xor = 0
         for v in nums:

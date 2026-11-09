@@ -118,7 +118,7 @@ tags:
 
 ```python
 class Solution:
-    def applySubstitutions(self, replacements: List[List[str]], text: str) -> str:
+    def applySubstitutions(self, replacements: list[list[str]], text: str) -> str:
         def dfs(s: str) -> str:
             i = s.find("%")
             if i == -1:

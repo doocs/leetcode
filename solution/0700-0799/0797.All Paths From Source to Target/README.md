@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         n = len(graph)
         q = deque([[0]])
         ans = []
@@ -285,7 +285,7 @@ function allPathsSourceTarget(graph: number[][]): number[][] {
 
 ```python
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         def dfs(t):
             if t[-1] == len(graph) - 1:
                 ans.append(t[:])

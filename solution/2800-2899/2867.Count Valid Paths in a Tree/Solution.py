@@ -31,7 +31,7 @@ for i in range(2, mx + 1):
 
 
 class Solution:
-    def countPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countPaths(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         uf = UnionFind(n + 1)
         for u, v in edges:

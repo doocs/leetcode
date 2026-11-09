@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def maxLength(self, nums: List[int]) -> int:
+    def maxLength(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         max_p = lcm(*nums) * max(nums)

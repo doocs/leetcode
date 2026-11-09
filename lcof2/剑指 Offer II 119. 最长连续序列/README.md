@@ -81,7 +81,7 @@ comments: true
 
 ```python
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
+    def longestConsecutive(self, nums: list[int]) -> int:
         n = len(nums)
         if n < 2:
             return n
@@ -284,7 +284,7 @@ class Solution {
 
 ```python
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
+    def longestConsecutive(self, nums: list[int]) -> int:
         s = set(nums)
         ans = 0
         for x in nums:

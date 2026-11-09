@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def checkIfExist(self, arr: List[int]) -> bool:
+    def checkIfExist(self, arr: list[int]) -> bool:
         s = set()
         for x in arr:
             if x * 2 in s or (x % 2 == 0 and x // 2 in s):

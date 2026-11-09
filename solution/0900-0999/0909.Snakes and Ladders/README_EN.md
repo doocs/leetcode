@@ -111,7 +111,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def snakesAndLadders(self, board: List[List[int]]) -> int:
+    def snakesAndLadders(self, board: list[list[int]]) -> int:
         n = len(board)
         q = deque([1])
         vis = {1}

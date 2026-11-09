@@ -1,5 +1,5 @@
 class Solution:
-    def splitArraySameAverage(self, nums: List[int]) -> bool:
+    def splitArraySameAverage(self, nums: list[int]) -> bool:
         n = len(nums)
         if n == 1:
             return False

@@ -1,5 +1,5 @@
 class Solution:
-    def oddString(self, words: List[str]) -> str:
+    def oddString(self, words: list[str]) -> str:
         d = defaultdict(list)
         for s in words:
             t = tuple(ord(b) - ord(a) for a, b in pairwise(s))

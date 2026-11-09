@@ -110,7 +110,7 @@ The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, w
 
 ```python
 class Solution:
-    def maximumMinutes(self, grid: List[List[int]]) -> int:
+    def maximumMinutes(self, grid: list[list[int]]) -> int:
         def spread(q: Deque[int]) -> Deque[int]:
             nq = deque()
             while q:

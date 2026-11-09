@@ -80,7 +80,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, w
 
 ```python
 class Solution:
-    def findNumbers(self, nums: List[int]) -> int:
+    def findNumbers(self, nums: list[int]) -> int:
         return sum(len(str(x)) % 2 == 0 for x in nums)
 ```
 

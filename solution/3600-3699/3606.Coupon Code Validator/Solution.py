@@ -1,7 +1,7 @@
 class Solution:
     def validateCoupons(
-        self, code: List[str], businessLine: List[str], isActive: List[bool]
-    ) -> List[str]:
+        self, code: list[str], businessLine: list[str], isActive: list[bool]
+    ) -> list[str]:
         def check(s: str) -> bool:
             if not s:
                 return False

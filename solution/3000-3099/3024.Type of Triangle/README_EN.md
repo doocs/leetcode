@@ -95,7 +95,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def triangleType(self, nums: List[int]) -> str:
+    def triangleType(self, nums: list[int]) -> str:
         nums.sort()
         if nums[0] + nums[1] <= nums[2]:
             return "none"

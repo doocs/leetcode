@@ -90,7 +90,7 @@ The time complexity is $O(n \textit{target})$, and the space complexity is $O(\t
 
 ```python
 class Solution:
-    def combinationSum4(self, nums: List[int], target: int) -> int:
+    def combinationSum4(self, nums: list[int], target: int) -> int:
         f = [1] + [0] * target
         for i in range(1, target + 1):
             for x in nums:

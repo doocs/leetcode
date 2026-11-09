@@ -79,7 +79,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countElements(self, nums: List[int]) -> int:
+    def countElements(self, nums: list[int]) -> int:
         mi, mx = min(nums), max(nums)
         return sum(mi < x < mx for x in nums)
 ```

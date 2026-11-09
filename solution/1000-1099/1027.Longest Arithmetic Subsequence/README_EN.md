@@ -106,7 +106,7 @@ The time complexity is $O(n(d + n))$, and the space complexity is $O(nd)$, where
 
 ```python
 class Solution:
-    def longestArithSeqLength(self, nums: List[int]) -> int:
+    def longestArithSeqLength(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[1] * 1001 for _ in range(n)]
         ans = 0

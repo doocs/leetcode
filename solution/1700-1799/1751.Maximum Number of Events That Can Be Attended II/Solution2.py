@@ -1,5 +1,5 @@
 class Solution:
-    def maxValue(self, events: List[List[int]], k: int) -> int:
+    def maxValue(self, events: list[list[int]], k: int) -> int:
         events.sort(key=lambda x: x[1])
         n = len(events)
         f = [[0] * (k + 1) for _ in range(n + 1)]

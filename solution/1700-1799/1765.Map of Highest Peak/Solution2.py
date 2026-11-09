@@ -1,5 +1,5 @@
 class Solution:
-    def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
+    def highestPeak(self, isWater: list[list[int]]) -> list[list[int]]:
         m, n = len(isWater), len(isWater[0])
         ans = [[-1] * n for _ in range(m)]
         q = deque()

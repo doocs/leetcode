@@ -1,5 +1,5 @@
 class Solution:
-    def maximumSaleItems(self, items: List[List[int]], budget: int) -> int:
+    def maximumSaleItems(self, items: list[list[int]], budget: int) -> int:
         f = [0] * (budget + 1)
         mn = inf
         for factor, price in items:

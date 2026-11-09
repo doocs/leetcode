@@ -1,5 +1,5 @@
 class Solution:
-    def respace(self, dictionary: List[str], sentence: str) -> int:
+    def respace(self, dictionary: list[str], sentence: str) -> int:
         s = set(dictionary)
         n = len(sentence)
         dp = [0] * (n + 1)

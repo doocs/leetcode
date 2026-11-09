@@ -88,8 +88,8 @@ tags:
 ```python
 class Solution:
     def removeInterval(
-        self, intervals: List[List[int]], toBeRemoved: List[int]
-    ) -> List[List[int]]:
+        self, intervals: list[list[int]], toBeRemoved: list[int]
+    ) -> list[list[int]]:
         x, y = toBeRemoved
         ans = []
         for a, b in intervals:

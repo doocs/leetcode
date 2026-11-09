@@ -1,5 +1,5 @@
 class Solution:
-    def maximumCost(self, n: int, highways: List[List[int]], k: int) -> int:
+    def maximumCost(self, n: int, highways: list[list[int]], k: int) -> int:
         if k >= n:
             return -1
         g = defaultdict(list)

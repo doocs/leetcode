@@ -98,7 +98,7 @@ The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, wh
 
 ```python
 class Solution:
-    def minStoneSum(self, piles: List[int], k: int) -> int:
+    def minStoneSum(self, piles: list[int], k: int) -> int:
         pq = [-x for x in piles]
         heapify(pq)
         for _ in range(k):

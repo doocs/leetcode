@@ -1,5 +1,5 @@
 class Solution:
-    def longestSubsequence(self, arr: List[int], difference: int) -> int:
+    def longestSubsequence(self, arr: list[int], difference: int) -> int:
         f = defaultdict(int)
         for x in arr:
             f[x] = f[x - difference] + 1

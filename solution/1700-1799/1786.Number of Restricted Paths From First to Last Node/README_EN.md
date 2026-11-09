@@ -90,7 +90,7 @@ Compute distances to node $n$, then memoize the number of restricted paths.
 
 ```python
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         @cache
         def dfs(i):
             if i == n:
@@ -331,7 +331,7 @@ After distances to $n$ are known, iterate nodes by increasing distance and accum
 
 ```python
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         g = defaultdict(list)
         for u, v, w in edges:
             g[u].append((v, w))
@@ -438,7 +438,7 @@ Compute distances to node $n$, then accumulate restricted paths in increasing-di
 
 ```python
 class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         g = defaultdict(list)
         for u, v, w in edges:
             g[u].append((v, w))

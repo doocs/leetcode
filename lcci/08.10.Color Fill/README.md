@@ -68,8 +68,8 @@ sr = 1, sc = 1, newColor = 2
 ```python
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, newColor: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, newColor: int
+    ) -> list[list[int]]:
         def dfs(i, j):
             if (
                 not 0 <= i < m
@@ -286,8 +286,8 @@ class Solution {
 ```python
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, newColor: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, newColor: int
+    ) -> list[list[int]]:
         if image[sr][sc] == newColor:
             return image
         q = deque([(sr, sc)])

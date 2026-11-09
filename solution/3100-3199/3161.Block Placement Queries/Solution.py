@@ -17,7 +17,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def getResults(self, queries: List[List[int]]) -> List[bool]:
+    def getResults(self, queries: list[list[int]]) -> list[bool]:
         m = max(q[1] for q in queries)
         sl = SortedList([0, m + 1])
         for q in queries:

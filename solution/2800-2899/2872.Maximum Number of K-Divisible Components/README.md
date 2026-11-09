@@ -99,7 +99,7 @@ tags:
 ```python
 class Solution:
     def maxKDivisibleComponents(
-        self, n: int, edges: List[List[int]], values: List[int], k: int
+        self, n: int, edges: list[list[int]], values: list[int], k: int
     ) -> int:
         def dfs(i: int, fa: int) -> int:
             s = values[i]
@@ -324,7 +324,7 @@ impl Solution {
 ```python
 class Solution:
     def maxKDivisibleComponents(
-        self, n: int, edges: List[List[int]], values: List[int], k: int
+        self, n: int, edges: list[list[int]], values: list[int], k: int
     ) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:

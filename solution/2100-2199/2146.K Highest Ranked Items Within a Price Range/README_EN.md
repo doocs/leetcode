@@ -140,8 +140,8 @@ The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, w
 ```python
 class Solution:
     def highestRankedKItems(
-        self, grid: List[List[int]], pricing: List[int], start: List[int], k: int
-    ) -> List[List[int]]:
+        self, grid: list[list[int]], pricing: list[int], start: list[int], k: int
+    ) -> list[list[int]]:
         m, n = len(grid), len(grid[0])
         row, col = start
         low, high = pricing

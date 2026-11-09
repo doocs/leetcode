@@ -1,5 +1,5 @@
 class Solution:
-    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+    def findMaxForm(self, strs: list[str], m: int, n: int) -> int:
         sz = len(strs)
         f = [[[0] * (n + 1) for _ in range(m + 1)] for _ in range(sz + 1)]
         for i, s in enumerate(strs, 1):

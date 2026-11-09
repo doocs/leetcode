@@ -78,7 +78,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def findPeakElement(self, nums: List[int]) -> int:
+    def findPeakElement(self, nums: list[int]) -> int:
         left, right = 0, len(nums) - 1
         while left < right:
             mid = (left + right) >> 1

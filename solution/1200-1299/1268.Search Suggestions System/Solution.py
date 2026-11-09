@@ -1,7 +1,7 @@
 class Trie:
     def __init__(self):
-        self.children: List[Union[Trie, None]] = [None] * 26
-        self.v: List[int] = []
+        self.children: list[Union[Trie, None]] = [None] * 26
+        self.v: list[int] = []
 
     def insert(self, w, i):
         node = self
@@ -27,8 +27,8 @@ class Trie:
 
 class Solution:
     def suggestedProducts(
-        self, products: List[str], searchWord: str
-    ) -> List[List[str]]:
+        self, products: list[str], searchWord: str
+    ) -> list[list[str]]:
         products.sort()
         trie = Trie()
         for i, w in enumerate(products):

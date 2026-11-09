@@ -145,7 +145,7 @@ tags:
 
 ```python
 class Solution:
-    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+    def maxWalls(self, robots: list[int], distance: list[int], walls: list[int]) -> int:
         n = len(robots)
         arr = sorted(zip(robots, distance), key=lambda x: x[0])
         walls.sort()
@@ -434,7 +434,7 @@ $f[i][j]$ 取这两种发射方向所能摧毁墙壁数量的最大值。
 
 ```python
 class Solution:
-    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+    def maxWalls(self, robots: list[int], distance: list[int], walls: list[int]) -> int:
         n = len(robots)
         arr = sorted(zip(robots, distance), key=lambda x: x[0])
         walls.sort()

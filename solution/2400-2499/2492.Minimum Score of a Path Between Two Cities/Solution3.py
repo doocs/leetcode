@@ -1,5 +1,5 @@
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))

@@ -1,7 +1,7 @@
 class Hashing:
     __slots__ = ["mod", "h", "p"]
 
-    def __init__(self, s: List[str], base: int, mod: int):
+    def __init__(self, s: list[str], base: int, mod: int):
         self.mod = mod
         self.h = [0] * (len(s) + 1)
         self.p = [1] * (len(s) + 1)
@@ -14,7 +14,7 @@ class Hashing:
 
 
 class Solution:
-    def minValidStrings(self, words: List[str], target: str) -> int:
+    def minValidStrings(self, words: list[str], target: str) -> int:
         def f(i: int) -> int:
             l, r = 0, min(n - i, m)
             while l < r:

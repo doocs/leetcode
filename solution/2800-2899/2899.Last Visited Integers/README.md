@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def lastVisitedIntegers(self, nums: List[int]) -> List[int]:
+    def lastVisitedIntegers(self, nums: list[int]) -> list[int]:
         seen = []
         ans = []
         k = 0

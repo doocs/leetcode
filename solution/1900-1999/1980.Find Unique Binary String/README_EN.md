@@ -90,7 +90,7 @@ The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is 
 
 ```python
 class Solution:
-    def findDifferentBinaryString(self, nums: List[str]) -> str:
+    def findDifferentBinaryString(self, nums: list[str]) -> str:
         mask = 0
         for x in nums:
             mask |= 1 << x.count("1")
@@ -242,7 +242,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findDifferentBinaryString(self, nums: List[str]) -> str:
+    def findDifferentBinaryString(self, nums: list[str]) -> str:
         ans = [None] * len(nums)
         for i, s in enumerate(nums):
             ans[i] = "1" if s[i] == "0" else "0"

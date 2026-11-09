@@ -79,7 +79,7 @@ comments: true
 
 ```python
 class Solution:
-    def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+    def containsNearbyAlmostDuplicate(self, nums: list[int], k: int, t: int) -> bool:
         s = SortedSet()
         for i, num in enumerate(nums):
             idx = s.bisect_left(num - t)

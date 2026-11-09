@@ -115,7 +115,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, w
 
 ```python
 class Solution:
-    def largestString(self, nums: List[int]) -> List[str]:
+    def largestString(self, nums: list[int]) -> list[str]:
         ans = []
         for x in nums:
             s = []

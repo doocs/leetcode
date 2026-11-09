@@ -109,7 +109,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
+    def maximumSubtreeSize(self, edges: list[list[int]], colors: list[int]) -> int:
         def dfs(a: int, fa: int) -> bool:
             ok = True
             for b in g[a]:
@@ -306,7 +306,7 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 
 ```python
 class Solution:
-    def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
+    def maximumSubtreeSize(self, edges: list[list[int]], colors: list[int]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b in edges:

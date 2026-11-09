@@ -118,7 +118,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def lastVisitedIntegers(self, nums: List[int]) -> List[int]:
+    def lastVisitedIntegers(self, nums: list[int]) -> list[int]:
         seen = []
         ans = []
         k = 0

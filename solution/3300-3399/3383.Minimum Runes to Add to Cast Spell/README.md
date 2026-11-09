@@ -108,7 +108,7 @@ tags:
 ```python
 class Solution:
     def minRunesToAdd(
-        self, n: int, crystals: List[int], flowFrom: List[int], flowTo: List[int]
+        self, n: int, crystals: list[int], flowFrom: list[int], flowTo: list[int]
     ) -> int:
         def bfs(q: Deque[int]):
             while q:

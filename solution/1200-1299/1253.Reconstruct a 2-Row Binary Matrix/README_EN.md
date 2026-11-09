@@ -106,8 +106,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def reconstructMatrix(
-        self, upper: int, lower: int, colsum: List[int]
-    ) -> List[List[int]]:
+        self, upper: int, lower: int, colsum: list[int]
+    ) -> list[list[int]]:
         n = len(colsum)
         ans = [[0] * n for _ in range(2)]
         for j, v in enumerate(colsum):

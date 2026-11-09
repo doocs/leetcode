@@ -87,7 +87,7 @@ ID = 2 的学生分数为 93、97、77、100 和 76 。前五科的平均分 (10
 
 ```python
 class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+    def highFive(self, items: list[list[int]]) -> list[list[int]]:
         d = defaultdict(list)
         m = 0
         for i, x in items:

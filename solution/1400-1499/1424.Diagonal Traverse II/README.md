@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
+    def findDiagonalOrder(self, nums: list[list[int]]) -> list[int]:
         arr = []
         for i, row in enumerate(nums):
             for j, v in enumerate(row):

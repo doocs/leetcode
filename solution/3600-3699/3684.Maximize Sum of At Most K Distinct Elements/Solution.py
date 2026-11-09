@@ -1,5 +1,5 @@
 class Solution:
-    def maxKDistinct(self, nums: List[int], k: int) -> List[int]:
+    def maxKDistinct(self, nums: list[int], k: int) -> list[int]:
         nums.sort()
         n = len(nums)
         ans = []

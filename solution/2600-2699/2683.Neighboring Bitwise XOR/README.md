@@ -116,7 +116,7 @@ $$
 
 ```python
 class Solution:
-    def doesValidArrayExist(self, derived: List[int]) -> bool:
+    def doesValidArrayExist(self, derived: list[int]) -> bool:
         return reduce(xor, derived) == 0
 ```
 

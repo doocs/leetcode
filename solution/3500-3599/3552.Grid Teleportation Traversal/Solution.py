@@ -1,5 +1,5 @@
 class Solution:
-    def minMoves(self, matrix: List[str]) -> int:
+    def minMoves(self, matrix: list[str]) -> int:
         m, n = len(matrix), len(matrix[0])
         g = defaultdict(list)
         for i, row in enumerate(matrix):

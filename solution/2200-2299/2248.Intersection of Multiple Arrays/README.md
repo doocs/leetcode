@@ -80,7 +80,7 @@ nums[0] = [<em><strong>3</strong></em>,1,2,<em><strong>4</strong></em>,5]，nums
 
 ```python
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = [0] * 1001
         for arr in nums:
             for x in arr:
@@ -218,7 +218,7 @@ class Solution {
 
 ```python
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = Counter()
         ans = []
         for arr in nums:

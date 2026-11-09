@@ -1,5 +1,5 @@
 class Solution:
-    def pondSizes(self, land: List[List[int]]) -> List[int]:
+    def pondSizes(self, land: list[list[int]]) -> list[int]:
         def dfs(i: int, j: int) -> int:
             res = 1
             land[i][j] = 1

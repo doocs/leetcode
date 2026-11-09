@@ -1,5 +1,5 @@
 class Solution:
-    def minimumSum(self, nums: List[int]) -> int:
+    def minimumSum(self, nums: list[int]) -> int:
         n = len(nums)
         right = [inf] * (n + 1)
         for i in range(n - 1, -1, -1):

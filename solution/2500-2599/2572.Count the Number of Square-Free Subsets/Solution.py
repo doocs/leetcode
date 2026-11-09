@@ -1,5 +1,5 @@
 class Solution:
-    def squareFreeSubsets(self, nums: List[int]) -> int:
+    def squareFreeSubsets(self, nums: list[int]) -> int:
         primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
         cnt = Counter(nums)
         mod = 10**9 + 7

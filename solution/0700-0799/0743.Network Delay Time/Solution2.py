@@ -1,5 +1,5 @@
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+    def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in times:
             g[u - 1].append((v - 1, w))

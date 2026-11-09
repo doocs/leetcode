@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def maxScore(self, nums1: list[int], nums2: list[int], k: int) -> int:
         nums = sorted(zip(nums2, nums1), reverse=True)
         q = []
         ans = s = 0

@@ -97,7 +97,7 @@ class MagicDictionary:
     def _patterns(self, word):
         return [word[:i] + '*' + word[i + 1 :] for i in range(len(word))]
 
-    def buildDict(self, dictionary: List[str]) -> None:
+    def buildDict(self, dictionary: list[str]) -> None:
         self.words = set(dictionary)
         self.counter = Counter(p for word in dictionary for p in self._patterns(word))
 

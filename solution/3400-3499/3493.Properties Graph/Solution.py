@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfComponents(self, properties: List[List[int]], k: int) -> int:
+    def numberOfComponents(self, properties: list[list[int]], k: int) -> int:
         def dfs(i: int) -> None:
             vis[i] = True
             for j in g[i]:

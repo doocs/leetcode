@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+    def sortPeople(self, names: list[str], heights: list[int]) -> list[str]:
         idx = list(range(len(heights)))
         idx.sort(key=lambda i: -heights[i])
         return [names[i] for i in idx]
@@ -195,7 +195,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+    def sortPeople(self, names: list[str], heights: list[int]) -> list[str]:
         return [name for _, name in sorted(zip(heights, names), reverse=True)]
 ```
 

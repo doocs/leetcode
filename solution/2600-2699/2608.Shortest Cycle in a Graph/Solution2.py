@@ -1,5 +1,5 @@
 class Solution:
-    def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
+    def findShortestCycle(self, n: int, edges: list[list[int]]) -> int:
         def bfs(u: int) -> int:
             dist = [-1] * n
             dist[u] = 0

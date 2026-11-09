@@ -1,5 +1,5 @@
 class Solution:
-    def maximumOr(self, nums: List[int], k: int) -> int:
+    def maximumOr(self, nums: list[int], k: int) -> int:
         n = len(nums)
         suf = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

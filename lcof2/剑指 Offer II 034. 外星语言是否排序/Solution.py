@@ -1,5 +1,5 @@
 class Solution:
-    def isAlienSorted(self, words: List[str], order: str) -> bool:
+    def isAlienSorted(self, words: list[str], order: str) -> bool:
         index = {c: i for i, c in enumerate(order)}
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i + 1]

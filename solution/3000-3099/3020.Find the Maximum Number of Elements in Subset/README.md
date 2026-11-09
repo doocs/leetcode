@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumLength(self, nums: List[int]) -> int:
+    def maximumLength(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         ans = cnt[1] - (cnt[1] % 2 ^ 1)
         del cnt[1]

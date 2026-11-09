@@ -96,7 +96,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def reductionOperations(self, nums: List[int]) -> int:
+    def reductionOperations(self, nums: list[int]) -> int:
         nums.sort()
         ans = cnt = 0
         for a, b in pairwise(nums):

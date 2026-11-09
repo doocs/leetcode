@@ -92,7 +92,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def minSwap(self, nums1: List[int], nums2: List[int]) -> int:
+    def minSwap(self, nums1: list[int], nums2: list[int]) -> int:
         a, b = 0, 1
         for i in range(1, len(nums1)):
             x, y = a, b

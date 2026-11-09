@@ -1,5 +1,5 @@
 class Solution:
-    def tallestBillboard(self, rods: List[int]) -> int:
+    def tallestBillboard(self, rods: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(rods):

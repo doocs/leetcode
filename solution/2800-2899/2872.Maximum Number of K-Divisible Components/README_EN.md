@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maxKDivisibleComponents(
-        self, n: int, edges: List[List[int]], values: List[int], k: int
+        self, n: int, edges: list[list[int]], values: list[int], k: int
     ) -> int:
         def dfs(i: int, fa: int) -> int:
             s = values[i]
@@ -318,7 +318,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maxKDivisibleComponents(
-        self, n: int, edges: List[List[int]], values: List[int], k: int
+        self, n: int, edges: list[list[int]], values: list[int], k: int
     ) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:

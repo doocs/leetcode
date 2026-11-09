@@ -85,7 +85,7 @@ The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ a
 
 ```python
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= len(prices):
@@ -306,7 +306,7 @@ The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ a
 
 ```python
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         n = len(prices)
         f = [[[0] * 2 for _ in range(k + 1)] for _ in range(n)]
         for j in range(1, k + 1):
@@ -450,7 +450,7 @@ $f[i][j][k]$ depends only on the previous day, so a table of size $(k+1) \times 
 
 ```python
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         f = [[0] * 2 for _ in range(k + 1)]
         for j in range(1, k + 1):
             f[j][1] = -prices[0]

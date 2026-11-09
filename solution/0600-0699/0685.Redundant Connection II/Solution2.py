@@ -2,8 +2,8 @@ class UnionFind:
     __slots__ = "p", "size"
 
     def __init__(self, n: int):
-        self.p: List[int] = list(range(n))
-        self.size: List[int] = [1] * n
+        self.p: list[int] = list(range(n))
+        self.size: list[int] = [1] * n
 
     def find(self, x: int) -> int:
         if self.p[x] != x:
@@ -24,7 +24,7 @@ class UnionFind:
 
 
 class Solution:
-    def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
+    def findRedundantDirectedConnection(self, edges: list[list[int]]) -> list[int]:
         n = len(edges)
         ind = [0] * n
         for _, v in edges:

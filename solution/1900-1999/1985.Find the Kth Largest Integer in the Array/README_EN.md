@@ -97,7 +97,7 @@ The time complexity is $O(n \log n)$ or $O(n)$, and the space complexity is $O(\
 
 ```python
 class Solution:
-    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+    def kthLargestNumber(self, nums: list[str], k: int) -> str:
         return nlargest(k, nums, key=lambda x: int(x))[k - 1]
 ```
 

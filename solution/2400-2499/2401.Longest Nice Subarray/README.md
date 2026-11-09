@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def longestNiceSubarray(self, nums: List[int]) -> int:
+    def longestNiceSubarray(self, nums: list[int]) -> int:
         ans = mask = l = 0
         for r, x in enumerate(nums):
             while mask & x:

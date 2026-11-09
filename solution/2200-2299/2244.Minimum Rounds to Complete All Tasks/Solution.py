@@ -1,5 +1,5 @@
 class Solution:
-    def minimumRounds(self, tasks: List[int]) -> int:
+    def minimumRounds(self, tasks: list[int]) -> int:
         cnt = Counter(tasks)
         ans = 0
         for v in cnt.values():

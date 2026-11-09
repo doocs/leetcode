@@ -1,5 +1,5 @@
 class Solution:
-    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+    def subdomainVisits(self, cpdomains: list[str]) -> list[str]:
         cnt = Counter()
         for s in cpdomains:
             v = int(s[: s.index(' ')])

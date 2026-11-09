@@ -160,12 +160,12 @@ class Solution:
     def minTimeMaxPower(
         self,
         n: int,
-        edges: List[List[int]],
+        edges: list[list[int]],
         power: int,
-        cost: List[int],
+        cost: list[int],
         source: int,
         target: int,
-    ) -> List[int]:
+    ) -> list[int]:
         g = [[] for _ in range(n)]
         for u, v, t in edges:
             g[u].append((v, t))

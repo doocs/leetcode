@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def maximizeExpressionOfThree(self, nums: List[int]) -> int:
+    def maximizeExpressionOfThree(self, nums: list[int]) -> int:
         a = b = -inf
         c = inf
         for x in nums:

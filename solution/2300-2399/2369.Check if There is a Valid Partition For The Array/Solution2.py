@@ -1,5 +1,5 @@
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [True] + [False] * n
         for i, x in enumerate(nums, 1):

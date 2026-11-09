@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], costs: List[int]) -> int:
+    def minCost(self, nums: list[int], costs: list[int]) -> int:
         n = len(nums)
         g = defaultdict(list)
         stk = []

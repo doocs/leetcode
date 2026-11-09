@@ -89,7 +89,7 @@ DFS 遍历二叉树，记录每个节点的值、深度，以及横向的偏移�
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         def dfs(root, depth, offset):
             if root is None:
                 return
@@ -271,7 +271,7 @@ func verticalOrder(root *TreeNode) [][]int {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         if root is None:
             return []
         q = deque([(root, 0)])

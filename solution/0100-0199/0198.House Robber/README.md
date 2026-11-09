@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(nums):
@@ -267,7 +267,7 @@ $$
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         f[1] = nums[0]
@@ -392,7 +392,7 @@ function rob(nums) {
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         f = g = 0
         for x in nums:
             f, g = max(f, g), f + x

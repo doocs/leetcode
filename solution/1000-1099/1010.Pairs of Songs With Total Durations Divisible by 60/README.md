@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def numPairsDivisibleBy60(self, time: List[int]) -> int:
+    def numPairsDivisibleBy60(self, time: list[int]) -> int:
         cnt = Counter()
         ans = 0
         for x in time:

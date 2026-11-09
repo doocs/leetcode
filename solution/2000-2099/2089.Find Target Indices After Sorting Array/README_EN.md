@@ -85,7 +85,7 @@ The index where nums[i] == 5 is 4.
 
 ```python
 class Solution:
-    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+    def targetIndices(self, nums: list[int], target: int) -> list[int]:
         nums.sort()
         return [i for i, v in enumerate(nums) if v == target]
 ```
@@ -184,7 +184,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+    def targetIndices(self, nums: list[int], target: int) -> list[int]:
         less = equal = 0
         for x in nums:
             if x < target:

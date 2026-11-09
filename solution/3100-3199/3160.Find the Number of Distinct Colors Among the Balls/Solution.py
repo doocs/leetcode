@@ -1,5 +1,5 @@
 class Solution:
-    def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
+    def queryResults(self, limit: int, queries: list[list[int]]) -> list[int]:
         g = {}
         cnt = Counter()
         ans = []

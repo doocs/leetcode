@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def isPossible(self, target: List[int]) -> bool:
+    def isPossible(self, target: list[int]) -> bool:
         s = sum(target)
         pq = [-x for x in target]
         heapify(pq)

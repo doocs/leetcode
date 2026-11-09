@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+    def numberOfArithmeticSlices(self, nums: list[int]) -> int:
         f = [defaultdict(int) for _ in nums]
         ans = 0
         for i, x in enumerate(nums):

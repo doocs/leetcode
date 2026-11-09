@@ -1,5 +1,5 @@
 class Solution:
-    def maximumInvitations(self, grid: List[List[int]]) -> int:
+    def maximumInvitations(self, grid: list[list[int]]) -> int:
         def find(i):
             for j, v in enumerate(grid[i]):
                 if v and j not in vis:

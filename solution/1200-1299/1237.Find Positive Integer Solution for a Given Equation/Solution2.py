@@ -11,7 +11,7 @@ class CustomFunction:
 
 
 class Solution:
-    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> list[list[int]]:
         ans = []
         x, y = 1, 1000
         while x <= 1000 and y:

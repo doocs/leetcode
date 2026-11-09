@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
+    def lengthOfLIS(self, nums: list[int]) -> int:
         n = len(nums)
         f = [1] * n
         for i in range(1, n):
@@ -254,7 +254,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
+    def lengthOfLIS(self, nums: list[int]) -> int:
         s = sorted(set(nums))
         m = len(s)
         tree = BinaryIndexedTree(m)

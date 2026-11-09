@@ -1,5 +1,5 @@
 class Solution:
-    def longestCycle(self, edges: List[int]) -> int:
+    def longestCycle(self, edges: list[int]) -> int:
         n = len(edges)
         vis = [False] * n
         ans = -1

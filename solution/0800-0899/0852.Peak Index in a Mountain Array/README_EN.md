@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+    def peakIndexInMountainArray(self, arr: list[int]) -> int:
         left, right = 1, len(arr) - 2
         while left < right:
             mid = (left + right) >> 1

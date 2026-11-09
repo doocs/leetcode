@@ -63,7 +63,7 @@ difficulty: Easy
 
 ```python
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: list[int]) -> int:
         nums.sort()
         for i, x in enumerate(nums):
             if i != x:
@@ -196,7 +196,7 @@ class Solution {
 
 ```python
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: list[int]) -> int:
         return sum(range(len(nums) + 1)) - sum(nums)
 ```
 
@@ -316,7 +316,7 @@ class Solution {
 
 ```python
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: list[int]) -> int:
         ans = 0
         for i, x in enumerate(nums, 1):
             ans ^= i ^ x

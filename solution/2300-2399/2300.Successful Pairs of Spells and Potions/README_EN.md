@@ -91,8 +91,8 @@ The time complexity is $O((m + n) \log m)$, and the space complexity is $O(\log 
 ```python
 class Solution:
     def successfulPairs(
-        self, spells: List[int], potions: List[int], success: int
-    ) -> List[int]:
+        self, spells: list[int], potions: list[int], success: int
+    ) -> list[int]:
         potions.sort()
         m = len(potions)
         return [m - bisect_left(potions, success / v) for v in spells]

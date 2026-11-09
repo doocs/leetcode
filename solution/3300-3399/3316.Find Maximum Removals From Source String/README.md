@@ -143,7 +143,7 @@ tags:
 
 ```python
 class Solution:
-    def maxRemovals(self, source: str, pattern: str, targetIndices: List[int]) -> int:
+    def maxRemovals(self, source: str, pattern: str, targetIndices: list[int]) -> int:
         m, n = len(source), len(pattern)
         f = [[-inf] * (n + 1) for _ in range(m + 1)]
         f[0][0] = 0

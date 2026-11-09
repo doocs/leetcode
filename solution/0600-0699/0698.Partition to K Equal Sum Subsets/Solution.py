@@ -1,5 +1,5 @@
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         def dfs(i: int) -> bool:
             if i == len(nums):
                 return True

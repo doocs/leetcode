@@ -89,7 +89,7 @@ The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minCapability(self, nums: List[int], k: int) -> int:
+    def minCapability(self, nums: list[int], k: int) -> int:
         def f(x):
             cnt, j = 0, -2
             for i, v in enumerate(nums):

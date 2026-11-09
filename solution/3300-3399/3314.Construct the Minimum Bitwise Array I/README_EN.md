@@ -103,7 +103,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minBitwiseArray(self, nums: List[int]) -> List[int]:
+    def minBitwiseArray(self, nums: list[int]) -> list[int]:
         ans = []
         for x in nums:
             if x == 2:

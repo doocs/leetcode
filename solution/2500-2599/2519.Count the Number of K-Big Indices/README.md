@@ -108,7 +108,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def kBigIndices(self, nums: List[int], k: int) -> int:
+    def kBigIndices(self, nums: list[int], k: int) -> int:
         n = len(nums)
         tree1 = BinaryIndexedTree(n)
         tree2 = BinaryIndexedTree(n)

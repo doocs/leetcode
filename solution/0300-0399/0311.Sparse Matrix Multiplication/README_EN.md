@@ -74,7 +74,7 @@ The time complexity is $O(mnk)$, and the space complexity is $O(mn)$, where $m$ 
 
 ```python
 class Solution:
-    def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
+    def multiply(self, mat1: list[list[int]], mat2: list[list[int]]) -> list[list[int]]:
         m, n = len(mat1), len(mat2[0])
         ans = [[0] * n for _ in range(m)]
         for i in range(m):
@@ -188,8 +188,8 @@ The time complexity is $O(mnk)$, and the space complexity is $O(mn)$, where $m$ 
 
 ```python
 class Solution:
-    def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
-        def f(mat: List[List[int]]) -> List[List[int]]:
+    def multiply(self, mat1: list[list[int]], mat2: list[list[int]]) -> list[list[int]]:
+        def f(mat: list[list[int]]) -> list[list[int]]:
             g = [[] for _ in range(len(mat))]
             for i, row in enumerate(mat):
                 for j, x in enumerate(row):

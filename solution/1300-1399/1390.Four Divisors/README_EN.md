@@ -83,7 +83,7 @@ The time complexity is $O(n \sqrt{n})$, and the space complexity is $O(1)$, wher
 
 ```python
 class Solution:
-    def sumFourDivisors(self, nums: List[int]) -> int:
+    def sumFourDivisors(self, nums: list[int]) -> int:
         def f(x: int) -> int:
             i = 2
             cnt, s = 2, x + 1

@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def equalizeWater(self, buckets: List[int], loss: int) -> float:
+    def equalizeWater(self, buckets: list[int], loss: int) -> float:
         def check(v):
             a = b = 0
             for x in buckets:

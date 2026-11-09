@@ -92,8 +92,8 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 ```python
 class Solution:
     def countPoints(
-        self, points: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, points: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         ans = []
         for x, y, r in queries:
             cnt = 0

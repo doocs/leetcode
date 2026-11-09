@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def assignEdgeWeights(self, edges: List[List[int]]) -> int:
+    def assignEdgeWeights(self, edges: list[list[int]]) -> int:
         def dfs(i: int, fa: int = 0) -> int:
             res = 0
             for j in g[i]:
@@ -334,7 +334,7 @@ function assignEdgeWeights(edges: number[][]): number {
 
 ```python
 class Solution:
-    def assignEdgeWeights(self, edges: List[List[int]]) -> int:
+    def assignEdgeWeights(self, edges: list[list[int]]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n + 1)]
         for u, v in edges:

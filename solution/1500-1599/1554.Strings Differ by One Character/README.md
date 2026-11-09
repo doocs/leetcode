@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def differByOne(self, dict: List[str]) -> bool:
+    def differByOne(self, dict: list[str]) -> bool:
         s = set()
         for word in dict:
             for i in range(len(word)):

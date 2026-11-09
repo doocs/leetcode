@@ -80,7 +80,7 @@ Therefore, 2, 3, 4, or 5 may also be returned.</pre>
 
 ```python
 class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+    def validSubarraySize(self, nums: list[int], threshold: int) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -282,7 +282,7 @@ func validSubarraySize(nums []int, threshold int) int {
 
 ```python
 class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+    def validSubarraySize(self, nums: list[int], threshold: int) -> int:
         n = len(nums)
         left = [-1] * n
         right = [n] * n

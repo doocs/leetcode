@@ -98,7 +98,7 @@ The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n^2)$, wh
 
 ```python
 class Solution:
-    def swimInWater(self, grid: List[List[int]]) -> int:
+    def swimInWater(self, grid: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

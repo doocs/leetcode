@@ -1,5 +1,5 @@
 class Solution:
-    def collectTheCoins(self, coins: List[int], edges: List[List[int]]) -> int:
+    def collectTheCoins(self, coins: list[int], edges: list[list[int]]) -> int:
         g = defaultdict(set)
         for a, b in edges:
             g[a].add(b)

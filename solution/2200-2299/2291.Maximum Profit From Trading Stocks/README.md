@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
+    def maximumProfit(self, present: list[int], future: list[int], budget: int) -> int:
         f = [[0] * (budget + 1) for _ in range(len(present) + 1)]
         for i, w in enumerate(present, 1):
             for j in range(budget + 1):
@@ -205,7 +205,7 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 
 ```python
 class Solution:
-    def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
+    def maximumProfit(self, present: list[int], future: list[int], budget: int) -> int:
         f = [0] * (budget + 1)
         for a, b in zip(present, future):
             for j in range(budget, a - 1, -1):

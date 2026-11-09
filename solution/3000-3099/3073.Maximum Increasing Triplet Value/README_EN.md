@@ -92,7 +92,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maximumTripletValue(self, nums: List[int]) -> int:
+    def maximumTripletValue(self, nums: list[int]) -> int:
         n = len(nums)
         right = [nums[-1]] * n
         for i in range(n - 2, -1, -1):

@@ -81,7 +81,7 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumPopulation(self, logs: List[List[int]]) -> int:
+    def maximumPopulation(self, logs: list[list[int]]) -> int:
         d = [0] * 101
         offset = 1950
         for a, b in logs:

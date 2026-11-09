@@ -1,5 +1,5 @@
 class Solution:
-    def arrayNesting(self, nums: List[int]) -> int:
+    def arrayNesting(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(n):
             cnt = 0

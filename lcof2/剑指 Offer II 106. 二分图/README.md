@@ -87,7 +87,7 @@ comments: true
 
 ```python
 class Solution:
-    def isBipartite(self, graph: List[List[int]]) -> bool:
+    def isBipartite(self, graph: list[list[int]]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

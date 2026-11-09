@@ -81,7 +81,7 @@ Explanation:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def findLeaves(self, root: Optional[TreeNode]) -> list[list[int]]:
         def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0

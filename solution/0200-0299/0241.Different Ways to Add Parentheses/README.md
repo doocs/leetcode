@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def diffWaysToCompute(self, expression: str) -> List[int]:
+    def diffWaysToCompute(self, expression: str) -> list[int]:
         @cache
         def dfs(exp):
             if exp.isdigit():

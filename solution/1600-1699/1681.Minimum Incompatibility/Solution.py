@@ -1,5 +1,5 @@
 class Solution:
-    def minimumIncompatibility(self, nums: List[int], k: int) -> int:
+    def minimumIncompatibility(self, nums: list[int], k: int) -> int:
         n = len(nums)
         m = n // k
         g = [-1] * (1 << n)

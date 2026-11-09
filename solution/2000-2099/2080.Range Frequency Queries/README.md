@@ -92,7 +92,7 @@ rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2
 ```python
 class RangeFreqQuery:
 
-    def __init__(self, arr: List[int]):
+    def __init__(self, arr: list[int]):
         self.g = defaultdict(list)
         for i, x in enumerate(arr):
             self.g[x].append(i)

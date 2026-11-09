@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, s: str, cost: List[int]) -> int:
+    def minCost(self, s: str, cost: list[int]) -> int:
         tot = 0
         g = defaultdict(int)
         for c, v in zip(s, cost):

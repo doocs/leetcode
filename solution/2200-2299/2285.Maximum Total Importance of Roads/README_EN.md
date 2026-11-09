@@ -98,7 +98,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$.
 
 ```python
 class Solution:
-    def maximumImportance(self, n: int, roads: List[List[int]]) -> int:
+    def maximumImportance(self, n: int, roads: list[list[int]]) -> int:
         deg = [0] * n
         for a, b in roads:
             deg[a] += 1

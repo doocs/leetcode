@@ -147,8 +147,8 @@ $$
 ```python
 class Solution:
     def bestTower(
-        self, towers: List[List[int]], center: List[int], radius: int
-    ) -> List[int]:
+        self, towers: list[list[int]], center: list[int], radius: int
+    ) -> list[int]:
         cx, cy = center
         idx = -1
         for i, (x, y, q) in enumerate(towers):

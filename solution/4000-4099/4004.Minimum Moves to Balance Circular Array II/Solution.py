@@ -1,5 +1,5 @@
 class Solution:
-    def minMoves(self, balance: List[int]) -> int:
+    def minMoves(self, balance: list[int]) -> int:
         total_balance = sum(balance)
         if total_balance < 0:
             return -1

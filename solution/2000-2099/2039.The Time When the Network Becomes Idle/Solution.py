@@ -1,5 +1,5 @@
 class Solution:
-    def networkBecomesIdle(self, edges: List[List[int]], patience: List[int]) -> int:
+    def networkBecomesIdle(self, edges: list[list[int]], patience: list[int]) -> int:
         g = defaultdict(list)
         for u, v in edges:
             g[u].append(v)

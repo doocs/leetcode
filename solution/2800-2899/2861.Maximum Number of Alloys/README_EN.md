@@ -118,9 +118,9 @@ class Solution:
         n: int,
         k: int,
         budget: int,
-        composition: List[List[int]],
-        stock: List[int],
-        cost: List[int],
+        composition: list[list[int]],
+        stock: list[int],
+        cost: list[int],
     ) -> int:
         ans = 0
         for c in composition:

@@ -1,5 +1,5 @@
 class Solution:
-    def beautifulArray(self, n: int) -> List[int]:
+    def beautifulArray(self, n: int) -> list[int]:
         if n == 1:
             return [1]
         left = self.beautifulArray((n + 1) >> 1)

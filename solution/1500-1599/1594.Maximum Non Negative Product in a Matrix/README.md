@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProductPath(self, grid: List[List[int]]) -> int:
+    def maxProductPath(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[[0, 0] for _ in range(n)] for _ in range(m)]
 

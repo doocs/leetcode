@@ -95,7 +95,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m
 
 ```python
 class Solution:
-    def countServers(self, grid: List[List[int]]) -> int:
+    def countServers(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         row = [0] * m
         col = [0] * n

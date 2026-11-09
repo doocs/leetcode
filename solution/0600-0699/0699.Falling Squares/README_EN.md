@@ -165,7 +165,7 @@ class SegmentTree:
 
 
 class Solution:
-    def fallingSquares(self, positions: List[List[int]]) -> List[int]:
+    def fallingSquares(self, positions: list[list[int]]) -> list[int]:
         ans = []
         mx = 0
         tree = SegmentTree()

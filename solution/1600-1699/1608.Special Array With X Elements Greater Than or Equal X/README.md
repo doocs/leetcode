@@ -96,7 +96,7 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 
 ```python
 class Solution:
-    def specialArray(self, nums: List[int]) -> int:
+    def specialArray(self, nums: list[int]) -> int:
         for x in range(1, len(nums) + 1):
             cnt = sum(v >= x for v in nums)
             if cnt == x:
@@ -226,7 +226,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def specialArray(self, nums: List[int]) -> int:
+    def specialArray(self, nums: list[int]) -> int:
         nums.sort()
         n = len(nums)
         for x in range(1, n + 1):

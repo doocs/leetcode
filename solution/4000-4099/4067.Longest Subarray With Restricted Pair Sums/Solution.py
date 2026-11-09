@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubarray(self, nums: List[int]) -> int:
+    def maxSubarray(self, nums: list[int]) -> int:
         mx = max(nums)
         cnt_s = [0] * (mx << 1 | 1)
         cnt_d = [0] * (mx + 1)

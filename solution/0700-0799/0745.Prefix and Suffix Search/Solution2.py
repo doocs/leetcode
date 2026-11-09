@@ -23,7 +23,7 @@ class Trie:
 
 
 class WordFilter:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.p = Trie()
         self.s = Trie()
         for i, w in enumerate(words):

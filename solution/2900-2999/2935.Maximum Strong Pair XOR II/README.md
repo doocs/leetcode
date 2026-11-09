@@ -104,7 +104,7 @@ class Trie:
     __slots__ = ("children", "cnt")
 
     def __init__(self):
-        self.children: List[Trie | None] = [None, None]
+        self.children: list[Trie | None] = [None, None]
         self.cnt = 0
 
     def insert(self, x: int):
@@ -137,7 +137,7 @@ class Trie:
 
 
 class Solution:
-    def maximumStrongPairXor(self, nums: List[int]) -> int:
+    def maximumStrongPairXor(self, nums: list[int]) -> int:
         nums.sort()
         tree = Trie()
         ans = i = 0

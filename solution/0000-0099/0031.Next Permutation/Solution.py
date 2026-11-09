@@ -1,5 +1,5 @@
 class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
+    def nextPermutation(self, nums: list[int]) -> None:
         n = len(nums)
         i = next((i for i in range(n - 2, -1, -1) if nums[i] < nums[i + 1]), -1)
         if ~i:

@@ -106,7 +106,7 @@ class Trie:
 
 
 class Solution:
-    def wordSquares(self, words: List[str]) -> List[List[str]]:
+    def wordSquares(self, words: list[str]) -> list[list[str]]:
         def dfs(t):
             if len(t) == len(words[0]):
                 ans.append(t[:])

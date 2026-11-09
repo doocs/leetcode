@@ -61,7 +61,7 @@ difficulty: 简单
 
 
 class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
+    def reversePrint(self, head: ListNode) -> list[int]:
         ans = []
         while head:
             ans.append(head.val)
@@ -306,7 +306,7 @@ class Solution {
 
 
 class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
+    def reversePrint(self, head: ListNode) -> list[int]:
         if head is None:
             return []
         ans = self.reversePrint(head.next)

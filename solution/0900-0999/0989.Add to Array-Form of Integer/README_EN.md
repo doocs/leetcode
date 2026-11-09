@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+    def addToArrayForm(self, num: list[int], k: int) -> list[int]:
         ans = []
         i = len(num) - 1
         while i >= 0 or k:

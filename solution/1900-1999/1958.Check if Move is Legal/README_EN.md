@@ -88,7 +88,7 @@ The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$
 ```python
 class Solution:
     def checkMove(
-        self, board: List[List[str]], rMove: int, cMove: int, color: str
+        self, board: list[list[str]], rMove: int, cMove: int, color: str
     ) -> bool:
         for a in range(-1, 2):
             for b in range(-1, 2):

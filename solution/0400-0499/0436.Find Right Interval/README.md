@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
+    def findRightInterval(self, intervals: list[list[int]]) -> list[int]:
         n = len(intervals)
         ans = [-1] * n
         arr = sorted((st, i) for i, (st, _) in enumerate(intervals))

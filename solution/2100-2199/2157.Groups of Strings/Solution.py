@@ -1,5 +1,5 @@
 class Solution:
-    def groupStrings(self, words: List[str]) -> List[int]:
+    def groupStrings(self, words: list[str]) -> list[int]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

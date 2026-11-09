@@ -140,7 +140,7 @@ class Node:
     __slots__ = ["children", "v"]
 
     def __init__(self):
-        self.children: List[Node | None] = [None] * 26
+        self.children: list[Node | None] = [None] * 26
         self.v = -1
 
 
@@ -149,9 +149,9 @@ class Solution:
         self,
         source: str,
         target: str,
-        original: List[str],
-        changed: List[str],
-        cost: List[int],
+        original: list[str],
+        changed: list[str],
+        cost: list[int],
     ) -> int:
         m = len(cost)
         g = [[inf] * (m << 1) for _ in range(m << 1)]
@@ -741,7 +741,7 @@ class Node:
     __slots__ = ["children", "v"]
 
     def __init__(self):
-        self.children: List[Node | None] = [None] * 26
+        self.children: list[Node | None] = [None] * 26
         self.v = -1
 
 
@@ -750,9 +750,9 @@ class Solution:
         self,
         source: str,
         target: str,
-        original: List[str],
-        changed: List[str],
-        cost: List[int],
+        original: list[str],
+        changed: list[str],
+        cost: list[int],
     ) -> int:
         m = len(cost)
         g = [[inf] * (m << 1) for _ in range(m << 1)]

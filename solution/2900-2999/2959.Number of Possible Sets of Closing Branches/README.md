@@ -127,7 +127,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfSets(self, n: int, maxDistance: int, roads: List[List[int]]) -> int:
+    def numberOfSets(self, n: int, maxDistance: int, roads: list[list[int]]) -> int:
         ans = 0
         for mask in range(1 << n):
             g = [[inf] * n for _ in range(n)]

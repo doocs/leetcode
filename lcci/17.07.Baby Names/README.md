@@ -62,7 +62,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def trulyMostPopular(self, names: List[str], synonyms: List[str]) -> List[str]:
+    def trulyMostPopular(self, names: list[str], synonyms: list[str]) -> list[str]:
         def dfs(a):
             vis.add(a)
             mi, x = a, cnt[a]

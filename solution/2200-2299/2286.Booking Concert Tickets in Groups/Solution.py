@@ -66,7 +66,7 @@ class BookMyShow:
         self.n = n
         self.tree = SegmentTree(n, m)
 
-    def gather(self, k: int, maxRow: int) -> List[int]:
+    def gather(self, k: int, maxRow: int) -> list[int]:
         maxRow += 1
         i = self.tree.query_idx(1, 1, maxRow, k)
         if i == 0:

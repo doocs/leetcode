@@ -1,5 +1,5 @@
 class Solution:
-    def rotate(self, nums: List[int], k: int) -> None:
+    def rotate(self, nums: list[int], k: int) -> None:
         def reverse(i: int, j: int):
             while i < j:
                 nums[i], nums[j] = nums[j], nums[i]

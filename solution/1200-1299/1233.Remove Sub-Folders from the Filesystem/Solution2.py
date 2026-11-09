@@ -26,7 +26,7 @@ class Trie:
 
 
 class Solution:
-    def removeSubfolders(self, folder: List[str]) -> List[str]:
+    def removeSubfolders(self, folder: list[str]) -> list[str]:
         trie = Trie()
         for i, f in enumerate(folder):
             trie.insert(i, f)

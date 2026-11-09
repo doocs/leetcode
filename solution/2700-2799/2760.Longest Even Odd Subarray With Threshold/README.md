@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
+    def longestAlternatingSubarray(self, nums: list[int], threshold: int) -> int:
         ans, n = 0, len(nums)
         for l in range(n):
             if nums[l] % 2 == 0 and nums[l] <= threshold:
@@ -212,7 +212,7 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 
 ```python
 class Solution:
-    def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
+    def longestAlternatingSubarray(self, nums: list[int], threshold: int) -> int:
         ans, l, n = 0, 0, len(nums)
         while l < n:
             if nums[l] % 2 == 0 and nums[l] <= threshold:

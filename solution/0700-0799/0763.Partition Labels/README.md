@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def partitionLabels(self, s: str) -> List[int]:
+    def partitionLabels(self, s: str) -> list[int]:
         last = {c: i for i, c in enumerate(s)}
         mx = j = 0
         ans = []

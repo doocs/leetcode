@@ -85,7 +85,7 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 
 ```python
 class Solution:
-    def minTransfers(self, transactions: List[List[int]]) -> int:
+    def minTransfers(self, transactions: list[list[int]]) -> int:
         g = defaultdict(int)
         for f, t, x in transactions:
             g[f] -= x

@@ -1,5 +1,5 @@
 class Solution:
-    def findKthSmallest(self, coins: List[int], k: int) -> int:
+    def findKthSmallest(self, coins: list[int], k: int) -> int:
         def check(mx: int) -> bool:
             cnt = 0
             for i in range(1, 1 << len(coins)):

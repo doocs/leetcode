@@ -1,5 +1,5 @@
 class Solution:
-    def runeReserve(self, runes: List[int]) -> int:
+    def runeReserve(self, runes: list[int]) -> int:
         runes.sort()
         ans = i = 0
         for j, x in enumerate(runes):

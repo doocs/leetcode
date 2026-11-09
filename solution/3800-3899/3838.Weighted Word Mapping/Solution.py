@@ -1,5 +1,5 @@
 class Solution:
-    def mapWordWeights(self, words: List[str], weights: List[int]) -> str:
+    def mapWordWeights(self, words: list[str], weights: list[int]) -> str:
         ans = []
         for w in words:
             s = sum(weights[ord(c) - ord('a')] for c in w)

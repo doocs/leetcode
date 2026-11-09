@@ -120,7 +120,7 @@ tags:
 
 ```python
 class Solution:
-    def getLength(self, nums: List[int]) -> int:
+    def getLength(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 1
         for l in range(n):

@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSubarrays(self, nums: List[int]) -> int:
+    def maxSubarrays(self, nums: list[int]) -> int:
         score, ans = -1, 1
         for num in nums:
             score &= num

@@ -1,5 +1,5 @@
 class Solution:
-    def orderOfLargestPlusSign(self, n: int, mines: List[List[int]]) -> int:
+    def orderOfLargestPlusSign(self, n: int, mines: list[list[int]]) -> int:
         dp = [[n] * n for _ in range(n)]
         for x, y in mines:
             dp[x][y] = 0

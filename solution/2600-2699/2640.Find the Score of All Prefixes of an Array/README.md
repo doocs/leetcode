@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def findPrefixScore(self, nums: List[int]) -> List[int]:
+    def findPrefixScore(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [0] * n
         mx = 0

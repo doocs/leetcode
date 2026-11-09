@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def longestCommonSubpath(self, n: int, paths: List[List[int]]) -> int:
+    def longestCommonSubpath(self, n: int, paths: list[list[int]]) -> int:
         def check(k: int) -> bool:
             cnt = Counter()
             for h in hh:

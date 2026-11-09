@@ -111,8 +111,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def stoneGameIX(self, stones: List[int]) -> bool:
-        def check(cnt: List[int]) -> bool:
+    def stoneGameIX(self, stones: list[int]) -> bool:
+        def check(cnt: list[int]) -> bool:
             if cnt[1] == 0:
                 return False
             cnt[1] -= 1

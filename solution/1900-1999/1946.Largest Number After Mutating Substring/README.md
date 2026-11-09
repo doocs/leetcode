@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumNumber(self, num: str, change: List[int]) -> str:
+    def maximumNumber(self, num: str, change: list[int]) -> str:
         s = list(num)
         changed = False
         for i, c in enumerate(s):

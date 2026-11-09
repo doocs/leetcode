@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
+    def longestMountain(self, arr: list[int]) -> int:
         n = len(arr)
         f = [1] * n
         g = [1] * n
@@ -252,7 +252,7 @@ function longestMountain(arr: number[]): number {
 
 ```python
 class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
+    def longestMountain(self, arr: list[int]) -> int:
         n = len(arr)
         ans = l = 0
         while l + 2 < n:

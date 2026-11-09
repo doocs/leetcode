@@ -83,7 +83,7 @@ The time complexity is $O(n \log_{10} M)$, and the space complexity is $O(n \log
 
 ```python
 class Solution:
-    def separateDigits(self, nums: List[int]) -> List[int]:
+    def separateDigits(self, nums: list[int]) -> list[int]:
         ans = []
         for x in nums:
             t = []

@@ -102,7 +102,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(m)$, where $n$
 
 ```python
 class Solution:
-    def simulationResult(self, windows: List[int], queries: List[int]) -> List[int]:
+    def simulationResult(self, windows: list[int], queries: list[int]) -> list[int]:
         s = set()
         ans = []
         for q in queries[::-1]:

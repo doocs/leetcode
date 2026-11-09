@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+    def shiftingLetters(self, s: str, shifts: list[list[int]]) -> str:
         n = len(s)
         d = [0] * (n + 1)
         for i, j, v in shifts:

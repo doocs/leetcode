@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def waysToSplitArray(self, nums: List[int]) -> int:
+    def waysToSplitArray(self, nums: list[int]) -> int:
         s = sum(nums)
         ans = t = 0
         for x in nums[:-1]:

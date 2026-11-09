@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+    def countGoodRectangles(self, rectangles: list[list[int]]) -> int:
         ans = mx = 0
         for l, w in rectangles:
             x = min(l, w)

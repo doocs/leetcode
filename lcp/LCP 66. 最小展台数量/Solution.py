@@ -1,5 +1,5 @@
 class Solution:
-    def minNumBooths(self, demand: List[str]) -> int:
+    def minNumBooths(self, demand: list[str]) -> int:
         cnt = Counter()
         ans = 0
         for s in demand:

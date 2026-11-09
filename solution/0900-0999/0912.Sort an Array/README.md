@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def sortArray(self, nums: List[int]) -> List[int]:
+    def sortArray(self, nums: list[int]) -> list[int]:
         def quick_sort(l, r):
             if l >= r:
                 return
@@ -359,7 +359,7 @@ class Solution {
 
 ```python
 class Solution:
-    def sortArray(self, nums: List[int]) -> List[int]:
+    def sortArray(self, nums: list[int]) -> list[int]:
         def merge_sort(l, r):
             if l >= r:
                 return

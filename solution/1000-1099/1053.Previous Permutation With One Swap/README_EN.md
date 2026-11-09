@@ -87,7 +87,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def prevPermOpt1(self, arr: List[int]) -> List[int]:
+    def prevPermOpt1(self, arr: list[int]) -> list[int]:
         n = len(arr)
         for i in range(n - 1, 0, -1):
             if arr[i - 1] > arr[i]:

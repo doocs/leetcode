@@ -117,7 +117,7 @@ tags:
 ```python
 class Solution:
     def unhappyFriends(
-        self, n: int, preferences: List[List[int]], pairs: List[List[int]]
+        self, n: int, preferences: list[list[int]], pairs: list[list[int]]
     ) -> int:
         d = [{x: j for j, x in enumerate(p)} for p in preferences]
         p = {}

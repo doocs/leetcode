@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumMinimumPath(self, grid: List[List[int]]) -> int:
+    def maximumMinimumPath(self, grid: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
@@ -423,7 +423,7 @@ class UnionFind:
 
 
 class Solution:
-    def maximumMinimumPath(self, grid: List[List[int]]) -> int:
+    def maximumMinimumPath(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         uf = UnionFind(m * n)
         q = [(v, i, j) for i, row in enumerate(grid) for j, v in enumerate(row)]

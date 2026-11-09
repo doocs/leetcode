@@ -115,7 +115,7 @@ tags:
 ```python
 class Solution:
     def maximumScoreAfterOperations(
-        self, edges: List[List[int]], values: List[int]
+        self, edges: list[list[int]], values: list[int]
     ) -> int:
         def dfs(i: int, fa: int = -1) -> (int, int):
             a = b = 0
@@ -306,7 +306,7 @@ function maximumScoreAfterOperations(edges: number[][], values: number[]): numbe
 ```python
 class Solution:
     def maximumScoreAfterOperations(
-        self, edges: List[List[int]], values: List[int]
+        self, edges: list[list[int]], values: list[int]
     ) -> int:
         n = len(values)
         g = [[] for _ in range(n)]

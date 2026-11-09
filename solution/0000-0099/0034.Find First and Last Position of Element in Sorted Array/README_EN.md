@@ -73,7 +73,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
+    def searchRange(self, nums: list[int], target: int) -> list[int]:
         l = bisect_left(nums, target)
         r = bisect_left(nums, target + 1)
         return [-1, -1] if l == r else [l, r - 1]

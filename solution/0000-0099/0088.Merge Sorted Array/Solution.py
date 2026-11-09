@@ -1,5 +1,5 @@
 class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         k = m + n - 1
         i, j = m - 1, n - 1
         while j >= 0:

@@ -99,7 +99,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getDescentPeriods(self, prices: List[int]) -> int:
+    def getDescentPeriods(self, prices: list[int]) -> int:
         ans = 0
         i, n = 0, len(prices)
         while i < n:

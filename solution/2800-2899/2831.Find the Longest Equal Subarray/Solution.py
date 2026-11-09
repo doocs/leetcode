@@ -1,5 +1,5 @@
 class Solution:
-    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+    def longestEqualSubarray(self, nums: list[int], k: int) -> int:
         cnt = Counter()
         l = 0
         mx = 0

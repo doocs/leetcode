@@ -1,5 +1,5 @@
 class Solution:
-    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+    def pivotArray(self, nums: list[int], pivot: int) -> list[int]:
         a, b, c = [], [], []
         for x in nums:
             if x < pivot:

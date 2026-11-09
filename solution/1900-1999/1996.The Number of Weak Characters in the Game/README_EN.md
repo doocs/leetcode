@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
+    def numberOfWeakCharacters(self, properties: list[list[int]]) -> int:
         properties.sort(key=lambda x: (-x[0], x[1]))
         ans = mx = 0
         for _, x in properties:

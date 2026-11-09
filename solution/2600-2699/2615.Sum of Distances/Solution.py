@@ -1,5 +1,5 @@
 class Solution:
-    def distance(self, nums: List[int]) -> List[int]:
+    def distance(self, nums: list[int]) -> list[int]:
         d = defaultdict(list)
         for i, x in enumerate(nums):
             d[x].append(i)

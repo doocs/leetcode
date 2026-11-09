@@ -100,8 +100,8 @@ tags:
 ```python
 class Solution:
     def sortItems(
-        self, n: int, m: int, group: List[int], beforeItems: List[List[int]]
-    ) -> List[int]:
+        self, n: int, m: int, group: list[int], beforeItems: list[list[int]]
+    ) -> list[int]:
         def topo_sort(degree, graph, items):
             q = deque(i for _, i in enumerate(items) if degree[i] == 0)
             res = []

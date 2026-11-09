@@ -102,7 +102,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minCost(self, arr: List[int], brr: List[int], k: int) -> int:
+    def minCost(self, arr: list[int], brr: list[int], k: int) -> int:
         c1 = sum(abs(a - b) for a, b in zip(arr, brr))
         arr.sort()
         brr.sort()

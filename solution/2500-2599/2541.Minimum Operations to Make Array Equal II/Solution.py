@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def minOperations(self, nums1: list[int], nums2: list[int], k: int) -> int:
         a = b = 0
         for x, y in zip(nums1, nums2):
             if x == y:

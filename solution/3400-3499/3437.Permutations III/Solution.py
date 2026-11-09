@@ -1,5 +1,5 @@
 class Solution:
-    def permute(self, n: int) -> List[List[int]]:
+    def permute(self, n: int) -> list[list[int]]:
         def dfs(i: int) -> None:
             if i >= n:
                 ans.append(t[:])

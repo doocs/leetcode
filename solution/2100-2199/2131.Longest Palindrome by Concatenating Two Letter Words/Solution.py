@@ -1,5 +1,5 @@
 class Solution:
-    def longestPalindrome(self, words: List[str]) -> int:
+    def longestPalindrome(self, words: list[str]) -> int:
         cnt = Counter(words)
         ans = x = 0
         for k, v in cnt.items():

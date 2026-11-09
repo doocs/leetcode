@@ -88,7 +88,7 @@ The time complexity is $O(3^4 n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def restoreIpAddresses(self, s: str) -> List[str]:
+    def restoreIpAddresses(self, s: str) -> list[str]:
         def check(i: int, j: int) -> int:
             if s[i] == "0" and i != j:
                 return False

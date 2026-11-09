@@ -107,7 +107,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
+    def minDays(self, bloomDay: list[int], m: int, k: int) -> int:
         def check(days: int) -> int:
             cnt = cur = 0
             for x in bloomDay:

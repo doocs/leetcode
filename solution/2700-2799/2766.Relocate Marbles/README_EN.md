@@ -96,8 +96,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def relocateMarbles(
-        self, nums: List[int], moveFrom: List[int], moveTo: List[int]
-    ) -> List[int]:
+        self, nums: list[int], moveFrom: list[int], moveTo: list[int]
+    ) -> list[int]:
         pos = set(nums)
         for f, t in zip(moveFrom, moveTo):
             pos.remove(f)

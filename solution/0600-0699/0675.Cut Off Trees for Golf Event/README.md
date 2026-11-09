@@ -107,7 +107,7 @@ A\* 算法主要思想如下：
 
 ```python
 class Solution:
-    def cutOffTree(self, forest: List[List[int]]) -> int:
+    def cutOffTree(self, forest: list[list[int]]) -> int:
         def f(i, j, x, y):
             return abs(i - x) + abs(j - y)
 

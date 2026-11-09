@@ -63,7 +63,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def smallestDifference(self, a: List[int], b: List[int]) -> int:
+    def smallestDifference(self, a: list[int], b: list[int]) -> int:
         b.sort()
         ans = inf
         n = len(b)
@@ -247,7 +247,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def smallestDifference(self, a: List[int], b: List[int]) -> int:
+    def smallestDifference(self, a: list[int], b: list[int]) -> int:
         a.sort()
         b.sort()
         i = j = 0

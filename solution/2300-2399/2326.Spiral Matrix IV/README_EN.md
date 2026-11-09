@@ -95,7 +95,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 #         self.val = val
 #         self.next = next
 class Solution:
-    def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
+    def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> list[list[int]]:
         ans = [[-1] * n for _ in range(m)]
         i = j = k = 0
         dirs = (0, 1, 0, -1, 0)

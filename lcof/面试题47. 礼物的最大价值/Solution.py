@@ -1,5 +1,5 @@
 class Solution:
-    def maxValue(self, grid: List[List[int]]) -> int:
+    def maxValue(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[0] * (n + 1) for _ in range(m + 1)]
         for i, row in enumerate(grid, 1):

@@ -112,7 +112,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ rep
 
 ```python
 class Solution:
-    def countGoodNodes(self, edges: List[List[int]]) -> int:
+    def countGoodNodes(self, edges: list[list[int]]) -> int:
         def dfs(a: int, fa: int) -> int:
             pre = -1
             cnt = ok = 1
@@ -309,7 +309,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ rep
 
 ```python
 class Solution:
-    def countGoodNodes(self, edges: List[List[int]]) -> int:
+    def countGoodNodes(self, edges: list[list[int]]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b in edges:

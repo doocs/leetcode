@@ -1,5 +1,5 @@
 class Solution:
-    def countTriplets(self, arr: List[int]) -> int:
+    def countTriplets(self, arr: list[int]) -> int:
         ans, n = 0, len(arr)
         for i, x in enumerate(arr):
             s = x

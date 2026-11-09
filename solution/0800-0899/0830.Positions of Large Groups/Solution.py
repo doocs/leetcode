@@ -1,5 +1,5 @@
 class Solution:
-    def largeGroupPositions(self, s: str) -> List[List[int]]:
+    def largeGroupPositions(self, s: str) -> list[list[int]]:
         i, n = 0, len(s)
         ans = []
         while i < n:

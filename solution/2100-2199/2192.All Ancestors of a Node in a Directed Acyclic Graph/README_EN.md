@@ -104,7 +104,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+    def getAncestors(self, n: int, edges: list[list[int]]) -> list[list[int]]:
         def bfs(s: int):
             q = deque([s])
             vis = {s}

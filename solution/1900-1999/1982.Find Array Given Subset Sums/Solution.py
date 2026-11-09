@@ -1,5 +1,5 @@
 class Solution:
-    def recoverArray(self, n: int, sums: List[int]) -> List[int]:
+    def recoverArray(self, n: int, sums: list[int]) -> list[int]:
         m = -min(sums)
         sl = SortedList(x + m for x in sums)
         sl.remove(0)

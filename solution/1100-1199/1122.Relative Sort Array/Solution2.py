@@ -1,5 +1,5 @@
 class Solution:
-    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+    def relativeSortArray(self, arr1: list[int], arr2: list[int]) -> list[int]:
         cnt = Counter(arr1)
         ans = []
         for x in arr2:

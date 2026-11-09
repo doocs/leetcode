@@ -1,5 +1,5 @@
 class Solution:
-    def checkEqualPartitions(self, nums: List[int], target: int) -> bool:
+    def checkEqualPartitions(self, nums: list[int], target: int) -> bool:
         n = len(nums)
         for i in range(1 << n):
             x = y = 1

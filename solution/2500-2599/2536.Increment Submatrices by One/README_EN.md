@@ -100,7 +100,7 @@ The time complexity is $O(m + n^2)$, and the space complexity is $O(1)$, where $
 
 ```python
 class Solution:
-    def rangeAddQueries(self, n: int, queries: List[List[int]]) -> List[List[int]]:
+    def rangeAddQueries(self, n: int, queries: list[list[int]]) -> list[list[int]]:
         mat = [[0] * n for _ in range(n)]
         for x1, y1, x2, y2 in queries:
             mat[x1][y1] += 1

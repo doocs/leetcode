@@ -104,7 +104,7 @@ The time complexity is $O(n(\log n + M))$, and the space complexity is $O(M)$, w
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             i = bisect_right(rewardValues, x)
@@ -271,7 +271,7 @@ The time complexity is $O(n \times M)$, and the space complexity is $O(M)$, wher
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         m = nums[-1] << 1
         f = [False] * m
@@ -424,7 +424,7 @@ The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         f = 1
         for v in nums:

@@ -1,5 +1,5 @@
 class Solution:
-    def restoreIpAddresses(self, s: str) -> List[str]:
+    def restoreIpAddresses(self, s: str) -> list[str]:
         def check(i: int, j: int) -> int:
             if s[i] == "0" and i != j:
                 return False

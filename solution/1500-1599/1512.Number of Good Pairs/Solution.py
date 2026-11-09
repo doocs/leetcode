@@ -1,5 +1,5 @@
 class Solution:
-    def numIdenticalPairs(self, nums: List[int]) -> int:
+    def numIdenticalPairs(self, nums: list[int]) -> int:
         ans = 0
         cnt = Counter()
         for x in nums:

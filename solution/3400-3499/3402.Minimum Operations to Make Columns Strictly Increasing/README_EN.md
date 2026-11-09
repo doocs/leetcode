@@ -106,7 +106,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def minimumOperations(self, grid: List[List[int]]) -> int:
+    def minimumOperations(self, grid: list[list[int]]) -> int:
         ans = 0
         for col in zip(*grid):
             pre = -1

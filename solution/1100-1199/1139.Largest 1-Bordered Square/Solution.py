@@ -1,5 +1,5 @@
 class Solution:
-    def largest1BorderedSquare(self, grid: List[List[int]]) -> int:
+    def largest1BorderedSquare(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         down = [[0] * n for _ in range(m)]
         right = [[0] * n for _ in range(m)]

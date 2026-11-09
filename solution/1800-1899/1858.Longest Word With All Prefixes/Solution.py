@@ -2,7 +2,7 @@ class Trie:
     __slots__ = ["children", "is_end"]
 
     def __init__(self):
-        self.children: List[Trie | None] = [None] * 26
+        self.children: list[Trie | None] = [None] * 26
         self.is_end: bool = False
 
     def insert(self, w: str) -> None:
@@ -25,7 +25,7 @@ class Trie:
 
 
 class Solution:
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         trie = Trie()
         for w in words:
             trie.insert(w)

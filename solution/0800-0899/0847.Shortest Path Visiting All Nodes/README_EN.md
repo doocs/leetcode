@@ -76,7 +76,7 @@ tags:
 
 ```python
 class Solution:
-    def shortestPathLength(self, graph: List[List[int]]) -> int:
+    def shortestPathLength(self, graph: list[list[int]]) -> int:
         n = len(graph)
         q = deque()
         vis = set()
@@ -287,7 +287,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def shortestPathLength(self, graph: List[List[int]]) -> int:
+    def shortestPathLength(self, graph: list[list[int]]) -> int:
         n = len(graph)
 
         def f(state):

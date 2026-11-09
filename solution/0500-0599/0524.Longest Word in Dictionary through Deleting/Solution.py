@@ -1,5 +1,5 @@
 class Solution:
-    def findLongestWord(self, s: str, dictionary: List[str]) -> str:
+    def findLongestWord(self, s: str, dictionary: list[str]) -> str:
         def check(s: str, t: str) -> bool:
             m, n = len(s), len(t)
             i = j = 0

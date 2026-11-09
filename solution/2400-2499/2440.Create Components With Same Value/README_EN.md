@@ -93,7 +93,7 @@ The time complexity is $O(n \sqrt{s})$, where $n$ and $s$ are the length of $\te
 
 ```python
 class Solution:
-    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+    def componentValue(self, nums: list[int], edges: list[list[int]]) -> int:
         def dfs(i, fa):
             x = nums[i]
             for j in g[i]:
@@ -311,7 +311,7 @@ The time complexity is $O(n \sqrt{s})$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+    def componentValue(self, nums: list[int], edges: list[list[int]]) -> int:
         def check(t: int) -> bool:
             sz = [0] * n
             stk = [(0, -1, 0)]

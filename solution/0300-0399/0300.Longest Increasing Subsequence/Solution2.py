@@ -17,7 +17,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
+    def lengthOfLIS(self, nums: list[int]) -> int:
         s = sorted(set(nums))
         m = len(s)
         tree = BinaryIndexedTree(m)

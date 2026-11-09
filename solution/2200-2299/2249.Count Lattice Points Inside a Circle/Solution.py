@@ -1,5 +1,5 @@
 class Solution:
-    def countLatticePoints(self, circles: List[List[int]]) -> int:
+    def countLatticePoints(self, circles: list[list[int]]) -> int:
         ans = 0
         mx = max(x + r for x, _, r in circles)
         my = max(y + r for _, y, r in circles)

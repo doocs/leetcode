@@ -97,7 +97,7 @@ Probability = 108 / 180 = 0.6
 
 ```python
 class Solution:
-    def getProbability(self, balls: List[int]) -> float:
+    def getProbability(self, balls: list[int]) -> float:
         @cache
         def dfs(i: int, j: int, diff: int) -> float:
             if i >= k:

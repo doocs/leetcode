@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
+    def findOcurrences(self, text: str, first: str, second: str) -> list[str]:
         words = text.split()
         ans = []
         for i in range(len(words) - 2):

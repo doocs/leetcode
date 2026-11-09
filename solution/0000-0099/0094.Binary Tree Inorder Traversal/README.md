@@ -88,7 +88,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root):
             if root is None:
                 return
@@ -337,7 +337,7 @@ var inorderTraversal = function (root) {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         ans, stk = [], []
         while root or stk:
             if root:
@@ -600,7 +600,7 @@ Morris 遍历无需使用栈，空间复杂度为 $O(1)$。核心思想是：
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         while root:
             if root.left is None:

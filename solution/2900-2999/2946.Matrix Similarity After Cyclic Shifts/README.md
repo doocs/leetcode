@@ -123,7 +123,7 @@ tags:
 
 ```python
 class Solution:
-    def areSimilar(self, mat: List[List[int]], k: int) -> bool:
+    def areSimilar(self, mat: list[list[int]], k: int) -> bool:
         n = len(mat[0])
         for i, row in enumerate(mat):
             for j, x in enumerate(row):

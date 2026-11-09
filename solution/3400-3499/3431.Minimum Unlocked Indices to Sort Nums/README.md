@@ -121,7 +121,7 @@ tags:
 
 ```python
 class Solution:
-    def minUnlockedIndices(self, nums: List[int], locked: List[int]) -> int:
+    def minUnlockedIndices(self, nums: list[int], locked: list[int]) -> int:
         n = len(nums)
         first2 = first3 = n
         last1 = last2 = -1

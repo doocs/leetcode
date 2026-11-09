@@ -1,5 +1,5 @@
 class Solution:
-    def canSplitArray(self, nums: List[int], m: int) -> bool:
+    def canSplitArray(self, nums: list[int], m: int) -> bool:
         @cache
         def dfs(i: int, j: int) -> bool:
             if i == j:

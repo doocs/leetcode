@@ -122,7 +122,7 @@ tags:
 
 ```python
 class Solution:
-    def sortMatrix(self, grid: List[List[int]]) -> List[List[int]]:
+    def sortMatrix(self, grid: list[list[int]]) -> list[list[int]]:
         n = len(grid)
         for k in range(n - 2, -1, -1):
             i, j = k, 0

@@ -91,7 +91,7 @@ $$
 
 ```python
 class Solution:
-    def memLeak(self, memory1: int, memory2: int) -> List[int]:
+    def memLeak(self, memory1: int, memory2: int) -> list[int]:
         i = 1
         while i <= max(memory1, memory2):
             if memory1 >= memory2:

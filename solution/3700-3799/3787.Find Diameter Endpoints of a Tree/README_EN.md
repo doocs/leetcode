@@ -131,7 +131,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findSpecialNodes(self, n: int, edges: List[List[int]]) -> str:
+    def findSpecialNodes(self, n: int, edges: list[list[int]]) -> str:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxDistToClosest(self, seats: List[int]) -> int:
+    def maxDistToClosest(self, seats: list[int]) -> int:
         first = last = None
         d = 0
         for i, c in enumerate(seats):

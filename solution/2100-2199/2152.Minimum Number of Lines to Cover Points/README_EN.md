@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumLines(self, points: List[List[int]]) -> int:
+    def minimumLines(self, points: list[list[int]]) -> int:
         def check(i, j, k):
             x1, y1 = points[i]
             x2, y2 = points[j]

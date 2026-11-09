@@ -107,7 +107,7 @@ Related problem:
 
 ```python
 class Solution:
-    def removeOnes(self, grid: List[List[int]]) -> bool:
+    def removeOnes(self, grid: list[list[int]]) -> bool:
         s = set()
         for row in grid:
             t = tuple(row) if row[0] == grid[0][0] else tuple(x ^ 1 for x in row)

@@ -73,7 +73,7 @@ comments: true
 
 ```python
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums: list[int]) -> list[list[int]]:
         n = len(nums)
         res = []
         path = [0] * n

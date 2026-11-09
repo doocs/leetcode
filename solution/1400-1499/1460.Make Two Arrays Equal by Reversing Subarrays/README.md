@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    def canBeEqual(self, target: list[int], arr: list[int]) -> bool:
         return sorted(target) == sorted(arr)
 ```
 
@@ -227,7 +227,7 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 ```python
 class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    def canBeEqual(self, target: list[int], arr: list[int]) -> bool:
         return Counter(target) == Counter(arr)
 ```
 

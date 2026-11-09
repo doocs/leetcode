@@ -1,5 +1,5 @@
 class Solution:
-    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+    def maximumUniqueSubarray(self, nums: list[int]) -> int:
         vis = set()
         ans = s = i = 0
         for x in nums:

@@ -117,7 +117,7 @@ tags:
 
 ```python
 class Solution:
-    def sumOfPowers(self, nums: List[int], k: int) -> int:
+    def sumOfPowers(self, nums: list[int], k: int) -> int:
         @cache
         def dfs(i: int, j: int, k: int, mi: int) -> int:
             if i >= n:

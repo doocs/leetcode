@@ -96,8 +96,8 @@ The time complexity is $O(l \log l + m \log m + n)$, and the space complexity is
 ```python
 class Solution:
     def countServers(
-        self, n: int, logs: List[List[int]], x: int, queries: List[int]
-    ) -> List[int]:
+        self, n: int, logs: list[list[int]], x: int, queries: list[int]
+    ) -> list[int]:
         cnt = Counter()
         logs.sort(key=lambda x: x[1])
         ans = [0] * len(queries)

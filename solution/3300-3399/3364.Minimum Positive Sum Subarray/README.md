@@ -114,7 +114,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumSumSubarray(self, nums: List[int], l: int, r: int) -> int:
+    def minimumSumSubarray(self, nums: list[int], l: int, r: int) -> int:
         n = len(nums)
         ans = inf
         for i in range(n):

@@ -99,8 +99,8 @@ note: x is undefined =&gt; -1.0</pre>
 ```python
 class Solution:
     def calcEquation(
-        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
-    ) -> List[float]:
+        self, equations: list[list[str]], values: list[float], queries: list[list[str]]
+    ) -> list[float]:
         def find(x):
             if p[x] != x:
                 origin = p[x]

@@ -1,6 +1,6 @@
 class Solution:
     def minimumCost(
-        self, m: int, n: int, horizontalCut: List[int], verticalCut: List[int]
+        self, m: int, n: int, horizontalCut: list[int], verticalCut: list[int]
     ) -> int:
         horizontalCut.sort(reverse=True)
         verticalCut.sort(reverse=True)

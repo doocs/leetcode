@@ -109,7 +109,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def findMaxAverage(self, nums: List[int], k: int) -> float:
+    def findMaxAverage(self, nums: list[int], k: int) -> float:
         def check(v: float) -> bool:
             s = sum(nums[:k]) - k * v
             if s >= 0:

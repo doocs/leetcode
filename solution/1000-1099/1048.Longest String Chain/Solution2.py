@@ -1,5 +1,5 @@
 class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
+    def longestStrChain(self, words: list[str]) -> int:
         words.sort(key=len)
         f = {}
         ans = 0

@@ -86,7 +86,7 @@ DataFrame <code>players:</code>
 import pandas as pd
 
 
-def getDataframeSize(players: pd.DataFrame) -> List[int]:
+def getDataframeSize(players: pd.DataFrame) -> list[int]:
     return list(players.shape)
 ```
 

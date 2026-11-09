@@ -97,7 +97,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maximumMedianSum(self, nums: List[int]) -> int:
+    def maximumMedianSum(self, nums: list[int]) -> int:
         nums.sort()
         return sum(nums[len(nums) // 3 :: 2])
 ```

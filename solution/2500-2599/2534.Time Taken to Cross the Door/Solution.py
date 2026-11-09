@@ -1,5 +1,5 @@
 class Solution:
-    def timeTaken(self, arrival: List[int], state: List[int]) -> List[int]:
+    def timeTaken(self, arrival: list[int], state: list[int]) -> list[int]:
         q = [deque(), deque()]
         n = len(arrival)
         t = i = 0

@@ -127,7 +127,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxStudentsOnBench(self, students: List[List[int]]) -> int:
+    def maxStudentsOnBench(self, students: list[list[int]]) -> int:
         if not students:
             return 0
         d = defaultdict(set)

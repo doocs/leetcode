@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumDifference(self, nums: List[int]) -> int:
+    def minimumDifference(self, nums: list[int]) -> int:
         n = len(nums) >> 1
         f = defaultdict(set)
         g = defaultdict(set)

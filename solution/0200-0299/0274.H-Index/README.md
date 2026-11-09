@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         citations.sort(reverse=True)
         for h in range(len(citations), 0, -1):
             if citations[h - 1] >= h:
@@ -195,7 +195,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         n = len(citations)
         cnt = [0] * (n + 1)
         for x in citations:
@@ -313,7 +313,7 @@ function hIndex(citations: number[]): number {
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         l, r = 0, len(citations)
         while l < r:
             mid = (l + r + 1) >> 1

@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubarraySum(self, nums: List[int], k: int) -> int:
+    def maxSubarraySum(self, nums: list[int], k: int) -> int:
         f = [inf] * k
         ans = -inf
         s = f[-1] = 0

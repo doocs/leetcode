@@ -114,7 +114,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def firstUniqueFreq(self, nums: List[int]) -> int:
+    def firstUniqueFreq(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         freq = Counter(cnt.values())
         for x in nums:

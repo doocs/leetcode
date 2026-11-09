@@ -112,7 +112,7 @@ $$
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s < target or (s - target) % 2:
             return 0
@@ -313,7 +313,7 @@ var findTargetSumWays = function (nums, target) {
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s < target or (s - target) % 2:
             return 0

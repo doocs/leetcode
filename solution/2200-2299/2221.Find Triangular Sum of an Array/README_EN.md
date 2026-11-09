@@ -87,7 +87,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def triangularSum(self, nums: List[int]) -> int:
+    def triangularSum(self, nums: list[int]) -> int:
         for k in range(len(nums) - 1, 0, -1):
             for i in range(k):
                 nums[i] = (nums[i] + nums[i + 1]) % 10

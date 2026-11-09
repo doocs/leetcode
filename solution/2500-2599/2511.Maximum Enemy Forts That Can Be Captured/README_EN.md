@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def captureForts(self, forts: List[int]) -> int:
+    def captureForts(self, forts: list[int]) -> int:
         n = len(forts)
         i = ans = 0
         while i < n:

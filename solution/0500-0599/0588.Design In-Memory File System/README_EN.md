@@ -131,7 +131,7 @@ class FileSystem:
     def __init__(self):
         self.root = Trie()
 
-    def ls(self, path: str) -> List[str]:
+    def ls(self, path: str) -> list[str]:
         node = self.root.search(path)
         if node is None:
             return []

@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumSplits(self, nums: List[int]) -> int:
+    def minimumSplits(self, nums: list[int]) -> int:
         ans, g = 1, 0
         for x in nums:
             g = gcd(g, x)

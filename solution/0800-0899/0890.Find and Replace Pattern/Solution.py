@@ -1,5 +1,5 @@
 class Solution:
-    def findAndReplacePattern(self, words: List[str], pattern: str) -> List[str]:
+    def findAndReplacePattern(self, words: list[str], pattern: str) -> list[str]:
         def match(s, t):
             m1, m2 = [0] * 128, [0] * 128
             for i, (a, b) in enumerate(zip(s, t), 1):

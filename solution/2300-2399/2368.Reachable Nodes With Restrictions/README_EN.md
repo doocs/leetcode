@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         def dfs(i: int) -> int:
             vis.add(i)
@@ -265,7 +265,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         g = defaultdict(list)
         for a, b in edges:
@@ -440,7 +440,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:

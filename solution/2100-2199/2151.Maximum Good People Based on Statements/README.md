@@ -130,7 +130,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumGood(self, statements: List[List[int]]) -> int:
+    def maximumGood(self, statements: list[list[int]]) -> int:
         def check(mask: int) -> int:
             cnt = 0
             for i, row in enumerate(statements):

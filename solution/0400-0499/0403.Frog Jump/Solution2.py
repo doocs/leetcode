@@ -1,5 +1,5 @@
 class Solution:
-    def canCross(self, stones: List[int]) -> bool:
+    def canCross(self, stones: list[int]) -> bool:
         n = len(stones)
         f = [[False] * n for _ in range(n)]
         f[0][0] = True

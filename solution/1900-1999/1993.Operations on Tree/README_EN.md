@@ -109,7 +109,7 @@ lockingTree.lock(0, 1); // return false because node 0 is already locked.
 
 ```python
 class LockingTree:
-    def __init__(self, parent: List[int]):
+    def __init__(self, parent: list[int]):
         n = len(parent)
         self.locked = [-1] * n
         self.parent = parent
@@ -470,7 +470,7 @@ class LockingTree {
 
 ```python
 class LockingTree:
-    def __init__(self, parent: List[int]):
+    def __init__(self, parent: list[int]):
         n = len(parent)
         self.locked = [-1] * n
         self.parent = parent

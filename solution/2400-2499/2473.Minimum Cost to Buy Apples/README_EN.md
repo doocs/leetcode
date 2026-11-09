@@ -91,8 +91,8 @@ The time complexity is $O(nm \log m)$, where $n$ and $m$ are the number of citie
 ```python
 class Solution:
     def minCost(
-        self, n: int, roads: List[List[int]], appleCost: List[int], k: int
-    ) -> List[int]:
+        self, n: int, roads: list[list[int]], appleCost: list[int], k: int
+    ) -> list[int]:
         def dijkstra(i):
             q = [(0, i)]
             dist = [inf] * n

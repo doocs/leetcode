@@ -97,7 +97,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(C)$, where $n$ i
 
 ```python
 class Solution:
-    def threeSumMulti(self, arr: List[int], target: int) -> int:
+    def threeSumMulti(self, arr: list[int], target: int) -> int:
         mod = 10**9 + 7
         cnt = Counter(arr)
         ans = 0

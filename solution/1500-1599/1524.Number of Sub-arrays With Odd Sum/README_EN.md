@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def numOfSubarrays(self, arr: List[int]) -> int:
+    def numOfSubarrays(self, arr: list[int]) -> int:
         mod = 10**9 + 7
         cnt = [1, 0]
         ans = s = 0

@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGameVI(self, aliceValues: List[int], bobValues: List[int]) -> int:
+    def stoneGameVI(self, aliceValues: list[int], bobValues: list[int]) -> int:
         vals = [(a + b, i) for i, (a, b) in enumerate(zip(aliceValues, bobValues))]
         vals.sort(reverse=True)
         a = sum(aliceValues[i] for _, i in vals[::2])

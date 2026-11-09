@@ -104,7 +104,7 @@ We can see the cycle 3 --&gt; 4 --&gt; 3 --&gt; ..., and all of its nodes are wh
 
 ```python
 class Solution:
-    def circularArrayLoop(self, nums: List[int]) -> bool:
+    def circularArrayLoop(self, nums: list[int]) -> bool:
         n = len(nums)
 
         def next(i):

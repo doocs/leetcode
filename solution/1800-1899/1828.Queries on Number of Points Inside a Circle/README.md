@@ -89,8 +89,8 @@ queries[0] 是绿色的圆，queries[1] 是红色的圆，queries[2] 是蓝色�
 ```python
 class Solution:
     def countPoints(
-        self, points: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, points: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         ans = []
         for x, y, r in queries:
             cnt = 0

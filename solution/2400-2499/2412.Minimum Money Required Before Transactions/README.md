@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumMoney(self, transactions: List[List[int]]) -> int:
+    def minimumMoney(self, transactions: list[list[int]]) -> int:
         s = sum(max(0, a - b) for a, b in transactions)
         ans = 0
         for a, b in transactions:

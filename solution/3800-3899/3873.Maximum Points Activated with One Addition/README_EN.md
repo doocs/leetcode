@@ -161,7 +161,7 @@ class UnionFind:
 
 
 class Solution:
-    def maxActivated(self, points: List[List[int]]) -> int:
+    def maxActivated(self, points: list[list[int]]) -> int:
         uf = UnionFind()
         m = int(3e9)
 

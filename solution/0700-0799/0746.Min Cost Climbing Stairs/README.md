@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(cost):
@@ -276,7 +276,7 @@ $$
 
 ```python
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
         n = len(cost)
         f = [0] * (n + 1)
         for i in range(2, n + 1):
@@ -393,7 +393,7 @@ function minCostClimbingStairs(cost) {
 
 ```python
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
         f = g = 0
         for i in range(2, len(cost) + 1):
             f, g = g, min(f + cost[i - 2], g + cost[i - 1])
@@ -518,7 +518,7 @@ $$
 
 ```python
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
         n = len(cost)
         f = [0] * (n + 2)
         for i in range(n - 1, -1, -1):

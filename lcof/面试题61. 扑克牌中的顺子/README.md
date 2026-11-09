@@ -68,7 +68,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def isStraight(self, nums: List[int]) -> bool:
+    def isStraight(self, nums: list[int]) -> bool:
         vis = set()
         mi, mx = inf, -inf
         for x in nums:

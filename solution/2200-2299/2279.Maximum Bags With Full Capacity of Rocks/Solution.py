@@ -1,6 +1,6 @@
 class Solution:
     def maximumBags(
-        self, capacity: List[int], rocks: List[int], additionalRocks: int
+        self, capacity: list[int], rocks: list[int], additionalRocks: int
     ) -> int:
         for i, x in enumerate(rocks):
             capacity[i] -= x

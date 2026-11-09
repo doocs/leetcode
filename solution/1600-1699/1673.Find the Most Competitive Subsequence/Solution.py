@@ -1,5 +1,5 @@
 class Solution:
-    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+    def mostCompetitive(self, nums: list[int], k: int) -> list[int]:
         stk = []
         n = len(nums)
         for i, v in enumerate(nums):

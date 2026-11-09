@@ -1,5 +1,5 @@
 class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
+    def minimumOperations(self, nums: list[int]) -> int:
         i, j = 0, len(nums) - 1
         a, b = nums[i], nums[j]
         ans = 0

@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def checkArray(self, nums: List[int], k: int) -> bool:
+    def checkArray(self, nums: list[int], k: int) -> bool:
         n = len(nums)
         d = [0] * (n + 1)
         s = 0

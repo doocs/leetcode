@@ -65,7 +65,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def pairSums(self, nums: List[int], target: int) -> List[List[int]]:
+    def pairSums(self, nums: list[int], target: int) -> list[list[int]]:
         cnt = Counter()
         ans = []
         for x in nums:

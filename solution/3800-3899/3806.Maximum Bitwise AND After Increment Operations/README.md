@@ -126,7 +126,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumAND(self, nums: List[int], k: int, m: int) -> int:
+    def maximumAND(self, nums: list[int], k: int, m: int) -> int:
         mx = (max(nums) + k).bit_length()
         ans = 0
         cost = [0] * len(nums)

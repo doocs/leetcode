@@ -1,5 +1,5 @@
 class Solution:
-    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+    def getAncestors(self, n: int, edges: list[list[int]]) -> list[list[int]]:
         def bfs(s: int):
             q = deque([s])
             vis = {s}

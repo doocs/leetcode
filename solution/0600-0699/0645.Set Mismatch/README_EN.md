@@ -70,7 +70,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
+    def findErrorNums(self, nums: list[int]) -> list[int]:
         n = len(nums)
         s1 = (1 + n) * n // 2
         s2 = sum(set(nums))
@@ -197,7 +197,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
+    def findErrorNums(self, nums: list[int]) -> list[int]:
         cnt = Counter(nums)
         n = len(nums)
         ans = [0] * 2
@@ -360,7 +360,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
+    def findErrorNums(self, nums: list[int]) -> list[int]:
         xs = 0
         for i, x in enumerate(nums, 1):
             xs ^= i ^ x

@@ -1,5 +1,5 @@
 class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
+    def countCompleteSubarrays(self, nums: list[int]) -> int:
         cnt = len(set(nums))
         d = Counter()
         ans, n = 0, len(nums)

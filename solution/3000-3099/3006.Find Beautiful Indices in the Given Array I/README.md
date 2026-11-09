@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def beautifulIndices(self, s: str, a: str, b: str, k: int) -> List[int]:
+    def beautifulIndices(self, s: str, a: str, b: str, k: int) -> list[int]:
         def build_prefix_function(pattern):
             prefix_function = [0] * len(pattern)
             j = 0

@@ -1,5 +1,5 @@
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         @cache
         def dfs(i, t):
             if i == n:

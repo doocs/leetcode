@@ -54,7 +54,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def smallestK(self, arr: List[int], k: int) -> List[int]:
+    def smallestK(self, arr: list[int], k: int) -> list[int]:
         return sorted(arr)[:k]
 ```
 
@@ -144,7 +144,7 @@ class Solution {
 
 ```python
 class Solution:
-    def smallestK(self, arr: List[int], k: int) -> List[int]:
+    def smallestK(self, arr: list[int], k: int) -> list[int]:
         h = []
         for v in arr:
             heappush(h, -v)

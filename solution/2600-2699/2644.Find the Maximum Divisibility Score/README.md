@@ -121,7 +121,7 @@ tags:
 
 ```python
 class Solution:
-    def maxDivScore(self, nums: List[int], divisors: List[int]) -> int:
+    def maxDivScore(self, nums: list[int], divisors: list[int]) -> int:
         ans, mx = divisors[0], 0
         for div in divisors:
             cnt = sum(x % div == 0 for x in nums)

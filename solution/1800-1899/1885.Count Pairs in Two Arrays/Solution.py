@@ -1,5 +1,5 @@
 class Solution:
-    def countPairs(self, nums1: List[int], nums2: List[int]) -> int:
+    def countPairs(self, nums1: list[int], nums2: list[int]) -> int:
         nums = [a - b for a, b in zip(nums1, nums2)]
         nums.sort()
         l, r = 0, len(nums) - 1

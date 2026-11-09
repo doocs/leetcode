@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def minBuildTime(self, blocks: List[int], split: int) -> int:
+    def minBuildTime(self, blocks: list[int], split: int) -> int:
         heapify(blocks)
         while len(blocks) > 1:
             heappop(blocks)

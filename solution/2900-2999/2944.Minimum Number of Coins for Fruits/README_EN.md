@@ -135,7 +135,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
+    def minimumCoins(self, prices: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i * 2 >= len(prices):
@@ -277,7 +277,7 @@ In the code implementation, we can directly use the $\textit{prices}$ array to s
 
 ```python
 class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
+    def minimumCoins(self, prices: list[int]) -> int:
         n = len(prices)
         for i in range((n - 1) // 2, 0, -1):
             prices[i - 1] += min(prices[i : i * 2 + 1])
@@ -369,7 +369,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
+    def minimumCoins(self, prices: list[int]) -> int:
         n = len(prices)
         q = deque()
         for i in range(n, 0, -1):

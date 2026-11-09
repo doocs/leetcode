@@ -1,5 +1,5 @@
 class Solution:
-    def averageHeightOfBuildings(self, buildings: List[List[int]]) -> List[List[int]]:
+    def averageHeightOfBuildings(self, buildings: list[list[int]]) -> list[list[int]]:
         cnt = defaultdict(int)
         d = defaultdict(int)
         for start, end, height in buildings:

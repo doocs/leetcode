@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def isPossibleToSplit(self, nums: List[int]) -> bool:
+    def isPossibleToSplit(self, nums: list[int]) -> bool:
         return max(Counter(nums).values()) < 3
 ```
 

@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumTop(self, nums: List[int], k: int) -> int:
+    def maximumTop(self, nums: list[int], k: int) -> int:
         if k == 0:
             return nums[0]
         n = len(nums)

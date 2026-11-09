@@ -96,7 +96,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+    def buildTree(self, preorder: list[int], inorder: list[int]) -> Optional[TreeNode]:
         def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
             if n <= 0:
                 return None
@@ -374,8 +374,8 @@ var buildTree = function (preorder, inorder) {
 
 ```python
 class Solution:
-    def getBinaryTrees(self, preOrder: List[int], inOrder: List[int]) -> List[TreeNode]:
-        def dfs(i: int, j: int, n: int) -> List[TreeNode]:
+    def getBinaryTrees(self, preOrder: list[int], inOrder: list[int]) -> list[TreeNode]:
+        def dfs(i: int, j: int, n: int) -> list[TreeNode]:
             if n <= 0:
                 return [None]
             v = preOrder[i]

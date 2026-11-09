@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def finalPrices(self, prices: List[int]) -> List[int]:
+    def finalPrices(self, prices: list[int]) -> list[int]:
         stk = []
         for i in reversed(range(len(prices))):
             x = prices[i]

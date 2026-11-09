@@ -1,5 +1,5 @@
 class Solution:
-    def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+    def productQueries(self, n: int, queries: list[list[int]]) -> list[int]:
         powers = []
         while n:
             x = n & -n

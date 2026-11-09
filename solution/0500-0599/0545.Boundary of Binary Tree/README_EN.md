@@ -117,8 +117,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def boundaryOfBinaryTree(self, root: Optional[TreeNode]) -> List[int]:
-        def dfs(nums: List[int], root: Optional[TreeNode], i: int):
+    def boundaryOfBinaryTree(self, root: Optional[TreeNode]) -> list[int]:
+        def dfs(nums: list[int], root: Optional[TreeNode], i: int):
             if root is None:
                 return
             if i == 0:

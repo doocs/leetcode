@@ -96,8 +96,8 @@ The time complexity is $O(m \log m + q \log q)$, where $m$ and $q$ are the numbe
 ```python
 class Solution:
     def distanceLimitedPathsExist(
-        self, n: int, edgeList: List[List[int]], queries: List[List[int]]
-    ) -> List[bool]:
+        self, n: int, edgeList: list[list[int]], queries: list[list[int]]
+    ) -> list[bool]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

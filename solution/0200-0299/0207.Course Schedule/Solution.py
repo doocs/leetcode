@@ -1,5 +1,5 @@
 class Solution:
-    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+    def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
         g = [[] for _ in range(numCourses)]
         indeg = [0] * numCourses
         for a, b in prerequisites:

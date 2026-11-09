@@ -99,7 +99,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minimumAddedCoins(self, coins: List[int], target: int) -> int:
+    def minimumAddedCoins(self, coins: list[int], target: int) -> int:
         coins.sort()
         s = 1
         ans = i = 0

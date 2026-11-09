@@ -1,5 +1,5 @@
 class Solution:
-    def countPermutations(self, complexity: List[int]) -> int:
+    def countPermutations(self, complexity: list[int]) -> int:
         mod = 10**9 + 7
         ans = 1
         for i in range(1, len(complexity)):

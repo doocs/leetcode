@@ -80,7 +80,7 @@ comments: true
 
 ```python
 class Solution:
-    def minTime(self, time: List[int], m: int) -> int:
+    def minTime(self, time: list[int], m: int) -> int:
         def check(t):
             s = mx = 0
             d = 1

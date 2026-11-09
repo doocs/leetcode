@@ -98,7 +98,7 @@ The time complexity is $O(nm)$, where $n$ and $m$ are the length of the array $\
 
 ```python
 class Solution:
-    def camelMatch(self, queries: List[str], pattern: str) -> List[bool]:
+    def camelMatch(self, queries: list[str], pattern: str) -> list[bool]:
         def check(s, t):
             m, n = len(s), len(t)
             i = j = 0

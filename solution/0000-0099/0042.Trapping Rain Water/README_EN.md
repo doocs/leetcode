@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def trap(self, height: List[int]) -> int:
+    def trap(self, height: list[int]) -> int:
         n = len(height)
         left = [height[0]] * n
         right = [height[-1]] * n

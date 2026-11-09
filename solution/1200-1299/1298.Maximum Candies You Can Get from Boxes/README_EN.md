@@ -115,11 +115,11 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 class Solution:
     def maxCandies(
         self,
-        status: List[int],
-        candies: List[int],
-        keys: List[List[int]],
-        containedBoxes: List[List[int]],
-        initialBoxes: List[int],
+        status: list[int],
+        candies: list[int],
+        keys: list[list[int]],
+        containedBoxes: list[list[int]],
+        initialBoxes: list[int],
     ) -> int:
         q = deque()
         has, took = set(initialBoxes), set()

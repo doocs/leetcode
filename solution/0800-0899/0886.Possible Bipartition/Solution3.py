@@ -1,5 +1,5 @@
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         g = defaultdict(list)
         for a, b in dislikes:
             a, b = a - 1, b - 1

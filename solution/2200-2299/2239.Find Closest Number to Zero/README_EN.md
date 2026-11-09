@@ -79,7 +79,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findClosestNumber(self, nums: List[int]) -> int:
+    def findClosestNumber(self, nums: list[int]) -> int:
         ans, d = 0, inf
         for x in nums:
             if (y := abs(x)) < d or (y == d and x > ans):

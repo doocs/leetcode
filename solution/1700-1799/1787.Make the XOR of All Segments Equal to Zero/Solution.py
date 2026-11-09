@@ -1,5 +1,5 @@
 class Solution:
-    def minChanges(self, nums: List[int], k: int) -> int:
+    def minChanges(self, nums: list[int], k: int) -> int:
         n = 1 << 10
         cnt = [Counter() for _ in range(k)]
         size = [0] * k

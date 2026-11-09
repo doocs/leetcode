@@ -1,5 +1,5 @@
 class Solution:
-    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
+    def findRotation(self, mat: list[list[int]], target: list[list[int]]) -> bool:
         n = len(mat)
         ok = 0b1111
         for i in range(n):

@@ -1,5 +1,5 @@
 class Solution:
-    def minimumDifference(self, nums: List[int], k: int) -> int:
+    def minimumDifference(self, nums: list[int], k: int) -> int:
         ans = inf
         s = set()
         for x in nums:

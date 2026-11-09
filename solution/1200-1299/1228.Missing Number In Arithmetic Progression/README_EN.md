@@ -79,7 +79,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def missingNumber(self, arr: List[int]) -> int:
+    def missingNumber(self, arr: list[int]) -> int:
         return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
 ```
 
@@ -164,7 +164,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def missingNumber(self, arr: List[int]) -> int:
+    def missingNumber(self, arr: list[int]) -> int:
         n = len(arr)
         d = (arr[-1] - arr[0]) // n
         for i in range(1, n):

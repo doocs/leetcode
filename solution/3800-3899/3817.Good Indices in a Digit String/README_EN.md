@@ -112,7 +112,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def goodIndices(self, s: str) -> List[int]:
+    def goodIndices(self, s: str) -> list[int]:
         ans = []
         for i in range(len(s)):
             t = str(i)

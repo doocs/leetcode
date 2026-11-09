@@ -1,5 +1,5 @@
 class Solution:
-    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+    def longestEqualSubarray(self, nums: list[int], k: int) -> int:
         g = defaultdict(list)
         for i, x in enumerate(nums):
             g[x].append(i)

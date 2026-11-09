@@ -1,5 +1,5 @@
 class Solution:
-    def transformArray(self, arr: List[int]) -> List[int]:
+    def transformArray(self, arr: list[int]) -> list[int]:
         f = True
         while f:
             f = False

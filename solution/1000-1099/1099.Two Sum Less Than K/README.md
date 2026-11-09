@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    def twoSumLessThanK(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans = -1
         for i, x in enumerate(nums):
@@ -212,7 +212,7 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 ```python
 class Solution:
-    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    def twoSumLessThanK(self, nums: list[int], k: int) -> int:
         nums.sort()
         i, j = 0, len(nums) - 1
         ans = -1

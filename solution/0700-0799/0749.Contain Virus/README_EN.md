@@ -94,7 +94,7 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 ```python
 class Solution:
-    def containVirus(self, isInfected: List[List[int]]) -> int:
+    def containVirus(self, isInfected: list[list[int]]) -> int:
         def dfs(i, j):
             vis[i][j] = True
             areas[-1].append((i, j))

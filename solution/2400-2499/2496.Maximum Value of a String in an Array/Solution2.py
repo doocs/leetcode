@@ -1,5 +1,5 @@
 class Solution:
-    def maximumValue(self, strs: List[str]) -> int:
+    def maximumValue(self, strs: list[str]) -> int:
         def f(s: str) -> int:
             x = 0
             for c in s:

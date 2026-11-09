@@ -66,7 +66,7 @@ tags:
 
 ```python
 class Solution:
-    def shortestDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
+    def shortestDistance(self, wordsDict: list[str], word1: str, word2: str) -> int:
         i = j = -1
         ans = inf
         for k, w in enumerate(wordsDict):

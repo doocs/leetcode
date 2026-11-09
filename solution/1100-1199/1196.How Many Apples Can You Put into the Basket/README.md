@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def maxNumberOfApples(self, weight: List[int]) -> int:
+    def maxNumberOfApples(self, weight: list[int]) -> int:
         weight.sort()
         s = 0
         for i, x in enumerate(weight):

@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.right = right
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
-        def dfs(root: Optional[TreeNode], nums: List[int]) -> None:
+        def dfs(root: Optional[TreeNode], nums: list[int]) -> None:
             if root.left == root.right:
                 nums.append(root.val)
                 return

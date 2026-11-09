@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def earliestTime(self, tasks: List[List[int]]) -> int:
+    def earliestTime(self, tasks: list[list[int]]) -> int:
         return min(s + t for s, t in tasks)
 ```
 

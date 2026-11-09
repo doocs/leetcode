@@ -147,7 +147,7 @@ for i in range(2, mx + 1):
 
 
 class Solution:
-    def countPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countPaths(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         uf = UnionFind(n + 1)
         for u, v in edges:
@@ -548,7 +548,7 @@ function countPaths(n: number, edges: number[][]): number {
 
 ```python
 class Solution:
-    def countPaths(self, n: int, edges: List[List[int]]) -> int:
+    def countPaths(self, n: int, edges: list[list[int]]) -> int:
         def mul(x, y):
             return x * y
 

@@ -84,7 +84,7 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 
 ```python
 class Solution:
-    def maxProfit(self, inventory: List[int], orders: int) -> int:
+    def maxProfit(self, inventory: list[int], orders: int) -> int:
         inventory.sort(reverse=True)
         mod = 10**9 + 7
         ans = i = 0

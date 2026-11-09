@@ -1,5 +1,5 @@
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         vis = [1] * (len(A) + 1)
         s = 0

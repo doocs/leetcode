@@ -118,7 +118,7 @@ tags:
 
 ```python
 class Solution:
-    def longestArithmetic(self, nums: List[int]) -> int:
+    def longestArithmetic(self, nums: list[int]) -> int:
         n = len(nums)
         d = [0] * n
         for i in range(1, n):

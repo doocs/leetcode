@@ -118,7 +118,7 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 
 ```python
 class Solution:
-    def splitPainting(self, segments: List[List[int]]) -> List[List[int]]:
+    def splitPainting(self, segments: list[list[int]]) -> list[list[int]]:
         d = defaultdict(int)
         for l, r, c in segments:
             d[l] += c

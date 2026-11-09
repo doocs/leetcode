@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def maxScore(self, grid: List[List[int]]) -> int:
+    def maxScore(self, grid: list[list[int]]) -> int:
         g = defaultdict(set)
         mx = 0
         for i, row in enumerate(grid):

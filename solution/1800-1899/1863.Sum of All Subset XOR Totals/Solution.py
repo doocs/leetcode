@@ -1,5 +1,5 @@
 class Solution:
-    def subsetXORSum(self, nums: List[int]) -> int:
+    def subsetXORSum(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(1 << n):
             s = 0

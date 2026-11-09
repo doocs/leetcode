@@ -1,5 +1,5 @@
 class Solution:
-    def maximumEnergy(self, energy: List[int], k: int) -> int:
+    def maximumEnergy(self, energy: list[int], k: int) -> int:
         ans = -inf
         n = len(energy)
         for i in range(n - k, n):

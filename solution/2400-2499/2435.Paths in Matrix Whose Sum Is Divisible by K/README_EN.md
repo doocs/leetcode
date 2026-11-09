@@ -102,7 +102,7 @@ The time complexity is $O(mn \times K)$, and the space complexity is $O(mn \time
 
 ```python
 class Solution:
-    def numberOfPaths(self, grid: List[List[int]], K: int) -> int:
+    def numberOfPaths(self, grid: list[list[int]], K: int) -> int:
         mod = 10**9 + 7
         m, n = len(grid), len(grid[0])
         f = [[[0] * K for _ in range(n)] for _ in range(m)]

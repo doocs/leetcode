@@ -70,7 +70,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(m)$, where $n$
 
 ```python
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         m = max(e[1] for e in intervals)
         d = [0] * (m + 1)
         for l, r in intervals:
@@ -233,7 +233,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         d = defaultdict(int)
         for l, r in intervals:
             d[l] += 1

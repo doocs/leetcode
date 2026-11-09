@@ -90,7 +90,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
+    def findingUsersActiveMinutes(self, logs: list[list[int]], k: int) -> list[int]:
         d = defaultdict(set)
         for i, t in logs:
             d[i].add(t)

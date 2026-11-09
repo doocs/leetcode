@@ -1,5 +1,5 @@
 class Solution:
-    def rampartDefensiveLine(self, rampart: List[List[int]]) -> int:
+    def rampartDefensiveLine(self, rampart: list[list[int]]) -> int:
         def check(w: int) -> bool:
             last = rampart[0][1]
             for i in range(1, len(rampart) - 1):

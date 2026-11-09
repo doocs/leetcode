@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def kSum(self, nums: List[int], k: int) -> int:
+    def kSum(self, nums: list[int], k: int) -> int:
         mx = 0
         for i, x in enumerate(nums):
             if x > 0:

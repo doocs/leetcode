@@ -97,13 +97,13 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 
 ```python
 class Graph:
-    def __init__(self, n: int, edges: List[List[int]]):
+    def __init__(self, n: int, edges: list[list[int]]):
         self.n = n
         self.g = [[inf] * n for _ in range(n)]
         for f, t, c in edges:
             self.g[f][t] = c
 
-    def addEdge(self, edge: List[int]) -> None:
+    def addEdge(self, edge: list[int]) -> None:
         f, t, c = edge
         self.g[f][t] = c
 

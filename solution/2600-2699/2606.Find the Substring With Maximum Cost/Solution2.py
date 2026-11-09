@@ -1,5 +1,5 @@
 class Solution:
-    def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
+    def maximumCostSubstring(self, s: str, chars: str, vals: list[int]) -> int:
         d = {c: v for c, v in zip(chars, vals)}
         ans = f = 0
         for c in s:

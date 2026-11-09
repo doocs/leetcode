@@ -131,7 +131,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, w
 
 ```python
 class Solution:
-    def sumDecoded(self, nums: List[int]) -> int:
+    def sumDecoded(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         ans = 0
         for v in nums:

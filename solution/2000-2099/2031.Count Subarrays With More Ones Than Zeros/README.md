@@ -119,7 +119,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+    def subarraysWithMoreZerosThanOnes(self, nums: list[int]) -> int:
         n = len(nums)
         base = n + 1
         tree = BinaryIndexedTree(n + base)
@@ -345,7 +345,7 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 
 ```python
 class Solution:
-    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+    def subarraysWithMoreZerosThanOnes(self, nums: list[int]) -> int:
         sl = SortedList([0])
         mod = 10**9 + 7
         ans = s = 0

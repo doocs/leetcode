@@ -1,5 +1,5 @@
 class WordFilter:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.d = {}
         for k, w in enumerate(words):
             n = len(w)

@@ -98,7 +98,7 @@ The time complexity is $O(n \textit{budget})$, and the space complexity is $O(n 
 
 ```python
 class Solution:
-    def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
+    def maximumProfit(self, present: list[int], future: list[int], budget: int) -> int:
         f = [[0] * (budget + 1) for _ in range(len(present) + 1)]
         for i, w in enumerate(present, 1):
             for j in range(budget + 1):
@@ -211,7 +211,7 @@ We can observe that for each row, we only need the values from the previous row,
 
 ```python
 class Solution:
-    def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
+    def maximumProfit(self, present: list[int], future: list[int], budget: int) -> int:
         f = [0] * (budget + 1)
         for a, b in zip(present, future):
             for j in range(budget, a - 1, -1):

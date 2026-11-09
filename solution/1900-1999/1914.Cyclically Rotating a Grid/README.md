@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def rotateGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+    def rotateGrid(self, grid: list[list[int]], k: int) -> list[list[int]]:
         def rotate(p: int, k: int):
             nums = []
             for j in range(p, n - p - 1):

@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def countCompleteDayPairs(self, hours: List[int]) -> int:
+    def countCompleteDayPairs(self, hours: list[int]) -> int:
         cnt = Counter()
         ans = 0
         for x in hours:

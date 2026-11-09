@@ -67,7 +67,7 @@ The time complexity is $O(C)$, and the space complexity is $O(C)$, where $C=4$ f
 
 ```python
 class Solution:
-    def masterMind(self, solution: str, guess: str) -> List[int]:
+    def masterMind(self, solution: str, guess: str) -> list[int]:
         x = sum(a == b for a, b in zip(solution, guess))
         y = sum((Counter(solution) & Counter(guess)).values())
         return [x, y - x]

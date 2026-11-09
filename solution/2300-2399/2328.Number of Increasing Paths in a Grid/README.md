@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def countPaths(self, grid: List[List[int]]) -> int:
+    def countPaths(self, grid: list[list[int]]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             ans = 1
@@ -308,7 +308,7 @@ $$
 
 ```python
 class Solution:
-    def countPaths(self, grid: List[List[int]]) -> int:
+    def countPaths(self, grid: list[list[int]]) -> int:
         mod = 10**9 + 7
         m, n = len(grid), len(grid[0])
         f = [[1] * n for _ in range(m)]

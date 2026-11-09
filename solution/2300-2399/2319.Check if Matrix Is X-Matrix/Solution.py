@@ -1,5 +1,5 @@
 class Solution:
-    def checkXMatrix(self, grid: List[List[int]]) -> bool:
+    def checkXMatrix(self, grid: list[list[int]]) -> bool:
         for i, row in enumerate(grid):
             for j, v in enumerate(row):
                 if i == j or i + j == len(grid) - 1:

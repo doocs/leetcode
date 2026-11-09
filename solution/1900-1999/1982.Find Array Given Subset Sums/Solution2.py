@@ -1,5 +1,5 @@
 class Solution:
-    def recoverArray(self, n: int, sums: List[int]) -> List[int]:
+    def recoverArray(self, n: int, sums: list[int]) -> list[int]:
         sums.sort()
         ans = []
         for i in range(n, 0, -1):

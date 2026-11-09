@@ -1,5 +1,5 @@
 class Solution:
-    def numDistinctIslands(self, grid: List[List[int]]) -> int:
+    def numDistinctIslands(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int, k: int):
             grid[i][j] = 0
             path.append(str(k))

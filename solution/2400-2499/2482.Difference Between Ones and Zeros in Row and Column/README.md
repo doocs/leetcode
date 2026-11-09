@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def onesMinusZeros(self, grid: List[List[int]]) -> List[List[int]]:
+    def onesMinusZeros(self, grid: list[list[int]]) -> list[list[int]]:
         m, n = len(grid), len(grid[0])
         rows = [0] * m
         cols = [0] * n

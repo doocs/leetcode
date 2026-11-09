@@ -4,7 +4,7 @@
 #     def __init__(self, nums):
 #         """
 #         Initializes an iterator object to the beginning of a list.
-#         :type nums: List[int]
+#         :type nums: list[int]
 #         """
 #
 #     def hasNext(self):

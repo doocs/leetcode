@@ -99,7 +99,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def countWays(self, nums: List[int]) -> int:
+    def countWays(self, nums: list[int]) -> int:
         nums.sort()
         n = len(nums)
         ans = 0

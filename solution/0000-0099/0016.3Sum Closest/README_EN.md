@@ -81,7 +81,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where 
 
 ```python
 class Solution:
-    def threeSumClosest(self, nums: List[int], target: int) -> int:
+    def threeSumClosest(self, nums: list[int], target: int) -> int:
         nums.sort()
         n = len(nums)
         ans = inf

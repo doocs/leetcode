@@ -1,5 +1,5 @@
 class Solution:
-    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+    def componentValue(self, nums: list[int], edges: list[list[int]]) -> int:
         def dfs(i, fa):
             x = nums[i]
             for j in g[i]:

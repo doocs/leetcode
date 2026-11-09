@@ -97,7 +97,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def stoneGameVII(self, stones: List[int]) -> int:
+    def stoneGameVII(self, stones: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i > j:
@@ -260,7 +260,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def stoneGameVII(self, stones: List[int]) -> int:
+    def stoneGameVII(self, stones: list[int]) -> int:
         s = list(accumulate(stones, initial=0))
         n = len(stones)
         f = [[0] * n for _ in range(n)]
@@ -386,7 +386,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def stoneGameVII(self, stones: List[int]) -> int:
+    def stoneGameVII(self, stones: list[int]) -> int:
         s = list(accumulate(stones, initial=0))
         n = len(stones)
         f = [[0] * n for _ in range(n)]

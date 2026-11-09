@@ -76,7 +76,7 @@ The time complexity is $O(n^2m)$, and the space complexity is $O(1)$, where $n$ 
 
 ```python
 class Solution:
-    def findLUSlength(self, strs: List[str]) -> int:
+    def findLUSlength(self, strs: list[str]) -> int:
         def check(s: str, t: str):
             i = j = 0
             while i < len(s) and j < len(t):

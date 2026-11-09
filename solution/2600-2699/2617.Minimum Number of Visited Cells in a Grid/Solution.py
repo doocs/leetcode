@@ -1,5 +1,5 @@
 class Solution:
-    def minimumVisitedCells(self, grid: List[List[int]]) -> int:
+    def minimumVisitedCells(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         dist = [[-1] * n for _ in range(m)]
         dist[0][0] = 1

@@ -1,5 +1,5 @@
 class Solution:
-    def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
+    def numsSameConsecDiff(self, n: int, k: int) -> list[int]:
         def dfs(x: int):
             if x >= boundary:
                 ans.append(x)

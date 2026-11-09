@@ -89,7 +89,7 @@ Hence, we return -5.
 
 ```python
 class Solution:
-    def maxStarSum(self, vals: List[int], edges: List[List[int]], k: int) -> int:
+    def maxStarSum(self, vals: list[int], edges: list[list[int]], k: int) -> int:
         g = defaultdict(list)
         for a, b in edges:
             if vals[b] > 0:

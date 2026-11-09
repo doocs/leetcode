@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfGoodSubarraySplits(self, nums: List[int]) -> int:
+    def numberOfGoodSubarraySplits(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         ans, j = 1, -1
         for i, x in enumerate(nums):

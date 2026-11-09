@@ -85,7 +85,7 @@ comments: true
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         if target < -1000 or target > 1000:
             return 0
         n = len(nums)
@@ -229,7 +229,7 @@ class Solution {
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s - target < 0 or (s - target) % 2 != 0:
             return 0
@@ -340,7 +340,7 @@ class Solution {
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s - target < 0 or (s - target) % 2 != 0:
             return 0
@@ -378,7 +378,7 @@ class Solution:
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         @cache
         def dfs(i, t):
             if i == n:

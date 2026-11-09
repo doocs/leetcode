@@ -1,5 +1,5 @@
 class Solution:
-    def minSwaps(self, data: List[int]) -> int:
+    def minSwaps(self, data: list[int]) -> int:
         k = data.count(1)
         mx = t = sum(data[:k])
         for i in range(k, len(data)):

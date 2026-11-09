@@ -104,7 +104,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isValidSequence(self, root: TreeNode, arr: List[int]) -> bool:
+    def isValidSequence(self, root: TreeNode, arr: list[int]) -> bool:
         def dfs(root, u):
             if root is None or root.val != arr[u]:
                 return False

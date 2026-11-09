@@ -83,7 +83,7 @@ As shown in the diagram above, the line chart can be represented with a single l
 
 ```python
 class Solution:
-    def minimumLines(self, stockPrices: List[List[int]]) -> int:
+    def minimumLines(self, stockPrices: list[list[int]]) -> int:
         stockPrices.sort()
         dx, dy = 0, 1
         ans = 0

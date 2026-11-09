@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
+    def mostFrequentIDs(self, nums: list[int], freq: list[int]) -> list[int]:
         cnt = Counter()
         lazy = Counter()
         ans = []

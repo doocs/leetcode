@@ -1,5 +1,5 @@
 class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+    def validSubarraySize(self, nums: list[int], threshold: int) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

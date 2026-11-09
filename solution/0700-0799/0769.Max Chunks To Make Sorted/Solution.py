@@ -1,5 +1,5 @@
 class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
+    def maxChunksToSorted(self, arr: list[int]) -> int:
         mx = ans = 0
         for i, v in enumerate(arr):
             mx = max(mx, v)

@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+    def numEquivDominoPairs(self, dominoes: list[list[int]]) -> int:
         cnt = Counter()
         ans = 0
         for a, b in dominoes:

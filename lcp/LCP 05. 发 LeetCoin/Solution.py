@@ -66,8 +66,8 @@ class SegmentTree:
 
 class Solution:
     def bonus(
-        self, n: int, leadership: List[List[int]], operations: List[List[int]]
-    ) -> List[int]:
+        self, n: int, leadership: list[list[int]], operations: list[list[int]]
+    ) -> list[int]:
         def dfs(u):
             nonlocal idx
             begin[u] = idx

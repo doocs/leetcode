@@ -78,7 +78,7 @@ comments: true
 
 ```python
 class Solution:
-    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+    def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

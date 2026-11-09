@@ -1,5 +1,5 @@
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         m, n = len(heights), len(heights[0])
         dist = [[inf] * n for _ in range(m)]
         dist[0][0] = 0

@@ -103,7 +103,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 #         self.val = val
 #         self.next = next
 class Solution:
-    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> list[int]:
         ans = [inf, -inf]
         first = last = -1
         i = 0

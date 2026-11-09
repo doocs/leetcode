@@ -136,7 +136,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minIncrease(self, nums: List[int]) -> int:
+    def minIncrease(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(nums) - 1:
@@ -326,7 +326,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minIncrease(self, nums: List[int]) -> int:
+    def minIncrease(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0, 0] for _ in range(n + 1)]
         for i in range(n - 2, 0, -1):

@@ -96,7 +96,7 @@ $v$ 作为当前连通块的最小值，当前连通块的大小为 $\textit{siz
 
 ```python
 class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+    def validSubarraySize(self, nums: list[int], threshold: int) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -306,7 +306,7 @@ func validSubarraySize(nums []int, threshold int) int {
 
 ```python
 class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+    def validSubarraySize(self, nums: list[int], threshold: int) -> int:
         n = len(nums)
         left = [-1] * n
         right = [n] * n

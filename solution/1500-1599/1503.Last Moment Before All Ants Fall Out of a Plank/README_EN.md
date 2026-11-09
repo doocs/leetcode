@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
+    def getLastMoment(self, n: int, left: list[int], right: list[int]) -> int:
         ans = 0
         for x in left:
             ans = max(ans, x)

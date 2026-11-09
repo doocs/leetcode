@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def splitIntoFibonacci(self, num: str) -> List[int]:
+    def splitIntoFibonacci(self, num: str) -> list[int]:
         def dfs(i):
             if i == n:
                 return len(ans) > 2

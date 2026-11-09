@@ -91,7 +91,7 @@ nums 中所有元素的乘积是：2 * 4 * 8 * 16 = 1024 = 2<sup>10</sup> 。
 
 ```python
 class Solution:
-    def distinctPrimeFactors(self, nums: List[int]) -> int:
+    def distinctPrimeFactors(self, nums: list[int]) -> int:
         s = set()
         for n in nums:
             i = 2

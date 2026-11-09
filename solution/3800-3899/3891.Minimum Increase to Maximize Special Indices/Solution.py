@@ -1,5 +1,5 @@
 class Solution:
-    def minIncrease(self, nums: List[int]) -> int:
+    def minIncrease(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(nums) - 1:

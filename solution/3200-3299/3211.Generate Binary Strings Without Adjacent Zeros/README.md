@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def validStrings(self, n: int) -> List[str]:
+    def validStrings(self, n: int) -> list[str]:
         def dfs(i: int):
             if i >= n:
                 ans.append("".join(t))

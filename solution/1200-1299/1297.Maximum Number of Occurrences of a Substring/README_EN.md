@@ -246,7 +246,7 @@ class Hashing:
     __slots__ = ["mod", "h", "p"]
 
     def __init__(
-        self, s: Union[str, List[str]], base: int = 13331, mod: int = 998244353
+        self, s: Union[str, list[str]], base: int = 13331, mod: int = 998244353
     ):
         self.mod = mod
         self.h = [0] * (len(s) + 1)

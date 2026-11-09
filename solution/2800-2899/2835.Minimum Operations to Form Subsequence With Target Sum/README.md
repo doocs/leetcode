@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], target: int) -> int:
+    def minOperations(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s < target:
             return -1

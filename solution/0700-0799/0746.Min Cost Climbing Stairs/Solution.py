@@ -1,5 +1,5 @@
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(cost):

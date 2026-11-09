@@ -88,7 +88,7 @@ The time complexity is $O(mn^2)$, and the space complexity is $O(n^2)$, where $m
 
 ```python
 class Solution:
-    def countCornerRectangles(self, grid: List[List[int]]) -> int:
+    def countCornerRectangles(self, grid: list[list[int]]) -> int:
         ans = 0
         cnt = Counter()
         n = len(grid[0])

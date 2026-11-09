@@ -102,8 +102,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def filterOccupiedIntervals(
-        self, occupiedIntervals: List[List[int]], freeStart: int, freeEnd: int
-    ) -> List[List[int]]:
+        self, occupiedIntervals: list[list[int]], freeStart: int, freeEnd: int
+    ) -> list[list[int]]:
         occupiedIntervals.sort(key=lambda x: x[0])
         busy = [occupiedIntervals[0]]
         for interval in occupiedIntervals[1:]:

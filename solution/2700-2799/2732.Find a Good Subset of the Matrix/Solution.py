@@ -1,5 +1,5 @@
 class Solution:
-    def goodSubsetofBinaryMatrix(self, grid: List[List[int]]) -> List[int]:
+    def goodSubsetofBinaryMatrix(self, grid: list[list[int]]) -> list[int]:
         g = {}
         for i, row in enumerate(grid):
             mask = 0

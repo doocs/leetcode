@@ -93,7 +93,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def jump(self, nums: List[int]) -> int:
+    def jump(self, nums: list[int]) -> int:
         ans = mx = last = 0
         for i, x in enumerate(nums[:-1]):
             mx = max(mx, i + x)

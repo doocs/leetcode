@@ -125,7 +125,7 @@ The time complexity is $O(mn \max(m, n) {10}^{\frac{\max(m, n)}{2}})$, and the s
 
 ```python
 class Solution:
-    def mostFrequentPrime(self, mat: List[List[int]]) -> int:
+    def mostFrequentPrime(self, mat: list[list[int]]) -> int:
         def is_prime(x: int) -> int:
             return all(x % i != 0 for i in range(2, isqrt(x) + 1))
 

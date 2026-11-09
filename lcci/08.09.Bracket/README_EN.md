@@ -74,7 +74,7 @@ The time complexity is $O(n 2^{2n})$, and the space complexity is $O(n)$.
 
 ```python
 class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generateParenthesis(self, n: int) -> list[str]:
         def dfs(l, r, t):
             if l > n or r > n or l < r:
                 return

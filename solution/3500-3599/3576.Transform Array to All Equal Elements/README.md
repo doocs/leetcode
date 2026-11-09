@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def canMakeEqual(self, nums: List[int], k: int) -> bool:
+    def canMakeEqual(self, nums: list[int], k: int) -> bool:
         def check(target: int, k: int) -> bool:
             cnt, sign = 0, 1
             for i in range(len(nums) - 1):

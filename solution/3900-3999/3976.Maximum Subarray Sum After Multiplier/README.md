@@ -128,7 +128,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSubarraySum(self, nums: List[int], k: int) -> int:
+    def maxSubarraySum(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [[-inf] * 4 for _ in range(n + 1)]
         f[0][0] = 0

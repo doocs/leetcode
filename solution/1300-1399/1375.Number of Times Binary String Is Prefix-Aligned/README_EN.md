@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def numTimesAllBlue(self, flips: List[int]) -> int:
+    def numTimesAllBlue(self, flips: list[int]) -> int:
         ans = mx = 0
         for i, x in enumerate(flips, 1):
             mx = max(mx, x)

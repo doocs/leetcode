@@ -1,5 +1,5 @@
 class Solution:
-    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
+    def indexPairs(self, text: str, words: list[str]) -> list[list[int]]:
         words = set(words)
         n = len(text)
         return [

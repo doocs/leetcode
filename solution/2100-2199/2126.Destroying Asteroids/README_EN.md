@@ -91,7 +91,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
+    def asteroidsDestroyed(self, mass: int, asteroids: list[int]) -> bool:
         asteroids.sort()
         for x in asteroids:
             if mass < x:

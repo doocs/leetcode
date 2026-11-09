@@ -86,7 +86,7 @@ $$
 
 ```python
 class Solution:
-    def maxSumAfterOperation(self, nums: List[int]) -> int:
+    def maxSumAfterOperation(self, nums: list[int]) -> int:
         f = g = 0
         ans = -inf
         for x in nums:

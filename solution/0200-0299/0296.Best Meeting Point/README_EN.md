@@ -77,7 +77,7 @@ So return 6.
 
 ```python
 class Solution:
-    def minTotalDistance(self, grid: List[List[int]]) -> int:
+    def minTotalDistance(self, grid: list[list[int]]) -> int:
         def f(arr, x):
             return sum(abs(v - x) for v in arr)
 

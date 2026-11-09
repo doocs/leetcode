@@ -1,5 +1,5 @@
 class Solution:
-    def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
+    def nthSuperUglyNumber(self, n: int, primes: list[int]) -> int:
         q = [1]
         x = 0
         mx = (1 << 31) - 1

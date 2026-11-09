@@ -93,7 +93,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 ```python
 class Solution:
     def countUnguarded(
-        self, m: int, n: int, guards: List[List[int]], walls: List[List[int]]
+        self, m: int, n: int, guards: list[list[int]], walls: list[list[int]]
     ) -> int:
         g = [[0] * n for _ in range(m)]
         for i, j in guards:

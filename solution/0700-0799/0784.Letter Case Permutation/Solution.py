@@ -1,5 +1,5 @@
 class Solution:
-    def letterCasePermutation(self, s: str) -> List[str]:
+    def letterCasePermutation(self, s: str) -> list[str]:
         def dfs(i: int) -> None:
             if i >= len(t):
                 ans.append("".join(t))

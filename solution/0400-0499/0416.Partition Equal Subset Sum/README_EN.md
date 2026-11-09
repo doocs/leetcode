@@ -85,7 +85,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False
@@ -279,7 +279,7 @@ The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is
 
 ```python
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False

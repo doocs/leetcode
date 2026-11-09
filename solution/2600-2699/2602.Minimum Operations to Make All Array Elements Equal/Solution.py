@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], queries: List[int]) -> List[int]:
+    def minOperations(self, nums: list[int], queries: list[int]) -> list[int]:
         nums.sort()
         s = list(accumulate(nums, initial=0))
         ans = []

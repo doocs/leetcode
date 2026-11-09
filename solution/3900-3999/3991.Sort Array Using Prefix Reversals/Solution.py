@@ -1,5 +1,5 @@
 class Solution:
-    def sortArray(self, nums: List[int], pre: List[int]) -> int:
+    def sortArray(self, nums: list[int], pre: list[int]) -> int:
         n = len(nums)
         target = tuple(range(n))
         start = tuple(nums)

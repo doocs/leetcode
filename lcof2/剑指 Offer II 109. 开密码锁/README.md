@@ -95,7 +95,7 @@ comments: true
 
 ```python
 class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
+    def openLock(self, deadends: list[str], target: str) -> int:
         s = set(deadends)
         if target in s or '0000' in s:
             return -1

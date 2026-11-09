@@ -1,5 +1,5 @@
 class Solution:
-    def reachableNodes(self, edges: List[List[int]], maxMoves: int, n: int) -> int:
+    def reachableNodes(self, edges: list[list[int]], maxMoves: int, n: int) -> int:
         g = defaultdict(list)
         for u, v, cnt in edges:
             g[u].append((v, cnt + 1))

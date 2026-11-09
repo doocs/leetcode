@@ -1,5 +1,5 @@
 class Solution:
-    def minStartValue(self, nums: List[int]) -> int:
+    def minStartValue(self, nums: list[int]) -> int:
         s, t = 0, inf
         for num in nums:
             s += num

@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumCardPickup(self, cards: List[int]) -> int:
+    def minimumCardPickup(self, cards: list[int]) -> int:
         last = {}
         ans = inf
         for i, x in enumerate(cards):

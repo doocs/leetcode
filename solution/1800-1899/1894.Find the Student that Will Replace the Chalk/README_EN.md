@@ -99,7 +99,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def chalkReplacer(self, chalk: List[int], k: int) -> int:
+    def chalkReplacer(self, chalk: list[int], k: int) -> int:
         s = sum(chalk)
         k %= s
         for i, x in enumerate(chalk):

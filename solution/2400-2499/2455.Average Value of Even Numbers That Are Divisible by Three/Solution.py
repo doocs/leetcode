@@ -1,5 +1,5 @@
 class Solution:
-    def averageValue(self, nums: List[int]) -> int:
+    def averageValue(self, nums: list[int]) -> int:
         s = n = 0
         for x in nums:
             if x % 6 == 0:

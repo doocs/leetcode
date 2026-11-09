@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumSubarraySum(self, nums: List[int], k: int) -> int:
+    def maximumSubarraySum(self, nums: list[int], k: int) -> int:
         ans = -inf
         p = {nums[0]: 0}
         s, n = 0, len(nums)

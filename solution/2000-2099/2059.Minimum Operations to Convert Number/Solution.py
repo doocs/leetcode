@@ -1,5 +1,5 @@
 class Solution:
-    def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
+    def minimumOperations(self, nums: list[int], start: int, goal: int) -> int:
         op1 = lambda x, y: x + y
         op2 = lambda x, y: x - y
         op3 = lambda x, y: x ^ y

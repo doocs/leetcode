@@ -91,11 +91,11 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 class Solution:
     def filterRestaurants(
         self,
-        restaurants: List[List[int]],
+        restaurants: list[list[int]],
         veganFriendly: int,
         maxPrice: int,
         maxDistance: int,
-    ) -> List[int]:
+    ) -> list[int]:
         restaurants.sort(key=lambda x: (-x[1], -x[0]))
         ans = []
         for idx, _, vegan, price, dist in restaurants:

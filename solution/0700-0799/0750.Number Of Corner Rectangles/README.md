@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def countCornerRectangles(self, grid: List[List[int]]) -> int:
+    def countCornerRectangles(self, grid: list[list[int]]) -> int:
         ans = 0
         cnt = Counter()
         n = len(grid[0])

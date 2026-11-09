@@ -95,7 +95,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
+    def maxSumDivThree(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[-inf] * 3 for _ in range(n + 1)]
         f[0][0] = 0
@@ -209,7 +209,7 @@ $f[i][j]$ depends only on the previous row's three residues, so an array of leng
 
 ```python
 class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
+    def maxSumDivThree(self, nums: list[int]) -> int:
         f = [0, -inf, -inf]
         for x in nums:
             g = f[:]

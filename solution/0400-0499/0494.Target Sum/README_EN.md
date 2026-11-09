@@ -110,7 +110,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$.
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s < target or (s - target) % 2:
             return 0
@@ -311,7 +311,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(n)$.
 
 ```python
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         if s < target or (s - target) % 2:
             return 0

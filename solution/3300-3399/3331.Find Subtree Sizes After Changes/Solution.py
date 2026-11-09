@@ -1,5 +1,5 @@
 class Solution:
-    def findSubtreeSizes(self, parent: List[int], s: str) -> List[int]:
+    def findSubtreeSizes(self, parent: list[int], s: str) -> list[int]:
         def dfs(i: int, fa: int):
             ans[i] = 1
             d[s[i]].append(i)

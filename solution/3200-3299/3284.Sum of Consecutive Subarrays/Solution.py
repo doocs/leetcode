@@ -1,5 +1,5 @@
 class Solution:
-    def getSum(self, nums: List[int]) -> int:
+    def getSum(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         f = g = 1
         s = t = nums[0]

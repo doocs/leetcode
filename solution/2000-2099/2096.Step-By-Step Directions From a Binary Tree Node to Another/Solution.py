@@ -19,7 +19,7 @@ class Solution:
                 return node
             return left or right
 
-        def dfs(node: Optional[TreeNode], x: int, path: List[str]):
+        def dfs(node: Optional[TreeNode], x: int, path: list[str]):
             if node is None:
                 return False
             if node.val == x:

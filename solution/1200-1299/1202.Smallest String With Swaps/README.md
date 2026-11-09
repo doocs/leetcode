@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
+    def smallestStringWithSwaps(self, s: str, pairs: list[list[int]]) -> str:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

@@ -124,7 +124,7 @@ tags:
 #        """
 #        @return the nested list that this NestedInteger holds, if it holds a nested list
 #        Return None if this NestedInteger holds a single integer
-#        :rtype List[NestedInteger]
+#        :rtype list[NestedInteger]
 #        """
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:
@@ -451,7 +451,7 @@ function deserialize(s: string): NestedInteger {
 #        """
 #        @return the nested list that this NestedInteger holds, if it holds a nested list
 #        Return None if this NestedInteger holds a single integer
-#        :rtype List[NestedInteger]
+#        :rtype list[NestedInteger]
 #        """
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:

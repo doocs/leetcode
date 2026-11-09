@@ -1,5 +1,5 @@
 class Solution:
-    def minLengthAfterRemovals(self, nums: List[int]) -> int:
+    def minLengthAfterRemovals(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         pq = [-x for x in cnt.values()]
         heapify(pq)

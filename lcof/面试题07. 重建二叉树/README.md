@@ -85,7 +85,7 @@ difficulty: 中等
 
 
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+    def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode:
         def dfs(i, j, n):
             if n < 1:
                 return None

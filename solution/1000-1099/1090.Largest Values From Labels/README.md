@@ -116,7 +116,7 @@ tags:
 ```python
 class Solution:
     def largestValsFromLabels(
-        self, values: List[int], labels: List[int], numWanted: int, useLimit: int
+        self, values: list[int], labels: list[int], numWanted: int, useLimit: int
     ) -> int:
         ans = num = 0
         cnt = Counter()

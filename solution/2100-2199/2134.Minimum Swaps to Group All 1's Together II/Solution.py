@@ -1,5 +1,5 @@
 class Solution:
-    def minSwaps(self, nums: List[int]) -> int:
+    def minSwaps(self, nums: list[int]) -> int:
         k = nums.count(1)
         mx = cnt = sum(nums[:k])
         n = len(nums)

@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def isAlienSorted(self, words: List[str], order: str) -> bool:
+    def isAlienSorted(self, words: list[str], order: str) -> bool:
         m = {c: i for i, c in enumerate(order)}
         for i in range(20):
             prev = -1

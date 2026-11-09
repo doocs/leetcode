@@ -1,5 +1,5 @@
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         def dfs(i: int):
             if i in vis:
                 return

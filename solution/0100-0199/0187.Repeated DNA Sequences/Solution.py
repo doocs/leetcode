@@ -1,5 +1,5 @@
 class Solution:
-    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+    def findRepeatedDnaSequences(self, s: str) -> list[str]:
         cnt = Counter()
         ans = []
         for i in range(len(s) - 10 + 1):

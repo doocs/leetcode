@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
+    def minimumOperations(self, nums: list[int]) -> int:
         def f(i: int) -> Tuple[int, int, int, int]:
             k1 = k2 = 0
             cnt = Counter(nums[i::2])

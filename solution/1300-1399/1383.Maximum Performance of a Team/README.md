@@ -98,7 +98,7 @@ tags:
 ```python
 class Solution:
     def maxPerformance(
-        self, n: int, speed: List[int], efficiency: List[int], k: int
+        self, n: int, speed: list[int], efficiency: list[int], k: int
     ) -> int:
         t = sorted(zip(speed, efficiency), key=lambda x: -x[1])
         ans = tot = 0

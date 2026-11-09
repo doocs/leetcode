@@ -90,7 +90,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    def canBeEqual(self, target: list[int], arr: list[int]) -> bool:
         return sorted(target) == sorted(arr)
 ```
 
@@ -225,7 +225,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 
 ```python
 class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    def canBeEqual(self, target: list[int], arr: list[int]) -> bool:
         return Counter(target) == Counter(arr)
 ```
 

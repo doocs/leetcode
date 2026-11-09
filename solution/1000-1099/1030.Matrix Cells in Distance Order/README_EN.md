@@ -91,7 +91,7 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 class Solution:
     def allCellsDistOrder(
         self, rows: int, cols: int, rCenter: int, cCenter: int
-    ) -> List[List[int]]:
+    ) -> list[list[int]]:
         q = deque([[rCenter, cCenter]])
         vis = [[False] * cols for _ in range(rows)]
         vis[rCenter][cCenter] = True

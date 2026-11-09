@@ -64,7 +64,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def constructArr(self, a: List[int]) -> List[int]:
+    def constructArr(self, a: list[int]) -> list[int]:
         n = len(a)
         ans = [0] * n
         left = right = 1

@@ -1,5 +1,5 @@
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(nums):

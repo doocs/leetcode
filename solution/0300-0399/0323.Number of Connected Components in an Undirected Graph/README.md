@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if i in vis:
                 return 0
@@ -304,7 +304,7 @@ class UnionFind:
 
 
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         uf = UnionFind(n)
         for a, b in edges:
             n -= uf.union(a, b)
@@ -535,7 +535,7 @@ function countComponents(n: number, edges: number[][]): number {
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
@@ -722,7 +722,7 @@ function countComponents(n: number, edges: number[][]): number {
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

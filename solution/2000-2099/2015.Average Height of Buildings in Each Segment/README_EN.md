@@ -124,7 +124,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def averageHeightOfBuildings(self, buildings: List[List[int]]) -> List[List[int]]:
+    def averageHeightOfBuildings(self, buildings: list[list[int]]) -> list[list[int]]:
         cnt = defaultdict(int)
         d = defaultdict(int)
         for start, end, height in buildings:

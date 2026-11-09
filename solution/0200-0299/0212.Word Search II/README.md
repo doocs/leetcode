@@ -87,7 +87,7 @@ tags:
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Trie | None] = [None] * 26
+        self.children: list[Trie | None] = [None] * 26
         self.ref: int = -1
 
     def insert(self, w: str, ref: int):
@@ -101,7 +101,7 @@ class Trie:
 
 
 class Solution:
-    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+    def findWords(self, board: list[list[str]], words: list[str]) -> list[str]:
         def dfs(node: Trie, i: int, j: int):
             idx = ord(board[i][j]) - ord('a')
             if node.children[idx] is None:

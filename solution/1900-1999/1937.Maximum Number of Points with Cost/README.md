@@ -116,7 +116,7 @@ $$
 
 ```python
 class Solution:
-    def maxPoints(self, points: List[List[int]]) -> int:
+    def maxPoints(self, points: list[list[int]]) -> int:
         n = len(points[0])
         f = points[0][:]
         for p in points[1:]:

@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfSubarrays(self, nums: List[int], k: int) -> int:
+    def numberOfSubarrays(self, nums: list[int], k: int) -> int:
         cnt = Counter({0: 1})
         ans = t = 0
         for v in nums:

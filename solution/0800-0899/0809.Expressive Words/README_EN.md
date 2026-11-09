@@ -97,7 +97,7 @@ The time complexity is $O(nm + \sum_{i=0}^{m-1} w_i)$, where $n$ and $m$ are the
 
 ```python
 class Solution:
-    def expressiveWords(self, s: str, words: List[str]) -> int:
+    def expressiveWords(self, s: str, words: list[str]) -> int:
         def check(s, t):
             m, n = len(s), len(t)
             if n > m:

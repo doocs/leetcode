@@ -1,5 +1,5 @@
 class Solution:
-    def numFriendRequests(self, ages: List[int]) -> int:
+    def numFriendRequests(self, ages: list[int]) -> int:
         cnt = [0] * 121
         for x in ages:
             cnt[x] += 1

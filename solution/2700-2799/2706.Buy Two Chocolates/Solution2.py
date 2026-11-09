@@ -1,5 +1,5 @@
 class Solution:
-    def buyChoco(self, prices: List[int], money: int) -> int:
+    def buyChoco(self, prices: list[int], money: int) -> int:
         a = b = inf
         for x in prices:
             if x < a:

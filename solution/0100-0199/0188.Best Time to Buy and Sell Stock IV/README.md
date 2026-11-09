@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= len(prices):
@@ -307,7 +307,7 @@ $$
 
 ```python
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         n = len(prices)
         f = [[[0] * 2 for _ in range(k + 1)] for _ in range(n)]
         for j in range(1, k + 1):
@@ -451,7 +451,7 @@ $f[i][j][k]$ 只与上一天有关，去掉第一维后用 $f[k+1][2]$ 滚动即
 
 ```python
 class Solution:
-    def maxProfit(self, k: int, prices: List[int]) -> int:
+    def maxProfit(self, k: int, prices: list[int]) -> int:
         f = [[0] * 2 for _ in range(k + 1)]
         for j in range(1, k + 1):
             f[j][1] = -prices[0]

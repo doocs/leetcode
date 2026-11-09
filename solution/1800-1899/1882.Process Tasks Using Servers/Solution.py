@@ -1,5 +1,5 @@
 class Solution:
-    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
+    def assignTasks(self, servers: list[int], tasks: list[int]) -> list[int]:
         idle = [(x, i) for i, x in enumerate(servers)]
         heapify(idle)
         busy = []

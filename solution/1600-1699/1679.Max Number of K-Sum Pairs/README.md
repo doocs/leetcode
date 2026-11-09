@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def maxOperations(self, nums: List[int], k: int) -> int:
+    def maxOperations(self, nums: list[int], k: int) -> int:
         nums.sort()
         l, r, ans = 0, len(nums) - 1, 0
         while l < r:
@@ -253,7 +253,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def maxOperations(self, nums: List[int], k: int) -> int:
+    def maxOperations(self, nums: list[int], k: int) -> int:
         cnt = Counter()
         ans = 0
         for x in nums:

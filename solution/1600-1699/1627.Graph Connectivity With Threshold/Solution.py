@@ -23,8 +23,8 @@ class UnionFind:
 
 class Solution:
     def areConnected(
-        self, n: int, threshold: int, queries: List[List[int]]
-    ) -> List[bool]:
+        self, n: int, threshold: int, queries: list[list[int]]
+    ) -> list[bool]:
         uf = UnionFind(n + 1)
         for a in range(threshold + 1, n + 1):
             for b in range(a + a, n + 1, a):

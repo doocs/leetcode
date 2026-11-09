@@ -1,5 +1,5 @@
 class Solution:
-    def checkSubarraySum(self, nums: List[int], k: int) -> bool:
+    def checkSubarraySum(self, nums: list[int], k: int) -> bool:
         d = {0: -1}
         s = 0
         for i, x in enumerate(nums):

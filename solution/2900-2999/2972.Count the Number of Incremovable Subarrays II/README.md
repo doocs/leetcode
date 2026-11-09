@@ -115,7 +115,7 @@ nums 中只有这 7 个移除递增子数组。
 
 ```python
 class Solution:
-    def incremovableSubarrayCount(self, nums: List[int]) -> int:
+    def incremovableSubarrayCount(self, nums: list[int]) -> int:
         i, n = 0, len(nums)
         while i + 1 < n and nums[i] < nums[i + 1]:
             i += 1

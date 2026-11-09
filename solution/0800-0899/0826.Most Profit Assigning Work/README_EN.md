@@ -92,7 +92,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 ```python
 class Solution:
     def maxProfitAssignment(
-        self, difficulty: List[int], profit: List[int], worker: List[int]
+        self, difficulty: list[int], profit: list[int], worker: list[int]
     ) -> int:
         worker.sort()
         jobs = sorted(zip(difficulty, profit))
@@ -230,7 +230,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 ```python
 class Solution:
     def maxProfitAssignment(
-        self, difficulty: List[int], profit: List[int], worker: List[int]
+        self, difficulty: list[int], profit: list[int], worker: list[int]
     ) -> int:
         m = max(difficulty)
         f = [0] * (m + 1)

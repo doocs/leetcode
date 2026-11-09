@@ -132,7 +132,7 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 ```python
 class Solution:
     def mostProfitablePath(
-        self, edges: List[List[int]], bob: int, amount: List[int]
+        self, edges: list[list[int]], bob: int, amount: list[int]
     ) -> int:
         def dfs1(i, fa, t):
             if i == 0:
@@ -367,7 +367,7 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 ```python
 class Solution:
     def mostProfitablePath(
-        self, edges: List[List[int]], bob: int, amount: List[int]
+        self, edges: list[list[int]], bob: int, amount: list[int]
     ) -> int:
         n = len(edges) + 1
         g = defaultdict(list)

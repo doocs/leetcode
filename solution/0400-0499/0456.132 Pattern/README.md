@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def find132pattern(self, nums: List[int]) -> bool:
+    def find132pattern(self, nums: list[int]) -> bool:
         vk = -inf
         stk = []
         for x in nums[::-1]:
@@ -260,7 +260,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def find132pattern(self, nums: List[int]) -> bool:
+    def find132pattern(self, nums: list[int]) -> bool:
         s = sorted(set(nums))
         n = len(nums)
         left = [inf] * (n + 1)

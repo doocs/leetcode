@@ -123,7 +123,7 @@ class SegmentTree:
     def __init__(self, s: str):
         self.s = list(s)
         n = len(s)
-        self.tr: List[Node | None] = [None] * (n * 4)
+        self.tr: list[Node | None] = [None] * (n * 4)
         self.build(1, 1, n)
 
     def build(self, u: int, l: int, r: int):
@@ -173,8 +173,8 @@ class SegmentTree:
 
 class Solution:
     def longestRepeating(
-        self, s: str, queryCharacters: str, queryIndices: List[int]
-    ) -> List[int]:
+        self, s: str, queryCharacters: str, queryIndices: list[int]
+    ) -> list[int]:
         tree = SegmentTree(s)
         ans = []
         for x, v in zip(queryIndices, queryCharacters):

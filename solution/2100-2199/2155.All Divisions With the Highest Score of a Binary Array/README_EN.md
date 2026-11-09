@@ -112,7 +112,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxScoreIndices(self, nums: List[int]) -> List[int]:
+    def maxScoreIndices(self, nums: list[int]) -> list[int]:
         l0, r1 = 0, sum(nums)
         mx = r1
         ans = [0]

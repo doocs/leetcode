@@ -112,7 +112,7 @@ $$
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         f = 1
         for v in nums:

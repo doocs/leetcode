@@ -105,10 +105,10 @@ tags:
 class Solution:
     def minCost(
         self,
-        startPos: List[int],
-        homePos: List[int],
-        rowCosts: List[int],
-        colCosts: List[int],
+        startPos: list[int],
+        homePos: list[int],
+        rowCosts: list[int],
+        colCosts: list[int],
     ) -> int:
         x0, y0 = startPos
         x1, y1 = homePos

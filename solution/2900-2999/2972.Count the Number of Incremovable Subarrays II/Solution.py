@@ -1,5 +1,5 @@
 class Solution:
-    def incremovableSubarrayCount(self, nums: List[int]) -> int:
+    def incremovableSubarrayCount(self, nums: list[int]) -> int:
         i, n = 0, len(nums)
         while i + 1 < n and nums[i] < nums[i + 1]:
             i += 1

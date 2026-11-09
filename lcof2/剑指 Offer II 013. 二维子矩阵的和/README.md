@@ -111,7 +111,7 @@ $$
 
 ```python
 class NumMatrix:
-    def __init__(self, matrix: List[List[int]]):
+    def __init__(self, matrix: list[list[int]]):
         self.s = [[0] * (len(matrix[0]) + 1) for _ in range(len(matrix) + 1)]
         for i, row in enumerate(matrix, 1):
             for j, x in enumerate(row, 1):

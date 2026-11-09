@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def candy(self, ratings: List[int]) -> int:
+    def candy(self, ratings: list[int]) -> int:
         n = len(ratings)
         left = [1] * n
         right = [1] * n

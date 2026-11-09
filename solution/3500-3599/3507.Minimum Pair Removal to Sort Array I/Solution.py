@@ -1,9 +1,9 @@
 class Solution:
-    def minimumPairRemoval(self, nums: List[int]) -> int:
+    def minimumPairRemoval(self, nums: list[int]) -> int:
         arr = nums[:]
         ans = 0
 
-        def is_non_decreasing(a: List[int]) -> bool:
+        def is_non_decreasing(a: list[int]) -> bool:
             for i in range(1, len(a)):
                 if a[i] < a[i - 1]:
                     return False

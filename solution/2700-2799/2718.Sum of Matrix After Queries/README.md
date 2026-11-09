@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def matrixSumQueries(self, n: int, queries: List[List[int]]) -> int:
+    def matrixSumQueries(self, n: int, queries: list[list[int]]) -> int:
         row = set()
         col = set()
         ans = 0

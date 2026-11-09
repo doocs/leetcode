@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumScore(self, scores: List[int], edges: List[List[int]]) -> int:
+    def maximumScore(self, scores: list[int], edges: list[list[int]]) -> int:
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)

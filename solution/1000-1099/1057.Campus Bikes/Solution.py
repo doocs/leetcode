@@ -1,7 +1,7 @@
 class Solution:
     def assignBikes(
-        self, workers: List[List[int]], bikes: List[List[int]]
-    ) -> List[int]:
+        self, workers: list[list[int]], bikes: list[list[int]]
+    ) -> list[int]:
         n, m = len(workers), len(bikes)
         arr = []
         for i, j in product(range(n), range(m)):

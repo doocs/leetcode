@@ -128,7 +128,7 @@ class UnionFind:
 
 
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         m, n = len(heights), len(heights[0])
         uf = UnionFind(m * n)
         e = []
@@ -470,7 +470,7 @@ The time complexity is $O(mn \log M)$, and the space complexity is $O(mn)$, wher
 
 ```python
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         def check(h: int) -> bool:
             q = deque([(0, 0)])
             vis = {(0, 0)}
@@ -706,7 +706,7 @@ The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, wh
 
 ```python
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         m, n = len(heights), len(heights[0])
         dist = [[inf] * n for _ in range(m)]
         dist[0][0] = 0

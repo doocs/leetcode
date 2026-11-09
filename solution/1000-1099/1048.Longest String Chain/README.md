@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
+    def longestStrChain(self, words: list[str]) -> int:
         def check(a: str, b: str) -> bool:
             if len(a) + 1 != len(b):
                 return False
@@ -327,7 +327,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
+    def longestStrChain(self, words: list[str]) -> int:
         words.sort(key=len)
         f = {}
         ans = 0

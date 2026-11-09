@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
+    def miceAndCheese(self, reward1: list[int], reward2: list[int], k: int) -> int:
         n = len(reward1)
         idx = sorted(range(n), key=lambda i: reward1[i] - reward2[i], reverse=True)
         return sum(reward1[i] for i in idx[:k]) + sum(reward2[i] for i in idx[k:])
@@ -215,7 +215,7 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 ```python
 class Solution:
-    def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
+    def miceAndCheese(self, reward1: list[int], reward2: list[int], k: int) -> int:
         for i, x in enumerate(reward2):
             reward1[i] -= x
         reward1.sort(reverse=True)

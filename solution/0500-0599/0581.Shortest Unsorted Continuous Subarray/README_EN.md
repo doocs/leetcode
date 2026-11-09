@@ -86,7 +86,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findUnsortedSubarray(self, nums: List[int]) -> int:
+    def findUnsortedSubarray(self, nums: list[int]) -> int:
         arr = sorted(nums)
         l, r = 0, len(nums) - 1
         while l <= r and nums[l] == arr[l]:
@@ -221,7 +221,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findUnsortedSubarray(self, nums: List[int]) -> int:
+    def findUnsortedSubarray(self, nums: list[int]) -> int:
         mi, mx = inf, -inf
         l = r = -1
         n = len(nums)

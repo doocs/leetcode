@@ -100,7 +100,7 @@ comments: true
 
 ```python
 class Solution:
-    def breakfastNumber(self, staple: List[int], drinks: List[int], x: int) -> int:
+    def breakfastNumber(self, staple: list[int], drinks: list[int], x: int) -> int:
         res, n = 0, len(drinks)
         drinks.sort()
         for s in staple:

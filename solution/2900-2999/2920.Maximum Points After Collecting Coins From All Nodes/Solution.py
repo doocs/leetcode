@@ -1,5 +1,5 @@
 class Solution:
-    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+    def maximumPoints(self, edges: list[list[int]], coins: list[int], k: int) -> int:
         @cache
         def dfs(i: int, fa: int, j: int) -> int:
             a = (coins[i] >> j) - k

@@ -124,7 +124,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def getPermutationIndex(self, perm: List[int]) -> int:
+    def getPermutationIndex(self, perm: list[int]) -> int:
         mod = 10**9 + 7
         ans, n = 0, len(perm)
         tree = BinaryIndexedTree(n + 1)

@@ -1,5 +1,5 @@
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         m = nums[-1] << 1
         f = [False] * m

@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], x: int, y: int) -> int:
+    def minOperations(self, nums: list[int], x: int, y: int) -> int:
         def check(t: int) -> bool:
             cnt = 0
             for v in nums:

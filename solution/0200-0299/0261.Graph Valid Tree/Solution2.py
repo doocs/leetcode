@@ -1,5 +1,5 @@
 class Solution:
-    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+    def validTree(self, n: int, edges: list[list[int]]) -> bool:
         def dfs(i: int):
             vis.add(i)
             for j in g[i]:

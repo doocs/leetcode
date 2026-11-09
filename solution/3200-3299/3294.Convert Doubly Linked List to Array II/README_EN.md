@@ -87,7 +87,7 @@ class Node:
 
 
 class Solution:
-    def toArray(self, node: "Optional[Node]") -> List[int]:
+    def toArray(self, node: "Optional[Node]") -> list[int]:
         while node.prev:
             node = node.prev
         ans = []

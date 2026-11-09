@@ -72,7 +72,7 @@ The time complexity is $O(nn!)$, where $n$ is the length of the string. There ar
 
 ```python
 class Solution:
-    def permutation(self, S: str) -> List[str]:
+    def permutation(self, S: str) -> list[str]:
         def dfs(i: int):
             if i >= n:
                 ans.append("".join(t))

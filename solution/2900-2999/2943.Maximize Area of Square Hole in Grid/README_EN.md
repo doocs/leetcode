@@ -118,9 +118,9 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def maximizeSquareHoleArea(
-        self, n: int, m: int, hBars: List[int], vBars: List[int]
+        self, n: int, m: int, hBars: list[int], vBars: list[int]
     ) -> int:
-        def f(nums: List[int]) -> int:
+        def f(nums: list[int]) -> int:
             nums.sort()
             ans = cnt = 1
             for i in range(1, len(nums)):

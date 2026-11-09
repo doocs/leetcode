@@ -1,5 +1,5 @@
 class Solution:
-    def minRemovals(self, nums: List[int], target: int) -> int:
+    def minRemovals(self, nums: list[int], target: int) -> int:
         m = max(nums).bit_length()
         if (1 << m) <= target:
             return -1

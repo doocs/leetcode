@@ -1,5 +1,5 @@
 class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
+    def findRepeatNumber(self, nums: list[int]) -> int:
         vis = set()
         for v in nums:
             if v in vis:

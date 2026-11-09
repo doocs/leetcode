@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def minProcessingTime(self, processorTime: List[int], tasks: List[int]) -> int:
+    def minProcessingTime(self, processorTime: list[int], tasks: list[int]) -> int:
         processorTime.sort()
         tasks.sort()
         ans = 0

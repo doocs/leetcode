@@ -125,7 +125,7 @@ class SegmentTree:
     __slots__ = "tr"
 
     def __init__(self, n: int):
-        self.tr: List[Node | None] = [None] * (n << 2)
+        self.tr: list[Node | None] = [None] * (n << 2)
         self.build(1, 1, n)
 
     def build(self, u: int, l: int, r: int):
@@ -167,7 +167,7 @@ class SegmentTree:
 
 
 class Solution:
-    def maximumSumSubsequence(self, nums: List[int], queries: List[List[int]]) -> int:
+    def maximumSumSubsequence(self, nums: list[int], queries: list[list[int]]) -> int:
         n = len(nums)
         tree = SegmentTree(n)
         for i, x in enumerate(nums, 1):

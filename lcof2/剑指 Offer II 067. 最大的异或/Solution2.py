@@ -25,7 +25,7 @@ class Trie:
 
 
 class Solution:
-    def findMaximumXOR(self, nums: List[int]) -> int:
+    def findMaximumXOR(self, nums: list[int]) -> int:
         trie = Trie()
         for v in nums:
             trie.insert(v)

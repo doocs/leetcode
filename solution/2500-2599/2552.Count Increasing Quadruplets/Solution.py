@@ -1,5 +1,5 @@
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         g = [[0] * n for _ in range(n)]

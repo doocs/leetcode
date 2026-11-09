@@ -2,9 +2,9 @@ class Solution:
     def maxProfit(
         self,
         n: int,
-        present: List[int],
-        future: List[int],
-        hierarchy: List[List[int]],
+        present: list[int],
+        future: list[int],
+        hierarchy: list[list[int]],
         budget: int,
     ) -> int:
         max = lambda a, b: a if a > b else b

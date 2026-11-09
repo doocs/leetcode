@@ -1,7 +1,7 @@
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, newColor: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, newColor: int
+    ) -> list[list[int]]:
         def dfs(i, j):
             if (
                 not 0 <= i < m

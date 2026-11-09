@@ -1,5 +1,5 @@
 class Solution:
-    def cycleLengthQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+    def cycleLengthQueries(self, n: int, queries: list[list[int]]) -> list[int]:
         ans = []
         for a, b in queries:
             t = 1

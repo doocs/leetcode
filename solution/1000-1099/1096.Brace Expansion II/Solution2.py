@@ -1,5 +1,5 @@
 class Solution:
-    def braceExpansionII(self, expression: str) -> List[str]:
+    def braceExpansionII(self, expression: str) -> list[str]:
         def expr(i: int):
             res, i = term(i)
             while i < len(expression) and expression[i] == ',':

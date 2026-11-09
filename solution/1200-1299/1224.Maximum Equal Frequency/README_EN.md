@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxEqualFreq(self, nums: List[int]) -> int:
+    def maxEqualFreq(self, nums: list[int]) -> int:
         cnt = Counter()
         ccnt = Counter()
         ans = mx = 0

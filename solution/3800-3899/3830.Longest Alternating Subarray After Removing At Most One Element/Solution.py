@@ -1,5 +1,5 @@
 class Solution:
-    def longestAlternating(self, nums: List[int]) -> int:
+    def longestAlternating(self, nums: list[int]) -> int:
         n = len(nums)
         l1 = [1] * n
         l2 = [1] * n

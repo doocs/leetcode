@@ -3,19 +3,19 @@ class AnimalShelf:
     def __init__(self):
         self.q = [deque(), deque()]
 
-    def enqueue(self, animal: List[int]) -> None:
+    def enqueue(self, animal: list[int]) -> None:
         i, j = animal
         self.q[j].append(i)
 
-    def dequeueAny(self) -> List[int]:
+    def dequeueAny(self) -> list[int]:
         if not self.q[0] or (self.q[1] and self.q[1][0] < self.q[0][0]):
             return self.dequeueDog()
         return self.dequeueCat()
 
-    def dequeueDog(self) -> List[int]:
+    def dequeueDog(self) -> list[int]:
         return [-1, -1] if not self.q[1] else [self.q[1].popleft(), 1]
 
-    def dequeueCat(self) -> List[int]:
+    def dequeueCat(self) -> list[int]:
         return [-1, -1] if not self.q[0] else [self.q[0].popleft(), 0]
 
 

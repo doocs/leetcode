@@ -112,7 +112,7 @@ tags:
 
 ```python
 class Solution:
-    def minCost(self, n: int, edges: List[List[int]], k: int) -> int:
+    def minCost(self, n: int, edges: list[list[int]], k: int) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

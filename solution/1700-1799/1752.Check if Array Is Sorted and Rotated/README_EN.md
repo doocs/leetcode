@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def check(self, nums: List[int]) -> bool:
+    def check(self, nums: list[int]) -> bool:
         return sum(nums[i - 1] > x for i, x in enumerate(nums)) <= 1
 ```
 

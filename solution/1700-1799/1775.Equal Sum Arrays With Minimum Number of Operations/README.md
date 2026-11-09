@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+    def minOperations(self, nums1: list[int], nums2: list[int]) -> int:
         s1, s2 = sum(nums1), sum(nums2)
         if s1 == s2:
             return 0
@@ -243,7 +243,7 @@ func sum(nums []int) (s int) {
 
 ```python
 class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+    def minOperations(self, nums1: list[int], nums2: list[int]) -> int:
         s1, s2 = sum(nums1), sum(nums2)
         if s1 == s2:
             return 0

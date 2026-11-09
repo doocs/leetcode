@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         return sum(max(0, b - a) for a, b in pairwise(prices))
 ```
 
@@ -226,7 +226,7 @@ $$
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         n = len(prices)
         f = [[0] * 2 for _ in range(n)]
         f[0][0] = -prices[0]
@@ -329,7 +329,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         n = len(prices)
         f = [-prices[0], 0]
         for i in range(1, n):

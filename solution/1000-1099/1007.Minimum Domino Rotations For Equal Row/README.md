@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def minDominoRotations(self, tops: List[int], bottoms: List[int]) -> int:
+    def minDominoRotations(self, tops: list[int], bottoms: list[int]) -> int:
         def f(x: int) -> int:
             cnt1 = cnt2 = 0
             for a, b in zip(tops, bottoms):

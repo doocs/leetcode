@@ -85,7 +85,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def stringMatching(self, words: List[str]) -> List[str]:
+    def stringMatching(self, words: list[str]) -> list[str]:
         ans = []
         for i, s in enumerate(words):
             if any(i != j and s in t for j, t in enumerate(words)):

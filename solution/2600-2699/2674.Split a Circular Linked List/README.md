@@ -85,7 +85,7 @@ tags:
 class Solution:
     def splitCircularLinkedList(
         self, list: Optional[ListNode]
-    ) -> List[Optional[ListNode]]:
+    ) -> list[Optional[ListNode]]:
         a = b = list
         while b.next != list and b.next.next != list:
             a = a.next

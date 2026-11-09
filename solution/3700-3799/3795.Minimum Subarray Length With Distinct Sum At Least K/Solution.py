@@ -1,5 +1,5 @@
 class Solution:
-    def minLength(self, nums: List[int], k: int) -> int:
+    def minLength(self, nums: list[int], k: int) -> int:
         cnt = defaultdict(int)
         n = len(nums)
         ans = n + 1

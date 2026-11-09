@@ -103,7 +103,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minIncrements(self, n: int, cost: List[int]) -> int:
+    def minIncrements(self, n: int, cost: list[int]) -> int:
         ans = 0
         for i in range(n >> 1, 0, -1):
             l, r = i << 1, i << 1 | 1

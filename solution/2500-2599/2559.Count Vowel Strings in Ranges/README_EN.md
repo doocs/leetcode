@@ -89,7 +89,7 @@ The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, wh
 
 ```python
 class Solution:
-    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+    def vowelStrings(self, words: list[str], queries: list[list[int]]) -> list[int]:
         vowels = set("aeiou")
         nums = [i for i, w in enumerate(words) if w[0] in vowels and w[-1] in vowels]
         return [bisect_right(nums, r) - bisect_left(nums, l) for l, r in queries]
@@ -236,7 +236,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+    def vowelStrings(self, words: list[str], queries: list[list[int]]) -> list[int]:
         vowels = set("aeiou")
         s = list(
             accumulate(

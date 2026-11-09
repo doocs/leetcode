@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             return max(

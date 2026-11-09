@@ -1,5 +1,5 @@
 class Solution:
-    def __init__(self, w: List[int]):
+    def __init__(self, w: list[int]):
         n = len(w)
         self.presum = [0] * (n + 1)
         for i in range(n):

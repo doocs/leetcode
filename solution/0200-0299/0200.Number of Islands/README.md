@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def dfs(i, j):
             grid[i][j] = '0'
             for a, b in pairwise(dirs):
@@ -351,7 +351,7 @@ BFS 的具体过程如下：
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def bfs(i, j):
             grid[i][j] = '0'
             q = deque([(i, j)])
@@ -599,7 +599,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -869,7 +869,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = '0'

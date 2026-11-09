@@ -1,5 +1,5 @@
 class Solution:
-    def predictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         for i, x in enumerate(nums):

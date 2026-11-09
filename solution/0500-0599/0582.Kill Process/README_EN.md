@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+    def killProcess(self, pid: list[int], ppid: list[int], kill: int) -> list[int]:
         def dfs(i: int):
             ans.append(i)
             for j in g[i]:
@@ -247,7 +247,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+    def killProcess(self, pid: list[int], ppid: list[int], kill: int) -> list[int]:
         g = defaultdict(list)
         for i, p in zip(pid, ppid):
             g[p].append(i)

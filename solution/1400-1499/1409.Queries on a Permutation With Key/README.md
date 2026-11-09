@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def processQueries(self, queries: List[int], m: int) -> List[int]:
+    def processQueries(self, queries: list[int], m: int) -> list[int]:
         p = list(range(1, m + 1))
         ans = []
         for v in queries:
@@ -252,7 +252,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def processQueries(self, queries: List[int], m: int) -> List[int]:
+    def processQueries(self, queries: list[int], m: int) -> list[int]:
         n = len(queries)
         pos = [0] * (m + 1)
         tree = BinaryIndexedTree(m + n)

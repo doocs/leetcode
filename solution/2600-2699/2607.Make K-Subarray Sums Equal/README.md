@@ -122,7 +122,7 @@ $$
 
 ```python
 class Solution:
-    def makeSubKSumEqual(self, arr: List[int], k: int) -> int:
+    def makeSubKSumEqual(self, arr: list[int], k: int) -> int:
         n = len(arr)
         g = gcd(n, k)
         ans = 0

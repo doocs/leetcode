@@ -114,7 +114,7 @@ def extend(m1, m2, q):
 
 ```python
 class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: list[str]) -> int:
         words = set(wordList)
         q = deque([beginWord])
         ans = 1
@@ -381,7 +381,7 @@ function ladderLength(beginWord: string, endWord: string, wordList: string[]): n
 
 ```python
 class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: list[str]) -> int:
         def extend(m1, m2, q):
             for _ in range(len(q)):
                 s = q.popleft()

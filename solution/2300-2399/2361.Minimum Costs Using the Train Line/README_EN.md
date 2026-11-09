@@ -122,8 +122,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def minimumCosts(
-        self, regular: List[int], express: List[int], expressCost: int
-    ) -> List[int]:
+        self, regular: list[int], express: list[int], expressCost: int
+    ) -> list[int]:
         n = len(regular)
         f = [0] * (n + 1)
         g = [inf] * (n + 1)
@@ -244,8 +244,8 @@ $f[i]$ and $g[i]$ only depend on $f[i-1]$ and $g[i-1]$, so we can keep two rolli
 ```python
 class Solution:
     def minimumCosts(
-        self, regular: List[int], express: List[int], expressCost: int
-    ) -> List[int]:
+        self, regular: list[int], express: list[int], expressCost: int
+    ) -> list[int]:
         n = len(regular)
         f, g = 0, inf
         cost = [0] * n

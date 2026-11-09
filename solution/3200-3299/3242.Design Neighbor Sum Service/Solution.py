@@ -1,6 +1,6 @@
 class NeighborSum:
 
-    def __init__(self, grid: List[List[int]]):
+    def __init__(self, grid: list[list[int]]):
         self.grid = grid
         self.d = {}
         self.dirs = ((-1, 0, 1, 0, -1), (-1, 1, 1, -1, -1))

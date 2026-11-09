@@ -120,7 +120,7 @@ $$
 
 ```python
 class Solution:
-    def cherryPickup(self, grid: List[List[int]]) -> int:
+    def cherryPickup(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[[-1] * n for _ in range(n)] for _ in range(m)]
         f[0][0][n - 1] = grid[0][0] + grid[0][n - 1]
@@ -300,7 +300,7 @@ function cherryPickup(grid: number[][]): number {
 
 ```python
 class Solution:
-    def cherryPickup(self, grid: List[List[int]]) -> int:
+    def cherryPickup(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[-1] * n for _ in range(n)]
         g = [[-1] * n for _ in range(n)]

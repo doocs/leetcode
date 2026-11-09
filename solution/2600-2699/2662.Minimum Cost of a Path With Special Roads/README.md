@@ -133,7 +133,7 @@ tags:
 ```python
 class Solution:
     def minimumCost(
-        self, start: List[int], target: List[int], specialRoads: List[List[int]]
+        self, start: list[int], target: list[int], specialRoads: list[list[int]]
     ) -> int:
         def dist(x1: int, y1: int, x2: int, y2: int) -> int:
             return abs(x1 - x2) + abs(y1 - y2)

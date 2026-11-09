@@ -117,7 +117,7 @@ class UnionFind:
 
 
 class Solution:
-    def removeStones(self, stones: List[List[int]]) -> int:
+    def removeStones(self, stones: list[list[int]]) -> int:
         uf = UnionFind(len(stones))
         ans = 0
         for i, (x1, y1) in enumerate(stones):
@@ -395,7 +395,7 @@ class UnionFind:
 
 
 class Solution:
-    def removeStones(self, stones: List[List[int]]) -> int:
+    def removeStones(self, stones: list[list[int]]) -> int:
         m = 10001
         uf = UnionFind(m << 1)
         for x, y in stones:

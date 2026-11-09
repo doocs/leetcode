@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def getDistances(self, arr: List[int]) -> List[int]:
+    def getDistances(self, arr: list[int]) -> list[int]:
         d = defaultdict(list)
         n = len(arr)
         for i, v in enumerate(arr):

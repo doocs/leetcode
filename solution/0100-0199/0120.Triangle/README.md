@@ -93,7 +93,7 @@ $$
 
 ```python
 class Solution:
-    def minimumTotal(self, triangle: List[List[int]]) -> int:
+    def minimumTotal(self, triangle: list[list[int]]) -> int:
         n = len(triangle)
         f = [[0] * (n + 1) for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):
@@ -213,7 +213,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minimumTotal(self, triangle: List[List[int]]) -> int:
+    def minimumTotal(self, triangle: list[list[int]]) -> int:
         n = len(triangle)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

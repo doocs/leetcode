@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def alienOrder(self, words: List[str]) -> str:
+    def alienOrder(self, words: list[str]) -> str:
         g = [[False] * 26 for _ in range(26)]
         s = [False] * 26
         cnt = 0

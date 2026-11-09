@@ -1,5 +1,5 @@
 class Solution:
-    def totalSteps(self, nums: List[int]) -> int:
+    def totalSteps(self, nums: list[int]) -> int:
         stk = []
         ans, n = 0, len(nums)
         dp = [0] * n

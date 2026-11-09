@@ -89,7 +89,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def destroyTargets(self, nums: List[int], space: int) -> int:
+    def destroyTargets(self, nums: list[int], space: int) -> int:
         cnt = Counter(v % space for v in nums)
         ans = mx = 0
         for v in nums:

@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def connectSticks(self, sticks: List[int]) -> int:
+    def connectSticks(self, sticks: list[int]) -> int:
         heapify(sticks)
         ans = 0
         while len(sticks) > 1:

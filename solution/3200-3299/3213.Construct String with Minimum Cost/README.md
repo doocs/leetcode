@@ -113,7 +113,7 @@ $$
 
 ```python
 class Solution:
-    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+    def minimumCost(self, target: str, words: list[str], costs: list[int]) -> int:
         base, mod = 13331, 998244353
         n = len(target)
         h = [0] * (n + 1)

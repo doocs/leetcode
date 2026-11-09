@@ -119,7 +119,7 @@ tags:
 
 ```python
 class Solution:
-    def oddEvenJumps(self, arr: List[int]) -> int:
+    def oddEvenJumps(self, arr: list[int]) -> int:
         @cache
         def dfs(i: int, k: int) -> bool:
             if i == n - 1:
@@ -351,7 +351,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def oddEvenJumps(self, arr: List[int]) -> int:
+    def oddEvenJumps(self, arr: list[int]) -> int:
         n = len(arr)
         g = [[-1] * 2 for _ in range(n)]
         sd = SortedDict()

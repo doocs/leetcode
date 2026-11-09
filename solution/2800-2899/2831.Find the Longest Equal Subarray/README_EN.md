@@ -92,7 +92,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+    def longestEqualSubarray(self, nums: list[int], k: int) -> int:
         cnt = Counter()
         l = 0
         mx = 0
@@ -208,7 +208,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+    def longestEqualSubarray(self, nums: list[int], k: int) -> int:
         g = defaultdict(list)
         for i, x in enumerate(nums):
             g[x].append(i)

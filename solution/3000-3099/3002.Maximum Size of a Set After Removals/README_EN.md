@@ -89,7 +89,7 @@ It can be shown that 6 is the maximum possible size of the set s after the remov
 
 ```python
 class Solution:
-    def maximumSetSize(self, nums1: List[int], nums2: List[int]) -> int:
+    def maximumSetSize(self, nums1: list[int], nums2: list[int]) -> int:
         s1 = set(nums1)
         s2 = set(nums2)
         n = len(nums1)

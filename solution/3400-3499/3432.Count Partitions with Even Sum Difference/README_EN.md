@@ -116,7 +116,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countPartitions(self, nums: List[int]) -> int:
+    def countPartitions(self, nums: list[int]) -> int:
         l, r = 0, sum(nums)
         ans = 0
         for x in nums[:-1]:

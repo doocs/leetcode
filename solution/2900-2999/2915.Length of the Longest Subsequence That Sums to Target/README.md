@@ -98,7 +98,7 @@ $$
 
 ```python
 class Solution:
-    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+    def lengthOfLongestSubsequence(self, nums: list[int], target: int) -> int:
         n = len(nums)
         f = [[-inf] * (target + 1) for _ in range(n + 1)]
         f[0][0] = 0
@@ -233,7 +233,7 @@ $f[i][j]$ 只与上一行 $f[i-1][\cdot]$ 有关，因此可以去掉第一维�
 
 ```python
 class Solution:
-    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+    def lengthOfLongestSubsequence(self, nums: list[int], target: int) -> int:
         f = [0] + [-inf] * target
         for x in nums:
             for j in range(target, x - 1, -1):

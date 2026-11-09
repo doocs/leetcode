@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         f, g = -inf, 0
         for x in nums:
             f, g = max(f, g) + x, f - x

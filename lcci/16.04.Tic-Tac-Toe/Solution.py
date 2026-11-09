@@ -1,5 +1,5 @@
 class Solution:
-    def tictactoe(self, board: List[str]) -> str:
+    def tictactoe(self, board: list[str]) -> str:
         n = len(board)
         rows = [0] * n
         cols = [0] * n

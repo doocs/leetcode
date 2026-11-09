@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def countOfPairs(self, nums: List[int]) -> int:
+    def countOfPairs(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         n, m = len(nums), max(nums)
         f = [[0] * (m + 1) for _ in range(n)]

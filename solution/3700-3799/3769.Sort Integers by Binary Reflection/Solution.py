@@ -1,5 +1,5 @@
 class Solution:
-    def sortByReflection(self, nums: List[int]) -> List[int]:
+    def sortByReflection(self, nums: list[int]) -> list[int]:
         def f(x: int) -> int:
             y = 0
             while x:

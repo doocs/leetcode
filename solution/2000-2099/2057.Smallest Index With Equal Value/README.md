@@ -99,7 +99,7 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 ```python
 class Solution:
-    def smallestEqual(self, nums: List[int]) -> int:
+    def smallestEqual(self, nums: list[int]) -> int:
         for i, x in enumerate(nums):
             if i % 10 == x:
                 return i

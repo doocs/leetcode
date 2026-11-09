@@ -146,8 +146,8 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def canPartitionGrid(self, grid: List[List[int]]) -> bool:
-        def check(g: List[List[int]]) -> bool:
+    def canPartitionGrid(self, grid: list[list[int]]) -> bool:
+        def check(g: list[list[int]]) -> bool:
             m, n = len(g), len(g[0])
             s1 = s2 = 0
             cnt1 = defaultdict(int)

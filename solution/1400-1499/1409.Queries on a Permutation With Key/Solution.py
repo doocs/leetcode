@@ -1,5 +1,5 @@
 class Solution:
-    def processQueries(self, queries: List[int], m: int) -> List[int]:
+    def processQueries(self, queries: list[int], m: int) -> list[int]:
         p = list(range(1, m + 1))
         ans = []
         for v in queries:

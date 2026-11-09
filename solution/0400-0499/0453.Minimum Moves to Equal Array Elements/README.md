@@ -101,7 +101,7 @@ $|\textit{nums}[i]|$ 可达 $10^9$，且 $n$ 可达 $10^5$，所以 $s$ 与 $n \
 
 ```python
 class Solution:
-    def minMoves(self, nums: List[int]) -> int:
+    def minMoves(self, nums: list[int]) -> int:
         return sum(nums) - min(nums) * len(nums)
 ```
 

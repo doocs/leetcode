@@ -106,7 +106,7 @@ words 中有一个回文 "a" 。
 
 ```python
 class Solution:
-    def maxPalindromesAfterOperations(self, words: List[str]) -> int:
+    def maxPalindromesAfterOperations(self, words: list[str]) -> int:
         s = mask = 0
         for w in words:
             s += len(w)

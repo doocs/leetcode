@@ -103,8 +103,8 @@ No matrix can satisfy all the conditions, so we return the empty matrix.
 ```python
 class Solution:
     def buildMatrix(
-        self, k: int, rowConditions: List[List[int]], colConditions: List[List[int]]
-    ) -> List[List[int]]:
+        self, k: int, rowConditions: list[list[int]], colConditions: list[list[int]]
+    ) -> list[list[int]]:
         def f(cond):
             g = defaultdict(list)
             indeg = [0] * (k + 1)

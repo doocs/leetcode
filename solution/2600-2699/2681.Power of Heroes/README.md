@@ -104,7 +104,7 @@ $$
 
 ```python
 class Solution:
-    def sumOfPower(self, nums: List[int]) -> int:
+    def sumOfPower(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         nums.sort()
         ans = 0

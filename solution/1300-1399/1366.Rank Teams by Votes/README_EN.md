@@ -97,7 +97,7 @@ The time complexity is $O(nm + m^2 \log m)$, and the space complexity is $O(m^2)
 
 ```python
 class Solution:
-    def rankTeams(self, votes: List[str]) -> str:
+    def rankTeams(self, votes: list[str]) -> str:
         m = len(votes[0])
         cnt = defaultdict(lambda: [0] * m)
         for vote in votes:

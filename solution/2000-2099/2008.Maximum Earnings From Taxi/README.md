@@ -104,7 +104,7 @@ $$
 
 ```python
 class Solution:
-    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+    def maxTaxiEarnings(self, n: int, rides: list[list[int]]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(rides):
@@ -288,7 +288,7 @@ $$
 
 ```python
 class Solution:
-    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+    def maxTaxiEarnings(self, n: int, rides: list[list[int]]) -> int:
         rides.sort(key=lambda x: x[1])
         f = [0] * (len(rides) + 1)
         for i, (st, ed, tip) in enumerate(rides, 1):
@@ -433,7 +433,7 @@ $$
 
 ```python
 class Solution:
-    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+    def maxTaxiEarnings(self, n: int, rides: list[list[int]]) -> int:
         rides.sort()
         m = len(rides)
         f = [0] * (m + 1)

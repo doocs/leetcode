@@ -84,8 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def shortestDistanceColor(
-        self, colors: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, colors: list[int], queries: list[list[int]]
+    ) -> list[int]:
         n = len(colors)
         right = [[inf] * 3 for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):

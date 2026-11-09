@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, nums: List[int], cost: List[int]) -> int:
+    def minCost(self, nums: list[int], cost: list[int]) -> int:
         arr = sorted(zip(nums, cost))
         mid = sum(cost) // 2
         s = 0

@@ -103,7 +103,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
+    def createBinaryTree(self, descriptions: list[list[int]]) -> Optional[TreeNode]:
         nodes = defaultdict(TreeNode)
         children = set()
         for parent, child, isLeft in descriptions:

@@ -1,5 +1,5 @@
 class Solution:
-    def validSubarraySplit(self, nums: List[int]) -> int:
+    def validSubarraySplit(self, nums: list[int]) -> int:
         n = len(nums)
         f = [inf] * (n + 1)
         f[n] = 0

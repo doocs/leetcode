@@ -72,7 +72,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums: list[int]) -> list[list[int]]:
         def dfs(i: int):
             if i >= n:
                 ans.append(t[:])

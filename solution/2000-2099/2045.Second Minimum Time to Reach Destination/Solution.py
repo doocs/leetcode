@@ -1,6 +1,6 @@
 class Solution:
     def secondMinimum(
-        self, n: int, edges: List[List[int]], time: int, change: int
+        self, n: int, edges: list[list[int]], time: int, change: int
     ) -> int:
         g = defaultdict(set)
         for u, v in edges:

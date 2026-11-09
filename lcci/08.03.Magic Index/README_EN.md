@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findMagicIndex(self, nums: List[int]) -> int:
+    def findMagicIndex(self, nums: list[int]) -> int:
         def dfs(i: int, j: int) -> int:
             if i > j:
                 return -1

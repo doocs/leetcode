@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def tripletCount(self, a: List[int], b: List[int], c: List[int]) -> int:
+    def tripletCount(self, a: list[int], b: list[int], c: list[int]) -> int:
         cnt1 = Counter(x.bit_count() & 1 for x in a)
         cnt2 = Counter(x.bit_count() & 1 for x in b)
         cnt3 = Counter(x.bit_count() & 1 for x in c)

@@ -110,7 +110,7 @@ Note that there can be other ways to make the array K-increasing, but none of th
 
 ```python
 class Solution:
-    def kIncreasing(self, arr: List[int], k: int) -> int:
+    def kIncreasing(self, arr: list[int], k: int) -> int:
         def lis(arr):
             t = []
             for x in arr:

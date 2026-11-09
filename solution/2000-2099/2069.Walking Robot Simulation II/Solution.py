@@ -11,7 +11,7 @@ class Robot:
         self.moved = True
         self.cur = (self.cur + num) % self.p
 
-    def getPos(self) -> List[int]:
+    def getPos(self) -> list[int]:
         d = self.cur
         mx, my = self.mx, self.my
         if 0 <= d <= mx:

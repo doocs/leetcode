@@ -120,7 +120,7 @@ tags:
 
 ```python
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(stones) - 1:
@@ -281,7 +281,7 @@ $$
 
 ```python
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         s = list(accumulate(stones))
         f = s[-1]
         for i in range(len(s) - 2, 0, -1):
@@ -382,7 +382,7 @@ $$
 
 ```python
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         s = list(accumulate(stones))
         n = len(s)
         f = [0] * n

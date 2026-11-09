@@ -102,8 +102,8 @@ The time complexity is $O(q(n \log n + m))$, and the space complexity is $O(n + 
 ```python
 class Solution:
     def countPairs(
-        self, n: int, edges: List[List[int]], queries: List[int]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], queries: list[int]
+    ) -> list[int]:
         cnt = [0] * n
         g = defaultdict(int)
         for a, b in edges:

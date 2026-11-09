@@ -158,8 +158,8 @@ $$
 ```python
 class Solution:
     def maximumSubarrayXor(
-        self, nums: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums: list[int], queries: list[list[int]]
+    ) -> list[int]:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         g = [[0] * n for _ in range(n)]

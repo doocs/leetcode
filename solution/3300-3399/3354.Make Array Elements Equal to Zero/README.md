@@ -124,7 +124,7 @@ tags:
 
 ```python
 class Solution:
-    def countValidSelections(self, nums: List[int]) -> int:
+    def countValidSelections(self, nums: list[int]) -> int:
         s = sum(nums)
         ans = l = 0
         for x in nums:

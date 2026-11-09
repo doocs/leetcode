@@ -106,7 +106,7 @@ The time complexity is $O(50n)$, and the space complexity is $O(100)$, where $n$
 
 ```python
 class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+    def getSubarrayBeauty(self, nums: list[int], k: int, x: int) -> list[int]:
         def f(x: int) -> int:
             s = 0
             for i in range(50):
@@ -334,7 +334,7 @@ class MedianFinder:
                 self.prune(self.large)
         self.rebalance()
 
-    def prune(self, pq: List[int]):
+    def prune(self, pq: list[int]):
         sign = -1 if pq is self.small else 1
         while pq and sign * pq[0] in self.delayed:
             self.delayed[sign * pq[0]] -= 1
@@ -356,7 +356,7 @@ class MedianFinder:
 
 
 class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+    def getSubarrayBeauty(self, nums: list[int], k: int, x: int) -> list[int]:
         finder = MedianFinder(x)
         for i in range(k):
             if nums[i] < 0:

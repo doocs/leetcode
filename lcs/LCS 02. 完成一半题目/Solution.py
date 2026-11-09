@@ -1,5 +1,5 @@
 class Solution:
-    def halfQuestions(self, questions: List[int]) -> int:
+    def halfQuestions(self, questions: list[int]) -> int:
         cnt = Counter(questions)
         ans, n = 0, len(questions) >> 1
         for _, v in cnt.most_common():

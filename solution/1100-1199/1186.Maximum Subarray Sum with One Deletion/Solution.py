@@ -1,5 +1,5 @@
 class Solution:
-    def maximumSum(self, arr: List[int]) -> int:
+    def maximumSum(self, arr: list[int]) -> int:
         n = len(arr)
         left = [0] * n
         right = [0] * n

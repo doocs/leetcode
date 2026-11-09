@@ -74,7 +74,7 @@ C++ 在处理符号位时直接加上 INT_MIN，避免对有符号整数进行�
 
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         ans = 0
         for i in range(32):
             cnt = sum(num >> i & 1 for num in nums)
@@ -281,7 +281,7 @@ $$
 
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         a = b = 0
         for c in nums:
             aa = (~a & b & c) | (a & ~b & ~c)

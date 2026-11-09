@@ -104,7 +104,7 @@ The time complexity is $O(n^2 \log n)$, and the space complexity is $O(nk)$, whe
 ```python
 class Solution:
     def shortestPathWithHops(
-        self, n: int, edges: List[List[int]], s: int, d: int, k: int
+        self, n: int, edges: list[list[int]], s: int, d: int, k: int
     ) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:

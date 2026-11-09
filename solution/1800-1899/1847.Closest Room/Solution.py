@@ -1,7 +1,7 @@
 class Solution:
     def closestRoom(
-        self, rooms: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, rooms: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         rooms.sort(key=lambda x: x[1])
         k = len(queries)
         idx = sorted(range(k), key=lambda i: queries[i][1])

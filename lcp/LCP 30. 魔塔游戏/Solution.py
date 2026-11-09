@@ -1,5 +1,5 @@
 class Solution:
-    def magicTower(self, nums: List[int]) -> int:
+    def magicTower(self, nums: list[int]) -> int:
         q = []
         blood = 1
         ans = v = 0

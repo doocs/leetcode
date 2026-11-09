@@ -93,7 +93,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(\log M)$, w
 
 ```python
 class Solution:
-    def maxSum(self, nums: List[int], k: int) -> int:
+    def maxSum(self, nums: list[int], k: int) -> int:
         mod = 10**9 + 7
         cnt = [0] * 31
         for x in nums:

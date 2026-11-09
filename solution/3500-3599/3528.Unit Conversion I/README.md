@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def baseUnitConversions(self, conversions: List[List[int]]) -> List[int]:
+    def baseUnitConversions(self, conversions: list[list[int]]) -> list[int]:
         def dfs(s: int, mul: int) -> None:
             ans[s] = mul
             for t, w in g[s]:
@@ -263,7 +263,7 @@ function baseUnitConversions(conversions: number[][]): number[] {
 
 ```python
 class Solution:
-    def baseUnitConversions(self, conversions: List[List[int]]) -> List[int]:
+    def baseUnitConversions(self, conversions: list[list[int]]) -> list[int]:
         mod = 10**9 + 7
         n = len(conversions) + 1
         g = [[] for _ in range(n)]

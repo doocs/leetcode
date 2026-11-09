@@ -111,7 +111,7 @@ class TrieNode:
 
 
 class Solution:
-    def maxXor(self, nums: List[int], k: int) -> int:
+    def maxXor(self, nums: list[int], k: int) -> int:
         root = TrieNode()
 
         def update(value: int, delta: int) -> None:

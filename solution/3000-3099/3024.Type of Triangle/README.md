@@ -94,7 +94,7 @@ nums[1] + nums[2] = 4 + 5 = 9 ，大于 nums[0] = 3 。
 
 ```python
 class Solution:
-    def triangleType(self, nums: List[int]) -> str:
+    def triangleType(self, nums: list[int]) -> str:
         nums.sort()
         if nums[0] + nums[1] <= nums[2]:
             return "none"

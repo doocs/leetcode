@@ -1,5 +1,5 @@
 class Solution:
-    def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+    def maxDistance(self, nums1: list[int], nums2: list[int]) -> int:
         m, n = len(nums1), len(nums2)
         ans = i = j = 0
         while i < m:

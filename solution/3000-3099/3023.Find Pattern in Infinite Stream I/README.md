@@ -104,7 +104,7 @@ tags:
 #         pass
 class Solution:
     def findPattern(
-        self, stream: Optional["InfiniteStream"], pattern: List[int]
+        self, stream: Optional["InfiniteStream"], pattern: list[int]
     ) -> int:
         a = b = 0
         m = len(pattern)

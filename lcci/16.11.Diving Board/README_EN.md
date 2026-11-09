@@ -74,7 +74,7 @@ The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is 
 
 ```python
 class Solution:
-    def divingBoard(self, shorter: int, longer: int, k: int) -> List[int]:
+    def divingBoard(self, shorter: int, longer: int, k: int) -> list[int]:
         if k == 0:
             return []
         if longer == shorter:

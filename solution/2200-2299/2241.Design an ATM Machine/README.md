@@ -104,11 +104,11 @@ class ATM:
         self.m = len(self.d)
         self.cnt = [0] * self.m
 
-    def deposit(self, banknotesCount: List[int]) -> None:
+    def deposit(self, banknotesCount: list[int]) -> None:
         for i, x in enumerate(banknotesCount):
             self.cnt[i] += x
 
-    def withdraw(self, amount: int) -> List[int]:
+    def withdraw(self, amount: int) -> list[int]:
         ans = [0] * self.m
         for i in reversed(range(self.m)):
             ans[i] = min(amount // self.d[i], self.cnt[i])

@@ -100,7 +100,7 @@ The time complexity is $O(n^2 + M \times n)$, and the space complexity is $O(M)$
 
 ```python
 class Solution:
-    def uniqueXorTriplets(self, nums: List[int]) -> int:
+    def uniqueXorTriplets(self, nums: list[int]) -> int:
         mx = max(nums) << 1
         st = [False] * mx
         for a in nums:

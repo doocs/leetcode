@@ -129,7 +129,7 @@ $$
 ```python
 class Solution:
     def getMinSwaps(self, num: str, k: int) -> int:
-        def next_permutation(nums: List[str]) -> bool:
+        def next_permutation(nums: list[str]) -> bool:
             n = len(nums)
             i = n - 2
             while i >= 0 and nums[i] >= nums[i + 1]:

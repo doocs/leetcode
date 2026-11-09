@@ -82,7 +82,7 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 ```python
 class Solution:
-    def constructRectangle(self, area: int) -> List[int]:
+    def constructRectangle(self, area: int) -> list[int]:
         w = int(sqrt(area))
         while area % w != 0:
             w -= 1

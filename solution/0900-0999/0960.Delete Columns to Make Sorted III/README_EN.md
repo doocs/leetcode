@@ -96,7 +96,7 @@ The time complexity is $O(n^2m)$, and the space complexity is $O(n)$, where $n$ 
 
 ```python
 class Solution:
-    def minDeletionSize(self, strs: List[str]) -> int:
+    def minDeletionSize(self, strs: list[str]) -> int:
         n = len(strs[0])
         f = [1] * n
         for i in range(n):

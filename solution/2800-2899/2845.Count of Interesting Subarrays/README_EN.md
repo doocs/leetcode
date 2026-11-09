@@ -109,7 +109,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def countInterestingSubarrays(self, nums: List[int], modulo: int, k: int) -> int:
+    def countInterestingSubarrays(self, nums: list[int], modulo: int, k: int) -> int:
         arr = [int(x % modulo == k) for x in nums]
         cnt = Counter()
         cnt[0] = 1

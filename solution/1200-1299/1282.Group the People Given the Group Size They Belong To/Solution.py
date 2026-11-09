@@ -1,5 +1,5 @@
 class Solution:
-    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+    def groupThePeople(self, groupSizes: list[int]) -> list[list[int]]:
         g = defaultdict(list)
         for i, v in enumerate(groupSizes):
             g[v].append(i)

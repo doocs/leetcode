@@ -1,5 +1,5 @@
 class Solution:
-    def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
+    def maximumSubtreeSize(self, edges: list[list[int]], colors: list[int]) -> int:
         def dfs(a: int, fa: int) -> bool:
             ok = True
             for b in g[a]:

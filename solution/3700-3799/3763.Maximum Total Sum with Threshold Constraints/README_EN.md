@@ -122,7 +122,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxSum(self, nums: List[int], threshold: List[int]) -> int:
+    def maxSum(self, nums: list[int], threshold: list[int]) -> int:
         n = len(nums)
         idx = sorted(range(n), key=lambda i: threshold[i])
         sl = SortedList()

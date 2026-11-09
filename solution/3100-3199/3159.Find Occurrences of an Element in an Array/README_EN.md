@@ -98,8 +98,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def occurrencesOfElement(
-        self, nums: List[int], queries: List[int], x: int
-    ) -> List[int]:
+        self, nums: list[int], queries: list[int], x: int
+    ) -> list[int]:
         ids = [i for i, v in enumerate(nums) if v == x]
         return [ids[i - 1] if i - 1 < len(ids) else -1 for i in queries]
 ```

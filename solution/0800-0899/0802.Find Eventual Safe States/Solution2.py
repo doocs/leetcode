@@ -1,5 +1,5 @@
 class Solution:
-    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+    def eventualSafeNodes(self, graph: list[list[int]]) -> list[int]:
         def dfs(i):
             if color[i]:
                 return color[i] == 2

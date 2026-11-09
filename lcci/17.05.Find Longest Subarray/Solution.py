@@ -1,5 +1,5 @@
 class Solution:
-    def findLongestSubarray(self, array: List[str]) -> List[str]:
+    def findLongestSubarray(self, array: list[str]) -> list[str]:
         vis = {0: -1}
         s = mx = k = 0
         for i, x in enumerate(array):

@@ -92,7 +92,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def maxScore(self, a: List[int], b: List[int]) -> int:
+    def maxScore(self, a: list[int], b: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if j >= len(b):
@@ -253,7 +253,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def maxScore(self, a: List[int], b: List[int]) -> int:
+    def maxScore(self, a: list[int], b: list[int]) -> int:
         m, n = len(a), len(b)
         f = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(m):

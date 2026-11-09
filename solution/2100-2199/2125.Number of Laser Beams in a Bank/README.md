@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfBeams(self, bank: List[str]) -> int:
+    def numberOfBeams(self, bank: list[str]) -> int:
         ans = pre = 0
         for row in bank:
             if (cur := row.count("1")) > 0:

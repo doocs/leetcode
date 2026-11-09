@@ -90,7 +90,7 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+    def matchPlayersAndTrainers(self, players: list[int], trainers: list[int]) -> int:
         players.sort()
         trainers.sort()
         j, n = 0, len(trainers)
@@ -237,7 +237,7 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+    def matchPlayersAndTrainers(self, players: list[int], trainers: list[int]) -> int:
         players.sort()
         trainers.sort()
         j = 0

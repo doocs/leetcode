@@ -97,7 +97,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
+    def sortJumbled(self, mapping: list[int], nums: list[int]) -> list[int]:
         def f(x: int) -> int:
             if x == 0:
                 return mapping[0]

@@ -105,7 +105,7 @@ The time complexity is $O(n \log n + nk)$, and the space complexity is $O(nk)$, 
 
 ```python
 class Solution:
-    def maxValue(self, events: List[List[int]], k: int) -> int:
+    def maxValue(self, events: list[list[int]], k: int) -> int:
         @cache
         def dfs(i: int, k: int) -> int:
             if i >= len(events):
@@ -346,7 +346,7 @@ Related problems:
 
 ```python
 class Solution:
-    def maxValue(self, events: List[List[int]], k: int) -> int:
+    def maxValue(self, events: list[list[int]], k: int) -> int:
         events.sort(key=lambda x: x[1])
         n = len(events)
         f = [[0] * (k + 1) for _ in range(n + 1)]
@@ -540,7 +540,7 @@ The time complexity is $O(n \log n + nk)$, and the space complexity is $O(nk)$, 
 
 ```python
 class Solution:
-    def maxValue(self, events: List[List[int]], k: int) -> int:
+    def maxValue(self, events: list[list[int]], k: int) -> int:
         events.sort()
         n = len(events)
         f = [[0] * (k + 1) for _ in range(n + 1)]

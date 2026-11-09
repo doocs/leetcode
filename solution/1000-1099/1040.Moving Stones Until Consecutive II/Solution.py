@@ -1,5 +1,5 @@
 class Solution:
-    def numMovesStonesII(self, stones: List[int]) -> List[int]:
+    def numMovesStonesII(self, stones: list[int]) -> list[int]:
         stones.sort()
         mi = n = len(stones)
         mx = max(stones[-1] - stones[1] + 1, stones[-2] - stones[0] + 1) - (n - 1)

@@ -110,7 +110,7 @@ The time complexity is $O(mn 2^n)$, and the space complexity is $O(m 2^n)$, wher
 
 ```python
 class Solution:
-    def numberWays(self, hats: List[List[int]]) -> int:
+    def numberWays(self, hats: list[list[int]]) -> int:
         g = defaultdict(list)
         for i, h in enumerate(hats):
             for v in h:

@@ -116,7 +116,7 @@ tags:
 
 ```python
 class Solution:
-    def winningPlayerCount(self, n: int, pick: List[List[int]]) -> int:
+    def winningPlayerCount(self, n: int, pick: list[list[int]]) -> int:
         cnt = [[0] * 11 for _ in range(n)]
         s = set()
         for x, y in pick:

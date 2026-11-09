@@ -123,7 +123,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maxFreeTime(
-        self, eventTime: int, k: int, startTime: List[int], endTime: List[int]
+        self, eventTime: int, k: int, startTime: list[int], endTime: list[int]
     ) -> int:
         nums = [startTime[0]]
         for i in range(1, len(endTime)):
@@ -296,7 +296,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def maxFreeTime(
-        self, eventTime: int, k: int, startTime: List[int], endTime: List[int]
+        self, eventTime: int, k: int, startTime: list[int], endTime: list[int]
     ) -> int:
         def f(i: int) -> int:
             if i == 0:

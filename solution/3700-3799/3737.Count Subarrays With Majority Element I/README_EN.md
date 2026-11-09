@@ -113,7 +113,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def countMajoritySubarrays(self, nums: List[int], target: int) -> int:
+    def countMajoritySubarrays(self, nums: list[int], target: int) -> int:
         n = len(nums)
         ans = 0
         for i in range(n):

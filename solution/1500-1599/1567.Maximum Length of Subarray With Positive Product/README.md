@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def getMaxLen(self, nums: List[int]) -> int:
+    def getMaxLen(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * n
         g = [0] * n
@@ -266,7 +266,7 @@ function getMaxLen(nums: number[]): number {
 
 ```python
 class Solution:
-    def getMaxLen(self, nums: List[int]) -> int:
+    def getMaxLen(self, nums: list[int]) -> int:
         n = len(nums)
         f = int(nums[0] > 0)
         g = int(nums[0] < 0)

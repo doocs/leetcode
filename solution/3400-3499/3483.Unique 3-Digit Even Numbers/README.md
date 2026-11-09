@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def totalNumbers(self, digits: List[int]) -> int:
+    def totalNumbers(self, digits: list[int]) -> int:
         s = set()
         for i, a in enumerate(digits):
             if a & 1:

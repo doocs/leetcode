@@ -115,7 +115,7 @@ tags:
 
 ```python
 class Solution:
-    def countTrapezoids(self, points: List[List[int]]) -> int:
+    def countTrapezoids(self, points: list[list[int]]) -> int:
         n = len(points)
 
         # cnt1: k -> (b -> count)

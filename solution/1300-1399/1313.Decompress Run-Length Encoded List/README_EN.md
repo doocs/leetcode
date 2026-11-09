@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def decompressRLElist(self, nums: List[int]) -> List[int]:
+    def decompressRLElist(self, nums: list[int]) -> list[int]:
         return [nums[i + 1] for i in range(0, len(nums), 2) for _ in range(nums[i])]
 ```
 

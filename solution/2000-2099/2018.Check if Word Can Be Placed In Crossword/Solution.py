@@ -1,5 +1,5 @@
 class Solution:
-    def placeWordInCrossword(self, board: List[List[str]], word: str) -> bool:
+    def placeWordInCrossword(self, board: list[list[str]], word: str) -> bool:
         def check(i, j, a, b):
             x, y = i + a * k, j + b * k
             if 0 <= x < m and 0 <= y < n and board[x][y] != '#':

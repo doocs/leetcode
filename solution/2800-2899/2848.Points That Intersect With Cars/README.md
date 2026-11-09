@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfPoints(self, nums: List[List[int]]) -> int:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
         m = 102
         d = [0] * m
         for start, end in nums:
@@ -201,7 +201,7 @@ function numberOfPoints(nums: number[][]): number {
 
 ```python
 class Solution:
-    def numberOfPoints(self, nums: List[List[int]]) -> int:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
         d = defaultdict(int)
         for start, end in nums:
             d[start] += 1

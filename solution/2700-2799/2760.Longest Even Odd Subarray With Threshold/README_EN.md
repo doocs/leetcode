@@ -97,7 +97,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
+    def longestAlternatingSubarray(self, nums: list[int], threshold: int) -> int:
         ans, n = 0, len(nums)
         for l in range(n):
             if nums[l] % 2 == 0 and nums[l] <= threshold:
@@ -212,7 +212,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
+    def longestAlternatingSubarray(self, nums: list[int], threshold: int) -> int:
         ans, l, n = 0, 0, len(nums)
         while l < n:
             if nums[l] % 2 == 0 and nums[l] <= threshold:

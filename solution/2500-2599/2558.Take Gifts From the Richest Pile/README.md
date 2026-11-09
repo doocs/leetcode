@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def pickGifts(self, gifts: List[int], k: int) -> int:
+    def pickGifts(self, gifts: list[int], k: int) -> int:
         h = [-v for v in gifts]
         heapify(h)
         for _ in range(k):

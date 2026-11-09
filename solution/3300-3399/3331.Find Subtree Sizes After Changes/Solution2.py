@@ -1,5 +1,5 @@
 class Solution:
-    def findSubtreeSizes(self, parent: List[int], s: str) -> List[int]:
+    def findSubtreeSizes(self, parent: list[int], s: str) -> list[int]:
         n = len(s)
         g = [[] for _ in range(n)]
         for i in range(1, n):

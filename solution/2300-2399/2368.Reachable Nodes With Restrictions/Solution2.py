@@ -1,6 +1,6 @@
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         g = defaultdict(list)
         for a, b in edges:

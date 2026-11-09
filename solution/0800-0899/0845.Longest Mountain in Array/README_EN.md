@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
+    def longestMountain(self, arr: list[int]) -> int:
         n = len(arr)
         f = [1] * n
         g = [1] * n
@@ -249,7 +249,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
+    def longestMountain(self, arr: list[int]) -> int:
         n = len(arr)
         ans = l = 0
         while l + 2 < n:

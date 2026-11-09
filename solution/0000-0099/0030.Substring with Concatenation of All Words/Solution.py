@@ -1,5 +1,5 @@
 class Solution:
-    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+    def findSubstring(self, s: str, words: list[str]) -> list[int]:
         cnt = Counter(words)
         m, n = len(s), len(words)
         k = len(words[0])

@@ -94,7 +94,7 @@ tags:
 ```python
 class Solution:
     def maximumRobots(
-        self, chargeTimes: List[int], runningCosts: List[int], budget: int
+        self, chargeTimes: list[int], runningCosts: list[int], budget: int
     ) -> int:
         q = deque()
         ans = s = l = 0

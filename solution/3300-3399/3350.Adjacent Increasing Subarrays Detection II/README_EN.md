@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxIncreasingSubarrays(self, nums: List[int]) -> int:
+    def maxIncreasingSubarrays(self, nums: list[int]) -> int:
         ans = pre = cur = 0
         for i, x in enumerate(nums):
             cur += 1

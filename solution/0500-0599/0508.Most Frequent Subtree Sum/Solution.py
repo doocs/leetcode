@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
+    def findFrequentTreeSum(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0

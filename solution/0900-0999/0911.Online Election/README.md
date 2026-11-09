@@ -98,7 +98,7 @@ topVotedCandidate.q(8); // 返回 1
 ```python
 class TopVotedCandidate:
 
-    def __init__(self, persons: List[int], times: List[int]):
+    def __init__(self, persons: list[int], times: list[int]):
         cnt = Counter()
         self.times = times
         self.wins = []

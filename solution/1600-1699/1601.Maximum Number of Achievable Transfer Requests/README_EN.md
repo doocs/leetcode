@@ -104,7 +104,7 @@ The time complexity is $O(2^m(m + n))$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
+    def maximumRequests(self, n: int, requests: list[list[int]]) -> int:
         def check(mask: int) -> bool:
             cnt = [0] * n
             for i, (f, t) in enumerate(requests):

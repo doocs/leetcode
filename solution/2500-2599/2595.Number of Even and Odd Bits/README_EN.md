@@ -89,7 +89,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def evenOddBit(self, n: int) -> List[int]:
+    def evenOddBit(self, n: int) -> list[int]:
         ans = [0, 0]
         i = 0
         while n:
@@ -198,7 +198,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def evenOddBit(self, n: int) -> List[int]:
+    def evenOddBit(self, n: int) -> list[int]:
         mask = 0x5555
         even = (n & mask).bit_count()
         odd = (n & ~mask).bit_count()

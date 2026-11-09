@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def missingMultiple(self, nums: List[int], k: int) -> int:
+    def missingMultiple(self, nums: list[int], k: int) -> int:
         s = set(nums)
         for i in count(1):
             x = k * i

@@ -87,7 +87,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         def dfs(i: int):
             if i in vis:
                 return
@@ -248,7 +248,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         vis = set()
         q = deque([0])
         while q:
@@ -385,7 +385,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         n = len(rooms)
         vis = [False] * n
         stk = [0]

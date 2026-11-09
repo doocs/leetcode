@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def singleDivisorTriplet(self, nums: List[int]) -> int:
+    def singleDivisorTriplet(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         ans = 0
         for a, x in cnt.items():

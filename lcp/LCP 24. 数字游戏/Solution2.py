@@ -1,5 +1,5 @@
 class Solution:
-    def numsGame(self, nums: List[int]) -> List[int]:
+    def numsGame(self, nums: list[int]) -> list[int]:
         l = SortedList()
         r = SortedList()
         s = t = 0

@@ -1,5 +1,5 @@
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         s = sum(nums)
         if s % 2 != 0:
             return False

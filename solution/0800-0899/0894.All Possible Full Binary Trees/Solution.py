@@ -5,9 +5,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
+    def allPossibleFBT(self, n: int) -> list[Optional[TreeNode]]:
         @cache
-        def dfs(n: int) -> List[Optional[TreeNode]]:
+        def dfs(n: int) -> list[Optional[TreeNode]]:
             if n == 1:
                 return [TreeNode()]
             ans = []

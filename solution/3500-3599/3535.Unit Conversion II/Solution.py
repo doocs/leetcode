@@ -1,7 +1,7 @@
 class Solution:
     def queryConversions(
-        self, conversions: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, conversions: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         def dfs(s: int, mul: int) -> None:
             res[s] = mul
             for t, w in g[s]:

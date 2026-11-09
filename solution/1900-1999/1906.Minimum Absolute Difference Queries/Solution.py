@@ -1,5 +1,5 @@
 class Solution:
-    def minDifference(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def minDifference(self, nums: list[int], queries: list[list[int]]) -> list[int]:
         m, n = len(nums), len(queries)
         pre_sum = [[0] * 101 for _ in range(m + 1)]
         for i in range(1, m + 1):

@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def totalReplacements(self, ranks: List[int]) -> int:
+    def totalReplacements(self, ranks: list[int]) -> int:
         ans, cur = 0, ranks[0]
         for x in ranks:
             if x < cur:

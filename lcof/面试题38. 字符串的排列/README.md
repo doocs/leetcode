@@ -68,7 +68,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def permutation(self, s: str) -> List[str]:
+    def permutation(self, s: str) -> list[str]:
         def dfs(i):
             if i == len(s) - 1:
                 ans.append(''.join(cs))

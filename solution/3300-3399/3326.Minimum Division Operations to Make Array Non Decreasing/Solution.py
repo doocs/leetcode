@@ -8,7 +8,7 @@ for i in range(2, mx + 1):
 
 
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         ans = 0
         for i in range(len(nums) - 2, -1, -1):
             if nums[i] > nums[i + 1]:

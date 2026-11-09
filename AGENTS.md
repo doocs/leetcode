@@ -88,7 +88,7 @@ GitHub Actions automatically run:
 
 ## Solution Patterns
 
-- Python solutions use `List` from typing (imported implicitly by LeetCode environment)
+- Python solutions use the builtin `list` (for example `list[int]`)
 - Go solutions include `package main` header (added/removed by formatting script)
 - PHP solutions include `<?php` header (added/removed by formatting script)
 - SQL solutions uppercase built-in function names (handled by `run_format.py`)

@@ -104,7 +104,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def minLargest(self, nums1: List[int], nums2: List[int]) -> int:
+    def minLargest(self, nums1: list[int], nums2: list[int]) -> int:
         def nxt(x: int, y: int) -> int:
             return x + 1 if (x & 1 ^ y) == 1 else x + 2
 

@@ -135,7 +135,7 @@ The time complexity is $O(nm \log M)$, and the space complexity is $O(nm \log M)
 
 ```python
 class Solution:
-    def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
+    def minimumValueSum(self, nums: list[int], andValues: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, a: int) -> int:
             if n - i < m - j:
@@ -357,7 +357,7 @@ The time complexity is $O(nm \log M)$, and the space complexity is $O(m \log M)$
 
 ```python
 class Solution:
-    def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
+    def minimumValueSum(self, nums: list[int], andValues: list[int]) -> int:
         n, m = len(nums), len(andValues)
         f = {(0, -1): 0}
         for i, x in enumerate(nums):

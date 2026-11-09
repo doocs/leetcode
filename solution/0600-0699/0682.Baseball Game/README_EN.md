@@ -140,7 +140,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def calPoints(self, operations: List[str]) -> int:
+    def calPoints(self, operations: list[str]) -> int:
         stk = []
         for op in operations:
             if op == "+":

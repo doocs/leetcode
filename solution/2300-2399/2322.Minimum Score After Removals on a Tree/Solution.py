@@ -1,5 +1,5 @@
 class Solution:
-    def minimumScore(self, nums: List[int], edges: List[List[int]]) -> int:
+    def minimumScore(self, nums: list[int], edges: list[list[int]]) -> int:
         def dfs(i: int, fa: int) -> int:
             res = nums[i]
             for j in g[i]:

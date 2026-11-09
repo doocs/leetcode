@@ -81,7 +81,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def isMonotonic(self, nums: List[int]) -> bool:
+    def isMonotonic(self, nums: list[int]) -> bool:
         asc = all(a <= b for a, b in pairwise(nums))
         desc = all(a >= b for a, b in pairwise(nums))
         return asc or desc

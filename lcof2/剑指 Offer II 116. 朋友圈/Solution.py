@@ -1,5 +1,5 @@
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def dfs(i):
             vis[i] = True
             for j in range(n):

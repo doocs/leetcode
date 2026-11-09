@@ -1,5 +1,5 @@
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: list[int]) -> int:
         nums.sort()
         for i, x in enumerate(nums):
             if i != x:

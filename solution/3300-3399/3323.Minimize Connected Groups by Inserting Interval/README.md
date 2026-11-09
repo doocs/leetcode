@@ -109,7 +109,7 @@ tags:
 
 ```python
 class Solution:
-    def minConnectedGroups(self, intervals: List[List[int]], k: int) -> int:
+    def minConnectedGroups(self, intervals: list[list[int]], k: int) -> int:
         intervals.sort()
         merged = [intervals[0]]
         for s, e in intervals[1:]:

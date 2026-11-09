@@ -1,5 +1,5 @@
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
         for j in range(n):

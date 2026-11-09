@@ -1,5 +1,5 @@
 class Solution:
-    def lexicalOrder(self, n: int) -> List[int]:
+    def lexicalOrder(self, n: int) -> list[int]:
         ans = []
         v = 1
         for _ in range(n):

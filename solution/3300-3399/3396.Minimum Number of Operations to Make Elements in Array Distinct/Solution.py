@@ -1,5 +1,5 @@
 class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
+    def minimumOperations(self, nums: list[int]) -> int:
         s = set()
         for i in range(len(nums) - 1, -1, -1):
             if nums[i] in s:

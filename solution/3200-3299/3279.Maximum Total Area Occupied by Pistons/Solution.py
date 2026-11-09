@@ -1,5 +1,5 @@
 class Solution:
-    def maxArea(self, height: int, positions: List[int], directions: str) -> int:
+    def maxArea(self, height: int, positions: list[int], directions: str) -> int:
         delta = defaultdict(int)
         diff = res = 0
         for pos, dir in zip(positions, directions):

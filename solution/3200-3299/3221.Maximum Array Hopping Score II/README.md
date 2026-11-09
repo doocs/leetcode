@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         stk = []
         for i, x in enumerate(nums):
             while stk and nums[stk[-1]] <= x:

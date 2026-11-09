@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         def _rob(nums):
             f = g = 0
             for x in nums:

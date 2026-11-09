@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def maxFrequency(self, nums: List[int], k: int) -> int:
+    def maxFrequency(self, nums: list[int], k: int) -> int:
         def check(m: int) -> bool:
             for i in range(m, n + 1):
                 if nums[i - 1] * m - (s[i] - s[i - m]) <= k:
@@ -289,7 +289,7 @@ function maxFrequency(nums: number[], k: number): number {
 
 ```python
 class Solution:
-    def maxFrequency(self, nums: List[int], k: int) -> int:
+    def maxFrequency(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans = 1
         s = j = 0

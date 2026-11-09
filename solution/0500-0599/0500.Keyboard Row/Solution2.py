@@ -1,5 +1,5 @@
 class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
+    def findWords(self, words: list[str]) -> list[str]:
         ans = []
         s = "12210111011122000010020202"
         for w in words:

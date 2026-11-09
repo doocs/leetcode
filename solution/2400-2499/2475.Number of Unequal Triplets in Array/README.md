@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def unequalTriplets(self, nums: List[int]) -> int:
+    def unequalTriplets(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         for i in range(n):
@@ -231,7 +231,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def unequalTriplets(self, nums: List[int]) -> int:
+    def unequalTriplets(self, nums: list[int]) -> int:
         nums.sort()
         ans, n = 0, len(nums)
         for j in range(1, n - 1):
@@ -386,7 +386,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def unequalTriplets(self, nums: List[int]) -> int:
+    def unequalTriplets(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         n = len(nums)
         ans = a = 0

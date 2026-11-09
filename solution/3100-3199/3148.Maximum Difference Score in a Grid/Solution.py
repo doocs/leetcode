@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, grid: List[List[int]]) -> int:
+    def maxScore(self, grid: list[list[int]]) -> int:
         f = [[0] * len(grid[0]) for _ in range(len(grid))]
         ans = -inf
         for i, row in enumerate(grid):

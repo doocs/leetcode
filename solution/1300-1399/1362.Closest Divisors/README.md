@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def closestDivisors(self, num: int) -> List[int]:
+    def closestDivisors(self, num: int) -> list[int]:
         def f(x):
             for i in range(int(sqrt(x)), 0, -1):
                 if x % i == 0:

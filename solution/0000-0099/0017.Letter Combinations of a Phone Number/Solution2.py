@@ -1,5 +1,5 @@
 class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
+    def letterCombinations(self, digits: str) -> list[str]:
         def dfs(i: int):
             if i >= len(digits):
                 ans.append("".join(t))

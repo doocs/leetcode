@@ -178,7 +178,7 @@ tags:
 
 ```python
 class Solution:
-    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+    def finishTime(self, n: int, edges: list[list[int]], baseTime: list[int]) -> int:
         def dfs(i: int) -> int:
             if not g[i]:
                 return baseTime[i]
@@ -372,7 +372,7 @@ function finishTime(n: number, edges: number[][], baseTime: number[]): number {
 
 ```python
 class Solution:
-    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+    def finishTime(self, n: int, edges: list[list[int]], baseTime: list[int]) -> int:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)

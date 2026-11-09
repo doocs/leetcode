@@ -97,7 +97,7 @@ $$
 
 ```python
 class Solution:
-    def findSquare(self, matrix: List[List[int]]) -> List[int]:
+    def findSquare(self, matrix: list[list[int]]) -> list[int]:
         n = len(matrix)
         down = [[0] * n for _ in range(n)]
         right = [[0] * n for _ in range(n)]

@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def maxDistance(self, colors: List[int]) -> int:
+    def maxDistance(self, colors: list[int]) -> int:
         n = len(colors)
         if colors[0] != colors[-1]:
             return n - 1

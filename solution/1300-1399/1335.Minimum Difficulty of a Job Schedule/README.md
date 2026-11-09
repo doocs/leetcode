@@ -111,7 +111,7 @@ $$
 
 ```python
 class Solution:
-    def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+    def minDifficulty(self, jobDifficulty: list[int], d: int) -> int:
         n = len(jobDifficulty)
         f = [[inf] * (d + 1) for _ in range(n + 1)]
         f[0][0] = 0

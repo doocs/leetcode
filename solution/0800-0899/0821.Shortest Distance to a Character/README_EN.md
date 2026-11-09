@@ -74,7 +74,7 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 
 ```python
 class Solution:
-    def shortestToChar(self, s: str, c: str) -> List[int]:
+    def shortestToChar(self, s: str, c: str) -> list[int]:
         n = len(s)
         ans = [n] * n
         pre = -inf

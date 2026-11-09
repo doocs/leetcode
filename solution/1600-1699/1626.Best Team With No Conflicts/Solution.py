@@ -1,5 +1,5 @@
 class Solution:
-    def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
+    def bestTeamScore(self, scores: list[int], ages: list[int]) -> int:
         arr = sorted(zip(scores, ages))
         n = len(arr)
         f = [0] * n

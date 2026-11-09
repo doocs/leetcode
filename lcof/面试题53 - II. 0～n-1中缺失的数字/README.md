@@ -61,7 +61,7 @@ comments: true
 
 ```python
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: list[int]) -> int:
         l, r = 0, len(nums)
         while l < r:
             mid = (l + r) >> 1

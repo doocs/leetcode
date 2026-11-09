@@ -1,5 +1,5 @@
 class Solution:
-    def minSubarraySort(self, nums: List[int], k: int) -> List[int]:
+    def minSubarraySort(self, nums: list[int], k: int) -> list[int]:
         def f(i: int, j: int) -> int:
             mi, mx = inf, -inf
             l = r = -1
