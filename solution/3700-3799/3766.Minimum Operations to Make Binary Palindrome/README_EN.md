@@ -187,7 +187,7 @@ for i in range(1 << 14):
 
 
 class Solution:
-    def minOperations(self, nums: List[int]) -> List[int]:
+    def minOperations(self, nums: list[int]) -> list[int]:
         ans = []
         for x in nums:
             i = bisect_left(p, x)

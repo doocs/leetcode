@@ -79,7 +79,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def arrayPairSum(self, nums: List[int]) -> int:
+    def arrayPairSum(self, nums: list[int]) -> int:
         nums.sort()
         return sum(nums[::2])
 ```

@@ -1,5 +1,5 @@
 class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: list[str]) -> int:
         def extend(m1, m2, q):
             for _ in range(len(q)):
                 s = q.popleft()

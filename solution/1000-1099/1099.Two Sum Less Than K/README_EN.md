@@ -82,7 +82,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    def twoSumLessThanK(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans = -1
         for i, x in enumerate(nums):
@@ -209,7 +209,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    def twoSumLessThanK(self, nums: list[int], k: int) -> int:
         nums.sort()
         i, j = 0, len(nums) - 1
         ans = -1

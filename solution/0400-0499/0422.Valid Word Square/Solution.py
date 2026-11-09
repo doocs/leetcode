@@ -1,5 +1,5 @@
 class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
+    def validWordSquare(self, words: list[str]) -> bool:
         m = len(words)
         for i, w in enumerate(words):
             for j, c in enumerate(w):

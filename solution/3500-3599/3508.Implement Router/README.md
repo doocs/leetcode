@@ -167,7 +167,7 @@ class Router:
         self.d[destination].append(timestamp)
         return True
 
-    def forwardPacket(self) -> List[int]:
+    def forwardPacket(self) -> list[int]:
         if not self.q:
             return []
         s, d, t = self.q.popleft()

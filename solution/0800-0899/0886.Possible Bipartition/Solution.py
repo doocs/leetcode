@@ -1,5 +1,5 @@
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         def dfs(i, c):
             color[i] = c
             for j in g[i]:

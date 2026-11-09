@@ -1,5 +1,5 @@
 class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
+    def minimumMoves(self, grid: list[list[int]]) -> int:
         q = deque([tuple(tuple(row) for row in grid)])
         vis = set(q)
         ans = 0

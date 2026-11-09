@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         if root is None:
             return []
         q = deque([(root, 0)])

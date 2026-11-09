@@ -1,5 +1,5 @@
 class Solution:
-    def numWays(self, words: List[str], target: str) -> int:
+    def numWays(self, words: list[str], target: str) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= m:

@@ -112,7 +112,7 @@ class UnionFind:
 
 
 class Solution:
-    def largestComponentSize(self, nums: List[int]) -> int:
+    def largestComponentSize(self, nums: list[int]) -> int:
         uf = UnionFind(max(nums) + 1)
         for v in nums:
             i = 2

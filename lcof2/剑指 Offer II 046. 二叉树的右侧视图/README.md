@@ -80,7 +80,7 @@ comments: true
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: TreeNode) -> List[int]:
+    def rightSideView(self, root: TreeNode) -> list[int]:
         ans = []
         if not root:
             return ans

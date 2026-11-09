@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def canReach(self, arr: List[int], start: int) -> bool:
+    def canReach(self, arr: list[int], start: int) -> bool:
         q = deque([start])
         while q:
             i = q.popleft()

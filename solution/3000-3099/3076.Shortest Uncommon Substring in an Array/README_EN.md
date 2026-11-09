@@ -96,7 +96,7 @@ The time complexity is $O(n^2m^4)$, and the space complexity is $O(m)$, where $n
 
 ```python
 class Solution:
-    def shortestSubstrings(self, arr: List[str]) -> List[str]:
+    def shortestSubstrings(self, arr: list[str]) -> list[str]:
         ans = [""] * len(arr)
         for i, s in enumerate(arr):
             m = len(s)

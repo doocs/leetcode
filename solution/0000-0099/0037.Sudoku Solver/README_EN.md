@@ -83,7 +83,7 @@ We iterate over every empty cell in the $\textit{board}$ and enumerate the possi
 
 ```python
 class Solution:
-    def solveSudoku(self, board: List[List[str]]) -> None:
+    def solveSudoku(self, board: list[list[str]]) -> None:
         def dfs(k):
             nonlocal ok
             if k == len(t):

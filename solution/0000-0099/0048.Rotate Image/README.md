@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def rotate(self, matrix: list[list[int]]) -> None:
         n = len(matrix)
         for i in range(n >> 1):
             for j in range(n):

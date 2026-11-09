@@ -1,5 +1,5 @@
 class Solution:
-    def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
+    def getSumAbsoluteDifferences(self, nums: list[int]) -> list[int]:
         ans = []
         s, t = sum(nums), 0
         for i, x in enumerate(nums):

@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfPoints(self, nums: List[List[int]]) -> int:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
         d = defaultdict(int)
         for start, end in nums:
             d[start] += 1

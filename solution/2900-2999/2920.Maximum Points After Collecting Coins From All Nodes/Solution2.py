@@ -1,5 +1,5 @@
 class Solution:
-    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+    def maximumPoints(self, edges: list[list[int]], coins: list[int], k: int) -> int:
         n = len(coins)
         g = [[] for _ in range(n)]
         for a, b in edges:

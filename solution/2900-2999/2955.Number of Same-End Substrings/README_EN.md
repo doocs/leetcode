@@ -87,7 +87,7 @@ The time complexity is $O((n + m)|\Sigma|)$, and the space complexity is $O(n|\S
 
 ```python
 class Solution:
-    def sameEndSubstringCount(self, s: str, queries: List[List[int]]) -> List[int]:
+    def sameEndSubstringCount(self, s: str, queries: list[list[int]]) -> list[int]:
         n = len(s)
         cs = set(s)
         cnt = {c: [0] * (n + 1) for c in cs}

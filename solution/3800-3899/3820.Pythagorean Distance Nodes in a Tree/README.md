@@ -156,14 +156,14 @@ tags:
 ```python
 class Solution:
     def specialNodes(
-        self, n: int, edges: List[List[int]], x: int, y: int, z: int
+        self, n: int, edges: list[list[int]], x: int, y: int, z: int
     ) -> int:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)
             g[v].append(u)
 
-        def bfs(i: int) -> List[int]:
+        def bfs(i: int) -> list[int]:
             q = deque([i])
             dist = [inf] * n
             dist[i] = 0

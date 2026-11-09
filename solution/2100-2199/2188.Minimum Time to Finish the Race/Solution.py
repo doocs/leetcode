@@ -1,6 +1,6 @@
 class Solution:
     def minimumFinishTime(
-        self, tires: List[List[int]], changeTime: int, numLaps: int
+        self, tires: list[list[int]], changeTime: int, numLaps: int
     ) -> int:
         cost = [inf] * 18
         for f, r in tires:

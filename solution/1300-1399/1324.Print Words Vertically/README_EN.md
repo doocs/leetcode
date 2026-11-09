@@ -84,7 +84,7 @@ Each word would be put on only one column and that in one column there will be o
 
 ```python
 class Solution:
-    def printVertically(self, s: str) -> List[str]:
+    def printVertically(self, s: str) -> list[str]:
         words = s.split()
         n = max(len(w) for w in words)
         ans = []

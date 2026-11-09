@@ -86,7 +86,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def countSubmatrices(self, grid: List[List[int]], k: int) -> int:
+    def countSubmatrices(self, grid: list[list[int]], k: int) -> int:
         s = [[0] * (len(grid[0]) + 1) for _ in range(len(grid) + 1)]
         ans = 0
         for i, row in enumerate(grid, 1):

@@ -116,7 +116,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], k: int) -> int:
+    def minOperations(self, nums: list[int], k: int) -> int:
         heapify(nums)
         ans = 0
         while len(nums) > 1 and nums[0] < k:

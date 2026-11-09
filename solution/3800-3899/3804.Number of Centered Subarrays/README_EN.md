@@ -95,7 +95,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def centeredSubarrays(self, nums: List[int]) -> int:
+    def centeredSubarrays(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         for i in range(n):

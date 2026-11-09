@@ -1,5 +1,5 @@
 class Solution:
-    def minEliminationTime(self, timeReq: List[int], splitTime: int) -> int:
+    def minEliminationTime(self, timeReq: list[int], splitTime: int) -> int:
         heapify(timeReq)
         while len(timeReq) > 1:
             heappop(timeReq)

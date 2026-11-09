@@ -89,7 +89,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def largestCombination(self, candidates: List[int]) -> int:
+    def largestCombination(self, candidates: list[int]) -> int:
         ans = 0
         for i in range(max(candidates).bit_length()):
             ans = max(ans, sum(x >> i & 1 for x in candidates))

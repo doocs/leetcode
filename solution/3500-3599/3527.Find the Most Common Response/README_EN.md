@@ -97,7 +97,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Solution:
-    def findCommonResponse(self, responses: List[List[str]]) -> str:
+    def findCommonResponse(self, responses: list[list[str]]) -> str:
         cnt = Counter()
         for ws in responses:
             for w in set(ws):

@@ -1,5 +1,5 @@
 class Solution:
-    def sumCounts(self, nums: List[int]) -> int:
+    def sumCounts(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(n):
             s = set()

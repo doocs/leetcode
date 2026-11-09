@@ -1,5 +1,5 @@
 class Solution:
-    def minSwapsCouples(self, row: List[int]) -> int:
+    def minSwapsCouples(self, row: list[int]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

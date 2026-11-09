@@ -92,7 +92,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def specialArray(self, nums: List[int]) -> int:
+    def specialArray(self, nums: list[int]) -> int:
         for x in range(1, len(nums) + 1):
             cnt = sum(v >= x for v in nums)
             if cnt == x:
@@ -222,7 +222,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def specialArray(self, nums: List[int]) -> int:
+    def specialArray(self, nums: list[int]) -> int:
         nums.sort()
         n = len(nums)
         for x in range(1, n + 1):

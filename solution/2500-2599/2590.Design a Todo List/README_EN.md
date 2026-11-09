@@ -111,17 +111,17 @@ class TodoList:
         self.tasks = defaultdict(SortedList)
 
     def addTask(
-        self, userId: int, taskDescription: str, dueDate: int, tags: List[str]
+        self, userId: int, taskDescription: str, dueDate: int, tags: list[str]
     ) -> int:
         taskId = self.i
         self.i += 1
         self.tasks[userId].add([dueDate, taskDescription, set(tags), taskId, False])
         return taskId
 
-    def getAllTasks(self, userId: int) -> List[str]:
+    def getAllTasks(self, userId: int) -> list[str]:
         return [x[1] for x in self.tasks[userId] if not x[4]]
 
-    def getTasksForTag(self, userId: int, tag: str) -> List[str]:
+    def getTasksForTag(self, userId: int, tag: str) -> list[str]:
         return [x[1] for x in self.tasks[userId] if not x[4] and tag in x[2]]
 
     def completeTask(self, userId: int, taskId: int) -> None:

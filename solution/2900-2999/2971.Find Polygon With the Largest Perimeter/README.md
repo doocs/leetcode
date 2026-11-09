@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def largestPerimeter(self, nums: List[int]) -> int:
+    def largestPerimeter(self, nums: list[int]) -> int:
         nums.sort()
         s = list(accumulate(nums, initial=0))
         ans = -1

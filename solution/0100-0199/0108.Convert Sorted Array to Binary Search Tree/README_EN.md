@@ -92,7 +92,7 @@ The time complexity is $O(n)$, and the space complexity is $O(\log n)$, where $n
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+    def sortedArrayToBST(self, nums: list[int]) -> Optional[TreeNode]:
         def dfs(l: int, r: int) -> Optional[TreeNode]:
             if l > r:
                 return None

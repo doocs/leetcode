@@ -1,6 +1,6 @@
 class Solution:
     def jobScheduling(
-        self, startTime: List[int], endTime: List[int], profit: List[int]
+        self, startTime: list[int], endTime: list[int], profit: list[int]
     ) -> int:
         @cache
         def dfs(i):

@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def distance(self, nums: List[int]) -> List[int]:
+    def distance(self, nums: list[int]) -> list[int]:
         d = defaultdict(list)
         for i, x in enumerate(nums):
             d[x].append(i)

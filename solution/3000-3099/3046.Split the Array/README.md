@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def isPossibleToSplit(self, nums: List[int]) -> bool:
+    def isPossibleToSplit(self, nums: list[int]) -> bool:
         return max(Counter(nums).values()) < 3
 ```
 

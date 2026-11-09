@@ -82,8 +82,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$
 ```python
 class Solution:
     def sumEvenAfterQueries(
-        self, nums: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums: list[int], queries: list[list[int]]
+    ) -> list[int]:
         s = sum(x for x in nums if x % 2 == 0)
         ans = []
         for v, i in queries:

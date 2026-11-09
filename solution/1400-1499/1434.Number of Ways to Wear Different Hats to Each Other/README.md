@@ -111,7 +111,7 @@ $$
 
 ```python
 class Solution:
-    def numberWays(self, hats: List[List[int]]) -> int:
+    def numberWays(self, hats: list[list[int]]) -> int:
         g = defaultdict(list)
         for i, h in enumerate(hats):
             for v in h:

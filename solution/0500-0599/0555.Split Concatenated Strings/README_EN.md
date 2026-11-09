@@ -89,7 +89,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def splitLoopedString(self, strs: List[str]) -> str:
+    def splitLoopedString(self, strs: list[str]) -> str:
         strs = [s[::-1] if s[::-1] > s else s for s in strs]
         ans = ''.join(strs)
         for i, s in enumerate(strs):

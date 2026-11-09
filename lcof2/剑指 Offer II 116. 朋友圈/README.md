@@ -79,7 +79,7 @@ comments: true
 
 ```python
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def dfs(i):
             vis[i] = True
             for j in range(n):
@@ -306,7 +306,7 @@ d[find(a)] = distance
 
 ```python
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

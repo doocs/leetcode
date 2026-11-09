@@ -178,8 +178,8 @@ class SegmentTree:
 
 class Solution:
     def handleQuery(
-        self, nums1: List[int], nums2: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], queries: list[list[int]]
+    ) -> list[int]:
         tree = SegmentTree(nums1)
         s = sum(nums2)
         ans = []

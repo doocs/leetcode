@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
+    def minimumCoins(self, prices: list[int]) -> int:
         n = len(prices)
         q = deque()
         for i in range(n, 0, -1):

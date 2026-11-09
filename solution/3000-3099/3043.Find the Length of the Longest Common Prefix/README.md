@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
+    def longestCommonPrefix(self, arr1: list[int], arr2: list[int]) -> int:
         s = set()
         for x in arr1:
             while x:

@@ -104,7 +104,7 @@ The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def sumImbalanceNumbers(self, nums: List[int]) -> int:
+    def sumImbalanceNumbers(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         for i in range(n):

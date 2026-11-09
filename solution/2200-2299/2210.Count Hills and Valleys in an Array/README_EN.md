@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countHillValley(self, nums: List[int]) -> int:
+    def countHillValley(self, nums: list[int]) -> int:
         ans = j = 0
         for i in range(1, len(nums) - 1):
             if nums[i] == nums[i + 1]:

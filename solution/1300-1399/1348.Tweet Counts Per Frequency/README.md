@@ -122,7 +122,7 @@ class TweetCounts:
 
     def getTweetCountsPerFrequency(
         self, freq: str, tweetName: str, startTime: int, endTime: int
-    ) -> List[int]:
+    ) -> list[int]:
         f = self.d[freq]
         tweets = self.data[tweetName]
         t = startTime

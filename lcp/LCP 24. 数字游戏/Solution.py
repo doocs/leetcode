@@ -29,7 +29,7 @@ class MedianFinder:
 
 
 class Solution:
-    def numsGame(self, nums: List[int]) -> List[int]:
+    def numsGame(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [0] * n
         finder = MedianFinder()

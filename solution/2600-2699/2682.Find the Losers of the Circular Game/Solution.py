@@ -1,5 +1,5 @@
 class Solution:
-    def circularGameLosers(self, n: int, k: int) -> List[int]:
+    def circularGameLosers(self, n: int, k: int) -> list[int]:
         vis = [False] * n
         i, p = 0, 1
         while not vis[i]:

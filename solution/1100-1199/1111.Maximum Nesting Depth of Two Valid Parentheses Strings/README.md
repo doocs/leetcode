@@ -141,7 +141,7 @@ tags:
 
 ```python
 class Solution:
-    def maxDepthAfterSplit(self, seq: str) -> List[int]:
+    def maxDepthAfterSplit(self, seq: str) -> list[int]:
         ans = [0] * len(seq)
         x = 0
         for i, c in enumerate(seq):

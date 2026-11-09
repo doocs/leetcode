@@ -117,7 +117,7 @@ tags:
 
 ```python
 class Solution:
-    def medianOfUniquenessArray(self, nums: List[int]) -> int:
+    def medianOfUniquenessArray(self, nums: list[int]) -> int:
         def check(mx: int) -> bool:
             cnt = defaultdict(int)
             k = l = 0

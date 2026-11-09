@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
+    def countOfPairs(self, n: int, x: int, y: int) -> list[int]:
         x, y = x - 1, y - 1
         ans = [0] * n
         for i in range(n):

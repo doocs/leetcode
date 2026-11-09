@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def trimMean(self, arr: List[int]) -> float:
+    def trimMean(self, arr: list[int]) -> float:
         n = len(arr)
         start, end = int(n * 0.05), int(n * 0.95)
         arr.sort()

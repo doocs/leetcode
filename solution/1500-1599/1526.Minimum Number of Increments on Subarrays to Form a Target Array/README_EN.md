@@ -105,7 +105,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def minNumberOperations(self, target: List[int]) -> int:
+    def minNumberOperations(self, target: list[int]) -> int:
         return target[0] + sum(max(0, b - a) for a, b in pairwise(target))
 ```
 

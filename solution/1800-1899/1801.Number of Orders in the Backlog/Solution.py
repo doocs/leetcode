@@ -1,5 +1,5 @@
 class Solution:
-    def getNumberOfBacklogOrders(self, orders: List[List[int]]) -> int:
+    def getNumberOfBacklogOrders(self, orders: list[list[int]]) -> int:
         buy, sell = [], []
         for p, a, t in orders:
             if t == 0:

@@ -102,7 +102,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def countPaths(self, grid: List[List[int]]) -> int:
+    def countPaths(self, grid: list[list[int]]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             ans = 1
@@ -298,7 +298,7 @@ The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, wh
 
 ```python
 class Solution:
-    def countPaths(self, grid: List[List[int]]) -> int:
+    def countPaths(self, grid: list[list[int]]) -> int:
         mod = 10**9 + 7
         m, n = len(grid), len(grid[0])
         f = [[1] * n for _ in range(m)]

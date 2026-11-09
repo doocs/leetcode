@@ -1,5 +1,5 @@
 class Solution:
-    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
+    def findMaxValueOfEquation(self, points: list[list[int]], k: int) -> int:
         ans = -inf
         q = deque()
         for x, y in points:

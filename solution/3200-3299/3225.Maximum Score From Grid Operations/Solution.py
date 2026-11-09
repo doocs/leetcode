@@ -1,5 +1,5 @@
 class Solution:
-    def maximumScore(self, grid: List[List[int]]) -> int:
+    def maximumScore(self, grid: list[list[int]]) -> int:
         n = len(grid)
         s = [[0] * (n + 1) for _ in range(n)]
         for j in range(n):

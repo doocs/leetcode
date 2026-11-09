@@ -76,7 +76,7 @@ tags:
 
 ```python
 class Solution:
-    def outerTrees(self, trees: List[List[int]]) -> List[List[int]]:
+    def outerTrees(self, trees: list[list[int]]) -> list[list[int]]:
         def cross(i, j, k):
             a, b, c = trees[i], trees[j], trees[k]
             return (b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0])

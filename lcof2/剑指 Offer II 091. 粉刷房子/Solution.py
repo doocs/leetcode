@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, costs: List[List[int]]) -> int:
+    def minCost(self, costs: list[list[int]]) -> int:
         r, g, b = 0, 0, 0
         for cost in costs:
             _r, _g, _b = r, g, b

@@ -87,7 +87,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def canCross(self, stones: List[int]) -> bool:
+    def canCross(self, stones: list[int]) -> bool:
         @cache
         def dfs(i, k):
             if i == n - 1:
@@ -327,7 +327,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def canCross(self, stones: List[int]) -> bool:
+    def canCross(self, stones: list[int]) -> bool:
         n = len(stones)
         f = [[False] * n for _ in range(n)]
         f[0][0] = True

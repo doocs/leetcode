@@ -95,8 +95,8 @@ Therefore, we return [1, 3].
 ```python
 class Solution:
     def countRectangles(
-        self, rectangles: List[List[int]], points: List[List[int]]
-    ) -> List[int]:
+        self, rectangles: list[list[int]], points: list[list[int]]
+    ) -> list[int]:
         d = defaultdict(list)
         for x, y in rectangles:
             d[y].append(x)

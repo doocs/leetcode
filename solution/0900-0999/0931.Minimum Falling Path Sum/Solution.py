@@ -1,5 +1,5 @@
 class Solution:
-    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+    def minFallingPathSum(self, matrix: list[list[int]]) -> int:
         n = len(matrix)
         f = [0] * n
         for row in matrix:

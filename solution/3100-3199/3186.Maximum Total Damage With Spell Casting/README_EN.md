@@ -104,7 +104,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maximumTotalDamage(self, power: List[int]) -> int:
+    def maximumTotalDamage(self, power: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:
@@ -351,7 +351,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maximumTotalDamage(self, power: List[int]) -> int:
+    def maximumTotalDamage(self, power: list[int]) -> int:
         n = len(power)
         cnt = Counter(power)
         power.sort()

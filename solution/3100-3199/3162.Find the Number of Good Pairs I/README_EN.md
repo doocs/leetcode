@@ -88,7 +88,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def numberOfPairs(self, nums1: list[int], nums2: list[int], k: int) -> int:
         return sum(x % (y * k) == 0 for x in nums1 for y in nums2)
 ```
 
@@ -192,7 +192,7 @@ The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is 
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def numberOfPairs(self, nums1: list[int], nums2: list[int], k: int) -> int:
         cnt1 = Counter(x // k for x in nums1 if x % k == 0)
         if not cnt1:
             return 0

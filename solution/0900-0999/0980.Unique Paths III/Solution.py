@@ -1,5 +1,5 @@
 class Solution:
-    def uniquePathsIII(self, grid: List[List[int]]) -> int:
+    def uniquePathsIII(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int, k: int) -> int:
             if grid[i][j] == 2:
                 return int(k == cnt + 1)

@@ -61,7 +61,7 @@ B = [2,5,6],       n = 3
 
 ```python
 class Solution:
-    def merge(self, A: List[int], m: int, B: List[int], n: int) -> None:
+    def merge(self, A: list[int], m: int, B: list[int], n: int) -> None:
         i, j = m - 1, n - 1
         for k in reversed(range(m + n)):
             if j < 0 or i >= 0 and A[i] > B[j]:

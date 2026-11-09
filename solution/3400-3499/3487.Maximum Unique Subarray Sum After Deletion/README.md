@@ -110,7 +110,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSum(self, nums: List[int]) -> int:
+    def maxSum(self, nums: list[int]) -> int:
         mx = max(nums)
         if mx <= 0:
             return mx

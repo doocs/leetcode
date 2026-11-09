@@ -163,7 +163,7 @@ class SegmentTree:
 
 
 class Solution:
-    def lengthOfLIS(self, nums: List[int], k: int) -> int:
+    def lengthOfLIS(self, nums: list[int], k: int) -> int:
         tree = SegmentTree(max(nums))
         ans = 1
         for v in nums:

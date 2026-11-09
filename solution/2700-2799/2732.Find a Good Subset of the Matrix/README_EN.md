@@ -111,7 +111,7 @@ The time complexity is $O(mn + 4^n)$, and the space complexity is $O(2^n)$, wher
 
 ```python
 class Solution:
-    def goodSubsetofBinaryMatrix(self, grid: List[List[int]]) -> List[int]:
+    def goodSubsetofBinaryMatrix(self, grid: list[list[int]]) -> list[int]:
         g = {}
         for i, row in enumerate(grid):
             mask = 0

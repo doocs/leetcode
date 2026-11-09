@@ -80,7 +80,7 @@ class Trie:
 
 
 class Solution:
-    def maxRectangle(self, words: List[str]) -> List[str]:
+    def maxRectangle(self, words: list[str]) -> list[str]:
         def check(mat):
             m, n = len(mat), len(mat[0])
             ans = 1

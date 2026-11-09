@@ -1,5 +1,5 @@
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in connections:
             g[a].append((b, 1))

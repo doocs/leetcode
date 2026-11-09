@@ -90,7 +90,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Solution:
-    def groupStrings(self, strings: List[str]) -> List[List[str]]:
+    def groupStrings(self, strings: list[str]) -> list[list[str]]:
         g = defaultdict(list)
         for s in strings:
             diff = ord(s[0]) - ord("a")

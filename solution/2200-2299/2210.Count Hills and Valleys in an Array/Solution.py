@@ -1,5 +1,5 @@
 class Solution:
-    def countHillValley(self, nums: List[int]) -> int:
+    def countHillValley(self, nums: list[int]) -> int:
         ans = j = 0
         for i in range(1, len(nums) - 1):
             if nums[i] == nums[i + 1]:

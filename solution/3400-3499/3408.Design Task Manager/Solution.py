@@ -1,5 +1,5 @@
 class TaskManager:
-    def __init__(self, tasks: List[List[int]]):
+    def __init__(self, tasks: list[list[int]]):
         self.d = {}
         self.st = SortedList()
         for task in tasks:

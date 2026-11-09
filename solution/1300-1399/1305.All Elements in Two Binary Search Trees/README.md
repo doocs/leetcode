@@ -86,8 +86,8 @@ tags:
 class Solution:
     def getAllElements(
         self, root1: Optional[TreeNode], root2: Optional[TreeNode]
-    ) -> List[int]:
-        def dfs(root: Optional[TreeNode], nums: List[int]) -> int:
+    ) -> list[int]:
+        def dfs(root: Optional[TreeNode], nums: list[int]) -> int:
             if root is None:
                 return
             dfs(root.left, nums)

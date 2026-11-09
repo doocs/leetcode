@@ -1,5 +1,5 @@
 class Solution:
-    def spellchecker(self, wordlist: List[str], queries: List[str]) -> List[str]:
+    def spellchecker(self, wordlist: list[str], queries: list[str]) -> list[str]:
         def f(w):
             t = []
             for c in w:

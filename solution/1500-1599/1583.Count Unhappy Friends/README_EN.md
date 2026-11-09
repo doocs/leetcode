@@ -115,7 +115,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 ```python
 class Solution:
     def unhappyFriends(
-        self, n: int, preferences: List[List[int]], pairs: List[List[int]]
+        self, n: int, preferences: list[list[int]], pairs: list[list[int]]
     ) -> int:
         d = [{x: j for j, x in enumerate(p)} for p in preferences]
         p = {}

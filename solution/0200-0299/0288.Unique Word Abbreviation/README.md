@@ -107,7 +107,7 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
 
 ```python
 class ValidWordAbbr:
-    def __init__(self, dictionary: List[str]):
+    def __init__(self, dictionary: list[str]):
         self.d = defaultdict(set)
         for s in dictionary:
             self.d[self.abbr(s)].add(s)

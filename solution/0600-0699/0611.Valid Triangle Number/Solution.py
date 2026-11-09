@@ -1,5 +1,5 @@
 class Solution:
-    def triangleNumber(self, nums: List[int]) -> int:
+    def triangleNumber(self, nums: list[int]) -> int:
         nums.sort()
         ans, n = 0, len(nums)
         for i in range(n - 2):

@@ -1,5 +1,5 @@
 class Solution:
-    def minimumOperations(self, grid: List[List[int]]) -> int:
+    def minimumOperations(self, grid: list[list[int]]) -> int:
         ans = 0
         for col in zip(*grid):
             pre = -1

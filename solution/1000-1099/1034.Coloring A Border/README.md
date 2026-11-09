@@ -101,8 +101,8 @@ tags:
 ```python
 class Solution:
     def colorBorder(
-        self, grid: List[List[int]], row: int, col: int, color: int
-    ) -> List[List[int]]:
+        self, grid: list[list[int]], row: int, col: int, color: int
+    ) -> list[list[int]]:
         def dfs(i: int, j: int, c: int) -> None:
             vis[i][j] = True
             for a, b in pairwise((-1, 0, 1, 0, -1)):

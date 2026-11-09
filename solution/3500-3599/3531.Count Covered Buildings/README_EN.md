@@ -137,7 +137,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def countCoveredBuildings(self, n: int, buildings: List[List[int]]) -> int:
+    def countCoveredBuildings(self, n: int, buildings: list[list[int]]) -> int:
         g1 = defaultdict(list)
         g2 = defaultdict(list)
         for x, y in buildings:

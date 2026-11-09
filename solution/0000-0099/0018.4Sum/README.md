@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+    def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
         n = len(nums)
         ans = []
         if n < 4:

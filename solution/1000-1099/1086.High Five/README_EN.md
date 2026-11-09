@@ -81,7 +81,7 @@ The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five avera
 
 ```python
 class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+    def highFive(self, items: list[list[int]]) -> list[list[int]]:
         d = defaultdict(list)
         m = 0
         for i, x in items:

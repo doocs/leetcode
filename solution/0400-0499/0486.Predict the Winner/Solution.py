@@ -1,5 +1,5 @@
 class Solution:
-    def predictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: list[int]) -> bool:
         @cache
         def dfs(i: int, j: int) -> int:
             if i > j:

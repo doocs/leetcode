@@ -105,7 +105,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def buttonWithLongestTime(self, events: List[List[int]]) -> int:
+    def buttonWithLongestTime(self, events: list[list[int]]) -> int:
         ans, t = events[0]
         for (_, t1), (i, t2) in pairwise(events):
             d = t2 - t1

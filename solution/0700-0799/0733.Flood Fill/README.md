@@ -99,8 +99,8 @@ tags:
 ```python
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, color: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, color: int
+    ) -> list[list[int]]:
         def dfs(i: int, j: int):
             image[i][j] = color
             for a, b in pairwise(dirs):
@@ -305,8 +305,8 @@ impl Solution {
 ```python
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, color: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, color: int
+    ) -> list[list[int]]:
         if image[sr][sc] == color:
             return image
         q = deque([(sr, sc)])

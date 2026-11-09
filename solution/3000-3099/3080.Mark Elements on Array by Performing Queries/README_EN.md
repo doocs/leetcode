@@ -113,7 +113,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def unmarkedSumArray(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def unmarkedSumArray(self, nums: list[int], queries: list[list[int]]) -> list[int]:
         n = len(nums)
         s = sum(nums)
         mark = [False] * n

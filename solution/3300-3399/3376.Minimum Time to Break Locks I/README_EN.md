@@ -200,7 +200,7 @@ tags:
 
 ```python
 class Solution:
-    def findMinimumTime(self, strength: List[int], K: int) -> int:
+    def findMinimumTime(self, strength: list[int], K: int) -> int:
         @cache
         def dfs(i: int) -> int:
             if i == (1 << len(strength)) - 1:

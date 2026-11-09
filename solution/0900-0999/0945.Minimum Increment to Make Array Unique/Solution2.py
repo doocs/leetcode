@@ -1,5 +1,5 @@
 class Solution:
-    def minIncrementForUnique(self, nums: List[int]) -> int:
+    def minIncrementForUnique(self, nums: list[int]) -> int:
         m = max(nums) + len(nums)
         cnt = Counter(nums)
         ans = 0

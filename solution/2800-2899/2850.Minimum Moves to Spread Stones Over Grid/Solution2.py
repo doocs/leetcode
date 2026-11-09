@@ -1,5 +1,5 @@
 class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
+    def minimumMoves(self, grid: list[list[int]]) -> int:
         def cal(a: tuple, b: tuple) -> int:
             return abs(a[0] - b[0]) + abs(a[1] - b[1])
 

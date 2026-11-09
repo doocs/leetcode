@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findNonMinOrMax(self, nums: List[int]) -> int:
+    def findNonMinOrMax(self, nums: list[int]) -> int:
         mi, mx = min(nums), max(nums)
         return next((x for x in nums if x != mi and x != mx), -1)
 ```

@@ -78,7 +78,7 @@ difficulty: 简单
 ```python
 class Solution:
     def minimumSwitchingTimes(
-        self, source: List[List[int]], target: List[List[int]]
+        self, source: list[list[int]], target: list[list[int]]
     ) -> int:
         cnt = Counter()
         for row in source:

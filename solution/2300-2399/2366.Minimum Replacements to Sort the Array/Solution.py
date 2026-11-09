@@ -1,5 +1,5 @@
 class Solution:
-    def minimumReplacement(self, nums: List[int]) -> int:
+    def minimumReplacement(self, nums: list[int]) -> int:
         ans = 0
         n = len(nums)
         mx = nums[-1]

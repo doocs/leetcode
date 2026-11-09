@@ -93,7 +93,7 @@ tags:
 ```python
 class Solution:
     def distanceBetweenBusStops(
-        self, distance: List[int], start: int, destination: int
+        self, distance: list[int], start: int, destination: int
     ) -> int:
         s = sum(distance)
         t, n = 0, len(distance)

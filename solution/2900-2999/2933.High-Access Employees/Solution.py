@@ -1,5 +1,5 @@
 class Solution:
-    def findHighAccessEmployees(self, access_times: List[List[str]]) -> List[str]:
+    def findHighAccessEmployees(self, access_times: list[list[str]]) -> list[str]:
         d = defaultdict(list)
         for name, t in access_times:
             d[name].append(int(t[:2]) * 60 + int(t[2:]))

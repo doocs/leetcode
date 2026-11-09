@@ -1,5 +1,5 @@
 class Solution:
-    def minArray(self, numbers: List[int]) -> int:
+    def minArray(self, numbers: list[int]) -> int:
         l, r = 0, len(numbers) - 1
         while l < r:
             if numbers[l] < numbers[r]:

@@ -108,7 +108,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def getLargestOutlier(self, nums: List[int]) -> int:
+    def getLargestOutlier(self, nums: list[int]) -> int:
         s = sum(nums)
         cnt = Counter(nums)
         ans = -inf

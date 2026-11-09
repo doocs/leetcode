@@ -1,5 +1,5 @@
 class Solution:
-    def minimumMountainRemovals(self, nums: List[int]) -> int:
+    def minimumMountainRemovals(self, nums: list[int]) -> int:
         n = len(nums)
         left = [1] * n
         right = [1] * n

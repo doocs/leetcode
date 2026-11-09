@@ -70,7 +70,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
+    def maxProduct(self, nums: list[int]) -> int:
         ans = f = g = nums[0]
         for x in nums[1:]:
             ff, gg = f, g

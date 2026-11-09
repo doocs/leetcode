@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+    def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
         mx = max(candies)
         return [candy + extraCandies >= mx for candy in candies]
 ```

@@ -94,7 +94,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def numberOfNodes(self, n: int, queries: List[int]) -> int:
+    def numberOfNodes(self, n: int, queries: list[int]) -> int:
         def dfs(i):
             if i > n:
                 return

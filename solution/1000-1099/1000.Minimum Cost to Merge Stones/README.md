@@ -115,7 +115,7 @@ $$
 
 ```python
 class Solution:
-    def mergeStones(self, stones: List[int], K: int) -> int:
+    def mergeStones(self, stones: list[int], K: int) -> int:
         n = len(stones)
         if (n - 1) % (K - 1):
             return -1

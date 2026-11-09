@@ -1,6 +1,6 @@
 class Solution:
     def findShortestWay(
-        self, maze: List[List[int]], ball: List[int], hole: List[int]
+        self, maze: list[list[int]], ball: list[int], hole: list[int]
     ) -> str:
         m, n = len(maze), len(maze[0])
         r, c = ball

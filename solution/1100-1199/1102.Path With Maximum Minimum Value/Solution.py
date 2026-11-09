@@ -1,5 +1,5 @@
 class Solution:
-    def maximumMinimumPath(self, grid: List[List[int]]) -> int:
+    def maximumMinimumPath(self, grid: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

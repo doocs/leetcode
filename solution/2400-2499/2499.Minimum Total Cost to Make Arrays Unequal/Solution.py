@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTotalCost(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumTotalCost(self, nums1: list[int], nums2: list[int]) -> int:
         ans = same = 0
         cnt = Counter()
         for i, (a, b) in enumerate(zip(nums1, nums2)):

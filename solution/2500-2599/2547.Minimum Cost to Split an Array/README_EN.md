@@ -125,7 +125,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], k: int) -> int:
+    def minCost(self, nums: list[int], k: int) -> int:
         @cache
         def dfs(i):
             if i >= n:
@@ -313,7 +313,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], k: int) -> int:
+    def minCost(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

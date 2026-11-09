@@ -103,7 +103,7 @@ nums 中的正整数是 [3,1,2] ，负整数是 [-2,-5,-4] 。
 
 ```python
 class Solution:
-    def rearrangeArray(self, nums: List[int]) -> List[int]:
+    def rearrangeArray(self, nums: list[int]) -> list[int]:
         ans = [0] * len(nums)
         i, j = 0, 1
         for x in nums:

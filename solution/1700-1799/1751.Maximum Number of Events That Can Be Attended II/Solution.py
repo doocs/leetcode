@@ -1,5 +1,5 @@
 class Solution:
-    def maxValue(self, events: List[List[int]], k: int) -> int:
+    def maxValue(self, events: list[list[int]], k: int) -> int:
         @cache
         def dfs(i: int, k: int) -> int:
             if i >= len(events):

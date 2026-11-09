@@ -1,7 +1,7 @@
 class Solution:
     def minimumRelativeLosses(
-        self, prices: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, prices: list[int], queries: list[list[int]]
+    ) -> list[int]:
         def f(k: int, m: int) -> int:
             l, r = 0, min(m, bisect_right(prices, k))
             while l < r:

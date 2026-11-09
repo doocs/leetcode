@@ -121,7 +121,7 @@ tags:
 
 ```python
 class Solution:
-    def minMirrorPairDistance(self, nums: List[int]) -> int:
+    def minMirrorPairDistance(self, nums: list[int]) -> int:
         def reverse(x: int) -> int:
             y = 0
             while x:

@@ -105,7 +105,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumDistance(self, nums: List[int]) -> int:
+    def minimumDistance(self, nums: list[int]) -> int:
         g = defaultdict(list)
         for i, x in enumerate(nums):
             g[x].append(i)

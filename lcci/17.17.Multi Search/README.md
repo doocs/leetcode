@@ -86,7 +86,7 @@ class Trie:
 
 
 class Solution:
-    def multiSearch(self, big: str, smalls: List[str]) -> List[List[int]]:
+    def multiSearch(self, big: str, smalls: list[str]) -> list[list[int]]:
         tree = Trie()
         for i, s in enumerate(smalls):
             tree.insert(s, i)

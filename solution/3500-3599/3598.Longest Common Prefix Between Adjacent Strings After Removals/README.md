@@ -141,7 +141,7 @@ tags:
 
 ```python
 class Solution:
-    def longestCommonPrefix(self, words: List[str]) -> List[int]:
+    def longestCommonPrefix(self, words: list[str]) -> list[int]:
         @cache
         def calc(s: str, t: str) -> int:
             k = 0

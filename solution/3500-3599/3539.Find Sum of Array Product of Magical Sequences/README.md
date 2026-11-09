@@ -139,7 +139,7 @@ def comb(m: int, n: int) -> int:
 
 
 class Solution:
-    def magicalSum(self, m: int, k: int, nums: List[int]) -> int:
+    def magicalSum(self, m: int, k: int, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int, st: int) -> int:
             if k < 0 or (i == len(nums) and j > 0):

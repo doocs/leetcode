@@ -107,12 +107,12 @@ class Solution:
     def maxProbability(
         self,
         n: int,
-        edges: List[List[int]],
-        succProb: List[float],
+        edges: list[list[int]],
+        succProb: list[float],
         start_node: int,
         end_node: int,
     ) -> float:
-        g: List[List[Tuple[int, float]]] = [[] for _ in range(n)]
+        g: list[list[Tuple[int, float]]] = [[] for _ in range(n)]
         for (a, b), p in zip(edges, succProb):
             g[a].append((b, p))
             g[b].append((a, p))

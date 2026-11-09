@@ -1,5 +1,5 @@
 class Solution:
-    def minPatches(self, nums: List[int], n: int) -> int:
+    def minPatches(self, nums: list[int], n: int) -> int:
         x = 1
         ans = i = 0
         while x <= n:

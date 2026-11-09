@@ -1,5 +1,5 @@
 class Solution:
-    def dominantIndices(self, nums: List[int]) -> int:
+    def dominantIndices(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         suf = nums[-1]

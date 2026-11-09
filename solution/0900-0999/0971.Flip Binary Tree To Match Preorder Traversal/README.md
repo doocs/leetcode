@@ -99,7 +99,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def flipMatchVoyage(self, root: Optional[TreeNode], voyage: List[int]) -> List[int]:
+    def flipMatchVoyage(self, root: Optional[TreeNode], voyage: list[int]) -> list[int]:
         def dfs(root):
             nonlocal i, ok
             if root is None or not ok:

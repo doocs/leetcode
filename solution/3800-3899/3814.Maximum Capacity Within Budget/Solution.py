@@ -1,5 +1,5 @@
 class Solution:
-    def maxCapacity(self, costs: List[int], capacity: List[int], budget: int) -> int:
+    def maxCapacity(self, costs: list[int], capacity: list[int], budget: int) -> int:
         arr = []
         for a, b in zip(costs, capacity):
             if a < budget:

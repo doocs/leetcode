@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def differenceOfDistinctValues(self, grid: List[List[int]]) -> List[List[int]]:
+    def differenceOfDistinctValues(self, grid: list[list[int]]) -> list[list[int]]:
         m, n = len(grid), len(grid[0])
         ans = [[0] * n for _ in range(m)]
         for i in range(m):

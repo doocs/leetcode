@@ -1,5 +1,5 @@
 class Solution:
-    def getMaxLen(self, nums: List[int]) -> int:
+    def getMaxLen(self, nums: list[int]) -> int:
         n = len(nums)
         f = int(nums[0] > 0)
         g = int(nums[0] < 0)

@@ -93,7 +93,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def repairCars(self, ranks: List[int], cars: int) -> int:
+    def repairCars(self, ranks: list[int], cars: int) -> int:
         def check(t: int) -> bool:
             return sum(int(sqrt(t // r)) for r in ranks) >= cars
 

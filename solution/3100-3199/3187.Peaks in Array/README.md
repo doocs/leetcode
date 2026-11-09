@@ -139,7 +139,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def countOfPeaks(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def countOfPeaks(self, nums: list[int], queries: list[list[int]]) -> list[int]:
         def update(i: int, val: int):
             if i <= 0 or i >= n - 1:
                 return

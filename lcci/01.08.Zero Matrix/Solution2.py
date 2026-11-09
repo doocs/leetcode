@@ -1,5 +1,5 @@
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         m, n = len(matrix), len(matrix[0])
         i0 = any(v == 0 for v in matrix[0])
         j0 = any(matrix[i][0] == 0 for i in range(m))

@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 class Solution:
     def splitCircularLinkedList(
         self, list: Optional[ListNode]
-    ) -> List[Optional[ListNode]]:
+    ) -> list[Optional[ListNode]]:
         a = b = list
         while b.next != list and b.next.next != list:
             a = a.next

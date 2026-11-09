@@ -1,5 +1,5 @@
 class Solution:
-    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
+    def hanota(self, A: list[int], B: list[int], C: list[int]) -> None:
         stk = [(len(A), A, B, C)]
         while stk:
             n, a, b, c = stk.pop()

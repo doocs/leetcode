@@ -1,5 +1,5 @@
 class Solution:
-    def minAbsoluteDifference(self, nums: List[int], x: int) -> int:
+    def minAbsoluteDifference(self, nums: list[int], x: int) -> int:
         sl = SortedList()
         ans = inf
         for i in range(x, len(nums)):

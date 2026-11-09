@@ -90,7 +90,7 @@ The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$
 
 ```python
 class Solution:
-    def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
+    def shortestCompletingWord(self, licensePlate: str, words: list[str]) -> str:
         cnt = Counter(c.lower() for c in licensePlate if c.isalpha())
         ans = None
         for w in words:

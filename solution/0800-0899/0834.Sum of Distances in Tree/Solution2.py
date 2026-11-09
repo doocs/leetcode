@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+    def sumOfDistancesInTree(self, n: int, edges: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)

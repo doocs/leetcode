@@ -80,7 +80,7 @@ kthLargest.add(4);   // return 8
 
 ```python
 class KthLargest:
-    def __init__(self, k: int, nums: List[int]):
+    def __init__(self, k: int, nums: list[int]):
         self.q = []
         self.size = k
         for num in nums:

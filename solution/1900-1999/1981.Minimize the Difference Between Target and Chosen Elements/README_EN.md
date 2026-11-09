@@ -112,7 +112,7 @@ The time complexity is $O(m^2n \times C)$, and the space complexity is $O(m \tim
 
 ```python
 class Solution:
-    def minimizeTheDifference(self, mat: List[List[int]], target: int) -> int:
+    def minimizeTheDifference(self, mat: list[list[int]], target: int) -> int:
         f = [True]
         for row in mat:
             mx = max(row)

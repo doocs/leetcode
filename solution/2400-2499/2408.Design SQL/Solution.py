@@ -1,10 +1,10 @@
 class SQL:
-    def __init__(self, names: List[str], columns: List[int]):
+    def __init__(self, names: list[str], columns: list[int]):
         self.cols = dict(zip(names, columns))
         self.rows = {name: {} for name in names}
         self.nxt = {name: 1 for name in names}
 
-    def ins(self, name: str, row: List[str]) -> bool:
+    def ins(self, name: str, row: list[str]) -> bool:
         if name not in self.cols or len(row) != self.cols[name]:
             return False
         i = self.nxt[name]
@@ -22,7 +22,7 @@ class SQL:
             return '<null>'
         return row[columnId - 1]
 
-    def exp(self, name: str) -> List[str]:
+    def exp(self, name: str) -> list[str]:
         if name not in self.rows:
             return []
         return [

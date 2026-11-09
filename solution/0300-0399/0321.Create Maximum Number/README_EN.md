@@ -83,8 +83,8 @@ tags:
 
 ```python
 class Solution:
-    def maxNumber(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:
-        def f(nums: List[int], k: int) -> List[int]:
+    def maxNumber(self, nums1: list[int], nums2: list[int], k: int) -> list[int]:
+        def f(nums: list[int], k: int) -> list[int]:
             n = len(nums)
             stk = [0] * k
             top = -1
@@ -100,7 +100,7 @@ class Solution:
                     remain -= 1
             return stk
 
-        def compare(nums1: List[int], nums2: List[int], i: int, j: int) -> bool:
+        def compare(nums1: list[int], nums2: list[int], i: int, j: int) -> bool:
             if i >= len(nums1):
                 return False
             if j >= len(nums2):
@@ -111,7 +111,7 @@ class Solution:
                 return False
             return compare(nums1, nums2, i + 1, j + 1)
 
-        def merge(nums1: List[int], nums2: List[int]) -> List[int]:
+        def merge(nums1: list[int], nums2: list[int]) -> list[int]:
             m, n = len(nums1), len(nums2)
             i = j = 0
             ans = [0] * (m + n)

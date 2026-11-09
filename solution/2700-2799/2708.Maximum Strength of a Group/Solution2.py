@@ -1,5 +1,5 @@
 class Solution:
-    def maxStrength(self, nums: List[int]) -> int:
+    def maxStrength(self, nums: list[int]) -> int:
         nums.sort()
         n = len(nums)
         if n == 1:

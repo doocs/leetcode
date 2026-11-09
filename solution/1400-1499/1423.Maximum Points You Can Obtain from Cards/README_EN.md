@@ -93,7 +93,7 @@ The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is 
 
 ```python
 class Solution:
-    def maxScore(self, cardPoints: List[int], k: int) -> int:
+    def maxScore(self, cardPoints: list[int], k: int) -> int:
         ans = s = sum(cardPoints[-k:])
         for i, x in enumerate(cardPoints[:k]):
             s += x - cardPoints[-k + i]

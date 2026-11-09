@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
+    def minimumOperations(self, nums: list[int]) -> int:
         def f(i: int) -> Tuple[int, int, int, int]:
             k1 = k2 = 0
             cnt = Counter(nums[i::2])

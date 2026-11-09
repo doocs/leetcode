@@ -81,7 +81,7 @@ for i in range(n):
 
 ```python
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+    def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
         ans = [0] * len(temperatures)
         stk = []
         for i, t in enumerate(temperatures):
@@ -237,7 +237,7 @@ class Solution {
 
 ```python
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+    def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
         n = len(temperatures)
         stk = []
         ans = [0] * n

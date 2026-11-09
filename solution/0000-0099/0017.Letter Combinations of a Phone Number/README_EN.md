@@ -74,7 +74,7 @@ The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$, where $n$
 
 ```python
 class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
+    def letterCombinations(self, digits: str) -> list[str]:
         if not digits:
             return []
         d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
@@ -335,7 +335,7 @@ The time complexity is $O(4^n)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
+    def letterCombinations(self, digits: str) -> list[str]:
         def dfs(i: int):
             if i >= len(digits):
                 ans.append("".join(t))

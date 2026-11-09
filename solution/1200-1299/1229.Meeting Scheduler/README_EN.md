@@ -85,8 +85,8 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 ```python
 class Solution:
     def minAvailableDuration(
-        self, slots1: List[List[int]], slots2: List[List[int]], duration: int
-    ) -> List[int]:
+        self, slots1: list[list[int]], slots2: list[list[int]], duration: int
+    ) -> list[int]:
         slots1.sort()
         slots2.sort()
         m, n = len(slots1), len(slots2)

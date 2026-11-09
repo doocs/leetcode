@@ -1,5 +1,5 @@
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+    def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
         n = len(temperatures)
         stk = []
         ans = [0] * n

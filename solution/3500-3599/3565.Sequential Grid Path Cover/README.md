@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def findPath(self, grid: List[List[int]], k: int) -> List[List[int]]:
+    def findPath(self, grid: list[list[int]], k: int) -> list[list[int]]:
         def f(i: int, j: int) -> int:
             return i * n + j
 

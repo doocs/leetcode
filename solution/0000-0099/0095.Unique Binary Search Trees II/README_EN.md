@@ -80,8 +80,8 @@ The time complexity is $O(n \times G(n))$, and the space complexity is $O(n \tim
 #         self.left = left
 #         self.right = right
 class Solution:
-    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
-        def dfs(i: int, j: int) -> List[Optional[TreeNode]]:
+    def generateTrees(self, n: int) -> list[Optional[TreeNode]]:
+        def dfs(i: int, j: int) -> list[Optional[TreeNode]]:
             if i > j:
                 return [None]
             ans = []

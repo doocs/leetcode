@@ -117,7 +117,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def rotate(self, matrix: list[list[int]]) -> None:
         n = len(matrix)
         for i in range(n >> 1):
             for j in range(n):

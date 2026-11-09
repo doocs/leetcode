@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def isTrionic(self, nums: List[int]) -> bool:
+    def isTrionic(self, nums: list[int]) -> bool:
         n = len(nums)
         p = 0
         while p < n - 2 and nums[p] < nums[p + 1]:

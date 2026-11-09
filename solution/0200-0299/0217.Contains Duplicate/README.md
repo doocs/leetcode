@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums: list[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
 
@@ -259,7 +259,7 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 ```python
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums: list[int]) -> bool:
         return len(set(nums)) < len(nums)
 ```
 

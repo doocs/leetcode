@@ -89,7 +89,7 @@ The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is 
 
 ```python
 class Solution:
-    def findWordsContaining(self, words: List[str], x: str) -> List[int]:
+    def findWordsContaining(self, words: list[str], x: str) -> list[int]:
         return [i for i, w in enumerate(words) if x in w]
 ```
 

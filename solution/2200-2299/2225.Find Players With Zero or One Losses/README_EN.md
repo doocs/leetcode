@@ -105,7 +105,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+    def findWinners(self, matches: list[list[int]]) -> list[list[int]]:
         cnt = Counter()
         for winner, loser in matches:
             if winner not in cnt:

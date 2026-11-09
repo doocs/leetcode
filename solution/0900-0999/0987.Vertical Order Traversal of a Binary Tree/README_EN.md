@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> list[list[int]]:
         def dfs(root: Optional[TreeNode], i: int, j: int):
             if root is None:
                 return

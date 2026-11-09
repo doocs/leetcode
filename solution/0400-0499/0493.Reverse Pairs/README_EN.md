@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         def merge_sort(l, r):
             if l >= r:
                 return 0
@@ -310,7 +310,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         s = set()
         for num in nums:
             s.add(num)
@@ -564,7 +564,7 @@ class SegmentTree:
 
 
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         s = set()
         for num in nums:
             s.add(num)

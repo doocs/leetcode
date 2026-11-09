@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums: list[int]) -> int:
         ans = f = nums[0]
         for x in nums[1:]:
             f = max(f, 0) + x

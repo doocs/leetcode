@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
+    def xorAllNums(self, nums1: list[int], nums2: list[int]) -> int:
         ans = 0
         if len(nums2) & 1:
             for v in nums1:

@@ -92,7 +92,7 @@ The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words 
 
 ```python
 class Solution:
-    def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
+    def wordSubsets(self, words1: list[str], words2: list[str]) -> list[str]:
         cnt = Counter()
         for b in words2:
             t = Counter(b)

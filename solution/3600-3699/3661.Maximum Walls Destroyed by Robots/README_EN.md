@@ -142,7 +142,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+    def maxWalls(self, robots: list[int], distance: list[int], walls: list[int]) -> int:
         n = len(robots)
         arr = sorted(zip(robots, distance), key=lambda x: x[0])
         walls.sort()
@@ -431,7 +431,7 @@ The time complexity is $O(n \log n + m \log m + n \log m)$, and the space comple
 
 ```python
 class Solution:
-    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+    def maxWalls(self, robots: list[int], distance: list[int], walls: list[int]) -> int:
         n = len(robots)
         arr = sorted(zip(robots, distance), key=lambda x: x[0])
         walls.sort()

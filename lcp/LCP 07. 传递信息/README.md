@@ -81,7 +81,7 @@ comments: true
 
 ```python
 class Solution:
-    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+    def numWays(self, n: int, relation: list[list[int]], k: int) -> int:
         f = [[0] * n for _ in range(k + 1)]
         f[0][0] = 1
         for i in range(1, k + 1):
@@ -205,7 +205,7 @@ $f[i][j]$ 只与上一轮有关，用两个长度为 $n$ 的数组 $f$、 $g$ �
 
 ```python
 class Solution:
-    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+    def numWays(self, n: int, relation: list[list[int]], k: int) -> int:
         f = [1] + [0] * (n - 1)
         for _ in range(k):
             g = [0] * n

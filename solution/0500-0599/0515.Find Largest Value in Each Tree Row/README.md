@@ -83,7 +83,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         if root is None:
             return ans
@@ -349,7 +349,7 @@ DFS 先序遍历，找每个深度最大的节点值。
 #         self.left = left
 #         self.right = right
 class Solution:
-    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root, curr):
             if root is None:
                 return

@@ -1,6 +1,6 @@
 class Solution:
     def findReplaceString(
-        self, s: str, indices: List[int], sources: List[str], targets: List[str]
+        self, s: str, indices: list[int], sources: list[str], targets: list[str]
     ) -> str:
         n = len(s)
         d = [-1] * n

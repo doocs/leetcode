@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def gridGame(self, grid: List[List[int]]) -> int:
+    def gridGame(self, grid: list[list[int]]) -> int:
         ans = inf
         s1, s2 = sum(grid[0]), 0
         for j, v in enumerate(grid[0]):

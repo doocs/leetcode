@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> list[str]:
         def dfs(root: Optional[TreeNode]):
             if root is None:
                 return

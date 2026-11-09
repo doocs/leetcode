@@ -113,7 +113,7 @@ tags:
 
 ```python
 class Solution:
-    def countPairs(self, nums: List[int]) -> int:
+    def countPairs(self, nums: list[int]) -> int:
         nums.sort()
         ans = 0
         cnt = defaultdict(int)

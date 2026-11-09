@@ -119,7 +119,7 @@ tags:
 
 ```python
 class Solution:
-    def sumDistance(self, nums: List[int], s: str, d: int) -> int:
+    def sumDistance(self, nums: list[int], s: str, d: int) -> int:
         mod = 10**9 + 7
         for i, c in enumerate(s):
             nums[i] += d if c == "R" else -d

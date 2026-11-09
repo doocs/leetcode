@@ -80,7 +80,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 #         self.left = left
 #         self.right = right
 class Solution:
-    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> list[str]:
         def dfs(root: Optional[TreeNode]):
             if root is None:
                 return

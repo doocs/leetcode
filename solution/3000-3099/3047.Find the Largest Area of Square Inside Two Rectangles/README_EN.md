@@ -119,7 +119,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 ```python
 class Solution:
     def largestSquareArea(
-        self, bottomLeft: List[List[int]], topRight: List[List[int]]
+        self, bottomLeft: list[list[int]], topRight: list[list[int]]
     ) -> int:
         ans = 0
         for ((x1, y1), (x2, y2)), ((x3, y3), (x4, y4)) in combinations(

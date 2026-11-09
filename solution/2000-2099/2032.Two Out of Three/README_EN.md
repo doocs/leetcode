@@ -87,8 +87,8 @@ The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 
 ```python
 class Solution:
     def twoOutOfThree(
-        self, nums1: List[int], nums2: List[int], nums3: List[int]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], nums3: list[int]
+    ) -> list[int]:
         s1, s2, s3 = set(nums1), set(nums2), set(nums3)
         return [i for i in range(1, 101) if (i in s1) + (i in s2) + (i in s3) > 1]
 ```
@@ -246,8 +246,8 @@ The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 
 ```python
 class Solution:
     def twoOutOfThree(
-        self, nums1: List[int], nums2: List[int], nums3: List[int]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], nums3: list[int]
+    ) -> list[int]:
         mask = defaultdict(int)
         for i, nums in enumerate((nums1, nums2, nums3)):
             for x in nums:

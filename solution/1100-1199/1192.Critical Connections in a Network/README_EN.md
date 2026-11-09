@@ -86,8 +86,8 @@ There is an algorithm called the Tarjan algorithm for finding "bridges" and "art
 ```python
 class Solution:
     def criticalConnections(
-        self, n: int, connections: List[List[int]]
-    ) -> List[List[int]]:
+        self, n: int, connections: list[list[int]]
+    ) -> list[list[int]]:
         def tarjan(a: int, fa: int):
             nonlocal now
             now += 1

@@ -1,5 +1,5 @@
 class Solution:
-    def totalHammingDistance(self, nums: List[int]) -> int:
+    def totalHammingDistance(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(32):
             a = sum(x >> i & 1 for x in nums)

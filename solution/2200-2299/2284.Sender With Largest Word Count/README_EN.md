@@ -96,7 +96,7 @@ The time complexity is $O(n + L)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def largestWordCount(self, messages: List[str], senders: List[str]) -> str:
+    def largestWordCount(self, messages: list[str], senders: list[str]) -> str:
         cnt = Counter()
         for message, sender in zip(messages, senders):
             cnt[sender] += message.count(" ") + 1

@@ -87,7 +87,7 @@ Some of them are (0, 2), (2, 0), (2, 4), (3, 2), and (4, 4).
 
 ```python
 class Solution:
-    def countLatticePoints(self, circles: List[List[int]]) -> int:
+    def countLatticePoints(self, circles: list[list[int]]) -> int:
         ans = 0
         mx = max(x + r for x, _, r in circles)
         my = max(y + r for _, y, r in circles)

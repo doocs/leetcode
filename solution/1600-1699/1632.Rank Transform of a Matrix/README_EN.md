@@ -128,7 +128,7 @@ class UnionFind:
 
 
 class Solution:
-    def matrixRankTransform(self, matrix: List[List[int]]) -> List[List[int]]:
+    def matrixRankTransform(self, matrix: list[list[int]]) -> list[list[int]]:
         m, n = len(matrix), len(matrix[0])
         d = defaultdict(list)
         for i, row in enumerate(matrix):

@@ -82,7 +82,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def minimumMoves(self, arr: List[int]) -> int:
+    def minimumMoves(self, arr: list[int]) -> int:
         n = len(arr)
         f = [[0] * n for _ in range(n)]
         for i in range(n):

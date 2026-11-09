@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
+    def maxChunksToSorted(self, arr: list[int]) -> int:
         mx = ans = 0
         for i, v in enumerate(arr):
             mx = max(mx, v)
@@ -226,7 +226,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
+    def maxChunksToSorted(self, arr: list[int]) -> int:
         stk = []
         for v in arr:
             if not stk or v >= stk[-1]:

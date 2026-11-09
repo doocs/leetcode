@@ -1,5 +1,5 @@
 class Solution:
-    def maxAliveYear(self, birth: List[int], death: List[int]) -> int:
+    def maxAliveYear(self, birth: list[int], death: list[int]) -> int:
         base = 1900
         d = [0] * 102
         for a, b in zip(birth, death):

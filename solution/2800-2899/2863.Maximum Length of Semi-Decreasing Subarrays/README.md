@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSubarrayLength(self, nums: List[int]) -> int:
+    def maxSubarrayLength(self, nums: list[int]) -> int:
         d = defaultdict(list)
         for i, x in enumerate(nums):
             d[x].append(i)

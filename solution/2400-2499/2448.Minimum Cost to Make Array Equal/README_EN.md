@@ -108,7 +108,7 @@ The time complexity is $O(n \log n)$, where $n$ is the length of the array $\tex
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], cost: List[int]) -> int:
+    def minCost(self, nums: list[int], cost: list[int]) -> int:
         arr = sorted(zip(nums, cost))
         n = len(arr)
         f = [0] * (n + 1)
@@ -297,7 +297,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], cost: List[int]) -> int:
+    def minCost(self, nums: list[int], cost: list[int]) -> int:
         arr = sorted(zip(nums, cost))
         mid = sum(cost) // 2
         s = 0

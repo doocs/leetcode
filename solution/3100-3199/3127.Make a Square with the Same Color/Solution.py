@@ -1,5 +1,5 @@
 class Solution:
-    def canMakeSquare(self, grid: List[List[str]]) -> bool:
+    def canMakeSquare(self, grid: list[list[str]]) -> bool:
         for i in range(0, 2):
             for j in range(0, 2):
                 cnt1 = cnt2 = 0

@@ -94,7 +94,7 @@ The time complexity is $O(n^2 + n \times M)$, and the space complexity is $O(M)$
 
 ```python
 class Solution:
-    def countTriplets(self, nums: List[int]) -> int:
+    def countTriplets(self, nums: list[int]) -> int:
         cnt = Counter(x & y for x in nums for y in nums)
         return sum(v for xy, v in cnt.items() for z in nums if xy & z == 0)
 ```

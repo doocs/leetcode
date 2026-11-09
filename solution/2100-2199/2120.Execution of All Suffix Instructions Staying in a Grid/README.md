@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
+    def executeInstructions(self, n: int, startPos: list[int], s: str) -> list[int]:
         ans = []
         m = len(s)
         mp = {"L": [0, -1], "R": [0, 1], "U": [-1, 0], "D": [1, 0]}

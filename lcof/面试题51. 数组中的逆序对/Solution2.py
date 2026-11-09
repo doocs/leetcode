@@ -17,7 +17,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         alls = sorted(set(nums))
         m = len(alls)
         tree = BinaryIndexedTree(m)

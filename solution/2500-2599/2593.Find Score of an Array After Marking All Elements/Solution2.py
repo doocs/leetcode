@@ -1,5 +1,5 @@
 class Solution:
-    def findScore(self, nums: List[int]) -> int:
+    def findScore(self, nums: list[int]) -> int:
         n = len(nums)
         vis = [False] * (n + 2)
         idx = sorted(range(n), key=lambda i: (nums[i], i))

@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
+    def maxSubsequence(self, nums: list[int], k: int) -> list[int]:
         idx = sorted(range(len(nums)), key=lambda i: nums[i])[-k:]
         return [nums[i] for i in sorted(idx)]
 ```

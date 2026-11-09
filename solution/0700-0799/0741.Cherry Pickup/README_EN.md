@@ -105,7 +105,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$, where $n$
 
 ```python
 class Solution:
-    def cherryPickup(self, grid: List[List[int]]) -> int:
+    def cherryPickup(self, grid: list[list[int]]) -> int:
         n = len(grid)
         f = [[[-inf] * n for _ in range(n)] for _ in range((n << 1) - 1)]
         f[0][0][0] = grid[0][0]

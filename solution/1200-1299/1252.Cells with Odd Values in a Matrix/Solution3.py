@@ -1,5 +1,5 @@
 class Solution:
-    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+    def oddCells(self, m: int, n: int, indices: list[list[int]]) -> int:
         row = [0] * m
         col = [0] * n
         for r, c in indices:

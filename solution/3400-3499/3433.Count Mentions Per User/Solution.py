@@ -1,5 +1,5 @@
 class Solution:
-    def countMentions(self, numberOfUsers: int, events: List[List[str]]) -> List[int]:
+    def countMentions(self, numberOfUsers: int, events: list[list[str]]) -> list[int]:
         events.sort(key=lambda e: (int(e[1]), e[0][2]))
         ans = [0] * numberOfUsers
         online_t = [0] * numberOfUsers

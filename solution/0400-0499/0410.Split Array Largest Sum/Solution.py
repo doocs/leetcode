@@ -1,5 +1,5 @@
 class Solution:
-    def splitArray(self, nums: List[int], k: int) -> int:
+    def splitArray(self, nums: list[int], k: int) -> int:
         def check(mx):
             s, cnt = inf, 0
             for x in nums:

@@ -110,7 +110,7 @@ Thus, the size of the largest group is 3.
 
 ```python
 class Solution:
-    def groupStrings(self, words: List[str]) -> List[int]:
+    def groupStrings(self, words: list[str]) -> list[int]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

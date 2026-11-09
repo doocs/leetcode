@@ -87,7 +87,7 @@ The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$
 
 ```python
 class Solution:
-    def largestSumOfAverages(self, nums: List[int], k: int) -> float:
+    def largestSumOfAverages(self, nums: list[int], k: int) -> float:
         @cache
         def dfs(i: int, k: int) -> float:
             if i == n:
@@ -272,7 +272,7 @@ The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$
 
 ```python
 class Solution:
-    def largestSumOfAverages(self, nums: List[int], k: int) -> float:
+    def largestSumOfAverages(self, nums: list[int], k: int) -> float:
         n = len(nums)
         f = [[0] * (k + 1) for _ in range(n + 1)]
         s = list(accumulate(nums, initial=0))

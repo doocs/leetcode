@@ -113,8 +113,8 @@ The time complexity is $O(mns \log n)$, and the space complexity is $O(n)$, wher
 ```python
 class Solution:
     def smallestTrimmedNumbers(
-        self, nums: List[str], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums: list[str], queries: list[list[int]]
+    ) -> list[int]:
         ans = []
         for k, trim in queries:
             t = sorted((v[-trim:], i) for i, v in enumerate(nums))

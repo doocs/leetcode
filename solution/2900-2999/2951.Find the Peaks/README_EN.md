@@ -89,7 +89,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findPeaks(self, mountain: List[int]) -> List[int]:
+    def findPeaks(self, mountain: list[int]) -> list[int]:
         return [
             i
             for i in range(1, len(mountain) - 1)

@@ -1,5 +1,5 @@
 class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+    def countDistinct(self, nums: list[int], k: int, p: int) -> int:
         s = set()
         n = len(nums)
         base1, base2 = 131, 13331

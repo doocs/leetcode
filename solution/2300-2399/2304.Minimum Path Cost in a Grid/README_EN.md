@@ -100,7 +100,7 @@ The time complexity is $O(mn^2)$, and the space complexity is $O(n)$, where $m$ 
 
 ```python
 class Solution:
-    def minPathCost(self, grid: List[List[int]], moveCost: List[List[int]]) -> int:
+    def minPathCost(self, grid: list[list[int]], moveCost: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = grid[0]
         for i in range(1, m):

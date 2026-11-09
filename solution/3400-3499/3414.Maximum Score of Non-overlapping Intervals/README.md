@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumWeight(self, intervals: List[List[int]]) -> List[int]:
+    def maximumWeight(self, intervals: list[list[int]]) -> list[int]:
         n = len(intervals)
         arr = [[e[0], e[1], e[2], i] for i, e in enumerate(intervals)]
         arr.sort()

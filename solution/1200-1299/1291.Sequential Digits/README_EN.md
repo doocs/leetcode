@@ -58,7 +58,7 @@ tags:
 
 ```python
 class Solution:
-    def sequentialDigits(self, low: int, high: int) -> List[int]:
+    def sequentialDigits(self, low: int, high: int) -> list[int]:
         ans = []
         for i in range(1, 9):
             x = i

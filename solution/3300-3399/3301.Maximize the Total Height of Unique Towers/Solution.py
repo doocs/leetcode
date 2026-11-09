@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTotalSum(self, maximumHeight: List[int]) -> int:
+    def maximumTotalSum(self, maximumHeight: list[int]) -> int:
         maximumHeight.sort()
         ans, mx = 0, inf
         for x in maximumHeight[::-1]:

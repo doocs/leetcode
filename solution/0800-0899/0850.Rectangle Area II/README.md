@@ -141,7 +141,7 @@ class SegmentTree:
 
 
 class Solution:
-    def rectangleArea(self, rectangles: List[List[int]]) -> int:
+    def rectangleArea(self, rectangles: list[list[int]]) -> int:
         segs = []
         alls = set()
         for x1, y1, x2, y2 in rectangles:

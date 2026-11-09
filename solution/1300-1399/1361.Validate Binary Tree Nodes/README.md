@@ -102,7 +102,7 @@ tags:
 ```python
 class Solution:
     def validateBinaryTreeNodes(
-        self, n: int, leftChild: List[int], rightChild: List[int]
+        self, n: int, leftChild: list[int], rightChild: list[int]
     ) -> bool:
         def find(x: int) -> int:
             if p[x] != x:
@@ -251,7 +251,7 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 ```python
 class Solution:
     def validateBinaryTreeNodes(
-        self, n: int, leftChild: List[int], rightChild: List[int]
+        self, n: int, leftChild: list[int], rightChild: list[int]
     ) -> bool:
         indeg = [0] * n
         for c in chain(leftChild, rightChild):

@@ -68,7 +68,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
+    def canAttendMeetings(self, intervals: list[list[int]]) -> bool:
         intervals.sort()
         return all(a[1] <= b[0] for a, b in pairwise(intervals))
 ```

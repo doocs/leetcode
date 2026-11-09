@@ -80,7 +80,7 @@ comments: true
 
 ```python
 class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: list[str]) -> int:
         words = set(wordList)
         q = deque([beginWord])
         ans = 1

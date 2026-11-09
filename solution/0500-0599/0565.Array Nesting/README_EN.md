@@ -80,7 +80,7 @@ s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
 
 ```python
 class Solution:
-    def arrayNesting(self, nums: List[int]) -> int:
+    def arrayNesting(self, nums: list[int]) -> int:
         n = len(nums)
         vis = [False] * n
         res = 0
@@ -198,7 +198,7 @@ func arrayNesting(nums []int) int {
 
 ```python
 class Solution:
-    def arrayNesting(self, nums: List[int]) -> int:
+    def arrayNesting(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(n):
             cnt = 0

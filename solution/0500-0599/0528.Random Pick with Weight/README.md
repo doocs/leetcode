@@ -104,7 +104,7 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 
 ```python
 class Solution:
-    def __init__(self, w: List[int]):
+    def __init__(self, w: list[int]):
         self.s = [0]
         for c in w:
             self.s.append(self.s[-1] + c)

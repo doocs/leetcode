@@ -1,5 +1,5 @@
 class Solution:
-    def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+    def deckRevealedIncreasing(self, deck: list[int]) -> list[int]:
         q = deque()
         for v in sorted(deck, reverse=True):
             if q:

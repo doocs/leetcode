@@ -1,5 +1,5 @@
 class Solution:
-    def simplifiedFractions(self, n: int) -> List[str]:
+    def simplifiedFractions(self, n: int) -> list[str]:
         return [
             f'{i}/{j}'
             for i in range(1, n)

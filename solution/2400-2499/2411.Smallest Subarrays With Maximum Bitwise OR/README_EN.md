@@ -100,7 +100,7 @@ The time complexity is $O(n \log m)$, where $n$ is the length of the array $\tex
 
 ```python
 class Solution:
-    def smallestSubarrays(self, nums: List[int]) -> List[int]:
+    def smallestSubarrays(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [1] * n
         f = [-1] * 32

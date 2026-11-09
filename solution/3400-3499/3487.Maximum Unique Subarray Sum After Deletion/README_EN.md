@@ -107,7 +107,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSum(self, nums: List[int]) -> int:
+    def maxSum(self, nums: list[int]) -> int:
         mx = max(nums)
         if mx <= 0:
             return mx

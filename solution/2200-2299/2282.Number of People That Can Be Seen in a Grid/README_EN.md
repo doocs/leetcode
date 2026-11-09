@@ -109,8 +109,8 @@ Similar problems:
 
 ```python
 class Solution:
-    def seePeople(self, heights: List[List[int]]) -> List[List[int]]:
-        def f(nums: List[int]) -> List[int]:
+    def seePeople(self, heights: list[list[int]]) -> list[list[int]]:
+        def f(nums: list[int]) -> list[int]:
             n = len(nums)
             stk = []
             ans = [0] * n

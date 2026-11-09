@@ -85,8 +85,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. In this p
 ```python
 class Solution:
     def queensAttacktheKing(
-        self, queens: List[List[int]], king: List[int]
-    ) -> List[List[int]]:
+        self, queens: list[list[int]], king: list[int]
+    ) -> list[list[int]]:
         n = 8
         s = {(i, j) for i, j in queens}
         ans = []

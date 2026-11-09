@@ -1,5 +1,5 @@
 class Solution:
-    def countCoveredBuildings(self, n: int, buildings: List[List[int]]) -> int:
+    def countCoveredBuildings(self, n: int, buildings: list[list[int]]) -> int:
         g1 = defaultdict(list)
         g2 = defaultdict(list)
         for x, y in buildings:

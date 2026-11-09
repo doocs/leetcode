@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:
+    def powerfulIntegers(self, x: int, y: int, bound: int) -> list[int]:
         ans = set()
         a = 1
         while a <= bound:

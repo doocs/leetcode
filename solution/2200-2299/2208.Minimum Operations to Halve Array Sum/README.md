@@ -96,7 +96,7 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 
 ```python
 class Solution:
-    def halveArray(self, nums: List[int]) -> int:
+    def halveArray(self, nums: list[int]) -> int:
         s = sum(nums) / 2
         pq = []
         for x in nums:

@@ -1,5 +1,5 @@
 class Solution:
-    def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+    def maximumScore(self, nums: list[int], multipliers: list[int]) -> int:
         n, m = len(nums), len(multipliers)
         f = [[-inf] * (m + 1) for _ in range(m + 1)]
         f[0][0] = 0

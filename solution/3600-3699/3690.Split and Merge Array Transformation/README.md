@@ -110,7 +110,7 @@ source: 第 468 场周赛 Q3
 
 ```python
 class Solution:
-    def minSplitMerge(self, nums1: List[int], nums2: List[int]) -> int:
+    def minSplitMerge(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums1)
         target = tuple(nums2)
         start = tuple(nums1)

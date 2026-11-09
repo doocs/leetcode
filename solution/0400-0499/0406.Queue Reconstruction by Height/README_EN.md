@@ -81,7 +81,7 @@ Hence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.
 
 ```python
 class Solution:
-    def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+    def reconstructQueue(self, people: list[list[int]]) -> list[list[int]]:
         people.sort(key=lambda x: (-x[0], x[1]))
         ans = []
         for p in people:

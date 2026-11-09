@@ -98,7 +98,7 @@ The time complexity is $O(n \log m)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minimumSplits(self, nums: List[int]) -> int:
+    def minimumSplits(self, nums: list[int]) -> int:
         ans, g = 1, 0
         for x in nums:
             g = gcd(g, x)

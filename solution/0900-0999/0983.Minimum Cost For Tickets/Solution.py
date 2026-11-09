@@ -1,5 +1,5 @@
 class Solution:
-    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+    def mincostTickets(self, days: list[int], costs: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:

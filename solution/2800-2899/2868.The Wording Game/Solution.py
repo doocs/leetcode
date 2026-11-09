@@ -1,5 +1,5 @@
 class Solution:
-    def canAliceWin(self, a: List[str], b: List[str]) -> bool:
+    def canAliceWin(self, a: list[str], b: list[str]) -> bool:
         i, j, k = 1, 0, 1
         w = a[0]
         while 1:

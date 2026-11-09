@@ -93,7 +93,7 @@ tags:
 class Solution:
     def findDuplicateSubtrees(
         self, root: Optional[TreeNode]
-    ) -> List[Optional[TreeNode]]:
+    ) -> list[Optional[TreeNode]]:
         def dfs(root):
             if root is None:
                 return '#'

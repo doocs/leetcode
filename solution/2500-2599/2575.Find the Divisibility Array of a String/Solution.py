@@ -1,5 +1,5 @@
 class Solution:
-    def divisibilityArray(self, word: str, m: int) -> List[int]:
+    def divisibilityArray(self, word: str, m: int) -> list[int]:
         ans = []
         x = 0
         for c in word:

@@ -66,7 +66,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def findSwapValues(self, array1: List[int], array2: List[int]) -> List[int]:
+    def findSwapValues(self, array1: list[int], array2: list[int]) -> list[int]:
         diff = sum(array1) - sum(array2)
         if diff & 1:
             return []

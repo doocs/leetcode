@@ -63,7 +63,7 @@ comments: true
 
 ```python
 class Solution:
-    def purchasePlans(self, nums: List[int], target: int) -> int:
+    def purchasePlans(self, nums: list[int], target: int) -> int:
         nums.sort()
         i, j = 0, len(nums) - 1
         res = 0

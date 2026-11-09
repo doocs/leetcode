@@ -114,8 +114,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def pathExistenceQueries(
-        self, n: int, nums: List[int], maxDiff: int, queries: List[List[int]]
-    ) -> List[bool]:
+        self, n: int, nums: list[int], maxDiff: int, queries: list[list[int]]
+    ) -> list[bool]:
         g = [0] * n
         cnt = 0
         for i in range(1, n):

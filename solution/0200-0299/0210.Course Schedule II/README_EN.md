@@ -87,7 +87,7 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 
 ```python
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+    def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         indeg = [0] * numCourses
         for a, b in prerequisites:

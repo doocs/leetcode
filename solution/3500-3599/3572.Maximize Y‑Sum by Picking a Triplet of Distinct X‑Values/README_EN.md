@@ -102,7 +102,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxSumDistinctTriplet(self, x: List[int], y: List[int]) -> int:
+    def maxSumDistinctTriplet(self, x: list[int], y: list[int]) -> int:
         arr = [(a, b) for a, b in zip(x, y)]
         arr.sort(key=lambda x: -x[1])
         vis = set()

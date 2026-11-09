@@ -1,5 +1,5 @@
 class Solution:
-    def maxSum(self, nums: List[int]) -> int:
+    def maxSum(self, nums: list[int]) -> int:
         ans = -1
         for i, x in enumerate(nums):
             for y in nums[i + 1 :]:

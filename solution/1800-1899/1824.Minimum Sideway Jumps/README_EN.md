@@ -107,7 +107,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minSideJumps(self, obstacles: List[int]) -> int:
+    def minSideJumps(self, obstacles: list[int]) -> int:
         f = [1, 0, 1]
         for v in obstacles[1:]:
             for j in range(3):

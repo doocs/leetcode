@@ -86,7 +86,7 @@ The time complexity is $O(n \sqrt{M})$, and the space complexity is $O(1)$, wher
 
 ```python
 class Solution:
-    def maximumPrimeDifference(self, nums: List[int]) -> int:
+    def maximumPrimeDifference(self, nums: list[int]) -> int:
         def is_prime(x: int) -> bool:
             if x < 2:
                 return False

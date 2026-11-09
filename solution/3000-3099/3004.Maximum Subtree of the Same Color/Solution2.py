@@ -1,5 +1,5 @@
 class Solution:
-    def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
+    def maximumSubtreeSize(self, edges: list[list[int]], colors: list[int]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b in edges:

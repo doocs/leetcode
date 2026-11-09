@@ -1,5 +1,5 @@
 class Solution:
-    def subsequencePairCount(self, nums: List[int]) -> int:
+    def subsequencePairCount(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i < 0:

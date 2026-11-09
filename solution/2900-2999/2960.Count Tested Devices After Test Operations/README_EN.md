@@ -103,7 +103,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countTestedDevices(self, batteryPercentages: List[int]) -> int:
+    def countTestedDevices(self, batteryPercentages: list[int]) -> int:
         ans = 0
         for x in batteryPercentages:
             ans += x > ans

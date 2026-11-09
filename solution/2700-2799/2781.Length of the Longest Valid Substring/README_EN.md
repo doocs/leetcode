@@ -81,7 +81,7 @@ It can be shown that all other substrings contain either &quot;de&quot;, &quot;l
 
 ```python
 class Solution:
-    def longestValidSubstring(self, word: str, forbidden: List[str]) -> int:
+    def longestValidSubstring(self, word: str, forbidden: list[str]) -> int:
         s = set(forbidden)
         ans = i = 0
         for j in range(len(word)):

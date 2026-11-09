@@ -81,7 +81,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ an
 
 ```python
 class Solution:
-    def leastBricks(self, wall: List[List[int]]) -> int:
+    def leastBricks(self, wall: list[list[int]]) -> int:
         cnt = Counter()
         for row in wall:
             s = 0

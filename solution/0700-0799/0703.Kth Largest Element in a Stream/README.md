@@ -116,7 +116,7 @@ kthLargest.add(9); // 返回 8</div>
 ```python
 class KthLargest:
 
-    def __init__(self, k: int, nums: List[int]):
+    def __init__(self, k: int, nums: list[int]):
         self.k = k
         self.min_q = []
         for x in nums:

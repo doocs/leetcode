@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minKBitFlips(self, nums: List[int], k: int) -> int:
+    def minKBitFlips(self, nums: list[int], k: int) -> int:
         n = len(nums)
         d = [0] * (n + 1)
         ans = s = 0
@@ -266,7 +266,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minKBitFlips(self, nums: List[int], k: int) -> int:
+    def minKBitFlips(self, nums: list[int], k: int) -> int:
         ans = flipped = 0
         for i, x in enumerate(nums):
             if i >= k and nums[i - k] == -1:

@@ -135,7 +135,7 @@ a = b + c;
 
 ```python
 class Solution:
-    def removeComments(self, source: List[str]) -> List[str]:
+    def removeComments(self, source: list[str]) -> list[str]:
         ans = []
         t = []
         block_comment = False

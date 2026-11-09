@@ -124,7 +124,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minimumDistance(self, points: List[List[int]]) -> int:
+    def minimumDistance(self, points: list[list[int]]) -> int:
         sl1 = SortedList()
         sl2 = SortedList()
         for x, y in points:

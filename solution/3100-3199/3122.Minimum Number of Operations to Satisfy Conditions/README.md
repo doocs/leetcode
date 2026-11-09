@@ -127,7 +127,7 @@ $$
 
 ```python
 class Solution:
-    def minimumOperations(self, grid: List[List[int]]) -> int:
+    def minimumOperations(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[inf] * 10 for _ in range(n)]
         for i in range(n):

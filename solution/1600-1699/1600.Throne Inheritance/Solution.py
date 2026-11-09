@@ -11,7 +11,7 @@ class ThroneInheritance:
     def death(self, name: str) -> None:
         self.dead.add(name)
 
-    def getInheritanceOrder(self) -> List[str]:
+    def getInheritanceOrder(self) -> list[str]:
         def dfs(x: str):
             x not in self.dead and ans.append(x)
             for y in self.g[x]:

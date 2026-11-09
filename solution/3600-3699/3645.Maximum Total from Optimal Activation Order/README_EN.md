@@ -242,7 +242,7 @@ tags:
 
 ```python
 class Solution:
-    def maxTotal(self, value: List[int], limit: List[int]) -> int:
+    def maxTotal(self, value: list[int], limit: list[int]) -> int:
         g = defaultdict(list)
         for v, lim in zip(value, limit):
             g[lim].append(v)

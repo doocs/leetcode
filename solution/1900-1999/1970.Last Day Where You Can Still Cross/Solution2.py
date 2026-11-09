@@ -22,7 +22,7 @@ class UnionFind:
 
 
 class Solution:
-    def latestDayToCross(self, row: int, col: int, cells: List[List[int]]) -> int:
+    def latestDayToCross(self, row: int, col: int, cells: list[list[int]]) -> int:
         mn = len(cells)
         uf = UnionFind(mn + 2)
         s, t = mn, mn + 1

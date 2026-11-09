@@ -85,7 +85,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(m+n)$, where $m$ 
 
 ```python
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         m, n = len(matrix), len(matrix[0])
         row = [False] * m
         col = [False] * n
@@ -315,7 +315,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         m, n = len(matrix), len(matrix[0])
         i0 = any(v == 0 for v in matrix[0])
         j0 = any(matrix[i][0] == 0 for i in range(m))

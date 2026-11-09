@@ -112,7 +112,7 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is 
 
 ```python
 class Solution:
-    def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
+    def queryResults(self, limit: int, queries: list[list[int]]) -> list[int]:
         g = {}
         cnt = Counter()
         ans = []

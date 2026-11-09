@@ -163,10 +163,10 @@ The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$
 class Solution:
     def earliestFinishTime(
         self,
-        landStartTime: List[int],
-        landDuration: List[int],
-        waterStartTime: List[int],
-        waterDuration: List[int],
+        landStartTime: list[int],
+        landDuration: list[int],
+        waterStartTime: list[int],
+        waterDuration: list[int],
     ) -> int:
         def calc(a1, t1, a2, t2):
             min_end = min(a + t for a, t in zip(a1, t1))

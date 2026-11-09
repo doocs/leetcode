@@ -1,5 +1,5 @@
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         d = defaultdict(int)
         for l, r in intervals:
             d[l] += 1

@@ -1,5 +1,5 @@
 class Solution:
-    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
+    def placedCoins(self, edges: list[list[int]], cost: list[int]) -> list[int]:
         n = len(cost)
         g = [[] for _ in range(n)]
         for a, b in edges:

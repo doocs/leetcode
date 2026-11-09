@@ -13,7 +13,7 @@ class LogSystem:
     def put(self, id: int, timestamp: str) -> None:
         self.logs.append((id, timestamp))
 
-    def retrieve(self, start: str, end: str, granularity: str) -> List[int]:
+    def retrieve(self, start: str, end: str, granularity: str) -> list[int]:
         i = self.d[granularity]
         return [id for id, ts in self.logs if start[:i] <= ts[:i] <= end[:i]]
 

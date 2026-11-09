@@ -1,5 +1,5 @@
 class Solution:
-    def countHighestScoreNodes(self, parents: List[int]) -> int:
+    def countHighestScoreNodes(self, parents: list[int]) -> int:
         n = len(parents)
         g = [[] for _ in range(n)]
         for i in range(1, n):

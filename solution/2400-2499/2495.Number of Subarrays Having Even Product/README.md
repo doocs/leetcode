@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def evenProduct(self, nums: List[int]) -> int:
+    def evenProduct(self, nums: list[int]) -> int:
         ans, last = 0, -1
         for i, v in enumerate(nums):
             if v % 2 == 0:

@@ -1,5 +1,5 @@
 class Solution:
-    def videoStitching(self, clips: List[List[int]], time: int) -> int:
+    def videoStitching(self, clips: list[list[int]], time: int) -> int:
         last = [0] * time
         for a, b in clips:
             if a < time:

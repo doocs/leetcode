@@ -90,7 +90,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def largestAltitude(self, gain: List[int]) -> int:
+    def largestAltitude(self, gain: list[int]) -> int:
         return max(accumulate(gain, initial=0))
 ```
 

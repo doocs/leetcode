@@ -1,5 +1,5 @@
 class Solution:
-    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+    def countPalindromePaths(self, parent: list[int], s: str) -> int:
         n = len(parent)
         g = [[] for _ in range(n)]
         for i in range(1, n):

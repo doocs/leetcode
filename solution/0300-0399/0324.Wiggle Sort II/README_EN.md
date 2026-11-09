@@ -75,7 +75,7 @@ tags:
 
 ```python
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
+    def wiggleSort(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
@@ -196,7 +196,7 @@ var wiggleSort = function (nums) {
 
 ```python
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
+    def wiggleSort(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """

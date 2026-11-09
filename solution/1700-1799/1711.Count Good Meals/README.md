@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def countPairs(self, deliciousness: List[int]) -> int:
+    def countPairs(self, deliciousness: list[int]) -> int:
         mod = 10**9 + 7
         mx = max(deliciousness) << 1
         cnt = Counter()
@@ -195,7 +195,7 @@ func countPairs(deliciousness []int) (ans int) {
 
 ```python
 class Solution:
-    def countPairs(self, deliciousness: List[int]) -> int:
+    def countPairs(self, deliciousness: list[int]) -> int:
         mod = 10**9 + 7
         cnt = Counter(deliciousness)
         ans = 0

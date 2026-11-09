@@ -132,7 +132,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def treeQueries(self, root: Optional[TreeNode], queries: List[int]) -> List[int]:
+    def treeQueries(self, root: Optional[TreeNode], queries: list[int]) -> list[int]:
         def f(root):
             if root is None:
                 return 0

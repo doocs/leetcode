@@ -6,7 +6,7 @@
 
 
 class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
+    def reversePrint(self, head: ListNode) -> list[int]:
         ans = []
         while head:
             ans.append(head.val)

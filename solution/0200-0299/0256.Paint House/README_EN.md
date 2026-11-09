@@ -77,7 +77,7 @@ Minimum cost: 2 + 5 + 3 = 10.
 
 ```python
 class Solution:
-    def minCost(self, costs: List[List[int]]) -> int:
+    def minCost(self, costs: list[list[int]]) -> int:
         a = b = c = 0
         for ca, cb, cc in costs:
             a, b, c = min(b, c) + ca, min(a, c) + cb, min(a, b) + cc

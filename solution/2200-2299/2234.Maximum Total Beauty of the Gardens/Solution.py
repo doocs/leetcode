@@ -1,6 +1,6 @@
 class Solution:
     def maximumBeauty(
-        self, flowers: List[int], newFlowers: int, target: int, full: int, partial: int
+        self, flowers: list[int], newFlowers: int, target: int, full: int, partial: int
     ) -> int:
         flowers.sort()
         n = len(flowers)

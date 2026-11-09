@@ -1,5 +1,5 @@
 class Solution:
-    def isPossible(self, nums: List[int]) -> bool:
+    def isPossible(self, nums: list[int]) -> bool:
         d = defaultdict(list)
         for v in nums:
             if h := d[v - 1]:

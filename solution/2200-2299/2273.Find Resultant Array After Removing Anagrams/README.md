@@ -102,7 +102,7 @@ words 中不存在互为字母异位词的两个相邻字符串，所以无需�
 
 ```python
 class Solution:
-    def removeAnagrams(self, words: List[str]) -> List[str]:
+    def removeAnagrams(self, words: list[str]) -> list[str]:
         def check(s: str, t: str) -> bool:
             if len(s) != len(t):
                 return True

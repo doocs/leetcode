@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         s = sum(nums)
         if len(nums) & 1:
             return s - min(nums)

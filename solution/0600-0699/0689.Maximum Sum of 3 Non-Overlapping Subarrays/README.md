@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+    def maxSumOfThreeSubarrays(self, nums: list[int], k: int) -> list[int]:
         s = s1 = s2 = s3 = 0
         mx1 = mx12 = 0
         idx1, idx12 = 0, ()
@@ -296,7 +296,7 @@ function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
 
 ```python
 class Solution:
-    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+    def maxSumOfThreeSubarrays(self, nums: list[int], k: int) -> list[int]:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         pre = [[] for _ in range(n)]

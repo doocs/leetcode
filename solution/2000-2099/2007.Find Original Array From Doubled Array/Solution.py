@@ -1,5 +1,5 @@
 class Solution:
-    def findOriginalArray(self, changed: List[int]) -> List[int]:
+    def findOriginalArray(self, changed: list[int]) -> list[int]:
         changed.sort()
         cnt = Counter(changed)
         ans = []

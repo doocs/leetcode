@@ -93,7 +93,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
+    def maxDotProduct(self, nums1: list[int], nums2: list[int]) -> int:
         m, n = len(nums1), len(nums2)
         f = [[-inf] * (n + 1) for _ in range(m + 1)]
         for i, x in enumerate(nums1, 1):

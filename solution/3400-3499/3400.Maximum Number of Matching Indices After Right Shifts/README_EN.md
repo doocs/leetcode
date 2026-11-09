@@ -89,7 +89,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def maximumMatchingIndices(self, nums1: List[int], nums2: List[int]) -> int:
+    def maximumMatchingIndices(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums1)
         ans = 0
         for k in range(n):

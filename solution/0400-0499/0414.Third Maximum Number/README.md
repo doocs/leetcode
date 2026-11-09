@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def thirdMax(self, nums: List[int]) -> int:
+    def thirdMax(self, nums: list[int]) -> int:
         m1 = m2 = m3 = -inf
         for num in nums:
             if num in [m1, m2, m3]:

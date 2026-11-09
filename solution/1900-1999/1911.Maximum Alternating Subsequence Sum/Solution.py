@@ -1,5 +1,5 @@
 class Solution:
-    def maxAlternatingSum(self, nums: List[int]) -> int:
+    def maxAlternatingSum(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         g = [0] * (n + 1)

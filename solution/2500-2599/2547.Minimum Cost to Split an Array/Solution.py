@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, nums: List[int], k: int) -> int:
+    def minCost(self, nums: list[int], k: int) -> int:
         @cache
         def dfs(i):
             if i >= n:

@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSum(self, nums: List[int], k: int) -> int:
+    def maxSum(self, nums: list[int], k: int) -> int:
         mod = 10**9 + 7
         cnt = [0] * 31
         for x in nums:

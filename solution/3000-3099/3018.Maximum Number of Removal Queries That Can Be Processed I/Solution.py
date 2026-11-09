@@ -1,5 +1,5 @@
 class Solution:
-    def maximumProcessableQueries(self, nums: List[int], queries: List[int]) -> int:
+    def maximumProcessableQueries(self, nums: list[int], queries: list[int]) -> int:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         m = len(queries)

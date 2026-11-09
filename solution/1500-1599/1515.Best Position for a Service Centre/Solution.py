@@ -1,5 +1,5 @@
 class Solution:
-    def getMinDistSum(self, positions: List[List[int]]) -> float:
+    def getMinDistSum(self, positions: list[list[int]]) -> float:
         n = len(positions)
         x = y = 0
         for x1, y1 in positions:

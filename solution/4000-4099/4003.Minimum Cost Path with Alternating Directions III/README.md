@@ -162,7 +162,7 @@ tags:
 
 ```python
 class Solution:
-    def minCost(self, m: int, n: int, penalty: List[List[int]]) -> int:
+    def minCost(self, m: int, n: int, penalty: list[list[int]]) -> int:
         dist = [[[inf] * 2 for _ in range(n)] for _ in range(m)]
         dist[0][0][1] = 1
         pq = [(1, 0, 0, 1)]

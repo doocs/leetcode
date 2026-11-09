@@ -104,7 +104,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(C^2)$, where $m$ 
 
 ```python
 class Solution:
-    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
+    def matchReplacement(self, s: str, sub: str, mappings: list[list[str]]) -> bool:
         d = defaultdict(set)
         for a, b in mappings:
             d[a].add(b)
@@ -222,7 +222,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(C^2)$.
 
 ```python
 class Solution:
-    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
+    def matchReplacement(self, s: str, sub: str, mappings: list[list[str]]) -> bool:
         d = [[False] * 128 for _ in range(128)]
         for a, b in mappings:
             d[ord(a)][ord(b)] = True

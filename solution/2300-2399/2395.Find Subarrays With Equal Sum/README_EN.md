@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findSubarrays(self, nums: List[int]) -> bool:
+    def findSubarrays(self, nums: list[int]) -> bool:
         vis = set()
         for a, b in pairwise(nums):
             if (x := a + b) in vis:

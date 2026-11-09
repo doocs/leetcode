@@ -194,8 +194,8 @@ class BinarySumTrie:
 
 class Solution:
     def kthSmallest(
-        self, par: List[int], vals: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, par: list[int], vals: list[int], queries: list[list[int]]
+    ) -> list[int]:
         n = len(par)
         tree = [[] for _ in range(n)]
         for i in range(1, n):
@@ -685,8 +685,8 @@ class BinarySumTrie:
 
 class Solution:
     def kthSmallest(
-        self, par: List[int], vals: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, par: list[int], vals: list[int], queries: list[list[int]]
+    ) -> list[int]:
         n = len(par)
         tree = [[] for _ in range(n)]
         for i in range(1, n):

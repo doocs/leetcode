@@ -94,7 +94,7 @@ The time complexity is $O(m \log n)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+    def maxDistance(self, nums1: list[int], nums2: list[int]) -> int:
         ans = 0
         nums2 = nums2[::-1]
         for i, v in enumerate(nums1):
@@ -268,7 +268,7 @@ var maxDistance = function (nums1, nums2) {
 
 ```python
 class Solution:
-    def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+    def maxDistance(self, nums1: list[int], nums2: list[int]) -> int:
         m, n = len(nums1), len(nums2)
         ans = i = j = 0
         while i < m:

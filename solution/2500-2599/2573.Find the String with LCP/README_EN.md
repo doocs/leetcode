@@ -104,7 +104,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def findTheString(self, lcp: List[List[int]]) -> str:
+    def findTheString(self, lcp: list[list[int]]) -> str:
         n = len(lcp)
         s = [""] * n
         i = 0

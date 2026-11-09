@@ -84,7 +84,7 @@ The time complexity is $O(n^2n!)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def solveNQueens(self, n: int) -> List[List[str]]:
+    def solveNQueens(self, n: int) -> list[list[str]]:
         def dfs(i: int):
             if i == n:
                 ans.append(["".join(row) for row in g])

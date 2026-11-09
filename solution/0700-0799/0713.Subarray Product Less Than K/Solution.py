@@ -1,5 +1,5 @@
 class Solution:
-    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+    def numSubarrayProductLessThanK(self, nums: list[int], k: int) -> int:
         ans = l = 0
         p = 1
         for r, x in enumerate(nums):

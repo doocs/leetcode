@@ -68,7 +68,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findSpecialInteger(self, arr: List[int]) -> int:
+    def findSpecialInteger(self, arr: list[int]) -> int:
         n = len(arr)
         for i, x in enumerate(arr):
             if x == arr[(i + (n >> 2))]:

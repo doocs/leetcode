@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def findPermutation(self, s: str) -> List[int]:
+    def findPermutation(self, s: str) -> list[int]:
         n = len(s)
         ans = list(range(1, n + 2))
         i = 0

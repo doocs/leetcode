@@ -90,7 +90,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         cnt1 = Counter()
         cnt2 = Counter()
@@ -236,7 +236,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         vis = [1] * (len(A) + 1)
         s = 0
@@ -381,7 +381,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+    def findThePrefixCommonArray(self, A: list[int], B: list[int]) -> list[int]:
         ans = []
         x = y = 0
         for a, b in zip(A, B):

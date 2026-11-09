@@ -1,5 +1,5 @@
 class Solution:
-    def colorTheArray(self, n: int, queries: List[List[int]]) -> List[int]:
+    def colorTheArray(self, n: int, queries: list[list[int]]) -> list[int]:
         nums = [0] * n
         ans = [0] * len(queries)
         x = 0

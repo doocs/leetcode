@@ -100,7 +100,7 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 
 ```python
 class Solution:
-    def subArrayRanges(self, nums: List[int]) -> int:
+    def subArrayRanges(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for i in range(n - 1):
             mi = mx = nums[i]
@@ -236,7 +236,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def subArrayRanges(self, nums: List[int]) -> int:
+    def subArrayRanges(self, nums: list[int]) -> int:
         def f(nums):
             stk = []
             n = len(nums)

@@ -123,7 +123,7 @@ The time complexity is $O(m \log n)$, and the space complexity is $O(n + m)$, wh
 
 ```python
 class Solution:
-    def minCostExcludingMax(self, n: int, edges: List[List[int]]) -> int:
+    def minCostExcludingMax(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))

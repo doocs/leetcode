@@ -94,7 +94,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def halveArray(self, nums: List[int]) -> int:
+    def halveArray(self, nums: list[int]) -> int:
         s = sum(nums) / 2
         pq = []
         for x in nums:

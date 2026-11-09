@@ -21,7 +21,7 @@ class BinaryIndexedTree:
 class NumArray:
     __slots__ = ["tree"]
 
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.tree = BinaryIndexedTree(len(nums))
         for i, v in enumerate(nums, 1):
             self.tree.update(i, v)

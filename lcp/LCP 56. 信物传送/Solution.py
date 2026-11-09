@@ -1,5 +1,5 @@
 class Solution:
-    def conveyorBelt(self, matrix: List[str], start: List[int], end: List[int]) -> int:
+    def conveyorBelt(self, matrix: list[str], start: list[int], end: list[int]) -> int:
         dirs = (-1, 0, 1, 0, -1)
         d = {"^": 0, "v": 2, "<": 3, ">": 1}
         i, j = start

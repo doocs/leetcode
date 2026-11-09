@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
+    def maximumRemovals(self, s: str, p: str, removable: list[int]) -> int:
         def check(k: int) -> bool:
             rem = [False] * len(s)
             for i in removable[:k]:

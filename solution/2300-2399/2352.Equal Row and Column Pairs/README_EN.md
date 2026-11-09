@@ -82,7 +82,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def equalPairs(self, grid: List[List[int]]) -> int:
+    def equalPairs(self, grid: list[list[int]]) -> int:
         n = len(grid)
         ans = 0
         for i in range(n):

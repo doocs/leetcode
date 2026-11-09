@@ -106,7 +106,7 @@ X--：X 减 1 ，X = 1 - 1 = 0
 
 ```python
 class Solution:
-    def finalValueAfterOperations(self, operations: List[str]) -> int:
+    def finalValueAfterOperations(self, operations: list[str]) -> int:
         return sum(1 if s[1] == '+' else -1 for s in operations)
 ```
 

@@ -86,7 +86,7 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 ```python
 class Solution:
     def findMaximizedCapital(
-        self, k: int, w: int, profits: List[int], capital: List[int]
+        self, k: int, w: int, profits: list[int], capital: list[int]
     ) -> int:
         h1 = [(c, p) for c, p in zip(capital, profits)]
         heapify(h1)

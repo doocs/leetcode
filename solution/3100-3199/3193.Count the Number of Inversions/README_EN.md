@@ -144,7 +144,7 @@ The time complexity is $O(nm \min(n, m))$, and the space complexity is $O(nm)$, 
 
 ```python
 class Solution:
-    def numberOfPermutations(self, n: int, requirements: List[List[int]]) -> int:
+    def numberOfPermutations(self, n: int, requirements: list[list[int]]) -> int:
         req = [-1] * n
         for end, cnt in requirements:
             req[end] = cnt

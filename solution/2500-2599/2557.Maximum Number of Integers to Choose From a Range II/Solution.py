@@ -1,5 +1,5 @@
 class Solution:
-    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+    def maxCount(self, banned: list[int], n: int, maxSum: int) -> int:
         banned.extend([0, n + 1])
         ban = sorted(set(banned))
         ans = 0

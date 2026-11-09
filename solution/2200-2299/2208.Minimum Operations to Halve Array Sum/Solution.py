@@ -1,5 +1,5 @@
 class Solution:
-    def halveArray(self, nums: List[int]) -> int:
+    def halveArray(self, nums: list[int]) -> int:
         s = sum(nums) / 2
         pq = []
         for x in nums:

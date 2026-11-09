@@ -1,5 +1,5 @@
 class Solution:
-    def findBall(self, grid: List[List[int]]) -> List[int]:
+    def findBall(self, grid: list[list[int]]) -> list[int]:
         def dfs(i: int, j: int) -> int:
             if i == m:
                 return j

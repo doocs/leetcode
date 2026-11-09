@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def gardenNoAdj(self, n: int, paths: List[List[int]]) -> List[int]:
+    def gardenNoAdj(self, n: int, paths: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         for x, y in paths:
             x, y = x - 1, y - 1

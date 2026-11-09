@@ -103,7 +103,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minimumSize(self, nums: List[int], maxOperations: int) -> int:
+    def minimumSize(self, nums: list[int], maxOperations: int) -> int:
         def check(mx: int) -> bool:
             return sum((x - 1) // mx for x in nums) <= maxOperations
 

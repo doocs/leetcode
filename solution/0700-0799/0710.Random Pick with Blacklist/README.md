@@ -92,7 +92,7 @@ solution.pick(); // 返回 4
 
 ```python
 class Solution:
-    def __init__(self, n: int, blacklist: List[int]):
+    def __init__(self, n: int, blacklist: list[int]):
         self.k = n - len(blacklist)
         self.d = {}
         i = self.k

@@ -89,7 +89,7 @@ The time complexity is $O(\max(\sqrt{\textit{candies}}, \textit{num\_people}))$,
 
 ```python
 class Solution:
-    def distributeCandies(self, candies: int, num_people: int) -> List[int]:
+    def distributeCandies(self, candies: int, num_people: int) -> list[int]:
         ans = [0] * num_people
         i = 0
         while candies:

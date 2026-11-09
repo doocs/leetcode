@@ -1,5 +1,5 @@
 class Solution:
-    def maxCoins(self, nums: List[int]) -> int:
+    def maxCoins(self, nums: list[int]) -> int:
         n = len(nums)
         arr = [1] + nums + [1]
         f = [[0] * (n + 2) for _ in range(n + 2)]

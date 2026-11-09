@@ -1,5 +1,5 @@
 class Solution:
-    def isSelfCrossing(self, distance: List[int]) -> bool:
+    def isSelfCrossing(self, distance: list[int]) -> bool:
         d = distance
         for i in range(3, len(d)):
             if d[i] >= d[i - 2] and d[i - 1] <= d[i - 3]:

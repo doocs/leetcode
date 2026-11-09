@@ -121,7 +121,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minIncrementOperations(self, nums: List[int], k: int) -> int:
+    def minIncrementOperations(self, nums: list[int], k: int) -> int:
         f = g = h = 0
         for x in nums:
             f, g, h = g, h, min(f, g, h) + max(k - x, 0)

@@ -99,7 +99,7 @@ tags:
 ```python
 class Solution:
     def visiblePoints(
-        self, points: List[List[int]], angle: int, location: List[int]
+        self, points: list[list[int]], angle: int, location: list[int]
     ) -> int:
         v = []
         x, y = location

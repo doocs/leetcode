@@ -1,5 +1,5 @@
 class Solution:
-    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+    def threeSumSmaller(self, nums: list[int], target: int) -> int:
         nums.sort()
         ans, n = 0, len(nums)
         for i in range(n - 2):

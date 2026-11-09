@@ -1,5 +1,5 @@
 class Solution:
-    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+    def mincostTickets(self, days: list[int], costs: list[int]) -> int:
         m = days[-1]
         f = [0] * (m + 1)
         valid = [1, 7, 30]

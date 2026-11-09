@@ -1,5 +1,5 @@
 class Solution:
-    def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
+    def getCommon(self, nums1: list[int], nums2: list[int]) -> int:
         i = j = 0
         m, n = len(nums1), len(nums2)
         while i < m and j < n:

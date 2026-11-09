@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def maxDistance(self, words: List[str]) -> int:
+    def maxDistance(self, words: list[str]) -> int:
         n = len(words)
         ans = 0
         for i in range(n):

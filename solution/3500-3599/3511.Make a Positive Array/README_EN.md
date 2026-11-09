@@ -131,7 +131,7 @@ tags:
 
 ```python
 class Solution:
-    def makeArrayPositive(self, nums: List[int]) -> int:
+    def makeArrayPositive(self, nums: list[int]) -> int:
         l = -1
         ans = pre_mx = s = 0
         for r, x in enumerate(nums):

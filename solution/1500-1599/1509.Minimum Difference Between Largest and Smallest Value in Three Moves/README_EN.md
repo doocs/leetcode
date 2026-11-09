@@ -94,7 +94,7 @@ After performing 3 moves, the difference between the minimum and maximum is 7 - 
 
 ```python
 class Solution:
-    def minDifference(self, nums: List[int]) -> int:
+    def minDifference(self, nums: list[int]) -> int:
         n = len(nums)
         if n < 5:
             return 0

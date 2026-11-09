@@ -119,7 +119,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def maxValueAfterReverse(self, nums: List[int]) -> int:
+    def maxValueAfterReverse(self, nums: list[int]) -> int:
         ans = s = sum(abs(x - y) for x, y in pairwise(nums))
         for x, y in pairwise(nums):
             ans = max(ans, s + abs(nums[0] - y) - abs(x - y))

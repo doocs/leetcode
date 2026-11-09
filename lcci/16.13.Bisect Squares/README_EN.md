@@ -73,7 +73,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def cutSquares(self, square1: List[int], square2: List[int]) -> List[float]:
+    def cutSquares(self, square1: list[int], square2: list[int]) -> list[float]:
         x1, y1 = square1[0] + square1[2] / 2, square1[1] + square1[2] / 2
         x2, y2 = square2[0] + square2[2] / 2, square2[1] + square2[2] / 2
         if x1 == x2:

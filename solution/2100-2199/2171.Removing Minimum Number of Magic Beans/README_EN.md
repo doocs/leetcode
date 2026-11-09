@@ -98,7 +98,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minimumRemoval(self, beans: List[int]) -> int:
+    def minimumRemoval(self, beans: list[int]) -> int:
         beans.sort()
         s, n = sum(beans), len(beans)
         return min(s - x * (n - i) for i, x in enumerate(beans))

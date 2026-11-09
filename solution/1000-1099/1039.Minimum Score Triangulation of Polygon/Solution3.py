@@ -1,5 +1,5 @@
 class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
+    def minScoreTriangulation(self, values: list[int]) -> int:
         n = len(values)
         f = [[0] * n for _ in range(n)]
         for l in range(3, n + 1):

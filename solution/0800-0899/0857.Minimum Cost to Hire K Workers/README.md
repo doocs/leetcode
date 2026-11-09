@@ -95,7 +95,7 @@ tags:
 ```python
 class Solution:
     def mincostToHireWorkers(
-        self, quality: List[int], wage: List[int], k: int
+        self, quality: list[int], wage: list[int], k: int
     ) -> float:
         t = sorted(zip(quality, wage), key=lambda x: x[1] / x[0])
         ans, tot = inf, 0

@@ -1,5 +1,5 @@
 class Solution:
-    def minZeroArray(self, nums: List[int], queries: List[List[int]]) -> int:
+    def minZeroArray(self, nums: list[int], queries: list[list[int]]) -> int:
         def check(k: int) -> bool:
             d = [0] * (len(nums) + 1)
             for l, r, val in queries[:k]:

@@ -110,7 +110,7 @@ $$
 
 ```python
 class Solution:
-    def maxAlternatingSum(self, nums: List[int]) -> int:
+    def maxAlternatingSum(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         g = [0] * (n + 1)
@@ -209,7 +209,7 @@ $f[i]$ 和 $g[i]$ 只与上一位置有关，用两个变量滚动即可，空�
 
 ```python
 class Solution:
-    def maxAlternatingSum(self, nums: List[int]) -> int:
+    def maxAlternatingSum(self, nums: list[int]) -> int:
         f = g = 0
         for x in nums:
             f, g = max(g - x, f), max(f + x, g)

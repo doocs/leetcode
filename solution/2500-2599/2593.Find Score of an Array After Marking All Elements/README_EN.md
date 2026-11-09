@@ -99,7 +99,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findScore(self, nums: List[int]) -> int:
+    def findScore(self, nums: list[int]) -> int:
         n = len(nums)
         vis = [False] * n
         q = [(x, i) for i, x in enumerate(nums)]
@@ -290,7 +290,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findScore(self, nums: List[int]) -> int:
+    def findScore(self, nums: list[int]) -> int:
         n = len(nums)
         vis = [False] * (n + 2)
         idx = sorted(range(n), key=lambda i: (nums[i], i))

@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def findChampion(self, n: int, edges: List[List[int]]) -> int:
+    def findChampion(self, n: int, edges: list[list[int]]) -> int:
         indeg = [0] * n
         for _, v in edges:
             indeg[v] += 1

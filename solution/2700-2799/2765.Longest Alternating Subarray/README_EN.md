@@ -91,7 +91,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def alternatingSubarray(self, nums: List[int]) -> int:
+    def alternatingSubarray(self, nums: list[int]) -> int:
         ans, n = -1, len(nums)
         for i in range(n):
             k = 1

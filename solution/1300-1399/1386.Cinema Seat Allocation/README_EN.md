@@ -109,7 +109,7 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is 
 
 ```python
 class Solution:
-    def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
+    def maxNumberOfFamilies(self, n: int, reservedSeats: list[list[int]]) -> int:
         d = defaultdict(int)
         for i, j in reservedSeats:
             d[i] |= 1 << (10 - j)

@@ -1,5 +1,5 @@
 class Solution:
-    def maxmiumScore(self, cards: List[int], cnt: int) -> int:
+    def maxmiumScore(self, cards: list[int], cnt: int) -> int:
         cards.sort()
         ans = sum(cards[-cnt:])
         if ans % 2 == 0:

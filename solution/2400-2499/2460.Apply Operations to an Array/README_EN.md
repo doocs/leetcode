@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def applyOperations(self, nums: List[int]) -> List[int]:
+    def applyOperations(self, nums: list[int]) -> list[int]:
         n = len(nums)
         for i in range(n - 1):
             if nums[i] == nums[i + 1]:

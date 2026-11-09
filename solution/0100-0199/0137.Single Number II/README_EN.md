@@ -65,7 +65,7 @@ The C++ implementation adds INT_MIN for the sign bit instead of left-shifting a 
 
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         ans = 0
         for i in range(32):
             cnt = sum(num >> i & 1 for num in nums)
@@ -272,7 +272,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         a = b = 0
         for c in nums:
             aa = (~a & b & c) | (a & ~b & ~c)

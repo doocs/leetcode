@@ -75,7 +75,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
+    def largestTimeFromDigits(self, arr: list[int]) -> str:
         cnt = [0] * 10
         for v in arr:
             cnt[v] += 1
@@ -117,7 +117,7 @@ The time complexity is $O(4^3)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
+    def largestTimeFromDigits(self, arr: list[int]) -> str:
         ans = -1
         for i in range(4):
             for j in range(4):

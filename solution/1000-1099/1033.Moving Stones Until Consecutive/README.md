@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
+    def numMovesStones(self, a: int, b: int, c: int) -> list[int]:
         x, z = min(a, b, c), max(a, b, c)
         y = a + b + c - x - z
         mi = mx = 0

@@ -1,5 +1,5 @@
 class Solution:
-    def findBuildings(self, heights: List[int]) -> List[int]:
+    def findBuildings(self, heights: list[int]) -> list[int]:
         ans = []
         mx = 0
         for i in range(len(heights) - 1, -1, -1):

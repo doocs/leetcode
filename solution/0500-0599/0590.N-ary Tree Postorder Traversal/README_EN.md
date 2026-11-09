@@ -85,7 +85,7 @@ class Node:
 
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root: 'Node') -> list[int]:
         def dfs(root):
             if root is None:
                 return
@@ -277,7 +277,7 @@ class Node:
 
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root: 'Node') -> list[int]:
         ans = []
         if root is None:
             return ans
@@ -477,7 +477,7 @@ class Node:
 
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root: 'Node') -> list[int]:
         ans = []
         if root is None:
             return ans

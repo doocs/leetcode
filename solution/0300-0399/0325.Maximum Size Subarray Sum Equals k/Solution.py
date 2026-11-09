@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubArrayLen(self, nums: List[int], k: int) -> int:
+    def maxSubArrayLen(self, nums: list[int], k: int) -> int:
         d = {0: -1}
         ans = s = 0
         for i, x in enumerate(nums):

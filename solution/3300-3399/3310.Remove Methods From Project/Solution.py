@@ -1,7 +1,7 @@
 class Solution:
     def remainingMethods(
-        self, n: int, k: int, invocations: List[List[int]]
-    ) -> List[int]:
+        self, n: int, k: int, invocations: list[list[int]]
+    ) -> list[int]:
         def dfs(i: int):
             suspicious[i] = True
             for j in g[i]:

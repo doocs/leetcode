@@ -1,5 +1,5 @@
 class Solution:
-    def maximumScore(self, nums: List[int], s: str) -> int:
+    def maximumScore(self, nums: list[int], s: str) -> int:
         ans = 0
         pq = []
         for x, c in zip(nums, s):

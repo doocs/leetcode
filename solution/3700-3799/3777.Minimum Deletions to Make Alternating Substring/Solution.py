@@ -19,7 +19,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def minDeletions(self, s: str, queries: List[List[int]]) -> List[int]:
+    def minDeletions(self, s: str, queries: list[list[int]]) -> list[int]:
         n = len(s)
         nums = [0] * n
         bit = BinaryIndexedTree(n)

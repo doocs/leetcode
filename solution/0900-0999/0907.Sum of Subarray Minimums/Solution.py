@@ -1,5 +1,5 @@
 class Solution:
-    def sumSubarrayMins(self, arr: List[int]) -> int:
+    def sumSubarrayMins(self, arr: list[int]) -> int:
         n = len(arr)
         left = [-1] * n
         right = [n] * n

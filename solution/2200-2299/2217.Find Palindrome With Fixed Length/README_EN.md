@@ -77,7 +77,7 @@ The first six palindromes of length 4 are:
 
 ```python
 class Solution:
-    def kthPalindrome(self, queries: List[int], intLength: int) -> List[int]:
+    def kthPalindrome(self, queries: list[int], intLength: int) -> list[int]:
         l = (intLength + 1) >> 1
         start, end = 10 ** (l - 1), 10**l - 1
         ans = []

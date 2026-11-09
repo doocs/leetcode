@@ -1,5 +1,5 @@
 class Solution:
-    def minMaxGame(self, nums: List[int]) -> int:
+    def minMaxGame(self, nums: list[int]) -> int:
         n = len(nums)
         while n > 1:
             n >>= 1

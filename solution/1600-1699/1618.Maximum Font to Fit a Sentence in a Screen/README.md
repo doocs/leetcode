@@ -138,7 +138,7 @@ interface FontInfo {
 #        """
 class Solution:
     def maxFont(
-        self, text: str, w: int, h: int, fonts: List[int], fontInfo: 'FontInfo'
+        self, text: str, w: int, h: int, fonts: list[int], fontInfo: 'FontInfo'
     ) -> int:
         def check(size):
             if fontInfo.getHeight(size) > h:

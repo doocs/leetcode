@@ -79,7 +79,7 @@ If we can add all elements to $\textit{cur}$, it means we can partition the arra
 
 ```python
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         def dfs(i: int) -> bool:
             if i == len(nums):
                 return True
@@ -286,7 +286,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $
 
 ```python
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         @cache
         def dfs(state, t):
             if state == mask:
@@ -517,7 +517,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(2^n)$, where $
 
 ```python
 class Solution:
-    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
         s = sum(nums)
         if s % k:
             return False

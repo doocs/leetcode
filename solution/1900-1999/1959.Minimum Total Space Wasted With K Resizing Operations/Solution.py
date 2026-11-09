@@ -1,5 +1,5 @@
 class Solution:
-    def minSpaceWastedKResizing(self, nums: List[int], k: int) -> int:
+    def minSpaceWastedKResizing(self, nums: list[int], k: int) -> int:
         k += 1
         n = len(nums)
         g = [[0] * n for _ in range(n)]

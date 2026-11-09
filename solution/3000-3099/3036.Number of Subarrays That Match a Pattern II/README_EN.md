@@ -121,7 +121,7 @@ def string_find(s, pat):
 
 
 class Solution:
-    def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
+    def countMatchingSubarrays(self, nums: list[int], pattern: list[int]) -> int:
         s = []
         for i in range(1, len(nums)):
             if nums[i] > nums[i - 1]:

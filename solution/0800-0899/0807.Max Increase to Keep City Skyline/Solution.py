@@ -1,5 +1,5 @@
 class Solution:
-    def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
+    def maxIncreaseKeepingSkyline(self, grid: list[list[int]]) -> int:
         row_max = [max(row) for row in grid]
         col_max = [max(col) for col in zip(*grid)]
         return sum(

@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxAscendingSum(self, nums: List[int]) -> int:
+    def maxAscendingSum(self, nums: list[int]) -> int:
         ans = t = 0
         for i, v in enumerate(nums):
             if i == 0 or v > nums[i - 1]:

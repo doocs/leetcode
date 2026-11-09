@@ -117,7 +117,7 @@ tags:
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         sl = SortedList()
         ans = j = 0
         for i, x in enumerate(nums):
@@ -860,7 +860,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         def check(k: int) -> bool:
             min_q = deque()
             max_q = deque()
@@ -1251,7 +1251,7 @@ class Deque<T> {
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         maxq = deque()
         minq = deque()
         l, n = 0, len(nums)

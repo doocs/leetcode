@@ -1,5 +1,5 @@
 class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
+    def longestMountain(self, arr: list[int]) -> int:
         n = len(arr)
         f = [1] * n
         g = [1] * n

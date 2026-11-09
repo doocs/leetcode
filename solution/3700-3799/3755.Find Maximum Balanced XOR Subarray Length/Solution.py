@@ -1,5 +1,5 @@
 class Solution:
-    def maxBalancedSubarray(self, nums: List[int]) -> int:
+    def maxBalancedSubarray(self, nums: list[int]) -> int:
         d = {(0, 0): -1}
         a = b = 0
         ans = 0

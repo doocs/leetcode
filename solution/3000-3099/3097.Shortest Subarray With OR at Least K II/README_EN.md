@@ -111,7 +111,7 @@ Similar Problems:
 
 ```python
 class Solution:
-    def minimumSubarrayLength(self, nums: List[int], k: int) -> int:
+    def minimumSubarrayLength(self, nums: list[int], k: int) -> int:
         n = len(nums)
         cnt = [0] * 32
         ans = n + 1

@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def edgeScore(self, edges: List[int]) -> int:
+    def edgeScore(self, edges: list[int]) -> int:
         ans = 0
         cnt = [0] * len(edges)
         for i, j in enumerate(edges):

@@ -113,7 +113,7 @@ tags:
 ```python
 class Solution:
     def countRoutes(
-        self, locations: List[int], start: int, finish: int, fuel: int
+        self, locations: list[int], start: int, finish: int, fuel: int
     ) -> int:
         @cache
         def dfs(i: int, k: int) -> int:
@@ -298,7 +298,7 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 ```python
 class Solution:
     def countRoutes(
-        self, locations: List[int], start: int, finish: int, fuel: int
+        self, locations: list[int], start: int, finish: int, fuel: int
     ) -> int:
         mod = 10**9 + 7
         n = len(locations)

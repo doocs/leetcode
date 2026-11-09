@@ -115,7 +115,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         sl = SortedList()
         ans = j = 0
         for i, x in enumerate(nums):
@@ -858,7 +858,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         def check(k: int) -> bool:
             min_q = deque()
             max_q = deque()
@@ -1249,7 +1249,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         maxq = deque()
         minq = deque()
         l, n = 0, len(nums)

@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         ans = n + 1
@@ -301,7 +301,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
         l = s = 0
         ans = inf
         for r, x in enumerate(nums):

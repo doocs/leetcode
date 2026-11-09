@@ -1,5 +1,5 @@
 class Solution:
-    def combine(self, n: int, k: int) -> List[List[int]]:
+    def combine(self, n: int, k: int) -> list[list[int]]:
         res = []
 
         def dfs(i, n, k, t):

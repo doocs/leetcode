@@ -1,5 +1,5 @@
 class Solution:
-    def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
+    def findNumOfValidWords(self, words: list[str], puzzles: list[str]) -> list[int]:
         cnt = Counter()
         for w in words:
             mask = 0

@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def minMoves(self, nums: List[int]) -> int:
+    def minMoves(self, nums: list[int]) -> int:
         n = len(nums)
         mx = max(nums)
         s = sum(nums)

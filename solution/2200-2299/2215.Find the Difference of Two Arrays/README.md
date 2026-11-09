@@ -85,7 +85,7 @@ nums2 中的每个整数都在 nums1 中出现，因此，answer[1] = [] 。
 
 ```python
 class Solution:
-    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+    def findDifference(self, nums1: list[int], nums2: list[int]) -> list[list[int]]:
         s1, s2 = set(nums1), set(nums2)
         return [list(s1 - s2), list(s2 - s1)]
 ```

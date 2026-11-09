@@ -1,5 +1,5 @@
 class Solution:
-    def atMostNGivenDigitSet(self, digits: List[str], n: int) -> int:
+    def atMostNGivenDigitSet(self, digits: list[str], n: int) -> int:
         @cache
         def dfs(i: int, lead: int, limit: bool) -> int:
             if i >= len(s):

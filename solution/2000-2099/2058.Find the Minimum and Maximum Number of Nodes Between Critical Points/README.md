@@ -121,7 +121,7 @@ tags:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> list[int]:
         ans = [inf, -inf]
         first = last = -1
         i = 0

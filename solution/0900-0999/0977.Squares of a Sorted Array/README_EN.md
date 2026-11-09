@@ -74,7 +74,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def sortedSquares(self, nums: List[int]) -> List[int]:
+    def sortedSquares(self, nums: list[int]) -> list[int]:
         ans = []
         i, j = 0, len(nums) - 1
         while i <= j:

@@ -1,5 +1,5 @@
 class Solution:
-    def drawLine(self, length: int, w: int, x1: int, x2: int, y: int) -> List[int]:
+    def drawLine(self, length: int, w: int, x1: int, x2: int, y: int) -> list[int]:
         ans = [0] * length
         i = (y * w + x1) // 32
         j = (y * w + x2) // 32

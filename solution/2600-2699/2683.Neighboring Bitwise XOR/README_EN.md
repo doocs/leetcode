@@ -117,7 +117,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def doesValidArrayExist(self, derived: List[int]) -> bool:
+    def doesValidArrayExist(self, derived: list[int]) -> bool:
         return reduce(xor, derived) == 0
 ```
 

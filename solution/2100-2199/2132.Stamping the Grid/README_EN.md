@@ -110,7 +110,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 ```python
 class Solution:
     def possibleToStamp(
-        self, grid: List[List[int]], stampHeight: int, stampWidth: int
+        self, grid: list[list[int]], stampHeight: int, stampWidth: int
     ) -> bool:
         m, n = len(grid), len(grid[0])
         s = [[0] * (n + 1) for _ in range(m + 1)]

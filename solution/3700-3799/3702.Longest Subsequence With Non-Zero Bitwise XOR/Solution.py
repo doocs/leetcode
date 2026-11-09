@@ -1,5 +1,5 @@
 class Solution:
-    def longestSubsequence(self, nums: List[int]) -> int:
+    def longestSubsequence(self, nums: list[int]) -> int:
         n = len(nums)
         xor = cnt0 = 0
         for x in nums:

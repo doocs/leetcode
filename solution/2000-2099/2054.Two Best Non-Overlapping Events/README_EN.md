@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxTwoEvents(self, events: List[List[int]]) -> int:
+    def maxTwoEvents(self, events: list[list[int]]) -> int:
         events.sort()
         n = len(events)
         f = [events[-1][2]] * n

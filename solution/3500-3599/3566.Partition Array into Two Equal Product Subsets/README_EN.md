@@ -87,7 +87,7 @@ The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$
 
 ```python
 class Solution:
-    def checkEqualPartitions(self, nums: List[int], target: int) -> bool:
+    def checkEqualPartitions(self, nums: list[int], target: int) -> bool:
         n = len(nums)
         for i in range(1 << n):
             x = y = 1

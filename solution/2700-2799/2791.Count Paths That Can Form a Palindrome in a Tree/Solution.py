@@ -1,5 +1,5 @@
 class Solution:
-    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+    def countPalindromePaths(self, parent: list[int], s: str) -> int:
         def dfs(i: int, xor: int):
             nonlocal ans
             for j, v in g[i]:

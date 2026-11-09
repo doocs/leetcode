@@ -1,5 +1,5 @@
 class Solution:
-    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+    def readBinaryWatch(self, turnedOn: int) -> list[str]:
         ans = []
         for i in range(1 << 10):
             h, m = i >> 6, i & 0b111111

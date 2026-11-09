@@ -98,7 +98,7 @@ It is impossible to go from 0 to 3 so return -1.
 
 ```python
 class Solution:
-    def minimumCost(self, n: int, highways: List[List[int]], discounts: int) -> int:
+    def minimumCost(self, n: int, highways: list[list[int]], discounts: int) -> int:
         g = defaultdict(list)
         for a, b, c in highways:
             g[a].append((b, c))

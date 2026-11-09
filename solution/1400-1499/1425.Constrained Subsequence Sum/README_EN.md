@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def constrainedSubsetSum(self, nums: List[int], k: int) -> int:
+    def constrainedSubsetSum(self, nums: list[int], k: int) -> int:
         q = deque([0])
         n = len(nums)
         f = [0] * n

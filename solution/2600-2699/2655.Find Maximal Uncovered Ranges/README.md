@@ -106,8 +106,8 @@ tags:
 ```python
 class Solution:
     def findMaximalUncoveredRanges(
-        self, n: int, ranges: List[List[int]]
-    ) -> List[List[int]]:
+        self, n: int, ranges: list[list[int]]
+    ) -> list[list[int]]:
         ranges.sort()
         last = -1
         ans = []

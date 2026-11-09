@@ -1,7 +1,7 @@
 class Solution:
     def queryConversions(
-        self, conversions: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, conversions: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         mod = 10**9 + 7
         n = len(conversions) + 1
         g = [[] for _ in range(n)]

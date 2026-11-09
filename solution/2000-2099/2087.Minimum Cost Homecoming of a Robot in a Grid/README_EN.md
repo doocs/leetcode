@@ -101,10 +101,10 @@ The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$
 class Solution:
     def minCost(
         self,
-        startPos: List[int],
-        homePos: List[int],
-        rowCosts: List[int],
-        colCosts: List[int],
+        startPos: list[int],
+        homePos: list[int],
+        rowCosts: list[int],
+        colCosts: list[int],
     ) -> int:
         x0, y0 = startPos
         x1, y1 = homePos

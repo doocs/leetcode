@@ -1,5 +1,5 @@
 class Solution:
-    def minimumIndex(self, nums: List[int]) -> int:
+    def minimumIndex(self, nums: list[int]) -> int:
         x, cnt = Counter(nums).most_common(1)[0]
         cur = 0
         for i, v in enumerate(nums, 1):

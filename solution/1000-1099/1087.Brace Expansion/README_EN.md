@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def expand(self, s: str) -> List[str]:
+    def expand(self, s: str) -> list[str]:
         def convert(s):
             if not s:
                 return

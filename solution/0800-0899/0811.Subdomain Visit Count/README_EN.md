@@ -82,7 +82,7 @@ For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quo
 
 ```python
 class Solution:
-    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+    def subdomainVisits(self, cpdomains: list[str]) -> list[str]:
         cnt = Counter()
         for s in cpdomains:
             v = int(s[: s.index(' ')])

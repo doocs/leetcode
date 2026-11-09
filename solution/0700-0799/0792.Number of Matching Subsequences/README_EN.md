@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+    def numMatchingSubseq(self, s: str, words: list[str]) -> int:
         d = defaultdict(deque)
         for w in words:
             d[w[0]].append(w)
@@ -191,7 +191,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 ```python
 class Solution:
-    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+    def numMatchingSubseq(self, s: str, words: list[str]) -> int:
         d = defaultdict(deque)
         for i, w in enumerate(words):
             d[w[0]].append((i, 0))
@@ -309,7 +309,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 ```python
 class Solution:
-    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+    def numMatchingSubseq(self, s: str, words: list[str]) -> int:
         def check(w):
             i = -1
             for c in w:

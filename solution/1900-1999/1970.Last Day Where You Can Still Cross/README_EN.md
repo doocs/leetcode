@@ -102,7 +102,7 @@ The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, w
 
 ```python
 class Solution:
-    def latestDayToCross(self, row: int, col: int, cells: List[List[int]]) -> int:
+    def latestDayToCross(self, row: int, col: int, cells: list[list[int]]) -> int:
         def check(k: int) -> bool:
             g = [[0] * col for _ in range(row)]
             for i, j in cells[:k]:
@@ -444,7 +444,7 @@ class UnionFind:
 
 
 class Solution:
-    def latestDayToCross(self, row: int, col: int, cells: List[List[int]]) -> int:
+    def latestDayToCross(self, row: int, col: int, cells: list[list[int]]) -> int:
         mn = len(cells)
         uf = UnionFind(mn + 2)
         s, t = mn, mn + 1

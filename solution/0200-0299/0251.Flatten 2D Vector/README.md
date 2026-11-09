@@ -99,7 +99,7 @@ vector2D.hasNext(); // return False
 
 ```python
 class Vector2D:
-    def __init__(self, vec: List[List[int]]):
+    def __init__(self, vec: list[list[int]]):
         self.i = 0
         self.j = 0
         self.vec = vec

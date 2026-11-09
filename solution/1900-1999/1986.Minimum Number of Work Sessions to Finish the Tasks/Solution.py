@@ -1,5 +1,5 @@
 class Solution:
-    def minSessions(self, tasks: List[int], sessionTime: int) -> int:
+    def minSessions(self, tasks: list[int], sessionTime: int) -> int:
         n = len(tasks)
         ok = [False] * (1 << n)
         for i in range(1, 1 << n):

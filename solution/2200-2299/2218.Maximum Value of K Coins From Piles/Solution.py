@@ -1,5 +1,5 @@
 class Solution:
-    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
+    def maxValueOfCoins(self, piles: list[list[int]], k: int) -> int:
         n = len(piles)
         f = [[0] * (k + 1) for _ in range(n + 1)]
         for i, nums in enumerate(piles, 1):

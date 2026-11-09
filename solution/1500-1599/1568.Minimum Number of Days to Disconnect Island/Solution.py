@@ -1,5 +1,5 @@
 class Solution:
-    def minDays(self, grid: List[List[int]]) -> int:
+    def minDays(self, grid: list[list[int]]) -> int:
         if self.count(grid) != 1:
             return 0
         m, n = len(grid), len(grid[0])

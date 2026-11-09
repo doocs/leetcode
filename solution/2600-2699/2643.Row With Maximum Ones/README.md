@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
+    def rowAndMaximumOnes(self, mat: list[list[int]]) -> list[int]:
         ans = [0, 0]
         for i, row in enumerate(mat):
             cnt = sum(row)

@@ -1,5 +1,5 @@
 class Solution:
-    def mostFrequent(self, nums: List[int], key: int) -> int:
+    def mostFrequent(self, nums: list[int], key: int) -> int:
         cnt = Counter()
         ans = mx = 0
         for a, b in pairwise(nums):

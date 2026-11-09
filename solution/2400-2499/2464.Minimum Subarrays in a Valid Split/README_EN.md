@@ -101,7 +101,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def validSubarraySplit(self, nums: List[int]) -> int:
+    def validSubarraySplit(self, nums: list[int]) -> int:
         @cache
         def dfs(i):
             if i >= n:
@@ -250,7 +250,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def validSubarraySplit(self, nums: List[int]) -> int:
+    def validSubarraySplit(self, nums: list[int]) -> int:
         n = len(nums)
         f = [inf] * (n + 1)
         f[n] = 0

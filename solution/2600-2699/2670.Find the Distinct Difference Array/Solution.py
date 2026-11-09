@@ -1,5 +1,5 @@
 class Solution:
-    def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
+    def distinctDifferenceArray(self, nums: list[int]) -> list[int]:
         n = len(nums)
         suf = [0] * (n + 1)
         s = set()

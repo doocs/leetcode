@@ -1,5 +1,5 @@
 class Solution:
-    def minimumDistance(self, nums: List[int]) -> int:
+    def minimumDistance(self, nums: list[int]) -> int:
         g = defaultdict(list)
         for i, x in enumerate(nums):
             g[x].append(i)

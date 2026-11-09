@@ -1,5 +1,5 @@
 class Solution:
-    def subsetXORSum(self, nums: List[int]) -> int:
+    def subsetXORSum(self, nums: list[int]) -> int:
         def dfs(i: int, s: int):
             nonlocal ans
             if i >= len(nums):

@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def smallestDistancePair(self, nums: List[int], k: int) -> int:
+    def smallestDistancePair(self, nums: list[int], k: int) -> int:
         def count(dist):
             cnt = 0
             for i, b in enumerate(nums):

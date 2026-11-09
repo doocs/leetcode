@@ -93,7 +93,7 @@ When the recursion reaches a single character, it means we have successfully bui
 
 ```python
 class Solution:
-    def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
+    def pyramidTransition(self, bottom: str, allowed: list[str]) -> bool:
         @cache
         def dfs(s: str) -> bool:
             if len(s) == 1:

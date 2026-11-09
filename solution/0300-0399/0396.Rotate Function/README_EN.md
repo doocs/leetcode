@@ -83,7 +83,7 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 
 ```python
 class Solution:
-    def maxRotateFunction(self, nums: List[int]) -> int:
+    def maxRotateFunction(self, nums: list[int]) -> int:
         f = sum(i * v for i, v in enumerate(nums))
         n, s = len(nums), sum(nums)
         ans = f

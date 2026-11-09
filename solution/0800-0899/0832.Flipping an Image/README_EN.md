@@ -92,7 +92,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+    def flipAndInvertImage(self, image: list[list[int]]) -> list[list[int]]:
         n = len(image)
         for row in image:
             i, j = 0, n - 1

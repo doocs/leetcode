@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def countPairs(self, nums: List[int], target: int) -> int:
+    def countPairs(self, nums: list[int], target: int) -> int:
         nums.sort()
         ans = 0
         for j, x in enumerate(nums):

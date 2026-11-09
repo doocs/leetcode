@@ -108,7 +108,7 @@ $$
 
 ```python
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         @cache
         def dfs(i: int) -> bool:
             if i >= n:
@@ -284,7 +284,7 @@ $$
 
 ```python
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [True] + [False] * n
         for i, x in enumerate(nums, 1):
@@ -411,7 +411,7 @@ $$
 
 ```python
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [False] * n + [True]
         for i in range(n - 1, -1, -1):

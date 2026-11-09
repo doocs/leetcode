@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], sum: int) -> int:
+    def minOperations(self, nums: list[int], sum: int) -> int:
         f = [0] + [inf] * sum
         for x in nums:
             for w in range(sum, -1, -1):

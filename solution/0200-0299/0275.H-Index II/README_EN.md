@@ -77,7 +77,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         n = len(citations)
         left, right = 0, n
         while left < right:

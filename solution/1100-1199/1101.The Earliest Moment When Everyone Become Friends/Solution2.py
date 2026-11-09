@@ -24,7 +24,7 @@ class UnionFind:
 
 
 class Solution:
-    def earliestAcq(self, logs: List[List[int]], n: int) -> int:
+    def earliestAcq(self, logs: list[list[int]], n: int) -> int:
         uf = UnionFind(n)
         for t, x, y in sorted(logs):
             if uf.union(x, y):

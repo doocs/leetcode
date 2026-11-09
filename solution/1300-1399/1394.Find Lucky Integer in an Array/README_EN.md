@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findLucky(self, arr: List[int]) -> int:
+    def findLucky(self, arr: list[int]) -> int:
         cnt = Counter(arr)
         return max((x for x, v in cnt.items() if x == v), default=-1)
 ```

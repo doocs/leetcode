@@ -113,7 +113,7 @@ The time complexity is $O(n + m \log m)$, and the space complexity is $O(n + m)$
 
 ```python
 class Solution:
-    def minCost(self, n: int, edges: List[List[int]]) -> int:
+    def minCost(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))

@@ -1,5 +1,5 @@
 class Solution:
-    def totalStrength(self, strength: List[int]) -> int:
+    def totalStrength(self, strength: list[int]) -> int:
         n = len(strength)
         left = [-1] * n
         right = [n] * n

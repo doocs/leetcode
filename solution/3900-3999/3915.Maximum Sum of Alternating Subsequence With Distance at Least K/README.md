@@ -175,7 +175,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def maxAlternatingSum(self, nums: List[int], k: int) -> int:
+    def maxAlternatingSum(self, nums: list[int], k: int) -> int:
         vals = sorted(set(nums))
         m = len(vals)
         rank = {v: i + 1 for i, v in enumerate(vals)}

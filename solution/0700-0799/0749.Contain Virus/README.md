@@ -108,7 +108,7 @@ DFS 找到每个病毒区域 `areas[i]`，同时记录每个区域边界节点 `
 
 ```python
 class Solution:
-    def containVirus(self, isInfected: List[List[int]]) -> int:
+    def containVirus(self, isInfected: list[list[int]]) -> int:
         def dfs(i, j):
             vis[i][j] = True
             areas[-1].append((i, j))

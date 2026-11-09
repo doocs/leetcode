@@ -1,5 +1,5 @@
 class Solution:
-    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+    def isArraySpecial(self, nums: list[int], queries: list[list[int]]) -> list[bool]:
         n = len(nums)
         d = list(range(n))
         for i in range(1, n):

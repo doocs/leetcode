@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int], profits: List[int]) -> int:
+    def maxProfit(self, prices: list[int], profits: list[int]) -> int:
         n = len(prices)
         ans = -1
         for j, x in enumerate(profits):
@@ -302,7 +302,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def maxProfit(self, prices: List[int], profits: List[int]) -> int:
+    def maxProfit(self, prices: list[int], profits: list[int]) -> int:
         n = len(prices)
         left = [0] * n
         right = [0] * n
@@ -678,7 +678,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def maxProfit(self, prices: List[int], profits: List[int]) -> int:
+    def maxProfit(self, prices: list[int], profits: list[int]) -> int:
         n = len(prices)
         left = [0] * n
         right = [0] * n

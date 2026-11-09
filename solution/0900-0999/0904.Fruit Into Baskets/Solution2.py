@@ -1,5 +1,5 @@
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, fruits: list[int]) -> int:
         cnt = Counter()
         j = 0
         for x in fruits:

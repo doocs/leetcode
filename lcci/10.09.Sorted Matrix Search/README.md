@@ -64,7 +64,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         for row in matrix:
             j = bisect_left(row, target)
             if j < len(matrix[0]) and row[j] == target:
@@ -284,7 +284,7 @@ class Solution {
 
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         if not matrix:
             return False
         m, n = len(matrix), len(matrix[0])

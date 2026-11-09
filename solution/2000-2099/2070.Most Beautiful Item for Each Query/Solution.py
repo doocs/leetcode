@@ -1,5 +1,5 @@
 class Solution:
-    def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
+    def maximumBeauty(self, items: list[list[int]], queries: list[int]) -> list[int]:
         items.sort()
         n, m = len(items), len(queries)
         ans = [0] * len(queries)

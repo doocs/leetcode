@@ -82,7 +82,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
+    def searchInsert(self, nums: list[int], target: int) -> int:
         l, r = 0, len(nums)
         while l < r:
             mid = (l + r) >> 1
@@ -259,7 +259,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
+    def searchInsert(self, nums: list[int], target: int) -> int:
         return bisect_left(nums, target)
 ```
 

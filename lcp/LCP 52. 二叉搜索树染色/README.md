@@ -100,7 +100,7 @@ difficulty: 中等
 
 
 class Solution:
-    def getNumber(self, root: Optional[TreeNode], ops: List[List[int]]) -> int:
+    def getNumber(self, root: Optional[TreeNode], ops: list[list[int]]) -> int:
         def dfs(root):
             if root is None:
                 return

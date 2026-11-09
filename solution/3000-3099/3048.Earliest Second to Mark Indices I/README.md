@@ -127,7 +127,7 @@ tags:
 ```python
 class Solution:
     def earliestSecondToMarkIndices(
-        self, nums: List[int], changeIndices: List[int]
+        self, nums: list[int], changeIndices: list[int]
     ) -> int:
         def check(t: int) -> bool:
             decrement = 0

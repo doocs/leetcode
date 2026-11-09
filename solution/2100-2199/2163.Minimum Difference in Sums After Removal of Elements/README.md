@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumDifference(self, nums: List[int]) -> int:
+    def minimumDifference(self, nums: list[int]) -> int:
         m = len(nums)
         n = m // 3
 

@@ -1,5 +1,5 @@
 class Solution:
-    def pairSums(self, nums: List[int], target: int) -> List[List[int]]:
+    def pairSums(self, nums: list[int], target: int) -> list[list[int]]:
         cnt = Counter()
         ans = []
         for x in nums:

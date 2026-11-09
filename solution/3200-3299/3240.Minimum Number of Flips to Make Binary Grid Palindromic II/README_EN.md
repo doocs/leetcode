@@ -117,7 +117,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def minFlips(self, grid: List[List[int]]) -> int:
+    def minFlips(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         ans = 0
         for i in range(m // 2):

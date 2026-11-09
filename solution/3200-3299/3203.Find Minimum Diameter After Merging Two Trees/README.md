@@ -106,13 +106,13 @@ tags:
 ```python
 class Solution:
     def minimumDiameterAfterMerge(
-        self, edges1: List[List[int]], edges2: List[List[int]]
+        self, edges1: list[list[int]], edges2: list[list[int]]
     ) -> int:
         d1 = self.treeDiameter(edges1)
         d2 = self.treeDiameter(edges2)
         return max(d1, d2, (d1 + 1) // 2 + (d2 + 1) // 2 + 1)
 
-    def treeDiameter(self, edges: List[List[int]]) -> int:
+    def treeDiameter(self, edges: list[list[int]]) -> int:
         def dfs(i: int, fa: int, t: int):
             for j in g[i]:
                 if j != fa:
@@ -407,13 +407,13 @@ public class Solution {
 ```python
 class Solution:
     def minimumDiameterAfterMerge(
-        self, edges1: List[List[int]], edges2: List[List[int]]
+        self, edges1: list[list[int]], edges2: list[list[int]]
     ) -> int:
         d1 = self.treeDiameter(edges1)
         d2 = self.treeDiameter(edges2)
         return max(d1, d2, (d1 + 1) // 2 + (d2 + 1) // 2 + 1)
 
-    def treeDiameter(self, edges: List[List[int]]) -> int:
+    def treeDiameter(self, edges: list[list[int]]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b in edges:

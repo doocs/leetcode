@@ -194,8 +194,8 @@ tags:
 ```python
 class Solution:
     def pathExistenceQueries(
-        self, n: int, nums: List[int], maxDiff: int, queries: List[List[int]]
-    ) -> List[int]:
+        self, n: int, nums: list[int], maxDiff: int, queries: list[list[int]]
+    ) -> list[int]:
         pairs = sorted((x, i) for i, x in enumerate(nums))
         m = 20
         f = [[0] * m for _ in range(n)]

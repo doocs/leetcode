@@ -1,5 +1,5 @@
 class Solution:
-    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+    def shortestPathBinaryMatrix(self, grid: list[list[int]]) -> int:
         if grid[0][0]:
             return -1
         n = len(grid)

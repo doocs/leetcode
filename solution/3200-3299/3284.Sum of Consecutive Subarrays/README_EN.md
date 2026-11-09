@@ -120,7 +120,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getSum(self, nums: List[int]) -> int:
+    def getSum(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         f = g = 1
         s = t = nums[0]

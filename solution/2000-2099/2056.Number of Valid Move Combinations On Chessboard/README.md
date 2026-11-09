@@ -159,7 +159,7 @@ bishop_dirs = [(1, 1), (1, -1), (-1, 1), (-1, -1)]
 queue_dirs = rook_dirs + bishop_dirs
 
 
-def get_dirs(piece: str) -> List[Tuple[int, int]]:
+def get_dirs(piece: str) -> list[Tuple[int, int]]:
     match piece[0]:
         case "r":
             return rook_dirs
@@ -170,7 +170,7 @@ def get_dirs(piece: str) -> List[Tuple[int, int]]:
 
 
 class Solution:
-    def countCombinations(self, pieces: List[str], positions: List[List[int]]) -> int:
+    def countCombinations(self, pieces: list[str], positions: list[list[int]]) -> int:
         def check_stop(i: int, x: int, y: int, t: int) -> bool:
             return all(dist[j][x][y] < t for j in range(i))
 

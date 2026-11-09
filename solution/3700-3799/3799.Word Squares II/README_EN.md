@@ -118,7 +118,7 @@ tags:
 
 ```python
 class Solution:
-    def wordSquares(self, words: List[str]) -> List[List[str]]:
+    def wordSquares(self, words: list[str]) -> list[list[str]]:
         words.sort()
         n = len(words)
         ans = []

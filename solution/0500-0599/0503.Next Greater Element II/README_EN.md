@@ -79,7 +79,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+    def nextGreaterElements(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [-1] * n
         stk = []

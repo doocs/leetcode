@@ -116,7 +116,7 @@ tags:
 #         self.next = next
 class Solution:
     def modifiedList(
-        self, nums: List[int], head: Optional[ListNode]
+        self, nums: list[int], head: Optional[ListNode]
     ) -> Optional[ListNode]:
         s = set(nums)
         pre = dummy = ListNode(next=head)

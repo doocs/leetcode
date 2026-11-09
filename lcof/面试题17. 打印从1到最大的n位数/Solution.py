@@ -1,8 +1,8 @@
 class Solution:
-    def printNumbers(self, n: int) -> List[int]:
+    def printNumbers(self, n: int) -> list[int]:
         return list(range(1, 10**n))
 
-    def print(self, n: int) -> List[str]:
+    def print(self, n: int) -> list[str]:
         def dfs(i, j):
             if i == j:
                 ans.append("".join(s))

@@ -79,7 +79,7 @@ Since not every customer received the correct change, the answer is false.
 
 ```python
 class Solution:
-    def lemonadeChange(self, bills: List[int]) -> bool:
+    def lemonadeChange(self, bills: list[int]) -> bool:
         five = ten = 0
         for v in bills:
             if v == 5:

@@ -1,5 +1,5 @@
 class Solution:
-    def maxKelements(self, nums: List[int], k: int) -> int:
+    def maxKelements(self, nums: list[int], k: int) -> int:
         h = [-v for v in nums]
         heapify(h)
         ans = 0

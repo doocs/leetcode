@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def xorAfterQueries(self, nums: List[int], queries: List[List[int]]) -> int:
+    def xorAfterQueries(self, nums: list[int], queries: list[list[int]]) -> int:
         MOD = 1_000_000_007
         n = len(nums)
         B = int(math.isqrt(n)) + 1

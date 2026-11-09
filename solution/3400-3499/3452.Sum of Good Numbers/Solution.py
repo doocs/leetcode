@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfGoodNumbers(self, nums: List[int], k: int) -> int:
+    def sumOfGoodNumbers(self, nums: list[int], k: int) -> int:
         ans = 0
         for i, x in enumerate(nums):
             if i >= k and x <= nums[i - k]:

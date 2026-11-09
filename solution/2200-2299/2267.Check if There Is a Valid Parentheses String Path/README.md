@@ -109,7 +109,7 @@ tags:
 
 ```python
 class Solution:
-    def hasValidPath(self, grid: List[List[str]]) -> bool:
+    def hasValidPath(self, grid: list[list[str]]) -> bool:
         @cache
         def dfs(i: int, j: int, k: int) -> bool:
             d = 1 if grid[i][j] == "(" else -1

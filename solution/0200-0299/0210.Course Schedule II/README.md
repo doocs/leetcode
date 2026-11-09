@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+    def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         indeg = [0] * numCourses
         for a, b in prerequisites:

@@ -33,7 +33,7 @@ class Solution:
                         ret[id(node)] = left or right
             return ret.get(id(root))
 
-        def dfs(start: Optional[TreeNode], x: int, path: List[str]) -> bool:
+        def dfs(start: Optional[TreeNode], x: int, path: list[str]) -> bool:
             stk = [(start, 0)]
             while stk:
                 node, state = stk.pop()
@@ -54,8 +54,8 @@ class Solution:
             return False
 
         node = lca(root, startValue, destValue)
-        path_to_start: List[str] = []
-        path_to_dest: List[str] = []
+        path_to_start: list[str] = []
+        path_to_dest: list[str] = []
         dfs(node, startValue, path_to_start)
         dfs(node, destValue, path_to_dest)
         return 'U' * len(path_to_start) + ''.join(path_to_dest)

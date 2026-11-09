@@ -114,7 +114,7 @@ class Solution:
                 return node
             return left or right
 
-        def dfs(node: Optional[TreeNode], x: int, path: List[str]):
+        def dfs(node: Optional[TreeNode], x: int, path: list[str]):
             if node is None:
                 return False
             if node.val == x:
@@ -450,7 +450,7 @@ class Solution:
     def getDirections(
         self, root: Optional[TreeNode], startValue: int, destValue: int
     ) -> str:
-        def dfs(node: Optional[TreeNode], x: int, path: List[str]):
+        def dfs(node: Optional[TreeNode], x: int, path: list[str]):
             if node is None:
                 return False
             if node.val == x:
@@ -772,7 +772,7 @@ class Solution:
                         ret[id(node)] = left or right
             return ret.get(id(root))
 
-        def dfs(start: Optional[TreeNode], x: int, path: List[str]) -> bool:
+        def dfs(start: Optional[TreeNode], x: int, path: list[str]) -> bool:
             stk = [(start, 0)]
             while stk:
                 node, state = stk.pop()
@@ -793,8 +793,8 @@ class Solution:
             return False
 
         node = lca(root, startValue, destValue)
-        path_to_start: List[str] = []
-        path_to_dest: List[str] = []
+        path_to_start: list[str] = []
+        path_to_dest: list[str] = []
         dfs(node, startValue, path_to_start)
         dfs(node, destValue, path_to_dest)
         return 'U' * len(path_to_start) + ''.join(path_to_dest)
@@ -1246,7 +1246,7 @@ class Solution:
     def getDirections(
         self, root: Optional[TreeNode], startValue: int, destValue: int
     ) -> str:
-        def dfs(start: Optional[TreeNode], x: int, path: List[str]) -> bool:
+        def dfs(start: Optional[TreeNode], x: int, path: list[str]) -> bool:
             stk = [(start, 0)]
             while stk:
                 node, state = stk.pop()
@@ -1266,8 +1266,8 @@ class Solution:
                     path.pop()
             return False
 
-        path_to_start: List[str] = []
-        path_to_dest: List[str] = []
+        path_to_start: list[str] = []
+        path_to_dest: list[str] = []
         dfs(root, startValue, path_to_start)
         dfs(root, destValue, path_to_dest)
         i = 0

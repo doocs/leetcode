@@ -211,7 +211,7 @@ tags:
 
 ```python
 class Solution:
-    def finalPositionOfSnake(self, n: int, commands: List[str]) -> int:
+    def finalPositionOfSnake(self, n: int, commands: list[str]) -> int:
         x = y = 0
         for c in commands:
             match c[0]:

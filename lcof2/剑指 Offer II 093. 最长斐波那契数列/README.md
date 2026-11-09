@@ -81,7 +81,7 @@ comments: true
 
 ```python
 class Solution:
-    def lenLongestFibSubseq(self, arr: List[int]) -> int:
+    def lenLongestFibSubseq(self, arr: list[int]) -> int:
         mp = {v: i for i, v in enumerate(arr)}
         n = len(arr)
         dp = [[0] * n for _ in range(n)]

@@ -1,5 +1,5 @@
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         @cache
         def dfs(i: int) -> bool:
             if i >= n:

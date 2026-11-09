@@ -23,7 +23,7 @@ class Trie:
 
 
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+    def wordBreak(self, s: str, wordDict: list[str]) -> list[str]:
         def dfs(s):
             if not s:
                 return [[]]

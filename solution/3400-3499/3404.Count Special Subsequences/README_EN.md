@@ -128,7 +128,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfSubsequences(self, nums: List[int]) -> int:
+    def numberOfSubsequences(self, nums: list[int]) -> int:
         n = len(nums)
         cnt = defaultdict(int)
         for r in range(4, n - 2):

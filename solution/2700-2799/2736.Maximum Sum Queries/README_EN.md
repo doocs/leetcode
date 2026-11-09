@@ -141,8 +141,8 @@ class BinaryIndexedTree:
 
 class Solution:
     def maximumSumQueries(
-        self, nums1: List[int], nums2: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], queries: list[list[int]]
+    ) -> list[int]:
         nums = sorted(zip(nums1, nums2), key=lambda x: -x[0])
         nums2.sort()
         n, m = len(nums1), len(queries)

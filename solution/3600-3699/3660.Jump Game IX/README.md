@@ -120,7 +120,7 @@ tags:
 
 ```python
 class Solution:
-    def maxValue(self, nums: List[int]) -> List[int]:
+    def maxValue(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [0] * n
         pre_max = [nums[0]] * n

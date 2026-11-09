@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         n = len(nums)
         suf_gcd = [0] * (n + 1)
         suf_lcm = [0] * n + [1]

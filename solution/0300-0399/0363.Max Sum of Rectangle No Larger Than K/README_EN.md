@@ -83,7 +83,7 @@ The time complexity is $O(m^2n \log n)$, and the space complexity is $O(n)$.
 
 ```python
 class Solution:
-    def maxSumSubmatrix(self, matrix: List[List[int]], k: int) -> int:
+    def maxSumSubmatrix(self, matrix: list[list[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])
         ans = -inf
         for i in range(m):

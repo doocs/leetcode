@@ -101,8 +101,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 ```python
 class Solution:
     def countPairsOfConnectableServers(
-        self, edges: List[List[int]], signalSpeed: int
-    ) -> List[int]:
+        self, edges: list[list[int]], signalSpeed: int
+    ) -> list[int]:
         def dfs(a: int, fa: int, ws: int) -> int:
             cnt = 0 if ws % signalSpeed else 1
             for b, w in g[a]:
@@ -307,8 +307,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 ```python
 class Solution:
     def countPairsOfConnectableServers(
-        self, edges: List[List[int]], signalSpeed: int
-    ) -> List[int]:
+        self, edges: list[list[int]], signalSpeed: int
+    ) -> list[int]:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b, w in edges:

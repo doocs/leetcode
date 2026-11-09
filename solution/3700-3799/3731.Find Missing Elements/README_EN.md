@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findMissingElements(self, nums: List[int]) -> List[int]:
+    def findMissingElements(self, nums: list[int]) -> list[int]:
         mn, mx = min(nums), max(nums)
         s = set(nums)
         return [x for x in range(mn + 1, mx) if x not in s]

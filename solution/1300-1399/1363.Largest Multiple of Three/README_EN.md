@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def largestMultipleOfThree(self, digits: List[int]) -> str:
+    def largestMultipleOfThree(self, digits: list[int]) -> str:
         digits.sort()
         n = len(digits)
         f = [[-inf] * 3 for _ in range(n + 1)]

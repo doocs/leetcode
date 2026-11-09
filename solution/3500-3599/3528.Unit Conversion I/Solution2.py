@@ -1,5 +1,5 @@
 class Solution:
-    def baseUnitConversions(self, conversions: List[List[int]]) -> List[int]:
+    def baseUnitConversions(self, conversions: list[list[int]]) -> list[int]:
         mod = 10**9 + 7
         n = len(conversions) + 1
         g = [[] for _ in range(n)]

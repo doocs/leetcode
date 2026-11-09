@@ -90,7 +90,7 @@ The time complexity is $O(k(m + n) + mn)$, and the space complexity is $O(mn)$, 
 
 ```python
 class Solution:
-    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+    def oddCells(self, m: int, n: int, indices: list[list[int]]) -> int:
         g = [[0] * n for _ in range(m)]
         for r, c in indices:
             for i in range(m):
@@ -208,7 +208,7 @@ The time complexity is $O(k + mn)$, and the space complexity is $O(m + n)$, wher
 
 ```python
 class Solution:
-    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+    def oddCells(self, m: int, n: int, indices: list[list[int]]) -> int:
         row = [0] * m
         col = [0] * n
         for r, c in indices:
@@ -313,7 +313,7 @@ The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$, w
 
 ```python
 class Solution:
-    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+    def oddCells(self, m: int, n: int, indices: list[list[int]]) -> int:
         row = [0] * m
         col = [0] * n
         for r, c in indices:

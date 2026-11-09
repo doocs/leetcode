@@ -80,7 +80,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minIncrementForUnique(self, nums: List[int]) -> int:
+    def minIncrementForUnique(self, nums: list[int]) -> int:
         nums.sort()
         ans, y = 0, -1
         for x in nums:
@@ -180,7 +180,7 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is 
 
 ```python
 class Solution:
-    def minIncrementForUnique(self, nums: List[int]) -> int:
+    def minIncrementForUnique(self, nums: list[int]) -> int:
         m = max(nums) + len(nums)
         cnt = Counter(nums)
         ans = 0

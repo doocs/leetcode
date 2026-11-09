@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         d = defaultdict(list)
         for s in strs:
             k = ''.join(sorted(s))
@@ -251,7 +251,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         d = defaultdict(list)
         for s in strs:
             cnt = [0] * 26

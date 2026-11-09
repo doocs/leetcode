@@ -166,8 +166,8 @@ class UnionFind:
 
 class Solution:
     def processQueries(
-        self, c: int, connections: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, c: int, connections: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         uf = UnionFind(c + 1)
         for u, v in connections:
             uf.union(u, v)

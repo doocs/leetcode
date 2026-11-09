@@ -115,7 +115,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
+    def minimumMoves(self, grid: list[list[int]]) -> int:
         def move(i1, j1, i2, j2):
             if 0 <= i1 < n and 0 <= j1 < n and 0 <= i2 < n and 0 <= j2 < n:
                 a, b = i1 * n + j1, i2 * n + j2

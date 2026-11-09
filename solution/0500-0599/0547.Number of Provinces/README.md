@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def dfs(i: int):
             vis[i] = True
             for j, x in enumerate(isConnected[i]):
@@ -281,7 +281,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

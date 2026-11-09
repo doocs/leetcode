@@ -90,7 +90,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def plusOne(self, digits: List[int]) -> List[int]:
+    def plusOne(self, digits: list[int]) -> list[int]:
         n = len(digits)
         for i in range(n - 1, -1, -1):
             digits[i] += 1

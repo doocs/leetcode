@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
+    def minMutation(self, startGene: str, endGene: str, bank: list[str]) -> int:
         q = deque([(startGene, 0)])
         vis = {startGene}
         while q:

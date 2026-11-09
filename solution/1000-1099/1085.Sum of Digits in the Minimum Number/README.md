@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def sumOfDigits(self, nums: List[int]) -> int:
+    def sumOfDigits(self, nums: list[int]) -> int:
         x = min(nums)
         s = 0
         while x:

@@ -1,5 +1,5 @@
 class Solution:
-    def waysToReachTarget(self, target: int, types: List[List[int]]) -> int:
+    def waysToReachTarget(self, target: int, types: list[list[int]]) -> int:
         n = len(types)
         mod = 10**9 + 7
         f = [[0] * (target + 1) for _ in range(n + 1)]

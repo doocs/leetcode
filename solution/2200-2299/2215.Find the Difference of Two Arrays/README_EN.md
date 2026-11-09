@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+    def findDifference(self, nums1: list[int], nums2: list[int]) -> list[list[int]]:
         s1, s2 = set(nums1), set(nums2)
         return [list(s1 - s2), list(s2 - s1)]
 ```

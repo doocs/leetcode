@@ -94,9 +94,9 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ is 
 ```python
 class Solution:
     def isEscapePossible(
-        self, blocked: List[List[int]], source: List[int], target: List[int]
+        self, blocked: list[list[int]], source: list[int], target: list[int]
     ) -> bool:
-        def dfs(source: List[int], target: List[int], vis: set) -> bool:
+        def dfs(source: list[int], target: list[int], vis: set) -> bool:
             vis.add(tuple(source))
             if len(vis) > m:
                 return True

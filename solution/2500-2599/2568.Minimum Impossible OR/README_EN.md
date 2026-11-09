@@ -80,7 +80,7 @@ The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def minImpossibleOR(self, nums: List[int]) -> int:
+    def minImpossibleOR(self, nums: list[int]) -> int:
         s = set(nums)
         return next(1 << i for i in range(32) if 1 << i not in s)
 ```

@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGameIII(self, stoneValue: List[int]) -> str:
+    def stoneGameIII(self, stoneValue: list[int]) -> str:
         @cache
         def dfs(i: int) -> int:
             if i >= len(stoneValue):

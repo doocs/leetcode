@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minAbsoluteSumDiff(self, nums1: List[int], nums2: List[int]) -> int:
+    def minAbsoluteSumDiff(self, nums1: list[int], nums2: list[int]) -> int:
         mod = 10**9 + 7
         nums = sorted(nums1)
         s = sum(abs(a - b) for a, b in zip(nums1, nums2)) % mod

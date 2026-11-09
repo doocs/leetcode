@@ -1,5 +1,5 @@
 class Solution:
-    def canThreePartsEqualSum(self, arr: List[int]) -> bool:
+    def canThreePartsEqualSum(self, arr: list[int]) -> bool:
         s, mod = divmod(sum(arr), 3)
         if mod:
             return False

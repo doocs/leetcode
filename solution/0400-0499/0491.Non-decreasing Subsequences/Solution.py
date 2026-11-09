@@ -1,5 +1,5 @@
 class Solution:
-    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
+    def findSubsequences(self, nums: list[int]) -> list[list[int]]:
         def dfs(u, last, t):
             if u == len(nums):
                 if len(t) > 1:

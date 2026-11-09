@@ -95,7 +95,7 @@ The time complexity is $O(n + M \log M)$, and the space complexity is $O(M)$, wh
 
 ```python
 class Solution:
-    def countDifferentSubsequenceGCDs(self, nums: List[int]) -> int:
+    def countDifferentSubsequenceGCDs(self, nums: list[int]) -> int:
         mx = max(nums)
         vis = set(nums)
         ans = 0

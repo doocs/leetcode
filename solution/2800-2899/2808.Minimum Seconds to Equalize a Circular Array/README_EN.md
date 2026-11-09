@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumSeconds(self, nums: List[int]) -> int:
+    def minimumSeconds(self, nums: list[int]) -> int:
         d = defaultdict(list)
         for i, x in enumerate(nums):
             d[x].append(i)

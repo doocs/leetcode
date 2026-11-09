@@ -70,7 +70,7 @@ A DataFrame was created on top of student_data, with two columns named <code>stu
 import pandas as pd
 
 
-def createDataframe(student_data: List[List[int]]) -> pd.DataFrame:
+def createDataframe(student_data: list[list[int]]) -> pd.DataFrame:
     return pd.DataFrame(student_data, columns=['student_id', 'age'])
 ```
 

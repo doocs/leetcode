@@ -106,7 +106,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
+    def minimumCoins(self, prices: list[int]) -> int:
         n = len(prices)
         q = deque()
         for i in range(n, 0, -1):

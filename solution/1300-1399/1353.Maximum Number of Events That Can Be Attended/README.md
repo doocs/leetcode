@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def maxEvents(self, events: List[List[int]]) -> int:
+    def maxEvents(self, events: list[list[int]]) -> int:
         g = defaultdict(list)
         l, r = inf, 0
         for s, e in events:

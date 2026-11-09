@@ -1,5 +1,5 @@
 class Solution:
-    def countPaths(self, n: int, roads: List[List[int]]) -> int:
+    def countPaths(self, n: int, roads: list[list[int]]) -> int:
         g = [[inf] * n for _ in range(n)]
         for u, v, t in roads:
             g[u][v] = g[v][u] = t

@@ -86,7 +86,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
+    def isNStraightHand(self, hand: list[int], groupSize: int) -> bool:
         if len(hand) % groupSize:
             return False
         cnt = Counter(hand)
@@ -241,7 +241,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
+    def isNStraightHand(self, hand: list[int], groupSize: int) -> bool:
         if len(hand) % groupSize:
             return False
         cnt = Counter(hand)

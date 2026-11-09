@@ -83,7 +83,7 @@ Use Floor, Ceil and Ceil operations to get (0.7 - 0) + (3 - 2.8) + (5 - 4.9) = 0
 
 ```python
 class Solution:
-    def minimizeError(self, prices: List[str], target: int) -> str:
+    def minimizeError(self, prices: list[str], target: int) -> str:
         mi = 0
         arr = []
         for p in prices:

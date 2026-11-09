@@ -1,5 +1,5 @@
 class Solution:
-    def makesquare(self, matchsticks: List[int]) -> bool:
+    def makesquare(self, matchsticks: list[int]) -> bool:
         def dfs(u):
             if u == len(matchsticks):
                 return True

@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTime(self, power: List[int]) -> int:
+    def minimumTime(self, power: list[int]) -> int:
         n = len(power)
         f = [inf] * (1 << n)
         f[0] = 0

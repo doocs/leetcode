@@ -1,5 +1,5 @@
 class Solution:
-    def containsCycle(self, grid: List[List[str]]) -> bool:
+    def containsCycle(self, grid: list[list[str]]) -> bool:
         m, n = len(grid), len(grid[0])
         vis = [[False] * n for _ in range(m)]
         dirs = (-1, 0, 1, 0, -1)

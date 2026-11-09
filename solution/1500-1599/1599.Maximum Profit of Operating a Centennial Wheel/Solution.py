@@ -1,6 +1,6 @@
 class Solution:
     def minOperationsMaxProfit(
-        self, customers: List[int], boardingCost: int, runningCost: int
+        self, customers: list[int], boardingCost: int, runningCost: int
     ) -> int:
         ans = -1
         mx = t = 0

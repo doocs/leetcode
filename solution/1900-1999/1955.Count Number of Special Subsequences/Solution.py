@@ -1,5 +1,5 @@
 class Solution:
-    def countSpecialSubsequences(self, nums: List[int]) -> int:
+    def countSpecialSubsequences(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         n = len(nums)
         f = [[0] * 3 for _ in range(n)]

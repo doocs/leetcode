@@ -105,7 +105,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxScore(self, edges: List[List[int]]) -> int:
+    def maxScore(self, edges: list[list[int]]) -> int:
         def dfs(i):
             a = b = t = 0
             for j, w in g[i]:
@@ -248,7 +248,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxScore(self, edges: List[List[int]]) -> int:
+    def maxScore(self, edges: list[list[int]]) -> int:
         n = len(edges)
         g = [[] for _ in range(n)]
         for i, (p, w) in enumerate(edges[1:], 1):

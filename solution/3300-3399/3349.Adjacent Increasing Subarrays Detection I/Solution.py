@@ -1,5 +1,5 @@
 class Solution:
-    def hasIncreasingSubarrays(self, nums: List[int], k: int) -> bool:
+    def hasIncreasingSubarrays(self, nums: list[int], k: int) -> bool:
         mx = pre = cur = 0
         for i, x in enumerate(nums):
             cur += 1

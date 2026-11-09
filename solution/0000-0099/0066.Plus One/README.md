@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def plusOne(self, digits: List[int]) -> List[int]:
+    def plusOne(self, digits: list[int]) -> list[int]:
         n = len(digits)
         for i in range(n - 1, -1, -1):
             digits[i] += 1

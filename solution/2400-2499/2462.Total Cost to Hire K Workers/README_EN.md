@@ -108,7 +108,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
+    def totalCost(self, costs: list[int], k: int, candidates: int) -> int:
         n = len(costs)
         if candidates * 2 >= n:
             return sum(sorted(costs)[:k])

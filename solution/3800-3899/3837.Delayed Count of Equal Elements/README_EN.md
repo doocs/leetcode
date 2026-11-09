@@ -190,7 +190,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def delayedCount(self, nums: List[int], k: int) -> List[int]:
+    def delayedCount(self, nums: list[int], k: int) -> list[int]:
         n = len(nums)
         cnt = Counter()
         ans = [0] * n

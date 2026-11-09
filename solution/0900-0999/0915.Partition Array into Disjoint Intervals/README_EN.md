@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def partitionDisjoint(self, nums: List[int]) -> int:
+    def partitionDisjoint(self, nums: list[int]) -> int:
         n = len(nums)
         mi = [inf] * (n + 1)
         for i in range(n - 1, -1, -1):

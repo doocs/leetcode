@@ -116,7 +116,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+    def minOperations(self, nums1: list[int], nums2: list[int]) -> int:
         def f(x: int, y: int) -> int:
             cnt = 0
             for a, b in zip(nums1[:-1], nums2[:-1]):

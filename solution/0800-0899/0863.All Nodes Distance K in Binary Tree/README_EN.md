@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 
 class Solution:
-    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> list[int]:
         def dfs(root, fa):
             if root is None:
                 return

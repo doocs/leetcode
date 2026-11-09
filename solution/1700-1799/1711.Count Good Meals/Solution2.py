@@ -1,5 +1,5 @@
 class Solution:
-    def countPairs(self, deliciousness: List[int]) -> int:
+    def countPairs(self, deliciousness: list[int]) -> int:
         mod = 10**9 + 7
         cnt = Counter(deliciousness)
         ans = 0

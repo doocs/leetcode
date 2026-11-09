@@ -112,7 +112,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
+    def maxProduct(self, nums: list[int]) -> int:
         nums.sort()
         a, b = nums[0], nums[1]
         c, d = nums[-2], nums[-1]

@@ -93,7 +93,7 @@ The time complexity is $O(m)$, and the space complexity is $O(n)$, where $m$ rep
 
 ```python
 class Solution:
-    def matrixSumQueries(self, n: int, queries: List[List[int]]) -> int:
+    def matrixSumQueries(self, n: int, queries: list[list[int]]) -> int:
         row = set()
         col = set()
         ans = 0

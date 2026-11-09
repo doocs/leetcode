@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root):
             if root is None:
                 return
@@ -325,7 +325,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         if root is None:
             return ans
@@ -524,7 +524,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         while root:
             if root.left is None:

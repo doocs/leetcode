@@ -125,7 +125,7 @@ $$
 
 ```python
 class Solution:
-    def countStableSubarrays(self, capacity: List[int]) -> int:
+    def countStableSubarrays(self, capacity: list[int]) -> int:
         s = list(accumulate(capacity, initial=0))
         n = len(capacity)
         ans = 0

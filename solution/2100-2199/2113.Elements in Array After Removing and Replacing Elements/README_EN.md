@@ -116,7 +116,7 @@ The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is 
 
 ```python
 class Solution:
-    def elementInNums(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def elementInNums(self, nums: list[int], queries: list[list[int]]) -> list[int]:
         n, m = len(nums), len(queries)
         ans = [-1] * m
         for j, (t, i) in enumerate(queries):

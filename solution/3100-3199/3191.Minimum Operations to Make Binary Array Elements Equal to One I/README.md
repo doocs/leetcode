@@ -104,7 +104,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         ans = 0
         for i, x in enumerate(nums):
             if x == 0:

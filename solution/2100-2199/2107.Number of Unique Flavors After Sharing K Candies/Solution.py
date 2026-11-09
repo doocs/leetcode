@@ -1,5 +1,5 @@
 class Solution:
-    def shareCandies(self, candies: List[int], k: int) -> int:
+    def shareCandies(self, candies: list[int], k: int) -> int:
         cnt = Counter(candies[k:])
         ans = len(cnt)
         for i in range(k, len(candies)):

@@ -1,5 +1,5 @@
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         f = g = 0
         for x in nums:
             f, g = max(f, g), f + x

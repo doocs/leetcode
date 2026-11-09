@@ -136,8 +136,8 @@ The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n)$, 
 ```python
 class Solution:
     def countStableSubarrays(
-        self, nums: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums: list[int], queries: list[list[int]]
+    ) -> list[int]:
         s = [0]
         l, n = 0, len(nums)
         seg = []

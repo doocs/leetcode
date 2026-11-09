@@ -139,7 +139,7 @@ The time complexity is $O(n + m \log m)$, and the space complexity is $O(n + m)$
 
 ```python
 class Solution:
-    def maxRemoval(self, nums: List[int], queries: List[List[int]]) -> int:
+    def maxRemoval(self, nums: list[int], queries: list[list[int]]) -> int:
         queries.sort()
         pq = []
         d = [0] * (len(nums) + 1)

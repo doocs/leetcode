@@ -100,7 +100,7 @@ tags:
 ```python
 class Solution:
     def maxScore(
-        self, n: int, k: int, stayScore: List[List[int]], travelScore: List[List[int]]
+        self, n: int, k: int, stayScore: list[list[int]], travelScore: list[list[int]]
     ) -> int:
         f = [[-inf] * n for _ in range(k + 1)]
         f[0] = [0] * n

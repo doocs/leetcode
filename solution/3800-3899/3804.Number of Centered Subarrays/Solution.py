@@ -1,5 +1,5 @@
 class Solution:
-    def centeredSubarrays(self, nums: List[int]) -> int:
+    def centeredSubarrays(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         for i in range(n):

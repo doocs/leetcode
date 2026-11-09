@@ -1,5 +1,5 @@
 class Solution:
-    def maxPrice(self, items: List[List[int]], capacity: int) -> float:
+    def maxPrice(self, items: list[list[int]], capacity: int) -> float:
         ans = 0
         for p, w in sorted(items, key=lambda x: x[1] / x[0]):
             v = min(w, capacity)

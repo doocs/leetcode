@@ -109,7 +109,7 @@ tags:
 
 ```python
 class Solution:
-    def maxTransactions(self, transactions: List[int]) -> int:
+    def maxTransactions(self, transactions: list[int]) -> int:
         st = SortedList()
         s = 0
         ans = len(transactions)

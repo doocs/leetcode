@@ -1,6 +1,6 @@
 class Solution:
     def minimumHammingDistance(
-        self, source: List[int], target: List[int], allowedSwaps: List[List[int]]
+        self, source: list[int], target: list[int], allowedSwaps: list[list[int]]
     ) -> int:
         def find(x: int) -> int:
             if p[x] != x:

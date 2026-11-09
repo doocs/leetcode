@@ -76,7 +76,7 @@ The time complexity is $O(mn \log n + n 2^M)$, and the space complexity is $O(mn
 
 ```python
 class Solution:
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         def dfs(w: str) -> bool:
             if not w:
                 return True

@@ -1,5 +1,5 @@
 class Solution:
-    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+    def connectTwoGroups(self, cost: list[list[int]]) -> int:
         m, n = len(cost), len(cost[0])
         f = [inf] * (1 << n)
         f[0] = 0

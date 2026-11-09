@@ -75,7 +75,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+    def threeConsecutiveOdds(self, arr: list[int]) -> bool:
         cnt = 0
         for x in arr:
             if x & 1:
@@ -193,7 +193,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+    def threeConsecutiveOdds(self, arr: list[int]) -> bool:
         return any(x & arr[i + 1] & arr[i + 2] & 1 for i, x in enumerate(arr[:-2]))
 ```
 

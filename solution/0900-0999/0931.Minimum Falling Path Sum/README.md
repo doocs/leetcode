@@ -87,7 +87,7 @@ $f[i][j]$ 只依赖上一行，因此只用两个长度为 $n$ 的一维数组 $
 
 ```python
 class Solution:
-    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+    def minFallingPathSum(self, matrix: list[list[int]]) -> int:
         n = len(matrix)
         f = [0] * n
         for row in matrix:

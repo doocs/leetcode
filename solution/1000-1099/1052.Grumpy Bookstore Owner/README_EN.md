@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def maxSatisfied(
-        self, customers: List[int], grumpy: List[int], minutes: int
+        self, customers: list[int], grumpy: list[int], minutes: int
     ) -> int:
         mx = cnt = sum(c * g for c, g in zip(customers[:minutes], grumpy))
         for i in range(minutes, len(customers)):

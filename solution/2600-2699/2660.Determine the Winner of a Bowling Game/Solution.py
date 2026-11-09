@@ -1,6 +1,6 @@
 class Solution:
-    def isWinner(self, player1: List[int], player2: List[int]) -> int:
-        def f(arr: List[int]) -> int:
+    def isWinner(self, player1: list[int], player2: list[int]) -> int:
+        def f(arr: list[int]) -> int:
             s = 0
             for i, x in enumerate(arr):
                 k = 2 if (i and arr[i - 1] == 10) or (i > 1 and arr[i - 2] == 10) else 1

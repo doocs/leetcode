@@ -1,5 +1,5 @@
 class Solution:
-    def minJump(self, jump: List[int]) -> int:
+    def minJump(self, jump: list[int]) -> int:
         n = len(jump)
         vis = [False] * (n + 1)
         q = deque([0])

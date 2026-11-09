@@ -114,7 +114,7 @@ i = 3:
 
 ```python
 class Solution:
-    def findMaximums(self, nums: List[int]) -> List[int]:
+    def findMaximums(self, nums: list[int]) -> list[int]:
         n = len(nums)
         left = [-1] * n
         right = [n] * n

@@ -1,5 +1,5 @@
 class Solution:
-    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+    def killProcess(self, pid: list[int], ppid: list[int], kill: int) -> list[int]:
         def dfs(i: int):
             ans.append(i)
             for j in g[i]:

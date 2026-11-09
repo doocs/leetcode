@@ -106,7 +106,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestMonotonicSubarray(self, nums: List[int]) -> int:
+    def longestMonotonicSubarray(self, nums: list[int]) -> int:
         ans = t = 1
         for i, x in enumerate(nums[1:]):
             if nums[i] < x:

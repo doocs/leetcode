@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def makeEqual(self, words: List[str]) -> bool:
+    def makeEqual(self, words: list[str]) -> bool:
         cnt = Counter()
         for w in words:
             for c in w:

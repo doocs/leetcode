@@ -1,5 +1,5 @@
 class Solution:
-    def constructGridLayout(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+    def constructGridLayout(self, n: int, edges: list[list[int]]) -> list[list[int]]:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)

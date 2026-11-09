@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findGCD(self, nums: List[int]) -> int:
+    def findGCD(self, nums: list[int]) -> int:
         return gcd(max(nums), min(nums))
 ```
 

@@ -50,7 +50,7 @@ class SegmentTree:
 
 
 class NumMatrix:
-    def __init__(self, matrix: List[List[int]]):
+    def __init__(self, matrix: list[list[int]]):
         self.trees = [SegmentTree(row) for row in matrix]
 
     def update(self, row: int, col: int, val: int) -> None:

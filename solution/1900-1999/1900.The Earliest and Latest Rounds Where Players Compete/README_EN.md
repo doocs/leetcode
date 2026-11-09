@@ -152,7 +152,7 @@ def dfs(l: int, r: int, n: int):
 class Solution:
     def earliestAndLatest(
         self, n: int, firstPlayer: int, secondPlayer: int
-    ) -> List[int]:
+    ) -> list[int]:
         return dfs(firstPlayer - 1, secondPlayer - 1, n)
 ```
 

@@ -1,5 +1,5 @@
 class Solution:
-    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+    def uniquePathsWithObstacles(self, obstacleGrid: list[list[int]]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= m or j >= n or obstacleGrid[i][j]:

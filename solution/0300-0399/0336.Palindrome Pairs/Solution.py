@@ -1,5 +1,5 @@
 class Solution:
-    def palindromePairs(self, words: List[str]) -> List[List[int]]:
+    def palindromePairs(self, words: list[str]) -> list[list[int]]:
         d = {w: i for i, w in enumerate(words)}
         ans = []
         for i, w in enumerate(words):

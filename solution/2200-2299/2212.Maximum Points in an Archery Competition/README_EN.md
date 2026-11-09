@@ -110,7 +110,7 @@ The time complexity is $O(2^m m)$, and the space complexity is $O(1)$, where $m$
 
 ```python
 class Solution:
-    def maximumBobPoints(self, numArrows: int, aliceArrows: List[int]) -> List[int]:
+    def maximumBobPoints(self, numArrows: int, aliceArrows: list[int]) -> list[int]:
         st = mx = 0
         m = len(aliceArrows)
         for mask in range(1, 1 << m):

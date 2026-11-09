@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def canChoose(self, groups: List[List[int]], nums: List[int]) -> bool:
+    def canChoose(self, groups: list[list[int]], nums: list[int]) -> bool:
         n, m = len(groups), len(nums)
         i = j = 0
         while i < n and j < m:

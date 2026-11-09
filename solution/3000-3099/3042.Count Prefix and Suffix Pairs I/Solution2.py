@@ -7,7 +7,7 @@ class Node:
 
 
 class Solution:
-    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    def countPrefixSuffixPairs(self, words: list[str]) -> int:
         ans = 0
         trie = Node()
         for s in words:

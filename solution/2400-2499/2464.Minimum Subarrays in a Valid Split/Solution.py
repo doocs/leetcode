@@ -1,5 +1,5 @@
 class Solution:
-    def validSubarraySplit(self, nums: List[int]) -> int:
+    def validSubarraySplit(self, nums: list[int]) -> int:
         @cache
         def dfs(i):
             if i >= n:

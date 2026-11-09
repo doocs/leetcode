@@ -122,7 +122,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSumTrionic(self, nums: List[int]) -> int:
+    def maxSumTrionic(self, nums: list[int]) -> int:
         n = len(nums)
         i = 0
         ans = -inf

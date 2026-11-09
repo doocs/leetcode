@@ -125,7 +125,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(M)$, whe
 
 ```python
 class Solution:
-    def partitionArray(self, nums: List[int], k: int) -> bool:
+    def partitionArray(self, nums: list[int], k: int) -> bool:
         m, mod = divmod(len(nums), k)
         if mod:
             return False

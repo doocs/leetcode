@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def maxTurbulenceSize(self, arr: List[int]) -> int:
+    def maxTurbulenceSize(self, arr: list[int]) -> int:
         ans = f = g = 1
         for a, b in pairwise(arr):
             ff = g + 1 if a < b else 1

@@ -95,7 +95,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def canSortArray(self, nums: List[int]) -> bool:
+    def canSortArray(self, nums: list[int]) -> bool:
         pre_mx = 0
         i, n = 0, len(nums)
         while i < n:

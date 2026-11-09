@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         n = len(nums)
         left = [0] * (n + 1)
         right = [0] * (n + 1)
@@ -264,7 +264,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         ans = 0
         cnt = j = 0
         for i, x in enumerate(nums):
@@ -397,7 +397,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         cnt = l = 0
         for x in nums:
             cnt += x ^ 1

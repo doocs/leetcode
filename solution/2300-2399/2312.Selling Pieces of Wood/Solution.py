@@ -1,5 +1,5 @@
 class Solution:
-    def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
+    def sellingWood(self, m: int, n: int, prices: list[list[int]]) -> int:
         @cache
         def dfs(h: int, w: int) -> int:
             ans = d[h].get(w, 0)

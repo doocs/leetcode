@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def numGoodSubarrays(self, nums: List[int], k: int) -> int:
+    def numGoodSubarrays(self, nums: list[int], k: int) -> int:
         cnt = Counter({0: 1})
         ans = s = 0
         for x in nums:

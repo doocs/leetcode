@@ -1,5 +1,5 @@
 class Solution:
-    def findDifferentBinaryString(self, nums: List[str]) -> str:
+    def findDifferentBinaryString(self, nums: list[str]) -> str:
         mask = 0
         for x in nums:
             mask |= 1 << x.count("1")

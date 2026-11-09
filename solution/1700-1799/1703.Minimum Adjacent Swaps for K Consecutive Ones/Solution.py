@@ -1,5 +1,5 @@
 class Solution:
-    def minMoves(self, nums: List[int], k: int) -> int:
+    def minMoves(self, nums: list[int], k: int) -> int:
         arr = [i for i, x in enumerate(nums) if x]
         s = list(accumulate(arr, initial=0))
         ans = inf

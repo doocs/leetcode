@@ -129,8 +129,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def makeParityAlternating(self, nums: List[int]) -> List[int]:
-        def f(k: int) -> List[int]:
+    def makeParityAlternating(self, nums: list[int]) -> list[int]:
+        def f(k: int) -> list[int]:
             cnt = 0
             a, b = inf, -inf
             for i, x in enumerate(nums):

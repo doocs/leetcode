@@ -88,7 +88,7 @@ $$
 
 ```python
 class Solution:
-    def findLength(self, nums1: List[int], nums2: List[int]) -> int:
+    def findLength(self, nums1: list[int], nums2: list[int]) -> int:
         m, n = len(nums1), len(nums2)
         f = [[0] * (n + 1) for _ in range(m + 1)]
         ans = 0

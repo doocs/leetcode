@@ -1,5 +1,5 @@
 class Solution:
-    def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
+    def minimumValueSum(self, nums: list[int], andValues: list[int]) -> int:
         n, m = len(nums), len(andValues)
         f = {(0, -1): 0}
         for i, x in enumerate(nums):

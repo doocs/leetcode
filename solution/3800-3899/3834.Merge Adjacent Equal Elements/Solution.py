@@ -1,5 +1,5 @@
 class Solution:
-    def mergeAdjacent(self, nums: List[int]) -> List[int]:
+    def mergeAdjacent(self, nums: list[int]) -> list[int]:
         stk = []
         for x in nums:
             stk.append(x)

@@ -123,7 +123,7 @@ tags:
 
 ```python
 class Solution:
-    def maxTotalFruits(self, fruits: List[List[int]], startPos: int, k: int) -> int:
+    def maxTotalFruits(self, fruits: list[list[int]], startPos: int, k: int) -> int:
         ans = i = s = 0
         for j, (pj, fj) in enumerate(fruits):
             s += fj

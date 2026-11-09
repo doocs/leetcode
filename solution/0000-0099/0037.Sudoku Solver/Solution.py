@@ -1,5 +1,5 @@
 class Solution:
-    def solveSudoku(self, board: List[List[str]]) -> None:
+    def solveSudoku(self, board: list[list[str]]) -> None:
         def dfs(k):
             nonlocal ok
             if k == len(t):

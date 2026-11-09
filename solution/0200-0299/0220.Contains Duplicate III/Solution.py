@@ -1,6 +1,6 @@
 class Solution:
     def containsNearbyAlmostDuplicate(
-        self, nums: List[int], indexDiff: int, valueDiff: int
+        self, nums: list[int], indexDiff: int, valueDiff: int
     ) -> bool:
         s = SortedSet()
         for i, v in enumerate(nums):

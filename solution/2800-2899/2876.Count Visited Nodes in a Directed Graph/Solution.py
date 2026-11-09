@@ -1,5 +1,5 @@
 class Solution:
-    def countVisitedNodes(self, edges: List[int]) -> List[int]:
+    def countVisitedNodes(self, edges: list[int]) -> list[int]:
         n = len(edges)
         ans = [0] * n
         vis = [0] * n

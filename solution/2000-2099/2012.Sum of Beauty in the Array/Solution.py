@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfBeauties(self, nums: List[int]) -> int:
+    def sumOfBeauties(self, nums: list[int]) -> int:
         n = len(nums)
         right = [nums[-1]] * n
         for i in range(n - 2, -1, -1):

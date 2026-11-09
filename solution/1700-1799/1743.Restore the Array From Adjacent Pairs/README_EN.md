@@ -89,7 +89,7 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 
 ```python
 class Solution:
-    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+    def restoreArray(self, adjacentPairs: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         for a, b in adjacentPairs:
             g[a].append(b)
@@ -260,7 +260,7 @@ Start at a degree-1 endpoint and DFS the adjacency list.
 
 ```python
 class Solution:
-    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+    def restoreArray(self, adjacentPairs: list[list[int]]) -> list[int]:
         def dfs(i, fa):
             ans.append(i)
             for j in g[i]:

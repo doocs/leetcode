@@ -84,9 +84,9 @@ tags:
 ```python
 class Solution:
     def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
-        def merge(intervals: List[List[int]]) -> List[List[int]]:
+        self, intervals: list[list[int]], newInterval: list[int]
+    ) -> list[list[int]]:
+        def merge(intervals: list[list[int]]) -> list[list[int]]:
             intervals.sort()
             ans = [intervals[0]]
             for s, e in intervals[1:]:
@@ -293,8 +293,8 @@ public class Solution {
 ```python
 class Solution:
     def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
+        self, intervals: list[list[int]], newInterval: list[int]
+    ) -> list[list[int]]:
         st, ed = newInterval
         ans = []
         insert = False

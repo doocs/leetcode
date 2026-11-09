@@ -93,7 +93,7 @@ The time complexity is $O(n(\log m + \min(m, n)))$, and the space complexity is 
 
 ```python
 class Solution:
-    def makeArrayIncreasing(self, arr1: List[int], arr2: List[int]) -> int:
+    def makeArrayIncreasing(self, arr1: list[int], arr2: list[int]) -> int:
         arr2.sort()
         m = 0
         for x in arr2:

@@ -97,7 +97,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def maxRunTime(self, n: int, batteries: List[int]) -> int:
+    def maxRunTime(self, n: int, batteries: list[int]) -> int:
         l, r = 0, sum(batteries)
         while l < r:
             mid = (l + r + 1) >> 1

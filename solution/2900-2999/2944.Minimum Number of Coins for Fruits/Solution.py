@@ -1,5 +1,5 @@
 class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
+    def minimumCoins(self, prices: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i * 2 >= len(prices):

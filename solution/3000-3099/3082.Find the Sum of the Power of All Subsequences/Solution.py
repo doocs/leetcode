@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfPower(self, nums: List[int], k: int) -> int:
+    def sumOfPower(self, nums: list[int], k: int) -> int:
         mod = 10**9 + 7
         n = len(nums)
         f = [[0] * (k + 1) for _ in range(n + 1)]

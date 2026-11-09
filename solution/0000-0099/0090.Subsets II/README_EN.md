@@ -75,7 +75,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+    def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
         def dfs(i: int):
             if i == len(nums):
                 ans.append(t[:])
@@ -330,7 +330,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+    def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
         n = len(nums)
         ans = []

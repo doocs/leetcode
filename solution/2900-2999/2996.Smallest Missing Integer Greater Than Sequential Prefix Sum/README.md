@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def missingInteger(self, nums: List[int]) -> int:
+    def missingInteger(self, nums: list[int]) -> int:
         s = nums[0]
         for x, y in pairwise(nums):
             if x + 1 != y:

@@ -112,7 +112,7 @@ The time complexity is $O(mn \log m)$, and the space complexity is $O(m)$, where
 
 ```python
 class Solution:
-    def maxSpending(self, values: List[List[int]]) -> int:
+    def maxSpending(self, values: list[list[int]]) -> int:
         n = len(values[0])
         pq = [(row[-1], i, n - 1) for i, row in enumerate(values)]
         heapify(pq)

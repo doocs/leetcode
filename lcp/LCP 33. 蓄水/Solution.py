@@ -1,5 +1,5 @@
 class Solution:
-    def storeWater(self, bucket: List[int], vat: List[int]) -> int:
+    def storeWater(self, bucket: list[int], vat: list[int]) -> int:
         mx = max(vat)
         if mx == 0:
             return 0

@@ -1,5 +1,5 @@
 class Solution:
-    def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
+    def mostBooked(self, n: int, meetings: list[list[int]]) -> int:
         meetings.sort(key=lambda x: x[0])
         busy = []
         idle = list(range(n))

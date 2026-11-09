@@ -1,5 +1,5 @@
 class Solution:
-    def removeInvalidParentheses(self, s: str) -> List[str]:
+    def removeInvalidParentheses(self, s: str) -> list[str]:
         def dfs(i, l, r, lcnt, rcnt, t):
             if i == n:
                 if l == 0 and r == 0:

@@ -1,5 +1,5 @@
 class Solution:
-    def numWays(self, words: List[str], target: str) -> int:
+    def numWays(self, words: list[str], target: str) -> int:
         m, n = len(target), len(words[0])
         cnt = [[0] * 26 for _ in range(n)]
         for w in words:

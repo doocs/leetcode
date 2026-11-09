@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findMode(self, root: TreeNode) -> List[int]:
+    def findMode(self, root: TreeNode) -> list[int]:
         def dfs(root):
             if root is None:
                 return

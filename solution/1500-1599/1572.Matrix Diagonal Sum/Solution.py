@@ -1,5 +1,5 @@
 class Solution:
-    def diagonalSum(self, mat: List[List[int]]) -> int:
+    def diagonalSum(self, mat: list[list[int]]) -> int:
         ans = 0
         n = len(mat)
         for i, row in enumerate(mat):

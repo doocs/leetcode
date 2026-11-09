@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def badSensor(self, sensor1: List[int], sensor2: List[int]) -> int:
+    def badSensor(self, sensor1: list[int], sensor2: list[int]) -> int:
         i, n = 0, len(sensor1)
         while i < n - 1:
             if sensor1[i] != sensor2[i]:

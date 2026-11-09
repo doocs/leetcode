@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+    def constructMaximumBinaryTree(self, nums: list[int]) -> Optional[TreeNode]:
         d = {v: i for i, v in enumerate(nums, 1)}
         tree = SegmentTree(nums)
         root = None

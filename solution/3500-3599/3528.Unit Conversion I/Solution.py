@@ -1,5 +1,5 @@
 class Solution:
-    def baseUnitConversions(self, conversions: List[List[int]]) -> List[int]:
+    def baseUnitConversions(self, conversions: list[list[int]]) -> list[int]:
         def dfs(s: int, mul: int) -> None:
             ans[s] = mul
             for t, w in g[s]:

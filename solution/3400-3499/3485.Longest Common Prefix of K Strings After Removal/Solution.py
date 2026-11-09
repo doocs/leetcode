@@ -1,5 +1,5 @@
 class Solution:
-    def longestCommonPrefix(self, words: List[str], k: int) -> List[int]:
+    def longestCommonPrefix(self, words: list[str], k: int) -> list[int]:
         n = len(words)
         ans = [0] * n
         if n - 1 < k:

@@ -1,5 +1,5 @@
 class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         if target < -1000 or target > 1000:
             return 0
         n = len(nums)

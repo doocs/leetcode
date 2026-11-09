@@ -1,7 +1,7 @@
 class Solution:
     def maximumCoins(
-        self, heroes: List[int], monsters: List[int], coins: List[int]
-    ) -> List[int]:
+        self, heroes: list[int], monsters: list[int], coins: list[int]
+    ) -> list[int]:
         m = len(monsters)
         idx = sorted(range(m), key=lambda i: monsters[i])
         s = list(accumulate((coins[i] for i in idx), initial=0))

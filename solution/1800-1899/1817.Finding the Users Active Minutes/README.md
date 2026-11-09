@@ -92,7 +92,7 @@ ID=2 的用户执行操作的分钟分别是：2 和 3 。因此，该用户的�
 
 ```python
 class Solution:
-    def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
+    def findingUsersActiveMinutes(self, logs: list[list[int]], k: int) -> list[int]:
         d = defaultdict(set)
         for i, t in logs:
             d[i].add(t)

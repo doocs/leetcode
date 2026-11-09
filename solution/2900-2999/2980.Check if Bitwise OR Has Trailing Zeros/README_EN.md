@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def hasTrailingZeros(self, nums: List[int]) -> bool:
+    def hasTrailingZeros(self, nums: list[int]) -> bool:
         return sum(x & 1 ^ 1 for x in nums) >= 2
 ```
 

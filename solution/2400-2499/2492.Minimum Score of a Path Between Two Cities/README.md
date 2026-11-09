@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         def dfs(a: int):
             vis[a] = True
             nonlocal ans
@@ -344,7 +344,7 @@ var minScore = function (n, roads) {
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))
@@ -613,7 +613,7 @@ var minScore = function (n, roads) {
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))

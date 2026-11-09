@@ -96,7 +96,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         def dfs(a: int):
             vis[a] = True
             nonlocal ans
@@ -338,7 +338,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))
@@ -607,7 +607,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))

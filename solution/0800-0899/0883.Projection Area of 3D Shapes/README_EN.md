@@ -94,7 +94,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def projectionArea(self, grid: List[List[int]]) -> int:
+    def projectionArea(self, grid: list[list[int]]) -> int:
         xy = sum(v > 0 for row in grid for v in row)
         yz = sum(max(row) for row in grid)
         zx = sum(max(col) for col in zip(*grid))

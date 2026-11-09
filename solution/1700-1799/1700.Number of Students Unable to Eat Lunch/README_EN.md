@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+    def countStudents(self, students: list[int], sandwiches: list[int]) -> int:
         cnt = Counter(students)
         for v in sandwiches:
             if cnt[v] == 0:

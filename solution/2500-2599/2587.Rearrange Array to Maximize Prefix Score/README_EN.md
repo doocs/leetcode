@@ -83,7 +83,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         nums.sort(reverse=True)
         s = 0
         for i, x in enumerate(nums):

@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def solve(self, board: List[List[str]]) -> None:
+    def solve(self, board: list[list[str]]) -> None:
         def dfs(i: int, j: int):
             if not (0 <= i < m and 0 <= j < n and board[i][j] == "O"):
                 return
@@ -404,7 +404,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def solve(self, board: List[List[str]]) -> None:
+    def solve(self, board: list[list[str]]) -> None:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

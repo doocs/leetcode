@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def canSeePersonsCount(self, heights: List[int]) -> List[int]:
+    def canSeePersonsCount(self, heights: list[int]) -> list[int]:
         n = len(heights)
         ans = [0] * n
         stk = []

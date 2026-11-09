@@ -138,7 +138,7 @@ class MedianFinder:
                 self.prune(self.large)
         self.rebalance()
 
-    def prune(self, pq: List[int]):
+    def prune(self, pq: list[int]):
         sign = -1 if pq is self.small else 1
         while pq and sign * pq[0] in self.delayed:
             self.delayed[sign * pq[0]] -= 1
@@ -160,7 +160,7 @@ class MedianFinder:
 
 
 class Solution:
-    def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+    def medianSlidingWindow(self, nums: list[int], k: int) -> list[float]:
         finder = MedianFinder(k)
         for x in nums[:k]:
             finder.add_num(x)
@@ -489,7 +489,7 @@ func (h *hp) Pop() any {
 
 ```python
 class Solution:
-    def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+    def medianSlidingWindow(self, nums: list[int], k: int) -> list[float]:
         l = SortedList()
         r = SortedList()
         ans = []

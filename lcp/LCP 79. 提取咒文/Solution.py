@@ -1,5 +1,5 @@
 class Solution:
-    def extractMantra(self, matrix: List[str], mantra: str) -> int:
+    def extractMantra(self, matrix: list[str], mantra: str) -> int:
         m, n = len(matrix), len(matrix[0])
         q = deque([(0, 0, 0)])
         vis = {q[0]}

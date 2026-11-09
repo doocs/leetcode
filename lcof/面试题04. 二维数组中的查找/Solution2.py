@@ -1,5 +1,5 @@
 class Solution:
-    def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
+    def findNumberIn2DArray(self, matrix: list[list[int]], target: int) -> bool:
         if not matrix or not matrix[0]:
             return False
         m, n = len(matrix), len(matrix[0])

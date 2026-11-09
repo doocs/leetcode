@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumOperations(self, grid: List[List[int]]) -> int:
+    def minimumOperations(self, grid: list[list[int]]) -> int:
         def find(i: int) -> int:
             for j in g[i]:
                 if j not in vis:

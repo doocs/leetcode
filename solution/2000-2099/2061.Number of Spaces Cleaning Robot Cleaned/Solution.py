@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
+    def numberOfCleanRooms(self, room: list[list[int]]) -> int:
         def dfs(i, j, k):
             if (i, j, k) in vis:
                 return

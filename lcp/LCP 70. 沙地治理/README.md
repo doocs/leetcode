@@ -86,7 +86,7 @@ difficulty: 困难
 
 ```python
 class Solution:
-    def sandyLandManagement(self, size: int) -> List[List[int]]:
+    def sandyLandManagement(self, size: int) -> list[list[int]]:
         ans = [[1, 1]]
         k = 0
         for i in range(size, 1, -1):

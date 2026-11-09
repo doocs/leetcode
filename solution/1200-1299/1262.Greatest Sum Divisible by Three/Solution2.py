@@ -1,5 +1,5 @@
 class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
+    def maxSumDivThree(self, nums: list[int]) -> int:
         f = [0, -inf, -inf]
         for x in nums:
             g = f[:]

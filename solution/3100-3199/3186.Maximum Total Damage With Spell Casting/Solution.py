@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTotalDamage(self, power: List[int]) -> int:
+    def maximumTotalDamage(self, power: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:

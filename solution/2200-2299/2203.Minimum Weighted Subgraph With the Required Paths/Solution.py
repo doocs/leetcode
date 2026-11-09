@@ -1,6 +1,6 @@
 class Solution:
     def minimumWeight(
-        self, n: int, edges: List[List[int]], src1: int, src2: int, dest: int
+        self, n: int, edges: list[list[int]], src1: int, src2: int, dest: int
     ) -> int:
         def dijkstra(g, u):
             dist = [inf] * n

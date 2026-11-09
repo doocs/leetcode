@@ -88,7 +88,7 @@ The time complexity is $O(n \log_{10} M)$, and the space complexity is $O(1)$, w
 
 ```python
 class Solution:
-    def differenceOfSum(self, nums: List[int]) -> int:
+    def differenceOfSum(self, nums: list[int]) -> int:
         x = y = 0
         for v in nums:
             x += v

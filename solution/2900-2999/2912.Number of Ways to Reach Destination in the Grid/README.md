@@ -120,7 +120,7 @@ $$
 ```python
 class Solution:
     def numberOfWays(
-        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+        self, n: int, m: int, k: int, source: list[int], dest: list[int]
     ) -> int:
         mod = 10**9 + 7
         f = [1, 0, 0, 0]

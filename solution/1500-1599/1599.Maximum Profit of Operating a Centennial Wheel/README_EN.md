@@ -108,7 +108,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def minOperationsMaxProfit(
-        self, customers: List[int], boardingCost: int, runningCost: int
+        self, customers: list[int], boardingCost: int, runningCost: int
     ) -> int:
         ans = -1
         mx = t = 0

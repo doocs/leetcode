@@ -133,7 +133,7 @@ tags:
 
 ```python
 class Solution:
-    def numberOfPairs(self, points: List[List[int]]) -> int:
+    def numberOfPairs(self, points: list[list[int]]) -> int:
         points.sort(key=lambda x: (x[0], -x[1]))
         ans = 0
         for i, (_, y1) in enumerate(points):

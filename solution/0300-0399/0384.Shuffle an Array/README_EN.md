@@ -82,15 +82,15 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 
 ```python
 class Solution:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.nums = nums
         self.original = nums.copy()
 
-    def reset(self) -> List[int]:
+    def reset(self) -> list[int]:
         self.nums = self.original.copy()
         return self.nums
 
-    def shuffle(self) -> List[int]:
+    def shuffle(self) -> list[int]:
         for i in range(len(self.nums)):
             j = random.randrange(i, len(self.nums))
             self.nums[i], self.nums[j] = self.nums[j], self.nums[i]

@@ -98,7 +98,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 class Solution:
     def lowestCommonAncestor(
-        self, root: 'TreeNode', nodes: 'List[TreeNode]'
+        self, root: 'TreeNode', nodes: 'list[TreeNode]'
     ) -> 'TreeNode':
         def dfs(root):
             if root is None or root.val in s:

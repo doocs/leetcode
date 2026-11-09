@@ -1,5 +1,5 @@
 class Solution:
-    def canCross(self, stones: List[int]) -> bool:
+    def canCross(self, stones: list[int]) -> bool:
         @cache
         def dfs(i, k):
             if i == n - 1:

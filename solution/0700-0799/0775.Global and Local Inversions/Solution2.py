@@ -17,7 +17,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def isIdealPermutation(self, nums: List[int]) -> bool:
+    def isIdealPermutation(self, nums: list[int]) -> bool:
         n = len(nums)
         tree = BinaryIndexedTree(n)
         cnt = 0

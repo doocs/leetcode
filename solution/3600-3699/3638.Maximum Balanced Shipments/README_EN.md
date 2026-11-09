@@ -118,7 +118,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxBalancedShipments(self, weight: List[int]) -> int:
+    def maxBalancedShipments(self, weight: list[int]) -> int:
         ans = mx = 0
         for x in weight:
             mx = max(mx, x)

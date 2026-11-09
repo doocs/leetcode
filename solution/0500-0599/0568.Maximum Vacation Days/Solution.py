@@ -1,5 +1,5 @@
 class Solution:
-    def maxVacationDays(self, flights: List[List[int]], days: List[List[int]]) -> int:
+    def maxVacationDays(self, flights: list[list[int]], days: list[list[int]]) -> int:
         n = len(flights)
         K = len(days[0])
         f = [[-inf] * n for _ in range(K + 1)]

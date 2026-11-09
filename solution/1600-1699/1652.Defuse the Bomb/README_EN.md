@@ -109,7 +109,7 @@ The time complexity is $O(n|k|)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def decrypt(self, code: List[int], k: int) -> List[int]:
+    def decrypt(self, code: list[int], k: int) -> list[int]:
         n = len(code)
         ans = [0] * n
         if k == 0:
@@ -260,7 +260,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def decrypt(self, code: List[int], k: int) -> List[int]:
+    def decrypt(self, code: list[int], k: int) -> list[int]:
         n = len(code)
         ans = [0] * n
         if k == 0:

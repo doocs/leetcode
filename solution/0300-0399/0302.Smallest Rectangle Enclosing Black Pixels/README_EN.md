@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def minArea(self, image: List[List[str]], x: int, y: int) -> int:
+    def minArea(self, image: list[list[str]], x: int, y: int) -> int:
         m, n = len(image), len(image[0])
         left, right = 0, x
         while left < right:

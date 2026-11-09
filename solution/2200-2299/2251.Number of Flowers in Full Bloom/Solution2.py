@@ -1,7 +1,7 @@
 class Solution:
     def fullBloomFlowers(
-        self, flowers: List[List[int]], people: List[int]
-    ) -> List[int]:
+        self, flowers: list[list[int]], people: list[int]
+    ) -> list[int]:
         d = defaultdict(int)
         for st, ed in flowers:
             d[st] += 1

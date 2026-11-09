@@ -1,5 +1,5 @@
 class Solution:
-    def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+    def answerQueries(self, nums: list[int], queries: list[int]) -> list[int]:
         nums.sort()
         m = len(queries)
         ans = [0] * m

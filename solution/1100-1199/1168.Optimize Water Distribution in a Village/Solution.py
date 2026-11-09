@@ -1,6 +1,6 @@
 class Solution:
     def minCostToSupplyWater(
-        self, n: int, wells: List[int], pipes: List[List[int]]
+        self, n: int, wells: list[int], pipes: list[list[int]]
     ) -> int:
         def find(x: int) -> int:
             if p[x] != x:

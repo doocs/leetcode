@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+    def countPalindromePaths(self, parent: list[int], s: str) -> int:
         def dfs(i: int, xor: int):
             nonlocal ans
             for j, v in g[i]:
@@ -266,7 +266,7 @@ function countPalindromePaths(parent: number[], s: string): number {
 
 ```python
 class Solution:
-    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+    def countPalindromePaths(self, parent: list[int], s: str) -> int:
         n = len(parent)
         g = [[] for _ in range(n)]
         for i in range(1, n):

@@ -158,7 +158,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def findKOr(self, nums: List[int], k: int) -> int:
+    def findKOr(self, nums: list[int], k: int) -> int:
         ans = 0
         for i in range(32):
             cnt = sum(x >> i & 1 for x in nums)

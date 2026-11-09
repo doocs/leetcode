@@ -96,7 +96,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def heightChecker(self, heights: List[int]) -> int:
+    def heightChecker(self, heights: list[int]) -> int:
         expected = sorted(heights)
         return sum(a != b for a, b in zip(heights, expected))
 ```
@@ -188,7 +188,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 
 ```python
 class Solution:
-    def heightChecker(self, heights: List[int]) -> int:
+    def heightChecker(self, heights: list[int]) -> int:
         cnt = [0] * 101
         for h in heights:
             cnt[h] += 1

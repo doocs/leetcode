@@ -76,7 +76,7 @@ tags:
 
 ```python
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         def dfs(i, c):
             color[i] = c
             for j in g[i]:
@@ -281,7 +281,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -423,7 +423,7 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 
 ```python
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         g = defaultdict(list)
         for a, b in dislikes:
             a, b = a - 1, b - 1

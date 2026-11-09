@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def maxTotalValue(self, nums: List[int], k: int) -> int:
+    def maxTotalValue(self, nums: list[int], k: int) -> int:
         return k * (max(nums) - min(nums))
 ```
 

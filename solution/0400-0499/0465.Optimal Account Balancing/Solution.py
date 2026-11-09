@@ -1,5 +1,5 @@
 class Solution:
-    def minTransfers(self, transactions: List[List[int]]) -> int:
+    def minTransfers(self, transactions: list[list[int]]) -> int:
         g = defaultdict(int)
         for f, t, x in transactions:
             g[f] -= x

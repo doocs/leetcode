@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumTime(self, hens: List[int], grains: List[int]) -> int:
+    def minimumTime(self, hens: list[int], grains: list[int]) -> int:
         def check(t):
             j = 0
             for x in hens:

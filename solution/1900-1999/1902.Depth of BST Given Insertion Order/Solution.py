@@ -1,5 +1,5 @@
 class Solution:
-    def maxDepthBST(self, order: List[int]) -> int:
+    def maxDepthBST(self, order: list[int]) -> int:
         sd = SortedDict({0: 0, inf: 0, order[0]: 1})
         ans = 1
         for v in order[1:]:

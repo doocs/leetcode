@@ -1,5 +1,5 @@
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def dfs(i, j):
             grid[i][j] = '0'
             for a, b in pairwise(dirs):

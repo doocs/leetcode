@@ -1,5 +1,5 @@
 class Solution:
-    def countTasks(self, tasks: List[int], shifts: List[int]) -> List[int]:
+    def countTasks(self, tasks: list[int], shifts: list[int]) -> list[int]:
         m, n = len(tasks), len(shifts)
         s = list(accumulate(tasks, initial=0))
         ans = [0] * n

@@ -1,5 +1,5 @@
 class Solution:
-    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+    def numMatchingSubseq(self, s: str, words: list[str]) -> int:
         d = defaultdict(deque)
         for w in words:
             d[w[0]].append(w)

@@ -121,7 +121,7 @@ class PersistentUnionFind:
 
 
 class DistanceLimitedPathsExist:
-    def __init__(self, n: int, edgeList: List[List[int]]):
+    def __init__(self, n: int, edgeList: list[list[int]]):
         self.puf = PersistentUnionFind(n)
         edgeList.sort(key=lambda x: x[2])
         for u, v, dis in edgeList:

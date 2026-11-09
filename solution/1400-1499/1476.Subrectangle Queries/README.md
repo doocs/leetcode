@@ -123,7 +123,7 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 
 ```python
 class SubrectangleQueries:
-    def __init__(self, rectangle: List[List[int]]):
+    def __init__(self, rectangle: list[list[int]]):
         self.g = rectangle
         self.ops = []
 

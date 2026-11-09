@@ -173,7 +173,7 @@ for i in range(1, mx):
 
 
 class Solution:
-    def sumAndMultiply(self, s: str, queries: List[List[int]]) -> List[int]:
+    def sumAndMultiply(self, s: str, queries: list[list[int]]) -> list[int]:
         n = len(s)
         sum_d = [0] * (n + 1)
         cnt_n0 = [0] * (n + 1)

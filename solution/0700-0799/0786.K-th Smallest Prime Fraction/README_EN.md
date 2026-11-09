@@ -84,7 +84,7 @@ The third fraction is 2/5.
 
 ```python
 class Solution:
-    def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
+    def kthSmallestPrimeFraction(self, arr: list[int], k: int) -> list[int]:
         h = [(1 / y, 0, j + 1) for j, y in enumerate(arr[1:])]
         heapify(h)
         for _ in range(k - 1):

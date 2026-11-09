@@ -1,5 +1,5 @@
 class Solution:
-    def sumZero(self, n: int) -> List[int]:
+    def sumZero(self, n: int) -> list[int]:
         ans = []
         for i in range(n >> 1):
             ans.append(i + 1)

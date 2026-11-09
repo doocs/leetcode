@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTime(self, nums1: List[int], nums2: List[int], x: int) -> int:
+    def minimumTime(self, nums1: list[int], nums2: list[int], x: int) -> int:
         n = len(nums1)
         f = [[0] * (n + 1) for _ in range(n + 1)]
         for i, (a, b) in enumerate(sorted(zip(nums1, nums2), key=lambda z: z[1]), 1):

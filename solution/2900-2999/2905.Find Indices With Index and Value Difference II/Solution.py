@@ -1,7 +1,7 @@
 class Solution:
     def findIndices(
-        self, nums: List[int], indexDifference: int, valueDifference: int
-    ) -> List[int]:
+        self, nums: list[int], indexDifference: int, valueDifference: int
+    ) -> list[int]:
         mi = mx = 0
         for i in range(indexDifference, len(nums)):
             j = i - indexDifference

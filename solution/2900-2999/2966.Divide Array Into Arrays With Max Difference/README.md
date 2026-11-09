@@ -114,7 +114,7 @@ tags:
 
 ```python
 class Solution:
-    def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
+    def divideArray(self, nums: list[int], k: int) -> list[list[int]]:
         nums.sort()
         ans = []
         n = len(nums)

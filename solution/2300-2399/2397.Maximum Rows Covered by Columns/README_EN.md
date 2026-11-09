@@ -113,7 +113,7 @@ The time complexity is $O(2^n m)$, and the space complexity is $O(m)$, where $m$
 
 ```python
 class Solution:
-    def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+    def maximumRows(self, matrix: list[list[int]], numSelect: int) -> int:
         rows = []
         for row in matrix:
             mask = reduce(or_, (1 << j for j, x in enumerate(row) if x), 0)

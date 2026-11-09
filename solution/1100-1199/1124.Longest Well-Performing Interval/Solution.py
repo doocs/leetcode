@@ -1,5 +1,5 @@
 class Solution:
-    def longestWPI(self, hours: List[int]) -> int:
+    def longestWPI(self, hours: list[int]) -> int:
         ans = s = 0
         pos = {}
         for i, x in enumerate(hours):

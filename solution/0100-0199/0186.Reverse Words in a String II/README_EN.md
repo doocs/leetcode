@@ -67,7 +67,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def reverseWords(self, s: List[str]) -> None:
+    def reverseWords(self, s: list[str]) -> None:
         def reverse(i: int, j: int):
             while i < j:
                 s[i], s[j] = s[j], s[i]

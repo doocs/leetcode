@@ -65,7 +65,7 @@ Python、Go 和 Swift 的整数宽于 32 位。符号位若直接做或运算，
 
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         cnt = [0] * 32
         for x in nums:
             for i in range(32):

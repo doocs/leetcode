@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def findDuplicate(self, paths: List[str]) -> List[List[str]]:
+    def findDuplicate(self, paths: list[str]) -> list[list[str]]:
         d = defaultdict(list)
         for p in paths:
             ps = p.split()

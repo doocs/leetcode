@@ -111,7 +111,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def stoneGameIII(self, stoneValue: List[int]) -> str:
+    def stoneGameIII(self, stoneValue: list[int]) -> str:
         @cache
         def dfs(i: int) -> int:
             if i >= len(stoneValue):
@@ -380,7 +380,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def stoneGameIII(self, stoneValue: List[int]) -> str:
+    def stoneGameIII(self, stoneValue: list[int]) -> str:
         n = len(stoneValue)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

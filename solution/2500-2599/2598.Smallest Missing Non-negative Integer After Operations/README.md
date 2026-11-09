@@ -97,7 +97,7 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 
 ```python
 class Solution:
-    def findSmallestInteger(self, nums: List[int], value: int) -> int:
+    def findSmallestInteger(self, nums: list[int], value: int) -> int:
         cnt = Counter(x % value for x in nums)
         for i in range(len(nums) + 1):
             if cnt[i % value] == 0:

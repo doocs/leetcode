@@ -1,5 +1,5 @@
 class Solution:
-    def kthCharacter(self, k: int, operations: List[int]) -> str:
+    def kthCharacter(self, k: int, operations: list[int]) -> str:
         n, i = 1, 0
         while n < k:
             n *= 2

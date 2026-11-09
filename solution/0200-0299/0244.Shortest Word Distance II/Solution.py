@@ -1,5 +1,5 @@
 class WordDistance:
-    def __init__(self, wordsDict: List[str]):
+    def __init__(self, wordsDict: list[str]):
         self.d = defaultdict(list)
         for i, w in enumerate(wordsDict):
             self.d[w].append(i)

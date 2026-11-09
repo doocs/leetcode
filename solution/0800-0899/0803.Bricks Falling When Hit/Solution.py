@@ -1,5 +1,5 @@
 class Solution:
-    def hitBricks(self, grid: List[List[int]], hits: List[List[int]]) -> List[int]:
+    def hitBricks(self, grid: list[list[int]], hits: list[list[int]]) -> list[int]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

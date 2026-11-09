@@ -81,7 +81,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def duplicateZeros(self, arr: List[int]) -> None:
+    def duplicateZeros(self, arr: list[int]) -> None:
         """
         Do not return anything, modify arr in-place instead.
         """

@@ -78,7 +78,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if i in vis:
                 return 0
@@ -298,7 +298,7 @@ class UnionFind:
 
 
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         uf = UnionFind(n)
         for a, b in edges:
             n -= uf.union(a, b)
@@ -529,7 +529,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
@@ -716,7 +716,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

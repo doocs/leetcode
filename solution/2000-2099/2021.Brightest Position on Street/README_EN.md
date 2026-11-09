@@ -109,7 +109,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def brightestPosition(self, lights: List[List[int]]) -> int:
+    def brightestPosition(self, lights: list[list[int]]) -> int:
         d = defaultdict(int)
         for i, j in lights:
             l, r = i - j, i + j

@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def printVertically(self, s: str) -> List[str]:
+    def printVertically(self, s: str) -> list[str]:
         words = s.split()
         n = max(len(w) for w in words)
         ans = []

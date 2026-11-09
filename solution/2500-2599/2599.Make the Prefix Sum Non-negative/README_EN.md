@@ -84,7 +84,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def makePrefSumNonNegative(self, nums: List[int]) -> int:
+    def makePrefSumNonNegative(self, nums: list[int]) -> int:
         h = []
         ans = s = 0
         for x in nums:

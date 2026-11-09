@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, basket1: List[int], basket2: List[int]) -> int:
+    def minCost(self, basket1: list[int], basket2: list[int]) -> int:
         cnt = Counter()
         for a, b in zip(basket1, basket2):
             cnt[a] += 1

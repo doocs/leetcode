@@ -1,7 +1,7 @@
 class Solution:
     def minReverseOperations(
-        self, n: int, p: int, banned: List[int], k: int
-    ) -> List[int]:
+        self, n: int, p: int, banned: list[int], k: int
+    ) -> list[int]:
         ans = [-1] * n
         ans[p] = 0
         ts = [SortedSet() for _ in range(2)]

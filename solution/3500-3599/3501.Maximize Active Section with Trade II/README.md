@@ -200,8 +200,8 @@ tags:
 ```python
 class Solution:
     def maxActiveSectionsAfterTrade(
-        self, s: str, queries: List[List[int]]
-    ) -> List[int]:
+        self, s: str, queries: list[list[int]]
+    ) -> list[int]:
         n = len(s)
         active = s.count('1')
         if '0' not in s:

@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def primeSubOperation(self, nums: List[int]) -> bool:
+    def primeSubOperation(self, nums: list[int]) -> bool:
         p = []
         for i in range(2, max(nums)):
             for j in p:

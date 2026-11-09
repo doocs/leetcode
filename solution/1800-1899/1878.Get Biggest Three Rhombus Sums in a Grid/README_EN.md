@@ -111,7 +111,7 @@ The time complexity is $O(mn \min(m, n))$, and the space complexity is $O(mn)$, 
 
 ```python
 class Solution:
-    def getBiggestThree(self, grid: List[List[int]]) -> List[int]:
+    def getBiggestThree(self, grid: list[list[int]]) -> list[int]:
         m, n = len(grid), len(grid[0])
         s1 = [[0] * (n + 2) for _ in range(m + 1)]
         s2 = [[0] * (n + 2) for _ in range(m + 1)]

@@ -102,7 +102,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def canPartitionGrid(self, grid: List[List[int]]) -> bool:
+    def canPartitionGrid(self, grid: list[list[int]]) -> bool:
         s = sum(sum(row) for row in grid)
         if s % 2:
             return False

@@ -102,7 +102,7 @@ tags:
 ```python
 class Solution:
     def meetRequirement(
-        self, n: int, lights: List[List[int]], requirement: List[int]
+        self, n: int, lights: list[list[int]], requirement: list[int]
     ) -> int:
         d = [0] * (n + 1)
         for p, r in lights:

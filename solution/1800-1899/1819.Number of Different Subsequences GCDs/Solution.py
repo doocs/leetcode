@@ -1,5 +1,5 @@
 class Solution:
-    def countDifferentSubsequenceGCDs(self, nums: List[int]) -> int:
+    def countDifferentSubsequenceGCDs(self, nums: list[int]) -> int:
         mx = max(nums)
         vis = set(nums)
         ans = 0

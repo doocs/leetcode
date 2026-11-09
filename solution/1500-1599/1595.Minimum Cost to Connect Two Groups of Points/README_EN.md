@@ -121,7 +121,7 @@ The time complexity is $O(mn 2^n)$, and the space complexity is $O(m 2^n)$, wher
 
 ```python
 class Solution:
-    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+    def connectTwoGroups(self, cost: list[list[int]]) -> int:
         m, n = len(cost), len(cost[0])
         f = [[inf] * (1 << n) for _ in range(m + 1)]
         f[0][0] = 0
@@ -300,7 +300,7 @@ We notice that the transition of $f[i][j]$ only depends on $f[i - 1][\cdot]$ and
 
 ```python
 class Solution:
-    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+    def connectTwoGroups(self, cost: list[list[int]]) -> int:
         m, n = len(cost), len(cost[0])
         f = [inf] * (1 << n)
         f[0] = 0

@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def maxMoves(self, grid: List[List[int]]) -> int:
+    def maxMoves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = set(range(m))
         for j in range(n - 1):

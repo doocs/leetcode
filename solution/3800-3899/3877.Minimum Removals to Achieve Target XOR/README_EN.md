@@ -119,7 +119,7 @@ The time complexity is $O(n 2^m)$, and the space complexity is $O(n 2^m)$, where
 
 ```python
 class Solution:
-    def minRemovals(self, nums: List[int], target: int) -> int:
+    def minRemovals(self, nums: list[int], target: int) -> int:
         m = max(nums).bit_length()
         if (1 << m) <= target:
             return -1

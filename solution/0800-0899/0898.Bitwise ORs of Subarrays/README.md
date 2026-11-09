@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def subarrayBitwiseORs(self, arr: List[int]) -> int:
+    def subarrayBitwiseORs(self, arr: list[int]) -> int:
         ans = set()
         s = set()
         for x in arr:

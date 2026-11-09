@@ -87,7 +87,7 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 
 ```python
 class Solution:
-    def lastStoneWeightII(self, stones: List[int]) -> int:
+    def lastStoneWeightII(self, stones: list[int]) -> int:
         s = sum(stones)
         m, n = len(stones), s >> 1
         dp = [[0] * (n + 1) for _ in range(m + 1)]
@@ -257,7 +257,7 @@ $dp[i][j]$ only depends on the previous row $dp[i - 1][\cdot]$, so we can drop t
 
 ```python
 class Solution:
-    def lastStoneWeightII(self, stones: List[int]) -> int:
+    def lastStoneWeightII(self, stones: list[int]) -> int:
         s = sum(stones)
         m, n = len(stones), s >> 1
         dp = [0] * (n + 1)

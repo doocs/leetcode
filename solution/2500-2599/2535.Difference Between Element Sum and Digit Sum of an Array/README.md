@@ -90,7 +90,7 @@ nums 的数字和是 1 + 2 + 3 + 4 = 10 。
 
 ```python
 class Solution:
-    def differenceOfSum(self, nums: List[int]) -> int:
+    def differenceOfSum(self, nums: list[int]) -> int:
         x = y = 0
         for v in nums:
             x += v

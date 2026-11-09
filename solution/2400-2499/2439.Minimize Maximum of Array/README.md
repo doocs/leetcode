@@ -94,7 +94,7 @@ nums 中最大值为 5 。无法得到比 5 更小的最大值。
 
 ```python
 class Solution:
-    def minimizeArrayValue(self, nums: List[int]) -> int:
+    def minimizeArrayValue(self, nums: list[int]) -> int:
         def check(mx):
             d = 0
             for x in nums[:0:-1]:

@@ -1,5 +1,5 @@
 class Solution:
-    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+    def numSubarraysWithSum(self, nums: list[int], goal: int) -> int:
         cnt = Counter({0: 1})
         ans = s = 0
         for v in nums:

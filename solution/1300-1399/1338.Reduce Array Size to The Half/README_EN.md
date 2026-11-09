@@ -79,7 +79,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minSetSize(self, arr: List[int]) -> int:
+    def minSetSize(self, arr: list[int]) -> int:
         cnt = Counter(arr)
         ans = m = 0
         for _, v in cnt.most_common():

@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
+    def countCompleteSubarrays(self, nums: list[int]) -> int:
         cnt = len(set(nums))
         ans, n = 0, len(nums)
         for i in range(n):
@@ -251,7 +251,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
+    def countCompleteSubarrays(self, nums: list[int]) -> int:
         cnt = len(set(nums))
         d = Counter()
         ans, n = 0, len(nums)

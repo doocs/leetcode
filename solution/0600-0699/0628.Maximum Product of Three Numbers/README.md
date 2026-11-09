@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumProduct(self, nums: List[int]) -> int:
+    def maximumProduct(self, nums: list[int]) -> int:
         nums.sort()
         a = nums[-1] * nums[-2] * nums[-3]
         b = nums[-1] * nums[0] * nums[1]
@@ -179,7 +179,7 @@ function maximumProduct(nums: number[]): number {
 
 ```python
 class Solution:
-    def maximumProduct(self, nums: List[int]) -> int:
+    def maximumProduct(self, nums: list[int]) -> int:
         top3 = nlargest(3, nums)
         bottom2 = nlargest(2, nums, key=lambda x: -x)
         return max(top3[0] * top3[1] * top3[2], top3[0] * bottom2[0] * bottom2[1])

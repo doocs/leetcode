@@ -82,7 +82,7 @@ comments: true
 
 ```python
 class Solution:
-    def findAnagrams(self, s: str, p: str) -> List[int]:
+    def findAnagrams(self, s: str, p: str) -> list[int]:
         m, n = len(s), len(p)
         if m < n:
             return []
@@ -291,7 +291,7 @@ class Solution {
 
 ```python
 class Solution:
-    def findAnagrams(self, s: str, p: str) -> List[int]:
+    def findAnagrams(self, s: str, p: str) -> list[int]:
         m, n = len(s), len(p)
         if m < n:
             return []

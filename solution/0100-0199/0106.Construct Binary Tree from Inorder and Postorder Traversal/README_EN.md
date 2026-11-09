@@ -87,7 +87,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+    def buildTree(self, inorder: list[int], postorder: list[int]) -> Optional[TreeNode]:
         def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
             if n <= 0:
                 return None

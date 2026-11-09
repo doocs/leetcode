@@ -1,5 +1,5 @@
 class Solution:
-    def getCollisionTimes(self, cars: List[List[int]]) -> List[float]:
+    def getCollisionTimes(self, cars: list[list[int]]) -> list[float]:
         stk = []
         n = len(cars)
         ans = [-1] * n

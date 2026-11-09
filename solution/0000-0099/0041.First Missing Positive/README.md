@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
+    def firstMissingPositive(self, nums: list[int]) -> int:
         n = len(nums)
         for i in range(n):
             while 1 <= nums[i] <= n and nums[i] != nums[nums[i] - 1]:

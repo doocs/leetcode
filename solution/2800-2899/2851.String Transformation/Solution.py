@@ -46,7 +46,7 @@ class Solution:
     def mul(self, x: int, y: int) -> int:
         return int(x * y % self.M)
 
-    def getZ(self, s: str) -> List[int]:
+    def getZ(self, s: str) -> list[int]:
         n = len(s)
         z = [0] * n
         left = right = 0
@@ -63,7 +63,7 @@ class Solution:
                 right = i + z[i] - 1
         return z
 
-    def matrixMultiply(self, a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+    def matrixMultiply(self, a: list[list[int]], b: list[list[int]]) -> list[list[int]]:
         m = len(a)
         n = len(a[0])
         p = len(b[0])
@@ -74,7 +74,7 @@ class Solution:
                     r[i][j] = self.add(r[i][j], self.mul(a[i][k], b[k][j]))
         return r
 
-    def matrixPower(self, a: List[List[int]], y: int) -> List[List[int]]:
+    def matrixPower(self, a: list[list[int]], y: int) -> list[list[int]]:
         n = len(a)
         r = [[0] * n for _ in range(n)]
         for i in range(n):

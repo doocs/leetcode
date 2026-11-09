@@ -105,7 +105,7 @@ k = 2
 
 ```python
 class Solution:
-    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+    def kWeakestRows(self, mat: list[list[int]], k: int) -> list[int]:
         m, n = len(mat), len(mat[0])
         ans = [n - bisect_right(row[::-1], 0) for row in mat]
         idx = list(range(m))

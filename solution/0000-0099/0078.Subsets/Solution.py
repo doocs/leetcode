@@ -1,5 +1,5 @@
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums: list[int]) -> list[list[int]]:
         def dfs(i: int):
             if i == len(nums):
                 ans.append(t[:])

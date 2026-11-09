@@ -1,5 +1,5 @@
 class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
+    def findErrorNums(self, nums: list[int]) -> list[int]:
         xs = 0
         for i, x in enumerate(nums, 1):
             xs ^= i ^ x

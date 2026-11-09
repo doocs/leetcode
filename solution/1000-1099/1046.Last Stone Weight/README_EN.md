@@ -85,7 +85,7 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 
 ```python
 class Solution:
-    def lastStoneWeight(self, stones: List[int]) -> int:
+    def lastStoneWeight(self, stones: list[int]) -> int:
         h = [-x for x in stones]
         heapify(h)
         while len(h) > 1:

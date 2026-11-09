@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSumTwoNoOverlap(self, nums: List[int], firstLen: int, secondLen: int) -> int:
+    def maxSumTwoNoOverlap(self, nums: list[int], firstLen: int, secondLen: int) -> int:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         ans = t = 0

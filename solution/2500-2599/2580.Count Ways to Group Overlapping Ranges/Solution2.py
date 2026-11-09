@@ -1,5 +1,5 @@
 class Solution:
-    def countWays(self, ranges: List[List[int]]) -> int:
+    def countWays(self, ranges: list[list[int]]) -> int:
         ranges.sort()
         mx = -1
         mod = 10**9 + 7

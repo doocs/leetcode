@@ -95,7 +95,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
+    def findLengthOfShortestSubarray(self, arr: list[int]) -> int:
         n = len(arr)
         i, j = 0, n - 1
         while i + 1 < n and arr[i] <= arr[i + 1]:
@@ -233,7 +233,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
+    def findLengthOfShortestSubarray(self, arr: list[int]) -> int:
         n = len(arr)
         i, j = 0, n - 1
         while i + 1 < n and arr[i] <= arr[i + 1]:

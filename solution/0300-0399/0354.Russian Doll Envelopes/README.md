@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
+    def maxEnvelopes(self, envelopes: list[list[int]]) -> int:
         envelopes.sort(key=lambda x: (x[0], -x[1]))
         d = [envelopes[0][1]]
         for _, h in envelopes[1:]:

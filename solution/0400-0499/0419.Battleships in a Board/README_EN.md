@@ -81,7 +81,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def countBattleships(self, board: List[List[str]]) -> int:
+    def countBattleships(self, board: list[list[str]]) -> int:
         m, n = len(board), len(board[0])
         ans = 0
         for i in range(m):

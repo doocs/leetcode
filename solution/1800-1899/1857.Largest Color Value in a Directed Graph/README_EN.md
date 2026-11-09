@@ -101,7 +101,7 @@ The time complexity is $O((n + m)|\Sigma|)$, and the space complexity is $O(m + 
 
 ```python
 class Solution:
-    def largestPathValue(self, colors: str, edges: List[List[int]]) -> int:
+    def largestPathValue(self, colors: str, edges: list[list[int]]) -> int:
         n = len(colors)
         indeg = [0] * n
         g = defaultdict(list)

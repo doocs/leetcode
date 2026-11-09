@@ -1,5 +1,5 @@
 class Solution:
-    def partition(self, s: str) -> List[List[str]]:
+    def partition(self, s: str) -> list[list[str]]:
         def dfs(i: int):
             if i == n:
                 ans.append(t[:])

@@ -108,7 +108,7 @@ class UnionFind:
 
 
 class Solution:
-    def numSimilarGroups(self, strs: List[str]) -> int:
+    def numSimilarGroups(self, strs: list[str]) -> int:
         n, m = len(strs), len(strs[0])
         uf = UnionFind(n)
         for i, s in enumerate(strs):

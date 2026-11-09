@@ -92,7 +92,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def earliestAcq(self, logs: List[List[int]], n: int) -> int:
+    def earliestAcq(self, logs: list[list[int]], n: int) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -338,7 +338,7 @@ class UnionFind:
 
 
 class Solution:
-    def earliestAcq(self, logs: List[List[int]], n: int) -> int:
+    def earliestAcq(self, logs: list[list[int]], n: int) -> int:
         uf = UnionFind(n)
         for t, x, y in sorted(logs):
             if uf.union(x, y):

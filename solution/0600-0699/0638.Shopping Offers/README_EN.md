@@ -107,7 +107,7 @@ The time complexity is $O(nkm^n)$, and the space complexity is $O(nm^n)$, where 
 ```python
 class Solution:
     def shoppingOffers(
-        self, price: List[int], special: List[List[int]], needs: List[int]
+        self, price: list[int], special: list[list[int]], needs: list[int]
     ) -> int:
         @cache
         def dfs(cur: int) -> int:

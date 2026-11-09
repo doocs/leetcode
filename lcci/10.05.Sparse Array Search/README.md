@@ -69,7 +69,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def findString(self, words: List[str], s: str) -> int:
+    def findString(self, words: list[str], s: str) -> int:
         def dfs(i: int, j: int) -> int:
             if i > j:
                 return -1

@@ -1,7 +1,7 @@
 class Solution:
     def smallestMissingValueSubtree(
-        self, parents: List[int], nums: List[int]
-    ) -> List[int]:
+        self, parents: list[int], nums: list[int]
+    ) -> list[int]:
         def dfs(i: int):
             if vis[i]:
                 return

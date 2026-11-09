@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+    def isPossibleDivide(self, nums: list[int], k: int) -> bool:
         if len(nums) % k:
             return False
         cnt = Counter(nums)
@@ -249,7 +249,7 @@ function isPossibleDivide(nums: number[], k: number): boolean {
 
 ```python
 class Solution:
-    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+    def isPossibleDivide(self, nums: list[int], k: int) -> bool:
         if len(nums) % k:
             return False
         cnt = Counter(nums)

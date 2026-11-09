@@ -129,7 +129,7 @@ The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$, where $n$
 
 ```python
 class Solution:
-    def specialGrid(self, n: int) -> List[List[int]]:
+    def specialGrid(self, n: int) -> list[list[int]]:
         def dfs(x: int, y: int, k: int):
             if k == 1:
                 nonlocal val

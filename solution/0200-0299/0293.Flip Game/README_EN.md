@@ -72,7 +72,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$, w
 
 ```python
 class Solution:
-    def generatePossibleNextMoves(self, currentState: str) -> List[str]:
+    def generatePossibleNextMoves(self, currentState: str) -> list[str]:
         s = list(currentState)
         ans = []
         for i, (a, b) in enumerate(pairwise(s)):

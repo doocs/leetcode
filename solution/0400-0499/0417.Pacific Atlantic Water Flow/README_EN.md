@@ -104,8 +104,8 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        def bfs(q: Deque[Tuple[int, int]], vis: List[List[bool]]) -> None:
+    def pacificAtlantic(self, heights: list[list[int]]) -> list[list[int]]:
+        def bfs(q: Deque[Tuple[int, int]], vis: list[list[bool]]) -> None:
             while q:
                 x, y = q.popleft()
                 for dx, dy in pairwise(dirs):

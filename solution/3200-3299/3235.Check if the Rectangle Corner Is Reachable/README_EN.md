@@ -152,7 +152,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 ```python
 class Solution:
     def canReachCorner(
-        self, xCorner: int, yCorner: int, circles: List[List[int]]
+        self, xCorner: int, yCorner: int, circles: list[list[int]]
     ) -> bool:
         def in_circle(x: int, y: int, cx: int, cy: int, r: int) -> int:
             return (x - cx) ** 2 + (y - cy) ** 2 <= r**2

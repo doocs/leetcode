@@ -1,5 +1,5 @@
 class Solution:
-    def minArrayLength(self, nums: List[int], k: int) -> int:
+    def minArrayLength(self, nums: list[int], k: int) -> int:
         ans, y = 1, nums[0]
         for x in nums[1:]:
             if x == 0:

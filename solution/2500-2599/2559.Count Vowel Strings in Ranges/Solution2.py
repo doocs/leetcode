@@ -1,5 +1,5 @@
 class Solution:
-    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+    def vowelStrings(self, words: list[str], queries: list[list[int]]) -> list[int]:
         vowels = set("aeiou")
         s = list(
             accumulate(

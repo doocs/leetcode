@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
+    def missingRolls(self, rolls: list[int], mean: int, n: int) -> list[int]:
         m = len(rolls)
         s = (n + m) * mean - sum(rolls)
         if s > n * 6 or s < n:

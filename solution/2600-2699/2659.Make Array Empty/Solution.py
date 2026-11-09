@@ -1,5 +1,5 @@
 class Solution:
-    def countOperationsToEmptyArray(self, nums: List[int]) -> int:
+    def countOperationsToEmptyArray(self, nums: list[int]) -> int:
         pos = {x: i for i, x in enumerate(nums)}
         nums.sort()
         sl = SortedList()

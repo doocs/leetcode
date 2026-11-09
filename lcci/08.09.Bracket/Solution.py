@@ -1,5 +1,5 @@
 class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generateParenthesis(self, n: int) -> list[str]:
         def dfs(l, r, t):
             if l > n or r > n or l < r:
                 return

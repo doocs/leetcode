@@ -1,6 +1,6 @@
 class Solution:
     def maxCompatibilitySum(
-        self, students: List[List[int]], mentors: List[List[int]]
+        self, students: list[list[int]], mentors: list[list[int]]
     ) -> int:
         def dfs(i: int, s: int):
             if i >= m:

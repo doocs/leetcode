@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         m = max(e[1] for e in intervals)
         d = [0] * (m + 1)
         for l, r in intervals:
@@ -242,7 +242,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         d = defaultdict(int)
         for l, r in intervals:
             d[l] += 1

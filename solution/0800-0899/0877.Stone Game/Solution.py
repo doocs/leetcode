@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
+    def stoneGame(self, piles: list[int]) -> bool:
         @cache
         def dfs(i: int, j: int) -> int:
             if i > j:

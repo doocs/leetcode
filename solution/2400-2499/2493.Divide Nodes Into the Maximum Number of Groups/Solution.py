@@ -1,5 +1,5 @@
 class Solution:
-    def magnificentSets(self, n: int, edges: List[List[int]]) -> int:
+    def magnificentSets(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a - 1].append(b - 1)

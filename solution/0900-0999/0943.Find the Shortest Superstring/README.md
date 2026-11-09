@@ -86,7 +86,7 @@ $$
 
 ```python
 class Solution:
-    def shortestSuperstring(self, words: List[str]) -> str:
+    def shortestSuperstring(self, words: list[str]) -> str:
         n = len(words)
         g = [[0] * n for _ in range(n)]
         for i, a in enumerate(words):

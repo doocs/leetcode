@@ -108,7 +108,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumScore(self, nums: List[int]) -> int:
+    def maximumScore(self, nums: list[int]) -> int:
         n = len(nums)
         suf = [nums[-1]] * n
         for i in range(n - 2, -1, -1):

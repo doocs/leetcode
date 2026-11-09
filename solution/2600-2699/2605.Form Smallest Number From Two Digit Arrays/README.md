@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+    def minNumber(self, nums1: list[int], nums2: list[int]) -> int:
         ans = 100
         for a in nums1:
             for b in nums2:
@@ -212,7 +212,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+    def minNumber(self, nums1: list[int], nums2: list[int]) -> int:
         s = set(nums1) & set(nums2)
         if s:
             return min(s)
@@ -409,7 +409,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+    def minNumber(self, nums1: list[int], nums2: list[int]) -> int:
         mask1 = mask2 = 0
         for x in nums1:
             mask1 |= 1 << x

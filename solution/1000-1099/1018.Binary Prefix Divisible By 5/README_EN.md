@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+    def prefixesDivBy5(self, nums: list[int]) -> list[bool]:
         ans = []
         x = 0
         for v in nums:

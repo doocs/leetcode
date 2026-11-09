@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, nums: List[int], k: int) -> int:
+    def minOperations(self, nums: list[int], k: int) -> int:
         l = SortedList()
         r = SortedList()
         s1 = s2 = 0

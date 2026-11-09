@@ -1,5 +1,5 @@
 class Solution:
-    def kConcatenationMaxSum(self, arr: List[int], k: int) -> int:
+    def kConcatenationMaxSum(self, arr: list[int], k: int) -> int:
         s = mx_pre = mi_pre = mx_sub = 0
         for x in arr:
             s += x

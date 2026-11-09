@@ -142,7 +142,7 @@ read4(buf4) # read4 returns 3. Now buf = ['i','j','k',...], fp points to end of 
 class Solution:
     def read(self, buf, n):
         """
-        :type buf: Destination buffer (List[str])
+        :type buf: Destination buffer (list[str])
         :type n: Number of characters to read (int)
         :rtype: The number of actual characters read (int)
         """

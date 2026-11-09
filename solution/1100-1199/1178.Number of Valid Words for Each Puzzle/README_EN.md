@@ -98,7 +98,7 @@ The time complexity is $O(m|w| + n 2^{|p|})$, and the space complexity is $O(m)$
 
 ```python
 class Solution:
-    def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
+    def findNumOfValidWords(self, words: list[str], puzzles: list[str]) -> list[int]:
         cnt = Counter()
         for w in words:
             mask = 0

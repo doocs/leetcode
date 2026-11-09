@@ -142,7 +142,7 @@ for i in range(2, mx):
 
 
 class Solution:
-    def minJumps(self, nums: List[int]) -> int:
+    def minJumps(self, nums: list[int]) -> int:
         n = len(nums)
         g = defaultdict(list)
         for i, x in enumerate(nums):

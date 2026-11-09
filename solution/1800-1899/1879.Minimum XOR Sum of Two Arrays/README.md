@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [[inf] * (1 << n) for _ in range(n + 1)]
         f[0][0] = 0
@@ -235,7 +235,7 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 ```python
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [inf] * (1 << n)
         f[0] = 0
@@ -361,7 +361,7 @@ $f[i][j]$ 只与上一行有关，去掉第一维后用长度为 $2^n$ 的数组
 
 ```python
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [inf] * (1 << n)
         f[0] = 0

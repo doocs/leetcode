@@ -124,7 +124,7 @@ tags:
 
 ```python
 class Solution:
-    def rob(self, nums: List[int], colors: List[int]) -> int:
+    def rob(self, nums: list[int], colors: list[int]) -> int:
         n = len(nums)
         f, g = 0, nums[0]
         for i in range(1, n):

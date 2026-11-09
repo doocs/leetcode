@@ -221,7 +221,7 @@ The time complexity is $O(n \log k)$, and the space complexity is $O(k)$.
 
 ```python
 class Solution:
-    def modeWeight(self, nums: List[int], k: int) -> int:
+    def modeWeight(self, nums: list[int], k: int) -> int:
         pq = []
         cnt = defaultdict(int)
         for x in nums[:k]:

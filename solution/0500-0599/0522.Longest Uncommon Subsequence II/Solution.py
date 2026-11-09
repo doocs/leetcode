@@ -1,5 +1,5 @@
 class Solution:
-    def findLUSlength(self, strs: List[str]) -> int:
+    def findLUSlength(self, strs: list[str]) -> int:
         def check(s: str, t: str):
             i = j = 0
             while i < len(s) and j < len(t):

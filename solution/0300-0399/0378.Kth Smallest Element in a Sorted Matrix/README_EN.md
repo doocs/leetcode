@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+    def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
         def check(matrix, mid, k, n):
             count = 0
             i, j = n - 1, 0

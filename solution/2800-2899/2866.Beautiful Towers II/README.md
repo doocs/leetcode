@@ -120,7 +120,7 @@ $$
 
 ```python
 class Solution:
-    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
+    def maximumSumOfHeights(self, maxHeights: list[int]) -> int:
         n = len(maxHeights)
         stk = []
         left = [-1] * n

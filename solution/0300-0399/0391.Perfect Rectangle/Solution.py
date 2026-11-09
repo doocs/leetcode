@@ -1,5 +1,5 @@
 class Solution:
-    def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
+    def isRectangleCover(self, rectangles: list[list[int]]) -> bool:
         area = 0
         minX, minY = rectangles[0][0], rectangles[0][1]
         maxX, maxY = rectangles[0][2], rectangles[0][3]

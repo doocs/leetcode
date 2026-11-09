@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+    def numOfSubarrays(self, arr: list[int], k: int, threshold: int) -> int:
         threshold *= k
         s = sum(arr[:k])
         ans = int(s >= threshold)

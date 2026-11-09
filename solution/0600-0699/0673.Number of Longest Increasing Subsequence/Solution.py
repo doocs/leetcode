@@ -1,5 +1,5 @@
 class Solution:
-    def findNumberOfLIS(self, nums: List[int]) -> int:
+    def findNumberOfLIS(self, nums: list[int]) -> int:
         n = len(nums)
         f = [1] * n
         cnt = [1] * n

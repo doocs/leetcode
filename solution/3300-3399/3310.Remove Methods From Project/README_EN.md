@@ -116,8 +116,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def remainingMethods(
-        self, n: int, k: int, invocations: List[List[int]]
-    ) -> List[int]:
+        self, n: int, k: int, invocations: list[list[int]]
+    ) -> list[int]:
         def dfs(i: int):
             suspicious[i] = True
             for j in g[i]:
@@ -389,8 +389,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def remainingMethods(
-        self, n: int, k: int, invocations: List[List[int]]
-    ) -> List[int]:
+        self, n: int, k: int, invocations: list[list[int]]
+    ) -> list[int]:
         f = [[] for _ in range(n)]
         g = [[] for _ in range(n)]
         for a, b in invocations:

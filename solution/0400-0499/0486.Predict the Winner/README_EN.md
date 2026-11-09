@@ -113,7 +113,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def predictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: list[int]) -> bool:
         @cache
         def dfs(i: int, j: int) -> int:
             if i > j:
@@ -280,7 +280,7 @@ Similar problem:
 
 ```python
 class Solution:
-    def predictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         for i, x in enumerate(nums):

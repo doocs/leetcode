@@ -1,5 +1,5 @@
 class Solution:
-    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+    def lengthOfLongestSubsequence(self, nums: list[int], target: int) -> int:
         n = len(nums)
         f = [[-inf] * (target + 1) for _ in range(n + 1)]
         f[0][0] = 0

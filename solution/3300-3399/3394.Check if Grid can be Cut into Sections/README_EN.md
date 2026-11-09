@@ -112,7 +112,7 @@ tags:
 
 ```python
 class Solution:
-    def countLineIntersections(self, coordinates: List[tuple[int, int]]) -> bool:
+    def countLineIntersections(self, coordinates: list[tuple[int, int]]) -> bool:
         lines = 0
         overlap = 0
         for value, marker in coordinates:
@@ -126,7 +126,7 @@ class Solution:
 
         return lines >= 3
 
-    def checkValidCuts(self, n: int, rectangles: List[List[int]]) -> bool:
+    def checkValidCuts(self, n: int, rectangles: list[list[int]]) -> bool:
         y_coordinates = []
         x_coordinates = []
 

@@ -134,12 +134,12 @@ startUrl = "http://news.google.com"
 #    def getUrls(self, url):
 #        """
 #        :type url: str
-#        :rtype List[str]
+#        :rtype list[str]
 #        """
 
 
 class Solution:
-    def crawl(self, startUrl: str, htmlParser: 'HtmlParser') -> List[str]:
+    def crawl(self, startUrl: str, htmlParser: 'HtmlParser') -> list[str]:
         def host(url):
             url = url[7:]
             return url.split('/')[0]

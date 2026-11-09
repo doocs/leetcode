@@ -86,7 +86,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def visibleMountains(self, peaks: List[List[int]]) -> int:
+    def visibleMountains(self, peaks: list[list[int]]) -> int:
         arr = [(x - y, x + y) for x, y in peaks]
         cnt = Counter(arr)
         arr.sort(key=lambda x: (x[0], -x[1]))

@@ -115,7 +115,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def getStrongest(self, arr: List[int], k: int) -> List[int]:
+    def getStrongest(self, arr: list[int], k: int) -> list[int]:
         arr.sort()
         m = arr[(len(arr) - 1) >> 1]
         arr.sort(key=lambda x: (-abs(x - m), -x))

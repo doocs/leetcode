@@ -1,5 +1,5 @@
 class Solution:
-    def climbStairs(self, n: int, costs: List[int]) -> int:
+    def climbStairs(self, n: int, costs: list[int]) -> int:
         n = len(costs)
         f = [inf] * (n + 1)
         f[0] = 0

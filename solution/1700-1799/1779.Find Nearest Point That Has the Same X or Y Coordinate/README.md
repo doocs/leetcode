@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def nearestValidPoint(self, x: int, y: int, points: List[List[int]]) -> int:
+    def nearestValidPoint(self, x: int, y: int, points: list[list[int]]) -> int:
         ans, mi = -1, inf
         for i, (a, b) in enumerate(points):
             if a == x or b == y:

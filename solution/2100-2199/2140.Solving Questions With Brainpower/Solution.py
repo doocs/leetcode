@@ -1,5 +1,5 @@
 class Solution:
-    def mostPoints(self, questions: List[List[int]]) -> int:
+    def mostPoints(self, questions: list[list[int]]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(questions):

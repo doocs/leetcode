@@ -1,5 +1,5 @@
 class Solution:
-    def expressiveWords(self, s: str, words: List[str]) -> int:
+    def expressiveWords(self, s: str, words: list[str]) -> int:
         def check(s, t):
             m, n = len(s), len(t)
             if n > m:

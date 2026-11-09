@@ -97,7 +97,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+    def sumOfDistancesInTree(self, n: int, edges: list[list[int]]) -> list[int]:
         def dfs1(i: int, fa: int, d: int):
             ans[0] += d
             size[i] = 1
@@ -318,7 +318,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+    def sumOfDistancesInTree(self, n: int, edges: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)

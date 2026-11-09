@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         f = {nums[0]: 0}
         for x in nums[1:]:
             g = {}

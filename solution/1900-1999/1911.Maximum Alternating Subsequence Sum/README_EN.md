@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def maxAlternatingSum(self, nums: List[int]) -> int:
+    def maxAlternatingSum(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         g = [0] * (n + 1)
@@ -189,7 +189,7 @@ $f[i]$ and $g[i]$ depend only on the previous index, so two variables are enough
 
 ```python
 class Solution:
-    def maxAlternatingSum(self, nums: List[int]) -> int:
+    def maxAlternatingSum(self, nums: list[int]) -> int:
         f = g = 0
         for x in nums:
             f, g = max(g - x, f), max(f + x, g)

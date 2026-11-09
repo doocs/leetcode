@@ -75,7 +75,7 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 
 ```python
 class Solution:
-    def findShortestSubArray(self, nums: List[int]) -> int:
+    def findShortestSubArray(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         degree = cnt.most_common()[0][1]
         left, right = {}, {}

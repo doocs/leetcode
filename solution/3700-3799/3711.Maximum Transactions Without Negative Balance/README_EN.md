@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxTransactions(self, transactions: List[int]) -> int:
+    def maxTransactions(self, transactions: list[int]) -> int:
         st = SortedList()
         s = 0
         ans = len(transactions)

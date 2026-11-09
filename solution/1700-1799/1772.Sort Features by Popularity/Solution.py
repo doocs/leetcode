@@ -1,5 +1,5 @@
 class Solution:
-    def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
+    def sortFeatures(self, features: list[str], responses: list[str]) -> list[str]:
         cnt = Counter()
         for s in responses:
             for w in set(s.split()):

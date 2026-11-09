@@ -69,7 +69,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n^2)$, where $
 
 ```python
 class Solution:
-    def partition(self, s: str) -> List[List[str]]:
+    def partition(self, s: str) -> list[list[str]]:
         def dfs(i: int):
             if i == n:
                 ans.append(t[:])

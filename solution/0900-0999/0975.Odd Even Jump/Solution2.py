@@ -1,5 +1,5 @@
 class Solution:
-    def oddEvenJumps(self, arr: List[int]) -> int:
+    def oddEvenJumps(self, arr: list[int]) -> int:
         n = len(arr)
         g = [[-1] * 2 for _ in range(n)]
         sd = SortedDict()

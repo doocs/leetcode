@@ -124,7 +124,7 @@ tags:
 
 ```python
 class Solution:
-    def minMoves(self, balance: List[int]) -> int:
+    def minMoves(self, balance: list[int]) -> int:
         if sum(balance) < 0:
             return -1
         mn = min(balance)

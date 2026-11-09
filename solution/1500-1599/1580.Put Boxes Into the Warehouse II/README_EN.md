@@ -96,7 +96,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
+    def maxBoxesInWarehouse(self, boxes: list[int], warehouse: list[int]) -> int:
         n = len(warehouse)
         left = [0] * n
         right = [0] * n

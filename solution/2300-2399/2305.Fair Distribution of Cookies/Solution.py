@@ -1,5 +1,5 @@
 class Solution:
-    def distributeCookies(self, cookies: List[int], k: int) -> int:
+    def distributeCookies(self, cookies: list[int], k: int) -> int:
         def dfs(i):
             if i >= len(cookies):
                 nonlocal ans

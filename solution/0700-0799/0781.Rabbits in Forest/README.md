@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def numRabbits(self, answers: List[int]) -> int:
+    def numRabbits(self, answers: list[int]) -> int:
         cnt = Counter(answers)
         ans = 0
         for x, v in cnt.items():

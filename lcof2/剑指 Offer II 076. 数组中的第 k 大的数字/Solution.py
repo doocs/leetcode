@@ -1,5 +1,5 @@
 class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
         def quick_sort(left, right, k):
             if left == right:
                 return nums[left]

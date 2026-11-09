@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumProduct(self, nums: List[int], m: int) -> int:
+    def maximumProduct(self, nums: list[int], m: int) -> int:
         ans = mx = -inf
         mi = inf
         for i in range(m - 1, len(nums)):

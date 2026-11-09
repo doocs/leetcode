@@ -1,5 +1,5 @@
 class Solution:
-    def maximumAmount(self, coins: List[List[int]]) -> int:
+    def maximumAmount(self, coins: list[list[int]]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= m or j >= n:

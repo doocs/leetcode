@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+    def canFormArray(self, arr: list[int], pieces: list[list[int]]) -> bool:
         i = 0
         while i < len(arr):
             k = 0
@@ -289,7 +289,7 @@ var canFormArray = function (arr, pieces) {
 
 ```python
 class Solution:
-    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+    def canFormArray(self, arr: list[int], pieces: list[list[int]]) -> bool:
         d = {p[0]: p for p in pieces}
         i, n = 0, len(arr)
         while i < n:

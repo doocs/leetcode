@@ -1,5 +1,5 @@
 class Solution:
-    def countExcellentPairs(self, nums: List[int], k: int) -> int:
+    def countExcellentPairs(self, nums: list[int], k: int) -> int:
         s = set(nums)
         ans = 0
         cnt = Counter()

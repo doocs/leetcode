@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def calculateTax(self, brackets: List[List[int]], income: int) -> float:
+    def calculateTax(self, brackets: list[list[int]], income: int) -> float:
         ans = prev = 0
         for upper, percent in brackets:
             ans += max(0, min(income, upper) - prev) * percent

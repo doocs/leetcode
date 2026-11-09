@@ -88,7 +88,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 
 ```python
 class Solution:
-    def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
+    def isCovered(self, ranges: list[list[int]], left: int, right: int) -> bool:
         diff = [0] * 52
         for l, r in ranges:
             diff[l] += 1

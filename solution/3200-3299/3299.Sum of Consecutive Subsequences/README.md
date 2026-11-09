@@ -105,8 +105,8 @@ tags:
 
 ```python
 class Solution:
-    def getSum(self, nums: List[int]) -> int:
-        def calc(nums: List[int]) -> int:
+    def getSum(self, nums: list[int]) -> int:
+        def calc(nums: list[int]) -> int:
             n = len(nums)
             left = [0] * n
             right = [0] * n

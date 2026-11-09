@@ -5,7 +5,7 @@ class FileSharing:
         self.reused = []
         self.user_chunks = defaultdict(set)
 
-    def join(self, ownedChunks: List[int]) -> int:
+    def join(self, ownedChunks: list[int]) -> int:
         if self.reused:
             userID = heappop(self.reused)
         else:
@@ -18,7 +18,7 @@ class FileSharing:
         heappush(self.reused, userID)
         self.user_chunks.pop(userID)
 
-    def request(self, userID: int, chunkID: int) -> List[int]:
+    def request(self, userID: int, chunkID: int) -> list[int]:
         if chunkID < 1 or chunkID > self.chunks:
             return []
         res = []

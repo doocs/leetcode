@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         s = list(accumulate(stones))
         n = len(s)
         f = [0] * n

@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def constructDistancedSequence(self, n: int) -> List[int]:
+    def constructDistancedSequence(self, n: int) -> list[int]:
         def dfs(u):
             if u == n * 2:
                 return True

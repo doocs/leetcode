@@ -1,5 +1,5 @@
 class Solution:
-    def pancakeSort(self, arr: List[int]) -> List[int]:
+    def pancakeSort(self, arr: list[int]) -> list[int]:
         def reverse(arr, j):
             i = 0
             while i < j:

@@ -82,7 +82,7 @@ The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is 
 
 ```python
 class Solution:
-    def maxDistance(self, arrays: List[List[int]]) -> int:
+    def maxDistance(self, arrays: list[list[int]]) -> int:
         ans = 0
         mi, mx = arrays[0][0], arrays[0][-1]
         for arr in arrays[1:]:

@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
         arr = sorted(nums)
         return [bisect_left(arr, x) for x in nums]
 ```
@@ -203,7 +203,7 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 
 ```python
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
         cnt = [0] * 102
         for x in nums:
             cnt[x + 1] += 1

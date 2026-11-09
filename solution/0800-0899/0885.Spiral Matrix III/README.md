@@ -77,7 +77,7 @@ tags:
 class Solution:
     def spiralMatrixIII(
         self, rows: int, cols: int, rStart: int, cStart: int
-    ) -> List[List[int]]:
+    ) -> list[list[int]]:
         ans = [[rStart, cStart]]
         if rows * cols == 1:
             return ans

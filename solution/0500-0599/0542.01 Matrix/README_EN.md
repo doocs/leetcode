@@ -86,7 +86,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+    def updateMatrix(self, mat: list[list[int]]) -> list[list[int]]:
         m, n = len(mat), len(mat[0])
         ans = [[-1] * n for _ in range(m)]
         q = deque()

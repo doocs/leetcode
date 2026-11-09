@@ -1,11 +1,11 @@
 class Graph:
-    def __init__(self, n: int, edges: List[List[int]]):
+    def __init__(self, n: int, edges: list[list[int]]):
         self.n = n
         self.g = [[inf] * n for _ in range(n)]
         for f, t, c in edges:
             self.g[f][t] = c
 
-    def addEdge(self, edge: List[int]) -> None:
+    def addEdge(self, edge: list[int]) -> None:
         f, t, c = edge
         self.g[f][t] = c
 

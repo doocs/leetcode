@@ -1,5 +1,5 @@
 class Solution:
-    def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
+    def minimumSemesters(self, n: int, relations: list[list[int]]) -> int:
         g = defaultdict(list)
         indeg = [0] * n
         for prev, nxt in relations:

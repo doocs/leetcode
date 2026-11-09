@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countSubarrays(self, nums: List[int]) -> int:
+    def countSubarrays(self, nums: list[int]) -> int:
         ans = cnt = 1
         for x, y in pairwise(nums):
             if x < y:

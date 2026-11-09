@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+    def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
         intervals.sort(key=lambda x: x[1])
         ans = len(intervals)
         pre = -inf

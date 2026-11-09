@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def isArraySpecial(self, nums: List[int]) -> bool:
+    def isArraySpecial(self, nums: list[int]) -> bool:
         return all(a % 2 != b % 2 for a, b in pairwise(nums))
 ```
 

@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def evenOddBit(self, n: int) -> List[int]:
+    def evenOddBit(self, n: int) -> list[int]:
         ans = [0, 0]
         i = 0
         while n:
@@ -200,7 +200,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def evenOddBit(self, n: int) -> List[int]:
+    def evenOddBit(self, n: int) -> list[int]:
         mask = 0x5555
         even = (n & mask).bit_count()
         odd = (n & ~mask).bit_count()

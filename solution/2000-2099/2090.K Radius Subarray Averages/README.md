@@ -111,7 +111,7 @@ tags:
 
 ```python
 class Solution:
-    def getAverages(self, nums: List[int], k: int) -> List[int]:
+    def getAverages(self, nums: list[int], k: int) -> list[int]:
         n = len(nums)
         ans = [-1] * n
         s = 0

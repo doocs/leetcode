@@ -104,7 +104,7 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 
 ```python
 class Solution:
-    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    def countPrefixSuffixPairs(self, words: list[str]) -> int:
         ans = 0
         for i, s in enumerate(words):
             for t in words[i + 1 :]:
@@ -225,7 +225,7 @@ class Node:
 
 
 class Solution:
-    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    def countPrefixSuffixPairs(self, words: list[str]) -> int:
         ans = 0
         trie = Node()
         for s in words:

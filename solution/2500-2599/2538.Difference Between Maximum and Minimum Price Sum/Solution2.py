@@ -1,5 +1,5 @@
 class Solution:
-    def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+    def maxOutput(self, n: int, edges: list[list[int]], price: list[int]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

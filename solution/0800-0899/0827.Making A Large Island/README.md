@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def largestIsland(self, grid: List[List[int]]) -> int:
+    def largestIsland(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int):
             p[i][j] = root
             cnt[root] += 1

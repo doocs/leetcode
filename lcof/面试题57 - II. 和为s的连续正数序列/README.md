@@ -69,7 +69,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def findContinuousSequence(self, target: int) -> List[List[int]]:
+    def findContinuousSequence(self, target: int) -> list[list[int]]:
         l, r = 1, 2
         ans = []
         while l < r:

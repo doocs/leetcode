@@ -94,7 +94,7 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 
 ```python
 class Solution:
-    def mostFrequent(self, nums: List[int], key: int) -> int:
+    def mostFrequent(self, nums: list[int], key: int) -> int:
         cnt = Counter()
         ans = mx = 0
         for a, b in pairwise(nums):

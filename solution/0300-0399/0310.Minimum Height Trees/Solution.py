@@ -1,5 +1,5 @@
 class Solution:
-    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+    def findMinHeightTrees(self, n: int, edges: list[list[int]]) -> list[int]:
         if n == 1:
             return [0]
         g = [[] for _ in range(n)]

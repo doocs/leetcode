@@ -1,5 +1,5 @@
 class FirstUnique:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.cnt = Counter(nums)
         self.q = deque(nums)
 

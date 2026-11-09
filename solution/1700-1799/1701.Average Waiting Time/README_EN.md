@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+    def averageWaitingTime(self, customers: list[list[int]]) -> float:
         tot = t = 0
         for a, b in customers:
             t = max(t, a) + b

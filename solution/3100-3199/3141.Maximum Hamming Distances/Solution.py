@@ -1,5 +1,5 @@
 class Solution:
-    def maxHammingDistances(self, nums: List[int], m: int) -> List[int]:
+    def maxHammingDistances(self, nums: list[int], m: int) -> list[int]:
         dist = [-1] * (1 << m)
         for x in nums:
             dist[x] = 0

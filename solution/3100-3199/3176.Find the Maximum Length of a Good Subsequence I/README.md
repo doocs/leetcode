@@ -101,7 +101,7 @@ $$
 
 ```python
 class Solution:
-    def maximumLength(self, nums: List[int], k: int) -> int:
+    def maximumLength(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [[1] * (k + 1) for _ in range(n)]
         ans = 0
@@ -249,7 +249,7 @@ function maximumLength(nums: number[], k: number): number {
 
 ```python
 class Solution:
-    def maximumLength(self, nums: List[int], k: int) -> int:
+    def maximumLength(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [[0] * (k + 1) for _ in range(n)]
         mp = [defaultdict(int) for _ in range(k + 1)]

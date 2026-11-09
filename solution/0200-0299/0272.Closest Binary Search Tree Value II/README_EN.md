@@ -83,7 +83,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def closestKValues(self, root: TreeNode, target: float, k: int) -> List[int]:
+    def closestKValues(self, root: TreeNode, target: float, k: int) -> list[int]:
         def dfs(root):
             if root is None:
                 return

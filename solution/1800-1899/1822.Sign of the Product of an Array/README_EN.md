@@ -97,7 +97,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def arraySign(self, nums: List[int]) -> int:
+    def arraySign(self, nums: list[int]) -> int:
         ans = 1
         for v in nums:
             if v == 0:

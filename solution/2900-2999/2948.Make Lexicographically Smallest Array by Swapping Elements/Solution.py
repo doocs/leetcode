@@ -1,5 +1,5 @@
 class Solution:
-    def lexicographicallySmallestArray(self, nums: List[int], limit: int) -> List[int]:
+    def lexicographicallySmallestArray(self, nums: list[int], limit: int) -> list[int]:
         n = len(nums)
         arr = sorted(zip(nums, range(n)))
         ans = [0] * n

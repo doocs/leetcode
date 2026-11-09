@@ -130,7 +130,7 @@ The time complexity is $O(n(k + n))$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def getMinSwaps(self, num: str, k: int) -> int:
-        def next_permutation(nums: List[str]) -> bool:
+        def next_permutation(nums: list[str]) -> bool:
             n = len(nums)
             i = n - 2
             while i >= 0 and nums[i] >= nums[i + 1]:

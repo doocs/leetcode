@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
+    def minOperations(self, boxes: str) -> list[int]:
         n = len(boxes)
         left = [0] * n
         right = [0] * n
@@ -293,7 +293,7 @@ int* minOperations(char* boxes, int* returnSize) {
 
 ```python
 class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
+    def minOperations(self, boxes: str) -> list[int]:
         n = len(boxes)
         ans = [0] * n
         cnt = 0

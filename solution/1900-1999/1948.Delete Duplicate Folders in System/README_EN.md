@@ -135,7 +135,7 @@ class Trie:
 
 
 class Solution:
-    def deleteDuplicateFolder(self, paths: List[List[str]]) -> List[List[str]]:
+    def deleteDuplicateFolder(self, paths: list[list[str]]) -> list[list[str]]:
         root = Trie()
         for path in paths:
             cur = root
@@ -149,7 +149,7 @@ class Solution:
         def dfs(node: Trie) -> str:
             if not node.children:
                 return ""
-            subs: List[str] = []
+            subs: list[str] = []
             for name, child in node.children.items():
                 subs.append(f"{name}({dfs(child)})")
             s = "".join(sorted(subs))
@@ -170,8 +170,8 @@ class Solution:
                 path.pop()
 
         dfs(root)
-        ans: List[List[str]] = []
-        path: List[str] = []
+        ans: list[list[str]] = []
+        path: list[str] = []
         dfs2(root)
         return ans
 ```

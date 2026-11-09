@@ -1,5 +1,5 @@
 class Solution:
-    def constructProductMatrix(self, grid: List[List[int]]) -> List[List[int]]:
+    def constructProductMatrix(self, grid: list[list[int]]) -> list[list[int]]:
         n, m = len(grid), len(grid[0])
         p = [[0] * m for _ in range(n)]
         mod = 12345

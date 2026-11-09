@@ -174,7 +174,7 @@ The time complexity is $O(3^n + 2^n n \log V \log L)$, and the space complexity 
 
 ```python
 class Solution:
-    def minMergeCost(self, lists: List[List[int]]) -> int:
+    def minMergeCost(self, lists: list[list[int]]) -> int:
         n = len(lists)
         vals = sorted({x for v in lists for x in v})
         cnt = [0] * (1 << n)

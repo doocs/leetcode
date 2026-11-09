@@ -1,5 +1,5 @@
 class Solution:
-    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
+    def maxIncreasingGroups(self, usageLimits: list[int]) -> int:
         usageLimits.sort()
         k, n = 0, len(usageLimits)
         for i in range(n):

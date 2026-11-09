@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def subarrayGCD(self, nums: List[int], k: int) -> int:
+    def subarrayGCD(self, nums: list[int], k: int) -> int:
         ans = 0
         for i in range(len(nums)):
             g = 0

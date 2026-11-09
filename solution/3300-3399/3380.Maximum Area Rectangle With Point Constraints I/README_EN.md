@@ -118,7 +118,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def maxRectangleArea(self, points: List[List[int]]) -> int:
+    def maxRectangleArea(self, points: list[list[int]]) -> int:
         def check(x1: int, y1: int, x2: int, y2: int) -> bool:
             cnt = 0
             for x, y in points:

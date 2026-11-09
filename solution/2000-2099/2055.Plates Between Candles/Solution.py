@@ -1,5 +1,5 @@
 class Solution:
-    def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
+    def platesBetweenCandles(self, s: str, queries: list[list[int]]) -> list[int]:
         n = len(s)
         presum = [0] * (n + 1)
         for i, c in enumerate(s):

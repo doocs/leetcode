@@ -97,7 +97,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def distinctAverages(self, nums: List[int]) -> int:
+    def distinctAverages(self, nums: list[int]) -> int:
         nums.sort()
         return len(set(nums[i] + nums[-i - 1] for i in range(len(nums) >> 1)))
 ```
@@ -210,7 +210,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def distinctAverages(self, nums: List[int]) -> int:
+    def distinctAverages(self, nums: list[int]) -> int:
         nums.sort()
         ans = 0
         cnt = Counter()

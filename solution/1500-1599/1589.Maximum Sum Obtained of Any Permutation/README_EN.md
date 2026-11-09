@@ -98,7 +98,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxSumRangeQuery(self, nums: List[int], requests: List[List[int]]) -> int:
+    def maxSumRangeQuery(self, nums: list[int], requests: list[list[int]]) -> int:
         n = len(nums)
         d = [0] * n
         for l, r in requests:

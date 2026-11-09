@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countSeniors(self, details: List[str]) -> int:
+    def countSeniors(self, details: list[str]) -> int:
         return sum(int(x[11:13]) > 60 for x in details)
 ```
 

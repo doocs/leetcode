@@ -1,5 +1,5 @@
 class Solution:
-    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+    def maxTaxiEarnings(self, n: int, rides: list[list[int]]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(rides):

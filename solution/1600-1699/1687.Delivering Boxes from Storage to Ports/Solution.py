@@ -1,6 +1,6 @@
 class Solution:
     def boxDelivering(
-        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+        self, boxes: list[list[int]], portsCount: int, maxBoxes: int, maxWeight: int
     ) -> int:
         n = len(boxes)
         ws = list(accumulate((box[1] for box in boxes), initial=0))

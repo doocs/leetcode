@@ -74,7 +74,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def diStringMatch(self, s: str) -> List[int]:
+    def diStringMatch(self, s: str) -> list[int]:
         low, high = 0, len(s)
         ans = []
         for c in s:

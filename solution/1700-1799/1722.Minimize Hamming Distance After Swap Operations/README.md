@@ -97,7 +97,7 @@ source 和 target 间的汉明距离是 2 ，二者有 2 处元素不同，在�
 ```python
 class Solution:
     def minimumHammingDistance(
-        self, source: List[int], target: List[int], allowedSwaps: List[List[int]]
+        self, source: list[int], target: list[int], allowedSwaps: list[list[int]]
     ) -> int:
         def find(x: int) -> int:
             if p[x] != x:

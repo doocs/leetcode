@@ -150,8 +150,8 @@ class Trie:
 
 class Solution:
     def stringIndices(
-        self, wordsContainer: List[str], wordsQuery: List[str]
-    ) -> List[int]:
+        self, wordsContainer: list[str], wordsQuery: list[str]
+    ) -> list[int]:
         trie = Trie()
         for i, w in enumerate(wordsContainer):
             trie.insert(w, i)

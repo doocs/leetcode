@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumAlternatingSubarraySum(self, nums: List[int]) -> int:
+    def maximumAlternatingSubarraySum(self, nums: list[int]) -> int:
         ans = f = g = -inf
         for x in nums:
             f, g = max(g, 0) + x, f - x

@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], queries: List[int]) -> List[int]:
+    def minOperations(self, nums: list[int], queries: list[int]) -> list[int]:
         nums.sort()
         s = list(accumulate(nums, initial=0))
         ans = []

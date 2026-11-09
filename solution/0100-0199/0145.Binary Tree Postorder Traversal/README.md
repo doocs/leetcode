@@ -107,7 +107,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root):
             if root is None:
                 return
@@ -330,7 +330,7 @@ impl Solution {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         if root is None:
             return ans
@@ -537,7 +537,7 @@ Morris 遍历无需使用栈，空间复杂度为 $O(1)$。核心思想是：
 #         self.left = left
 #         self.right = right
 class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         while root:
             if root.right is None:

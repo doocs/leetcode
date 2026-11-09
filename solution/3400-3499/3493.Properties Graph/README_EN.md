@@ -115,7 +115,7 @@ The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$
 
 ```python
 class Solution:
-    def numberOfComponents(self, properties: List[List[int]], k: int) -> int:
+    def numberOfComponents(self, properties: list[list[int]], k: int) -> int:
         def dfs(i: int) -> None:
             vis[i] = True
             for j in g[i]:

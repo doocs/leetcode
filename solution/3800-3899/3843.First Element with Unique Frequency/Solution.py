@@ -1,5 +1,5 @@
 class Solution:
-    def firstUniqueFreq(self, nums: List[int]) -> int:
+    def firstUniqueFreq(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         freq = Counter(cnt.values())
         for x in nums:

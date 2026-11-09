@@ -109,7 +109,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def validUtf8(self, data: List[int]) -> bool:
+    def validUtf8(self, data: list[int]) -> bool:
         cnt = 0
         for v in data:
             if cnt > 0:

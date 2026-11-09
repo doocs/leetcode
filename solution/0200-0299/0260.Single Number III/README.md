@@ -91,7 +91,7 @@ tags:
 
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> List[int]:
+    def singleNumber(self, nums: list[int]) -> list[int]:
         xs = reduce(xor, nums)
         a = 0
         lb = xs & -xs

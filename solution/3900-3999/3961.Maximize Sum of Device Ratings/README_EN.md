@@ -135,7 +135,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def maxRatings(self, units: List[List[int]]) -> int:
+    def maxRatings(self, units: list[list[int]]) -> int:
         n = len(units[0])
         if n == 1:
             return sum(x[0] for x in units)

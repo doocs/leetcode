@@ -1,5 +1,5 @@
 class Solution:
-    def maxSideLength(self, mat: List[List[int]], threshold: int) -> int:
+    def maxSideLength(self, mat: list[list[int]], threshold: int) -> int:
         def check(k: int) -> bool:
             for i in range(m - k + 1):
                 for j in range(n - k + 1):

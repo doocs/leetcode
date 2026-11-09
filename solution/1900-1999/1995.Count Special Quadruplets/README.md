@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for a in range(n - 3):
             for b in range(a + 1, n - 2):
@@ -180,7 +180,7 @@ func countQuadruplets(nums []int) int {
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         counter = Counter()
         for c in range(n - 2, 1, -1):
@@ -274,7 +274,7 @@ func countQuadruplets(nums []int) int {
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         counter = Counter()
         for b in range(n - 3, 0, -1):

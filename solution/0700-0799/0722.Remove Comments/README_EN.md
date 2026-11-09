@@ -133,7 +133,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Solution:
-    def removeComments(self, source: List[str]) -> List[str]:
+    def removeComments(self, source: list[str]) -> list[str]:
         ans = []
         t = []
         block_comment = False

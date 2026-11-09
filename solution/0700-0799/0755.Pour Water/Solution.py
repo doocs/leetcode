@@ -1,5 +1,5 @@
 class Solution:
-    def pourWater(self, heights: List[int], volume: int, k: int) -> List[int]:
+    def pourWater(self, heights: list[int], volume: int, k: int) -> list[int]:
         for _ in range(volume):
             for d in (-1, 1):
                 i = j = k

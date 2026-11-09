@@ -70,7 +70,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def pileBox(self, box: List[List[int]]) -> int:
+    def pileBox(self, box: list[list[int]]) -> int:
         box.sort(key=lambda x: (x[0], -x[1]))
         n = len(box)
         f = [0] * n

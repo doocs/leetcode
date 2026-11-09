@@ -1,5 +1,5 @@
 class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
+    def stoneGameII(self, piles: list[int]) -> int:
         @cache
         def dfs(i, m):
             if m * 2 >= n - i:

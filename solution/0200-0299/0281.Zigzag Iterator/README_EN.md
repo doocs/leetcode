@@ -98,7 +98,7 @@ tags:
 
 ```python
 class ZigzagIterator:
-    def __init__(self, v1: List[int], v2: List[int]):
+    def __init__(self, v1: list[int], v2: list[int]):
         self.cur = 0
         self.size = 2
         self.indexes = [0] * self.size

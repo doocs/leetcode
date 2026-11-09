@@ -1,5 +1,5 @@
 class Solution:
-    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+    def restoreArray(self, adjacentPairs: list[list[int]]) -> list[int]:
         def dfs(i, fa):
             ans.append(i)
             for j in g[i]:

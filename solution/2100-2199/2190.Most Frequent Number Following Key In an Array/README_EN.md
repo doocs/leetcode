@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ and
 
 ```python
 class Solution:
-    def mostFrequent(self, nums: List[int], key: int) -> int:
+    def mostFrequent(self, nums: list[int], key: int) -> int:
         cnt = Counter()
         ans = mx = 0
         for a, b in pairwise(nums):

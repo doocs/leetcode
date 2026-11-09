@@ -97,8 +97,8 @@ The time complexity is $O(n + m \log n)$, and the space complexity is $O(n)$, wh
 #         self.right = right
 class Solution:
     def closestNodes(
-        self, root: Optional[TreeNode], queries: List[int]
-    ) -> List[List[int]]:
+        self, root: Optional[TreeNode], queries: list[int]
+    ) -> list[list[int]]:
         def dfs(root: Optional[TreeNode]):
             if root is None:
                 return

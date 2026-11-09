@@ -1,5 +1,5 @@
 class Solution:
-    def findMinimumTime(self, tasks: List[List[int]]) -> int:
+    def findMinimumTime(self, tasks: list[list[int]]) -> int:
         tasks.sort(key=lambda x: x[1])
         vis = [0] * 2010
         ans = 0

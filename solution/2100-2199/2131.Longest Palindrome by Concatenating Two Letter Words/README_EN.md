@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestPalindrome(self, words: List[str]) -> int:
+    def longestPalindrome(self, words: list[str]) -> int:
         cnt = Counter(words)
         ans = x = 0
         for k, v in cnt.items():

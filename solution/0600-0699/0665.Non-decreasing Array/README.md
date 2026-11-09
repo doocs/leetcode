@@ -80,8 +80,8 @@ tags:
 
 ```python
 class Solution:
-    def checkPossibility(self, nums: List[int]) -> bool:
-        def is_sorted(nums: List[int]) -> bool:
+    def checkPossibility(self, nums: list[int]) -> bool:
+        def is_sorted(nums: list[int]) -> bool:
             return all(a <= b for a, b in pairwise(nums))
 
         n = len(nums)

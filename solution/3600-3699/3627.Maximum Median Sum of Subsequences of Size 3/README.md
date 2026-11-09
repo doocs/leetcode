@@ -99,7 +99,7 @@ source: 第 460 场周赛 Q1
 
 ```python
 class Solution:
-    def maximumMedianSum(self, nums: List[int]) -> int:
+    def maximumMedianSum(self, nums: list[int]) -> int:
         nums.sort()
         return sum(nums[len(nums) // 3 :: 2])
 ```

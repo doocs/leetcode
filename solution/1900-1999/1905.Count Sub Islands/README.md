@@ -86,7 +86,7 @@ grid2 中标红的 1 区域是子岛屿，总共有 2 个子岛屿。
 
 ```python
 class Solution:
-    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+    def countSubIslands(self, grid1: list[list[int]], grid2: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> int:
             ok = grid1[i][j]
             grid2[i][j] = 0
@@ -292,7 +292,7 @@ function countSubIslands(grid1, grid2) {
 
 ```python
 class Solution:
-    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+    def countSubIslands(self, grid1: list[list[int]], grid2: list[list[int]]) -> int:
         def flood(i: int, j: int) -> int:
             ok = 1
             grid2[i][j] = 0

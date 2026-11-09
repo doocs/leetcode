@@ -96,7 +96,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def closedIsland(self, grid: List[List[int]]) -> int:
+    def closedIsland(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> int:
             res = int(0 < i < m - 1 and 0 < j < n - 1)
             grid[i][j] = 1
@@ -332,7 +332,7 @@ class UnionFind:
 
 
 class Solution:
-    def closedIsland(self, grid: List[List[int]]) -> int:
+    def closedIsland(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         uf = UnionFind(m * n + 1)
         for i in range(m):

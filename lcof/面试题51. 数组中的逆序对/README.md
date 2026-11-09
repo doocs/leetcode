@@ -54,7 +54,7 @@ difficulty: 困难
 
 ```python
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         def merge_sort(l, r):
             if l >= r:
                 return 0
@@ -431,7 +431,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         alls = sorted(set(nums))
         m = len(alls)
         tree = BinaryIndexedTree(m)

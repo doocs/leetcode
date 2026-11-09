@@ -1,5 +1,5 @@
 class Solution:
-    def maxOperations(self, nums: List[int], k: int) -> int:
+    def maxOperations(self, nums: list[int], k: int) -> int:
         cnt = Counter()
         ans = 0
         for x in nums:

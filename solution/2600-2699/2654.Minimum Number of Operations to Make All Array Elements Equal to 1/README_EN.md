@@ -94,7 +94,7 @@ The time complexity is $O(n(n + \log M))$, and the space complexity is $O(\log M
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int]) -> int:
+    def minOperations(self, nums: list[int]) -> int:
         n = len(nums)
         cnt = nums.count(1)
         if cnt:

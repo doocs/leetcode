@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumTripletValue(self, nums: List[int]) -> int:
+    def maximumTripletValue(self, nums: list[int]) -> int:
         ans = mx = mx_diff = 0
         for x in nums:
             ans = max(ans, mx_diff * x)

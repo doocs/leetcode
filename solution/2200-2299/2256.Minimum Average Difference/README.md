@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumAverageDifference(self, nums: List[int]) -> int:
+    def minimumAverageDifference(self, nums: list[int]) -> int:
         pre, suf = 0, sum(nums)
         n = len(nums)
         ans, mi = 0, inf

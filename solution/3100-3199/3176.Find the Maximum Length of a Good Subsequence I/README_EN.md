@@ -99,7 +99,7 @@ The time complexity is $O(n^2k)$, and the space complexity is $O(nk)$, where $n$
 
 ```python
 class Solution:
-    def maximumLength(self, nums: List[int], k: int) -> int:
+    def maximumLength(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [[1] * (k + 1) for _ in range(n)]
         ans = 0
@@ -247,7 +247,7 @@ The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ i
 
 ```python
 class Solution:
-    def maximumLength(self, nums: List[int], k: int) -> int:
+    def maximumLength(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [[0] * (k + 1) for _ in range(n)]
         mp = [defaultdict(int) for _ in range(k + 1)]

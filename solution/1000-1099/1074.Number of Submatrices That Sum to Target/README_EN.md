@@ -86,8 +86,8 @@ tags:
 
 ```python
 class Solution:
-    def numSubmatrixSumTarget(self, matrix: List[List[int]], target: int) -> int:
-        def f(nums: List[int]) -> int:
+    def numSubmatrixSumTarget(self, matrix: list[list[int]], target: int) -> int:
+        def f(nums: list[int]) -> int:
             d = defaultdict(int)
             d[0] = 1
             cnt = s = 0

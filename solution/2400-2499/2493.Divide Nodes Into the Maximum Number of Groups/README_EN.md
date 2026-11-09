@@ -101,7 +101,7 @@ The time complexity is $O(n(n + m))$, and the space complexity is $O(n + m)$, wh
 
 ```python
 class Solution:
-    def magnificentSets(self, n: int, edges: List[List[int]]) -> int:
+    def magnificentSets(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a - 1].append(b - 1)

@@ -1,5 +1,5 @@
 class Solution:
-    def maxOperations(self, nums: List[int]) -> int:
+    def maxOperations(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, s: int) -> int:
             if j - i < 1:

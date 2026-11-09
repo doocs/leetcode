@@ -72,7 +72,7 @@ difficulty: 中等
 ```python
 class Solution:
     def findWhetherExistsPath(
-        self, n: int, graph: List[List[int]], start: int, target: int
+        self, n: int, graph: list[list[int]], start: int, target: int
     ) -> bool:
         def dfs(i: int):
             if i == target:
@@ -279,7 +279,7 @@ class Solution {
 ```python
 class Solution:
     def findWhetherExistsPath(
-        self, n: int, graph: List[List[int]], start: int, target: int
+        self, n: int, graph: list[list[int]], start: int, target: int
     ) -> bool:
         g = [[] for _ in range(n)]
         for a, b in graph:

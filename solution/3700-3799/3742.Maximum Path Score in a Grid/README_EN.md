@@ -149,7 +149,7 @@ The time complexity is $O(mnk)$, and the space complexity is $O(mnk)$, where $m$
 
 ```python
 class Solution:
-    def maxPathScore(self, grid: List[List[int]], k: int) -> int:
+    def maxPathScore(self, grid: list[list[int]], k: int) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i < 0 or j < 0 or k < 0:

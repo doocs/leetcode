@@ -1,5 +1,5 @@
 class Solution:
-    def beautifulSubarrays(self, nums: List[int]) -> int:
+    def beautifulSubarrays(self, nums: list[int]) -> int:
         cnt = Counter({0: 1})
         ans = mask = 0
         for x in nums:

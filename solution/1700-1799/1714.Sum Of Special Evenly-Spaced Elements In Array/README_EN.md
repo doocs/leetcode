@@ -91,7 +91,7 @@ The time complexity is $O((n + m) \sqrt{n})$, and the space complexity is $O(n \
 
 ```python
 class Solution:
-    def solve(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def solve(self, nums: list[int], queries: list[list[int]]) -> list[int]:
         mod = 10**9 + 7
         n = len(nums)
         m = int(sqrt(n))

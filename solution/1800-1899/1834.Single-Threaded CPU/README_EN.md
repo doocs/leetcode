@@ -110,7 +110,7 @@ The time complexity is $O(n \log n)$, where $n$ is the number of tasks.
 
 ```python
 class Solution:
-    def getOrder(self, tasks: List[List[int]]) -> List[int]:
+    def getOrder(self, tasks: list[list[int]]) -> list[int]:
         for i, task in enumerate(tasks):
             task.append(i)
         tasks.sort()

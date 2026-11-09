@@ -1,5 +1,5 @@
 class Solution:
-    def minDeletionSize(self, strs: List[str]) -> int:
+    def minDeletionSize(self, strs: list[str]) -> int:
         n = len(strs)
         m = len(strs[0])
         st = [False] * (n - 1)

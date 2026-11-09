@@ -22,7 +22,7 @@ class UnionFind:
 
 
 class Solution:
-    def removeStones(self, stones: List[List[int]]) -> int:
+    def removeStones(self, stones: list[list[int]]) -> int:
         m = 10001
         uf = UnionFind(m << 1)
         for x, y in stones:

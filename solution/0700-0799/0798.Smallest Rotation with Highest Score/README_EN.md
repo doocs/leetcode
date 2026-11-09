@@ -82,7 +82,7 @@ So we will choose the smallest k, which is 0.
 
 ```python
 class Solution:
-    def bestRotation(self, nums: List[int]) -> int:
+    def bestRotation(self, nums: list[int]) -> int:
         n = len(nums)
         mx, ans = -1, n
         d = [0] * n

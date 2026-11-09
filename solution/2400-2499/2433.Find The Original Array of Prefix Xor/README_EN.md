@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findArray(self, pref: List[int]) -> List[int]:
+    def findArray(self, pref: list[int]) -> list[int]:
         return [a ^ b for a, b in pairwise([0] + pref)]
 ```
 

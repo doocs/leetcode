@@ -72,7 +72,7 @@ tags:
 
 ```python
 class Solution:
-    def countElements(self, arr: List[int]) -> int:
+    def countElements(self, arr: list[int]) -> int:
         cnt = Counter(arr)
         return sum(v for x, v in cnt.items() if cnt[x + 1])
 ```

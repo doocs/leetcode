@@ -103,7 +103,7 @@ tags:
 ```python
 class Solution:
     def findTheCity(
-        self, n: int, edges: List[List[int]], distanceThreshold: int
+        self, n: int, edges: list[list[int]], distanceThreshold: int
     ) -> int:
         def dijkstra(u: int) -> int:
             dist = [inf] * n
@@ -414,7 +414,7 @@ function findTheCity(n, edges, distanceThreshold) {
 ```python
 class Solution:
     def findTheCity(
-        self, n: int, edges: List[List[int]], distanceThreshold: int
+        self, n: int, edges: list[list[int]], distanceThreshold: int
     ) -> int:
         g = [[inf] * n for _ in range(n)]
         for f, t, w in edges:

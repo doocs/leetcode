@@ -114,7 +114,7 @@ tags:
 
 ```python
 class Solution:
-    def resultsArray(self, queries: List[List[int]], k: int) -> List[int]:
+    def resultsArray(self, queries: list[list[int]], k: int) -> list[int]:
         ans = []
         pq = []
         for i, (x, y) in enumerate(queries):

@@ -1,6 +1,6 @@
 class RangeFreqQuery:
 
-    def __init__(self, arr: List[int]):
+    def __init__(self, arr: list[int]):
         self.g = defaultdict(list)
         for i, x in enumerate(arr):
             self.g[x].append(i)

@@ -62,7 +62,7 @@ comments: true
 
 ```python
 class Solution:
-    def largestArea(self, grid: List[str]) -> int:
+    def largestArea(self, grid: list[str]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

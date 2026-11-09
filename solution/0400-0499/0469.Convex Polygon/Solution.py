@@ -1,5 +1,5 @@
 class Solution:
-    def isConvex(self, points: List[List[int]]) -> bool:
+    def isConvex(self, points: list[list[int]]) -> bool:
         n = len(points)
         pre = cur = 0
         for i in range(n):

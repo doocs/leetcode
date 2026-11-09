@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def recoverArray(self, nums: List[int]) -> List[int]:
+    def recoverArray(self, nums: list[int]) -> list[int]:
         nums.sort()
         n = len(nums)
         for i in range(1, n):

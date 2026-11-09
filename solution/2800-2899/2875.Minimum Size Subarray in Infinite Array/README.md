@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def minSizeSubarray(self, nums: List[int], target: int) -> int:
+    def minSizeSubarray(self, nums: list[int], target: int) -> int:
         s = sum(nums)
         n = len(nums)
         a = 0

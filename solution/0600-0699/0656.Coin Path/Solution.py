@@ -1,5 +1,5 @@
 class Solution:
-    def cheapestJump(self, coins: List[int], maxJump: int) -> List[int]:
+    def cheapestJump(self, coins: list[int], maxJump: int) -> list[int]:
         if coins[-1] == -1:
             return []
         n = len(coins)

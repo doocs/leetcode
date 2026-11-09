@@ -106,7 +106,7 @@ The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def grayCode(self, n: int) -> List[int]:
+    def grayCode(self, n: int) -> list[int]:
         return [i ^ (i >> 1) for i in range(1 << n)]
 ```
 

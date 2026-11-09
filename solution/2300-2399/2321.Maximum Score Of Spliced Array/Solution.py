@@ -1,5 +1,5 @@
 class Solution:
-    def maximumsSplicedArray(self, nums1: List[int], nums2: List[int]) -> int:
+    def maximumsSplicedArray(self, nums1: list[int], nums2: list[int]) -> int:
         def f(nums1, nums2):
             d = [a - b for a, b in zip(nums1, nums2)]
             t = mx = d[0]

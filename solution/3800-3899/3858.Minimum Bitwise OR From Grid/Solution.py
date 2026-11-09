@@ -1,5 +1,5 @@
 class Solution:
-    def minimumOR(self, grid: List[List[int]]) -> int:
+    def minimumOR(self, grid: list[list[int]]) -> int:
         mx = max(map(max, grid))
         m = mx.bit_length()
         ans = 0

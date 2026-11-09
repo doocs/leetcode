@@ -83,7 +83,7 @@ answer = [7,1,3,9] 。
 
 ```python
 class Solution:
-    def separateDigits(self, nums: List[int]) -> List[int]:
+    def separateDigits(self, nums: list[int]) -> list[int]:
         ans = []
         for x in nums:
             t = []

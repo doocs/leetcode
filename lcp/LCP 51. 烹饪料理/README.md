@@ -86,9 +86,9 @@ difficulty: 简单
 class Solution:
     def perfectMenu(
         self,
-        materials: List[int],
-        cookbooks: List[List[int]],
-        attribute: List[List[int]],
+        materials: list[int],
+        cookbooks: list[list[int]],
+        attribute: list[list[int]],
         limit: int,
     ) -> int:
         n = len(cookbooks)

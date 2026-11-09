@@ -1,5 +1,5 @@
 class Solution:
-    def findMaxLength(self, nums: List[int]) -> int:
+    def findMaxLength(self, nums: list[int]) -> int:
         d = {0: -1}
         ans = s = 0
         for i, x in enumerate(nums):

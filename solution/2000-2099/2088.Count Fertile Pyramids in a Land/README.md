@@ -144,7 +144,7 @@ $$
 
 ```python
 class Solution:
-    def countPyramids(self, grid: List[List[int]]) -> int:
+    def countPyramids(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         f = [[0] * n for _ in range(m)]
         ans = 0

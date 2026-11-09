@@ -1,5 +1,5 @@
 class Solution:
-    def partitionArray(self, nums: List[int], k: int) -> int:
+    def partitionArray(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans, a = 1, nums[0]
         for b in nums:

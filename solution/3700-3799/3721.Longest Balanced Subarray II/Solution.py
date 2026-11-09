@@ -1,5 +1,5 @@
 class Solution:
-    def longestBalanced(self, nums: List[int]) -> int:
+    def longestBalanced(self, nums: list[int]) -> int:
         n = len(nums)
 
         class Node:

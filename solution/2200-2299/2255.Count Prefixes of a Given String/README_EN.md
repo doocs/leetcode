@@ -83,7 +83,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def countPrefixes(self, words: List[str], s: str) -> int:
+    def countPrefixes(self, words: list[str], s: str) -> int:
         return sum(s.startswith(w) for w in words)
 ```
 

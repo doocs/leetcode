@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int):
             grid[i][j] = 0
             for a, b in pairwise(dirs):
@@ -337,7 +337,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
         for j in range(n):
@@ -616,7 +616,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = 0

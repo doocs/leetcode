@@ -110,7 +110,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def maximumJumps(self, nums: List[int], target: int) -> int:
+    def maximumJumps(self, nums: list[int], target: int) -> int:
         @cache
         def dfs(i: int) -> int:
             if i == n - 1:
@@ -318,7 +318,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def maximumJumps(self, nums: List[int], target: int) -> int:
+    def maximumJumps(self, nums: list[int], target: int) -> int:
         n = len(nums)
         f = [-inf] * n
         f[-1] = 0

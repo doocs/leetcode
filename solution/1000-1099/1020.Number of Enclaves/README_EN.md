@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int):
             grid[i][j] = 0
             for a, b in pairwise(dirs):
@@ -327,7 +327,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
         for j in range(n):
@@ -619,7 +619,7 @@ class UnionFind:
 
 
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         uf = UnionFind(m * n + 1)
         dirs = (-1, 0, 1, 0, -1)
@@ -878,7 +878,7 @@ Flood from every land cell on the four borders with an explicit stack, marking r
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = 0

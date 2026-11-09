@@ -1,5 +1,5 @@
 class Solution:
-    def superPow(self, a: int, b: List[int]) -> int:
+    def superPow(self, a: int, b: list[int]) -> int:
         mod = 1337
         ans = 1
         for e in b[::-1]:

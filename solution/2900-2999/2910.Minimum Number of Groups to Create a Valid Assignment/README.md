@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def minGroupsForValidAssignment(self, nums: List[int]) -> int:
+    def minGroupsForValidAssignment(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         for k in range(min(cnt.values()), 0, -1):
             ans = 0

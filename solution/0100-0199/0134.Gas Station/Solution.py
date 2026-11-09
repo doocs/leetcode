@@ -1,5 +1,5 @@
 class Solution:
-    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+    def canCompleteCircuit(self, gas: list[int], cost: list[int]) -> int:
         n = len(gas)
         i = j = n - 1
         cnt = s = 0

@@ -115,9 +115,9 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 ```python
 class Solution:
     def modifiedGraphEdges(
-        self, n: int, edges: List[List[int]], source: int, destination: int, target: int
-    ) -> List[List[int]]:
-        def dijkstra(edges: List[List[int]]) -> int:
+        self, n: int, edges: list[list[int]], source: int, destination: int, target: int
+    ) -> list[list[int]]:
+        def dijkstra(edges: list[list[int]]) -> int:
             g = [[inf] * n for _ in range(n)]
             for a, b, w in edges:
                 if w == -1:

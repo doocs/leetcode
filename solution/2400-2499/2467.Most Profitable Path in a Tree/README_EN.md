@@ -128,7 +128,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def mostProfitablePath(
-        self, edges: List[List[int]], bob: int, amount: List[int]
+        self, edges: list[list[int]], bob: int, amount: list[int]
     ) -> int:
         def dfs1(i, fa, t):
             if i == 0:
@@ -363,7 +363,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def mostProfitablePath(
-        self, edges: List[List[int]], bob: int, amount: List[int]
+        self, edges: list[list[int]], bob: int, amount: list[int]
     ) -> int:
         n = len(edges) + 1
         g = defaultdict(list)

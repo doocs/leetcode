@@ -86,7 +86,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findMode(self, root: TreeNode) -> List[int]:
+    def findMode(self, root: TreeNode) -> list[int]:
         def dfs(root):
             if root is None:
                 return
@@ -316,7 +316,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findMode(self, root: TreeNode) -> List[int]:
+    def findMode(self, root: TreeNode) -> list[int]:
         prev = None
         mx = cnt = 0
         ans = []

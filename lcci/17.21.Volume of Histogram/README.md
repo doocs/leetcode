@@ -58,7 +58,7 @@ difficulty: 困难
 
 ```python
 class Solution:
-    def trap(self, height: List[int]) -> int:
+    def trap(self, height: list[int]) -> int:
         n = len(height)
         if n < 3:
             return 0

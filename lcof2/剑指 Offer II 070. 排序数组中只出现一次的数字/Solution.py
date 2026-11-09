@@ -1,5 +1,5 @@
 class Solution:
-    def singleNonDuplicate(self, nums: List[int]) -> int:
+    def singleNonDuplicate(self, nums: list[int]) -> int:
         left, right = 0, len(nums) - 1
         while left < right:
             mid = (left + right) >> 1

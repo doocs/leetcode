@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, n: int, edges: List[List[int]], k: int) -> int:
+    def minCost(self, n: int, edges: list[list[int]], k: int) -> int:
         def check(idx: int) -> bool:
             g = [[] for _ in range(n)]
             for u, v, _ in edges[: idx + 1]:

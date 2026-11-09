@@ -1,5 +1,5 @@
 class ValidWordAbbr:
-    def __init__(self, dictionary: List[str]):
+    def __init__(self, dictionary: list[str]):
         self.d = defaultdict(set)
         for s in dictionary:
             self.d[self.abbr(s)].add(s)

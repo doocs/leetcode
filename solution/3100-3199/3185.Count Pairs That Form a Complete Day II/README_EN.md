@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is 
 
 ```python
 class Solution:
-    def countCompleteDayPairs(self, hours: List[int]) -> int:
+    def countCompleteDayPairs(self, hours: list[int]) -> int:
         cnt = Counter()
         ans = 0
         for x in hours:

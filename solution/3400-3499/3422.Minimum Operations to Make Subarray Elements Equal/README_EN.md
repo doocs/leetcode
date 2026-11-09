@@ -101,7 +101,7 @@ The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where 
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], k: int) -> int:
+    def minOperations(self, nums: list[int], k: int) -> int:
         l = SortedList()
         r = SortedList()
         s1 = s2 = 0

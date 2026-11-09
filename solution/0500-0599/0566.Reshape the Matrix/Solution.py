@@ -1,5 +1,5 @@
 class Solution:
-    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+    def matrixReshape(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         m, n = len(mat), len(mat[0])
         if m * n != r * c:
             return mat

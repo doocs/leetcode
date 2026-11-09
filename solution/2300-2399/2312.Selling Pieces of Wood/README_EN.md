@@ -101,7 +101,7 @@ The time complexity is $O(mn(m + n) + p)$, and the space complexity is $O(mn)$, 
 
 ```python
 class Solution:
-    def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
+    def sellingWood(self, m: int, n: int, prices: list[list[int]]) -> int:
         @cache
         def dfs(h: int, w: int) -> int:
             ans = d[h].get(w, 0)
@@ -281,7 +281,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
+    def sellingWood(self, m: int, n: int, prices: list[list[int]]) -> int:
         d = defaultdict(dict)
         for h, w, p in prices:
             d[h][w] = p

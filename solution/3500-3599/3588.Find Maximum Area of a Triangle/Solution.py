@@ -1,5 +1,5 @@
 class Solution:
-    def maxArea(self, coords: List[List[int]]) -> int:
+    def maxArea(self, coords: list[list[int]]) -> int:
         def calc() -> int:
             mn, mx = inf, 0
             f = {}

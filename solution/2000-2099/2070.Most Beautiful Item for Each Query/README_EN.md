@@ -100,7 +100,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
+    def maximumBeauty(self, items: list[list[int]], queries: list[int]) -> list[int]:
         items.sort()
         n, m = len(items), len(queries)
         ans = [0] * len(queries)
@@ -248,7 +248,7 @@ The time complexity is $O((m + n) \log n)$, and the space complexity is $O(n)$, 
 
 ```python
 class Solution:
-    def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
+    def maximumBeauty(self, items: list[list[int]], queries: list[int]) -> list[int]:
         items.sort()
         prices = [p for p, _ in items]
         n = len(items)

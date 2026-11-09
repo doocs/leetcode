@@ -1,5 +1,5 @@
 class Solution:
-    def treeDiameter(self, edges: List[List[int]]) -> int:
+    def treeDiameter(self, edges: list[list[int]]) -> int:
         def dfs(i: int, fa: int, t: int):
             for j in g[i]:
                 if j != fa:

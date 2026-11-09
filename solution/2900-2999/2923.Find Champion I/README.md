@@ -90,7 +90,7 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 
 ```python
 class Solution:
-    def findChampion(self, grid: List[List[int]]) -> int:
+    def findChampion(self, grid: list[list[int]]) -> int:
         for i, row in enumerate(grid):
             if all(x == 1 for j, x in enumerate(row) if i != j):
                 return i

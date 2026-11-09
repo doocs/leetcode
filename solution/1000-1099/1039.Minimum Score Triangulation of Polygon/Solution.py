@@ -1,5 +1,5 @@
 class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
+    def minScoreTriangulation(self, values: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i + 1 == j:

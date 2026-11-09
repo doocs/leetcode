@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def buildArray(self, nums: List[int]) -> List[int]:
+    def buildArray(self, nums: list[int]) -> list[int]:
         return [nums[num] for num in nums]
 ```
 

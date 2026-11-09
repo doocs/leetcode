@@ -1,6 +1,6 @@
 class Solution:
     def minCost(
-        self, houses: List[int], cost: List[List[int]], m: int, n: int, target: int
+        self, houses: list[int], cost: list[list[int]], m: int, n: int, target: int
     ) -> int:
         f = [[[inf] * (target + 1) for _ in range(n + 1)] for _ in range(m)]
         if houses[0] == 0:

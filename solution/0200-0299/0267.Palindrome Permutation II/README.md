@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def generatePalindromes(self, s: str) -> List[str]:
+    def generatePalindromes(self, s: str) -> list[str]:
         def dfs(t):
             if len(t) == len(s):
                 ans.append(t)

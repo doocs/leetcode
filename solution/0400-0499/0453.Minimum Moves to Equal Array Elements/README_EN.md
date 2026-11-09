@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minMoves(self, nums: List[int]) -> int:
+    def minMoves(self, nums: list[int]) -> int:
         return sum(nums) - min(nums) * len(nums)
 ```
 

@@ -1,5 +1,5 @@
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = Counter()
         ans = []
         for arr in nums:

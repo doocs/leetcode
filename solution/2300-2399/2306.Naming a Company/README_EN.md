@@ -105,7 +105,7 @@ The time complexity is $O(nm|\Sigma|)$, and the space complexity is $O(|\Sigma|^
 
 ```python
 class Solution:
-    def distinctNames(self, ideas: List[str]) -> int:
+    def distinctNames(self, ideas: list[str]) -> int:
         s = set(ideas)
         f = [[0] * 26 for _ in range(26)]
         for v in ideas:

@@ -134,8 +134,8 @@ The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where 
 ```python
 class Solution:
     def minimumTime(
-        self, n: int, edges: List[List[int]], disappear: List[int]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], disappear: list[int]
+    ) -> list[int]:
         g = defaultdict(list)
         for u, v, w in edges:
             g[u].append((v, w))

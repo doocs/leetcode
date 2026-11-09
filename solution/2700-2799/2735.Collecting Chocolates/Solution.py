@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, nums: List[int], x: int) -> int:
+    def minCost(self, nums: list[int], x: int) -> int:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         for i, v in enumerate(nums):

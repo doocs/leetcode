@@ -91,7 +91,7 @@ The time complexity is $O(\sqrt{m_1+m_2})$, where $m_1$ and $m_2$ are the sizes 
 
 ```python
 class Solution:
-    def memLeak(self, memory1: int, memory2: int) -> List[int]:
+    def memLeak(self, memory1: int, memory2: int) -> list[int]:
         i = 1
         while i <= max(memory1, memory2):
             if memory1 >= memory2:

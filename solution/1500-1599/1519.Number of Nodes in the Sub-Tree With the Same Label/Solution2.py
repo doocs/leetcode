@@ -1,5 +1,5 @@
 class Solution:
-    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+    def countSubTrees(self, n: int, edges: list[list[int]], labels: str) -> list[int]:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

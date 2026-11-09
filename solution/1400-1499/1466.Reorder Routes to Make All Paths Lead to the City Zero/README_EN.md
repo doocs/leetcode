@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         def dfs(a: int, fa: int) -> int:
             return sum(c + dfs(b, a) for b, c in g[a] if b != fa)
 
@@ -258,7 +258,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in connections:
             g[a].append((b, 1))
@@ -433,7 +433,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in connections:
             g[a].append((b, 1))

@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def tupleSameProduct(self, nums: List[int]) -> int:
+    def tupleSameProduct(self, nums: list[int]) -> int:
         cnt = defaultdict(int)
         for i in range(1, len(nums)):
             for j in range(i):

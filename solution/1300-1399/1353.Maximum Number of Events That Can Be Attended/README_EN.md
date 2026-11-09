@@ -89,7 +89,7 @@ The time complexity is $O(M \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxEvents(self, events: List[List[int]]) -> int:
+    def maxEvents(self, events: list[list[int]]) -> int:
         g = defaultdict(list)
         l, r = inf, 0
         for s, e in events:

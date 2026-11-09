@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0, 0] for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):

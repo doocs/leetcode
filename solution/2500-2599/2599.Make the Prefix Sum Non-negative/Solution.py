@@ -1,5 +1,5 @@
 class Solution:
-    def makePrefSumNonNegative(self, nums: List[int]) -> int:
+    def makePrefSumNonNegative(self, nums: list[int]) -> int:
         h = []
         ans = s = 0
         for x in nums:

@@ -1,5 +1,5 @@
 class Solution:
-    def specialPerm(self, nums: List[int]) -> int:
+    def specialPerm(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         n = len(nums)
         m = 1 << n

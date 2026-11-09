@@ -76,7 +76,7 @@ difficulty: 中等
 
 
 class Solution:
-    def listOfDepth(self, tree: TreeNode) -> List[ListNode]:
+    def listOfDepth(self, tree: TreeNode) -> list[ListNode]:
         ans = []
         q = deque([tree])
         while q:

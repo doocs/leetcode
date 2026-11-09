@@ -1,5 +1,5 @@
 class Solution:
-    def countSquares(self, matrix: List[List[int]]) -> int:
+    def countSquares(self, matrix: list[list[int]]) -> int:
         m, n = len(matrix), len(matrix[0])
         f = [[0] * n for _ in range(m)]
         ans = 0

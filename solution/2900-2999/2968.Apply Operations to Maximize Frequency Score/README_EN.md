@@ -118,7 +118,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxFrequencyScore(self, nums: List[int], k: int) -> int:
+    def maxFrequencyScore(self, nums: list[int], k: int) -> int:
         nums.sort()
         s = list(accumulate(nums, initial=0))
         n = len(nums)

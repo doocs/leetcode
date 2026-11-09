@@ -95,7 +95,7 @@ The time complexity is $O(mn 3^k)$, and the space complexity is $O(\min(mn, k))$
 
 ```python
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: list[list[str]], word: str) -> bool:
         def dfs(i: int, j: int, k: int) -> bool:
             if k == len(word) - 1:
                 return board[i][j] == word[k]

@@ -185,7 +185,7 @@ The time complexity is $O(n \log^2 M)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def maxValidSplits(self, nums: List[int]) -> int:
+    def maxValidSplits(self, nums: list[int]) -> int:
         n = len(nums)
 
         def calc(arr):

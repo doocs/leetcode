@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def distinctNumbers(self, nums: List[int], k: int) -> List[int]:
+    def distinctNumbers(self, nums: list[int], k: int) -> list[int]:
         cnt = Counter(nums[:k])
         ans = [len(cnt)]
         for i in range(k, len(nums)):

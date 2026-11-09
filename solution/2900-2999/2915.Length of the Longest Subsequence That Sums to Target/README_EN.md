@@ -96,7 +96,7 @@ The time complexity is $O(n \textit{target})$, and the space complexity is $O(n 
 
 ```python
 class Solution:
-    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+    def lengthOfLongestSubsequence(self, nums: list[int], target: int) -> int:
         n = len(nums)
         f = [[-inf] * (target + 1) for _ in range(n + 1)]
         f[0][0] = 0
@@ -231,7 +231,7 @@ $f[i][j]$ depends only on the previous row $f[i-1][\cdot]$, so the first dimensi
 
 ```python
 class Solution:
-    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+    def lengthOfLongestSubsequence(self, nums: list[int], target: int) -> int:
         f = [0] + [-inf] * target
         for x in nums:
             for j in range(target, x - 1, -1):

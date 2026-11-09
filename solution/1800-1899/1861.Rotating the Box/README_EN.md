@@ -114,7 +114,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def rotateTheBox(self, boxGrid: List[List[str]]) -> List[List[str]]:
+    def rotateTheBox(self, boxGrid: list[list[str]]) -> list[list[str]]:
         m, n = len(boxGrid), len(boxGrid[0])
         ans = [[None] * m for _ in range(n)]
         for i in range(m):

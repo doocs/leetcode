@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def pathInZigZagTree(self, label: int) -> List[int]:
+    def pathInZigZagTree(self, label: int) -> list[int]:
         x = i = 1
         while (x << 1) <= label:
             x <<= 1

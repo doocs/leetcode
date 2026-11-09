@@ -1,5 +1,5 @@
 class Solution:
-    def replaceNonCoprimes(self, nums: List[int]) -> List[int]:
+    def replaceNonCoprimes(self, nums: list[int]) -> list[int]:
         stk = []
         for x in nums:
             stk.append(x)

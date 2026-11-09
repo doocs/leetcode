@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def rearrangeArray(self, nums: List[int]) -> List[int]:
+    def rearrangeArray(self, nums: list[int]) -> list[int]:
         ans = [0] * len(nums)
         i, j = 0, 1
         for x in nums:

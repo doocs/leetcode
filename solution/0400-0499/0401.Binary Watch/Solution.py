@@ -1,5 +1,5 @@
 class Solution:
-    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+    def readBinaryWatch(self, turnedOn: int) -> list[str]:
         return [
             '{:d}:{:02d}'.format(i, j)
             for i in range(12)

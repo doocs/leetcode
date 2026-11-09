@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def closestMeetingNode(self, edges: List[int], node1: int, node2: int) -> int:
+    def closestMeetingNode(self, edges: list[int], node1: int, node2: int) -> int:
         def f(i):
             dist = [inf] * n
             dist[i] = 0

@@ -101,7 +101,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         s = list(accumulate(calories, initial=0))
         ans, n = 0, len(calories)
@@ -234,7 +234,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         def check(s):
             if s < lower:

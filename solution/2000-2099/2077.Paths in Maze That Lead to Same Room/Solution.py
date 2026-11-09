@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfPaths(self, n: int, corridors: List[List[int]]) -> int:
+    def numberOfPaths(self, n: int, corridors: list[list[int]]) -> int:
         g = defaultdict(set)
         for a, b in corridors:
             g[a].add(b)

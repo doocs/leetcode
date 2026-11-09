@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
+    def nearestExit(self, maze: list[list[str]], entrance: list[int]) -> int:
         m, n = len(maze), len(maze[0])
         i, j = entrance
         q = deque([(i, j)])

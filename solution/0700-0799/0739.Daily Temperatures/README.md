@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+    def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
         stk = []
         n = len(temperatures)
         ans = [0] * n

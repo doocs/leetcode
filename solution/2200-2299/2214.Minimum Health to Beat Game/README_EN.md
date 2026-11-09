@@ -101,7 +101,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumHealth(self, damage: List[int], armor: int) -> int:
+    def minimumHealth(self, damage: list[int], armor: int) -> int:
         return sum(damage) - min(max(damage), armor) + 1
 ```
 

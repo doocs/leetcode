@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-pnpm exec lint-staged --allow-empty $1
+pnpm exec lint-staged --allow-empty --max-arg-length 4000 $1

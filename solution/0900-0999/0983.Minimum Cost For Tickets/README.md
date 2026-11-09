@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+    def mincostTickets(self, days: list[int], costs: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:
@@ -276,7 +276,7 @@ function mincostTickets(days: number[], costs: number[]): number {
 
 ```python
 class Solution:
-    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+    def mincostTickets(self, days: list[int], costs: list[int]) -> int:
         m = days[-1]
         f = [0] * (m + 1)
         valid = [1, 7, 30]

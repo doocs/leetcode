@@ -1,5 +1,5 @@
 class Solution:
-    def singleNumbers(self, nums: List[int]) -> List[int]:
+    def singleNumbers(self, nums: list[int]) -> list[int]:
         xs = reduce(xor, nums)
         a = 0
         lb = xs & -xs

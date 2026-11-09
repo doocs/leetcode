@@ -114,7 +114,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumSum(self, grid: List[List[int]]) -> int:
+    def minimumSum(self, grid: list[list[int]]) -> int:
         def f(i1: int, j1: int, i2: int, j2: int) -> int:
             x1 = y1 = inf
             x2 = y2 = -inf

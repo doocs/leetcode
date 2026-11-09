@@ -93,7 +93,7 @@ The time complexity is $O(n \log k)$, where $n$ is the length of the array $\tex
 ```python
 class Solution:
     def containsNearbyAlmostDuplicate(
-        self, nums: List[int], indexDiff: int, valueDiff: int
+        self, nums: list[int], indexDiff: int, valueDiff: int
     ) -> bool:
         s = SortedSet()
         for i, v in enumerate(nums):

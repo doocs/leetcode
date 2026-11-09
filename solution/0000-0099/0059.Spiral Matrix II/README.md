@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def generateMatrix(self, n: int) -> List[List[int]]:
+    def generateMatrix(self, n: int) -> list[list[int]]:
         ans = [[0] * n for _ in range(n)]
         dirs = (0, 1, 0, -1, 0)
         i = j = k = 0

@@ -4,7 +4,7 @@ def min(a: int, b: int) -> int:
 
 class Trie:
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
 
     def insert(self, w: str):
         node = self
@@ -15,7 +15,7 @@ class Trie:
 
 
 class Solution:
-    def minValidStrings(self, words: List[str], target: str) -> int:
+    def minValidStrings(self, words: list[str], target: str) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:

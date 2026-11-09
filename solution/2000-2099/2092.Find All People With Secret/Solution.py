@@ -1,7 +1,7 @@
 class Solution:
     def findAllPeople(
-        self, n: int, meetings: List[List[int]], firstPerson: int
-    ) -> List[int]:
+        self, n: int, meetings: list[list[int]], firstPerson: int
+    ) -> list[int]:
         vis = [False] * n
         vis[0] = vis[firstPerson] = True
         meetings.sort(key=lambda x: x[2])

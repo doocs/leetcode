@@ -92,7 +92,7 @@ The time complexity is $O(m^2n)$, and the space complexity is $O(mn)$, where $m$
 
 ```python
 class Solution:
-    def numSubmat(self, mat: List[List[int]]) -> int:
+    def numSubmat(self, mat: list[list[int]]) -> int:
         m, n = len(mat), len(mat[0])
         g = [[0] * n for _ in range(m)]
         for i in range(m):
@@ -335,7 +335,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numSubmat(self, mat: List[List[int]]) -> int:
+    def numSubmat(self, mat: list[list[int]]) -> int:
         m, n = len(mat), len(mat[0])
         g = [[0] * n for _ in range(m)]
         for i in range(m):

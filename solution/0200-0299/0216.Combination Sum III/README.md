@@ -99,7 +99,7 @@ tags:
 
 ```python
 class Solution:
-    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 if len(t) == k:
@@ -356,7 +356,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 if len(t) == k:
@@ -588,7 +588,7 @@ public class Solution {
 
 ```python
 class Solution:
-    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         ans = []
         for mask in range(1 << 9):
             if mask.bit_count() == k:

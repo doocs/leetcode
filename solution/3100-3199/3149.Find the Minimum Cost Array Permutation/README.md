@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def findPermutation(self, nums: List[int]) -> List[int]:
+    def findPermutation(self, nums: list[int]) -> list[int]:
         @cache
         def dfs(mask: int, pre: int) -> int:
             if mask == (1 << n) - 1:

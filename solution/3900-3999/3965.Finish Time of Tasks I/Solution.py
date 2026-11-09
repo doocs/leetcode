@@ -1,5 +1,5 @@
 class Solution:
-    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+    def finishTime(self, n: int, edges: list[list[int]], baseTime: list[int]) -> int:
         def dfs(i: int) -> int:
             if not g[i]:
                 return baseTime[i]

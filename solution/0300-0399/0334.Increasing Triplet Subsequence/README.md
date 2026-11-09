@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def increasingTriplet(self, nums: List[int]) -> bool:
+    def increasingTriplet(self, nums: list[int]) -> bool:
         mi, mid = inf, inf
         for num in nums:
             if num > mid:

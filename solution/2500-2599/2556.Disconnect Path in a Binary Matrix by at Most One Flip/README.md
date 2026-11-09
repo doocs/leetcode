@@ -95,7 +95,7 @@ tags:
 
 ```python
 class Solution:
-    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+    def isPossibleToCutPath(self, grid: list[list[int]]) -> bool:
         def dfs(i, j):
             if i >= m or j >= n or grid[i][j] == 0:
                 return False
@@ -248,7 +248,7 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 ```python
 class Solution:
-    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+    def isPossibleToCutPath(self, grid: list[list[int]]) -> bool:
         def dfs() -> bool:
             stk = [(0, 0)]
             while stk:

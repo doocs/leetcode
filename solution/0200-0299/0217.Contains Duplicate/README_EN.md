@@ -92,7 +92,7 @@ The time complexity is $O(n \log n)$, where $n$ is the length of the array $\tex
 
 ```python
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums: list[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
 
@@ -258,7 +258,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums: list[int]) -> bool:
         return len(set(nums)) < len(nums)
 ```
 

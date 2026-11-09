@@ -163,7 +163,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ rep
 
 ```python
 class Solution:
-    def maxCoins(self, lane1: List[int], lane2: List[int]) -> int:
+    def maxCoins(self, lane1: list[int], lane2: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= n:
@@ -365,7 +365,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ rep
 
 ```python
 class Solution:
-    def maxCoins(self, lane1: List[int], lane2: List[int]) -> int:
+    def maxCoins(self, lane1: list[int], lane2: list[int]) -> int:
         n = len(lane1)
         lanes = (lane1, lane2)
         f = [[[0] * 3 for _ in range(2)] for _ in range(n + 1)]

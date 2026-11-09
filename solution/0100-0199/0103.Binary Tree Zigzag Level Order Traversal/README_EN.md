@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         ans = []
         if root is None:
             return ans

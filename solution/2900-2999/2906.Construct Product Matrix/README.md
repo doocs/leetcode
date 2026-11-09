@@ -95,7 +95,7 @@ p[2][0] = grid[0][0] * grid[1][0] = 12345 * 2 = 24690. 24690 % 12345 = 0 ，所�
 
 ```python
 class Solution:
-    def constructProductMatrix(self, grid: List[List[int]]) -> List[List[int]]:
+    def constructProductMatrix(self, grid: list[list[int]]) -> list[list[int]]:
         n, m = len(grid), len(grid[0])
         p = [[0] * m for _ in range(n)]
         mod = 12345

@@ -1,6 +1,6 @@
 class Solution:
-    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
-        def dfs(a: int, fa: int) -> List[int]:
+    def placedCoins(self, edges: list[list[int]], cost: list[int]) -> list[int]:
+        def dfs(a: int, fa: int) -> list[int]:
             res = [cost[a]]
             for b in g[a]:
                 if b != fa:

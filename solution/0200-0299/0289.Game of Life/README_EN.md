@@ -99,7 +99,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def gameOfLife(self, board: List[List[int]]) -> None:
+    def gameOfLife(self, board: list[list[int]]) -> None:
         m, n = len(board), len(board[0])
         for i in range(m):
             for j in range(n):

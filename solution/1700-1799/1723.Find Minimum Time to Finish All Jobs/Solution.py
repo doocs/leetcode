@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTimeRequired(self, jobs: List[int], k: int) -> int:
+    def minimumTimeRequired(self, jobs: list[int], k: int) -> int:
         def dfs(i):
             nonlocal ans
             if i == len(jobs):

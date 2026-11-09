@@ -109,7 +109,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def taskSchedulerII(self, tasks: List[int], space: int) -> int:
+    def taskSchedulerII(self, tasks: list[int], space: int) -> int:
         day = defaultdict(int)
         ans = 0
         for task in tasks:

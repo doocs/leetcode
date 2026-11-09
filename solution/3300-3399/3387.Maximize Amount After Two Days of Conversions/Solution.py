@@ -2,17 +2,17 @@ class Solution:
     def maxAmount(
         self,
         initialCurrency: str,
-        pairs1: List[List[str]],
-        rates1: List[float],
-        pairs2: List[List[str]],
-        rates2: List[float],
+        pairs1: list[list[str]],
+        rates1: list[float],
+        pairs2: list[list[str]],
+        rates2: list[float],
     ) -> float:
         d1 = self.build(pairs1, rates1, initialCurrency)
         d2 = self.build(pairs2, rates2, initialCurrency)
         return max(d1.get(a, 0) / r2 for a, r2 in d2.items())
 
     def build(
-        self, pairs: List[List[str]], rates: List[float], init: str
+        self, pairs: list[list[str]], rates: list[float], init: str
     ) -> Dict[str, float]:
         def dfs(a: str, v: float):
             d[a] = v

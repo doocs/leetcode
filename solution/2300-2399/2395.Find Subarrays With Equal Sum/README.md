@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def findSubarrays(self, nums: List[int]) -> bool:
+    def findSubarrays(self, nums: list[int]) -> bool:
         vis = set()
         for a, b in pairwise(nums):
             if (x := a + b) in vis:

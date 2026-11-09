@@ -98,7 +98,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def minimumOperationsToWriteY(self, grid: List[List[int]]) -> int:
+    def minimumOperationsToWriteY(self, grid: list[list[int]]) -> int:
         n = len(grid)
         cnt1 = Counter()
         cnt2 = Counter()

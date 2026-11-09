@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
+    def maxPoints(self, grid: list[list[int]], queries: list[int]) -> list[int]:
         m, n = len(grid), len(grid[0])
         qs = sorted((v, i) for i, v in enumerate(queries))
         ans = [0] * len(qs)

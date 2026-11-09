@@ -123,7 +123,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], target: List[int]) -> int:
+    def minOperations(self, nums: list[int], target: list[int]) -> int:
         s = {x for x, y in zip(nums, target) if x != y}
         return len(s)
 ```

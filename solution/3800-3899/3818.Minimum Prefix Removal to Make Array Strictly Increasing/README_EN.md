@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumPrefixLength(self, nums: List[int]) -> int:
+    def minimumPrefixLength(self, nums: list[int]) -> int:
         for i in range(len(nums) - 1, 0, -1):
             if nums[i - 1] >= nums[i]:
                 return i

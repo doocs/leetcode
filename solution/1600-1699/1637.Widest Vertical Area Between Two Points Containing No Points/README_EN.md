@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
+    def maxWidthOfVerticalArea(self, points: list[list[int]]) -> int:
         points.sort()
         return max(b[0] - a[0] for a, b in pairwise(points))
 ```
@@ -178,7 +178,7 @@ var maxWidthOfVerticalArea = function (points) {
 
 ```python
 class Solution:
-    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
+    def maxWidthOfVerticalArea(self, points: list[list[int]]) -> int:
         nums = [x for x, _ in points]
         n = len(nums)
         mi, mx = min(nums), max(nums)

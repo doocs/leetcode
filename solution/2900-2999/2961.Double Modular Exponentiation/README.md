@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def getGoodIndices(self, variables: List[List[int]], target: int) -> List[int]:
+    def getGoodIndices(self, variables: list[list[int]], target: int) -> list[int]:
         return [
             i
             for i, (a, b, c, m) in enumerate(variables)

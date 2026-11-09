@@ -76,8 +76,8 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 ```python
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, newColor: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, newColor: int
+    ) -> list[list[int]]:
         def dfs(i, j):
             if (
                 not 0 <= i < m
@@ -294,8 +294,8 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 ```python
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, newColor: int
-    ) -> List[List[int]]:
+        self, image: list[list[int]], sr: int, sc: int, newColor: int
+    ) -> list[list[int]]:
         if image[sr][sc] == newColor:
             return image
         q = deque([(sr, sc)])

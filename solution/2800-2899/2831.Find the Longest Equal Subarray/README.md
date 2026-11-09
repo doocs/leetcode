@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+    def longestEqualSubarray(self, nums: list[int], k: int) -> int:
         cnt = Counter()
         l = 0
         mx = 0
@@ -210,7 +210,7 @@ function longestEqualSubarray(nums: number[], k: number): number {
 
 ```python
 class Solution:
-    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+    def longestEqualSubarray(self, nums: list[int], k: int) -> int:
         g = defaultdict(list)
         for i, x in enumerate(nums):
             g[x].append(i)

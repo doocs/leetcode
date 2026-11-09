@@ -1,5 +1,5 @@
 class Solution:
-    def findLongestChain(self, pairs: List[List[int]]) -> int:
+    def findLongestChain(self, pairs: list[list[int]]) -> int:
         pairs.sort(key=lambda x: x[1])
         ans, pre = 0, -inf
         for a, b in pairs:

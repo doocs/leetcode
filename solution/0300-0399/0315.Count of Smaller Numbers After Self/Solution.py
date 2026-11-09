@@ -21,7 +21,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def countSmaller(self, nums: List[int]) -> List[int]:
+    def countSmaller(self, nums: list[int]) -> list[int]:
         alls = sorted(set(nums))
         m = {v: i for i, v in enumerate(alls, 1)}
         tree = BinaryIndexedTree(len(m))

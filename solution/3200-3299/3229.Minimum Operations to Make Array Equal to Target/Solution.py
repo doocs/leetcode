@@ -1,5 +1,5 @@
 class Solution:
-    def minimumOperations(self, nums: List[int], target: List[int]) -> int:
+    def minimumOperations(self, nums: list[int], target: list[int]) -> int:
         n = len(nums)
         f = abs(target[0] - nums[0])
         for i in range(1, n):

@@ -120,7 +120,7 @@ tags:
 
 ```python
 class Solution:
-    def avoidFlood(self, rains: List[int]) -> List[int]:
+    def avoidFlood(self, rains: list[int]) -> list[int]:
         n = len(rains)
         ans = [-1] * n
         sunny = SortedList()

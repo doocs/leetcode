@@ -113,7 +113,7 @@ tags:
 
 ```python
 class Solution:
-    def wordCount(self, startWords: List[str], targetWords: List[str]) -> int:
+    def wordCount(self, startWords: list[str], targetWords: list[str]) -> int:
         s = {sum(1 << (ord(c) - 97) for c in w) for w in startWords}
         ans = 0
         for w in targetWords:

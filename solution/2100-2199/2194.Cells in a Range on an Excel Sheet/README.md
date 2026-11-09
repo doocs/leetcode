@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def cellsInRange(self, s: str) -> List[str]:
+    def cellsInRange(self, s: str) -> list[str]:
         return [
             chr(i) + str(j)
             for i in range(ord(s[0]), ord(s[-2]) + 1)

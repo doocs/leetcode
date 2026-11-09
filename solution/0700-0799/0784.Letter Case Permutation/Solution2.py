@@ -1,5 +1,5 @@
 class Solution:
-    def letterCasePermutation(self, s: str) -> List[str]:
+    def letterCasePermutation(self, s: str) -> list[str]:
         ans = []
         n = sum(c.isalpha() for c in s)
         for i in range(1 << n):

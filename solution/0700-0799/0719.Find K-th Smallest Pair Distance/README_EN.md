@@ -85,7 +85,7 @@ Then the 1<sup>st</sup> smallest distance pair is (1,1), and its distance is 0.
 
 ```python
 class Solution:
-    def smallestDistancePair(self, nums: List[int], k: int) -> int:
+    def smallestDistancePair(self, nums: list[int], k: int) -> int:
         def count(dist):
             cnt = 0
             for i, b in enumerate(nums):

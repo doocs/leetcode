@@ -106,7 +106,7 @@ comments: true
 #         self.left = left
 #         self.right = right
 class Solution:
-    def largestValues(self, root: TreeNode) -> List[int]:
+    def largestValues(self, root: TreeNode) -> list[int]:
         if root is None:
             return []
         q = deque([root])

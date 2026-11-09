@@ -1,5 +1,5 @@
 class Solution:
-    def numOfWays(self, nums: List[int]) -> int:
+    def numOfWays(self, nums: list[int]) -> int:
         def dfs(nums):
             if len(nums) < 2:
                 return 1

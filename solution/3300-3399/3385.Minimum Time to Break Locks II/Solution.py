@@ -15,8 +15,8 @@ class MCFGraph:
 
     def __init__(self, n: int) -> None:
         self._n = n
-        self._g: List[List[MCFGraph._Edge]] = [[] for _ in range(n)]
-        self._edges: List[MCFGraph._Edge] = []
+        self._g: list[list[MCFGraph._Edge]] = [[] for _ in range(n)]
+        self._edges: list[MCFGraph._Edge] = []
 
     def add_edge(self, src: int, dst: int, cap: int, cost: int) -> int:
         assert 0 <= src < self._n
@@ -38,7 +38,7 @@ class MCFGraph:
         re = cast(MCFGraph._Edge, e.rev)
         return MCFGraph.Edge(re.dst, e.dst, e.cap + re.cap, re.cap, e.cost)
 
-    def edges(self) -> List[Edge]:
+    def edges(self) -> list[Edge]:
         return [self.get_edge(i) for i in range(len(self._edges))]
 
     def flow(self, s: int, t: int, flow_limit: Optional[int] = None) -> Tuple[int, int]:
@@ -46,7 +46,7 @@ class MCFGraph:
 
     def slope(
         self, s: int, t: int, flow_limit: Optional[int] = None
-    ) -> List[Tuple[int, int]]:
+    ) -> list[Tuple[int, int]]:
         assert 0 <= s < self._n
         assert 0 <= t < self._n
         assert s != t
@@ -54,12 +54,12 @@ class MCFGraph:
             flow_limit = cast(int, sum(e.cap for e in self._g[s]))
 
         dual = [0] * self._n
-        prev: List[Optional[Tuple[int, MCFGraph._Edge]]] = [None] * self._n
+        prev: list[Optional[Tuple[int, MCFGraph._Edge]]] = [None] * self._n
 
         def refine_dual() -> bool:
             pq = [(0, s)]
             visited = [False] * self._n
-            dist: List[Optional[int]] = [None] * self._n
+            dist: list[Optional[int]] = [None] * self._n
             dist[s] = 0
             while pq:
                 dist_v, v = heappop(pq)
@@ -119,7 +119,7 @@ class MCFGraph:
 
 
 class Solution:
-    def findMinimumTime(self, a: List[int]) -> int:
+    def findMinimumTime(self, a: list[int]) -> int:
         n = len(a)
         s = n * 2
         t = s + 1

@@ -101,8 +101,8 @@ tags:
 
 ```python
 class Solution:
-    def judgePoint24(self, cards: List[int]) -> bool:
-        def dfs(nums: List[float]):
+    def judgePoint24(self, cards: list[int]) -> bool:
+        def dfs(nums: list[float]):
             n = len(nums)
             if n == 1:
                 if abs(nums[0] - 24) < 1e-6:

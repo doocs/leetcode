@@ -1,5 +1,5 @@
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
         n = len(cost)
         f = [0] * (n + 2)
         for i in range(n - 1, -1, -1):

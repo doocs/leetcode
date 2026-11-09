@@ -80,7 +80,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> list[float]:
         q = deque([root])
         ans = []
         while q:
@@ -335,7 +335,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> list[float]:
         def dfs(root, i):
             if root is None:
                 return

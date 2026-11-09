@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumCost(self, nums: List[int], k: int, dist: int) -> int:
+    def minimumCost(self, nums: list[int], k: int, dist: int) -> int:
         def l2r():
             nonlocal s
             x = l.pop()

@@ -112,7 +112,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def minimumSumSubarray(self, nums: List[int], l: int, r: int) -> int:
+    def minimumSumSubarray(self, nums: list[int], l: int, r: int) -> int:
         n = len(nums)
         ans = inf
         for i in range(n):

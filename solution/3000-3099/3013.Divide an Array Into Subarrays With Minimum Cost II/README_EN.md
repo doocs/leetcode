@@ -106,7 +106,7 @@ The time complexity is $O(n \log \textit{dist})$, and the space complexity is $O
 
 ```python
 class Solution:
-    def minimumCost(self, nums: List[int], k: int, dist: int) -> int:
+    def minimumCost(self, nums: list[int], k: int, dist: int) -> int:
         def l2r():
             nonlocal s
             x = l.pop()

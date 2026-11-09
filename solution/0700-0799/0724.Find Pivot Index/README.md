@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def pivotIndex(self, nums: List[int]) -> int:
+    def pivotIndex(self, nums: list[int]) -> int:
         left, right = 0, sum(nums)
         for i, x in enumerate(nums):
             right -= x

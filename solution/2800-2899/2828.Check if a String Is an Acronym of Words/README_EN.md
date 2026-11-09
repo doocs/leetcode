@@ -88,7 +88,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def isAcronym(self, words: List[str], s: str) -> bool:
+    def isAcronym(self, words: list[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
 ```
 
@@ -185,7 +185,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def isAcronym(self, words: List[str], s: str) -> bool:
+    def isAcronym(self, words: list[str], s: str) -> bool:
         return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
 

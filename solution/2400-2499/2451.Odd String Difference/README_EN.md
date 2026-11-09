@@ -88,7 +88,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m
 
 ```python
 class Solution:
-    def oddString(self, words: List[str]) -> str:
+    def oddString(self, words: list[str]) -> str:
         d = defaultdict(list)
         for s in words:
             t = tuple(ord(b) - ord(a) for a, b in pairwise(s))

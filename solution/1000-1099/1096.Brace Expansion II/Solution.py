@@ -1,5 +1,5 @@
 class Solution:
-    def braceExpansionII(self, expression: str) -> List[str]:
+    def braceExpansionII(self, expression: str) -> list[str]:
         def dfs(exp):
             j = exp.find('}')
             if j == -1:

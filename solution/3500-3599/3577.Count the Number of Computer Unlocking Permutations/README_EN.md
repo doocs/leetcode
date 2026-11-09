@@ -115,7 +115,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def countPermutations(self, complexity: List[int]) -> int:
+    def countPermutations(self, complexity: list[int]) -> int:
         mod = 10**9 + 7
         ans = 1
         for i in range(1, len(complexity)):

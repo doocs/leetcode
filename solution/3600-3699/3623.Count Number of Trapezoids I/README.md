@@ -110,7 +110,7 @@ tags:
 
 ```python
 class Solution:
-    def countTrapezoids(self, points: List[List[int]]) -> int:
+    def countTrapezoids(self, points: list[list[int]]) -> int:
         mod = 10**9 + 7
         cnt = Counter(p[1] for p in points)
         ans = s = 0

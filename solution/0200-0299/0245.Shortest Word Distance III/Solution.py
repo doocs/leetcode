@@ -1,5 +1,5 @@
 class Solution:
-    def shortestWordDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
+    def shortestWordDistance(self, wordsDict: list[str], word1: str, word2: str) -> int:
         ans = len(wordsDict)
         if word1 == word2:
             j = -1

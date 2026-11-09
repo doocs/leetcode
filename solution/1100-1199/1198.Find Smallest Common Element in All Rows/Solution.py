@@ -1,5 +1,5 @@
 class Solution:
-    def smallestCommonElement(self, mat: List[List[int]]) -> int:
+    def smallestCommonElement(self, mat: list[list[int]]) -> int:
         cnt = Counter()
         for row in mat:
             for x in row:

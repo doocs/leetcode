@@ -1,5 +1,5 @@
 class Solution:
-    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+    def restoreArray(self, adjacentPairs: list[list[int]]) -> list[int]:
         g = defaultdict(list)
         for a, b in adjacentPairs:
             g[a].append(b)

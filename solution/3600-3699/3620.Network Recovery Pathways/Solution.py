@@ -1,6 +1,6 @@
 class Solution:
     def findMaxPathScore(
-        self, edges: List[List[int]], online: List[bool], k: int
+        self, edges: list[list[int]], online: list[bool], k: int
     ) -> int:
         def check(mid: int) -> int:
             dist = [inf] * n

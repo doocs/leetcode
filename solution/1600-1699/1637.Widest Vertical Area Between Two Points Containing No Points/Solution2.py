@@ -1,5 +1,5 @@
 class Solution:
-    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
+    def maxWidthOfVerticalArea(self, points: list[list[int]]) -> int:
         nums = [x for x, _ in points]
         n = len(nums)
         mi, mx = min(nums), max(nums)

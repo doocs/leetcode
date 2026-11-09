@@ -109,7 +109,7 @@ strs 的列已经是按字典序排列了，所以我们不需要删除任何东
 
 ```python
 class Solution:
-    def minDeletionSize(self, strs: List[str]) -> int:
+    def minDeletionSize(self, strs: list[str]) -> int:
         n = len(strs)
         m = len(strs[0])
         st = [False] * (n - 1)

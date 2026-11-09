@@ -114,7 +114,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minimumMoves(self, nums: List[int], k: int, maxChanges: int) -> int:
+    def minimumMoves(self, nums: list[int], k: int, maxChanges: int) -> int:
         n = len(nums)
         cnt = [0] * (n + 1)
         s = [0] * (n + 1)

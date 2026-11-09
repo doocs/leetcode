@@ -1,5 +1,5 @@
 class Solution:
-    def arrayNesting(self, nums: List[int]) -> int:
+    def arrayNesting(self, nums: list[int]) -> int:
         n = len(nums)
         vis = [False] * n
         res = 0

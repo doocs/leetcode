@@ -99,7 +99,7 @@ tags:
 ```python
 class Solution:
     def minRefuelStops(
-        self, target: int, startFuel: int, stations: List[List[int]]
+        self, target: int, startFuel: int, stations: list[list[int]]
     ) -> int:
         pq = []
         ans = pre = 0

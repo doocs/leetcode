@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+    def getCoprimes(self, nums: list[int], edges: list[list[int]]) -> list[int]:
         def dfs(i, fa, depth):
             t = k = -1
             for v in f[nums[i]]:
@@ -323,7 +323,7 @@ func gcd(a, b int) int {
 
 ```python
 class Solution:
-    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+    def getCoprimes(self, nums: list[int], edges: list[list[int]]) -> list[int]:
         n = len(nums)
         g = [[] for _ in range(n)]
         for u, v in edges:

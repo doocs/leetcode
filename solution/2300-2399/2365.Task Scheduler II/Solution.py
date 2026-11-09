@@ -1,5 +1,5 @@
 class Solution:
-    def taskSchedulerII(self, tasks: List[int], space: int) -> int:
+    def taskSchedulerII(self, tasks: list[int], space: int) -> int:
         day = defaultdict(int)
         ans = 0
         for task in tasks:

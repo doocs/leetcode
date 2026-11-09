@@ -1,5 +1,5 @@
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
+    def moveZeroes(self, nums: list[int]) -> None:
         k = 0
         for i, x in enumerate(nums):
             if x:

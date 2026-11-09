@@ -86,7 +86,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(D)$, where 
 
 ```python
 class Solution:
-    def maximumSum(self, nums: List[int]) -> int:
+    def maximumSum(self, nums: list[int]) -> int:
         d = defaultdict(int)
         ans = -1
         for v in nums:

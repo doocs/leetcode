@@ -1,6 +1,6 @@
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         def check(s):
             if s < lower:

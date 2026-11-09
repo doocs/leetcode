@@ -95,7 +95,7 @@ The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$
 
 ```python
 class Solution:
-    def circularPermutation(self, n: int, start: int) -> List[int]:
+    def circularPermutation(self, n: int, start: int) -> list[int]:
         g = [i ^ (i >> 1) for i in range(1 << n)]
         j = g.index(start)
         return g[j:] + g[:j]
@@ -202,7 +202,7 @@ The time complexity is $O(2^n)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def circularPermutation(self, n: int, start: int) -> List[int]:
+    def circularPermutation(self, n: int, start: int) -> list[int]:
         return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
 

@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is 
 class Solution:
     def splitListToParts(
         self, head: Optional[ListNode], k: int
-    ) -> List[Optional[ListNode]]:
+    ) -> list[Optional[ListNode]]:
         n = 0
         cur = head
         while cur:

@@ -125,7 +125,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxFrequency(self, nums: List[int], k: int, numOperations: int) -> int:
+    def maxFrequency(self, nums: list[int], k: int, numOperations: int) -> int:
         cnt = defaultdict(int)
         d = defaultdict(int)
         for x in nums:

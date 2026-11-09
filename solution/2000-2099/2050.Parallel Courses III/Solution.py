@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTime(self, n: int, relations: List[List[int]], time: List[int]) -> int:
+    def minimumTime(self, n: int, relations: list[list[int]], time: list[int]) -> int:
         g = defaultdict(list)
         indeg = [0] * n
         for a, b in relations:

@@ -104,7 +104,7 @@ X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「�
 
 ```python
 class Solution:
-    def rankTeams(self, votes: List[str]) -> str:
+    def rankTeams(self, votes: list[str]) -> str:
         m = len(votes[0])
         cnt = defaultdict(lambda: [0] * m)
         for vote in votes:

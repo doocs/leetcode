@@ -169,7 +169,7 @@ class UnionFind:
 
 
 class Solution:
-    def maxStability(self, n: int, edges: List[List[int]], k: int) -> int:
+    def maxStability(self, n: int, edges: list[list[int]], k: int) -> int:
         def check(lim: int) -> bool:
             uf = UnionFind(n)
             for u, v, s, _ in edges:

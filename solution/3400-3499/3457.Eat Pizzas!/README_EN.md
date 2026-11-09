@@ -110,7 +110,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxWeight(self, pizzas: List[int]) -> int:
+    def maxWeight(self, pizzas: list[int]) -> int:
         days = len(pizzas) // 4
         pizzas.sort()
         odd = (days + 1) // 2

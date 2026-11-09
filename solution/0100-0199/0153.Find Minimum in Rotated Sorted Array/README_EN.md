@@ -95,7 +95,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def findMin(self, nums: List[int]) -> int:
+    def findMin(self, nums: list[int]) -> int:
         l, r = 0, len(nums) - 1
         while l < r:
             mid = (l + r) >> 1

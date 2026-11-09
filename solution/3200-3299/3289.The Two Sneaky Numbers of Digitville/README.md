@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+    def getSneakyNumbers(self, nums: list[int]) -> list[int]:
         cnt = Counter(nums)
         return [x for x, v in cnt.items() if v == 2]
 ```
@@ -232,7 +232,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+    def getSneakyNumbers(self, nums: list[int]) -> list[int]:
         n = len(nums) - 2
         xx = nums[n] ^ nums[n + 1]
         for i in range(n):

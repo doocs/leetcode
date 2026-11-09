@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def countCompleteComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countCompleteComponents(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> (int, int):
             vis[i] = True
             x, y = 1, len(g[i])

@@ -84,7 +84,7 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 
 ```python
 class Solution:
-    def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
+    def getSumAbsoluteDifferences(self, nums: list[int]) -> list[int]:
         ans = []
         s, t = sum(nums), 0
         for i, x in enumerate(nums):

@@ -1,5 +1,5 @@
 class Solution:
-    def maxRotateFunction(self, nums: List[int]) -> int:
+    def maxRotateFunction(self, nums: list[int]) -> int:
         f = sum(i * v for i, v in enumerate(nums))
         n, s = len(nums), sum(nums)
         ans = f

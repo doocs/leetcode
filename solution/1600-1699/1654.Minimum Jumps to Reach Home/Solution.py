@@ -1,5 +1,5 @@
 class Solution:
-    def minimumJumps(self, forbidden: List[int], a: int, b: int, x: int) -> int:
+    def minimumJumps(self, forbidden: list[int], a: int, b: int, x: int) -> int:
         s = set(forbidden)
         q = deque([(0, 1)])
         vis = {(0, 1)}

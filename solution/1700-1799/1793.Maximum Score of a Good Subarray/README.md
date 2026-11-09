@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumScore(self, nums: List[int], k: int) -> int:
+    def maximumScore(self, nums: list[int], k: int) -> int:
         n = len(nums)
         left = [-1] * n
         right = [n] * n

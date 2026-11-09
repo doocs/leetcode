@@ -1,5 +1,5 @@
 class Solution:
-    def countNicePairs(self, nums: List[int]) -> int:
+    def countNicePairs(self, nums: list[int]) -> int:
         def rev(x):
             y = 0
             while x:

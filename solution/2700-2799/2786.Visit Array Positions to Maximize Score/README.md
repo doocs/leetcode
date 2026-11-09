@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int], x: int) -> int:
+    def maxScore(self, nums: list[int], x: int) -> int:
         f = [-inf] * 2
         f[nums[0] & 1] = nums[0]
         for v in nums[1:]:

@@ -98,7 +98,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 ```python
 class Solution:
     def minSumSquareDiff(
-        self, nums1: List[int], nums2: List[int], k1: int, k2: int
+        self, nums1: list[int], nums2: list[int], k1: int, k2: int
     ) -> int:
         k = k1 + k2
         s = mx = 0

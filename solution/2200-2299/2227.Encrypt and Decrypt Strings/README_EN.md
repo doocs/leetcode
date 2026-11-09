@@ -118,7 +118,7 @@ The space complexity is $O(n + m)$.
 
 ```python
 class Encrypter:
-    def __init__(self, keys: List[str], values: List[str], dictionary: List[str]):
+    def __init__(self, keys: list[str], values: list[str], dictionary: list[str]):
         self.mp = dict(zip(keys, values))
         self.cnt = Counter(self.encrypt(v) for v in dictionary)
 

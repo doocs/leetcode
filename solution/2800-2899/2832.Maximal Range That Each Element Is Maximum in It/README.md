@@ -87,7 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumLengthOfRanges(self, nums: List[int]) -> List[int]:
+    def maximumLengthOfRanges(self, nums: list[int]) -> list[int]:
         n = len(nums)
         left = [-1] * n
         right = [n] * n

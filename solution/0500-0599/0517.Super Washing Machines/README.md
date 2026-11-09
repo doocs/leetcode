@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def findMinMoves(self, machines: List[int]) -> int:
+    def findMinMoves(self, machines: list[int]) -> int:
         n = len(machines)
         k, mod = divmod(sum(machines), n)
         if mod:

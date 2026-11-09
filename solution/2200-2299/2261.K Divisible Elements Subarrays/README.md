@@ -103,7 +103,7 @@ nums 中的所有元素都可以被 p = 1 整除。
 
 ```python
 class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+    def countDistinct(self, nums: list[int], k: int, p: int) -> int:
         s = set()
         n = len(nums)
         base1, base2 = 131, 13331
@@ -249,7 +249,7 @@ function countDistinct(nums: number[], k: number, p: number): number {
 
 ```python
 class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+    def countDistinct(self, nums: list[int], k: int, p: int) -> int:
         n = len(nums)
         s = set()
         for i in range(n):

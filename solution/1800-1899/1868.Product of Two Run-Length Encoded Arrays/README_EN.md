@@ -92,8 +92,8 @@ prodNums = [2,2,2,6,9,9], which is compressed into the run-length encoded array 
 ```python
 class Solution:
     def findRLEArray(
-        self, encoded1: List[List[int]], encoded2: List[List[int]]
-    ) -> List[List[int]]:
+        self, encoded1: list[list[int]], encoded2: list[list[int]]
+    ) -> list[list[int]]:
         ans = []
         j = 0
         for vi, fi in encoded1:

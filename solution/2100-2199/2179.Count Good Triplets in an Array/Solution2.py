@@ -48,7 +48,7 @@ class SegmentTree:
 
 
 class Solution:
-    def goodTriplets(self, nums1: List[int], nums2: List[int]) -> int:
+    def goodTriplets(self, nums1: list[int], nums2: list[int]) -> int:
         pos = {v: i for i, v in enumerate(nums2, 1)}
         ans = 0
         n = len(nums1)

@@ -102,7 +102,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$
 #         pass
 class Solution:
     def findPattern(
-        self, stream: Optional["InfiniteStream"], pattern: List[int]
+        self, stream: Optional["InfiniteStream"], pattern: list[int]
     ) -> int:
         a = b = 0
         m = len(pattern)

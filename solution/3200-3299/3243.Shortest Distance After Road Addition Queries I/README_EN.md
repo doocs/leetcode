@@ -113,8 +113,8 @@ The time complexity is $O(q(n + q))$, and the space complexity is $O(n + q)$, wh
 ```python
 class Solution:
     def shortestDistanceAfterQueries(
-        self, n: int, queries: List[List[int]]
-    ) -> List[int]:
+        self, n: int, queries: list[list[int]]
+    ) -> list[int]:
         def bfs(i: int) -> int:
             q = deque([i])
             vis = [False] * n

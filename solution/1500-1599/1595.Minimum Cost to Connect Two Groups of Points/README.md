@@ -123,7 +123,7 @@ $$
 
 ```python
 class Solution:
-    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+    def connectTwoGroups(self, cost: list[list[int]]) -> int:
         m, n = len(cost), len(cost[0])
         f = [[inf] * (1 << n) for _ in range(m + 1)]
         f[0][0] = 0
@@ -302,7 +302,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+    def connectTwoGroups(self, cost: list[list[int]]) -> int:
         m, n = len(cost), len(cost[0])
         f = [inf] * (1 << n)
         f[0] = 0

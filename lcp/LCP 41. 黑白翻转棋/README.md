@@ -88,7 +88,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def flipChess(self, chessboard: List[str]) -> int:
+    def flipChess(self, chessboard: list[str]) -> int:
         def bfs(i: int, j: int) -> int:
             q = deque([(i, j)])
             g = [list(row) for row in chessboard]

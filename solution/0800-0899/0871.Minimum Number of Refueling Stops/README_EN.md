@@ -96,7 +96,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def minRefuelStops(
-        self, target: int, startFuel: int, stations: List[List[int]]
+        self, target: int, startFuel: int, stations: list[list[int]]
     ) -> int:
         pq = []
         ans = pre = 0

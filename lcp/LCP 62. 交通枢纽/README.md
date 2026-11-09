@@ -81,7 +81,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def transportationHub(self, path: List[List[int]]) -> int:
+    def transportationHub(self, path: list[list[int]]) -> int:
         ind = Counter()
         outd = Counter()
         s = set()

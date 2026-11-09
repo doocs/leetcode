@@ -1,7 +1,7 @@
 class Solution:
     def assignEdgeWeights(
-        self, edges: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, edges: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         n = len(edges) + 1
         m = n.bit_length()
         g = [[] for _ in range(n + 1)]

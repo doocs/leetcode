@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
+    def smallestChair(self, times: list[list[int]], targetFriend: int) -> int:
         n = len(times)
         for i in range(n):
             times[i].append(i)

@@ -1,6 +1,6 @@
 class Solution:
     def canReachCorner(
-        self, xCorner: int, yCorner: int, circles: List[List[int]]
+        self, xCorner: int, yCorner: int, circles: list[list[int]]
     ) -> bool:
         def in_circle(x: int, y: int, cx: int, cy: int, r: int) -> int:
             return (x - cx) ** 2 + (y - cy) ** 2 <= r**2

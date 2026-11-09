@@ -130,8 +130,8 @@ class BinaryIndexedTree:
 
 class Solution:
     def leftmostBuildingQueries(
-        self, heights: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, heights: list[int], queries: list[list[int]]
+    ) -> list[int]:
         n, m = len(heights), len(queries)
         for i in range(m):
             queries[i] = [min(queries[i]), max(queries[i])]

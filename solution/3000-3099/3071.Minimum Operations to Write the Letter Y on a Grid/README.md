@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def minimumOperationsToWriteY(self, grid: List[List[int]]) -> int:
+    def minimumOperationsToWriteY(self, grid: list[list[int]]) -> int:
         n = len(grid)
         cnt1 = Counter()
         cnt2 = Counter()

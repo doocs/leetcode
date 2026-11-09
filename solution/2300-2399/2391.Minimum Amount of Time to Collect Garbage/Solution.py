@@ -1,5 +1,5 @@
 class Solution:
-    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+    def garbageCollection(self, garbage: list[str], travel: list[int]) -> int:
         last = {}
         ans = 0
         for i, s in enumerate(garbage):

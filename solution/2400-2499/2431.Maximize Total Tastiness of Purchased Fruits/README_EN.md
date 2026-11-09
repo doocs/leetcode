@@ -110,7 +110,7 @@ The time complexity is $O(n \textit{maxAmount} \textit{maxCoupons})$, where $n$ 
 ```python
 class Solution:
     def maxTastiness(
-        self, price: List[int], tastiness: List[int], maxAmount: int, maxCoupons: int
+        self, price: list[int], tastiness: list[int], maxAmount: int, maxCoupons: int
     ) -> int:
         @cache
         def dfs(i, j, k):

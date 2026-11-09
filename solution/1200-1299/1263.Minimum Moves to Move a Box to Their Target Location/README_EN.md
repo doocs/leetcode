@@ -135,7 +135,7 @@ The time complexity is $O(m^2n^2)$, and the space complexity is $O(m^2n^2)$, whe
 
 ```python
 class Solution:
-    def minPushBox(self, grid: List[List[str]]) -> int:
+    def minPushBox(self, grid: list[list[str]]) -> int:
         def f(i: int, j: int) -> int:
             return i * n + j
 

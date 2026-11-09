@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def minNumberOfSemesters(self, n: int, relations: List[List[int]], k: int) -> int:
+    def minNumberOfSemesters(self, n: int, relations: list[list[int]], k: int) -> int:
         d = [0] * (n + 1)
         for x, y in relations:
             d[y] |= 1 << x

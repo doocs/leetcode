@@ -83,7 +83,7 @@ comments: true
 
 ```python
 class Solution:
-    def expectNumber(self, scores: List[int]) -> int:
+    def expectNumber(self, scores: list[int]) -> int:
         return len(set(scores))
 ```
 

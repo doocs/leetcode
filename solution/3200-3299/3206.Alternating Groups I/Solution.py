@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfAlternatingGroups(self, colors: List[int]) -> int:
+    def numberOfAlternatingGroups(self, colors: list[int]) -> int:
         k = 3
         n = len(colors)
         ans = cnt = 0

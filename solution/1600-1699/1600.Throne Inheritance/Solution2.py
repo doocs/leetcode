@@ -11,7 +11,7 @@ class ThroneInheritance:
     def death(self, name: str) -> None:
         self.dead.add(name)
 
-    def getInheritanceOrder(self) -> List[str]:
+    def getInheritanceOrder(self) -> list[str]:
         ans = []
         stk = [self.king]
         while stk:

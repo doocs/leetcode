@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+    def buildTree(self, preorder: list[int], inorder: list[int]) -> Optional[TreeNode]:
         def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
             if n <= 0:
                 return None

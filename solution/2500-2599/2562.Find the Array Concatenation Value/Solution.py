@@ -1,5 +1,5 @@
 class Solution:
-    def findTheArrayConcVal(self, nums: List[int]) -> int:
+    def findTheArrayConcVal(self, nums: list[int]) -> int:
         ans = 0
         i, j = 0, len(nums) - 1
         while i < j:

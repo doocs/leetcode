@@ -12,7 +12,7 @@ class Trie:
             node = node.children[idx]
         node.is_end = True
 
-    def search(self, w: List[str]) -> bool:
+    def search(self, w: list[str]) -> bool:
         node = self
         for c in w[::-1]:
             idx = ord(c) - ord('a')
@@ -25,7 +25,7 @@ class Trie:
 
 
 class StreamChecker:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.trie = Trie()
         self.cs = []
         self.limit = 201

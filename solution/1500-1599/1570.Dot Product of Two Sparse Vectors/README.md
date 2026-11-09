@@ -99,7 +99,7 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 
 ```python
 class SparseVector:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.d = {i: v for i, v in enumerate(nums) if v}
 
     # Return the dotProduct of two sparse vectors

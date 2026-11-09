@@ -110,7 +110,7 @@ $$
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], cost: List[int]) -> int:
+    def minCost(self, nums: list[int], cost: list[int]) -> int:
         arr = sorted(zip(nums, cost))
         n = len(arr)
         f = [0] * (n + 1)
@@ -299,7 +299,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], cost: List[int]) -> int:
+    def minCost(self, nums: list[int], cost: list[int]) -> int:
         arr = sorted(zip(nums, cost))
         mid = sum(cost) // 2
         s = 0

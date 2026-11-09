@@ -106,7 +106,7 @@ The time complexity is $O(n + m \log m + k \log k + mk)$, and the space complexi
 
 ```python
 class Solution:
-    def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
+    def displayTable(self, orders: list[list[str]]) -> list[list[str]]:
         tables = defaultdict(list)
         items = set()
         for _, table, foodItem in orders:

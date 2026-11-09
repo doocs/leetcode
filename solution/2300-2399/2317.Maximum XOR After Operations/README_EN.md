@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumXOR(self, nums: List[int]) -> int:
+    def maximumXOR(self, nums: list[int]) -> int:
         return reduce(or_, nums)
 ```
 

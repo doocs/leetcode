@@ -1,5 +1,5 @@
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         cnt = [0] * 32
         for x in nums:
             for i in range(32):

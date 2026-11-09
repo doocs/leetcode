@@ -91,7 +91,7 @@ The time complexity is $O(n \log \sum_{i=0}^{n-1} \textit{sweetness}[i])$, and t
 
 ```python
 class Solution:
-    def maximizeSweetness(self, sweetness: List[int], k: int) -> int:
+    def maximizeSweetness(self, sweetness: list[int], k: int) -> int:
         def check(x: int) -> bool:
             s = cnt = 0
             for v in sweetness:

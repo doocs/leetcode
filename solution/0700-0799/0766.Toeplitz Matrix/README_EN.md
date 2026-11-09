@@ -87,7 +87,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+    def isToeplitzMatrix(self, matrix: list[list[int]]) -> bool:
         m, n = len(matrix), len(matrix[0])
         for i in range(1, m):
             for j in range(1, n):

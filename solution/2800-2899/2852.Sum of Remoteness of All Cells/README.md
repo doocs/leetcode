@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def sumRemoteness(self, grid: List[List[int]]) -> int:
+    def sumRemoteness(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> (int, int):
             s, t = grid[i][j], 1
             grid[i][j] = 0

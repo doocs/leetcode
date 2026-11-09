@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
+    def getMinDistance(self, nums: list[int], target: int, start: int) -> int:
         return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
 

@@ -157,7 +157,7 @@ The time complexity is $O(nm)$, and the space complexity is $O(n)$, where $n$ an
 
 ```python
 class Solution:
-    def minTime(self, skill: List[int], mana: List[int]) -> int:
+    def minTime(self, skill: list[int], mana: list[int]) -> int:
         max = lambda a, b: a if a > b else b
         n = len(skill)
         f = [0] * n

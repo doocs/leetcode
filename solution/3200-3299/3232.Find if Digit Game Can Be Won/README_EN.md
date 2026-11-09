@@ -97,7 +97,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def canAliceWin(self, nums: List[int]) -> bool:
+    def canAliceWin(self, nums: list[int]) -> bool:
         a = sum(x for x in nums if x < 10)
         b = sum(x for x in nums if x > 9)
         return a != b

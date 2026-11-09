@@ -1,5 +1,5 @@
 class Solution:
-    def separateDigits(self, nums: List[int]) -> List[int]:
+    def separateDigits(self, nums: list[int]) -> list[int]:
         ans = []
         for x in nums:
             t = []

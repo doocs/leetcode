@@ -3,9 +3,9 @@ class Solution:
         self,
         source: str,
         target: str,
-        original: List[str],
-        changed: List[str],
-        cost: List[int],
+        original: list[str],
+        changed: list[str],
+        cost: list[int],
     ) -> int:
         g = [[inf] * 26 for _ in range(26)]
         for i in range(26):

@@ -1,5 +1,5 @@
 class Solution:
-    def ballGame(self, num: int, plate: List[str]) -> List[List[int]]:
+    def ballGame(self, num: int, plate: list[str]) -> list[list[int]]:
         def check(i, j, d):
             k = num
             while plate[i][j] != 'O':

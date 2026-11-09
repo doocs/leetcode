@@ -1,5 +1,5 @@
 class Solution:
-    def minAbsDifference(self, nums: List[int], goal: int) -> int:
+    def minAbsDifference(self, nums: list[int], goal: int) -> int:
         def dfs(arr, res, i, s):
             if i == len(arr):
                 res.add(s)

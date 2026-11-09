@@ -185,8 +185,8 @@ tags:
 
 ```python
 class Solution:
-    def maxValidSplits(self, nums: List[int]) -> int:
-        def calc(arr: List[int]) -> int:
+    def maxValidSplits(self, nums: list[int]) -> int:
+        def calc(arr: list[int]) -> int:
             m = len(arr)
             pre = list(accumulate(arr, gcd))
             suf = list(accumulate(arr[::-1], gcd))[::-1]

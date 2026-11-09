@@ -1,5 +1,5 @@
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if i in vis:
                 return 0

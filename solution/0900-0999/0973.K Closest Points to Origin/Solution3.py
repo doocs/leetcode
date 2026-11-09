@@ -1,5 +1,5 @@
 class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
         dist = [x * x + y * y for x, y in points]
         l, r = 0, max(dist)
         while l < r:

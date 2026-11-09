@@ -78,7 +78,7 @@ The time complexity is $O(10n)$, and the space complexity is $O(10n)$, where $n$
 
 ```python
 class Solution:
-    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+    def findRepeatedDnaSequences(self, s: str) -> list[str]:
         cnt = Counter()
         ans = []
         for i in range(len(s) - 10 + 1):

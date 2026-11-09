@@ -1,3 +1,3 @@
 class Solution:
-    def orArray(self, nums: List[int]) -> List[int]:
+    def orArray(self, nums: list[int]) -> list[int]:
         return [a | b for a, b in pairwise(nums)]

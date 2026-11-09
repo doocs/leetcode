@@ -1,5 +1,5 @@
 class Solution:
-    def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
+    def maxBoxesInWarehouse(self, boxes: list[int], warehouse: list[int]) -> int:
         n = len(warehouse)
         left = [0] * n
         right = [0] * n

@@ -86,7 +86,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         def dfs(i: int) -> bool:
             if i == destination:
@@ -293,7 +293,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         g = [[] for _ in range(n)]
         for u, v in edges:
@@ -531,7 +531,7 @@ class UnionFind:
 
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         uf = UnionFind(n)
         for u, v in edges:
@@ -809,7 +809,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         if source == destination:
             return True

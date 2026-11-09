@@ -114,7 +114,7 @@ class Trie:
 
 
 class Solution:
-    def maximizeXor(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def maximizeXor(self, nums: list[int], queries: list[list[int]]) -> list[int]:
         trie = Trie()
         nums.sort()
         j, n = 0, len(queries)

@@ -93,7 +93,7 @@ arr 中所有字符串都是独一无二的，所以返回第 1 个字符串 "aa
 
 ```python
 class Solution:
-    def kthDistinct(self, arr: List[str], k: int) -> str:
+    def kthDistinct(self, arr: list[str], k: int) -> str:
         cnt = Counter(arr)
         for s in arr:
             if cnt[s] == 1:

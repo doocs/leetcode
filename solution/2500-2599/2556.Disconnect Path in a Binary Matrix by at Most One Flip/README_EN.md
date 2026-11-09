@@ -90,7 +90,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+    def isPossibleToCutPath(self, grid: list[list[int]]) -> bool:
         def dfs(i, j):
             if i >= m or j >= n or grid[i][j] == 0:
                 return False
@@ -243,7 +243,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+    def isPossibleToCutPath(self, grid: list[list[int]]) -> bool:
         def dfs() -> bool:
             stk = [(0, 0)]
             while stk:

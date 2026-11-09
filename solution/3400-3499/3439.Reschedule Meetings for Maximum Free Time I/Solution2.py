@@ -1,6 +1,6 @@
 class Solution:
     def maxFreeTime(
-        self, eventTime: int, k: int, startTime: List[int], endTime: List[int]
+        self, eventTime: int, k: int, startTime: list[int], endTime: list[int]
     ) -> int:
         def f(i: int) -> int:
             if i == 0:

@@ -136,7 +136,7 @@ The time complexity is $O(n^3M^2)$, and the space complexity is $O(n^2M^2)$, whe
 
 ```python
 class Solution:
-    def scoreOfStudents(self, s: str, answers: List[int]) -> int:
+    def scoreOfStudents(self, s: str, answers: list[int]) -> int:
         def cal(s: str) -> int:
             res, pre = 0, int(s[0])
             for i in range(1, n, 2):

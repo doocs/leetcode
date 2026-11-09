@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def numRookCaptures(self, board: List[List[str]]) -> int:
+    def numRookCaptures(self, board: list[list[str]]) -> int:
         dirs = (-1, 0, 1, 0, -1)
         n = len(board)
         for i in range(n):

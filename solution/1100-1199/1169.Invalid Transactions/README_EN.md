@@ -96,7 +96,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def invalidTransactions(self, transactions: List[str]) -> List[str]:
+    def invalidTransactions(self, transactions: list[str]) -> list[str]:
         d = defaultdict(list)
         idx = set()
         for i, x in enumerate(transactions):

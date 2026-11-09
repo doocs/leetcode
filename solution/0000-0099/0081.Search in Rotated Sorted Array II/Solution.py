@@ -1,5 +1,5 @@
 class Solution:
-    def search(self, nums: List[int], target: int) -> bool:
+    def search(self, nums: list[int], target: int) -> bool:
         n = len(nums)
         l, r = 0, n - 1
         while l < r:

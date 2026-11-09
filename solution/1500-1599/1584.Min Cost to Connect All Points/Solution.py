@@ -1,5 +1,5 @@
 class Solution:
-    def minCostConnectPoints(self, points: List[List[int]]) -> int:
+    def minCostConnectPoints(self, points: list[list[int]]) -> int:
         n = len(points)
         g = [[0] * n for _ in range(n)]
         dist = [inf] * n

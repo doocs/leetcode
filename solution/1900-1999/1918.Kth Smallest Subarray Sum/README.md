@@ -110,7 +110,7 @@ tags:
 
 ```python
 class Solution:
-    def kthSmallestSubarraySum(self, nums: List[int], k: int) -> int:
+    def kthSmallestSubarraySum(self, nums: list[int], k: int) -> int:
         def f(s):
             t = j = 0
             cnt = 0

@@ -10,7 +10,7 @@ class Solution:
     def getDirections(
         self, root: Optional[TreeNode], startValue: int, destValue: int
     ) -> str:
-        def dfs(node: Optional[TreeNode], x: int, path: List[str]):
+        def dfs(node: Optional[TreeNode], x: int, path: list[str]):
             if node is None:
                 return False
             if node.val == x:

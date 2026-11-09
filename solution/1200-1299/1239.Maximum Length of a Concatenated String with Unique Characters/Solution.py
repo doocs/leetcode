@@ -1,5 +1,5 @@
 class Solution:
-    def maxLength(self, arr: List[str]) -> int:
+    def maxLength(self, arr: list[str]) -> int:
         s = [0]
         for t in arr:
             x = 0

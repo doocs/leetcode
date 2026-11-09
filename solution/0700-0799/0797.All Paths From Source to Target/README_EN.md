@@ -77,7 +77,7 @@ Start from node $0$, keep paths in a queue, and record a path when it reaches $n
 
 ```python
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         n = len(graph)
         q = deque([[0]])
         ans = []
@@ -277,7 +277,7 @@ DFS from node $0$ and backtrack after each path that reaches the target.
 
 ```python
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         def dfs(t):
             if t[-1] == len(graph) - 1:
                 ans.append(t[:])

@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfGoodPaths(self, vals: List[int], edges: List[List[int]]) -> int:
+    def numberOfGoodPaths(self, vals: list[int], edges: list[list[int]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

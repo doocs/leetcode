@@ -111,7 +111,7 @@ snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
 
 ```python
 class SnakeGame:
-    def __init__(self, width: int, height: int, food: List[List[int]]):
+    def __init__(self, width: int, height: int, food: list[list[int]]):
         self.m = height
         self.n = width
         self.food = food

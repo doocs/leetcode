@@ -106,7 +106,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
+    def countOfPairs(self, n: int, x: int, y: int) -> list[int]:
         x, y = x - 1, y - 1
         ans = [0] * n
         for i in range(n):

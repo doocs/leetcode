@@ -1,5 +1,5 @@
 class Solution:
-    def sortArray(self, nums: List[int]) -> int:
+    def sortArray(self, nums: list[int]) -> int:
         def f(nums, k):
             vis = [False] * n
             cnt = 0

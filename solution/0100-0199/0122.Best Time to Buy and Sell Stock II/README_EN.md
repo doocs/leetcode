@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         return sum(max(0, b - a) for a, b in pairwise(prices))
 ```
 
@@ -227,7 +227,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         n = len(prices)
         f = [[0] * 2 for _ in range(n)]
         f[0][0] = -prices[0]
@@ -330,7 +330,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         n = len(prices)
         f = [-prices[0], 0]
         for i in range(1, n):

@@ -76,7 +76,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def sumZero(self, n: int) -> List[int]:
+    def sumZero(self, n: int) -> list[int]:
         ans = []
         for i in range(n >> 1):
             ans.append(i + 1)
@@ -188,7 +188,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def sumZero(self, n: int) -> List[int]:
+    def sumZero(self, n: int) -> list[int]:
         ans = list(range(1, n))
         ans.append(-sum(ans))
         return ans

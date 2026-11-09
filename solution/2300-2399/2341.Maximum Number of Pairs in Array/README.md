@@ -99,7 +99,7 @@ nums[0] 和 nums[1] 形成一个数对，并从 nums 中移除，nums = [2] 。
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums: List[int]) -> List[int]:
+    def numberOfPairs(self, nums: list[int]) -> list[int]:
         cnt = Counter(nums)
         s = sum(v // 2 for v in cnt.values())
         return [s, len(nums) - s * 2]

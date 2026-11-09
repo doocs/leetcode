@@ -1,6 +1,6 @@
 class Solution:
     def shortestDistance(
-        self, maze: List[List[int]], start: List[int], destination: List[int]
+        self, maze: list[list[int]], start: list[int], destination: list[int]
     ) -> int:
         m, n = len(maze), len(maze[0])
         dirs = (-1, 0, 1, 0, -1)

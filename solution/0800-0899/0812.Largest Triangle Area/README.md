@@ -79,7 +79,7 @@ $$S = \frac{1}{2} \left| x_1y_2 + x_2y_3 + x_3y_1 - x_1y_3 - x_2y_1 - x_3y_2 \ri
 
 ```python
 class Solution:
-    def largestTriangleArea(self, points: List[List[int]]) -> float:
+    def largestTriangleArea(self, points: list[list[int]]) -> float:
         ans = 0
         for x1, y1 in points:
             for x2, y2 in points:

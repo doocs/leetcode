@@ -128,7 +128,7 @@ Bob 无法出牌，因为他的两个单词的第一个字母都比 Alice 的单
 
 ```python
 class Solution:
-    def canAliceWin(self, a: List[str], b: List[str]) -> bool:
+    def canAliceWin(self, a: list[str], b: list[str]) -> bool:
         i, j, k = 1, 0, 1
         w = a[0]
         while 1:

@@ -140,8 +140,8 @@ tags:
 ```python
 class Solution:
     def countStableSubarrays(
-        self, nums: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums: list[int], queries: list[list[int]]
+    ) -> list[int]:
         s = [0]
         l, n = 0, len(nums)
         seg = []

@@ -99,7 +99,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
+    def addSpaces(self, s: str, spaces: list[int]) -> str:
         ans = []
         j = 0
         for i, c in enumerate(s):

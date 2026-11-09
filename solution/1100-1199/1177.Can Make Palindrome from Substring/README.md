@@ -84,7 +84,7 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 
 ```python
 class Solution:
-    def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
+    def canMakePaliQueries(self, s: str, queries: list[list[int]]) -> list[bool]:
         n = len(s)
         ss = [[0] * 26 for _ in range(n + 1)]
         for i, c in enumerate(s, 1):

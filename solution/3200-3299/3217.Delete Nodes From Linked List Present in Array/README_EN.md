@@ -114,7 +114,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 #         self.next = next
 class Solution:
     def modifiedList(
-        self, nums: List[int], head: Optional[ListNode]
+        self, nums: list[int], head: Optional[ListNode]
     ) -> Optional[ListNode]:
         s = set(nums)
         pre = dummy = ListNode(next=head)

@@ -1,7 +1,7 @@
 class Solution:
     def minimumCosts(
-        self, regular: List[int], express: List[int], expressCost: int
-    ) -> List[int]:
+        self, regular: list[int], express: list[int], expressCost: int
+    ) -> list[int]:
         n = len(regular)
         f, g = 0, inf
         cost = [0] * n

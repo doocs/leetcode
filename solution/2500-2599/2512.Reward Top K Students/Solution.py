@@ -1,12 +1,12 @@
 class Solution:
     def topStudents(
         self,
-        positive_feedback: List[str],
-        negative_feedback: List[str],
-        report: List[str],
-        student_id: List[int],
+        positive_feedback: list[str],
+        negative_feedback: list[str],
+        report: list[str],
+        student_id: list[int],
         k: int,
-    ) -> List[int]:
+    ) -> list[int]:
         ps = set(positive_feedback)
         ns = set(negative_feedback)
         arr = []

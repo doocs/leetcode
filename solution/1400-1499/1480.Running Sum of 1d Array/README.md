@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def runningSum(self, nums: List[int]) -> List[int]:
+    def runningSum(self, nums: list[int]) -> list[int]:
         return list(accumulate(nums))
 ```
 

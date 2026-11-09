@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def findTheString(self, lcp: List[List[int]]) -> str:
+    def findTheString(self, lcp: list[list[int]]) -> str:
         n = len(lcp)
         s = [""] * n
         i = 0

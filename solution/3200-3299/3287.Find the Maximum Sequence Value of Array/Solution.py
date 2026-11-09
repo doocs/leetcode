@@ -1,5 +1,5 @@
 class Solution:
-    def maxValue(self, nums: List[int], k: int) -> int:
+    def maxValue(self, nums: list[int], k: int) -> int:
         m = 1 << 7
         n = len(nums)
         f = [[[False] * m for _ in range(k + 2)] for _ in range(n + 1)]

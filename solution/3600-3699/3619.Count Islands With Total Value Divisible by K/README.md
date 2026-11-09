@@ -98,7 +98,7 @@ tags:
 
 ```python
 class Solution:
-    def countIslands(self, grid: List[List[int]], k: int) -> int:
+    def countIslands(self, grid: list[list[int]], k: int) -> int:
         def dfs(i: int, j: int) -> int:
             s = grid[i][j]
             grid[i][j] = 0
@@ -286,7 +286,7 @@ function countIslands(grid: number[][], k: number): number {
 
 ```python
 class Solution:
-    def countIslands(self, grid: List[List[int]], k: int) -> int:
+    def countIslands(self, grid: list[list[int]], k: int) -> int:
         def flood(i: int, j: int) -> int:
             s = grid[i][j]
             grid[i][j] = 0

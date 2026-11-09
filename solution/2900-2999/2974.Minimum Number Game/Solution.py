@@ -1,5 +1,5 @@
 class Solution:
-    def numberGame(self, nums: List[int]) -> List[int]:
+    def numberGame(self, nums: list[int]) -> list[int]:
         heapify(nums)
         ans = []
         while nums:

@@ -96,7 +96,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def beautifulPair(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def beautifulPair(self, nums1: list[int], nums2: list[int]) -> list[int]:
         def dist(x1: int, y1: int, x2: int, y2: int) -> int:
             return abs(x1 - x2) + abs(y1 - y2)
 

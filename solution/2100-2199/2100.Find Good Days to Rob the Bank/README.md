@@ -100,7 +100,7 @@ tags:
 
 ```python
 class Solution:
-    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+    def goodDaysToRobBank(self, security: list[int], time: int) -> list[int]:
         n = len(security)
         if n <= time * 2:
             return []

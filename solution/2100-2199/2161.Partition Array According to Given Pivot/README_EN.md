@@ -95,7 +95,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+    def pivotArray(self, nums: list[int], pivot: int) -> list[int]:
         a, b, c = [], [], []
         for x in nums:
             if x < pivot:

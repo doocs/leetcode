@@ -1,5 +1,5 @@
 class Solution:
-    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+    def maxSumOfThreeSubarrays(self, nums: list[int], k: int) -> list[int]:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         pre = [[] for _ in range(n)]

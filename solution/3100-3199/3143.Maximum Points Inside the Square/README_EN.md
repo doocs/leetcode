@@ -119,7 +119,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxPointsInsideSquare(self, points: List[List[int]], s: str) -> int:
+    def maxPointsInsideSquare(self, points: list[list[int]], s: str) -> int:
         g = defaultdict(list)
         for i, (x, y) in enumerate(points):
             g[max(abs(x), abs(y))].append(i)

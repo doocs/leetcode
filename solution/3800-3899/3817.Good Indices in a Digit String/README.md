@@ -114,7 +114,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def goodIndices(self, s: str) -> List[int]:
+    def goodIndices(self, s: str) -> list[int]:
         ans = []
         for i in range(len(s)):
             t = str(i)

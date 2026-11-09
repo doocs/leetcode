@@ -75,7 +75,7 @@ comments: true
 
 ```python
 class Solution:
-    def findMinDifference(self, timePoints: List[str]) -> int:
+    def findMinDifference(self, timePoints: list[str]) -> int:
         if len(timePoints) > 1440:
             return 0
         nums = sorted(int(x[:2]) * 60 + int(x[3:]) for x in timePoints)

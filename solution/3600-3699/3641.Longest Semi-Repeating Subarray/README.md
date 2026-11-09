@@ -103,7 +103,7 @@ tags:
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], k: int) -> int:
+    def longestSubarray(self, nums: list[int], k: int) -> int:
         cnt = defaultdict(int)
         ans = cur = l = 0
         for r, x in enumerate(nums):

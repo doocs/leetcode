@@ -1,5 +1,5 @@
 class Solution:
-    def maxIncreasingCells(self, mat: List[List[int]]) -> int:
+    def maxIncreasingCells(self, mat: list[list[int]]) -> int:
         m, n = len(mat), len(mat[0])
         g = defaultdict(list)
         for i in range(m):

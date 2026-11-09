@@ -87,7 +87,7 @@ The XOR sum is (1 XOR 5) + (0 XOR 4) + (3 XOR 3) = 4 + 4 + 0 = 8.
 
 ```python
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [[inf] * (1 << n) for _ in range(n + 1)]
         f[0][0] = 0
@@ -219,7 +219,7 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 ```python
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [inf] * (1 << n)
         f[0] = 0
@@ -345,7 +345,7 @@ $f[i][j]$ depends only on the previous row, so a 1D array of length $2^n$ is eno
 
 ```python
 class Solution:
-    def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minimumXORSum(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums2)
         f = [inf] * (1 << n)
         f[0] = 0

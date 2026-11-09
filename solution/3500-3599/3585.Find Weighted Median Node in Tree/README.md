@@ -238,8 +238,8 @@ tags:
 ```python
 class Solution:
     def findMedian(
-        self, n: int, edges: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         m = n.bit_length()
         g = [[] for _ in range(n)]
         for u, v, w in edges:

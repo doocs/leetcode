@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def isBipartite(self, graph: List[List[int]]) -> bool:
+    def isBipartite(self, graph: list[list[int]]) -> bool:
         def dfs(a: int, c: int) -> bool:
             color[a] = c
             for b in graph[a]:
@@ -271,7 +271,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def isBipartite(self, graph: List[List[int]]) -> bool:
+    def isBipartite(self, graph: list[list[int]]) -> bool:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])

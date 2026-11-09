@@ -1,5 +1,5 @@
 class Solution:
-    def findMaximumElegance(self, items: List[List[int]], k: int) -> int:
+    def findMaximumElegance(self, items: list[list[int]], k: int) -> int:
         items.sort(key=lambda x: -x[0])
         tot = 0
         vis = set()

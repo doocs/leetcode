@@ -1,5 +1,5 @@
 class Solution:
-    def minimumTotalDistance(self, robot: List[int], factory: List[List[int]]) -> int:
+    def minimumTotalDistance(self, robot: list[int], factory: list[list[int]]) -> int:
         @cache
         def dfs(i, j):
             if i == len(robot):

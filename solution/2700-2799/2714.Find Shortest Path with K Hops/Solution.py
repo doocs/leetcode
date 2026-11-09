@@ -1,6 +1,6 @@
 class Solution:
     def shortestPathWithHops(
-        self, n: int, edges: List[List[int]], s: int, d: int, k: int
+        self, n: int, edges: list[list[int]], s: int, d: int, k: int
     ) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:

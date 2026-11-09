@@ -87,7 +87,7 @@ The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where 
 
 ```python
 class Solution:
-    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+    def maxSlidingWindow(self, nums: list[int], k: int) -> list[int]:
         q = [(-v, i) for i, v in enumerate(nums[: k - 1])]
         heapify(q)
         ans = []
@@ -209,7 +209,7 @@ The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+    def maxSlidingWindow(self, nums: list[int], k: int) -> list[int]:
         q = deque()
         ans = []
         for i, x in enumerate(nums):

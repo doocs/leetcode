@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def findSmallestRegion(
-        self, regions: List[List[str]], region1: str, region2: str
+        self, regions: list[list[str]], region1: str, region2: str
     ) -> str:
         g = {}
         for r in regions:

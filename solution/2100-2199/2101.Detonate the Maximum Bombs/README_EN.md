@@ -108,7 +108,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def maximumDetonation(self, bombs: List[List[int]]) -> int:
+    def maximumDetonation(self, bombs: list[list[int]]) -> int:
         n = len(bombs)
         g = [[] for _ in range(n)]
         for i in range(n - 1):

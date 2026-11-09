@@ -117,7 +117,7 @@ for i in range(2, mx + 1):
 
 
 class Solution:
-    def numberOfSequence(self, n: int, sick: List[int]) -> int:
+    def numberOfSequence(self, n: int, sick: list[int]) -> int:
         nums = [b - a - 1 for a, b in pairwise([-1] + sick + [n])]
         ans = 1
         s = sum(nums)

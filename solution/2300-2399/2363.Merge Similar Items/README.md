@@ -109,8 +109,8 @@ value = 7 的物品在 items2 中 weight = 1 ，总重量为 1 。
 ```python
 class Solution:
     def mergeSimilarItems(
-        self, items1: List[List[int]], items2: List[List[int]]
-    ) -> List[List[int]]:
+        self, items1: list[list[int]], items2: list[list[int]]
+    ) -> list[list[int]]:
         cnt = Counter()
         for v, w in chain(items1, items2):
             cnt[v] += w

@@ -78,7 +78,7 @@ The time complexity is $O(mn \log \min(m, n))$, and the space complexity is $O(m
 
 ```python
 class Solution:
-    def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
+    def diagonalSort(self, mat: list[list[int]]) -> list[list[int]]:
         m, n = len(mat), len(mat[0])
         g = [[] for _ in range(m + n)]
         for i, row in enumerate(mat):

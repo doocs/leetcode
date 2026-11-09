@@ -92,7 +92,7 @@ The time complexity is $O(n \log(mk))$, and the space complexity is $O(1)$, wher
 
 ```python
 class Solution:
-    def minimumTime(self, time: List[int], totalTrips: int) -> int:
+    def minimumTime(self, time: list[int], totalTrips: int) -> int:
         mx = min(time) * totalTrips
         return bisect_left(
             range(mx), totalTrips, key=lambda x: sum(x // v for v in time)

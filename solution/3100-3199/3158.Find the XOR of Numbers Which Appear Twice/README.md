@@ -105,7 +105,7 @@ tags:
 
 ```python
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         return reduce(xor, [x for x, v in cnt.items() if v == 2], 0)
 ```
@@ -211,7 +211,7 @@ function duplicateNumbersXOR(nums: number[]): number {
 
 ```python
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         ans = mask = 0
         for x in nums:
             if mask >> x & 1:

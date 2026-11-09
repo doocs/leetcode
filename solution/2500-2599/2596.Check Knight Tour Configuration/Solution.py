@@ -1,5 +1,5 @@
 class Solution:
-    def checkValidGrid(self, grid: List[List[int]]) -> bool:
+    def checkValidGrid(self, grid: list[list[int]]) -> bool:
         if grid[0][0]:
             return False
         n = len(grid)

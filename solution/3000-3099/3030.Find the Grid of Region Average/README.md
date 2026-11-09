@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def resultGrid(self, image: List[List[int]], threshold: int) -> List[List[int]]:
+    def resultGrid(self, image: list[list[int]], threshold: int) -> list[list[int]]:
         n, m = len(image), len(image[0])
         ans = [[0] * m for _ in range(n)]
         ct = [[0] * m for _ in range(n)]

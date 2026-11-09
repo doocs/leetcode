@@ -127,7 +127,7 @@ The time complexity is $O(q \log M)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def minOperations(self, queries: List[List[int]]) -> int:
+    def minOperations(self, queries: list[list[int]]) -> int:
         def f(x: int) -> int:
             res = 0
             p = i = 1

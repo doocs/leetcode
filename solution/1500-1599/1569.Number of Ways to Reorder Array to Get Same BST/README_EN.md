@@ -116,7 +116,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def numOfWays(self, nums: List[int]) -> int:
+    def numOfWays(self, nums: list[int]) -> int:
         def dfs(nums):
             if len(nums) < 2:
                 return 1

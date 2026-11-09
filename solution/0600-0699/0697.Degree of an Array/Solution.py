@@ -1,5 +1,5 @@
 class Solution:
-    def findShortestSubArray(self, nums: List[int]) -> int:
+    def findShortestSubArray(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         degree = cnt.most_common()[0][1]
         left, right = {}, {}

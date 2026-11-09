@@ -1,5 +1,5 @@
 class Solution:
-    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+    def findJudge(self, n: int, trust: list[list[int]]) -> int:
         cnt1 = [0] * (n + 1)
         cnt2 = [0] * (n + 1)
         for a, b in trust:

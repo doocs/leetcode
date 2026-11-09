@@ -1,5 +1,5 @@
 class Solution:
-    def matrixScore(self, grid: List[List[int]]) -> int:
+    def matrixScore(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         for i in range(m):
             if grid[i][0] == 0:

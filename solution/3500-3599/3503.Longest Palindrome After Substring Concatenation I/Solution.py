@@ -1,11 +1,11 @@
 class Solution:
     def longestPalindrome(self, s: str, t: str) -> int:
-        def expand(s: str, g: List[int], l: int, r: int):
+        def expand(s: str, g: list[int], l: int, r: int):
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 g[l] = max(g[l], r - l + 1)
                 l, r = l - 1, r + 1
 
-        def calc(s: str) -> List[int]:
+        def calc(s: str) -> list[int]:
             n = len(s)
             g = [0] * n
             for i in range(n):

@@ -97,7 +97,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class SparseVector:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.d = {i: v for i, v in enumerate(nums) if v}
 
     # Return the dotProduct of two sparse vectors

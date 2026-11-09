@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def maxSumSubmatrix(self, matrix: List[List[int]], k: int) -> int:
+    def maxSumSubmatrix(self, matrix: list[list[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])
         ans = -inf
         for i in range(m):

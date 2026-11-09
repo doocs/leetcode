@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def countNegatives(self, grid: List[List[int]]) -> int:
+    def countNegatives(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         i, j = m - 1, 0
         ans = 0

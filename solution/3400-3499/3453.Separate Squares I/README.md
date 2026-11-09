@@ -108,7 +108,7 @@ tags:
 
 ```python
 class Solution:
-    def separateSquares(self, squares: List[List[int]]) -> float:
+    def separateSquares(self, squares: list[list[int]]) -> float:
         def check(y1: float) -> bool:
             t = 0
             for _, y, l in squares:

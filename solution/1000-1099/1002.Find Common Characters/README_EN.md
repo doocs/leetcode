@@ -68,7 +68,7 @@ The time complexity is $O(n \sum w_i)$, and the space complexity is $O(|\Sigma|)
 
 ```python
 class Solution:
-    def commonChars(self, words: List[str]) -> List[str]:
+    def commonChars(self, words: list[str]) -> list[str]:
         cnt = Counter(words[0])
         for w in words:
             t = Counter(w)

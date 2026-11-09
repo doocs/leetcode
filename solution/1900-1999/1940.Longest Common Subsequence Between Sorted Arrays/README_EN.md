@@ -94,7 +94,7 @@ The time complexity is $O(M + N)$, and the space complexity is $O(M)$, where $M$
 
 ```python
 class Solution:
-    def longestCommonSubsequence(self, arrays: List[List[int]]) -> List[int]:
+    def longestCommonSubsequence(self, arrays: list[list[int]]) -> list[int]:
         cnt = [0] * 101
         for row in arrays:
             for x in row:

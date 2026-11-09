@@ -122,7 +122,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def largestInteger(self, nums: List[int], k: int) -> int:
+    def largestInteger(self, nums: list[int], k: int) -> int:
         def f(k: int) -> int:
             for i, x in enumerate(nums):
                 if i != k and x == nums[k]:

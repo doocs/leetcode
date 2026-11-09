@@ -1,5 +1,5 @@
 class Solution:
-    def maxAbsValExpr(self, arr1: List[int], arr2: List[int]) -> int:
+    def maxAbsValExpr(self, arr1: list[int], arr2: list[int]) -> int:
         dirs = (1, -1, -1, 1, 1)
         ans = -inf
         for a, b in pairwise(dirs):

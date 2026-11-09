@@ -1,5 +1,5 @@
 class Solution:
-    def matrixMedian(self, grid: List[List[int]]) -> int:
+    def matrixMedian(self, grid: list[list[int]]) -> int:
         def count(x):
             return sum(bisect_right(row, x) for row in grid)
 

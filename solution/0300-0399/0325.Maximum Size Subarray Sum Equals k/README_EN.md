@@ -77,7 +77,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxSubArrayLen(self, nums: List[int], k: int) -> int:
+    def maxSubArrayLen(self, nums: list[int], k: int) -> int:
         d = {0: -1}
         ans = s = 0
         for i, x in enumerate(nums):

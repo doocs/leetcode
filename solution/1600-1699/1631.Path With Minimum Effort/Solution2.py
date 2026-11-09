@@ -1,5 +1,5 @@
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         def check(h: int) -> bool:
             q = deque([(0, 0)])
             vis = {(0, 0)}

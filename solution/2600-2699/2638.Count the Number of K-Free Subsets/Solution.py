@@ -1,5 +1,5 @@
 class Solution:
-    def countTheNumOfKFreeSubsets(self, nums: List[int], k: int) -> int:
+    def countTheNumOfKFreeSubsets(self, nums: list[int], k: int) -> int:
         nums.sort()
         g = defaultdict(list)
         for x in nums:

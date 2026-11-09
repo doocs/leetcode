@@ -1,5 +1,5 @@
 class Solution:
-    def beautifulSubsets(self, nums: List[int], k: int) -> int:
+    def beautifulSubsets(self, nums: list[int], k: int) -> int:
         def dfs(i: int) -> None:
             nonlocal ans
             if i >= len(nums):

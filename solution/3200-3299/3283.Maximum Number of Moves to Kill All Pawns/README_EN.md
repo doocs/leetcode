@@ -137,7 +137,7 @@ The time complexity is $O(nm^2 + 2^n n^2)$, and the space complexity is $O(nm^2 
 
 ```python
 class Solution:
-    def maxMoves(self, kx: int, ky: int, positions: List[List[int]]) -> int:
+    def maxMoves(self, kx: int, ky: int, positions: list[list[int]]) -> int:
         @cache
         def dfs(last: int, state: int, k: int) -> int:
             if state == 0:

@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def closestTarget(self, words: List[str], target: str, startIndex: int) -> int:
+    def closestTarget(self, words: list[str], target: str, startIndex: int) -> int:
         n = len(words)
         ans = n
         for i, w in enumerate(words):

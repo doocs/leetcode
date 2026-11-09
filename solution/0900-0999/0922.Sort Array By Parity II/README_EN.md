@@ -80,7 +80,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def sortArrayByParityII(self, nums: List[int]) -> List[int]:
+    def sortArrayByParityII(self, nums: list[int]) -> list[int]:
         n, j = len(nums), 1
         for i in range(0, n, 2):
             if nums[i] % 2:

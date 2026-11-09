@@ -103,7 +103,7 @@ The time complexity for initializing is $O(mn)$, and the time complexity for que
 
 ```python
 class NumMatrix:
-    def __init__(self, matrix: List[List[int]]):
+    def __init__(self, matrix: list[list[int]]):
         m, n = len(matrix), len(matrix[0])
         self.s = [[0] * (n + 1) for _ in range(m + 1)]
         for i, row in enumerate(matrix):

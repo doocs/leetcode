@@ -113,7 +113,7 @@ class UnionFind:
 
 
 class Solution:
-    def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
+    def numIslands2(self, m: int, n: int, positions: list[list[int]]) -> list[int]:
         uf = UnionFind(m * n)
         grid = [[0] * n for _ in range(m)]
         ans = []

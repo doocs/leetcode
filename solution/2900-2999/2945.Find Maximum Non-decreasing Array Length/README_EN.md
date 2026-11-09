@@ -95,7 +95,7 @@ Because the given array is not non-decreasing, the maximum<!-- notionvc: 3447a50
 
 ```python
 class Solution:
-    def findMaximumLength(self, nums: List[int]) -> int:
+    def findMaximumLength(self, nums: list[int]) -> int:
         n = len(nums)
         s = list(accumulate(nums, initial=0))
         f = [0] * (n + 1)

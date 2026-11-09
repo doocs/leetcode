@@ -102,7 +102,7 @@ tags:
 
 ```python
 class Solution:
-    def getNoZeroIntegers(self, n: int) -> List[int]:
+    def getNoZeroIntegers(self, n: int) -> list[int]:
         for a in count(1):
             b = n - a
             if "0" not in f"{a}{b}":
@@ -208,7 +208,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def getNoZeroIntegers(self, n: int) -> List[int]:
+    def getNoZeroIntegers(self, n: int) -> list[int]:
         def f(x: int) -> bool:
             while x:
                 if x % 10 == 0:

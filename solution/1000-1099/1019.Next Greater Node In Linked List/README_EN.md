@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.val = val
 #         self.next = next
 class Solution:
-    def nextLargerNodes(self, head: Optional[ListNode]) -> List[int]:
+    def nextLargerNodes(self, head: Optional[ListNode]) -> list[int]:
         nums = []
         while head:
             nums.append(head.val)

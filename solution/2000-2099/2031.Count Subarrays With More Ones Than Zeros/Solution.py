@@ -19,7 +19,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+    def subarraysWithMoreZerosThanOnes(self, nums: list[int]) -> int:
         n = len(nums)
         base = n + 1
         tree = BinaryIndexedTree(n + base)

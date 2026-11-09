@@ -95,7 +95,7 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 
 ```python
 class Solution:
-    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+    def countSubTrees(self, n: int, edges: list[list[int]], labels: str) -> list[int]:
         def dfs(i, fa):
             ans[i] -= cnt[labels[i]]
             cnt[labels[i]] += 1
@@ -265,7 +265,7 @@ function countSubTrees(n: number, edges: number[][], labels: string): number[] {
 
 ```python
 class Solution:
-    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+    def countSubTrees(self, n: int, edges: list[list[int]], labels: str) -> list[int]:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

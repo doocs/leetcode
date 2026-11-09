@@ -85,7 +85,7 @@ The time complexity is $O(n 2^n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def validStrings(self, n: int) -> List[str]:
+    def validStrings(self, n: int) -> list[str]:
         def dfs(i: int):
             if i >= n:
                 ans.append("".join(t))

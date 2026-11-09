@@ -73,7 +73,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def pathWithObstacles(self, obstacleGrid: List[List[int]]) -> List[List[int]]:
+    def pathWithObstacles(self, obstacleGrid: list[list[int]]) -> list[list[int]]:
         def dfs(i, j):
             if i >= m or j >= n or obstacleGrid[i][j] == 1:
                 return False

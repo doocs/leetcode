@@ -83,7 +83,7 @@ wordFilter.f("a", "e"); // 返回 0 ，因为下标为 0 的单词：前缀 pref
 
 ```python
 class WordFilter:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.d = {}
         for k, w in enumerate(words):
             n = len(w)
@@ -255,7 +255,7 @@ class Trie:
 
 
 class WordFilter:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.p = Trie()
         self.s = Trie()
         for i, w in enumerate(words):

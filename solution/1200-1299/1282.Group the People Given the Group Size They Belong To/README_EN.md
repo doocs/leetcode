@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+    def groupThePeople(self, groupSizes: list[int]) -> list[list[int]]:
         g = defaultdict(list)
         for i, v in enumerate(groupSizes):
             g[v].append(i)

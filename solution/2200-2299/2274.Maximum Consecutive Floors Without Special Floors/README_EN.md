@@ -82,7 +82,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def maxConsecutive(self, bottom: int, top: int, special: List[int]) -> int:
+    def maxConsecutive(self, bottom: int, top: int, special: list[int]) -> int:
         special.sort()
         ans = max(special[0] - bottom, top - special[-1])
         for x, y in pairwise(special):

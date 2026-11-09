@@ -94,7 +94,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minHeightShelves(self, books: List[List[int]], shelfWidth: int) -> int:
+    def minHeightShelves(self, books: list[list[int]], shelfWidth: int) -> int:
         n = len(books)
         f = [0] * (n + 1)
         for i, (w, h) in enumerate(books, 1):

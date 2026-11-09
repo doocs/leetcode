@@ -107,7 +107,7 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 
 ```python
 class Solution:
-    def maxNonDecreasingLength(self, nums1: List[int], nums2: List[int]) -> int:
+    def maxNonDecreasingLength(self, nums1: list[int], nums2: list[int]) -> int:
         n = len(nums1)
         f = g = 1
         ans = 1

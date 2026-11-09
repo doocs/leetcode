@@ -1,5 +1,5 @@
 class Solution:
-    def validTicTacToe(self, board: List[str]) -> bool:
+    def validTicTacToe(self, board: list[str]) -> bool:
         def win(x):
             for i in range(3):
                 if all(board[i][j] == x for j in range(3)):

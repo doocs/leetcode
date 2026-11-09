@@ -1,5 +1,5 @@
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         f[1] = nums[0]

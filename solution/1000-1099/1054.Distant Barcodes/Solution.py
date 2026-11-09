@@ -1,5 +1,5 @@
 class Solution:
-    def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
+    def rearrangeBarcodes(self, barcodes: list[int]) -> list[int]:
         cnt = Counter(barcodes)
         barcodes.sort(key=lambda x: (-cnt[x], x))
         n = len(barcodes)

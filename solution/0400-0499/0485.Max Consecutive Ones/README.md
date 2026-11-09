@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+    def findMaxConsecutiveOnes(self, nums: list[int]) -> int:
         ans = cnt = 0
         for x in nums:
             if x:

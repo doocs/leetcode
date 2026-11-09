@@ -123,7 +123,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def scoreDifference(self, nums: List[int]) -> int:
+    def scoreDifference(self, nums: list[int]) -> int:
         ans, k = 0, 1
         for i, x in enumerate(nums):
             if x % 2:

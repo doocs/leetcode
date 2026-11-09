@@ -1,5 +1,5 @@
 class Solution:
-    def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
+    def findXSum(self, nums: list[int], k: int, x: int) -> list[int]:
         def add(v: int):
             if cnt[v] == 0:
                 return

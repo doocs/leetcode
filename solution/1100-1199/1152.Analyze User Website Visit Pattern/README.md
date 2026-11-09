@@ -106,8 +106,8 @@ tags:
 ```python
 class Solution:
     def mostVisitedPattern(
-        self, username: List[str], timestamp: List[int], website: List[str]
-    ) -> List[str]:
+        self, username: list[str], timestamp: list[int], website: list[str]
+    ) -> list[str]:
         d = defaultdict(list)
         for user, _, site in sorted(
             zip(username, timestamp, website), key=lambda x: x[1]

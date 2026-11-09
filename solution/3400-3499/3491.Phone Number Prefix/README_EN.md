@@ -84,7 +84,7 @@ The time complexity is $O(n^2m + n \log n)$, and the space complexity is $O(m + 
 
 ```python
 class Solution:
-    def phonePrefix(self, numbers: List[str]) -> bool:
+    def phonePrefix(self, numbers: list[str]) -> bool:
         numbers.sort(key=len)
         for i, s in enumerate(numbers):
             if any(s.startswith(t) for t in numbers[:i]):

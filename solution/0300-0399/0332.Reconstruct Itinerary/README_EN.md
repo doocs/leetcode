@@ -91,7 +91,7 @@ The time complexity is $O(m \log m)$, and the space complexity is $O(m)$, where 
 
 ```python
 class Solution:
-    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+    def findItinerary(self, tickets: list[list[str]]) -> list[str]:
         def dfs(f: str):
             while g[f]:
                 dfs(g[f].pop())

@@ -108,7 +108,7 @@ $$
 
 ```python
 class Solution:
-    def convertArray(self, nums: List[int]) -> int:
+    def convertArray(self, nums: list[int]) -> int:
         def solve(nums):
             n = len(nums)
             f = [[0] * 1001 for _ in range(n + 1)]

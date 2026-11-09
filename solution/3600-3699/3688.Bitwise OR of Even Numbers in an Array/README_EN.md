@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def evenNumberBitwiseORs(self, nums: List[int]) -> int:
+    def evenNumberBitwiseORs(self, nums: list[int]) -> int:
         return reduce(or_, (x for x in nums if x % 2 == 0), 0)
 ```
 

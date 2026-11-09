@@ -1,5 +1,5 @@
 class Solution:
-    def maxProduct(self, words: List[str]) -> int:
+    def maxProduct(self, words: list[str]) -> int:
         mask = [0] * len(words)
         ans = 0
         for i, s in enumerate(words):

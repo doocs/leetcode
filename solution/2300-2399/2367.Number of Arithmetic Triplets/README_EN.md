@@ -89,7 +89,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+    def arithmeticTriplets(self, nums: list[int], diff: int) -> int:
         return sum(b - a == diff and c - b == diff for a, b, c in combinations(nums, 3))
 ```
 
@@ -201,7 +201,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+    def arithmeticTriplets(self, nums: list[int], diff: int) -> int:
         vis = set(nums)
         return sum(x + diff in vis and x + diff * 2 in vis for x in nums)
 ```

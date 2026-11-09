@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def validSubarrays(self, nums: List[int]) -> int:
+    def validSubarrays(self, nums: list[int]) -> int:
         n = len(nums)
         right = [n] * n
         stk = []
@@ -221,7 +221,7 @@ function validSubarrays(nums: number[]): number {
 
 ```python
 class Solution:
-    def validSubarrays(self, nums: List[int]) -> int:
+    def validSubarrays(self, nums: list[int]) -> int:
         n = len(nums)
         stk = []
         ans = 0

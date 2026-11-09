@@ -97,7 +97,7 @@ tags:
 ```python
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         def dfs(i: int) -> int:
             vis.add(i)
@@ -264,7 +264,7 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 ```python
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         g = defaultdict(list)
         for a, b in edges:
@@ -439,7 +439,7 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 ```python
 class Solution:
     def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
+        self, n: int, edges: list[list[int]], restricted: list[int]
     ) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:

@@ -113,7 +113,7 @@ tags:
 
 ```python
 class Solution:
-    def minSwaps(self, nums: List[int]) -> int:
+    def minSwaps(self, nums: list[int]) -> int:
         def f(x: int) -> int:
             s = 0
             while x:

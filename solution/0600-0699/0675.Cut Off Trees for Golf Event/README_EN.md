@@ -95,7 +95,7 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 
 ```python
 class Solution:
-    def cutOffTree(self, forest: List[List[int]]) -> int:
+    def cutOffTree(self, forest: list[list[int]]) -> int:
         def f(i, j, x, y):
             return abs(i - x) + abs(j - y)
 

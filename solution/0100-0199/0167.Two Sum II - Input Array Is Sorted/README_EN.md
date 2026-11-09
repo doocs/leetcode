@@ -89,7 +89,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+    def twoSum(self, numbers: list[int], target: int) -> list[int]:
         n = len(numbers)
         for i in range(n - 1):
             x = target - numbers[i]
@@ -260,7 +260,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+    def twoSum(self, numbers: list[int], target: int) -> list[int]:
         i, j = 0, len(numbers) - 1
         while i < j:
             x = numbers[i] + numbers[j]

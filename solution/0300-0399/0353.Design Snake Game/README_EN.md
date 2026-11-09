@@ -96,7 +96,7 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 
 ```python
 class SnakeGame:
-    def __init__(self, width: int, height: int, food: List[List[int]]):
+    def __init__(self, width: int, height: int, food: list[list[int]]):
         self.m = height
         self.n = width
         self.food = food

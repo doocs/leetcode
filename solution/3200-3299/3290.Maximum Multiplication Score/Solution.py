@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, a: List[int], b: List[int]) -> int:
+    def maxScore(self, a: list[int], b: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if j >= len(b):

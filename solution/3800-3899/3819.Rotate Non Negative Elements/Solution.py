@@ -1,5 +1,5 @@
 class Solution:
-    def rotateElements(self, nums: List[int], k: int) -> List[int]:
+    def rotateElements(self, nums: list[int], k: int) -> list[int]:
         t = [x for x in nums if x >= 0]
         m = len(t)
         d = [0] * m

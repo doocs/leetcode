@@ -1,5 +1,5 @@
 class Solution:
-    def maxPoints(self, points: List[List[int]]) -> int:
+    def maxPoints(self, points: list[list[int]]) -> int:
         def gcd(a, b):
             return a if b == 0 else gcd(b, a % b)
 

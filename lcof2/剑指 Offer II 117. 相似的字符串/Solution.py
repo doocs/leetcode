@@ -1,5 +1,5 @@
 class Solution:
-    def numSimilarGroups(self, strs: List[str]) -> int:
+    def numSimilarGroups(self, strs: list[str]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

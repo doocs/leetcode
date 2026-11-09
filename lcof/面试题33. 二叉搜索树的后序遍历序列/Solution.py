@@ -1,5 +1,5 @@
 class Solution:
-    def verifyPostorder(self, postorder: List[int]) -> bool:
+    def verifyPostorder(self, postorder: list[int]) -> bool:
         stk = [(0, len(postorder) - 1)]
         while stk:
             l, r = stk.pop()

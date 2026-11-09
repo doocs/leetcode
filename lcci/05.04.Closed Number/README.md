@@ -68,7 +68,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def findClosedNumbers(self, num: int) -> List[int]:
+    def findClosedNumbers(self, num: int) -> list[int]:
         ans = [-1] * 2
         dirs = (0, 1, 0)
         for p in range(2):

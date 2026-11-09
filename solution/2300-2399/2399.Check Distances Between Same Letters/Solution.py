@@ -1,5 +1,5 @@
 class Solution:
-    def checkDistances(self, s: str, distance: List[int]) -> bool:
+    def checkDistances(self, s: str, distance: list[int]) -> bool:
         d = defaultdict(int)
         for i, c in enumerate(map(ord, s), 1):
             j = c - ord("a")

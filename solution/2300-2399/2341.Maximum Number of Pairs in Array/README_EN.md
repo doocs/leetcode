@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is 
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums: List[int]) -> List[int]:
+    def numberOfPairs(self, nums: list[int]) -> list[int]:
         cnt = Counter(nums)
         s = sum(v // 2 for v in cnt.values())
         return [s, len(nums) - s * 2]

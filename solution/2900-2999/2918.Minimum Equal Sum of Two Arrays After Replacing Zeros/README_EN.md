@@ -83,7 +83,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$
 
 ```python
 class Solution:
-    def minSum(self, nums1: List[int], nums2: List[int]) -> int:
+    def minSum(self, nums1: list[int], nums2: list[int]) -> int:
         s1 = sum(nums1) + nums1.count(0)
         s2 = sum(nums2) + nums2.count(0)
         if s1 > s2:

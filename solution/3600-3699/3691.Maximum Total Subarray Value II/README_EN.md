@@ -117,7 +117,7 @@ The time complexity is $O(n \log n + k \log n)$, and the space complexity is $O(
 
 ```python
 class SparseTableRMQ:
-    def __init__(self, data: List[int]):
+    def __init__(self, data: list[int]):
         self.n = len(data)
         self.max_log = self.n.bit_length() + 1
         self.f_max = [[0] * self.max_log for _ in range(self.n)]
@@ -150,7 +150,7 @@ class SparseTableRMQ:
 
 
 class Solution:
-    def maxTotalValue(self, nums: List[int], k: int) -> int:
+    def maxTotalValue(self, nums: list[int], k: int) -> int:
         n = len(nums)
         st = SparseTableRMQ(nums)
         pq = []

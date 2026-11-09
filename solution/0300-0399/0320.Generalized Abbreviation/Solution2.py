@@ -1,5 +1,5 @@
 class Solution:
-    def generateAbbreviations(self, word: str) -> List[str]:
+    def generateAbbreviations(self, word: str) -> list[str]:
         n = len(word)
         ans = []
         for i in range(1 << n):

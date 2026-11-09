@@ -1,5 +1,5 @@
 class Solution:
-    def maximumTastiness(self, price: List[int], k: int) -> int:
+    def maximumTastiness(self, price: list[int], k: int) -> int:
         def check(x: int) -> bool:
             cnt, pre = 0, -x
             for cur in price:

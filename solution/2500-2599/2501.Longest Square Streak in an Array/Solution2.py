@@ -1,5 +1,5 @@
 class Solution:
-    def longestSquareStreak(self, nums: List[int]) -> int:
+    def longestSquareStreak(self, nums: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             if x not in s:

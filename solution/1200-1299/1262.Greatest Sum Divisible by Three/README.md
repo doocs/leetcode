@@ -100,7 +100,7 @@ $$
 
 ```python
 class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
+    def maxSumDivThree(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[-inf] * 3 for _ in range(n + 1)]
         f[0][0] = 0
@@ -214,7 +214,7 @@ $f[i][j]$ 只与上一行三个余数状态有关，用长度为 $3$ 的数组�
 
 ```python
 class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
+    def maxSumDivThree(self, nums: list[int]) -> int:
         f = [0, -inf, -inf]
         for x in nums:
             g = f[:]

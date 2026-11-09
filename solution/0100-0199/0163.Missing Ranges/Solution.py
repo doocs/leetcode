@@ -1,7 +1,7 @@
 class Solution:
     def findMissingRanges(
-        self, nums: List[int], lower: int, upper: int
-    ) -> List[List[int]]:
+        self, nums: list[int], lower: int, upper: int
+    ) -> list[list[int]]:
         n = len(nums)
         if n == 0:
             return [[lower, upper]]

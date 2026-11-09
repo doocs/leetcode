@@ -1,5 +1,5 @@
 class Solution:
-    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+    def countGoodRectangles(self, rectangles: list[list[int]]) -> int:
         ans = mx = 0
         for l, w in rectangles:
             x = min(l, w)

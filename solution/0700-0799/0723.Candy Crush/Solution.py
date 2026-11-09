@@ -1,5 +1,5 @@
 class Solution:
-    def candyCrush(self, board: List[List[int]]) -> List[List[int]]:
+    def candyCrush(self, board: list[list[int]]) -> list[list[int]]:
         m, n = len(board), len(board[0])
         run = True
         while run:

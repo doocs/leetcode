@@ -102,7 +102,7 @@ $$
 
 ```python
 class Solution:
-    def largestMultipleOfThree(self, digits: List[int]) -> str:
+    def largestMultipleOfThree(self, digits: list[int]) -> str:
         digits.sort()
         n = len(digits)
         f = [[-inf] * 3 for _ in range(n + 1)]

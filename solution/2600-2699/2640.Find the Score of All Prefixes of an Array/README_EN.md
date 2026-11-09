@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def findPrefixScore(self, nums: List[int]) -> List[int]:
+    def findPrefixScore(self, nums: list[int]) -> list[int]:
         n = len(nums)
         ans = [0] * n
         mx = 0

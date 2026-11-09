@@ -1,5 +1,5 @@
 class Solution:
-    def minmaxGasDist(self, stations: List[int], k: int) -> float:
+    def minmaxGasDist(self, stations: list[int], k: int) -> float:
         def check(x):
             return sum(int((b - a) / x) for a, b in pairwise(stations)) <= k
 

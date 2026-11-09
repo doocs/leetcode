@@ -139,7 +139,7 @@ tags:
 
 ```python
 class Solution:
-    def maxDistance(self, side: int, points: List[List[int]], k: int) -> int:
+    def maxDistance(self, side: int, points: list[list[int]], k: int) -> int:
         nums = []
         for x, y in points:
             if x == 0:

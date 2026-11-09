@@ -1,5 +1,5 @@
 class Solution:
-    def getFolderNames(self, names: List[str]) -> List[str]:
+    def getFolderNames(self, names: list[str]) -> list[str]:
         d = defaultdict(int)
         for i, name in enumerate(names):
             if name in d:

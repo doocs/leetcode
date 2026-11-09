@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def minNumberOfHours(
-        self, x: int, y: int, energy: List[int], experience: List[int]
+        self, x: int, y: int, energy: list[int], experience: list[int]
     ) -> int:
         ans = 0
         for dx, dy in zip(energy, experience):

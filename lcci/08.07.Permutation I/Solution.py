@@ -1,5 +1,5 @@
 class Solution:
-    def permutation(self, S: str) -> List[str]:
+    def permutation(self, S: str) -> list[str]:
         def dfs(i: int):
             if i >= n:
                 ans.append("".join(t))

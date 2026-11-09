@@ -86,7 +86,7 @@ nums 最终元素和为 5 + 6 + 1 + 2 + 3 + 4 + 7 + 8 = 36 ，这是所有情况
 
 ```python
 class Solution:
-    def minimalKSum(self, nums: List[int], k: int) -> int:
+    def minimalKSum(self, nums: list[int], k: int) -> int:
         nums.extend([0, 2 * 10**9])
         nums.sort()
         ans = 0

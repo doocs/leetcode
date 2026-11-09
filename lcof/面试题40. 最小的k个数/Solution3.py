@@ -1,5 +1,5 @@
 class Solution:
-    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+    def getLeastNumbers(self, arr: list[int], k: int) -> list[int]:
         def quick_sort(l, r):
             i, j = l, r
             while i < j:

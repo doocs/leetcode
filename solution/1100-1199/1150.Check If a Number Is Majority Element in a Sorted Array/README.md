@@ -80,7 +80,7 @@ tags:
 
 ```python
 class Solution:
-    def isMajorityElement(self, nums: List[int], target: int) -> bool:
+    def isMajorityElement(self, nums: list[int], target: int) -> bool:
         left = bisect_left(nums, target)
         right = bisect_right(nums, target)
         return right - left > len(nums) // 2
@@ -183,7 +183,7 @@ function isMajorityElement(nums: number[], target: number): boolean {
 
 ```python
 class Solution:
-    def isMajorityElement(self, nums: List[int], target: int) -> bool:
+    def isMajorityElement(self, nums: list[int], target: int) -> bool:
         left = bisect_left(nums, target)
         right = left + len(nums) // 2
         return right < len(nums) and nums[right] == target

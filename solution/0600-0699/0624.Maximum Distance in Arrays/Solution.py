@@ -1,5 +1,5 @@
 class Solution:
-    def maxDistance(self, arrays: List[List[int]]) -> int:
+    def maxDistance(self, arrays: list[list[int]]) -> int:
         ans = 0
         mi, mx = arrays[0][0], arrays[0][-1]
         for arr in arrays[1:]:

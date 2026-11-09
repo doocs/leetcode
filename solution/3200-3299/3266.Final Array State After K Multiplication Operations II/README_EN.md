@@ -155,7 +155,7 @@ The time complexity is $O(n \log n \log M + n \log k)$, and the space complexity
 
 ```python
 class Solution:
-    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
+    def getFinalState(self, nums: list[int], k: int, multiplier: int) -> list[int]:
         if multiplier == 1:
             return nums
         pq = [(x, i) for i, x in enumerate(nums)]

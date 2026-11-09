@@ -100,7 +100,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 ans.append(t[:])
@@ -318,7 +318,7 @@ The time complexity is $O(2^n n)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 ans.append(t[:])

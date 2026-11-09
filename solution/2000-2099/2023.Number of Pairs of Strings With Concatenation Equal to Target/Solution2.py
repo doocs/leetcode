@@ -1,5 +1,5 @@
 class Solution:
-    def numOfPairs(self, nums: List[str], target: str) -> int:
+    def numOfPairs(self, nums: list[str], target: str) -> int:
         cnt = Counter(nums)
         ans = 0
         for i in range(1, len(target)):

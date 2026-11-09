@@ -195,7 +195,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minimumAverage(self, nums: List[int]) -> float:
+    def minimumAverage(self, nums: list[int]) -> float:
         nums.sort()
         n = len(nums)
         return min(nums[i] + nums[-i - 1] for i in range(n // 2)) / 2

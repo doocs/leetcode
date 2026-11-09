@@ -88,7 +88,7 @@ class Trie:
 
 
 class Solution:
-    def minimumLengthEncoding(self, words: List[str]) -> int:
+    def minimumLengthEncoding(self, words: list[str]) -> int:
         root = Trie()
         for w in words:
             cur = root
@@ -314,7 +314,7 @@ class Trie:
 
 
 class Solution:
-    def minimumLengthEncoding(self, words: List[str]) -> int:
+    def minimumLengthEncoding(self, words: list[str]) -> int:
         words.sort(key=lambda x: -len(x))
         trie = Trie()
         return sum(trie.insert(w[::-1]) for w in words)

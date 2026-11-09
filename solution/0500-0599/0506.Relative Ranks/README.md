@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def findRelativeRanks(self, score: List[int]) -> List[str]:
+    def findRelativeRanks(self, score: list[int]) -> list[str]:
         n = len(score)
         idx = list(range(n))
         idx.sort(key=lambda x: -score[x])

@@ -1,3 +1,3 @@
 class Solution:
-    def xorBeauty(self, nums: List[int]) -> int:
+    def xorBeauty(self, nums: list[int]) -> int:
         return reduce(xor, nums)

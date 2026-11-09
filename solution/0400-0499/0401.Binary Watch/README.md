@@ -92,7 +92,7 @@ tags:
 
 ```python
 class Solution:
-    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+    def readBinaryWatch(self, turnedOn: int) -> list[str]:
         return [
             '{:d}:{:02d}'.format(i, j)
             for i in range(12)
@@ -229,7 +229,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+    def readBinaryWatch(self, turnedOn: int) -> list[str]:
         ans = []
         for i in range(1 << 10):
             h, m = i >> 6, i & 0b111111

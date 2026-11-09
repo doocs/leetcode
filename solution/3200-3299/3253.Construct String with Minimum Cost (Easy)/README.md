@@ -105,7 +105,7 @@ difficulty: 中等
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
         self.cost = inf
 
     def insert(self, word: str, cost: int):
@@ -119,7 +119,7 @@ class Trie:
 
 
 class Solution:
-    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+    def minimumCost(self, target: str, words: list[str], costs: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(target):
@@ -407,7 +407,7 @@ function minimumCost(target: string, words: string[], costs: number[]): number {
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
         self.cost = inf
 
     def insert(self, word: str, cost: int):
@@ -421,7 +421,7 @@ class Trie:
 
 
 class Solution:
-    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+    def minimumCost(self, target: str, words: list[str], costs: list[int]) -> int:
         trie = Trie()
         for word, cost in zip(words, costs):
             trie.insert(word, cost)

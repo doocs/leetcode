@@ -88,7 +88,7 @@ tags:
 
 ```python
 class Solution:
-    def maxMatrixSum(self, matrix: List[List[int]]) -> int:
+    def maxMatrixSum(self, matrix: list[list[int]]) -> int:
         mi = inf
         s = cnt = 0
         for row in matrix:

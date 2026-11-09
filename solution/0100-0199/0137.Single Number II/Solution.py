@@ -1,5 +1,5 @@
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    def singleNumber(self, nums: list[int]) -> int:
         ans = 0
         for i in range(32):
             cnt = sum(num >> i & 1 for num in nums)

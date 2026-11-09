@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def splitMessage(self, message: str, limit: int) -> List[str]:
+    def splitMessage(self, message: str, limit: int) -> list[str]:
         n = len(message)
         sa = 0
         for k in range(1, n + 1):

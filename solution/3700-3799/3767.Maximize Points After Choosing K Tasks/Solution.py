@@ -1,5 +1,5 @@
 class Solution:
-    def maxPoints(self, technique1: List[int], technique2: List[int], k: int) -> int:
+    def maxPoints(self, technique1: list[int], technique2: list[int], k: int) -> int:
         n = len(technique1)
         idx = sorted(range(n), key=lambda i: -(technique1[i] - technique2[i]))
         ans = sum(technique2)

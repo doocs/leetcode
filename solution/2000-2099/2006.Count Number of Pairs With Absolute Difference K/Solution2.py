@@ -1,5 +1,5 @@
 class Solution:
-    def countKDifference(self, nums: List[int], k: int) -> int:
+    def countKDifference(self, nums: list[int], k: int) -> int:
         ans = 0
         cnt = Counter()
         for num in nums:

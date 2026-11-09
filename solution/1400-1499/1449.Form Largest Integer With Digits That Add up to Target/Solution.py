@@ -1,5 +1,5 @@
 class Solution:
-    def largestNumber(self, cost: List[int], target: int) -> str:
+    def largestNumber(self, cost: list[int], target: int) -> str:
         f = [[-inf] * (target + 1) for _ in range(10)]
         f[0][0] = 0
         g = [[0] * (target + 1) for _ in range(10)]

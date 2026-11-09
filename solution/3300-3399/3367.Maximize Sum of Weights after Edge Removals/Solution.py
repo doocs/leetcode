@@ -1,5 +1,5 @@
 class Solution:
-    def maximizeSumOfWeights(self, edges: List[List[int]], k: int) -> int:
+    def maximizeSumOfWeights(self, edges: list[list[int]], k: int) -> int:
         def dfs(u: int, fa: int) -> Tuple[int, int]:
             s = 0
             t = []
@@ -14,7 +14,7 @@ class Solution:
             return s + sum(t[:k]), s + sum(t[: k - 1])
 
         n = len(edges) + 1
-        g: List[List[Tuple[int, int]]] = [[] for _ in range(n)]
+        g: list[list[Tuple[int, int]]] = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))
             g[v].append((u, w))

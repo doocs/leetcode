@@ -1,5 +1,5 @@
 class Solution:
-    def maxOperations(self, nums: List[int]) -> int:
+    def maxOperations(self, nums: list[int]) -> int:
         s = nums[0] + nums[1]
         ans, n = 0, len(nums)
         for i in range(0, n, 2):

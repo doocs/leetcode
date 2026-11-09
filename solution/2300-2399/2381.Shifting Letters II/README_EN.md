@@ -79,7 +79,7 @@ Finally, shift the characters from index 1 to index 1 forward. Now s = &quot;cat
 
 ```python
 class Solution:
-    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+    def shiftingLetters(self, s: str, shifts: list[list[int]]) -> str:
         n = len(s)
         d = [0] * (n + 1)
         for i, j, v in shifts:

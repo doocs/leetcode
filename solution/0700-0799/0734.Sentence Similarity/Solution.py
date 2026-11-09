@@ -1,6 +1,6 @@
 class Solution:
     def areSentencesSimilar(
-        self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]
+        self, sentence1: list[str], sentence2: list[str], similarPairs: list[list[str]]
     ) -> bool:
         if len(sentence1) != len(sentence2):
             return False

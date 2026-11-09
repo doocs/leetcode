@@ -87,7 +87,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(1)$, where $n$
 
 ```python
 class Solution:
-    def stringShift(self, s: str, shift: List[List[int]]) -> str:
+    def stringShift(self, s: str, shift: list[list[int]]) -> str:
         x = sum((b if a else -b) for a, b in shift)
         x %= len(s)
         return s[-x:] + s[:-x]

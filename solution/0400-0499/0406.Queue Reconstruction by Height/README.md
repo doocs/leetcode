@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+    def reconstructQueue(self, people: list[list[int]]) -> list[list[int]]:
         people.sort(key=lambda x: (-x[0], x[1]))
         ans = []
         for p in people:

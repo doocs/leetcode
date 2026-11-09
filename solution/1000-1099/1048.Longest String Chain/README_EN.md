@@ -103,7 +103,7 @@ The time complexity is $O(n^2L)$, and the space complexity is $O(n)$, where $n$ 
 
 ```python
 class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
+    def longestStrChain(self, words: list[str]) -> int:
         def check(a: str, b: str) -> bool:
             if len(a) + 1 != len(b):
                 return False
@@ -326,7 +326,7 @@ The time complexity is $O(n \times L^2)$, and the space complexity is $O(n \time
 
 ```python
 class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
+    def longestStrChain(self, words: list[str]) -> int:
         words.sort(key=len)
         f = {}
         ans = 0

@@ -85,7 +85,7 @@ tags:
 
 ```python
 class Solution:
-    def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
+    def subarraysWithKDistinct(self, nums: list[int], k: int) -> int:
         def f(k):
             pos = [0] * len(nums)
             cnt = Counter()

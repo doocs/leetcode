@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
+    def printTree(self, root: Optional[TreeNode]) -> list[list[str]]:
         def height(root):
             q = deque([root])
             h = -1

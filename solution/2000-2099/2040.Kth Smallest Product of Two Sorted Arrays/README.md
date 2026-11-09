@@ -107,7 +107,7 @@ tags:
 
 ```python
 class Solution:
-    def kthSmallestProduct(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def kthSmallestProduct(self, nums1: list[int], nums2: list[int], k: int) -> int:
         def count(p: int) -> int:
             cnt = 0
             n = len(nums2)

@@ -209,7 +209,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def finalPositionOfSnake(self, n: int, commands: List[str]) -> int:
+    def finalPositionOfSnake(self, n: int, commands: list[str]) -> int:
         x = y = 0
         for c in commands:
             match c[0]:

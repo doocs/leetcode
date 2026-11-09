@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfGoodSubsequences(self, nums: List[int]) -> int:
+    def sumOfGoodSubsequences(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         f = defaultdict(int)
         g = defaultdict(int)

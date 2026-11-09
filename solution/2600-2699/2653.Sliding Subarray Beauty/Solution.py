@@ -1,5 +1,5 @@
 class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+    def getSubarrayBeauty(self, nums: list[int], k: int, x: int) -> list[int]:
         def f(x: int) -> int:
             s = 0
             for i in range(50):

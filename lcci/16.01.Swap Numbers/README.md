@@ -67,7 +67,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def swapNumbers(self, numbers: List[int]) -> List[int]:
+    def swapNumbers(self, numbers: list[int]) -> list[int]:
         numbers[0] ^= numbers[1]
         numbers[1] ^= numbers[0]
         numbers[0] ^= numbers[1]

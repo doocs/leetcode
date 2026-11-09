@@ -107,8 +107,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def mergeSimilarItems(
-        self, items1: List[List[int]], items2: List[List[int]]
-    ) -> List[List[int]]:
+        self, items1: list[list[int]], items2: list[list[int]]
+    ) -> list[list[int]]:
         cnt = Counter()
         for v, w in chain(items1, items2):
             cnt[v] += w

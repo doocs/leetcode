@@ -1,5 +1,5 @@
 class Solution:
-    def beforeAndAfterPuzzles(self, phrases: List[str]) -> List[str]:
+    def beforeAndAfterPuzzles(self, phrases: list[str]) -> list[str]:
         ps = []
         for p in phrases:
             ws = p.split()

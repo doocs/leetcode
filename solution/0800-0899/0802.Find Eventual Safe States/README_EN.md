@@ -82,7 +82,7 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 
 ```python
 class Solution:
-    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+    def eventualSafeNodes(self, graph: list[list[int]]) -> list[int]:
         rg = defaultdict(list)
         indeg = [0] * len(graph)
         for i, vs in enumerate(graph):
@@ -266,7 +266,7 @@ var eventualSafeNodes = function (graph) {
 
 ```python
 class Solution:
-    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+    def eventualSafeNodes(self, graph: list[list[int]]) -> list[int]:
         def dfs(i):
             if color[i]:
                 return color[i] == 2

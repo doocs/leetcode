@@ -1,5 +1,5 @@
 class Solution:
-    def deleteTreeNodes(self, nodes: int, parent: List[int], value: List[int]) -> int:
+    def deleteTreeNodes(self, nodes: int, parent: list[int], value: list[int]) -> int:
         g = [[] for _ in range(nodes)]
         for i in range(1, nodes):
             g[parent[i]].append(i)

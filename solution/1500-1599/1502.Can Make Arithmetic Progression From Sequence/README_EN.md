@@ -75,7 +75,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+    def canMakeArithmeticProgression(self, arr: list[int]) -> bool:
         arr.sort()
         d = arr[1] - arr[0]
         return all(b - a == d for a, b in pairwise(arr))
@@ -232,7 +232,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+    def canMakeArithmeticProgression(self, arr: list[int]) -> bool:
         a = min(arr)
         b = max(arr)
         n = len(arr)

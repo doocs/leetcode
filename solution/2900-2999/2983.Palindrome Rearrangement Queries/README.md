@@ -144,11 +144,11 @@ a<sub>0</sub> = 1, b<sub>0</sub> = 2, c<sub>0</sub> = 4, d<sub>0</sub> = 5.
 
 ```python
 class Solution:
-    def canMakePalindromeQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
-        def count(pre: List[List[int]], i: int, j: int) -> List[int]:
+    def canMakePalindromeQueries(self, s: str, queries: list[list[int]]) -> list[bool]:
+        def count(pre: list[list[int]], i: int, j: int) -> list[int]:
             return [x - y for x, y in zip(pre[j + 1], pre[i])]
 
-        def sub(cnt1: List[int], cnt2: List[int]) -> List[int]:
+        def sub(cnt1: list[int], cnt2: list[int]) -> list[int]:
             res = []
             for x, y in zip(cnt1, cnt2):
                 if x - y < 0:
@@ -157,7 +157,7 @@ class Solution:
             return res
 
         def check(
-            pre1: List[List[int]], pre2: List[List[int]], a: int, b: int, c: int, d: int
+            pre1: list[list[int]], pre2: list[list[int]], a: int, b: int, c: int, d: int
         ) -> bool:
             if diff[a] > 0 or diff[m] - diff[max(b, d) + 1] > 0:
                 return False

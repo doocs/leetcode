@@ -97,7 +97,7 @@ tags:
 
 ```python
 class Solution:
-    def largestEvenSum(self, nums: List[int], k: int) -> int:
+    def largestEvenSum(self, nums: list[int], k: int) -> int:
         nums.sort()
         ans = sum(nums[-k:])
         if ans % 2 == 0:

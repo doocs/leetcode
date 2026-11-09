@@ -123,7 +123,7 @@ class CustomFunction:
 
 
 class Solution:
-    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> list[list[int]]:
         ans = []
         for x in range(1, z + 1):
             y = 1 + bisect_left(
@@ -307,7 +307,7 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 
 class Solution:
-    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> list[list[int]]:
         ans = []
         x, y = 1, 1000
         while x <= 1000 and y:

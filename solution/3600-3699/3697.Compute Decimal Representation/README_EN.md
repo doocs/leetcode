@@ -102,7 +102,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$, whe
 
 ```python
 class Solution:
-    def decimalRepresentation(self, n: int) -> List[int]:
+    def decimalRepresentation(self, n: int) -> list[int]:
         ans = []
         p = 1
         while n:

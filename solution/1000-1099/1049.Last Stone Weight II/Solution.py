@@ -1,5 +1,5 @@
 class Solution:
-    def lastStoneWeightII(self, stones: List[int]) -> int:
+    def lastStoneWeightII(self, stones: list[int]) -> int:
         s = sum(stones)
         m, n = len(stones), s >> 1
         dp = [[0] * (n + 1) for _ in range(m + 1)]

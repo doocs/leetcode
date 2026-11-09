@@ -182,7 +182,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int], strategy: List[int], k: int) -> int:
+    def maxProfit(self, prices: list[int], strategy: list[int], k: int) -> int:
         n = len(prices)
         s = [0] * (n + 1)
         t = [0] * (n + 1)

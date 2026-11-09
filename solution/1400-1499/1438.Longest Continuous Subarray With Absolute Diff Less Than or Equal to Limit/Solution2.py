@@ -1,5 +1,5 @@
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         def check(k: int) -> bool:
             min_q = deque()
             max_q = deque()

@@ -118,7 +118,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def minEliminationTime(self, timeReq: List[int], splitTime: int) -> int:
+    def minEliminationTime(self, timeReq: list[int], splitTime: int) -> int:
         heapify(timeReq)
         while len(timeReq) > 1:
             heappop(timeReq)

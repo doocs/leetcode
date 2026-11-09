@@ -81,7 +81,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def orArray(self, nums: List[int]) -> List[int]:
+    def orArray(self, nums: list[int]) -> list[int]:
         return [a | b for a, b in pairwise(nums)]
 ```
 

@@ -84,7 +84,7 @@ class Solution:
         self.x_center = x_center
         self.y_center = y_center
 
-    def randPoint(self) -> List[float]:
+    def randPoint(self) -> list[float]:
         length = math.sqrt(random.uniform(0, self.radius**2))
         degree = random.uniform(0, 1) * 2 * math.pi
         x = self.x_center + length * math.cos(degree)

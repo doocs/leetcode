@@ -109,7 +109,7 @@ tags:
 
 ```python
 class Solution:
-    def getOrder(self, tasks: List[List[int]]) -> List[int]:
+    def getOrder(self, tasks: list[list[int]]) -> list[int]:
         for i, task in enumerate(tasks):
             task.append(i)
         tasks.sort()

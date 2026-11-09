@@ -70,7 +70,7 @@ difficulty: 简单
 
 ```python
 class Solution:
-    def supplyWagon(self, supplies: List[int]) -> List[int]:
+    def supplyWagon(self, supplies: list[int]) -> list[int]:
         for _ in range((len(supplies) + 1) >> 1):
             n = len(supplies)
             mi = inf

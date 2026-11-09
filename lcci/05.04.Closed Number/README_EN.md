@@ -74,7 +74,7 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n
 
 ```python
 class Solution:
-    def findClosedNumbers(self, num: int) -> List[int]:
+    def findClosedNumbers(self, num: int) -> list[int]:
         ans = [-1] * 2
         dirs = (0, 1, 0)
         for p in range(2):

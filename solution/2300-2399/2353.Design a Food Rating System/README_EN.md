@@ -123,7 +123,7 @@ In terms of time complexity, the constructor has a time complexity of $O(n \log 
 
 ```python
 class FoodRatings:
-    def __init__(self, foods: List[str], cuisines: List[str], ratings: List[int]):
+    def __init__(self, foods: list[str], cuisines: list[str], ratings: list[int]):
         self.d = defaultdict(SortedList)
         self.g = {}
         for food, cuisine, rating in zip(foods, cuisines, ratings):

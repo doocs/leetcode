@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def minimizeError(self, prices: List[str], target: int) -> str:
+    def minimizeError(self, prices: list[str], target: int) -> str:
         mi = 0
         arr = []
         for p in prices:

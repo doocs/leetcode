@@ -1,5 +1,5 @@
 class Solution:
-    def waysToMakeFair(self, nums: List[int]) -> int:
+    def waysToMakeFair(self, nums: list[int]) -> int:
         s1, s2 = sum(nums[::2]), sum(nums[1::2])
         ans = t1 = t2 = 0
         for i, v in enumerate(nums):

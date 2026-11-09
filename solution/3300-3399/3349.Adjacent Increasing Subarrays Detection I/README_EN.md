@@ -96,7 +96,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def hasIncreasingSubarrays(self, nums: List[int], k: int) -> bool:
+    def hasIncreasingSubarrays(self, nums: list[int], k: int) -> bool:
         mx = pre = cur = 0
         for i, x in enumerate(nums):
             cur += 1

@@ -103,7 +103,7 @@ The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is 
 
 ```python
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         return reduce(xor, [x for x, v in cnt.items() if v == 2], 0)
 ```
@@ -209,7 +209,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         ans = mask = 0
         for x in nums:
             if mask >> x & 1:

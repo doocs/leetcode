@@ -124,7 +124,7 @@ The time complexity is $O(n \times S \log M \log S)$, and the space complexity i
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], sum: int) -> int:
+    def minOperations(self, nums: list[int], sum: int) -> int:
         inf = 10**9
         f = [0] + [inf] * sum
 

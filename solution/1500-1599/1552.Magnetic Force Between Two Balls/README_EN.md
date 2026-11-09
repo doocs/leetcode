@@ -85,7 +85,7 @@ The time complexity is $O(n \log n + n \log M)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def maxDistance(self, position: List[int], m: int) -> int:
+    def maxDistance(self, position: list[int], m: int) -> int:
         def check(f: int) -> bool:
             prev = -inf
             cnt = 0

@@ -91,7 +91,7 @@ comments: true
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+    def mergeKLists(self, lists: list[ListNode]) -> ListNode:
         n = len(lists)
         if n == 0:
             return None

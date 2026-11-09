@@ -1,5 +1,5 @@
 class Solution:
-    def shortestSequence(self, rolls: List[int], k: int) -> int:
+    def shortestSequence(self, rolls: list[int], k: int) -> int:
         ans = 1
         s = set()
         for v in rolls:

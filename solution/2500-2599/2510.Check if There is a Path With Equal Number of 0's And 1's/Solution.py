@@ -1,5 +1,5 @@
 class Solution:
-    def isThereAPath(self, grid: List[List[int]]) -> bool:
+    def isThereAPath(self, grid: list[list[int]]) -> bool:
         @cache
         def dfs(i, j, k):
             if i >= m or j >= n:

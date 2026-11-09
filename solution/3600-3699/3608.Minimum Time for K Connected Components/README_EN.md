@@ -150,7 +150,7 @@ class UnionFind:
 
 
 class Solution:
-    def minTime(self, n: int, edges: List[List[int]], k: int) -> int:
+    def minTime(self, n: int, edges: list[list[int]], k: int) -> int:
         edges.sort(key=lambda x: x[2])
         uf = UnionFind(n)
         cnt = n

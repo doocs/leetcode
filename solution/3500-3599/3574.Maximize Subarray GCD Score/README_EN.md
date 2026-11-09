@@ -123,7 +123,7 @@ The time complexity is $O(n^2 \log n)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def maxGCDScore(self, nums: List[int], k: int) -> int:
+    def maxGCDScore(self, nums: list[int], k: int) -> int:
         n = len(nums)
         cnt = [0] * n
         for i, x in enumerate(nums):

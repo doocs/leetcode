@@ -92,7 +92,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
+    def minimumOperations(self, nums: list[int]) -> int:
         return sum(x % 3 != 0 for x in nums)
 ```
 

@@ -6,8 +6,8 @@
 #         self.right = right
 class Solution:
     def delNodes(
-        self, root: Optional[TreeNode], to_delete: List[int]
-    ) -> List[TreeNode]:
+        self, root: Optional[TreeNode], to_delete: list[int]
+    ) -> list[TreeNode]:
         def dfs(root: Optional[TreeNode]) -> Optional[TreeNode]:
             if root is None:
                 return None

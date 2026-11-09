@@ -1,5 +1,5 @@
 class Solution:
-    def subSort(self, array: List[int]) -> List[int]:
+    def subSort(self, array: list[int]) -> list[int]:
         n = len(array)
         mi, mx = inf, -inf
         left = right = -1

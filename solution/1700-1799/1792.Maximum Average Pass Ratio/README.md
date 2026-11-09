@@ -89,7 +89,7 @@ tags:
 
 ```python
 class Solution:
-    def maxAverageRatio(self, classes: List[List[int]], extraStudents: int) -> float:
+    def maxAverageRatio(self, classes: list[list[int]], extraStudents: int) -> float:
         h = [(a / b - (a + 1) / (b + 1), a, b) for a, b in classes]
         heapify(h)
         for _ in range(extraStudents):

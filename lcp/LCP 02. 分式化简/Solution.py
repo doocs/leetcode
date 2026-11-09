@@ -1,6 +1,6 @@
 class Solution:
-    def fraction(self, cont: List[int]) -> List[int]:
-        def dfs(i: int) -> List[int]:
+    def fraction(self, cont: list[int]) -> list[int]:
+        def dfs(i: int) -> list[int]:
             if i == len(cont) - 1:
                 return [cont[i], 1]
             a, b = dfs(i + 1)

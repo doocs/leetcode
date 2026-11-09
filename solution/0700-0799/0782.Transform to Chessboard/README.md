@@ -112,7 +112,7 @@ tags:
 
 ```python
 class Solution:
-    def movesToChessboard(self, board: List[List[int]]) -> int:
+    def movesToChessboard(self, board: list[list[int]]) -> int:
         def f(mask, cnt):
             ones = mask.bit_count()
             if n & 1:

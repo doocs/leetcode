@@ -132,7 +132,7 @@ tags:
 
 ```python
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(nums):
@@ -292,7 +292,7 @@ function maximumTotalCost(nums: number[]): number {
 
 ```python
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         f, g = -inf, 0
         for x in nums:
             f, g = max(f, g) + x, f - x
@@ -395,7 +395,7 @@ function maximumTotalCost(nums: number[]): number {
 
 ```python
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0, 0] for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):

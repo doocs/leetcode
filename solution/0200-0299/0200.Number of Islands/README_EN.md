@@ -86,7 +86,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def dfs(i, j):
             grid[i][j] = '0'
             for a, b in pairwise(dirs):
@@ -347,7 +347,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def bfs(i, j):
             grid[i][j] = '0'
             q = deque([(i, j)])
@@ -595,7 +595,7 @@ The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, w
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -865,7 +865,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = '0'

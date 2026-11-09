@@ -1,5 +1,5 @@
 class Solution:
-    def canReach(self, arr: List[int], start: int) -> bool:
+    def canReach(self, arr: list[int], start: int) -> bool:
         q = deque([start])
         while q:
             i = q.popleft()

@@ -103,7 +103,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 ```python
 class Solution:
-    def getFolderNames(self, names: List[str]) -> List[str]:
+    def getFolderNames(self, names: list[str]) -> list[str]:
         d = defaultdict(int)
         for i, name in enumerate(names):
             if name in d:

@@ -99,7 +99,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minLength(self, nums: List[int], k: int) -> int:
+    def minLength(self, nums: list[int], k: int) -> int:
         cnt = defaultdict(int)
         n = len(nums)
         ans = n + 1

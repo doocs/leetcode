@@ -1,5 +1,5 @@
 class Solution:
-    def minimizeTheDifference(self, mat: List[List[int]], target: int) -> int:
+    def minimizeTheDifference(self, mat: list[list[int]], target: int) -> int:
         f = [True]
         for row in mat:
             mx = max(row)

@@ -94,7 +94,7 @@ tags:
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], x: int) -> int:
+    def minOperations(self, nums: list[int], x: int) -> int:
         s = sum(nums) - x
         vis = {0: -1}
         mx, t = -1, 0
@@ -265,7 +265,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def minOperations(self, nums: List[int], x: int) -> int:
+    def minOperations(self, nums: list[int], x: int) -> int:
         s = sum(nums) - x
         j = t = 0
         mx = -1

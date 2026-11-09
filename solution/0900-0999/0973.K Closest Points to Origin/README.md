@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
         points.sort(key=lambda p: hypot(p[0], p[1]))
         return points[:k]
 ```
@@ -178,7 +178,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
         max_q = []
         for i, (x, y) in enumerate(points):
             dist = math.hypot(x, y)
@@ -316,7 +316,7 @@ function kClosest(points: number[][], k: number): number[][] {
 
 ```python
 class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
         dist = [x * x + y * y for x, y in points]
         l, r = 0, max(dist)
         while l < r:

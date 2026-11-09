@@ -78,7 +78,7 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 
 ```python
 class Solution:
-    def splitArray(self, nums: List[int]) -> bool:
+    def splitArray(self, nums: list[int]) -> bool:
         n = len(nums)
         s = [0] * (n + 1)
         for i, v in enumerate(nums):

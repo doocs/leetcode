@@ -1,5 +1,5 @@
 class Solution:
-    def maxSum(self, grid: List[List[int]], limits: List[int], k: int) -> int:
+    def maxSum(self, grid: list[list[int]], limits: list[int], k: int) -> int:
         pq = []
         for nums, limit in zip(grid, limits):
             nums.sort()

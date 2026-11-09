@@ -1,5 +1,5 @@
 class Solution:
-    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+    def getCoprimes(self, nums: list[int], edges: list[list[int]]) -> list[int]:
         n = len(nums)
         g = [[] for _ in range(n)]
         for u, v in edges:

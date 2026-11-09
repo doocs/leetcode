@@ -86,7 +86,7 @@ tags:
 
 ```python
 class Solution:
-    def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
+    def getModifiedArray(self, length: int, updates: list[list[int]]) -> list[int]:
         d = [0] * length
         for l, r, c in updates:
             d[l] += c
@@ -249,7 +249,7 @@ class BinaryIndexedTree:
 
 
 class Solution:
-    def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
+    def getModifiedArray(self, length: int, updates: list[list[int]]) -> list[int]:
         tree = BinaryIndexedTree(length)
         for l, r, c in updates:
             tree.update(l + 1, c)

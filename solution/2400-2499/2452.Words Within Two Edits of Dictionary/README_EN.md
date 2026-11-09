@@ -84,7 +84,7 @@ The time complexity is $O(mnl)$, where $m$ and $n$ are the lengths of the arrays
 
 ```python
 class Solution:
-    def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
+    def twoEditWords(self, queries: list[str], dictionary: list[str]) -> list[str]:
         ans = []
         for s in queries:
             for t in dictionary:

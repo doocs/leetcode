@@ -81,7 +81,7 @@ tags:
 
 ```python
 class Solution:
-    def divisibleTripletCount(self, nums: List[int], d: int) -> int:
+    def divisibleTripletCount(self, nums: list[int], d: int) -> int:
         cnt = defaultdict(int)
         ans, n = 0, len(nums)
         for j in range(n):

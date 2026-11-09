@@ -1,5 +1,5 @@
 class Solution:
-    def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
+    def fullJustify(self, words: list[str], maxWidth: int) -> list[str]:
         ans = []
         i, n = 0, len(words)
         while i < n:

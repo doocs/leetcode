@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def countSteppingNumbers(self, low: int, high: int) -> List[int]:
+    def countSteppingNumbers(self, low: int, high: int) -> list[int]:
         ans = []
         if low == 0:
             ans.append(0)

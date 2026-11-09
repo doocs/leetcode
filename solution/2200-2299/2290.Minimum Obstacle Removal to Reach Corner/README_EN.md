@@ -102,7 +102,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def minimumObstacles(self, grid: List[List[int]]) -> int:
+    def minimumObstacles(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque([(0, 0, 0)])
         vis = set()

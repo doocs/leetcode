@@ -1,5 +1,5 @@
 class Solution:
-    def addNegabinary(self, arr1: List[int], arr2: List[int]) -> List[int]:
+    def addNegabinary(self, arr1: list[int], arr2: list[int]) -> list[int]:
         i, j = len(arr1) - 1, len(arr2) - 1
         c = 0
         ans = []

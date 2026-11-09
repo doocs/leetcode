@@ -108,11 +108,11 @@ class DetectSquares:
     def __init__(self):
         self.cnt = defaultdict(Counter)
 
-    def add(self, point: List[int]) -> None:
+    def add(self, point: list[int]) -> None:
         x, y = point
         self.cnt[x][y] += 1
 
-    def count(self, point: List[int]) -> int:
+    def count(self, point: list[int]) -> int:
         x1, y1 = point
         if x1 not in self.cnt:
             return 0

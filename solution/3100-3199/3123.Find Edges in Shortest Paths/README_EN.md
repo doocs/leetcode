@@ -114,7 +114,7 @@ The time complexity is $O(m \log m)$, and the space complexity is $O(n + m)$, wh
 
 ```python
 class Solution:
-    def findAnswer(self, n: int, edges: List[List[int]]) -> List[bool]:
+    def findAnswer(self, n: int, edges: list[list[int]]) -> list[bool]:
         g = defaultdict(list)
         for i, (a, b, w) in enumerate(edges):
             g[a].append((b, w, i))

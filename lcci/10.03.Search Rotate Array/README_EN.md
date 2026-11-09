@@ -79,7 +79,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def search(self, arr: List[int], target: int) -> int:
+    def search(self, arr: list[int], target: int) -> int:
         l, r = 0, len(arr) - 1
         while arr[l] == arr[r]:
             r -= 1

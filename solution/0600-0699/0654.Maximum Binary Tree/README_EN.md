@@ -95,7 +95,7 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+    def constructMaximumBinaryTree(self, nums: list[int]) -> Optional[TreeNode]:
         def dfs(nums):
             if not nums:
                 return None
@@ -365,7 +365,7 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+    def constructMaximumBinaryTree(self, nums: list[int]) -> Optional[TreeNode]:
         def dfs(l, r):
             if l > r:
                 return None
@@ -719,7 +719,7 @@ func (t *segmentTree) pushup(u int) {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+    def constructMaximumBinaryTree(self, nums: list[int]) -> Optional[TreeNode]:
         stk = []
         for v in nums:
             node = TreeNode(v)
@@ -876,7 +876,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+    def constructMaximumBinaryTree(self, nums: list[int]) -> Optional[TreeNode]:
         n = len(nums)
         root = None
         stk = [(0, n, None, 0)]
@@ -1245,7 +1245,7 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+    def constructMaximumBinaryTree(self, nums: list[int]) -> Optional[TreeNode]:
         d = {v: i for i, v in enumerate(nums, 1)}
         tree = SegmentTree(nums)
         root = None

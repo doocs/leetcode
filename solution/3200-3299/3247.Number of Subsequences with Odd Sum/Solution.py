@@ -1,5 +1,5 @@
 class Solution:
-    def subsequenceCount(self, nums: List[int]) -> int:
+    def subsequenceCount(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         f = [0] * 2
         for x in nums:

@@ -121,7 +121,7 @@ tags:
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], k: int) -> int:
+    def minCost(self, nums: list[int], k: int) -> int:
         @cache
         def dfs(i):
             if i >= n:
@@ -309,7 +309,7 @@ function minCost(nums: number[], k: number): number {
 
 ```python
 class Solution:
-    def minCost(self, nums: List[int], k: int) -> int:
+    def minCost(self, nums: list[int], k: int) -> int:
         n = len(nums)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

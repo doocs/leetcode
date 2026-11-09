@@ -96,7 +96,7 @@ tags:
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int]) -> int:
+    def longestSubarray(self, nums: list[int]) -> int:
         mx = max(nums)
         ans = cnt = 0
         for x in nums:

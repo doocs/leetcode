@@ -106,7 +106,7 @@ tags:
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             i = bisect_right(rewardValues, x)
@@ -273,7 +273,7 @@ $$
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         m = nums[-1] << 1
         f = [False] * m
@@ -426,7 +426,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         f = 1
         for v in nums:

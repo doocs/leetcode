@@ -1,5 +1,5 @@
 class Solution:
-    def sumDigitDifferences(self, nums: List[int]) -> int:
+    def sumDigitDifferences(self, nums: list[int]) -> int:
         n = len(nums)
         m = int(log10(nums[0])) + 1
         ans = 0

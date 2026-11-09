@@ -83,7 +83,7 @@ tags:
 
 ```python
 class Solution:
-    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+    def selfDividingNumbers(self, left: int, right: int) -> list[int]:
         def check(x: int) -> bool:
             y = x
             while y:

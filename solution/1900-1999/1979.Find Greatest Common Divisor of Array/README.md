@@ -92,7 +92,7 @@ nums 中最大的数是 3
 
 ```python
 class Solution:
-    def findGCD(self, nums: List[int]) -> int:
+    def findGCD(self, nums: list[int]) -> int:
         return gcd(max(nums), min(nums))
 ```
 

@@ -84,7 +84,7 @@ tags:
 
 ```python
 class Solution:
-    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+    def findClosestElements(self, arr: list[int], k: int, x: int) -> list[int]:
         arr.sort(key=lambda v: abs(v - x))
         return sorted(arr[:k])
 ```
@@ -205,7 +205,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+    def findClosestElements(self, arr: list[int], k: int, x: int) -> list[int]:
         l, r = 0, len(arr)
         while r - l > k:
             if x - arr[l] <= arr[r - 1] - x:
@@ -335,7 +335,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+    def findClosestElements(self, arr: list[int], k: int, x: int) -> list[int]:
         left, right = 0, len(arr) - k
         while left < right:
             mid = (left + right) >> 1

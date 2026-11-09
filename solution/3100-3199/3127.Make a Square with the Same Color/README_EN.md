@@ -181,7 +181,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def canMakeSquare(self, grid: List[List[str]]) -> bool:
+    def canMakeSquare(self, grid: list[list[str]]) -> bool:
         for i in range(0, 2):
             for j in range(0, 2):
                 cnt1 = cnt2 = 0

@@ -82,7 +82,7 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 
 ```python
 class Solution:
-    def minCostII(self, costs: List[List[int]]) -> int:
+    def minCostII(self, costs: list[list[int]]) -> int:
         n, k = len(costs), len(costs[0])
         f = costs[0][:]
         for i in range(1, n):

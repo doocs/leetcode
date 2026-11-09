@@ -1,5 +1,5 @@
 class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
+    def minOperations(self, boxes: str) -> list[int]:
         n = len(boxes)
         left = [0] * n
         right = [0] * n

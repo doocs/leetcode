@@ -136,7 +136,7 @@ max = lambda a, b: a if a > b else b
 
 
 class Solution:
-    def minXor(self, nums: List[int], k: int) -> int:
+    def minXor(self, nums: list[int], k: int) -> int:
         n = len(nums)
         g = [0] * (n + 1)
         for i, x in enumerate(nums, 1):

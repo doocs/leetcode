@@ -119,8 +119,8 @@ tags:
 ```python
 class Solution:
     def shortestDistanceAfterQueries(
-        self, n: int, queries: List[List[int]]
-    ) -> List[int]:
+        self, n: int, queries: list[list[int]]
+    ) -> list[int]:
         nxt = list(range(1, n))
         ans = []
         cnt = n - 1

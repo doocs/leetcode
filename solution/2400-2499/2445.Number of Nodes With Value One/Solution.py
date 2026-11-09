@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfNodes(self, n: int, queries: List[int]) -> int:
+    def numberOfNodes(self, n: int, queries: list[int]) -> int:
         def dfs(i):
             if i > n:
                 return

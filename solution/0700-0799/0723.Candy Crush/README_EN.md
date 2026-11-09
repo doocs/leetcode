@@ -88,7 +88,7 @@ The time complexity is $O(m^2n^2)$, and the space complexity is $O(1)$, where $m
 
 ```python
 class Solution:
-    def candyCrush(self, board: List[List[int]]) -> List[List[int]]:
+    def candyCrush(self, board: list[list[int]]) -> list[list[int]]:
         m, n = len(board), len(board[0])
         run = True
         while run:

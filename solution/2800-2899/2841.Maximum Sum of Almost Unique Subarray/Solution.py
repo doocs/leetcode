@@ -1,5 +1,5 @@
 class Solution:
-    def maxSum(self, nums: List[int], m: int, k: int) -> int:
+    def maxSum(self, nums: list[int], m: int, k: int) -> int:
         cnt = Counter(nums[:k])
         s = sum(nums[:k])
         ans = s if len(cnt) >= m else 0

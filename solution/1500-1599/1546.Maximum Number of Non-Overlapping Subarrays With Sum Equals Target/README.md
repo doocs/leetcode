@@ -90,7 +90,7 @@ tags:
 
 ```python
 class Solution:
-    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+    def maxNonOverlapping(self, nums: list[int], target: int) -> int:
         ans = 0
         i, n = 0, len(nums)
         while i < n:

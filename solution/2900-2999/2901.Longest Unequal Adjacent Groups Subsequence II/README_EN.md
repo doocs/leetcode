@@ -127,8 +127,8 @@ The time complexity is $O(n^2L)$, and the space complexity is $O(n)$, where $L$ 
 ```python
 class Solution:
     def getWordsInLongestSubsequence(
-        self, words: List[str], groups: List[int]
-    ) -> List[str]:
+        self, words: list[str], groups: list[int]
+    ) -> list[str]:
         def check(s: str, t: str) -> bool:
             return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 

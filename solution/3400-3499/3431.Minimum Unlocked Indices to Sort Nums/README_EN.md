@@ -119,7 +119,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def minUnlockedIndices(self, nums: List[int], locked: List[int]) -> int:
+    def minUnlockedIndices(self, nums: list[int], locked: list[int]) -> int:
         n = len(nums)
         first2 = first3 = n
         last1 = last2 = -1

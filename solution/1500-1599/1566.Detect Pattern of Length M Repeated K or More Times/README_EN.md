@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def containsPattern(self, arr: List[int], m: int, k: int) -> bool:
+    def containsPattern(self, arr: list[int], m: int, k: int) -> bool:
         if len(arr) < m * k:
             return False
         cnt, target = 0, (k - 1) * m

@@ -121,7 +121,7 @@ The time complexity is $O(n 2^{\frac{n}{2}})$, and the space complexity is $O(2^
 
 ```python
 class Solution:
-    def splitArraySameAverage(self, nums: List[int]) -> bool:
+    def splitArraySameAverage(self, nums: list[int]) -> bool:
         n = len(nums)
         if n == 1:
             return False

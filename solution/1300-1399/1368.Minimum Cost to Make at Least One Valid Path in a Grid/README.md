@@ -120,7 +120,7 @@ tags:
 
 ```python
 class Solution:
-    def minCost(self, grid: List[List[int]]) -> int:
+    def minCost(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         dirs = [[0, 0], [0, 1], [0, -1], [1, 0], [-1, 0]]
         q = deque([(0, 0, 0)])

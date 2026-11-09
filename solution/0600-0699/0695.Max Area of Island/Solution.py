@@ -1,5 +1,5 @@
 class Solution:
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+    def maxAreaOfIsland(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int) -> int:
             if grid[i][j] == 0:
                 return 0

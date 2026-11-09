@@ -1,5 +1,5 @@
 class Solution:
-    def maxProfit(self, prices: List[int], profits: List[int]) -> int:
+    def maxProfit(self, prices: list[int], profits: list[int]) -> int:
         n = len(prices)
         ans = -1
         for j, x in enumerate(profits):

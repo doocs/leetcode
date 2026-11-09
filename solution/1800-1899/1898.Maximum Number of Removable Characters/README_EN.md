@@ -101,7 +101,7 @@ The time complexity is $O(k \log k)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
+    def maximumRemovals(self, s: str, p: str, removable: list[int]) -> int:
         def check(k: int) -> bool:
             rem = [False] * len(s)
             for i in removable[:k]:

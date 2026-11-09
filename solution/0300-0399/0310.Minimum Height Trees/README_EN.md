@@ -84,7 +84,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+    def findMinHeightTrees(self, n: int, edges: list[list[int]]) -> list[int]:
         if n == 1:
             return [0]
         g = [[] for _ in range(n)]

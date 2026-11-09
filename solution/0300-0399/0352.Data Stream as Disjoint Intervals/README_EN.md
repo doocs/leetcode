@@ -114,7 +114,7 @@ class SummaryRanges:
         else:
             self.mp[val] = [val, val]
 
-    def getIntervals(self) -> List[List[int]]:
+    def getIntervals(self) -> list[list[int]]:
         return list(self.mp.values())
 
 

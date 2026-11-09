@@ -82,7 +82,7 @@ The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$
 
 ```python
 class Solution:
-    def countNegatives(self, grid: List[List[int]]) -> int:
+    def countNegatives(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         i, j = m - 1, 0
         ans = 0

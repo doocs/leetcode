@@ -1,5 +1,5 @@
 class Solution:
-    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
+    def getValidT9Words(self, num: str, words: list[str]) -> list[str]:
         def check(w: str) -> bool:
             return all(d[c] == num[i] for i, c in enumerate(w))
 

@@ -125,7 +125,7 @@ difficulty: 中等
 
 ```python
 class Solution:
-    def minCostExcludingMax(self, n: int, edges: List[List[int]]) -> int:
+    def minCostExcludingMax(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))

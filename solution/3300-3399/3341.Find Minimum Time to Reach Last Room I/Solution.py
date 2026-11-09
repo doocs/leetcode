@@ -1,5 +1,5 @@
 class Solution:
-    def minTimeToReach(self, moveTime: List[List[int]]) -> int:
+    def minTimeToReach(self, moveTime: list[list[int]]) -> int:
         n, m = len(moveTime), len(moveTime[0])
         dist = [[inf] * m for _ in range(n)]
         dist[0][0] = 0

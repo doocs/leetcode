@@ -63,7 +63,7 @@ tags:
 
 ```python
 class Solution:
-    def advantageCount(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def advantageCount(self, nums1: list[int], nums2: list[int]) -> list[int]:
         nums1.sort()
         t = sorted((v, i) for i, v in enumerate(nums2))
         n = len(nums2)

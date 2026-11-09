@@ -93,7 +93,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def largestSubarray(self, nums: List[int], k: int) -> List[int]:
+    def largestSubarray(self, nums: list[int], k: int) -> list[int]:
         i = nums.index(max(nums[: len(nums) - k + 1]))
         return nums[i : i + k]
 ```

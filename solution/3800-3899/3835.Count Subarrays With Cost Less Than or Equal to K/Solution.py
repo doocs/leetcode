@@ -1,5 +1,5 @@
 class Solution:
-    def countSubarrays(self, nums: List[int], k: int) -> int:
+    def countSubarrays(self, nums: list[int], k: int) -> int:
         ans = 0
         q1 = deque()
         q2 = deque()

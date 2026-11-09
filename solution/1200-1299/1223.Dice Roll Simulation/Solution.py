@@ -1,5 +1,5 @@
 class Solution:
-    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+    def dieSimulator(self, n: int, rollMax: list[int]) -> int:
         @cache
         def dfs(i, j, x):
             if i >= n:

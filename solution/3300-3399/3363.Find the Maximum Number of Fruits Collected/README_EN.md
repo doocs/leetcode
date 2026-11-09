@@ -136,7 +136,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def maxCollectedFruits(self, fruits: List[List[int]]) -> int:
+    def maxCollectedFruits(self, fruits: list[list[int]]) -> int:
         n = len(fruits)
         f = [[-inf] * n for _ in range(n)]
         f[0][n - 1] = fruits[0][n - 1]

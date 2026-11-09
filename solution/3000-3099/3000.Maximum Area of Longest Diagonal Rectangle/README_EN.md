@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def areaOfMaxDiagonal(self, dimensions: List[List[int]]) -> int:
+    def areaOfMaxDiagonal(self, dimensions: list[list[int]]) -> int:
         ans = mx = 0
         for l, w in dimensions:
             t = l**2 + w**2

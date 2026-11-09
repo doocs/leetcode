@@ -99,7 +99,7 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 
 ```python
 class Solution:
-    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+    def kthLargestNumber(self, nums: list[str], k: int) -> str:
         return nlargest(k, nums, key=lambda x: int(x))[k - 1]
 ```
 

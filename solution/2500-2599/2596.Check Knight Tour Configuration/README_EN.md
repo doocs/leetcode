@@ -84,7 +84,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def checkValidGrid(self, grid: List[List[int]]) -> bool:
+    def checkValidGrid(self, grid: list[list[int]]) -> bool:
         if grid[0][0]:
             return False
         n = len(grid)

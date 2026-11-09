@@ -114,7 +114,7 @@ tags:
 
 ```python
 class Solution:
-    def maxPower(self, stations: List[int], r: int, k: int) -> int:
+    def maxPower(self, stations: list[int], r: int, k: int) -> int:
         def check(x, k):
             d = [0] * (n + 1)
             t = 0

@@ -105,7 +105,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+    def bestHand(self, ranks: list[int], suits: list[str]) -> str:
         # if len(set(suits)) == 1:
         if all(a == b for a, b in pairwise(suits)):
             return 'Flush'

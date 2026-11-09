@@ -111,7 +111,7 @@ The time complexity is $O(\textit{maxTime}(m + n))$, and the space complexity is
 ```python
 class Solution:
     def minCost(
-        self, maxTime: int, edges: List[List[int]], passingFees: List[int]
+        self, maxTime: int, edges: list[list[int]], passingFees: list[int]
     ) -> int:
         m, n = maxTime, len(passingFees)
         f = [[inf] * n for _ in range(m + 1)]
