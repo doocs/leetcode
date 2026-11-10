@@ -151,11 +151,10 @@ WITH
         SELECT
             user_id,
             (
-                contest_id -
-                    ROW_NUMBER() OVER (
-                        PARTITION BY user_id
-                        ORDER BY contest_id
-                    )
+                contest_id - ROW_NUMBER() OVER (
+                    PARTITION BY user_id
+                    ORDER BY contest_id
+                )
             ) AS diff
         FROM S
     ),

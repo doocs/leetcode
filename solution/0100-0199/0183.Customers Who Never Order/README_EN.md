@@ -125,11 +125,10 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
 SELECT name AS Customers
 FROM Customers
 WHERE
-    id NOT IN
-        (
-            SELECT customerId
-            FROM Orders
-        );
+    id NOT IN (
+        SELECT customerId
+        FROM Orders
+    );
 ```
 
 <!-- tabs:end -->

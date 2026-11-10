@@ -121,13 +121,12 @@ We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did n
 SELECT session_id
 FROM Playback
 WHERE
-    session_id NOT IN
-        (
-            SELECT session_id
-            FROM Playback AS p
-            JOIN Ads AS a
-                ON p.customer_id = a.customer_id AND a.timestamp BETWEEN p.start_time AND p.end_time
-        );
+    session_id NOT IN (
+        SELECT session_id
+        FROM Playback AS p
+        JOIN Ads AS a
+            ON p.customer_id = a.customer_id AND a.timestamp BETWEEN p.start_time AND p.end_time
+    );
 ```
 
 <!-- tabs:end -->
