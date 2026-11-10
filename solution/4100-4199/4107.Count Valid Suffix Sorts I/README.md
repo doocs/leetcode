@@ -82,32 +82,210 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 达到 $10^5$，对每个起点把后缀排序后再与 $\textit{target}$ 比较，复杂度是 $O(n^2\log n)$，无法通过。
+>
+> 排序只重排后缀，前缀 $\textit{nums}[0..i)$ 原样留下，整个数组的多重集也不变。起点一旦越过第一处不同的位置，那个位置就留在未排序的前缀里。
+>
+> 非递增排序的后缀内部不能出现上升。 $\textit{target}$ 里最靠右的一处 $\textit{target}[k-1]<\textit{target}[k]$，把合法起点限制在 $k$ 及其右侧。
+>
+> 前缀逐位相等时，后缀的多重集随之相等；这段 $\textit{target}$ 若已经非递增，它就是该多重集唯一的非递增排列。于是用哈希表核对两个数组的计数，再统计右端上升位置到第一处不同位置之间的下标个数。
+
+<!-- thinking:end -->
+
+对后缀做非递增排序不会改变整个数组的多重集，也不会改动前缀 $\textit{nums}[0..i)$。我们用哈希表 $\textit{diff}$ 比较 $\textit{nums}$ 与 $\textit{target}$ 的元素计数： $\textit{nums}$ 中每个值加一， $\textit{target}$ 中每个值减一。减到负数说明两者多重集不同，直接返回 $0$。
+
+令 $\textit{maxI}$ 为从左到右第一处 $\textit{nums}[i]\neq\textit{target}[i]$ 的下标；两数组完全相同时 $\textit{maxI}=n-1$。起点大于 $\textit{maxI}$ 时，这处不同落在未排序的前缀中，排序结果不可能等于 $\textit{target}$。
+
+令 $\textit{minI}$ 为 $\textit{target}$ 最靠右的严格上升位置。从右向左寻找最大的 $i>0$，使 $\textit{target}[i-1]<\textit{target}[i]$；若不存在这样的 $i$，则 $\textit{minI}=0$。起点小于 $\textit{minI}$ 时， $\textit{target}[i..n)$ 内部仍有上升，不可能是非递增排序的结果。
+
+两个数组的多重集相同，且 $\textit{nums}[0..i)$ 与 $\textit{target}[0..i)$ 逐位相等时，后缀的多重集也相同。此时 $\textit{target}[i..n)$ 非递增，就等于将 $\textit{nums}[i..n)$ 按非递增顺序排序。因此每个 $i\in[\textit{minI},\textit{maxI}]$ 都合法，答案为 $\max(\textit{maxI}-\textit{minI}+1,0)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def countSuffix(self, nums: list[int], target: list[int]) -> int:
+        diff = defaultdict(int)
+        for x in nums:
+            diff[x] += 1
+        for x in target:
+            diff[x] -= 1
+            if diff[x] < 0:
+                return 0
 
+        n = len(nums)
+        max_i = n - 1
+        for i, (x, y) in enumerate(zip(nums, target)):
+            if x != y:
+                max_i = i
+                break
+
+        min_i = 0
+        for i in range(n - 1, 0, -1):
+            if target[i - 1] < target[i]:
+                min_i = i
+                break
+
+        return max(max_i - min_i + 1, 0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countSuffix(int[] nums, int[] target) {
+        Map<Integer, Integer> diff = new HashMap<>();
+        for (int x : nums) {
+            diff.merge(x, 1, Integer::sum);
+        }
+        for (int x : target) {
+            diff.merge(x, -1, Integer::sum);
+            if (diff.get(x) < 0) {
+                return 0;
+            }
+        }
 
+        int n = nums.length;
+        int maxI = n - 1;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != target[i]) {
+                maxI = i;
+                break;
+            }
+        }
+
+        int minI = 0;
+        for (int i = n - 1; i > 0; i--) {
+            if (target[i - 1] < target[i]) {
+                minI = i;
+                break;
+            }
+        }
+
+        return Math.max(maxI - minI + 1, 0);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countSuffix(vector<int>& nums, vector<int>& target) {
+        unordered_map<int, int> diff;
+        for (int x : nums) {
+            diff[x]++;
+        }
+        for (int x : target) {
+            if (--diff[x] < 0) {
+                return 0;
+            }
+        }
 
+        int n = nums.size();
+        int max_i = n - 1;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != target[i]) {
+                max_i = i;
+                break;
+            }
+        }
+
+        int min_i = 0;
+        for (int i = n - 1; i > 0; i--) {
+            if (target[i - 1] < target[i]) {
+                min_i = i;
+                break;
+            }
+        }
+
+        return max(max_i - min_i + 1, 0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSuffix(nums []int, target []int) int {
+	diff := map[int]int{}
+	for _, x := range nums {
+		diff[x]++
+	}
+	for _, x := range target {
+		diff[x]--
+		if diff[x] < 0 {
+			return 0
+		}
+	}
 
+	n := len(nums)
+	maxI := n - 1
+	for i, x := range nums {
+		if x != target[i] {
+			maxI = i
+			break
+		}
+	}
+
+	minI := 0
+	for i := n - 1; i > 0; i-- {
+		if target[i-1] < target[i] {
+			minI = i
+			break
+		}
+	}
+
+	return max(maxI-minI+1, 0)
+}
+```
+
+#### TypeScript
+
+```ts
+function countSuffix(nums: number[], target: number[]): number {
+    const diff = new Map<number, number>();
+    for (const x of nums) {
+        diff.set(x, (diff.get(x) ?? 0) + 1);
+    }
+    for (const x of target) {
+        const cnt = (diff.get(x) ?? 0) - 1;
+        diff.set(x, cnt);
+        if (cnt < 0) {
+            return 0;
+        }
+    }
+
+    const n = nums.length;
+    let maxI = n - 1;
+    for (let i = 0; i < n; i++) {
+        if (nums[i] !== target[i]) {
+            maxI = i;
+            break;
+        }
+    }
+
+    let minI = 0;
+    for (let i = n - 1; i > 0; i--) {
+        if (target[i - 1] < target[i]) {
+            minI = i;
+            break;
+        }
+    }
+
+    return Math.max(maxI - minI + 1, 0);
+}
 ```
 
 <!-- tabs:end -->
