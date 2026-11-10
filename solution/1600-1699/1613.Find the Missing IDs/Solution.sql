@@ -10,13 +10,11 @@ WITH RECURSIVE
 SELECT n AS ids
 FROM t
 WHERE
-    n <
-        (
-            SELECT MAX(customer_id)
-            FROM Customers
-        )
-    AND n NOT IN
-        (
-            SELECT customer_id
-            FROM Customers
-        );
+    n < (
+        SELECT MAX(customer_id)
+        FROM Customers
+    )
+    AND n NOT IN (
+        SELECT customer_id
+        FROM Customers
+    );

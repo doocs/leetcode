@@ -5,8 +5,9 @@ WITH
             t.account_id,
             DATE_FORMAT(day, '%Y-%m-01') AS day,
             transaction_id AS tx,
-            SUM(amount) OVER (PARTITION BY account_id, DATE_FORMAT(day, '%Y-%m-01')) >
-                max_income AS marked
+            SUM(amount) OVER (
+                PARTITION BY account_id, DATE_FORMAT(day, '%Y-%m-01')
+            ) > max_income AS marked
         FROM Transactions AS t
         LEFT JOIN Accounts AS a ON t.account_id = a.account_id
         WHERE type = 'Creditor'

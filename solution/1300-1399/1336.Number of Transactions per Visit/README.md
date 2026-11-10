@@ -146,15 +146,14 @@ WITH RECURSIVE
         SELECT n + 1
         FROM S
         WHERE
-            n <
-                (
-                    SELECT MAX(cnt)
-                    FROM (
-                        SELECT COUNT(1) AS cnt
-                        FROM Transactions
-                        GROUP BY user_id, transaction_date
-                    ) AS t
-                )
+            n < (
+                SELECT MAX(cnt)
+                FROM (
+                    SELECT COUNT(1) AS cnt
+                    FROM Transactions
+                    GROUP BY user_id, transaction_date
+                ) AS t
+            )
     ),
     T AS (
         SELECT v.user_id, visit_date, IFNULL(cnt, 0) AS cnt

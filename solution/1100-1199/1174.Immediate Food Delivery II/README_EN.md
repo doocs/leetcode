@@ -98,12 +98,11 @@ We can use a subquery to first find the first order of each user, and then calcu
 SELECT ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM Delivery
 WHERE
-    (customer_id, order_date) IN
-        (
-            SELECT customer_id, MIN(order_date)
-            FROM Delivery
-            GROUP BY 1
-        );
+    (customer_id, order_date) IN (
+        SELECT customer_id, MIN(order_date)
+        FROM Delivery
+        GROUP BY 1
+    );
 ```
 
 <!-- tabs:end -->

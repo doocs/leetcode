@@ -3,11 +3,13 @@ SELECT
     s.product_id,
     p.product_name,
     y.YEAR AS report_year,
-    s.average_daily_sales *
-        (
-            IF(YEAR(s.period_end) > y.YEAR, y.days_of_year, DAYOFYEAR(s.period_end)) -
-                IF(YEAR(s.period_start) < y.YEAR, 1, DAYOFYEAR(s.period_start)) + 1
-        ) AS total_amount
+    s.average_daily_sales * (
+        IF(YEAR(s.period_end) > y.YEAR, y.days_of_year, DAYOFYEAR(s.period_end)) - IF(
+            YEAR(s.period_start) < y.YEAR,
+            1,
+            DAYOFYEAR(s.period_start)
+        ) + 1
+    ) AS total_amount
 FROM Sales AS s
 INNER JOIN (
     SELECT

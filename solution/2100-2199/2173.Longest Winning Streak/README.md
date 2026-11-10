@@ -119,11 +119,10 @@ WITH
             ROW_NUMBER() OVER (
                 PARTITION BY player_id
                 ORDER BY match_day
-            ) -
-                ROW_NUMBER() OVER (
-                    PARTITION BY player_id, result
-                    ORDER BY match_day
-                ) AS rk
+            ) - ROW_NUMBER() OVER (
+                PARTITION BY player_id, result
+                ORDER BY match_day
+            ) AS rk
         FROM Matches
     ),
     T AS (

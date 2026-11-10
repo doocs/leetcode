@@ -151,14 +151,13 @@ SELECT
     ) AS Salary
 FROM employee
 WHERE
-    (id, month) NOT IN
-        (
-            SELECT
-                id,
-                MAX(month)
-            FROM Employee
-            GROUP BY id
-        )
+    (id, month) NOT IN (
+        SELECT
+            id,
+            MAX(month)
+        FROM Employee
+        GROUP BY id
+    )
 ORDER BY id, month DESC;
 ```
 
