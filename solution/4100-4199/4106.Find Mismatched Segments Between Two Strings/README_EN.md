@@ -75,32 +75,140 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $100$, so extending a run of mismatches from every start also finds every segment. The segments do not overlap, and adjacent starts rescan the same run.
+>
+> A segment has to be maximal. As soon as one index matches, the current segment ends, and the next segment can begin only to its right.
+>
+> Matching characters split the two strings into disjoint pieces. One left-to-right pass with two pointers is enough: skip equal characters, then take the whole following run of unequal characters at once.
+
+<!-- thinking:end -->
+
+We scan $\textit{s1}$ and $\textit{s2}$ from left to right, and let $i$ be the current index. If $\textit{s1}[i]=\textit{s2}[i]$, move $i$ one step to the right. Otherwise set $j=i+1$ and keep moving $j$ while $j<n$ and $\textit{s1}[j]\neq\textit{s2}[j]$. Every index in $[i,j)$ differs, and the range is maximal: either $i=0$ or $\textit{s1}[i-1]=\textit{s2}[i-1]$, and either $j=n$ or $\textit{s1}[j]=\textit{s2}[j]$. Append $\textit{s1}[i..j)$ and $\textit{s2}[i..j)$ to the answer, then set $i=j$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the strings.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findMismatchedSegments(self, s1: str, s2: str) -> list[list[str]]:
+        ans = []
+        n = len(s1)
+        i = 0
+        while i < n:
+            if s1[i] == s2[i]:
+                i += 1
+                continue
+            j = i + 1
+            while j < n and s1[j] != s2[j]:
+                j += 1
+            ans.append([s1[i:j], s2[i:j]])
+            i = j
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<List<String>> findMismatchedSegments(String s1, String s2) {
+        int n = s1.length();
+        List<List<String>> ans = new ArrayList<>();
+        for (int i = 0; i < n;) {
+            if (s1.charAt(i) == s2.charAt(i)) {
+                ++i;
+                continue;
+            }
+            int j = i + 1;
+            while (j < n && s1.charAt(j) != s2.charAt(j)) {
+                ++j;
+            }
+            ans.add(List.of(s1.substring(i, j), s2.substring(i, j)));
+            i = j;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<string>> findMismatchedSegments(string s1, string s2) {
+        vector<vector<string>> ans;
+        int n = s1.size();
+        int i = 0;
+        while (i < n) {
+            if (s1[i] == s2[i]) {
+                i++;
+                continue;
+            }
+            int j = i + 1;
+            while (j < n && s1[j] != s2[j]) {
+                j++;
+            }
+            ans.push_back({s1.substr(i, j - i), s2.substr(i, j - i)});
+            i = j;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findMismatchedSegments(s1 string, s2 string) [][]string {
+	ans := [][]string{}
+	n := len(s1)
+	i := 0
+	for i < n {
+		if s1[i] == s2[i] {
+			i++
+			continue
+		}
+		j := i + 1
+		for j < n && s1[j] != s2[j] {
+			j++
+		}
+		ans = append(ans, []string{s1[i:j], s2[i:j]})
+		i = j
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function findMismatchedSegments(s1: string, s2: string): string[][] {
+    const ans: string[][] = [];
+    const n = s1.length;
+    let i = 0;
+    while (i < n) {
+        if (s1[i] === s2[i]) {
+            i++;
+            continue;
+        }
+        let j = i + 1;
+        while (j < n && s1[j] !== s2[j]) {
+            j++;
+        }
+        ans.push([s1.slice(i, j), s2.slice(i, j)]);
+        i = j;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

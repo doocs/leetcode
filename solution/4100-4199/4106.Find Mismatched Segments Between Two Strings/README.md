@@ -77,32 +77,140 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：双指针
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 不超过 $100$，从每个起点向右找出连续不同的一段也能得到全部片段。这些片段互不重叠，相邻起点会重复扫到同一段。
+>
+> 片段必须是极大区间。某个位置一旦相同，当前片段就在这里结束，下一段只能从它的右侧开始。
+>
+> 相同字符把两个字符串切成互不交叉的若干段。从左到右用两个指针一起走一遍即可：先跳过相同字符，再把随后整段不同字符一次性取出。
+
+<!-- thinking:end -->
+
+我们从左到右同时扫描 $\textit{s1}$ 与 $\textit{s2}$，用指针 $i$ 表示当前下标。若 $\textit{s1}[i]=\textit{s2}[i]$，则把 $i$ 右移一位。否则令 $j=i+1$，并在 $j<n$ 且 $\textit{s1}[j]\neq\textit{s2}[j]$ 时持续右移 $j$。区间 $[i,j)$ 上每个位置的字符都不同，且 $i=0$ 或 $\textit{s1}[i-1]=\textit{s2}[i-1]$，同时 $j=n$ 或 $\textit{s1}[j]=\textit{s2}[j]$，因此这是一个极大不匹配片段。把 $\textit{s1}[i..j)$ 和 $\textit{s2}[i..j)$ 加入答案，再令 $i=j$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findMismatchedSegments(self, s1: str, s2: str) -> list[list[str]]:
+        ans = []
+        n = len(s1)
+        i = 0
+        while i < n:
+            if s1[i] == s2[i]:
+                i += 1
+                continue
+            j = i + 1
+            while j < n and s1[j] != s2[j]:
+                j += 1
+            ans.append([s1[i:j], s2[i:j]])
+            i = j
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<List<String>> findMismatchedSegments(String s1, String s2) {
+        int n = s1.length();
+        List<List<String>> ans = new ArrayList<>();
+        for (int i = 0; i < n;) {
+            if (s1.charAt(i) == s2.charAt(i)) {
+                ++i;
+                continue;
+            }
+            int j = i + 1;
+            while (j < n && s1.charAt(j) != s2.charAt(j)) {
+                ++j;
+            }
+            ans.add(List.of(s1.substring(i, j), s2.substring(i, j)));
+            i = j;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<string>> findMismatchedSegments(string s1, string s2) {
+        vector<vector<string>> ans;
+        int n = s1.size();
+        int i = 0;
+        while (i < n) {
+            if (s1[i] == s2[i]) {
+                i++;
+                continue;
+            }
+            int j = i + 1;
+            while (j < n && s1[j] != s2[j]) {
+                j++;
+            }
+            ans.push_back({s1.substr(i, j - i), s2.substr(i, j - i)});
+            i = j;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findMismatchedSegments(s1 string, s2 string) [][]string {
+	ans := [][]string{}
+	n := len(s1)
+	i := 0
+	for i < n {
+		if s1[i] == s2[i] {
+			i++
+			continue
+		}
+		j := i + 1
+		for j < n && s1[j] != s2[j] {
+			j++
+		}
+		ans = append(ans, []string{s1[i:j], s2[i:j]})
+		i = j
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function findMismatchedSegments(s1: string, s2: string): string[][] {
+    const ans: string[][] = [];
+    const n = s1.length;
+    let i = 0;
+    while (i < n) {
+        if (s1[i] === s2[i]) {
+            i++;
+            continue;
+        }
+        let j = i + 1;
+        while (j < n && s1[j] !== s2[j]) {
+            j++;
+        }
+        ans.push([s1.slice(i, j), s2.slice(i, j)]);
+        i = j;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
