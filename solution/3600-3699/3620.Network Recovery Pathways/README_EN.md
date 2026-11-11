@@ -53,11 +53,9 @@ tags:
 <ul data-end="551" data-start="146">
 	<li data-end="462" data-start="146">
 	<p data-end="206" data-start="148">The graph has two possible routes from node 0 to node 3:</p>
-
     <ol data-end="462" data-start="209">
     	<li data-end="315" data-start="209">
     	<p data-end="228" data-start="212">Path <code>0 &rarr; 1 &rarr; 3</code></p>
-
     	<ul data-end="315" data-start="234">
     		<li data-end="315" data-start="234">
     		<p data-end="315" data-start="236">Total cost = <code>5 + 10 = 15</code>, which exceeds k (<code>15 &gt; 10</code>), so this path is invalid.</p>
@@ -66,7 +64,6 @@ tags:
     	</li>
     	<li data-end="462" data-start="318">
     	<p data-end="337" data-start="321">Path <code>0 &rarr; 2 &rarr; 3</code></p>
-
     	<ul data-end="462" data-start="343">
     		<li data-end="397" data-start="343">
     		<p data-end="397" data-start="345">Total cost = <code>3 + 4 = 7 &lt;= k</code>, so this path is valid.</p>
@@ -81,7 +78,6 @@ tags:
     <li data-end="551" data-start="463">
     <p data-end="551" data-start="465">There are no other valid paths. Hence, the maximum among all valid path‐scores is 3.</p>
     </li>
-
 </ul>
 </div>
 
@@ -102,11 +98,9 @@ tags:
 	</li>
 	<li data-end="1231" data-start="791">
 	<p data-end="837" data-start="793">Consider the remaining routes from 0 to 4:</p>
-
     <ol data-end="1231" data-start="840">
     	<li data-end="985" data-start="840">
     	<p data-end="859" data-start="843">Path <code>0 &rarr; 1 &rarr; 4</code></p>
-
     	<ul data-end="985" data-start="865">
     		<li data-end="920" data-start="865">
     		<p data-end="920" data-start="867">Total cost = <code>7 + 5 = 12 &lt;= k</code>, so this path is valid.</p>
@@ -118,7 +112,6 @@ tags:
     	</li>
     	<li data-end="1083" data-start="988">
     	<p data-end="1011" data-start="991">Path <code>0 &rarr; 2 &rarr; 3 &rarr; 4</code></p>
-
     	<ul data-end="1083" data-start="1017">
     		<li data-end="1083" data-start="1017">
     		<p data-end="1083" data-start="1019">Node 3 is offline, so this path is invalid regardless of cost.</p>
@@ -127,7 +120,6 @@ tags:
     	</li>
     	<li data-end="1231" data-start="1086">
     	<p data-end="1105" data-start="1089">Path <code>0 &rarr; 2 &rarr; 4</code></p>
-
     	<ul data-end="1231" data-start="1111">
     		<li data-end="1166" data-start="1111">
     		<p data-end="1166" data-start="1113">Total cost = <code>6 + 6 = 12 &lt;= k</code>, so this path is valid.</p>
@@ -142,7 +134,6 @@ tags:
     <li data-end="1314" data-is-last-node="" data-start="1232">
     <p data-end="1314" data-is-last-node="" data-start="1234">Among the two valid paths, their scores are 5 and 6. Therefore, the answer is 6.</p>
     </li>
-
 </ul>
 </div>
 

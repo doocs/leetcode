@@ -44,7 +44,6 @@ tags:
 
 <ul>
 	<li><code>[1, 2, 3]</code>
-
     <ul>
     	<li>Alternating Sum: <code>1 - 2 + 3 = 2</code></li>
     	<li>Product: <code>1 * 2 * 3 = 6</code></li>
@@ -56,7 +55,6 @@ tags:
     	<li>Product: 2</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The maximum product within the limit is 6.</p>
@@ -87,7 +85,6 @@ tags:
 
 <ul>
 	<li><code>[2, 2]</code>
-
     <ul>
     	<li>Alternating Sum: <code>2 - 2 = 0</code></li>
     	<li>Product: <code>2 * 2 = 4</code></li>
@@ -105,7 +102,6 @@ tags:
     	<li>Product: <code>2 * 2 * 3 * 3 = 36</code></li>
     </ul>
     </li>
-
 </ul>
 
 <p>The subsequence <code>[2, 2, 3, 3]</code> has the greatest product with an alternating sum equal to <code>k</code>, but <code>36 &gt; 9</code>. The next greatest product is 9, which is within the limit.</p>

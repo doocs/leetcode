@@ -119,7 +119,6 @@ pass_to 表示 player_id 对应队员接球。
 
 <ul>
 	<li><strong>前半场（00:00-45:00）：</strong>
-
     <ul>
     	<li>阿森纳的传球：
     	<ul>

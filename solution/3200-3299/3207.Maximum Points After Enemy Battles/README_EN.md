@@ -28,7 +28,6 @@ tags:
 
 <ul>
 	<li>Choose an <strong>unmarked</strong> enemy, <code>i</code>, such that <code>currentEnergy &gt;= enemyEnergies[i]</code>. By choosing this option:
-
     <ul>
     	<li>You gain 1 point.</li>
     	<li>Your energy is reduced by the enemy&#39;s energy, i.e. <code>currentEnergy = currentEnergy - enemyEnergies[i]</code>.</li>
@@ -40,7 +39,6 @@ tags:
     	<li>The <font face="monospace">e</font>nemy <code>i</code> is <strong>marked</strong>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return an integer denoting the <strong>maximum</strong> points you can get in the end by optimally performing operations.</p>

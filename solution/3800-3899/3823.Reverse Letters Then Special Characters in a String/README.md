@@ -43,7 +43,6 @@ tags:
 
 <ul>
 	<li>字符串中的字母为 <code>['e', 'b', 'c', 'd', 'a', 'f']</code>：
-
     <ul>
     	<li>反转它们得到 <code>['f', 'a', 'd', 'c', 'b', 'e']</code></li>
     	<li><code>s</code> 变为 <code>")fad#cb@e("</code></li>
@@ -55,7 +54,6 @@ tags:
     	<li><code>s</code> 变为 <code><span class="example-io">"</span>(fad@cb#e)<span class="example-io">"</span></code></li>
     </ul>
     </li>
-
 </ul>
 </div>
 

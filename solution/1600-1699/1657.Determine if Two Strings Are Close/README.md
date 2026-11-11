@@ -24,7 +24,6 @@ tags:
 
 <ul>
 	<li>操作 1：交换任意两个 <strong>现有</strong> 字符。
-
     <ul>
     	<li>例如，<code>a<u>b</u>cd<u>e</u> -&gt; a<u>e</u>cd<u>b</u></code></li>
     </ul>
@@ -34,7 +33,6 @@ tags:
     	<li>例如，<code><u>aa</u>c<u>abb</u> -&gt; <u>bb</u>c<u>baa</u></code>（所有 <code>a</code> 转化为 <code>b</code> ，而所有的 <code>b</code> 转换为 <code>a</code> ）</li>
     </ul>
     </li>
-
 </ul>
 
 <p>你可以根据需要对任意一个字符串多次使用这两种操作。</p>

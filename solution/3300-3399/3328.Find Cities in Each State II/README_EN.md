@@ -86,7 +86,6 @@ Each row of this table contains the state name and the city name within that sta
 
 <ul>
 	<li><strong>Pennsylvania</strong>:
-
     <ul>
     	<li>Has 3 cities (meets minimum requirement)</li>
     	<li>All 3 cities start with &#39;P&#39; (same as state)</li>
@@ -113,7 +112,6 @@ Each row of this table contains the state name and the city name within that sta
     	<li>No cities start with &#39;C&#39; (doesn&#39;t meet the matching letter requirement)</li>
     </ul>
     </li>
-
 </ul>
 
 <p><strong>Note:</strong></p>

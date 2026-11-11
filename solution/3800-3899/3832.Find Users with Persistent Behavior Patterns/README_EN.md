@@ -33,7 +33,6 @@ Each row represents a user performing a specific action on a given date.
 
 <ul>
 	<li>A user is considered <strong>behaviorally stable</strong> if there exists a sequence of <strong>at least </strong><code>5</code><strong> consecutive days</strong> such that:
-
     <ul>
     	<li>The user performed <strong>exactly one action per day</strong> during that period.</li>
     	<li>The <strong>action is the same</strong> on all those consecutive days.</li>
@@ -94,7 +93,6 @@ Each row represents a user performing a specific action on a given date.
 
 <ul>
 	<li><strong>User 1</strong>:
-
     <ul>
     	<li>Performed <code>login</code> from 2024-01-01 to 2024-01-05 on consecutive days</li>
     	<li>Each day has exactly one action, and the action is the same</li>
@@ -116,7 +114,6 @@ Each row represents a user performing a specific action on a given date.
     	<li>Included in the result</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The Results table is ordered by streak_length in descending order, then by user_id in ascending order</p>

@@ -23,7 +23,6 @@ tags:
 
 <ul>
 	<li>The concatenation of <code>num1</code> and <code>num2</code> is a permutation of <code>num</code>.
-
     <ul>
     	<li>In other words, the sum of the number of occurrences of each digit in <code>num1</code> and <code>num2</code> is equal to the number of occurrences of that digit in <code>num</code>.</li>
     </ul>

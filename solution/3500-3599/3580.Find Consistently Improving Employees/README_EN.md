@@ -118,7 +118,6 @@ Each row represents a performance review for an employee. The rating is on a sca
 
 <ul>
 	<li><strong>Alice Johnson (employee_id = 1):</strong>
-
     <ul>
     	<li>Has 4 reviews with ratings: 2, 3, 4, 5</li>
     	<li>Last 3 reviews (by date): 2023-04-15 (3), 2023-07-15 (4), 2023-10-15 (5)</li>
@@ -148,7 +147,6 @@ Each row represents a performance review for an employee. The rating is on a sca
     	<li>Emma Brown (employee_id = 5): Only has 2 reviews (needs at least 3)</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The output table is ordered by improvement_score in descending order, then by name in ascending order.</p>

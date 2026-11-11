@@ -84,7 +84,6 @@ tags:
 
 <ul>
 	<li><code>(i, j, k) = (0, 1, 3)</code>
-
     <ul>
     	<li><code>nums[0] = 8</code>, <code>nums[1] = 4</code>, <code>nums[3] = 8</code></li>
     	<li><code>nums[0] = nums[1] * 2 = 4 * 2 = 8</code></li>
@@ -98,7 +97,6 @@ tags:
     	<li><code>nums[4] = nums[2] * 2 = 2 * 2 = 4</code></li>
     </ul>
     </li>
-
 </ul>
 </div>
 

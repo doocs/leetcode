@@ -87,7 +87,6 @@ tags:
 
 <ul>
 	<li><strong>Pennsylvania</strong>:
-
     <ul>
     	<li>有 3 个城市（符合最低条件）</li>
     	<li>所有的 3 个城市都以 'P' 开头（与州相同）</li>
@@ -114,7 +113,6 @@ tags:
     	<li>没有城市以 'C' 开头（不符合字母匹配条件）</li>
     </ul>
     </li>
-
 </ul>
 
 <p><strong>注意：</strong></p>

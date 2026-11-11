@@ -113,7 +113,6 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
 
 <ul>
 	<li><strong>Alice Smith (patient_id = 1):</strong>
-
     <ul>
     	<li>First positive test: 2023-01-15</li>
     	<li>First negative test after positive: 2023-01-25</li>
@@ -142,7 +141,6 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
     	<li>Emma Brown (patient_id = 5): Only has negative tests, never tested positive</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Output table is ordered by recovery_time in ascending order, and then by patient_name in ascending order.</p>

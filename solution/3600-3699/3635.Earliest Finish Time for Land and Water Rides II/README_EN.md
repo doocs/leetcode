@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li data-end="163" data-start="147"><strong data-end="161" data-start="147">Land rides</strong>
-
     <ul>
     	<li data-end="245" data-start="168"><code data-end="186" data-start="168">landStartTime[i]</code> &ndash; the earliest time the <code>i<sup>th</sup></code> land ride can be boarded.</li>
     	<li data-end="306" data-start="250"><code data-end="267" data-start="250">landDuration[i]</code> &ndash; how long the <code>i<sup>th</sup></code> land ride lasts.</li>
@@ -37,7 +36,6 @@ tags:
     	<li><code data-end="434" data-start="416">waterDuration[j]</code> &ndash; how long the <code>j<sup>th</sup></code> water ride lasts.</li>
     </ul>
     </li>
-
 </ul>
 
 <p data-end="569" data-start="476">A tourist must experience <strong data-end="517" data-start="502">exactly one</strong> ride from <strong data-end="536" data-start="528">each</strong> category, in <strong data-end="566" data-start="550">either order</strong>.</p>

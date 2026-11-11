@@ -28,7 +28,6 @@ tags:
 
 <ul>
 	<li>选择一个 <strong>未标记</strong>&nbsp;且满足&nbsp;<code>currentEnergy &gt;= enemyEnergies[i]</code>&nbsp;的敌人&nbsp;<code>i</code>&nbsp;。在这个操作中：
-
     <ul>
     	<li>你会获得 <code>1</code>&nbsp;分。</li>
     	<li>你的能量值减少&nbsp;<code>enemyEnergies[i]</code>&nbsp;，也就是说&nbsp;<code>currentEnergy = currentEnergy - enemyEnergies[i]</code>&nbsp;。</li>
@@ -40,7 +39,6 @@ tags:
     	<li>敌人&nbsp;<code>i</code> <strong>被标记</strong>&nbsp;。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>请你返回通过以上操作，<strong>最多</strong>&nbsp;可以获得多少分。</p>

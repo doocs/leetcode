@@ -54,7 +54,6 @@ tags:
 
 <ul>
 	<li>For query 0, <code>nums</code> becomes <code>[1, 2, 2, 4, 5]</code>, and the empty prefix <strong>must</strong> be removed. The possible operations are:
-
     <ul>
     	<li>Remove the suffix <code>[2, 4, 5]</code>. <code>nums</code> becomes <code>[1, 2]</code>.</li>
     	<li>Remove the empty suffix. <code>nums</code> becomes <code>[1, 2, 2, 4, 5]</code> with a product 80, which gives remainder 2 when divided by 3.</li>
@@ -72,7 +71,6 @@ tags:
     	<li>Remove the suffix <code>[3, 5]</code>. <code>nums</code> becomes <code>[1, 2, 2]</code>.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -87,7 +85,6 @@ tags:
 
 <ul>
 	<li>For query 0, <code>nums</code> becomes <code>[2, 2, 4, 8, 16, 32]</code>. The only possible operation is:
-
     <ul>
     	<li>Remove the suffix <code>[2, 4, 8, 16, 32]</code>.</li>
     </ul>

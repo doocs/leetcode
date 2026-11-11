@@ -116,7 +116,6 @@ Each row represents a meeting attended by an employee. meeting_type can be &#39;
 
 <ul>
 	<li><strong>Alice Johnson (employee_id = 1):</strong>
-
     <ul>
     	<li>Week of June 5-11 (2023-06-05 to 2023-06-11): 8.0 + 6.0 + 7.0 = 21.0 hours (&gt; 20 hours)</li>
     	<li>Week of June 12-18 (2023-06-12 to 2023-06-18): 12.0 + 9.0 = 21.0 hours (&gt; 20 hours)</li>
@@ -137,7 +136,6 @@ Each row represents a meeting attended by an employee. meeting_type can be &#39;
     	<li>Emma Brown (employee_id = 5): Week of June 5-11: 2.0 hours (&lt; 20). No meeting-heavy weeks</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by meeting_heavy_weeks in descending order, then by employee name in ascending order.</p>

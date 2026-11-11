@@ -94,7 +94,6 @@ order_timestamp contains both date and time information.
 
 <ul>
 	<li><strong>Customer 101</strong>:
-
     <ul>
     	<li>Total orders: 4 (at least 3)&nbsp;</li>
     	<li>Peak hour orders: 4 out of 4 (12:30, 19:15, 13:45, and 20:30 are in peak hours)</li>
@@ -142,7 +141,6 @@ order_timestamp contains both date and time information.
     	<li>Result: <strong>Golden hour customer</strong></li>
     </ul>
     </li>
-
 </ul>
 
 <p>The results table is ordered by average_rating DESC, then customer_id DESC.</p>

@@ -94,7 +94,6 @@ transaction_type 可以是 “purchase” 或 “refund”。
 
 <ul>
 	<li><strong>客户 101</strong>:
-
     <ul>
     	<li>购买交易：4 (IDs: 1, 2, 3, 4)&nbsp;</li>
     	<li>退款交易：0</li>
@@ -129,7 +128,6 @@ transaction_type 可以是 “purchase” 或 “refund”。
     	<li>符合忠诚客户条件</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表以 customer_id 升序排序。</p>

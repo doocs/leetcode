@@ -93,7 +93,6 @@ tags:
 
 <ul>
 	<li><strong>用户 1：</strong>
-
     <ul>
     	<li>总反应数&nbsp;= 5</li>
     	<li>'like' 出现了 4 次</li>
@@ -117,7 +116,6 @@ tags:
     	<li>满足一致的要求</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 reaction_ratio 降序排序，然后按 user_id 升序排序。</p>

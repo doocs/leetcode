@@ -95,7 +95,6 @@ monthly_amount 表示此次事件后的月度订阅费用。
 
 <ul>
 	<li><strong>用户 501：</strong>
-
     <ul>
     	<li>当前订阅有效：最近一次事件是降级到基础（未取消）</li>
     	<li>有降级记录：是，历史上有 2 次降级</li>
@@ -142,7 +141,6 @@ monthly_amount 表示此次事件后的月度订阅费用。
     	<li>结果：<strong>无风险客户</strong>（订阅时长不足）</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 days_as_subscriber 降序排序，然后按&nbsp;user_id 升序排序。</p>

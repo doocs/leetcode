@@ -121,7 +121,6 @@ pass_to 是接收传球队员的 player_id。
 
 <ul>
 	<li><strong>阿森纳的</strong>&nbsp;连击：
-
     <ul>
     	<li>第一次连击：3 次传球（1→2→3→4）当队员 4 传球给切尔西的队员 5 时结束</li>
     	<li>第二次连击：2 次传球（1→2→3）</li>
@@ -134,7 +133,6 @@ pass_to 是接收传球队员的 player_id。
     	<li>最长连击 = 4</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

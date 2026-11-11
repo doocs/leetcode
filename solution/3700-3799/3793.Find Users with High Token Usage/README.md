@@ -82,7 +82,6 @@ tags:
 
 <ul>
 	<li><strong>用户 1：</strong>
-
     <ul>
     	<li>总提示词数 = 3</li>
     	<li>平均 token 数 = (120 + 80 + 200) / 3 = 133.33</li>
@@ -104,7 +103,6 @@ tags:
     	<li>包含在结果中</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 avg_tokens 降序排序，然后按 user_id 升序排序。</p>

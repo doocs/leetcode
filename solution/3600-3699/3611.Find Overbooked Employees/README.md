@@ -115,7 +115,6 @@ meeting_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>Alice Johnson (employee_id = 1):</strong>
-
     <ul>
     	<li>6 月 5 日至 11 日（2023-06-05 至 2023-06-11）：8.0 + 6.0 + 7.0 = 21.0 小时（&gt; 20 小时）</li>
     	<li>6 月 12&nbsp;日至 18&nbsp;日（2023-06-12 至 2023-06-18）: 12.0 + 9.0 = 21.0 小时（&gt; 20 小时）</li>
@@ -136,7 +135,6 @@ meeting_id 是这张表的唯一主键。
     	<li>Emma Brown（employee_id = 5）：6 月 5 日至 11 日：2.0 小时（&lt; 20）。没有会议密集周。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 meeting_heavy_weeks 降序排列，然后按员工姓名升序排列。</p>

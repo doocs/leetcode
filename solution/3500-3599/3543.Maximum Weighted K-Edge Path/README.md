@@ -65,7 +65,6 @@ tags:
 
 <ul>
 	<li>存在两个包含 <code>k = 1</code> 条边的路径：
-
     <ul>
     	<li><code>0 -&gt; 1</code>，权重为 <code>2 &lt; t</code>。</li>
     	<li><code>0 -&gt; 2</code>，权重为 <code>3 = t</code>，不满足小于 <code>t</code> 的条件。</li>
@@ -89,7 +88,6 @@ tags:
 
 <ul>
 	<li>存在两个包含 <code>k = 1</code> 条边的路径：
-
     <ul>
     	<li><code>0 -&gt; 1</code>，权重为 <code>6 = t</code>，不满足严格小于 <code>t</code>。</li>
     	<li><code>1 -&gt; 2</code>，权重为 <code>8 &gt; t</code>。</li>

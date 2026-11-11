@@ -39,7 +39,6 @@ tags:
 
 <ul>
 	<li>Only building <code>[2,2]</code> is covered as it has at least one building:
-
     <ul>
     	<li>above (<code>[1,2]</code>)</li>
     	<li>below (<code>[3,2]</code>)</li>
@@ -81,7 +80,6 @@ tags:
 
 <ul>
 	<li>Only building <code>[3,3]</code> is covered as it has at least one building:
-
     <ul>
     	<li>above (<code>[1,3]</code>)</li>
     	<li>below (<code>[5,3]</code>)</li>

@@ -23,7 +23,6 @@ tags:
 
 <ul>
 	<li>The division operator <code>&#39;/&#39;</code> represents real division, not integer division.
-
     <ul>
     	<li>For example, <code>4 / (1 - 2 / 3) = 4 / (1 / 3) = 12</code>.</li>
     </ul>
@@ -38,7 +37,6 @@ tags:
     	<li>For example, if <code>cards = [1, 2, 1, 2]</code>, the expression <code>&quot;12 + 12&quot;</code> is not valid.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <code>true</code> if you can get such expression that evaluates to <code>24</code>, and <code>false</code> otherwise.</p>

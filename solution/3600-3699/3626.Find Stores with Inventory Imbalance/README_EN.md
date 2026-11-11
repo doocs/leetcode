@@ -120,7 +120,6 @@ Each row represents the inventory of a specific product at a specific store.
 
 <ul>
 	<li><strong>Downtown Tech (store_id = 1):</strong>
-
     <ul>
     	<li>Most expensive product: Laptop ($999.99) with quantity 5</li>
     	<li>Cheapest product: Mouse ($19.99) with quantity 50</li>
@@ -153,7 +152,6 @@ Each row represents the inventory of a specific product at a specific store.
     	<li>Plaza Store (store_id = 5): Only has 2 products (Camera, Lens) - doesn&#39;t meet minimum 3 products requirement</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The Results table is ordered by imbalance ratio in descending order, then by store name in ascending order</p>

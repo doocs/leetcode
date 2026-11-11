@@ -125,7 +125,6 @@ session_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>Alice Chen (student_id = 1):</strong>
-
     <ul>
     	<li>学习序列：Math → Physics → Chemistry → Math → Physics → Chemistry</li>
     	<li>模式：3 门学科（Math，Physics，Chemistry）重复 2 个完整周期</li>
@@ -150,7 +149,6 @@ session_id 是这张表的唯一主键。
     	<li>Emma Brown (student_id = 5)：没有记录学习课程</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表以 cycle_length 降序排序，然后以 total_study_hours 降序排序。</p>

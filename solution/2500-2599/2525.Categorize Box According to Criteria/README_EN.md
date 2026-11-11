@@ -21,7 +21,6 @@ tags:
 
 <ul>
 	<li>The box is <code>&quot;Bulky&quot;</code> if:
-
     <ul>
     	<li><strong>Any</strong> of the dimensions of the box is greater or equal to <code>10<sup>4</sup></code>.</li>
     	<li>Or, the <strong>volume</strong> of the box is greater or equal to <code>10<sup>9</sup></code>.</li>

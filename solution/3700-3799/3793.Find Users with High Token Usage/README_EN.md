@@ -81,7 +81,6 @@ Each row represents a prompt submitted by a user to an AI system along with the 
 
 <ul>
 	<li><strong>User 1</strong>:
-
     <ul>
     	<li>Total prompts = 3</li>
     	<li>Average tokens = (120 + 80 + 200) / 3 = 133.33</li>
@@ -103,7 +102,6 @@ Each row represents a prompt submitted by a user to an AI system along with the 
     	<li>Included in the result</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The Results table is ordered by avg_tokens in descending order, then by user_id in ascending order</p>

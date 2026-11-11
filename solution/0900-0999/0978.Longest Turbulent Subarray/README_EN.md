@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li>For <code>i &lt;= k &lt; j</code>:
-
     <ul>
     	<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is odd, and</li>
     	<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is even.</li>
@@ -37,7 +36,6 @@ tags:
     	<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is odd.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>&nbsp;</p>

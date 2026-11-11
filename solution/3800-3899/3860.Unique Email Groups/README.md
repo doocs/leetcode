@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li>本地名称是 <code>'@'</code> 符号 <strong>之前</strong> 的部分。
-
     <ul>
     	<li>忽略所有点&nbsp;<code>'.'</code>。</li>
     	<li>忽略第一个 <code>'+'</code> 之后的所有内容，如果存在的话。</li>
@@ -37,7 +36,6 @@ tags:
     	<li>转换为小写。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>返回一个整数，表示规范化后的 <strong>不同</strong> 电子邮件组的数量。</p>

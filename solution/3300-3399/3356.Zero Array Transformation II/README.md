@@ -47,7 +47,6 @@ tags:
 
 <ul>
 	<li><strong>对于 i = 0（l = 0, r = 2, val = 1）：</strong>
-
     <ul>
     	<li>在下标&nbsp;<code>[0, 1, 2]</code> 处分别减少 <code>[1, 0, 1]</code>。</li>
     	<li>数组将变为 <code>[1, 0, 1]</code>。</li>
@@ -59,7 +58,6 @@ tags:
     	<li>数组将变为 <code>[0, 0, 0]</code>，这是一个零数组。因此，<code>k</code> 的最小值为 2。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -74,7 +72,6 @@ tags:
 
 <ul>
 	<li><strong>对于 i = 0（l = 1, r = 3, val = 2）：</strong>
-
     <ul>
     	<li>在下标&nbsp;<code>[1, 2, 3]</code> 处分别减少 <code>[2, 2, 1]</code>。</li>
     	<li>数组将变为 <code>[4, 1, 0, 0]</code>。</li>
@@ -86,7 +83,6 @@ tags:
     	<li>数组将变为 <code>[3, 0, 0, 0]</code>，这不是一个零数组。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

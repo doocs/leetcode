@@ -42,7 +42,6 @@ tags:
 
 <ul>
 	<li data-end="163" data-start="140">装运 1: <code>[2, 5, 1]</code>
-
     <ul>
     	<li data-end="195" data-start="168">包裹的最大重量 = 5</li>
     	<li data-end="275" data-start="200">最后一个包裹的重量 = 1，严格小于 5，因此这是平衡装运。</li>
@@ -54,7 +53,6 @@ tags:
     	<li data-end="411" data-start="336">最后一个包裹的重量 = 3，严格小于 4，因此这是平衡装运。</li>
     </ul>
     </li>
-
 </ul>
 
 <p data-end="519" data-start="413">无法通过其他方式划分包裹获得超过两个平衡装运，因此答案是 2。</p>

@@ -23,7 +23,6 @@ tags:
 
 <ul>
 	<li>An integer <code>x</code>.
-
     <ul>
     	<li>Record a new score of <code>x</code>.</li>
     </ul>
@@ -43,7 +42,6 @@ tags:
     	<li>Invalidate the previous score, removing it from the record.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the sum of all the scores on the record after applying all the operations</em>.</p>

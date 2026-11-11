@@ -33,7 +33,6 @@ tags:
 
 <ul>
 	<li>一个用户如果存在一个 <strong>连续至少&nbsp;</strong><code>5</code>&nbsp;天的行为序列满足以下条件，则认为他是 <strong>行为稳定</strong>&nbsp;的：
-
     <ul>
     	<li>该用户在该期间 <strong>每天只执行了一个操作</strong>。</li>
     	<li>这些连续的日子里，<strong>操作都是相同的</strong>。</li>
@@ -95,7 +94,6 @@ tags:
 
 <ul>
 	<li><strong>用户 1：</strong>
-
     <ul>
     	<li>从 2024 年 1 月 1 日至 2024 年 1 月 5 日连续五天执行&nbsp;<code>login</code>&nbsp;操作</li>
     	<li>每一天都恰好有一个操作，且操作相同</li>
@@ -117,7 +115,6 @@ tags:
     	<li>包含在结果中</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 streak_length 降序排序，然后按 user_id 升序排序。</p>

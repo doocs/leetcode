@@ -124,7 +124,6 @@ Each row assigns a category and price to a product.
 
 <ul>
 	<li><strong>Books-Clothing</strong>:
-
     <ul>
     	<li>User 1 purchased products from Books (102) and Clothing (201)</li>
     	<li>User 2 purchased products from Books (102, 103) and Clothing (201)</li>

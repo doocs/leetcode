@@ -44,7 +44,6 @@ tags:
 
 <ul>
 	<li><code>[2, 0, 1]</code>
-
     <ul>
     	<li>Prefix <code>[2, 0, 1]</code> has inversions <code>(0, 1)</code> and <code>(0, 2)</code>.</li>
     	<li>Prefix <code>[2]</code> has 0 inversions.</li>
@@ -56,7 +55,6 @@ tags:
     	<li>Prefix <code>[1]</code> has 0 inversions.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

@@ -78,7 +78,6 @@ Each row represents a record of a gift exchange between two employees, giver_id 
 
 <ul>
 	<li><strong>Chain 1</strong> involves employees 1, 2, and 3:
-
     <ul>
     	<li>Employee 1 gives a gift to 2, employee 2 gives a gift to 3, and employee 3 gives a gift to 1.</li>
     	<li>Total gift value for this chain = 20 + 30 + 40 = 90.</li>
@@ -90,7 +89,6 @@ Each row represents a record of a gift exchange between two employees, giver_id 
     	<li>Total gift value for this chain = 25 + 35 = 60.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by the chain length and total gift value of the chain in descending order.</p>

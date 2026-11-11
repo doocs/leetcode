@@ -105,7 +105,6 @@ event_value 表示：对于 purchase - 美元金额，对于 scroll - 滚动的�
 
 <ul>
 	<li><strong>会话 S001 (User 201)</strong>:
-
     <ul>
     	<li>时长：10:00:00 到 10:35:00 = 35 分钟（大于 30 分钟）</li>
     	<li>滚动事件：6（至少 5 次）</li>
@@ -139,7 +138,6 @@ event_value 表示：对于 purchase - 美元金额，对于 scroll - 滚动的�
     	<li>S004&nbsp; 不是一个僵尸会话</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 scroll_count 降序排序，然后按 session_id 升序排序。</p>

@@ -74,7 +74,6 @@ Each row of this table contains the user ID and their permissions encoded as an 
 
 <ul>
 	<li><strong>common_perms:</strong> Represents the bitwise AND result of all permissions:
-
     <ul>
     	<li>For user 1 (5): 5 (binary 0101)</li>
     	<li>For user 2 (12): 12 (binary 1100)</li>
@@ -88,7 +87,6 @@ Each row of this table contains the user ID and their permissions encoded as an 
     	<li>Bitwise OR: 5 | 12 | 7 | 3 = 15 (binary 1111)</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

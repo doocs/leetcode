@@ -94,7 +94,6 @@ For cancel events, monthly_amount is 0.
 
 <ul>
 	<li><strong>User 501</strong>:
-
     <ul>
     	<li>Currently active: Last event is downgrade&nbsp;to basic (not cancelled)&nbsp;</li>
     	<li>Has downgrades: Yes, 2 downgrades in history&nbsp;</li>
@@ -141,7 +140,6 @@ For cancel events, monthly_amount is 0.
     	<li>Result: <strong>Not at-risk</strong> (insufficient subscription duration)</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Result table is ordered by days_as_subscriber DESC, then user_id ASC.</p>

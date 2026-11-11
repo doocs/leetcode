@@ -104,7 +104,6 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 
 <ul>
 	<li><strong>Session S001 (User 201)</strong>:
-
     <ul>
     	<li>Duration: 10:00:00 to 10:35:00 = 35 minutes (more than 30)&nbsp;</li>
     	<li>Scroll events: 6 (at least 5)&nbsp;</li>
@@ -138,7 +137,6 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
     	<li>S004&nbsp; is not a zombie session&nbsp;</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by scroll_count in descending order, then by session_id in ascending order.</p>

@@ -121,7 +121,6 @@ Each row contains information about a product including its name and category.
 
 <ul>
 	<li><strong>Fall (Sep, Oct, Nov):</strong>
-
     <ul>
     	<li>Apparel: 10 items sold (6 Jackets in Sep, 4 Jeans in Nov), revenue $120.00 (6&times;$10.00 + 4&times;$15.00)</li>
     	<li>Fitness: 3 Yoga Mats sold in Sep, revenue $36.00</li>
@@ -154,7 +153,6 @@ Each row contains information about a product including its name and category.
     	<li>Most popular: Apparel with highest total quantity (9) and highest revenue ($110.00)</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by season in ascending order.</p>

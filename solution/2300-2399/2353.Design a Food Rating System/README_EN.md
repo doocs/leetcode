@@ -33,7 +33,6 @@ tags:
 
 <ul>
 	<li><code>FoodRatings(String[] foods, String[] cuisines, int[] ratings)</code> Initializes the system. The food items are described by <code>foods</code>, <code>cuisines</code> and <code>ratings</code>, all of which have a length of <code>n</code>.
-
     <ul>
     	<li><code>foods[i]</code> is the name of the <code>i<sup>th</sup></code> food,</li>
     	<li><code>cuisines[i]</code> is the type of cuisine of the <code>i<sup>th</sup></code> food, and</li>

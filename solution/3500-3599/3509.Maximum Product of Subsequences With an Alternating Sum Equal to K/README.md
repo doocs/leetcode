@@ -48,7 +48,6 @@ tags:
 
 <ul>
 	<li><code>[1, 2, 3]</code>
-
     <ul>
     	<li>交错和：<code>1 - 2 + 3 = 2</code></li>
     	<li>乘积：<code>1 * 2 * 3 = 6</code></li>
@@ -60,7 +59,6 @@ tags:
     	<li>乘积：2</li>
     </ul>
     </li>
-
 </ul>
 
 <p>在 limit 内的最大乘积是 6。</p>
@@ -91,7 +89,6 @@ tags:
 
 <ul>
 	<li><code>[2, 2]</code>
-
     <ul>
     	<li>交错和：<code>2 - 2 = 0</code></li>
     	<li>乘积：<code>2 * 2 = 4</code></li>
@@ -109,7 +106,6 @@ tags:
     	<li>乘积：<code>2 * 2 * 3 * 3 = 36</code></li>
     </ul>
     </li>
-
 </ul>
 
 <p>子序列 <code>[2, 2, 3, 3]</code> 虽然交错和为 <code>k</code> 且乘积最大，但 <code>36 &gt; 9</code>，超出 limit 。下一个最大且在 limit 范围内的乘积是 9。</p>

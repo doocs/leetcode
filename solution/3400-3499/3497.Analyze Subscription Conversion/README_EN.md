@@ -95,7 +95,6 @@ Each row represents a user&#39;s activity on a specific date.
 
 <ul>
 	<li><strong>User 1:</strong>
-
     <ul>
     	<li>Had 3 days of free trial with durations of 45, 30, and 60 minutes.</li>
     	<li>Average trial duration: (45 + 30 + 60) / 3 = 45.00 minutes.</li>
@@ -127,7 +126,6 @@ Each row represents a user&#39;s activity on a specific date.
     	<li>Average paid duration: 45.00 minutes.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table only includes users who converted from free trial to paid subscription (users 1, 3, and 4), and is ordered by user_id in ascending order.</p>

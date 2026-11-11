@@ -113,7 +113,6 @@ Each row represents a borrowing transaction and return_date is NULL if the book 
 
 <ul>
 	<li><strong>The Great Gatsby (book_id = 1):</strong>
-
     <ul>
     	<li>Total copies: 3</li>
     	<li>Currently borrowed by Alice Smith, Bob Johnson, and Grace Miller (3 borrowers)</li>
@@ -143,7 +142,6 @@ Each row represents a borrowing transaction and return_date is NULL if the book 
     	<li>1984 appears second with 1 current borrower</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Output table is ordered by current_borrowers in descending order, then by book_title in ascending order.</p>

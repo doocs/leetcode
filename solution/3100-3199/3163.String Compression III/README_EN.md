@@ -21,13 +21,11 @@ tags:
 
 <ul>
 	<li>Begin with an empty string <code>comp</code>. While <code>word</code> is <strong>not</strong> empty, use the following operation:
-
     <ul>
     	<li>Remove a maximum length prefix of <code>word</code> made of a <em>single character</em> <code>c</code> repeating <strong>at most</strong> 9 times.</li>
     	<li>Append the length of the prefix followed by <code>c</code> to <code>comp</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return the string <code>comp</code>.</p>

@@ -45,7 +45,6 @@ tags:
 
 <ul>
 	<li>For <code>queries[0] = [0, 1]</code>, the subarray is <code>[nums[0], nums[1]] = [3, 1]</code>.
-
     <ul>
     	<li>The stable subarrays are <code>[3]</code> and <code>[1]</code>. The total number of stable subarrays is 2.</li>
     </ul>
@@ -60,7 +59,6 @@ tags:
     	<li>The stable subarrays are <code>[3]</code>, <code>[1]</code>, <code>[2]</code>, and <code>[1, 2]</code>. The total number of stable subarrays is 4.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Thus, <code>ans = [2, 3, 4]</code>.</p>
@@ -77,7 +75,6 @@ tags:
 
 <ul>
 	<li>For <code>queries[0] = [0, 1]</code>, the subarray is <code>[nums[0], nums[1]] = [2, 2]</code>.
-
     <ul>
     	<li>The stable subarrays are <code>[2]</code>, <code>[2]</code>, and <code>[2, 2]</code>. The total number of stable subarrays is 3.</li>
     </ul>
@@ -87,7 +84,6 @@ tags:
     	<li>The stable subarray is <code>[2]</code>. The total number of stable subarrays is 1.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Thus, <code>ans = [3, 1]</code>.</p>

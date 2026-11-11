@@ -45,7 +45,6 @@ tags:
 <ul>
 	<li>
 	<p><strong>First Transformation (t = 1):</strong></p>
-
     <ul>
     	<li><code>&#39;a&#39;</code> becomes <code>&#39;b&#39;</code> as <code>nums[0] == 1</code></li>
     	<li><code>&#39;b&#39;</code> becomes <code>&#39;c&#39;</code> as <code>nums[1] == 1</code></li>
@@ -57,7 +56,6 @@ tags:
     </li>
     <li>
     <p><strong>Second Transformation (t = 2):</strong></p>
-
     <ul>
     	<li><code>&#39;b&#39;</code> becomes <code>&#39;c&#39;</code> as <code>nums[1] == 1</code></li>
     	<li><code>&#39;c&#39;</code> becomes <code>&#39;d&#39;</code> as <code>nums[2] == 1</code></li>
@@ -70,7 +68,6 @@ tags:
     <li>
     <p><strong>Final Length of the string:</strong> The string is <code>&quot;cdeabab&quot;</code>, which has 7 characters.</p>
     </li>
-
 </ul>
 </div>
 
@@ -86,7 +83,6 @@ tags:
 <ul>
 	<li>
 	<p><strong>First Transformation (t = 1):</strong></p>
-
     <ul>
     	<li><code>&#39;a&#39;</code> becomes <code>&#39;bc&#39;</code> as <code>nums[0] == 2</code></li>
     	<li><code>&#39;z&#39;</code> becomes <code>&#39;ab&#39;</code> as <code>nums[25] == 2</code></li>
@@ -98,7 +94,6 @@ tags:
     <li>
     <p><strong>Final Length of the string:</strong> The string is <code>&quot;bcabcdlm&quot;</code>, which has 8 characters.</p>
     </li>
-
 </ul>
 </div>
 

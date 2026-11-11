@@ -41,7 +41,6 @@ tags:
 
 <ul>
 	<li data-end="163" data-start="140">Shipment 1: <code>[2, 5, 1]</code>
-
     <ul>
     	<li data-end="195" data-start="168">Maximum parcel weight = 5</li>
     	<li data-end="275" data-start="200">Last parcel weight = 1, which is strictly less than 5. Thus, it&#39;s balanced.</li>
@@ -53,7 +52,6 @@ tags:
     	<li data-end="411" data-start="336">Last parcel weight = 3, which is strictly less than 4. Thus, it&#39;s balanced.</li>
     </ul>
     </li>
-
 </ul>
 
 <p data-end="519" data-start="413">It is impossible to partition the parcels to achieve more than two balanced shipments, so the answer is 2.</p>

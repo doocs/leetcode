@@ -114,7 +114,6 @@ record_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>The Great Gatsby (book_id = 1)：</strong>
-
     <ul>
     	<li>总副本数：3</li>
     	<li>当前被 Alice Smith，Bob Johnson 和 Grace Miller 借阅（3 名借阅者）</li>
@@ -144,7 +143,6 @@ record_id 是这张表的唯一主键。
     	<li>1984 有 1 名当前借阅者，排序第二</li>
     </ul>
     </li>
-
 </ul>
 
 <p>输出表以 current_borrowers 降序排序，然后以 book_title 升序排序。</p>

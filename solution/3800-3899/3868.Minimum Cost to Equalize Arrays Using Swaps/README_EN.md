@@ -43,7 +43,6 @@ tags:
 
 <ul>
 	<li>Swap <code>nums2[0] = 20</code> and <code>nums2[1] = 10</code>.
-
     <ul>
     	<li><code>nums2</code> becomes <code>[10, 20]</code>.</li>
     	<li>This operation is free of charge.</li>
@@ -65,7 +64,6 @@ tags:
 
 <ul>
 	<li>Swap <code>nums1[0] = 10</code> and <code>nums2[0] = 20</code>.
-
     <ul>
     	<li><code>nums1</code> becomes <code>[20, 10]</code>.</li>
     	<li><code>nums2</code> becomes <code>[10, 20]</code>.</li>
