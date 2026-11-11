@@ -20,7 +20,6 @@ if str(_HOOKS_DIR) not in sys.path:
 import edit_map  # noqa: E402
 
 _DATE = re.compile(r"^(\d{4}-\d{2}-\d{2})T")
-_LC_NUM = re.compile(r"^lc/(\d+)\.md$")
 _CACHE: Dict[str, Dict[str, str]] = {}
 
 
@@ -92,24 +91,13 @@ def commit_dates(paths: Set[str]) -> Dict[str, str]:
 
 
 def index_dates(mapping: Dict[str, str], repo_dates: Dict[str, str]) -> Dict[str, str]:
-    """Map flattened page paths, and each LeetCode range index, to YYYY-MM-DD."""
+    """Map flattened page paths to YYYY-MM-DD."""
     out: Dict[str, str] = {}
-    ranges: Dict[str, str] = {}
     for dest, repo in mapping.items():
         dest = dest.replace("\\", "/")
         date = repo_dates.get(repo.replace("\\", "/"))
-        if not date:
-            continue
-        out[dest] = date
-        matched = _LC_NUM.match(dest)
-        if not matched:
-            continue
-        start = int(matched.group(1)) // 100 * 100
-        key = f"lc/{start:04d}-{start + 99:04d}.md"
-        prev = ranges.get(key)
-        if prev is None or date > prev:
-            ranges[key] = date
-    out.update(ranges)
+        if date:
+            out[dest] = date
     return out
 
 

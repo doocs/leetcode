@@ -42,7 +42,7 @@ class CommitDatesFromLogTest(unittest.TestCase):
 
 
 class IndexDatesTest(unittest.TestCase):
-    def test_range_index_uses_newest_problem(self):
+    def test_maps_flattened_pages(self):
         mapping = {
             "lc/1.md": "solution/a.md",
             "lc/100.md": "solution/b.md",
@@ -55,13 +55,13 @@ class IndexDatesTest(unittest.TestCase):
         }
         indexed = revision_date.index_dates(mapping, dates)
         self.assertEqual(indexed["lc/1.md"], "2024-01-02")
-        self.assertEqual(indexed["lc/0000-0099.md"], "2024-01-02")
-        self.assertEqual(indexed["lc/0100-0199.md"], "2023-05-01")
+        self.assertEqual(indexed["lc/100.md"], "2023-05-01")
         self.assertEqual(indexed["contest.md"], "2024-08-09")
+        self.assertNotIn("lc/0000-0099.md", indexed)
 
 
 class OnPageMarkdownTest(unittest.TestCase):
-    def test_sets_problem_and_range_dates(self):
+    def test_sets_problem_dates_and_leaves_home_unchanged(self):
         revision_date.reset_cache()
         edit_map.reset_cache()
         original = revision_date.commit_dates
@@ -92,10 +92,6 @@ class OnPageMarkdownTest(unittest.TestCase):
                 returned = revision_date.on_page_markdown("body", problem, config, None)
                 self.assertEqual(returned, "body")
                 self.assertEqual(problem.update_date, "2024-01-02")
-
-                index = page("lc/0000-0099.md")
-                revision_date.on_page_markdown("# range", index, config, None)
-                self.assertEqual(index.update_date, "2024-06-01")
 
                 home = page("index.md")
                 revision_date.on_page_markdown("home", home, config, None)

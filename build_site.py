@@ -86,45 +86,6 @@ def range_label(start: int) -> str:
     return f"{start:04d}–{start + 99:04d}"
 
 
-def range_slug(start: int) -> str:
-    return f"{start:04d}-{start + 99:04d}"
-
-
-def write_range_indexes(
-    items: List[NavItem], docs_root: str, target_dir: str, lang: str
-) -> None:
-    buckets: Dict[int, List[NavItem]] = defaultdict(list)
-    for item in items:
-        buckets[range_start(item.num)].append(item)
-
-    out_dir = os.path.join(docs_root, target_dir)
-    os.makedirs(out_dir, exist_ok=True)
-    heading = "本段题目" if lang == "zh" else "Problems in this range"
-    colon = "：" if lang == "zh" else ": "
-
-    for start, group in buckets.items():
-        group.sort(key=lambda x: x.sort_key)
-        label = range_label(start)
-        lines = [
-            "---",
-            "hide:",
-            "  - toc",
-            "  - feedback",
-            "---",
-            "",
-            f"# {label}",
-            "",
-            f"{heading}{colon}{len(group)}",
-            "",
-        ]
-        for item in group:
-            lines.append(f"- [{item.num}. {item.name}]({item.num}.md)")
-        lines.append("")
-        path = os.path.join(out_dir, f"{range_slug(start)}.md")
-        with open(path, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines))
-
-
 def format_flat_nav(items: List[NavItem], indent: int = 4) -> str:
     pad = " " * indent
     return "\n".join(f"{pad}- {item.num}. {item.name}: {item.dest}" for item in items)
@@ -140,11 +101,7 @@ def format_ranged_nav(items: List[NavItem], indent: int = 4) -> str:
     child = " " * (indent + 2)
     for start in sorted(buckets):
         group = sorted(buckets[start], key=lambda x: x.sort_key)
-        dest_dir = group[0].dest.rsplit("/", 1)[0]
-        # MkDocs uses this nav label as the page <title>.
-        label = range_label(start)
-        lines.append(f"{pad}- {label}:")
-        lines.append(f"{child}- {label}: {dest_dir}/{range_slug(start)}.md")
+        lines.append(f"{pad}- {range_label(start)}:")
         for item in group:
             lines.append(f"{child}- {item.num}. {item.name}: {item.dest}")
     return "\n".join(lines)
@@ -251,9 +208,6 @@ def main() -> None:
     nav_cn, nav_en, edit_maps = collect_items()
     add_static_edit_mappings(edit_maps)
     write_edit_maps(edit_maps)
-
-    write_range_indexes(nav_cn["solution"], "docs", "lc", "zh")
-    write_range_indexes(nav_en["solution"], "docs-en", "lc", "en")
 
     def section(title: str, body: str) -> str:
         if not body.strip():
