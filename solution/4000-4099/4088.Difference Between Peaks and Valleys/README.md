@@ -17,7 +17,7 @@ source: 第 194 场双周赛 Q1
 
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code>。</p>
 
-<p>如果满足以下&nbsp;<strong>所有&nbsp;</strong>条件，则下标志 <code>i</code> 被称为&nbsp;<strong>峰值&nbsp;</strong>：</p>
+<p>如果满足以下&nbsp;<strong>所有&nbsp;</strong>条件，则下标&nbsp;<code>i</code> 被称为&nbsp;<strong>峰值&nbsp;</strong>：</p>
 
 <ul>
 	<li><code>0 &lt; i &lt; n - 1</code></li>
@@ -25,7 +25,7 @@ source: 第 194 场双周赛 Q1
 	<li><code>nums[i] &gt; nums[i + 1]</code></li>
 </ul>
 
-<p>如果满足以下&nbsp;<strong>所有&nbsp;</strong>条件，则下标志 <code>i</code> 被称为&nbsp;<strong>谷值&nbsp;</strong>：</p>
+<p>如果满足以下&nbsp;<strong>所有&nbsp;</strong>条件，则下标&nbsp;<code>i</code> 被称为&nbsp;<strong>谷值&nbsp;</strong>：</p>
 
 <ul>
 	<li><code>0 &lt; i &lt; n - 1</code></li>

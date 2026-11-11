@@ -13,10 +13,10 @@ difficulty: Hard
 
 <!-- description:start -->
 
-<p>You are given two strings <code>a</code> and <code>b</code>​​​​​​​ consisting of lowercase English letters, and two integers <code>x</code> and <code>y</code>.</p>
+<p>You are given two strings <code>a</code> and <code>b</code> consisting of lowercase English letters, and two integers <code>x</code> and <code>y</code>.</p>
 
-<p>Return <code>true</code> if the string formed by repeating <code>b</code> <strong>exactly</strong> <code>y</code> times (<code>b * y</code>) is a <strong>substring</strong> of the string formed by repeating <code>a</code> <strong>exactly</strong> <code>x</code> times (<code>a * x</code>). Otherwise, return <code>false</code>.</p>
-A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of characters within a string.
+<p>Return <code>true</code> if the string formed by repeating <code>b</code> <strong>exactly</strong> <code>y</code> times (<code>b * y</code>) is a <strong><span data-keyword="substring-nonempty">substring</span></strong> of the string formed by repeating <code>a</code> <strong>exactly</strong> <code>x</code> times (<code>a * x</code>). Otherwise, return <code>false</code>.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

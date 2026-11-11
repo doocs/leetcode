@@ -5,7 +5,7 @@ difficulty: 中等
 
 <!-- problem:start -->
 
-# [4087. Maximum Subarray Sum of Fixed Length After at Most K Swaps 🔒](https://leetcode.cn/problems/maximum-subarray-sum-of-fixed-length-after-at-most-k-swaps)
+# [4087. 最多交换 K 次的最大固定长度子数组的最大和 🔒](https://leetcode.cn/problems/maximum-subarray-sum-of-fixed-length-after-at-most-k-swaps)
 
 [English Version](/solution/4000-4099/4087.Maximum%20Subarray%20Sum%20of%20Fixed%20Length%20After%20at%20Most%20K%20Swaps/README_EN.md)
 
@@ -13,61 +13,63 @@ difficulty: 中等
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code> and two integers <code>length</code> and <code>k</code>.</p>
+<p>给你一个整数数组 <code>nums</code> 和两个整数 <code>length</code> 和 <code>k</code>。</p>
 
-<p>You may perform <strong>at most</strong> <code>k</code> swap operations on <code>nums</code>.</p>
+<p>你可以对 <code>nums</code> 执行&nbsp;<strong>至多</strong> <code>k</code> 次交换操作。</p>
 
-<p>In one swap operation, you may choose two <strong>distinct</strong> indices <code>i</code> and <code>j</code> and swap <code>nums[i]</code> and <code>nums[j]</code>.</p>
+<p>在一次交换操作中，你可以选择两个&nbsp;<strong>不同&nbsp;</strong>的下标 <code>i</code> 和 <code>j</code>，交换 <code>nums[i]</code> 和 <code>nums[j]</code>。</p>
 
-<p>Return the <strong>maximum possible sum</strong> of a <span data-keyword="subarray-nonempty">subarray</span> of length <strong>exactly</strong> <code>length</code> after performing the swaps.</p>
+<p>返回执行交换操作后，长度&nbsp;<strong>恰好&nbsp;</strong>为 <code>length</code> 的<span data-keyword="subarray-nonempty">子数组</span>的&nbsp;<strong>最大可能元素和</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,-1,0,2], length = 2, k = 1</span></p>
+<p><strong>输入：</strong> <span class="example-io">nums = [1,-1,0,2], length = 2, k = 1</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
+<p><strong>输出：</strong> <span class="example-io">3</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Swap the elements at indices 1 and 3, resulting in <code>[1, 2, 0, -1]</code>.</li>
-	<li>The subarray <code>[1, 2]</code> has length 2 and sum 3.</li>
-	<li>No subarray of length 2 can have a larger sum, since 1 and 2 are the two largest elements.</li>
+	<li>交换下标 1 和 3 处的元素，得到 <code>[1, 2, 0, -1]</code>。</li>
+	<li>子数组 <code>[1, 2]</code> 的长度为 2，元素和为 3。</li>
+	<li>由于 1 和 2 是数组中最大的两个元素，因此不存在长度为 2 且元素和更大的子数组。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [4,3,2,4], length = 3, k = 2</span></p>
+<p><strong>输入：</strong> <span class="example-io">nums = [4,3,2,4], length = 3, k = 2</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">11</span></p>
+<p><strong>输出：</strong> <span class="example-io">11</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Swap the elements at indices 2 and 3, resulting in <code>[4, 3, 4, 2]</code>.</li>
-	<li>The subarray <code>[4, 3, 4]</code> has length 3 and sum 11.</li>
-	<li>This is the sum of the three largest elements, so no larger answer is possible. Only one swap is needed.</li>
+	<li>交换下标 2 和 3 处的元素，得到 <code>[4, 3, 4, 2]</code>。</li>
+	<li>子数组 <code>[4, 3, 4]</code> 的长度为 3，元素和为 11。</li>
+	<li>这是数组中最大的三个元素之和，因此不可能得到更大的答案。只需要一次交换操作。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [-1,-2], length = 2, k = 0</span></p>
+<p><strong>输入：</strong> <span class="example-io">nums = [-1,-2], length = 2, k = 0</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">-3</span></p>
+<p><strong>输出：</strong> <span class="example-io">-3</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>No swaps are allowed. The only subarray of length 2 is <code>[-1, -2]</code>, whose sum is -3.</p>
+<p>不允许执行交换操作。唯一一个长度为 2 的子数组是 <code>[-1, -2]</code>，其元素和为 -3。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 300</code></li>

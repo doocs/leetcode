@@ -17,9 +17,7 @@ difficulty: 中等
 
 <p><strong>不匹配片段</strong>&nbsp;是一个&nbsp;<strong>极大连续</strong>&nbsp;下标区间，其中每个下标处 <code>s1</code> 和 <code>s2</code> 的字符都不相同。</p>
 
-<p>返回一个二维数组，其中包含每个不匹配片段对应的 <code>[sub1, sub2]</code>，<code>sub1</code> 和 <code>sub2</code> 分别是 <code>s1</code> 和 <code>s2</code> 中对应的&nbsp;<strong>子字符串</strong>。请按片段起始下标的&nbsp;<strong>递增</strong>&nbsp;顺序返回。如果没有不匹配片段，则返回一个空数组。</p>
-
-<p><strong>子字符串&nbsp;</strong>是字符串中一个连续的&nbsp;<b>非空&nbsp;</b>字符序列。</p>
+<p>返回一个二维数组，其中包含每个不匹配片段对应的 <code>[sub1, sub2]</code>，<code>sub1</code> 和 <code>sub2</code> 分别是 <code>s1</code> 和 <code>s2</code> 中对应的&nbsp;<strong><span data-keyword="substring-nonempty">子字符串</span></strong>。请按片段起始下标的&nbsp;<strong>递增</strong>&nbsp;顺序返回。如果没有不匹配片段，则返回一个空数组。</p>
 
 <p>&nbsp;</p>
 

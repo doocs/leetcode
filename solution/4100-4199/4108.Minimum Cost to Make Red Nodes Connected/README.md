@@ -17,13 +17,11 @@ difficulty: 中等
 
 <p>另给你一个长度为 <code>n</code> 的字符串 <code>colors</code>，其中 <code>colors[i]</code> 表示节点 <code>i</code> 的颜色：<code>'R'</code> 表示红色，<code>'B'</code> 表示蓝色。</p>
 
-<p>你可以&nbsp;<strong>翻转&nbsp;</strong>任意节点的颜色：从 <code>'R'</code> 变为 <code>'B'</code>，或从 <code>'B'</code> 变为 <code>'R'</code>。翻转节点 <code>u</code> 的代价等于以节点 <code>u</code> 为根的子树的大小。</p>
+<p>你可以&nbsp;<strong>翻转&nbsp;</strong>任意节点的颜色：从 <code>'R'</code> 变为 <code>'B'</code>，或从 <code>'B'</code> 变为 <code>'R'</code>。翻转节点 <code>u</code> 的代价等于以节点 <code>u</code> 为根的<span data-keyword="subtree">子树</span>的大小。</p>
 
 <p>你的目标是通过翻转颜色，使所有<strong>&nbsp;红色</strong>&nbsp;节点在树中形成<strong>&nbsp;一个</strong><strong>连通分量&nbsp;</strong>。蓝色节点可以不连通。没有红色节点的配置也视为有效。</p>
 
 <p>返回实现这一目标所需的<strong>&nbsp;最小总代价&nbsp;</strong>。</p>
-
-<p>在有根树中，节点 <code>v</code> 的子树是由所有到根节点的路径经过 <code>v</code> 的节点组成的集合。</p>
 
 <p>&nbsp;</p>
 
@@ -52,7 +50,7 @@ difficulty: 中等
 
 <p><strong>输出：</strong> <span class="example-io">0</span></p>
 
-<p><strong>解释：</strong>​​​​​​​</p>
+<p><strong>解释：</strong></p>
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/4100-4199/4108.Minimum%20Cost%20to%20Make%20Red%20Nodes%20Connected/images/screenshot-2026-07-11-at-33754am.png" style="width: 214px; height: 150px;" /></p>
 

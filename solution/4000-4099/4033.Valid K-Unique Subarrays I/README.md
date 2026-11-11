@@ -8,7 +8,9 @@ tags:
     - 树状数组
     - 线段树
     - 数组
+    - 哈希表
     - 前缀和
+    - 滑动窗口
     - 哈希函数
 ---
 
@@ -46,7 +48,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<tbody>
 		<tr>
 			<th style="border: 1px solid black;"><code>i</code></th>
@@ -95,7 +97,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<tbody>
 		<tr>
 			<th style="border: 1px solid black;"><code>i</code></th>
