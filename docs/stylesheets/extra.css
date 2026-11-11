@@ -36,6 +36,51 @@
     background-color: var(--pre-bg);
     border-radius: .1rem;
 }
+.md-typeset .lc-example {
+    position: relative;
+}
+.md-typeset .lc-example > pre {
+    margin: 0;
+    overflow-x: auto;
+    padding: .3em;
+    background-color: var(--pre-bg);
+    border-radius: .1rem;
+}
+.md-typeset .lc-example__copy {
+    position: absolute;
+    top: .35em;
+    right: .35em;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    border-radius: .1rem;
+    background: var(--example-block-bg);
+    color: var(--md-default-fg-color--light);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: color .25s, opacity .25s;
+}
+.md-typeset .lc-example:hover > .lc-example__copy,
+.md-typeset .lc-example__copy:focus,
+.md-typeset .lc-example__copy.is-copied {
+    opacity: 1;
+    pointer-events: auto;
+}
+.md-typeset .lc-example__copy:hover,
+.md-typeset .lc-example__copy.is-copied {
+    color: var(--md-accent-fg-color);
+}
+.md-typeset .lc-example__copy svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: currentColor;
+}
 
 .md-typeset .admonition.thinking,
 .md-typeset details.thinking {
