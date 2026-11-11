@@ -8,7 +8,9 @@ tags:
     - Binary Indexed Tree
     - Segment Tree
     - Array
+    - Hash Table
     - Prefix Sum
+    - Sliding Window
     - Hash Function
 ---
 
@@ -45,7 +47,7 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<tbody>
 		<tr>
 			<th style="border: 1px solid black;"><code>i</code></th>
@@ -94,7 +96,7 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<tbody>
 		<tr>
 			<th style="border: 1px solid black;"><code>i</code></th>

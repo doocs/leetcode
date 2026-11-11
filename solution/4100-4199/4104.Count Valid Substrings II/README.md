@@ -15,13 +15,9 @@ difficulty: 中等
 
 <p>给你一个仅由字符 <code>'a'</code>、<code>'b'</code> 和 <code>'c'</code> 组成的字符串 <code>s</code>。</p>
 
-<p>如果一个字符串不包含 <code>"abc"</code> 作为&nbsp;<strong>子序列&nbsp;</strong>，那么它被称为&nbsp;<strong>有效的&nbsp;</strong>。</p>
+<p>如果一个字符串不包含 <code>"abc"</code> 作为&nbsp;<strong><span data-keyword="subsequence-string">子序列</span>&nbsp;</strong>，那么它被称为&nbsp;<strong>有效的&nbsp;</strong>。</p>
 
-<p>返回 <code>s</code> 中&nbsp;<strong>有效子串&nbsp;</strong>的数量。起始或结束下标不同的子串分别计数。</p>
-
-<p><strong>子串&nbsp;</strong>是字符串内连续的&nbsp;<strong>非空&nbsp;</strong>字符序列。</p>
-
-<p><strong>子序列&nbsp;</strong>是指从另一个字符串中删除一些或不删除字符，且不改变剩余字符顺序所得到的新字符串。</p>
+<p>返回 <code>s</code> 中&nbsp;<strong>有效<span data-keyword="substring-nonempty">子串</span>&nbsp;</strong>的数量。起始或结束下标不同的子串分别计数。</p>
 
 <p>&nbsp;</p>
 
@@ -67,7 +63,7 @@ difficulty: 中等
 	<li><code>s[0..1] = "ab"</code></li>
 	<li><code>s[1..1] = "b"</code></li>
 	<li><code>s[1..2] = "bc"</code></li>
-	<li><code>s[2..2] = "c"</code>​​​​​​​</li>
+	<li><code>s[2..2] = "c"</code></li>
 </ul>
 
 <p>因此，答案是 5。</p>

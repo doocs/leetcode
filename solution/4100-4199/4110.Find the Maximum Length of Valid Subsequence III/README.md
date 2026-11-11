@@ -13,15 +13,16 @@ difficulty: 中等
 
 <!-- description:start -->
 
-<p>给你一个整数数组 <code>nums</code> 和一个<strong>正</strong>整数 <code>k</code>。</p>
+<p>给定一个整数数组 <code>nums</code> 和一个<strong>正</strong>整数 <code>k</code>。</p>
 
-<p>如果 <code>nums</code> 的一个<strong><span data-keyword="subsequence-array">子序列</span></strong>中，任意一对相邻元素之和都能被 <code>k</code> 整除，则称该子序列是<strong>有效</strong>的。</p>
+<p>如果 <code>nums</code> 的一个&nbsp;<strong><span data-keyword="subsequence-array">子序列&nbsp;</span></strong>中，每对相邻元素的和都能被 <code>k</code> 整除，则称该子序列是&nbsp;<strong>有效的</strong>。</p>
 
-<p>长度为 1 的子序列始终有效。</p>
+<p>长度为 1 的子序列始终是有效的。</p>
 
-<p>返回 <code>nums</code> 的<strong>最长有效子序列</strong>的长度。</p>
+<p>返回 <code>nums</code> 的&nbsp;<strong>最长有效子序列&nbsp;</strong>的长度。</p>
 
 <p>&nbsp;</p>
+
 <p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
@@ -32,9 +33,9 @@ difficulty: 中等
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>选取子序列 <code>[1, 2, 4, 5]</code>。</li>
-	<li>相邻元素之和为 <code>1 + 2 = 3</code>、<code>2 + 4 = 6</code> 和 <code>4 + 5 = 9</code>，都能被 3 整除。</li>
-	<li>不存在长度大于 4 的有效子序列。</li>
+	<li>选择子序列 <code>[1, 2, 4, 5]</code>。</li>
+	<li>相邻元素的和分别为 <code>1 + 2 = 3</code>、<code>2 + 4 = 6</code> 和 <code>4 + 5 = 9</code>，都能被 3 整除。</li>
+	<li>不存在长度超过 4 的有效子序列。</li>
 </ul>
 </div>
 
@@ -48,8 +49,8 @@ difficulty: 中等
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>选取整个数组 <code>[5, 10, 15]</code>。</li>
-	<li>相邻元素之和为 <code>5 + 10 = 15</code> 和 <code>10 + 15 = 25</code>，都能被 5 整除。</li>
+	<li>选择整个数组 <code>[5, 10, 15]</code>。</li>
+	<li>相邻元素的和分别为 <code>5 + 10 = 15</code> 和 <code>10 + 15 = 25</code>，都能被 5 整除。</li>
 	<li>每个元素都是 5 的倍数，因此任意两个元素都可以在有效子序列中相邻，答案为 3。</li>
 </ul>
 </div>
@@ -64,13 +65,14 @@ difficulty: 中等
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>选取整个数组 <code>[1, 3, 5, 7, 9]</code>。</li>
-	<li>相邻元素之和为 <code>1 + 3 = 4</code>、<code>3 + 5 = 8</code>、<code>5 + 7 = 12</code> 和 <code>7 + 9 = 16</code>，都能被 4 整除。</li>
-	<li>余数在 1 和 3 之间交替，二者之和为 4，因此答案为 5。</li>
+	<li>选择整个数组 <code>[1, 3, 5, 7, 9]</code>。</li>
+	<li>相邻元素的和分别为 <code>1 + 3 = 4</code>、<code>3 + 5 = 8</code>、<code>5 + 7 = 12</code> 和 <code>7 + 9 = 16</code>，都能被 4 整除。</li>
+	<li>各元素除以 4 的余数在 1 和 3 之间交替出现，而它们的和为 4，因此答案为 5。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
+
 <p><strong>提示：</strong></p>
 
 <ul>

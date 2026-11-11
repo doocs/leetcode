@@ -15,11 +15,9 @@ difficulty: Medium
 
 <p>You are given a string <code>s</code> consisting only of the characters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code>.</p>
 
-<p>A string is called <strong>valid</strong> if it does not contain <code>&quot;abc&quot;</code> as a <strong>substring</strong>.</p>
+<p>A string is called <strong>valid</strong> if it does not contain <code>&quot;abc&quot;</code> as a <strong><span data-keyword="substring-nonempty">substring</span></strong>.</p>
 
 <p>Return the number of <strong>valid substrings</strong> in <code>s</code>. Substrings with different starting or ending indices are counted separately.</p>
-
-<p>A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

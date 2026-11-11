@@ -5,7 +5,7 @@ difficulty: 中等
 
 <!-- problem:start -->
 
-# [4101. Find All Numbers Disappeared in an Array III 🔒](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array-iii)
+# [4101. 找到所有数组中消失的数字 III 🔒](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array-iii)
 
 [English Version](/solution/4100-4199/4101.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20III/README_EN.md)
 
@@ -13,64 +13,66 @@ difficulty: 中等
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code> and two integers <code>lower</code> and <code>upper</code>.</p>
+<p>给定一个整数数组 <code>nums</code> 和两个整数 <code>lower</code> 和 <code>upper</code>。</p>
 
-<p>An integer is <strong>missing</strong> if it lies in the inclusive range <code>[lower, upper]</code> and does not appear in <code>nums</code>.</p>
+<p>如果一个整数位于闭区间 <code>[lower, upper]</code> 内，且没有出现在 <code>nums</code> 中，则称该整数为&nbsp;<strong>缺失整数</strong>。</p>
 
-<p>Return a 2D integer array representing all missing integers grouped into <strong>contiguous ranges</strong>. Represent each range as <code>[start, end]</code>, including both endpoints, and return the ranges in increasing order of <code>start</code>.</p>
+<p>返回一个二维整数数组，表示所有缺失整数按&nbsp;<strong>连续区间&nbsp;</strong>分组后的结果。每个区间表示为 <code>[start, end]</code>，包含两个端点，并按照 <code>start</code> 递增的顺序返回所有区间。</p>
 
-<p>Consecutive missing integers must belong to the same range. If there are no missing integers, return an empty array.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [3,9,7], lower = 1, upper = 12</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[[1,2],[4,6],[8,8],[10,12]]</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>The missing integers are <code>[1, 2, 4, 5, 6, 8, 10, 11, 12]</code>.</li>
-	<li>Grouping the missing integers into the minimum number of contiguous ranges, we get <code>[1, 2]</code>, <code>[4, 6]</code>, <code>[8, 8]</code>, and <code>[10, 12]</code>.</li>
-	<li>Therefore, the answer is <code>[[1, 2], [4, 6], [8, 8], [10, 12]]</code>.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,1,1000000000], lower = 5, upper = 1000000000</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[[5,999999999]]</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>The value 1 lies outside <code>[lower, upper]</code>, so it does not cover any integer in the range.</li>
-	<li>The only integer of the range that appears in <code>nums</code> is 1000000000.</li>
-	<li>Every integer from 5 to 999999999 is missing, and they are consecutive, so they form the single range <code>[5, 999999999]</code>.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [2,3,5], lower = 2, upper = 3</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[]</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>Both 2 and 3 appear in <code>nums</code>, so there are no missing integers.</li>
-	<li>Therefore, the answer is <code>[]</code>.</li>
-</ul>
-</div>
+<p>连续的缺失整数必须属于同一个区间。如果没有缺失整数，则返回一个空数组。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">nums = [3,9,7], lower = 1, upper = 12</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">[[1,2],[4,6],[8,8],[10,12]]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>缺失整数为 <code>[1, 2, 4, 5, 6, 8, 10, 11, 12]</code>。</li>
+	<li>将这些缺失整数分组成最少数量的连续区间，得到 <code>[1, 2]</code>、<code>[4, 6]</code>、<code>[8, 8]</code> 和 <code>[10, 12]</code>。</li>
+	<li>因此，答案为 <code>[[1, 2], [4, 6], [8, 8], [10, 12]]</code>。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">nums = [1,1,1000000000], lower = 5, upper = 1000000000</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">[[5,999999999]]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>整数 1 位于 <code>[lower, upper]</code> 范围之外，因此不会影响该区间内的缺失整数。</li>
+	<li>在指定范围内，唯一出现在 <code>nums</code> 中的整数是 1000000000。</li>
+	<li>从 5 到 999999999 的所有整数均缺失，且它们是连续的，因此构成一个区间 <code>[5, 999999999]</code>。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">nums = [2,3,5], lower = 2, upper = 3</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">[]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>整数 2 和 3 都出现在 <code>nums</code> 中，因此不存在缺失整数。</li>
+	<li>所以，答案为 <code>[]</code>。</li>
+</ul>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

@@ -17,9 +17,7 @@ difficulty: Medium
 
 <p>A <strong>mismatched segment</strong> is a <strong>maximal contiguous</strong> range of indices where the characters of <code>s1</code> and <code>s2</code> differ at every index.</p>
 
-<p>Return a 2D array containing <code>[sub1, sub2]</code> for each mismatched segment, where <code>sub1</code> and <code>sub2</code> are the corresponding <strong>substrings</strong> from <code>s1</code> and <code>s2</code>, respectively. Return the segments in <strong>increasing</strong> order of their starting indices. If there are no mismatched segments, return an empty array.</p>
-
-<p>A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of characters within a string.</p>
+<p>Return a 2D array containing <code>[sub1, sub2]</code> for each mismatched segment, where <code>sub1</code> and <code>sub2</code> are the corresponding <strong><span data-keyword="substring-nonempty">substrings</span></strong> from <code>s1</code> and <code>s2</code>, respectively. Return the segments in <strong>increasing</strong> order of their starting indices. If there are no mismatched segments, return an empty array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

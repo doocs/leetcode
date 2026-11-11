@@ -15,7 +15,7 @@ difficulty: 困难
 
 <p>给你两个由小写英文字母组成的字符串 <code>a</code> 和 <code>b</code>，以及两个整数 <code>x</code> 和 <code>y</code>。</p>
 
-<p>如果将 <code>b</code> <strong>重复恰好</strong> <code>y</code> 次得到的字符串 (<code>b * y</code>) 是将 <code>a</code> <strong>重复恰好</strong> <code>x</code> 次得到的字符串 (<code>a * x</code>) 的&nbsp;<strong>子串&nbsp;</strong>，返回 <code>true</code>。否则，返回 <code>false</code>。</p>
+<p>如果将 <code>b</code> <strong>重复恰好</strong> <code>y</code> 次得到的字符串 (<code>b * y</code>) 是将 <code>a</code> <strong>重复恰好</strong> <code>x</code> 次得到的字符串 (<code>a * x</code>) 的&nbsp;<strong><span data-keyword="substring-nonempty">子串</span>&nbsp;</strong>，返回 <code>true</code>。否则，返回 <code>false</code>。</p>
 <strong>子串&nbsp;</strong>是字符串内连续的&nbsp;<strong>非空&nbsp;</strong>字符序列。
 
 <p>&nbsp;</p>

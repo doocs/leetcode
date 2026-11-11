@@ -19,9 +19,7 @@ difficulty: 困难
 
 <p>返回一个长度为 <code>m - n + 1</code> 的整数数组 <code>ans</code>，其中 <code>ans[k]</code> 表示使排序后的数组等于 <code>target[k..k + n - 1]</code> 的下标 <code>i</code> 的数量。</p>
 
-<p><strong>子数组&nbsp;</strong>是数组中一个连续的<strong>&nbsp;非空</strong>&nbsp;元素序列。</p>
-
-<p>数组的&nbsp;<strong>后缀</strong>&nbsp;是从任意下标开始并延伸至数组末尾的子数组。</p>
+<p>数组的&nbsp;<strong>后缀</strong>&nbsp;是从任意下标开始并延伸至数组末尾的<span data-keyword="subarray-nonempty">子数组</span>。</p>
 
 <p>&nbsp;</p>
 

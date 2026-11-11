@@ -19,9 +19,7 @@ difficulty: 中等
 
 <p>返回使排序后的数组等于 <code>target</code> 的下标 <code>i</code> 的数量。</p>
 
-<p><strong>子数组&nbsp;</strong>是数组中一个连续的<strong>&nbsp;非空&nbsp;</strong>元素序列。</p>
-
-<p>数组的&nbsp;<strong>后缀&nbsp;</strong>是从任意下标开始并延伸至数组末尾的子数组。</p>
+<p>数组的&nbsp;<strong>后缀&nbsp;</strong>是从任意下标开始并延伸至数组末尾的 <span data-keyword="subarray-nonempty">子数组<span>。</p>
 
 <p>&nbsp;</p>
 
@@ -73,7 +71,7 @@ difficulty: 中等
 
 <ul>
 	<li><code>1 &lt;= n == nums.length == target.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= nums[i], target[i] &lt;= 10<sup>​​​​​​​5</sup></code>​​​​​​​​​​​​​​</li>
+	<li><code>1 &lt;= nums[i], target[i] &lt;= 10<sup>5</sup></code>​​​​​​​​​​​​​​</li>
 </ul>
 
 <!-- description:end -->
