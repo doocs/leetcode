@@ -57,7 +57,6 @@ tags:
 
 <ul>
 	<li><code>"able"</code> (top), <code>"area"</code> (left), <code>"echo"</code> (right), <code>"also"</code> (bottom)
-
     <ul>
     	<li><code>top[0] == left[0] == 'a'</code></li>
     	<li><code>top[3] == right[0] == 'e'</code></li>
@@ -70,7 +69,6 @@ tags:
     	<li>对角的所有约束均满足。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>因此，答案为 <code>[["able","area","echo","also"],["area","able","also","echo"]]</code>。</p>

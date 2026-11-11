@@ -118,7 +118,6 @@ pass_to is the player_id of the player receiving the pass.
 
 <ul>
 	<li><strong>First Half (00:00-45:00):</strong>
-
     <ul>
     	<li>Arsenal&#39;s passes:
     	<ul>

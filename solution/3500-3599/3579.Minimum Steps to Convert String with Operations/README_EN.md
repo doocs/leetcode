@@ -52,7 +52,6 @@ tags:
 
 <ul>
 	<li>For the substring <code>&quot;ab&quot;</code>,
-
     <ul>
     	<li>Perform operation of type 3 on <code>&quot;ab&quot; -&gt; &quot;ba&quot;</code>.</li>
     	<li>Perform operation of type 1 on <code>&quot;ba&quot; -&gt; &quot;da&quot;</code>.</li>
@@ -65,7 +64,6 @@ tags:
     	<li>Perform operation of type 1 on <code>&quot;bf&quot; -&gt; &quot;be&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -82,7 +80,6 @@ tags:
 
 <ul>
 	<li>For the substring <code>&quot;ab&quot;</code>,
-
     <ul>
     	<li>Perform operation of type 2 on <code>&quot;ab&quot; -&gt; &quot;ba&quot;</code>.</li>
     </ul>
@@ -98,7 +95,6 @@ tags:
     	<li>Perform operation of type 1 on <code>&quot;fed&quot; -&gt; &quot;fef&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -115,13 +111,11 @@ tags:
 
 <ul>
 	<li>For the substring <code>&quot;abcdef&quot;</code>,
-
     <ul>
     	<li>Perform operation of type 3 on <code>&quot;abcdef&quot; -&gt; &quot;fedcba&quot;</code>.</li>
     	<li>Perform operation of type 2 on <code>&quot;fedcba&quot; -&gt; &quot;fedabc&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

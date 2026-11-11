@@ -124,7 +124,6 @@ Each row represents a study session by a student for a specific subject.
 
 <ul>
 	<li><strong>Alice Chen (student_id = 1):</strong>
-
     <ul>
     	<li>Study sequence: Math &rarr; Physics &rarr; Chemistry &rarr; Math &rarr; Physics &rarr; Chemistry</li>
     	<li>Pattern: 3 subjects (Math, Physics, Chemistry) repeating for 2 complete cycles</li>
@@ -149,7 +148,6 @@ Each row represents a study session by a student for a specific subject.
     	<li>Emma Brown (student_id = 5): No study sessions recorded</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by cycle_length in descending order, then by total_study_hours in descending order.</p>

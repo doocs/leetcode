@@ -92,7 +92,6 @@ Each row represents a reaction given by a user to a piece of content.
 
 <ul>
 	<li><strong>User 1</strong>:
-
     <ul>
     	<li>Total reactions = 5</li>
     	<li>like&nbsp;appears 4 times</li>
@@ -116,7 +115,6 @@ Each row represents a reaction given by a user to a piece of content.
     	<li>Meets the consistency requirement</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The Results table is ordered by reaction_ratio in descending order, then by user_id in ascending order.</p>

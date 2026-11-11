@@ -77,7 +77,6 @@ tags:
 
 <ul>
 	<li>对于 <code>x = 0</code>，唯一&nbsp;<strong>不&nbsp;</strong>得到 <code>x = 0</code> 的操作有：
-
     <ul>
     	<li>移除空前缀和后缀 <code>[4, 8, 16, 32]</code>，<code>nums</code> 变为 <code>[1, 2]</code>。</li>
     	<li>移除空前缀和后缀 <code>[2, 4, 8, 16, 32]</code>，<code>nums</code> 变为 <code>[1]</code>。</li>

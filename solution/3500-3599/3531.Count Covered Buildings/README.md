@@ -40,7 +40,6 @@ tags:
 
 <ul>
 	<li>只有建筑 <code>[2,2]</code> 被覆盖，因为它在每个方向上都至少存在一个建筑：
-
     <ul>
     	<li>上方 (<code>[1,2]</code>)</li>
     	<li>下方 (<code>[3,2]</code>)</li>
@@ -82,7 +81,6 @@ tags:
 
 <ul>
 	<li>只有建筑 <code>[3,3]</code> 被覆盖，因为它在每个方向上至少存在一个建筑：
-
     <ul>
     	<li>上方 (<code>[1,3]</code>)</li>
     	<li>下方 (<code>[5,3]</code>)</li>

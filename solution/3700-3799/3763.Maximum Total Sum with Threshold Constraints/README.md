@@ -24,7 +24,6 @@ tags:
 
 <ul>
 	<li>找到一个 <strong>未使用</strong>&nbsp;的下标&nbsp;<code>i</code> 使得&nbsp;<code>threshold[i] &lt;= step</code>。
-
     <ul>
     	<li>如果没有这样的下标存在，流程结束。</li>
     </ul>

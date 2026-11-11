@@ -119,7 +119,6 @@ review_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>Alice Johnson (employee_id = 1)：</strong>
-
     <ul>
     	<li>有 4 次评估，分数：2, 3, 4, 5</li>
     	<li>最后 3 次评估（按日期）：2023-04-15 (3), 2023-07-15 (4), 2023-10-15 (5)</li>
@@ -149,7 +148,6 @@ review_id 是这张表的唯一主键。
     	<li>Emma Brown (employee_id = 5)：只有 2 次评估（需要至少 3 次）</li>
     </ul>
     </li>
-
 </ul>
 
 <p>输出表以 improvement_score 降序排序，然后以 name 升序排序。</p>

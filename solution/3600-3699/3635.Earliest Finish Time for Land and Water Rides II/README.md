@@ -26,7 +26,6 @@ tags:
 
 <ul>
 	<li data-end="163" data-start="147"><strong data-end="161" data-start="147">陆地游乐设施</strong>
-
     <ul>
     	<li data-end="245" data-start="168"><code data-end="186" data-start="168">landStartTime[i]</code> – 第 <code>i</code> 个陆地游乐设施最早可以开始的时间。</li>
     	<li data-end="306" data-start="250"><code data-end="267" data-start="250">landDuration[i]</code> – 第 <code>i</code> 个陆地游乐设施持续的时间。</li>
@@ -38,7 +37,6 @@ tags:
     	<li><code data-end="434" data-start="416">waterDuration[j]</code> – 第 <code>j</code> 个水上游乐设施持续的时间。</li>
     </ul>
     </li>
-
 </ul>
 
 <p data-end="569" data-start="476">一位游客必须从&nbsp;<strong data-end="517" data-start="502">每个&nbsp;</strong>类别中体验 <strong>恰好</strong><strong data-end="536" data-start="528">一个&nbsp;</strong>游乐设施，顺序&nbsp;<strong data-end="566" data-start="550">不限&nbsp;</strong>。</p>

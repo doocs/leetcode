@@ -52,7 +52,6 @@ tags:
 
 <ul>
 	<li><strong>第 1 天：</strong>
-
     <ul>
     	<li>将 <strong>EUR</strong> 换成 <strong>USD</strong>，得到 2.0&nbsp;<strong>USD</strong>。</li>
     	<li>将 <strong>USD</strong> 换成 <strong>JPY</strong>，得到 6.0 <strong>JPY</strong>。</li>
@@ -65,7 +64,6 @@ tags:
     	<li>最后将 <strong>CHF</strong> 换回 <strong>EUR</strong>，得到 720.0 <strong>EUR</strong>。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

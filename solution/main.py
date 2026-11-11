@@ -255,6 +255,12 @@ class Spider:
         print(f"{frontend_question_id}. {question_title_en}")
         tags_en, tags_cn = split_topic_tags(question_detail.get("topicTags"))
         tags_en = normalize_tags_en(tags_en)
+        content_en = question_detail.get("content")
+        content_cn = question_detail.get("translatedContent") or content_en or ""
+        if content_en:
+            content_en = strip_html_list_blank_lines(content_en)
+        if content_cn:
+            content_cn = strip_html_list_blank_lines(content_cn)
 
         item = {
             "sub_folder": sub_folders[no],
@@ -273,10 +279,8 @@ class Spider:
             or "",
             "title_en": question_title_en or "",
             "question_title_slug": question_title_slug,
-            "content_en": question_detail.get("content"),
-            "content_cn": question_detail.get("translatedContent")
-            or question_detail.get("content")
-            or "",
+            "content_en": content_en,
+            "content_cn": content_cn,
             "tags_en": tags_en,
             "tags_cn": tags_cn,
             "difficulty_en": question_detail.get("difficulty"),

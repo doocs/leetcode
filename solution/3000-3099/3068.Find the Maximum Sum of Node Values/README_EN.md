@@ -28,13 +28,11 @@ tags:
 
 <ul>
 	<li>Choose any edge <code>[u, v]</code> connecting the nodes <code>u</code> and <code>v</code>, and update their values as follows:
-
     <ul>
     	<li><code>nums[u] = nums[u] XOR k</code></li>
     	<li><code>nums[v] = nums[v] XOR k</code></li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the <strong>maximum</strong> possible <strong>sum</strong> of the <strong>values</strong> Alice can achieve by performing the operation <strong>any</strong> number of times</em>.</p>

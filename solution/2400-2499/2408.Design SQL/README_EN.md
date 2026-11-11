@@ -33,7 +33,6 @@ tags:
 
 <ul>
 	<li><code>SQL(String[] names, int[] columns)</code>
-
     <ul>
     	<li>Creates the <code>n</code> tables.</li>
     </ul>
@@ -62,7 +61,6 @@ tags:
     	<li>If name is <strong>not</strong> a valid table, returns an empty array. Each row is represented as a string, with each cell value (<strong>including</strong> the row&#39;s id) separated by a <code>&quot;,&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>&nbsp;</p>

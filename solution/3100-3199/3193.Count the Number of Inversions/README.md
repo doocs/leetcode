@@ -45,7 +45,6 @@ tags:
 
 <ul>
 	<li><code>[2, 0, 1]</code>
-
     <ul>
     	<li>前缀&nbsp;<code>[2, 0, 1]</code>&nbsp;的逆序对为&nbsp;<code>(0, 1)</code> 和&nbsp;<code>(0, 2)</code>&nbsp;。</li>
     	<li>前缀&nbsp;<code>[2]</code>&nbsp;的逆序对数目为 0 个。</li>
@@ -57,7 +56,6 @@ tags:
     	<li>前缀&nbsp;<code>[1]</code>&nbsp;的逆序对数目为 0 个。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

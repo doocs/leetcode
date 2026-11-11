@@ -125,7 +125,6 @@ product_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>Books-Clothing</strong>:
-
     <ul>
     	<li>用户 1 购买来自 Books (102) 和 Clothing (201) 的商品</li>
     	<li>用户 2 购买来自 Books (102, 103) 和 Clothing (201) 的商品</li>

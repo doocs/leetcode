@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li>例如，<code>num = "5489355142"</code> ：
-
     <ul>
     	<li>第 1 个最小妙数是 <code>"5489355214"</code></li>
     	<li>第 2 个最小妙数是 <code>"5489355241"</code></li>
@@ -33,7 +32,6 @@ tags:
     	<li>第 4 个最小妙数是 <code>"5489355421"</code></li>
     </ul>
     </li>
-
 </ul>
 
 <p>返回要得到第 <code>k</code> 个 <strong>最小妙数</strong> 需要对 <code>num</code> 执行的 <strong>相邻位数字交换的最小次数</strong> 。</p>

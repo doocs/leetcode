@@ -117,7 +117,6 @@ product_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>产品对 (101, 102)：</strong>
-
     <ul>
     	<li>被用户 1，2 和 4 购买（3 个消费者）</li>
     	<li>产品 101 属于电子商品类别</li>
@@ -138,7 +137,6 @@ product_id 是这张表的唯一主键。
     	<li>产品 104 属于厨房用品类别</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果以 customer_count 降序排序。对于有相同&nbsp;customer_count 的产品对，将它们以&nbsp;product1_id 升序排序，然后以 product2_id 升序排序。</p>

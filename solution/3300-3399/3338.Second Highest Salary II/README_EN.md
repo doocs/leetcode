@@ -77,7 +77,6 @@ Each row of this table contains information about an employee including their ID
 
 <ul>
 	<li><strong>Sales Department</strong>:
-
     <ul>
     	<li>Highest salary is 90000 (emp_id: 4)</li>
     	<li>Second-highest salary is 80000 (emp_id: 2, 3)</li>
@@ -104,7 +103,6 @@ Each row of this table contains information about an employee including their ID
     	<li>Not included in the result as it has fewer than 2 employees</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

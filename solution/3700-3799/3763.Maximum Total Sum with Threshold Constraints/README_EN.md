@@ -24,7 +24,6 @@ tags:
 
 <ul>
 	<li>Choose an <strong>unused</strong> index <code>i</code> such that <code>threshold[i] &lt;= step</code>.
-
     <ul>
     	<li>If no such index exists, the process ends.</li>
     </ul>

@@ -37,7 +37,6 @@ tags:
 
 <ul>
 	<li>Removing index 0 (<code>&quot;jump&quot;</code>):
-
     <ul>
     	<li><code>words</code> becomes: <code>[&quot;run&quot;, &quot;run&quot;, &quot;jump&quot;, &quot;run&quot;]</code>. <code>&quot;run&quot;</code> occurs 3 times. Choosing any two gives the longest common prefix <code>&quot;run&quot;</code> (length 3).</li>
     </ul>
@@ -62,7 +61,6 @@ tags:
     	<li><code>words</code> becomes: <code>[&quot;jump&quot;, &quot;run&quot;, &quot;run&quot;, &quot;jump&quot;]</code>. <code>&quot;jump&quot;</code> occurs twice. Choosing these two gives the longest common prefix <code>&quot;jump&quot;</code> (length 4).</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

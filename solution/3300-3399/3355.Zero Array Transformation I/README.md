@@ -44,13 +44,11 @@ tags:
 
 <ul>
 	<li><strong>对于 i = 0：</strong>
-
     <ul>
     	<li>选择下标子集 <code>[0, 2]</code> 并将这些下标处的值减 1。</li>
     	<li>数组将变为 <code>[0, 0, 0]</code>，这是一个零数组。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -65,7 +63,6 @@ tags:
 
 <ul>
 	<li><strong>对于 i = 0：</strong>&nbsp;
-
     <ul>
     	<li>选择下标子集 <code>[1, 2, 3]</code> 并将这些下标处的值减 1。</li>
     	<li>数组将变为 <code>[4, 2, 1, 0]</code>。</li>
@@ -77,7 +74,6 @@ tags:
     	<li>数组将变为 <code>[3, 1, 0, 0]</code>，这不是一个零数组。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

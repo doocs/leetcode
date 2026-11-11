@@ -37,7 +37,6 @@ tags:
 
 <ul>
 	<li><code>n = 2</code><strong>&nbsp;</strong>时数组&nbsp;<code>A</code> 的元素：
-
     <ul>
     	<li><code>A[0][0][0] = 0 * (0 OR 0) = 0</code></li>
     	<li><code>A[0][0][1] = 0 * (0 OR 1) = 0</code></li>
@@ -65,7 +64,6 @@ tags:
 
 <ul>
 	<li><code>n = 1</code><strong>&nbsp;</strong>时数组&nbsp;<code>A</code> 的元素：
-
     <ul>
     	<li><code>A[0][0][0] = 0 * (0 OR 0) = 0</code></li>
     </ul>

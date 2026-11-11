@@ -21,13 +21,11 @@ tags:
 
 <ul>
 	<li>从空字符串 <code>comp</code> 开始。当 <code>word</code> <strong>不为空</strong> 时，执行以下操作：
-
     <ul>
     	<li>移除 <code>word</code> 的最长单字符前缀，该前缀由单一字符 <code>c</code> 重复多次组成，且该前缀长度 <strong>最多 </strong>为 9 。</li>
     	<li>将前缀的长度和字符 <code>c</code> 追加到 <code>comp</code> 。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>返回字符串 <code>comp</code> 。</p>

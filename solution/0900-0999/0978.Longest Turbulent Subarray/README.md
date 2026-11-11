@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li>若&nbsp;<code>i &lt;= k &lt; j</code>&nbsp;：
-
     <ul>
     	<li>当 <code>k</code>&nbsp;为奇数时，&nbsp;<code>A[k] &gt; A[k+1]</code>，且</li>
     	<li>当 <code>k</code> 为偶数时，<code>A[k] &lt; A[k+1]</code>；</li>
@@ -37,7 +36,6 @@ tags:
     	<li>当 <code>k</code>&nbsp;为奇数时，&nbsp;<code>A[k] &lt; A[k+1]</code>。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -121,7 +121,6 @@ inventory_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>Downtown Tech (store_id = 1)：</strong>
-
     <ul>
     	<li>最贵的商品：笔记本（$999.99）数量为 5</li>
     	<li>最便宜的商品：鼠标（$19.99）数量为 50</li>
@@ -154,7 +153,6 @@ inventory_id 是这张表的唯一主键。
     	<li>Plaza Store（store_id = 5）：只有两件商品（相机，镜头）- 不满足最少 3 件商品的要求</li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按不平衡比降序排序，然后以商店名升序排序。</p>

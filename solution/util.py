@@ -357,6 +357,71 @@ _IMAGE_SRC_RE = re.compile('src="(.*?)"')
 _PRE_OR_CODE_RE = re.compile(r"(<(?:pre|code)\b[^>]*>.*?</(?:pre|code)>)", re.S | re.I)
 
 
+def _apply_list_tags(stack: list, line: str) -> None:
+    for match in re.finditer(r"</?(ul|ol|li)\b", line, re.I):
+        closing = match.group(0).startswith("</")
+        tag = match.group(1).lower()
+        if not closing:
+            stack.append(tag)
+            continue
+        if tag in stack:
+            while stack:
+                if stack.pop() == tag:
+                    break
+
+
+def strip_html_list_blank_lines(text: str) -> str:
+    """Drop blank lines inside a list item before a nested list, and before `</ul>`/`</ol>`."""
+    if not text or "\n" not in text:
+        return text
+    newline = "\r\n" if "\r\n" in text else "\n"
+    ends_with_newline = text.endswith(("\n", "\r\n"))
+    lines = text.splitlines()
+    drop = set()
+    stack = []
+    in_pre = False
+    for i, line in enumerate(lines):
+        low = line.lower()
+        if in_pre:
+            if "</pre>" in low:
+                in_pre = False
+            continue
+        if "<pre" in low:
+            if "</pre>" not in low:
+                in_pre = True
+            continue
+        if line.strip():
+            _apply_list_tags(stack, line)
+            continue
+        prev = next(
+            (lines[j].strip() for j in range(i - 1, -1, -1) if lines[j].strip()),
+            "",
+        )
+        nxt = next(
+            (lines[j].strip() for j in range(i + 1, len(lines)) if lines[j].strip()),
+            "",
+        )
+        prev_l = prev.lower()
+        nxt_l = nxt.lower()
+        nested = (
+            "li" in stack
+            and "</li" not in prev_l
+            and (nxt_l.startswith("<ul") or nxt_l.startswith("<ol"))
+        )
+        closing = prev_l.startswith("</li") and (
+            nxt_l.startswith("</ul") or nxt_l.startswith("</ol")
+        )
+        if nested or closing:
+            drop.add(i)
+    if not drop:
+        return text
+    kept = [line for i, line in enumerate(lines) if i not in drop]
+    out = newline.join(kept)
+    if ends_with_newline:
+        out += newline
+    return out
+
+
 def _normalize_description_for_compare(text: str) -> str:
     """Normalize formatting-insensitive whitespace while preserving `<pre>`/`<code>` blocks."""
     parts = _PRE_OR_CODE_RE.split(text)
@@ -402,14 +467,17 @@ def _preserve_formatted_description(orig_text: str, raw_desc: str) -> str:
     start_tag = "<!-- description:start -->"
     end_tag = "<!-- description:end -->"
     if start_tag in orig_text and end_tag in orig_text:
-        orig_desc = orig_text[
-            orig_text.index(start_tag) + len(start_tag) : orig_text.index(end_tag)
-        ].strip()
+        orig_desc = strip_html_list_blank_lines(
+            orig_text[
+                orig_text.index(start_tag) + len(start_tag) : orig_text.index(end_tag)
+            ].strip()
+        )
+        raw_desc = strip_html_list_blank_lines(raw_desc)
         if _normalize_description_for_compare(
             orig_desc
         ) == _normalize_description_for_compare(raw_desc):
             return orig_desc
-    return raw_desc
+    return strip_html_list_blank_lines(raw_desc)
 
 
 def _build_metadata_section(
@@ -464,16 +532,20 @@ def _render_problem_readmes(
         tags_en, category, item["difficulty_en"], rating, source_en
     )
 
-    raw_desc_cn = _replace_cdn_images(
-        (item["content_cn"] or "")
-        .replace("\r\n", "\n")
-        .replace("leetcode-cn.com", "leetcode.cn")
-        .strip(),
-        item["relative_path_cn"],
+    raw_desc_cn = strip_html_list_blank_lines(
+        _replace_cdn_images(
+            (item["content_cn"] or "")
+            .replace("\r\n", "\n")
+            .replace("leetcode-cn.com", "leetcode.cn")
+            .strip(),
+            item["relative_path_cn"],
+        )
     )
-    raw_desc_en = _replace_cdn_images(
-        (item["content_en"] or "").replace("\r\n", "\n").strip(),
-        item["relative_path_cn"],
+    raw_desc_en = strip_html_list_blank_lines(
+        _replace_cdn_images(
+            (item["content_en"] or "").replace("\r\n", "\n").strip(),
+            item["relative_path_cn"],
+        )
     )
 
     if orig_cn is not None:

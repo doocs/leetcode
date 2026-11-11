@@ -94,7 +94,6 @@ order_timestamp contains both date and time information.
 
 <ul>
 	<li><strong>Customer 101</strong>:
-
     <ul>
     	<li>Total orders: 4 (at least 3)&nbsp;</li>
     	<li>Peak hour orders: 4 out of 4 (12:30, 19:15, 13:45, and 20:30 are in peak hours)</li>
@@ -142,7 +141,6 @@ order_timestamp contains both date and time information.
     	<li>Result: <strong>Golden hour customer</strong></li>
     </ul>
     </li>
-
 </ul>
 
 <p>The results table is ordered by average_rating DESC, then customer_id DESC.</p>
@@ -186,10 +184,11 @@ FROM restaurant_orders
 GROUP BY customer_id
 HAVING
     total_orders >= 3
-    AND 5 * SUM(
-        TIME(order_timestamp) BETWEEN '11:00:00' AND '14:00:00'
-        OR TIME(order_timestamp) BETWEEN '18:00:00' AND '21:00:00'
-    ) >= 3 * COUNT(1)
+    AND 5 *
+        SUM(
+            TIME(order_timestamp) BETWEEN '11:00:00' AND '14:00:00'
+            OR TIME(order_timestamp) BETWEEN '18:00:00' AND '21:00:00'
+        ) >= 3 * COUNT(1)
     AND average_rating >= 4.0
     AND SUM(order_rating IS NOT NULL) / total_orders >= 0.5
 ORDER BY average_rating DESC, customer_id DESC;

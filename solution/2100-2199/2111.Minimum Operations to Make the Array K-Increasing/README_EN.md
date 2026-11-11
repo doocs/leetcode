@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li>For example, <code>arr = [4, 1, 5, 2, 6, 2]</code> is K-increasing for <code>k = 2</code> because:
-
     <ul>
     	<li><code>arr[0] &lt;= arr[2] (4 &lt;= 5)</code></li>
     	<li><code>arr[1] &lt;= arr[3] (1 &lt;= 2)</code></li>

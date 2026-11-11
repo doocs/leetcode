@@ -26,7 +26,6 @@ tags:
 
 <ol>
 	<li><strong>消息事件（Message Event）：</strong><code>["MESSAGE", "timestamp<sub>i</sub>", "mentions_string<sub>i</sub>"]</code>
-
     <ul>
     	<li>事件表示在&nbsp;<code>timestamp<sub>i</sub></code>&nbsp;时，一组用户被消息提及。</li>
     	<li><code>mentions_string<sub>i</sub></code>&nbsp;字符串包含下述标识符之一：
@@ -43,7 +42,6 @@ tags:
     	<li>事件表示用户&nbsp;<code>id<sub>i</sub></code>&nbsp;在&nbsp;<code>timestamp<sub>i</sub></code>&nbsp;时变为离线状态 <strong>60 个单位时间</strong>。用户会在&nbsp;<code>timestamp<sub>i</sub> + 60</code>&nbsp;时自动再次上线。</li>
     </ul>
     </li>
-
 </ol>
 
 <p>返回数组&nbsp;<code>mentions</code>&nbsp;，其中&nbsp;<code>mentions[i]</code>&nbsp;表示 &nbsp;id 为 &nbsp;<code>i</code>&nbsp;的用户在所有&nbsp;<code>MESSAGE</code>&nbsp;事件中被提及的次数。</p>

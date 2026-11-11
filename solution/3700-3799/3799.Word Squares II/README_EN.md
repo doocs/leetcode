@@ -55,7 +55,6 @@ tags:
 
 <ul>
 	<li><code>&quot;able&quot;</code> (top), <code>&quot;area&quot;</code> (left), <code>&quot;echo&quot;</code> (right), <code>&quot;also&quot;</code> (bottom)
-
     <ul>
     	<li><code>top[0] == left[0] == &#39;a&#39;</code></li>
     	<li><code>top[3] == right[0] == &#39;e&#39;</code></li>
@@ -68,7 +67,6 @@ tags:
     	<li>All corner constraints are satisfied.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Thus, the answer is <code>[[&quot;able&quot;,&quot;area&quot;,&quot;echo&quot;,&quot;also&quot;],[&quot;area&quot;,&quot;able&quot;,&quot;also&quot;,&quot;echo&quot;]]</code>.</p>

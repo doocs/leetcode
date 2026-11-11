@@ -63,7 +63,6 @@ tags:
 
 <ul>
 	<li>There are two paths with <code>k = 1</code> edge:
-
     <ul>
     	<li><code>0 -&gt; 1</code> with weight <code>2 &lt; t</code>.</li>
     	<li><code>0 -&gt; 2</code> with weight <code>3 = t</code>, which is not strictly less than <code>t</code>.</li>

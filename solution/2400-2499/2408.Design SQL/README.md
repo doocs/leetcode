@@ -33,7 +33,6 @@ tags:
 
 <ul>
 	<li><code>SQL(String[] names, int[] columns)</code>
-
     <ul>
     	<li>创建&nbsp;<code>n</code> 个表。</li>
     </ul>
@@ -62,7 +61,6 @@ tags:
     	<li>如果 <code>name</code> <strong>不是</strong> 一个合法的表，返回一个空数组。每一行以字符串表示，每个单元格的值（<strong>包括</strong> 行的 id）以 <code>","</code> 分隔。</li>
     </ul>
     </li>
-
 </ul>
 
 <p><strong>示例 1：</strong></p>

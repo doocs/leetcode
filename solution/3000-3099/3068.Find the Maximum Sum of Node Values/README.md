@@ -28,13 +28,11 @@ tags:
 
 <ul>
 	<li>选择连接节点&nbsp;<code>u</code>&nbsp;和&nbsp;<code>v</code>&nbsp;的边&nbsp;<code>[u, v]</code>&nbsp;，并将它们的值更新为：
-
     <ul>
     	<li><code>nums[u] = nums[u] XOR k</code></li>
     	<li><code>nums[v] = nums[v] XOR k</code></li>
     </ul>
     </li>
-
 </ul>
 
 <p>请你返回 Alice 通过执行以上操作 <strong>任意次</strong>&nbsp;后，可以得到所有节点 <strong>价值之和</strong>&nbsp;的 <strong>最大值</strong>&nbsp;。</p>

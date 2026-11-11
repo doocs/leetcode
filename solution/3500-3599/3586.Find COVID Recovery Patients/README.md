@@ -114,7 +114,6 @@ test_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>Alice Smith (patient_id = 1):</strong>
-
     <ul>
     	<li>首次阳性检测：2023-01-15</li>
     	<li>阳性检测后的首次阴性检测：2023-01-25</li>
@@ -143,7 +142,6 @@ test_id 是这张表的唯一主键。
     	<li>Emma Brown（patient_id = 5）：只有阴性检测，从未有阳性检测。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>输出表以 recovery_time 升序排序，然后以 patient_name 升序排序。</p>

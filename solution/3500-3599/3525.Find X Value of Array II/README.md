@@ -58,7 +58,6 @@ tags:
 
 <ul>
 	<li>对于查询 0，<code>nums</code> 变为 <code>[1, 2, 2, 4, 5]</code>&nbsp;。移除空前缀后，可选操作包括：
-
     <ul>
     	<li>移除后缀 <code>[2, 4, 5]</code>&nbsp;，<code>nums</code> 变为 <code>[1, 2]</code>。</li>
     	<li>不移除任何后缀。<code>nums</code> 保持为 <code>[1, 2, 2, 4, 5]</code>，乘积为 80，对 3 取余为 2。</li>
@@ -76,7 +75,6 @@ tags:
     	<li>移除后缀 <code>[3, 5]</code>。<code>nums</code> 为 <code>[1, 2, 2]</code>。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -91,7 +89,6 @@ tags:
 
 <ul>
 	<li>对于查询 0，<code>nums</code> 变为 <code>[2, 2, 4, 8, 16, 32]</code>。唯一可行的操作是：
-
     <ul>
     	<li>移除后缀 <code>[2, 4, 8, 16, 32]</code>。</li>
     </ul>

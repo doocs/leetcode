@@ -43,7 +43,6 @@ tags:
 
 <ul>
 	<li><strong>For query 0 (l = 0, r = 2, val = 1):</strong>
-
     <ul>
     	<li>Decrement the values at indices <code>[0, 2]</code> by 1.</li>
     	<li>The array will become <code>[1, 0, 1]</code>.</li>
@@ -55,7 +54,6 @@ tags:
     	<li>The array will become <code>[0, 0, 0]</code>, which is a Zero Array. Therefore, the minimum value of <code>k</code> is 2.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -82,7 +80,6 @@ tags:
 
 <ul>
 	<li><strong>For query 0 (l = 0, r = 1, val = 1):</strong>
-
     <ul>
     	<li>Decrement the values at indices <code>[0, 1]</code> by <code><font face="monospace">1</font></code>.</li>
     	<li>The array will become <code>[0, 1, 3, 2, 1]</code>.</li>
@@ -106,7 +103,6 @@ tags:
     	<li>The array will become <code>[0, 0, 0, 0, 0]</code>. Therefore, the minimum value of <code>k</code> is 4.</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

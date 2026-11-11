@@ -54,7 +54,6 @@ tags:
 
 <ul>
 	<li>Query <code>[1, 0, 3]</code>:
-
     <ul>
     	<li><code>[1, 3, 2]</code>: choose <code>k = 1</code>. Then <code>nums[k] = 3</code>, <code>nums[k - 1] = 1</code>, and <code>nums[k + 1] = 2</code>. Since <code>3 &gt; 1</code> and <code>3 &gt; 2</code>, this is a peak subarray.</li>
     	<li><code>[1, 3, 2, 4]</code>: choose <code>k = 1</code>. Then <code>nums[k] = 3</code>, <code>nums[k - 1] = 1</code>, and <code>nums[k + 1] = 2</code>. Since <code>3 &gt; 1</code> and <code>3 &gt; 2</code>, this is a peak subarray.</li>
@@ -78,7 +77,6 @@ tags:
 
 <ul>
 	<li>Query <code>[1, 1, 3]</code>:
-
     <ul>
     	<li><code>nums[1..3] = [8, 9, 8]</code>: choose <code>k = 2</code>. Then <code>nums[k] = 9</code>, <code>nums[k - 1] = 8</code>, and <code>nums[k + 1] = 8</code>. Since <code>9 &gt; 8</code> and <code>9 &gt; 8</code>, this is a peak subarray.</li>
     </ul>

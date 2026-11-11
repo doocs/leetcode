@@ -49,14 +49,12 @@ tags:
 
 <ul>
 	<li><code>(p, q, r, s) = (0, 2, 4, 6)</code>&nbsp;：
-
     <ul>
     	<li>对应的元素为&nbsp;<code>(1, 3, 3, 1)</code>&nbsp;。</li>
     	<li><code>nums[p] * nums[r] = nums[0] * nums[4] = 1 * 3 = 3</code></li>
     	<li><code>nums[q] * nums[s] = nums[2] * nums[6] = 3 * 1 = 3</code></li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -73,7 +71,6 @@ tags:
 
 <ul>
 	<li><code>(p, q, r, s) = (0, 2, 4, 6)</code>&nbsp;：
-
     <ul>
     	<li>对应元素为&nbsp;<code>(3, 3, 3, 3)</code>&nbsp;。</li>
     	<li><code>nums[p] * nums[r] = nums[0] * nums[4] = 3 * 3 = 9</code></li>
@@ -94,7 +91,6 @@ tags:
     	<li><code>nums[q] * nums[s] = nums[2] * nums[7] = 3 * 4 = 12</code></li>
     </ul>
     </li>
-
 </ul>
 </div>
 

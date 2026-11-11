@@ -92,7 +92,6 @@ manager_id is null for the top-level manager (CEO).
 
 <ul>
 	<li><strong>Organization Structure:</strong>
-
     <ul>
     	<li>Alice (ID: 1) is the CEO (level 1) with no manager</li>
     	<li>Bob (ID: 2) and Charlie (ID: 3) report directly to Alice (level 2)</li>
@@ -126,7 +125,6 @@ manager_id is null for the top-level manager (CEO).
     	<li>Employees with no direct reports have budgets equal to their own salary</li>
     </ul>
     </li>
-
 </ul>
 
 <p><strong>Note:</strong></p>

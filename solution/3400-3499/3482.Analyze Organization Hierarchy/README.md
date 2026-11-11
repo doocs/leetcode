@@ -93,7 +93,6 @@ employee_id 是这张表的唯一主键。
 
 <ul>
 	<li><strong>组织结构：</strong>
-
     <ul>
     	<li>Alice（ID：1）是 CEO（层级 1）没有经理。</li>
     	<li>Bob（ID：2）和&nbsp;Charlie（ID：3）是&nbsp;Alice 的直接下属（层级 2）</li>
@@ -127,7 +126,6 @@ employee_id 是这张表的唯一主键。
     	<li>没有直接下属的员工的预算等于他们自己的工资。</li>
     </ul>
     </li>
-
 </ul>
 
 <p><strong>注意：</strong></p>

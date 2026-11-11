@@ -25,7 +25,6 @@ tags:
 
 <ul>
 	<li>The local name is the part <strong>before</strong> the <code>&#39;@&#39;</code> symbol.
-
     <ul>
     	<li>Ignore all dots <code>&#39;.&#39;</code>.</li>
     	<li>Ignore everything after the first <code>&#39;+&#39;</code>, if present.</li>
@@ -37,7 +36,6 @@ tags:
     	<li>Convert to lowercase.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return an integer denoting the number of <strong>unique</strong> email groups after normalization.</p>

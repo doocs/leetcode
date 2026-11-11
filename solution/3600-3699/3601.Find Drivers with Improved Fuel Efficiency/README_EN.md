@@ -114,7 +114,6 @@ Each row represents a trip made by a driver, including the distance traveled and
 
 <ul>
 	<li><strong>Alice Johnson (driver_id = 1):</strong>
-
     <ul>
     	<li>First half trips (Jan-Jun): Feb 15 (120.5/10.2 = 11.81), Mar 20 (200.0/16.5 = 12.12)</li>
     	<li>First half average efficiency: (11.81 + 12.12) / 2 = 11.97</li>
@@ -139,7 +138,6 @@ Each row represents a trip made by a driver, including the distance traveled and
     	<li>Emma Brown (driver_id = 5): Only has trips in first half (Feb)</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The output table is ordered by efficiency improvement in descending order then by name in ascending order.</p>

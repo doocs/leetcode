@@ -56,7 +56,6 @@ tags:
 
 <ul>
 	<li>对于子串 <code>"ab"</code>：
-
     <ul>
     	<li>执行类型 3 的操作：<code>"ab" -&gt; "ba"</code>。</li>
     	<li>执行类型 1 的操作：<code>"ba" -&gt; "da"</code>。</li>
@@ -69,7 +68,6 @@ tags:
     	<li>执行类型 1 的操作：<code>"bf" -&gt; "be"</code>。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -86,7 +84,6 @@ tags:
 
 <ul>
 	<li>对于子串 <code>"ab"</code>：
-
     <ul>
     	<li>执行类型 2 的操作：<code>"ab" -&gt; "ba"</code>。</li>
     </ul>
@@ -102,7 +99,6 @@ tags:
     	<li>执行类型 1 的操作：<code>"fed" -&gt; "fef"</code>。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -119,13 +115,11 @@ tags:
 
 <ul>
 	<li>对于子串 <code>"abcdef"</code>：
-
     <ul>
     	<li>执行类型 3 的操作：<code>"abcdef" -&gt; "fedcba"</code>。</li>
     	<li>执行类型 2 的操作：<code>"fedcba" -&gt; "fedabc"</code>。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

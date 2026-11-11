@@ -73,10 +73,8 @@ tags:
 
 <ul>
 	<li>有两个可能的 <code>k × k</code> 子矩阵：
-
     <ul>
     	<li>以 <code>(0, 0)</code> 为起点的子矩阵：<code>[[1, -2], [2, 3]]</code>。
-
     	<ul>
     		<li>子矩阵中的不同值为 <code>[1, -2, 2, 3]</code>。</li>
     		<li>子矩阵中的最小绝对差为 <code>|1 - 2| = 1</code>。</li>

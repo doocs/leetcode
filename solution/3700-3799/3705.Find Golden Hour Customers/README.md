@@ -95,7 +95,6 @@ order_timestamp 同时包含日期和时间信息。
 
 <ul>
 	<li><strong>客户 101：</strong>
-
     <ul>
     	<li>总订单数：4（至少 3 笔）</li>
     	<li>高峰时间订单：4 笔中有 4 笔（12:30，19:15，13:45 和 20:30 在高峰时间）</li>
@@ -143,7 +142,6 @@ order_timestamp 同时包含日期和时间信息。
     	<li>结果：<strong>黄金时段客户</strong></li>
     </ul>
     </li>
-
 </ul>
 
 <p>结果表按 average_rating 降序排序，然后按 customer_id 降序排序。</p>
@@ -187,10 +185,11 @@ FROM restaurant_orders
 GROUP BY customer_id
 HAVING
     total_orders >= 3
-    AND 5 * SUM(
-        TIME(order_timestamp) BETWEEN '11:00:00' AND '14:00:00'
-        OR TIME(order_timestamp) BETWEEN '18:00:00' AND '21:00:00'
-    ) >= 3 * COUNT(1)
+    AND 5 *
+        SUM(
+            TIME(order_timestamp) BETWEEN '11:00:00' AND '14:00:00'
+            OR TIME(order_timestamp) BETWEEN '18:00:00' AND '21:00:00'
+        ) >= 3 * COUNT(1)
     AND average_rating >= 4.0
     AND SUM(order_rating IS NOT NULL) / total_orders >= 0.5
 ORDER BY average_rating DESC, customer_id DESC;

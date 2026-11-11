@@ -49,7 +49,6 @@ tags:
 
 <ul>
 	<li>对于&nbsp;<code>i = 0</code>&nbsp;：
-
     <ul>
     	<li>节点 1 在时刻&nbsp;<code>t = 1</code>&nbsp;被标记，节点 2 在时刻&nbsp;<code>t = 2</code>&nbsp;被标记。</li>
     </ul>
@@ -64,7 +63,6 @@ tags:
     	<li>节点 0 在时刻&nbsp;<code>t = 2</code>&nbsp;被标记，节点 1 在时刻&nbsp;<code>t = 3</code>&nbsp;被标记。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -81,7 +79,6 @@ tags:
 
 <ul>
 	<li>对于&nbsp;<code>i = 0</code>&nbsp;：
-
     <ul>
     	<li>节点 1 在时刻&nbsp;<code>t = 1</code>&nbsp;被标记。</li>
     </ul>
@@ -91,7 +88,6 @@ tags:
     	<li>节点 0 在时刻&nbsp;<code>t = 2</code>&nbsp;被标记。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

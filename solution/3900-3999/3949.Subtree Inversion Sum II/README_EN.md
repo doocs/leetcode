@@ -27,7 +27,6 @@ tags:
 <ul data-end="1247" data-start="765">
 	<li data-end="890" data-start="765">
 	<p data-end="799" data-start="767"><strong data-end="799" data-start="767">Subtree Inversion Operation:</strong></p>
-
     <ul data-end="890" data-start="802">
     	<li data-end="887" data-start="802">
     	<p data-end="887" data-start="804">When you invert a node, every value in the <span data-keyword="subtree-of-node">subtree</span> rooted at that node is multiplied by -1.</p>
@@ -36,7 +35,6 @@ tags:
     </li>
     <li data-end="1247" data-start="891">
     <p data-end="931" data-start="893"><strong data-end="931" data-start="893">Distance Constraint on Inversions:</strong></p>
-
     <ul data-end="1247" data-start="934">
     	<li data-end="1020" data-start="934">
     	<p data-end="1020" data-start="936">You may only invert a node if it is &ldquo;sufficiently far&rdquo; from any other inverted node.</p>
@@ -46,7 +44,6 @@ tags:
     	</li>
     </ul>
     </li>
-
 </ul>
 
 <p data-end="1358" data-start="1249">Return the <strong>maximum</strong> possible <strong>sum</strong> of the tree&rsquo;s node values after applying <strong>inversion operations</strong>.</p>

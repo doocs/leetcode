@@ -45,7 +45,6 @@ tags:
 
 <ul>
 	<li><strong>第一次转换 (t = 1)</strong>
-
     <ul>
     	<li><code>'a'</code> 变为 <code>'b'</code></li>
     	<li><code>'b'</code> 变为 <code>'c'</code></li>
@@ -81,7 +80,6 @@ tags:
 
 <ul>
 	<li><strong>第一次转换 (t = 1)</strong>
-
     <ul>
     	<li><code>'a'</code> 变为 <code>'b'</code></li>
     	<li><code>'z'</code> 变为 <code>"ab"</code></li>

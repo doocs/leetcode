@@ -45,7 +45,6 @@ tags:
 
 <ul>
 	<li>交换 <code>nums2[0] = 20</code> 和 <code>nums2[1] = 10</code>。
-
     <ul>
     	<li><code>nums2</code> 变为 <code>[10, 20]</code>。</li>
     	<li>此操作是免费的。</li>
@@ -67,7 +66,6 @@ tags:
 
 <ul>
 	<li>交换 <code>nums1[0] = 10</code> 和 <code>nums2[0] = 20</code>。
-
     <ul>
     	<li><code>nums1</code> 变为 <code>[20, 10]</code>。</li>
     	<li><code>nums2</code> 变为 <code>[10, 20]</code>。</li>

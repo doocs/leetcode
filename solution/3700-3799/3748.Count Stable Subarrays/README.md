@@ -48,7 +48,6 @@ tags:
 
 <ul>
 	<li>对于 <code>queries[0] = [0, 1]</code>，子数组为 <code>[nums[0], nums[1]] = [3, 1]</code>。
-
     <ul>
     	<li>稳定子数组包括 <code>[3]</code> 和 <code>[1]</code>。稳定子数组的总数为 2。</li>
     </ul>
@@ -63,7 +62,6 @@ tags:
     	<li>稳定子数组包括 <code>[3]</code>、<code>[1]</code>、<code>[2]</code> 和 <code>[1, 2]</code>。稳定子数组的总数为 4。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>因此，<code>ans = [2, 3, 4]</code>。</p>
@@ -80,7 +78,6 @@ tags:
 
 <ul>
 	<li>对于 <code>queries[0] = [0, 1]</code>，子数组为 <code>[nums[0], nums[1]] = [2, 2]</code>。
-
     <ul>
     	<li>稳定子数组包括 <code>[2]</code>、<code>[2]</code> 和 <code>[2, 2]</code>。稳定子数组的总数为 3。</li>
     </ul>
@@ -90,7 +87,6 @@ tags:
     	<li>稳定子数组包括 <code>[2]</code>。稳定子数组的总数为 1。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>因此，<code>ans = [3, 1]</code>。</p>

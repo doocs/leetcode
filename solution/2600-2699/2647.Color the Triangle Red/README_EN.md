@@ -32,7 +32,6 @@ tags:
 
 <ol>
 	<li>Choose a white triangle that has <strong>at least two</strong> red neighbors.
-
     <ul>
     	<li>If there is no such triangle, stop the algorithm.</li>
     </ul>

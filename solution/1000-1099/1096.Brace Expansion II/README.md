@@ -28,7 +28,6 @@ tags:
 
 <ul>
 	<li>如果只给出单一的元素&nbsp;<code>x</code>，那么表达式表示的字符串就只有&nbsp;<code>"x"</code>。<code>R(x) = {x}</code>
-
     <ul>
     	<li>例如，表达式 <code>"a"</code> 表示字符串 <code>"a"</code>。</li>
     	<li>而表达式 <code>"w"</code> 就表示字符串 <code>"w"</code>。</li>
@@ -51,7 +50,6 @@ tags:
     	<li>例如，表达式 <code>"a{b,c}{d,e}f{g,h}"</code> 可以表示字符串&nbsp;<code>"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"</code>。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>给出表示基于给定语法规则的表达式&nbsp;<code>expression</code>，返回它所表示的所有字符串组成的有序列表。</p>

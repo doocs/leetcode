@@ -33,13 +33,11 @@ tags:
 
 <ul>
 	<li>For example, in the below diagram the diagonal is highlighted using the cell with indices <code>(2, 3)</code> colored gray:
-
     <ul>
     	<li>Red-colored cells are left and above the cell.</li>
     	<li>Blue-colored cells are right and below the cell.</li>
     </ul>
     </li>
-
 </ul>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/images/diagonal.png" style="width: 200px; height: 160px;" /></p>

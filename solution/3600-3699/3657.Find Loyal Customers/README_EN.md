@@ -93,7 +93,6 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
 
 <ul>
 	<li><strong>Customer 101</strong>:
-
     <ul>
     	<li>Purchase transactions: 4 (IDs: 1, 2, 3, 4)&nbsp;</li>
     	<li>Refund transactions: 0</li>
@@ -128,7 +127,6 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
     	<li>Qualifies as loyal&nbsp;</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by customer_id in ascending order.</p>

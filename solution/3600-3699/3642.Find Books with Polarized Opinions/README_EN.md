@@ -126,7 +126,6 @@ The <em>polarization score</em> should be rounded to 2 decimal places.</p>
 
 <ul>
 	<li><strong>The Great Gatsby (book_id = 1):</strong>
-
     <ul>
     	<li>Has 5 reading sessions (meets minimum requirement)</li>
     	<li>Ratings: 5, 1, 4, 2, 5</li>
@@ -155,7 +154,6 @@ The <em>polarization score</em> should be rounded to 2 decimal places.</p>
     	<li>The Catcher in the Rye (book_id = 5): Only 2 sessions (&lt; 5 minimum)</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result table is ordered by polarization score in descending order, then by book title in descending order.</p>

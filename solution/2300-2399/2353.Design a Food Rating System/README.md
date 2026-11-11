@@ -33,7 +33,6 @@ tags:
 
 <ul>
 	<li><code>FoodRatings(String[] foods, String[] cuisines, int[] ratings)</code> 初始化系统。食物由 <code>foods</code>、<code>cuisines</code> 和 <code>ratings</code> 描述，长度均为 <code>n</code> 。
-
     <ul>
     	<li><code>foods[i]</code> 是第 <code>i</code> 种食物的名字。</li>
     	<li><code>cuisines[i]</code> 是第 <code>i</code> 种食物的烹饪方式。</li>

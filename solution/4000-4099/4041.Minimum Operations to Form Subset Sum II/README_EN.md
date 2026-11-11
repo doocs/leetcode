@@ -56,7 +56,6 @@ tags:
 
 <ul>
 	<li>Turn <code>nums[1] = 3</code> into 2 using 2 operations:
-
     <ul>
     	<li>Divide <code>nums[1]</code> to get 1.</li>
     	<li>Multiply <code>nums[1] = 1</code> to get 2.</li>

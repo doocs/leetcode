@@ -116,7 +116,6 @@ Each row assigns a category and price to a product.
 
 <ul>
 	<li><strong>Product pair (101, 102):</strong>
-
     <ul>
     	<li>Purchased by users 1, 2, and 4 (3 customers)</li>
     	<li>Product 101 is in Electronics category</li>
@@ -137,7 +136,6 @@ Each row assigns a category and price to a product.
     	<li>Product 104 is in Kitchen category</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The result is ordered by customer_count in descending order. For pairs with the same customer_count, they are ordered by product1_id and then product2_id in ascending order.</p>

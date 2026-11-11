@@ -24,14 +24,12 @@ tags:
 
 <ul>
 	<li>For example if <code>sentence = &quot;i love leetcode&quot;</code> and <code>k = 12</code>:
-
     <ul>
     	<li>Separating <code>sentence</code> into <code>&quot;i&quot;</code>, <code>&quot;love&quot;</code>, and <code>&quot;leetcode&quot;</code> has a cost of <code>(12 - 1)<sup>2</sup> + (12 - 4)<sup>2</sup> = 185</code>.</li>
     	<li>Separating <code>sentence</code> into <code>&quot;i love&quot;</code>, and <code>&quot;leetcode&quot;</code> has a cost of <code>(12 - 6)<sup>2</sup> = 36</code>.</li>
     	<li>Separating <code>sentence</code> into <code>&quot;i&quot;</code>, and <code>&quot;love leetcode&quot;</code> is not possible because the length of <code>&quot;love leetcode&quot;</code> is greater than <code>k</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the <strong>minimum</strong> possible total cost of separating</em><em> </em><code>sentence</code><em> into rows.</em></p>

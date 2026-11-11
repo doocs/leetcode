@@ -120,7 +120,6 @@ pass_to is the player_id of the player receiving the pass.
 
 <ul>
 	<li><strong>Arsenal</strong>&#39;s streaks:
-
     <ul>
     	<li>First streak: 3 passes (1&rarr;2&rarr;3&rarr;4) ended when player 4 passed to Chelsea&#39;s player 5</li>
     	<li>Second streak: 2 passes (1&rarr;2&rarr;3)</li>
@@ -133,7 +132,6 @@ pass_to is the player_id of the player receiving the pass.
     	<li>Longest streak = 4</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

@@ -47,7 +47,6 @@ tags:
 
 <ul>
 	<li><strong>对于查询 0 （l = 0, r = 2, val = 1）：</strong>
-
     <ul>
     	<li>将下标&nbsp;<code>[0, 2]</code> 的值减 1。</li>
     	<li>数组变为 <code>[1, 0, 1]</code>。</li>
@@ -59,7 +58,6 @@ tags:
     	<li>数组变为 <code>[0, 0, 0]</code>，这就是一个零数组。因此，最小的 <code>k</code> 值为 2。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 
@@ -86,7 +84,6 @@ tags:
 
 <ul>
 	<li><strong>对于查询 0 （l = 0, r = 1, val = 1）：</strong>
-
     <ul>
     	<li>将下标&nbsp;<code>[0, 1]</code> 的值减 1。</li>
     	<li>数组变为 <code>[0, 1, 3, 2, 1]</code>。</li>
@@ -110,7 +107,6 @@ tags:
     	<li>数组变为 <code>[0, 0, 0, 0, 0]</code>。因此，最小的 <code>k</code> 值为 4。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

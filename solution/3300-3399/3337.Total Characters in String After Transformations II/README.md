@@ -47,7 +47,6 @@ tags:
 <ul>
 	<li>
 	<p><strong>第一次转换 (t = 1)</strong></p>
-
     <ul>
     	<li><code>'a'</code> 变为 <code>'b'</code> 因为 <code>nums[0] == 1</code></li>
     	<li><code>'b'</code> 变为 <code>'c'</code> 因为 <code>nums[1] == 1</code></li>
@@ -59,7 +58,6 @@ tags:
     </li>
     <li>
     <p><strong>第二次转换 (t = 2)</strong></p>
-
     <ul>
     	<li><code>'b'</code> 变为 <code>'c'</code> 因为 <code>nums[1] == 1</code></li>
     	<li><code>'c'</code> 变为 <code>'d'</code> 因为 <code>nums[2] == 1</code></li>
@@ -72,7 +70,6 @@ tags:
     <li>
     <p><strong>字符串最终长度：</strong> 字符串为 <code>"cdeabab"</code>，长度为 7 个字符。</p>
     </li>
-
 </ul>
 </div>
 
@@ -88,7 +85,6 @@ tags:
 <ul>
 	<li>
 	<p><strong>第一次转换 (t = 1)</strong></p>
-
     <ul>
     	<li><code>'a'</code> 变为 <code>'bc'</code> 因为 <code>nums[0] == 2</code></li>
     	<li><code>'z'</code> 变为 <code>'ab'</code> 因为 <code>nums[25] == 2</code></li>
@@ -100,7 +96,6 @@ tags:
     <li>
     <p><strong>字符串最终长度：</strong> 字符串为 <code>"bcabcdlm"</code>，长度为 8 个字符。</p>
     </li>
-
 </ul>
 </div>
 

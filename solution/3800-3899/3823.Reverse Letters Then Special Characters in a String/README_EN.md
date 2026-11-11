@@ -42,7 +42,6 @@ tags:
 
 <ul>
 	<li>The letters in the string are <code>[&#39;e&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;, &#39;f&#39;]</code>:
-
     <ul>
     	<li>Reversing them gives <code>[&#39;f&#39;, &#39;a&#39;, &#39;d&#39;, &#39;c&#39;, &#39;b&#39;, &#39;e&#39;]</code></li>
     	<li><code>s</code> becomes <code>&quot;)fad#cb@e(&quot;</code></li>
@@ -54,7 +53,6 @@ tags:
     	<li><code>s</code> becomes <code><span class="example-io">&quot;</span>(fad@cb#e)<span class="example-io">&quot;</span></code></li>
     </ul>
     </li>
-
 </ul>
 </div>
 

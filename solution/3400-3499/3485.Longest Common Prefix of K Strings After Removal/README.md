@@ -42,7 +42,6 @@ tags:
 
 <ul>
 	<li>移除下标&nbsp;0 处的元素&nbsp;<code>"jump"</code>&nbsp;：
-
     <ul>
     	<li><code>words</code> 变为： <code>["run", "run", "jump", "run"]</code>。 <code>"run"</code> 出现了 3 次。选择任意两个得到的最长公共前缀是 <code>"run"</code> （长度为 3）。</li>
     </ul>
@@ -67,7 +66,6 @@ tags:
     	<li><code>words</code> 变为： <code>["jump", "run", "run", "jump"]</code>。 <code>"jump"</code> 出现了 2 次。选择这两个得到的最长公共前缀是 <code>"jump"</code> （长度为 4）。</li>
     </ul>
     </li>
-
 </ul>
 </div>
 

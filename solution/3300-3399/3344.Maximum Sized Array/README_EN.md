@@ -36,7 +36,6 @@ tags:
 
 <ul>
 	<li>Elements of the array <code>A</code> for <code>n = 2</code><strong>:</strong>
-
     <ul>
     	<li><code>A[0][0][0] = 0 * (0 OR 0) = 0</code></li>
     	<li><code>A[0][0][1] = 0 * (0 OR 1) = 0</code></li>
@@ -64,7 +63,6 @@ tags:
 
 <ul>
 	<li>Elements of the array <code>A</code> for <code>n = 1</code>:
-
     <ul>
     	<li><code>A[0][0][0] = 0 * (0 OR 0) = 0</code></li>
     </ul>

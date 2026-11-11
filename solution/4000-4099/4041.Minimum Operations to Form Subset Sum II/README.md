@@ -60,7 +60,6 @@ tags:
 
 <ul>
 	<li>通过 2 次操作将 <code>nums[1] = 3</code> 变为 2：
-
     <ul>
     	<li>先将 <code>nums[1]</code> 除以 2，得到 1。</li>
     	<li>再将 <code>nums[1] = 1</code> 乘以 2，得到 2。</li>
