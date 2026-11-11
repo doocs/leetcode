@@ -126,6 +126,7 @@ markdown_extensions:
   
 
 extra_javascript:
+  - javascripts/examples.js
   - javascripts/mathjax.js
   - https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/mathjax@3/es5/tex-mml-chtml.js
 
