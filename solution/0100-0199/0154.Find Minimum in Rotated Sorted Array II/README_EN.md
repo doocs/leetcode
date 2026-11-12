@@ -16,11 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0,1,4,4,5,6,7]</code> might become:</p>
+<p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0, 1, 4, 4, 5, 6, 7]</code> might become:</p>
 
 <ul>
-	<li><code>[4,5,6,7,0,1,4]</code> if it was rotated <code>4</code> times.</li>
-	<li><code>[0,1,4,4,5,6,7]</code> if it was rotated <code>7</code> times.</li>
+	<li><code>[4, 5, 6, 7, 0, 1, 4]</code> if it was rotated <code>4</code> times.</li>
+	<li><code>[0, 1, 4, 4, 5, 6, 7]</code> if it was rotated <code>7</code> times.</li>
 </ul>
 
 <p>Notice that <strong>rotating</strong> an array <code>[a[0], a[1], a[2], ..., a[n-1]]</code> 1 time results in the array <code>[a[n-1], a[0], a[1], a[2], ..., a[n-2]]</code>.</p>

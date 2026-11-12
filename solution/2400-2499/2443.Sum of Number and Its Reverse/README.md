@@ -18,35 +18,45 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个 <strong>非负</strong> 整数 <code>num</code> 。如果存在某个 <strong>非负</strong> 整数 <code>k</code> 满足 <code>k + reverse(k) = num</code>&nbsp; ，则返回 <code>true</code> ；否则，返回<em> </em><code>false</code> 。</p>
-
-<p><code>reverse(k)</code> 表示 <code>k</code> 反转每个数位后得到的数字。</p>
+<p>给定一个&nbsp;<strong>非负&nbsp;</strong>整数 <code>num</code>，如果 <code>num</code> 可以表示为某个&nbsp;<strong>非负&nbsp;</strong>整数与其反转后的整数之和，则返回 <code>true</code>，否则返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>num = 443
-<strong>输出：</strong>true
-<strong>解释：</strong>172 + 271 = 443 ，所以返回 true 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">num = 443</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong> <span class="example-io">true</span></p>
 
-<pre>
-<strong>输入：</strong>num = 63
-<strong>输出：</strong>false
-<strong>解释：</strong>63 不能表示为非负整数及其反转后数字之和，返回 false 。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>172 + 271 = 443，其中 271 是 172 反转后的整数。因此，返回 true。</p>
+</div>
 
-<pre>
-<strong>输入：</strong>num = 181
-<strong>输出：</strong>true
-<strong>解释：</strong>140 + 041 = 181 ，所以返回 true 。注意，反转后的数字可能包含前导零。
-</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">num = 63</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>63 无法表示为某个非负整数与其反转后的整数之和。因此，返回 false。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">num = 181</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">true</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>140 + 041 = 181，其中 041 表示 41，即 140 反转后的整数。反转后的数字可以包含前导零。因此，返回 true。</p>
+</div>
 
 <p>&nbsp;</p>
 

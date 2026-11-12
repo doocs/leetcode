@@ -20,47 +20,65 @@ tags:
 
 <!-- description:start -->
 
-<p>Given two integer arrays <code>arr1</code> and <code>arr2</code>, and the integer <code>d</code>, <em>return the distance value between the two arrays</em>.</p>
+<p dir="ltr">You are given two integer arrays <code dir="ltr">arr1</code> and <code dir="ltr">arr2</code>, and an integer <code dir="ltr">d</code>.</p>
 
-<p>The distance value is defined as the number of elements <code>arr1[i]</code> such that there is not any element <code>arr2[j]</code> where <code>|arr1[i]-arr2[j]| &lt;= d</code>.</p>
+<p dir="ltr">An element <code dir="ltr">arr1[i]</code> is called <strong>far</strong> when every element <code dir="ltr">arr2[j]</code> satisfies <code dir="ltr">|arr1[i] - arr2[j]| &gt; d</code>. In other words, no element of <code dir="ltr">arr2</code> lies within distance <code dir="ltr">d</code> of it.</p>
+
+<p dir="ltr">Return the <strong>distance</strong> value, which is the number of <strong>far</strong> elements in <code dir="ltr">arr1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> arr1 = [4,5,8], arr2 = [10,9,1,8], d = 2
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> 
-For arr1[0]=4 we have: 
-|4-10|=6 &gt; d=2 
-|4-9|=5 &gt; d=2 
-|4-1|=3 &gt; d=2 
-|4-8|=4 &gt; d=2 
-For arr1[1]=5 we have: 
-|5-10|=5 &gt; d=2 
-|5-9|=4 &gt; d=2 
-|5-1|=4 &gt; d=2 
-|5-8|=3 &gt; d=2
-For arr1[2]=8 we have:
-<strong>|8-10|=2 &lt;= d=2</strong>
-<strong>|8-9|=1 &lt;= d=2</strong>
-|8-1|=7 &gt; d=2
-<strong>|8-8|=0 &lt;= d=2</strong>
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr1 = [4,5,8], arr2 = [10,9,1,8], d = 2</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>4 is far. Its nearest value in <code>arr2</code> is 1, and <code>|4 - 1| = 3</code>, which is greater than <code>d = 2</code>.</li>
+	<li>5 is far. Its nearest value in <code>arr2</code> is 8, and <code>|5 - 8| = 3</code>, which is greater than <code>d = 2</code>.</li>
+	<li>8 is not far, because <code>|8 - 8| = 0</code> is at most <code>d = 2</code>.</li>
+	<li>Two elements are far, so the distance value is 2.</li>
+</ul>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> arr1 = [1,4,2,3], arr2 = [-4,-3,6,10,20,30], d = 3
-<strong>Output:</strong> 2
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr1 = [1,4,2,3], arr2 = [-4,-3,6,10,20,30], d = 3</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>1 is far. Its nearest value in <code>arr2</code> is -3, and <code>|1 - (-3)| = 4</code>, which is greater than <code>d = 3</code>.</li>
+	<li>2 is far. Its nearest value in <code>arr2</code> is 6, and <code>|2 - 6| = 4</code>, which is greater than <code>d = 3</code>.</li>
+	<li>4 is not far, because <code>|4 - 6| = 2</code> is at most <code>d = 3</code>.</li>
+	<li>3 is not far, because <code>|3 - 6| = 3</code> is at most <code>d = 3</code>.</li>
+	<li>Two elements are far, so the distance value is 2.</li>
+</ul>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> arr1 = [2,1,100,3], arr2 = [-5,-2,10,-3,7], d = 6
-<strong>Output:</strong> 1
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr1 = [2,1,100,3], arr2 = [-5,-2,10,-3,7], d = 6</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>100 is far. Its nearest value in <code>arr2</code> is 10, and <code>|100 - 10| = 90</code>, which is greater than <code>d = 6</code>.</li>
+	<li>2 is not far, because <code>|2 - (-2)| = 4</code> is at most <code>d = 6</code>.</li>
+	<li>1 is not far, because <code>|1 - (-2)| = 3</code> is at most <code>d = 6</code>.</li>
+	<li>3 is not far, because <code>|3 - 7| = 4</code> is at most <code>d = 6</code>.</li>
+	<li>One element is far, so the distance value is 1.</li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

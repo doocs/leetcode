@@ -16,7 +16,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个非负整数&nbsp;<em><code>numRows</code>，</em>生成「杨辉三角」的前&nbsp;<em><code>numRows</code>&nbsp;</em>行。</p>
+<p>给定一个非负整数&nbsp;<code>numRows</code>。</p>
+
+<p>返回「杨辉三角」的前&nbsp;<code>numRows</code>&nbsp;行。</p>
 
 <p>在<strong>「杨辉三角」</strong>中，每个数是它左上方和右上方的数的和。</p>
 

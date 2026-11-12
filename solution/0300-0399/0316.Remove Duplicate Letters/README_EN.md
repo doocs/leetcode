@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a string <code>s</code>, remove duplicate letters so that every letter appears once and only once. You must make sure your result is <span data-keyword="lexicographically-smaller-string"><strong>the smallest in lexicographical order</strong></span> among all possible results.</p>
+<p>Given a string <code>s</code>, remove duplicate letters so that every letter appears once and only once. The relative order of the letters that were not removed must be preserved. You must make sure your result is <span data-keyword="lexicographically-smaller-string"><strong>the smallest in lexicographical order</strong></span> among all possible results.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

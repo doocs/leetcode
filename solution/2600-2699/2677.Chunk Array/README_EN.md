@@ -57,8 +57,8 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>arr</code> is a string representing the array.</li>
-	<li><code>2 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>arr</code> is a valid JSON array</li>
+	<li><code>2 &lt;= JSON.stringify(arr).length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>
 

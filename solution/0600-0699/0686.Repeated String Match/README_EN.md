@@ -19,10 +19,12 @@ tags:
 
 <!-- description:start -->
 
-<p>Given two strings <code>a</code> and <code>b</code>, return <em>the minimum number of times you should repeat string </em><code>a</code><em> so that string</em> <code>b</code> <em>is a substring of it</em>. If it is impossible for <code>b</code>​​​​​​ to be a substring of <code>a</code> after repeating it, return <code>-1</code>.</p>
+<p>You are given two strings <code>a</code> and <code>b</code>​​​​​​​ consisting of lowercase English letters​​​​​​​.</p>
 
-<p><strong>Notice:</strong> string <code>&quot;abc&quot;</code> repeated 0 times is <code>&quot;&quot;</code>, repeated 1 time is <code>&quot;abc&quot;</code> and repeated 2 times is <code>&quot;abcabc&quot;</code>.</p>
+<p>Return the <strong>minimum</strong> number of times you should repeat string <code>a</code> so that string <code>b</code> is a <strong>substring</strong> of it. If it is <strong>impossible</strong> for <code>b</code>​​​​​​ to be a substring of <code>a</code> after repeating it, return&nbsp;-1.</p>
 
+<p><strong>Note:</strong> string <code>&quot;abc&quot;</code> repeated 0 times is <code>&quot;&quot;</code>, repeated 1 time is <code>&quot;abc&quot;</code> and repeated 2 times is <code>&quot;abcabc&quot;</code>.</p>
+A <strong>subarray</strong> is a contiguous sequence of elements within an array.
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

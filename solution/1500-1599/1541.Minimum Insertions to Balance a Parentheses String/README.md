@@ -20,63 +20,67 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个括号字符串&nbsp;<code>s</code>&nbsp;，它只包含字符&nbsp;<code>&#39;(&#39;</code> 和&nbsp;<code>&#39;)&#39;</code>&nbsp;。一个括号字符串被称为平衡的当它满足：</p>
+<p>给定一个仅包含字符 <code>'('</code> 和 <code>')'</code> 的括号字符串 <code>s</code>。如果一个括号字符串可以通过以下规则构成，则称其为&nbsp;<strong>平衡&nbsp;</strong>的：</p>
 
 <ul>
-	<li>任何左括号&nbsp;<code>&#39;(&#39;</code>&nbsp;必须对应两个连续的右括号&nbsp;<code>&#39;))&#39;</code>&nbsp;。</li>
-	<li>左括号&nbsp;<code>&#39;(&#39;</code>&nbsp;必须在对应的连续两个右括号&nbsp;<code>&#39;))&#39;</code>&nbsp;之前。</li>
+	<li>空字符串是平衡的。</li>
+	<li>如果 <code>A</code> 是平衡的，那么 <code>'('</code> + <code>A</code> + <code>'))'</code> 也是平衡的。</li>
+	<li>如果 <code>A</code> 和 <code>B</code> 都是平衡的，那么它们拼接后的字符串也是平衡的。</li>
 </ul>
 
-<p>比方说&nbsp;<code>&quot;())&quot;</code>，&nbsp;<code>&quot;())(())))&quot;</code> 和&nbsp;<code>&quot;(())())))&quot;</code>&nbsp;都是平衡的，&nbsp;<code>&quot;)()&quot;</code>，&nbsp;<code>&quot;()))&quot;</code> 和&nbsp;<code>&quot;(()))&quot;</code>&nbsp;都是不平衡的。</p>
+<p>换句话说，每个左括号 <code>'('</code> 都必须与其后面一对连续的右括号 <code>'))'</code> 匹配，并且每个右括号都必须恰好属于这样一对匹配的右括号。</p>
 
-<p>你可以在任意位置插入字符 &#39;(&#39; 和 &#39;)&#39; 使字符串平衡。</p>
+<p>例如，<code>"())"</code>、<code>"())(())))"</code> 和 <code>"(())())))"</code> 是平衡的，而 <code>")()"</code>、<code>"()))"</code> 和 <code>"(()))"</code> 不是平衡的。</p>
 
-<p>请你返回让 <code>s</code>&nbsp;平衡的最少插入次数。</p>
+<p>你可以在字符串的任意位置插入字符 <code>'('</code> 和 <code>')'</code>，使其变为平衡字符串。</p>
+
+<p>返回使 <code>s</code> 变为平衡字符串所需的&nbsp;<strong>最少&nbsp;</strong>插入次数。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;(()))&quot;
-<strong>输出：</strong>1
-<strong>解释：</strong>第二个左括号有与之匹配的两个右括号，但是第一个左括号只有一个右括号。我们需要在字符串结尾额外增加一个 &#39;)&#39; 使字符串变成平衡字符串 &quot;(())))&quot; 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">s = "(()))"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong> <span class="example-io">1</span></p>
 
-<pre><strong>输入：</strong>s = &quot;())&quot;
-<strong>输出：</strong>0
-<strong>解释：</strong>字符串已经平衡了。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>第二个 <code>'('</code> 与两个连续的 <code>')'</code> 匹配，但第一个 <code>'('</code> 只有一个与之匹配的 <code>')'</code>。我们需要在字符串末尾再插入一个 <code>')'</code>，使字符串变为 <code>"(())))"</code>，此时字符串是平衡的。</p>
+</div>
 
-<pre><strong>输入：</strong>s = &quot;))())(&quot;
-<strong>输出：</strong>3
-<strong>解释：</strong>添加 &#39;(&#39; 去匹配最开头的 &#39;))&#39; ，然后添加 &#39;))&#39; 去匹配最后一个 &#39;(&#39; 。
-</pre>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong>示例 4：</strong></p>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">s = "())"</span></p>
 
-<pre><strong>输入：</strong>s = &quot;((((((&quot;
-<strong>输出：</strong>12
-<strong>解释：</strong>添加 12 个 &#39;)&#39; 得到平衡字符串。
-</pre>
+<p><strong>输出：</strong> <span class="example-io">0</span></p>
 
-<p><strong>示例 5：</strong></p>
+<p><strong>解释：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;)))))))&quot;
-<strong>输出：</strong>5
-<strong>解释：</strong>在字符串开头添加 4 个 &#39;(&#39; 并在结尾添加 1 个 &#39;)&#39; ，字符串变成平衡字符串 &quot;(((())))))))&quot; 。
-</pre>
+<p>字符串已经是平衡的，因为其中的 <code>'('</code> 后面有两个连续的 <code>')'</code>，并且这两个右括号恰好构成与该左括号匹配的一对右括号。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">s = "))())("</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">3</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>在字符串开头插入一个 <code>'('</code>，与最前面的 <code>'))'</code> 匹配；在字符串末尾插入 <code>'))'</code>，与最后一个 <code>'('</code> 匹配。总共需要插入 3 个括号。</p>
+</div>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
-	<li><code>s</code>&nbsp;只包含&nbsp;<code>&#39;(&#39;</code> 和&nbsp;<code>&#39;)&#39;</code>&nbsp;。</li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s</code> 仅由 <code>'('</code> 和 <code>')'</code> 组成。</li>
 </ul>
 
 <!-- description:end -->

@@ -21,43 +21,68 @@ tags:
 
 <!-- description:start -->
 
-<p>二维矩阵 <code>grid</code>&nbsp;由 <code>0</code>&nbsp;（土地）和 <code>1</code>&nbsp;（水）组成。岛是由最大的4个方向连通的 <code>0</code>&nbsp;组成的群，封闭岛是一个&nbsp;<code>完全</code> 由1包围（左、上、右、下）的岛。</p>
+<p>给定一个由 <code>0</code>（陆地）和 <code>1</code>（水域）组成的二维网格 <code>grid</code>。一个岛屿是由 <code><font face="monospace">0</font></code> 组成的、在上下左右四个方向上连通的极大区域，而一个封闭岛屿是指一个被 <code>1</code> 从四周（左、上、右、下）<strong>完全&nbsp;</strong>包围的岛屿。</p>
 
-<p>请返回 <em>封闭岛屿</em> 的数目。</p>
+<p>返回封闭岛屿的数量。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/images/sample_3_1610.png" style="height: 151px; width: 240px;" /></p>
+<div class="example-block">
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/images/sample_3_1610.png" style="width: 250px; height: 157px;" /></p>
 
-<pre>
-<strong>输入：</strong>grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
-<strong>输出：</strong>2
-<strong>解释：</strong>
-灰色区域的岛屿是封闭岛屿，因为这座岛屿完全被水域包围（即被 1 区域包围）。</pre>
+<p><strong>输入：</strong> <span class="example-io">grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong> <span class="example-io">2</span></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/images/sample_4_1610.png" style="height: 98px; width: 160px;" /></p>
+<p><strong>解释：</strong></p>
 
-<pre>
-<strong>输入：</strong>grid = [[0,0,1,0,0],[0,1,0,1,0],[0,1,1,1,0]]
-<strong>输出：</strong>1
-</pre>
+<ul>
+	<li>网格中包含四个由 0 组成的岛屿。</li>
+	<li>横跨第 1 行至第 3 行、第 1 列至第 4 列的岛屿被 1 完全包围。它还包围了位于第 2 行、第 2 列的水域单元格。因此，它是一个封闭岛屿。</li>
+	<li>位于第 3 行、第 6 列的单个 0 在上下左右四个方向上都被 1 包围，因此它也是一个封闭岛屿。</li>
+	<li>剩余的两个岛屿都位于第 7 列，该列处于网格边界上，因此它们都不是封闭岛屿。</li>
+	<li>共有两个封闭岛屿，在图中以灰色表示，因此答案为 2。</li>
+</ul>
+</div>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>grid = [[1,1,1,1,1,1,1],
-&nbsp;            [1,0,0,0,0,0,1],
-&nbsp;            [1,0,1,1,1,0,1],
-&nbsp;            [1,0,1,0,1,0,1],
-&nbsp;            [1,0,1,1,1,0,1],
-&nbsp;            [1,0,0,0,0,0,1],
-             [1,1,1,1,1,1,1]]
-<strong>输出：</strong>2
-</pre>
+<div class="example-block">
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/images/sample_4_1610.png" style="width: 200px; height: 123px;" /></p>
+
+<p><strong>输入：</strong> <span class="example-io">grid = [[0,0,1,0,0],[0,1,0,1,0],[0,1,1,1,0]]</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>网格中包含三个由 0 组成的岛屿。</li>
+	<li>位于第 1 行、第 2 列的单个 0，其上方、下方、左侧和右侧都是 1，因此它是一个封闭岛屿，在图中以灰色表示。</li>
+	<li>由第 0 列的第 0 行至第 2 行，以及第 0 行、第 1 列组成的岛屿位于网格边界上，因此不是封闭岛屿。</li>
+	<li>由第 4 列的第 0 行至第 2 行，以及第 0 行、第 3 列组成的岛屿同样位于网格边界上，因此不是封闭岛屿。</li>
+	<li>共有一个封闭岛屿，因此答案为 1。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">grid = [[1,1,1,1,1,1,1],[1,0,0,0,0,0,1],[1,0,1,1,1,0,1],[1,0,1,0,1,0,1],[1,0,1,1,1,0,1],[1,0,0,0,0,0,1],[1,1,1,1,1,1,1]]</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>网格中包含两个由 0 组成的岛屿，其中一个位于另一个的内部。</li>
+	<li>外层岛屿是由第 1 行至第 5 行、第 1 列至第 5 列的 0 组成的环形区域。它被外围一圈 1 包围，因此是一个封闭岛屿。</li>
+	<li>内层岛屿是位于第 3 行、第 3 列的单个 0。它被内层一圈 1 包围，因此也是一个封闭岛屿。</li>
+	<li>两个岛屿都是封闭岛屿，因此答案为 2。</li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 
@@ -65,7 +90,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= grid.length, grid[0].length &lt;= 100</code></li>
-	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
+	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
 
 <!-- description:end -->

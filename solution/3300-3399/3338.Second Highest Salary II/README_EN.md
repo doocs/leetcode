@@ -18,13 +18,13 @@ tags:
 <p>Table: <code>employees</code></p>
 
 <pre>
-+------------------+---------+
-| Column Name      | Type    |
-+------------------+---------+
-| emp_id           | int     |
-| salary           | int     |
-| dept             | varchar |
-+------------------+---------+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| emp_id      | int     |
+| salary      | int     |
+| dept        | varchar |
++-------------+---------+
 emp_id is the unique key for this table.
 Each row of this table contains information about an employee including their ID, salary, and department.
 </pre>
@@ -77,32 +77,32 @@ Each row of this table contains information about an employee including their ID
 
 <ul>
 	<li><strong>Sales Department</strong>:
-    <ul>
-    	<li>Highest salary is 90000 (emp_id: 4)</li>
-    	<li>Second-highest salary is 80000 (emp_id: 2, 3)</li>
-    	<li>Both employees with salary 80000 are included</li>
-    </ul>
-    </li>
-    <li><strong>IT Department</strong>:
-    <ul>
-    	<li>Highest salary is 65000 (emp_id: 6, 7)</li>
-    	<li>Second-highest salary is 55000 (emp_id: 5)</li>
-    	<li>Only emp_id 5 is included as they have the second-highest salary</li>
-    </ul>
-    </li>
-    <li><strong>Marketing Department</strong>:
-    <ul>
-    	<li>Highest salary is 55000 (emp_id: 9)</li>
-    	<li>Second-highest salary is 50000 (emp_id: 8)</li>
-    	<li>Employee 8&nbsp;is included</li>
-    </ul>
-    </li>
-    <li><strong>HR Department</strong>:
-    <ul>
-    	<li>Only has one employee</li>
-    	<li>Not included in the result as it has fewer than 2 employees</li>
-    </ul>
-    </li>
+	<ul>
+		<li>Highest salary is 90000 (emp_id: 4)</li>
+		<li>Second-highest salary is 80000 (emp_id: 2, 3)</li>
+		<li>Both employees with salary 80000 are included</li>
+	</ul>
+	</li>
+	<li><strong>IT Department</strong>:
+	<ul>
+		<li>Highest salary is 65000 (emp_id: 6, 7)</li>
+		<li>Second-highest salary is 55000 (emp_id: 5)</li>
+		<li>Only emp_id 5 is included as they have the second-highest salary</li>
+	</ul>
+	</li>
+	<li><strong>Marketing Department</strong>:
+	<ul>
+		<li>Highest salary is 55000 (emp_id: 9)</li>
+		<li>Second-highest salary is 50000 (emp_id: 8)</li>
+		<li>Employee 8&nbsp;is included</li>
+	</ul>
+	</li>
+	<li><strong>HR Department</strong>:
+	<ul>
+		<li>Only has one employee</li>
+		<li>Not included in the result as it has fewer than 2 employees</li>
+	</ul>
+	</li>
 </ul>
 </div>
 

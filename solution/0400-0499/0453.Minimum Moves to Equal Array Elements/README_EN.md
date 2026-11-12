@@ -16,9 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</p>
+<p>You are given an integer array <code>nums</code> of size <code>n</code>.</p>
 
-<p>In one move, you can increment <code>n - 1</code> elements of the array by <code>1</code>.</p>
+<p>Return the <strong>minimum</strong> number of moves required to make all array elements <strong>equal</strong>.</p>
+
+<p>In one move, you must increment <code>n - 1</code> elements of the array by 1.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

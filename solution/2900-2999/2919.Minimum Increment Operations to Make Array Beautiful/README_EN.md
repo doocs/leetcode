@@ -23,12 +23,12 @@ tags:
 <p>You can perform the following <strong>increment</strong> operation <strong>any</strong> number of times (<strong>including zero</strong>):</p>
 
 <ul>
-	<li>Choose an index <code>i</code> in the range <code>[0, n - 1]</code>, and increase <code>nums[i]</code> by <code>1</code>.</li>
+	<li>Choose an index <code>i</code> in the range <code>[0, n - 1]</code>, and increase <code>nums[i]</code> by 1.</li>
 </ul>
 
-<p>An array is considered <strong>beautiful</strong> if, for any <strong>subarray</strong> with a size of <code>3</code> or <strong>more</strong>, its <strong>maximum</strong> element is <strong>greater than or equal</strong> to <code>k</code>.</p>
+<p>An array is considered <strong>beautiful</strong> if, for <strong>every</strong> <strong>subarray</strong> with a size of 3 or <strong>more</strong>, its <strong>maximum</strong> element is <strong>greater than or equal</strong> to <code>k</code>.</p>
 
-<p>Return <em>an integer denoting the <strong>minimum</strong> number of increment operations needed to make </em><code>nums</code><em> <strong>beautiful</strong>.</em></p>
+<p>Return an integer denoting the <strong>minimum</strong> number of increment operations needed to make <code>nums</code> <strong>beautiful</strong>.</p>
 
 <p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 

@@ -3435,7 +3435,7 @@ comments: true
 - [1566. 重复至少 K 次且长度为 M 的模式](/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README.md)
 - [1567. 乘积为正数的最长子数组长度](/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README.md)
 - [1568. 使陆地分离的最少天数](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md)
-- [1569. 将子数组重新排序得到同一个二叉搜索树的方案数](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README.md)
+- [1569. 将子数组重新排列得到同一个二叉搜索树的方案数](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README.md)
 
 #### 第 203 场周赛(2020-08-23 10:30, 90 分钟) 参赛人数 5285
 

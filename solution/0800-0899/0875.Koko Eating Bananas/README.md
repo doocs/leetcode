@@ -22,33 +22,45 @@ tags:
 
 <p>珂珂喜欢慢慢吃，但仍然想在警卫回来前吃掉所有的香蕉。</p>
 
-<p>返回她可以在 <code>h</code> 小时内吃掉所有香蕉的最小速度 <code>k</code>（<code>k</code> 为整数）。</p>
+<p>返回她可以在 <code>h</code> 小时&nbsp;<strong>内&nbsp;</strong>吃掉所有香蕉的&nbsp;<strong>最小&nbsp;</strong>速度 <code>k</code>（<code>k</code> 为整数）。</p>
 
 <p>&nbsp;</p>
 
-<ul>
-</ul>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong>示例 1：</strong></p>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">piles = [3,6,7,11], h = 8</span></p>
 
-<pre>
-<strong>输入：</strong>piles = [3,6,7,11], h = 8
-<strong>输出：</strong>4
-</pre>
+<p><strong>输出：</strong><span class="example-io">4</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>解释：</strong></p>
 
-<pre>
-<strong>输入：</strong>piles = [30,11,23,4,20], h = 5
-<strong>输出：</strong>30
-</pre>
+<p>以每小时 4 根香蕉的速度，珂珂吃完各堆香蕉分别需要 1、2、2 和 3 小时，总共需要 8 小时。</p>
+</div>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>piles = [30,11,23,4,20], h = 6
-<strong>输出：</strong>23
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">piles = [30,11,23,4,20], h = 5</span></p>
+
+<p><strong>输出：</strong><span class="example-io">30</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>珂珂必须恰好在 1 小时内吃完每堆香蕉，因此她吃香蕉的最小速度必须为每小时 30 根。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">piles = [30,11,23,4,20], h = 6</span></p>
+
+<p><strong>输出：</strong><span class="example-io">23</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>以每小时 23 根香蕉的速度，珂珂吃完第一堆香蕉需要 2 小时，吃完其余每堆香蕉各需要 1 小时，总共需要 6 小时。</p>
+</div>
 
 <p>&nbsp;</p>
 

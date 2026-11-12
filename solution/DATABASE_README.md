@@ -39,7 +39,7 @@
 | 0585 | [2016年的投资](/solution/0500-0599/0585.Investments%20in%202016/README.md)                                                                                   | `数据库`                | 中等 |      |
 | 0586 | [订单最多的客户](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README.md)                                               | `数据库`                | 简单 |      |
 | 0595 | [大的国家](/solution/0500-0599/0595.Big%20Countries/README.md)                                                                                               | `数据库`                | 简单 |      |
-| 0596 | [超过 5 名学生的课](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md)                                                           | `数据库`                | 简单 |      |
+| 0596 | [至少 5 名学生的课](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md)                                                           | `数据库`                | 简单 |      |
 | 0597 | [好友申请 I：总体通过率](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README.md)                                             | `数据库`                | 简单 | 🔒   |
 | 0601 | [体育馆的人流量](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)                                                                          | `数据库`                | 困难 |      |
 | 0602 | [好友申请 II ：谁有最多的好友](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)                                 | `数据库`                | 中等 |      |
@@ -75,8 +75,8 @@
 | 1126 | [查询活跃业务](/solution/1100-1199/1126.Active%20Businesses/README.md)                                                                                       | `数据库`                | 中等 | 🔒   |
 | 1127 | [用户购买平台](/solution/1100-1199/1127.User%20Purchase%20Platform/README.md)                                                                                | `数据库`                | 困难 | 🔒   |
 | 1132 | [报告的记录 II](/solution/1100-1199/1132.Reported%20Posts%20II/README.md)                                                                                    | `数据库`                | 中等 | 🔒   |
-| 1141 | [查询近30天活跃用户数](/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README.md)                                                | `数据库`                | 简单 |      |
-| 1142 | [过去30天的用户活动 II](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README.md)                                              | `数据库`                | 简单 | 🔒   |
+| 1141 | [查询近 30 天活跃用户数 I](/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README.md)                                            | `数据库`                | 简单 |      |
+| 1142 | [查询近 30 天活跃用户数 II](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README.md)                                          | `数据库`                | 简单 | 🔒   |
 | 1148 | [文章浏览 I](/solution/1100-1199/1148.Article%20Views%20I/README.md)                                                                                         | `数据库`                | 简单 |      |
 | 1149 | [文章浏览 II](/solution/1100-1199/1149.Article%20Views%20II/README.md)                                                                                       | `数据库`                | 中等 | 🔒   |
 | 1158 | [市场分析 I](/solution/1100-1199/1158.Market%20Analysis%20I/README.md)                                                                                       | `数据库`                | 中等 |      |
@@ -311,7 +311,7 @@
 | 3436 | [查找合法邮箱](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)                                                                                     | `数据库`                | 简单 |      |
 | 3451 | [查找无效的 IP 地址](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README.md)                                                                     | `数据库`                | 困难 |      |
 | 3465 | [查找具有有效序列号的产品](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)                                             | `数据库`                | 简单 |      |
-| 3475 | [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                               |                         | 中等 |      |
+| 3475 | [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                               | `数据库`                | 中等 |      |
 | 3482 | [分析组织层级](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)                                                                        | `数据库`                | 困难 |      |
 | 3497 | [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)                                                                       | `数据库`                | 中等 |      |
 | 3521 | [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)                                                                 | `数据库`                | 中等 |      |

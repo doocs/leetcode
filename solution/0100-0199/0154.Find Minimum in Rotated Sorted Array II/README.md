@@ -16,10 +16,10 @@ tags:
 
 <!-- description:start -->
 
-已知一个长度为 <code>n</code> 的数组，预先按照升序排列，经由 <code>1</code> 到 <code>n</code> 次 <strong>旋转</strong> 后，得到输入数组。例如，原数组 <code>nums = [0,1,4,4,5,6,7]</code> 在变化后可能得到：
+已知一个长度为 <code>n</code> 的数组，预先按照升序排列，经由 <code>1</code> 到 <code>n</code> 次 <strong>旋转</strong> 后，得到输入数组。例如，原数组 <code>nums = [0, 1, 4, 4, 5, 6, 7]</code> 在变化后可能得到：
 <ul>
-	<li>若旋转 <code>4</code> 次，则可以得到 <code>[4,5,6,7,0,1,4]</code></li>
-	<li>若旋转 <code>7</code> 次，则可以得到 <code>[0,1,4,4,5,6,7]</code></li>
+	<li>若旋转 <code>4</code> 次，则可以得到 <code>[4, 5, 6, 7, 0, 1, 4]</code></li>
+	<li>若旋转 <code>7</code> 次，则可以得到 <code>[0, 1, 4, 4, 5, 6, 7]</code></li>
 </ul>
 
 <p>注意，数组 <code>[a[0], a[1], a[2], ..., a[n-1]]</code> <strong>旋转一次</strong> 的结果为数组 <code>[a[n-1], a[0], a[1], a[2], ..., a[n-2]]</code> 。</p>

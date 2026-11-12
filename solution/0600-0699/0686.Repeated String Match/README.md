@@ -19,34 +19,42 @@ tags:
 
 <!-- description:start -->
 
-<p>给定两个字符串&nbsp;<code>a</code> 和 <code>b</code>，寻找重复叠加字符串 <code>a</code> 的最小次数，使得字符串 <code>b</code> 成为叠加后的字符串 <code>a</code> 的子串，如果不存在则返回 <code>-1</code>。</p>
+<p>给定两个由小写英文字母组成的字符串&nbsp;<code>a</code> 和 <code>b</code>。</p>
 
-<p><strong>注意：</strong>字符串 <code>&quot;abc&quot;</code>&nbsp;重复叠加 0 次是 <code>&quot;&quot;</code>，重复叠加 1 次是&nbsp;<code>&quot;abc&quot;</code>，重复叠加 2 次是&nbsp;<code>&quot;abcabc&quot;</code>。</p>
+<p>返回重复字符串 <code>a</code> 的 <strong>最小</strong> 次数，使得字符串 <code>b</code> 成为它的子字符串。如果 <code>b</code> 无法成为 <code>a</code> 的子字符串，则返回 -1。</p>
+
+<p><strong>注意：</strong>字符串 <code>"abc"</code>&nbsp;重复叠加 0 次是 <code>""</code>，重复叠加 1 次是&nbsp;<code>"abc"</code>，重复叠加 2 次是&nbsp;<code>"abcabc"</code>。</p>
+
+<p><strong>子数组</strong> 是数组中连续的元素序列。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>a = &quot;abcd&quot;, b = &quot;cdabcdab&quot;
+<pre>
+<strong>输入：</strong>a = "abcd", b = "cdabcdab"
 <strong>输出：</strong>3
-<strong>解释：</strong>a 重复叠加三遍后为 &quot;ab<strong>cdabcdab</strong>cd&quot;, 此时 b 是其子串。
+<strong>解释：</strong>a 重复叠加三遍后为 "ab<strong>cdabcdab</strong>cd", 此时 b 是其子串。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>a = &quot;a&quot;, b = &quot;aa&quot;
+<pre>
+<strong>输入：</strong>a = "a", b = "aa"
 <strong>输出：</strong>2
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>a = &quot;a&quot;, b = &quot;a&quot;
+<pre>
+<strong>输入：</strong>a = "a", b = "a"
 <strong>输出：</strong>1
 </pre>
 
 <p><strong>示例 4：</strong></p>
 
-<pre><strong>输入：</strong>a = &quot;abc&quot;, b = &quot;wxyz&quot;
+<pre>
+<strong>输入：</strong>a = "abc", b = "wxyz"
 <strong>输出：</strong>-1
 </pre>
 
