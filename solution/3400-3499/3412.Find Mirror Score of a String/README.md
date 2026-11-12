@@ -30,7 +30,7 @@ tags:
 
 <ul>
 	<li>从左到右遍历字符串。</li>
-	<li>对于每个下标&nbsp;<code>i&nbsp;</code>，找到距离最近的&nbsp;<strong>未标记</strong> 下标&nbsp;<code>j</code>，下标 <code>j</code> 需要满足&nbsp;<code>j &lt; i</code> 且 <code>s[j]</code> 是 <code>s[i]</code> 的镜像。然后&nbsp;<strong>标记</strong> 下标&nbsp;<code>i</code> 和 <code>j</code>，总分加上&nbsp;<code>i - j</code>&nbsp;的值。</li>
+	<li>对于每个下标&nbsp;<code>i</code>，找到距离最近的&nbsp;<strong>未标记</strong> 下标&nbsp;<code>j</code>，下标 <code>j</code> 需要满足&nbsp;<code>j &lt; i</code> 且 <code>s[j]</code> 是 <code>s[i]</code> 的镜像。然后&nbsp;<strong>标记</strong> 下标&nbsp;<code>i</code> 和 <code>j</code>，总分加上&nbsp;<code>i - j</code>&nbsp;的值。</li>
 	<li>如果对于下标&nbsp;<code>i</code>，不存在满足条件的下标&nbsp;<code>j</code>，则跳过该下标，继续处理下一个下标，不需要进行标记。</li>
 </ul>
 

@@ -7,7 +7,7 @@ tags:
 
 <!-- problem:start -->
 
-# [596. 超过 5 名学生的课](https://leetcode.cn/problems/classes-with-at-least-5-students)
+# [596. 至少 5 名学生的课](https://leetcode.cn/problems/classes-with-at-least-5-students)
 
 [English Version](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md)
 

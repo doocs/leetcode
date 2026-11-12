@@ -7,7 +7,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1142. 过去30天的用户活动 II 🔒](https://leetcode.cn/problems/user-activity-for-the-past-30-days-ii)
+# [1142. 查询近 30 天活跃用户数 II 🔒](https://leetcode.cn/problems/user-activity-for-the-past-30-days-ii)
 
 [English Version](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README_EN.md)
 

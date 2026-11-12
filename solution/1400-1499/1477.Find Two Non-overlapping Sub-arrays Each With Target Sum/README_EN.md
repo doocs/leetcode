@@ -25,7 +25,7 @@ tags:
 
 <p>You have to find <strong>two non-overlapping sub-arrays</strong> of <code>arr</code> each with a sum equal <code>target</code>. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is <strong>minimum</strong>.</p>
 
-<p>Return <em>the minimum sum of the lengths</em> of the two required sub-arrays, or return <code>-1</code> if you cannot find such two sub-arrays.</p>
+<p>Return the <strong>minimum</strong> sum of the lengths of the two required sub-arrays, or return <code>-1</code> if you cannot find such two sub-arrays.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

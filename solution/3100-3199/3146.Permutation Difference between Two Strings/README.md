@@ -18,11 +18,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给你两个字符串 <code>s</code> 和 <code>t</code>，每个字符串中的字符都不重复，且 <code>t</code> 是 <code>s</code> 的一个排列。</p>
+<p>给定两个字符串 <code>s</code> 和 <code>t</code>，其中每个字符在 <code>s</code> 中&nbsp;<strong>最多&nbsp;</strong>出现一次，并且 <code>t</code> 是 <code>s</code> 的一个&nbsp;<strong>排列</strong>。</p>
 
-<p><strong>排列差</strong> 定义为 <code>s</code> 和 <code>t</code> 中每个字符在两个字符串中位置的绝对差值之和。</p>
+<p><code>s</code> 和 <code>t</code> 之间的&nbsp;<strong>排列差&nbsp;</strong>定义为：对于每个字符，计算它在 <code>s</code> 中出现的下标与在 <code>t</code> 中出现的下标之差的&nbsp;<strong>绝对值</strong>，然后将这些绝对值&nbsp;<strong>求和</strong>。</p>
 
-<p>返回 <code>s</code> 和 <code>t</code> 之间的<strong> 排列差 </strong>。</p>
+<p>返回 <code>s</code> 和 <code>t</code> 之间的&nbsp;<strong>排列差</strong>。</p>
 
 <p>&nbsp;</p>
 

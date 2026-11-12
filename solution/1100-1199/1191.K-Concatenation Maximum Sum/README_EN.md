@@ -29,24 +29,43 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> arr = [1,2], k = 3
-<strong>Output:</strong> 9
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [1, 2], k = 3</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">9</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The concatenated array is <code>[1, 2, 1, 2, 1, 2]</code>.</p>
+
+<p>The maximum-sum subarray is the entire array, with sum 1 + 2 + 1 + 2 + 1 + 2 = 9.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> arr = [1,-2,1], k = 5
-<strong>Output:</strong> 2
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [1, -2, 1], k = 5</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The concatenated array is <code>[1, -2, 1, 1, -2, 1, 1, -2, 1, 1, -2, 1, 1, -2, 1]</code>.</p>
+
+<p>The maximum-sum subarray is <code>[1, 1]</code>, formed by the last element of one copy and the first element of the next copy, with sum 1 + 1 = 2.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> arr = [-1,-2], k = 7
-<strong>Output:</strong> 0
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [-1, -2], k = 7</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>Every element in the concatenated array is negative, so no subarray has a positive sum. Therefore, the maximum possible sum is 0.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

@@ -37,7 +37,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<tbody>
 		<tr>
 			<th style="border: 1px solid black;">金额</th>
@@ -107,7 +107,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<tbody>
 		<tr>
 			<th style="border: 1px solid black;">金额</th>

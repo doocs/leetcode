@@ -24,10 +24,10 @@ tags:
 
 <p>Design a queue that supports <code>push</code> and <code>pop</code> operations in the front, middle, and back.</p>
 
-<p>Implement the <code>FrontMiddleBack</code> class:</p>
+<p>Implement the <code>FrontMiddleBackQueue</code> class:</p>
 
 <ul>
-	<li><code>FrontMiddleBack()</code> Initializes the queue.</li>
+	<li><code>FrontMiddleBackQueue()</code> Initializes the queue.</li>
 	<li><code>void pushFront(int val)</code> Adds <code>val</code> to the <strong>front</strong> of the queue.</li>
 	<li><code>void pushMiddle(int val)</code> Adds <code>val</code> to the <strong>middle</strong> of the queue.</li>
 	<li><code>void pushBack(int val)</code> Adds <code>val</code> to the <strong>back</strong> of the queue.</li>

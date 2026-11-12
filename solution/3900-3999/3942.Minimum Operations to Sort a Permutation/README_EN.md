@@ -43,7 +43,7 @@ tags:
 	<li>Reverse the array: <code>[0, 1, 2]</code></li>
 </ul>
 
-<p>The array becomes sorted in 2 operations, which is minimal</p>
+<p>The array becomes sorted in 2 operations, which is minimal.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -72,7 +72,7 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<p>It is impossible to reach <code>[2, 0, 1, 3]</code>. Thus, the answer is -1.</p>
+<p>It is impossible to reach <code>[0, 1, 2, 3]</code>. Thus, the answer is -1.</p>
 </div>
 
 <p>&nbsp;</p>

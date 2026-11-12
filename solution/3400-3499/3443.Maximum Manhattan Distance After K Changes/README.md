@@ -48,7 +48,7 @@ tags:
 
 <p>将&nbsp;<code>s[2]</code>&nbsp;从&nbsp;<code>'S'</code>&nbsp;改为&nbsp;<code>'N'</code> ，字符串&nbsp;<code>s</code>&nbsp;变为&nbsp;<code>"NWNE"</code> 。</p>
 
-<table style="border: 1px solid black;">
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse;">
 	<thead>
 		<tr>
 			<th style="border: 1px solid black;">移动操作</th>

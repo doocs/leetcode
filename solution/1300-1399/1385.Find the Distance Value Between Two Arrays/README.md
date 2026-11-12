@@ -20,51 +20,66 @@ tags:
 
 <!-- description:start -->
 
-<p>给你两个整数数组&nbsp;<code>arr1</code>&nbsp;，&nbsp;<code>arr2</code>&nbsp;和一个整数&nbsp;<code>d</code>&nbsp;，请你返回两个数组之间的&nbsp;<strong>距离值</strong>&nbsp;。</p>
+<p dir="ltr">给定两个整数数组 <code dir="ltr">arr1</code> 和 <code dir="ltr">arr2</code>，以及一个整数 <code dir="ltr">d</code>。</p>
 
-<p>「<strong>距离值</strong>」<strong>&nbsp;</strong>定义为符合此距离要求的元素数目：对于元素&nbsp;<code>arr1[i]</code>&nbsp;，不存在任何元素&nbsp;<code>arr2[j]</code>&nbsp;满足 <code>|arr1[i]-arr2[j]| &lt;= d</code> 。</p>
+<p dir="ltr">如果对于每个元素 <code dir="ltr">arr2[j]</code>，都满足 <code dir="ltr">|arr1[i] - arr2[j]| &gt; d</code>，则称元素 <code dir="ltr">arr1[i]</code> 是&nbsp;<strong>远离&nbsp;</strong>的。换句话说，<code dir="ltr">arr2</code> 中不存在与该元素距离不超过 <code dir="ltr">d</code> 的元素。</p>
+
+<p dir="ltr">返回&nbsp;<strong>距离值</strong>，即 <code dir="ltr">arr1</code> 中&nbsp;<strong>远离&nbsp;</strong>元素的数量。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong>arr1 = [4,5,8], arr2 = [10,9,1,8], d = 2
-<strong>输出：</strong>2
-<strong>解释：</strong>
-对于 arr1[0]=4 我们有：
-|4-10|=6 &gt; d=2 
-|4-9|=5 &gt; d=2 
-|4-1|=3 &gt; d=2 
-|4-8|=4 &gt; d=2 
-所以 arr1[0]=4 符合距离要求
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">arr1 = [4,5,8], arr2 = [10,9,1,8], d = 2</span></p>
 
-对于 arr1[1]=5 我们有：
-|5-10|=5 &gt; d=2 
-|5-9|=4 &gt; d=2 
-|5-1|=4 &gt; d=2 
-|5-8|=3 &gt; d=2
-所以 arr1[1]=5 也符合距离要求
+<p><strong>输出：</strong> <span class="example-io">2</span></p>
 
-对于 arr1[2]=8 我们有：
-<strong>|8-10|=2 &lt;= d=2</strong>
-<strong>|8-9|=1 &lt;= d=2</strong>
-|8-1|=7 &gt; d=2
-<strong>|8-8|=0 &lt;= d=2</strong>
-存在距离小于等于 2 的情况，不符合距离要求 
+<p><strong>解释：</strong></p>
 
-故而只有 arr1[0]=4 和 arr1[1]=5 两个符合距离要求，距离值为 2</pre>
+<ul>
+	<li>4 是远离元素。<code>arr2</code> 中与它最接近的值是 1，且 <code>|4 - 1| = 3</code>，大于 <code>d = 2</code>。</li>
+	<li>5 是远离元素。<code>arr2</code> 中与它最接近的值是 8，且 <code>|5 - 8| = 3</code>，大于 <code>d = 2</code>。</li>
+	<li>8 不是远离元素，因为 <code>|8 - 8| = 0</code>，不超过 <code>d = 2</code>。</li>
+	<li>共有两个远离元素，因此距离值为 2。</li>
+</ul>
+</div>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre><strong>输入：</strong>arr1 = [1,4,2,3], arr2 = [-4,-3,6,10,20,30], d = 3
-<strong>输出：</strong>2
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">arr1 = [1,4,2,3], arr2 = [-4,-3,6,10,20,30], d = 3</span></p>
 
-<p><strong>示例 3：</strong></p>
+<p><strong>输出：</strong> <span class="example-io">2</span></p>
 
-<pre><strong>输入：</strong>arr1 = [2,1,100,3], arr2 = [-5,-2,10,-3,7], d = 6
-<strong>输出：</strong>1
-</pre>
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>1 是远离元素。<code>arr2</code> 中与它最接近的值是 -3，且 <code>|1 - (-3)| = 4</code>，大于 <code>d = 3</code>。</li>
+	<li>2 是远离元素。<code>arr2</code> 中与它最接近的值是 6，且 <code>|2 - 6| = 4</code>，大于 <code>d = 3</code>。</li>
+	<li>4 不是远离元素，因为 <code>|4 - 6| = 2</code>，不超过 <code>d = 3</code>。</li>
+	<li>3 不是远离元素，因为 <code>|3 - 6| = 3</code>，不超过 <code>d = 3</code>。</li>
+	<li>共有两个远离元素，因此距离值为 2。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io">arr1 = [2,1,100,3], arr2 = [-5,-2,10,-3,7], d = 6</span></p>
+
+<p><strong>输出：</strong> <span class="example-io">1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>100 是远离元素。<code>arr2</code> 中与它最接近的值是 10，且 <code>|100 - 10| = 90</code>，大于 <code>d = 6</code>。</li>
+	<li>2 不是远离元素，因为 <code>|2 - (-2)| = 4</code>，不超过 <code>d = 6</code>。</li>
+	<li>1 不是远离元素，因为 <code>|1 - (-2)| = 3</code>，不超过 <code>d = 6</code>。</li>
+	<li>3 不是远离元素，因为 <code>|3 - 7| = 4</code>，不超过 <code>d = 6</code>。</li>
+	<li>只有一个远离元素，因此距离值为 1。</li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 
@@ -72,7 +87,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= arr1.length, arr2.length &lt;= 500</code></li>
-	<li><code>-10^3 &lt;= arr1[i], arr2[j] &lt;= 10^3</code></li>
+	<li><code>-1000 &lt;= arr1[i], arr2[j] &lt;= 1000</code></li>
 	<li><code>0 &lt;= d &lt;= 100</code></li>
 </ul>
 

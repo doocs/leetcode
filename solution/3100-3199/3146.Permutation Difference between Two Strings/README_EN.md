@@ -18,9 +18,9 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given two strings <code>s</code> and <code>t</code> such that every character occurs at most once in <code>s</code> and <code>t</code> is a permutation of <code>s</code>.</p>
+<p>You are given two strings <code>s</code> and <code>t</code> such that every character occurs <strong>at most</strong> once in <code>s</code> and <code>t</code> is a <strong>permutation</strong> of <code>s</code>.</p>
 
-<p>The <strong>permutation difference</strong> between <code>s</code> and <code>t</code> is defined as the <strong>sum</strong> of the absolute difference between the index of the occurrence of each character in <code>s</code> and the index of the occurrence of the same character in <code>t</code>.</p>
+<p>The <strong>permutation difference</strong> between <code>s</code> and <code>t</code> is defined as the <strong>sum</strong> of the <strong>absolute difference</strong> between the index of the occurrence of each character in <code>s</code> and the index of the occurrence of the same character in <code>t</code>.</p>
 
 <p>Return the <strong>permutation difference</strong> between <code>s</code> and <code>t</code>.</p>
 

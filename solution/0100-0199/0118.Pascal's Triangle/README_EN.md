@@ -16,9 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an integer <code>numRows</code>, return the first numRows of <strong>Pascal&#39;s triangle</strong>.</p>
+<p>You are given an integer <code>numRows</code>.</p>
 
-<p>In <strong>Pascal&#39;s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</p>
+<p>Return the first <code>numRows</code> of <strong>Pascal&#39;s triangle</strong>.</p>
+
+<p>In <strong>Pascal&#39;s triangle</strong>, each number is the sum of the two numbers directly above it and the first and last number on each row must be equal to 1, as shown below:</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0118.Pascal%27s%20Triangle/images/PascalTriangleAnimated2.gif" style="height:240px; width:260px" />
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

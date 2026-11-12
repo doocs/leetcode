@@ -23,27 +23,39 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> num = 443
-<strong>Output:</strong> true
-<strong>Explanation:</strong> 172 + 271 = 443 so we return true.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">num = 443</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>172 + 271 = 443, where 271 is the reverse of 172. Therefore, we return true.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> num = 63
-<strong>Output:</strong> false
-<strong>Explanation:</strong> 63 cannot be expressed as the sum of a non-negative integer and its reverse so we return false.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">num = 63</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">false</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>63 cannot be expressed as the sum of a non-negative integer and its reverse. Therefore, we return false.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> num = 181
-<strong>Output:</strong> true
-<strong>Explanation:</strong> 140 + 041 = 181 so we return true. Note that when a number is reversed, there may be leading zeros.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">num = 181</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>140 + 041 = 181, where 041 represents 41, the reverse of 140. Reversed numbers may contain leading zeros. Therefore, we return true.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

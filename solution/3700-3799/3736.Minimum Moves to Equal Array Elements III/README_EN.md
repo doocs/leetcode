@@ -39,10 +39,10 @@ tags:
 <ul>
 	<li>Increase <code>nums[0] = 2</code> by 1 to make it 3.</li>
 	<li>Increase <code>nums[1] = 1</code> by 1 to make it 2.</li>
-	<li>Increase <code>nums[1] = 2</code> by 1 to make it 3.</li>
+	<li>Increase the updated <code>nums[1] = 2</code> by 1 to make it 3.</li>
 </ul>
 
-<p>Now, all elements of <code>nums</code> are equal to 3. The minimum total moves is <code>3</code>.</p>
+<p>Now, all elements of <code>nums</code> are equal to 3. The minimum total moves is 3.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -61,7 +61,7 @@ tags:
 	<li>Increase <code>nums[1] = 4</code> by 1 to make it 5.</li>
 </ul>
 
-<p>Now, all elements of <code>nums</code> are equal to 5. The minimum total moves is <code>2</code>.</p>
+<p>Now, all elements of <code>nums</code> are equal to 5. The minimum total moves is 2.</p>
 </div>
 
 <p>&nbsp;</p>

@@ -50,6 +50,8 @@ tags:
 
 <p><code>quality</code>&nbsp;和&nbsp;<code>poor_query_percentage</code>&nbsp;都应 <strong>四舍五入到小数点后两位</strong> 。</p>
 
+<p>当四舍五入到小数点后两位时，位于两个可能结果中间的值会被四舍五入到远离零的结果。例如，0.125 会被四舍五入到 0.13。</p>
+
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
 <p>结果格式如下所示：</p>

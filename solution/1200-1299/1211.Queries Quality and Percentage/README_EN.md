@@ -50,6 +50,8 @@ The <code>rating</code> column has a value from <strong>1</strong> to <strong>5<
 
 <p>Both <code>quality</code> and <code>poor_query_percentage</code> should be <strong>rounded to 2 decimal places</strong>.</p>
 
+<p>When rounding to two decimal places, values exactly halfway between two possible results are rounded away from zero. For example, 0.125 is rounded to 0.13.</p>
+
 <p>Return the result table in <strong>any order</strong>.</p>
 
 <p>The&nbsp;result format is in the following example.</p>
