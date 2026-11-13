@@ -118,23 +118,24 @@ tags:
 ```ts
 function countNonDecreasingSubarrays(nums: number[], k: number): number {
     const n = nums.length;
-    const starts = new Int32Array(n);
-    let head = n,
-        tail = n,
-        ans = 0,
-        water = 0,
-        r = n - 1;
+    const q: number[] = [];
+    let head = 0;
+    let ans = 0;
+    let cost = 0;
+    let r = n - 1;
     for (let l = n - 1; l >= 0; l--) {
         const x = nums[l];
-        while (head < tail && nums[starts[head]] <= x) {
-            const s = starts[head++];
-            const end = head < tail ? starts[head] : r + 1;
-            water += (x - nums[s]) * (end - s);
+        while (head < q.length && nums[q[q.length - 1]] <= x) {
+            const s = q.pop()!;
+            const end = head < q.length ? q[q.length - 1] : r + 1;
+            cost += (x - nums[s]) * (end - s);
         }
-        starts[--head] = l;
-        while (water > k) {
-            water -= nums[starts[tail - 1]] - nums[r];
-            if (starts[tail - 1] === r) tail--;
+        q.push(l);
+        while (cost > k) {
+            cost -= nums[q[head]] - nums[r];
+            if (q[head] === r) {
+                head++;
+            }
             r--;
         }
         ans += r - l + 1;
