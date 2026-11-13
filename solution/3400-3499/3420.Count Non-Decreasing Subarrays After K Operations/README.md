@@ -94,27 +94,162 @@ tags:
 #### Python3
 
 ```python
+from collections import deque
 
+class Solution:
+    def countNonDecreasingSubarrays(self, nums, k):
+        n = len(nums)
+        dq = deque()
+        cost = 0
+        ans = 0
+        j = n - 1
+
+        for i in range(n - 1, -1, -1):
+            while dq and nums[dq[-1]] < nums[i]:
+                l = dq.pop()
+                r = dq[-1] if dq else j + 1
+                cost += (r - l) * (nums[i] - nums[l])
+
+            dq.append(i)
+
+            while cost > k:
+                cost -= nums[dq[0]] - nums[j]
+
+                if dq[0] == j:
+                    dq.popleft()
+
+                j -= 1
+
+            ans += j - i + 1
+
+        return ans
 ```
 
 #### Java
 
 ```java
+import java.util.*;
 
+class Solution {
+    public long countNonDecreasingSubarrays(int[] nums, int k) {
+        int n = nums.length;
+        Deque<Integer> dq = new ArrayDeque<>();
+
+        long cost = 0;
+        long ans = 0;
+        int j = n - 1;
+
+        for (int i = n - 1; i >= 0; i--) {
+            while (!dq.isEmpty() && nums[dq.peekLast()] < nums[i]) {
+                int l = dq.pollLast();
+                int r = dq.isEmpty() ? j + 1 : dq.peekLast();
+
+                cost += (long) (r - l) * (nums[i] - nums[l]);
+            }
+
+            dq.addLast(i);
+
+            while (cost > k) {
+                cost -= nums[dq.peekFirst()] - nums[j];
+
+                if (dq.peekFirst() == j) {
+                    dq.pollFirst();
+                }
+
+                j--;
+            }
+
+            ans += j - i + 1;
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long countNonDecreasingSubarrays(vector<int>& nums, int k) {
+        int n = nums.size();
+        deque<int> dq;
 
+        long long cost = 0, ans = 0;
+        int j = n - 1;
+
+        for (int i = n - 1; i >= 0; i--) {
+            while (!dq.empty() && nums[dq.back()] < nums[i]) {
+                int l = dq.back();
+                dq.pop_back();
+
+                int r = dq.empty() ? j + 1 : dq.back();
+
+                cost += 1LL * (r - l) * (nums[i] - nums[l]);
+            }
+
+            dq.push_back(i);
+
+            while (cost > k) {
+                cost -= nums[dq.front()] - nums[j];
+
+                if (dq.front() == j) {
+                    dq.pop_front();
+                }
+
+                j--;
+            }
+
+            ans += j - i + 1;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countNonDecreasingSubarrays(nums []int, k int) int64 {
+    n := len(nums)
+    dq := []int{}
 
+    var cost, ans int64
+    j := n - 1
+
+    for i := n - 1; i >= 0; i-- {
+        for len(dq) > 0 && nums[dq[len(dq)-1]] < nums[i] {
+            l := dq[len(dq)-1]
+            dq = dq[:len(dq)-1]
+
+            r := j + 1
+            if len(dq) > 0 {
+                r = dq[len(dq)-1]
+            }
+
+            cost += int64(r-l) * int64(nums[i]-nums[l])
+        }
+
+        dq = append(dq, i)
+
+        for cost > int64(k) {
+            cost -= int64(nums[dq[0]] - nums[j])
+
+            if dq[0] == j {
+                dq = dq[1:]
+            }
+
+            j--
+        }
+
+        ans += int64(j - i + 1)
+    }
+
+    return ans
+}
 ```
-
 <!-- tabs:end -->
 
 <!-- solution:end -->
