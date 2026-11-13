@@ -94,25 +94,156 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def countNonDecreasingSubarrays(self, nums: list[int], k: int) -> int:
+        n = len(nums)
+        q = deque()
+        ans = 0
+        cost = 0
+        r = n - 1
+        for l in range(n - 1, -1, -1):
+            x = nums[l]
+            while q and nums[q[-1]] <= x:
+                s = q.pop()
+                end = q[-1] if q else r + 1
+                cost += (end - s) * (x - nums[s])
+            q.append(l)
+            while cost > k:
+                cost -= nums[q[0]] - nums[r]
+                if q[0] == r:
+                    q.popleft()
+                r -= 1
+            ans += r - l + 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long countNonDecreasingSubarrays(int[] nums, int k) {
+        int n = nums.length;
+        Deque<Integer> q = new ArrayDeque<>();
+        long ans = 0;
+        long cost = 0;
+        int r = n - 1;
+        for (int l = n - 1; l >= 0; --l) {
+            int x = nums[l];
+            while (!q.isEmpty() && nums[q.peekLast()] <= x) {
+                int s = q.pollLast();
+                int end = q.isEmpty() ? r + 1 : q.peekLast();
+                cost += (long) (end - s) * (x - nums[s]);
+            }
+            q.offerLast(l);
+            while (cost > k) {
+                cost -= nums[q.peekFirst()] - nums[r];
+                if (q.peekFirst() == r) {
+                    q.pollFirst();
+                }
+                --r;
+            }
+            ans += r - l + 1;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long countNonDecreasingSubarrays(vector<int>& nums, int k) {
+        int n = nums.size();
+        deque<int> q;
+        long long ans = 0, cost = 0;
+        int r = n - 1;
+        for (int l = n - 1; l >= 0; --l) {
+            int x = nums[l];
+            while (!q.empty() && nums[q.back()] <= x) {
+                int s = q.back();
+                q.pop_back();
+                int end = q.empty() ? r + 1 : q.back();
+                cost += 1LL * (end - s) * (x - nums[s]);
+            }
+            q.push_back(l);
+            while (cost > k) {
+                cost -= nums[q.front()] - nums[r];
+                if (q.front() == r) {
+                    q.pop_front();
+                }
+                --r;
+            }
+            ans += r - l + 1;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countNonDecreasingSubarrays(nums []int, k int) int64 {
+	n := len(nums)
+	q := []int{}
+	var ans, cost int64
+	r := n - 1
+	for l := n - 1; l >= 0; l-- {
+		x := nums[l]
+		for len(q) > 0 && nums[q[len(q)-1]] <= x {
+			s := q[len(q)-1]
+			q = q[:len(q)-1]
+			end := r + 1
+			if len(q) > 0 {
+				end = q[len(q)-1]
+			}
+			cost += int64(end-s) * int64(x-nums[s])
+		}
+		q = append(q, l)
+		for cost > int64(k) {
+			cost -= int64(nums[q[0]] - nums[r])
+			if q[0] == r {
+				q = q[1:]
+			}
+			r--
+		}
+		ans += int64(r - l + 1)
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countNonDecreasingSubarrays(nums: number[], k: number): number {
+    const n = nums.length;
+    const q: number[] = [];
+    let head = 0;
+    let ans = 0;
+    let cost = 0;
+    let r = n - 1;
+    for (let l = n - 1; l >= 0; l--) {
+        const x = nums[l];
+        while (head < q.length && nums[q[q.length - 1]] <= x) {
+            const s = q.pop()!;
+            const end = head < q.length ? q[q.length - 1] : r + 1;
+            cost += (x - nums[s]) * (end - s);
+        }
+        q.push(l);
+        while (cost > k) {
+            cost -= nums[q[head]] - nums[r];
+            if (q[head] === r) {
+                head++;
+            }
+            r--;
+        }
+        ans += r - l + 1;
+    }
+    return ans;
+}
 ```
 
 #### Rust
