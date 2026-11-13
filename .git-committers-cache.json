@@ -1,5 +1,5 @@
 {
-  "cache_date": 1794484150,
+  "cache_date": 1794570938,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -43639,13 +43639,31 @@
     "solution/3400-3499/3420.Count Non-Decreasing Subarrays After K Operations/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
+          "login": "sonuworks",
+          "name": "sonuworks",
+          "url": "https://github.com/sonuworks",
+          "avatar": "https://avatars.githubusercontent.com/u/101780419?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794483603
+      "retrieved": 1794570529
     },
     "solution/3400-3499/3421.Find Students Who Improved/README.md": {
       "authors": [
@@ -111288,13 +111306,31 @@
     "solution/3400-3499/3420.Count Non-Decreasing Subarrays After K Operations/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
+          "login": "sonuworks",
+          "name": "sonuworks",
+          "url": "https://github.com/sonuworks",
+          "avatar": "https://avatars.githubusercontent.com/u/101780419?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1794570530
     },
     "solution/3400-3499/3421.Find Students Who Improved/README_EN.md": {
       "authors": [
