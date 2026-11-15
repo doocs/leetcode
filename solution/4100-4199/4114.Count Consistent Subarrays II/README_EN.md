@@ -121,32 +121,208 @@ difficulty: Hard
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ reaches $2\times 10^5$. Enumerating every subarray and comparing its bitwise AND with its minimum takes at least $O(n^2)$ time, which is too slow.
+>
+> The bitwise AND is a submask of every element, so it cannot exceed the minimum. The two are equal exactly when every value contains every bit of the minimum. Each consistent subarray has one rightmost index of that minimum.
+>
+> Bit containment is transitive: if $a$ contains every bit of $b$ and $b$ contains every bit of $c$, then $a$ contains every bit of $c$. From index $i$, the range extends left up to the nearest value that misses a bit of $\textit{nums}[i]$, and stops on the right before the next equal value or the next value that misses a bit of $\textit{nums}[i]$.
+>
+> Two monotonic stacks pop indexes whose values contain every bit of the current value, and those pops produce the two boundaries. Each index enters and leaves a stack once. Its contribution is the product of the choices for the two endpoints.
+
+<!-- thinking:end -->
+
+If $(a \mathrel{\&} b)=b$, say that $a$ contains every bit of $b$. Then $a\ge b$. The bitwise AND of a subarray is a submask of every element, so it cannot exceed the minimum. The AND equals the minimum exactly when every element contains every bit of that minimum.
+
+Attribute each consistent subarray to the rightmost index $i$ of its minimum, and let $x=\textit{nums}[i]$.
+
+Scan from left to right and keep indexes on a stack. Pop while the top contains every bit of $x$, then push $i$. If the stack is not empty after the pops, its top is $\textit{left}[i]$, the nearest index to the left of $i$ whose value misses a bit of $x$. If the stack is empty, $\textit{left}[i]=-1$. Bit containment is transitive, so an index popped earlier cannot block a later element. Every value in $(\textit{left}[i], i)$ therefore contains every bit of $x$.
+
+Scan from right to left. Pop while the top is not equal to $x$ and still contains every bit of $x$. If the stack is empty, set $\textit{right}=n$; otherwise set $\textit{right}$ to the top, then push $i$. $\textit{right}$ is the nearest index to the right that equals $x$ or misses a bit of $x$. Every value in $(i, \textit{right})$ contains every bit of $x$ and differs from $x$.
+
+The left endpoint may be any index in $(\textit{left}[i], i]$, and the right endpoint may be any index in $[i, \textit{right})$. There are $(i-\textit{left}[i])\times(\textit{right}-i)$ such subarrays. Every element contains every bit of $x$, so both the minimum and the bitwise AND equal $x$, and $i$ is the rightmost position of that minimum. Add this contribution to the answer.
+
+Each index is pushed and popped at most once in each scan. The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def countConsistent(self, nums: list[int]) -> int:
+        n = len(nums)
+        left = [-1] * n
+        stk = []
+        for i, x in enumerate(nums):
+            while stk and (nums[stk[-1]] & x) == x:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
 
+        stk = []
+        ans = 0
+        for i in range(n - 1, -1, -1):
+            x = nums[i]
+            while stk and nums[stk[-1]] != x and (nums[stk[-1]] & x) == x:
+                stk.pop()
+            right = stk[-1] if stk else n
+            stk.append(i)
+            ans += (i - left[i]) * (right - i)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long countConsistent(int[] nums) {
+        int n = nums.length;
+        int[] left = new int[n];
+        Arrays.fill(left, -1);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            while (!stk.isEmpty() && (nums[stk.peek()] & x) == x) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
 
+        stk.clear();
+        long ans = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            int x = nums[i];
+            while (!stk.isEmpty() && nums[stk.peek()] != x && (nums[stk.peek()] & x) == x) {
+                stk.pop();
+            }
+            int right = stk.isEmpty() ? n : stk.peek();
+            stk.push(i);
+            ans += (long) (i - left[i]) * (right - i);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long countConsistent(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> left(n, -1);
+        vector<int> stk;
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            while (!stk.empty() && (nums[stk.back()] & x) == x) {
+                stk.pop_back();
+            }
+            if (!stk.empty()) {
+                left[i] = stk.back();
+            }
+            stk.push_back(i);
+        }
 
+        stk.clear();
+        long long ans = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            int x = nums[i];
+            while (!stk.empty() && nums[stk.back()] != x && (nums[stk.back()] & x) == x) {
+                stk.pop_back();
+            }
+            int right = stk.empty() ? n : stk.back();
+            stk.push_back(i);
+            ans += 1LL * (i - left[i]) * (right - i);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countConsistent(nums []int) int64 {
+	n := len(nums)
+	left := make([]int, n)
+	for i := range left {
+		left[i] = -1
+	}
+	stk := []int{}
+	for i, x := range nums {
+		for len(stk) > 0 && nums[stk[len(stk)-1]]&x == x {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			left[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
 
+	stk = []int{}
+	var ans int64
+	for i := n - 1; i >= 0; i-- {
+		x := nums[i]
+		for len(stk) > 0 && nums[stk[len(stk)-1]] != x && nums[stk[len(stk)-1]]&x == x {
+			stk = stk[:len(stk)-1]
+		}
+		right := n
+		if len(stk) > 0 {
+			right = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+		ans += int64(i-left[i]) * int64(right-i)
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countConsistent(nums: number[]): number {
+    const n = nums.length;
+    const left = new Array(n).fill(-1);
+    const stk: number[] = [];
+    for (let i = 0; i < n; i++) {
+        const x = nums[i];
+        while (stk.length && (nums[stk[stk.length - 1]] & x) === x) {
+            stk.pop();
+        }
+        if (stk.length) {
+            left[i] = stk[stk.length - 1];
+        }
+        stk.push(i);
+    }
+
+    stk.length = 0;
+    let ans = 0;
+    for (let i = n - 1; i >= 0; i--) {
+        const x = nums[i];
+        while (
+            stk.length &&
+            nums[stk[stk.length - 1]] !== x &&
+            (nums[stk[stk.length - 1]] & x) === x
+        ) {
+            stk.pop();
+        }
+        const right = stk.length ? stk[stk.length - 1] : n;
+        stk.push(i);
+        ans += (i - left[i]) * (right - i);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
