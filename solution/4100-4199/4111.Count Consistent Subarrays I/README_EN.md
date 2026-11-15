@@ -121,32 +121,129 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $100$. Recomputing the bitwise AND and the minimum of every subarray from scratch takes $O(n^3)$ time and still fits. Each step that extends the right endpoint repeats that work over the whole segment.
+>
+> The bitwise AND and the minimum of $\textit{nums}[i..j]$ are determined by $\textit{nums}[i..j-1]$ together with $\textit{nums}[j]$, so each of them updates in $O(1)$ time when the right endpoint moves.
+>
+> Fix the left endpoint $i$ and scan the right endpoint $j$ from $i$ to $n-1$. Keep the running AND in $x$ and the running minimum in $y$, and count the subarray when $x=y$.
+
+<!-- thinking:end -->
+
+We enumerate the left endpoint $i$. Let $x$ and $y$ be the bitwise AND and the minimum of the subarray $\textit{nums}[i..j]$, both initially equal to $\textit{nums}[i]$. The right endpoint $j$ runs from $i$ to $n-1$. Each step sets $x \mathrel{\&}= \textit{nums}[j]$ and updates $y$ to $\min(y,\textit{nums}[j])$. When $x=y$, the current subarray is consistent and the answer increases by one.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countConsistent(self, nums: list[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i, x in enumerate(nums):
+            y = x
+            for j in range(i, n):
+                x &= nums[j]
+                y = min(y, nums[j])
+                if x == y:
+                    ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countConsistent(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            int y = x;
+            for (int j = i; j < n; j++) {
+                x &= nums[j];
+                y = Math.min(y, nums[j]);
+                if (x == y) {
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countConsistent(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            int y = x;
+            for (int j = i; j < n; j++) {
+                x &= nums[j];
+                y = min(y, nums[j]);
+                if (x == y) {
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countConsistent(nums []int) int {
+	n := len(nums)
+	ans := 0
+	for i, x := range nums {
+		y := x
+		for j := i; j < n; j++ {
+			x &= nums[j]
+			y = min(y, nums[j])
+			if x == y {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countConsistent(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        let x = nums[i];
+        let y = x;
+        for (let j = i; j < n; j++) {
+            x &= nums[j];
+            y = Math.min(y, nums[j]);
+            if (x === y) {
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -123,32 +123,129 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 不超过 $100$。对每个子数组从头计算按位与与最小值，复杂度是 $O(n^3)$，仍在时限以内。右端点每向右扩一位，整段都会被重新计算。
+>
+> 子数组 $\textit{nums}[i..j]$ 的按位与与最小值都由 $\textit{nums}[i..j-1]$ 和 $\textit{nums}[j]$ 决定，右移一位时都可以用 $O(1)$ 更新。
+>
+> 因此固定左端点 $i$，再把右端点 $j$ 从 $i$ 扫到 $n-1$。用 $x$ 记下当前按位与，用 $y$ 记下当前最小值，并在 $x=y$ 时计数。
+
+<!-- thinking:end -->
+
+我们枚举左端点 $i$。令 $x$ 与 $y$ 分别为子数组 $\textit{nums}[i..j]$ 的按位与和最小值，初始时二者都等于 $\textit{nums}[i]$。右端点 $j$ 从 $i$ 走到 $n-1$，每走一步先做 $x \mathrel{\&}= \textit{nums}[j]$，再把 $y$ 更新为 $\min(y,\textit{nums}[j])$。 $x=y$ 时当前子数组一致，答案加一。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countConsistent(self, nums: list[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i, x in enumerate(nums):
+            y = x
+            for j in range(i, n):
+                x &= nums[j]
+                y = min(y, nums[j])
+                if x == y:
+                    ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countConsistent(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            int y = x;
+            for (int j = i; j < n; j++) {
+                x &= nums[j];
+                y = Math.min(y, nums[j]);
+                if (x == y) {
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countConsistent(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            int y = x;
+            for (int j = i; j < n; j++) {
+                x &= nums[j];
+                y = min(y, nums[j]);
+                if (x == y) {
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countConsistent(nums []int) int {
+	n := len(nums)
+	ans := 0
+	for i, x := range nums {
+		y := x
+		for j := i; j < n; j++ {
+			x &= nums[j]
+			y = min(y, nums[j])
+			if x == y {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countConsistent(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        let x = nums[i];
+        let y = x;
+        for (let j = i; j < n; j++) {
+            x &= nums[j];
+            y = Math.min(y, nums[j]);
+            if (x === y) {
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
