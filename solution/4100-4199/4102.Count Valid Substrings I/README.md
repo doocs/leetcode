@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1535
+source: 第 195 场双周赛 Q1
 ---
 
 <!-- problem:start -->

@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 困难
+rating: 2384
+source: 第 527 场周赛 Q4
 ---
 
 <!-- problem:start -->

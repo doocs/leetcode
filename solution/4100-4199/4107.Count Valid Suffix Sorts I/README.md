@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1621
+source: 第 527 场周赛 Q2
 ---
 
 <!-- problem:start -->

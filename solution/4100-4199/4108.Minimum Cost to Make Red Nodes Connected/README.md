@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 2015
+source: 第 527 场周赛 Q3
 ---
 
 <!-- problem:start -->

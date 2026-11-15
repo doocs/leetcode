@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2384
+source: Weekly Contest 527 Q4
 ---
 
 <!-- problem:start -->
