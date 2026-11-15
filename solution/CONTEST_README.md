@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 528 场周赛(2026-11-15 10:30, 90 分钟) 参赛人数 920
+
+- [4111. 统计一致子数组数目 I](/solution/4100-4199/4111.Count%20Consistent%20Subarrays%20I/README.md)
+- [4112. 将子树置零后的最大得分](/solution/4100-4199/4112.Maximize%20Score%20After%20Zeroing%20Subtrees/README.md)
+- [4113. 整除和博弈](/solution/4100-4199/4113.Game%20of%20Divisible%20Sums/README.md)
+- [4114. 统计一致子数组数目 II](/solution/4100-4199/4114.Count%20Consistent%20Subarrays%20II/README.md)
+
 #### 第 527 场周赛(2026-11-08 10:30, 90 分钟) 参赛人数 970
 
 - [4106. 找出两个字符串的不匹配片段](/solution/4100-4199/4106.Find%20Mismatched%20Segments%20Between%20Two%20Strings/README.md)

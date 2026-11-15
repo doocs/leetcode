@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 2015
+source: Weekly Contest 527 Q3
 ---
 
 <!-- problem:start -->

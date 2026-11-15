@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 528
+
+- [4111. Count Consistent Subarrays I](/solution/4100-4199/4111.Count%20Consistent%20Subarrays%20I/README_EN.md)
+- [4112. Maximize Score After Zeroing Subtrees](/solution/4100-4199/4112.Maximize%20Score%20After%20Zeroing%20Subtrees/README_EN.md)
+- [4113. Game of Divisible Sums](/solution/4100-4199/4113.Game%20of%20Divisible%20Sums/README_EN.md)
+- [4114. Count Consistent Subarrays II](/solution/4100-4199/4114.Count%20Consistent%20Subarrays%20II/README_EN.md)
+
 #### Weekly Contest 527
 
 - [4106. Find Mismatched Segments Between Two Strings](/solution/4100-4199/4106.Find%20Mismatched%20Segments%20Between%20Two%20Strings/README_EN.md)
