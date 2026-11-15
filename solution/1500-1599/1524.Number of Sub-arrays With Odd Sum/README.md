@@ -91,9 +91,9 @@ tags:
 
 我们定义一个长度为 $2$ 的数组 $\textit{cnt}$ 作为计数器，其中 $\textit{cnt}[0]$ 和 $\textit{cnt}[1]$ 分别表示前缀和为偶数和奇数的子数组的个数。初始时 $\textit{cnt}[0] = 1$，而 $\textit{cnt}[1] = 0$。
 
-接下来，我们维护当前的前缀和 $s$，初始时 $s = 0$。
+接下来，我们维护当前前缀和的奇偶性 $s$，初始时 $s = 0$。
 
-遍历数组 $\textit{arr}$，对于遍历到的每个元素 $x$，我们将 $s$ 的值加上 $x$，然后根据 $s$ 的奇偶性，将 $\textit{cnt}[s \mod 2 \oplus 1]$ 的值累加到答案中，然后我们将 $\textit{cnt}[s \mod 2]$ 的值加 $1$。
+遍历数组 $\textit{arr}$，对于遍历到的每个元素 $x$，将 $s$ 更新为 $(s + x) \mod 2$，然后将 $\textit{cnt}[s \oplus 1]$ 的值累加到答案中，再将 $\textit{cnt}[s]$ 的值加 $1$。
 
 遍历结束后，我们即可得到答案。注意答案的取模运算。
 
@@ -106,13 +106,13 @@ tags:
 ```python
 class Solution:
     def numOfSubarrays(self, arr: list[int]) -> int:
-        mod = 10**9 + 7
         cnt = [1, 0]
         ans = s = 0
+        mod = 10**9 + 7
         for x in arr:
-            s += x
-            ans = (ans + cnt[s & 1 ^ 1]) % mod
-            cnt[s & 1] += 1
+            s = (s + x) % 2
+            ans = (ans + cnt[s ^ 1]) % mod
+            cnt[s] += 1
         return ans
 ```
 
@@ -121,13 +121,13 @@ class Solution:
 ```java
 class Solution {
     public int numOfSubarrays(int[] arr) {
-        final int mod = (int) 1e9 + 7;
         int[] cnt = {1, 0};
         int ans = 0, s = 0;
+        final int mod = (int) 1e9 + 7;
         for (int x : arr) {
-            s += x;
-            ans = (ans + cnt[s & 1 ^ 1]) % mod;
-            ++cnt[s & 1];
+            s = (s + x) % 2;
+            ans = (ans + cnt[s ^ 1]) % mod;
+            ++cnt[s];
         }
         return ans;
     }
@@ -140,13 +140,13 @@ class Solution {
 class Solution {
 public:
     int numOfSubarrays(vector<int>& arr) {
-        const int mod = 1e9 + 7;
         int cnt[2] = {1, 0};
         int ans = 0, s = 0;
+        const int mod = 1e9 + 7;
         for (int x : arr) {
-            s += x;
-            ans = (ans + cnt[s & 1 ^ 1]) % mod;
-            ++cnt[s & 1];
+            s = (s + x) % 2;
+            ans = (ans + cnt[s ^ 1]) % mod;
+            ++cnt[s];
         }
         return ans;
     }
@@ -157,13 +157,13 @@ public:
 
 ```go
 func numOfSubarrays(arr []int) (ans int) {
-	const mod int = 1e9 + 7
 	cnt := [2]int{1, 0}
 	s := 0
+	const mod int = 1e9 + 7
 	for _, x := range arr {
-		s += x
-		ans = (ans + cnt[s&1^1]) % mod
-		cnt[s&1]++
+		s = (s + x) % 2
+		ans = (ans + cnt[s^1]) % mod
+		cnt[s]++
 	}
 	return
 }
@@ -173,14 +173,14 @@ func numOfSubarrays(arr []int) (ans int) {
 
 ```ts
 function numOfSubarrays(arr: number[]): number {
+    const cnt: number[] = [1, 0];
     let ans = 0;
     let s = 0;
-    const cnt: number[] = [1, 0];
     const mod = 1e9 + 7;
     for (const x of arr) {
-        s += x;
-        ans = (ans + cnt[(s & 1) ^ 1]) % mod;
-        cnt[s & 1]++;
+        s = (s + x) % 2;
+        ans = (ans + cnt[s ^ 1]) % mod;
+        cnt[s]++;
     }
     return ans;
 }
@@ -191,14 +191,14 @@ function numOfSubarrays(arr: number[]): number {
 ```rust
 impl Solution {
     pub fn num_of_subarrays(arr: Vec<i32>) -> i32 {
-        const MOD: i32 = 1_000_000_007;
         let mut cnt = [1, 0];
         let mut ans = 0;
         let mut s = 0;
+        const MOD: i32 = 1_000_000_007;
         for &x in arr.iter() {
-            s += x;
-            ans = (ans + cnt[((s & 1) ^ 1) as usize]) % MOD;
-            cnt[(s & 1) as usize] += 1;
+            s = (s + x) % 2;
+            ans = (ans + cnt[(s ^ 1) as usize]) % MOD;
+            cnt[s as usize] += 1;
         }
         ans
     }

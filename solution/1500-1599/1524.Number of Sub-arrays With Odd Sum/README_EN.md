@@ -80,9 +80,9 @@ All sub-arrays have even sum and the answer is 0.
 
 We define an array $\textit{cnt}$ of length 2 as a counter, where $\textit{cnt}[0]$ and $\textit{cnt}[1]$ represent the number of subarrays with even and odd prefix sums, respectively. Initially, $\textit{cnt}[0] = 1$ and $\textit{cnt}[1] = 0$.
 
-Next, we maintain the current prefix sum $s$, initially $s = 0$.
+Next, we maintain the parity $s$ of the current prefix sum, initially $s = 0$.
 
-Traverse the array $\textit{arr}$, for each element $x$ encountered, add the value of $x$ to $s$, then based on the parity of $s$, add the value of $\textit{cnt}[s \mod 2 \oplus 1]$ to the answer, and then increment the value of $\textit{cnt}[s \mod 2]$ by 1.
+Traverse the array $\textit{arr}$. For each element $x$, update $s$ to $(s + x) \mod 2$, add $\textit{cnt}[s \oplus 1]$ to the answer, and then increment $\textit{cnt}[s]$ by $1$.
 
 After the traversal, we get the answer. Note the modulo operation for the answer.
 
@@ -95,13 +95,13 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def numOfSubarrays(self, arr: list[int]) -> int:
-        mod = 10**9 + 7
         cnt = [1, 0]
         ans = s = 0
+        mod = 10**9 + 7
         for x in arr:
-            s += x
-            ans = (ans + cnt[s & 1 ^ 1]) % mod
-            cnt[s & 1] += 1
+            s = (s + x) % 2
+            ans = (ans + cnt[s ^ 1]) % mod
+            cnt[s] += 1
         return ans
 ```
 
@@ -110,13 +110,13 @@ class Solution:
 ```java
 class Solution {
     public int numOfSubarrays(int[] arr) {
-        final int mod = (int) 1e9 + 7;
         int[] cnt = {1, 0};
         int ans = 0, s = 0;
+        final int mod = (int) 1e9 + 7;
         for (int x : arr) {
-            s += x;
-            ans = (ans + cnt[s & 1 ^ 1]) % mod;
-            ++cnt[s & 1];
+            s = (s + x) % 2;
+            ans = (ans + cnt[s ^ 1]) % mod;
+            ++cnt[s];
         }
         return ans;
     }
@@ -129,13 +129,13 @@ class Solution {
 class Solution {
 public:
     int numOfSubarrays(vector<int>& arr) {
-        const int mod = 1e9 + 7;
         int cnt[2] = {1, 0};
         int ans = 0, s = 0;
+        const int mod = 1e9 + 7;
         for (int x : arr) {
-            s += x;
-            ans = (ans + cnt[s & 1 ^ 1]) % mod;
-            ++cnt[s & 1];
+            s = (s + x) % 2;
+            ans = (ans + cnt[s ^ 1]) % mod;
+            ++cnt[s];
         }
         return ans;
     }
@@ -146,13 +146,13 @@ public:
 
 ```go
 func numOfSubarrays(arr []int) (ans int) {
-	const mod int = 1e9 + 7
 	cnt := [2]int{1, 0}
 	s := 0
+	const mod int = 1e9 + 7
 	for _, x := range arr {
-		s += x
-		ans = (ans + cnt[s&1^1]) % mod
-		cnt[s&1]++
+		s = (s + x) % 2
+		ans = (ans + cnt[s^1]) % mod
+		cnt[s]++
 	}
 	return
 }
@@ -162,14 +162,14 @@ func numOfSubarrays(arr []int) (ans int) {
 
 ```ts
 function numOfSubarrays(arr: number[]): number {
+    const cnt: number[] = [1, 0];
     let ans = 0;
     let s = 0;
-    const cnt: number[] = [1, 0];
     const mod = 1e9 + 7;
     for (const x of arr) {
-        s += x;
-        ans = (ans + cnt[(s & 1) ^ 1]) % mod;
-        cnt[s & 1]++;
+        s = (s + x) % 2;
+        ans = (ans + cnt[s ^ 1]) % mod;
+        cnt[s]++;
     }
     return ans;
 }
@@ -180,14 +180,14 @@ function numOfSubarrays(arr: number[]): number {
 ```rust
 impl Solution {
     pub fn num_of_subarrays(arr: Vec<i32>) -> i32 {
-        const MOD: i32 = 1_000_000_007;
         let mut cnt = [1, 0];
         let mut ans = 0;
         let mut s = 0;
+        const MOD: i32 = 1_000_000_007;
         for &x in arr.iter() {
-            s += x;
-            ans = (ans + cnt[((s & 1) ^ 1) as usize]) % MOD;
-            cnt[(s & 1) as usize] += 1;
+            s = (s + x) % 2;
+            ans = (ans + cnt[(s ^ 1) as usize]) % MOD;
+            cnt[s as usize] += 1;
         }
         ans
     }
