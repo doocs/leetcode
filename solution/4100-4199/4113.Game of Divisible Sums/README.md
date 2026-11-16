@@ -107,32 +107,188 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：记忆化搜索
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 达到 $10^5$。每一步都可以取一个或两个元素，整局对局的分支是指数级的，无法通过。
+>
+> 后缀里的元素最终都会被取走，双方得分之和是定值。最大化自己的得分，就等于最大化自己与对手的分差。轮到谁行动，只取决于刚取走的和能否被 $3$ 整除。
+>
+> 因此状态只保留剩余后缀的起点 $i$。 $\textit{dfs}(i)$ 是当前行动者在该后缀上能取得的最大分差。和能被 $3$ 整除时对手接着行动，分差要减去后续的 $\textit{dfs}$；否则自己继续，分差要加上后续的 $\textit{dfs}$。
+>
+> 每个起点尝试取一个元素或取两个元素，并用记忆化保证每个下标只算一次。
+
+<!-- thinking:end -->
+
+设 $\textit{dfs}(i)$ 为轮到当前玩家时，从下标 $i$ 开始的后缀上，当前玩家得分减去对手得分的最大值。答案是 $\textit{dfs}(0)$。
+
+后缀上的元素最终都会被取走，双方得分之和固定。最大化自己的得分，就等于最大化自己与对手的分差。对手在自己行动时也会最大化自己的分差，所以当前玩家要按接下来是谁行动，减去或加上对方算出的 $\textit{dfs}$。
+
+若 $i$ 已经越过数组末尾，返回 $0$。
+
+当前玩家可以取走 $\textit{nums}[i]$。记 $x=\textit{nums}[i]$。若 $x$ 能被 $3$ 整除，接下来由对手行动，这一步的分差是 $x-\textit{dfs}(i+1)$；否则当前玩家继续行动，分差是 $x+\textit{dfs}(i+1)$。
+
+后面还有元素时，也可以取走 $\textit{nums}[i]$ 与 $\textit{nums}[i+1]$。记它们的和为 $s$。 $s$ 能被 $3$ 整除时，分差是 $s-\textit{dfs}(i+2)$；否则是 $s+\textit{dfs}(i+2)$。
+
+两种取法取较大值，并用记忆化保存 $\textit{dfs}(i)$。每个下标只计算一次。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxDifference(self, nums: list[int]) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= len(nums):
+                return 0
+            x = nums[i]
+            res = x - dfs(i + 1) if x % 3 == 0 else x + dfs(i + 1)
+            if i + 1 < len(nums):
+                s = x + nums[i + 1]
+                t = s - dfs(i + 2) if s % 3 == 0 else s + dfs(i + 2)
+                res = max(res, t)
+            return res
 
+        return dfs(0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] nums;
+    private Long[] memo;
 
+    public long maxDifference(int[] nums) {
+        this.nums = nums;
+        this.memo = new Long[nums.length];
+        return dfs(0);
+    }
+
+    private long dfs(int i) {
+        if (i >= nums.length) {
+            return 0;
+        }
+        if (memo[i] != null) {
+            return memo[i];
+        }
+        int x = nums[i];
+        long res = x % 3 == 0 ? x - dfs(i + 1) : x + dfs(i + 1);
+        if (i + 1 < nums.length) {
+            long s = x + nums[i + 1];
+            long t = s % 3 == 0 ? s - dfs(i + 2) : s + dfs(i + 2);
+            res = Math.max(res, t);
+        }
+        memo[i] = res;
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxDifference(vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> memo(n, LLONG_MIN);
+        auto dfs = [&](this auto&& dfs, int i) -> long long {
+            if (i >= n) {
+                return 0;
+            }
+            if (memo[i] != LLONG_MIN) {
+                return memo[i];
+            }
+            int x = nums[i];
+            long long res = x % 3 == 0 ? x - dfs(i + 1) : x + dfs(i + 1);
+            if (i + 1 < n) {
+                long long s = x + nums[i + 1];
+                long long t = s % 3 == 0 ? s - dfs(i + 2) : s + dfs(i + 2);
+                res = max(res, t);
+            }
+            memo[i] = res;
+            return res;
+        };
+        return dfs(0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxDifference(nums []int) int64 {
+	n := len(nums)
+	const INF int64 = 1 << 62
+	memo := make([]int64, n)
+	for i := range memo {
+		memo[i] = -INF
+	}
+	var dfs func(i int) int64
+	dfs = func(i int) int64 {
+		if i >= n {
+			return 0
+		}
+		if memo[i] != -INF {
+			return memo[i]
+		}
+		x := nums[i]
+		var res int64
+		if x%3 == 0 {
+			res = int64(x) - dfs(i+1)
+		} else {
+			res = int64(x) + dfs(i+1)
+		}
+		if i+1 < n {
+			s := int64(x + nums[i+1])
+			var t int64
+			if s%3 == 0 {
+				t = s - dfs(i+2)
+			} else {
+				t = s + dfs(i+2)
+			}
+			res = max(res, t)
+		}
+		memo[i] = res
+		return res
+	}
+	return dfs(0)
+}
+```
 
+#### TypeScript
+
+```ts
+function maxDifference(nums: number[]): number {
+    const n = nums.length;
+    const memo: number[] = new Array(n).fill(NaN);
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (!Number.isNaN(memo[i])) {
+            return memo[i];
+        }
+        const x = nums[i];
+        let res = x % 3 === 0 ? x - dfs(i + 1) : x + dfs(i + 1);
+        if (i + 1 < n) {
+            const s = x + nums[i + 1];
+            const t = s % 3 === 0 ? s - dfs(i + 2) : s + dfs(i + 2);
+            res = Math.max(res, t);
+        }
+        memo[i] = res;
+        return res;
+    };
+    return dfs(0);
+}
 ```
 
 <!-- tabs:end -->
