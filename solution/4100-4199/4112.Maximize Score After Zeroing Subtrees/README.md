@@ -115,32 +115,191 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：深度优先搜索
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 达到 $10^5$。每个非叶节点都要决定清零哪一棵子树，把所有组合枚举出来是指数级的，无法通过。
+>
+> 祖先把一棵子树整体清零之后，子树内部的操作只作用于已经变成 $0$ 的节点。子树若被保留，它能留下的最大分数就只由内部的选择决定。
+>
+> 因此自底向上定义 $\textit{dfs}(i)$：节点 $i$ 的子树没有被祖先整棵清零时，这份子树能留下的最大分数。叶节点没有操作，只能留下 $\textit{score}[i]$。非叶节点先得到每棵子树的 $\textit{dfs}$ 值，再按 $op[i]$ 决定丢掉其中最小的一份，或只在这份为负时丢掉。
+>
+> 每个节点只访问一次。递归从叶节点返回后，非叶节点把全部子树分数相加，再减去按 $op[i]$ 丢掉的那一份。
+
+<!-- thinking:end -->
+
+我们按 $\textit{parent}$ 建出每个节点的子节点列表。 $\textit{dfs}(i)$ 表示节点 $i$ 的子树在不被祖先整棵清零时能保留的最大分数。
+
+若 $i$ 是叶节点，返回 $\textit{score}[i]$。
+
+否则令 $\textit{tot}=\textit{score}[i]$。对每个子节点 $j$ 递归得到 $t=\textit{dfs}(j)$，把 $t$ 累加到 $\textit{tot}$，并用 $mn$ 记下其中的最小值。此时 $\textit{tot}$ 是所有子树都保留时的分数。
+
+当 $op[i]=1$ 时，必须清零恰好一棵子树。清掉 $mn$ 对应的那棵，返回 $\textit{tot}-mn$。当 $op[i]=0$ 时，可以不清零，也可以清零一棵。只有 $mn<0$ 时，清掉这棵子树才会比全部保留更大，因此返回 $\textit{tot}-\min(0,mn)$。
+
+答案是 $\textit{dfs}(0)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点个数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxScore(self, parent: list[int], op: list[int], score: list[int]) -> int:
+        def dfs(i: int) -> int:
+            if not g[i]:
+                return score[i]
+            tot = score[i]
+            mn = inf
+            for j in g[i]:
+                t = dfs(j)
+                mn = min(mn, t)
+                tot += t
+            if op[i] == 0:
+                return tot - min(0, mn)
+            return tot - mn
 
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        return dfs(0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] op;
+    private int[] score;
 
+    public int maxScore(int[] parent, int[] op, int[] score) {
+        this.op = op;
+        this.score = score;
+        int n = parent.length;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; i++) {
+            g[parent[i]].add(i);
+        }
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (g[i].isEmpty()) {
+            return score[i];
+        }
+        int tot = score[i];
+        int mn = Integer.MAX_VALUE;
+        for (int j : g[i]) {
+            int t = dfs(j);
+            mn = Math.min(mn, t);
+            tot += t;
+        }
+        if (op[i] == 0) {
+            return tot - Math.min(0, mn);
+        }
+        return tot - mn;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxScore(vector<int> parent, vector<int> op, vector<int> score) {
+        int n = parent.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; i++) {
+            g[parent[i]].push_back(i);
+        }
+        auto dfs = [&](this auto&& dfs, int i) -> int {
+            if (g[i].empty()) {
+                return score[i];
+            }
+            int tot = score[i];
+            int mn = INT_MAX;
+            for (int j : g[i]) {
+                int t = dfs(j);
+                mn = min(mn, t);
+                tot += t;
+            }
+            if (op[i] == 0) {
+                return tot - min(0, mn);
+            }
+            return tot - mn;
+        };
+        return dfs(0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxScore(parent []int, op []int, score []int) int {
+	n := len(parent)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	var dfs func(i int) int
+	dfs = func(i int) int {
+		if len(g[i]) == 0 {
+			return score[i]
+		}
+		tot := score[i]
+		mn := int(^uint(0) >> 1)
+		for _, j := range g[i] {
+			t := dfs(j)
+			if t < mn {
+				mn = t
+			}
+			tot += t
+		}
+		if op[i] == 0 {
+			return tot - min(0, mn)
+		}
+		return tot - mn
+	}
+	return dfs(0)
+}
+```
 
+#### TypeScript
+
+```ts
+function maxScore(parent: number[], op: number[], score: number[]): number {
+    const n = parent.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; i++) {
+        g[parent[i]].push(i);
+    }
+    const dfs = (i: number): number => {
+        if (g[i].length === 0) {
+            return score[i];
+        }
+        let tot = score[i];
+        let mn = Infinity;
+        for (const j of g[i]) {
+            const t = dfs(j);
+            mn = Math.min(mn, t);
+            tot += t;
+        }
+        if (op[i] === 0) {
+            return tot - Math.min(0, mn);
+        }
+        return tot - mn;
+    };
+    return dfs(0);
+}
 ```
 
 <!-- tabs:end -->

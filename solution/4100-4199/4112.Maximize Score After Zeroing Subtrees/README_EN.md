@@ -113,32 +113,191 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Depth-First Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ reaches $10^5$. Every non-leaf chooses which child subtree to zero, and enumerating those combinations is exponential.
+>
+> After an ancestor zeros a whole subtree, operations inside it only touch nodes that are already $0$. If the subtree is kept, its best remaining score depends only on choices made inside it.
+>
+> Define $\textit{dfs}(i)$ bottom-up as the maximum score of the subtree of node $i$ when no ancestor zeros that subtree. A leaf has no operation and keeps $\textit{score}[i]$. A non-leaf first takes the $\textit{dfs}$ value of every child, then uses $op[i]$ to drop the smallest value, or to drop it only when that value is negative.
+>
+> Each node is visited once. After the recursive calls return from the leaves, a non-leaf adds every child score and subtracts the value dropped according to $op[i]$.
+
+<!-- thinking:end -->
+
+We build the child lists from $\textit{parent}$. $\textit{dfs}(i)$ is the maximum score kept in the subtree of node $i$ when no ancestor zeros that whole subtree.
+
+If $i$ is a leaf, return $\textit{score}[i]$.
+
+Otherwise set $\textit{tot}=\textit{score}[i]$. For each child $j$, compute $t=\textit{dfs}(j)$, add $t$ to $\textit{tot}$, and let $mn$ be the smallest such $t$. Then $\textit{tot}$ is the score when every child subtree is kept.
+
+If $op[i]=1$, exactly one child subtree must be zeroed. Zero the subtree whose value is $mn$, and return $\textit{tot}-mn$. If $op[i]=0$, zeroing a child subtree is optional. The total becomes larger than keeping every child only when $mn<0$, so return $\textit{tot}-\min(0,mn)$.
+
+The answer is $\textit{dfs}(0)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxScore(self, parent: list[int], op: list[int], score: list[int]) -> int:
+        def dfs(i: int) -> int:
+            if not g[i]:
+                return score[i]
+            tot = score[i]
+            mn = inf
+            for j in g[i]:
+                t = dfs(j)
+                mn = min(mn, t)
+                tot += t
+            if op[i] == 0:
+                return tot - min(0, mn)
+            return tot - mn
 
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        return dfs(0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] op;
+    private int[] score;
 
+    public int maxScore(int[] parent, int[] op, int[] score) {
+        this.op = op;
+        this.score = score;
+        int n = parent.length;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; i++) {
+            g[parent[i]].add(i);
+        }
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (g[i].isEmpty()) {
+            return score[i];
+        }
+        int tot = score[i];
+        int mn = Integer.MAX_VALUE;
+        for (int j : g[i]) {
+            int t = dfs(j);
+            mn = Math.min(mn, t);
+            tot += t;
+        }
+        if (op[i] == 0) {
+            return tot - Math.min(0, mn);
+        }
+        return tot - mn;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxScore(vector<int> parent, vector<int> op, vector<int> score) {
+        int n = parent.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; i++) {
+            g[parent[i]].push_back(i);
+        }
+        auto dfs = [&](this auto&& dfs, int i) -> int {
+            if (g[i].empty()) {
+                return score[i];
+            }
+            int tot = score[i];
+            int mn = INT_MAX;
+            for (int j : g[i]) {
+                int t = dfs(j);
+                mn = min(mn, t);
+                tot += t;
+            }
+            if (op[i] == 0) {
+                return tot - min(0, mn);
+            }
+            return tot - mn;
+        };
+        return dfs(0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxScore(parent []int, op []int, score []int) int {
+	n := len(parent)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	var dfs func(i int) int
+	dfs = func(i int) int {
+		if len(g[i]) == 0 {
+			return score[i]
+		}
+		tot := score[i]
+		mn := int(^uint(0) >> 1)
+		for _, j := range g[i] {
+			t := dfs(j)
+			if t < mn {
+				mn = t
+			}
+			tot += t
+		}
+		if op[i] == 0 {
+			return tot - min(0, mn)
+		}
+		return tot - mn
+	}
+	return dfs(0)
+}
+```
 
+#### TypeScript
+
+```ts
+function maxScore(parent: number[], op: number[], score: number[]): number {
+    const n = parent.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; i++) {
+        g[parent[i]].push(i);
+    }
+    const dfs = (i: number): number => {
+        if (g[i].length === 0) {
+            return score[i];
+        }
+        let tot = score[i];
+        let mn = Infinity;
+        for (const j of g[i]) {
+            const t = dfs(j);
+            mn = Math.min(mn, t);
+            tot += t;
+        }
+        if (op[i] === 0) {
+            return tot - Math.min(0, mn);
+        }
+        return tot - mn;
+    };
+    return dfs(0);
+}
 ```
 
 <!-- tabs:end -->
