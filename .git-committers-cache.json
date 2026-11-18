@@ -1,5 +1,5 @@
 {
-  "cache_date": 1794963655,
+  "cache_date": 1795042316,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -60580,6 +60580,12 @@
     "lcci/08.06.Hanota/README.md": {
       "authors": [
         {
+          "login": "sulthonzh",
+          "name": "sulthonzh",
+          "url": "https://github.com/sulthonzh",
+          "avatar": "https://avatars.githubusercontent.com/u/4921059?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -60592,7 +60598,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/12745225?v=4"
         }
       ],
-      "retrieved": 1794188004
+      "retrieved": 1795041705
     },
     "lcci/08.07.Permutation I/README.md": {
       "authors": [
@@ -128097,6 +128103,12 @@
     "lcci/08.06.Hanota/README_EN.md": {
       "authors": [
         {
+          "login": "sulthonzh",
+          "name": "sulthonzh",
+          "url": "https://github.com/sulthonzh",
+          "avatar": "https://avatars.githubusercontent.com/u/4921059?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -128109,7 +128121,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/12745225?v=4"
         }
       ],
-      "retrieved": 1794188004
+      "retrieved": 1795041733
     },
     "lcci/08.07.Permutation I/README_EN.md": {
       "authors": [
