@@ -2,6 +2,9 @@ class Solution {
 public:
     void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
         auto dfs = [&](this auto&& dfs, int n, vector<int>& a, vector<int>& b, vector<int>& c) {
+            if (n < 1) {
+                return;
+            }
             if (n == 1) {
                 c.push_back(a.back());
                 a.pop_back();

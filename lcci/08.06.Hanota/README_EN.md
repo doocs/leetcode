@@ -73,6 +73,8 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ i
 class Solution:
     def hanota(self, A: list[int], B: list[int], C: list[int]) -> None:
         def dfs(n, a, b, c):
+            if n < 1:
+                return
             if n == 1:
                 c.append(a.pop())
                 return
@@ -92,6 +94,9 @@ class Solution {
     }
 
     private void dfs(int n, List<Integer> a, List<Integer> b, List<Integer> c) {
+        if (n < 1) {
+            return;
+        }
         if (n == 1) {
             c.add(a.remove(a.size() - 1));
             return;
@@ -110,6 +115,9 @@ class Solution {
 public:
     void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
         auto dfs = [&](this auto&& dfs, int n, vector<int>& a, vector<int>& b, vector<int>& c) {
+            if (n < 1) {
+                return;
+            }
             if (n == 1) {
                 c.push_back(a.back());
                 a.pop_back();
@@ -131,6 +139,9 @@ public:
 func hanota(A []int, B []int, C []int) []int {
 	var dfs func(n int, a, b, c *[]int)
 	dfs = func(n int, a, b, c *[]int) {
+		if n < 1 {
+			return
+		}
 		if n == 1 {
 			*c = append(*c, (*a)[len(*a)-1])
 			*a = (*a)[:len(*a)-1]
@@ -154,6 +165,9 @@ func hanota(A []int, B []int, C []int) []int {
  */
 function hanota(A: number[], B: number[], C: number[]): void {
     const dfs = (n: number, a: number[], b: number[], c: number[]) => {
+        if (n < 1) {
+            return;
+        }
         if (n === 1) {
             c.push(a.pop()!);
             return;
@@ -175,6 +189,9 @@ class Solution {
     }
 
     private func dfs(n: Int, a: inout [Int], b: inout [Int], c: inout [Int]) {
+        if n < 1 {
+            return
+        }
         if n == 1 {
             c.append(a.removeLast())
             return
@@ -230,6 +247,8 @@ class Solution:
         stk = [(len(A), A, B, C)]
         while stk:
             n, a, b, c = stk.pop()
+            if n < 1:
+                continue
             if n == 1:
                 c.append(a.pop())
             else:
@@ -251,6 +270,9 @@ class Solution {
             List<Integer> a = task.a;
             List<Integer> b = task.b;
             List<Integer> c = task.c;
+            if (n < 1) {
+                continue;
+            }
             if (n == 1) {
                 c.add(a.remove(a.size() - 1));
             } else {
@@ -295,6 +317,9 @@ public:
         while (!stk.empty()) {
             Task task = stk.top();
             stk.pop();
+            if (task.n < 1) {
+                continue;
+            }
             if (task.n == 1) {
                 task.c->push_back(task.a->back());
                 task.a->pop_back();
@@ -316,6 +341,9 @@ func hanota(A []int, B []int, C []int) []int {
 	for len(stk) > 0 {
 		task := stk[len(stk)-1]
 		stk = stk[:len(stk)-1]
+		if task.n < 1 {
+			continue
+		}
 		if task.n == 1 {
 			*task.c = append(*task.c, (*task.a)[len(*task.a)-1])
 			*task.a = (*task.a)[:len(*task.a)-1]
@@ -344,6 +372,9 @@ function hanota(A: number[], B: number[], C: number[]): void {
     const stk: any[] = [[A.length, A, B, C]];
     while (stk.length) {
         const [n, a, b, c] = stk.pop()!;
+        if (n < 1) {
+            continue;
+        }
         if (n === 1) {
             c.push(a.pop());
         } else {
