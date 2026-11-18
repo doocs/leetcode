@@ -3,6 +3,9 @@ comments: true
 difficulty: Medium
 rating: 1762
 source: Biweekly Contest 195 Q2
+tags:
+    - Stack
+    - Array
 ---
 
 <!-- problem:start -->

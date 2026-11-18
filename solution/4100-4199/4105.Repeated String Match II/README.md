@@ -3,6 +3,11 @@ comments: true
 difficulty: 困难
 rating: 2208
 source: 第 195 场双周赛 Q4
+tags:
+    - 数学
+    - 字符串
+    - 数论
+    - 字符串匹配
 ---
 
 <!-- problem:start -->

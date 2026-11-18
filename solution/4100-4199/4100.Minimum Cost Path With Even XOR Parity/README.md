@@ -3,6 +3,12 @@ comments: true
 difficulty: 困难
 rating: 2281
 source: 第 526 场周赛 Q4
+tags:
+    - 位运算
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

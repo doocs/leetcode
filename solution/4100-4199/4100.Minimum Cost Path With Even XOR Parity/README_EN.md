@@ -3,6 +3,12 @@ comments: true
 difficulty: Hard
 rating: 2281
 source: Weekly Contest 526 Q4
+tags:
+    - Bit Manipulation
+    - Tree
+    - Depth-First Search
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

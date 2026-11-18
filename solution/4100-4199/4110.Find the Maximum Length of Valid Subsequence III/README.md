@@ -1,6 +1,11 @@
 ---
 comments: true
 difficulty: 中等
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 动态规划
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,11 @@ comments: true
 difficulty: Hard
 rating: 2208
 source: Biweekly Contest 195 Q4
+tags:
+    - Math
+    - String
+    - Number Theory
+    - String Matching
 ---
 
 <!-- problem:start -->

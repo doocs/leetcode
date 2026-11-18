@@ -1,6 +1,9 @@
 ---
 comments: true
 difficulty: 中等
+tags:
+    - 数组
+    - 排序
 ---
 
 <!-- problem:start -->

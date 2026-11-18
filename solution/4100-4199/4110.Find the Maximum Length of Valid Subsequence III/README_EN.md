@@ -1,6 +1,11 @@
 ---
 comments: true
 difficulty: Medium
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->
