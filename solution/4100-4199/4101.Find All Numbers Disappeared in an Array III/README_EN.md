@@ -1,6 +1,9 @@
 ---
 comments: true
 difficulty: Medium
+tags:
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

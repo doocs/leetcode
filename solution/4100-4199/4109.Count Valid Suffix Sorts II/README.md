@@ -3,6 +3,14 @@ comments: true
 difficulty: 困难
 rating: 2384
 source: 第 527 场周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 字符串匹配
+    - 滑动窗口
+    - 哈希函数
+    - 滚动哈希
 ---
 
 <!-- problem:start -->

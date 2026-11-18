@@ -3,6 +3,10 @@ comments: true
 difficulty: Medium
 rating: 1775
 source: Biweekly Contest 195 Q3
+tags:
+    - Hash Table
+    - String
+    - Enumeration
 ---
 
 <!-- problem:start -->

@@ -3,6 +3,8 @@ comments: true
 difficulty: 中等
 rating: 1333
 source: 第 527 场周赛 Q1
+tags:
+    - 字符串
 ---
 
 <!-- problem:start -->
