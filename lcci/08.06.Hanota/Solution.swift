@@ -4,6 +4,9 @@ class Solution {
     }
 
     private func dfs(n: Int, a: inout [Int], b: inout [Int], c: inout [Int]) {
+        if n < 1 {
+            return
+        }
         if n == 1 {
             c.append(a.removeLast())
             return

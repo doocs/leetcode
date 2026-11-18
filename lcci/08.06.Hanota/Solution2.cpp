@@ -13,6 +13,9 @@ public:
         while (!stk.empty()) {
             Task task = stk.top();
             stk.pop();
+            if (task.n < 1) {
+                continue;
+            }
             if (task.n == 1) {
                 task.c->push_back(task.a->back());
                 task.a->pop_back();

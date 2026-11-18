@@ -1,6 +1,8 @@
 class Solution:
     def hanota(self, A: list[int], B: list[int], C: list[int]) -> None:
         def dfs(n, a, b, c):
+            if n < 1:
+                return
             if n == 1:
                 c.append(a.pop())
                 return

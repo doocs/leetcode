@@ -3,6 +3,9 @@ func hanota(A []int, B []int, C []int) []int {
 	for len(stk) > 0 {
 		task := stk[len(stk)-1]
 		stk = stk[:len(stk)-1]
+		if task.n < 1 {
+			continue
+		}
 		if task.n == 1 {
 			*task.c = append(*task.c, (*task.a)[len(*task.a)-1])
 			*task.a = (*task.a)[:len(*task.a)-1]

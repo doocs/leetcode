@@ -3,6 +3,9 @@
  */
 function hanota(A: number[], B: number[], C: number[]): void {
     const dfs = (n: number, a: number[], b: number[], c: number[]) => {
+        if (n < 1) {
+            return;
+        }
         if (n === 1) {
             c.push(a.pop()!);
             return;

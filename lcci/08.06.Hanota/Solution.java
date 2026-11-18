@@ -4,6 +4,9 @@ class Solution {
     }
 
     private void dfs(int n, List<Integer> a, List<Integer> b, List<Integer> c) {
+        if (n < 1) {
+            return;
+        }
         if (n == 1) {
             c.add(a.remove(a.size() - 1));
             return;

@@ -8,6 +8,9 @@ class Solution {
             List<Integer> a = task.a;
             List<Integer> b = task.b;
             List<Integer> c = task.c;
+            if (n < 1) {
+                continue;
+            }
             if (n == 1) {
                 c.add(a.remove(a.size() - 1));
             } else {

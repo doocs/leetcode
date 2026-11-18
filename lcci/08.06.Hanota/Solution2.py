@@ -3,6 +3,8 @@ class Solution:
         stk = [(len(A), A, B, C)]
         while stk:
             n, a, b, c = stk.pop()
+            if n < 1:
+                continue
             if n == 1:
                 c.append(a.pop())
             else:
