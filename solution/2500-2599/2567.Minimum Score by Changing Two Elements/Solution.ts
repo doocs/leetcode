@@ -1,5 +1,8 @@
 function minimizeSum(nums: number[]): number {
-    nums.sort((a, b) => a - b);
+    nums.sort((x, y) => x - y);
     const n = nums.length;
-    return Math.min(nums[n - 3] - nums[0], nums[n - 2] - nums[1], nums[n - 1] - nums[2]);
+    const a = nums[n - 3] - nums[0];
+    const b = nums[n - 2] - nums[1];
+    const c = nums[n - 1] - nums[2];
+    return Math.min(a, b, c);
 }
