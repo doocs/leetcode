@@ -106,7 +106,10 @@ tags:
 class Solution:
     def minimizeSum(self, nums: list[int]) -> int:
         nums.sort()
-        return min(nums[-1] - nums[2], nums[-2] - nums[1], nums[-3] - nums[0])
+        a = abs(nums[-3] - nums[0])
+        b = abs(nums[-2] - nums[1])
+        c = abs(nums[-1] - nums[2])
+        return min(a, b, c)
 ```
 
 #### Java
@@ -116,9 +119,9 @@ class Solution {
     public int minimizeSum(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
-        int a = nums[n - 1] - nums[2];
+        int a = nums[n - 3] - nums[0];
         int b = nums[n - 2] - nums[1];
-        int c = nums[n - 3] - nums[0];
+        int c = nums[n - 1] - nums[2];
         return Math.min(a, Math.min(b, c));
     }
 }
@@ -132,7 +135,10 @@ public:
     int minimizeSum(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         int n = nums.size();
-        return min({nums[n - 1] - nums[2], nums[n - 2] - nums[1], nums[n - 3] - nums[0]});
+        int a = nums[n - 3] - nums[0];
+        int b = nums[n - 2] - nums[1];
+        int c = nums[n - 1] - nums[2];
+        return min({a, b, c});
     }
 };
 ```
@@ -143,7 +149,10 @@ public:
 func minimizeSum(nums []int) int {
 	sort.Ints(nums)
 	n := len(nums)
-	return min(nums[n-1]-nums[2], min(nums[n-2]-nums[1], nums[n-3]-nums[0]))
+	a := nums[n-3] - nums[0]
+	b := nums[n-2] - nums[1]
+	c := nums[n-1] - nums[2]
+	return min(a, min(b, c))
 }
 ```
 
@@ -151,9 +160,12 @@ func minimizeSum(nums []int) int {
 
 ```ts
 function minimizeSum(nums: number[]): number {
-    nums.sort((a, b) => a - b);
+    nums.sort((x, y) => x - y);
     const n = nums.length;
-    return Math.min(nums[n - 3] - nums[0], nums[n - 2] - nums[1], nums[n - 1] - nums[2]);
+    const a = nums[n - 3] - nums[0];
+    const b = nums[n - 2] - nums[1];
+    const c = nums[n - 1] - nums[2];
+    return Math.min(a, b, c);
 }
 ```
 
@@ -164,9 +176,10 @@ impl Solution {
     pub fn minimize_sum(mut nums: Vec<i32>) -> i32 {
         nums.sort();
         let n = nums.len();
-        (nums[n - 1] - nums[2])
-            .min(nums[n - 2] - nums[1])
-            .min(nums[n - 3] - nums[0])
+        let a = nums[n - 3] - nums[0];
+        let b = nums[n - 2] - nums[1];
+        let c = nums[n - 1] - nums[2];
+        a.min(b).min(c)
     }
 }
 ```
@@ -182,7 +195,10 @@ int cmp(const void* a, const void* b) {
 
 int minimizeSum(int* nums, int numsSize) {
     qsort(nums, numsSize, sizeof(int), cmp);
-    return min(nums[numsSize - 1] - nums[2], min(nums[numsSize - 2] - nums[1], nums[numsSize - 3] - nums[0]));
+    int a = nums[numsSize - 3] - nums[0];
+    int b = nums[numsSize - 2] - nums[1];
+    int c = nums[numsSize - 1] - nums[2];
+    return min(a, min(b, c));
 }
 ```
 
