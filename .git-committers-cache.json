@@ -1,5 +1,5 @@
 {
-  "cache_date": 1795049822,
+  "cache_date": 1795152922,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -38474,13 +38474,31 @@
     "solution/3000-3099/3041.Maximize Consecutive Elements in an Array After Modification/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
+          "login": "sonuworks",
+          "name": "sonuworks",
+          "url": "https://github.com/sonuworks",
+          "avatar": "https://avatars.githubusercontent.com/u/101780419?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1795152312
     },
     "solution/3000-3099/3042.Count Prefix and Suffix Pairs I/README.md": {
       "authors": [
@@ -106207,13 +106225,31 @@
     "solution/3000-3099/3041.Maximize Consecutive Elements in an Array After Modification/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
+          "login": "sonuworks",
+          "name": "sonuworks",
+          "url": "https://github.com/sonuworks",
+          "avatar": "https://avatars.githubusercontent.com/u/101780419?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1795152312
     },
     "solution/3000-3099/3042.Count Prefix and Suffix Pairs I/README_EN.md": {
       "authors": [
