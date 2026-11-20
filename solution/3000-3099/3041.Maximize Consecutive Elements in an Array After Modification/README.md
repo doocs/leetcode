@@ -95,25 +95,111 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def maxSelectedElements(self, nums: list[int]) -> int:
+        nums.sort()
+        ans = 1
+        prev = -inf
+        f0 = f1 = 1
+        for x in nums:
+            if x == prev:
+                f1 = f0 + 1
+            elif x == prev + 1:
+                f0 += 1
+                f1 += 1
+            elif x == prev + 2:
+                f0 = f1 + 1
+                f1 = 1
+            else:
+                f0 = f1 = 1
+            ans = max(ans, f0, f1)
+            prev = x
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxSelectedElements(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 1, prev = Integer.MIN_VALUE;
+        int f0 = 1, f1 = 1;
+        for (int x : nums) {
+            if (x == prev) {
+                f1 = f0 + 1;
+            } else if (x == prev + 1) {
+                ++f0;
+                ++f1;
+            } else if (x == prev + 2) {
+                f0 = f1 + 1;
+                f1 = 1;
+            } else {
+                f0 = 1;
+                f1 = 1;
+            }
+            ans = Math.max(ans, Math.max(f0, f1));
+            prev = x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxSelectedElements(vector<int>& nums) {
+        ranges::sort(nums);
+        int ans = 1, prev = INT_MIN;
+        int f0 = 1, f1 = 1;
+        for (int x : nums) {
+            if (x == prev) {
+                f1 = f0 + 1;
+            } else if (x == prev + 1) {
+                ++f0;
+                ++f1;
+            } else if (x == prev + 2) {
+                f0 = f1 + 1;
+                f1 = 1;
+            } else {
+                f0 = 1;
+                f1 = 1;
+            }
+            ans = max({ans, f0, f1});
+            prev = x;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func maxSelectedElements(nums []int) int {
+	sort.Ints(nums)
+	ans, prev := 1, math.MinInt32
+	f0, f1 := 1, 1
+	for _, x := range nums {
+		if x == prev {
+			f1 = f0 + 1
+		} else if x == prev+1 {
+			f0++
+			f1++
+		} else if x == prev+2 {
+			f0 = f1 + 1
+			f1 = 1
+		} else {
+			f0, f1 = 1, 1
+		}
+		ans = max(ans, f0, f1)
+		prev = x
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
