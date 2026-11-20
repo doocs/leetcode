@@ -59,19 +59,34 @@ It can be shown that we cannot select more than 3 consecutive elements.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Dynamic Programming
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Each element may increase by at most one, after which we pick the longest subsequence that becomes consecutive. $n \le 10^5$ and values reach $10^6$.
+> Each element may increase by at most $1$, and we then select the longest run of consecutive integers. With $n \le 10^5$, matching a candidate run from every possible start is too slow.
 >
-> After sorting, neighbors are equal, differ by one, or jump further. Adding one maps a value to $x$ or $x+1$, so the DP only needs whether the current end kept $x$ or became $x+1$.
+> After sorting, every unseen value is at least as large as the current one. Once a run breaks, endings from earlier values are useless, so the state only needs to sit next to the previous raw value.
 >
-> We scan values in order and keep the best consecutive length ending at $x$ and at $x+1$, updating by whether the gap is $0$, $1$, or at least $2$.
+> A number either stays unchanged or becomes one larger, which means two lengths are enough relative to the previous raw value: one ending at that value, and one ending at that value plus one.
+>
+> The gap from the previous raw value decides which length the new element can extend. An equal value can only be appended after it is increased; a gap of $1$ extends both lengths; a gap of $2$ extends only the increased ending; a larger gap starts a new run. Sorting first and then scanning once follows that order.
 
 <!-- thinking:end -->
+
+We sort $\textit{nums}$ in non-decreasing order and scan from left to right. Let $\textit{prev}$ be the previous raw value. $f_0$ is the longest consecutive length ending at $\textit{prev}$, and $f_1$ is the longest consecutive length ending at $\textit{prev}+1$. Each element may stay unchanged or increase by $1$, and a consecutive run contains each value at most once, so endings older than $\textit{prev}$ do not need to be kept.
+
+Let the current element be $x$. The transition depends on the gap between $x$ and $\textit{prev}$. Afterwards $\textit{prev}$ becomes $x$, and the two lengths are read relative to this new value:
+
+- If $x = \textit{prev}$, the current element cannot be used as $\textit{prev}$ again. Increase it by $1$ and append it to the run ending at $\textit{prev}$, which gives $f_1 = f_0 + 1$.
+- If $x = \textit{prev}+1$, keeping the raw value extends the run ending at $\textit{prev}$, and increasing it extends the run ending at $\textit{prev}+1$, so both $f_0$ and $f_1$ grow by $1$.
+- If $x = \textit{prev}+2$, only the run ending at $\textit{prev}+1$ can take the raw value, so the new $f_0 = f_1 + 1$. Increasing the current element starts a run by itself, so $f_1 = 1$.
+- Otherwise neither run can be extended, and both $f_0$ and $f_1$ reset to $1$.
+
+The answer is the maximum of $f_0$ and $f_1$ over the scan.
+
+The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
