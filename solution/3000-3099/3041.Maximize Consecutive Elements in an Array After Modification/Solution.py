@@ -1,13 +1,20 @@
 class Solution:
-    def maxSelectedElements(self, nums: List[int]) -> int:
+    def maxSelectedElements(self, nums: list[int]) -> int:
         nums.sort()
-        dp = {}
-        ans = 0
-
+        ans = 1
+        prev = -inf
+        f0 = f1 = 1
         for x in nums:
-            dp[x + 1] = max(dp.get(x + 1, 0), dp.get(x, 0) + 1)
-            dp[x] = max(dp.get(x, 0), dp.get(x - 1, 0) + 1)
-
-            ans = max(ans, dp[x], dp[x + 1])
-
+            if x == prev:
+                f1 = f0 + 1
+            elif x == prev + 1:
+                f0 += 1
+                f1 += 1
+            elif x == prev + 2:
+                f0 = f1 + 1
+                f1 = 1
+            else:
+                f0 = f1 = 1
+            ans = max(ans, f0, f1)
+            prev = x
         return ans

@@ -81,46 +81,51 @@ tags:
 
 ```python
 class Solution:
-    def maxSelectedElements(self, nums: List[int]) -> int:
+    def maxSelectedElements(self, nums: list[int]) -> int:
         nums.sort()
-        dp = {}
-        ans = 0
-
+        ans = 1
+        prev = -inf
+        f0 = f1 = 1
         for x in nums:
-            dp[x + 1] = max(dp.get(x + 1, 0), dp.get(x, 0) + 1)
-            dp[x] = max(dp.get(x, 0), dp.get(x - 1, 0) + 1)
-
-            ans = max(ans, dp[x], dp[x + 1])
-
+            if x == prev:
+                f1 = f0 + 1
+            elif x == prev + 1:
+                f0 += 1
+                f1 += 1
+            elif x == prev + 2:
+                f0 = f1 + 1
+                f1 = 1
+            else:
+                f0 = f1 = 1
+            ans = max(ans, f0, f1)
+            prev = x
         return ans
 ```
 
 #### Java
 
 ```java
-import java.util.*;
-
 class Solution {
     public int maxSelectedElements(int[] nums) {
         Arrays.sort(nums);
-
-        Map<Integer, Integer> dp = new HashMap<>();
-        int ans = 0;
-
+        int ans = 1, prev = Integer.MIN_VALUE;
+        int f0 = 1, f1 = 1;
         for (int x : nums) {
-            dp.put(x + 1, Math.max(
-                dp.getOrDefault(x + 1, 0),
-                dp.getOrDefault(x, 0) + 1
-            ));
-
-            dp.put(x, Math.max(
-                dp.getOrDefault(x, 0),
-                dp.getOrDefault(x - 1, 0) + 1
-            ));
-
-            ans = Math.max(ans, Math.max(dp.get(x), dp.get(x + 1)));
+            if (x == prev) {
+                f1 = f0 + 1;
+            } else if (x == prev + 1) {
+                ++f0;
+                ++f1;
+            } else if (x == prev + 2) {
+                f0 = f1 + 1;
+                f1 = 1;
+            } else {
+                f0 = 1;
+                f1 = 1;
+            }
+            ans = Math.max(ans, Math.max(f0, f1));
+            prev = x;
         }
-
         return ans;
     }
 }
@@ -132,21 +137,25 @@ class Solution {
 class Solution {
 public:
     int maxSelectedElements(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-
-        unordered_map<int, int> dp;
-        int ans = 0;
-
+        ranges::sort(nums);
+        int ans = 1, prev = INT_MIN;
+        int f0 = 1, f1 = 1;
         for (int x : nums) {
-            int a = dp[x] + 1;
-            int b = dp[x - 1] + 1;
-
-            dp[x + 1] = max(dp[x + 1], a);
-            dp[x] = max(dp[x], b);
-
-            ans = max(ans, max(dp[x], dp[x + 1]));
+            if (x == prev) {
+                f1 = f0 + 1;
+            } else if (x == prev + 1) {
+                ++f0;
+                ++f1;
+            } else if (x == prev + 2) {
+                f0 = f1 + 1;
+                f1 = 1;
+            } else {
+                f0 = 1;
+                f1 = 1;
+            }
+            ans = max({ans, f0, f1});
+            prev = x;
         }
-
         return ans;
     }
 };
@@ -155,20 +164,26 @@ public:
 #### Go
 
 ```go
-import "sort"
-
 func maxSelectedElements(nums []int) int {
-    sort.Ints(nums)
-    dp := map[int]int{}
-    ans := 0
-
-    for _, x := range nums {
-        dp[x+1] = max(dp[x+1], dp[x]+1)
-        dp[x] = max(dp[x], dp[x-1]+1)
-        ans = max(ans, dp[x], dp[x+1])
-    }
-
-    return ans
+	sort.Ints(nums)
+	ans, prev := 1, math.MinInt32
+	f0, f1 := 1, 1
+	for _, x := range nums {
+		if x == prev {
+			f1 = f0 + 1
+		} else if x == prev+1 {
+			f0++
+			f1++
+		} else if x == prev+2 {
+			f0 = f1 + 1
+			f1 = 1
+		} else {
+			f0, f1 = 1, 1
+		}
+		ans = max(ans, f0, f1)
+		prev = x
+	}
+	return ans
 }
 ```
 
