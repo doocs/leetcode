@@ -69,7 +69,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion (Postorder Traversal)
 
 <!-- thinking:start -->
 
@@ -82,6 +82,22 @@ tags:
 > The recursion returns a boolean; the real answer is stored in $\textit{ans}$, so “found one node” is not mistaken for an ancestor.
 
 <!-- thinking:end -->
+
+Define $\textit{dfs}(\textit{root}, p, q)$. It returns whether the subtree rooted at $\textit{root}$ contains node $p$ or node $q$: `true` if either node is present, and `false` otherwise.
+
+The recursion proceeds as follows.
+
+If $\textit{root}$ is null, return `false`.
+
+Otherwise, search the left and right subtrees and obtain $l$ and $r$. They indicate whether the left subtree and the right subtree contain $p$ or $q$.
+
+If both $l$ and $r$ are `true`, $\textit{root}$ is the lowest common ancestor, so assign it to $\textit{ans}$.
+
+If $l$ or $r$ is `true` and the value of $\textit{root}$ equals the value of $p$ or $q$, then $\textit{root}$ is the lowest common ancestor, so assign it to $\textit{ans}$.
+
+Finally, return `true` when $l$ or $r$ is `true`, or when the value of $\textit{root}$ equals the value of $p$ or $q$. Otherwise return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -219,10 +235,10 @@ var lowestCommonAncestor = function (root, p, q) {
         if (l && r) {
             ans = root;
         }
-        if ((l || r) && (root.val === p.val || root.val === q.val)) {
+        if ((l || r) && (root.val === p?.val || root.val === q?.val)) {
             ans = root;
         }
-        return l || r || root.val === p.val || root.val === q.val;
+        return l || r || root.val === p?.val || root.val === q?.val;
     };
     let ans = null;
     dfs(root);
