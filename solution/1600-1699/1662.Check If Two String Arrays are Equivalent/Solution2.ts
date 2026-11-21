@@ -1,17 +1,22 @@
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
-    let [i, j, x, y] = [0, 0, 0, 0];
-    while (i < word1.length && j < word2.length) {
-        if (word1[i][x++] !== word2[j][y++]) {
+    let i1 = 0;
+    let j1 = 0;
+    let i2 = 0;
+    let j2 = 0;
+    while (i1 < word1.length && i2 < word2.length) {
+        if (word1[i1][j1] !== word2[i2][j2]) {
             return false;
         }
-        if (x === word1[i].length) {
-            x = 0;
-            ++i;
+        j1++;
+        if (j1 === word1[i1].length) {
+            i1++;
+            j1 = 0;
         }
-        if (y === word2[j].length) {
-            y = 0;
-            ++j;
+        j2++;
+        if (j2 === word2[i2].length) {
+            i2++;
+            j2 = 0;
         }
     }
-    return i === word1.length && j === word2.length;
+    return i1 === word1.length && i2 === word2.length;
 }
