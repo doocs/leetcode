@@ -178,11 +178,11 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 
 In Solution 1, we concatenated the strings in the two arrays into two new strings, which has additional space overhead. We can also directly traverse the two arrays and compare the characters one by one.
 
-We use two pointers $i$ and $j$ to point to the two string arrays, and another two pointers $x$ and $y$ to point to the corresponding characters in the strings. Initially, $i = j = x = y = 0$.
+Use $\textit{i1}$ and $\textit{j1}$ for the current word and character of $\textit{word1}$, and $\textit{i2}$ and $\textit{j2}$ for the corresponding position in $\textit{word2}$. Initially, $\textit{i1}=\textit{j1}=\textit{i2}=\textit{j2}=0$.
 
-Each time we compare $\textit{word1}[i][x]$ and $\textit{word2}[j][y]$. If they are not equal, we directly return `false`. Otherwise, we increment $x$ and $y$ by $1$. If $x$ or $y$ exceeds the length of the corresponding string, we increment the corresponding string pointer $i$ or $j$ by $1$, and then reset $x$ and $y$ to $0$.
+Compare $\textit{word1}[\textit{i1}][\textit{j1}]$ with $\textit{word2}[\textit{i2}][\textit{j2}]$. If they differ, return `false`. Otherwise increment $\textit{j1}$. When it reaches the end of the current word, increment $\textit{i1}$ and set $\textit{j1}$ to $0$. Advance $\textit{j2}$ and $\textit{i2}$ in the same way.
 
-If both string arrays are traversed, we return `true`, otherwise, we return `false`.
+Return `true` when both arrays have been fully traversed, and `false` otherwise.
 
 The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is the total length of the strings in the arrays.
 
@@ -193,16 +193,17 @@ The time complexity is $O(m)$, and the space complexity is $O(1)$, where $m$ is 
 ```python
 class Solution:
     def arrayStringsAreEqual(self, word1: list[str], word2: list[str]) -> bool:
-        i = j = x = y = 0
-        while i < len(word1) and j < len(word2):
-            if word1[i][x] != word2[j][y]:
+        i1 = j1 = i2 = j2 = 0
+        while i1 < len(word1) and i2 < len(word2):
+            if word1[i1][j1] != word2[i2][j2]:
                 return False
-            x, y = x + 1, y + 1
-            if x == len(word1[i]):
-                x, i = 0, i + 1
-            if y == len(word2[j]):
-                y, j = 0, j + 1
-        return i == len(word1) and j == len(word2)
+            j1 += 1
+            if j1 == len(word1[i1]):
+                i1, j1 = i1 + 1, 0
+            j2 += 1
+            if j2 == len(word2[i2]):
+                i2, j2 = i2 + 1, 0
+        return i1 == len(word1) and i2 == len(word2)
 ```
 
 #### Java
@@ -210,22 +211,23 @@ class Solution:
 ```java
 class Solution {
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        int i = 0, j = 0;
-        int x = 0, y = 0;
-        while (i < word1.length && j < word2.length) {
-            if (word1[i].charAt(x++) != word2[j].charAt(y++)) {
+        int i1 = 0, j1 = 0, i2 = 0, j2 = 0;
+        while (i1 < word1.length && i2 < word2.length) {
+            if (word1[i1].charAt(j1) != word2[i2].charAt(j2)) {
                 return false;
             }
-            if (x == word1[i].length()) {
-                x = 0;
-                ++i;
+            ++j1;
+            if (j1 == word1[i1].length()) {
+                ++i1;
+                j1 = 0;
             }
-            if (y == word2[j].length()) {
-                y = 0;
-                ++j;
+            ++j2;
+            if (j2 == word2[i2].length()) {
+                ++i2;
+                j2 = 0;
             }
         }
-        return i == word1.length && j == word2.length;
+        return i1 == word1.length && i2 == word2.length;
     }
 }
 ```
@@ -236,13 +238,23 @@ class Solution {
 class Solution {
 public:
     bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
-        int i = 0, j = 0, x = 0, y = 0;
-        while (i < word1.size() && j < word2.size()) {
-            if (word1[i][x++] != word2[j][y++]) return false;
-            if (x == word1[i].size()) x = 0, i++;
-            if (y == word2[j].size()) y = 0, j++;
+        int i1 = 0, j1 = 0, i2 = 0, j2 = 0;
+        while (i1 < word1.size() && i2 < word2.size()) {
+            if (word1[i1][j1] != word2[i2][j2]) {
+                return false;
+            }
+            ++j1;
+            if (j1 == word1[i1].size()) {
+                ++i1;
+                j1 = 0;
+            }
+            ++j2;
+            if (j2 == word2[i2].size()) {
+                ++i2;
+                j2 = 0;
+            }
         }
-        return i == word1.size() && j == word2.size();
+        return i1 == word1.size() && i2 == word2.size();
     }
 };
 ```
@@ -251,20 +263,21 @@ public:
 
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
-	var i, j, x, y int
-	for i < len(word1) && j < len(word2) {
-		if word1[i][x] != word2[j][y] {
+	i1, j1, i2, j2 := 0, 0, 0, 0
+	for i1 < len(word1) && i2 < len(word2) {
+		if word1[i1][j1] != word2[i2][j2] {
 			return false
 		}
-		x, y = x+1, y+1
-		if x == len(word1[i]) {
-			x, i = 0, i+1
+		j1++
+		if j1 == len(word1[i1]) {
+			i1, j1 = i1+1, 0
 		}
-		if y == len(word2[j]) {
-			y, j = 0, j+1
+		j2++
+		if j2 == len(word2[i2]) {
+			i2, j2 = i2+1, 0
 		}
 	}
-	return i == len(word1) && j == len(word2)
+	return i1 == len(word1) && i2 == len(word2)
 }
 ```
 
@@ -272,21 +285,26 @@ func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
-    let [i, j, x, y] = [0, 0, 0, 0];
-    while (i < word1.length && j < word2.length) {
-        if (word1[i][x++] !== word2[j][y++]) {
+    let i1 = 0;
+    let j1 = 0;
+    let i2 = 0;
+    let j2 = 0;
+    while (i1 < word1.length && i2 < word2.length) {
+        if (word1[i1][j1] !== word2[i2][j2]) {
             return false;
         }
-        if (x === word1[i].length) {
-            x = 0;
-            ++i;
+        j1++;
+        if (j1 === word1[i1].length) {
+            i1++;
+            j1 = 0;
         }
-        if (y === word2[j].length) {
-            y = 0;
-            ++j;
+        j2++;
+        if (j2 === word2[i2].length) {
+            i2++;
+            j2 = 0;
         }
     }
-    return i === word1.length && j === word2.length;
+    return i1 === word1.length && i2 === word2.length;
 }
 ```
 
@@ -295,25 +313,48 @@ function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
 ```rust
 impl Solution {
     pub fn array_strings_are_equal(word1: Vec<String>, word2: Vec<String>) -> bool {
-        let (n, m) = (word1.len(), word2.len());
-        let (mut i, mut j, mut x, mut y) = (0, 0, 0, 0);
-        while i < n && j < m {
-            if word1[i].as_bytes()[x] != word2[j].as_bytes()[y] {
+        let (mut i1, mut j1, mut i2, mut j2) = (0, 0, 0, 0);
+        while i1 < word1.len() && i2 < word2.len() {
+            if word1[i1].as_bytes()[j1] != word2[i2].as_bytes()[j2] {
                 return false;
             }
-            x += 1;
-            y += 1;
-            if x == word1[i].len() {
-                x = 0;
-                i += 1;
+            j1 += 1;
+            if j1 == word1[i1].len() {
+                i1 += 1;
+                j1 = 0;
             }
-            if y == word2[j].len() {
-                y = 0;
-                j += 1;
+            j2 += 1;
+            if j2 == word2[i2].len() {
+                i2 += 1;
+                j2 = 0;
             }
         }
-        i == n && j == m
+        i1 == word1.len() && i2 == word2.len()
     }
+}
+```
+
+#### C
+
+```c
+bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Size) {
+    int i1 = 0, j1 = 0, i2 = 0, j2 = 0;
+    while (i1 < word1Size && i2 < word2Size) {
+        if (word1[i1][j1] != word2[i2][j2]) {
+            return 0;
+        }
+        j1++;
+        if (word1[i1][j1] == '\0') {
+            i1++;
+            j1 = 0;
+        }
+        j2++;
+        if (word2[i2][j2] == '\0') {
+            i2++;
+            j2 = 0;
+        }
+    }
+    return i1 == word1Size && i2 == word2Size;
 }
 ```
 

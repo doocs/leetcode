@@ -1,20 +1,21 @@
 class Solution {
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        int i = 0, j = 0;
-        int x = 0, y = 0;
-        while (i < word1.length && j < word2.length) {
-            if (word1[i].charAt(x++) != word2[j].charAt(y++)) {
+        int i1 = 0, j1 = 0, i2 = 0, j2 = 0;
+        while (i1 < word1.length && i2 < word2.length) {
+            if (word1[i1].charAt(j1) != word2[i2].charAt(j2)) {
                 return false;
             }
-            if (x == word1[i].length()) {
-                x = 0;
-                ++i;
+            ++j1;
+            if (j1 == word1[i1].length()) {
+                ++i1;
+                j1 = 0;
             }
-            if (y == word2[j].length()) {
-                y = 0;
-                ++j;
+            ++j2;
+            if (j2 == word2[i2].length()) {
+                ++i2;
+                j2 = 0;
             }
         }
-        return i == word1.length && j == word2.length;
+        return i1 == word1.length && i2 == word2.length;
     }
 }
