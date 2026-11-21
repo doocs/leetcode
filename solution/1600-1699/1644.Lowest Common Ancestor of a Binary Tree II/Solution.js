@@ -21,10 +21,10 @@ var lowestCommonAncestor = function (root, p, q) {
         if (l && r) {
             ans = root;
         }
-        if ((l || r) && (root.val === p.val || root.val === q.val)) {
+        if ((l || r) && (root.val === p?.val || root.val === q?.val)) {
             ans = root;
         }
-        return l || r || root.val === p.val || root.val === q.val;
+        return l || r || root.val === p?.val || root.val === q?.val;
     };
     let ans = null;
     dfs(root);
