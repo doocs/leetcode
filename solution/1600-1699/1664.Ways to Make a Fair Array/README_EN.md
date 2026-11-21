@@ -82,25 +82,19 @@ There is 1 index that you can remove to make nums fair.
 
 > **Thinking**
 >
-> Count indices whose removal equalizes even- and odd-position sums. $n$ is $10^5$; deletion swaps parity on the right, so prefix/suffix even-odd sums decide each index in $O(1)$.
+> Removing an index leaves the parity on its left unchanged and swaps the parity of every index on its right. With $n$ up to $10^5$, recomputing both sums for every deletion does not fit.
 >
-> Precompute even sum $s_1$ and odd sum $s_2$. While scanning, $t_1,t_2$ are the left-hand even/odd sums; plug the current index's parity into the post-deletion identities.
+> A fair array needs the even-index sum to equal the odd-index sum after that deletion. Once the right side swaps parity, the new even sum is the left even sum plus the right odd sum, and the new odd sum is the left odd sum plus the right even sum.
+>
+> Keep the visited parity sums in $l$ and the unvisited ones in $r$. Subtract the current value from $r$ first, count the index when the crossed sums are equal, then add the value into $l$.
 
 <!-- thinking:end -->
 
-First, we preprocess to get the sum $s_1$ of the elements at even indices and the sum $s_2$ of the elements at odd indices in the array `nums`.
+Let $s$ be the sum of $\textit{nums}$ and $r_0$ the sum of its even indices. $r[0]$ and $r[1]$ are the even-index and odd-index sums not yet moved to the left. Initially $r=[r_0, s-r_0]$. $l[0]$ and $l[1]$ are the even-index and odd-index sums already passed, both starting at $0$.
 
-Then, we enumerate each element $v$ in the array `nums` from front to back, using variables $t_1$ and $t_2$ to record the sum of the elements at even indices and the sum of the elements at odd indices that have been traversed, respectively.
+Scan from left to right. At index $i$ with value $x$, subtract $x$ from $r[i\bmod 2]$, so $r$ contains only the elements after $i$. Deleting $i$ keeps the left parities and swaps the right parities, so the new even sum is $l[0]+r[1]$ and the new odd sum is $l[1]+r[0]$. If they are equal, increment the answer, then add $x$ to $l[i\bmod 2]$.
 
-We observe that for the current element $v$ being traversed, if it is removed, the sum of the elements at odd and even indices after this element will be swapped. At this point, we first determine whether the index $i$ of the current position is odd or even.
-
-- If it is an even index, after deleting the element, the sum of the elements at odd indices in the array is $t_2 + s_1 - t_1 - v$, and the sum of the elements at even indices is $t_1 + s_2 - t_2$. If these two sums are equal, it is a balanced array, and the answer is incremented by one.
-
-- If it is an odd index, after deleting the element, the sum of the elements at even indices in the array is $t_1 + s_2 - t_2 - v$, and the sum of the elements at odd indices is $t_2 + s_1 - t_1$. If these two sums are equal, it is a balanced array, and the answer is incremented by one.
-
-Then we update $t_1$ and $t_2$ and continue to traverse the next element. After traversing the array, we can get the answer.
-
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -109,13 +103,16 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def waysToMakeFair(self, nums: list[int]) -> int:
-        s1, s2 = sum(nums[::2]), sum(nums[1::2])
-        ans = t1 = t2 = 0
-        for i, v in enumerate(nums):
-            ans += i % 2 == 0 and t2 + s1 - t1 - v == t1 + s2 - t2
-            ans += i % 2 == 1 and t2 + s1 - t1 == t1 + s2 - t2 - v
-            t1 += v if i % 2 == 0 else 0
-            t2 += v if i % 2 == 1 else 0
+        s = sum(nums)
+        r0 = sum(nums[::2])
+        r = [r0, s - r0]
+        l = [0, 0]
+        ans = 0
+        for i, x in enumerate(nums):
+            r[i % 2] -= x
+            if l[0] + r[1] == l[1] + r[0]:
+                ans += 1
+            l[i % 2] += x
         return ans
 ```
 
@@ -124,20 +121,23 @@ class Solution:
 ```java
 class Solution {
     public int waysToMakeFair(int[] nums) {
-        int s1 = 0, s2 = 0;
-        int n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            s1 += i % 2 == 0 ? nums[i] : 0;
-            s2 += i % 2 == 1 ? nums[i] : 0;
+        int s = 0, r0 = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            s += nums[i];
+            if (i % 2 == 0) {
+                r0 += nums[i];
+            }
         }
-        int t1 = 0, t2 = 0;
+        int[] r = {r0, s - r0};
+        int[] l = {0, 0};
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2 ? 1 : 0;
-            ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v ? 1 : 0;
-            t1 += i % 2 == 0 ? v : 0;
-            t2 += i % 2 == 1 ? v : 0;
+        for (int i = 0; i < nums.length; ++i) {
+            int x = nums[i];
+            r[i % 2] -= x;
+            if (l[0] + r[1] == l[1] + r[0]) {
+                ++ans;
+            }
+            l[i % 2] += x;
         }
         return ans;
     }
@@ -150,20 +150,24 @@ class Solution {
 class Solution {
 public:
     int waysToMakeFair(vector<int>& nums) {
-        int s1 = 0, s2 = 0;
         int n = nums.size();
+        int s = 0, r0 = 0;
         for (int i = 0; i < n; ++i) {
-            s1 += i % 2 == 0 ? nums[i] : 0;
-            s2 += i % 2 == 1 ? nums[i] : 0;
+            s += nums[i];
+            if (i % 2 == 0) {
+                r0 += nums[i];
+            }
         }
-        int t1 = 0, t2 = 0;
+        int r[2] = {r0, s - r0};
+        int l[2] = {0, 0};
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2;
-            ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v;
-            t1 += i % 2 == 0 ? v : 0;
-            t2 += i % 2 == 1 ? v : 0;
+            int x = nums[i];
+            r[i % 2] -= x;
+            if (l[0] + r[1] == l[1] + r[0]) {
+                ++ans;
+            }
+            l[i % 2] += x;
         }
         return ans;
     }
@@ -173,29 +177,25 @@ public:
 #### Go
 
 ```go
-func waysToMakeFair(nums []int) (ans int) {
-	var s1, s2, t1, t2 int
-	for i, v := range nums {
+func waysToMakeFair(nums []int) int {
+	s, r0 := 0, 0
+	for i, x := range nums {
+		s += x
 		if i%2 == 0 {
-			s1 += v
-		} else {
-			s2 += v
+			r0 += x
 		}
 	}
-	for i, v := range nums {
-		if i%2 == 0 && t2+s1-t1-v == t1+s2-t2 {
+	r := [2]int{r0, s - r0}
+	l := [2]int{}
+	ans := 0
+	for i, x := range nums {
+		r[i%2] -= x
+		if l[0]+r[1] == l[1]+r[0] {
 			ans++
 		}
-		if i%2 == 1 && t2+s1-t1 == t1+s2-t2-v {
-			ans++
-		}
-		if i%2 == 0 {
-			t1 += v
-		} else {
-			t2 += v
-		}
+		l[i%2] += x
 	}
-	return
+	return ans
 }
 ```
 
@@ -207,25 +207,70 @@ func waysToMakeFair(nums []int) (ans int) {
  * @return {number}
  */
 var waysToMakeFair = function (nums) {
-    let [s1, s2, t1, t2] = [0, 0, 0, 0];
-    const n = nums.length;
-    for (let i = 0; i < n; ++i) {
-        if (i % 2 == 0) {
-            s1 += nums[i];
-        } else {
-            s2 += nums[i];
-        }
+    const s = nums.reduce((a, b) => a + b, 0);
+    let r0 = 0;
+    for (let i = 0; i < nums.length; i += 2) {
+        r0 += nums[i];
     }
+    const r = [r0, s - r0];
+    const l = [0, 0];
     let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        const v = nums[i];
-        ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2;
-        ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v;
-        t1 += i % 2 == 0 ? v : 0;
-        t2 += i % 2 == 1 ? v : 0;
+    for (let i = 0; i < nums.length; ++i) {
+        const x = nums[i];
+        r[i % 2] -= x;
+        if (l[0] + r[1] === l[1] + r[0]) {
+            ++ans;
+        }
+        l[i % 2] += x;
     }
     return ans;
 };
+```
+
+#### TypeScript
+
+```ts
+function waysToMakeFair(nums: number[]): number {
+    const s = nums.reduce((a, b) => a + b, 0);
+    let r0 = 0;
+    for (let i = 0; i < nums.length; i += 2) {
+        r0 += nums[i];
+    }
+    const r = [r0, s - r0];
+    const l = [0, 0];
+    let ans = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        const x = nums[i];
+        r[i % 2] -= x;
+        if (l[0] + r[1] === l[1] + r[0]) {
+            ++ans;
+        }
+        l[i % 2] += x;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn ways_to_make_fair(nums: Vec<i32>) -> i32 {
+        let s: i32 = nums.iter().sum();
+        let r0: i32 = nums.iter().step_by(2).sum();
+        let mut r = [r0, s - r0];
+        let mut l = [0, 0];
+        let mut ans = 0;
+        for (i, &x) in nums.iter().enumerate() {
+            r[i % 2] -= x;
+            if l[0] + r[1] == l[1] + r[0] {
+                ans += 1;
+            }
+            l[i % 2] += x;
+        }
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
