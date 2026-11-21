@@ -3,22 +3,21 @@
  * @return {number}
  */
 var waysToMakeFair = function (nums) {
-    let [s1, s2, t1, t2] = [0, 0, 0, 0];
-    const n = nums.length;
-    for (let i = 0; i < n; ++i) {
-        if (i % 2 == 0) {
-            s1 += nums[i];
-        } else {
-            s2 += nums[i];
-        }
+    const s = nums.reduce((a, b) => a + b, 0);
+    let r0 = 0;
+    for (let i = 0; i < nums.length; i += 2) {
+        r0 += nums[i];
     }
+    const r = [r0, s - r0];
+    const l = [0, 0];
     let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        const v = nums[i];
-        ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2;
-        ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v;
-        t1 += i % 2 == 0 ? v : 0;
-        t2 += i % 2 == 1 ? v : 0;
+    for (let i = 0; i < nums.length; ++i) {
+        const x = nums[i];
+        r[i % 2] -= x;
+        if (l[0] + r[1] === l[1] + r[0]) {
+            ++ans;
+        }
+        l[i % 2] += x;
     }
     return ans;
 };

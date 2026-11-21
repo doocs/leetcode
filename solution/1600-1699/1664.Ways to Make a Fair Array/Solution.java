@@ -1,19 +1,22 @@
 class Solution {
     public int waysToMakeFair(int[] nums) {
-        int s1 = 0, s2 = 0;
-        int n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            s1 += i % 2 == 0 ? nums[i] : 0;
-            s2 += i % 2 == 1 ? nums[i] : 0;
+        int s = 0, r0 = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            s += nums[i];
+            if (i % 2 == 0) {
+                r0 += nums[i];
+            }
         }
-        int t1 = 0, t2 = 0;
+        int[] r = {r0, s - r0};
+        int[] l = {0, 0};
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2 ? 1 : 0;
-            ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v ? 1 : 0;
-            t1 += i % 2 == 0 ? v : 0;
-            t2 += i % 2 == 1 ? v : 0;
+        for (int i = 0; i < nums.length; ++i) {
+            int x = nums[i];
+            r[i % 2] -= x;
+            if (l[0] + r[1] == l[1] + r[0]) {
+                ++ans;
+            }
+            l[i % 2] += x;
         }
         return ans;
     }
