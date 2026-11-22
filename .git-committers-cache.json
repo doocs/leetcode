@@ -1,5 +1,5 @@
 {
-  "cache_date": 1795313903,
+  "cache_date": 1795344868,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -140185,7 +140185,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1795309750
+      "retrieved": 1795344333
     },
     "solution/CONTEST_README.md": {
       "authors": [
@@ -140196,7 +140196,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1795309746
+      "retrieved": 1795344339
     },
     "solution/4000-4099/4049.Count Values With Equally Spaced Occurrences II/README_EN.md": {
       "authors": [
@@ -141803,6 +141803,94 @@
         }
       ],
       "retrieved": 1795309750
+    },
+    "solution/4100-4199/4123.Minimum Cost to Delete Array/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344333
+    },
+    "solution/4100-4199/4121.Minimum Cost to Make All Array Elements Equal/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344333
+    },
+    "solution/4100-4199/4120.Count Dominant Elements/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344333
+    },
+    "solution/4100-4199/4122.Earliest Signal Activation Times/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344333
+    },
+    "solution/4100-4199/4121.Minimum Cost to Make All Array Elements Equal/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344339
+    },
+    "solution/4100-4199/4123.Minimum Cost to Delete Array/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344339
+    },
+    "solution/4100-4199/4120.Count Dominant Elements/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344339
+    },
+    "solution/4100-4199/4122.Earliest Signal Activation Times/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795344339
     }
   }
 }
