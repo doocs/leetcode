@@ -1,5 +1,5 @@
 {
-  "cache_date": 1795253193,
+  "cache_date": 1795310303,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -140185,7 +140185,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794748303
+      "retrieved": 1795309750
     },
     "solution/CONTEST_README.md": {
       "authors": [
@@ -140196,7 +140196,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794748282
+      "retrieved": 1795309746
     },
     "solution/4000-4099/4049.Count Values With Equally Spaced Occurrences II/README_EN.md": {
       "authors": [
@@ -141615,7 +141615,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794751736
+      "retrieved": 1795309746
     },
     "solution/4100-4199/4112.Maximize Score After Zeroing Subtrees/README.md": {
       "authors": [
@@ -141626,7 +141626,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794801261
+      "retrieved": 1795309746
     },
     "solution/4100-4199/4111.Count Consistent Subarrays I/README.md": {
       "authors": [
@@ -141637,7 +141637,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794750935
+      "retrieved": 1795309746
     },
     "solution/4100-4199/4113.Game of Divisible Sums/README.md": {
       "authors": [
@@ -141648,7 +141648,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794803078
+      "retrieved": 1795309746
     },
     "solution/4100-4199/4113.Game of Divisible Sums/README_EN.md": {
       "authors": [
@@ -141659,7 +141659,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794963110
+      "retrieved": 1795309750
     },
     "solution/4100-4199/4112.Maximize Score After Zeroing Subtrees/README_EN.md": {
       "authors": [
@@ -141670,7 +141670,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794963110
+      "retrieved": 1795309750
     },
     "solution/4100-4199/4114.Count Consistent Subarrays II/README_EN.md": {
       "authors": [
@@ -141681,7 +141681,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794963110
+      "retrieved": 1795309750
     },
     "solution/4100-4199/4111.Count Consistent Subarrays I/README_EN.md": {
       "authors": [
@@ -141692,7 +141692,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794963110
+      "retrieved": 1795309750
     },
     "solution/4100-4199/4115.Sum of Compatible Numbers in Range II/README.md": {
       "authors": [
@@ -141715,6 +141715,94 @@
         }
       ],
       "retrieved": 1795228950
+    },
+    "solution/4100-4199/4117.Minimum Range After Sum Operations/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309746
+    },
+    "solution/4100-4199/4118.Minimum Operations to Make Mountain Array I/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309746
+    },
+    "solution/4100-4199/4116.Assign Umbrella on Rainy Days/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309746
+    },
+    "solution/4100-4199/4119.Minimum Set Bits in a Valid Integer/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309746
+    },
+    "solution/4100-4199/4116.Assign Umbrella on Rainy Days/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309750
+    },
+    "solution/4100-4199/4117.Minimum Range After Sum Operations/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309750
+    },
+    "solution/4100-4199/4118.Minimum Operations to Make Mountain Array I/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309750
+    },
+    "solution/4100-4199/4119.Minimum Set Bits in a Valid Integer/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1795309750
     }
   }
 }
