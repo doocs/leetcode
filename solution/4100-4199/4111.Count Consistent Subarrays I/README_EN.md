@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1417
+source: Weekly Contest 528 Q1
 ---
 
 <!-- problem:start -->

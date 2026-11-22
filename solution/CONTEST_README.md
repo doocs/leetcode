@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 196 场双周赛(2026-11-21 22:30, 90 分钟) 参赛人数 616
+
+- [4116. 下雨天安排伞](/solution/4100-4199/4116.Assign%20Umbrella%20on%20Rainy%20Days/README.md)
+- [4117. 求和操作以后的最小极差](/solution/4100-4199/4117.Minimum%20Range%20After%20Sum%20Operations/README.md)
+- [4118. 构造山型数组的最少操作次数 I](/solution/4100-4199/4118.Minimum%20Operations%20to%20Make%20Mountain%20Array%20I/README.md)
+- [4119. 有效整数中最少置位数目](/solution/4100-4199/4119.Minimum%20Set%20Bits%20in%20a%20Valid%20Integer/README.md)
+
 #### 第 528 场周赛(2026-11-15 10:30, 90 分钟) 参赛人数 920
 
 - [4111. 统计一致子数组数目 I](/solution/4100-4199/4111.Count%20Consistent%20Subarrays%20I/README.md)

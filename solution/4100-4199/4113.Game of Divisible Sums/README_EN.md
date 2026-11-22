@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1791
+source: Weekly Contest 528 Q3
 ---
 
 <!-- problem:start -->
