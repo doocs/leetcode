@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 196
+
+- [4116. Assign Umbrella on Rainy Days](/solution/4100-4199/4116.Assign%20Umbrella%20on%20Rainy%20Days/README_EN.md)
+- [4117. Minimum Range After Sum Operations](/solution/4100-4199/4117.Minimum%20Range%20After%20Sum%20Operations/README_EN.md)
+- [4118. Minimum Operations to Make Mountain Array I](/solution/4100-4199/4118.Minimum%20Operations%20to%20Make%20Mountain%20Array%20I/README_EN.md)
+- [4119. Minimum Set Bits in a Valid Integer](/solution/4100-4199/4119.Minimum%20Set%20Bits%20in%20a%20Valid%20Integer/README_EN.md)
+
 #### Weekly Contest 528
 
 - [4111. Count Consistent Subarrays I](/solution/4100-4199/4111.Count%20Consistent%20Subarrays%20I/README_EN.md)

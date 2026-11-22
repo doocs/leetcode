@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 简单
+rating: 1417
+source: 第 528 场周赛 Q1
 ---
 
 <!-- problem:start -->
