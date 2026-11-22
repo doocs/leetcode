@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 529 场周赛(2026-11-22 10:30, 90 分钟) 参赛人数 925
+
+- [4120. 统计优势元素的数量](/solution/4100-4199/4120.Count%20Dominant%20Elements/README.md)
+- [4121. 使数组中所有元素相等的最小成本](/solution/4100-4199/4121.Minimum%20Cost%20to%20Make%20All%20Array%20Elements%20Equal/README.md)
+- [4122. 信号激活的最早时刻](/solution/4100-4199/4122.Earliest%20Signal%20Activation%20Times/README.md)
+- [4123. 删除数组的最小代价](/solution/4100-4199/4123.Minimum%20Cost%20to%20Delete%20Array/README.md)
+
 #### 第 196 场双周赛(2026-11-21 22:30, 90 分钟) 参赛人数 616
 
 - [4116. 下雨天安排伞](/solution/4100-4199/4116.Assign%20Umbrella%20on%20Rainy%20Days/README.md)

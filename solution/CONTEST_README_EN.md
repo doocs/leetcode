@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 529
+
+- [4120. Count Dominant Elements](/solution/4100-4199/4120.Count%20Dominant%20Elements/README_EN.md)
+- [4121. Minimum Cost to Make All Array Elements Equal](/solution/4100-4199/4121.Minimum%20Cost%20to%20Make%20All%20Array%20Elements%20Equal/README_EN.md)
+- [4122. Earliest Signal Activation Times](/solution/4100-4199/4122.Earliest%20Signal%20Activation%20Times/README_EN.md)
+- [4123. Minimum Cost to Delete Array](/solution/4100-4199/4123.Minimum%20Cost%20to%20Delete%20Array/README_EN.md)
+
 #### Biweekly Contest 196
 
 - [4116. Assign Umbrella on Rainy Days](/solution/4100-4199/4116.Assign%20Umbrella%20on%20Rainy%20Days/README_EN.md)
