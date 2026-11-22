@@ -82,32 +82,82 @@ difficulty: 中等
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次操作都把一个数换成另外两个正数之和，数值可以继续增大，枚举全部操作序列没有自然的终点。
+>
+> 极差等于最大值减去最小值。换出来的数不小于留下来的两个数，最小值不会下降，所以极差要变小，只能把最大值降下来。
+>
+> 将三个数排序后，只有把最大数换成另外两个数之和才可能降低最大值，换完后的极差等于中间那个数。替换最小数或中间数都会抬高最大值，而替换最大数之后再操作也不会得到更小的极差。因此比较原极差和排序后的中间数即可。
+
+<!-- thinking:end -->
+
+我们将 $a$、 $b$、 $c$ 放入 $\textit{nums}$ 并从小到大排序，于是 $\textit{nums}[0]\le\textit{nums}[1]\le\textit{nums}[2]$。
+
+不操作时，极差为 $\textit{nums}[2]-\textit{nums}[0]$。三个数均为正整数，一次操作得到的新数不小于留下来的任意一个，因此最小值不会下降。最小值不下降时，只有把最大数换成另外两个数之和才可能减小极差，新的三个数为 $\textit{nums}[0]$、 $\textit{nums}[1]$、 $\textit{nums}[0]+\textit{nums}[1]$，极差等于 $\textit{nums}[1]$。若这个和仍然不小于原来的最大数，最大值没有下降。此后再操作，新的最大值至少为 $\textit{nums}[0]+\textit{nums}[1]$，极差不会更小。把最小数或中间数换成另外两个数之和，新数大于原来的最大数，极差也不会更小。
+
+因此答案是 $\min(\textit{nums}[2]-\textit{nums}[0], \textit{nums}[1])$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minRange(self, a: int, b: int, c: int) -> int:
+        nums = [a, b, c]
+        nums.sort()
+        return min(nums[2] - nums[0], nums[1])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minRange(int a, int b, int c) {
+        int[] nums = {a, b, c};
+        Arrays.sort(nums);
+        return Math.min(nums[2] - nums[0], nums[1]);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minRange(int a, int b, int c) {
+        vector<int> nums = {a, b, c};
+        sort(nums.begin(), nums.end());
+        return min(nums[2] - nums[0], nums[1]);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minRange(a int, b int, c int) int {
+	nums := []int{a, b, c}
+	sort.Ints(nums)
+	return min(nums[2]-nums[0], nums[1])
+}
+```
 
+#### TypeScript
+
+```ts
+function minRange(a: number, b: number, c: number): number {
+    const nums = [a, b, c].sort((a, b) => a - b);
+    return Math.min(nums[2] - nums[0], nums[1]);
+}
 ```
 
 <!-- tabs:end -->

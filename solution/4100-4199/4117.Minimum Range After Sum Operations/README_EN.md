@@ -80,32 +80,82 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces one integer by the sum of the other two positive integers. The values can keep growing, so enumerating every sequence of operations has no natural stopping point.
+>
+> The range is the maximum minus the minimum. A replacement is at least as large as either integer that stays, so the minimum never decreases. A smaller range then has to come from a smaller maximum.
+>
+> After the three integers are sorted, the only replacement that can lower the maximum writes the sum of the other two in its place, and the resulting range is the middle value. Replacing the smallest or the middle value raises the maximum, and further operations after replacing the maximum cannot produce a smaller range. The answer is the smaller of the original range and that middle value.
+
+<!-- thinking:end -->
+
+Store $a$, $b$, and $c$ in $\textit{nums}$ and sort them, so $\textit{nums}[0]\le\textit{nums}[1]\le\textit{nums}[2]$.
+
+With no operation, the range is $\textit{nums}[2]-\textit{nums}[0]$. All three integers are positive. An operation replaces the chosen integer by the sum of the other two, so the new integer is at least as large as either integer that remains, and the minimum never decreases. Once the minimum cannot decrease, the range can shrink only when the maximum is replaced by the sum of the other two. The triple becomes $\textit{nums}[0]$, $\textit{nums}[1]$, and $\textit{nums}[0]+\textit{nums}[1]$, and the range equals $\textit{nums}[1]$. If that sum is still at least the old maximum, the maximum does not fall. Another operation from there makes the new maximum at least $\textit{nums}[0]+\textit{nums}[1]$, so the range is not smaller. Replacing the smallest or the middle integer by the sum of the other two produces a value greater than the old maximum, so that range is not smaller either.
+
+The answer is therefore $\min(\textit{nums}[2]-\textit{nums}[0], \textit{nums}[1])$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minRange(self, a: int, b: int, c: int) -> int:
+        nums = [a, b, c]
+        nums.sort()
+        return min(nums[2] - nums[0], nums[1])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minRange(int a, int b, int c) {
+        int[] nums = {a, b, c};
+        Arrays.sort(nums);
+        return Math.min(nums[2] - nums[0], nums[1]);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minRange(int a, int b, int c) {
+        vector<int> nums = {a, b, c};
+        sort(nums.begin(), nums.end());
+        return min(nums[2] - nums[0], nums[1]);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minRange(a int, b int, c int) int {
+	nums := []int{a, b, c}
+	sort.Ints(nums)
+	return min(nums[2]-nums[0], nums[1])
+}
+```
 
+#### TypeScript
+
+```ts
+function minRange(a: number, b: number, c: number): number {
+    const nums = [a, b, c].sort((a, b) => a - b);
+    return Math.min(nums[2] - nums[0], nums[1]);
+}
 ```
 
 <!-- tabs:end -->

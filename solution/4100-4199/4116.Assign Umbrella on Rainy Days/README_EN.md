@@ -80,32 +80,143 @@ A <strong>binary array</strong> is an array that contains only 0 and 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $100$, so the owner of the umbrella can be decided day by day. A count increases only when that person actually receives the umbrella, and a tie is broken by the counts so far, so the days must be scanned from left to right.
+>
+> Alice needs the umbrella exactly when the current day and the next day both rain. The current day is already rainy, so Bob needs it too, and Alice never needs it by herself.
+>
+> The counters $a$ and $b$ are enough. The decision uses the counts before either one increases, and whether the next day rains decides if Alice enters that comparison.
+
+<!-- thinking:end -->
+
+Let $a$ and $b$ be the number of times Alice and Bob have already received the umbrella. Both start at $0$. Scan $\textit{rain}$ from left to right.
+
+On day $i$, $\textit{rain}[i]=0$ means nobody needs the umbrella, and the answer is $\text{None}$. If $\textit{rain}[i]=1$, Bob needs it. Alice also needs it when $i<n-1$ and $\textit{rain}[i+1]=1$. Then Alice receives it when $a\le b$, and $a$ increases by one; otherwise Bob receives it, and $b$ increases by one. If the next day is dry, or day $i$ is the last day, only Bob needs the umbrella, so that same branch records Bob.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def assignUmbrella(self, rain: list[int]) -> list[str]:
+        n = len(rain)
+        a = b = 0
+        ans = [None] * n
+        for i, x in enumerate(rain):
+            if x == 0:
+                ans[i] = "None"
+            elif a <= b and i < n - 1 and rain[i + 1] == 1:
+                ans[i] = "Alice"
+                a += 1
+            else:
+                ans[i] = "Bob"
+                b += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String[] assignUmbrella(int[] rain) {
+        int n = rain.length;
+        int a = 0, b = 0;
+        String[] ans = new String[n];
+        for (int i = 0; i < n; i++) {
+            int x = rain[i];
+            if (x == 0) {
+                ans[i] = "None";
+            } else if (a <= b && i < n - 1 && rain[i + 1] == 1) {
+                ans[i] = "Alice";
+                a++;
+            } else {
+                ans[i] = "Bob";
+                b++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> assignUmbrella(vector<int>& rain) {
+        int n = rain.size();
+        int a = 0, b = 0;
+        vector<string> ans(n);
+        for (int i = 0; i < n; i++) {
+            int x = rain[i];
+            if (x == 0) {
+                ans[i] = "None";
+            } else if (a <= b && i < n - 1 && rain[i + 1] == 1) {
+                ans[i] = "Alice";
+                a++;
+            } else {
+                ans[i] = "Bob";
+                b++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func assignUmbrella(rain []int) []string {
+	n := len(rain)
+	a, b := 0, 0
+	ans := make([]string, n)
+	for i, x := range rain {
+		if x == 0 {
+			ans[i] = "None"
+		} else if a <= b && i < n-1 && rain[i+1] == 1 {
+			ans[i] = "Alice"
+			a++
+		} else {
+			ans[i] = "Bob"
+			b++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function assignUmbrella(rain: number[]): string[] {
+    const n = rain.length;
+    let a = 0,
+        b = 0;
+    const ans: string[] = new Array(n);
+    for (let i = 0; i < n; i++) {
+        const x = rain[i];
+        if (x === 0) {
+            ans[i] = 'None';
+        } else if (a <= b && i < n - 1 && rain[i + 1] === 1) {
+            ans[i] = 'Alice';
+            a++;
+        } else {
+            ans[i] = 'Bob';
+            b++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

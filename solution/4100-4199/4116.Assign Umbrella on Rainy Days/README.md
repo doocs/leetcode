@@ -83,32 +83,143 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 不超过 $100$，按天决定伞给谁即可。次数只在真正拿到伞时增加，两人同时需要时要比此前的次数，所以必须从左往右扫描。
+>
+> Alice 需要伞，当且仅当当天和后一天都下雨。当天已经下雨，Bob 也一定需要，Alice 不会单独需要。
+>
+> 因此只维护已经拿到伞的次数 $a$ 和 $b$。先用当前次数判断归属，再给拿到伞的人加一，后一天是否下雨决定 Alice 会不会进入这次比较。
+
+<!-- thinking:end -->
+
+我们用 $a$ 和 $b$ 分别记录 Alice 与 Bob 已经拿到伞的次数，初始都为 $0$，并从左到右扫描 $\textit{rain}$。
+
+第 $i$ 天若 $\textit{rain}[i]=0$，没有人需要伞，答案为 $\text{None}$。若 $\textit{rain}[i]=1$，Bob 需要伞。当 $i<n-1$ 且 $\textit{rain}[i+1]=1$ 时 Alice 也需要伞；若此时 $a\le b$，伞给 Alice， $a$ 加一，否则伞给 Bob， $b$ 加一。后一天不下雨，或当天已是最后一天时，只有 Bob 需要伞，同样记给 Bob。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def assignUmbrella(self, rain: list[int]) -> list[str]:
+        n = len(rain)
+        a = b = 0
+        ans = [None] * n
+        for i, x in enumerate(rain):
+            if x == 0:
+                ans[i] = "None"
+            elif a <= b and i < n - 1 and rain[i + 1] == 1:
+                ans[i] = "Alice"
+                a += 1
+            else:
+                ans[i] = "Bob"
+                b += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String[] assignUmbrella(int[] rain) {
+        int n = rain.length;
+        int a = 0, b = 0;
+        String[] ans = new String[n];
+        for (int i = 0; i < n; i++) {
+            int x = rain[i];
+            if (x == 0) {
+                ans[i] = "None";
+            } else if (a <= b && i < n - 1 && rain[i + 1] == 1) {
+                ans[i] = "Alice";
+                a++;
+            } else {
+                ans[i] = "Bob";
+                b++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> assignUmbrella(vector<int>& rain) {
+        int n = rain.size();
+        int a = 0, b = 0;
+        vector<string> ans(n);
+        for (int i = 0; i < n; i++) {
+            int x = rain[i];
+            if (x == 0) {
+                ans[i] = "None";
+            } else if (a <= b && i < n - 1 && rain[i + 1] == 1) {
+                ans[i] = "Alice";
+                a++;
+            } else {
+                ans[i] = "Bob";
+                b++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func assignUmbrella(rain []int) []string {
+	n := len(rain)
+	a, b := 0, 0
+	ans := make([]string, n)
+	for i, x := range rain {
+		if x == 0 {
+			ans[i] = "None"
+		} else if a <= b && i < n-1 && rain[i+1] == 1 {
+			ans[i] = "Alice"
+			a++
+		} else {
+			ans[i] = "Bob"
+			b++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function assignUmbrella(rain: number[]): string[] {
+    const n = rain.length;
+    let a = 0,
+        b = 0;
+    const ans: string[] = new Array(n);
+    for (let i = 0; i < n; i++) {
+        const x = rain[i];
+        if (x === 0) {
+            ans[i] = 'None';
+        } else if (a <= b && i < n - 1 && rain[i + 1] === 1) {
+            ans[i] = 'Alice';
+            a++;
+        } else {
+            ans[i] = 'Bob';
+            b++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
