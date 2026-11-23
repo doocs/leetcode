@@ -92,7 +92,11 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历
+
+我们遍历数组，逐个判断元素是否为支配元素。若数组只有一个元素，直接返回 $1$。首尾元素分别与唯一相邻的元素比较。对于中间的元素，若 $2 \times \textit{nums}[i] \ge \textit{nums}[i-1] + \textit{nums}[i+1]$，则将答案加一。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$，其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -105,7 +109,23 @@ difficulty: 简单
 #### Java
 
 ```java
-
+class Solution {
+    public int countDominantElements(int[] nums) {
+        int n = nums.length;
+        if (n == 1) return 1;
+        int c = 0;
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                if (nums[0] >= nums[1]) c++;
+            } else if (i == n - 1) {
+                if (nums[i] >= nums[i - 1]) c++;
+            } else {
+                if (2 * nums[i] >= nums[i - 1] + nums[i + 1]) c++;
+            }
+        }
+        return c;
+    }
+}
 ```
 
 #### C++

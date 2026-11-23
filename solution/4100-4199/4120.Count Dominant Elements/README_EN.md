@@ -90,7 +90,11 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Linear Scan
+
+We scan the array and test each element. If the array has a single element, we return $1$. Each endpoint is compared with its only neighbor. An interior element is dominant if $2 \times \textit{nums}[i] \ge \textit{nums}[i-1] + \textit{nums}[i+1]$. Multiplying by two lets us compare without rounding the average.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -103,7 +107,23 @@ difficulty: Easy
 #### Java
 
 ```java
-
+class Solution {
+    public int countDominantElements(int[] nums) {
+        int n = nums.length;
+        if (n == 1) return 1;
+        int c = 0;
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                if (nums[0] >= nums[1]) c++;
+            } else if (i == n - 1) {
+                if (nums[i] >= nums[i - 1]) c++;
+            } else {
+                if (2 * nums[i] >= nums[i - 1] + nums[i + 1]) c++;
+            }
+        }
+        return c;
+    }
+}
 ```
 
 #### C++
