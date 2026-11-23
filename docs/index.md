@@ -34,16 +34,6 @@ hide:
   <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
 </p>
 
-<p align="center">
-  <!-- off-glb skips mkdocs-glightbox so it does not unwrap this <picture> -->
-  <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark">
-      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721">
-    </picture>
-  </a>
-</p>
-
 ## 贡献者
 
 感谢以下所有朋友对本项目的贡献，因为有你们，我们的项目正在变得越来越好！
