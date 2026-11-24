@@ -9,7 +9,7 @@
     "@commitlint/config-conventional": "^21.2.4",
     "@prettier/plugin-php": "^0.26.0",
     "husky": "^9.1.7",
-    "lint-staged": "^17.6.0",
+    "lint-staged": "^17.6.1",
     "prettier": "^3.10.1",
     "prettier-plugin-sql-cst": "^0.25.1"
   },
