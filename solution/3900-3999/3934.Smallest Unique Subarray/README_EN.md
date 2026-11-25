@@ -202,6 +202,204 @@ class Solution:
         return 1 in self.hash_values.values()
 ```
 
+#### C++
+
+```cpp
+class Solution {
+public:
+    int smallestUniqueSubarray(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> names{nums};  // names[k][i] is equal for equal windows of length 2^k starting at i
+        for (int half = 1; 2 * half <= n; half *= 2) {  // blocks of 2, 4, 8, ... while they fit
+            unordered_map<long long, int> ids;  // pair of halves -> number of the whole window
+            vector<int> whole;
+            for (auto [a, b] : views::zip(names.back(), names.back() | views::drop(half)))
+                whole.push_back(ids.try_emplace((long long)a << 32 | b, ids.size()).first->second);
+            names.push_back(std::move(whole));
+        }
+
+        auto found = [&](int length) {  // is some window of this length unique?
+            int k = bit_width((unsigned)length) - 1;  // its first 2^k elements and its last 2^k cover it
+            unordered_map<long long, int> count;
+            for (auto [a, b] : views::zip(names[k], names[k] | views::drop(length - (1 << k))))
+                count[(long long)a << 32 | b]++;
+            return ranges::any_of(count, [](auto& entry) { return entry.second == 1; });
+        };
+
+        return *ranges::partition_point(views::iota(1, n), not_fn(found));
+    }
+};
+```
+
+#### Java
+
+```java
+class Solution {
+    public int smallestUniqueSubarray(int[] nums) {
+        int n = nums.length;
+        List<int[]> names = new ArrayList<>();  // names.get(k)[i] is equal for equal windows of length 2^k starting at i
+        names.add(nums);
+        for (int half = 1; 2 * half <= n; half *= 2) {  // blocks of 2, 4, 8, ... while they fit
+            long[] pairs = pairs(names.get(names.size() - 1), half);
+            long[] ids = Arrays.stream(pairs).sorted().distinct().toArray();  // a pair's number: its place among the different pairs
+            names.add(Arrays.stream(pairs).mapToInt(pair -> Arrays.binarySearch(ids, pair)).toArray());
+        }
+
+        int lo = 1, hi = n;  // the first length that works is in lo..hi
+        while (lo < hi) {
+            int mid = (lo + hi) / 2;
+            if (found(names, mid)) hi = mid;
+            else lo = mid + 1;
+        }
+        return lo;
+    }
+
+    private boolean found(List<int[]> names, int length) {  // is some window of this length unique?
+        int k = 31 - Integer.numberOfLeadingZeros(length);  // its first 2^k elements and its last 2^k cover it
+        long[] pairs = pairs(names.get(k), length - (1 << k));
+        Arrays.sort(pairs);  // equal pairs are neighbors now
+        for (int i = 0; i < pairs.length; i++)
+            if ((i == 0 || pairs[i - 1] != pairs[i]) && (i + 1 == pairs.length || pairs[i] != pairs[i + 1]))
+                return true;
+        return false;
+    }
+
+    private long[] pairs(int[] block, int shift) {  // every (block[i], block[i + shift]) as one long
+        long[] pairs = new long[block.length - shift];
+        for (int i = shift; i < block.length; i++)
+            pairs[i - shift] = (long) block[i - shift] << 32 | block[i];
+        return pairs;
+    }
+}
+```
+
+#### Go
+
+```go
+func smallestUniqueSubarray(nums []int) int {
+    n := len(nums)
+    names := [][]int{nums}  // names[k][i] is equal for equal windows of length 2^k starting at i
+    for half := 1; 2*half <= n; half *= 2 {  // blocks of 2, 4, 8, ... while they fit
+        ids := map[[2]int]int{}  // pair of halves -> number of the whole window
+        block := names[len(names)-1]
+        whole := make([]int, len(block)-half)
+        for i := half; i < len(block); i++ {
+            pair := [2]int{block[i-half], block[i]}
+            if _, seen := ids[pair]; !seen {
+                ids[pair] = len(ids)
+            }
+            whole[i-half] = ids[pair]
+        }
+        names = append(names, whole)
+    }
+
+    found := func(length int) bool {  // is some window of this length unique?
+        k := bits.Len(uint(length)) - 1  // its first 2^k elements and its last 2^k cover it
+        block, shift := names[k], length-(1<<k)
+        count := map[[2]int]int{}
+        for i := shift; i < len(block); i++ {
+            count[[2]int{block[i-shift], block[i]}]++
+        }
+        for _, c := range count {
+            if c == 1 {
+                return true
+            }
+        }
+        return false
+    }
+
+    return 1 + sort.Search(n-1, func(i int) bool { return found(i + 1) })
+}
+```
+
+#### JavaScript
+
+```js
+var smallestUniqueSubarray = function (nums) {
+    const n = nums.length;
+    const key = (a, b) => a * 2 ** 17 + b; // a pair of names as one exact number: every name is below 2^17
+    const names = [nums]; // names[k][i] is equal for equal windows of length 2^k starting at i
+    for (let half = 1; 2 * half <= n; half *= 2) {
+        // blocks of 2, 4, 8, ... while they fit
+        const ids = new Map(); // pair of halves -> number of the whole window
+        const block = names.at(-1),
+            whole = [];
+        for (let i = half; i < block.length; i++) {
+            const pair = key(block[i - half], block[i]);
+            if (!ids.has(pair)) ids.set(pair, ids.size);
+            whole.push(ids.get(pair));
+        }
+        names.push(whole);
+    }
+
+    const found = length => {
+        // is some window of this length unique?
+        const k = 31 - Math.clz32(length); // its first 2^k elements and its last 2^k cover it
+        const block = names[k],
+            shift = length - 2 ** k,
+            count = new Map();
+        for (let i = shift; i < block.length; i++) {
+            const pair = key(block[i - shift], block[i]);
+            count.set(pair, (count.get(pair) ?? 0) + 1);
+        }
+        return [...count.values()].includes(1);
+    };
+
+    let lo = 1,
+        hi = n; // the first length that works is in lo..hi
+    while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (found(mid)) hi = mid;
+        else lo = mid + 1;
+    }
+    return lo;
+};
+```
+
+#### TypeScript
+
+```ts
+function smallestUniqueSubarray(nums: number[]): number {
+    const n = nums.length;
+    const key = (a: number, b: number): number => a * 2 ** 17 + b; // a pair of names as one exact number: every name is below 2^17
+    const names: number[][] = [nums]; // names[k][i] is equal for equal windows of length 2^k starting at i
+    for (let half = 1; 2 * half <= n; half *= 2) {
+        // blocks of 2, 4, 8, ... while they fit
+        const ids = new Map<number, number>(); // pair of halves -> number of the whole window
+        const block = names.at(-1)!,
+            whole: number[] = [];
+        for (let i = half; i < block.length; i++) {
+            const pair = key(block[i - half], block[i]);
+            if (!ids.has(pair)) ids.set(pair, ids.size);
+            whole.push(ids.get(pair)!);
+        }
+        names.push(whole);
+    }
+
+    const found = (length: number): boolean => {
+        // is some window of this length unique?
+        const k = 31 - Math.clz32(length); // its first 2^k elements and its last 2^k cover it
+        const block = names[k],
+            shift = length - 2 ** k,
+            count = new Map<number, number>();
+        for (let i = shift; i < block.length; i++) {
+            const pair = key(block[i - shift], block[i]);
+            count.set(pair, (count.get(pair) ?? 0) + 1);
+        }
+        return [...count.values()].includes(1);
+    };
+
+    let lo = 1,
+        hi = n; // the first length that works is in lo..hi
+    while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (found(mid)) hi = mid;
+        else lo = mid + 1;
+    }
+    return lo;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
