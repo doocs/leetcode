@@ -1,5 +1,5 @@
 {
-  "cache_date": 1795694272,
+  "cache_date": 1795695078,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -43523,13 +43523,19 @@
     "solution/3400-3499/3411.Maximum Subarray With Equal Products/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794188004
+      "retrieved": 1795694467
     },
     "solution/3400-3499/3412.Find Mirror Score of a String/README.md": {
       "authors": [
@@ -111220,13 +111226,19 @@
     "solution/3400-3499/3411.Maximum Subarray With Equal Products/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1794188004
+      "retrieved": 1795694443
     },
     "solution/3400-3499/3412.Find Mirror Score of a String/README_EN.md": {
       "authors": [
@@ -137614,6 +137626,12 @@
     "solution/3900-3999/3934.Smallest Unique Subarray/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -137626,7 +137644,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/105488074?v=4"
         }
       ],
-      "retrieved": 1794483603
+      "retrieved": 1795694467
     },
     "solution/3900-3999/3933.Largest Local Values in a Matrix II/README_EN.md": {
       "authors": [
@@ -137664,6 +137682,12 @@
     "solution/3900-3999/3934.Smallest Unique Subarray/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -137676,7 +137700,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/105488074?v=4"
         }
       ],
-      "retrieved": 1793576641
+      "retrieved": 1795694443
     },
     "solution/3900-3999/3935.Power Update After K-th Largest Insertion I/README.md": {
       "authors": [
