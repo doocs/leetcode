@@ -1,5 +1,5 @@
 {
-  "cache_date": 1795693811,
+  "cache_date": 1795694272,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -47764,6 +47764,12 @@
     "solution/0400-0499/0478.Generate Random Point in a Circle/README.md": {
       "authors": [
         {
+          "login": "manikantbindass",
+          "name": "manikantbindass",
+          "url": "https://github.com/manikantbindass",
+          "avatar": "https://avatars.githubusercontent.com/u/143385946?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -47782,7 +47788,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/74248352?v=4"
         }
       ],
-      "retrieved": 1794188004
+      "retrieved": 1795693973
     },
     "solution/0400-0499/0479.Largest Palindrome Product/README.md": {
       "authors": [
@@ -115431,6 +115437,12 @@
     "solution/0400-0499/0478.Generate Random Point in a Circle/README_EN.md": {
       "authors": [
         {
+          "login": "manikantbindass",
+          "name": "manikantbindass",
+          "url": "https://github.com/manikantbindass",
+          "avatar": "https://avatars.githubusercontent.com/u/143385946?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -115449,7 +115461,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/74248352?v=4"
         }
       ],
-      "retrieved": 1794188004
+      "retrieved": 1795693973
     },
     "solution/0400-0499/0479.Largest Palindrome Product/README_EN.md": {
       "authors": [
