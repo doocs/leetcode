@@ -92,32 +92,143 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 不超过 $100$，逐个元素和相邻位置比较即可。
+>
+> 优势元素要大于等于相邻元素的平均值。单个元素没有邻居，题目规定它本身就是优势元素。
+>
+> 邻居个数为 $\textit{cnt}$、邻居之和为 $s$ 时，不小于平均值等价于当前值乘 $\textit{cnt}$ 不小于 $s$。左右邻居是否存在，只看下标是否碰到边界。
+>
+> 因此一遍扫描累加实际存在的邻居，没有邻居或满足不等式就计数。
+
+<!-- thinking:end -->
+
+我们从左到右枚举下标 $i$，用 $s$ 累加存在的相邻元素，用 $\textit{cnt}$ 记录它们的个数。 $i>0$ 时加上 $\textit{nums}[i-1]$， $i<n-1$ 时加上 $\textit{nums}[i+1]$。 $\textit{cnt}=0$ 时当前元素没有邻居，计入答案。否则当 $\textit{nums}[i]\ge s/\textit{cnt}$ 时计入答案。Python 直接比较商，其余语言比较 $\textit{nums}[i]\times\textit{cnt}$ 与 $s$，两者等价。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countDominantElements(self, nums: list[int]) -> int:
+        ans = 0
+        for i, x in enumerate(nums):
+            s = cnt = 0
+            if i > 0:
+                s += nums[i - 1]
+                cnt += 1
+            if i < len(nums) - 1:
+                s += nums[i + 1]
+                cnt += 1
+            if cnt == 0 or x >= s / cnt:
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countDominantElements(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int s = 0, cnt = 0;
+            if (i > 0) {
+                s += nums[i - 1];
+                cnt++;
+            }
+            if (i < nums.length - 1) {
+                s += nums[i + 1];
+                cnt++;
+            }
+            if (cnt == 0 || nums[i] * cnt >= s) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countDominantElements(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            int s = 0, cnt = 0;
+            if (i > 0) {
+                s += nums[i - 1];
+                cnt++;
+            }
+            if (i < nums.size() - 1) {
+                s += nums[i + 1];
+                cnt++;
+            }
+            if (cnt == 0 || nums[i] * cnt >= s) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countDominantElements(nums []int) int {
+	ans := 0
+	for i, x := range nums {
+		s, cnt := 0, 0
+		if i > 0 {
+			s += nums[i-1]
+			cnt++
+		}
+		if i < len(nums)-1 {
+			s += nums[i+1]
+			cnt++
+		}
+		if cnt == 0 || x*cnt >= s {
+			ans++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countDominantElements(nums: number[]): number {
+    let ans = 0;
+    for (let i = 0; i < nums.length; i++) {
+        let s = 0,
+            cnt = 0;
+        if (i > 0) {
+            s += nums[i - 1];
+            cnt++;
+        }
+        if (i < nums.length - 1) {
+            s += nums[i + 1];
+            cnt++;
+        }
+        if (cnt === 0 || nums[i] * cnt >= s) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -161,32 +161,130 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be $10^5$, and the operations may be repeated, so searching operation sequences does not fit the limit. A prefix or suffix operation can choose only an index from $1$ to $n-2$, and it rewrites an entire prefix or an entire suffix.
+>
+> An operation only copies a value that is already present. When every element is equal, that common value must be the original value at some operable index.
+>
+> A contiguous run $[l, r]$ that overlaps $(0, n-1)$ can cover every outside position from an operable index inside the run. There are $l$ positions on the left and $n-r-1$ on the right, so the cost is that total length times the run's value. A shorter piece of the same run only increases the outside length.
+>
+> Scan the equal runs with $l$ and $r$, and keep the minimum cost among the runs that overlap an operable index.
+
+<!-- thinking:end -->
+
+Let $l$ be the start of the current equal run, initially $0$. Scan $\textit{nums}$ from left to right with $r$, and let $x$ be the current value. When $r=n-1$, or $x\neq\textit{nums}[r+1]$, the range $[l, r]$ is one contiguous run.
+
+The run overlaps the open interval $(0, n-1)$ when $r>0$ and $l<n-1$. There are then $l+n-r-1$ positions outside the run. If $l>0$, the prefix operation at index $l$ covers the $l$ positions on the left. If $r<n-1$, the suffix operation at index $r$ covers the $n-r-1$ positions on the right. The cost is $(l+n-r-1)\cdot x$. If the run already covers the whole array, both sides are empty and the cost is $0$. After the run is handled, set $l$ to $r+1$.
+
+The answer is the minimum cost over these runs. If the same value is split into several runs, one prefix or suffix still covers a whole side. Extending the cheaper run already pays for every outside position, and joining another run does not lower that cost.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCost(self, nums: list[int]) -> int:
+        n = len(nums)
+        ans = inf
+        l = 0
+        for r, x in enumerate(nums):
+            if r == n - 1 or x != nums[r + 1]:
+                if r > 0 and l < n - 1:
+                    ans = min(ans, (l + n - r - 1) * x)
+                l = r + 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minCost(int[] nums) {
+        int n = nums.length;
+        long ans = Long.MAX_VALUE;
+        int l = 0;
+        for (int r = 0; r < n; r++) {
+            int x = nums[r];
+            if (r == n - 1 || x != nums[r + 1]) {
+                if (r > 0 && l < n - 1) {
+                    ans = Math.min(ans, (long) (l + n - r - 1) * x);
+                }
+                l = r + 1;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minCost(vector<int>& nums) {
+        int n = nums.size();
+        long long ans = LLONG_MAX;
+        int l = 0;
+        for (int r = 0; r < n; r++) {
+            int x = nums[r];
+            if (r == n - 1 || x != nums[r + 1]) {
+                if (r > 0 && l < n - 1) {
+                    ans = min(ans, 1LL * (l + n - r - 1) * x);
+                }
+                l = r + 1;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(nums []int) int64 {
+	n := len(nums)
+	ans := int64(math.MaxInt64)
+	l := 0
+	for r, x := range nums {
+		if r == n-1 || x != nums[r+1] {
+			if r > 0 && l < n-1 {
+				ans = min(ans, int64(l+n-r-1)*int64(x))
+			}
+			l = r + 1
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minCost(nums: number[]): number {
+    const n = nums.length;
+    let ans = Number.MAX_SAFE_INTEGER;
+    let l = 0;
+    for (let r = 0; r < n; r++) {
+        const x = nums[r];
+        if (r === n - 1 || x !== nums[r + 1]) {
+            if (r > 0 && l < n - 1) {
+                ans = Math.min(ans, (l + n - r - 1) * x);
+            }
+            l = r + 1;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
