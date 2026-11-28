@@ -105,28 +105,447 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python
+
+```python
+class Solution(object):
+    def maximumSaleItems(self, items, budget):
+        n = len(items)
+        freq = [0] * (n + 1)
+        min_price = float('inf')
+
+        for factor, price in items:
+            freq[factor] += 1
+            if price < min_price:
+                min_price = price
+
+        div_count = [0] * (n + 1)
+        for f in range(1, n + 1):
+            if freq[f]:
+                for m in range(f, n + 1, f):
+                    div_count[f] += freq[m]
+
+        sorted_items = sorted((price, div_count[factor] - 1) for factor, price in items)
+
+        ans = 0
+        rem = budget
+        limit = 2 * min_price
+
+        for price, gain in sorted_items:
+            if price >= limit:
+                break
+            if gain <= 0:
+                continue
+
+            can_buy = min(gain, rem // price)
+            ans += can_buy * 2
+            rem -= can_buy * price
+
+            if can_buy < gain:
+                break
+
+        ans += int(rem // min_price)
+        return ans
+```
+
 #### Python3
 
 ```python
+class Solution:
+    def maximumSaleItems(self, items: List[List[int]], budget: int) -> int:
+        n = len(items)
+        freq = [0] * (n + 1)
+        min_price = float('inf')
 
+        for factor, price in items:
+            freq[factor] += 1
+            if price < min_price:
+                min_price = price
+
+        div_count = [0] * (n + 1)
+        for f in range(1, n + 1):
+            if freq[f]:
+                for m in range(f, n + 1, f):
+                    div_count[f] += freq[m]
+
+        sorted_items = sorted((price, div_count[factor] - 1) for factor, price in items)
+
+        ans = 0
+        rem = budget
+        limit = 2 * min_price
+
+        for price, gain in sorted_items:
+            if price >= limit:
+                break
+            if gain <= 0:
+                continue
+
+            can_buy = min(gain, rem // price)
+            ans += can_buy * 2
+            rem -= can_buy * price
+
+            if can_buy < gain:
+                break
+
+        ans += rem // min_price
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maximumSaleItems(int[][] items, int budget) {
+        int n = items.length;
+        int[] freq = new int[n + 1];
+        int minPrice = Integer.MAX_VALUE;
 
+        for (int[] item : items) {
+            freq[item[0]]++;
+            minPrice = Math.min(minPrice, item[1]);
+        }
+
+        int[] divCount = new int[n + 1];
+        for (int f = 1; f <= n; f++) {
+            if (freq[f] == 0) continue;
+            for (int m = f; m <= n; m += f) {
+                divCount[f] += freq[m];
+            }
+        }
+
+        int[][] sortedItems = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            sortedItems[i][0] = items[i][1];
+            sortedItems[i][1] = divCount[items[i][0]] - 1;
+        }
+
+        Arrays.sort(sortedItems, Comparator.comparingInt(a -> a[0]));
+
+        long rem = budget;
+        long ans = 0;
+        long limit = 2L * minPrice;
+
+        for (int[] item : sortedItems) {
+            int price = item[0];
+            int gain = item[1];
+            if (price >= limit) break;
+            if (gain <= 0) continue;
+
+            long canBuy = Math.min((long) gain, rem / price);
+            ans += canBuy * 2;
+            rem -= canBuy * price;
+
+            if (canBuy < gain) break;
+        }
+
+        ans += rem / minPrice;
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maximumSaleItems(vector<vector<int>>& items, int budget) {
+        int n = items.size();
+        vector<int> freq(n + 1, 0);
+        int min_price = 2e9;
 
+        for (const auto& item : items) {
+            freq[item[0]]++;
+            min_price = min(min_price, item[1]);
+        }
+
+        vector<int> div_count(n + 1, 0);
+        for (int f = 1; f <= n; ++f) {
+            if (freq[f] == 0) continue;
+            for (int m = f; m <= n; m += f) {
+                div_count[f] += freq[m];
+            }
+        }
+
+        vector<pair<int, int>> sorted_items;
+        sorted_items.reserve(n);
+        for (const auto& item : items) {
+            sorted_items.push_back({item[1], div_count[item[0]] - 1});
+        }
+        sort(sorted_items.begin(), sorted_items.end());
+
+        long long rem = budget;
+        long long ans = 0;
+
+        for (const auto& [price, gain] : sorted_items) {
+            if (price >= 2LL * min_price) break;
+            if (gain <= 0) continue;
+
+            long long can_buy = min((long long)gain, rem / price);
+            ans += can_buy * 2;
+            rem -= can_buy * price;
+
+            if (can_buy < gain) break;
+        }
+
+        ans += rem / min_price;
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumSaleItems(items [][]int, budget int) int {
+	n := len(items)
+	freq := make([]int, n+1)
+	minPrice := int(2e9)
 
+	for _, item := range items {
+		freq[item[0]]++
+		if item[1] < minPrice {
+			minPrice = item[1]
+		}
+	}
+
+	divCount := make([]int, n+1)
+	for f := 1; f <= n; f++ {
+		if freq[f] == 0 {
+			continue
+		}
+		for m := f; m <= n; m += f {
+			divCount[f] += freq[m]
+		}
+	}
+
+	type pair struct {
+		price int
+		gain  int
+	}
+	sortedItems := make([]pair, n)
+	for i, item := range items {
+		sortedItems[i] = pair{price: item[1], gain: divCount[item[0]] - 1}
+	}
+
+	sort.Slice(sortedItems, func(i, j int) bool {
+		return sortedItems[i].price < sortedItems[j].price
+	})
+
+	rem := int64(budget)
+	var ans int64 = 0
+	limit := int64(2) * int64(minPrice)
+
+	for _, item := range sortedItems {
+		if int64(item.price) >= limit {
+			break
+		}
+		if item.gain <= 0 {
+			continue
+		}
+
+		canBuy := rem / int64(item.price)
+		if int64(item.gain) < canBuy {
+			canBuy = int64(item.gain)
+		}
+
+		ans += canBuy * 2
+		rem -= canBuy * int64(item.price)
+
+		if canBuy < int64(item.gain) {
+			break
+		}
+	}
+
+	ans += rem / int64(minPrice)
+	return int(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumSaleItems(items: number[][], budget: number): number {
+    const n = items.length;
+    const have: number[] = Array(n + 1).fill(0); // have[f]: items with factor f
+    let cheapest = Infinity;
+    for (const [factor, price] of items) {
+        have[factor]++;
+        cheapest = Math.min(cheapest, price);
+    }
+    const deals: number[] = Array(n + 1).fill(-1); // counted when an item is reached
+
+    const worth = items.filter(([, price]) => price < 2 * cheapest);
+    const heap = MinPriorityQueue.fromArray(worth, ([, price]) => price); // built in O(n)
+    let copies = 0;
+    while (!heap.isEmpty() && heap.front()![1] <= budget) {
+        // the cheapest deal left is affordable
+        const [factor, price] = heap.dequeue()!;
+        if (deals[factor] < 0)
+            // from -1: the item itself is not a deal
+            for (let multiple = factor; multiple <= n; multiple += factor)
+                deals[factor] += have[multiple];
+        const pairs = Math.min(deals[factor], Math.floor(budget / price));
+        copies += 2 * pairs;
+        budget -= pairs * price;
+    }
+    return copies + Math.floor(budget / cheapest);
+}
+```
+
+#### JavaScript
+
+```js
+var maximumSaleItems = function (items, budget) {
+    const n = items.length;
+    const freq = new Int32Array(n + 1);
+    let minPrice = Infinity;
+
+    for (let i = 0; i < n; i++) {
+        freq[items[i][0]]++;
+        if (items[i][1] < minPrice) minPrice = items[i][1];
+    }
+
+    const divCount = new Int32Array(n + 1);
+    for (let f = 1; f <= n; f++) {
+        if (freq[f] === 0) continue;
+        for (let m = f; m <= n; m += f) {
+            divCount[f] += freq[m];
+        }
+    }
+
+    const sortedItems = items.map(([factor, price]) => [price, divCount[factor] - 1]);
+    sortedItems.sort((a, b) => a[0] - b[0]);
+
+    let rem = budget;
+    let ans = 0;
+    const limit = 2 * minPrice;
+
+    for (let i = 0; i < n; i++) {
+        const [price, gain] = sortedItems[i];
+        if (price >= limit) break;
+        if (gain <= 0) continue;
+
+        const canBuy = Math.min(gain, Math.floor(rem / price));
+        ans += canBuy * 2;
+        rem -= canBuy * price;
+
+        if (canBuy < gain) break;
+    }
+
+    ans += Math.floor(rem / minPrice);
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaximumSaleItems(int[][] items, int budget) {
+        int n = items.Length;
+        int[] freq = new int[n + 1];
+        int minPrice = int.MaxValue;
+
+        foreach (var item in items) {
+            freq[item[0]]++;
+            if (item[1] < minPrice) minPrice = item[1];
+        }
+
+        int[] divCount = new int[n + 1];
+        for (int f = 1; f <= n; f++) {
+            if (freq[f] == 0) continue;
+            for (int m = f; m <= n; m += f) {
+                divCount[f] += freq[m];
+            }
+        }
+
+        var sortedItems = new (int price, int gain)[n];
+        for (int i = 0; i < n; i++) {
+            sortedItems[i] = (items[i][1], divCount[items[i][0]] - 1);
+        }
+
+        Array.Sort(sortedItems, (a, b) => a.price.CompareTo(b.price));
+
+        long rem = budget;
+        long ans = 0;
+        long limit = 2L * minPrice;
+
+        foreach (var (price, gain) in sortedItems) {
+            if (price >= limit) break;
+            if (gain <= 0) continue;
+
+            long canBuy = Math.Min((long)gain, rem / price);
+            ans += canBuy * 2;
+            rem -= canBuy * price;
+
+            if (canBuy < gain) break;
+        }
+
+        ans += rem / minPrice;
+        return (int)ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    function maximumSaleItems($items, $budget) {
+        $n = count($items);
+        $freq = array_fill(0, $n + 1, 0);
+        $minPrice = PHP_INT_MAX;
+
+        foreach ($items as $item) {
+            $freq[$item[0]]++;
+            if ($item[1] < $minPrice) {
+                $minPrice = $item[1];
+            }
+        }
+
+        $divCount = array_fill(0, $n + 1, 0);
+        for ($f = 1; $f <= $n; $f++) {
+            if ($freq[$f] === 0) {
+                continue;
+            }
+            for ($m = $f; $m <= $n; $m += $f) {
+                $divCount[$f] += $freq[$m];
+            }
+        }
+
+        $sortedItems = [];
+        foreach ($items as $item) {
+            $sortedItems[] = [$item[1], $divCount[$item[0]] - 1];
+        }
+
+        usort($sortedItems, fn($a, $b) => $a[0] <=> $b[0]);
+
+        $rem = $budget;
+        $ans = 0;
+        $limit = 2 * $minPrice;
+
+        foreach ($sortedItems as [$price, $gain]) {
+            if ($price >= $limit) {
+                break;
+            }
+            if ($gain <= 0) {
+                continue;
+            }
+
+            $canBuy = min($gain, intdiv($rem, $price));
+            $ans += $canBuy * 2;
+            $rem -= $canBuy * $price;
+
+            if ($canBuy < $gain) {
+                break;
+            }
+        }
+
+        $ans += intdiv($rem, $minPrice);
+        return $ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
