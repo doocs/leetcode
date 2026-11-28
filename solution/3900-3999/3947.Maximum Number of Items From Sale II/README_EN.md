@@ -108,25 +108,284 @@ tags:
 #### Python3
 
 ```python
+class Solution:
+    def maximumSaleItems(self, items: List[List[int]], budget: int) -> int:
+        n = len(items)
+        mn = min(p for f, p in items)
+        mx = max(f for f, p in items)
 
+        freq = [0] * (mx + 1)
+        for f, p in items:
+            freq[f] += 1
+
+        cnt = [0] * (mx + 1)
+        for f in range(1, mx + 1):
+            for j in range(f, mx + 1, f):
+                cnt[f] += freq[j]
+            cnt[f] -= 1
+
+        deals = [
+            (p, cnt[f])
+            for f, p in items
+            if cnt[f] > 0 and p <= 2 * mn
+        ]
+
+        deals.sort()
+
+        ans = 0
+        for p, c in deals:
+            take = min(c, budget // p)
+            ans += take * 2
+            budget -= take * p
+
+        return ans + budget // mn
 ```
 
 #### Java
 
 ```java
+import java.util.*;
 
+class Solution {
+    public int maximumSaleItems(int[][] items, int budget) {
+        int n = items.length;
+        int maxF = 0, minP = Integer.MAX_VALUE;
+
+        for (int[] item : items) {
+            maxF = Math.max(maxF, item[0]);
+            minP = Math.min(minP, item[1]);
+        }
+
+        int[] freq = new int[maxF + 1];
+        int[] cnt = new int[maxF + 1];
+
+        for (int[] item : items) {
+            freq[item[0]]++;
+        }
+
+        for (int f = 1; f <= maxF; f++) {
+            for (int j = f; j <= maxF; j += f) {
+                cnt[f] += freq[j];
+            }
+            cnt[f]--;
+        }
+
+        List<int[]> deals = new ArrayList<>();
+
+        for (int[] item : items) {
+            int f = item[0], p = item[1];
+
+            if (cnt[f] > 0 && p <= 2 * minP) {
+                deals.add(new int[]{p, cnt[f]});
+            }
+        }
+
+        deals.sort(Comparator.comparingInt(a -> a[0]));
+
+        int ans = 0;
+
+        for (int[] deal : deals) {
+            int take = Math.min(deal[1], budget / deal[0]);
+            ans += take * 2;
+            budget -= take * deal[0];
+        }
+
+        return ans + budget / minP;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maximumSaleItems(vector<vector<int>>& items, int budget) {
+        int n = items.size(), mx = 0, mn = INT_MAX;
 
+        for (auto& a : items) {
+            mx = max(mx, a[0]);
+            mn = min(mn, a[1]);
+        }
+
+        vector<int> freq(mx + 1), cnt(mx + 1);
+
+        for (auto& a : items)
+            freq[a[0]]++;
+
+        for (int i = 1; i <= mx; i++) {
+            for (int j = i; j <= mx; j += i)
+                cnt[i] += freq[j];
+            cnt[i]--;
+        }
+
+        vector<pair<int, int>> deals;
+
+        for (auto& a : items) {
+            if (cnt[a[0]] > 0 && a[1] <= 2 * mn)
+                deals.push_back({a[1], cnt[a[0]]});
+        }
+
+        sort(deals.begin(), deals.end());
+
+        long long ans = 0;
+
+        for (auto [p, c] : deals) {
+            int take = min(c, budget / p);
+            ans += 2LL * take;
+            budget -= take * p;
+        }
+
+        return ans + budget / mn;
+    }
+};
 ```
 
 #### Go
 
 ```go
+import "sort"
 
+func maximumSaleItems(items [][]int, budget int) int {
+    n := len(items)
+    freq := make([]int, n+1)
+    gain := make([]int, n+1)
+
+    minPrice := int(^uint(0) >> 1)
+
+    for _, item := range items {
+        freq[item[0]]++
+        minPrice = min(minPrice, item[1])
+    }
+
+    for f := 1; f <= n; f++ {
+        for j := f; j <= n; j += f {
+            gain[f] += freq[j]
+        }
+        gain[f]--
+    }
+
+    type Deal struct {
+        price, count int
+    }
+
+    deals := []Deal{}
+
+    for _, item := range items {
+        f, p := item[0], item[1]
+        if gain[f] > 0 && p <= 2*minPrice {
+            deals = append(deals, Deal{p, gain[f]})
+        }
+    }
+
+    sort.Slice(deals, func(i, j int) bool {
+        return deals[i].price < deals[j].price
+    })
+
+    ans := 0
+
+    for _, d := range deals {
+        take := min(d.count, budget/d.price)
+        ans += 2 * take
+        budget -= take * d.price
+    }
+
+    return ans + budget/minPrice
+}
+```
+
+#### Rust
+
+```rs
+use std::collections::BTreeMap;
+
+impl Solution {
+    pub fn maximum_sale_items(items: Vec<Vec<i32>>, budget: i32) -> i32 {
+        let n = items.len();
+        let mut freq = vec![0i64; n + 1];
+        let mut min_price = i64::MAX;
+
+        for item in &items {
+            freq[item[0] as usize] += 1;
+            min_price = min_price.min(item[1] as i64);
+        }
+
+        let mut cnt = vec![0i64; n + 1];
+
+        for f in 1..=n {
+            for j in (f..=n).step_by(f) {
+                cnt[f] += freq[j];
+            }
+            cnt[f] -= 1;
+        }
+
+        let mut deals = BTreeMap::<i64, i64>::new();
+
+        for item in &items {
+            let f = item[0] as usize;
+            let p = item[1] as i64;
+
+            if cnt[f] > 0 && p <= 2 * min_price {
+                *deals.entry(p).or_insert(0) += cnt[f];
+            }
+        }
+
+        let mut budget = budget as i64;
+        let mut ans = 0i64;
+
+        for (price, count) in deals {
+            let take = count.min(budget / price);
+            ans += take * 2;
+            budget -= take * price;
+        }
+
+        (ans + budget / min_price) as i32
+    }
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumSaleItems(items: number[][], budget: number): number {
+    const n = items.length;
+    const freq = new Array(n + 1).fill(0);
+    const cnt = new Array(n + 1).fill(0);
+
+    let minPrice = Infinity;
+
+    for (const [f, p] of items) {
+        freq[f]++;
+        minPrice = Math.min(minPrice, p);
+    }
+
+    for (let f = 1; f <= n; f++) {
+        for (let j = f; j <= n; j += f) {
+            cnt[f] += freq[j];
+        }
+        cnt[f]--;
+    }
+
+    const deals: number[][] = [];
+
+    for (const [f, p] of items) {
+        if (cnt[f] > 0 && p <= 2 * minPrice) {
+            deals.push([p, cnt[f]]);
+        }
+    }
+
+    deals.sort((a, b) => a[0] - b[0]);
+
+    let ans = 0;
+
+    for (const [price, count] of deals) {
+        const take = Math.min(count, Math.floor(budget / price));
+        ans += take * 2;
+        budget -= take * price;
+    }
+
+    return ans + Math.floor(budget / minPrice);
+}
 ```
 
 <!-- tabs:end -->
